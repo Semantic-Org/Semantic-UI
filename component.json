@@ -1,0 +1,30 @@
+{
+  "name"        : "Origami",
+  "version"     : "0.1",
+  "description" : "3D animation made easy, using the Semantic module spec.",
+
+  "homepage"    : "https://github.com/quirkyinc/",
+  "author": {
+    "name" : "Jack Lukic",
+    "web"  : "http://www.github.com/quirkyjack/"
+  },
+  "keywords": [
+    "origami",
+    "animation",
+    "css3"
+  ],
+  "license" : [
+    "http://bartaz.mit-license.org/", 
+    "http://www.gnu.org/licenses/"
+  ],
+
+  "main": [
+    "./build/origami.js",
+    "./build/origami.css"
+  ],
+  "dependencies": {
+    "jquery"      : ">=1.8",
+    "transform2d" : "./dependencies/transform2d.js",
+    "transform3d" : "./dependencies/transform3d.js"
+  }
+}
