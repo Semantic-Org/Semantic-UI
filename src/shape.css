@@ -1,8 +1,8 @@
 /*******************************
-        Origami Module
+        shape Module
 *******************************/
 
-.origami.module {
+.shape.module {
   position: relative;
 
   -webkit-perspective: 2000px;
@@ -11,72 +11,48 @@
   perspective: 2000px;
 }
 
-.origami.module .box {
+.shape.module .shape {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
-.origami.module .side {
-  display: none;
+.shape.module .side {
   opacity: 1;
   width: 100%;
-  background-color: #FFFFFF;
-
-  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
-/* Handle (Stubbed as image will fix) */
-.origami.module .handle {
-  cursor: pointer;
-  position: absolute;
-  bottom: -28px;
-  right: 50%;
-
-  margin-left: -22px;
-  width: 44px;
-  height: 44px;
-  background: url(/images/modules/origami-handle.png) no-repeat 0px 0px;
-}
-.origami.module .down.handle {
-  background-position: 0px -50px;
-}
-
-
 /*---------------
     States
 ----------------*/
 
+/* Standard */
+.shape.module .side {
+  display: none;
+}
+
 /* Animating */
-.origami.module.animating .box {
+.shape.module.animating .shape {
   position: absolute;
 }
-.origami.module .animating.side {
+.shape.module .animating.side {
   position: absolute;
   width: 100%;
   top: 0px;
   left: 0px;
   z-index: 100;
 }
-.origami.module .hidden.side {
+.shape.module .hidden.side {
   opacity: 0.5;
 }
 
-/* Animate using CSS */
-.origami.css.module {
+/* css animation */
+.shape.css.module {
   -webkit-transition: 
     all 0.5s ease-in-out;
   ;
@@ -93,14 +69,14 @@
     all 0.5s ease-in-out;
   ;
 }
-.origami.css.module .box {
+.shape.css.module .shape {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-.origami.css.module .side {
+.shape.css.module .side {
   -webkit-transition: opacity 0.5s ease-out;
   -moz-transition: opacity 0.5s ease-out;
   -o-transition: opacity 0.5s ease-out;
@@ -109,6 +85,6 @@
 }
 
 /* Active */
-.origami.module .active.side {
+.shape.module .active.side {
   display: block;
 }

@@ -1,0 +1,185 @@
+/*******************************
+          CSS Reset
+*******************************/
+
+html, body, div, form, fieldset, legend, label, ul, li, menu, button {
+  margin: 0px;
+  padding: 0px;
+  background: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+}
+th, td, caption { 
+  font-weight:normal; 
+  margin: 0px;
+  padding: 0px;
+}
+img,
+iframe { 
+  border: 0px; 
+}
+:focus, input:focus, button:focus, button:active, button:hover {
+  outline: 0px;
+}
+button {
+  display: block;
+  outline: 0px;
+  border: 0px;  
+}
+ul, li {
+  list-style-type: none;  
+}
+p {
+  margin: 0px;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/*******************************
+            Example
+*******************************/
+@font-face {
+  font-family: 'Neutraface';
+  src:
+    url("fonts/neutraface-book.otf") format('opentype')
+  ;
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Neutraface Bold';
+  src:
+    url("fonts/neutraface-bold.otf") format('opentype')
+  ;
+  font-weight: normal;
+  font-style: normal;
+}
+
+#example {
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  background-color: #FCFCFC;
+}
+#example h1,
+#example h2,
+#example h3,
+#example h4,
+#example h5,
+#example .ui {
+  font-family: "Neutraface Bold", "Helvetica Neue", "Arial", sans-serif;
+}
+
+#example h2 {
+  margin: 60px 0px 20px;
+}
+#example h3 {
+  margin: 40px 0px 15px;
+}
+#example pre {
+  background-color: #F0F0F0;
+}
+
+#example .shortcuts {
+  float: right;
+  clear: both;
+}
+
+#example .container {
+  width: 1000px;
+  margin: 0px auto;
+}
+
+#example .demo.shape {
+
+}
+
+#example .demo.shape .side {
+  
+  width: 300px;
+  height: 300px;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  background-color: #22C1FC;
+
+  color: #FFFFFF;
+
+  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+#example .demo.shape .side b {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  font-size: 80px;
+  margin-top: -48px;
+  text-align: center;
+}
+
+#example .demo.shape .up.side,
+#example .demo.shape .down.side {
+  background-color: #E6E6E6;
+  color: #737373;
+}
+
+/* Shapes */
+#example .demo.rectangle.shape .side {
+  width: 500px;
+  height: 300px;
+}
+#example .demo.rectangle.shape .up.side,
+#example .demo.rectangle.shape .down.side {
+  height: 100px;
+}
+#example .demo.rectangle.shape .left.side,
+#example .demo.rectangle.shape .right.side {
+  width: 300px;
+}
+
+
+#example .demo.irregular.shape .side {
+  padding: 0px;
+}
+#example .demo.irregular.shape .side:nth-child(1n) {
+  width: 514px;
+  height: 210px;
+}
+#example .demo.irregular.shape .side:nth-child(2n) {
+  width: 126px;
+  height: 115px;
+}
+#example .demo.irregular.shape .side:nth-child(3n) {
+  width: 864px;
+  height: 510px;
+}
+#example .demo.irregular.shape .side:nth-child(4n) {
+  width: 322px;
+  height: 210px;
+}

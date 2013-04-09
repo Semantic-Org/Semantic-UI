@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Shape Examples</title>
+  
+  <link rel="stylesheet" href="ui/state.js" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/panel.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/button.css" type="text/css" media="screen" />
+  
+  <link rel="stylesheet" href="../src/shape.css" type="text/css" media="screen" />
+  
+  <link rel="stylesheet" href="example.css" type="text/css" media="screen" />
+  
+  <script src="../dependencies/jquery.js" type="text/javascript"></script>
+  <script src="ui/state.js" type="text/javascript"></script>
+
+  <script src="../dependencies/transform2d.js" type="text/javascript"></script>
+  <script src="../dependencies/transform3d.js" type="text/javascript"></script>
+  <script src="../src/shape.js" type="text/javascript"></script>
+  
+  <script src="example.js" type="text/javascript"></script>
+
+  </head>
+
+<body id="example">
+<div class="container">
+    
+  <h1>Shape</h1>
+  <p>Shape is a plugin for 3D transitioning elements. </p>
+  
+  <h2>Examples</h2>
+  
+  <h3>Regular Shape</h3>
+  <div class="demo square shape module">
+    <div class="shape">
+      <div class="active side">
+        <b>1</b>
+      </div>
+      <div class="side">
+        <b>2</b>
+      </div>
+      <div class="side">
+        <b>3</b>
+      </div>
+      <div class="side">
+        <b>4</b>
+      </div>
+    </div>
+  </div>
+  
+  <h3>Shape</h3>
+  <div class="ui shape buttons">
+    <div class="active ui button" data-shape="square">Square</div>
+    <div class="ui button" data-shape="rectangle">Rectangle</div>
+    <div class="ui button" data-shape="irregular">Irregular</div>
+  </div>
+  
+  <h3>Flip</h3>
+  <div class="ui direction buttons">
+    <div class="ui button" data-animation="flip" data-direction="left">Left</div>
+    <div class="ui button" data-animation="flip" data-direction="right">Right</div>
+    <div class="ui button" data-animation="flip" data-direction="up">Up</div>
+    <div class="ui button" data-animation="flip" data-direction="down">Down</div>
+  </div>
+  
+  <h2>Usage</h2>
+    
+  Usage:
+  // the plugin must be initialized once before methods can be accessed
+  <pre>
+  <code>
+  $('.shape')
+    .shape()
+  ;
+  <code>
+  </pre>
+  
+  // transion automatically assumed next side is the next sibling (or first if last element)
+  <pre>
+  <code>
+  $('.shape')
+    .shape('flip.up')
+  ;
+  <code>
+  </pre>
+
+  // to manually set the next side to appear use a selector or jQuery object
+  <pre>
+  <code>
+  $('.shape')
+    .shape('set.nextSide', '.second')
+    .shape('flip.up')
+  ;
+  <code>
+  </pre>
+
+  // any internal method can be invoked programmatically
+  <pre>
+  <code>
+  $('.shape')
+    .shape('repaint')
+  ;
+  <code>
+  </pre>
+</div>
+</body>
+
+</html>
