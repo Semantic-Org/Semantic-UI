@@ -1,9 +1,9 @@
 {
-  "name"        : "Origami",
+  "name"        : "Shape",
   "version"     : "0.1",
-  "description" : "3D animation made easy, using the Semantic module spec.",
+  "description" : "3D animation made easy. A jQuery plugin built with the Semantic module spec.",
 
-  "homepage"    : "https://github.com/quirkyinc/",
+  "homepage"    : "https://github.com/quirkyinc/shapeful",
   "author": {
     "name" : "Jack Lukic",
     "web"  : "http://www.github.com/quirkyjack/"

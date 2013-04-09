@@ -1,31 +1,21 @@
-/*  ******************************
-  Module
-  Origami
-  Author: Jack Lukic
-  Created: Mar 28, 2013
-  Last revision: Mar 2013
+/*  *******************************************************************************************
 
-  Creates a cube which can be rotated
+  Shape - A 3D Animation Plugin
+  Version 0.1
+  (built using Semantic module spec)
 
-  Usage:
+  Author        : Jack Lukic
+  Last revision : April 2013
 
-  $origami
-    .origami()
-  ;
-
-  $origami
-    .origami('flip.up')
-  ;
-
-******************************  */
+*********************************************************************************************  */
 
 ;(function ( $, window, document, undefined ) {
 
-$.fn.origami = function(parameters) {
+$.fn.shape = function(parameters) {
   var
     $allModules     = $(this),
 
-    settings        = $.extend(true, {}, $.fn.origami.settings, parameters),
+    settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
     // make arguments available
     query           = arguments[0],
     passedArguments = [].slice.call(arguments, 1),
@@ -35,28 +25,29 @@ $.fn.origami = function(parameters) {
     .each(function() {
       var
         // selector cache
-        $module            = $(this),
-        $box               = $module.find(settings.selector.box),
-        $side              = $module.find(settings.selector.side),
-
+        $module       = $(this),
+        $shape        = $module.find(settings.selector.shape),
+        $side         = $module.find(settings.selector.side),
+        
         $activeSide,
         $nextSide,
-
-        // private variables
-        selector           = $module.selector || '',
-        element            = this,
-        instance           = $module.data('module-' + settings.namespace),
-        methodInvoked      = (typeof query == 'string'),
-
-        endTransition      = 'transitionend msTransitionEnd oTransitionEnd',
-
-        // shortcuts
-        namespace          = settings.namespace,
-        metadata           = settings.metadata,
-        className          = settings.className,
+        
+        selector      = $module.selector || '',
+        element       = this,
+        instance      = $module.data('module-' + settings.namespace),
+        methodInvoked = (typeof query == 'string'),
+        
+        // private
+        endTransition = 'transitionend msTransitionEnd oTransitionEnd',
+        
+        // internal aliases
+        namespace     = settings.namespace,
+        metadata      = settings.metadata,
+        className     = settings.className,
 
         module
       ;
+
       module = {
 
         initialize: function() {
@@ -77,13 +68,14 @@ $.fn.origami = function(parameters) {
         refresh: function() {
           module.verbose('Refreshing selector cache for', element);
           $module = $(element);
-          $box    = $(this).find(settings.selector.box);
+          $shape  = $(this).find(settings.selector.shape);
           $side   = $(this).find(settings.selector.side);
         },
 
         repaint: function() {
+          module.verbose('Forcing repaint event');
           var 
-            fakeAssignment = $module.get(0).offsetWidth
+            fakeAssignment = $shape.get(0).offsetWidth
           ;
         },
 
@@ -93,9 +85,10 @@ $.fn.origami = function(parameters) {
             callback = function() {
               module.reset();
               module.set.active();
+              $.proxy(settings.onChange, $nextSide)();
             }
           ;
-          if(settings.useCSS) {
+          if(settings.useCSS || 1) {
             module.verbose('Using CSS transitions to animate');
             $module
               .addClass(className.animating)
@@ -108,7 +101,7 @@ $.fn.origami = function(parameters) {
             $activeSide
               .addClass(className.hidden)
             ;
-            $box
+            $shape
               .css(propertyObject)
               .one(endTransition, callback)
             ;
@@ -127,7 +120,7 @@ $.fn.origami = function(parameters) {
                 opacity: 0
               }, settings.duration, settings.easing)
             ;
-            $box
+            $shape
               .animate(propertyObject, settings.duration, settings.easing, callback)
             ;
           }
@@ -140,7 +133,7 @@ $.fn.origami = function(parameters) {
             .removeClass(className.animating)
             .removeAttr('style')
           ;
-          $box
+          $shape
             .removeAttr('style')
           ;
           $side
@@ -151,6 +144,17 @@ $.fn.origami = function(parameters) {
             .removeClass(className.animating)
             .removeAttr('style')
           ;
+        },
+
+        get: {
+
+          nextSide: function() {
+            return ( $activeSide.next(settings.selector.side).size() > 0 )
+              ? $activeSide.next(settings.selector.side)
+              : $module.find(settings.selector.side).first()
+            ;
+          }
+
         },
 
         set: {
@@ -166,10 +170,17 @@ $.fn.origami = function(parameters) {
           },
 
           stageSize: function() {
-            $module
-              .css({
+            var
+              stage = {
                 width  : $nextSide.outerWidth(),
                 height : $nextSide.outerHeight()
+              }
+            ;
+            module.verbose('Resizing stage to fit new content', stage);
+            $module
+              .css({
+                width  : stage.width,
+                height : stage.height
               })
             ;
           },
@@ -455,34 +466,38 @@ $.fn.origami = function(parameters) {
   ;
 };
 
-$.fn.origami.settings = {
+$.fn.shape.settings = {
 
   // module info
-  moduleName : 'Origami Module',
-
-  // debug output
+  moduleName : 'Shape Module',
+  
+  // debug content outputted to console
   debug      : true,
+  
   // verbose debug output
   verbose    : true,
 
-  namespace  : 'origami',
+  // event namespace
+  namespace  : 'shape',
 
   // callback occurs on side change
-  onChange   : function() {},
+  beforeChange : function() {},
+  onChange     : function() {},
 
+  // use css animation (currently only true is supported)
   useCSS     : true,
+
+  // animation duration (useful only with future js animations)
   duration   : 1000,
   easing     : 'easeInOutQuad',
 
+  // possible errors
   errors: {
-    api        : 'You tried to switch to a side that does not exist.',
-    method     : 'The method you called is not defined'
+    side   : 'You tried to switch to a side that does not exist.',
+    method : 'The method you called is not defined'
   },
 
-  metadata : {
-
-  },
-
+  // classnames used
   className   : {
     css       : 'css',
     animating : 'animating',
@@ -490,13 +505,13 @@ $.fn.origami.settings = {
     active    : 'active'
   },
 
+  // selectors used
   selector    : {
-    box  : '.box',
-    side : '.side'
+    shape : '.shape',
+    side  : '.side'
   }
 
 };
-
 
 
 })( jQuery, window , document );
