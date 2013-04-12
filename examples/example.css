@@ -1,66 +1,8 @@
 /*******************************
-          CSS Reset
+        Standard Example
 *******************************/
 
-html, body, div, form, fieldset, legend, label, ul, li, menu, button {
-  margin: 0px;
-  padding: 0px;
-  background: none;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section {
-  display: block
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0px;
-}
-th, td {
-  text-align: left;
-  vertical-align: top;
-}
-th, td, caption { 
-  font-weight:normal; 
-  margin: 0px;
-  padding: 0px;
-}
-img,
-iframe { 
-  border: 0px; 
-}
-:focus, input:focus, button:focus, button:active, button:hover {
-  outline: 0px;
-}
-button {
-  display: block;
-  outline: 0px;
-  border: 0px;  
-}
-ul, li {
-  list-style-type: none;  
-}
-p {
-  margin: 0px;
-}
-html {
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-
-/*******************************
-            Example
-*******************************/
+/* font */
 @font-face {
   font-family: 'Neutraface';
   src:
@@ -78,27 +20,68 @@ html {
   font-style: normal;
 }
 
-#example {
+body#example {
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
   background-color: #FCFCFC;
+  padding-bottom: 150px;
 }
+
+/* links */
+a {
+  color: #009FDA;
+  text-decoration: none;
+}
+a:hover {
+  color: #00BAFF;
+}
+
 #example h1,
 #example h2,
 #example h3,
 #example h4,
 #example h5,
+#example a,
 #example .ui {
   font-family: "Neutraface Bold", "Helvetica Neue", "Arial", sans-serif;
 }
 
+/* text and headers */
+#example h1 {
+  margin: 20px 0px 20px;
+}
 #example h2 {
-  margin: 60px 0px 20px;
+  margin: 40px 0px 20px;
 }
 #example h3 {
+  font-size: 20px;
   margin: 40px 0px 15px;
+}
+#example h4 {
+  font-size: 16px;
+  color: #555555;
 }
 #example pre {
   background-color: #F0F0F0;
+}
+#example p {
+  margin: 10px 0px;
+}
+
+/* lists */
+#example ol {
+  list-style-position: inside;
+  margin: 10px 0px 40px;
+  padding: 0px;
+}
+#example ol li {
+  list-style-type: decimal;
+  margin: 0px 0px 10px;
+}
+
+/* content */
+#example .container {
+  width: 700px;
+  margin: 0px auto;
 }
 
 #example .shortcuts {
@@ -106,10 +89,11 @@ html {
   clear: both;
 }
 
-#example .container {
-  width: 1000px;
-  margin: 0px auto;
-}
+
+
+/*******************************
+        Shapes Example
+*******************************/
 
 #example .demo.shape {
 
@@ -159,7 +143,8 @@ html {
   height: 100px;
 }
 #example .demo.rectangle.shape .left.side,
-#example .demo.rectangle.shape .right.side {
+#example .demo.rectangle.shape .right.side,
+#example .demo.rectangle.shape .over.side {
   width: 300px;
 }
 

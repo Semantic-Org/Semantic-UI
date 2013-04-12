@@ -73,17 +73,38 @@
   ;
 }
 
+/*---------------
+  Blue Button
+----------------*/
+
+.ui.blue.buttons .button,
+.ui.blue.button {
+  background-color: #00B4AC;
+  color: #FFFFFF;
+}
+.ui.blue.buttons .button.hover,
+.ui.blue.button.hover {
+  background-color: #F15B40;
+}
+.ui.blue.buttons .button.down,
+.ui.blue.button.down {
+  background-color: #F15B40;
+}
 
 /*---------------
   Purple Button
 ----------------*/
 
+.ui.purple.buttons .button,
 .ui.purple.button {
+  color: #FFFFFF;
   background-color: #6E4889;
 }
+.ui.purple.buttons .button.hover,
 .ui.purple.button.hover {
   background-color: #62397F;
 }
+.ui.purple.buttons .button.down,
 .ui.purple.button.down {
   background-color: #9254BD;
 }
@@ -176,17 +197,17 @@
 .ui.medium.buttons .button,
 .ui.medium.button {
   font-size: 14px;
-  padding: 7px 15px;
+  padding: 7px 20px;
 }
 .ui.big.buttons .button,
 .ui.big.button {
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 13px 30px;
 }
 .ui.huge.buttons .button,
 .ui.huge.button {
   font-size: 18px;
-  padding: 11px 30px;
+  padding: 15px 30px;
 }
 .ui.massive.buttons .button,
 .ui.massive.button {
@@ -194,14 +215,6 @@
 
   font-size: 24px;
   font-weight: bold;
-
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.gigantic.buttons .button,
 .ui.gigantic.button {
@@ -209,14 +222,6 @@
 
   font-size: 30px;
   font-weight: bold;
-
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -355,8 +360,8 @@
 
 /* Button attached to a form element */
 input + .ui.attached.button {
+  display: inline-block;
   min-width: 40px;
-  float: left;
   margin: 0px 0px 0px -15px;
   height: 14px;
   padding: 8px 15px;
@@ -375,20 +380,20 @@ input + .ui.attached.button {
 }
 
 /*-------------------
-    Wrapping Style
+    Attached Style
 --------------------*/
 
-.ui.button.wrapping {
+.ui.button.attached {
   display: block;
 }
-.ui.button.wrapping.top {
+.ui.button.attached.top {
   margin-left: -1px;
   margin-right: -1px;
   -webkit-border-radius: 5px 5px 0px 0px;
   -moz-border-radius: 5px 5px 0px 0px;
   border-radius: 5px 5px 0px 0px;
 }
-.ui.button.wrapping.bottom {
+.ui.button.attached.bottom {
   margin-left: -1px;
   margin-right: -1px;
   -webkit-border-radius: 0px 0px 5px 5px;
@@ -636,8 +641,8 @@ input + .ui.attached.button {
 .ui.button.disabled.hover,
 .ui.button.disabled.down {
   cursor: default;
-  color: #AAAAAA;
-  background-color: #F0F0F0 !important;
+  color: #BBBBBB;
+  background-color: #F8F8F8 !important;
   background-image: none !important;
   
   text-shadow: none !important;

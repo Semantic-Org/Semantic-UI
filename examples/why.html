@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Semantic Modules</title>
+
+  <link rel="stylesheet" href="ui/state.js" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/panel.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/button.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/table.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="../src/shape.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="example.css" type="text/css" media="screen" />
+
+  <script src="../dependencies/jquery.js" type="text/javascript"></script>
+  <script src="ui/state.js" type="text/javascript"></script>
+
+  <script src="../dependencies/transform2d.js" type="text/javascript"></script>
+  <script src="../dependencies/transform3d.js" type="text/javascript"></script>
+  <script src="../src/shape.js" type="text/javascript"></script>
+
+  <script src="example.js" type="text/javascript"></script>
+
+  </head>
+
+<body id="example">
+<div class="container">
+
+<h1 id="the-problem">The problem</h1>
+<p>The DNA of the web is user interface but the DNA of websites is HTML</p>
+<h2 id="issues-with-html-as-a-building-block-of-websites">Issues with HTML as a building block of websites</h2>
+<ul>
+<li>Browsers had to write interpreters for web coding languages before the web became universal popular, so the majority of the lasting decisions on the html standard weere made without the foreknowledge of what the web could be, href= 'hypertext reference', 'a' anchor for a web link. Based on naming conventions and suppositions of a small group of decision makers at a particular moment in history.</li>
+<li>Additions to HTML standards were done in a legitimately conservate way to preserve compatability and momentum, consistency etc. </li>
+<li>Falls into the Prescriptivist/descriptivist trap in linguistics. </li>
+<li>Example: AcadÃ©mie franÃ§aise, french institute that acts as a watchguard on the usage of french language, voices opinion to government about the 'corruption' of the language based on common usage, foreign influences, etc. http://en.wikipedia.org/wiki/Acad%C3%A9mie_fran%C3%A7aise#Role_as_authority_on_the_French_language </li>
+<li>Another <DFW Article on the subject> http://instruct.westvalley.edu/lafave/DFW_present_tense.html</li>
+</ul>
+<h3 id="not-completely-semantic">Not completely semantic</h3>
+<ul>
+<li>Examples: hgroup, ul, li, href, </li>
+<li>What would the logical children elements for these elements be?</li>
+<li>TR &gt; TD (What is a td anyone know?)</li>
+<li>Hgroup &gt; h1 h2 (How does this make sense?)</li>
+<li>UL &gt; LI (Why? Who thought of this?)</li>
+<li>There's nothing semantic about an hgroup. It' as idiomatic as me referring to a group of people a a pgroup. Maybe over time my friends could get used to me saying this, but why should they?</li>
+<li>Who here refers to links as "hypertext references", yet now HREF is codified. And links are 'a' as in short for anchor? </li>
+<li>Ok this may be taking things overboard but its to prove a point, that coding language is unconventional</li>
+</ul>
+<h3 id="incompleteness-compels-developers-to-add-their-own-conventions">Incompleteness compels developers to add their own conventions</h3>
+<ul>
+<li>Everyone who codes front end knows the possible minefield you encounter when collaborating on a large project.</li>
+<li>Every developer is king of their own naming domain, and has idiomatically created their own schemas for naming everything. Everything on the site had at some point to be subjected to their own naming decisions. These decisions could be influenced by personality, culture, what mood their in, etc.</li>
+<li>How many ways can we say the same thing? </li>
+<li>
+<p>Example: A modal has just poped on the screen. What should it be called? </p>
+<p>&lt;div id=&quot;modal_visible&quot;&gt; &lt;div id=&quot;login&quot;&gt; &lt;div class=&quot;pop_up_login&quot;&gt;&lt;/div&gt;</p>
+</li>
+<li>
+<p>All of these are correct by  nature, but why are we redefining everything? </p>
+</li>
+</ul>
+<h2 id="how-to-fix-the-problem">How to fix the problem</h2>
+<h3 id="a-semantic-approach">A semantic approach</h3>
+<p>Well if progressing html isnt the future of a re-useable, semantic web than what could be?</p>
+<h3 id="whats-good-from-html">What's good from HTML</h3>
+<ul>
+<li>A good way to approach what's useful is to look at whats used.</li>
+<li>People really liked 'ul' and 'li' for explaining grouping. All sorts of things people dont usually think of as lists seem to find representation in html usage as Unordered list is a slightly obtuse concept, but perhaps there's something in the nature of defining a plural and singular relationship.</li>
+<li>Classnames appear to be the most useful aspect of code because they allow for everything. A catch-all for all the things html hasnt defined. </li>
+</ul>
+<h3 id="some-presumptiveness">Some presumptiveness</h3>
+<ul>
+<li>HTML and CSS are languages used to describe structural relations and appearances, which is a much easier task to accomplish than giving a more abstract explanations of behavior or instructions. </li>
+<li>Physical, declarative langauge was one of the first aspects of language to evolve. Think caveman running into a cave and saying "two big tiger". this is enough to convey to the other caveman to run further into the cave. </li>
+<li>Language have been selected for and evolved since prehistoric times. Its terse, universal, and selected for by convention and usage not top-down.</li>
+<li>How many words do you need in a vocabulary? To read a chinese newspaper you need around 4,000 characters. That's good enough for describing most anything you will encounter or experience. And thats damn near everything in the world! We only need to account for a language and (definition) for a website, which needs a much much smaller subset of language. Maybe even a hundred or so discrete element definitions.</li>
+<li>For proof that this concept is viable, and that not all the web is idiosyncratic, and unable to be defined in common ui, look at the success of Twitter's Bootstap library, which paved the way for reusable UI components. </li>
+<li>These UI elements can be defined in language anyone can understand. Dropdowns, Modal, Button Groups. These are all parts of the english vernacular that did not exist two decades ago, but miraculously has evolved as language has adapted to fill in the gaps. This is what should inform our naming decisions in code. Usage.</li>
+</ul>
+<h3 id="how-we-actually-do-the-dirty-business-of-making-a-semantic-standard-for-ui">How we actually do the dirty business of making a semantic standard for ui</h3>
+<ul>
+<li>Define a set of elements as nouns. "ui button", "ui field" "ui form"</li>
+<li>Define a set of modifiers that are universal and carry the same meaning (when appropriate). i.e. if "large" means 20px tall. Then anything that is large should be 20 pixels tall, ex1. "large button", "large header". ex2. red. "grey field", "grey button".</li>
+<li>Assume prototypical qualities if no modifiers present. I.e. If i ask you to imagine a bunny, you probably imagine a white furry animal with 2 long ears." without having to imply all those characteristics. In the same way the definition of "button" should account for all the prototypical qualities while the modifiers only the modifying qualities.</li>
+<li>Reduce language complexity (KISS) by defining relationships using plural/singular relations. We dont go around saying "there is a large man and a large man and a large man", you just say "There are three large men". in the same way "<div class'two ui buttons">" can define the size and proportions of its children elements more succinctly then classing them all.</li>
+<li>Avoid jargon and idiomatic expressions, stick to common usage. (Keep the ego out)</li>
+</ul>
+<h3 id="once-you-create-a-visual-vocubulary">Once you create a visual vocubulary</h3>
+<ul>
+<li>If you can define a standard for a button, say that it can be either tiny, small, medium, big, large, huge or gigantic. Or it can be red, yellow, green, or blue. Then the task for a front end developer becomes explaining how this website's definition of a button strays from standard, not redefining what a button is from scratch over and over.<br />
+</li>
+<li>This task now only requires them redefining the modifiers, not the button element, or any of the causal relationships.</li>
+<li>Once a consensus spec is built for user interface. Then modules have predefined ui components to work with. No arbitrary selectors, or redefining ui elements on a module level. If a modal needs a button then it would use</li>
+</ul>
+<h3 id="as-it-would-exist">As it would exist</h3>
+<ul>
+<li>Nouns are classnames, modifiers are also classnames</li>
+<li>All ui elements are subclass "ui" to avoid collissions. <div class="ui button"></div></li>
+</ul>
+<h3 id="as-it-might-exist">As it might exist</h3>
+<ul>
+<li>Nouns are tags and always end in a noun, modifiers precede them. 
+    &lt;two large button&gt;
+        &lt;button&gt;one&lt;/&gt;
+        &lt;button&gt;two&lt;/&gt;
+    &lt;/&gt;</li>
+</ul>
+<h2 id="why-try-to-fix-this-problem">Why try to fix this problem</h2>
+<p>Its important to acknowledge there has been lots of work which has attempted to solve this already. Or to take these techniques at heart when creating a language. The higher order-ness of SQL for example "SELECT FROM TABLE WHERE CONDITION"</p>
+<h2 id="make-coding-more-accessible">Make coding more accessible</h2>
+<p>There have been numerous make programming accessible, KhanAcademy, Code Academy, meetup groups. Gamification. All these problems are great, but solve the issue of making learning programming more difficult
+Tackling the issue of making programming less difficult is a separate issue entirely. This has been tackled in the past from the perspective of gurus helping making programming less difficult for gurus, i.e dart/cofeescript, or less/sass, but has not been tackled much for making languages easier for complete beginners.</p>
+<p>stopped writing for time constraints.</p>
+</div>
+</body>
+
+</html>

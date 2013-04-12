@@ -42,7 +42,7 @@ $.fn.shape = function(parameters) {
         
         // internal aliases
         namespace     = settings.namespace,
-        metadata      = settings.metadata,
+        error         = settings.error,
         className     = settings.className,
 
         module
@@ -79,15 +79,13 @@ $.fn.shape = function(parameters) {
           ;
         },
 
-        animate: function(propertyObject) {
+        animate: function(propertyObject, callback) {
           module.verbose('Animating box with properties', propertyObject);
-          var
-            callback = function() {
+          callback = callback || function() {
               module.reset();
               module.set.active();
               $.proxy(settings.onChange, $nextSide)();
-            }
-          ;
+          };
           if(settings.useCSS || 1) {
             module.verbose('Using CSS transitions to animate');
             $module
@@ -187,6 +185,9 @@ $.fn.shape = function(parameters) {
 
           nextSide: function(selector) {
             $nextSide = $module.find(selector);
+            if($nextSide.size() === 0) {
+              module.error(error.side);
+            }
             module.verbose('Next side manually set to', $nextSide);
           },
 
@@ -246,6 +247,16 @@ $.fn.shape = function(parameters) {
             ;
             return {
               transform: 'translateX(' + translate.x + 'px) translateZ(' + translate.z + 'px) rotateY(-90deg)'
+            };
+          },
+          behind: function() {
+            var
+              translate = {
+                x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
+              }
+            ;
+            return {
+              transform: 'translateX(' + translate.x + 'px) rotateY(180deg)'
             };
           }
         },
@@ -350,6 +361,31 @@ $.fn.shape = function(parameters) {
                 'transform' : 'rotateY(90deg) translateZ(' + box.depth.next + 'px)'
               })
             ;
+          },
+          behind: function() {
+            var
+              box = {
+                origin : ( ( $activeSide.outerWidth() - $nextSide.outerWidth() ) / 2),
+                depth  : {
+                  active : ($nextSide.outerWidth() / 2),
+                  next   : ($activeSide.outerWidth() / 2)
+                }
+              }
+            ;
+            module.verbose('Setting the initial animation position as behind', $nextSide, box);
+            $activeSide
+              .css({
+                'transform' : 'rotateY(0deg)'
+              })
+            ;
+            $nextSide
+              .addClass(className.animating)
+              .css({
+                'display'   : 'block',
+                'left'      : box.origin + 'px',
+                'transform' : 'rotateY(-180deg)'
+              })
+            ;
           }
         },
 
@@ -357,32 +393,44 @@ $.fn.shape = function(parameters) {
           up: function() {
             module.debug('Flipping up', $nextSide);
             module.stage.above();
-            module.animate( module.getTransform.up(), element);
+            module.animate( module.getTransform.up() );
           },
           down: function() {
             module.debug('Flipping down', $nextSide);
             module.stage.below();
-            module.animate( module.getTransform.down(), element);
+            module.animate( module.getTransform.down() );
           },
           left: function() {
             module.debug('Flipping left', $nextSide);
             module.stage.left();
-            module.animate(module.getTransform.left(), element);
+            module.animate(module.getTransform.left() );
 
           },
           right: function() {
             module.debug('Flipping right', $nextSide);
             module.stage.right();
-            module.animate(module.getTransform.right(), element);
+            module.animate(module.getTransform.right() );
+          },
+          over: function() {
+            module.debug('Flipping over', $nextSide);
+            module.stage.behind();
+            module.animate(module.getTransform.behind() );
           }
         },
 
+
+
         /* standard module */
         setting: function(name, value) {
-          if(value === undefined) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value === undefined) {
             return settings[name];
           }
-          settings[name] = value;
+          else {
+            settings[name] = value;
+          }
         },
         verbose: function() {
           if(settings.verbose) {
@@ -492,7 +540,7 @@ $.fn.shape.settings = {
   easing     : 'easeInOutQuad',
 
   // possible errors
-  errors: {
+  error: {
     side   : 'You tried to switch to a side that does not exist.',
     method : 'The method you called is not defined'
   },
