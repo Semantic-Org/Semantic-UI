@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Semantic Modules</title>
+
+  <link rel="stylesheet" href="ui/state.js" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/panel.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/button.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/table.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="../src/shape.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="example.css" type="text/css" media="screen" />
+
+  <script src="../dependencies/jquery.js" type="text/javascript"></script>
+  <script src="ui/state.js" type="text/javascript"></script>
+
+  <script src="../dependencies/transform2d.js" type="text/javascript"></script>
+  <script src="../dependencies/transform3d.js" type="text/javascript"></script>
+  <script src="../src/shape.js" type="text/javascript"></script>
+
+  <script src="example.js" type="text/javascript"></script>
+
+  </head>
+
+<body id="example">
+<div class="container">
+
+  <h1>Semantic UI Spec</h1>
+
+  <p>Semantic is a set of standards designed to make front end development less arbitrary. This is the definition of a button.</p>
+
+  <h2>Button</h2>
+
+  <h4>The standard button:</h4>
+  <div class="ui button">Button</div>
+
+  <h2>States</h2>
+
+  <h4>Can be hovered:</h4>
+  <div class="ui hover button">Hovered Button</div>
+  <h4>Can be pressed in:</h4>
+  
+  <div class="ui down button">Pressed Button</div>
+
+  <h4>Can be active:</p>
+  <div class="ui active button">Active Button</div>
+
+  <h4>Can be disabled:</h4>
+  <div class="ui disabled button">Disabled Button</div>
+
+  <h4>Can show a loading indicator:</h4>
+  <div class="ui loading button">Loading Button</div>
+
+  <h4>Can show a toggled state:</h4>
+  <div class="ui toggle button">Toggled Button</div>
+
+  <h4>Can alert to a succesful action:</h4>
+  <div class="ui success button">Succesful Button</div>
+
+  <h4>Can alert user of an error:</h4>
+  <div class="ui error button">Succesful Button</div>
+
+  <h2>Standard Variations</h2>
+
+  <h4>Can have different sizes:</h4>
+  <div class="mini ui button">
+    Mini
+  </div>
+  <div class="tiny ui button">
+    Tiny
+  </div>
+  <div class="small ui button">
+    Small
+  </div>
+  <div class="medium ui button">
+    Medium
+  </div>
+  <div class="big ui button">
+    Big
+  </div>
+  <div class="huge ui button">
+    Huge
+  </div>
+  <div class="massive ui button">
+    <i class="icon pin"></i>
+    Massive
+  </div>
+  <div class="gigantic ui button">
+    <i class="icon pin"></i>
+    Gigantic
+  </div>
+
+
+  <h4>Can have different colors:</h4>
+  <div class="ui blue button">Blue Button</div>
+  <div class="purple ui button">Purple Button</div>
+  <div class="green ui button">Green Button</div>
+
+  <h4>Can fit parent container:</h4>
+  <div class="fluid ui button">Fits container</div>
+
+  <h2>Buttons (Button Groups)</h2>
+
+  <h4>Can exist together as groups</h4>
+  <div class="ui buttons">
+    <div class="ui button">One</div>
+    <div class="ui button">Two</div>
+    <div class="ui button">Three</div>
+  </div>
+
+  <h4>Variations can modify groups</h4>
+  <p><b>Blue</b></p>
+  <div class="blue ui buttons">
+    <div class="ui button">One</div>
+    <div class="ui button">Two</div>
+    <div class="ui button">Three</div>
+  </div>
+  <br><br>
+  <p><b>Large</b></p>
+  <div class="huge ui buttons">
+    <div class="ui button">One</div>
+    <div class="ui button">Two</div>
+    <div class="ui button">Three</div>
+  </div>
+
+
+  <h2>Additional Variations</h2>
+
+  <h4>Can be formatted to fit just an icon or image:</h4>
+  <div class="mini icon ui button">
+    <i class="icon pin"></i>
+  </div>
+  <div class="tiny icon ui button">
+    <i class="icon pin"></i>
+  </div>
+  <div class="small icon ui button">
+    <i class="icon pin"></i>
+  </div>
+  <div class="medium icon ui button">
+    <i class="icon pin"></i>
+  </div>
+  <div class="big icon ui button">
+    <i class="icon pin"></i>
+  </div>
+  <div class="huge icon ui button">
+    <i class="icon pin"></i>
+  </div>
+  <div class="massive icon ui button">
+    <i class="icon pin"></i>
+  </div>
+  <div class="gigantic icon ui button">
+    <i class="icon pin"></i>
+  </div>
+
+  <h4>Can be attached to the top or bottom of other content</h4>
+  <div class="ui top attached button">Top</div>
+  <div style="border-left: 1px solid #DDDDDD;border-right: 1px solid #DDDDDD;height:200px;"></div>
+  <div class="ui bottom attached button">Bottom</div>
+
+  <h4>Can be attached to an input field</h4>
+  <input type="text">
+  <div class="ui attached button">Search</div>
+
+  <h2>States</h2>
+  <div class="state segment">
+    <h4>Button States</h4>
+    <div class="ui button">Normal</div>
+    <div class="ui button hover">Hover</div>
+    <div class="ui button down">Down</div>
+    <div class="ui button loading">Loading</div>
+
+    <br><br>
+    <div class="ui button disabled">Disabled</div>
+    <div class="ui button active">Active</div>
+    <div class="ui button active toggle">Toggled</div>
+    <div class="ui button error">Error</div>
+    <div class="ui button success">Success</div>
+  </div>
+
+</div>
+</body>
+
+</html>

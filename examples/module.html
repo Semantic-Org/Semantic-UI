@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Semantic Modules</title>
+
+  <link rel="stylesheet" href="ui/state.js" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/panel.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/button.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/table.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="../src/shape.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="example.css" type="text/css" media="screen" />
+
+  <script src="../dependencies/jquery.js" type="text/javascript"></script>
+  <script src="ui/state.js" type="text/javascript"></script>
+
+  <script src="../dependencies/transform2d.js" type="text/javascript"></script>
+  <script src="../dependencies/transform3d.js" type="text/javascript"></script>
+  <script src="../src/shape.js" type="text/javascript"></script>
+
+  <script src="example.js" type="text/javascript"></script>
+
+  </head>
+
+<body id="example">
+<div class="container">
+
+  <h1>Semantic</h1>
+  
+  <p>Semantic is a set of standards designed to make front end development less arbitrary.</p>
+  <h2>What is Semantic?</h2>
+  
+  <p>Semantic has two parts. <b>The semantic standard, and the semantic library.</b></p>
+  
+  <h2>The standard</h2>
+  <p>The semantic standard attempts to create a standard design pattern for describing static UI components (UI elements), and dynamic UI components (modules).</p>
+  
+  <p>Static components are things like: menus, columns, grids, tables, buttons, forms. Dynamic components are things like: popups, modals, chat rooms.</p>
+  
+  <h3>Defining UI</h3>
+  <p>The DNA of the web is UI. Semantic's goal is to create an exchange format for UI, by architecting a consistent HTML structure and classname usage for defining UI elements.</p>
+  <p>If as a community we can agree on consistent UI definitions to, for example, describe what a button is, then we can freely share variations of element designs without having to modify our site's structure to match the expectations of the library.</p>
+  
+  <h4>What's in an element</h4>
+  <p><b>UI elements definitions are made of 4 parts</b>: 
+  <ol>
+    <li>A prototype format of an element (A bunny has two long ears and is furry)</li>
+    <li>A list of states which the element can exist. (A bunny can either be hopping, eating or sitting still)</li>
+    <li>A definition of the relationship between a plural and singular instance of an element (Three white bunnies are each white)</li>
+    <li>A definition of possible variations of the element (A bunny can be tall or short and can be friendly or mean)</li>
+  </ol>
+  <p>UI elements can be thought of as nouns, and variations as adjectives. Variations should be written in a way which only describe the innate features of that variation, so that variations can be used together without affecting each other.</p>
+  <h3>I don't know what you're talking about just show me the code</h3>
+  <p>If you'd like to shortcut any more explanation, check out the standard definition for a UI button for a live example.</p>
+  <a class="big blue ui button" href="button.html">UI Button Spec</a>
+  
+  
+  <h2>The library</h2>
+  
+  <p>The semantic library is a UI library and set of javascript modules which have been written to adhere to the semantic standard.</p>
+  
+  <p>The aim is to release pieces of the library on a schedule over the course of the next few months. <a href="#">Check out the Semantic library release calendar</a></p>
+
+  <h2>Why use Semantic Modules?</h2>
+  <ol>
+    <li><b>Puts accessibility first</b>. Although Coffeescript is beautiful, and Angular is smart, Semantic has a different agenda: to be easy to use, and opinionless. Semantic can be thought of more as the <a href="http://en.wikipedia.org/wiki/Aaron_Copland">Aaron Copland</a> of programming libraries. To code in Semantic only requires an understanding of jQuery and Javascript to begin writing code. If you're stuck there are also plenty of examples to help you get started.</li>
+    <li><b>Is self documenting.</b> Instead of reading through inline comments to determine what a developer is intending, semantic allows developers to pass meaningful debug data where its most useful: the javascript console. This allows you to see the sequence of events that occur in a module , along with useful debug information, like the value of significant variables. If you're in the source code, debug statements also read similarly to code comments which provide context. <a href="#">Show me</a>
+    <li><b>Designed to separate the arbitrary bits from the core logic of your module.</b> Ever scroll through an unfimiliar library looking for the line of code where they define the ID tag for an expected html structure? Semantic keeps you from ever having to do that again. Developer decisions like metadata, classnames, selectors, and messages are separated from the less arbitrary parts of code. <a href="#">Show me</a> </li>
+    <li><b>Lets you access anything, and change everything.</b> Methods defined as part of module definitions are all invokable. Semantic also maps from dot notation to their appropriate locations inside the module, allowing developers not to only make flat modules. Settings can be changed at initialization, or after. Module defaults can be changed whenever. <a href="#">Show me</a></li>
+    <li><b>Plays nice with other libraries</b>. Modules have teardown methods which will remove any bound events or initialized code. Modules also use namespaced events so you can have more flexibility over defining and clearing them</li>
+    <li><b>Patterns for every need</b>. Semantic has patterns that work well both as a widget factory, and as a single entity.</li>
+  </ol>
+  
+  <h2>How to write a module</h2>
+  <div class="big ui button">View Annotated Source</div>
+
+  <ol>
+    <li>Select the most appropriate design pattern.</li>
+    <li>Define a settings object.</li>
+    <li>Define a selector cache.</li>
+    <li>Add an object literal defining invokable methods for your plugin</li>
+    <li>You're done!</li>
+  </ol>
+
+</div>
+</body>
+
+</html>
