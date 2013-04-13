@@ -77,6 +77,16 @@ a:hover {
   list-style-type: decimal;
   margin: 0px 0px 10px;
 }
+#example .list {
+  list-style-position: inside;
+  margin: 10px 0px 40px;
+  padding: 0px;
+}
+#example .list li {
+  list-style-type: disc;
+  margin: 0px 0px 10px;
+}
+
 
 /* content */
 #example .container {
@@ -101,15 +111,15 @@ a:hover {
 
 #example .demo.shape .side {
   
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 
-  background-color: #22C1FC;
+  background-color: #E6E6E6;
 
   color: #FFFFFF;
 
@@ -117,6 +127,13 @@ a:hover {
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
+
+#example .demo.shape .side img {
+  display: block;
+  margin: 0px auto;
+  max-width: 100%;
+}
+
 #example .demo.shape .side b {
   display: block;
   position: absolute;
@@ -127,44 +144,6 @@ a:hover {
   text-align: center;
 }
 
-#example .demo.shape .up.side,
-#example .demo.shape .down.side {
-  background-color: #E6E6E6;
-  color: #737373;
-}
-
-/* Shapes */
 #example .demo.rectangle.shape .side {
-  width: 500px;
-  height: 300px;
-}
-#example .demo.rectangle.shape .up.side,
-#example .demo.rectangle.shape .down.side {
-  height: 100px;
-}
-#example .demo.rectangle.shape .left.side,
-#example .demo.rectangle.shape .right.side,
-#example .demo.rectangle.shape .over.side {
-  width: 300px;
-}
-
-
-#example .demo.irregular.shape .side {
-  padding: 0px;
-}
-#example .demo.irregular.shape .side:nth-child(1n) {
-  width: 514px;
-  height: 210px;
-}
-#example .demo.irregular.shape .side:nth-child(2n) {
-  width: 126px;
-  height: 115px;
-}
-#example .demo.irregular.shape .side:nth-child(3n) {
-  width: 864px;
-  height: 510px;
-}
-#example .demo.irregular.shape .side:nth-child(4n) {
-  width: 322px;
-  height: 210px;
+  width: 350px;
 }

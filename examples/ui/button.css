@@ -315,7 +315,7 @@
 .ui.toggle.buttons .button.active,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-
+  background-color: #BBF0A9;
 }
 .ui.buttons.toggle .ui.button.active.hover,
 .ui.buttons .ui.button.toggle.active.hover,
