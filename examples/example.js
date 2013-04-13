@@ -26,7 +26,6 @@ shape.ready = function() {
       if(direction && animation) {
         $('.active.side')
           .next()
-          .attr('class', direction + ' side')
         ;
         $demo
           .shape(animation + '.' + direction)
@@ -54,7 +53,7 @@ shape.ready = function() {
       $shape
         .addClass('active')
       ;
-      $otherShapes
+      $otherShapes  
         .removeClass('active')
         .each(handler.removeShape)
       ;

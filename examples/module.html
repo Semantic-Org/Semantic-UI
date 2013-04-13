@@ -30,42 +30,55 @@
   <h1>Semantic</h1>
   
   <p>Semantic is a set of standards designed to make front end development less arbitrary.</p>
+  
+  <div class="ui buttons">
+    <div class="ui button">Just the details</div>
+    <div class="ui button active">Tell me everything</div>
+  </div>
+  
   <h2>What is Semantic?</h2>
   
-  <p>Semantic has two parts. <b>The semantic standard, and the semantic library.</b></p>
+  <p>Semantic has two parts. The <a href="#standard">semantic standard</a>, and the <a href="#library">semantic library</a>.</b></p>
   
+  <a name="standard"></a>
   <h2>The standard</h2>
-  <p>The semantic standard attempts to create a standard design pattern for describing static UI components (UI elements), and dynamic UI components (modules).</p>
+  <p>The semantic standard attempts to create a standard design pattern for describing static UI components (UI elements), and dynamic UI components or behavioral definitions (Javascript modules).</p>
   
-  <p>Static components are things like: menus, columns, grids, tables, buttons, forms. Dynamic components are things like: popups, modals, chat rooms.</p>
+  <p><b>Static elements</b>: menus, columns, grids, tables, buttons, forms.</p>
+  <p><b>Dynamic components</b>: popups, modals, chat rooms.</p>
+  <p><b>Behavioral components</b>: form validation, state management, history.</p>
   
-  <h3>Defining UI</h3>
-  <p>The DNA of the web is UI. Semantic's goal is to create an exchange format for UI, by architecting a consistent HTML structure and classname usage for defining UI elements.</p>
-  <p>If as a community we can agree on consistent UI definitions to, for example, describe what a button is, then we can freely share variations of element designs without having to modify our site's structure to match the expectations of the library.</p>
+  <h2>Defining UI</h2>
+  <p>Semantic creates an exchange format for UI, by defining a consistent HTML structure and set of class names for representing UI elements.</p>
+  <p>Sharing a structural standard for UI releases the burden from developers at being a naming authorities in their own projects.</p>
+
+  <p>If, as a community we can agree on consistent UI definitions, then we can freely share variations of element designs without having to modify our site's codebase to match any declarative expectations by other developers, and interface designs can be freely exchanged between projects and teams.</p>
   
-  <h4>What's in an element</h4>
+  <h3>What's in an element</h3>
   <p><b>UI elements definitions are made of 4 parts</b>: 
   <ol>
-    <li>A prototype format of an element (A bunny has two long ears and is furry)</li>
+    <li>An ideal form of an element (A bunny has two long ears and is furry)</li>
     <li>A list of states which the element can exist. (A bunny can either be hopping, eating or sitting still)</li>
     <li>A definition of the relationship between a plural and singular instance of an element (Three white bunnies are each white)</li>
-    <li>A definition of possible variations of the element (A bunny can be tall or short and can be friendly or mean)</li>
+    <li>A definition of possible variations of the element (A bunny can be large or small and can be spotted or fuzzy)</li>
   </ol>
-  <p>UI elements can be thought of as nouns, and variations as adjectives. Variations should be written in a way which only describe the innate features of that variation, so that variations can be used together without affecting each other.</p>
+  <p>UI elements can be thought of as nouns, and variations as adjectives. Variations are written in a way which only describe the innate features of that variation in the context of the noun. For example, in english, a large planet has a different meaning than a large chair, but both are the same variant "largeness".</p>
+  <p>Variations can be used together without negating each other unless used in a pardoxical way (A large small bunny).</p>
+  
   <h3>I don't know what you're talking about just show me the code</h3>
   <p>If you'd like to shortcut any more explanation, check out the standard definition for a UI button for a live example.</p>
-  <a class="big blue ui button" href="button.html">UI Button Spec</a>
+  <a class="blue ui button" href="button.html">UI Button Spec</a>
   
-  
-  <h2>The library</h2>
-  
-  <p>The semantic library is a UI library and set of javascript modules which have been written to adhere to the semantic standard.</p>
-  
-  <p>The aim is to release pieces of the library on a schedule over the course of the next few months. <a href="#">Check out the Semantic library release calendar</a></p>
-
-  <h2>Why use Semantic Modules?</h2>
+  <h2>Defining Modules</h2>
+  <p>The Semantic modules standard is created primarily to accomplish two things:</p>
   <ol>
-    <li><b>Puts accessibility first</b>. Although Coffeescript is beautiful, and Angular is smart, Semantic has a different agenda: to be easy to use, and opinionless. Semantic can be thought of more as the <a href="http://en.wikipedia.org/wiki/Aaron_Copland">Aaron Copland</a> of programming libraries. To code in Semantic only requires an understanding of jQuery and Javascript to begin writing code. If you're stuck there are also plenty of examples to help you get started.</li>
+    <li>Provide conveniences for module authors so that they can be written faster and without clutter.</li>
+    <li>Add features which make understanding and debugging other developers' modules simpler</li>
+  </ol>
+  
+  <h3>Why use Semantic Modules?</h3>
+  <ol>
+    <li><b>Puts accessibility first</b>. Although Coffeescript is beautiful, and Angular is smart, Semantic has a different agenda: to be easy to use, and opinionless. Semantic can be thought of more as the <a href="http://en.wikipedia.org/wiki/Aaron_Copland">Aaron Copland</a> of programming libraries. It only requires an understanding of jQuery and Javascript to begin writing code. If you're stuck there are also <a href="#">plenty of examples</a> to help you get started.</li>
     <li><b>Is self documenting.</b> Instead of reading through inline comments to determine what a developer is intending, semantic allows developers to pass meaningful debug data where its most useful: the javascript console. This allows you to see the sequence of events that occur in a module , along with useful debug information, like the value of significant variables. If you're in the source code, debug statements also read similarly to code comments which provide context. <a href="#">Show me</a>
     <li><b>Designed to separate the arbitrary bits from the core logic of your module.</b> Ever scroll through an unfimiliar library looking for the line of code where they define the ID tag for an expected html structure? Semantic keeps you from ever having to do that again. Developer decisions like metadata, classnames, selectors, and messages are separated from the less arbitrary parts of code. <a href="#">Show me</a> </li>
     <li><b>Lets you access anything, and change everything.</b> Methods defined as part of module definitions are all invokable. Semantic also maps from dot notation to their appropriate locations inside the module, allowing developers not to only make flat modules. Settings can be changed at initialization, or after. Module defaults can be changed whenever. <a href="#">Show me</a></li>
@@ -73,17 +86,53 @@
     <li><b>Patterns for every need</b>. Semantic has patterns that work well both as a widget factory, and as a single entity.</li>
   </ol>
   
-  <h2>How to write a module</h2>
-  <div class="big ui button">View Annotated Source</div>
-
-  <ol>
-    <li>Select the most appropriate design pattern.</li>
-    <li>Define a settings object.</li>
-    <li>Define a selector cache.</li>
-    <li>Add an object literal defining invokable methods for your plugin</li>
-    <li>You're done!</li>
-  </ol>
-
+  <h3>You really like to talk. Lets see some code</h3>
+  <p>For a complete definition of the specification check to annotated source:</p>
+  
+  <div class="ui blue buttons">
+    <div class="ui button">Single Instance / Behavioral </div>
+    <div class="ui button">Many Instances</div>
+  </div> 
+  
+  <a name="library"></a>
+  <h2>The Libraries</h2>
+  <p>To semantic library is a set of UI elements and javascript modules that provides an example implementation of the Semantic standard. The purpose is to be useful in their own right for developers, but also to provide a guide for how the standard can be used.</p>
+  <h3>The UI Library</h3>
+  <ul class="list">
+    <li><a href="button.html">Buttons</a></li>
+    <li><a>Text</a></li>
+    <li><a>Headers</a></li>
+    <li><a>Columns</a></li>
+    <li><a>Elements (Grid System)</a></li>
+    <li><a>Tags</a></li>
+    <li><a>Items (Lists of Content)</a></li>
+    <li><a>Panels (Type of Menu)</a></li>
+    <li><a>Forms</a></li>
+    <li><a>Fields</a></li>
+    <li><a>Checkboxes</a></li>
+    <li><a>Icons</a></li>
+    <li><a>Dividers</a></li>
+  </ul>
+  <p>The aim is to release pieces of the library on a schedule over the course of the next few months.</p><a class="big ui button">UI Release Calendar</a>
+  <h3>The module library</h3>
+  <p>Javascript modules.</p>
+  <ul class="list">
+    <li>Accordion</li>
+    <li>API</li>
+    <li>Animation</li>
+    <li>Chat Room</li>
+    <li>Form Validation</li>
+    <li>Placeholder Text</li>
+    <li>Modal</li>
+    <li>Nag</li>
+    <li>Popup</li>
+    <li>Search</li>
+    <li>Star Rating</li>
+    <li>Shape</li>
+    <li>State</li>
+    <li>Tabs</li>
+  </ul>
+  
 </div>
 </body>
 

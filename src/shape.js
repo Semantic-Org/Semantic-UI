@@ -80,47 +80,58 @@ $.fn.shape = function(parameters) {
         },
 
         animate: function(propertyObject, callback) {
-          module.verbose('Animating box with properties', propertyObject);
-          callback = callback || function() {
-              module.reset();
-              module.set.active();
-              $.proxy(settings.onChange, $nextSide)();
-          };
-          if(settings.useCSS || 1) {
-            module.verbose('Using CSS transitions to animate');
-            $module
-              .addClass(className.animating)
-            ;
-            module.set.stageSize();
-            module.repaint();
-            $module
-              .addClass(className.css)
-            ;
-            $activeSide
-              .addClass(className.hidden)
-            ;
+          if( $module.hasClass(className.animating) ) {
+            module.debug('Animation in progress, queing animation');
             $shape
-              .css(propertyObject)
-              .one(endTransition, callback)
+              .one(endTransition, function() {
+                console.verbose('Executing queued animation');
+                module.animate(propertyObject, callback);
+              })
             ;
           }
           else {
-            // not yet supported until .animate() is extended to allow RotateX/Y
-            module.verbose('Using javascript to animate');
-            $module
-              .addClass(className.animating)
-              .removeClass(className.css)
-            ;
-            module.set.stageSize();
-            module.repaint();
-            $activeSide
-              .animate({
-                opacity: 0
-              }, settings.duration, settings.easing)
-            ;
-            $shape
-              .animate(propertyObject, settings.duration, settings.easing, callback)
-            ;
+            module.verbose('Animating box with properties', propertyObject);
+            callback = callback || function() {
+                module.reset();
+                module.set.active();
+                $.proxy(settings.onChange, $nextSide)();
+            };
+            if(settings.useCSS || 1) {
+              module.verbose('Using CSS transitions to animate');
+              $module
+                .addClass(className.animating)
+              ;
+              module.set.stageSize();
+              module.repaint();
+              $module
+                .addClass(className.css)
+              ;
+              $activeSide
+                .addClass(className.hidden)
+              ;
+              $shape
+                .css(propertyObject)
+                .one(endTransition, callback)
+              ;
+            }
+            else {
+              // not yet supported until .animate() is extended to allow RotateX/Y
+              module.verbose('Using javascript to animate');
+              $module
+                .addClass(className.animating)
+                .removeClass(className.css)
+              ;
+              module.set.stageSize();
+              module.repaint();
+              $activeSide
+                .animate({
+                  opacity: 0
+                }, settings.duration, settings.easing)
+              ;
+              $shape
+                .animate(propertyObject, settings.duration, settings.easing, callback)
+              ;
+            }
           }
         },
 
@@ -201,10 +212,44 @@ $.fn.shape = function(parameters) {
             ;
             module.set.defaultSide();
           }
+        },
+
+        flip: {
+
+          up: function() {
+            module.debug('Flipping up', $nextSide);
+            module.stage.above();
+            module.animate( module.getTransform.up() );
+          },
+
+          down: function() {
+            module.debug('Flipping down', $nextSide);
+            module.stage.below();
+            module.animate( module.getTransform.down() );
+          },
+
+          left: function() {
+            module.debug('Flipping left', $nextSide);
+            module.stage.left();
+            module.animate(module.getTransform.left() );
+          },
+
+          right: function() {
+            module.debug('Flipping right', $nextSide);
+            module.stage.right();
+            module.animate(module.getTransform.right() );
+          },
+
+          over: function() {
+            module.debug('Flipping over', $nextSide);
+            module.stage.behind();
+            module.animate(module.getTransform.behind() );
+          }
 
         },
 
         getTransform: {
+
           up: function() {
             var
               translate = {
@@ -216,6 +261,7 @@ $.fn.shape = function(parameters) {
               transform: 'translateY(' + translate.y + 'px) translateZ('+ translate.z + 'px) rotateX(-90deg)'
             };
           },
+
           down: function() {
             var
               translate = {
@@ -227,6 +273,7 @@ $.fn.shape = function(parameters) {
               transform: 'translateY(' + translate.y + 'px) translateZ('+ translate.z + 'px) rotateX(90deg)'
             };
           },
+
           left: function() {
             var
               translate = {
@@ -238,6 +285,7 @@ $.fn.shape = function(parameters) {
               transform: 'translateX(' + translate.x + 'px) translateZ(' + translate.z + 'px) rotateY(90deg)'
             };
           },
+
           right: function() {
             var
               translate = {
@@ -249,6 +297,7 @@ $.fn.shape = function(parameters) {
               transform: 'translateX(' + translate.x + 'px) translateZ(' + translate.z + 'px) rotateY(-90deg)'
             };
           },
+
           behind: function() {
             var
               translate = {
@@ -259,9 +308,11 @@ $.fn.shape = function(parameters) {
               transform: 'translateX(' + translate.x + 'px) rotateY(180deg)'
             };
           }
+
         },
 
         stage: {
+          
           above: function() {
             var
               box = {
@@ -287,6 +338,7 @@ $.fn.shape = function(parameters) {
               })
             ;
           },
+
           below: function() {
             var
               box = {
@@ -312,6 +364,7 @@ $.fn.shape = function(parameters) {
               })
             ;
           },
+
           left: function() {
             var
               box = {
@@ -337,6 +390,7 @@ $.fn.shape = function(parameters) {
               })
             ;
           },
+
           right: function() {
             var
               box = {
@@ -362,6 +416,7 @@ $.fn.shape = function(parameters) {
               })
             ;
           },
+
           behind: function() {
             var
               box = {
@@ -389,37 +444,6 @@ $.fn.shape = function(parameters) {
           }
         },
 
-        flip: {
-          up: function() {
-            module.debug('Flipping up', $nextSide);
-            module.stage.above();
-            module.animate( module.getTransform.up() );
-          },
-          down: function() {
-            module.debug('Flipping down', $nextSide);
-            module.stage.below();
-            module.animate( module.getTransform.down() );
-          },
-          left: function() {
-            module.debug('Flipping left', $nextSide);
-            module.stage.left();
-            module.animate(module.getTransform.left() );
-
-          },
-          right: function() {
-            module.debug('Flipping right', $nextSide);
-            module.stage.right();
-            module.animate(module.getTransform.right() );
-          },
-          over: function() {
-            module.debug('Flipping over', $nextSide);
-            module.stage.behind();
-            module.animate(module.getTransform.behind() );
-          }
-        },
-
-
-
         /* standard module */
         setting: function(name, value) {
           if( $.isPlainObject(name) ) {
@@ -432,11 +456,13 @@ $.fn.shape = function(parameters) {
             settings[name] = value;
           }
         },
+
         verbose: function() {
           if(settings.verbose) {
             module.debug.apply(this, arguments);
           }
         },
+
         debug: function() {
           var
             output    = [],
@@ -450,6 +476,7 @@ $.fn.shape = function(parameters) {
             log.apply(console, output.concat(variables) );
           }
         },
+
         error: function() {
           var
             output       = [],
@@ -464,6 +491,7 @@ $.fn.shape = function(parameters) {
             log.apply(console, output.concat(variables) );
           }
         },
+
         invoke: function(query, context, passedArguments) {
           var
             maxDepth,
