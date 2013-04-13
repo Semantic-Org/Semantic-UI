@@ -16,11 +16,13 @@ $.fn.shape = function(parameters) {
     $allModules     = $(this),
 
     settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
-    // make arguments available
+    
+    // allow methods to be queried directly
     query           = arguments[0],
-    passedArguments = [].slice.call(arguments, 1),
+    queryArguments  = [].slice.call(arguments, 1),
     invokedResponse
   ;
+
   $allModules
     .each(function() {
       var
@@ -29,17 +31,19 @@ $.fn.shape = function(parameters) {
         $shape        = $module.find(settings.selector.shape),
         $side         = $module.find(settings.selector.side),
         
+        // private variables
         $activeSide,
         $nextSide,
-        
-        selector      = $module.selector || '',
-        element       = this,
-        instance      = $module.data('module-' + settings.namespace),
-        methodInvoked = (typeof query == 'string'),
-        
-        // private
+
         endTransition = 'transitionend msTransitionEnd oTransitionEnd',
         
+        // standard module
+        selector      = $module.selector || '',
+        element       = this,
+        moduleName    = 'module-' + settings.namespace,
+        instance      = $module.data(moduleName),
+        methodInvoked = (typeof query == 'string'),
+
         // internal aliases
         namespace     = settings.namespace,
         error         = settings.error,
@@ -53,14 +57,16 @@ $.fn.shape = function(parameters) {
         initialize: function() {
           module.verbose('Initializing module for', element);
           module.set.defaultSide();
+          instance = module;
           $module
-            .data('module-' + namespace, module)
+            .data(moduleName, instance)
           ;
         },
 
         destroy: function() {
           module.verbose('Destroying previous module for', element);
           $module
+            .removeData(moduleName)
             .off('.' + namespace)
           ;
         },
@@ -80,59 +86,58 @@ $.fn.shape = function(parameters) {
         },
 
         animate: function(propertyObject, callback) {
-          if( $module.hasClass(className.animating) ) {
-            module.debug('Animation in progress, queing animation');
+          module.verbose('Animating box with properties', propertyObject);
+          callback = callback || function() {
+              module.reset();
+              module.set.active();
+              module.queue.perform();
+              $.proxy(settings.onChange, $nextSide)();
+          };
+          if(settings.useCSS) {
+            module.verbose('Starting CSS animation');
+            $module
+              .addClass(className.animating)
+            ;
+            module.set.stageSize();
+            module.repaint();
+            $module
+              .addClass(className.css)
+            ;
+            $activeSide
+              .addClass(className.hidden)
+            ;
             $shape
-              .one(endTransition, function() {
-                console.verbose('Executing queued animation');
-                module.animate(propertyObject, callback);
-              })
+              .css(propertyObject)
+              .one(endTransition, callback)
             ;
           }
           else {
-            module.verbose('Animating box with properties', propertyObject);
-            callback = callback || function() {
-                module.reset();
-                module.set.active();
-                $.proxy(settings.onChange, $nextSide)();
-            };
-            if(settings.useCSS || 1) {
-              module.verbose('Using CSS transitions to animate');
-              $module
-                .addClass(className.animating)
-              ;
-              module.set.stageSize();
-              module.repaint();
-              $module
-                .addClass(className.css)
-              ;
-              $activeSide
-                .addClass(className.hidden)
-              ;
-              $shape
-                .css(propertyObject)
-                .one(endTransition, callback)
-              ;
-            }
-            else {
-              // not yet supported until .animate() is extended to allow RotateX/Y
-              module.verbose('Using javascript to animate');
-              $module
-                .addClass(className.animating)
-                .removeClass(className.css)
-              ;
-              module.set.stageSize();
-              module.repaint();
-              $activeSide
-                .animate({
-                  opacity: 0
-                }, settings.duration, settings.easing)
-              ;
-              $shape
-                .animate(propertyObject, settings.duration, settings.easing, callback)
-              ;
-            }
+            // not yet supported until .animate() is extended to allow RotateX/Y
+            module.verbose('Starting javascript animation');
+            $module
+              .addClass(className.animating)
+              .removeClass(className.css)
+            ;
+            module.set.stageSize();
+            module.repaint();
+            $activeSide
+              .animate({
+                opacity: 0
+              }, settings.duration, settings.easing)
+            ;
+            $shape
+              .animate(propertyObject, settings.duration, settings.easing, callback)
+            ;
           }
+        },
+
+        queue: function(method) {
+          module.debug('Queueing animation of', method);
+          $shape
+            .one(endTransition, function() {
+              $module.shape(method);
+            })
+          ;
         },
 
         reset: function() {
@@ -153,6 +158,14 @@ $.fn.shape = function(parameters) {
             .removeClass(className.animating)
             .removeAttr('style')
           ;
+        },
+
+        is: {
+
+          animating: function() {
+            return $module.hasClass(className.animating);
+          }
+
         },
 
         get: {
@@ -218,32 +231,57 @@ $.fn.shape = function(parameters) {
 
           up: function() {
             module.debug('Flipping up', $nextSide);
-            module.stage.above();
-            module.animate( module.getTransform.up() );
+            if( !module.is.animating() ) {
+              module.stage.above();
+              module.animate( module.getTransform.up() );
+            }
+            else {
+              module.queue('flip.up');
+            }
           },
 
           down: function() {
             module.debug('Flipping down', $nextSide);
-            module.stage.below();
-            module.animate( module.getTransform.down() );
+            if( !module.is.animating() ) {
+              module.stage.below();
+              module.animate( module.getTransform.down() );
+            }
+            else {
+              module.queue('flip.down');
+            }
           },
 
           left: function() {
             module.debug('Flipping left', $nextSide);
-            module.stage.left();
-            module.animate(module.getTransform.left() );
+            if( !module.is.animating() ) {
+              module.stage.left();
+              module.animate(module.getTransform.left() );
+            }
+            else {
+              module.queue('flip.left');
+            }
           },
 
           right: function() {
             module.debug('Flipping right', $nextSide);
-            module.stage.right();
-            module.animate(module.getTransform.right() );
+            if( !module.is.animating() ) {
+              module.stage.right();
+              module.animate(module.getTransform.right() );
+            }
+            else {
+              module.queue('flip.right');
+            }
           },
 
           over: function() {
             module.debug('Flipping over', $nextSide);
-            module.stage.behind();
-            module.animate(module.getTransform.behind() );
+            if( !module.is.animating() ) {
+              module.stage.behind();
+              module.animate(module.getTransform.behind() );
+            }
+            else {
+              module.queue('flip.over');
+            }
           }
 
         },
@@ -312,7 +350,7 @@ $.fn.shape = function(parameters) {
         },
 
         stage: {
-          
+
           above: function() {
             var
               box = {
@@ -492,15 +530,17 @@ $.fn.shape = function(parameters) {
           }
         },
 
-        invoke: function(query, context, passedArguments) {
+        invoke: function(query, passedArguments, context) {
           var
             maxDepth,
             found
           ;
-          passedArguments = passedArguments || [].slice.call( arguments, 2 );
+          passedArguments = passedArguments || queryArguments || [].slice.call( arguments, 2 );
+          context         = element         || context;
           if(typeof query == 'string' && instance !== undefined) {
             query    = query.split('.');
             maxDepth = query.length - 1;
+            console.log('found is ', query, instance, context, passedArguments, found);
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
@@ -510,11 +550,12 @@ $.fn.shape = function(parameters) {
                 found = instance[value];
                 return true;
               }
-              module.error(settings.errors.method);
+              module.error(error.method);
               return false;
             });
           }
           if ( $.isFunction( found ) ) {
+            module.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           // return retrieved variable or chain
@@ -524,7 +565,7 @@ $.fn.shape = function(parameters) {
 
       // check for invoking internal method
       if(methodInvoked) {
-        invokedResponse = module.invoke(query, this, passedArguments);
+        invokedResponse = module.invoke(query);
       }
       // otherwise initialize
       else {
