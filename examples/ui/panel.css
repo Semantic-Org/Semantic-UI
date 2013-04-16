@@ -9,6 +9,8 @@
   border: 1px solid #DADADA;
   border: 1px solid rgba(0, 0, 0, 0.12);
 
+  padding: 0px;
+
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -26,6 +28,8 @@
   position: relative;
   cursor: pointer;
   float: left;
+
+  list-style-type: none;
 
   line-height: 1;
   padding: 14px 35px;
