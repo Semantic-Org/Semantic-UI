@@ -341,7 +341,6 @@
 .ui.button.toggle.active.hover.down {
   border: 1px solid #77CF66;
 
-  text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.5);
   background-color: #B6F3A2;
   color: #21A627;
 
@@ -365,6 +364,7 @@ input + .ui.attached.button {
   margin: 0px 0px 0px -15px;
   height: 14px;
   padding: 8px 15px;
+  border: 1px solid #D0D0D0;
 
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -373,6 +373,8 @@ input + .ui.attached.button {
   -webkit-border-radius: 0px 5px 5px 0px;
   -moz-border-radius: 0px 5px 5px 0px;
   border-radius: 0px 5px 5px 0px;
+
+  vertical-align: top;
 }
 .ui.attached.button.loading,
 .ui.attached.button.loading.hover {
@@ -427,7 +429,6 @@ input + .ui.attached.button {
   background: -ms-linear-gradient(top, #E9E9E9 0%, #F0F0F0 100%);
   background: linear-gradient(top, #E9E9E9 0%, #F0F0F0 100%);
 
-  text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.3);
 
   -webkit-box-shadow:
     0px 1px 6px -3px rgba(0, 0, 0, 0.3) inset
@@ -457,7 +458,6 @@ input + .ui.attached.button {
   -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
 
-  text-shadow: none;
 }
 .ui.buttons .button.active.hover,
 .ui.buttons .button.active.hover a,
@@ -511,13 +511,13 @@ input + .ui.attached.button {
   /* standard */
   background: url(/images/ui/throbber-blue-tiny.gif) no-repeat 50% 50%;
   /* css 3 multi image */
-  background-image: url(/images/ui/throbber-blue-tiny.gif), -webkit-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-tiny.gif), -moz-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-tiny.gif), -o-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-tiny.gif), -ms-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-tiny.gif), linear-gradient(top, #22C1FC 0%, #1995FB 100%);
+  background-image: url(/images/ui/throbber-blue-tiny.gif);
+  background-image: url(/images/ui/throbber-blue-tiny.gif);
+  background-image: url(/images/ui/throbber-blue-tiny.gif);
+  background-image: url(/images/ui/throbber-blue-tiny.gif);
+  background-image: url(/images/ui/throbber-blue-tiny.gif);
   background-position: 50% 50%, 0px 0px;
-  background-repeat: no-repeat, repeat;
+  background-repeat: no-repeat;
 
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -534,44 +534,44 @@ input + .ui.attached.button {
   /* standard */
   background: url(/images/ui/throbber-tiny.gif) no-repeat 50% 50%;
   /* css 3 multi image */
-  background-image: url(/images/ui/throbber-tiny.gif), -webkit-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-tiny.gif), -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-tiny.gif), -o-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-tiny.gif), -ms-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-tiny.gif), linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
+  background-image: url(/images/ui/throbber-tiny.gif);
+  background-image: url(/images/ui/throbber-tiny.gif);
+  background-image: url(/images/ui/throbber-tiny.gif);
+  background-image: url(/images/ui/throbber-tiny.gif);
+  background-image: url(/images/ui/throbber-tiny.gif);
   background-position: 50% 50%, 0px 0px;
-  background-repeat: no-repeat, repeat;
+  background-repeat: no-repeat;
 }
 
 /* resizes */
 
 /* blue */
 .ui.huge.button.loading:after {
-  background-image: url(/images/ui/throbber-blue-small.gif), -webkit-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-small.gif), -moz-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-small.gif), -o-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-small.gif), -ms-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-small.gif), linear-gradient(top, #22C1FC 0%, #1995FB 100%);
+  background-image: url(/images/ui/throbber-blue-small.gif);
+  background-image: url(/images/ui/throbber-blue-small.gif);
+  background-image: url(/images/ui/throbber-blue-small.gif);
+  background-image: url(/images/ui/throbber-blue-small.gif);
+  background-image: url(/images/ui/throbber-blue-small.gif);
 }
 .ui.massive.buttons .button.loading:after,
 .ui.gigantic.buttons .button.loading:after,
 .ui.massive.button.loading:after,
 .ui.gigantic.button.loading:after {
-  background-image: url(/images/ui/throbber-blue-medium.gif), -webkit-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-medium.gif), -moz-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-medium.gif), -o-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-medium.gif), -ms-linear-gradient(top, #22C1FC 0%, #1995FB 100%);
-  background-image: url(/images/ui/throbber-blue-medium.gif), linear-gradient(top, #22C1FC 0%, #1995FB 100%);
+  background-image: url(/images/ui/throbber-blue-medium.gif);
+  background-image: url(/images/ui/throbber-blue-medium.gif);
+  background-image: url(/images/ui/throbber-blue-medium.gif);
+  background-image: url(/images/ui/throbber-blue-medium.gif);
+  background-image: url(/images/ui/throbber-blue-medium.gif);
 }
 
 /* grey */
 .ui.huge.grey.button.loading:after,
 .ui.huge.button.loading.active:after {
-  background-image: url(/images/ui/throbber-small.gif), -webkit-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-small.gif), -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-small.gif), -o-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-small.gif), -ms-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-small.gif), linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
+  background-image: url(/images/ui/throbber-small.gif);
+  background-image: url(/images/ui/throbber-small.gif);
+  background-image: url(/images/ui/throbber-small.gif);
+  background-image: url(/images/ui/throbber-small.gif);
+  background-image: url(/images/ui/throbber-small.gif);
 }
 .ui.massive.grey.buttons .button.loading:after,
 .ui.gigantic.grey.buttons .button.loading:after,
@@ -581,11 +581,11 @@ input + .ui.attached.button {
 .ui.gigantic.grey.buttons .button.loading.active:after,
 .ui.massive.button.loading.active:after,
 .ui.gigantic.button.loading.active:after {
-  background-image: url(/images/ui/throbber-medium.gif), -webkit-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-medium.gif), -moz-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-medium.gif), -o-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-medium.gif), -ms-linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
-  background-image: url(/images/ui/throbber-medium.gif), linear-gradient(top, #FFFFFF 0%, #E6E6E6 100%);
+  background-image: url(/images/ui/throbber-medium.gif);
+  background-image: url(/images/ui/throbber-medium.gif);
+  background-image: url(/images/ui/throbber-medium.gif);
+  background-image: url(/images/ui/throbber-medium.gif);
+  background-image: url(/images/ui/throbber-medium.gif);
 }
 
 
@@ -625,6 +625,9 @@ input + .ui.attached.button {
   content: '';
   /* standard */
   background: #EE141D url(/images/ui/button-error.gif) no-repeat 50% 50%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .ui.button.success,
@@ -632,7 +635,6 @@ input + .ui.attached.button {
 .ui.button.success.down {
   background-color: #59B94B;
   color: #FFFFFF;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
   border-color: #588D0F;
 }
 
@@ -701,17 +703,6 @@ input + .ui.attached.button {
 .ui.buttons.vertical .button {
   display: block;
   float: none;
-}
-.ui.buttons.vertical .button,
-.ui.buttons.vertical .mini.button,
-.ui.buttons.vertical .tiny.button,
-.ui.buttons.vertical .small.button,
-.ui.buttons.vertical .massive.button,
-.ui.buttons.vertical .huge.button,
-.ui.buttons.vertical .gigantic.button {
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
 }
 .ui.buttons.vertical .button:first-child,
 .ui.buttons.vertical .mini.button:first-child,
@@ -1002,6 +993,46 @@ input + .ui.attached.button {
   -moz-border-radius: 0px 0px 4px 0px;
   border-radius: 0px 0px 4px 0px;
 }
+/* Left Side */
+.left.attached.ui.buttons {
+  margin-left: -1px;
+  -webkit-border-radius: 0px 4px 4px 0px;
+  -moz-border-radius: 0px 4px 4px 0px;
+  border-radius: 0px 4px 4px 0px;
+}
+.left.attached.ui.buttons .button:first-child {
+  margin-left: -1px;
+  -webkit-border-radius: 0px 4px 0px 0px;
+  -moz-border-radius: 0px 4px 0px 0px;
+  border-radius: 0px 4px 0px 0px;
+}
+.left.attached.ui.buttons .button:last-child {
+  margin-left: -1px;
+  -webkit-border-radius: 0px 0px 4px 0px;
+  -moz-border-radius: 0px 0px 4px 0px;
+  border-radius: 0px 0px 4px 0px;
+}
+/* Right Side */
+.right.attached.ui.buttons,
+.right.attached.ui.buttons .button {
+  margin-right: -1px;
+  -webkit-border-radius: 4px 0px 0px 4px;
+  -moz-border-radius: 4px 0px 0px 4px;
+  border-radius: 4px 0px 0px 4px;
+}
+.right.attached.ui.buttons .button:first-child {
+  margin-left: -1px;
+  -webkit-border-radius: 4px 0px 0px 0px;
+  -moz-border-radius: 4px 0px 0px 0px;
+  border-radius: 4px 0px 0px 0px;
+}
+.right.attached.ui.buttons .button:last-child {
+  margin-left: -1px;
+  -webkit-border-radius: 0px 0px 0px 4px;
+  -moz-border-radius: 0px 0px 0px 4px;
+  border-radius: 0px 0px 0px 4px;
+}
+
 
 
 /* Fluid */
