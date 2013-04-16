@@ -12,11 +12,11 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'Neutraface Bold';
+  font-family: 'Neutraface';
   src:
     url("fonts/neutraface-bold.otf") format('opentype')
   ;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -35,13 +35,23 @@ a:hover {
   color: #00BAFF;
 }
 
-#example h1,
-#example h2,
-#example h3,
-#example a,
-#example .ui {
-  font-family: "Neutraface Bold", "Helvetica Neue", "Arial", sans-serif;
-  font-weight: normal
+#example .sidr {
+  font-weight: bold;
+}
+#example .sidr ul li ul {
+  font-weight: normal;
+}
+#example .sidr ul li ul li a {
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+}
+#example .sidr .active {
+  background-color: #555555;
+}
+#example .sidr .active > a {
+  color: #FFFFFF;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 /* text and headers */
@@ -51,7 +61,8 @@ a:hover {
   border-bottom: 1px solid #DDDDDD;
 }
 #example h1:first-child {
-  margin-top: 20px;
+  margin-top: 0px;
+  padding-top: 20px;
 }
 #example h2 {
   margin: 40px 0px 20px;
@@ -62,6 +73,7 @@ a:hover {
 }
 #example h4 {
   font-size: 16px;
+  font-weight: normal;
   color: #555555;
 }
 #example pre {
@@ -102,15 +114,15 @@ a:hover {
 
 
 /* content */
-#example .container {
-  width: 700px;
-  margin: 0px auto;
-}
 #example .full.container {
   position: relative;
   width: 1000px;
 }
 
+#example .container {
+  width: 700px;
+  margin: 0px auto;
+}
 #example .shortcuts {
   float: right;
   clear: both;
@@ -118,7 +130,8 @@ a:hover {
 
 #example .menu.buttons {
   position: fixed;
-  
+  margin-top: 20px;
+  margin-left: -8px;
 }
 
 
