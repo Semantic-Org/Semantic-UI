@@ -45,6 +45,8 @@ a:hover {
 }
 #example .sidr ul li ul li a {
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  font-size: 15px;
+  color: #666666;
 }
 #example .sidr .active {
   background-color: #555555;
