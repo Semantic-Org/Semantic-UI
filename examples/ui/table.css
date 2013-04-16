@@ -2,6 +2,7 @@
   width: 100%;
   border: 1px solid #F0F0F0;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
 
   font-size: 12px;
   color: #555555;

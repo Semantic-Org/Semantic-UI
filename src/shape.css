@@ -54,34 +54,34 @@
 /* css animation */
 .shape.css.module {
   -webkit-transition: 
-    all 0.5s ease-in-out;
+    all 0.6s ease-in-out;
   ;
   -moz-transition: 
-    all 0.5s ease-in-out;
+    all 0.6s ease-in-out;
   ;
   -o-transition: 
-    all 0.5s ease-in-out;
+    all 0.6s ease-in-out;
   ;
   -ms-transition: 
-    all 0.5s ease-in-out;
+    all 0.6s ease-in-out;
   ;
   transition: 
-    all 0.5s ease-in-out;
+    all 0.6s ease-in-out;
   ;
 }
 .shape.css.module .shape {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 .shape.css.module .side {
-  -webkit-transition: opacity 0.5s ease-out;
-  -moz-transition: opacity 0.5s ease-out;
-  -o-transition: opacity 0.5s ease-out;
-  -ms-transition: opacity 0.5s ease-out;
-  transition: opacity 0.5s ease-out;
+  -webkit-transition: opacity 0.6s ease-out;
+  -moz-transition: opacity 0.6s ease-out;
+  -o-transition: opacity 0.6s ease-out;
+  -ms-transition: opacity 0.6s ease-out;
+  transition: opacity 0.6s ease-out;
 }
 
 /* Active */
