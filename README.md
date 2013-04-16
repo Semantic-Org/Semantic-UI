@@ -1,4 +1,4 @@
-origami
+shape
 =======
 
-Origami is a library for creating 3D transitions in Javascript. 
+Shape is a library for creating 3D transitions in Javascript. 
