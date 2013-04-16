@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Shape Examples</title>
+
+  <link rel="stylesheet" href="ui/state.js" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/panel.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/button.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="ui/table.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="../src/shape.css" type="text/css" media="screen" />
+
+  <link rel="stylesheet" href="example.css" type="text/css" media="screen" />
+
+  <script src="../dependencies/jquery.js" type="text/javascript"></script>
+  <script src="ui/state.js" type="text/javascript"></script>
+
+  <script src="../dependencies/transform2d.js" type="text/javascript"></script>
+  <script src="../dependencies/transform3d.js" type="text/javascript"></script>
+  <script src="../src/shape.js" type="text/javascript"></script>
+
+  <script src="example.js" type="text/javascript"></script>
+
+  </head>
+
+<body id="example">
+<div class="container">
+
+  <h1>Shape</h1>
+  <p>Shape is a plugin for 3D transitioning elements. </p>
+
+  <p>Shapes makes creating 3D tweens easier by taking care of the dirty business of calculating translations based on content sizing, which can be a confusing, frustrating task.</p>
+  <p>The module uses 3D transformations which are currently only supported in modern versions of Chrome, Safari, and Firefox.</p>
+  <p>Shapes is written using the semantic module specification. Semantic is a standard pattern for writing Javascript modules which intends to make understanding new code less confusing, and debugging errors less frustrating, by making coding decisions less arbitrary and more semantic. <a href="module.html">
+    
+  <p>Click here to read more</a> about Semantic spec, and the upcoming library.</p>
+
+  <h2>Examples</h2>
+
+  <h3>Regular Shape</h3>
+  <div class="demo square shape module">
+    <div class="shape">
+      <div class="active jira side">
+        <img src="images/jira.png">
+      </div>
+      <div class="heroku side">
+        <img src="images/heroku.png">
+      </div>
+      <div class="quirky side">
+        <img src="images/quirky.png">
+      </div>
+    </div>
+  </div>
+
+  <h3>Shape</h3>
+  <div class="ui shape buttons">
+    <div class="active ui button" data-shape="square">Square</div>
+    <div class="ui button" data-shape="rectangle">Rectangle</div>
+    <div class="ui button" data-shape="irregular">Irregular</div>
+  </div>
+
+  <h3>Flip</h3>
+  <div class="ui direction buttons">
+    <div class="ui button" data-animation="flip" data-direction="left">Left</div>
+    <div class="ui button" data-animation="flip" data-direction="right">Right</div>
+    <div class="ui button" data-animation="flip" data-direction="up">Up</div>
+    <div class="ui button" data-animation="flip" data-direction="down">Down</div>
+    <div class="ui button" data-animation="flip" data-direction="over">Over</div>
+  </div>
+
+  <h2>Usage</h2>
+
+  The plugin must be initialized once before methods can be accessed
+  <pre>
+  <code>
+  $('.shape')
+    .shape()
+  ;
+  </code>
+  </pre>
+
+  Transitions automatically assume next side is the next sibling (or first if last element)
+  <pre>
+  <code>
+  $('.shape')
+    .shape('flip.up')
+  ;
+  </code>
+  </pre>
+
+  To manually set the next side to appear use a selector or jQuery object
+  <pre>
+  <code>
+  $('.shape')
+    .shape('set.nextSide', '.second')
+    .shape('flip.up')
+  ;
+  </code>
+  </pre>
+
+  Any internal method can be invoked programmatically
+  <pre>
+  <code>
+  $('.shape')
+    .shape('repaint')
+  ;
+  </code>
+  </pre>
+
+  <h2>Settings</h2>
+  <p>Settings can be modified in three different ways. 
+  <ol>
+    <li>A settings object can be passed in when initializing the plugin <code>$('.foo').shape({ moduleName: 'Godzilla'});</code>.</li>
+    <li>Default settings for the module can be overridden by modifying $.fn.shape.settings.</li>
+    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. <code>$('.foo').shape('setting', 'moduleName', 'Godzilla');</code></li>
+  </ol>
+  <p>Settings can also be read programmatically: <code>$('.foo').shape('setting', 'moduleName');</code>
+  <table class="ui large grid table">
+    <thead>
+      <th>Setting Name</th>
+      <th>Default Value</th>
+      <th>Usage</th>
+    </thead>
+    <tr>
+      <td>moduleName</td>
+      <td>Shape</td>
+      <td>Name used in debug logs</td>
+    </tr>
+    <tr>
+      <td>debug</td>
+      <td>True</td>
+      <td>Provides standard debug output to console</td>
+    </tr>
+    <tr>
+      <td>verbose</td>
+      <td>False</td>
+      <td>Provides ancillary debug output to console</td>
+    </tr>
+    <tr>
+      <td>namespace</td>
+      <td>shape</td>
+      <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+    </tr>
+    <tr>
+      <td>beforeChange</td>
+      <td>None</td>
+      <td>Callback before side is changed. This context is the new side.</td>
+    </tr>
+    <tr>
+      <td>onChange</td>
+      <td>None</td>
+      <td>Callback after side is changed. This context is new side.</td>
+    </tr>
+    <tr>
+      <td>useCSS</td>
+      <td>True</td>
+      <td>Not currently supported. Will allow for use of javascript requestAnimationFrame transitions instead of css3 transitions.</td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>1000ms</td>
+      <td>Duration of animation (javascript only). To modify animation duration for css simply modify the css property transition-duration.</td>
+    </tr>
+    <tr>
+      <td>easing</td>
+      <td>easeInOutQuad</td>
+      <td>Easing equation for animation (javascript only). To modify the easing for css simply modify the css property transition-easing</td>
+    </tr>
+    <tr>
+      <td>errors</td>
+      <td>
+        <pre><code>
+          {
+            side   : 'You tried to switch to a side that does not exist.',
+            method : 'The method you called is not defined'
+          }
+        </code></pre>
+      </td>
+      <td>Object containing localized error messages.</td>
+    </tr>
+    <tr>
+      <td>selector</td>
+      <td>
+        <pre><code>
+        {
+          shape : '.shape',
+          side  : '.side'
+        }
+        </code></pre>
+      </td>
+      <td>Object containing selectors used by module.</td>
+    </tr>
+    <tr>
+      <td>className</td>
+      <td>
+        <pre><code>
+        {
+          css       : 'css',
+          animating : 'animating',
+          hidden    : 'hidden',
+          active    : 'active'
+        }
+        </code></pre>
+      </td>
+      <td>Object containing class names used by module.</td>
+    </tr>
+  </table>
+
+</div>
+</body>
+
+</html>

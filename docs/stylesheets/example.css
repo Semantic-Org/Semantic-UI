@@ -1,0 +1,195 @@
+/*******************************
+        Standard Example
+*******************************/
+
+/* font */
+@font-face {
+  font-family: 'Neutraface';
+  src:
+    url("fonts/neutraface-book.otf") format('opentype')
+  ;
+  font-weight: normal;
+  font-style: normal;
+  font-size-adjust: 0.448;
+}
+@font-face {
+  font-family: 'Neutraface';
+  src:
+    url("fonts/neutraface-bold.otf") format('opentype')
+  ;
+  font-weight: bold;
+  font-style: normal;
+  font-size-adjust: 0.448;
+}
+
+body#example {
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  background: #FCFCFC url(images/bg.jpg) repeat;
+  padding-bottom: 150px;
+}
+
+/* links */
+a {
+  color: #009FDA;
+  text-decoration: none;
+}
+a:hover {
+  color: #00BAFF;
+}
+
+#example .sidr {
+  font-weight: bold;
+}
+#example .sidr ul li ul {
+  font-weight: normal;
+}
+#example .sidr ul li ul li a {
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  font-size: 15px;
+  color: #666666;
+}
+#example .sidr .active {
+  background-color: #555555;
+}
+#example .sidr .active > a {
+  color: #FFFFFF;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* text and headers */
+#example h1 {
+  margin: 0px 0px 20px;
+  padding: 50px 0px 5px;
+  border-bottom: 1px solid #DDDDDD;
+}
+#example h1 .text {
+  width: 1000px;
+  margin: 0px auto;
+}
+#example h1:first-child {
+  margin-top: 0px;
+  padding-top: 20px;
+}
+#example h2 {
+  margin: 40px 0px 20px;
+}
+#example h3 {
+  font-size: 20px;
+  margin: 40px 0px 15px;
+}
+#example h4 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #555555;
+}
+#example pre {
+  background-color: #F0F0F0;
+}
+#example code {
+  background-color: #F0F0F0;
+  border: 1px solid #DDDDDD;
+  padding: 3px 5px;
+}
+#example pre code {
+  border: none;
+  padding: 0px;
+}
+#example p {
+  margin: 10px 0px;
+}
+#example p a {
+  font-weight: bold;
+}
+
+/* lists */
+#example ol {
+  list-style-position: inside;
+  margin: 10px 0px 40px;
+  padding: 0px;
+}
+#example ol li {
+  list-style-type: decimal;
+  margin: 0px 0px 10px;
+}
+#example .list {
+  list-style-position: inside;
+  margin: 10px 0px 40px;
+  padding: 0px;
+}
+#example .list li {
+  list-style-type: disc;
+  margin: 0px 0px 10px;
+}
+
+
+/* content */
+#example .full.container {
+  position: relative;
+  width: 1000px;
+}
+
+#example .container {
+  width: 700px;
+  margin: 0px auto;
+}
+#example .shortcuts {
+  float: right;
+  clear: both;
+}
+
+#example .menu.buttons {
+  position: fixed;
+  margin-top: 20px;
+  margin-left: -8px;
+}
+
+
+
+/*******************************
+        Shapes Example
+*******************************/
+
+#example .demo.shape {
+
+}
+
+#example .demo.shape .side {
+  
+  width: 250px;
+  height: 250px;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  background-color: #E6E6E6;
+
+  color: #FFFFFF;
+
+  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#example .demo.shape .side img {
+  display: block;
+  margin: 0px auto;
+  max-width: 100%;
+}
+
+#example .demo.shape .side b {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  font-size: 80px;
+  margin-top: -48px;
+  text-align: center;
+}
+
+#example .demo.rectangle.shape .side {
+  width: 350px;
+}
