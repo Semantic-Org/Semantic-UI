@@ -10,6 +10,7 @@
   ;
   font-weight: normal;
   font-style: normal;
+  font-size-adjust: 0.448;
 }
 @font-face {
   font-family: 'Neutraface';
@@ -18,6 +19,7 @@
   ;
   font-weight: bold;
   font-style: normal;
+  font-size-adjust: 0.448;
 }
 
 body#example {
@@ -56,9 +58,13 @@ a:hover {
 
 /* text and headers */
 #example h1 {
-  margin: 50px 0px 20px;
-  padding-bottom: 5px;
+  margin: 0px 0px 20px;
+  padding: 50px 0px 5px;
   border-bottom: 1px solid #DDDDDD;
+}
+#example h1 .text {
+  width: 1000px;
+  margin: 0px auto;
 }
 #example h1:first-child {
   margin-top: 0px;
