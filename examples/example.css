@@ -38,16 +38,20 @@ a:hover {
 #example h1,
 #example h2,
 #example h3,
-#example h4,
-#example h5,
 #example a,
 #example .ui {
   font-family: "Neutraface Bold", "Helvetica Neue", "Arial", sans-serif;
+  font-weight: normal
 }
 
 /* text and headers */
 #example h1 {
-  margin: 20px 0px 20px;
+  margin: 50px 0px 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #DDDDDD;
+}
+#example h1:first-child {
+  margin-top: 20px;
 }
 #example h2 {
   margin: 40px 0px 20px;
@@ -69,7 +73,8 @@ a:hover {
   padding: 3px 5px;
 }
 #example pre code {
-
+  border: none;
+  padding: 0px;
 }
 #example p {
   margin: 10px 0px;
@@ -101,10 +106,19 @@ a:hover {
   width: 700px;
   margin: 0px auto;
 }
+#example .full.container {
+  position: relative;
+  width: 1000px;
+}
 
 #example .shortcuts {
   float: right;
   clear: both;
+}
+
+#example .menu.buttons {
+  position: fixed;
+  
 }
 
 

@@ -41,7 +41,7 @@
   <p>Semantic has two parts. The <a href="#standard">semantic standard</a>, and the <a href="#library">semantic library</a>.</b></p>
   
   <a name="standard"></a>
-  <h2>The standard</h2>
+  <h1>The standard</h1>
   <p>The semantic standard attempts to create a standard design pattern for describing static UI components (UI elements), and dynamic UI components or behavioral definitions (Javascript modules).</p>
   
   <p><b>Static elements</b>: menus, columns, grids, tables, buttons, forms.</p>
@@ -50,20 +50,20 @@
   
   <h2>Defining UI</h2>
   <p>Semantic creates an exchange format for UI, by defining a consistent HTML structure and set of class names for representing UI elements.</p>
-  <p>Sharing a structural standard for UI releases the burden from developers at being a naming authorities in their own projects.</p>
-
-  <p>If, as a community we can agree on consistent UI definitions, then we can freely share variations of element designs without having to modify our site's codebase to match any declarative expectations by other developers, and interface designs can be freely exchanged between projects and teams.</p>
+  <p>Sharing a common standard for UI releases the burden from developers at being a naming authorities in their own projects.</p>
+  <p>If together as a community we can define a standard for interface elements, we can share designs without having to modify our site's code to match the arbitrary specifications of a library, and interface designs can be freely exchanged between projects and teams.</p>
   
   <h3>What's in an element</h3>
   <p><b>UI elements definitions are made of 4 parts</b>: 
   <ol>
-    <li>An ideal form of an element (A bunny has two long ears and is furry)</li>
-    <li>A list of states which the element can exist. (A bunny can either be hopping, eating or sitting still)</li>
+    <li>A prototype form of an element (A bunny has two long ears and is furry)</li>
     <li>A definition of the relationship between a plural and singular instance of an element (Three white bunnies are each white)</li>
     <li>A definition of possible variations of the element (A bunny can be large or small and can be spotted or fuzzy)</li>
+    <li>A list of states which the element can exist. (A bunny can either be hopping, eating or sitting still)</li>
   </ol>
-  <p>UI elements can be thought of as nouns, and variations as adjectives. Variations are written in a way which only describe the innate features of that variation in the context of the noun. For example, in english, a large planet has a different meaning than a large chair, but both are the same variant "largeness".</p>
-  <p>Variations can be used together without negating each other unless used in a pardoxical way (A large small bunny).</p>
+  <p>UI elements can be thought of as nouns, and variations as adjectives. Variations are written so to only describe the innate features of that variation, and must account for the differences when declared along-side other variations.</p>
+  <p>For example, in English, a large planet has a different meaning than a large chair, and would require different specific contextual definitions, but both are the same variant "largeness" to the person using the word.</p>
+  <p>Variations can be used together without negating each other unless used in a paradoxical way (A large small bunny).</p>
   
   <h3>I don't know what you're talking about just show me the code</h3>
   <p>If you'd like to shortcut any more explanation, check out the standard definition for a UI button for a live example.</p>
@@ -95,7 +95,7 @@
   </div> 
   
   <a name="library"></a>
-  <h2>The Libraries</h2>
+  <h1>The Libraries</h1>
   <p>To semantic library is a set of UI elements and javascript modules that provides an example implementation of the Semantic standard. The purpose is to be useful in their own right for developers, but also to provide a guide for how the standard can be used.</p>
   <h3>The UI Library</h3>
   <ul class="list">

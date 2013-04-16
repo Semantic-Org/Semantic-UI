@@ -77,6 +77,12 @@ shape.ready = function() {
     .on('click', handler.changeShape)
   ;
 
+  $('.menu.button')
+  .sidr({
+    name: 'menu'
+  })
+  ;
+
 };
 
 
