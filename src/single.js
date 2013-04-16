@@ -14,17 +14,12 @@
 $.fn.shape = function(parameters) {
   var
     $allModules     = $(this),
-    
+
     settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
     
-    // define namespaces for modules
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
-
     // allow methods to be queried directly
     query           = arguments[0],
     queryArguments  = [].slice.call(arguments, 1),
-    methodInvoked   = (typeof query == 'string'),
     invokedResponse
   ;
 
@@ -39,12 +34,15 @@ $.fn.shape = function(parameters) {
         // private variables
         $activeSide,
         $nextSide,
+
         endTransition = 'transitionend msTransitionEnd oTransitionEnd',
         
         // standard module
         selector      = $module.selector || '',
         element       = this,
-        instance      = $module.data(moduleNamespace),
+        moduleName    = 'module-' + settings.namespace,
+        instance      = $module.data(moduleName),
+        methodInvoked = (typeof query == 'string'),
 
         // internal aliases
         namespace     = settings.namespace,
@@ -61,15 +59,15 @@ $.fn.shape = function(parameters) {
           module.set.defaultSide();
           instance = module;
           $module
-            .data(moduleNamespace, instance)
+            .data(moduleName, instance)
           ;
         },
 
         destroy: function() {
           module.verbose('Destroying previous module for', element);
           $module
-            .removeData(moduleNamespace)
-            .off(eventNamespace)
+            .removeData(moduleName)
+            .off('.' + namespace)
           ;
         },
 
@@ -542,6 +540,7 @@ $.fn.shape = function(parameters) {
           if(typeof query == 'string' && instance !== undefined) {
             query    = query.split('.');
             maxDepth = query.length - 1;
+            console.log('found is ', query, instance, context, passedArguments, found);
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
@@ -560,15 +559,12 @@ $.fn.shape = function(parameters) {
             return found.apply(context, passedArguments);
           }
           // return retrieved variable or chain
-          return found || false;
+          return found;
         }
       };
 
       // check for invoking internal method
       if(methodInvoked) {
-        if(instance === undefined) {
-          module.initialize();
-        }
         invokedResponse = module.invoke(query);
       }
       // otherwise initialize
@@ -581,7 +577,7 @@ $.fn.shape = function(parameters) {
     })
   ;
   // chain or return queried method
-  return (invokedResponse)
+  return (invokedResponse !== undefined)
     ? invokedResponse
     : this
   ;

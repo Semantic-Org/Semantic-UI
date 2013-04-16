@@ -63,6 +63,14 @@ a:hover {
 #example pre {
   background-color: #F0F0F0;
 }
+#example code {
+  background-color: #F0F0F0;
+  border: 1px solid #DDDDDD;
+  padding: 3px 5px;
+}
+#example pre code {
+
+}
 #example p {
   margin: 10px 0px;
 }
