@@ -1,0 +1,526 @@
+/*--------------------- Typography ----------------------------*/
+
+@font-face {
+  font-family: 'Neutraface';
+  src:
+    url("../fonts/neutraface-book.otf") format('opentype')
+  ;
+  font-weight: normal;
+  font-style: normal;
+  font-size-adjust: 0.448;
+}
+@font-face {
+  font-family: 'Neutraface';
+  src:
+    url("../fonts/neutraface-bold.otf") format('opentype')
+  ;
+  font-weight: bold;
+  font-style: normal;
+  font-size-adjust: 0.448;
+}
+
+
+/*--------------------- Layout ----------------------------*/
+html { height: 100%; }
+body {
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #30404f;
+  margin: 0; padding: 0;
+  height:100%;
+}
+#container { min-height: 100%; }
+
+a {
+  color: #000;
+}
+
+b, strong {
+  font-weight: normal;
+}
+
+p, ul, ol {
+  margin: 15px 0 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #112233;
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  line-height: 1em;
+  text-transform: none;
+  margin: 30px 0 15px 0;
+}
+h1 {
+  margin: 0px 0px 20px;
+  font-size: 38px;
+  color: #00B4AC;
+}
+h2 {
+  margin: 0px 0px 20px;
+  font-size: 28px;
+  color: #6E4889;
+}
+h3 {
+  margin: 0px 0px 20px;
+  font-size: 22px;
+}
+h4 {
+  margin: 0px 0px 10px;
+  font-size: 18px;
+  color: #555555;
+}
+h5 {
+  margin: 0px 0px 10px;
+  font-size: 16px;
+  color: #555555;
+}
+a {
+  font-weight: bold;
+  color: #009FDA;
+  text-decoration: none;
+}
+a:hover {
+  color: #00BAFF;
+}
+
+hr {
+  border: 0;
+  background: 1px solid #ddd;
+  height: 1px;
+  margin: 20px 0;
+}
+
+pre, tt, code {
+  font-size: 12px; line-height: 16px;
+  font-family: Menlo, Monaco, Consolas, "Lucida Console", monospace;
+  margin: 0; padding: 0;
+}
+  .annotation pre {
+    display: block;
+    margin: 0;
+    padding: 7px 10px;
+    background: #fcfcfc;
+    -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    box-shadow:         inset 0 0 10px rgba(0,0,0,0.1);
+    overflow-x: auto;
+  }
+    .annotation pre code {
+      border: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+
+blockquote {
+  border-left: 5px solid #ccc;
+  margin: 0;
+  padding: 1px 0 1px 1em;
+}
+  .sections blockquote p {
+    font-family: Menlo, Consolas, Monaco, monospace;
+    font-size: 12px; line-height: 16px;
+    color: #999;
+    margin: 10px 0 0;
+    white-space: pre-wrap;
+  }
+
+ul.sections {
+  list-style: none;
+  padding:0 0 5px 0;;
+  margin:0;
+}
+
+/*
+  Force border-box so that % widths fit the parent
+  container without overlap because of margin/padding.
+
+  More Info : http://www.quirksmode.org/css/box.html
+*/
+ul.sections > li > div {
+  -moz-box-sizing: border-box;    /* firefox */
+  -ms-box-sizing: border-box;     /* ie */
+  -webkit-box-sizing: border-box; /* webkit */
+  -khtml-box-sizing: border-box;  /* konqueror */
+  box-sizing: border-box;         /* css3 */
+}
+
+
+/*---------------------- Jump Page -----------------------------*/
+#jump_to, #jump_page {
+  margin: 0;
+  background: white;
+  -webkit-box-shadow: 0 0 25px #777; -moz-box-shadow: 0 0 25px #777;
+  -webkit-border-bottom-left-radius: 5px; -moz-border-radius-bottomleft: 5px;
+  font: 16px Arial;
+  cursor: pointer;
+  text-align: right;
+  list-style: none;
+}
+
+#jump_to a {
+  text-decoration: none;
+}
+
+#jump_to a.large {
+  display: none;
+}
+#jump_to a.small {
+  font-size: 22px;
+  font-weight: bold;
+  color: #676767;
+}
+
+#jump_to, #jump_wrapper {
+  position: fixed;
+  right: 0; top: 0;
+  padding: 10px 15px;
+  margin:0;
+}
+
+#jump_wrapper {
+  display: none;
+  padding:0;
+}
+
+#jump_to:hover #jump_wrapper {
+  display: block;
+}
+
+#jump_page {
+  padding: 5px 0 3px;
+  margin: 0 0 25px 25px;
+}
+
+#jump_page .source {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  border-top: 1px solid #eee;
+}
+
+#jump_page .source:hover {
+  background: #f5f5ff;
+}
+
+#jump_page .source:first-child {
+}
+
+/*---------------------- Low resolutions (> 320px) ---------------------*/
+@media only screen and (min-width: 320px) {
+  .pilwrap { display: none; }
+
+  ul.sections > li > div {
+    display: block;
+    padding:5px 10px 0 10px;
+  }
+
+  ul.sections > li > div.annotation ul, ul.sections > li > div.annotation ol {
+    padding-left: 30px;
+  }
+
+  ul.sections > li > div.content {
+    background: #f5f5ff;
+    overflow-x:auto;
+    -webkit-box-shadow: inset 0 0 5px #e5e5ee;
+    box-shadow: inset 0 0 5px #e5e5ee;
+    border: 1px solid #dedede;
+    margin:5px 10px 5px 10px;
+    padding-bottom: 5px;
+  }
+
+  ul.sections > li > div.annotation pre {
+    margin: 7px 0 7px;
+    padding-left: 15px;
+  }
+
+  ul.sections > li > div.annotation p tt, .annotation code {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    background: #f8f8ff;
+    border: 1px solid #dedede;
+  }
+}
+
+/*----------------------  (> 481px) ---------------------*/
+@media only screen and (min-width: 481px) {
+  #container {
+    position: relative;
+  }
+  body {
+    background-color: #F5F5FF;
+    font-size: 15px;
+    line-height: 21px;
+  }
+  pre, tt, code {
+    line-height: 18px;
+  }
+  p, ul, ol {
+    margin: 0 0 15px;
+  }
+
+
+  #jump_to {
+    padding: 5px 10px;
+  }
+  #jump_wrapper {
+    padding: 0;
+  }
+  #jump_to, #jump_page {
+    font: 10px Arial;
+    text-transform: uppercase;
+  }
+  #jump_page .source {
+    padding: 5px 10px;
+  }
+  #jump_to a.large {
+    display: inline-block;
+  }
+  #jump_to a.small {
+    display: none;
+  }
+
+
+  #background {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 350px;
+    border-right: 1px solid #e5e5ee;
+    z-index: -1;
+    background: #FCFCFC url(../images/bg.jpg) repeat;
+
+  }
+
+  ul.sections > li > div.annotation ul, ul.sections > li > div.annotation ol {
+    padding-left: 40px;
+  }
+
+  ul.sections > li {
+    white-space: nowrap;
+  }
+
+  ul.sections > li > div {
+    display: inline-block;
+  }
+
+  ul.sections > li > div.annotation {
+    max-width: 350px;
+    min-width: 350px;
+    min-height: 5px;
+    padding: 13px;
+    overflow-x: hidden;
+    white-space: normal;
+    vertical-align: top;
+    text-align: left;
+  }
+  ul.sections > li > div.annotation pre {
+    margin: 15px 0 15px;
+    padding-left: 15px;
+  }
+
+  ul.sections > li > div.content {
+    padding: 13px;
+    vertical-align: top;
+    background: #f5f5ff;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .pilwrap {
+    position: relative;
+    display: inline;
+  }
+
+  .pilcrow {
+    font: 12px Arial;
+    text-decoration: none;
+    color: #454545;
+    position: absolute;
+    top: 3px; left: -20px;
+    padding: 1px 2px;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s linear;
+  }
+    .for-h1 .pilcrow {
+      top: 47px;
+    }
+    .for-h2 .pilcrow, .for-h3 .pilcrow, .for-h4 .pilcrow {
+      top: 35px;
+    }
+
+  ul.sections > li > div.annotation:hover .pilcrow {
+    opacity: 1;
+  }
+}
+
+/*---------------------- (> 1025px) ---------------------*/
+@media only screen and (min-width: 1025px) {
+
+  body {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  #background {
+    width: 525px;
+  }
+  ul.sections {
+    padding-top: 50px;
+  }
+  ul.sections > li > div.annotation {
+    max-width: 525px;
+    min-width: 525px;
+    padding: 10px 25px 1px 50px;
+  }
+  ul.sections > li > div.content {
+    padding: 9px 15px 16px 25px;
+  }
+
+  ul.sections p {
+    font-size: 16px;
+    line-height: 1.33;
+  }
+}
+
+/*---------------------- Syntax Highlighting -----------------------------*/
+
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+pre code {
+  display: block; padding: 0.5em;
+  color: #000;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #408080;
+  font-style: italic
+}
+
+pre .keyword,
+pre .assignment,
+pre .literal,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .lisp .title,
+pre .subst {
+  color: #954121;
+  /*font-weight: bold*/
+}
+
+pre .number,
+pre .hexcolor {
+  color: #40a070
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #219161;
+}
+
+pre .title,
+pre .id {
+  color: #19469D;
+}
+pre .params {
+  color: #00F;
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .label,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .instancevar,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #B68
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .ruby .symbol .keyword,
+pre .ruby .symbol .keymethods,
+pre .lisp .keyword,
+pre .tex .special,
+pre .input_number {
+  color: #990073
+}
+
+pre .builtin,
+pre .constructor,
+pre .built_in,
+pre .lisp .title {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
+}
+
+pre .tex .formula {
+  opacity: 0.5;
+}
