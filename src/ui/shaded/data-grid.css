@@ -38,7 +38,7 @@
   float: left;
   width: 35px;
   height: 35px;
-  background: #EFEFEF url(/images/ui/placeholder-tiny.png) no-repeat center center;
+  background: #EFEFEF url(../images/placeholder-tiny.png) no-repeat center center;
 }
 .ui.data-grid tbody td.who img {
   width: 35px;

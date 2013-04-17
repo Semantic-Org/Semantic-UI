@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   border: 1px solid #CCCCCC;
-  background: #F5F5F5 url(/images/ui/placeholder-subtle.png) no-repeat center center;
+  background: #F5F5F5 url(../images/placeholder-subtle.png) no-repeat center center;
 }
 .ui.feature.image img {
   display: block;

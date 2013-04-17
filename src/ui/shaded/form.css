@@ -136,7 +136,7 @@
 ---------------------*/
 
 .ui.form input.attached {
-  float: left;
+  width: auto;
 }
 
 .ui.form .date.field > label {

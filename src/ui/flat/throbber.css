@@ -7,7 +7,7 @@
   display: inline-block;
   width: 32px;
   height: 32px;
-  background: url(/images/ui/throbber-medium.gif) no-repeat;
+  background: url(../images/throbber-medium.gif) no-repeat;
   background-position: 48% 0px;
 }
 .ui.throbber.center {
@@ -22,7 +22,7 @@
 .ui.throbber.large {
   width: 64px;
   height: 64px;
-  background-image: url(/images/ui/throbber-large.gif);
+  background-image: url(../images/throbber-large.gif);
 }
 .ui.throbber.large.center {
   margin: -32px 0px 0px -32px;
@@ -32,7 +32,7 @@
 .ui.throbber.small {
   width: 24px;
   height: 24px;
-  background-image: url(/images/ui/throbber-small.gif);
+  background-image: url(../images/throbber-small.gif);
 }
 .ui.throbber.small.center {
   margin: -12px 0px 0px -12px;
@@ -42,7 +42,7 @@
 .ui.throbber.tiny {
   width: 16px;
   height: 16px;
-  background-image: url(/images/ui/throbber-tiny.gif);
+  background-image: url(../images/throbber-tiny.gif);
 }
 .ui.throbber.tiny.center {
   margin: -8px 0px 0px -8px;
@@ -86,14 +86,14 @@
   color: #FFFFFF
 }
 .ui.throbber.tiny.blue {
-  background-image: url(/images/ui/throbber-blue-tiny.gif);
+  background-image: url(../images/throbber-blue-tiny.gif);
 }
 .ui.throbber.small.blue {
-  background-image: url(/images/ui/throbber-blue-small.gif);
+  background-image: url(../images/throbber-blue-small.gif);
 }
 .ui.throbber.blue {
-  background-image: url(/images/ui/throbber-blue-medium.gif);
+  background-image: url(../images/throbber-blue-medium.gif);
 }
 .ui.throbber.large.blue {
-  background-image: url(/images/ui/throbber-blue-large.gif);
+  background-image: url(../images/throbber-blue-large.gif);
 }

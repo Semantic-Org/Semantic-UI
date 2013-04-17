@@ -16,7 +16,7 @@
   position: absolute;
   z-index: 4;
 
-  background: url(/images/ui/paperclip.png) no-repeat;
+  background: url(../images/paperclip.png) no-repeat;
   width: 37px;
   height: 21px;
 }

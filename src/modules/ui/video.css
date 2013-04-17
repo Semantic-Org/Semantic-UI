@@ -5,7 +5,7 @@
 
 .video.module {
   position: relative;
-	background: #333333 url(/images/ui/placeholder.png) no-repeat center center;
+	background: #333333 url(../images/placeholder.png) no-repeat center center;
 }
 
 .video.module .play {

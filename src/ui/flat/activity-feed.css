@@ -17,7 +17,7 @@
   width: 35px;
   height: 35px;
   
-  background: #EFEFEF url(/images/ui/placeholder-tiny.png) no-repeat center center;
+  background: #EFEFEF url(../images/placeholder-tiny.png) no-repeat center center;
 
   -webkit-box-shadow: -1px -1px 0 #F0F0F0 inset;
   -moz-box-shadow: -1px -1px 0 #F0F0F0 inset;
