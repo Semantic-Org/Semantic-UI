@@ -514,13 +514,13 @@ input + .ui.attached.button.down {
   height: 100%;
   content: '';
   /* standard */
-  background: url(/images/ui/throbber-blue-tiny.gif) no-repeat 50% 50%;
+  background: url(../images/throbber-blue-tiny.gif) no-repeat 50% 50%;
   /* css 3 multi image */
-  background-image: url(/images/ui/throbber-blue-tiny.gif);
-  background-image: url(/images/ui/throbber-blue-tiny.gif);
-  background-image: url(/images/ui/throbber-blue-tiny.gif);
-  background-image: url(/images/ui/throbber-blue-tiny.gif);
-  background-image: url(/images/ui/throbber-blue-tiny.gif);
+  background-image: url(../images/throbber-blue-tiny.gif);
+  background-image: url(../images/throbber-blue-tiny.gif);
+  background-image: url(../images/throbber-blue-tiny.gif);
+  background-image: url(../images/throbber-blue-tiny.gif);
+  background-image: url(../images/throbber-blue-tiny.gif);
   background-position: 50% 50%, 0px 0px;
   background-repeat: no-repeat;
 
@@ -537,13 +537,13 @@ input + .ui.attached.button.down {
 .ui.button.active.loading:after {
   background-color: #FAFAFA;
   /* standard */
-  background: url(/images/ui/throbber-tiny.gif) no-repeat 50% 50%;
+  background: url(../images/throbber-tiny.gif) no-repeat 50% 50%;
   /* css 3 multi image */
-  background-image: url(/images/ui/throbber-tiny.gif);
-  background-image: url(/images/ui/throbber-tiny.gif);
-  background-image: url(/images/ui/throbber-tiny.gif);
-  background-image: url(/images/ui/throbber-tiny.gif);
-  background-image: url(/images/ui/throbber-tiny.gif);
+  background-image: url(../images/throbber-tiny.gif);
+  background-image: url(../images/throbber-tiny.gif);
+  background-image: url(../images/throbber-tiny.gif);
+  background-image: url(../images/throbber-tiny.gif);
+  background-image: url(../images/throbber-tiny.gif);
   background-position: 50% 50%, 0px 0px;
   background-repeat: no-repeat;
 }
@@ -552,31 +552,31 @@ input + .ui.attached.button.down {
 
 /* blue */
 .ui.huge.button.loading:after {
-  background-image: url(/images/ui/throbber-blue-small.gif);
-  background-image: url(/images/ui/throbber-blue-small.gif);
-  background-image: url(/images/ui/throbber-blue-small.gif);
-  background-image: url(/images/ui/throbber-blue-small.gif);
-  background-image: url(/images/ui/throbber-blue-small.gif);
+  background-image: url(../images/throbber-blue-small.gif);
+  background-image: url(../images/throbber-blue-small.gif);
+  background-image: url(../images/throbber-blue-small.gif);
+  background-image: url(../images/throbber-blue-small.gif);
+  background-image: url(../images/throbber-blue-small.gif);
 }
 .ui.massive.buttons .button.loading:after,
 .ui.gigantic.buttons .button.loading:after,
 .ui.massive.button.loading:after,
 .ui.gigantic.button.loading:after {
-  background-image: url(/images/ui/throbber-blue-medium.gif);
-  background-image: url(/images/ui/throbber-blue-medium.gif);
-  background-image: url(/images/ui/throbber-blue-medium.gif);
-  background-image: url(/images/ui/throbber-blue-medium.gif);
-  background-image: url(/images/ui/throbber-blue-medium.gif);
+  background-image: url(../images/throbber-blue-medium.gif);
+  background-image: url(../images/throbber-blue-medium.gif);
+  background-image: url(../images/throbber-blue-medium.gif);
+  background-image: url(../images/throbber-blue-medium.gif);
+  background-image: url(../images/throbber-blue-medium.gif);
 }
 
 /* grey */
 .ui.huge.grey.button.loading:after,
 .ui.huge.button.loading.active:after {
-  background-image: url(/images/ui/throbber-small.gif);
-  background-image: url(/images/ui/throbber-small.gif);
-  background-image: url(/images/ui/throbber-small.gif);
-  background-image: url(/images/ui/throbber-small.gif);
-  background-image: url(/images/ui/throbber-small.gif);
+  background-image: url(../images/throbber-small.gif);
+  background-image: url(../images/throbber-small.gif);
+  background-image: url(../images/throbber-small.gif);
+  background-image: url(../images/throbber-small.gif);
+  background-image: url(../images/throbber-small.gif);
 }
 .ui.massive.grey.buttons .button.loading:after,
 .ui.gigantic.grey.buttons .button.loading:after,
@@ -586,11 +586,11 @@ input + .ui.attached.button.down {
 .ui.gigantic.grey.buttons .button.loading.active:after,
 .ui.massive.button.loading.active:after,
 .ui.gigantic.button.loading.active:after {
-  background-image: url(/images/ui/throbber-medium.gif);
-  background-image: url(/images/ui/throbber-medium.gif);
-  background-image: url(/images/ui/throbber-medium.gif);
-  background-image: url(/images/ui/throbber-medium.gif);
-  background-image: url(/images/ui/throbber-medium.gif);
+  background-image: url(../images/throbber-medium.gif);
+  background-image: url(../images/throbber-medium.gif);
+  background-image: url(../images/throbber-medium.gif);
+  background-image: url(../images/throbber-medium.gif);
+  background-image: url(../images/throbber-medium.gif);
 }
 
 
@@ -629,7 +629,7 @@ input + .ui.attached.button.down {
   height: 100%;
   content: '';
   /* standard */
-  background: #EE141D url(/images/ui/button-error.gif) no-repeat 50% 50%;
+  background: #EE141D url(../images/button-error.gif) no-repeat 50% 50%;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;

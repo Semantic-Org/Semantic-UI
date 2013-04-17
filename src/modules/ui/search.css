@@ -105,7 +105,7 @@
 }
 
 .search.module .results li .image {
-  background: #F0F0F0 url(/images/ui/placeholder-subtle.png) no-repeat center center;
+  background: #F0F0F0 url(../images/placeholder-subtle.png) no-repeat center center;
   margin-right: 10px;
 
   float: left;
@@ -151,7 +151,7 @@
   background-color: #F0F0F0;
 }
 .search.module .results li.active .image {
-  background: #EFEFEF url(/images/ui/placeholder-tiny.png) no-repeat center center;
+  background: #EFEFEF url(../images/placeholder-tiny.png) no-repeat center center;
 }
 .search.module .results li.active .title {
   color: #000000;
@@ -246,7 +246,7 @@
 
 /* Big Theme */
 .search.module .big.results li .image {
-  background-image: url(/images/ui/placeholder-subtle.png);
+  background-image: url(../images/placeholder-subtle.png);
 }
 .search.module .big.results li .image,
 .search.module .big.results li .image img {

@@ -30,7 +30,7 @@
   height: 100%;
   margin-top: 10px;
   padding: 0px 5px 10px;
-  background: url(/images/ui/notecard-stripes.png) repeat;
+  background: url(../images/notecard-stripes.png) repeat;
   line-height: 21px;
 }
 .ui.notecard .stripes h2 {
@@ -49,7 +49,7 @@
   overflow: hidden;
   
   border: 1px solid #DAD8C9;
-  background: #FFFFFF url(/images/ui/placeholder-tiny.png) no-repeat center center;
+  background: #FFFFFF url(../images/placeholder-tiny.png) no-repeat center center;
   padding: 4px;
 }
 .ui.notecard .stripes .image img {
