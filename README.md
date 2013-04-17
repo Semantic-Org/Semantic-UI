@@ -1,4 +1,4 @@
-shape
+semantic
 =======
 
-Shape is a library for creating 3D transitions in Javascript. 
+Semantic empowers developers by creating a vocabulary for UI.
