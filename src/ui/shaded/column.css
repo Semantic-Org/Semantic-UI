@@ -1,0 +1,105 @@
+/*******************************
+             Columns
+*******************************/
+
+/* Text Columns */
+.ui.columns > .column,
+.ui.column {
+  width: 50%;
+  margin: 0px;
+  padding: 0px 4% 0px;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15);
+}
+.ui.columns > .column:first-child,
+.ui.column:first-child {
+  border-left: none;
+  box-shadow: none;
+}
+
+/* Sizing Combinations */
+.ui.one.columns .column {
+  width: 100%;
+  padding-left: 3.5%;
+  padding-right: 3.5%;
+}
+.ui.two.columns .column {
+  width: 50%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.ui.three.columns .column {
+  width: 33.333%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.ui.four.columns .column {
+  width: 25%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.ui.five.columns .column {
+  width: 20%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.ui.six.columns .column {
+  width: 16.66%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.ui.seven.columns .column {
+  width: 14.28%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.ui.eight.columns .column {
+  width: 12.5%;
+  padding-left: 0.25%;
+  padding-right: 0.25%;
+}
+.ui.nine.columns .column {
+  width: 11.11%;
+  padding-left: 0.25%;
+  padding-right: 0.25%;
+}
+.ui.ten.columns .column {
+  width: 10%;
+  padding-left: 0.2%;
+  padding-right: 0.2%;
+}
+.ui.eleven.columns .column {
+  width: 9.09%;
+  padding-left: 0.2%;
+  padding-right: 0.2%;
+}
+.ui.twelve.columns .column {
+  width: 8.3333%;
+  padding-left: 0.1%;
+  padding-right: 0.1%;
+}
+
+/* Fitted Colums */
+.ui.fitted.columns .column:first-child {
+  padding-left: 0px;
+}
+.ui.fitted.columns .column:last-child {
+  padding-right: 0px;
+}
+
+/* Simple Columns */
+.ui.columns.simple .column,
+.ui.column.simple {
+  border-left: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}

@@ -1,0 +1,25 @@
+
+/*******************************
+           UI Tabs 
+*******************************/
+
+.ui.tab {
+  display: none;
+  background-color: #FFFFFF;
+  border: 1px solid #DADADA;
+  border-top-color: transparent;
+  border-top-width: 0px;
+}
+.ui.tab.active,
+.ui.tab.open {
+  display: block;
+}
+
+.ui.tab.loading > .throbber {
+	display: block;
+}
+
+.ui.tab.simple {
+	background-color: transparent;
+	border: none;
+}
