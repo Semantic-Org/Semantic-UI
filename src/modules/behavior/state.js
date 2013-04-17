@@ -42,24 +42,29 @@ $.fn.state = function(parameters) {
   var
 
     $allModules     = $(this),
-
-    // make arguments available
+    
+    // make available in scope
+    selector        = $allModules.selector || '',
     query           = arguments[0],
     passedArguments = [].slice.call(arguments, 1),
+
+    // set up performance tracking
+    time            = new Date().getTime(),
+    performance     = [],
+
     invokedResponse
   ;
   $allModules
     .each(function() {
       var
         $module       = $(this),
-
+        
         settings      = $.extend(true, {}, $.fn.state.settings, parameters),
-
-        selector      = $module.selector || '',
+        
         element       = this,
         instance      = $module.data('module-' + settings.namespace),
         methodInvoked = (typeof query == 'string'),
-
+        
         // shortcuts
         namespace     = settings.namespace,
         metadata      = settings.metadata,
@@ -72,7 +77,7 @@ $.fn.state = function(parameters) {
       module = {
 
         initialize: function() {
-          module.verbose('Initializing module for', element);
+          module.verbose('Initializing module', element);
 
           // allow module to guess desired state based on element
           if(settings.automatic) {
@@ -100,8 +105,8 @@ $.fn.state = function(parameters) {
               ;
             }
             $(settings.context)
-              .on(selector, 'mouseover.' + namespace, module.text.change)
-              .on(selector, 'mouseout.'  + namespace, module.text.reset)
+              .on(selector, 'mouseenter.' + namespace, module.text.change)
+              .on(selector, 'mouseleave.'  + namespace, module.text.reset)
               .on(selector, 'click.'     + namespace, module.toggle)
             ;
 
@@ -126,8 +131,8 @@ $.fn.state = function(parameters) {
               ;
             }
             $module
-              .on('mouseover.' + namespace, module.text.change)
-              .on('mouseout.'  + namespace, module.text.reset)
+              .on('mouseenter.' + namespace, module.text.change)
+              .on('mouseleave.'  + namespace, module.text.reset)
               .on('click.'     + namespace, module.toggle)
             ;
           }
@@ -137,14 +142,14 @@ $.fn.state = function(parameters) {
         },
 
         destroy: function() {
-          module.verbose('Destroying previous module for', element);
+          module.verbose('Destroying previous module', element);
           $module
             .off('.' + namespace)
           ;
         },
 
         refresh: function() {
-          module.verbose('Refreshing selector cache for', element);
+          module.verbose('Refreshing selector cache', element);
           $module = $(element);
         },
 
@@ -157,7 +162,7 @@ $.fn.state = function(parameters) {
             ;
             $.each(settings.defaults, function(type, typeStates) {
               if( module.is[type] !== undefined && module.is[type]() ) {
-                module.verbose('Adding default states for detected type:', type, element);
+                module.verbose('Adding default states', type, element);
                 $.extend(settings.states, typeStates, userStates);
               }
             });
@@ -259,7 +264,7 @@ $.fn.state = function(parameters) {
         },
 
         listenTo: function(apiRequest) {
-          module.debug('API request detected, waiting for state signal');
+          module.debug('API request detected, waiting for state signal', apiRequest);
           if(apiRequest) {
             if(text.loading) {
               module.text.update(text.loading);
@@ -342,13 +347,26 @@ $.fn.state = function(parameters) {
 
           // finds text node to update
           get: function() {
-            return (settings.textFilter)
-              ? $module.find(settings.textFilter).text()
+            return (settings.selector.text)
+              ? $module.find(settings.selector.text).text()
               : $module.html()
             ;
           },
 
+          flash: function(text, duration) {
+            var
+              previousText = module.text.get()
+            ;
+            text     = text     || settings.text.flash;
+            duration = duration || settings.flashDuration;
+            module.text.update(text);
+            setTimeout(function(){
+              module.text.update(previousText);
+            }, duration);
+          },
+
           change: function() {
+            module.verbose('Checking if text should be changed');
             if( module.is.textEnabled() ) {
               if( module.is.active() ) {
                 if(text.hover) {
@@ -396,11 +414,11 @@ $.fn.state = function(parameters) {
               currentText = module.text.get()
             ;
             if(text && text !== currentText) {
-              module.debug('Updating text to', text);
-              if(settings.textFilter) {
+              module.debug('Updating text', text);
+              if(settings.selector.text) {
                 $module
                   .data(metadata.storedText, text)
-                  .find(settings.textFilter)
+                  .find(settings.selector.text)
                     .text(text)
                 ;
               }
@@ -420,36 +438,59 @@ $.fn.state = function(parameters) {
           }
           settings[name] = value;
         },
+        performance: {
+          log: function(message) {
+            var
+              currentTime,
+              executionTime
+            ;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              executionTime = currentTime - time;
+              time          = currentTime;
+              performance.push({ 
+                'Name'           : message, 
+                'Execution Time' : executionTime
+              });
+              clearTimeout(module.performance.timer);
+              module.performance.timer = setTimeout(module.performance.display, 100);
+            }
+          },
+          display: function() {
+            var
+              title   = settings.moduleName + ' Performance (' + selector + ')',
+              caption = settings.moduleName + ': ' + selector + '(' + $allModules.size() + ' elements)'
+            ;
+            if(console.group !== undefined && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ':' + data['Execution Time']);
+                });
+              }
+              console.groupEnd();
+              performance = [];
+            }
+          }
+        },
         verbose: function() {
-          if(settings.verbose) {
-            module.debug.apply(this, arguments);
+          if(settings.verbose && settings.debug) {
+            module.performance.log(arguments[0]);
+            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
           }
         },
         debug: function() {
-          var
-            output    = [],
-            message   = settings.moduleName + ': ' + arguments[0],
-            variables = [].slice.call( arguments, 1 ),
-            log       = console.info || console.log || function(){}
-          ;
-          log = Function.prototype.bind.call(log, console);
           if(settings.debug) {
-            output.push(message);
-            log.apply(console, output.concat(variables) );
+            module.performance.log(arguments[0]);
+            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
           }
         },
         error: function() {
-          var
-            output       = [],
-            errorMessage = settings.moduleName + ': ' + arguments[0],
-            variables    = [].slice.call( arguments, 1 ),
-            log          = console.warn || console.log || function(){}
-          ;
-          log = Function.prototype.bind.call(log, console);
-          if(settings.debug) {
-            output.push(errorMessage);
-            output.concat(variables);
-            log.apply(console, output.concat(variables) );
+          if(console.log !== undefined) {
+            module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
           }
         },
         invoke: function(query, context, passedArguments) {
@@ -509,10 +550,15 @@ $.fn.state.settings = {
 
   // debug output
   debug      : true,
+
   // verbose debug output
   verbose    : false,
 
+  // namespace for events
   namespace  : 'state',
+
+  // debug data includes performance
+  performance: true,
 
   // callback occurs on state change
   onChange: function() {},
@@ -522,9 +568,13 @@ $.fn.state.settings = {
   deactivateTest : function() { return true; },
 
   // whether to automatically map default states
-  automatic: true,
+  automatic     : true,
+
   // activate / deactivate changes all elements instantiated at same time
-  sync: false,
+  sync          : false,
+  
+  // default flash text duration, used for temporarily changing text of an element
+  flashDuration : 3000,
 
   // selector filter
   filter     : {
@@ -532,7 +582,6 @@ $.fn.state.settings = {
     active : '.disabled'
   },
 
-  textFilter : false,
   context    : false,
   // errors
   errors: {
@@ -552,6 +601,11 @@ $.fn.state.settings = {
     pressed : 'down',
     active  : 'active',
     loading : 'loading'
+  },
+
+  selector: {
+    // selector for text node
+    text: false
   },
 
   defaults : {
@@ -580,6 +634,7 @@ $.fn.state.settings = {
   },
 
   text     : {
+    flash    : false,
     hover    : false,
     active   : false,
     inactive : false,

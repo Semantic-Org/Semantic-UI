@@ -6,7 +6,7 @@
 @font-face {
   font-family: 'Neutraface';
   src:
-    url("fonts/neutraface-book.otf") format('opentype')
+    url("../fonts/neutraface-book.otf") format('opentype')
   ;
   font-weight: normal;
   font-style: normal;
@@ -15,7 +15,7 @@
 @font-face {
   font-family: 'Neutraface';
   src:
-    url("fonts/neutraface-bold.otf") format('opentype')
+    url("../fonts/neutraface-bold.otf") format('opentype')
   ;
   font-weight: bold;
   font-style: normal;
@@ -65,7 +65,7 @@ a:hover {
   border-bottom: 1px solid #DDDDDD;
 }
 #example h1 .text {
-  width: 1000px;
+  width: 800px;
   margin: 0px auto;
 }
 #example h1:first-child {
@@ -99,7 +99,7 @@ a:hover {
 #example p {
   margin: 10px 0px;
 }
-#example p a {
+#example p > a {
   font-weight: bold;
 }
 
@@ -121,13 +121,14 @@ a:hover {
 #example .list li {
   list-style-type: disc;
   margin: 0px 0px 10px;
+  font-weight: bold;
 }
 
 
 /* content */
 #example .full.container {
   position: relative;
-  width: 1000px;
+  width: 800px;
 }
 
 #example .container {
@@ -143,53 +144,4 @@ a:hover {
   position: fixed;
   margin-top: 20px;
   margin-left: -8px;
-}
-
-
-
-/*******************************
-        Shapes Example
-*******************************/
-
-#example .demo.shape {
-
-}
-
-#example .demo.shape .side {
-  
-  width: 250px;
-  height: 250px;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-
-  background-color: #E6E6E6;
-
-  color: #FFFFFF;
-
-  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-#example .demo.shape .side img {
-  display: block;
-  margin: 0px auto;
-  max-width: 100%;
-}
-
-#example .demo.shape .side b {
-  display: block;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  font-size: 80px;
-  margin-top: -48px;
-  text-align: center;
-}
-
-#example .demo.rectangle.shape .side {
-  width: 350px;
 }

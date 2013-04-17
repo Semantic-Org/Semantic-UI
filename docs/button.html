@@ -2,28 +2,26 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Semantic Modules</title>
+  <title>UI Button - Semantic</title>
 
-  <link rel="stylesheet" href="ui/state.js" type="text/css" media="screen" />
-  <link rel="stylesheet" href="ui/panel.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="ui/button.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="ui/form.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="ui/icons.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="ui/table.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/ui/flat/state.js" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/ui/flat/panel.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/ui/flat/button.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/ui/flat/form.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/ui/flat/icons.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/ui/flat/table.css" type="text/css" media="screen" />
 
+  <link rel="stylesheet" href="../src/modules/shape.css" type="text/css" media="screen" />
+  
   <link rel="stylesheet" href="library/sidr.css" type="text/css" media="screen" />
-
-  <link rel="stylesheet" href="../src/shape.css" type="text/css" media="screen" />
-
-  <link rel="stylesheet" href="example.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="stylesheets/example.css" type="text/css" media="screen" />
 
   <script src="../dependencies/jquery.js" type="text/javascript"></script>
+  <script src="../src/modules/ui/shape.js" type="text/javascript"></script>
+  <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
+
   <script src="library/sidr.js" type="text/javascript"></script>
-  <script src="ui/state.js" type="text/javascript"></script>
-
-  <script src="../src/shape.js" type="text/javascript"></script>
-
-  <script src="example.js" type="text/javascript"></script>
+  <script src="javascript/example.js" type="text/javascript"></script>
 
   </head>
 
@@ -35,7 +33,7 @@
     <li><a>Download</a></li>
     <li><a href="#">UI</a>
       <ul>
-        <li class="active"><a href="#">Button</a></li>
+        <li class="active"><a href="button.html">Button</a></li>
         <li><a>Text</a></li>
         <li><a>Headers</a></li>
         <li><a>Columns</a></li>
@@ -68,7 +66,7 @@
         <li><a>Animation</a></li>
         <li><a>Form Validation</a></li>
         <li><a>Placeholder Text</a></li>
-        <li><a>Shape</a></li>
+        <li><a class="shape.html">Shape</a></li>
         <li><a>State</a></li>
       </ul>
     </li>
