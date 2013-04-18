@@ -30,7 +30,7 @@ i.icon {
   text-align: center;
   -webkit-font-smoothing: antialiased;
 
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 i.icon:before {
   font-family: 'Icons';
