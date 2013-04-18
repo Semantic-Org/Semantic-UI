@@ -193,20 +193,26 @@ a:hover {
 }
 
 
-@media only screen and (max-width : 1320px) {
 
-  #example .container {
-    width: auto;
-    margin: 0px 0px 0px 355px;
-  }
-
-}
-
-
-@media only screen and (max-width : 1540px) {
+@media only screen and (max-width : 1640px) {
 
   #example .container {
     width: 600px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: -530px;
+  }
+}
+
+@media only screen and (max-width : 1420px) {
+
+  #example .container {
+    width: auto;
+    margin: 0px 0px 0px 395px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: 0px;
+    left: 165px;
   }
 
 }
