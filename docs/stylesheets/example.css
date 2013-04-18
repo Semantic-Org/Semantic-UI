@@ -168,6 +168,9 @@ a:hover {
   left: -230px;
   width: 180px;
 }
+#example .peek .panel {
+  width: 180px;
+}
 #example .sticky-wrapper.stuck {
   height: 0px !important;
 }
