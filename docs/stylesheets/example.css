@@ -65,8 +65,7 @@ a:hover {
   padding: 50px 0px 5px;
   border-bottom: 1px solid #DDDDDD;
 }
-#example h1 .text {
-  width: 800px;
+#example h1 {
   margin: 0px auto;
 }
 #example h1:first-child {
@@ -179,4 +178,23 @@ a:hover {
   top: 75px;
   left: 50%;
   margin-left: -630px;
+}
+
+
+@media only screen and (max-width : 1320px) {
+
+  #example .container {
+    width: auto;
+    margin: 0px 0px 0px 355px;
+  }
+
+}
+
+
+@media only screen and (max-width : 1540px) {
+
+  #example .container {
+    width: 600px;
+  }
+
 }

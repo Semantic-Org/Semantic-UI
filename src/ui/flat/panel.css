@@ -29,7 +29,6 @@
   vertical-align: middle;
 
   font-size: 13px;
-  font-weight: bold;
 
   color: #555555;
 
@@ -490,7 +489,6 @@
 }
 .large.ui.panel li {
   font-size: 15px;
-  font-weight: bold;
   padding: 16px 35px;
 }
 .large.vertical.ui.panel li.active {

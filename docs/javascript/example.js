@@ -25,6 +25,7 @@ shape.ready = function() {
 
     peek: function() {
       $('html, body')
+        .stop()
         .animate({
           scrollTop: $waypoints.eq( $peekMenu.index( $(this) ) ).offset().top - 90
         }, 500, function(){
@@ -71,6 +72,7 @@ shape.ready = function() {
               ? ($waypoints.index(this) - 1)
               : 0
         ;
+        console.log(index, $waypoints.index(this));
         $peekMenu
           .removeClass('active')
           .eq( index )
