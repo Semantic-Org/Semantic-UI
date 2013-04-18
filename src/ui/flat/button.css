@@ -513,15 +513,8 @@ input + .ui.attached.button.down {
   width: 100%;
   height: 100%;
   content: '';
-  /* standard */
-  background: url(../images/throbber-blue-tiny.gif) no-repeat 50% 50%;
-  /* css 3 multi image */
-  background-image: url(../images/throbber-blue-tiny.gif);
-  background-image: url(../images/throbber-blue-tiny.gif);
-  background-image: url(../images/throbber-blue-tiny.gif);
-  background-image: url(../images/throbber-blue-tiny.gif);
-  background-image: url(../images/throbber-blue-tiny.gif);
-  background-position: 50% 50%, 0px 0px;
+  background: #EEEEEE url(../images/throbber-blue-tiny.gif) no-repeat 50% 50%;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
 
   -moz-border-radius: 3px;
