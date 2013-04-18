@@ -8,57 +8,32 @@ shape.ready = function() {
 
   // selector cache
   var 
-    $demo            = $('.demo'),
     $ui              = $('.ui'),
-    $directionButton = $('.direction .button'),
-    $shapeButton     = $('.shape .button'),
+    $swap            = $('.swap.button'),
+    $menu            = $('.menu.button'),
+    $demo            = $('.demo'),
     // alias
     handler
   ;
 
   // event handlers
   handler = {
-    rotate: function() {
-      var
-        direction = $(this).data('direction') || false,
-        animation = $(this).data('animation') || false
-      ;
-      if(direction && animation) {
-        $('.active.side')
-          .next()
-        ;
-        $demo
-          .shape(animation + '.' + direction)
-        ;
-      }
-    },
-
-    removeShape: function(){
-      var
-        shape = $(this).data('shape') || false
-      ;
-      if(shape) {
-        $demo
-          .removeClass(shape)
-        ;
-      }
-    },
-
-    changeShape: function() {
-      var
-        $shape       = $(this),
-        $otherShapes = $shape.siblings(),
-        shape        = $shape.data('shape')
-      ;
-      $shape
-        .addClass('active')
-      ;
-      $otherShapes  
-        .removeClass('active')
-        .each(handler.removeShape)
-      ;
-      $demo
-        .addClass(shape)
+    swapStyle: function() {
+      $('head link')
+        .each(function() {
+          var
+            href = $(this).attr('href')
+          ;
+          console.log (href, href.search('flat') );
+          if( href.search('flat') > -1 ) {
+            console.log('zz');
+            $(this).attr('href', href.replace('flat', 'shaded'));
+          }
+          else {
+            console.log('aaa');
+            $(this).attr('href', href.replace('shaded', 'flat'));
+          }
+        })
       ;
     }
   };
@@ -67,20 +42,15 @@ shape.ready = function() {
   $ui
     .state()
   ;
-  $demo
-    .shape()
-  ;
-  $directionButton
-    .on('click', handler.rotate)
-  ;
-  $shapeButton
-    .on('click', handler.changeShape)
+
+  $swap
+    .on('click', handler.swapStyle)
   ;
 
-  $('.menu.button')
-  .sidr({
-    name: 'menu'
-  })
+  $menu
+    .sidr({
+      name: 'menu'
+    })
   ;
 
 };
