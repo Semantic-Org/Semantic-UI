@@ -1,10 +1,19 @@
-/*******************************
-           UI Button
-*******************************/
+/*
+ * # Semantic Button - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
 
-/*--------------
- Standard Button
----------------*/
+
+/*******************************
+            Standard
+*******************************/
 
 /* Normal */
 .ui.button {
@@ -73,347 +82,15 @@
   ;
 }
 
-/*---------------
-  Blue Button
-----------------*/
-
-.ui.blue.buttons .button,
-.ui.blue.button {
-  background-color: #00B4AC;
-  color: #FFFFFF;
-}
-.ui.blue.buttons .button.hover,
-.ui.blue.button.hover {
-  background-color: #F15B40;
-}
-.ui.blue.buttons .button.down,
-.ui.blue.button.down {
-  background-color: #F15B40;
-}
-
-/*---------------
-  Purple Button
-----------------*/
-
-.ui.purple.buttons .button,
-.ui.purple.button {
-  color: #FFFFFF;
-  background-color: #6E4889;
-}
-.ui.purple.buttons .button.hover,
-.ui.purple.button.hover {
-  background-color: #62397F;
-}
-.ui.purple.buttons .button.down,
-.ui.purple.button.down {
-  background-color: #9254BD;
-}
-
-/*---------------
-   Green Button
-----------------*/
-
-.ui.button.green,
-.ui.button.success {
-  background-color: #7DDC5C;
-  color: #FFFFFF;
-}
-
-.ui.button.green.hover,
-.ui.button.success.hover {
-  background-color: #7fe95A;
-  color: #FFFFFF;
-}
-
-.ui.button.green.down,
-.ui.button.success.down {
-  background-color: #59B94B;
-  color: #FFFFFF;
-}
-
-/*--------------------
-  Transparent Button
-----------------------*/
-
-.ui.transparent.buttons .button,
-.ui.transparent.button {
-  background-color: transparent;
-  background-image: none;
-  border: none;
-  color: #777777;
-}
-.ui.transparent.buttons .button a,
-.ui.transparent.button a {
-  color: #777777;
-}
-
-/* Hover / Down */
-.ui.transparent.buttons .button.hover,
-.ui.transparent.buttons .button.down,
-.ui.transparent.button.hover,
-.ui.transparent.button.down {
-  color: #555555;
-}
-.ui.transparent.buttons .button.hover a,
-.ui.transparent.buttons .button.down a,
-.ui.transparent.button.hover a,
-.ui.transparent.button.down a {
-  color: #555555;
-}
-
-.ui.transparent.buttons .button.down {
-  background-color: rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-}
-
-
-/*-------------------
-       Resizes
---------------------*/
-
-.ui.buttons.mini .button,
-.ui.mini.button {
-  font-size: 9px;
-  padding: 4px 5px;
-  border-radius: 3px;
-}
-.ui.buttons.mini .button i,
-.ui.mini.button i {
-  vertical-align: top;
-}
-.ui.tiny.buttons .button,
-.ui.tiny.button {
-  font-size: 11px;
-  font-weight: bold;
-  padding: 6px 13px;
-}
-.ui.small.buttons .button,
-.ui.small.button {
-  font-size: 12px;
-  padding: 6px 15px;
-}
-.ui.medium.buttons .button,
-.ui.medium.button {
-  font-size: 14px;
-  padding: 7px 20px;
-}
-.ui.big.buttons .button,
-.ui.big.button {
-  font-size: 16px;
-  padding: 13px 30px;
-}
-.ui.huge.buttons .button,
-.ui.huge.button {
-  font-size: 18px;
-  padding: 15px 30px;
-}
-.ui.massive.buttons .button,
-.ui.massive.button {
-  padding: 15px 45px;
-
-  font-size: 24px;
-  font-weight: bold;
-}
-.ui.gigantic.buttons .button,
-.ui.gigantic.button {
-  padding: 18px 45px;
-
-  font-size: 30px;
-  font-weight: bold;
-}
-
-
-/*--------------
-      Icons
----------------*/
-
-.ui.button i {
-  line-height: 1;
-  margin-right: 0.2em;
-}
-
-/* left arrow icons */
-.ui.button i.icon.left,
-.ui.button i.icon.left-open,
-.ui.button i.icon.left-dir {
-  margin: 0em 0.2em 0em;
-}
-/* right positioned icons */
-.ui.button i.icon.up,
-.ui.button i.icon.up-open,
-.ui.button i.icon.up-dir,
-.ui.button i.icon.down,
-.ui.button i.icon.down-open,
-.ui.button i.icon.down-dir,
-.ui.button i.icon.right,
-.ui.button i.icon.right-open,
-.ui.button i.icon.right-dir {
-  margin: 0em;
-}
-
-/*--------------
-      Labels
----------------*/
-
-.ui.button .label {
-
-}
-
-/*******************************
-            Modifiers
-*******************************/
-
-/* Image Buttons */
-.ui.icon.buttons .button,
-.ui.icon.button {
-  padding: 7px;
-  text-align: center;
-}
-.ui.icon.buttons .button i,
-.ui.icon.button i {
-  margin: 0px;
-  vertical-align: text-top;
-}
-/* Image Button Resizes */
-.ui.icon.buttons.mini .button,
-.ui.mini.icon.button {
-  padding: 4px;
-}
-.ui.tiny.icon.buttons .button,
-.ui.tiny.icon.button {
-  padding: 6px;
-}
-.ui.small.icon.buttons .button,
-.ui.small.icon.button {
-  padding: 6px;
-}
-.ui.medium.icon.buttons .button,
-.ui.medium.icon.button {
-  padding: 7px;
-}
-.ui.big.icon.buttons .button,
-.ui.big.icon.button {
-  padding: 10px;
-}
-.ui.huge.icon.buttons .button,
-.ui.huge.icon.button {
-  padding: 11px;
-}
-.ui.massive.icon.buttons .button,
-.ui.massive.icon.button {
-  padding: 15px;
-}
-.ui.gigantic.icon.buttons .button,
-.ui.gigantic.icon.button {
-  padding: 18px;
-}
-
-
-/* Toggle (Modifies active state to give affordances) */
-.ui.toggle.buttons .button.active,
-.ui.buttons .button.toggle.active,
-.ui.button.toggle.active {
-  background-color: #BBF0A9;
-}
-.ui.buttons.toggle .ui.button.active.hover,
-.ui.buttons .ui.button.toggle.active.hover,
-.ui.button.toggle.active.hover {
-  color: #21A627;
-
-  background-color: #BBF0A9;
-
-  -webkit-box-shadow:
-    0px 0px 4px -2px rgba(0, 0, 0, 0.2) inset
-  ;
-  -moz-box-shadow:
-    0px 0px 4px -2px rgba(0, 0, 0, 0.2) inset
-  ;
-  box-shadow:
-    0px 0px 4px -2px rgba(0, 0, 0, 0.2) inset
-  ;
-}
-.ui.button.toggle.active.hover.loading,
-.ui.button.toggle.active.loading {
-  border-color: #CCCCCC;
-}
-.ui.button.toggle.active.hover.down {
-  border: 1px solid #77CF66;
-
-  background-color: #B6F3A2;
-  color: #21A627;
-
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(67, 97, 53, 0.5) inset;
-  -moz-box-shadow: 0px 1px 3px 0px rgba(67, 97, 53, 0.5) inset;
-  box-shadow: 0px 1px 3px 0px rgba(67, 97, 53, 0.5) inset;
-}
-
-
-/* Bubbly Variation */
-.ui.button.bubbly {
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-}
-
-/* Button attached to a form element */
-input + .ui.attached.button {
-  display: inline-block;
-  min-width: 40px;
-  margin: 0px 0px 0px -15px;
-  height: 14px;
-  padding: 8px 15px;
-  border: 1px solid #D0D0D0;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-
-  -webkit-border-radius: 0px 5px 5px 0px;
-  -moz-border-radius: 0px 5px 5px 0px;
-  border-radius: 0px 5px 5px 0px;
-
-  vertical-align: top;
-}
-input + .ui.attached.button.down {
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
-}
-.ui.attached.button.loading,
-.ui.attached.button.loading.hover {
-  opacity: 1;
-}
-
-/*-------------------
-    Attached Style
---------------------*/
-
-.ui.button.attached {
-  display: block;
-}
-.ui.button.attached.top {
-  margin-left: -1px;
-  margin-right: -1px;
-  -webkit-border-radius: 5px 5px 0px 0px;
-  -moz-border-radius: 5px 5px 0px 0px;
-  border-radius: 5px 5px 0px 0px;
-}
-.ui.button.attached.bottom {
-  margin-left: -1px;
-  margin-right: -1px;
-  -webkit-border-radius: 0px 0px 5px 5px;
-  -moz-border-radius: 0px 0px 5px 5px;
-  border-radius: 0px 0px 5px 5px;
-}
-
 
 /*******************************
              States
 *******************************/
 
-/* Hover */
+/*--------------
+     Hover 
+---------------*/
+
 .ui.button.hover {
   background-color: #DDDDDD;
 }
@@ -424,17 +101,14 @@ input + .ui.attached.button.down {
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
 }
 
-/* Active */
+
+/*--------------
+     Active 
+---------------*/
+
 .ui.buttons .button.active,
 .ui.button.active {
   background-color: #E6E6E6;
-  background: -webkit-linear-gradient(top, #E9E9E9 0%, #F0F0F0 100%);
-  background: -moz-linear-gradient(top, #E9E9E9 0%, #F0F0F0 100%);
-  background: -o-linear-gradient(top, #E9E9E9 0%, #F0F0F0 100%);
-  background: -ms-linear-gradient(top, #E9E9E9 0%, #F0F0F0 100%);
-  background: linear-gradient(top, #E9E9E9 0%, #F0F0F0 100%);
-
-
   -webkit-box-shadow:
     0px 1px 6px -3px rgba(0, 0, 0, 0.3) inset
   ;
@@ -453,11 +127,7 @@ input + .ui.attached.button.down {
 }
 .ui.buttons .button.active.hover,
 .ui.button.active.hover {
-  background: #E0E0E0 -webkit-linear-gradient(top, #E8E8E8 0%, #E0E0E0 100%);
-  background: #E0E0E0 -moz-linear-gradient(top, #E8E8E8 0%, #E0E0E0 100%);
-  background: #E0E0E0 -o-linear-gradient(top, #E8E8E8 0%, #E0E0E0 100%);
-  background: #E0E0E0 -ms-linear-gradient(top, #E8E8E8 0%, #E0E0E0 100%);
-  background: #E0E0E0 linear-gradient(top, #E8E8E8 0%, #E0E0E0 100%);
+  background: #E0E0E0;
 
   -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
@@ -479,14 +149,10 @@ input + .ui.attached.button.down {
   background: #E0E0E0 linear-gradient(top, #E0E0E0 0%, #E8E8E8 100%);
 }
 
+/*--------------
+    Loading 
+---------------*/
 
-
-
-/*******************************
-            Loading
-*******************************/
-
-/* Loading */
 .ui.button.loading,
 .ui.button.loading.hover {
   position: relative;
@@ -529,16 +195,7 @@ input + .ui.attached.button.down {
 .ui.grey.button.loading:after,
 .ui.button.active.loading:after {
   background-color: #FAFAFA;
-  /* standard */
   background: url(../images/throbber-tiny.gif) no-repeat 50% 50%;
-  /* css 3 multi image */
-  background-image: url(../images/throbber-tiny.gif);
-  background-image: url(../images/throbber-tiny.gif);
-  background-image: url(../images/throbber-tiny.gif);
-  background-image: url(../images/throbber-tiny.gif);
-  background-image: url(../images/throbber-tiny.gif);
-  background-position: 50% 50%, 0px 0px;
-  background-repeat: no-repeat;
 }
 
 /* resizes */
@@ -546,29 +203,17 @@ input + .ui.attached.button.down {
 /* blue */
 .ui.huge.button.loading:after {
   background-image: url(../images/throbber-blue-small.gif);
-  background-image: url(../images/throbber-blue-small.gif);
-  background-image: url(../images/throbber-blue-small.gif);
-  background-image: url(../images/throbber-blue-small.gif);
-  background-image: url(../images/throbber-blue-small.gif);
 }
 .ui.massive.buttons .button.loading:after,
 .ui.gigantic.buttons .button.loading:after,
 .ui.massive.button.loading:after,
 .ui.gigantic.button.loading:after {
   background-image: url(../images/throbber-blue-medium.gif);
-  background-image: url(../images/throbber-blue-medium.gif);
-  background-image: url(../images/throbber-blue-medium.gif);
-  background-image: url(../images/throbber-blue-medium.gif);
-  background-image: url(../images/throbber-blue-medium.gif);
 }
 
 /* grey */
 .ui.huge.grey.button.loading:after,
 .ui.huge.button.loading.active:after {
-  background-image: url(../images/throbber-small.gif);
-  background-image: url(../images/throbber-small.gif);
-  background-image: url(../images/throbber-small.gif);
-  background-image: url(../images/throbber-small.gif);
   background-image: url(../images/throbber-small.gif);
 }
 .ui.massive.grey.buttons .button.loading:after,
@@ -580,16 +225,12 @@ input + .ui.attached.button.down {
 .ui.massive.button.loading.active:after,
 .ui.gigantic.button.loading.active:after {
   background-image: url(../images/throbber-medium.gif);
-  background-image: url(../images/throbber-medium.gif);
-  background-image: url(../images/throbber-medium.gif);
-  background-image: url(../images/throbber-medium.gif);
-  background-image: url(../images/throbber-medium.gif);
 }
 
 
-/*******************************
-         Error States
-*******************************/
+/*--------------
+      Error 
+---------------*/
 
 .ui.buttons .button.error,
 .ui.buttons .button.error.hover,
@@ -651,6 +292,354 @@ input + .ui.attached.button.down {
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*---------------
+      Blue
+----------------*/
+
+.ui.blue.buttons .button,
+.ui.blue.button {
+  background-color: #00B4AC;
+  color: #FFFFFF;
+}
+.ui.blue.buttons .button.hover,
+.ui.blue.button.hover {
+  background-color: #F15B40;
+}
+.ui.blue.buttons .button.down,
+.ui.blue.button.down {
+  background-color: #F15B40;
+}
+
+/*---------------
+    Purple
+----------------*/
+
+.ui.purple.buttons .button,
+.ui.purple.button {
+  color: #FFFFFF;
+  background-color: #6E4889;
+}
+.ui.purple.buttons .button.hover,
+.ui.purple.button.hover {
+  background-color: #62397F;
+}
+.ui.purple.buttons .button.down,
+.ui.purple.button.down {
+  background-color: #9254BD;
+}
+
+/*---------------
+      Green
+----------------*/
+
+.ui.button.green,
+.ui.button.success {
+  background-color: #7DDC5C;
+  color: #FFFFFF;
+}
+
+.ui.button.green.hover,
+.ui.button.success.hover {
+  background-color: #7fe95A;
+  color: #FFFFFF;
+}
+
+.ui.button.green.down,
+.ui.button.success.down {
+  background-color: #59B94B;
+  color: #FFFFFF;
+}
+
+/*--------------------
+      Transparent
+----------------------*/
+
+.ui.transparent.buttons .button,
+.ui.transparent.button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  color: #777777;
+}
+.ui.transparent.buttons .button a,
+.ui.transparent.button a {
+  color: #777777;
+}
+
+/* Hover / Down */
+.ui.transparent.buttons .button.hover,
+.ui.transparent.buttons .button.down,
+.ui.transparent.button.hover,
+.ui.transparent.button.down {
+  color: #555555;
+}
+.ui.transparent.buttons .button.hover a,
+.ui.transparent.buttons .button.down a,
+.ui.transparent.button.hover a,
+.ui.transparent.button.down a {
+  color: #555555;
+}
+.ui.transparent.buttons .button.down {
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+/*-------------------
+       Sizes
+--------------------*/
+
+.ui.buttons.mini .button,
+.ui.mini.button {
+  font-size: 9px;
+  padding: 4px 5px;
+  border-radius: 3px;
+}
+.ui.buttons.mini .button i,
+.ui.mini.button i {
+  vertical-align: top;
+}
+.ui.tiny.buttons .button,
+.ui.tiny.button {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 6px 13px;
+}
+.ui.small.buttons .button,
+.ui.small.button {
+  font-size: 12px;
+  padding: 6px 15px;
+}
+.ui.medium.buttons .button,
+.ui.medium.button {
+  font-size: 14px;
+  padding: 7px 20px;
+}
+.ui.big.buttons .button,
+.ui.big.button {
+  font-size: 16px;
+  padding: 13px 30px;
+}
+.ui.huge.buttons .button,
+.ui.huge.button {
+  font-size: 18px;
+  padding: 15px 30px;
+}
+.ui.massive.buttons .button,
+.ui.massive.button {
+  padding: 15px 45px;
+
+  font-size: 24px;
+  font-weight: bold;
+}
+.ui.gigantic.buttons .button,
+.ui.gigantic.button {
+  padding: 18px 45px;
+
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+/*--------------
+Containing Icon
+---------------*/
+
+.ui.button i {
+  line-height: 1;
+  margin-right: 0.2em;
+}
+
+/* left arrow icons */
+.ui.button i.icon.left,
+.ui.button i.icon.left-open,
+.ui.button i.icon.left-dir {
+  margin: 0em 0.2em 0em;
+}
+/* right positioned icons */
+.ui.button i.icon.up,
+.ui.button i.icon.up-open,
+.ui.button i.icon.up-dir,
+.ui.button i.icon.down,
+.ui.button i.icon.down-open,
+.ui.button i.icon.down-dir,
+.ui.button i.icon.right,
+.ui.button i.icon.right-open,
+.ui.button i.icon.right-dir {
+  margin: 0em;
+}
+
+/*--------------
+    Labels
+---------------*/
+
+.ui.button .label {
+
+}
+
+
+/*--------------
+    Icon Only
+---------------*/
+.ui.icon.buttons .button,
+.ui.icon.button {
+  padding: 7px;
+  text-align: center;
+}
+.ui.icon.buttons .button i,
+.ui.icon.button i {
+  margin: 0px;
+  vertical-align: text-top;
+}
+/* Image Button Resizes */
+.ui.icon.buttons.mini .button,
+.ui.mini.icon.button {
+  padding: 4px;
+}
+.ui.tiny.icon.buttons .button,
+.ui.tiny.icon.button {
+  padding: 6px;
+}
+.ui.small.icon.buttons .button,
+.ui.small.icon.button {
+  padding: 6px;
+}
+.ui.medium.icon.buttons .button,
+.ui.medium.icon.button {
+  padding: 7px;
+}
+.ui.big.icon.buttons .button,
+.ui.big.icon.button {
+  padding: 10px;
+}
+.ui.huge.icon.buttons .button,
+.ui.huge.icon.button {
+  padding: 11px;
+}
+.ui.massive.icon.buttons .button,
+.ui.massive.icon.button {
+  padding: 15px;
+}
+.ui.gigantic.icon.buttons .button,
+.ui.gigantic.icon.button {
+  padding: 18px;
+}
+
+
+/*--------------
+     Toggle 
+---------------*/
+
+/* Toggle (Modifies active state to give affordances) */
+.ui.toggle.buttons .button.active,
+.ui.buttons .button.toggle.active,
+.ui.button.toggle.active {
+  background-color: #BBF0A9;
+  color: #1C8C21;
+}
+.ui.buttons.toggle .ui.button.active.hover,
+.ui.buttons .ui.button.toggle.active.hover,
+.ui.button.toggle.active.hover {
+  color: #21A627;
+
+  background-color: #BBF0A9;
+
+  -webkit-box-shadow:
+    0px 0px 4px -2px rgba(0, 0, 0, 0.2) inset
+  ;
+  -moz-box-shadow:
+    0px 0px 4px -2px rgba(0, 0, 0, 0.2) inset
+  ;
+  box-shadow:
+    0px 0px 4px -2px rgba(0, 0, 0, 0.2) inset
+  ;
+}
+.ui.button.toggle.active.hover.loading,
+.ui.button.toggle.active.loading {
+  border-color: #CCCCCC;
+}
+.ui.button.toggle.active.hover.down {
+  border: 1px solid #77CF66;
+
+  background-color: #B6F3A2;
+  color: #21A627;
+
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(67, 97, 53, 0.5) inset;
+  -moz-box-shadow: 0px 1px 3px 0px rgba(67, 97, 53, 0.5) inset;
+  box-shadow: 0px 1px 3px 0px rgba(67, 97, 53, 0.5) inset;
+}
+
+
+/*--------------
+     Bubbly
+---------------*/
+.ui.button.bubbly {
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+
+
+/*--------------
+     Attached
+---------------*/
+
+.ui.button.attached {
+  display: block;
+}
+.ui.button.attached.top {
+  margin-left: -1px;
+  margin-right: -1px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+}
+.ui.button.attached.bottom {
+  margin-left: -1px;
+  margin-right: -1px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+/* Button attached to a form element */
+input + .ui.attached.button {
+  display: inline-block;
+  min-width: 40px;
+  margin: 0px 0px 0px -15px;
+  height: 14px;
+  padding: 8px 15px;
+  border: 1px solid #D0D0D0;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  -webkit-border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
+
+  vertical-align: top;
+}
+input + .ui.attached.button.down {
+  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
+  -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
+}
+.ui.attached.button.loading,
+.ui.attached.button.loading.hover {
+  opacity: 1;
+}
+
 
 
 /*******************************

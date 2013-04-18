@@ -26,6 +26,7 @@
   position: relative;
   cursor: pointer;
   float: left;
+  list-style-type: none;
 
   line-height: 1;
   padding: 14px 35px;

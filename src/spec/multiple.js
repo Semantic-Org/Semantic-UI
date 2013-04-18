@@ -11,7 +11,7 @@
  *
  * Copyright 2013 Contributors
  * Released under the MIT license
- * http://jquery.org/license
+ * http://opensource.org/licenses/MIT
  *
  * Released: April 17 2013
  */

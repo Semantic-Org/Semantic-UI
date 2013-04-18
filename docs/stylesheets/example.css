@@ -24,8 +24,9 @@
 
 body#example {
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
-  background: #FCFCFC url(images/bg.jpg) repeat;
-  padding-bottom: 150px;
+  background: #FCFCFC url(../images/bg.jpg) repeat;
+  margin: 0px;
+  padding: 0px 0px 150px;
 }
 
 /* links */
@@ -70,10 +71,12 @@ a:hover {
 }
 #example h1:first-child {
   margin-top: 0px;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 #example h2 {
-  margin: 40px 0px 20px;
+  margin: 35px 0px 0px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DDDDDD;
 }
 #example h3 {
   font-size: 20px;
@@ -102,6 +105,22 @@ a:hover {
 #example p > a {
   font-weight: bold;
 }
+#example .section.dropdown .menu {
+  left: -46px;
+  width: 215px;
+}
+
+/* segment headers */
+#example .segment {
+  margin: 0px 0px 46px;
+  padding: 65px 0px 20px;
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #DDDDDD;
+}
+#example .segment .text {
+  width: 800px;
+  margin: 0px auto;
+}
 
 /* lists */
 #example ol {
@@ -126,13 +145,8 @@ a:hover {
 
 
 /* content */
-#example .full.container {
-  position: relative;
-  width: 800px;
-}
-
 #example .container {
-  width: 700px;
+  width: 800px;
   margin: 0px auto;
 }
 #example .shortcuts {
@@ -140,8 +154,26 @@ a:hover {
   clear: both;
 }
 
-#example .menu.buttons {
+#example .side.buttons {
   position: fixed;
-  margin-top: 20px;
-  margin-left: -8px;
+  margin-top: 75px;
+}
+
+#example .main.container {
+  position: relative;
+}
+#example .peek {
+  position: absolute;
+  top: -8px;
+  left: -230px;
+  width: 180px;
+}
+#example .sticky-wrapper.stuck {
+  height: 0px !important;
+}
+#example .sticky-wrapper.stuck .peek {
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  margin-left: -630px;
 }
