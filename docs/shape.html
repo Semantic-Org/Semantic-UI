@@ -169,95 +169,102 @@
     <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. <code>$('.foo').shape('setting', 'moduleName', 'Godzilla');</code></li>
   </ol>
   <p>Settings can also be read programmatically: <code>$('.foo').shape('setting', 'moduleName');</code>
-  <table class="ui large grid table">
+  <table class="ui grid settings table">
     <thead>
-      <th>Setting Name</th>
-      <th>Default Value</th>
-      <th>Usage</th>
+      <th>Setting</th>
+      <th>Default</th>
+      <th>Description</th>
     </thead>
-    <tr>
-      <td>moduleName</td>
-      <td>Shape</td>
-      <td>Name used in debug logs</td>
-    </tr>
-    <tr>
-      <td>debug</td>
-      <td>True</td>
-      <td>Provides standard debug output to console</td>
-    </tr>
-    <tr>
-      <td>verbose</td>
-      <td>False</td>
-      <td>Provides ancillary debug output to console</td>
-    </tr>
-    <tr>
-      <td>namespace</td>
-      <td>shape</td>
-      <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
-    </tr>
-    <tr>
-      <td>beforeChange</td>
-      <td>None</td>
-      <td>Callback before side is changed. This context is the new side.</td>
-    </tr>
-    <tr>
-      <td>onChange</td>
-      <td>None</td>
-      <td>Callback after side is changed. This context is new side.</td>
-    </tr>
-    <tr>
-      <td>useCSS</td>
-      <td>True</td>
-      <td>Not currently supported. Will allow for use of javascript requestAnimationFrame transitions instead of css3 transitions.</td>
-    </tr>
-    <tr>
-      <td>duration</td>
-      <td>1000ms</td>
-      <td>Duration of animation (javascript only). To modify animation duration for css simply modify the css property transition-duration.</td>
-    </tr>
-    <tr>
-      <td>easing</td>
-      <td>easeInOutQuad</td>
-      <td>Easing equation for animation (javascript only). To modify the easing for css simply modify the css property transition-easing</td>
-    </tr>
-    <tr>
-      <td>errors</td>
-      <td>
-        <pre><code>
-          {
-            side   : 'You tried to switch to a side that does not exist.',
-            method : 'The method you called is not defined'
-          }
-        </code></pre>
-      </td>
-      <td>Object containing localized error messages.</td>
-    </tr>
-    <tr>
-      <td>selector</td>
-      <td>
-        <pre><code>
-        {
-          shape : '.shape',
-          side  : '.side'
-        }
-        </code></pre>
-      </td>
-      <td>Object containing selectors used by module.</td>
-    </tr>
-    <tr>
-      <td>className</td>
-      <td>
-        <pre><code>
-        {
-          css       : 'css',
-          animating : 'animating',
-          hidden    : 'hidden',
-          active    : 'active'
-        }
-        </code></pre>
-      </td>
-      <td>Object containing class names used by module.</td>
-    </tr>
+    <tbody>
+      <tr>
+        <td>useCSS</td>
+        <td>True</td>
+        <td>Not currently supported. Will allow for use of javascript requestAnimationFrame transitions instead of css3 transitions.</td>
+      </tr>
+      <tr>
+        <td>duration</td>
+        <td>1000ms</td>
+        <td>Duration of animation (javascript only). To modify animation duration for css simply modify the css property transition-duration.</td>
+      </tr>
+      <tr>
+        <td>easing</td>
+        <td>easeInOutQuad</td>
+        <td>Easing equation for animation (javascript only). To modify the easing for css simply modify the css property transition-easing</td>
+      </tr>
+      <tr>
+        <td>selector</td>
+        <td>
+          <pre>{
+  shape : '.shape',
+  side  : '.side'
+}</pre>
+        </td>
+        <td>Object containing selectors used by module.</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>
+<pre>{
+  css       : 'css',
+  animating : 'animating',
+  hidden    : 'hidden',
+  active    : 'active'
+}</pre>
+        </td>
+        <td>Object containing class names used by module.</td>
+      </tr>
+      <tr class="emphasis">
+        <td colspan="3">Callbacks</td>
+      </tr>
+      <tr>
+        <td>beforeChange</td>
+        <td>None</td>
+        <td>Callback before side is changed. This context is the new side.</td>
+      </tr>
+      <tr>
+        <td>onChange</td>
+        <td>None</td>
+        <td>Callback after side is changed. This context is new side.</td>
+      </tr>
+      <tr class="emphasis">
+        <td colspan="3">Standard</td>
+      </tr>
+      <tr>
+        <td>moduleName</td>
+        <td>Shape</td>
+        <td>Name used in debug logs</td>
+      </tr>
+      <tr>
+        <td>debug</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>performance</td>
+        <td>False</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>verbose</td>
+        <td>False</td>
+        <td>Provides ancillary debug output to console</td>
+      </tr>
+      <tr>
+        <td>namespace</td>
+        <td>shape</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>errors</td>
+        <td>
+            {
+              side   : 'You tried to switch to a side that does not exist.',
+              method : 'The method you called is not defined'
+            }
+        </td>
+        <td>Object containing localized error messages.</td>
+      </tr>
+    </tbody>
   </table>
 
 </div>
