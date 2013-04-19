@@ -583,15 +583,17 @@ Containing Icon
   display: block;
 }
 .ui.button.attached.top {
-  margin-left: -1px;
-  margin-right: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+  
   -webkit-border-radius: 5px 5px 0px 0px;
   -moz-border-radius: 5px 5px 0px 0px;
   border-radius: 5px 5px 0px 0px;
 }
 .ui.button.attached.bottom {
-  margin-left: -1px;
-  margin-right: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+
   -webkit-border-radius: 0px 0px 5px 5px;
   -moz-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;

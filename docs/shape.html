@@ -164,9 +164,15 @@
   <h2>Settings</h2>
   <p>Settings can be modified in three different ways. 
   <ol>
-    <li>A settings object can be passed in when initializing the plugin <code>$('.foo').shape({ moduleName: 'Godzilla'});</code>.</li>
-    <li>Default settings for the module can be overridden by modifying $.fn.shape.settings.</li>
-    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. <code>$('.foo').shape('setting', 'moduleName', 'Godzilla');</code></li>
+    <li>A settings object can be passed in when initializing the plugin
+      <br> <code>$('.foo').shape({ moduleName: 'Godzilla'});</code>
+    </li>
+    <li>Default settings for the module can be overridden by modifying $.fn.shape.settings.
+      <br><code>$.fn.shape.settings.moduleName = 'Godzilla';</code>
+    </li>
+    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
+      <br><code>$('.foo').shape('setting', 'moduleName', 'Godzilla');</code>
+    </li>
   </ol>
   <p>Settings can also be read programmatically: <code>$('.foo').shape('setting', 'moduleName');</code>
   <table class="ui grid settings table">
