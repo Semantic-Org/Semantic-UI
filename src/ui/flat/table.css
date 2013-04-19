@@ -1,12 +1,9 @@
 .ui.table {
   width: 100%;
-  border: 1px solid #F0F0F0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-collapse: collapse;
-
-  font-size: 12px;
-  color: #555555;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333333;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* Standard Table Icons */
@@ -29,9 +26,6 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-.ui.table thead {
-  border-bottom: 1px solid #DADADA;
-}
 .ui.table thead tr {
 /*
   -webkit-box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.53);
@@ -48,28 +42,17 @@
 .ui.table th,
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
-  background-color: #FAFAFA;
+  background-color: rgba(0, 0, 0, 0.8);
 
+  text-align: left;
   font-weight: bold;
-  color: #333333;
-
-  background: -webkit-linear-gradient(top, #FAFAFA 0px, #F2F2F2 100%);
-  background: -moz-linear-gradient(top, #FAFAFA 0px, #F2F2F2 100%);
-  background: -o-linear-gradient(top, #FAFAFA 0px, #F2F2F2 100%);
-  background: -ms-linear-gradient(top, #FAFAFA 0px, #F2F2F2 100%);
-  background: linear-gradient(top, #FAFAFA 0px, #F2F2F2 100%);
-}
-
-/* Header & Footer Formatting */
-.ui.table thead,
-.ui.table tfoot {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 13px;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* Table Striping */
 .ui.table tbody tr:nth-child(2n) {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 
@@ -85,22 +68,13 @@
 
 }
 .ui.grid.table th {
-  border: 1px solid #DADADA;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-
-  border-bottom-color: #CCCCCC;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
-
-  -moz-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.6) inset;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.6) inset;
-  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.6) inset;
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 .ui.grid.table tbody td {
-  border: 1px solid #E0E0E0;
-  border-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-/* Special Row Types */
+/* Row with a button */
 .ui.table tr.button td {
   padding: 0px;
 }
@@ -110,19 +84,15 @@
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-.ui.table tfoot tr td,
+
+/* Emphasize a row */
 .ui.table tr.emphasis td,
 .ui.table tr td.emphasis {
-  background-color: #F0F0F0;
-
-  border: 1px solid #DADADA;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-
-  -moz-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.6) inset;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.6) inset;
-  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.6) inset;
+  background-color: rgba(40, 40, 40, 0.7);
+  text-align: left;
   font-weight: bold;
-  color: #333333;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* Sortable Table */
@@ -195,16 +165,20 @@
 }
 
 
-
-
 /*--------------
    Resizes
 ---------------*/
 
+.ui.table {
+  font-size: 16px;
+  padding: 10px 12px;
+}
+
+/* Large */
 .ui.large.table {
-  font-size: 13px;
+  font-size: 18px;
 }
 .ui.large.table td, 
 .ui.large.table th {
-  padding: 10px 12px;
+  padding: 12px 15px;
 }
