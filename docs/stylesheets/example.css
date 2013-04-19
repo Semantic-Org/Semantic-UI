@@ -110,6 +110,12 @@ a:hover {
   border: none;
   padding: 0px;
 }
+#example table pre,
+#example table code {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
 #example p {
   margin: 10px 0px;
 }
