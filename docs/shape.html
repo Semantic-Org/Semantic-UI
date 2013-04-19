@@ -4,9 +4,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Shape Examples</title>
   
-  <link rel="stylesheet" href="../src/ui/flat/state.js" type="text/css" media="screen" />
   <link rel="stylesheet" href="../src/ui/flat/panel.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="../src/ui/flat/button.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/ui/flat/menu.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="../src/ui/flat/form.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="../src/ui/flat/icons.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="../src/ui/flat/table.css" type="text/css" media="screen" />
@@ -22,20 +22,19 @@
   <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
 
   <script src="library/sidr.js" type="text/javascript"></script>
+  <script src="library/waypoints.js" type="text/javascript"></script>
   <script src="javascript/example.js" type="text/javascript"></script>
   <script src="javascript/shape.js" type="text/javascript"></script>
 
 
 
   </head>
-
 <body id="example">
-
 <div class="sidr" id="menu">
   <ul>
-    <li><a href="module.html">Introduction</a></li>
+    <li class="active"><a href="module.html">Introduction</a></li>
     <li><a>Download</a></li>
-    <li><a>UI</a>
+    <li><a href="#">UI</a>
       <ul>
         <li><a href="button.html">Button</a></li>
         <li><a>Text</a></li>
@@ -70,19 +69,54 @@
         <li><a>Animation</a></li>
         <li><a>Form Validation</a></li>
         <li><a>Placeholder Text</a></li>
-        <li class="active"><a>Shape</a></li>
+        <li><a class="shape.html">Shape</a></li>
         <li><a>State</a></li>
       </ul>
     </li>
   </ul>
 </div>
-<div class="ui left attached vertical blue side buttons">
-  <div class="ui menu button">Menu</div>
+<div class="ui large fixed transparent black menu">
+    <div class="container">
+      <div class="title item">
+        Behavior Module: Shape
+      </div>
+      <div class="icon previous link item">
+        <i class="icon left-open"></i>
+      </div>
+      <div class="section dropdown item">
+        1 of 5
+        <div class="menu">
+          <div class="active item">1. Introduction</div>
+          <div class="item">2. Download</div>
+          <div class="item">3. UI Library</div>
+          <div class="item">4. UI Modules</div>
+          <div class="item">5. Behavioral Modules</div>
+        </div>
+      </div>
+      <div class="icon next link item">
+        <i class="icon right-open"></i>
+      </div>
+      <div class="right item">
+        <a class="icon github"></a>
+      </div>
+    </div>
 </div>
-<div class="container">
-  <h1>Shape</h1>
-  <p>Shape is a plugin for 3D transitioning elements. </p>
-
+<div class="ui huge left attached vertical side buttons"> 
+  <div class="ui menu blue button"><i class="icon th-list"></i> Menu</div>
+</div>
+<div class="segment">
+  <div class="container">
+    <h1>Shape</h1>
+    <p>Shape is a plugin for 3D transitioning elements.</p>
+  </div>
+</div>
+<div class="main container">
+    
+  <div class="ui large vertical pointing panel peek">
+    <li class="active">Examples</li>
+    <li>Usage</li>
+    <li>Settings</li>
+  </div>
   <p>Shapes makes creating 3D tweens easier by taking care of the dirty business of calculating translations based on content sizing, which can be a confusing, frustrating task.</p>
   <p>The module uses 3D transformations which are currently only supported in modern versions of Chrome, Safari, and Firefox.</p>
   <p>Shapes is written using the semantic module specification. Semantic is a standard pattern for writing Javascript modules which intends to make understanding new code less confusing, and debugging errors less frustrating, by making coding decisions less arbitrary and more semantic. <a href="module.html">
