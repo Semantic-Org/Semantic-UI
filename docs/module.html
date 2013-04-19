@@ -77,11 +77,11 @@
       <div class="title item">
         Semantic UI: Introduction 
       </div>
-      <div class="icon previous link item">
+      <div class="previous link item">
         <i class="icon left-open"></i>
       </div>
-      <div class="section dropdown item">
-        1 of 5
+      <div class="section dropdown page item">
+        1 <span class="of">of</span> 5
         <div class="menu">
           <div class="active item">1. Introduction</div>
           <div class="item">2. Download</div>
@@ -90,9 +90,12 @@
           <div class="item">5. Behavioral Modules</div>
         </div>
       </div>
-      <div class="icon next link item">
+      <div class="next link item">
         <i class="icon right-open"></i>
       </div>
+      <a class="right item" href="http://github.com/quirky/quirkyinc/semantic">
+        <i class="icon github"></i>
+      </a>
     </div>
 </div>
 <div class="ui huge left attached vertical side buttons"> 
@@ -108,57 +111,100 @@
     
   <div class="ui large vertical pointing panel peek">
     <li class="active">What is Semantic?</li>
-    <li>The Standard</li>
-    <li>The Library</li>
+    <li>The UI Spec</li>
+    <li>The Module Spec</li>
+    <li>The Semantic Library</li>
   </div>
   <h2>What is Semantic?</h2>
   
-  <p>Semantic has two parts. The <a href="#standard">semantic standard</a>, and the <a href="#library">semantic library</a>.</b></p>
+  <p>Semantic has two parts. The <a href="#standard">semantic specification</a>, and the <a href="#library">semantic library</a>.</b></p>
   
   <a name="standard"></a>
-  <h2>The standard</h2>
-  <p>The semantic standard attempts to create a standard design pattern for describing static UI components (UI elements), and dynamic UI components or behavioral definitions (Javascript modules).</p>
+  <h2>The UI Specification</h2>
+  <p>The semantic specification creates a standard language for describing user interface elements.</p>
   
-  <p><b>Static elements</b>: menus, columns, grids, tables, buttons, forms.</p>
-  <p><b>Dynamic components</b>: popups, modals, chat rooms.</p>
-  <p><b>Behavioral components</b>: form validation, state management, history.</p>
+  <table class="ui table">
+    <tr>
+      <td>UI Elements</td>
+      <td>UI Only</td>
+      <td>menus, columns, grids, tables, buttons, forms</td>
+    </tr>
+    <tr>
+      <td>UI Modules</td>
+      <td>UI + Behavior</td>
+      <td>popups, modals, chat rooms</td>
+    </tr>
+    <tr>
+      <td>Behavioral Modules</td>
+      <td>Behavior Only</td>
+      <td>form validation, state management, polyfills, history</td>
+    </tr>
+  </table>
   
-  <h3>Defining UI</h3>
-  <p>Semantic creates an exchange format for UI, by defining a consistent HTML structure and set of class names for representing UI elements.</p>
-  <p>Sharing a common standard for UI releases the burden from developers at being a naming authorities in their own projects.</p>
-  <p>If together as a community we can define a standard for interface elements, we can share designs without having to modify our site's code to match the arbitrary specifications of a library, and interface designs can be freely exchanged between projects and teams.</p>
+  <h3>Exchanging Designs</h3>
+  <p>Semantic creates an exchange format for UI, by defining HTML structures and class names for UI elements that attempt to create a common language and make front end development <a href="http://instruct.westvalley.edu/lafave/DFW_present_tense.html">less prescriptive</a>.</p>
+  <p>Sharing a language for UI releases the burden from developers at being a naming authorities in their own projects. We can share a common visual vocabulary as a community, and design interchangeable interface elements without having to rely on the prescribed standards of a single developer.</p>
   
-  <h3>What's in an element</h3>
-  <p><b>UI elements definitions are made of 4 parts</b>: 
-  <ol>
-    <li>A prototype form of an element (A bunny has two long ears and is furry)</li>
-    <li>A definition of the relationship between a plural and singular instance of an element (Three white bunnies are each white)</li>
-    <li>A definition of possible variations of the element (A bunny can be large or small and can be spotted or fuzzy)</li>
-    <li>A list of states which the element can exist. (A bunny can either be hopping, eating or sitting still)</li>
-  </ol>
+  <h3>What's in an Element?</h3>
+  <p>UI elements definitions are made of 4 parts: 
+  <table class="ui table">
+    <tr>
+      <td>A prototype form of an element</td>
+      <td>A bunny has two long ears and is furry</td>
+    <tr>
+      <td>A definition of the relationship between a plural and singular instance of an element</td>
+      <td>Three white bunnies are each white</td>
+    </tr>
+    <tr>
+      <td>A definition of possible variations of the element</td>
+      <td> A bunny can be large or small and can be spotted or fuzzy</td>
+    </tr>
+    <tr>
+      <td>A list of states which the element can exist</td>
+      <td> A bunny can either be hopping, eating or sitting still</td>
+    </tr>
+  </table>
   <p>UI elements can be thought of as nouns, and variations as adjectives. Variations are written so to only describe the innate features of that variation, and must account for the differences when declared along-side other variations.</p>
   <p>For example, in English, a large planet has a different meaning than a large chair, and would require different specific contextual definitions, but both are the same variant "largeness" to the person using the word.</p>
   <p>Variations can be used together without negating each other unless used in a paradoxical way (A large small bunny).</p>
   
-  <h3>I don't know what you're talking about just show me the code</h3>
+  <h3>Just Show Me the Code</h3>
   <p>If you'd like to shortcut any more explanation, check out the standard definition for a UI button for a live example.</p>
   <a class="blue ui button" href="button.html">UI Button Spec</a>
   
-  <h3>Defining Modules</h3>
-  <p>The Semantic modules standard is created primarily to accomplish two things:</p>
+  <h2>The Module Specification</h2>
+  <p>In Semantic, modules are user interface elements which require a behavioral definition. For example, a pop-up is understood by the actual action that occurs, it "pops up". Without this logic any pop-up is incomplete.</p>
+  <p>Semantic UI modules have two components, a definition of the UI element and a behavioral definition in javascript. Semantic includes a standard javascript module pattern, which helps in defining interface elements in a similar context to UI.</p>
+
+  <p>The goal of the module design pattern is primarily to accomplish three things:</p>
   <ol>
-    <li>Provide conveniences for module authors so that they can be written faster and without clutter.</li>
-    <li>Add features which make understanding and debugging other developers' modules simpler</li>
+    <li>Make debugging modules simpler by making techniques like performance profiling, and logging easier and more useful.</li>
+    <li>Make understanding new code easier, by defining a common pattern for initializing, destroying elements, modifying settings, and allowing more advanced features.</li>
+    <li>Reduce prescriptive aspects of</li>
   </ol>
   
   <h3>Why use Semantic Modules?</h3>
   <ol>
-    <li><b>Puts accessibility first</b>. Although Coffeescript is beautiful, and Angular is smart, Semantic has a different agenda: to be easy to use, and opinionless. Semantic can be thought of more as the <a href="http://en.wikipedia.org/wiki/Aaron_Copland">Aaron Copland</a> of programming libraries. It only requires an understanding of jQuery and Javascript to begin writing code. If you're stuck there are also <a href="#">plenty of examples</a> to help you get started.</li>
-    <li><b>Is self documenting.</b> Instead of reading through inline comments to determine what a developer is intending, semantic allows developers to pass meaningful debug data where its most useful: the javascript console. This allows you to see the sequence of events that occur in a module , along with useful debug information, like the value of significant variables. If you're in the source code, debug statements also read similarly to code comments which provide context. <a href="#">Show me</a>
-    <li><b>Designed to separate the arbitrary bits from the core logic of your module.</b> Ever scroll through an unfimiliar library looking for the line of code where they define the ID tag for an expected html structure? Semantic keeps you from ever having to do that again. Developer decisions like metadata, classnames, selectors, and messages are separated from the less arbitrary parts of code. <a href="#">Show me</a> </li>
-    <li><b>Lets you access anything, and change everything.</b> Methods defined as part of module definitions are all invokable. Semantic also maps from dot notation to their appropriate locations inside the module, allowing developers not to only make flat modules. Settings can be changed at initialization, or after. Module defaults can be changed whenever. <a href="#">Show me</a></li>
-    <li><b>Plays nice with other libraries</b>. Modules have teardown methods which will remove any bound events or initialized code. Modules also use namespaced events so you can have more flexibility over defining and clearing them</li>
-    <li><b>Patterns for every need</b>. Semantic has patterns that work well both as a widget factory, and as a single entity.</li>
+    <li><b>Puts accessibility first</b>. 
+      <p>Although Coffeescript is beautiful, and Angular is smart, Semantic has a different agenda: to be easy to use, and opinionless. Semantic can be thought of more as the <a href="http://en.wikipedia.org/wiki/Aaron_Copland">Aaron Copland</a> of programming libraries. It only requires an understanding of jQuery and Javascript to begin writing code. If you're stuck there are also <a href="#">plenty of examples</a> to help you get started.</p>
+    </li>
+    <li><b>Is self documenting.</b> 
+      <p>Instead of reading through inline comments to determine what a developer is intending, semantic allows developers to pass meaningful debug data where its most useful: the javascript console. This allows you to see the sequence of events that occur in a module , along with useful debug information, like the value of significant variables. If you're in the source code, debug statements also read similarly to code comments which provide context. <a href="#">Show me</a>
+      </p>
+    </li>
+    <li><b>Separates arbitrary decisions from the fundamental mechanics of your module.</b>
+      <p>Ever scroll through an unfimiliar library looking for the line of code where they define the ID tag for an expected html structure? Semantic keeps you from ever having to do that again. Developer decisions like metadata, classnames, selectors, and messages are separated from the less arbitrary parts of code. <a href="#">Show me</a></p>
+    </li>
+    <li><b>Lets you access anything, and change everything.</b> 
+      <p>Methods defined as part of module definitions are all invokable. Semantic also maps from dot notation to their appropriate locations inside the module, allowing developers not to only make flat modules. Settings can be changed at initialization, or after. Module defaults can be changed whenever. <a href="#">Show me</a></p>
+    </li>
+    <li><b>Plays nice with other libraries</b>. 
+      <p>Modules include a destroy method which will remove any bound events or initialized code. Modules also use namespaced events so you can have more flexibility over defining and clearing them
+      </p>
+    </li>
+    <li><b>Patterns for every need</b>.
+      <p>Semantic has patterns that work well both as a widget factory, and as a single entity.</p>
+    </li>
   </ol>
   
   <h3>You really like to talk. Lets see some code</h3>
@@ -188,7 +234,6 @@
     <li><a>Icons</a></li>
     <li><a>Dividers</a></li>
   </ul>
-  <p>The aim is to release pieces of the library on a schedule over the course of the next few months.</p><a class="big ui button">UI Release Calendar</a>
   <h3>The module library</h3>
   <p>Javascript modules.</p>
   <ul class="list">

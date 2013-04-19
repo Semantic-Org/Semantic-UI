@@ -110,6 +110,12 @@ a:hover {
   border: none;
   padding: 0px;
 }
+#example table pre,
+#example table code {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
 #example p {
   margin: 10px 0px;
 }
@@ -167,6 +173,19 @@ a:hover {
   float: right;
   clear: both;
 }
+#example .page {
+  font-family: "Arial, Helvetica, sans-serif";
+}
+#example .page .of {
+  font-family: 'Neutraface';
+  font-size: 12px;
+  color: #AAAAAA;
+  padding: 0px 5px;
+}
+#example .page .menu,
+#example .page .of {
+  font-family: 'Neutraface';
+}
 
 #example .side.buttons {
   position: fixed;
@@ -195,21 +214,31 @@ a:hover {
   margin-left: -630px;
 }
 
-
-@media only screen and (max-width : 1320px) {
-
-  #example .container {
-    width: auto;
-    margin: 0px 0px 0px 355px;
-  }
-
+#example .settings.table td:first-child {
+  font-weight: bold;
 }
 
 
-@media only screen and (max-width : 1540px) {
+
+@media only screen and (max-width : 1640px) {
 
   #example .container {
     width: 600px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: -530px;
+  }
+}
+
+@media only screen and (max-width : 1420px) {
+
+  #example .container {
+    width: auto;
+    margin: 0px 0px 0px 395px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: 0px;
+    left: 165px;
   }
 
 }
