@@ -171,7 +171,7 @@
   width: 100%;
   height: 100%;
   content: '';
-  background: #EEEEEE url(../images/throbber-blue-tiny.gif) no-repeat 50% 50%;
+  background: #EEEEEE url(../images/throbber-tiny.gif) no-repeat 50% 50%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
 
@@ -194,13 +194,13 @@
 
 /* blue */
 .ui.huge.button.loading:after {
-  background-image: url(../images/throbber-blue-small.gif);
+  background-image: url(../images/throbber-small.gif);
 }
 .ui.massive.buttons .button.loading:after,
 .ui.gigantic.buttons .button.loading:after,
 .ui.massive.button.loading:after,
 .ui.gigantic.button.loading:after {
-  background-image: url(../images/throbber-blue-medium.gif);
+  background-image: url(../images/throbber-medium.gif);
 }
 
 /* grey */
@@ -233,6 +233,7 @@
   cursor: default;
   position: relative;
 
+  background-color: #EE141D;
   color: #FFFFFF;
   text-shadow: none;
 
@@ -242,25 +243,6 @@
   -ms-transition: all 0s linear;
   transition: all 0s linear;
 }
-.ui.buttons .button.error:after,
-.ui.buttons .button.error.hover:after,
-.ui.buttons .button.error.down:after,
-.ui.button.error:after,
-.ui.button.error.hover:after,
-.ui.button.error.down:after {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  content: '';
-  /* standard */
-  background: #EE141D url(../images/button-error.gif) no-repeat 50% 50%;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-
 .ui.button.success,
 .ui.button.success.hover,
 .ui.button.success.down {
@@ -439,6 +421,11 @@
 
   font-size: 30px;
   font-weight: bold;
+}
+
+.ui.mini.button,
+.ui.tiny.button {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
