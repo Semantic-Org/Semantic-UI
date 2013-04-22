@@ -62,6 +62,11 @@
 
 
 /* Grid */
+.ui.grid.table {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
 .ui.grid.table tbody tr,
 .ui.grid.table tfoot tr {
   border: none;

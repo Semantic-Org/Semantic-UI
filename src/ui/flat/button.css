@@ -12,7 +12,7 @@
 
 
 /*******************************
-            Standard
+            Button
 *******************************/
 
 /* Normal */
@@ -256,8 +256,8 @@
 .ui.button.disabled.hover,
 .ui.button.disabled.down {
   cursor: default;
-  color: #BBBBBB;
-  background-color: #F8F8F8 !important;
+  color: #DDDDDD;
+  background-color: rgba(50, 50, 50, 0.05) !important;
   background-image: none !important;
   
   text-shadow: none !important;
@@ -310,63 +310,48 @@
 }
 
 /*---------------
-      Green
+Green / Positive
 ----------------*/
 
 .ui.button.green,
-.ui.button.success {
+.ui.button.positive {
   background-color: #7DDC5C;
   color: #FFFFFF;
 }
 
 .ui.button.green.hover,
-.ui.button.success.hover {
-  background-color: #7fe95A;
+.ui.button.positive.hover {
+  background-color: #7FE95A;
   color: #FFFFFF;
 }
 
 .ui.button.green.down,
-.ui.button.success.down {
+.ui.button.positive.down {
   background-color: #59B94B;
   color: #FFFFFF;
 }
 
-/*--------------------
-      Transparent
-----------------------*/
+/*---------------
+Red / Negative
+----------------*/
 
-.ui.transparent.buttons .button,
-.ui.transparent.button {
-  background-color: transparent;
-  background-image: none;
-  border: none;
-  color: #777777;
-}
-.ui.transparent.buttons .button a,
-.ui.transparent.button a {
-  color: #777777;
+.ui.button.red,
+.ui.button.negative {
+  background-color: #EF3F49;
+  color: #FFFFFF;
 }
 
-/* Hover / Down */
-.ui.transparent.buttons .button.hover,
-.ui.transparent.buttons .button.down,
-.ui.transparent.button.hover,
-.ui.transparent.button.down {
-  color: #555555;
-}
-.ui.transparent.buttons .button.hover a,
-.ui.transparent.buttons .button.down a,
-.ui.transparent.button.hover a,
-.ui.transparent.button.down a {
-  color: #555555;
-}
-.ui.transparent.buttons .button.down {
-  background-color: rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+.ui.button.red.hover,
+.ui.button.negative.hover {
+  background-color: #FE313C;
+  color: #FFFFFF;
 }
 
+.ui.button.red.down,
+.ui.button.negative.down {
+  background-color: #DC323C;
+  color: #FFFFFF;
+}
 
 /*-------------------
        Sizes
@@ -458,15 +443,6 @@ Containing Icon
 }
 
 /*--------------
-    Labels
----------------*/
-
-.ui.button .label {
-
-}
-
-
-/*--------------
     Icon Only
 ---------------*/
 .ui.icon.buttons .button,
@@ -555,6 +531,7 @@ Containing Icon
 /*--------------
      Bubbly
 ---------------*/
+
 .ui.button.bubbly {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
@@ -584,6 +561,25 @@ Containing Icon
   -webkit-border-radius: 0px 0px 5px 5px;
   -moz-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;
+}
+.ui.button.attached.left {
+  display: inline-block;
+  border-left: none;
+
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  
+  -webkit-border-radius: 5px 0px 0px 5px;
+  -moz-border-radius: 5px 0px 0px 5px;
+  border-radius: 5px 0px 0px 5px;
+}
+.ui.button.attached.right {
+  display: inline-block;
+  
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+  -webkit-border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
 }
 
 /* Button attached to a form element */
@@ -724,9 +720,9 @@ input + .ui.attached.button.down {
   font-style: italic;
   text-align: center;
 
-  -moz-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6) inset;
-  -webkit-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6) inset;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6) inset;
+  -moz-box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2) inset;
 
   -moz-border-radius: 500px;
   -webkit-border-radius: 500px;
@@ -744,25 +740,25 @@ input + .ui.attached.button.down {
   content: ' ';
 
   background-color: transparent;
-  border-top: 2px solid #FFFFFF;
-  border-bottom: 2px solid #FFFFFF;
+  border-top: 3px solid #FFFFFF;
 }
 
 
 /* Or Sizes */
 .ui.buttons .or {
   width: 5px;
-  height: 28px;
+  height: 38px;
 }
 .ui.buttons .or:before {
-  margin-top: -10px;
-  margin-left: -12px;
+  margin-top: -15px;
+  margin-left: -15px;
 
-  padding-top: 5px;
-  width: 22px;
-  height: 22px;
+  padding-top: 6px;
+  width: 28px;
+  height: 28px;
 
-  font-size: 12px;
+  font-style: normal;
+  font-weight: bold;
 }
 .ui.buttons .or:after {
   top: 4px;
@@ -892,35 +888,11 @@ input + .ui.attached.button.down {
   height: 26px;
 }
 
-
-
-
-/* Wide Style */
-.ui.buttons.wide {
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.03) 100%);
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.03) 100%);
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.03) 100%);
-  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.03) 100%);
-  background: linear-gradient(top, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.03) 100%);
-
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15) inset;
-  -moz-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15) inset;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15) inset;
-
-  border-radius: 3px;
-  padding-bottom: 0px;
-}
-.ui.buttons.wide .button:last-child {
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}
-
-
 /*-------------------
        Attached
 --------------------*/
 
+/* Plural Attached */
 .attached.ui.buttons {
   margin: 0px;
   -webkit-border-radius: 4px 4px 0px 0px;

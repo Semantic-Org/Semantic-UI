@@ -67,9 +67,16 @@
   -ms-transition: opacity 0.2s ease-out;
   transition: opacity 0.2s ease-out;
 }
+.ui.menu .dropdown.item:last-child .menu {
+  left: auto;
+  right: 0px;
+}
+
+/* Hover */
 .ui.menu .dropdown.item:hover .menu {
   display: block;
   overflow: visible;
+  min-width: 150px;
   width: 100%;
   height: auto;
 
@@ -113,6 +120,7 @@
 .ui.menu .item.hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
+.ui.menu .dropdown.item:hover,
 .ui.menu .dropdown.item .menu .item:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
@@ -173,6 +181,7 @@
 /* active */
 .ui.black.menu .item.down,
 .ui.black.menu .link.item:active,
+.ui.menu .dropdown.item:hover,
 .ui.black.menu a.item:active {
   background-color: rgba(255, 255, 255, .05);
 
@@ -257,7 +266,7 @@
 ---------------*/
 .ui.menu .item {
   padding: 5px 10px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .ui.large.menu .item {
   padding: 12px 10px;

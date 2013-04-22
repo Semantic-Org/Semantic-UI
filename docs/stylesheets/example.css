@@ -94,6 +94,7 @@ a:hover {
   margin: 40px 0px 15px;
 }
 #example h4 {
+  margin: 30px 0px 10px;
   font-size: 16px;
   font-weight: normal;
   color: #555555;
@@ -129,13 +130,13 @@ a:hover {
 }
 
 /* segment headers */
-#example .segment {
+#example > .segment {
   margin: 0px 0px 46px;
   padding: 65px 0px 20px;
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
-#example .segment .text {
+#example > .segment .text {
   width: 800px;
   margin: 0px auto;
 }
@@ -153,12 +154,12 @@ a:hover {
 #example ol li a {
   font-weight: bold;
 }
-#example .list {
+#example .features {
   list-style-position: inside;
-  margin: 10px 0px 40px;
+  margin: 10px 0px 0px;
   padding: 0px;
 }
-#example .list li {
+#example .features li {
   list-style-type: disc;
   margin: 0px 0px 10px;
   font-weight: bold;
@@ -222,17 +223,12 @@ a:hover {
   width: 300px;
 }
 
-#example .code {
+#example div.code {
   position: relative;
   width: 100%;
   height: 200px;
-  overflow: hidden;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
-#example .code {
+#example div.code {
   font-size: 14px;
   margin: 5px 0px 20px;
   padding: 5px 0px;
@@ -242,35 +238,35 @@ a:hover {
   background-color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.8);
 }
-#example .code .ace_bracket {
+#example div.code .ace_bracket {
   background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-#example .code .ace_scroller {
-  margin: 15px 10px;
+#example div.code .ace_scroller {
+  margin: 14px 10px;
 }
-#example .code .ace_content {
+#example div.code .ace_content {
 }
-#example .code .ace_string {
+#example div.code .ace_string {
   color: #e82d2d;
 }
-#example .code .ace_cursor {
+#example div.code .ace_cursor {
   border-left: 1px solid #AAAAAA;
 }
-#example .code .ace_paren {
+#example div.code .ace_paren {
   color: #555555;
 }
-#example .code .ace_keyword {
+#example div.code .ace_keyword {
   color: #555555;
 }
-#example .code .ace_identifier {
+#example div.code .ace_identifier {
   color: #247992;
 }
-#example .code .ace_scrollbar {
+#example div.code .ace_scrollbar {
   overflow: hidden;
   background-color: #FFFFFF;
 }
-#example .code .ace_punctuation {
+#example div.code .ace_punctuation {
   color: #555555;
 }
 
