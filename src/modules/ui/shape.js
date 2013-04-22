@@ -92,7 +92,6 @@ $.fn.shape = function(parameters) {
           callback = callback || function() {
               module.reset();
               module.set.active();
-              module.queue.perform();
               $.proxy(settings.onChange, $nextSide)();
           };
           if(settings.useCSS) {
