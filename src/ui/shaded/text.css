@@ -179,6 +179,8 @@
   border-radius: 5px 5px 5px 5px;
   min-height: 50px;
   overflow: hidden;
+
+  padding: 15px;
 }
 
 .ui.segment.attached {

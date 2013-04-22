@@ -99,8 +99,21 @@
       <div class="icon next link item">
         <i class="icon right-dir"></i>
       </div>
-      <div class="right swap link item">
-        Swap Theme
+      <div class="right menu">
+        <a class="item" href="http://github.com/quirky/quirkyinc/semantic">
+          <i class="icon cloud"></i>
+        </a>
+        <a class="item" href="http://github.com/quirky/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="dropdown item">
+          <i class="icon cog"></i>
+          <div class="menu">
+            <div class="swap item">Change Theme</div>
+            <div class="item">About Semantic</div>
+            <div class="item">About Semantic</div>
+          </div>
+        </div>
       </div>
     </div>
 </div>
@@ -110,7 +123,8 @@
 <div class="segment">
   <div class="container">
   <h1>Button</h1>
-  <p>Semantic is a set of standards designed to make front end development less arbitrary. This is the definition of a button.</p>
+  <p>Buttons indicate a possible action a user may take.</p>
+  <p>Variations can explain relationships between actions and other elements, or to show emphasis.</p>
   </div>
 </div>
 <div class="main container">
@@ -192,43 +206,34 @@
 
 
   <h4>Can have different colors:</h4>
-  <div class="ui blue button">Blue Button</div>
+  <div class="blue ui button">Blue Button</div>
   <div class="purple ui button">Purple Button</div>
-  <div class="green ui button">Green Button</div>
+  
+  <h4>Can be positive or negative:</h4>
+  <div class="positive ui button">Positive Button</div>
+  <div class="negative ui button">Nevative Button</div>
 
   <h4>Can fit parent container:</h4>
   <div class="fluid ui button">Fits container</div>
   
-  <h4>Can be formatted to fit just an icon or image:</h4>
-  <div class="mini icon ui button">
-    <i class="icon pin"></i>
-  </div>
-  <div class="tiny icon ui button">
-    <i class="icon pin"></i>
-  </div>
-  <div class="small icon ui button">
-    <i class="icon pin"></i>
-  </div>
-  <div class="medium icon ui button">
-    <i class="icon pin"></i>
-  </div>
-  <div class="big icon ui button">
-    <i class="icon pin"></i>
-  </div>
-  <div class="huge icon ui button">
-    <i class="icon pin"></i>
-  </div>
+  <h4>Can be bubbly:</h4>
+  <div class="bubbly ui button">More bubbly</div>
+  
+  <h4>Can be formatted as an icon toolbar:</h4>
   <div class="massive icon ui button">
-    <i class="icon pin"></i>
-  </div>
-  <div class="gigantic icon ui button">
-    <i class="icon pin"></i>
+    <i class="icon cloud"></i>
   </div>
 
   <h4>Can be attached to the top or bottom of other content</h4>
   <div class="ui top attached button">Top</div>
   <div style="border-left: 1px solid #DDDDDD;border-right: 1px solid #DDDDDD;height:200px;"></div>
   <div class="ui bottom attached button">Bottom</div>
+  
+  <h4>Can be attached to the left or right of other content</h4>
+  <div class="ui left attached button">Left</div>
+  <div style="width: 200px; display: inline-block; background-color: rgb(255, 255, 255); vertical-align: middle; height: 34px; margin: 0px -4px; border-bottom: 2px solid rgb(221, 221, 221); border-top: 2px solid rgb(221, 221, 221);"></div>
+  <div class="ui right attached button">Right</div>
+
 
   <h4>Can be attached to an input field</h4>
   <div class="ui form">
@@ -236,7 +241,7 @@
     <div class="ui attached button">Search</div>
   </div>  
 
-  <h2>Buttons (Button Groups)</h2>
+  <h2>Buttons (Group)</h2>
 
   <h4>Can exist together as groups</h4>
   <div class="ui buttons">
@@ -244,12 +249,21 @@
     <div class="ui button">Two</div>
     <div class="ui button">Three</div>
   </div>
-  <h4>Groups can be vertical</h4>
-  <div class="ui vertical buttons">
-    <div class="ui button">One</div>
-    <div class="ui button">Two</div>
-    <div class="ui button">Three</div>
+  
+  <h4>Can be formatted as icon toolbars</h4>
+  <div class="ui icon buttons">
+    <div class="ui button"><i class="icon pause"></i></div>
+    <div class="ui button"><i class="icon play"></i></div>
+    <div class="ui button"><i class="icon fast-fw"></i></div>
   </div>
+  
+  <h4>Groups can be separated by conditionals</h4>
+  <div class="ui buttons">
+    <div class="ui button">Cancel</div>
+    <div class="or"></div>
+    <div class="ui positive button">Save</div>
+  </div>
+  
   <h4>Groups can be divided evenly to fit parent</h4>
   <div class="ui three fluid buttons">
     <div class="ui button">One</div>
@@ -263,6 +277,9 @@
     <div class="ui button">One</div>
     <div class="ui button">Two</div>
     <div class="ui button">Three</div>
+  </div>
+  <div class="blue large icon ui buttons">
+    
   </div>
   <br><br>
   <p><b>Large</b></p>

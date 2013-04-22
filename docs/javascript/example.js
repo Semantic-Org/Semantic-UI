@@ -8,7 +8,7 @@ shape.ready = function() {
 
   // selector cache
   var 
-    $ui        = $('.ui'),
+    $ui        = $('.ui').not('.hover, .down'),
     $swap      = $('.swap'),
     $menu      = $('.menu.button'),
     $demo      = $('.demo'),
@@ -24,6 +24,31 @@ shape.ready = function() {
 
   // event handlers
   handler = {
+
+    initializeCode: function() {
+      var 
+        $content      = $(this),
+        contentType   = $content.data('type') || 'javascript',
+        editor        = ace.edit($content[0]),
+        editorSession = editor.getSession(),
+        padding       = 3,
+        codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight + padding)  + editor.renderer.scrollBar.getWidth()
+      ;
+      editor.setTheme('ace/theme/github');
+      editor.setShowPrintMargin(false);
+      editor.setReadOnly(true);
+      editor.renderer.setShowGutter(false); 
+      editor.setHighlightActiveLine(false);
+
+      editorSession.setMode('ace/mode/'+ contentType);
+      editorSession.setTabSize(2);
+      editorSession.setUseSoftTabs(true);
+
+
+      $(this).height(codeHeight + 'px');
+      editor.resize();
+
+    },
 
     peek: function() {
       $('html, body')
@@ -65,7 +90,7 @@ shape.ready = function() {
   $waypoints
     .waypoint({
       continuous : false,
-      offset     : 220,
+      offset     : 215,
       handler    : function(direction) {
         var 
           index = (direction == 'down')
@@ -83,32 +108,11 @@ shape.ready = function() {
     })
   ;
 
-  $code
-    .each(function() {
-      var 
-        $content      = $(this),
-        contentType   = $content.data('type') || 'javascript',
-        editor        = ace.edit($content[0]),
-        editorSession = editor.getSession(),
-        padding       = 2,
-        codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight + padding)  + editor.renderer.scrollBar.getWidth()
-      ;
-      editor.setTheme('ace/theme/github');
-      editor.setShowPrintMargin(false);
-      editor.setReadOnly(true);
-      editor.renderer.setShowGutter(false); 
-      editor.setHighlightActiveLine(false);
-
-      editorSession.setMode('ace/mode/'+ contentType);
-      editorSession.setTabSize(2);
-      editorSession.setUseSoftTabs(true);
-
-
-      $(this).height(codeHeight + 'px');
-      editor.resize();
-
-    })
-  ;
+  if(window.ace !== undefined) {
+    $code
+      .each(handler.initializeCode)
+    ;
+  }
 
   $swap
     .on('click', handler.swapStyle)
