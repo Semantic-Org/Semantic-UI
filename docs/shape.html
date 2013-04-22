@@ -21,6 +21,7 @@
   <script src="../src/modules/ui/shape.js" type="text/javascript"></script>
   <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
 
+  <script src="library/ace/ace.js" type="text/javascript"></script>
   <script src="library/sidr.js" type="text/javascript"></script>
   <script src="library/waypoints.js" type="text/javascript"></script>
   <script src="javascript/example.js" type="text/javascript"></script>
@@ -125,7 +126,7 @@
 
   <h2>Examples</h2>
 
-  <h3>Regular Shape</h3>
+  <h3>Standard</h3>
   <div class="demo square shape module">
     <div class="shape">
       <div class="active jira side">
@@ -158,57 +159,43 @@
 
   <h2>Usage</h2>
 
-  The plugin must be initialized once before methods can be accessed
-  <pre>
-  <code>
-  $('.shape')
-    .shape()
-  ;
-  </code>
-  </pre>
+  <p>The plugin must be initialized once before methods can be accessed</p>
+  <div class="code">$('.shape')
+  .shape()
+;</div>
 
-  Transitions automatically assume next side is the next sibling (or first if last element)
-  <pre>
-  <code>
-  $('.shape')
-    .shape('flip.up')
-  ;
-  </code>
-  </pre>
+  <p>Transitions automatically assume next side is the next sibling (or first if last element)</p>
+  <div class="code">$('.shape')
+  .shape('flip.up')
+;</div>
 
-  To manually set the next side to appear use a selector or jQuery object
-  <pre>
-  <code>
-  $('.shape')
-    .shape('set.nextSide', '.second')
-    .shape('flip.up')
-  ;
-  </code>
-  </pre>
+  <p>To manually set the next side to appear use a selector or jQuery object</p>
+  <div class="code">$('.shape')
+  .shape('set.nextSide', '.second')
+  .shape('flip.up')
+;</div>
 
-  Any internal method can be invoked programmatically
-  <pre>
-  <code>
-  $('.shape')
-    .shape('repaint')
-  ;
-  </code>
-  </pre>
+  <p>Any internal method can be invoked programmatically</p>
+  <div class="code">$('.shape')
+  .shape('repaint')
+;</div>
 
   <h2>Settings</h2>
-  <p>Settings can be modified in three different ways. 
+  <h3>Changing Settings</h3> 
   <ol>
     <li>A settings object can be passed in when initializing the plugin
-      <br> <code>$('.foo').shape({ moduleName: 'Godzilla'});</code>
+      <br> <div class="code">$('.foo').shape({ moduleName: 'Godzilla'});</div>
     </li>
     <li>Default settings for the module can be overridden by modifying $.fn.shape.settings.
-      <br><code>$.fn.shape.settings.moduleName = 'Godzilla';</code>
+      <br><div class="code">$.fn.shape.settings.moduleName = 'Godzilla';</div>
     </li>
     <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
-      <br><code>$('.foo').shape('setting', 'moduleName', 'Godzilla');</code>
+      <br><div class="code">$('.foo').shape('setting', 'moduleName', 'Godzilla');</div>
     </li>
   </ol>
-  <p>Settings can also be read programmatically: <code>$('.foo').shape('setting', 'moduleName');</code>
+  <h3>Reading Settings</h3>
+  <p>Settings can also be read programmatically: <div class="code">$('.foo').shape('setting', 'moduleName');</div>
+  <h3>Defaults</h3>
   <table class="ui grid settings table">
     <thead>
       <th>Setting</th>
@@ -234,22 +221,22 @@
       <tr>
         <td>selector</td>
         <td>
-          <pre>{
+          <div class="code" data-type="css">{
   shape : '.shape',
   side  : '.side'
-}</pre>
+}</div>
         </td>
         <td>Object containing selectors used by module.</td>
       </tr>
       <tr>
         <td>className</td>
         <td>
-<pre>{
+<div class="code">{
   css       : 'css',
   animating : 'animating',
   hidden    : 'hidden',
   active    : 'active'
-}</pre>
+}</div>
         </td>
         <td>Object containing class names used by module.</td>
       </tr>
@@ -296,13 +283,12 @@
       </tr>
       <tr>
         <td>errors</td>
-        <td>
-            {
-              side   : 'You tried to switch to a side that does not exist.',
-              method : 'The method you called is not defined'
-            }
+        <td colspan="2">
+            <div class="code">{
+  side   : 'You tried to switch to a side that does not exist.',
+  method : 'The method you called is not defined'
+}</div>
         </td>
-        <td>Object containing localized error messages.</td>
       </tr>
     </tbody>
   </table>
