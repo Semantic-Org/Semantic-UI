@@ -16,6 +16,8 @@ shape.ready = function() {
     
     $peek      = $('.peek'),
     $peekMenu  = $peek.find('li'),
+    $code      = $('.code'),
+
     // alias
     handler
   ;
@@ -72,13 +74,39 @@ shape.ready = function() {
               ? ($waypoints.index(this) - 1)
               : 0
         ;
-        console.log(index, $waypoints.index(this));
         $peekMenu
           .removeClass('active')
           .eq( index )
             .addClass('active')
         ;
       }
+    })
+  ;
+
+  $code
+    .each(function() {
+      var 
+        $content      = $(this),
+        contentType   = $content.data('type') || 'javascript',
+        editor        = ace.edit($content[0]),
+        editorSession = editor.getSession(),
+        padding       = 2,
+        codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight + padding)  + editor.renderer.scrollBar.getWidth()
+      ;
+      editor.setTheme('ace/theme/github');
+      editor.setShowPrintMargin(false);
+      editor.setReadOnly(true);
+      editor.renderer.setShowGutter(false); 
+      editor.setHighlightActiveLine(false);
+
+      editorSession.setMode('ace/mode/'+ contentType);
+      editorSession.setTabSize(2);
+      editorSession.setUseSoftTabs(true);
+
+
+      $(this).height(codeHeight + 'px');
+      editor.resize();
+
     })
   ;
 
