@@ -126,14 +126,12 @@
   Empty (Placeholder)
 ---------------------*/
 
-.ui.form input[placeholder], 
-.ui.form [placeholder], 
-.ui.form *[placeholder] {
+.ui.form input [placeholder], 
+.ui.form textarea [placeholder] {
    color: #BBBBBB;
 }
-.ui.form input:focus[placeholder], 
-.ui.form :focus[placeholder], 
-.ui.form *[placeholder] {
+.ui.form input:focus [placeholder], 
+.ui.form textarea:focus [placeholder] {
    color: #555555;
 }
 
