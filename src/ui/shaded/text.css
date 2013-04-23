@@ -143,6 +143,8 @@
 /* block with child list */
 .ui.block ul.list {
   margin: 5px 0px 0px;
+  padding: 0px;
+  list-style-position: inside;
 }
 .ui.block ul.list li {
   list-style-type: disc;
