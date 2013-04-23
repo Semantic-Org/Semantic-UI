@@ -23,6 +23,17 @@
   position: relative;
   width: 450px;
 }
+.ui.form :first-child {
+  margin-top: 0px;
+}
+
+/*--------------------
+        Content
+---------------------*/
+
+.ui.form p {
+  margin: 1em 0;
+}
 
 /*--------------------
         Field
@@ -30,7 +41,7 @@
 
 .ui.form .field {
   clear: both;
-  margin: 0px 0px 15px;
+  margin: 0em 0em 1em;
 }
 
 /*--------------------
@@ -38,7 +49,7 @@
 ---------------------*/
 
 .ui.form .field > label {
-  margin: 0px 0px 0.3em;
+  margin: 0em 0em 0.3em;
   display: block;
 
   color: #555555;
@@ -56,13 +67,12 @@
 .ui.textarea,
 .ui.input {
   width: 100%;
-  height: 32px;
-  padding: 7px 10px;
+  padding: 0.5em 0.7em;
+  font-size: 0.825em;
 
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
 
-  font-size: 14px;
   color: #555555;
 
   -webkit-border-radius: 4px;
@@ -83,8 +93,11 @@
   box-sizing: border-box;
 }
 
+.ui.textarea,
 .ui.form textarea {
-  height: 100px;
+  min-height: 67px;
+  height: 101px;
+  max-height: 202px;
   resize: vertical;
 }
 .ui.form select {
@@ -105,6 +118,12 @@
   display: none;
 }
 
+/* Assumptions */
+.ui.form .block:first-child {
+  margin-top: 0px;
+}
+
+
 /*******************************
             States
 *******************************/
@@ -123,29 +142,11 @@
 }
 
 /*--------------------
-  Empty (Placeholder)
----------------------*/
-
-.ui.form input [placeholder], 
-.ui.form textarea [placeholder] {
-   color: #BBBBBB;
-}
-.ui.form input:focus [placeholder], 
-.ui.form textarea:focus [placeholder] {
-   color: #555555;
-}
-
-.ui.form textarea.empty,
-.ui.form input.empty {
-  color: #CCCCCC;
-}
-
-/*--------------------
         Error
 ---------------------*/
 
 /* On Form */
-.ui.form.error .error.block {
+.ui.form.warning .warning.block {
   display: block;
 }
 
@@ -154,41 +155,98 @@
 ---------------------*/
 
 /* On Form */
-.ui.form.warning .warning.block {
+.ui.form.error .error.block {
   display: block;
 }
 
-/* On Field */
+/* On Field(s) */
+.ui.form .fields.error .field label,
 .ui.form .field.error label {
-  color: #AC3A3A;
+  font-weight: bold;
+  color: #EF3F49;
 }
+.ui.form .fields.error .field textarea,
+.ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="password"],
 .ui.form .field.error textarea,
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="password"] {
-  background-color: #FFEFEF;
-  border-color: #FF9999;
-  color: #F0BBBB;
-}
-.ui.form .field.error textarea,
-.ui.form .field.error input[type="password"],
-.ui.form .field.error textarea.filled,
-.ui.form .field.error input.filled {
-  color: #AC3A3A;
+  background-color: #FFFAFA;
+  border-color: rgba(255, 80, 80, 0.7);
+  color: rgba(255, 80, 80, 0.7);
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input:focus {
-  border-color: #E68585;
-  color: #AC3A3A;
+  border-color: rgba(255, 80, 80, 1);
+  color: rgba(255, 80, 80, 1);
 }
+
+/*--------------------
+  Empty (Placeholder)
+---------------------*/
+
+/* browsers require these rules separate */
+.ui.form ::-webkit-input-placeholder {
+  color: #CCCCCC;
+}
+.ui.form ::-moz-placeholder {
+  color: #CCCCCC;
+}
+.ui.form :focus::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+.ui.form :focus::-moz-placeholder {
+  color: #AAAAAA;
+}
+.ui.form textarea.empty,
+.ui.form input.empty {
+  color: #CCCCCC;
+}
+
+/* Error Placeholder */
+.ui.form .error ::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.form .error ::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.form .error :focus::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+.ui.form .error :focus::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+
+/*--------------------
+       Disabled
+---------------------*/
+
+.ui.form .field :disabled,
+.ui.form .field.disabled {
+  opacity: 0.5;
+}
+.ui.form .field.disabled :disabled {
+  opacity: 1;
+}
+
 
 /*--------------------
      Loading State
 ---------------------*/
 
 /* On Form */
-.ui.form.loading .loading,
-.ui.form.loading i.throbber {
-  display: block;
+.ui.form.loading {
+  position: relative;
+}
+.ui.form.loading:after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  content: '';
+
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8) url(../images/throbber-large.gif) no-repeat 50% 50%;
 }
 
 
@@ -245,21 +303,20 @@
 /*--------------------
     Higher Contrast
 ---------------------*/
-
-.ui.form.contrast label {
+.ui.contrasting.form label {
   color: #FFFFFF;
 }
-.ui.form .field.error textarea,
-.ui.form .field.error input[type="text"] {
+.ui.contrasting.form .field.error textarea,
+.ui.contrasting.form .field.error input[type="text"] {
   background-color: #FFAAAA;
   border-color: #FF3333;
   color: #AA5555;
 }
-.ui.form.contrast .field.error label {
+.ui.contrasting.form .field.error label {
   color: #FF3333;
 }
-.ui.form.contrast .notices,
-.ui.form.contrast .errors {
+.ui.contrasting.form .notices,
+.ui.contrasting.form .errors {
   border-color: #FF3333;
   background-image: -webkit-linear-gradient(top , #F36666 0px, #E14242 100%);
   background-image: -moz-linear-gradient(top , #F36666 0px, #E14242 100%);
@@ -278,7 +335,14 @@
 /* Split fields */
 .ui.form .fields {
   clear: both;
-  overflow: hidden;
+}
+.ui.form .fields:after {
+  content: ' ';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 .ui.form .fields .field {
   clear: none;
@@ -330,63 +394,53 @@
     Inline Fields
 ---------------------*/
 
-.ui.form .inline.field > :first-child {
-  margin-right: 5px;
+.ui.form .inline.fields .field {
+  width: auto;
 }
-.ui.form .inline.field label,
-.ui.form .inline.field input,
-.ui.form .inline.field select {
+.ui.form .inline.fields .field > label,
+.ui.form .inline.fields .field > p,
+.ui.form .inline.fields .field > input,
+.ui.form .inline.fields .field > select,
+.ui.form .inline.field > label,
+.ui.form .inline.field > p,
+.ui.form .inline.field > input,
+.ui.form .inline.field > select {
   display: inline-block;
+  vertical-align: middle;
+  width: auto;
 }
 
-
-/*--------------------
-    Success Messages
----------------------*/
-
-.ui.form .block:first-child {
-  margin-top: 0px;
+.ui.form .inline.fields .field > :first-child,
+.ui.form .inline.field > :first-child {
+  margin-right: 0.5em;
 }
-
-.ui.form .notices {
-  color: #67a210;
-
-  background-color: #ebf8d8;
-}
-
 
 
 /*--------------------
         Sizes
 ---------------------*/
 
+/* Standard */
+.ui.small.form {
+  font-size: 14px;
+}
+.ui.small.form textarea,
+.ui.small.form input[type="text"],
+.ui.small.form input[type="password"],
+.ui.small.form label {
+  font-size: 1em;
+}
+
 .ui.form {
   font-size: 16px;
 }
+
+/* Large */
 .ui.large.form {
-  width: 440px;
+  font-size: 18px;
 }
-.ui.large.fluid.form {
-  width: 100%;
-}
-
-.ui.large.form .field {
-  margin-bottom: 20px;
-}
-
-.ui.large.form .divider {
-  margin: 30px 0px;
-}
-
-.ui.large.form .field input[type="text"] {
-  height: 38px;
-  padding: 10px 12px;
-  
-  font-size: 14px;
-}
-.ui.large.form .field textarea {
-  height: 140px;
-  padding: 10px 12px;
+.ui.large.form label {
+  font-weight: bold;
 }
 
 

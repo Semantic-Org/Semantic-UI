@@ -33,7 +33,9 @@
   font-style: normal;
   font-size-adjust: 0.448;
 }
-
+/*******************************
+             Global 
+*******************************/
 body#example {
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
   background: #FCFCFC url(../images/bg.jpg) repeat;
@@ -41,6 +43,63 @@ body#example {
   padding: 0px 0px 150px;
 }
 
+/* text and headers */
+h1 {
+  margin: 0px 0px 20px;
+  padding: 50px 0px 5px;
+  border-bottom: 1px solid #DDDDDD;
+}
+h1 {
+  margin: 0px auto;
+}
+h1:first-child {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+h2 {
+  margin: 35px 0px 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DDDDDD;
+}
+h3 {
+  font-size: 20px;
+  margin: 40px 0px 15px;
+}
+h4 {
+  margin: 30px 0px 3px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+}
+h4 + p {
+  margin: 0px 0px 20px;
+}
+pre {
+  background-color: #F0F0F0;
+}
+code {
+  position: relative;
+  background-color: #F0F0F0;
+  border: 1px solid #DDDDDD;
+  padding: 3px 5px;
+}
+pre code {
+  border: none;
+  padding: 0px;
+}
+table pre,
+table code {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
+p {
+  margin: 10px 0px;
+  color: #555555;
+}
+p > a {
+  font-weight: bold;
+}
 /* links */
 a {
   color: #009FDA;
@@ -49,6 +108,8 @@ a {
 a:hover {
   color: #00BAFF;
 }
+
+
 
 #example .sidr {
   font-weight: bold;
@@ -71,59 +132,7 @@ a:hover {
   box-shadow: none;
 }
 
-/* text and headers */
-#example h1 {
-  margin: 0px 0px 20px;
-  padding: 50px 0px 5px;
-  border-bottom: 1px solid #DDDDDD;
-}
-#example h1 {
-  margin: 0px auto;
-}
-#example h1:first-child {
-  margin-top: 0px;
-  padding-top: 0px;
-}
-#example h2 {
-  margin: 35px 0px 30px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #DDDDDD;
-}
-#example h3 {
-  font-size: 20px;
-  margin: 40px 0px 15px;
-}
-#example h4 {
-  margin: 30px 0px 10px;
-  font-size: 16px;
-  font-weight: normal;
-  color: #555555;
-}
-#example pre {
-  background-color: #F0F0F0;
-}
-#example code {
-  position: relative;
-  background-color: #F0F0F0;
-  border: 1px solid #DDDDDD;
-  padding: 3px 5px;
-}
-#example pre code {
-  border: none;
-  padding: 0px;
-}
-#example table pre,
-#example table code {
-  margin: 0px;
-  padding: 0px;
-  background-color: transparent;
-}
-#example p {
-  margin: 10px 0px;
-}
-#example p > a {
-  font-weight: bold;
-}
+
 #example .section.dropdown .menu {
   left: -46px;
   width: 215px;
