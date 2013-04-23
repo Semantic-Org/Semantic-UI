@@ -27,7 +27,7 @@
 
   <script src="library/sidr.js" type="text/javascript"></script>
   <script src="library/waypoints.js" type="text/javascript"></script>
-  <script src="javascript/example.js" type="text/javascript"></script>
+  <script src="javascript/semantic.js" type="text/javascript"></script>
 
 </head>
 
@@ -376,6 +376,8 @@
   </div>
 
   <h2>Variations</h2>
+  
+  <h3>Forms</h3>
 
   <h4>Size</h4>
   <p>A form can also be small or large</p>
@@ -421,6 +423,33 @@
     <div class="ui blue submit button">Submit</div>
   </div>
   
+  <h4>Inverted</h4>
+  <p>A form on a dark background may have to invert its color scheme</p>
+  
+  <div style="background-color: #333333; padding: 15px;">
+    <div class="ui inverted form">
+      <div class="ui info block">
+        <div class="header">We had some issues</div>
+        <ul class="list">
+          <li>Please enter your first name</li>
+          <li>Please enter your last name</li>
+        </ul>
+      </div>
+      <div class="two fields">
+        <div class="error field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
+      </div>
+      <div class="ui blue submit button">Submit</div>
+    </div>
+  </div>
+  
+  
   <h3>Fields</h3>
   
   <h4>Inline</h4>
@@ -430,6 +459,37 @@
       <div class="field">
         <label>Last name</label>
         <input type="text" placeholder="Full Name">
+      </div>
+    </div>
+  </div>
+  
+  <h4>Date</h4>
+  <p>A field can let users know they are for dates</p>
+  <div class="ui form">
+    <div class="date field">
+      <label>Birthday</label>
+      <input type="text" placeholder="Full Name">
+    </div>
+  </div>
+  
+  
+  <h2>Groups</h2>
+  
+  <h4>Field Groups</h4>
+  <p>Fields can exist side by side on groups</p>
+  <div class="ui form">
+    <div class="ui three fields">
+      <div class="field">
+        <label>First name</label>
+        <input type="text" placeholder="First Name">
+      </div>
+      <div class="field">
+        <label>Middle name</label>
+        <input type="text" placeholder="Middle Name">
+      </div>
+      <div class="field">
+        <label>Last name</label>
+        <input type="text" placeholder="Last Name">
       </div>
     </div>
   </div>
