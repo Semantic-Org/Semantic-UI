@@ -89,10 +89,11 @@ $.fn.shape = function(parameters) {
 
         animate: function(propertyObject, callback) {
           module.verbose('Animating box with properties', propertyObject);
-          callback = callback || function() {
+          callback = callback || function(event) {
               module.reset();
               module.set.active();
               $.proxy(settings.onChange, $nextSide)();
+              event.stopImmediatePropagation();
           };
           if(settings.useCSS) {
             module.verbose('Starting CSS animation');
@@ -136,6 +137,7 @@ $.fn.shape = function(parameters) {
           module.debug('Queueing animation of', method);
           $shape
             .one(endTransition, function() {
+              module.debug('Executing queued animation');
               $module.shape(method);
             })
           ;
