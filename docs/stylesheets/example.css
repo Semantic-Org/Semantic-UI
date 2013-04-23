@@ -212,6 +212,18 @@ a:hover {
   left: -230px;
   width: 180px;
 }
+#example .peek .panel :nth-child(1) {
+  border-left-color: #00B9F0;
+}
+#example .peek .panel :nth-child(2) {
+  border-left-color: #56BB73;
+}
+#example .peek .panel :nth-child(3) {
+  border-left-color: #EF3F49;
+}
+#example .peek .panel :nth-child(4) {
+  border-left-color: #A24096;
+}
 #example .peek .panel {
   width: 180px;
 }
