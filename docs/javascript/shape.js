@@ -1,10 +1,7 @@
-// namespace
-var shape = {
-  handler: {}
-};
+semantic.shape = {};
 
 // ready event
-shape.ready = function() {
+semantic.shape.ready = function() {
 
   // selector cache
   var 
@@ -78,5 +75,5 @@ shape.ready = function() {
 
 // attach ready event
 $(document)
-  .ready(shape.ready)
+  .ready(semantic.shape.ready)
 ;
