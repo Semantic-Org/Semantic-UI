@@ -1,6 +1,6 @@
 {
   "name"        : "Shape",
-  "version"     : "0.1",
+  "version"     : "0.0.1",
   "description" : "3D animation made easy. A jQuery plugin built with the Semantic module spec.",
 
   "homepage"    : "https://github.com/quirkyinc/shapeful",
