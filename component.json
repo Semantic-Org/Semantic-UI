@@ -1,6 +1,6 @@
 {
   "name"        : "Shape",
-  "version"     : "0.1",
+  "version"     : "0.0.1",
   "description" : "3D animation made easy. A jQuery plugin built with the Semantic module spec.",
 
   "homepage"    : "https://github.com/quirkyinc/shapeful",
@@ -23,8 +23,6 @@
     "./build/origami.css"
   ],
   "dependencies": {
-    "jquery"      : ">=1.8",
-    "transform2d" : "./dependencies/transform2d.js",
-    "transform3d" : "./dependencies/transform3d.js"
+    "jquery"      : ">=1.8"
   }
 }
