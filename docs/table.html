@@ -195,6 +195,40 @@
 
   <h2>States</h2>
   
+  <div class="example">
+    <h4>Positive / Negative</h4>
+    <p>A cell may let a user know whether a value is good or bad:</p>
+    <table class="ui grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No Name Specified</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr class="positive">
+          <td>Jimmy</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td class="negative">Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
   <h3>Cells</h3>
   <div class="example">
     <h4>Error</h4>
@@ -220,40 +254,6 @@
           <td>Jamie</td>
           <td>Approved</td>
           <td class="error">Requires call</td>
-        </tr>
-        <tr>
-          <td>Jill</td>
-          <td>Approved</td>
-          <td>None</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  <div class="example">
-    <h4>Positive / Negative</h4>
-    <p>A cell may let a user know whether a value is good or bad:</p>
-    <table class="ui grid table">
-      <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>No Name Specified</td>
-          <td>Approved</td>
-          <td>None</td>
-        </tr>
-        <tr class="positive">
-          <td>Jimmy</td>
-          <td>Approved</td>
-          <td>None</td>
-        </tr>
-        <tr>
-          <td>Jamie</td>
-          <td>Approved</td>
-          <td class="negative">Requires call</td>
         </tr>
         <tr>
           <td>Jill</td>

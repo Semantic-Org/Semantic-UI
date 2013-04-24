@@ -112,6 +112,44 @@
 
 
 /*--------------
+    Positive
+---------------*/
+
+.ui.table tr.positive td,
+.ui.table td.positive {
+  background-color: #EEFFE9;
+  color: #119000;
+  /* border-color: #2FCB05 !important; */
+}
+.ui.grid.table tr.positive:hover td,
+.ui.grid.table tr:hover td.positive,
+.ui.table tr.positive:hover td,
+.ui.table td:hover.positive,
+.ui.table th:hover.positive {
+  background-color: #DEF5D7 !important;
+  color: #119000;
+}
+
+/*--------------
+     Negative
+---------------*/
+
+.ui.table tr.negative td,
+.ui.table td.negative {
+  background-color: #F8EBEB;
+  color: #AD0000;
+  /* border-color: #B06C6C !important; */
+}
+.ui.grid.table tr.negative:hover td,
+.ui.grid.table tr:hover td.negative,
+.ui.table tr.negative:hover td,
+.ui.table td:hover.negative,
+.ui.table th:hover.negative {
+  background-color: #F1DFDF !important;
+  color: #AD0000;
+}
+
+/*--------------
       Error
 ---------------*/
 
@@ -133,46 +171,6 @@
 }
 
 /*--------------
-    Positive
----------------*/
-
-.ui.table tr.positive td,
-.ui.table td.positive {
-  background-color: #EEFFE9;
-  color: #119000;
-  font-weight: bold;
-  /* border-color: #2FCB05 !important; */
-}
-.ui.grid.table tr.positive:hover td,
-.ui.grid.table tr:hover td.positive,
-.ui.table tr.positive:hover td,
-.ui.table td:hover.positive,
-.ui.table th:hover.positive {
-  background-color: #DEF5D7 !important;
-  color: #119000;
-}
-
-/*--------------
-     Negative
----------------*/
-
-.ui.table tr.negative td,
-.ui.table td.negative {
-  background-color: #F8EBEB;
-  color: #AD0000;
-  font-weight: bold;
-  /* border-color: #B06C6C !important; */
-}
-.ui.grid.table tr.negative:hover td,
-.ui.grid.table tr:hover td.negative,
-.ui.table tr.negative:hover td,
-.ui.table td:hover.negative,
-.ui.table th:hover.negative {
-  background-color: #F1DFDF !important;
-  color: #AD0000;
-}
-
-/*--------------
      Warning
 ---------------*/
 
@@ -180,8 +178,8 @@
 .ui.table td.warning,
 .ui.table th.warning {
   background-color: #F6F3D5;
-  font-weight: bold;
   /* border-color: #CBB105 !important; */
+  font-weight: bold;
   color: #7D6C00;
 }
 .ui.grid.table tr.warning:hover td,
@@ -201,8 +199,8 @@
 .ui.table tr.active td,
 .ui.table tr td.active {
   background-color: #E8E8E8 !important;
-  color: #555555;
   font-weight: bold;
+  color: #555555;
   /* border-color: rgba(0, 0, 0, 0.15) !important; */
 }
 
