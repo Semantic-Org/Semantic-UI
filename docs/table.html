@@ -1,0 +1,585 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>UI Table - Semantic</title>
+
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/panel.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/button.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/text.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/form.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/divider.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/table.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/block.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/segment.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/checkbox.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/icons.css" type="text/css" media="screen" />
+  
+  <link rel="stylesheet" href="../src/ui/flat/menu.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/modules/ui/shape.css" type="text/css" media="screen" />
+  
+  <link rel="stylesheet" href="library/sidr.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="stylesheets/example.css" type="text/css" media="screen" />
+
+  <script src="library/jquery.js" type="text/javascript"></script>
+  <script src="library/tablesort.js" type="text/javascript"></script>
+  <script src="library/ace/ace.js" type="text/javascript"></script>
+  <script src="library/sidr.js" type="text/javascript"></script>
+  <script src="library/waypoints.js" type="text/javascript"></script>
+
+  <script src="javascript/semantic.js" type="text/javascript"></script>
+  <script src="javascript/table.js" type="text/javascript"></script>
+
+  <script src="../src/modules/ui/shape.js" type="text/javascript"></script>
+  <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
+
+</head>
+
+<body id="example">
+
+<div class="sidr" id="menu">
+  <ul>
+    <li><a href="module.html">Introduction</a></li>
+    <li><a>Download</a></li>
+    <li><a href="#">UI</a>
+      <ul>
+        <li><a href="button.html">Button</a></li>
+        <li><a href="form.html">Forms</a></li>
+        <li><a href="table.html">Table</a></li>
+        <li><a href="table.html">Steps</a></li>
+        <li><a href="table.html">Progress</a></li>
+        <li><a href="text.html">Text Block</a></li>
+        <li><a href="header.html">Headers</a></li>
+        <li><a href="header.html">Segment</a></li>
+        <li><a href="column.html">Columns</a></li>
+        <li><a href="element.html">Elements (Grid System)</a></li>
+        <li><a href="tag.html">Tags</a></li>
+        <li><a href="item.html">Items (Lists of Content)</a></li>
+        <li><a href="panel.html">Panels (Type of Menu)</a></li>
+        <li><a href="icon.html">Icons</a></li>
+        <li><a href="divider.html">Dividers</a></li>
+      </ul>
+    </li>
+    <li><a href="#">UI Collections</a>
+      <ul>
+        <li><a href="activity.html">Activity Feed</a></li>
+        <li><a href="list.html">Content List</a></li>
+        <li><a href="user-list.html">User List</a></li>
+        <li><a href="form.html">Forms</a></li>
+      </ul>
+    </li>
+    <li><a href="#">UI Modules</a>
+      <ul>
+        <li><a href="accordion.html">Accordion</a></li>
+        <li><a href="chatroom.html">Chat Room</a></li>
+        <li><a href="modal.html">Modal</a></li>
+        <li><a href="nag.html">Nag</a></li>
+        <li><a href="popup.html">Popup</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="star.html">Star Rating</a></li>
+        <li><a href="tab.html">Tabs</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Behavioral Modules</a>
+      <ul>
+        <li><a href="api.html">API</a></li>
+        <li><a href="animation.html">Animation</a></li>
+        <li><a href="validate.html">Form Validation</a></li>
+        <li><a href="placeholder.html">Placeholder Text</a></li>
+        <li><a href="shape.html">Shape</a></li>
+        <li><a href="state.html">State</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div class="ui large fixed transparent black menu">
+    <div class="container">
+      <div class="title item">
+        Semantic UI: Form 
+      </div>
+      <div class="icon previous link item">
+        <a href="form.html"><i class="icon left-open"></i></a>
+      </div>
+      <div class="section dropdown item">
+        3 of 14
+        <div class="menu">
+          <a href="button.html" class="item">1. Button</a>
+          <a href="form.html" class="item">2. Form</a>
+          <a class="active item">3. Table</a>
+          <a class="item">4. Columns</a>
+          <a class="item">5. Elements</a>
+          <a class="item">6. Tags</a>
+          <a class="item">7. Items</a>
+          <a class="item">8. Panels</a>
+        </div>
+      </div>
+      <div class="icon next link item">
+        <i class="icon right-open"></i>
+      </div>
+      <div class="right menu">
+        <a class="item" href="https://github.com/quirkyinc/semantic">
+          <i class="icon cloud"></i>
+        </a>
+        <a class="item" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="dropdown item">
+          <i class="icon cog"></i>
+          <div class="menu">
+            <div class="swap item">Change Theme</div>
+            <div class="item">About Semantic</div>
+            <div class="item">Choice 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="ui huge left attached vertical side buttons"> 
+  <div class="ui blue menu button">Menu</div>
+</div>
+<div class="segment">
+  <div class="container">
+    <h1>Tables</h1>
+    <p>Tables are useful for displaying collections of tuples.</p>
+    <p> 
+      Tables consist of an optional table header, content, and table footer. They may be formatted to show numeric content or for rows of text.
+    </p>
+    <p>Although no plugin has been created using the <a href="generated/multiple.html">semantic module spec</a> for sorting tables, other plugins such as kylefox's <a href="https://github.com/kylefox/jquery-tablesort">tablesort</a> may be useful.</p>
+  </div>
+</div>
+<div class="main container">
+  
+  <div class="peek">
+    <div class="ui large vertical pointing bottom attached panel">
+      <li class="active">Standard</li>
+      <li>States</li>
+      <li>Variations</li>
+    </div>
+  </div>
+  
+  <h2>Standard</h2>
+  <div class="example">
+    <h4>Table</h4>
+    <p>A standard table</p>
+    <table class="ui table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th colspan="3">
+          <div class="ui blue button">Add User</div>
+        </th>
+      </tfoot>
+    </table>
+  </div>
+  
+
+  <h2>States</h2>
+  
+  <h3>Cells</h3>
+  <div class="example">
+    <h4>Error</h4>
+    <p>A cell or row may alert the user to an error or a negative value:</p>
+    <table class="ui grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No Name Specified</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr class="error">
+          <td>Jimmy</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td class="error">Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="example">
+    <h4>Positive / Negative</h4>
+    <p>A cell may let a user know whether a value is good or bad:</p>
+    <table class="ui grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No Name Specified</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr class="positive">
+          <td>Jimmy</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td class="negative">Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="example">
+    <h4>Warning</h4>
+    <p>A cell or row may warn a user:</p>
+    <table class="ui grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No Name Specified</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr class="warning">
+          <td>Jimmy</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td class="warning">Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="example">
+    <h4>Active</h4>
+    <p>A cell or row can be active:</p>
+    <table class="ui grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr class="active">
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td class="active">Jill</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+
+  <h2>Variations</h2>
+  
+  <div class="example">
+    <h4>Collapsing</h4>
+    <p>By default tables take the size of their container. A collapsing takes up only as much space as its rows.</p>
+    <table class="ui grid table collapsing">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
+  
+  <div class="example">
+    <h4>Grid</h4>
+    <p>A table may have a grid to help differentiate cells</p>
+    <table class="ui grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
+  
+  <div class="example">
+    <h4>Sortable</h4>
+    <p>A table may allow a user to sort contents by clicking on a table header.</p>
+    
+    <p>Adding a classname of ascending or descending, will show the user the direction of sort. This example uses a modified version of the kylefox's <a href="library/tablesort.js">tablesort plugin</a> to provide the proper class names.</p>
+    
+    <table class="ui sortable grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>No Action</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td class="positive">Approved</td>
+          <td class="warning">Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td class="negative">Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
+  <div class="example">
+    <h4>Padded</h4>
+    <p>A table may sometimes need to be more padded for legibility</p>
+    <table class="ui padded grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>He is a very nice guy and I enjoyed talking to him on the telephone. I hope we get to talk again.</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Jamie was not interested in purchasing our product.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="example">
+    <h4>Compact</h4>
+    <p>A table may sometimes need to be more compact to make more rows visible at a time</p>
+    <table class="ui compact grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="example">
+    <h4>Size</h4>
+    <p>A table can also be small or large</p>
+    <table class="ui small table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+    <br><br>
+    <table class="ui large table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
+</div>
+</body>
+
+</html>

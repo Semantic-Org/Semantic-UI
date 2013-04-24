@@ -232,6 +232,7 @@
 .ui.green.block,
 .ui.success.block,
 .ui.positive.block {
+  background-color: #EEFFE9;
   background-image: -webkit-linear-gradient(#EEFFE9 0px, #D5F3CD 100%);
   background-image: -moz-linear-gradient(#EEFFE9 0px, #D5F3CD 100%);
   background-image: -o-linear-gradient(#EEFFE9 0px, #D5F3CD 100%);
