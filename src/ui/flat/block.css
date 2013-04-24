@@ -48,7 +48,7 @@
 /* block with child list */
 .ui.block ul.list {
   list-style-position: inside;
-  margin: 5px 0px 0px;
+  margin: 0px 0px 0px;
   padding: 0px;
 }
 .ui.block ul.list li {

@@ -80,24 +80,24 @@
       <div class="title item">
         Semantic UI: Button 
       </div>
-      <div class="icon previous link item">
-        <i class="icon left-dir"></i>
+      <div class="icon previous disabled item">
+        <i class="icon left-open"></i>
       </div>
       <div class="section dropdown item">
         1 of 14
         <div class="menu">
-          <div class="active item">1. Button</div>
-          <div class="item">2. Text</div>
-          <div class="item">3. Headers</div>
-          <div class="item">4. Columns</div>
-          <div class="item">5. Elements</div>
-          <div class="item">6. Tags</div>
-          <div class="item">7. Items</div>
-          <div class="item">8. Panels</div>
+          <a class="active item">1. Button</a>
+          <a href="form.html" class="item">2. Form</a>
+          <a class="item">3. Headers</a>
+          <a class="item">4. Columns</a>
+          <a class="item">5. Elements</a>
+          <a class="item">6. Tags</a>
+          <a class="item">7. Items</a>
+          <a class="item">8. Panels</a>
         </div>
       </div>
       <div class="icon next link item">
-        <i class="icon right-dir"></i>
+        <a href="form.html"><i class="icon right-open"></i></a>
       </div>
       <div class="right menu">
         <a class="item" href="http://github.com/quirky/quirkyinc/semantic">
@@ -124,7 +124,7 @@
   <div class="container">
   <h1>Button</h1>
   <p>Buttons indicate a possible action a user may take.</p>
-  <p>Variations can explain relationships between actions and other elements, or to show emphasis.</p>
+  <p>Button variations are used to explain relationships between user actions and other elements, or to show emphasis.</p>
   </div>
 </div>
 <div class="main container">
@@ -144,27 +144,35 @@
 
   <h2>States</h2>
 
-  <h4>Can be hovered:</h4>
+  <h4>Hover</h4>
+  <p>Changes when a user moves their cursor over it</p>
   <div class="ui hover button">Hovered Button</div>
-  <h4>Can be pressed in:</h4>
-  
+
+  <h4>Down</h4>
+  <p>Changes when pressed using touch or mouse events</p>
   <div class="ui down button">Pressed Button</div>
 
-  <h4>Can be active:</p>
+  <h4>Active</h4>
+  <p>Changes to show it is currently the selected user action</p>
   <div class="ui active button">Active Button</div>
 
-  <h4>Can be disabled:</h4>
+  <h4>Disabled</h4>
+  <p>Changes to show it is currently unable to be interacted with</p>
   <div class="ui disabled button">Disabled Button</div>
 
-  <h4>Can show a loading indicator:</h4>
+  <h4>Loading</h4>
+  <p>Can show a loading indicator:</p>
   <div class="ui loading button">Loading Button</div>
 
-  <h4>Can alert to a succesful action:</h4>
+  <h4>Success</h4>
+  <p>Can alert to a succesful action:</p>
   <div class="ui success button">Successful Button</div>
 
-  <h4>Can alert user of an error:</h4>
+  <h4>Error</h4>
+  <p>Can alert user of an error:</p>
   <div class="ui error button">Error</div>
   
+  <h4>All together:</h4>  
   <div class="ui button">Normal</div>
   <div class="ui button hover">Hover</div>
   <div class="ui button down">Down</div>
@@ -178,7 +186,8 @@
 
   <h2>Variations</h2>
 
-  <h4>Can have different sizes:</h4>
+  <h4>Sizes</h4>
+  <p>Can have different sizes:</p>
   <div class="mini ui button">
     Mini
   </div>
@@ -205,74 +214,89 @@
   </div>
 
 
-  <h4>Can have different colors:</h4>
+  <h4>Colors</h4>
+  <p>Can have different colors:</p>
   <div class="blue ui button">Blue Button</div>
   <div class="purple ui button">Purple Button</div>
   
-  <h4>Can be positive or negative:</h4>
+  <p>Can be positive or negative:</p>
   <div class="positive ui button">Positive Button</div>
-  <div class="negative ui button">Nevative Button</div>
+  <div class="negative ui button">Negative Button</div>
 
-  <h4>Can fit parent container:</h4>
+  <h4>Fluid</h4>
+  <p>Can fit parent container:</p>
   <div class="fluid ui button">Fits container</div>
   
-  <h4>Can be bubbly:</h4>
+  <h4>Bubbly</h4>
+  <p>Can be bubbly:</p>
   <div class="bubbly ui button">More bubbly</div>
   
-  <h4>Can be formatted as an icon toolbar:</h4>
+  <h4>Icon</h4>
+  <p>Can be formatted as an icon toolbar:</p>
   <div class="massive icon ui button">
     <i class="icon cloud"></i>
   </div>
 
-  <h4>Can be attached to the top or bottom of other content</h4>
+  <h4>Attached</h4>
+  <p>Can be attached to the top or bottom of other content</p>
   <div class="ui top attached button">Top</div>
-  <div style="border-left: 1px solid #DDDDDD;border-right: 1px solid #DDDDDD;height:200px;"></div>
+  <div style="border-left: 1px solid #DDDDDD;border-right: 1px solid #DDDDDD;background-color:#FFFFFF;height:200px;"></div>
   <div class="ui bottom attached button">Bottom</div>
   
-  <h4>Can be attached to the left or right of other content</h4>
+  <br><br>
+  <p>Can be attached to the left or right of other content</p>
   <div class="ui left attached button">Left</div>
   <div style="width: 200px; display: inline-block; background-color: rgb(255, 255, 255); vertical-align: middle; height: 34px; margin: 0px -4px; border-bottom: 2px solid rgb(221, 221, 221); border-top: 2px solid rgb(221, 221, 221);"></div>
   <div class="ui right attached button">Right</div>
 
-
-  <h4>Can be attached to an input field</h4>
+  <br><br>
+  <p>Can be attached to an input field</p>
   <div class="ui form">
     <input type="text" class="attached">
     <div class="ui attached button">Search</div>
   </div>  
 
-  <h2>Buttons (Group)</h2>
+  <h2>Group</h2>
 
-  <h4>Can exist together as groups</h4>
+  <h4>Buttons</h4>
+  <p>Can exist together as groups</p>
   <div class="ui buttons">
     <div class="ui button">One</div>
     <div class="ui button">Two</div>
     <div class="ui button">Three</div>
   </div>
   
-  <h4>Can be formatted as icon toolbars</h4>
-  <div class="ui icon buttons">
-    <div class="ui button"><i class="icon pause"></i></div>
-    <div class="ui button"><i class="icon play"></i></div>
-    <div class="ui button"><i class="icon fast-fw"></i></div>
-  </div>
-  
-  <h4>Groups can be separated by conditionals</h4>
+  <h4>Conditionals</h4>
+  <p>Groups can be separated by conditionals</p>
   <div class="ui buttons">
     <div class="ui button">Cancel</div>
     <div class="or"></div>
     <div class="ui positive button">Save</div>
   </div>
   
-  <h4>Groups can be divided evenly to fit parent</h4>
-  <div class="ui three fluid buttons">
+  <h3>Plural Variations</h3>
+  <p>Singular variations can be applied to groups to infer all elements share the same quality</p>
+  
+  <h4>Icon</h4>
+  <p>Groups can be formatted as icon toolbars</p>
+  <div class="ui icon buttons">
+    <div class="ui button"><i class="icon pause"></i></div>
+    <div class="ui button"><i class="icon play"></i></div>
+    <div class="ui button"><i class="icon fast-fw"></i></div>
+  </div>
+  
+  <h4>Fluid</h4>
+  <p>Groups can be divided evenly to fit parent</p>
+  <div class="ui five fluid buttons">
     <div class="ui button">One</div>
     <div class="ui button">Two</div>
     <div class="ui button">Three</div>
+    <div class="ui button">Four</div>
+    <div class="ui button">Five</div>
   </div>
 
-  <h4>Singular variations can be applied to groups to infer all elements share the same quality</h4>
-  <p><b>Blue</b></p>
+  <h4>Colors</h4>
+  <p>Groups can have a shared color</p>
   <div class="blue ui buttons">
     <div class="ui button">One</div>
     <div class="ui button">Two</div>
@@ -281,8 +305,8 @@
   <div class="blue large icon ui buttons">
     
   </div>
-  <br><br>
-  <p><b>Large</b></p>
+  <h4>Sizes</h4>
+  <p>Groups can have a shared size</p>
   <div class="huge ui buttons">
     <div class="ui button">One</div>
     <div class="ui button">Two</div>
