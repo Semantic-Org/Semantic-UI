@@ -14,7 +14,7 @@ semantic.ready = function() {
     $demo        = $('.demo'),
     $waypoints   = $('h2'),
 
-    $exampleCode = $('.example i.code'),
+    $example     = $('.example'),
 
     $peek        = $('.peek'),
     $peekMenu    = $peek.find('li'),
@@ -27,14 +27,26 @@ semantic.ready = function() {
   // event handlers
   handler = {
 
+    createIcon: function() {
+      $example
+        .each(function(){
+          $('<i/>')
+            .addClass('icon code')
+            .prependTo( $(this) )
+          ;
+        })
+      ;
+    },
+
     createCode: function() {
       var
         $example   = $(this).closest('.example'),
         $shape     = $example.find('.shape.module'),
-        $demo      = $example.find('.demo'),
+        $demo      = $example.children().slice(2).not('.annotated'),
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
-        code       = $demo.get(0).innerHTML
+        whiteSpace = new RegExp('\\n\\s{4}', 'g'),
+        code = ''
       ;
       // add source if doesnt exist and initialize
       if($annotated.size() === 0) {
@@ -44,8 +56,14 @@ semantic.ready = function() {
         ;
       }
       if( $code.size() === 0) {
-        code = code.replace('^(\s+)', '$1$1');
-        console.log(code);
+        $demo
+          .each(function(){
+            if($(this).hasClass('ui')) {
+              code += $(this).get(0).outerHTML + "\n";
+            }
+          })
+        ;
+        code  = $.trim(code.replace(whiteSpace, '\n'));
         $code = $('<div/>')
           .data('type', 'html')
           .addClass('code')
@@ -54,13 +72,18 @@ semantic.ready = function() {
         ;
         $.proxy(handler.initializeCode, $code)();
       }
-      if( $demo.is(':visible') ) {
+      if( $demo.first().is(':visible') ) {
         $demo.hide();
         $annotated.fadeIn(500);
       }
       else {
         $annotated.hide();
-        $demo.fadeIn(500);
+        if($demo.size() > 1) {
+          $demo.show();
+        }
+        else {
+          $demo.fadeIn(500);
+        }
       }
     },
 
@@ -74,8 +97,8 @@ semantic.ready = function() {
         contentType   = $code.data('type') || 'javascript',
         editor        = ace.edit($code[0]),
         editorSession = editor.getSession(),
-        padding       = 0,
-        codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight + padding)  + editor.renderer.scrollBar.getWidth()
+        padding       = 4,
+        codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding
       ;
       editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);
@@ -157,8 +180,10 @@ semantic.ready = function() {
     ;
   }
 
-  $exampleCode
-    .on('click', handler.createCode)
+  handler.createIcon();
+  $example
+    .find('i.code')
+      .on('click', handler.createCode)
   ;
 
   $swap
