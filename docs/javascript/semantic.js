@@ -1,5 +1,5 @@
 // namespace
-var semantic = {
+window.semantic = {
   handler: {}
 };
 
@@ -7,16 +7,18 @@ var semantic = {
 semantic.ready = function() {
 
   // selector cache
-  var 
-    $ui        = $('.ui').not('.hover, .down'),
-    $swap      = $('.swap'),
-    $menu      = $('.menu.button'),
-    $demo      = $('.demo'),
-    $waypoints = $('h2'),
-    
-    $peek      = $('.peek'),
-    $peekMenu  = $peek.find('li'),
-    $code      = $('.code'),
+  var
+    $ui          = $('.ui').not('.hover, .down'),
+    $swap        = $('.swap'),
+    $menu        = $('.menu.button'),
+    $demo        = $('.demo'),
+    $waypoints   = $('h2'),
+
+    $exampleCode = $('.example i.code'),
+
+    $peek        = $('.peek'),
+    $peekMenu    = $peek.find('li'),
+    $code        = $('div.code'),
 
     // alias
     handler
@@ -25,19 +27,60 @@ semantic.ready = function() {
   // event handlers
   handler = {
 
+    createCode: function() {
+      var
+        $example   = $(this).closest('.example'),
+        $shape     = $example.find('.shape.module'),
+        $demo      = $example.find('.demo'),
+        $annotated = $example.find('.annotated'),
+        $code      = $annotated.find('.code'),
+        code       = $demo.get(0).innerHTML
+      ;
+      // add source if doesnt exist and initialize
+      if($annotated.size() === 0) {
+        $annotated = $('<div/>')
+          .addClass('annotated')
+          .appendTo($example)
+        ;
+      }
+      if( $code.size() === 0) {
+        code = code.replace('^(\s+)', '$1$1');
+        console.log(code);
+        $code = $('<div/>')
+          .data('type', 'html')
+          .addClass('code')
+          .text(code)
+            .appendTo($annotated)
+        ;
+        $.proxy(handler.initializeCode, $code)();
+      }
+      if( $demo.is(':visible') ) {
+        $demo.hide();
+        $annotated.fadeIn(500);
+      }
+      else {
+        $annotated.hide();
+        $demo.fadeIn(500);
+      }
+    },
+
+    removeIndents: function(code) {
+
+    },
+
     initializeCode: function() {
-      var 
-        $content      = $(this),
-        contentType   = $content.data('type') || 'javascript',
-        editor        = ace.edit($content[0]),
+      var
+        $code         = $(this),
+        contentType   = $code.data('type') || 'javascript',
+        editor        = ace.edit($code[0]),
         editorSession = editor.getSession(),
-        padding       = 3,
+        padding       = 0,
         codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight + padding)  + editor.renderer.scrollBar.getWidth()
       ;
       editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);
       editor.setReadOnly(true);
-      editor.renderer.setShowGutter(false); 
+      editor.renderer.setShowGutter(false);
       editor.setHighlightActiveLine(false);
 
       editorSession.setMode('ace/mode/'+ contentType);
@@ -92,7 +135,7 @@ semantic.ready = function() {
       continuous : false,
       offset     : 215,
       handler    : function(direction) {
-        var 
+        var
           index = (direction == 'down')
             ? $waypoints.index(this)
             : ($waypoints.index(this) - 1 >= 0)
@@ -113,6 +156,10 @@ semantic.ready = function() {
       .each(handler.initializeCode)
     ;
   }
+
+  $exampleCode
+    .on('click', handler.createCode)
+  ;
 
   $swap
     .on('click', handler.swapStyle)
