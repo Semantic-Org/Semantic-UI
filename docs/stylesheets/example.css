@@ -15,7 +15,9 @@
   font-weight: normal;
   font-style: normal;
 }
-/* font */
+
+/* Non Web Font (For Demo) 
+
 @font-face {
   font-family: 'Neutraface';
   src:
@@ -34,6 +36,49 @@
   font-style: normal;
   font-size-adjust: 0.448;
 }
+*/
+
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-book.eot');
+  src: 
+    url('../fonts/neutraface-book.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-book.woff') format('woff')
+  ;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-bold.eot');
+  src: 
+    url('../fonts/neutraface-bold.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-bold.woff') format('woff')
+  ;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-italic.eot');
+  src: 
+    url('../fonts/neutraface-italic.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-italic.woff') format("woff")
+  ;
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+}
+
+
+
+
 /*******************************
              Global 
 *******************************/
@@ -42,6 +87,7 @@ body#example {
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
   padding: 0px 0px 150px;
+  text-rendering: optimizeLegibility;
 }
 
 /* text and headers */
