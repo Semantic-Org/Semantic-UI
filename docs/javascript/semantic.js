@@ -42,12 +42,16 @@ semantic.ready = function() {
       var
         $example   = $(this).closest('.example'),
         $shape     = $example.find('.shape.module'),
-        $demo      = $example.children().slice(2).not('.annotated'),
+        $demo      = $example.children().slice(3).not('.annotated'),
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),
         code = ''
       ;
+      // if ui has wrapper use that
+      if($demo.filter('.ui').size() === 0) {
+        $demo = $example.children().eq(3).children();
+      }
       // add source if doesnt exist and initialize
       if($annotated.size() === 0) {
         $annotated = $('<div/>')
