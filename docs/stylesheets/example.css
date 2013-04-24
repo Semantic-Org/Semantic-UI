@@ -1,6 +1,7 @@
 /*******************************
-        Standard Example
+           Glue Code
 *******************************/
+
 
 @font-face {
   font-family: 'Icons';
@@ -215,15 +216,28 @@ a:hover {
 #example .peek .panel :nth-child(1) {
   border-left-color: #00B9F0;
 }
+#example .main h2.standard {
+  color: #00B9F0;
+}
 #example .peek .panel :nth-child(2) {
   border-left-color: #56BB73;
+}
+#example .main h2.states {
+  color: #56BB73;
 }
 #example .peek .panel :nth-child(3) {
   border-left-color: #EF3F49;
 }
+#example .main h2.variations {
+  color: #EF3F49;
+}
 #example .peek .panel :nth-child(4) {
   border-left-color: #A24096;
 }
+#example .main h2.group {
+  color: #A24096;
+}
+
 #example .peek .panel {
   width: 180px;
 }
@@ -244,6 +258,7 @@ a:hover {
   width: 300px;
 }
 
+/* example code reskin */
 #example div.code {
   position: relative;
   width: 100%;
@@ -291,6 +306,38 @@ a:hover {
   color: #555555;
 }
 
+/* examples */
+#example .example {
+  position: relative;
+}
+#example .example i.code {
+  cursor: pointer;
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  opacity: 0;
+
+  font-size: 24px;
+  color: #888888;
+
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+#example .example:hover i.code {
+  height: auto;
+  width: auto;
+  overflow: visible;
+  opacity: 0.5;
+  top: 5px;
+  right: 5px;
+}
+#example .example:hover i.code:hover {
+  opacity: 1;
+}
 
 
 @media only screen and (max-width : 1640px) {
@@ -315,3 +362,4 @@ a:hover {
   }
 
 }
+

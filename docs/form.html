@@ -15,19 +15,19 @@
   <link rel="stylesheet" class="ui" href="../src/ui/flat/icons.css" type="text/css" media="screen" />
   
   <link rel="stylesheet" href="../src/ui/flat/menu.css" type="text/css" media="screen" />
-
-  <link rel="stylesheet" href="../src/modules/shape.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/modules/ui/shape.css" type="text/css" media="screen" />
   
   <link rel="stylesheet" href="library/sidr.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="stylesheets/example.css" type="text/css" media="screen" />
 
-  <script src="../dependencies/jquery.js" type="text/javascript"></script>
-  <script src="../src/modules/ui/shape.js" type="text/javascript"></script>
-  <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
-
+  <script src="library/jquery.js" type="text/javascript"></script>
+  <script src="library/ace/ace.js" type="text/javascript"></script>
   <script src="library/sidr.js" type="text/javascript"></script>
   <script src="library/waypoints.js" type="text/javascript"></script>
   <script src="javascript/semantic.js" type="text/javascript"></script>
+
+  <script src="../src/modules/ui/shape.js" type="text/javascript"></script>
+  <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
 
 </head>
 
@@ -148,48 +148,52 @@
   </div>
   <h2>Standard</h2>
     
-  <h4>Form:</h4>
-  <p>A form is a collection of user input elements, and has no stylings of its own.</p>
-  <div class="ui form segment">
-    <p>Let's go ahead and get you signed up.</p>
-    <div class="two fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
-      </div>
-      <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
-      </div>
+  <div class="example">
+    <i class="icon code"></i>
+    <h4>Form:</h4>
+    <p>A form is a collection of user input elements, and has no stylings of its own.</p>
+    <div class="demo"><div class="ui form segment">
+  <p>Let's go ahead and get you signed up.</p>
+  <div class="two fields">
+    <div class="field">
+      <label>First Name</label>
+      <input placeholder="First Name" type="text">
     </div>
     <div class="field">
-      <label>Username</label>
-      <input placeholder="Username" type="text">
+      <label>Last Name</label>
+      <input placeholder="Last Name" type="text">
     </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password">
-    </div>
-    <div class="inline field">
-      <div class="ui checkbox">
-        <input type="checkbox" id="terms" />
-        <label for="terms"></label>
-      </div>
-      <label>I agree to the terms and conditions</label>
-    </div>
-    <div class="ui blue submit button">Submit</div>
   </div>
-  
+  <div class="field">
+    <label>Username</label>
+    <input placeholder="Username" type="text">
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input type="password">
+  </div>
+  <div class="inline field">
+    <div class="ui checkbox">
+      <input type="checkbox" id="terms" />
+      <label for="terms"></label>
+    </div>
+    <label>I agree to the terms and conditions</label>
+  </div>
+  <div class="ui blue submit button">Submit</div>
+</div></div>
+  </div>
   <h3>Types of Content</h3>
 
-  <h4>Field</h4>
-  <p>A field is a form element containing a label and an input</p>
-  <div class="ui form">
-    <div class="field">
-      <label>User Input</label>
-      <input type="text">
+  <div class="example">
+    <i class="icon code"></i>
+    <h4>Field</h4>
+    <p>A field is a form element containing a label and an input</p>
+    <div class="ui form">
+      <div class="field">
+        <label>User Input</label>
+        <input type="text">
+      </div>
     </div>
-  </div>
 
   <h4>Text Area</h4>
   <p>A textarea uses the default form element</p>

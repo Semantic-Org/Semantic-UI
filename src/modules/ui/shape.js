@@ -83,7 +83,8 @@ $.fn.shape = function(parameters) {
         repaint: function() {
           module.verbose('Forcing repaint event');
           var 
-            fakeAssignment = $shape.get(0).offsetWidth
+            shape          = $shape.get(0) || document.createElement('div'),
+            fakeAssignment = shape.offsetWidth
           ;
         },
 
