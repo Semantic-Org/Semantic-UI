@@ -278,13 +278,34 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+#example div.code .ace_line {
+  color: #555555;
+}
+#example div.code .ace_tag {
+  color: #7F6277;
+}
+#example div.code .ace_indent-guide {
+  position: relative;
+  background: none;
+}
+#example div.code .ace_indent-guide:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  border-left: 1px solid #ECF5F3;
+}
+#example div.code .ace_attribute-name {
+  color: #934E4E;
+}
 #example div.code .ace_scroller {
   margin: 14px 10px;
 }
 #example div.code .ace_content {
 }
 #example div.code .ace_string {
-  color: #e82d2d;
+  color: #00A59D;
 }
 #example div.code .ace_cursor {
   border-left: 1px solid #AAAAAA;
@@ -296,7 +317,7 @@ a:hover {
   color: #555555;
 }
 #example div.code .ace_identifier {
-  color: #247992;
+  color: #555555;
 }
 #example div.code .ace_scrollbar {
   overflow: hidden;
@@ -332,7 +353,7 @@ a:hover {
   width: auto;
   overflow: visible;
   opacity: 0.5;
-  top: 5px;
+  top: 0px;
   right: 5px;
 }
 #example .example:hover i.code:hover {
