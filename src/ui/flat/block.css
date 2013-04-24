@@ -89,6 +89,7 @@
 .ui.positive.block {
   background-color: #EEFFE9;
   color: #119000;
+  border-color: #2FCB05;
 }
 
 /* Warning Text Block */
@@ -96,6 +97,7 @@
 .ui.warning.header,
 .ui.warning.block {
   background-color: #F6F3D5;
+  border-color: #CBB105;
   color: #AF9801;
 }
 /* Error Text Block */

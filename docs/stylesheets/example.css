@@ -56,7 +56,7 @@
     url('../fonts/neutraface-bold.eot');
   src: 
     url('../fonts/neutraface-bold.eot?#iefix') format('embeddedopentype'),
-    url('../fonts/neutraface-bold.woff') format('woff')
+    url('../fonts/neutraface-bold.otf') format('woff')
   ;
   font-style: normal;
   font-weight: bold;
