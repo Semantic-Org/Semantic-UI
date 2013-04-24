@@ -125,9 +125,11 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
 }
+
 /*--------------
      Active 
 ---------------*/
+
 .ui.menu .item.down,
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
@@ -143,6 +145,17 @@
   font-weight: bold;
 }
 
+/*--------------
+     Disabled 
+---------------*/
+
+.ui.menu .item.disabled,
+.ui.menu .item.disabled:hover,
+.ui.menu .item.disabled.hover {
+  cursor: default;
+  opacity: 0.3;
+  background-color: transparent;
+}
 
 /*******************************
             Variations
@@ -268,7 +281,17 @@
   padding: 5px 10px;
   font-size: 14px;
 }
+.ui.menu .item > a {
+  display: block;
+  margin: -5px -10px;
+  padding: 5px 10px;
+}
 .ui.large.menu .item {
   padding: 12px 10px;
   font-size: 16px;
+}
+.ui.menu .item > a {
+  display: block;
+  margin: -12px -10px;
+  padding: 12px 10px;
 }

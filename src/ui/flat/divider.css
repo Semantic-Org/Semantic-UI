@@ -2,8 +2,16 @@
   Horizontal Dividers
 ---------------------*/
 
-form.ui .divider,
 .ui.divider {
+  margin: 1em 0em;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.ui.vertical.divider,
+.ui.horizontal.divider {
   position: relative;
   margin: 25px 0px 10px;
 
@@ -16,7 +24,6 @@ form.ui .divider,
   font-weight: bold;
 }
 
-form.ui .divider .rule,
 .ui.divider .rule {
   position: absolute;
   top: 6px;
@@ -31,17 +38,14 @@ form.ui .divider .rule,
   border-bottom: 1px solid rgba(255, 255, 255, 0.9)
 }
 
-form.ui .divider .left.rule,
 .ui.divider .left.rule {
   left: 0px;
 }
 
-form.ui .divider .right.rule,
 .ui.divider .right.rule {
   right: 0px;
 }
 
-form.ui .divider .label,
 .ui.divider .label {
   display: block;
   margin: 14px 0px 0px;
@@ -100,23 +104,11 @@ form.ui .divider .label,
   font-size: 14px;
   line-height: 14px;
   text-align: center;
-  text-transform: uppercase;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
-  vertical-align: middle;
   text-transform: none;
   color: #333333;
 }
-
-.ui.divider.simple {
-  margin: 20px 0px;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-top: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-}
-
 /* Inverted Color Divider (Black BG) */
-
 .ui.divider.inverted {
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
   color: #FFFFFF;
