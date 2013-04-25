@@ -120,6 +120,7 @@ h4 {
 }
 h4 + p {
   margin: 0px 0px 20px;
+  color: #888888;
 }
 pre {
   background-color: #F0F0F0;
@@ -163,6 +164,9 @@ a:hover {
   -moz-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
   border-right: 1px solid #DDDDDD;
+}
+#example .sidr .ui.menu {
+  margin: 0px 0px 30px;
 }
 
 
@@ -384,6 +388,12 @@ a:hover {
 }
 #example .example:hover i.code:hover {
   opacity: 1;
+}
+
+
+/* some demo formatting */
+.ui.menu a {
+  cursor: pointer;
 }
 
 
