@@ -133,11 +133,9 @@
 .ui.buttons .button.active.hover,
 .ui.button.active.hover {
   background: #E0E0E0;
-
   -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
-
 }
 .ui.buttons .button.active.hover,
 .ui.buttons .button.active.hover a,
@@ -294,6 +292,9 @@
 .ui.blue.buttons .button.down,
 .ui.blue.button.down {
   background-color: #F15B40;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
 }
 
 /*---------------
@@ -312,6 +313,9 @@
 .ui.purple.buttons .button.down,
 .ui.purple.button.down {
   background-color: #9254BD;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
 }
 
 /*---------------
@@ -334,6 +338,10 @@ Green / Positive
 .ui.button.positive.down {
   background-color: #59B94B;
   color: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+}
 }
 
 /*---------------

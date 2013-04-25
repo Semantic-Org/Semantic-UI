@@ -1,0 +1,98 @@
+/*******************************
+      Headers & Text Blocks
+*******************************/
+
+/* Header Block */
+.ui.header {
+  min-height: 18px;
+  margin: 15px 0px;
+  padding: 8px 13px;
+
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15);
+
+  line-height: 1.5;
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: 0px 1px 0px #FFFFFF;
+
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+
+/* Sub Header (De-emphasized) */
+.ui.sub.header {
+  margin: 0px;
+
+  border: none;
+  border-bottom: 1px solid #DADADA;
+  border-radius: 0px;
+
+  background-color: #FFFFFF;
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
+  background: linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
+
+  font-size: 14px;
+  padding: 6px 25px;
+  color: #55356A;
+}
+
+/* Neutral Header */
+.ui.neutral.block,
+.ui.neutral.header {
+  background-color: #E0E0E0;
+  background: -webkit-linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
+  background: -moz-linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
+  background: -o-linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
+  background: -ms-linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
+  background: linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
+  border-color: #CCCCCC;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
+}
+
+/* Attached Header */
+.ui.header.attached,
+.ui.header.attached.top {
+  margin: 0px;
+  -webkit-border-radius: 4px 4px 0px 0px;
+  -moz-border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 4px 0px 0px;
+}
+.ui.header.attached.bottom {
+  margin-top: 0px;
+  -webkit-border-radius: 0px 0px 4px 4px;
+  -moz-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
+}
+.ui.header.simple {
+  border-radius: 0px;
+  background-color: #FAFAFA;
+  background-image: none;
+}
+
+
+/*--------------
+     Resizes
+---------------*/
+.ui.header {
+  font-size: 16px;
+}
+.ui.header.large {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 18px;
+}
+.ui.header.huge {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 22px;
+}

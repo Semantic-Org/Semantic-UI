@@ -19,21 +19,8 @@
   background-color: #EEEEEE;
   font-size: 0px;
 }
-.ui.menu .item,
-.ui.menu .item > a {
-  color: rgba(0, 0, 0, 0.8);
-}
-.ui.menu .item > a:hover {
-  background-color: rgba(0, 0, 0, 0.02);
-  color: rgba(0, 0, 0, 0.95);
-}
-.ui.menu .item .item,
-.ui.menu .item .item > a {
-  color: rgba(0, 0, 0, 0.6);
-}
-.ui.menu .item .item > a:hover {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.8);
+.ui.menu a {
+  color: #333333;
 }
 
 /* Items */
@@ -41,21 +28,12 @@
   display: inline-block;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 
-  padding: 0.62em 0.75em;
-
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
-  user-select: none;
 }
-.ui.menu > .item:first-child {
+.ui.menu .item:first-child {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.ui.menu .item > a {
-  display: block;
-  margin: -0.62em -0.75em;
-  padding: 0.62em 0.75em;
 }
 
 .ui.menu .menu.left,
@@ -94,7 +72,6 @@
   right: 0px;
 }
 
-
 /* Hover */
 .ui.menu .dropdown.item:hover .menu {
   display: block;
@@ -116,7 +93,7 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 0.9em;
   display: block;
-  color: rgba(0, 0, 0, 0.75);
+  color: #555555;
   
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -190,14 +167,10 @@
 
 .ui.black.menu {
   background-color: #333333;
+  color: #FFFFFF;
 }
-.ui.black.menu .item,
-.ui.black.menu .item > a {
-  color: rgba(255, 255, 255, 0.85);
-}
-.ui.black.menu .item .item,
-.ui.black.menu .item .item > a {
-  color: rgba(255, 255, 255, 0.65);
+.ui.black.menu a {
+  color: #FFFFFF;
 }
 .ui.black.menu .item {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -210,20 +183,20 @@
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+
 /* hover */
 .ui.black.menu .item.hover,
 .ui.black.menu .link.item:hover,
-.ui.menu .dropdown.item:hover,
 .ui.black.menu a.item:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, .15);
 }
 /* active */
 .ui.black.menu .item.down,
-.ui.menu .dropdown.item:active,
 .ui.black.menu .link.item:active,
+.ui.menu .dropdown.item:hover,
 .ui.black.menu a.item:active {
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, .05);
 
   -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
@@ -245,32 +218,12 @@
 ---------------*/
 
 .ui.vertical.menu {
-  width: 280px;
+  width: 100%;
 }
 .ui.vertical.menu .item {
-  display: block;
   border-left: none;
-  border-right: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-.ui.vertical.menu .item:first-child {
-  border-top: none;
-}
-
-/* Sub Menu */
-.ui.vertical.menu .item > .menu {
-  margin: 0.5em -0.75em -0.62em;
-}
-.ui.vertical.menu .item > .menu > .item {
-  border: none;
-  padding: 0.5em 1.5em;
-  font-size: 0.9em;
-}
-.ui.vertical.menu .item > .menu > .item > a {
-  margin: -0.5em -1.5em;
-  padding: 0.5em 1.5em;
-}
-
 
 /*--------------
      Icons 
@@ -280,7 +233,7 @@
   margin: 0px;
 }
 .ui.menu .icon.item i {
-  margin: 0px;
+  padding: 0px;
 }
 
 /*--------------
@@ -324,14 +277,21 @@
 /*--------------
      Sizes 
 ---------------*/
-
-.ui.small.menu .item {
+.ui.menu .item {
+  padding: 5px 10px;
   font-size: 14px;
 }
-
-.ui.menu .item {
-  font-size: 16px;
+.ui.menu .item > a {
+  display: block;
+  margin: -5px -10px;
+  padding: 5px 10px;
 }
 .ui.large.menu .item {
-  font-size: 18px;
+  padding: 12px 10px;
+  font-size: 16px;
+}
+.ui.menu .item > a {
+  display: block;
+  margin: -12px -10px;
+  padding: 12px 10px;
 }
