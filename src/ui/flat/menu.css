@@ -59,6 +59,11 @@
     background 0.1s linear,
     box-shadow 0.1s linear
   ;
+}
+
+/* Text Color */
+.ui.menu .item,
+.ui.menu .item > a {
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.menu .item > a:hover {
@@ -174,7 +179,6 @@
   right: 0px;
 }
 
-
 /* Hover */
 .ui.menu .dropdown.item:hover .menu {
   display: block;
@@ -250,7 +254,7 @@
 ---------------*/
 
 .ui.menu .item.active {
-  background-color: #F0F0F0;
+  background-color: rgba(0, 0, 0, 0.05);
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
 
   -webkit-box-shadow:
@@ -287,14 +291,26 @@
 .ui.black.menu {
   background-color: #333333;
 }
+
+/* Text Color */
 .ui.black.menu .item,
 .ui.black.menu .item > a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
+}
+.ui.black.menu .item > a:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.95);
 }
 .ui.black.menu .item .item,
 .ui.black.menu .item .item > a {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.6);
 }
+.ui.black.menu .item .item > a:hover {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Border */
 .ui.black.menu .item:before {
   background-image: -webkit-linear-gradient(top center, 
     rgba(255, 255, 255, 0.03) 0%,
@@ -322,6 +338,33 @@
     rgba(255, 255, 255, 0.03) 100%)
   ;
 }
+.ui.vertical.black.menu .item:before {
+  background-image: -webkit-linear-gradient(left center, 
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -moz-linear-gradient(left center,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -o-linear-gradient(left center,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -ms-linear-gradient(left center,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: linear-gradient(left center,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+}
 /* hover */
 .ui.black.menu .item.hover,
 .ui.black.menu .link.item:hover,
@@ -330,7 +373,8 @@
   cursor: pointer;
   background-color: rgba(255, 255, 255, .15);
 }
-/* active */
+
+/* down */
 .ui.black.menu .item.down,
 .ui.menu .dropdown.item:active,
 .ui.black.menu .link.item:active,
@@ -341,13 +385,26 @@
   -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
 }
+/* active */
+.ui.black.menu .item.active {
+  background-color: rgba(255, 255, 255, 0.05);
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
 
+  -webkit-box-shadow:
+    0px 0px 1px rgba(0, 0, 0, 0.1) inset
+  ;
+  -moz-box-shadow:
+    0px 0px 1px rgba(0, 0, 0, 0.1) inset
+  ;
+  box-shadow:
+    0px 0px 1px rgba(0, 0, 0, 0.1) inset
+  ;
+}
 
 
 /*--------------
   Transparent 
 ---------------*/
-
 .ui.transparent.menu {
   opacity: 0.95;
 }
