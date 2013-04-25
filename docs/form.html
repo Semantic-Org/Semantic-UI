@@ -33,52 +33,66 @@
 
 <body id="example">
 
-<div class="sidr" id="menu">
-  <ul>
-    <li><a href="module.html">Introduction</a></li>
-    <li><a>Download</a></li>
-    <li><a href="#">UI</a>
-      <ul>
-        <li class="active"><a href="button.html">Button</a></li>
-        <li><a>Text</a></li>
-        <li><a>Headers</a></li>
-        <li><a>Columns</a></li>
-        <li><a>Elements (Grid System)</a></li>
-        <li><a>Tags</a></li>
-        <li><a>Items (Lists of Content)</a></li>
-        <li><a>Panels (Type of Menu)</a></li>
-        <li><a>Forms</a></li>
-        <li><a>Fields</a></li>
-        <li><a>Checkboxes</a></li>
-        <li><a>Icons</a></li>
-        <li><a>Dividers</a></li>
-      </ul>
-    </li>
-    <li><a href="#">UI Modules</a>
-      <ul>
-        <li><a>Accordion</a></li>
-        <li><a>Chat Room</a></li>
-        <li><a>Modal</a></li>
-        <li><a>Nag</a></li>
-        <li><a>Popup</a></li>
-        <li><a>Search</a></li>
-        <li><a>Star Rating</a></li>
-        <li><a>Tabs</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Behavioral Modules</a>
-      <ul>
-        <li><a>API</a></li>
-        <li><a>Animation</a></li>
-        <li><a>Form Validation</a></li>
-        <li><a>Placeholder Text</a></li>
-        <li><a class="shape.html">Shape</a></li>
-        <li><a>State</a></li>
-      </ul>
-    </li>
-  </ul>
+<div class="ui large vertical menu" id="menu">
+  <div class="menu">
+    <div class="item"><a href="module.html"><b>Introduction</b></a></div>
+    <div class="item"><a href="download"><b>Download</b></a></div>
+    <div class="item">
+      <a href="#"><b>UI Elements</b></a>
+      <div class="menu">
+        <div class="item"><a href="button.html">Button</a></div>
+        <div class="active item"><a href="form.html">Forms</a></div>
+        <div class="item"><a href="table.html">Table</a></div>
+        <div class="item"><a href="steps.html">Steps</a></div>
+        <div class="item"><a href="progress.html">Progress</a></div>
+        <div class="item"><a href="text.html">Text Block</a></div>
+        <div class="item"><a href="header.html">Headers</a></div>
+        <div class="item"><a href="header.html">Segment</a></div>
+        <div class="item"><a href="column.html">Columns</a></div>
+        <div class="item"><a href="element.html">Elements (Grid System)</a></div>
+        <div class="item"><a href="tag.html">Tags</a></div>
+        <div class="item"><a href="item.html">Items (Lists of Content)</a></div>
+        <div class="item"><a href="panel.html">Panels (Type of Menu)</a></div>
+        <div class="item"><a href="icon.html">Icons</a></div>
+        <div class="item"><a href="divider.html">Dividers</a></div>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><b>UI Views</b></a>
+      <div class="menu">
+        <div class="item"><a href="form.html">Forms</a></div>
+        <div class="item"><a href="activity.html">Activity Feed</a></div>
+        <div class="item"><a href="list.html">Content List</a></div>
+        <div class="item"><a href="user-list.html">User List</a></div>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><b>UI Modules</b></a>
+      <div class="menu">
+        <div class="item"><a href="accordion.html">Accordion</a></div>
+        <div class="item"><a href="chatroom.html">Chat Room</a></div>
+        <div class="item"><a href="modal.html">Modal</a></div>
+        <div class="item"><a href="nag.html">Nag</a></div>
+        <div class="item"><a href="popup.html">Popup</a></div>
+        <div class="item"><a href="search.html">Search</a></div>
+        <div class="item"><a href="star.html">Star Rating</a></div>
+        <div class="item"><a href="tab.html">Tabs</a></div>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><b>Behavioral Modules</b></a>
+      <div class="menu">
+        <div class="item"><a href="api.html">API</a></div>
+        <div class="item"><a href="animation.html">Animation</a></div>
+        <div class="item"><a href="validate.html">Form Validation</a></div>
+        <div class="item"><a href="placeholder.html">Placeholder Text</a></div>
+        <div class="item"><a href="shape.html">Shape</a></div>
+        <div class="item"><a href="state.html">State</a></div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="ui large fixed transparent black menu">
+<div class="ui fixed transparent black menu">
     <div class="container">
       <div class="title item">
         Semantic UI: Form 
@@ -110,11 +124,11 @@
           <i class="icon github"></i>
         </a>
         <div class="dropdown item">
-          <i class="icon cog"></i>
-          <div class="menu">
-            <div class="swap item">Change Theme</div>
-            <div class="item">About Semantic</div>
-            <div class="item">Choice 3</div>
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
           </div>
         </div>
       </div>

@@ -156,27 +156,13 @@ a:hover {
   color: #00BAFF;
 }
 
-
-
 #example .sidr {
-  font-weight: bold;
-}
-#example .sidr ul li ul {
-  font-weight: normal;
-}
-#example .sidr ul li ul li a {
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
-  font-size: 15px;
-  color: #666666;
-}
-#example .sidr .active {
-  background-color: #555555;
-}
-#example .sidr .active > a {
-  color: #FFFFFF;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #DDDDDD;
 }
 
 

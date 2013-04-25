@@ -23,7 +23,13 @@
 
   min-height: 1em;
 
-  background-color: #F0F0F0;
+  background-color: #FAFAFA;
+
+  background-image: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
+  background-image: -moz-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
+  background-image: -o-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
+  background-image: -ms-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
+  background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
 
   padding: 12px 30px;
 
@@ -39,12 +45,15 @@
   border-radius: 5px;
 
   -webkit-box-shadow:
+    0px 0px 0px 1px rgba( 0, 0, 0, 0.15),
     0px -2px 0px rgba(0, 0, 0, 0.1) inset
   ;
   -moz-box-shadow:
+    0px 0px 0px 1px rgba( 0, 0, 0, 0.15),
     0px -2px 0px rgba(0, 0, 0, 0.1) inset
   ;
   box-shadow:
+    0px 0px 0px 1px rgba( 0, 0, 0, 0.15),
     0px -2px 0px rgba(0, 0, 0, 0.1) inset
   ;
 
@@ -92,7 +101,7 @@
 ---------------*/
 
 .ui.button.hover {
-  background-color: #DDDDDD;
+  background-color: #FFFFFF;
 }
 
 /*--------------
@@ -101,9 +110,18 @@
 
 /* Down */
 .ui.button.down {
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: 
+    0px 0px 0px 1px rgba( 0, 0, 0, 0.15),
+    1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset
+  ;
+  -moz-box-shadow: 
+    0px 0px 0px 1px rgba( 0, 0, 0, 0.15),
+    1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset
+  ;
+  box-shadow: 
+    0px 0px 0px 1px rgba( 0, 0, 0, 0.15),
+    1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset
+  ;
 }
 
 
@@ -133,9 +151,11 @@
 .ui.buttons .button.active.hover,
 .ui.button.active.hover {
   background: #E0E0E0;
+
   -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+
 }
 .ui.buttons .button.active.hover,
 .ui.buttons .button.active.hover a,
@@ -283,6 +303,11 @@
 .ui.blue.buttons .button,
 .ui.blue.button {
   background-color: #00B4AC;
+  background-image: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -moz-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -o-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -ms-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
   color: #FFFFFF;
 }
 .ui.blue.buttons .button.hover,
@@ -292,9 +317,6 @@
 .ui.blue.buttons .button.down,
 .ui.blue.button.down {
   background-color: #F15B40;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
 }
 
 /*---------------
@@ -305,6 +327,11 @@
 .ui.purple.button {
   color: #FFFFFF;
   background-color: #6E4889;
+  background-image: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -moz-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -o-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -ms-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
 }
 .ui.purple.buttons .button.hover,
 .ui.purple.button.hover {
@@ -313,9 +340,6 @@
 .ui.purple.buttons .button.down,
 .ui.purple.button.down {
   background-color: #9254BD;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
 }
 
 /*---------------
@@ -325,6 +349,11 @@ Green / Positive
 .ui.button.green,
 .ui.button.positive {
   background-color: #7DDC5C;
+  background-image: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -moz-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -o-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -ms-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
   color: #FFFFFF;
 }
 
@@ -338,10 +367,6 @@ Green / Positive
 .ui.button.positive.down {
   background-color: #59B94B;
   color: #FFFFFF;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-}
 }
 
 /*---------------
@@ -351,6 +376,11 @@ Red / Negative
 .ui.button.red,
 .ui.button.negative {
   background-color: #EF3F49;
+  background-image: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -moz-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -o-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -ms-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.15) 100%);
   color: #FFFFFF;
 }
 

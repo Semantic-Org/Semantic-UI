@@ -9,7 +9,7 @@ semantic.ready = function() {
   // selector cache
   var
     $ui          = $('.ui').not('.hover, .down'),
-    $swap        = $('.swap'),
+    $swap        = $('.theme.menu .item'),
     $menu        = $('.menu.button'),
     $demo        = $('.demo'),
     $waypoints   = $('h2'),
@@ -91,10 +91,6 @@ semantic.ready = function() {
       }
     },
 
-    removeIndents: function(code) {
-
-    },
-
     initializeCode: function() {
       var
         $code         = $(this),
@@ -136,17 +132,25 @@ semantic.ready = function() {
       ;
     },
     swapStyle: function() {
+      var
+        theme = $(this).data('theme')
+      ;
+      $(this)
+        .addClass('active')
+        .siblings()
+          .removeClass('active')
+      ;
       $('head link.ui')
         .each(function() {
           var
-            href = $(this).attr('href')
+            href         = $(this).attr('href'),
+            subDirectory = href.split('/')[3],
+            newLink      = href.replace(subDirectory, theme)
           ;
-          if( href.search('flat') > -1 ) {
-            $(this).attr('href', href.replace('flat', 'shaded'));
-          }
-          else {
-            $(this).attr('href', href.replace('shaded', 'flat'));
-          }
+          console.log(theme, newLink);
+          $(this)
+            .attr('href', newLink)
+          ;
         })
       ;
     }
