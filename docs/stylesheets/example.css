@@ -56,7 +56,7 @@
     url('../fonts/neutraface-bold.eot');
   src: 
     url('../fonts/neutraface-bold.eot?#iefix') format('embeddedopentype'),
-    url('../fonts/neutraface-bold.otf') format('woff')
+    url('../fonts/neutraface-bold.woff') format('woff')
   ;
   font-style: normal;
   font-weight: bold;
@@ -159,7 +159,6 @@ a:hover {
 
 #example .sidr {
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
-  background-color: #FFFFFF;
   -webkit-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
