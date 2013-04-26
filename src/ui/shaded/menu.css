@@ -1,5 +1,5 @@
 /*
- * # Semantic Menu - Shaded
+ * # Semantic Menu - Flat
  * http://github.com/quirkyinc/semantic
  *
  *
@@ -18,7 +18,6 @@
 /*--------------
       Menu 
 ---------------*/
-
 .ui.menu {
   background-color: #FFFFFF;
   font-size: 0px;
@@ -52,6 +51,9 @@
   user-select: none;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  vertical-align: middle;
+  min-height: 1.25em;
 
   -webkit-transition:
     opacity 0.1s linear,
@@ -205,9 +207,9 @@
   background-color: #FFFFFF;
   opacity: 0;
 
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
 
   -webkit-transition: opacity 0.2s ease-out;
   -moz-transition: opacity 0.2s ease-out;
@@ -219,6 +221,7 @@
 .ui.menu .dropdown.item .menu .item {
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+
   font-size: 0.9em;
   display: block;
   color: rgba(0, 0, 0, 0.75);
@@ -239,44 +242,34 @@
 }
 
 /*--------------
-  Notification 
+     Badges 
 ---------------*/
-.ui.menu .item .alert {
+
+.ui.menu .item .badge {    
   position: absolute;
-  top: -8px;
-  left: 75%;
-
-  background-color: #EEEEEE;
-  padding: 3px 5px;
-
-  background: -webkit-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
-  background: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
-  background: -o-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
-  background: -ms-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
-  background: linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
-
-  border: 1px solid #E5E5E5;
-
-  border-radius: 5px;
-
-  -webkit-box-shadow:
-    0px 1px 0px rgba(0, 0, 0, 0.3),
-    0px 1px 0px rgba(255, 255, 255, 0.6) inset
-  ;
-  -moz-box-shadow:
-    0px 1px 0px rgba(0, 0, 0, 0.3),
-    0px 1px 0px rgba(255, 255, 255, 0.6) inset
-  ;
-  box-shadow:
-    0px 1px 0px rgba(0, 0, 0, 0.3),
-    0px 1px 0px rgba(255, 255, 255, 0.6) inset
-  ;
-
-  font-size: 11px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #555555;
   z-index: 100;
+  top: -1em;
+  left: 100%;
+  margin-left: -1.5em;
+
+  min-width: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #AAAAAA;
+  padding: 0.3em 0.5em 0.4em;
+
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  color: #FFFFFF;
+
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+
+  -moz-box-shadow: 0px -0.1em 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px -0.1em 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px -0.1em 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 
@@ -291,10 +284,13 @@
 ---------------*/
 
 /* Pseudo states cautiously used for convenience */
+.ui.link.menu .item:hover,
 .ui.menu .item.hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
+.ui.menu .dropdown.item.hover,
 .ui.menu .dropdown.item:hover,
+.ui.menu .dropdown.item .menu .item.hover,
 .ui.menu .dropdown.item .menu .item:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
@@ -321,16 +317,18 @@
       Down 
 ---------------*/
 
+.ui.link.menu .item:active,
 .ui.menu .item.down,
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
 .ui.menu .item > a:active,
+.ui.menu .dropdown.item .menu .item.down,
 .ui.menu .dropdown.item .menu .item:active {
   background-color: rgba(0, 0, 0, 0.05);
 
-  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.15) inset;
+  -moz-box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.15) inset;
 }
 
 /*--------------
@@ -359,8 +357,14 @@
   ;
 }
 .ui.vertical.menu .item.active {
+  border-top: none;
   border-left: 0.2em solid #999999;
+  padding-top: 0.75em;
   padding-left: 0.75em;
+}
+.ui.vertical.menu .item .menu .item.active {
+  padding-left: 1.35em;
+  padding-top: 0.5em;
 }
 
 /*--------------
@@ -464,9 +468,9 @@
 
 /*--- Hover ---*/
 
-.ui.black.menu .item.hover,
+.ui.black.menu .link.item.hover,
 .ui.black.menu .link.item:hover,
-.ui.menu .dropdown.item:hover,
+.ui.black.menu .dropdown.item:hover,
 .ui.black.menu a.item:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, .15);
@@ -475,7 +479,7 @@
 /*--- Down ---*/
 
 .ui.black.menu .item.down,
-.ui.menu .dropdown.item:active,
+.ui.black.menu .dropdown.item:active,
 .ui.black.menu .link.item:active,
 .ui.black.menu a.item:active {
   background-color: rgba(255, 255, 255, .1);
@@ -488,6 +492,7 @@
 /*--- Active ---*/
 
 .ui.black.menu .item.active {
+  border-color: transparent;
   background-color: rgba(255, 255, 255, 0.05);
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
 
@@ -525,7 +530,7 @@
 ---------------*/
 
 .ui.vertical.menu {
-  width: 280px;
+  width: 200px;
 }
 .ui.vertical.menu .item {
   display: block;
@@ -574,7 +579,6 @@
 }
 
 /*--- Dropdown ---*/
-
 .ui.vertical.menu .dropdown.item > i {
   float: right;
 }
@@ -582,8 +586,14 @@
   top: 0%;
   left: 100%;
   margin: 0px;
+
+  -moz-border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
+
   border-left: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
+
   font-size: 1em;
 }
 .ui.vertical.menu .dropdown.item .menu .item {
@@ -594,7 +604,7 @@
 /*--- Sub Menu ---*/
 
 .ui.vertical.menu .item > .menu {
-  margin: 0.5em -1em -0.75em;
+  margin: 0.5em -1em 0em;
 }
 .ui.vertical.menu .item > .menu > .item {
   padding: 0.5em 1.5em;
@@ -623,6 +633,20 @@
 }
 
 /*--------------
+     Tight 
+---------------*/
+
+.ui.tight.menu .item,
+.ui.tight.menu .item > a,
+.ui.tight.menu .item .menu .item, 
+.ui.tight.menu .item .menu .item > a,
+.ui.menu .tight.item,
+.ui.menu .tight.item > a {
+  padding: 0em;
+}
+
+
+/*--------------
    Borderless 
 ---------------*/
 
@@ -636,19 +660,68 @@
 }
 
 
-/*--------------
-     Tight 
----------------*/
+/*-------------------
+       Compact
+--------------------*/
 
-.ui.tight.menu .item,
-.ui.tight.menu .item > a,
-.ui.tight.menu .item .menu .item, 
-.ui.tight.menu .item .menu .item > a,
-.ui.menu .tight.item,
-.ui.menu .tight.item > a {
-  padding: 0em;
+.ui.compact.menu {
+  display: inline-block;
 }
 
+
+/*-------------------
+        Fluid
+--------------------*/
+
+.ui.menu.fluid {
+  width: 100%;
+  height: 43px;
+}
+.ui.menu.fluid,
+.ui.menu.fluid .item {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+.ui.menu.fluid .item {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.ui.menu.two.fluid .item {
+  width: 50%;
+}
+.ui.menu.three.fluid .item {
+  width: 33.333%;
+}
+.ui.menu.four.fluid .item {
+  width: 25%;
+}
+.ui.menu.five.fluid .item {
+  width: 20%;
+}
+.ui.menu.six.fluid .item {
+  width: 16.666%;
+}
+.ui.menu.seven.fluid .item {
+  width: 14.285%;
+}
+.ui.menu.eight.fluid .item {
+  width: 12.500%;
+}
+.ui.menu.nine.fluid .item {
+  width: 11.11%;
+}
+.ui.menu.ten.fluid .item {
+  width: 10.0%;
+}
+.ui.menu.eleven.fluid .item {
+  width: 9.09%;
+}
+.ui.menu.twelve.fluid .item {
+  width: 8.333%;
+}
 
 /*--------------
      Fixed 
@@ -695,13 +768,13 @@
 
 .ui.pointing.menu .item.active:after {
   position: absolute;
-  bottom: -6px;
+  bottom: -0.3em;
   left: 50%;
   content: "";
 
-  margin-left: -5px;
-  width: 12px;
-  height: 12px;
+  margin-left: -0.3em;
+  width: 0.6em;
+  height: 0.6em;
 
   -webkit-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1) inset;
@@ -734,7 +807,7 @@
 .ui.vertical.pointing.menu .item.active:after {
   position: absolute;
   top: 50%;
-  right: -6px;
+  right: -0.3em;
   bottom: auto;
   left: auto;
 
@@ -742,9 +815,7 @@
   -moz-box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.15);
 
-  margin-top: -7px;
-  width: 12px;
-  height: 12px;
+  margin-top: -0.3em;
 }
 
 /* Colors */
