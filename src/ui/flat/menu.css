@@ -170,6 +170,15 @@
 
 
 /*--------------
+      Content 
+---------------*/
+
+.ui.menu .item > p:only-child {
+  margin: 0px;
+}
+
+
+/*--------------
       Icons 
 ---------------*/
 
@@ -196,9 +205,9 @@
   background-color: #FFFFFF;
   opacity: 0;
 
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
 
   -webkit-transition: opacity 0.2s ease-out;
   -moz-transition: opacity 0.2s ease-out;
@@ -210,6 +219,7 @@
 .ui.menu .dropdown.item .menu .item {
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+
   font-size: 0.9em;
   display: block;
   color: rgba(0, 0, 0, 0.75);
@@ -272,6 +282,7 @@
 ---------------*/
 
 /* Pseudo states cautiously used for convenience */
+.ui.link.menu .item:hover,
 .ui.menu .item.hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
@@ -304,6 +315,7 @@
       Down 
 ---------------*/
 
+.ui.link.menu .item:active,
 .ui.menu .item.down,
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
@@ -565,7 +577,6 @@
 }
 
 /*--- Dropdown ---*/
-
 .ui.vertical.menu .dropdown.item > i {
   float: right;
 }
@@ -573,8 +584,14 @@
   top: 0%;
   left: 100%;
   margin: 0px;
+
+  -moz-border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
+
   border-left: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
+
   font-size: 1em;
 }
 .ui.vertical.menu .dropdown.item .menu .item {
@@ -640,7 +657,13 @@
   background-image: none;
 }
 
+/*-------------------
+       Compact
+--------------------*/
 
+.ui.compact.menu {
+  display: inline-block;
+}
 
 /*-------------------
         Fluid
@@ -780,7 +803,7 @@
 .ui.vertical.pointing.menu .item.active:after {
   position: absolute;
   top: 50%;
-  right: -0.22em;
+  right: -0.3em;
   bottom: auto;
   left: auto;
 

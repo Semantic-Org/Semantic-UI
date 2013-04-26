@@ -392,6 +392,9 @@ a:hover {
 
 
 /* some demo formatting */
+.ui.menu p:only-child {
+  margin: 0px;
+}
 .ui.menu a {
   cursor: pointer;
 }

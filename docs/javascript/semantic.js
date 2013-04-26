@@ -10,14 +10,14 @@ semantic.ready = function() {
   var
     $ui          = $('.ui').not('.hover, .down'),
     $swap        = $('.theme.menu .item'),
-    $menu        = $('.menu.button'),
+    $menu        = $('.sidebar.button'),
     $demo        = $('.demo'),
     $waypoints   = $('h2'),
 
     $example     = $('.example'),
 
     $peek        = $('.peek'),
-    $peekMenu    = $peek.find('li'),
+    $peekMenu    = $peek.find('.item'),
     $code        = $('div.code'),
 
     // alias
