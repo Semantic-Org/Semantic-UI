@@ -13,8 +13,8 @@
   <link rel="stylesheet" class="ui" href="../src/ui/flat/segment.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/checkbox.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/icons.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/menu.css" type="text/css" media="screen" />
   
-  <link rel="stylesheet" href="../src/ui/flat/menu.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="../src/modules/ui/shape.css" type="text/css" media="screen" />
   
   <link rel="stylesheet" href="library/sidr.css" type="text/css" media="screen" />
@@ -107,10 +107,10 @@
         Semantic UI: Menu 
       </div>
       <div class="icon previous link item">
-        <a href="button.html"><i class="icon left-open"></i></a>
+        <a href="table.html"><i class="icon left-open"></i></a>
       </div>
       <div class="section dropdown item">
-        3 of 14
+        4 of 14
         <div class="menu">
           <a href="button.html" class="item">1. Button</a>
           <a href="form.html" class="item">2. Form</a>
@@ -119,7 +119,6 @@
           <a class="item">5. Elements</a>
           <a class="item">6. Tags</a>
           <a class="item">7. Items</a>
-          <a class="item">8. Panels</a>
         </div>
       </div>
       <div class="icon next link item">
@@ -149,17 +148,17 @@
 <div class="segment">
   <div class="container">
     <h1>Menu</h1>
-    <p>A menu is a ui collection made up of items. These items can be links, dropdowns, menus themselves, or other item types.</p>
+    <p>A menu is a ui collection made up of items. These items can be links, dropdowns, menus themselves, badges, or other standard html types.</p>
     <p>Items containing menus are formatted as sub menus. Menus containing menus are formatted as the same tier as the parent menu.</p>
   </div>
 </div>
 <div class="main container">
   
   <div class="peek">
-    <div class="ui large vertical pointing bottom attached panel">
-      <li class="active">Collection</li>
-      <li>Elements</li>
-      <li>Variations</li>
+    <div class="ui small vertical pointing menu">
+      <div class="active item">Collection</div>
+      <div class="item">Elements</div>
+      <div class="item">Variations</div>
     </div>
   </div>
   
@@ -179,7 +178,10 @@
         <a>Section 1</a>
       </div>
       <div class="item">
-        <a><i class="icon heart"></i></a>
+        <a>
+          <div class="badge">2</div>
+          <i class="icon mail"></i>
+        </a>
       </div>
       <div class="right menu">
         <div class="fitted borderless item">
@@ -200,19 +202,20 @@
   <div class="example">
     <h4>Vertical Menu</h4>
     <p>This example uses several menu elements, an unclickable block, a clickable text link, a clickable icon link, and a dropdown group</p>
+    <div class="ui warning block">A vertical menus width must typically be defined. An alternative is to use the fluid variation  in conjunction with ui grid.</div>
     <div class="ui vertical menu">
       <div class="item">
-        Site Title
+        <b>Site Title</b>
       </div>
-      <div class="active item">
-        <a>Current section</a>
+      <div class="item">
+        <p>This is a paragraph of expository text</p>
       </div>
       <div class="item">
         <a>Grouped Section</a>
         <div class="menu">
-          <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
+          <a class="item">Current Section</a>
+          <a class="item">Subsection 2</a>
+          <a class="item">Subsection 3</a>
         </div>
       </div>
       <div class="dropdown item">
@@ -230,7 +233,7 @@
 
   <div class="example">
     <h4>Text Item</h4>
-    <p>Your menu may have a simple text item</p>
+    <p>A menu may have a simple text item</p>
     <div class="ui vertical menu">
       <div class="item">
         Text Item
@@ -239,7 +242,7 @@
   </div>
   <div class="example">
     <h4>Link Item</h4>
-    <p>Your menu may have either a real page link or an item that behaves as a link.</p>
+    <p>A menu may have either a real page link or an item that behaves as a link.</p>
     <div class="ui vertical menu">
       <a href="http://www.google.com" class="item">
         Visit Google
@@ -253,6 +256,10 @@
   <div class="example">
     <h4>Dropdown Item</h4>
     <p>An item may contain a list of dropdowns to chose from. By default it will appear automatically with css.</p>
+    <div class="ui warning block">
+      <p>A dropdown menu will, by default, automatically show when the parent element is hovered.</p>
+      <p>If you need to programmatically close the dropdown, use the "stateful" variant and the javascript state module, which will allow you to manipulate the state directly.</p>
+    </div>
     <div class="ui vertical menu">
       <div class="dropdown item">
         Dropdown <i class="icon right-dir"></i>
@@ -294,9 +301,33 @@
   
   
   <h2>States</h2>
+  
+  <div class="example">
+    <h4>Hover</h4>
+    <p>A menu may have other colors defined</p>
+    <div class="ui black menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="right menu">
+        <div class="dropdown item">
+          Dropdown <i class="icon down-dir"></i>
+          <div class="menu">
+            <div class="item">Choice 1</div>
+            <div class="item">Choice 2</div>
+            <div class="item">Choice 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <h2>Variations</h2>
 
+  <h3>Menu</h3>
   <div class="example">
     <h4>Colors</h4>
     <p>A menu may have other colors defined</p>
@@ -350,14 +381,14 @@
       <div class="item">
         Site Title
       </div>
-      <div class="active item">
+      <div class="item">
         <a>Current section</a>
       </div>
       <div class="item">
         <a>Grouped Section</a>
         <div class="menu">
           <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
+          <a class="active item">Subsection 1</a>
           <a class="item">Subsection 1</a>
         </div>
       </div>
@@ -483,6 +514,36 @@
       </div>
     </div>
   </div>
+  
+  <h3>Items</h3>
+  
+  <div class="example">
+    <h4>Fitted</h4>
+    <p>A menu item or menu might be fitted to remove element padding</p>
+    <div class="ui menu">
+      <div class="fitted item">
+        No vertical padding
+      </div>
+      <div class="tight item">
+        No padding at all
+      </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4>Borderless</h4>
+    <p>A menu item or menu might might have no dividers</p>
+    <div class="ui borderless menu">
+      <div class="item">
+        A
+      </div>
+      <div class="item">
+        B
+      </div>
+    </div>
+  </div>
+  
+  
   
 </div>
 </body>

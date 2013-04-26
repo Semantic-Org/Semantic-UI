@@ -1,5 +1,5 @@
 /*
- * # Semantic Menu - Shaded
+ * # Semantic Menu - Flat
  * http://github.com/quirkyinc/semantic
  *
  *
@@ -23,21 +23,9 @@
   background-color: #FFFFFF;
   font-size: 0px;
 
-  background-image: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
-  background-image: -moz-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
-  background-image: -o-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
-  background-image: -ms-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
-  background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.06) 100%);
-
-  -webkit-box-shadow:
-    0px 0px 0px 1px rgba( 0, 0, 0, 0.15)
-  ;
-  -moz-box-shadow:
-    0px 0px 0px 1px rgba( 0, 0, 0, 0.15)
-  ;
-  box-shadow:
-    0px 0px 0px 1px rgba( 0, 0, 0, 0.15)
-  ;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -52,6 +40,9 @@
   user-select: none;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  vertical-align: middle;
+  min-height: 1.25em;
 
   -webkit-transition:
     opacity 0.1s linear,
@@ -294,7 +285,9 @@
 .ui.menu .item.hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
+.ui.menu .dropdown.item.hover,
 .ui.menu .dropdown.item:hover,
+.ui.menu .dropdown.item .menu .item.hover,
 .ui.menu .dropdown.item .menu .item:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
@@ -338,7 +331,6 @@
 ---------------*/
 
 .ui.menu .item.active {
-  
   border-top: 0.2em solid #999999;
   padding-top: 0.55em;
 
@@ -359,8 +351,14 @@
   ;
 }
 .ui.vertical.menu .item.active {
+  border-top: none;
   border-left: 0.2em solid #999999;
+  padding-top: 0.75em;
   padding-left: 0.75em;
+}
+.ui.vertical.menu .item .menu .item.active {
+  padding-left: 1.35em;
+  padding-top: 0.5em;
 }
 
 /*--------------
@@ -464,9 +462,9 @@
 
 /*--- Hover ---*/
 
-.ui.black.menu .item.hover,
+.ui.black.menu .link.item.hover,
 .ui.black.menu .link.item:hover,
-.ui.menu .dropdown.item:hover,
+.ui.black.menu .dropdown.item:hover,
 .ui.black.menu a.item:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, .15);
@@ -475,7 +473,7 @@
 /*--- Down ---*/
 
 .ui.black.menu .item.down,
-.ui.menu .dropdown.item:active,
+.ui.black.menu .dropdown.item:active,
 .ui.black.menu .link.item:active,
 .ui.black.menu a.item:active {
   background-color: rgba(255, 255, 255, .1);
@@ -488,6 +486,7 @@
 /*--- Active ---*/
 
 .ui.black.menu .item.active {
+  border-color: transparent;
   background-color: rgba(255, 255, 255, 0.05);
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
 
@@ -525,7 +524,7 @@
 ---------------*/
 
 .ui.vertical.menu {
-  width: 280px;
+  width: 200px;
 }
 .ui.vertical.menu .item {
   display: block;
@@ -695,13 +694,13 @@
 
 .ui.pointing.menu .item.active:after {
   position: absolute;
-  bottom: -6px;
+  bottom: -0.3em;
   left: 50%;
   content: "";
 
-  margin-left: -5px;
-  width: 12px;
-  height: 12px;
+  margin-left: -0.3em;
+  width: 0.6em;
+  height: 0.6em;
 
   -webkit-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1) inset;
@@ -734,7 +733,7 @@
 .ui.vertical.pointing.menu .item.active:after {
   position: absolute;
   top: 50%;
-  right: -6px;
+  right: -0.22em;
   bottom: auto;
   left: auto;
 
@@ -742,9 +741,7 @@
   -moz-box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.15);
 
-  margin-top: -7px;
-  width: 12px;
-  height: 12px;
+  margin-top: -0.3em;
 }
 
 /* Colors */
