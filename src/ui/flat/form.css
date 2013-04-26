@@ -412,7 +412,7 @@
 
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin-right: 0.5em;
+  margin: 0em 0.5em 0em 0em;
 }
 
 
