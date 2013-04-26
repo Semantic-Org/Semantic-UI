@@ -595,6 +595,20 @@
 }
 
 /*--------------
+   Borderless 
+---------------*/
+
+.ui.borderless.menu .item:before,
+.ui.borderless.menu .item > a:before,
+.ui.borderless.menu .item .menu .item:before, 
+.ui.borderless.menu .item .menu .item > a:before,
+.ui.menu .borderless.item:before,
+.ui.menu .borderless.item > a:before {
+  background-image: none;
+}
+
+
+/*--------------
      Tight 
 ---------------*/
 
