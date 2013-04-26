@@ -1,0 +1,297 @@
+/*
+ * # Semantic Menu - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+
+
+/*******************************
+            Standard
+*******************************/
+
+.ui.menu {
+  background-color: #EEEEEE;
+  font-size: 0px;
+}
+.ui.menu a {
+  color: #333333;
+}
+
+/* Items */
+.ui.menu .item {
+  display: inline-block;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+}
+.ui.menu .item:first-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ui.menu .menu.left,
+.ui.menu .item.left {
+  float: left;
+}
+.ui.menu .menu.right,
+.ui.menu .item.right {
+  float: right;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/* Dropdown Menu */
+.ui.menu .dropdown.item {
+  position: relative;
+}
+.ui.menu .dropdown.item .menu {
+  overflow: hidden;
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  background-color: #FFFFFF;
+  opacity: 0;
+
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.ui.menu .dropdown.item:last-child .menu {
+  left: auto;
+  right: 0px;
+}
+
+/* Hover */
+.ui.menu .dropdown.item:hover .menu {
+  display: block;
+  overflow: visible;
+  min-width: 150px;
+  width: 100%;
+  height: auto;
+
+  opacity: 1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.ui.menu .dropdown.item .menu .item {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.9em;
+  display: block;
+  color: #555555;
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ui.menu .dropdown.item .menu .item:first-child {
+  border-top: none;
+}
+
+
+
+/*******************************
+             States
+*******************************/
+
+/*--------------
+      Hover 
+---------------*/
+
+/* Pseudo states cautiously used for convenience */
+.ui.menu .item.hover,
+.ui.menu .link.item:hover,
+.ui.menu a.item:hover,
+.ui.menu .dropdown.item:hover,
+.ui.menu .dropdown.item .menu .item:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/*--------------
+     Active 
+---------------*/
+
+.ui.menu .item.down,
+.ui.menu .link.item:active,
+.ui.menu a.item:active,
+.ui.menu .dropdown.item .menu .item:active {
+  background-color: rgba(0, 0, 0, 0.05);
+
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+.ui.menu .item.active {
+  font-weight: bold;
+}
+
+/*--------------
+     Disabled 
+---------------*/
+
+.ui.menu .item.disabled,
+.ui.menu .item.disabled:hover,
+.ui.menu .item.disabled.hover {
+  cursor: default;
+  opacity: 0.3;
+  background-color: transparent;
+}
+
+/*******************************
+            Variations
+*******************************/
+
+/*--------------
+     Colors 
+---------------*/
+
+.ui.black.menu {
+  background-color: #333333;
+  color: #FFFFFF;
+}
+.ui.black.menu a {
+  color: #FFFFFF;
+}
+.ui.black.menu .item {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ui.black.menu .item:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ui.black.menu .menu.right,
+.ui.black.menu .item.right {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* hover */
+.ui.black.menu .item.hover,
+.ui.black.menu .link.item:hover,
+.ui.black.menu a.item:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, .15);
+}
+/* active */
+.ui.black.menu .item.down,
+.ui.black.menu .link.item:active,
+.ui.menu .dropdown.item:hover,
+.ui.black.menu a.item:active {
+  background-color: rgba(255, 255, 255, .05);
+
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+
+
+/*--------------
+  Transparent 
+---------------*/
+
+.ui.transparent.menu {
+  opacity: 0.95;
+}
+
+/*--------------
+     Vertical 
+---------------*/
+
+.ui.vertical.menu {
+  width: 100%;
+}
+.ui.vertical.menu .item {
+  border-left: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/*--------------
+     Icons 
+---------------*/
+
+.ui.menu .icon.menu .item i {
+  margin: 0px;
+}
+.ui.menu .icon.item i {
+  padding: 0px;
+}
+
+/*--------------
+     Fixed 
+---------------*/
+
+.ui.menu.fixed {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+}
+.ui.menu.fixed.top {
+  top: 0px;
+  left: 0px;
+  right: auto;
+  bottom: auto;
+}
+.ui.menu.fixed.right {
+  top: 0px;
+  right: 0px;
+  left: auto;
+  bottom: auto;
+  width: auto;
+  height: 100%;
+}
+.ui.menu.fixed.bottom {
+  bottom: 0px;
+  left: 0px;
+  top: auto;
+  right: auto;
+}
+.ui.menu.fixed.left {
+  top: 0px;
+  left: 0px;
+  right: auto;
+  bottom: auto;
+  width: auto;
+  height: 100%;
+}
+
+/*--------------
+     Sizes 
+---------------*/
+.ui.menu .item {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+.ui.menu .item > a {
+  display: block;
+  margin: -5px -10px;
+  padding: 5px 10px;
+}
+.ui.large.menu .item {
+  padding: 12px 10px;
+  font-size: 16px;
+}
+.ui.menu .item > a {
+  display: block;
+  margin: -12px -10px;
+  padding: 12px 10px;
+}
