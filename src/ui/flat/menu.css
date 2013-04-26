@@ -133,27 +133,27 @@
   right: 0px;
   width: 1px;
   height: 100%;
-  background-image: -webkit-linear-gradient(top center, 
+  background-image: -webkit-linear-gradient(top, 
     rgba(0, 0, 0, 0.05) 0%,
     rgba(0, 0, 0, 0.1) 50%,
     rgba(0, 0, 0, 0.05) 100%)
   ;
-  background-image: -moz-linear-gradient(top center,
+  background-image: -moz-linear-gradient(top,
     rgba(0, 0, 0, 0.05) 0%,
     rgba(0, 0, 0, 0.1) 50%,
     rgba(0, 0, 0, 0.05) 100%)
   ;
-  background-image: -o-linear-gradient(top center,
+  background-image: -o-linear-gradient(top,
     rgba(0, 0, 0, 0.05) 0%,
     rgba(0, 0, 0, 0.1) 50%,
     rgba(0, 0, 0, 0.05) 100%)
   ;
-  background-image: -ms-linear-gradient(top center,
+  background-image: -ms-linear-gradient(top,
     rgba(0, 0, 0, 0.05) 0%,
     rgba(0, 0, 0, 0.1) 50%,
     rgba(0, 0, 0, 0.05) 100%)
   ;
-  background-image: linear-gradient(top center,
+  background-image: linear-gradient(top,
     rgba(0, 0, 0, 0.05) 0%,
     rgba(0, 0, 0, 0.1) 50%,
     rgba(0, 0, 0, 0.05) 100%)
@@ -347,54 +347,54 @@
 
 /*--- Border ---*/
 .ui.black.menu .item:before {
-  background-image: -webkit-linear-gradient(top center, 
+  background-image: -webkit-linear-gradient(top, 
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
-  background-image: -moz-linear-gradient(top center,
+  background-image: -moz-linear-gradient(top,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
-  background-image: -o-linear-gradient(top center,
+  background-image: -o-linear-gradient(top,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
-  background-image: -ms-linear-gradient(top center,
+  background-image: -ms-linear-gradient(top,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
-  background-image: linear-gradient(top center,
+  background-image: linear-gradient(top,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
 }
 .ui.vertical.black.menu .item:before {
-  background-image: -webkit-linear-gradient(left center, 
+  background-image: -webkit-linear-gradient(left, 
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
-  background-image: -moz-linear-gradient(left center,
+  background-image: -moz-linear-gradient(left,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
-  background-image: -o-linear-gradient(left center,
+  background-image: -o-linear-gradient(left,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
-  background-image: -ms-linear-gradient(left center,
+  background-image: -ms-linear-gradient(left,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
   ;
-  background-image: linear-gradient(left center,
+  background-image: linear-gradient(left,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
@@ -472,27 +472,27 @@
   left: 0px;
   width: 100%;
   height: 1px;
-  background-image: -webkit-linear-gradient(left center, 
+  background-image: -webkit-linear-gradient(left, 
     rgba(0, 0, 0, 0.03) 0%,
     rgba(0, 0, 0, 0.1) 1.5em,
     rgba(0, 0, 0, 0.03) 100%)
   ;
-  background-image: -moz-linear-gradient(left center,
+  background-image: -moz-linear-gradient(left,
     rgba(0, 0, 0, 0.03) 0%,
     rgba(0, 0, 0, 0.1) 1.5em,
     rgba(0, 0, 0, 0.03) 100%)
   ;
-  background-image: -o-linear-gradient(left center,
+  background-image: -o-linear-gradient(left,
     rgba(0, 0, 0, 0.03) 0%,
     rgba(0, 0, 0, 0.1) 1.5em,
     rgba(0, 0, 0, 0.03) 100%)
   ;
-  background-image: -ms-linear-gradient(left center,
+  background-image: -ms-linear-gradient(left,
     rgba(0, 0, 0, 0.03) 0%,
     rgba(0, 0, 0, 0.1) 1.5em,
     rgba(0, 0, 0, 0.03) 100%)
   ;
-  background-image: linear-gradient(left center,
+  background-image: linear-gradient(left,
     rgba(0, 0, 0, 0.03) 0%,
     rgba(0, 0, 0, 0.1) 1.5em,
     rgba(0, 0, 0, 0.03) 100%)
