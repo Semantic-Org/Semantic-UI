@@ -465,7 +465,7 @@
   float: right;
 }
 .ui.vertical.menu .dropdown.item .menu {
-  top: -50%;
+  top: 0%;
   left: 100%;
   margin: 0px;
   border-left: none;
