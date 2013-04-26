@@ -42,7 +42,7 @@ semantic.ready = function() {
       var
         $example   = $(this).closest('.example'),
         $shape     = $example.find('.shape.module'),
-        $demo      = $example.children().slice(3).not('.annotated'),
+        $demo      = $example.children().slice(3).not('.annotated, .ignore'),
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),
