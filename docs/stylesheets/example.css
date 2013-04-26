@@ -249,32 +249,32 @@ a:hover {
   left: -230px;
   width: 180px;
 }
-#example .peek .panel :nth-child(1) {
+#example .peek .menu :nth-child(1) {
   border-left-color: #00B9F0;
 }
 #example .main h2.standard {
   color: #00B9F0;
 }
-#example .peek .panel :nth-child(2) {
+#example .peek .menu :nth-child(2) {
   border-left-color: #56BB73;
 }
 #example .main h2.states {
   color: #56BB73;
 }
-#example .peek .panel :nth-child(3) {
+#example .peek .menu :nth-child(3) {
   border-left-color: #EF3F49;
 }
 #example .main h2.variations {
   color: #EF3F49;
 }
-#example .peek .panel :nth-child(4) {
+#example .peek .menu :nth-child(4) {
   border-left-color: #A24096;
 }
 #example .main h2.group {
   color: #A24096;
 }
 
-#example .peek .panel {
+#example .peek .menu {
   width: 180px;
 }
 #example .sticky-wrapper.stuck {
