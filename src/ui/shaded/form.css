@@ -1,82 +1,81 @@
+/*
+ * # Semantic Button - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 22 2013
+ */
+
+
+/*******************************
+           Standard
+*******************************/
+
 /*--------------------
         Form
 ---------------------*/
 
 .ui.form {
   position: relative;
-  width: 330px;
+  width: 450px;
 }
-
-/* Form Controls */
-.ui.form .field {
-  clear: both;
-  margin: 0px 0px 15px;
-}
-
-/*-------------------------------
-   Simple Form (No Placeholders)
---------------------------------*/
-
-.ui.form.simple textarea,
-.ui.form.simple input[type="text"] {
-  color: #444444;
+.ui.form :first-child {
+  margin-top: 0px;
 }
 
 /*--------------------
-      Fluid Form
+        Content
 ---------------------*/
 
-.ui.form.fluid {
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
+.ui.form p {
+  margin: 1em 0;
 }
 
+/*--------------------
+        Field
+---------------------*/
+
+.ui.form .field {
+  clear: both;
+  margin: 0em 0em 1em;
+}
 
 /*--------------------
-      Form Labels
+        Labels
 ---------------------*/
 
 .ui.form .field > label {
-  margin: 0px 0px 3px;
+  margin: 0em 0em 0.3em;
   display: block;
 
   color: #555555;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 0.875em;
   line-height: 1.2;
-}
-.ui.form .field > label.inline {
-  display: inline-block;
-  margin: 0px 5px 0px 0px;
-}
-.ui.form .field > label.inline:first-child {
-  margin: 0px 0px 0px 5px;
-}
-
-.ui.form .field > label.selector {
-  display: inline;
 }
 
 /*--------------------
-      Form Inputs
+    Standard Inputs
 ---------------------*/
 
 .ui.form textarea,
 .ui.form input[type="text"],
+.ui.form input[type="date"],
 .ui.form input[type="password"],
 .ui.textarea,
 .ui.input {
   width: 100%;
-  height: 32px;
-  padding: 7px 10px;
-
-  font-size: 14px;
+  padding: 0.53em 0.7em;
+  font-size: 0.825em;
 
   background-color: #FFFFFF;
-  border: 1px solid #CCCCCC;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+
+  color: #555555;
 
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -96,96 +95,220 @@
   box-sizing: border-box;
 }
 
+.ui.textarea,
+.ui.form textarea {
+  min-height: 67px;
+  height: 101px;
+  max-height: 202px;
+  resize: vertical;
+}
 .ui.form select {
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
-
-.ui.form textarea {
-  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  line-height: 1.44;
-  height: 100px;
-  resize: vertical;
-}
-
-
-/*  Input State */
-.ui.form textarea,
-.ui.form input[type="text"] {
-  color: #DADADA;
-}
-.ui.form input:focus,
-.ui.form textarea:focus {
-  color: #222222;
-  background-color: #FFFFFF;
-  border-color: #009FDA;
-  box-shadow: 0px 0px 2px 1px rgba(0, 159, 218, 0.15) inset;
-}
-.ui.form textarea.filled,
-.ui.form input.filled {
-  color: #444444;
-}
-
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
   vertical-align: top;
 }
 
+/*--------------------
+   Types of Messages
+---------------------*/
+
+.ui.form .info.block,
+.ui.form .warning.block,
+.ui.form .error.block {
+  display: none;
+}
+
+/* Assumptions */
+.ui.form .block:first-child {
+  margin-top: 0px;
+}
+
+
+/*******************************
+            States
+*******************************/
+
 
 /*--------------------
-    Special Types
+        Focus
 ---------------------*/
+
+.ui.form input:focus,
+.ui.form textarea:focus {
+  color: #222222;
+  background-color: #FFFFFF;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+/*--------------------
+        Error
+---------------------*/
+
+/* On Form */
+.ui.form.warning .warning.block {
+  display: block;
+}
+
+/*--------------------
+        Warning
+---------------------*/
+
+/* On Form */
+.ui.form.error .error.block {
+  display: block;
+}
+
+/* On Field(s) */
+.ui.form .fields.error .field label,
+.ui.form .field.error label {
+  font-weight: bold;
+  color: #EF3F49;
+}
+.ui.form .fields.error .field textarea,
+.ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="date"],
+.ui.form .fields.error .field input[type="password"],
+.ui.form .field.error textarea,
+.ui.form .field.error input[type="text"],
+.ui.form .field.error input[type="date"],
+.ui.form .field.error input[type="password"] {
+  background-color: #FFFAFA;
+  border-color: rgba(255, 80, 80, 0.7);
+  color: rgba(255, 80, 80, 0.7);
+}
+.ui.form .field.error textarea:focus,
+.ui.form .field.error input:focus {
+  border-color: rgba(255, 80, 80, 1);
+  color: rgba(255, 80, 80, 1);
+}
+
+/*--------------------
+  Empty (Placeholder)
+---------------------*/
+
+/* browsers require these rules separate */
+.ui.form ::-webkit-input-placeholder {
+  color: #E0E0E0;
+}
+.ui.form ::-moz-placeholder {
+  color: #E0E0E0;
+}
+.ui.form :focus::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+.ui.form :focus::-moz-placeholder {
+  color: #AAAAAA;
+}
+.ui.form textarea.empty,
+.ui.form input.empty {
+  color: #E0E0E0;
+}
+
+/* Error Placeholder */
+.ui.form .error ::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.form .error ::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.form .error :focus::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+.ui.form .error :focus::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+
+/*--------------------
+       Disabled
+---------------------*/
+
+.ui.form .field :disabled,
+.ui.form .field.disabled {
+  opacity: 0.5;
+}
+.ui.form .field.disabled :disabled {
+  opacity: 1;
+}
+
+
+/*--------------------
+     Loading State
+---------------------*/
+
+/* On Form */
+.ui.form.loading {
+  position: relative;
+}
+.ui.form.loading:after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  content: '';
+
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8) url(../images/throbber-large.gif) no-repeat 50% 50%;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------------
+      Fluid Width
+---------------------*/
+
+.ui.form.fluid {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/*--------------------------
+  Input w/ attached Button
+---------------------------*/
 
 .ui.form input.attached {
   width: auto;
 }
+
+/*--------------------
+      Date Input
+---------------------*/
 
 .ui.form .date.field > label {
   position: relative;
 }
 .ui.form .date.field > label:after {
   position: absolute;
-  top: 22px;
-  right: 10px;
+  top: 1.2em;
+  right: 0.4em;
 
   font-family: 'Icons';
   content: '📅'; /* '\1f4c5' */
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: normal;
   color: #CCCCCC;
 }
 
-.ui.large.form .date.field > label:after {
-  top: 29px;
-  font-size: 24px;
-}
 
 /*--------------------
-    Higher Contrast
+    Inverted Colors
 ---------------------*/
-
-.ui.form.contrast label {
+.ui.inverted.form label {
   color: #FFFFFF;
 }
-.ui.form .field.error textarea,
-.ui.form .field.error input[type="text"] {
-  background-color: #FFAAAA;
-  border-color: #FF3333;
-  color: #AA5555;
-}
-.ui.form.contrast .field.error label {
-  color: #FF3333;
-}
-.ui.form.contrast .notices,
-.ui.form.contrast .errors {
-  border-color: #FF3333;
-  background-image: -webkit-linear-gradient(top , #F36666 0px, #E14242 100%);
-  background-image: -moz-linear-gradient(top , #F36666 0px, #E14242 100%);
-  background-image: -o-linear-gradient(top , #F36666 0px, #E14242 100%);
-  background-image: -ms-linear-gradient(top , #F36666 0px, #E14242 100%);
-  background-image: linear-gradient(top , #F36666 0px, #E14242 100%);
-
-  color: #FFFFFF;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+.ui.inverted.form .field.error textarea,
+.ui.inverted.form .field.error input[type="text"] {
+  background-color: #FFCCCC;
 }
 
 /*--------------------
@@ -195,7 +318,14 @@
 /* Split fields */
 .ui.form .fields {
   clear: both;
-  overflow: hidden;
+}
+.ui.form .fields:after {
+  content: ' ';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 .ui.form .fields .field {
   clear: none;
@@ -247,169 +377,52 @@
     Inline Fields
 ---------------------*/
 
+.ui.form .inline.fields .field {
+  width: auto;
+}
+.ui.form .inline.fields .field > label,
+.ui.form .inline.fields .field > p,
+.ui.form .inline.fields .field > input,
+.ui.form .inline.fields .field > select,
+.ui.form .inline.field > label,
+.ui.form .inline.field > p,
+.ui.form .inline.field > input,
+.ui.form .inline.field > select {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+}
+
+.ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin-right: 5px;
-}
-.ui.form .inline.field label,
-.ui.form .inline.field input[type="text"],
-.ui.form .inline.field input[type="password"],
-.ui.form .inline.field textarea,
-.ui.form .inline.field select {
-  display: inline-block;
+  margin-right: 0.5em;
 }
 
 
 /*--------------------
-    Success Messages
+        Sizes
 ---------------------*/
 
-.ui.form .notices {
-  color: #67a210;
-
-  background-color: #ebf8d8;
+/* Standard */
+.ui.small.form {
+  font-size: 14px;
+}
+.ui.small.form textarea,
+.ui.small.form input[type="text"],
+.ui.small.form input[type="password"],
+.ui.small.form label {
+  font-size: 1em;
 }
 
-/*--------------------
-     Error State
----------------------*/
-
-/* Form has an error */
-.ui.form.error .errors {
-  display: block;
+.ui.form {
+  font-size: 16px;
 }
 
-/* Form field has an error */
-.ui.form .field.error label {
-  color: #AC3A3A;
-}
-.ui.form .field.error textarea,
-.ui.form .field.error input[type="text"],
-.ui.form .field.error input[type="password"] {
-  background-color: #FFEFEF;
-  border-color: #FF9999;
-  color: #F0BBBB;
-}
-.ui.form .field.error textarea,
-.ui.form .field.error input[type="password"],
-.ui.form .field.error textarea.filled,
-.ui.form .field.error input.filled {
-  color: #AC3A3A;
-}
-.ui.form .field.error textarea:focus,
-.ui.form .field.error input:focus {
-  border-color: #E68585;
-  color: #AC3A3A;
-}
-
-/*--------------------
-     Loading State
----------------------*/
-
-.ui.form.loading i.throbber {
-  display: block;
-}
-
-
-/*--------------------
-        Resizes
----------------------*/
-
+/* Large */
 .ui.large.form {
-  width: 440px;
-}
-.ui.large.fluid.form {
-  width: 100%;
-}
-
-.ui.large.form .field {
-  margin-bottom: 20px;
-}
-
-.ui.large.form .divider {
-  margin: 30px 0px;
-}
-
-.ui.large.form .field > label {
-  margin-bottom: 7px;
-  font-size: 14px;
-}
-.ui.large.form .field input[type="text"] {
-  height: 38px;
-  padding: 10px 12px;
-  
-  font-size: 14px;
-}
-.ui.large.form .field textarea {
-  height: 140px;
-  padding: 10px 12px;
-  font-size: 14px;
-}
-.ui.large.form .inline.field > :first-child {
-  margin-right: 10px;
-}
-
-
-/*--------------------
-    Error Messages
----------------------*/
-
-.ui.form .notices,
-.ui.form .errors {
-  margin: 25px 0px 10px;
-
-  background-color: #F8EBEB;
-  background-image: -webkit-linear-gradient(top , #F8EBEB 0px, #F1D7D7 100%);
-  background-image: -moz-linear-gradient(top , #F8EBEB 0px, #F1D7D7 100%);
-  background-image: -o-linear-gradient(top , #F8EBEB 0px, #F1D7D7 100%);
-  background-image: -ms-linear-gradient(top , #F8EBEB 0px, #F1D7D7 100%);
-  background-image: linear-gradient(top , #F8EBEB 0px, #F1D7D7 100%);
-
-  color: #AD0000;
-  border: 1px solid #B06C6C;
-
-  padding: 7px 12px;
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
-.ui.form .errors i:before {
-  opacity: 0.8;
-  margin: 0px;
-  font-family: 'Icons';
-  content: '\2757';
-  display: inline-block;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
-  line-height: 1;
-  margin-right: 0.3em;
-  vertical-align: middle;
-}
-.ui.form .errors i,
-.ui.form .errors .error {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.ui.form .errors h3 {
   font-size: 18px;
+}
+.ui.large.form label {
   font-weight: bold;
 }
-.ui.form .errors .error {
-  display: block;
-  margin-left: 15px;
-  line-height: 1.55;
-}
-.ui.form .errors .error.list {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 5px 0px;
-  padding: 5px 0px 0px 15px;
 
-  -webkit-box-shadow: 0px -1px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 0px -1px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px -1px rgba(0, 0, 0, 0.05);
-}
-.ui.form .errors .error.list li {
-  list-style-type: disc;
-}

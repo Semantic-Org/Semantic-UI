@@ -1,6 +1,7 @@
 /*******************************
-        Standard Example
+           Glue Code
 *******************************/
+
 
 @font-face {
   font-family: 'Icons';
@@ -14,7 +15,9 @@
   font-weight: normal;
   font-style: normal;
 }
-/* font */
+
+/* Non Web Font (For Demo) 
+
 @font-face {
   font-family: 'Neutraface';
   src:
@@ -33,6 +36,49 @@
   font-style: normal;
   font-size-adjust: 0.448;
 }
+*/
+
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-book.eot');
+  src: 
+    url('../fonts/neutraface-book.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-book.woff') format('woff')
+  ;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-bold.eot');
+  src: 
+    url('../fonts/neutraface-bold.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-bold.woff') format('woff')
+  ;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-italic.eot');
+  src: 
+    url('../fonts/neutraface-italic.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-italic.woff') format("woff")
+  ;
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+}
+
+
+
+
 /*******************************
              Global 
 *******************************/
@@ -41,6 +87,7 @@ body#example {
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
   padding: 0px 0px 150px;
+  text-rendering: optimizeLegibility;
 }
 
 /* text and headers */
@@ -73,6 +120,7 @@ h4 {
 }
 h4 + p {
   margin: 0px 0px 20px;
+  color: #888888;
 }
 pre {
   background-color: #F0F0F0;
@@ -109,27 +157,15 @@ a:hover {
   color: #00BAFF;
 }
 
-
-
 #example .sidr {
-  font-weight: bold;
-}
-#example .sidr ul li ul {
-  font-weight: normal;
-}
-#example .sidr ul li ul li a {
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
-  font-size: 15px;
-  color: #666666;
+  -webkit-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #DDDDDD;
 }
-#example .sidr .active {
-  background-color: #555555;
-}
-#example .sidr .active > a {
-  color: #FFFFFF;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+#example .sidr .ui.menu {
+  margin: 0px 0px 30px;
 }
 
 
@@ -212,6 +248,31 @@ a:hover {
   left: -230px;
   width: 180px;
 }
+#example .peek .panel :nth-child(1) {
+  border-left-color: #00B9F0;
+}
+#example .main h2.standard {
+  color: #00B9F0;
+}
+#example .peek .panel :nth-child(2) {
+  border-left-color: #56BB73;
+}
+#example .main h2.states {
+  color: #56BB73;
+}
+#example .peek .panel :nth-child(3) {
+  border-left-color: #EF3F49;
+}
+#example .main h2.variations {
+  color: #EF3F49;
+}
+#example .peek .panel :nth-child(4) {
+  border-left-color: #A24096;
+}
+#example .main h2.group {
+  color: #A24096;
+}
+
 #example .peek .panel {
   width: 180px;
 }
@@ -232,6 +293,7 @@ a:hover {
   width: 300px;
 }
 
+/* example code reskin */
 #example div.code {
   position: relative;
   width: 100%;
@@ -251,13 +313,34 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+#example div.code .ace_line {
+  color: #555555;
+}
+#example div.code .ace_tag {
+  color: #892A6F;
+}
+#example div.code .ace_indent-guide {
+  position: relative;
+  background: none;
+}
+#example div.code .ace_indent-guide:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  border-left: 1px solid #ECF5F3;
+}
+#example div.code .ace_attribute-name {
+  color: #934E4E;
+}
 #example div.code .ace_scroller {
   margin: 14px 10px;
 }
 #example div.code .ace_content {
 }
 #example div.code .ace_string {
-  color: #e82d2d;
+  color: #00A59D;
 }
 #example div.code .ace_cursor {
   border-left: 1px solid #AAAAAA;
@@ -269,7 +352,7 @@ a:hover {
   color: #555555;
 }
 #example div.code .ace_identifier {
-  color: #247992;
+  color: #555555;
 }
 #example div.code .ace_scrollbar {
   overflow: hidden;
@@ -279,6 +362,38 @@ a:hover {
   color: #555555;
 }
 
+/* examples */
+#example .example {
+  position: relative;
+}
+#example .example i.code {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  opacity: 0.2;
+
+  font-size: 18px;
+  color: #555555;
+
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+#example .example:hover i.code {
+  opacity: 0.7;
+}
+#example .example:hover i.code:hover {
+  opacity: 1;
+}
+
+
+/* some demo formatting */
+.ui.menu a {
+  cursor: pointer;
+}
 
 
 @media only screen and (max-width : 1640px) {
@@ -303,3 +418,4 @@ a:hover {
   }
 
 }
+

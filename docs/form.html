@@ -15,70 +15,84 @@
   <link rel="stylesheet" class="ui" href="../src/ui/flat/icons.css" type="text/css" media="screen" />
   
   <link rel="stylesheet" href="../src/ui/flat/menu.css" type="text/css" media="screen" />
-
-  <link rel="stylesheet" href="../src/modules/shape.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../src/modules/ui/shape.css" type="text/css" media="screen" />
   
   <link rel="stylesheet" href="library/sidr.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="stylesheets/example.css" type="text/css" media="screen" />
 
-  <script src="../dependencies/jquery.js" type="text/javascript"></script>
-  <script src="../src/modules/ui/shape.js" type="text/javascript"></script>
-  <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
-
+  <script src="library/jquery.js" type="text/javascript"></script>
+  <script src="library/ace/ace.js" type="text/javascript"></script>
   <script src="library/sidr.js" type="text/javascript"></script>
   <script src="library/waypoints.js" type="text/javascript"></script>
-  <script src="javascript/example.js" type="text/javascript"></script>
+  <script src="javascript/semantic.js" type="text/javascript"></script>
+
+  <script src="../src/modules/ui/shape.js" type="text/javascript"></script>
+  <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
 
 </head>
 
 <body id="example">
 
-<div class="sidr" id="menu">
-  <ul>
-    <li><a href="module.html">Introduction</a></li>
-    <li><a>Download</a></li>
-    <li><a href="#">UI</a>
-      <ul>
-        <li class="active"><a href="button.html">Button</a></li>
-        <li><a>Text</a></li>
-        <li><a>Headers</a></li>
-        <li><a>Columns</a></li>
-        <li><a>Elements (Grid System)</a></li>
-        <li><a>Tags</a></li>
-        <li><a>Items (Lists of Content)</a></li>
-        <li><a>Panels (Type of Menu)</a></li>
-        <li><a>Forms</a></li>
-        <li><a>Fields</a></li>
-        <li><a>Checkboxes</a></li>
-        <li><a>Icons</a></li>
-        <li><a>Dividers</a></li>
-      </ul>
-    </li>
-    <li><a href="#">UI Modules</a>
-      <ul>
-        <li><a>Accordion</a></li>
-        <li><a>Chat Room</a></li>
-        <li><a>Modal</a></li>
-        <li><a>Nag</a></li>
-        <li><a>Popup</a></li>
-        <li><a>Search</a></li>
-        <li><a>Star Rating</a></li>
-        <li><a>Tabs</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Behavioral Modules</a>
-      <ul>
-        <li><a>API</a></li>
-        <li><a>Animation</a></li>
-        <li><a>Form Validation</a></li>
-        <li><a>Placeholder Text</a></li>
-        <li><a class="shape.html">Shape</a></li>
-        <li><a>State</a></li>
-      </ul>
-    </li>
-  </ul>
+<div class="ui large vertical menu" id="menu">
+  <div class="menu">
+    <div class="item"><a href="module.html"><b>Introduction</b></a></div>
+    <div class="item"><a href="download"><b>Download</b></a></div>
+    <div class="item">
+      <a href="#"><b>UI Elements</b></a>
+      <div class="menu">
+        <div class="item"><a href="button.html">Button</a></div>
+        <div class="active item"><a href="form.html">Forms</a></div>
+        <div class="item"><a href="table.html">Table</a></div>
+        <div class="item"><a href="steps.html">Steps</a></div>
+        <div class="item"><a href="progress.html">Progress</a></div>
+        <div class="item"><a href="text.html">Text Block</a></div>
+        <div class="item"><a href="header.html">Headers</a></div>
+        <div class="item"><a href="header.html">Segment</a></div>
+        <div class="item"><a href="column.html">Columns</a></div>
+        <div class="item"><a href="element.html">Elements (Grid System)</a></div>
+        <div class="item"><a href="tag.html">Tags</a></div>
+        <div class="item"><a href="item.html">Items (Lists of Content)</a></div>
+        <div class="item"><a href="panel.html">Panels (Type of Menu)</a></div>
+        <div class="item"><a href="icon.html">Icons</a></div>
+        <div class="item"><a href="divider.html">Dividers</a></div>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><b>UI Views</b></a>
+      <div class="menu">
+        <div class="item"><a href="form.html">Forms</a></div>
+        <div class="item"><a href="activity.html">Activity Feed</a></div>
+        <div class="item"><a href="list.html">Content List</a></div>
+        <div class="item"><a href="user-list.html">User List</a></div>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><b>UI Modules</b></a>
+      <div class="menu">
+        <div class="item"><a href="accordion.html">Accordion</a></div>
+        <div class="item"><a href="chatroom.html">Chat Room</a></div>
+        <div class="item"><a href="modal.html">Modal</a></div>
+        <div class="item"><a href="nag.html">Nag</a></div>
+        <div class="item"><a href="popup.html">Popup</a></div>
+        <div class="item"><a href="search.html">Search</a></div>
+        <div class="item"><a href="star.html">Star Rating</a></div>
+        <div class="item"><a href="tab.html">Tabs</a></div>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><b>Behavioral Modules</b></a>
+      <div class="menu">
+        <div class="item"><a href="api.html">API</a></div>
+        <div class="item"><a href="animation.html">Animation</a></div>
+        <div class="item"><a href="validate.html">Form Validation</a></div>
+        <div class="item"><a href="placeholder.html">Placeholder Text</a></div>
+        <div class="item"><a href="shape.html">Shape</a></div>
+        <div class="item"><a href="state.html">State</a></div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="ui large fixed transparent black menu">
+<div class="ui fixed transparent black menu">
     <div class="container">
       <div class="title item">
         Semantic UI: Form 
@@ -91,8 +105,8 @@
         <div class="menu">
           <a href="button.html" class="item">1. Button</a>
           <a class="active item">2. Form</a>
-          <a class="item">3. Headers</a>
-          <a class="item">4. Columns</a>
+          <a class="item">3. Tables</a>
+          <a href="table.html" class="item">4. Columns</a>
           <a class="item">5. Elements</a>
           <a class="item">6. Tags</a>
           <a class="item">7. Items</a>
@@ -100,7 +114,7 @@
         </div>
       </div>
       <div class="icon next link item">
-        <i class="icon right-open"></i>
+        <a href="table.html"><i class="icon right-open"></i></a>
       </div>
       <div class="right menu">
         <a class="item" href="https://github.com/quirkyinc/semantic">
@@ -110,11 +124,11 @@
           <i class="icon github"></i>
         </a>
         <div class="dropdown item">
-          <i class="icon cog"></i>
-          <div class="menu">
-            <div class="swap item">Change Theme</div>
-            <div class="item">About Semantic</div>
-            <div class="item">Choice 3</div>
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
           </div>
         </div>
       </div>
@@ -148,86 +162,98 @@
   </div>
   <h2>Standard</h2>
     
-  <h4>Form:</h4>
-  <p>A form is a collection of user input elements, and has no stylings of its own.</p>
-  <div class="ui form segment">
-    <p>Let's go ahead and get you signed up.</p>
-    <div class="two fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
+  <div class="example">
+    <h4>Form:</h4>
+    <p>A form is a collection of user input elements, and has no stylings of its own.</p>
+    <div class="ui form segment">
+      <p>Let's go ahead and get you signed up.</p>
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
       </div>
       <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
+        <label>Username</label>
+        <input placeholder="Username" type="text">
       </div>
-    </div>
-    <div class="field">
-      <label>Username</label>
-      <input placeholder="Username" type="text">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password">
-    </div>
-    <div class="inline field">
-      <div class="ui checkbox">
-        <input type="checkbox" id="terms" />
-        <label for="terms"></label>
+      <div class="field">
+        <label>Password</label>
+        <input type="password">
       </div>
-      <label>I agree to the terms and conditions</label>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="terms" />
+          <label for="terms"></label>
+        </div>
+        <label>I agree to the terms and conditions</label>
+      </div>
+      <div class="ui blue submit button">Submit</div>
     </div>
-    <div class="ui blue submit button">Submit</div>
+    <div class="annotated">
+      <p>This example uses a ui segment to add the padding and background color. This is not required.</p>
+    </div>
   </div>
-  
   <h3>Types of Content</h3>
 
-  <h4>Field</h4>
-  <p>A field is a form element containing a label and an input</p>
-  <div class="ui form">
-    <div class="field">
-      <label>User Input</label>
-      <input type="text">
-    </div>
-  </div>
-
-  <h4>Text Area</h4>
-  <p>A textarea uses the default form element</p>
-  <div class="ui form">
-    <div class="field">
-      <label>User Text</label>
-      <textarea></textarea>
-    </div>
-  </div>
-
-  <h4>Checkbox</h4>
-  <p>Checkboxes are styled forms of standard form checkboxes.</p>
-  <div class="ui form">
-    <div class="field">
-      <label>Checkbox (Using attribute ID to trigger checked event)</label>
-      <div class="ui checkbox">
-        <input type="checkbox" id="uniqueid" />
-        <label for="uniqueid"></label>
-      </div>
-    </div>
-    <div class="field">
-      <label>Checkbox (<a href="#">Javascript</a>)</label>
-      <div class="ui checkbox">
-        <input type="checkbox"/>
-        <label></label>
+  <div class="example">
+    <h4>Field</h4>
+    <p>A field is a form element containing a label and an input</p>
+    <div class="ui form">
+      <div class="field">
+        <label>User Input</label>
+        <input type="text">
       </div>
     </div>
   </div>
   
-  <h4>Validation</h4>
-  <p>Text blocks have special meaning inside a form tag. All message blocks are hidden by default.</p>
-  <div class="ui form">
-    <div class="ui block">
-      <div class="header">We had some issues</div>
-      <ul class="list">
-        <li>Please enter your first name</li>
-        <li>Please enter your last name</li>
-      </ul>
+  <div class="example">
+    <h4>Text Area</h4>
+    <p>A textarea uses the default form element</p>
+    <div class="ui form">
+      <div class="field">
+        <label>User Text</label>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Checkbox</h4>
+    <p>Checkboxes are styled forms of standard form checkboxes.</p>
+    <div class="ui form">
+      <div class="field">
+        <label>Checkbox (Using attribute ID to trigger checked event)</label>
+        <div class="ui checkbox">
+          <input type="checkbox" id="uniqueid" />
+          <label for="uniqueid"></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Checkbox (<a href="#">Javascript</a>)</label>
+        <div class="ui checkbox">
+          <input type="checkbox"/>
+          <label></label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4>Validation</h4>
+    <p>Text blocks have special meaning inside a form tag. All message blocks are hidden by default.</p>
+    <div class="ui form">
+      <div class="ui block">
+        <div class="header">We had some issues</div>
+        <ul class="list">
+          <li>Please enter your first name</li>
+          <li>Please enter your last name</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -235,217 +261,285 @@
 
   <h3>Form</h3>
   
-  <h4>Loading</h4>
-  <p>If a form is in loading state, it will automatically show a loading indicator:</p>
-  
-  <div class="ui loading form segment">
-    <div class="two fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
+  <div class="example">
+    <h4>Loading</h4>
+    <p>If a form is in loading state, it will automatically show a loading indicator:</p>
+    
+    <div class="ui loading form segment">
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
       </div>
       <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
+        <label>Username</label>
+        <input placeholder="Username" type="text">
       </div>
-    </div>
-    <div class="field">
-      <label>Username</label>
-      <input placeholder="Username" type="text">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password">
-    </div>
-    <div class="inline field">
-      <div class="ui checkbox">
-        <input type="checkbox" id="terms" />
-        <label for="terms"></label>
+      <div class="field">
+        <label>Password</label>
+        <input type="password">
       </div>
-      <label>I agree to the terms and conditions</label>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="terms" />
+          <label for="terms"></label>
+        </div>
+        <label>I agree to the terms and conditions</label>
+      </div>
+      <div class="ui blue submit button">Submit</div>
     </div>
-    <div class="ui blue submit button">Submit</div>
   </div>
   
-  <h4>Error</h4>
-  <p>If form is in an error state, it will automatically show any error message blocks:</p>
-  <div class="ui error form segment">
-    <div class="ui error block">
-      <div class="header">Action Forbidden</div>
-      <p>You can only sign up for an account once with a given e-mail address.</p>
-    </div>
-    <div class="two fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
+  <div class="example">
+    <h4>Error</h4>
+    <p>If a form is in an error state, it will automatically show any error message blocks:</p>
+    <div class="ui error form segment">
+      <div class="ui error block">
+        <div class="header">Action Forbidden</div>
+        <p>You can only sign up for an account once with a given e-mail address.</p>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
       </div>
       <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
+        <label>Username</label>
+        <input placeholder="Username" type="text">
       </div>
-    </div>
-    <div class="field">
-      <label>Username</label>
-      <input placeholder="Username" type="text">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password">
-    </div>
-    <div class="inline field">
-      <div class="ui checkbox">
-        <input type="checkbox" id="terms" />
-        <label for="terms"></label>
+      <div class="field">
+        <label>Password</label>
+        <input type="password">
       </div>
-      <label>I agree to the terms and conditions</label>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="terms" />
+          <label for="terms"></label>
+        </div>
+        <label>I agree to the terms and conditions</label>
+      </div>
+      <div class="ui blue submit button">Submit</div>
     </div>
-    <div class="ui blue submit button">Submit</div>
   </div>
     
-  <h4>Warning</h4>
-  <p>If form is in warning state, it will automatically show any warning message block:</p>
-  
-  <div class="ui warning form segment">
-    <div class="ui warning block">
-      <div class="header">Could you check something!</div>
-      <ul class="list">
-        <li>You forgot your <b>first name</b></li>
-        <li>And also your <b>last name</b></li>
-      </ul>
-    </div>
-    <div class="two error fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
+  <div class="example">
+    <h4>Warning</h4>
+    <p>If a form is in warning state, it will automatically show any warning message block:</p>
+    
+    <div class="ui warning form segment">
+      <div class="ui warning block">
+        <div class="header">Could you check something!</div>
+        <ul class="list">
+          <li>You forgot your <b>first name</b></li>
+          <li>And also your <b>last name</b></li>
+        </ul>
+      </div>
+      <div class="two error fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
       </div>
       <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
+        <label>Username</label>
+        <input placeholder="Username" type="text">
       </div>
-    </div>
-    <div class="field">
-      <label>Username</label>
-      <input placeholder="Username" type="text">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password">
-    </div>
-    <div class="inline field">
-      <div class="ui checkbox">
-        <input type="checkbox" id="terms" />
-        <label for="terms"></label>
+      <div class="field">
+        <label>Password</label>
+        <input type="password">
       </div>
-      <label>I agree to the terms and conditions</label>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="terms" />
+          <label for="terms"></label>
+        </div>
+        <label>I agree to the terms and conditions</label>
+      </div>
+      <div class="ui blue submit button">Submit</div>
     </div>
-    <div class="ui blue submit button">Submit</div>
   </div>
   
   <h3>Form Fields</h3>
   
-  <h4>Error</h4>
-  <p>Individual fields may contain an error state</p>
-  
-  <div class="ui error form segment">
-    <div class="two fields">
-      <div class="field error">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
-      </div>
-      <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
+  <div class="example">
+    <h4>Error</h4>
+    <p>Individual fields may contain an error state</p>
+    
+    <div class="ui error form segment">
+      <div class="two fields">
+        <div class="field error">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
       </div>
     </div>
   </div>
   
-  <h4>Disabled</h4>
-  <p>Individual fields may be disabled or read only</p>
-  
-  <div class="ui error form segment">
-    <div class="two fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="Read Only" readonly="readonly" type="text">
-      </div>
-      <div class="disabled field">
-        <label>Last Name</label>
-        <input placeholder="Disabled" disabled="disabled" type="text">
+  <div class="example">
+    <h4>Disabled</h4>
+    <p>Individual fields may be disabled or read only</p>
+    
+    <div class="ui error form segment">
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="Read Only" readonly="readonly" type="text">
+        </div>
+        <div class="disabled field">
+          <label>Last Name</label>
+          <input placeholder="Disabled" disabled="disabled" type="text">
+        </div>
       </div>
     </div>
   </div>
 
   <h2>Variations</h2>
+  
+  <h3>Forms</h3>
 
-  <h4>Fluid</h4>
-  <p>A form can take the width of its container</p>
-  <div class="ui fluid form segment">
-    <div class="two fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
+  <div class="example">
+    <h4>Fluid</h4>
+    <p>A form can take the width of its container</p>
+    <div class="ui fluid form segment">
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
       </div>
-      <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
-      </div>
+      <div class="ui blue submit button">Submit</div>
     </div>
-    <div class="ui blue submit button">Submit</div>
   </div>
-
-  <h4>Size</h4>
-  <p>A form can also be small or large</p>
-  <div class="ui small form segment">
-    <div class="ui info block">
-      <div class="header">We had some issues</div>
-      <ul class="list">
-        <li>Please enter your first name</li>
-        <li>Please enter your last name</li>
-      </ul>
-    </div>
-    <div class="two fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
+  
+  <div class="example">
+    <h4>Size</h4>
+    <p>A form can also be small or large</p>
+    <div class="ui small form segment">
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
       </div>
-      <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
-      </div>
+      <div class="ui blue small submit button">Submit</div>
     </div>
-    <div class="ui blue submit button">Submit</div>
+    <br><br>
+    <div class="ui large form segment">
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
+      </div>
+      <div class="ui blue submit button">Submit</div>
+    </div>
   </div>
-  <br><br>
-  <div class="ui large form segment">
-    <div class="ui info block">
-      <div class="header">We had some issues</div>
-      <ul class="list">
-        <li>Please enter your first name</li>
-        <li>Please enter your last name</li>
-      </ul>
-    </div>
-    <div class="two fields">
-      <div class="field">
-        <label>First Name</label>
-        <input placeholder="First Name" type="text">
+  
+  <div class="example">
+    <h4>Inverted</h4>
+    <p>A form on a dark background may have to invert its color scheme</p>
+    
+    <div style="background-color: #333333; padding: 15px;">
+      <div class="ui inverted form">
+        <div class="ui info block">
+          <div class="header">We had some issues</div>
+          <ul class="list">
+            <li>Please enter your first name</li>
+            <li>Please enter your last name</li>
+          </ul>
+        </div>
+        <div class="two fields">
+          <div class="error field">
+            <label>First Name</label>
+            <input placeholder="First Name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" type="text">
+          </div>
+        </div>
+        <div class="ui blue submit button">Submit</div>
       </div>
-      <div class="field">
-        <label>Last Name</label>
-        <input placeholder="Last Name" type="text">
-      </div>
     </div>
-    <div class="ui blue submit button">Submit</div>
   </div>
+  
   
   <h3>Fields</h3>
   
-  <h4>Inline</h4>
-  <p>A field can have its label next to instead of above it.</p>
-  <div class="ui form">
-    <div class="ui inline fields">
-      <div class="field">
-        <label>Last name</label>
+  <div class="example">
+    <h4>Inline</h4>
+    <p>A field can have its label next to instead of above it.</p>
+    <div class="ui form">
+      <div class="ui inline fields">
+        <div class="field">
+          <label>Last name</label>
+          <input type="text" placeholder="Full Name">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4>Date</h4>
+    <p>A field can let users know they are for dates</p>
+    <div class="ui form">
+      <div class="date field">
+        <label>Birthday</label>
         <input type="text" placeholder="Full Name">
+      </div>
+    </div>
+  </div>
+  
+  
+  <h2>Groups</h2>
+  
+  <div class="example">
+    <h4>Field Groups</h4>
+    <p>Fields can exist side by side to show relation</p>
+    <div class="ui form">
+      <div class="ui three fields">
+        <div class="field">
+          <label>First name</label>
+          <input type="text" placeholder="First Name">
+        </div>
+        <div class="field">
+          <label>Middle name</label>
+          <input type="text" placeholder="Middle Name">
+        </div>
+        <div class="field">
+          <label>Last name</label>
+          <input type="text" placeholder="Last Name">
+        </div>
       </div>
     </div>
   </div>

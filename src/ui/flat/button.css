@@ -15,7 +15,7 @@
             Button
 *******************************/
 
-/* Normal */
+/* Prototype */
 .ui.button {
   cursor: pointer;
   display: inline-block;
@@ -133,11 +133,9 @@
 .ui.buttons .button.active.hover,
 .ui.button.active.hover {
   background: #E0E0E0;
-
   -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
-
 }
 .ui.buttons .button.active.hover,
 .ui.buttons .button.active.hover a,
@@ -294,6 +292,9 @@
 .ui.blue.buttons .button.down,
 .ui.blue.button.down {
   background-color: #F15B40;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
 }
 
 /*---------------
@@ -312,6 +313,9 @@
 .ui.purple.buttons .button.down,
 .ui.purple.button.down {
   background-color: #9254BD;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
 }
 
 /*---------------
@@ -334,6 +338,10 @@ Green / Positive
 .ui.button.positive.down {
   background-color: #59B94B;
   color: #FFFFFF;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+}
 }
 
 /*---------------
@@ -376,31 +384,36 @@ Red / Negative
 .ui.tiny.button {
   font-size: 11px;
   font-weight: bold;
-  padding: 6px 13px;
+  padding: 8px 15px;
 }
 .ui.small.buttons .button,
 .ui.small.button {
   font-size: 12px;
-  padding: 6px 15px;
+  padding: 10px 20px;
 }
 .ui.medium.buttons .button,
 .ui.medium.button {
   font-size: 14px;
-  padding: 7px 20px;
+  padding: 12px 30px;
+}
+.ui.large.buttons .button,
+.ui.large.button {
+  font-size: 16px;
+  padding: 15px 30px;
 }
 .ui.big.buttons .button,
 .ui.big.button {
-  font-size: 16px;
-  padding: 13px 30px;
-}
-.ui.huge.buttons .button,
-.ui.huge.button {
   font-size: 18px;
   padding: 15px 30px;
 }
+.ui.huge.buttons .button,
+.ui.huge.button {
+  font-size: 20px;
+  padding: 18px 30px;
+}
 .ui.massive.buttons .button,
 .ui.massive.button {
-  padding: 15px 45px;
+  padding: 20px 45px;
 
   font-size: 24px;
   font-weight: bold;

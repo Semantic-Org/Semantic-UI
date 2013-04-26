@@ -17,14 +17,14 @@
   <link rel="stylesheet" href="stylesheets/example.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="stylesheets/shape.css" type="text/css" media="screen" />
 
-  <script src="../dependencies/jquery.js" type="text/javascript"></script>
+  <script src="library/jquery.js" type="text/javascript"></script>
   <script src="../src/modules/ui/shape.js" type="text/javascript"></script>
   <script src="../src/modules/behavior/state.js" type="text/javascript"></script>
 
   <script src="library/ace/ace.js" type="text/javascript"></script>
   <script src="library/sidr.js" type="text/javascript"></script>
   <script src="library/waypoints.js" type="text/javascript"></script>
-  <script src="javascript/example.js" type="text/javascript"></script>
+  <script src="javascript/semantic.js" type="text/javascript"></script>
   <script src="javascript/shape.js" type="text/javascript"></script>
 
 
@@ -76,7 +76,7 @@
     </li>
   </ul>
 </div>
-<div class="ui large fixed transparent black menu">
+<div class="ui fixed transparent black menu">
     <div class="container">
       <div class="title item">
         Behavior Module: Shape
@@ -184,7 +184,11 @@
   <h3>Changing Settings</h3> 
   <ol>
     <li>A settings object can be passed in when initializing the plugin
-      <br> <div class="code">$('.foo').shape({ moduleName: 'Godzilla'});</div>
+      <br> <div class="code">$('.foo')
+  .shape({ 
+    moduleName: 'Godzilla'
+  })
+;</div>
     </li>
     <li>Default settings for the module can be overridden by modifying $.fn.shape.settings.
       <br><div class="code">$.fn.shape.settings.moduleName = 'Godzilla';</div>
