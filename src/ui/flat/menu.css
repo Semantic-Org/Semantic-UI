@@ -179,15 +179,6 @@
 
 
 /*--------------
-      Icons 
----------------*/
-
-.ui.menu .item > i:only-child,
-.ui.menu .item > a > i:only-child {
-  margin: 0em;
-}
-
-/*--------------
     Dropdowns 
 ---------------*/
 
@@ -521,6 +512,19 @@
 
 .ui.transparent.menu {
   opacity: 0.95;
+}
+
+/*--------------
+    Icon Only 
+---------------*/
+
+.ui.icon.menu,
+.ui.vertical.icon.menu {
+  width: auto;
+  display: inline-block;
+}
+.ui.icon.menu i {
+  margin: 0em;
 }
 
 /*--------------

@@ -758,7 +758,8 @@ input + .ui.attached.button.down {
   content: ' ';
 
   background-color: transparent;
-  border-top: 3px solid #FFFFFF;
+  border-top: 10px solid #FFFFFF;
+  border-bottom: 11px solid #FFFFFF;
 }
 
 
@@ -779,9 +780,9 @@ input + .ui.attached.button.down {
   font-weight: bold;
 }
 .ui.buttons .or:after {
-  top: 4px;
+  top: 0px;
   width: 5px;
-  height: 18px;
+  height: 16px;
 }
 .ui.fluid.buttons .or {
   width: 0px !important;

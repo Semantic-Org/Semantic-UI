@@ -87,6 +87,7 @@ body#example {
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
   padding: 0px 0px 150px;
+  color: #555555;
   text-rendering: optimizeLegibility;
 }
 
@@ -143,7 +144,6 @@ table code {
 }
 p {
   margin: 10px 0px;
-  color: #555555;
 }
 p > a {
   font-weight: bold;
