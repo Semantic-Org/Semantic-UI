@@ -379,6 +379,17 @@
      Colors 
 ---------------*/
 
+
+
+/*--- Grey ---*/
+
+.ui.grey.menu {
+  background-color: #F0F0F0;
+}
+
+
+
+/*--- Black ---*/
 .ui.black.menu {
   background-color: #333333;
 }

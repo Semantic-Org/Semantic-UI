@@ -50,10 +50,14 @@
   cursor: auto;
   text-align: left;
   font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.95);
   padding: 0.5em 0.7em;
   vertical-align: middle;
+}
+.ui.table tfoot th {
+  font-weight: normal;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.table td {
@@ -231,22 +235,19 @@
 }
 
 /* Sortable Table */
-.ui.sortable.table th {
+.ui.sortable.table thead th {
   cursor: pointer;
   color: #555555;
   vertical-align: top;
 }
-.ui.sortable.table th.sorted,
-.ui.sortable.table th.sorted:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.ui.sortable.table thead th.sorted,
+.ui.sortable.table thead th.sorted:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  
-  color: #333333;
+  color: #EEEEEE;
 }
 
-.ui.sortable.table th:after {
+.ui.sortable.table thead th:after {
   display: inline-block;
   content: '';
   width: 1em;
@@ -264,10 +265,10 @@
   vertical-align: middle;
   vertical-align: calc();
 }
-.ui.sortable.table th.ascending:after {
+.ui.sortable.table thead th.ascending:after {
   content: '\25b4';
 }
-.ui.sortable.table th.descending:after {
+.ui.sortable.table thead th.descending:after {
   content: '\25be';
 }
 
