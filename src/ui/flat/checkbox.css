@@ -9,7 +9,7 @@
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  vertical-align: text-bottom;
+  vertical-align: baseline;
 }
 .ui.checkbox input {
   visibility: hidden;
