@@ -8,7 +8,9 @@
   <link rel="stylesheet" class="ui" href="../src/ui/flat/button.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/text.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/form.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/checkbox.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/grid.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/label.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/divider.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/block.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/segment.css" type="text/css" media="screen" />
@@ -211,13 +213,87 @@
   
 
   <h2>States</h2>
-  <p>Text Blocks only have a single ui state</p>
+  
+  <h4>Hidden</h4>
+  <p>Text Blocks can be hidden</p>
+  <div class="ui hidden block">
+    <p>You can't see me</p>
+  </div>
+  
+  <div class="example">
+    <h4>Visible</h4>
+    <p>Text Blocks can be set to visible if they need to force themselves to be shown.</p>
+    <div class="ui visible block">
+      <p>You can always see me</p>
+    </div>
+  </div>
   
   <h2>Variations</h2>
   
   <div class="example">
+    <h4>Icon Block</h4>
+    <p>A text block can contain an icon.</p>
+    <div class="ui icon block">
+      <i class="icon cloud"></i>
+      <div class="content">
+        <div class="header">
+          Have you heard about our mailing list?
+        </div>
+        <p>Get all the best inventions in your e-mail every day. Sign up now</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="example">
+    <h4>Attached Block</h4>
+    <p>A text block can be formatted to attach itself to content</p>
+    <div class="ui attached block">
+      <div class="header">
+        Have you heard about our mailing list?
+      </div>
+      <p>Get all the best inventions in your e-mail every day. Sign up now</p>
+    </div>
+    <form class="ui form attached fluid segment">
+      <p>Let's go ahead and get you signed up.</p>
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>Username</label>
+        <input placeholder="Username" type="text">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password">
+      </div>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="terms" />
+          <label for="terms"></label>
+        </div>
+        <label>I agree to the terms and conditions</label>
+      </div>
+      <div class="ui blue submit button">Submit</div>
+    </form>
+    <div class="ui bottom attached info block">
+      <div class="header">
+        <i class="icon help"></i>Are you sure you know what you're doing?
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="example">
     <h4>Warning Block</h4>
-    <p>A text block that is dismissable.</p>
+    <p>A text block may be formatted to display warning messages.</p>
     <div class="ui warning block">
       <i class="icon close"></i>
       <div class="header">
@@ -229,7 +305,7 @@
   
   <div class="example">
     <h4>Info Block</h4>
-    <p>A text block that is dismissable.</p>
+    <p>A text block may be formatted to display information.</p>
     <div class="ui info block">
       <i class="icon close"></i>
       <div class="header">
@@ -244,7 +320,7 @@
   
   <div class="example">
     <h4>Success Block</h4>
-    <p>A text block that is formatted to display success message.</p>
+    <p>A text block may be formatted to display a success message.</p>
     <div class="ui success block">
       <i class="icon close"></i>
       <div class="header">
@@ -255,7 +331,7 @@
   
   <div class="example">
     <h4>Error Block</h4>
-    <p>A text block that formatted to display errors, can also use classname "red" or "negative".</p>
+    <p>A text block may be formatted to display errors.</p>
     <div class="ui error block">
       <i class="icon close"></i>
       <div class="header">

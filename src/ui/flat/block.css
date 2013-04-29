@@ -30,16 +30,6 @@
   -webkit-border-radius: 4px 4px 4px 4px;
   -moz-border-radius: 4px 4px 4px 4px;
   border-radius: 4px 4px 4px 4px;
-
-  -webkit-box-shadow:
-    0px 0px 0px 1px rgba(255, 255, 255, 0.55) inset
-  ;
-  -moz-box-shadow:
-    0px 0px 0px 1px rgba(255, 255, 255, 0.55) inset
-  ;
-  box-shadow:
-    0px 0px 0px 1px rgba(255, 255, 255, 0.55) inset
-  ;
 }
 
 
@@ -48,17 +38,17 @@
 ---------------*/
 
 /* block with headers */
-.ui.block > .header {
+.ui.block .header {
   font-size: 1.33em;
   font-weight: bold;
 }
 
 /* block with paragraphs */
-.ui.block > p {
+.ui.block p {
   opacity: 0.85;
-  margin: 0.3em 0em;
+  margin: 0.2em 0em;
 }
-.ui.block > p:first-child {
+.ui.block p:first-child {
   margin-top: 0em;
 }
 
@@ -66,13 +56,14 @@
 .ui.block ul.list {
   opacity: 0.85;
   list-style-position: inside;
-  margin: 0.3em 0em;
+  margin: 0.2em 0em;
   padding: 0em;
 }
 .ui.block ul.list li {
   position: relative;
   list-style-type: none;
-  margin: 0em 0em 0em 0.8em;
+  font-style: italic;
+  margin: 0em 0em 0em 1em;
   padding: 0em;
 }
 .ui.block ul.list li:before {
@@ -123,12 +114,12 @@
             States
 *******************************/
 
-.ui.block.show,
-.ui.header.show {
-  display: block;
+.ui.block.visible,
+.ui.header.visible {
+  display: block !important;
 }
-.ui.block.hide,
-.ui.header.hide {
+.ui.block.hidden,
+.ui.header.hidden {
   display: none;
 }
 
@@ -136,6 +127,61 @@
             Variations
 *******************************/
 
+/*--------------
+    Attached
+---------------*/
+
+.ui.attached.block {
+  margin-bottom: 0px;
+
+  -webkit-border-radius: 4px 4px 0px 0px;
+  -moz-border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 4px 0px 0px;
+
+  -webkit-box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+  -moz-box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+  box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+}
+.ui.bottom.attached.block {
+  margin-top: 0px;
+
+  -webkit-border-radius: 0px 0px 4px 4px;
+  -moz-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
+  
+  -webkit-box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+  -moz-box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+  box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+}
+
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.icon.block > .icon {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 3.8em;
+  padding-right: 0.4em;
+  opacity: 0.2;
+}
+.ui.icon.block > .content {
+  display: table-cell;
+  vertical-align: middle;
+}
 
 /*--------------
      Colors
