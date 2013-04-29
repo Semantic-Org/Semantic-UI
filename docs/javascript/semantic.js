@@ -11,6 +11,7 @@ semantic.ready = function() {
     $ui          = $('.ui').not('.hover, .down'),
     $swap        = $('.theme.menu .item'),
     $menu        = $('.sidebar.button'),
+    $sortTable   = $('.sortable.table'),
     $demo        = $('.demo'),
     $waypoints   = $('h2'),
 
@@ -160,6 +161,11 @@ semantic.ready = function() {
   $ui
     .state()
   ;
+  if($.fn.tablesort !== undefined) {
+    $sortTable
+      .tablesort()
+    ;
+  }
 
   $waypoints
     .waypoint({

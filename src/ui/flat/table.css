@@ -158,7 +158,6 @@
 .ui.table th.error {
   background-color: #F8EBEB;
   color: #AD0000;
-  font-weight: bold;
   /* border-color: #B06C6C !important; */
 }
 .ui.grid.table tr.error:hover td,
@@ -179,7 +178,6 @@
 .ui.table th.warning {
   background-color: #F6F3D5;
   /* border-color: #CBB105 !important; */
-  font-weight: bold;
   color: #7D6C00;
 }
 .ui.grid.table tr.warning:hover td,

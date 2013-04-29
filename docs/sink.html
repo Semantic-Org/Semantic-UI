@@ -10,6 +10,7 @@
   <link rel="stylesheet" class="ui" href="../src/ui/flat/form.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/checkbox.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/grid.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/table.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/label.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/divider.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/block.css" type="text/css" media="screen" />
@@ -25,6 +26,7 @@
   <script src="library/jquery.js" type="text/javascript"></script>
   <script src="library/ace/ace.js" type="text/javascript"></script>
   <script src="library/sidr.js" type="text/javascript"></script>
+  <script src="library/tablesort.js" type="text/javascript"></script>
   <script src="library/waypoints.js" type="text/javascript"></script>
   <script src="javascript/semantic.js" type="text/javascript"></script>
 
@@ -106,13 +108,13 @@
 <div class="ui fixed transparent black menu">
   <div class="container">
     <div class="title item">
-      Semantic UI: Text Block 
+      Semantic UI: Kitchen Sink
     </div>
     <div class="icon previous link item">
       <a href="label.html"><i class="icon left-open"></i></a>
     </div>
     <div class="section dropdown item">
-      6 of 14
+      3 of 4
       <div class="menu">
         <a href="button.html" class="item">1. Button</a>
         <a href="form.html" class="item">2. Form</a>
@@ -148,210 +150,151 @@
 </div>
 <div class="segment">
   <div class="container">
-    <h1>Text Block</h1>
-    <p>Text Blocks can be used to give descriptions to sections of content. They can be formatted like tags, used to mark separate sections of a group of content.</p>
+    <h1>Kitchen Sink</h1>
+    <p>The kitchen sink uses many of the UI elements described in the library to provide examples for how content pieces can be used together.</p>
   </div>
 </div>
 <div class="main container">
   
-  <div class="peek">
-    <div class="ui vertical pointing link menu">
-      <div class="active item">Standard</div>
-      <div class="item">States</div>
-      <div class="item">Variations</div>
-      <div class="item">Groups</div>
-    </div>
-  </div>
-  
-  <h2>Standard</h2>
-  
-  <div class="example">
-    <h4>Text Block</h4>
-    <p>A basic text block</p>
-    <div class="ui block">
+  <div class="ui icon info block">
+    <i class="icon heart"></i>
+    <div class="content">
       <div class="header">
-        Welcome back!
+        Welcome to the kitchen sink!
       </div>
-      <p>
-        It's good to see you again. I have had a lot to think about since our last visit, I've changed much as a person and I can see that you have too.
-      </p>
-      <p>
-        Perhaps we can talk about it if you have the time.
-      </p>
+      <p>This is a work in progress view, these elements may change.</p>
     </div>
   </div>
   
-  <div class="example">
-    <h4>List Block</h4>
-    <p>A text block with a list</p>
-    <div class="ui block">
-      <div class="header">
-        Welcome back!
-      </div>
-      <ul class="list">
-        <li>It's good to see you again.</li>
-        <li>Did you know it's been a while?</li>
-      </ul>
+  <div class="ui divider simple"></div>
+  
+  <div class="ui black top attached menu">
+    <div class="header item">
+      <b>Heads Up</b>
+    </div>
+    <div class="item">
+      <div class="badge">8</div>
+      Days of work
     </div>
   </div>
-  
-  
-  <div class="example">
-    <h4>Dismissable Block</h4>
-    <p>A text block that the user can choose to hide</p>
-    <div class="ui block">
-      <i class="icon close"></i>
-      <div class="header">
-        Welcome back!
-      </div>
-      <ul class="list">
-        <li>It's good to see you again.</li>
-        <li>Did you know it's been a while?</li>
-      </ul>
-    </div>
+  <div class="ui bottom attached segment">
+  <div class="ui block">
+    <div class="header">UI Elements</div>
+    <p>These are UI elements that exist outside of collections</p>
+  </div>
+  <table class="ui sortable grid table">
+    <thead>
+      <th>Name</th>
+      <th>Estimated</th>
+      <th>Spent</th>
+      <th>Status</th>
+      <th>Notes</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Button</td>
+        <td>1</td>
+        <td>1</td>
+        <td class="positive">Complete</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Text Block</td>
+        <td>0.5 days</td>
+        <td>0.5</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Header</td>
+        <td>0.5</td>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Grid</td>
+        <td>1</td>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Divider</td>
+        <td>0.25</td>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Tags</td>
+        <td>0.25</td>
+        <td>0.25</td>
+        <td class="positive">Complete</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Labels</td>
+        <td>0.5</td>
+        <td>0</td>
+        <td class="positive">Complete</td>
+        <td>
+          Changes:<br>
+          - Consolidated into tags 
+        </td>
+      </tr>
+      <tr>
+        <td>Icons</td>
+        <td>1</td>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Menu</td>
+        <td>3</td>
+        <td>1</td>
+        <td class="positive">Complete</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Throbber</td>
+        <td>1</td>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Video</td>
+        <td>0.5</td>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Steps</td>
+        <td>0.5</td>
+        <td>0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Segment</td>
+        <td>0.5</td>
+        <td>0.25</td>
+        <td class="warning">In Progress</td>
+        <td></td>
+      </tr>
+      <tr class="negative">
+        <td>Table</td>
+        <td>0.5</td>
+        <td>1</td>
+        <td class="negative">Complete</td>
+        <td></td>
+      </tr>
+      <tfoot>
+        <th>14 Elements</th>
+        <th>10.5 days</th>
+        <th>4 days</th>
+        <th></th>
+        <th>Updated: Mon 29th</th>
+      </tfoot>
+    </tbody>
+  </table>
   </div>
   
-
-  <h2>States</h2>
-  
-  <h4>Hidden</h4>
-  <p>Text Blocks can be hidden</p>
-  <div class="ui hidden block">
-    <p>You can't see me</p>
-  </div>
-  
-  <div class="example">
-    <h4>Visible</h4>
-    <p>Text Blocks can be set to visible if they need to force themselves to be shown.</p>
-    <div class="ui visible block">
-      <p>You can always see me</p>
-    </div>
-  </div>
-  
-  <h2>Variations</h2>
-  
-  <div class="example">
-    <h4>Icon Block</h4>
-    <p>A text block can contain an icon.</p>
-    <div class="ui icon block">
-      <i class="icon cloud"></i>
-      <div class="content">
-        <div class="header">
-          Have you heard about our mailing list?
-        </div>
-        <p>Get all the best inventions in your e-mail every day. Sign up now</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="example">
-    <h4>Compact Block</h4>
-    <p>A text block that only takes up the width of its content.</p>
-    <div class="ui compact block">
-      <p>Get all the best inventions in your e-mail every day. Sign up now</p>
-    </div>
-  </div>
-  
-  <div class="example">
-    <h4>Attached Block</h4>
-    <p>A text block can be formatted to attach itself to content</p>
-    <div class="ui attached block">
-      <div class="header">
-        Have you heard about our mailing list?
-      </div>
-      <p>Get all the best inventions in your e-mail every day. Sign up now</p>
-    </div>
-    <form class="ui form attached fluid segment">
-      <p>Let's go ahead and get you signed up.</p>
-      <div class="two fields">
-        <div class="field">
-          <label>First Name</label>
-          <input placeholder="First Name" type="text">
-        </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input placeholder="Last Name" type="text">
-        </div>
-      </div>
-      <div class="field">
-        <label>Username</label>
-        <input placeholder="Username" type="text">
-      </div>
-      <div class="field">
-        <label>Password</label>
-        <input type="password">
-      </div>
-      <div class="inline field">
-        <div class="ui checkbox">
-          <input type="checkbox" id="terms" />
-          <label for="terms"></label>
-        </div>
-        <label>I agree to the terms and conditions</label>
-      </div>
-      <div class="ui blue submit button">Submit</div>
-    </form>
-    <div class="ui bottom attached info block">
-      <div class="header">
-        <i class="icon help"></i>Are you sure you know what you're doing?
-      </div>
-    </div>
-  </div>
-  
-  
-  <div class="example">
-    <h4>Warning Block</h4>
-    <p>A text block may be formatted to display warning messages.</p>
-    <div class="ui warning block">
-      <i class="icon close"></i>
-      <div class="header">
-        You must register before you can do that!
-      </div>
-      <p>Visit our registration page, then try again</p>
-    </div>
-  </div>
-  
-  <div class="example">
-    <h4>Info Block</h4>
-    <p>A text block may be formatted to display information.</p>
-    <div class="ui info block">
-      <i class="icon close"></i>
-      <div class="header">
-        Was this what you wanted?
-      </div>
-      <ul class="list">
-        <li>It's good to see you again.</li>
-        <li>Did you know it's been a while?</li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="example">
-    <h4>Success Block</h4>
-    <p>A text block may be formatted to display a success message.</p>
-    <div class="ui success block">
-      <i class="icon close"></i>
-      <div class="header">
-        Congratulations, you are now a member!
-      </div>
-    </div>
-  </div>
-  
-  <div class="example">
-    <h4>Error Block</h4>
-    <p>A text block may be formatted to display errors.</p>
-    <div class="ui error block">
-      <i class="icon close"></i>
-      <div class="header">
-        Was this what you wanted?
-      </div>
-      <ul class="list">
-        <li>It's good to see you again.</li>
-        <li>Did you know it's been a while?</li>
-      </ul>
-    </div>
-  </div>
-  
-  </div>
   
 </div>
 </body>

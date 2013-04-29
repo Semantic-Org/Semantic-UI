@@ -20,6 +20,9 @@
 }
 
 /* Label at the top of a segment */
+.ui.segment div:first-child {
+  margin-top: 0px;
+}
 .ui.segment .attached.label:first-child + * {
   margin-top: 2em;
 }
