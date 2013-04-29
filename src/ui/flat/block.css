@@ -1,15 +1,31 @@
-.ui.block {
-  min-height: 18px;
-  margin: 15px 0px;
+/*
+ * # Semantic Text Block - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 29 2013
+ */
+ 
+/*******************************
+           Text Block
+*******************************/
 
+.ui.block {
+  position: relative;
+  min-height: 18px;
+  margin: 1em 0em;
+
+  height: auto;
   background-color: rgba(0, 0, 0, 0.04);
+  padding: 1em;
 
   font-size: 16px;
-
   line-height: 1.33;
-  height: auto;
-  padding: 1em;
-  color: #333333;
+  color: rgba(0, 0, 0, 0.6);
   
   -webkit-border-radius: 4px 4px 4px 4px;
   -moz-border-radius: 4px 4px 4px 4px;
@@ -39,38 +55,87 @@
 
 /* block with paragraphs */
 .ui.block > p {
-  margin: 5px 0px;
+  opacity: 0.85;
+  margin: 0.3em 0em;
 }
 .ui.block > p:first-child {
-  margin: 0px;
+  margin-top: 0em;
 }
 
 /* block with child list */
 .ui.block ul.list {
+  opacity: 0.85;
   list-style-position: inside;
-  margin: 0px 0px 0px;
-  padding: 0px;
+  margin: 0.3em 0em;
+  padding: 0em;
 }
 .ui.block ul.list li {
   position: relative;
   list-style-type: none;
-  margin: 0px 0px 0px 10px;
-  padding: 0px;
+  margin: 0em 0em 0em 0.8em;
+  padding: 0em;
 }
 .ui.block ul.list li:before {
   position: absolute;
   content: '\2022';
   top: -0.05em;
-  left: -10px;
+  left: -0.8em;
 
   height: 100%;
   vertical-align: baseline;
-
-  color: rgba(0, 0, 0, 0.3);
+  opacity: 0.5;
 }
 .ui.block ul.list li:first-child {
   margin-top: 0px;
 }
+
+/* dismissable block */
+.ui.block > .icon.close {
+  cursor: pointer;
+  position: absolute;
+  top: 1em;
+  right: 0.5em;
+  opacity: 0.7;
+
+  -webkit-transition:
+    opacity 0.1s linear
+  ;
+  -moz-transition:
+    opacity 0.1s linear
+  ;
+  -o-transition:
+    opacity 0.1s linear
+  ;
+  -ms-transition:
+    opacity 0.1s linear
+  ;
+  transition:
+    opacity 0.1s linear
+  ;
+}
+.ui.block > .icon.close:hover {
+  opacity: 1;
+}
+
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.block.show,
+.ui.header.show {
+  display: block;
+}
+.ui.block.hide,
+.ui.header.hide {
+  display: none;
+}
+
+/*******************************
+            Variations
+*******************************/
+
 
 /*--------------
      Colors
@@ -81,6 +146,10 @@
   border-color: #75C9E9;
   background-color: #E9F9FF;
   color: #1D6582;
+}
+.ui.blue.block .header,
+.ui.info.block .header {
+  opacity: 1;
 }
 
 /* Success Text Block */
@@ -94,7 +163,6 @@
 
 /* Warning Text Block */
 .ui.yellow.block,
-.ui.warning.header,
 .ui.warning.block {
   background-color: #F6F3D5;
   border-color: #CBB105;
@@ -108,17 +176,4 @@
 
   color: #AD0000;
   border-color: #B06C6C;
-}
-
-/*--------------
-     States
----------------*/
-
-.ui.block.show,
-.ui.header.show {
-  display: block;
-}
-.ui.block.hide,
-.ui.header.hide {
-  display: none;
 }

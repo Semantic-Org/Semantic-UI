@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>UI Label - Semantic</title>
+  <title>UI Text Block - Semantic</title>
 
   <link rel="stylesheet" class="ui" href="../src/ui/flat/panel.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/button.css" type="text/css" media="screen" />
@@ -14,7 +14,6 @@
   <link rel="stylesheet" class="ui" href="../src/ui/flat/segment.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/icons.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/menu.css" type="text/css" media="screen" />
-  <link rel="stylesheet" class="ui" href="../src/ui/flat/label.css" type="text/css" media="screen" />
   
   <link rel="stylesheet" href="../src/modules/ui/shape.css" type="text/css" media="screen" />
   
@@ -60,7 +59,7 @@
         <div class="item"><a href="header.html">Segment</a></div>
         <div class="item"><a href="column.html">Columns</a></div>
         <div class="item"><a href="element.html">Elements (Grid System)</a></div>
-        <div class="active item"><a href="label.html">Label</a></div>
+        <div class="active item"><a href="text.html">Text Block</a></div>
         <div class="item"><a href="item.html">Items (Lists of Content)</a></div>
         <div class="item"><a href="panel.html">Panels (Type of Menu)</a></div>
         <div class="item"><a href="icon.html">Icons</a></div>
@@ -105,24 +104,24 @@
 <div class="ui fixed transparent black menu">
   <div class="container">
     <div class="title item">
-      Semantic UI: Label 
+      Semantic UI: Text Block 
     </div>
     <div class="icon previous link item">
-      <a href="menu.html"><i class="icon left-open"></i></a>
+      <a href="label.html"><i class="icon left-open"></i></a>
     </div>
     <div class="section dropdown item">
-      5 of 14
+      6 of 14
       <div class="menu">
         <a href="button.html" class="item">1. Button</a>
         <a href="form.html" class="item">2. Form</a>
         <a href="table.html" class="item">3. Table</a>
         <a href="menu.html" class="item">4. Menu</a>
-        <a class="active item">5. Label</a>
-        <a href="text.html" class="item">6. Text Block</a>
+        <a href="label.html" class="item">5. Labels</a>
+        <a href="text.html" class="active item">6. Text Block</a>
       </div>
     </div>
     <div class="icon next link item">
-      <a href="text.html"><i class="icon right-open"></i></a>
+      <i class="icon right-open"></i>
     </div>
     <div class="right menu">
       <a class="item" href="https://github.com/quirkyinc/semantic">
@@ -147,8 +146,8 @@
 </div>
 <div class="segment">
   <div class="container">
-    <h1>Label</h1>
-    <p>Labels can be used to give descriptions to sections of content. They can be formatted like tags, used to mark separate sections of a group of content.</p>
+    <h1>Text Block</h1>
+    <p>Text Blocks can be used to give descriptions to sections of content. They can be formatted like tags, used to mark separate sections of a group of content.</p>
   </div>
 </div>
 <div class="main container">
@@ -163,168 +162,112 @@
   </div>
   
   <h2>Standard</h2>
+  
   <div class="example">
-    <h4>Label</h4>
-    <p>A basic label</p>
-    <div class="ui label">
-      Fun
+    <h4>Text Block</h4>
+    <p>A basic text block</p>
+    <div class="ui block">
+      <div class="header">
+        Welcome back!
+      </div>
+      <p>
+        It's good to see you again. I have had a lot to think about since our last visit, I've changed much as a person and I can see that you have too.
+      </p>
+      <p>
+        Perhaps we can talk about it if you have the time.
+      </p>
     </div>
   </div>
   
   <div class="example">
-    <h4>Linkable Label</h4>
-    <p>If an a tag is used, a label will be formatted as a link</p>
-    <a class="ui label">
-      Fun
-    </a>
+    <h4>List Block</h4>
+    <p>A text block with a list</p>
+    <div class="ui block">
+      <div class="header">
+        Welcome back!
+      </div>
+      <ul class="list">
+        <li>It's good to see you again.</li>
+        <li>Did you know it's been a while?</li>
+      </ul>
+    </div>
   </div>
   
+  
   <div class="example">
-    <h4>Attached Label</h4>
-    <p>A label attached to a content segment</p>
-    <div class="ui two elements">
-      <div class="element">
-        <div class="ui segment">
-          <div class="ui attached label">Top Left</div>
-          <div class="ui right attached label">Top Right</div>
-          <div class="ui bottom attached label">Bottom Left</div>
-          <div class="ui bottom right attached label">Bottom Right</div>
-          <p style="margin:40px 0px;">Hey let's look at labels.</p>
-        </div>
-      </div>
-      <div class="element">
-        <div class="ui segment">
-          <div class="ui black attached label">Existing Users</div>
-          <div class="ui fluid form">
-            <div class="field">
-              <label>E-mail</label>
-              <input type="text">
-            </div>
-            <div class="field">
-              <label>Password</label>
-              <input type="password">
-            </div>
-            <div class="ui button">Log in</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4>Label with detail</h4>
-    <p>A tag can optionally display a detail</p>
-    <div class="ui label">
-      Fun
-      <div class="detail">New</div>
-    </div>
-    <div class="ui label">
-      Red
-      <div class="detail">22</div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4>Removable label</h4>
-    <p>A tag can also be removable</p>
-    <div class="ui label">
-      Witty
+    <h4>Dismissable Block</h4>
+    <p>A text block that the user can choose to hide</p>
+    <div class="ui block">
       <i class="icon close"></i>
+      <div class="header">
+        Welcome back!
+      </div>
+      <ul class="list">
+        <li>It's good to see you again.</li>
+        <li>Did you know it's been a while?</li>
+      </ul>
     </div>
   </div>
   
 
   <h2>States</h2>
-  <p>Labels only have a single ui state</p>
+  <p>Text Blocks only have a single ui state</p>
   
   <h2>Variations</h2>
+  
   <div class="example">
-    <h4>Colors</h4>
-    <p>A label can have different colors</p>
-    <a class="ui black label">
-      First
-    </a>
-    <a class="ui green label">
-      Fun
-    </a>
-    <a class="ui red label">
-      Happy
-    </a>
-    <a class="ui blue label">
-      Smart
-    </a>
-    <a class="ui purple label">
-      Insane
-    </a>
-    <a class="ui yellow label">
-      Witty
-    </a>
-    <a class="ui pink label">
-      Exciting
-    </a>
+    <h4>Warning Block</h4>
+    <p>A text block that is dismissable.</p>
+    <div class="ui warning block">
+      <i class="icon close"></i>
+      <div class="header">
+        You must register before you can do that!
+      </div>
+      <p>Visit our registration page, then try again</p>
+    </div>
   </div>
   
   <div class="example">
-    <h4>Tag</h4>
-    <p>A label can look like a tag</p>
-    <a class="ui tag label">
-      First
-    </a>
-  </div>
-
-  <div class="example">
-    <h4>Size</h4>
-    <p>A label can be small or large</p>
-    <div class="ui small label">
-      Fun
-    </div>
-    <br><br>
-    <div class="ui large label">
-      Fun
+    <h4>Info Block</h4>
+    <p>A text block that is dismissable.</p>
+    <div class="ui info block">
+      <i class="icon close"></i>
+      <div class="header">
+        Was this what you wanted?
+      </div>
+      <ul class="list">
+        <li>It's good to see you again.</li>
+        <li>Did you know it's been a while?</li>
+      </ul>
     </div>
   </div>
   
-  <h2>Groups</h2>
+  <div class="example">
+    <h4>Success Block</h4>
+    <p>A text block that is formatted to display success message.</p>
+    <div class="ui success block">
+      <i class="icon close"></i>
+      <div class="header">
+        Congratulations, you are now a member!
+      </div>
+    </div>
+  </div>
   
   <div class="example">
-    <h4>Label Groups</h4>
-    <p>Groups can share variations together</p>
-    <div class="ui large labels">
-      <div class="ui label">
-        Fun
+    <h4>Error Block</h4>
+    <p>A text block that formatted to display errors, can also use classname "red" or "negative".</p>
+    <div class="ui error block">
+      <i class="icon close"></i>
+      <div class="header">
+        Was this what you wanted?
       </div>
-      <div class="ui label">
-        Happy
-      </div>
-      <div class="ui label">
-        Smart
-      </div>
-      <div class="ui label">
-        Witty
-      </div>
+      <ul class="list">
+        <li>It's good to see you again.</li>
+        <li>Did you know it's been a while?</li>
+      </ul>
     </div>
-    <br><br>
-    <div class="ui tag labels">
-      <a class="ui green label">
-        Fun <i class="icon close"></i>
-      </a>
-      <a class="ui red label">
-        Happy
-        <div class="detail">22</div>
-      </a>
-      <a class="ui blue label">
-        Smart
-      </a>
-      <a class="ui purple label">
-        Insane
-      </a>
-      <a class="ui yellow label">
-        Witty
-      </a>
-      <a class="ui label">
-        Exciting
-      </a>
-    </div>
+  </div>
+  
   </div>
   
 </div>
