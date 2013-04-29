@@ -1,3 +1,15 @@
+/*
+ * # Semantic Label - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 26 2013
+ */
+
 /*******************************
             Label
 *******************************/
@@ -48,6 +60,22 @@ a.ui.label {
   cursor: pointer;
   margin-left: 0.5em;
   opacity: 0.7;
+
+  -webkit-transition:
+    background 0.1s linear
+  ;
+  -moz-transition:
+    background 0.1s linear
+  ;
+  -o-transition:
+    background 0.1s linear
+  ;
+  -ms-transition:
+    background 0.1s linear
+  ;
+  transition:
+    background 0.1s linear
+  ;
 }
 
 /*******************************
@@ -138,11 +166,10 @@ a.ui.label {
   position: absolute;
   top: 0px;
   left: 0px;
+  margin-top: 0px !important;
 
   padding: 0.5em 1em;
-
-  background-color: #FAFAFA;
-  color: #999999;
+  color: #AAAAAA;
 
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -151,6 +178,40 @@ a.ui.label {
   -moz-border-radius: 5px 0px 5px 0px;
   border-radius: 5px 0px 5px 0px;
 }
+.ui.right.attached.label {
+  left: auto;
+  right: 0px;
+
+  border: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  -webkit-border-radius: 0px 5px 0px 5px;
+  -moz-border-radius: 0px 5px 0px 5px;
+  border-radius: 0px 5px 0px 5px;
+}
+.ui.bottom.attached.label {
+  top: auto;
+  bottom: 0px;
+
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+  -webkit-border-radius: 0px 5px 0px 5px;
+  -moz-border-radius: 0px 5px 0px 5px;
+  border-radius: 0px 5px 0px 5px;
+}
+.ui.bottom.right.attached.label {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+  -webkit-border-radius: 5px 0px 5px 0px;
+  -moz-border-radius: 5px 0px 5px 0px;
+  border-radius: 5px 0px 5px 0px;
+}
+
 
 
 

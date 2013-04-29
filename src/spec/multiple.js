@@ -227,38 +227,46 @@ $.fn.example = function(parameters) {
           log: function(message) {
             var
               currentTime,
-              executionTime
+              executionTime,
+              previousTime
             ;
             if(settings.performance) {
               currentTime   = new Date().getTime();
-              executionTime = currentTime - time;
+              previousTime  = time || currentTime,
+              executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({
-                'Name'           : message,
+              performance.push({ 
+                'Name'           : message, 
                 'Execution Time' : executionTime
               });
               clearTimeout(module.performance.timer);
-              module.performance.timer = setTimeout(module.performance.display, 500);
+              module.performance.timer = setTimeout(module.performance.display, 100);
             }
           },
           // Performance data is assumed to be complete 500ms after the last log message receieved
           display: function() {
             var
-              title   = settings.moduleName + ' Performance (' + selector + ')',
-              caption = settings.moduleName + ': ' + selector + '(' + $allModules.size() + ' elements)'
+              title              = settings.moduleName + ' Performance (' + selector + ')',
+              caption            = settings.moduleName + ': ' + selector + '(' + $allModules.size() + ' elements)',
+              totalExecutionTime = 0
             ;
-            if(console.group !== undefined && performance.length > 0) {
-              console.groupCollapsed(title);
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title );
               if(console.table) {
+                $.each(performance, function(index, data) {
+                  totalExecutionTime += data['Execution Time'];
+                });
                 console.table(performance);
               }
               else {
                 $.each(performance, function(index, data) {
-                  console.log(data['Name'] + ':' + data['Execution Time']);
+                  totalExecutionTime += data['Execution Time'];
                 });
               }
+              console.log('Total Execution Time:', totalExecutionTime);
               console.groupEnd();
               performance = [];
+              time        = false;
             }
           }
         },

@@ -16,13 +16,15 @@
   -moz-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   
-  min-height: 50px;
   overflow: hidden;
 }
 
 /* Label at the top of a segment */
-.ui.segment .label:first-child + * {
+.ui.segment .attached.label:first-child + * {
   margin-top: 2em;
+}
+.ui.segment .bottom.attached.label:first-child + * {
+  margin-top: 0em;
 }
 
 /* Compatability with Grid */
