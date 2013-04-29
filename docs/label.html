@@ -8,6 +8,7 @@
   <link rel="stylesheet" class="ui" href="../src/ui/flat/button.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/text.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/form.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/grid.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/divider.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/block.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/segment.css" type="text/css" media="screen" />
@@ -164,104 +165,143 @@
   <h2>Standard</h2>
   <div class="example">
     <h4>Label</h4>
+    <p>A basic label</p>
     <div class="ui label">
       Fun
     </div>
-    <div class="ui label">
-      Happy
-    </div>
-    <div class="ui label">
-      Smart
-    </div>
-    <div class="ui label">
-      Witty
+  </div>
+  
+  <div class="example">
+    <h4>Linkable Label</h4>
+    <p>If an a tag is used, a label will be formatted as a link</p>
+    <a class="ui label">
+      Fun
+    </a>
+  </div>
+  
+  <div class="example">
+    <h4>Attached Label</h4>
+    <p>A label attached to a content segment</p>
+    <div class="ui two elements">
+      <div class="element">
+        <div class="ui segment">
+          <div class="ui black attached label">New Users</div>
+          <div class="ui fluid form">
+            <div class="two fields">
+              <div class="field">
+                <label>E-mail</label>
+                <input type="text">
+              </div>
+              <div class="field">
+                <label>Username</label>
+                <input type="password">
+              </div>
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password">
+            </div>
+            <div class="ui blue button">Sign up</div>
+          </div>
+        </div>
+      </div>
+      <div class="element">
+        <div class="ui segment">
+          <div class="ui black attached label">Existing Users</div>
+          <div class="ui fluid form">
+            <div class="field">
+              <label>E-mail</label>
+              <input type="text">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password">
+            </div>
+            <div class="ui button">Log in</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="example">
-    <h4>Numeric tag</h4>
-    <p>A tag can dispaly a count</p>
-    <div class="ui labels">
-      <div class="ui label">
-        Fun
-        <div class="count">22</div>
-      </div>
-      <div class="ui label">
-        Happy
-        <div class="count">44</div>
-      </div>
-      <div class="ui label">
-        Smart
-        <div class="count">52</div>
-      </div>
-      <a class="ui label">
-        Witty
-        <i class="icon close"></i>
-      </a>
+    <h4>Label with detail</h4>
+    <p>A tag can optionally display a detail</p>
+    <div class="ui label">
+      Fun
+      <div class="detail">New</div>
+    </div>
+    <div class="ui label">
+      Red
+      <div class="detail">22</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Removable label</h4>
+    <p>A tag can also be removable</p>
+    <div class="ui label">
+      Witty
+      <i class="icon close"></i>
     </div>
   </div>
   
 
   <h2>States</h2>
+  <p>Labels only have a single ui state</p>
   
   <h2>Variations</h2>
   <div class="example">
     <h4>Colors</h4>
-    <p>A tag can have different colors</p>
-    <div class="ui green label">
+    <p>A label can have different colors</p>
+    <a class="ui black label">
+      First
+    </a>
+    <a class="ui green label">
       Fun
-    </div>
-    <div class="ui red label">
+    </a>
+    <a class="ui red label">
       Happy
-    </div>
-    <div class="ui blue label">
+    </a>
+    <a class="ui blue label">
       Smart
-    </div>
-    <div class="ui yellow label">
+    </a>
+    <a class="ui purple label">
+      Insane
+    </a>
+    <a class="ui yellow label">
       Witty
-    </div>
-    <div class="ui pink label">
+    </a>
+    <a class="ui pink label">
       Exciting
-    </div>
+    </a>
   </div>
   
   <div class="example">
-    <h4>Skeumorphic</h4>
-    <p>A tag can look like a real tag</p>
-    <div class="ui tag labels">
-      <div class="ui label">
-        Fun
-      </div>
-      <div class="ui label">
-        Happy
-      </div>
-      <div class="ui label">
-        Smart
-      </div>
-      <div class="ui label">
-        Witty
-      </div>
-    </div>
+    <h4>Tag</h4>
+    <p>A label can look like a tag</p>
+    <a class="ui tag label">
+      First
+    </a>
   </div>
 
   <div class="example">
     <h4>Size</h4>
-    <p>A tag can be small or large</p>
-    <div class="ui small labels">
-      <div class="ui label">
-        Fun
-      </div>
-      <div class="ui label">
-        Happy
-      </div>
-      <div class="ui label">
-        Smart
-      </div>
-      <div class="ui label">
-        Witty
-      </div>
+    <p>A label can be small or large</p>
+    <div class="ui small label">
+      Fun
     </div>
     <br><br>
+    <div class="ui large label">
+      Fun
+    </div>
+  </div>
+  
+  <h2>Groups</h2>
+  
+  <div class="example">
+    <h4>Label Groups</h4>
+    <p>Groups can share variations together</p>
     <div class="ui large labels">
       <div class="ui label">
         Fun
@@ -276,13 +316,28 @@
         Witty
       </div>
     </div>
-  </div>
-  
-  <h2>Groups</h2>
-  
-  <div class="example">
-    <h4>Label Groups</h4>
-    <p>Label can exist side by side to show relation</p>
+    <br><br>
+    <div class="ui tag labels">
+      <a class="ui green label">
+        Fun <i class="icon close"></i>
+      </a>
+      <a class="ui red label">
+        Happy
+        <div class="detail">22</div>
+      </a>
+      <a class="ui blue label">
+        Smart
+      </a>
+      <a class="ui purple label">
+        Insane
+      </a>
+      <a class="ui yellow label">
+        Witty
+      </a>
+      <a class="ui label">
+        Exciting
+      </a>
+    </div>
   </div>
   
 </div>

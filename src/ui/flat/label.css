@@ -3,18 +3,13 @@
 *******************************/
 
 .ui.label {
-  cursor: default;
   display: inline-block;
   vertical-align: middle;
-
-  background-color: #EEEEEE;
-  color: #777777;
 
   padding: 0.33em 0.8em;
 
   font-weight: bold;
   text-transform: uppercase;
-
 
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -36,20 +31,23 @@
     background 0.1s linear
   ;
 }
+a.ui.label {
+  cursor: pointer;
+}
 .ui.label.disabled {
   opacity: 0.5;
 }
 
-.ui.label .count {
+.ui.label .detail {
   display: inline-block;
+  font-size: 0.9em;
   margin-left: 0.5em;
-  color: #AAAAAA;
+  opacity: 0.8;
 }
 .ui.label .icon.close {
   cursor: pointer;
   margin-left: 0.5em;
   opacity: 0.7;
-  color: #333333;
 }
 
 /*******************************
@@ -57,17 +55,9 @@
 *******************************/
 
 /* Hover */
-a.ui.label:hover {
-  cursor: pointer;
-  background-color: #E0E0E0;
-}
-a.ui.label:hover .close {
+.ui.label .icon.close:hover {
   opacity: 1;
 }
-a.ui.tag.labels .label:hover:before {
-  background-color: #262626;
-}
-
 
 
 /*******************************
@@ -78,24 +68,24 @@ a.ui.tag.labels .label:hover:before {
 .ui.tag.label {
   margin-left: 1em;
   position: relative;
-  padding: 0.33em 1.3em;
+  padding: 0.33em 1.3em 0.33em 1.4em;
 
   -webkit-border-radius: 0px 3px 3px 0px;
   -moz-border-radius: 0px 3px 3px 0px;
   border-radius: 0px 3px 3px 0px;
 }
-.ui.tag.labels .label:before {
+.ui.tag.labels .label:before,
+.ui.tag.label:before {
     position: absolute;
-    top: 0.33em;
+    top: 0.3em;
     left: 0.3em;
     content: '';
 
     margin-left: -1em;
-    background-color: #EEEEEE;
     background-image: none;
 
-    width: 1.45em;
-    height: 1.45em;
+    width: 1.5em;
+    height: 1.5em;
 
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
@@ -118,13 +108,15 @@ a.ui.tag.labels .label:hover:before {
     ;
 }
 
-.ui.tag.labels .label:after {    
+
+.ui.tag.labels .label:after,
+.ui.tag.label:after {
   position: absolute;
-  content: "";
+  content: '';
   top: 50%;
   left: -0.25em;
 
-  margin-top: -0.33em;
+  margin-top: -0.3em;
   background-color: #FFFFFF;
   width: 0.55em;
   height: 0.55em;
@@ -139,43 +131,223 @@ a.ui.tag.labels .label:hover:before {
 }
 
 /*******************************
-             Types
+             Attached
 *******************************/
 
+.ui.attached.label {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  padding: 0.5em 1em;
+
+  background-color: #FAFAFA;
+  color: #999999;
+
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  -webkit-border-radius: 5px 0px 5px 0px;
+  -moz-border-radius: 5px 0px 5px 0px;
+  border-radius: 5px 0px 5px 0px;
+}
+
+
+
+/*******************************
+             Colors
+*******************************/
+
+/*--- Standard ---*/
+
+.ui.labels .label,
+.ui.label {
+  background-color: #EEEEEE;
+  color: #777777;
+}
+.ui.tag.labels .label:before,
+.ui.tag.labels .label:before,
+.ui.tag.label:before {
+  background-color: #EEEEEE;
+  color: #555555;
+}
+/* Hover */
+a.ui.labels .label:hover,
+a.ui.label:hover {
+  background-color: #E0E0E0;
+}
+.ui.tag.labels a.label:hover:before,
+.ui.tag.labels a.label:hover:before,
+a.ui.tag.label:hover:before {
+  background-color: #E0E0E0;
+}
+
+
+/*--- Black ---*/
 .ui.black.labels .label,
 .ui.black.label {
   background-color: #5F5F5F;
   color: #FFFFFF;
 }
+.ui.tag.labels .black.label:before,
+.ui.black.tag.labels .label:before,
+.ui.black.tag.label:before {
+  background-color: #5F5F5F;
+}
+/* Hover */
+a.ui.black.labels .label:hover,
+a.ui.black.label:hover {
+  background-color: #888888;
+}
+.ui.tag.labels a.black.label:hover:before,
+.ui.black.tag.labels a.label:hover:before,
+a.ui.black.tag.label:hover:before {
+  background-color: #888888;
+}
+
+/*--- Green ---*/
 .ui.green.labels .label,
 .ui.green.label {
   background-color: #3EBC47;
   color: #FFFFFF;
 }
+.ui.tag.labels .green.label:before,
+.ui.green.tag.labels .label:before,
+.ui.green.tag.label:before {
+  background-color: #3EBC47;
+}
+
+/* Hover */
+a.ui.green.labels .label:hover,
+a.ui.green.label:hover {
+  background-color: #5ADB63;
+}
+.ui.tag.labels a.green.label:hover:before,
+.ui.green.tag.labels a.label:hover:before,
+a.ui.green.tag.label:hover:before {
+  background-color: #5ADB63;
+}
+
+
+/*--- Red ---*/
 .ui.red.labels .label,
 .ui.red.label {
-  background-color: #BC3eEE;
+  background-color: #EE3E3E;
   color: #FFFFFF;
 }
+.ui.tag.labels .red.label:before,
+.ui.red.tag.labels .label:before,
+.ui.red.tag.label:before {
+  background-color: #EE3E3E;
+}
+
+/* Hover */
+a.ui.red.labels .label:hover,
+a.ui.red.label:hover{
+  background-color: #FB5656;
+  color: #FFFFFF;
+}
+.ui.tag.labels a.red.label:hover:before,
+.ui.red.tag.labels a.label:hover:before,
+a.ui.red.tag.label:hover:before {
+  background-color: #FB5656;
+}
+
+
+/*--- Blue ---*/
 .ui.blue.labels .label,
 .ui.blue.label {
   background-color: #009FDA;
   color: #FFFFFF;
 }
+.ui.tag.labels .blue.label:before,
+.ui.blue.tag.labels .label:before,
+.ui.blue.tag.label:before {
+  background-color: #009FDA;
+}
+
+/* Hover */
+a.ui.blue.labels .label:hover,
+a.ui.blue.label:hover {
+  background-color: #1AB8F3;
+  color: #FFFFFF;
+}
+.ui.tag.labels a.blue.label:hover:before,
+.ui.blue.tag.labels a.label:hover:before,
+a.ui.blue.tag.label:hover:before {
+  background-color: #1AB8F3;
+}
+
+/*--- Purple ---*/
 .ui.purple.labels .label,
 .ui.purple.label {
   background-color: #512598;
   color: #FFFFFF;
 }
+.ui.tag.labels .purple.label:before,
+.ui.purple.tag.labels .label:before,
+.ui.purple.tag.label:before {
+  background-color: #512598;
+}
+
+/* Hover */
+a.ui.purple.labels .label:hover,
+a.ui.purple.label:hover {
+  background-color: #6126C0;
+  color: #FFFFFF;
+}
+.ui.tag.labels a.purple.label:hover:before,
+.ui.purple.tag.labels a.label:hover:before,
+a.ui.purple.tag.label:hover:before {
+  background-color: #6126C0;
+}
+
+/*--- Yellow ---*/
 .ui.yellow.labels .label,
 .ui.yellow.label {
   background-color: #D8C62E;
   color: #FFFFFF;
 }
+.ui.tag.labels .yellow.label:before,
+.ui.yellow.tag.labels .label:before,
+.ui.yellow.tag.label:before {
+  background-color: #D8C62E;
+}
+
+/* Hover */
+a.ui.yellow.labels .label:hover,
+a.ui.yellow.label:hover {
+  background-color: #E3D13D;
+  color: #FFFFFF;
+}
+.ui.tag.labels a.yellow.label:hover:before,
+.ui.yellow.tag.labels a.label:hover:before,
+a.ui.yellow.tag.label:hover:before {
+  background-color: #E3D13D;
+}
+
+
+/*--- Pink ---*/
 .ui.pink.labels .label,
 .ui.pink.label {
   background-color: #EC008C;
   color: #FFFFFF;
+}
+.ui.tag.labels .pink.label:before,
+.ui.pink.tag.labels .label:before,
+.ui.pink.tag.label:before {
+  background-color: #EC008C;
+}
+/* Hover */
+a.ui.pink.labels .label:hover,
+a.ui.pink.label:hover {
+  background-color: #FD159F;
+  color: #FFFFFF;
+}
+.ui.tag.labels a.pink.label:hover:before,
+.ui.pink.tag.labels a.label:hover:before,
+a.ui.pink.tag.label:hover:before {
+  background-color: #FD159F;
 }
 
 

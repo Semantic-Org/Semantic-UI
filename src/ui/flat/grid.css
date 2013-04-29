@@ -17,12 +17,6 @@
 
   vertical-align: top;
 }
-.ui.elements > .element:first-child,
-.ui.element:first-child {
-  border-left: none;
-  box-shadow: none;
-}
-
 .ui.elements .element:first-child {
   padding-left: 0% !important;
 }
