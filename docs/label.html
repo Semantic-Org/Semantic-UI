@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>UI Tag - Semantic</title>
+  <title>UI Label - Semantic</title>
 
   <link rel="stylesheet" class="ui" href="../src/ui/flat/panel.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/button.css" type="text/css" media="screen" />
@@ -13,7 +13,7 @@
   <link rel="stylesheet" class="ui" href="../src/ui/flat/segment.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/icons.css" type="text/css" media="screen" />
   <link rel="stylesheet" class="ui" href="../src/ui/flat/menu.css" type="text/css" media="screen" />
-  <link rel="stylesheet" class="ui" href="../src/ui/flat/tag.css" type="text/css" media="screen" />
+  <link rel="stylesheet" class="ui" href="../src/ui/flat/label.css" type="text/css" media="screen" />
   
   <link rel="stylesheet" href="../src/modules/ui/shape.css" type="text/css" media="screen" />
   
@@ -59,7 +59,7 @@
         <div class="item"><a href="header.html">Segment</a></div>
         <div class="item"><a href="column.html">Columns</a></div>
         <div class="item"><a href="element.html">Elements (Grid System)</a></div>
-        <div class="active item"><a href="tag.html">Tags</a></div>
+        <div class="active item"><a href="label.html">Label</a></div>
         <div class="item"><a href="item.html">Items (Lists of Content)</a></div>
         <div class="item"><a href="panel.html">Panels (Type of Menu)</a></div>
         <div class="item"><a href="icon.html">Icons</a></div>
@@ -104,7 +104,7 @@
 <div class="ui fixed transparent black menu">
   <div class="container">
     <div class="title item">
-      Semantic UI: Tag 
+      Semantic UI: Label 
     </div>
     <div class="icon previous link item">
       <a href="menu.html"><i class="icon left-open"></i></a>
@@ -116,7 +116,7 @@
         <a href="form.html" class="item">2. Form</a>
         <a href="table.html" class="item">3. Table</a>
         <a href="menu.html" class="item">4. Menu</a>
-        <a class="active item">5. Tags</a>
+        <a class="active item">5. Label</a>
         <a class="item">7. Items</a>
       </div>
     </div>
@@ -146,8 +146,8 @@
 </div>
 <div class="segment">
   <div class="container">
-    <h1>Tags</h1>
-    <p>a tag</p>
+    <h1>Label</h1>
+    <p>Labels can be used to give descriptions to sections of content. They can be formatted like tags, used to mark separate sections of a group of content.</p>
   </div>
 </div>
 <div class="main container">
@@ -163,17 +163,17 @@
   
   <h2>Standard</h2>
   <div class="example">
-    <h4>Tag</h4>
-    <div class="ui tag">
+    <h4>Label</h4>
+    <div class="ui label">
       Fun
     </div>
-    <div class="ui tag">
+    <div class="ui label">
       Happy
     </div>
-    <div class="ui tag">
+    <div class="ui label">
       Smart
     </div>
-    <div class="ui tag">
+    <div class="ui label">
       Witty
     </div>
   </div>
@@ -181,23 +181,23 @@
   <div class="example">
     <h4>Numeric tag</h4>
     <p>A tag can dispaly a count</p>
-    <div class="ui tags">
-      <div class="ui tag">
+    <div class="ui labels">
+      <div class="ui label">
         Fun
         <div class="count">22</div>
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Happy
         <div class="count">44</div>
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Smart
         <div class="count">52</div>
       </div>
-      <div class="ui tag">
+      <a class="ui label">
         Witty
         <i class="icon close"></i>
-      </div>
+      </a>
     </div>
   </div>
   
@@ -208,19 +208,19 @@
   <div class="example">
     <h4>Colors</h4>
     <p>A tag can have different colors</p>
-    <div class="ui green tag">
+    <div class="ui green label">
       Fun
     </div>
-    <div class="ui red tag">
+    <div class="ui red label">
       Happy
     </div>
-    <div class="ui blue tag">
+    <div class="ui blue label">
       Smart
     </div>
-    <div class="ui yellow tag">
+    <div class="ui yellow label">
       Witty
     </div>
-    <div class="ui pink tag">
+    <div class="ui pink label">
       Exciting
     </div>
   </div>
@@ -228,35 +228,17 @@
   <div class="example">
     <h4>Skeumorphic</h4>
     <p>A tag can look like a real tag</p>
-    <div class="ui skeuomorphic tags">
-      <div class="ui tag">
+    <div class="ui tag labels">
+      <div class="ui label">
         Fun
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Happy
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Smart
       </div>
-      <div class="ui tag">
-        Witty
-      </div>
-    </div>
-  </div>
-  <div class="example">
-    <h4>Square</h4>
-    <p>A tag can be square</p>
-    <div class="ui square tags">
-      <div class="ui tag">
-        Fun
-      </div>
-      <div class="ui tag">
-        Happy
-      </div>
-      <div class="ui tag">
-        Smart
-      </div>
-      <div class="ui tag">
+      <div class="ui label">
         Witty
       </div>
     </div>
@@ -265,32 +247,32 @@
   <div class="example">
     <h4>Size</h4>
     <p>A tag can be small or large</p>
-    <div class="ui small tags">
-      <div class="ui tag">
+    <div class="ui small labels">
+      <div class="ui label">
         Fun
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Happy
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Smart
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Witty
       </div>
     </div>
     <br><br>
-    <div class="ui large tags">
-      <div class="ui tag">
+    <div class="ui large labels">
+      <div class="ui label">
         Fun
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Happy
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Smart
       </div>
-      <div class="ui tag">
+      <div class="ui label">
         Witty
       </div>
     </div>
@@ -299,8 +281,8 @@
   <h2>Groups</h2>
   
   <div class="example">
-    <h4>Tag Groups</h4>
-    <p>Tag can exist side by side to show relation</p>
+    <h4>Label Groups</h4>
+    <p>Label can exist side by side to show relation</p>
   </div>
   
 </div>
