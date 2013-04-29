@@ -3,6 +3,7 @@
 *******************************/
 
 .ui.segment {
+  position: relative;
   background-color: #FFFFFF;
 
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -19,8 +20,17 @@
   overflow: hidden;
 }
 
+/* Label at the top of a segment */
+.ui.segment .label:first-child + * {
+  margin-top: 2em;
+}
+
+/* Compatability with Grid */
+.ui.fitted.elements .ui.segment.element:first-child {
+  border-radius: 5px 0px 0px 5px;
+}
+
 .ui.segment.attached {
-  position: relative;
   top: -1px;
   bottom: -1px;
   
@@ -28,7 +38,6 @@
   -webkit-border-radius: 0px;
   border-radius: 0px;
 
-  /* avoid rgba multiplying */
   -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
   -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
   box-shadow: 0px 0px 0px 1px #DDDDDD;
