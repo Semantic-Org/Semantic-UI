@@ -1,16 +1,17 @@
 /*******************************
-            Tags
+            Label
 *******************************/
 
-.ui.tag {
-  cursor: pointer;
+.ui.label {
+  cursor: default;
   display: inline-block;
   vertical-align: middle;
 
-  background-color: #5F5F5F;
+  background-color: #EEEEEE;
+  color: #777777;
+
   padding: 0.33em 0.8em;
 
-  color: #FFFFFF;
   font-weight: bold;
   text-transform: uppercase;
 
@@ -35,19 +36,20 @@
     background 0.1s linear
   ;
 }
-.ui.tag.disabled {
+.ui.label.disabled {
   opacity: 0.5;
 }
 
-.ui.tag .count {
+.ui.label .count {
   display: inline-block;
   margin-left: 0.5em;
   color: #AAAAAA;
 }
-.ui.tag .icon.close {
+.ui.label .icon.close {
+  cursor: pointer;
   margin-left: 0.5em;
-  color: #FFFFFF;
-  opacity: 0.9;
+  opacity: 0.7;
+  color: #333333;
 }
 
 /*******************************
@@ -55,54 +57,45 @@
 *******************************/
 
 /* Hover */
-.ui.tag:hover {
-  background-color: #262626;
+a.ui.label:hover {
+  cursor: pointer;
+  background-color: #E0E0E0;
 }
-.ui.skeuomorphic.tags .tag:hover:before {
+a.ui.label:hover .close {
+  opacity: 1;
+}
+a.ui.tag.labels .label:hover:before {
   background-color: #262626;
 }
 
-.ui.tag:active {
-  -webkit-box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2) inset;
-}
 
 
 /*******************************
            Variations
 *******************************/
 
-.ui.square.tags .tag,
-.ui.square.tag {
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}
-
-.ui.skeuomorphic.tags .tag,
-.ui.skeuomorphic.tag {
+.ui.tag.labels .label,
+.ui.tag.label {
   margin-left: 1em;
   position: relative;
-  margin-left: 1em;
   padding: 0.33em 1.3em;
 
   -webkit-border-radius: 0px 3px 3px 0px;
   -moz-border-radius: 0px 3px 3px 0px;
   border-radius: 0px 3px 3px 0px;
 }
-.ui.skeuomorphic.tags .tag:before {
+.ui.tag.labels .label:before {
     position: absolute;
-    top: 0.28em;
+    top: 0.33em;
     left: 0.3em;
-    content: "";
+    content: '';
 
     margin-left: -1em;
-    background-color: #5F5F5F;
+    background-color: #EEEEEE;
     background-image: none;
 
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.45em;
+    height: 1.45em;
 
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
@@ -125,7 +118,7 @@
     ;
 }
 
-.ui.skeuomorphic.tags .tag:after {    
+.ui.tag.labels .label:after {    
   position: absolute;
   content: "";
   top: 50%;
@@ -149,29 +142,40 @@
              Types
 *******************************/
 
-.ui.green.tags .tag,
-.ui.green.tag {
+.ui.black.labels .label,
+.ui.black.label {
+  background-color: #5F5F5F;
+  color: #FFFFFF;
+}
+.ui.green.labels .label,
+.ui.green.label {
   background-color: #3EBC47;
+  color: #FFFFFF;
 }
-.ui.red.tags .tag,
-.ui.red.tag {
+.ui.red.labels .label,
+.ui.red.label {
   background-color: #BC3eEE;
+  color: #FFFFFF;
 }
-.ui.blue.tags .tag,
-.ui.blue.tag {
+.ui.blue.labels .label,
+.ui.blue.label {
   background-color: #009FDA;
+  color: #FFFFFF;
 }
-.ui.purple.tags .tag,
-.ui.purple.tag {
+.ui.purple.labels .label,
+.ui.purple.label {
   background-color: #512598;
+  color: #FFFFFF;
 }
-.ui.yellow.tags .tag,
-.ui.yellow.tag {
+.ui.yellow.labels .label,
+.ui.yellow.label {
   background-color: #D8C62E;
+  color: #FFFFFF;
 }
-.ui.pink.tags .tag,
-.ui.pink.tag {
+.ui.pink.labels .label,
+.ui.pink.label {
   background-color: #EC008C;
+  color: #FFFFFF;
 }
 
 
@@ -179,14 +183,14 @@
             Sizes
 *******************************/
 
-.ui.tag {
+.ui.label {
   font-size: 13px;
 }
-.ui.small.tags .tag,
-.ui.small.tag {
+.ui.small.labels .label,
+.ui.small.label {
   font-size: 11px;
 }
-.ui.large.tags .tag,
-.ui.large.tag {
+.ui.large.labels .label,
+.ui.large.label {
   font-size: 15px;
 }
