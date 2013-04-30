@@ -196,15 +196,21 @@
      Colors
 ---------------*/
 
+.ui.black.block {
+  background-color: #333333;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+
+
+/*--------------
+     Types
+---------------*/
 .ui.blue.block,
 .ui.info.block {
   border-color: #75C9E9;
   background-color: #E9F9FF;
   color: #1D6582;
-}
-.ui.blue.block .header,
-.ui.info.block .header {
-  opacity: 1;
 }
 
 /* Success Text Block */

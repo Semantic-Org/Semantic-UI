@@ -315,9 +315,6 @@
 .ui.menu .dropdown.item .menu .item:active {
   background-color: rgba(0, 0, 0, 0.05);
 
-  -webkit-box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.15) inset;
-  -moz-box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.15) inset;
-  box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, 0.15) inset;
 }
 
 /*--------------
@@ -331,19 +328,6 @@
 
   background-color: rgba(0, 0, 0, 0.05);
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
-
-  -webkit-box-shadow:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.1),
-    0px 0px 2px 0px rgba(0, 0, 0, 0.1) inset
-  ;
-  -moz-box-shadow:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.1),
-    0px 0px 2px 0px rgba(0, 0, 0, 0.1) inset
-  ;
-  box-shadow:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.1),
-    0px 0px 2px 0px rgba(0, 0, 0, 0.1) inset
-  ;
 }
 .ui.vertical.menu .item.active {
   border-top: none;
@@ -379,39 +363,56 @@
      Colors 
 ---------------*/
 
-
-
-/*--- Grey ---*/
-
+/* Light Colors */
 .ui.grey.menu {
   background-color: #F0F0F0;
 }
 
 
-
-/*--- Black ---*/
-.ui.black.menu {
+/*--- Contrasting ---*/
+.ui.contrasting.menu {
   background-color: #333333;
+  box-shadow: none;
 }
-.ui.black.menu .item,
-.ui.black.menu .item > a {
-  color: rgba(255, 255, 255, 0.95);
+.ui.contrasting.menu .item,
+.ui.contrasting.menu .item > a {
+  color: #FFFFFF;
 }
-.ui.black.menu .item > a:hover {
+.ui.contrasting.menu .item > a:hover {
   background-color: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.95);
 }
-.ui.black.menu .item .item,
-.ui.black.menu .item .item > a {
-  color: rgba(255, 255, 255, 0.6);
+.ui.contrasting.menu .item .item,
+.ui.contrasting.menu .item .item > a {
+  color: rgba(255, 255, 255, 0.8);
 }
-.ui.black.menu .item .item > a:hover {
+.ui.contrasting.menu .item .item > a:hover {
   background-color: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.9);
 }
 
+/*--- Contrasting Colors  ---*/
+.ui.contrasting.green.menu {
+  background-color: #A1CF64;
+}
+.ui.contrasting.red.menu {
+  background-color: #EF4D6D;
+}
+.ui.contrasting.blue.menu {
+  background-color: #6ECFF5;
+}
+.ui.contrasting.purple.menu {
+  background-color: #564F8A;
+}
+.ui.contrasting.orange.menu {
+  background-color: #F05940;
+}
+.ui.contrasting.teal.menu {
+  background-color: #00B5AD;
+}
+
 /*--- Border ---*/
-.ui.black.menu .item:before {
+.ui.contrasting.menu .item:before {
   background-image: -webkit-linear-gradient(top, 
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
@@ -438,7 +439,7 @@
     rgba(255, 255, 255, 0.03) 100%)
   ;
 }
-.ui.vertical.black.menu .item:before {
+.ui.vertical.contrasting.menu .item:before {
   background-image: -webkit-linear-gradient(left, 
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
@@ -468,20 +469,11 @@
 
 /*--- Hover ---*/
 
-.ui.black.menu .link.item.hover,
-.ui.black.menu .link.item:hover,
-.ui.black.menu .dropdown.item:hover,
-.ui.black.menu a.item:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, .15);
-}
-
 /*--- Down ---*/
-
-.ui.black.menu .item.down,
-.ui.black.menu .dropdown.item:active,
-.ui.black.menu .link.item:active,
-.ui.black.menu a.item:active {
+.ui.contrasting.menu .item.down,
+.ui.contrasting.menu .dropdown.item:active,
+.ui.contrasting.menu .link.item:active,
+.ui.contrasting.menu a.item:active {
   background-color: rgba(255, 255, 255, .1);
 
   -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
@@ -490,29 +482,20 @@
 }
 
 /*--- Active ---*/
-
-.ui.black.menu .item.active {
+.ui.contrasting.menu .item.active {
   border-color: transparent;
-  background-color: rgba(255, 255, 255, 0.05);
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.15);
+  text-shadow: none;
 
-  -webkit-box-shadow:
-    0px 0px 1px rgba(0, 0, 0, 0.1) inset
-  ;
-  -moz-box-shadow:
-    0px 0px 1px rgba(0, 0, 0, 0.1) inset
-  ;
-  box-shadow:
-    0px 0px 1px rgba(0, 0, 0, 0.1) inset
-  ;
 }
 
 /*--- Pointers ---*/
 
-.ui.black.pointing.menu .item.active:after {
+.ui.contrasting.pointing.menu .item.active:after {
   background-color: #3E3E3E;
+  box-shadow: none;
 }
-.ui.black.pointing.menu .item.active:hover:after {
+.ui.contrasting.pointing.menu .item.active:hover:after {
   background-color: #3B3B3B;
 }
 
@@ -534,8 +517,36 @@
   width: auto;
   display: inline-block;
 }
-.ui.icon.menu i {
-  margin: 0em;
+.ui.icon.menu .item {
+  text-align: center;
+  color: rgba(60, 60, 60, 0.7);
+}
+.ui.icon.menu .icon {
+  display: block;
+  margin: 0em auto;
+  color: rgba(60, 60, 60, 1);
+}
+.ui.icon.menu .icon:before {
+  opacity: 1;
+}
+/*--- Contrasting ---*/
+.ui.contrasting.icon.menu .item {
+  color: rgba(255, 255, 255, 0.8);
+}
+.ui.contrasting.icon.menu .icon {
+  color: rgba(255, 255, 255, 1);
+}
+
+/*--------------
+   Labeled Icon 
+---------------*/
+
+.ui.labeled.icon.menu {
+  text-align: center;
+}
+.ui.labeled.icon.menu i {
+  font-size: 2em;
+  margin-bottom: 0.3em;
 }
 
 /*--------------
@@ -615,7 +626,6 @@
 
 
 /*--- Sub Menu ---*/
-
 .ui.vertical.menu .item > .menu {
   margin: 0.5em -1em 0em;
 }
@@ -822,9 +832,9 @@
   bottom: auto;
   left: auto;
 
-  -webkit-box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.15);
-  box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.1);
 
   margin-top: -0.3em;
 }
@@ -840,7 +850,6 @@
 /*--------------
     Attached 
 ---------------*/
-
 
 .ui.menu.attached {
   -moz-border-radius: 0px;
