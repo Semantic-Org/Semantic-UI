@@ -1,0 +1,261 @@
+/*
+ * # Semantic Text Block - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 29 2013
+ */
+ 
+/*******************************
+           Text Block
+*******************************/
+
+.ui.block {
+  position: relative;
+  min-height: 18px;
+  margin: 1em 0em;
+
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 1em;
+
+  font-size: 16px;
+  line-height: 1.33;
+  color: rgba(0, 0, 0, 0.6);
+  
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+
+
+/*--------------
+     Content
+---------------*/
+
+/* block with headers */
+.ui.block .header {
+  font-size: 1.33em;
+  font-weight: bold;
+}
+
+/* block with paragraphs */
+.ui.block p {
+  opacity: 0.85;
+  margin: 0.2em 0em;
+}
+.ui.block p:first-child {
+  margin-top: 0em;
+}
+
+/* block with child list */
+.ui.block ul.list {
+  opacity: 0.85;
+  list-style-position: inside;
+  margin: 0.2em 0em;
+  padding: 0em;
+}
+.ui.block ul.list li {
+  position: relative;
+  list-style-type: none;
+  font-style: italic;
+  margin: 0em 0em 0em 1em;
+  padding: 0em;
+}
+.ui.block ul.list li:before {
+  position: absolute;
+  content: '\2022';
+  top: -0.05em;
+  left: -0.8em;
+
+  height: 100%;
+  vertical-align: baseline;
+  opacity: 0.5;
+}
+.ui.block ul.list li:first-child {
+  margin-top: 0px;
+}
+
+/* dismissable block */
+.ui.block > .icon.close {
+  cursor: pointer;
+  position: absolute;
+  top: 1em;
+  right: 0.5em;
+  opacity: 0.7;
+
+  -webkit-transition:
+    opacity 0.1s linear
+  ;
+  -moz-transition:
+    opacity 0.1s linear
+  ;
+  -o-transition:
+    opacity 0.1s linear
+  ;
+  -ms-transition:
+    opacity 0.1s linear
+  ;
+  transition:
+    opacity 0.1s linear
+  ;
+}
+.ui.block > .icon.close:hover {
+  opacity: 1;
+}
+
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.block.visible,
+.ui.header.visible {
+  display: block !important;
+}
+.ui.block.hidden,
+.ui.header.hidden {
+  display: none;
+}
+
+/*******************************
+            Variations
+*******************************/
+
+/*--------------
+    Compact
+---------------*/
+
+.ui.compact.block {
+  display: inline-block;
+}
+
+
+/*--------------
+    Attached
+---------------*/
+
+.ui.attached.block {
+  margin-bottom: 0px;
+
+  -webkit-border-radius: 4px 4px 0px 0px;
+  -moz-border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 4px 0px 0px;
+
+  -webkit-box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+  -moz-box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+  box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+}
+.ui.bottom.attached.block {
+  margin-top: 0px;
+
+  -webkit-border-radius: 0px 0px 4px 4px;
+  -moz-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
+  
+  -webkit-box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+  -moz-box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+  box-shadow: 
+    0px 0px 0px 1px #DDDDDD
+  ;
+}
+
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.icon.block > .icon {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 3.8em;
+  padding-right: 0.4em;
+  opacity: 0.2;
+}
+.ui.icon.block > .content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*--------------
+     Colors
+---------------*/
+
+.ui.black.block {
+  background-color: #333333;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+
+
+/*--------------
+     Types
+---------------*/
+.ui.blue.block,
+.ui.info.block {
+  border-color: #75C9E9;
+  background-color: #E9F9FF;
+  color: #1D6582;
+}
+
+/* Success Text Block */
+.ui.green.block,
+.ui.success.block,
+.ui.positive.block {
+  background-color: #EEFFE9;
+  color: #119000;
+  border-color: #2FCB05;
+}
+
+/* Warning Text Block */
+.ui.yellow.block,
+.ui.warning.block {
+  background-color: #F6F3D5;
+  border-color: #CBB105;
+  color: #AF9801;
+}
+/* Error Text Block */
+.ui.red.block,
+.ui.error.block,
+.ui.negative.block {
+  background-color: #F1D7D7;
+
+  color: #AD0000;
+  border-color: #B06C6C;
+}
+
+
+/*--------------
+     Sizes 
+---------------*/
+
+.ui.small.block {
+  font-size: 14px;
+}
+.ui.block {
+  font-size: 16px;
+}
+.ui.large.block {
+  font-size: 18px;
+}
+.ui.huge.block {
+  font-size: 24px;
+}
+.ui.massive.block {
+  font-size: 32px;
+}
