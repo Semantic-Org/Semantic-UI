@@ -1,0 +1,59 @@
+/*******************************
+          CSS Reset
+*******************************/
+
+html, body, div, form, fieldset, legend, label, ul, li, menu, button {
+  margin: 0px;
+  padding: 0px;
+  background: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+}
+th, td, caption { 
+  font-weight:normal; 
+  margin: 0px;
+  padding: 0px;
+}
+img,
+iframe { 
+  border: 0px; 
+}
+:focus, input:focus, button:focus, button:active, button:hover {
+  outline: 0px;
+}
+button {
+  display: block;
+  outline: 0px;
+  border: 0px;  
+}
+ul, li {
+  list-style-type: none;  
+}
+p {
+  margin: 0px;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}

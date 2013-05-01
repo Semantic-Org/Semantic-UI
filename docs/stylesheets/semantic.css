@@ -1,0 +1,431 @@
+/*******************************
+           Glue Code
+*******************************/
+
+
+@font-face {
+  font-family: 'Icons';
+  src: url(../fonts/icons.eot);
+  src:
+    url(../fonts/icons.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/icons.woff) format('woff'),
+    url(../fonts/icons.ttf) format('truetype'),
+    url(../fonts/icons.svg#icons) format('svg')
+  ;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Non Web Font (For Demo) 
+
+@font-face {
+  font-family: 'Neutraface';
+  src:
+    url("../fonts/neutraface-book.otf") format('opentype')
+  ;
+  font-weight: normal;
+  font-style: normal;
+  font-size-adjust: 0.448;
+}
+@font-face {
+  font-family: 'Neutraface';
+  src:
+    url("../fonts/neutraface-bold.otf") format('opentype')
+  ;
+  font-weight: bold;
+  font-style: normal;
+  font-size-adjust: 0.448;
+}
+*/
+
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-book.eot');
+  src: 
+    url('../fonts/neutraface-book.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-book.woff') format('woff')
+  ;
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-bold.eot');
+  src: 
+    url('../fonts/neutraface-bold.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-bold.woff') format('woff')
+  ;
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Neutraface';
+  src: 
+    url('../fonts/neutraface-italic.eot');
+  src: 
+    url('../fonts/neutraface-italic.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-italic.woff') format("woff")
+  ;
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+}
+
+
+
+
+/*******************************
+             Global 
+*******************************/
+body#example {
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  background: #FCFCFC url(../images/bg.jpg) repeat;
+  margin: 0px;
+  padding: 0px 0px 150px;
+  color: #555555;
+  text-rendering: optimizeLegibility;
+}
+
+/* text and headers */
+h1 {
+  margin: 0px 0px 20px;
+  padding: 50px 0px 5px;
+  border-bottom: 1px solid #DDDDDD;
+}
+h1 {
+  margin: 0px auto;
+}
+h1:first-child {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+h2 {
+  margin: 35px 0px 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DDDDDD;
+}
+h3 {
+  font-size: 20px;
+  margin: 40px 0px 15px;
+}
+h4 {
+  margin: 30px 0px 3px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+}
+h4 + p {
+  margin: 0px 0px 20px;
+  color: #888888;
+}
+pre {
+  background-color: #F0F0F0;
+}
+code {
+  position: relative;
+  background-color: #F0F0F0;
+  border: 1px solid #DDDDDD;
+  padding: 3px 5px;
+}
+pre code {
+  border: none;
+  padding: 0px;
+}
+table pre,
+table code {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
+p {
+  margin: 10px 0px;
+}
+p > a {
+  font-weight: bold;
+}
+/* links */
+a {
+  color: #009FDA;
+  text-decoration: none;
+}
+a:hover {
+  color: #00BAFF;
+}
+
+#example #menu {
+  display: none;
+  width: 275px;
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  -webkit-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #DDDDDD;
+}
+
+#example .sidr .ui.menu {
+  margin: 0px 0px 30px;
+}
+
+
+#example .section.dropdown .menu {
+  left: -46px;
+  width: 215px;
+}
+
+/* segment headers */
+#example > .segment {
+  margin: 0px 0px 46px;
+  padding: 65px 0px 20px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #DDDDDD;
+}
+#example > .segment .text {
+  width: 800px;
+  margin: 0px auto;
+}
+
+#example .main.menu {
+  z-index: 999;
+}
+
+/* lists */
+#example ol {
+  list-style-position: inside;
+  margin: 10px 0px 40px;
+  padding: 0px;
+}
+#example ol li {
+  list-style-type: decimal;
+  margin: 0px 0px 10px;
+}
+#example ol li a {
+  font-weight: bold;
+}
+#example .features {
+  list-style-position: inside;
+  margin: 10px 0px 0px;
+  padding: 0px;
+}
+#example .features li {
+  list-style-type: disc;
+  margin: 0px 0px 10px;
+  font-weight: bold;
+}
+
+
+/* content */
+#example .container {
+  width: 800px;
+  margin: 0px auto;
+}
+#example .shortcuts {
+  float: right;
+  clear: both;
+}
+#example .page {
+  font-family: "Arial, Helvetica, sans-serif";
+}
+#example .page .of {
+  font-family: 'Neutraface';
+  font-size: 12px;
+  color: #AAAAAA;
+  padding: 0px 5px;
+}
+#example .page .menu,
+#example .page .of {
+  font-family: 'Neutraface';
+}
+
+#example .side.buttons {
+  position: fixed;
+  margin-top: 75px;
+}
+
+#example .main.container {
+  position: relative;
+}
+#example .peek {
+  position: absolute;
+  top: -8px;
+  left: -230px;
+  width: 180px;
+}
+#example .peek .menu :nth-child(1) {
+  border-left-color: #00B9F0;
+}
+#example .main h2.standard {
+  color: #00B9F0;
+}
+#example .peek .menu :nth-child(2) {
+  border-left-color: #56BB73;
+}
+#example .main h2.states {
+  color: #56BB73;
+}
+#example .peek .menu :nth-child(3) {
+  border-left-color: #EF3F49;
+}
+#example .main h2.variations {
+  color: #EF3F49;
+}
+#example .peek .menu :nth-child(4) {
+  border-left-color: #A24096;
+}
+#example .main h2.group {
+  color: #A24096;
+}
+
+#example .peek .menu {
+  width: 180px;
+}
+#example .sticky-wrapper.stuck {
+  height: 0px !important;
+}
+#example .sticky-wrapper.stuck .peek {
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  margin-left: -630px;
+}
+
+#example .settings.table td:first-child {
+  font-weight: bold;
+}
+#example .settings.table td:nth-child(2n) {
+  width: 300px;
+}
+
+/* example code reskin */
+#example div.code {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+#example div.code {
+  font-size: 14px;
+  margin: 5px 0px 20px;
+  padding: 5px 0px;
+  border: 1px solid #F0F0F0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#example div.code .ace_bracket {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+#example div.code .ace_line {
+  color: #555555;
+}
+#example div.code .ace_tag {
+  color: #892A6F;
+}
+#example div.code .ace_indent-guide {
+  position: relative;
+  background: none;
+}
+#example div.code .ace_indent-guide:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  border-left: 1px solid #ECF5F3;
+}
+#example div.code .ace_attribute-name {
+  color: #934E4E;
+}
+#example div.code .ace_scroller {
+  margin: 14px 10px;
+}
+#example div.code .ace_content {
+}
+#example div.code .ace_string {
+  color: #00A59D;
+}
+#example div.code .ace_cursor {
+  border-left: 1px solid #AAAAAA;
+}
+#example div.code .ace_paren {
+  color: #555555;
+}
+#example div.code .ace_keyword {
+  color: #555555;
+}
+#example div.code .ace_identifier {
+  color: #555555;
+}
+#example div.code .ace_scrollbar {
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+#example div.code .ace_punctuation {
+  color: #555555;
+}
+
+/* examples */
+#example .example {
+  position: relative;
+}
+#example .example i.code {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  opacity: 0.2;
+
+  font-size: 18px;
+  color: #555555;
+
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+#example .example:hover i.code {
+  opacity: 0.7;
+}
+#example .example:hover i.code:hover {
+  opacity: 1;
+}
+
+
+/* some demo formatting */
+.ui.menu p:only-child {
+  margin: 0px;
+}
+.ui.menu a {
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width : 1640px) {
+
+  #example .container {
+    width: 600px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: -530px;
+  }
+}
+
+@media only screen and (max-width : 1420px) {
+
+  #example .container {
+    width: auto;
+    margin: 0px 100px 0px 395px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: 0px;
+    left: 165px;
+  }
+
+}
+
