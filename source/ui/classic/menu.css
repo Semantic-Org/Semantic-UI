@@ -658,6 +658,10 @@
   z-index: 10;
   width: 100%;
   border: none;
+  
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 .ui.menu.fixed.top {
   top: 0px;
