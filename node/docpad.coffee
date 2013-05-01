@@ -2,7 +2,15 @@
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 
- outPath: '../docs'
+ 	outPath: '../docs'
+ 	
+ 	enabledPlugins:
+	 	ghpages: false
+	 	handlebars: false
+	 	html2coffee: false
+	 	jade: false
+	 	marked: false
+	 	paged: false
 
 	plugins:
     handlebars:

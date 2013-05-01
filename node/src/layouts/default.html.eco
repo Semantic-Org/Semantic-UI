@@ -1,11 +1,3 @@
-<% uiElements = @getCollection("html").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
-<% uiCollections = @getCollection("html").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
-<% uiModules = @getCollection("html").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
-<% currentCollection = @getCollection("html").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
-<% pageCount = @pageCount(currentCollection) %>
-<% pageNumber = @getPage(currentCollection, @document.id) %>
-<% pageCollection = @getPageCollection(currentCollection, @document.id) %>
-
 <!DOCTYPE html>
 <head>
 
@@ -20,22 +12,22 @@
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
   
-  <link rel="stylesheet" type="text/css" href="stylesheets/reset.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/icons.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/button.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/checkbox.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/label.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/divider.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/block.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/segment.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/collections/grid.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/collections/table.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/collections/form.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/collections/menu.css"></link>
-  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/modules/shape.css"></link>
+  <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/icons.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/button.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/checkbox.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/divider.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/block.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/elements/segment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/collections/grid.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/collections/table.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/collections/form.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/collections/menu.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="ui/flat/modules/shape.css">
   
-  <link rel="stylesheet" type="text/css" href="stylesheets/semantic.css"></link>
-  <link rel="stylesheet" type="text/css" href="stylesheets/library/sidr.css"></link>
+  <link rel="stylesheet" type="text/css" href="stylesheets/semantic.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/library/sidr.css">
   
   <script src="javascript/library/jquery.js"></script>
   <script src="javascript/library/ace/ace.js"></script>
@@ -44,9 +36,14 @@
   <script src="modules/behavior/state.js"></script>
   <script src="modules/ui/shape.js"></script>
   <script src="javascript/semantic.js"></script>
-
 </head> 
-
+<% uiElements        = @getCollection("html").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+<% uiCollections     = @getCollection("html").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiModules         = @getCollection("html").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+<% currentCollection = @getCollection("html").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
+<% pageCount         = @pageCount(currentCollection) %>
+<% pageNumber        = @getPage(currentCollection, @document.id) %>
+<% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
 <body id="example">
   <div class="ui large vertical menu" id="menu">
     <div class="item"><a href="index.html"><b>Introduction</b></a></div>
@@ -125,7 +122,9 @@
   <div class="ui huge left attached vertical side buttons">
     <div class="ui large blue sidebar button"><i class="icon th-list"></i></div>
   </div>
-  
+  <% for element in @getCollection("html").toJSON(): %>
+    <%= "#{element.title} " %>
+  <% end %>
   <%- @content %>
 </body>
 
