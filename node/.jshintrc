@@ -1,0 +1,18 @@
+{
+  "asi": false,
+  "indent": 2,
+  "expr": true,
+  "loopfunc": true,
+  "curly": false,
+  "white": false,
+  "evil": true,
+  "browser": true,
+  "trailing": true,
+  "forin": true,
+  "latedef": true,
+  "undef": true,
+  "predef": [
+    "module",
+    "require"
+  ]
+}

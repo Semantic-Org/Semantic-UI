@@ -1,0 +1,40 @@
+{
+  "name": "buffer-equal",
+  "description": "return whether two buffers are equal",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/node-buffer-equal.git"
+  },
+  "main": "index.js",
+  "keywords": [
+    "buffer",
+    "equal"
+  ],
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "devDependencies": {
+    "tap": "~0.2.4"
+  },
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "readme": "buffer-equal\n============\n\nReturn whether two buffers are equal.\n\n[![build status](https://secure.travis-ci.org/substack/node-buffer-equal.png)](http://travis-ci.org/substack/node-buffer-equal)\n\nexample\n=======\n\n``` js\nvar bufferEqual = require('bufferEqual');\n\nconsole.dir(bufferEqual(\n    new Buffer([253,254,255]),\n    new Buffer([253,254,255])\n));\nconsole.dir(bufferEqual(\n    new Buffer('abc'),\n    new Buffer('abcd')\n));\nconsole.dir(bufferEqual(\n    new Buffer('abc'),\n    'abc'\n));\n```\n\noutput:\n\n```\ntrue\nfalse\nundefined\n```\n\nmethods\n=======\n\n``` js\nvar bufferEqual = require('buffer-equal')\n```\n\nbufferEqual(a, b)\n-----------------\n\nReturn whether the two buffers `a` and `b` are equal.\n\nIf `a` or `b` is not a buffer, return `undefined`.\n\ninstall\n=======\n\nWith [npm](http://npmjs.org) do:\n\n```\nnpm install buffer-equal\n```\n\nlicense\n=======\n\nMIT\n",
+  "readmeFilename": "README.markdown",
+  "bugs": {
+    "url": "https://github.com/substack/node-buffer-equal/issues"
+  },
+  "_id": "buffer-equal@0.0.0",
+  "_from": "buffer-equal@~0.0.0"
+}

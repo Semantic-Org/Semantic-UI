@@ -1,0 +1,43 @@
+{
+  "min": {
+    "js": {
+      "src": [
+        "../docs/javascript/library/jquery.js",
+        "../docs/javascript/library/ace/ace.js",
+        "../docs/javascript/library/sidr.js",
+        "../docs/javascript/library/waypoints.js",
+        "../docs/modules/behavior/state.js",
+        "../docs/modules/ui/shape.js",
+        "../docs/javascript/semantic.js"
+      ],
+      "dest": "../docs/scripts/all.min.js"
+    }
+  },
+  "concat": {
+    "css": {
+      "src": [
+        "../docs/stylesheets/reset.css",
+        "../docs/stylesheets/semantic.css",
+        "../docs/ui/flat/elements/icons.css",
+        "../docs/ui/flat/elements/button.css",
+        "../docs/ui/flat/elements/checkbox.css",
+        "../docs/ui/flat/elements/label.css",
+        "../docs/ui/flat/elements/divider.css",
+        "../docs/ui/flat/elements/block.css",
+        "../docs/ui/flat/elements/segment.css",
+        "../docs/ui/flat/collections/grid.css",
+        "../docs/ui/flat/collections/form.css",
+        "../docs/ui/flat/collections/menu.css",
+        "../docs/ui/flat/modules/shape.css",
+        "../docs/stylesheets/library/sidr.css"
+      ],
+      "dest": "../docs/styles/all.css"
+    }
+  },
+  "cssmin": {
+    "all": {
+      "src": ["../docs/styles/all.css"],
+      "dest": "../docs/styles/all.min.css"
+    }
+  }
+}

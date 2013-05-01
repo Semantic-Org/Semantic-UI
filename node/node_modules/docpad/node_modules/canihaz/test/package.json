@@ -1,0 +1,12 @@
+{
+  "canihaz": {
+    "which": "1.0.x",
+    "semver": "1.1.x",
+    "mkdirp": "0.3.x",
+    "mocha": "1.7.x",
+    "chai": "1.4.x",
+    "rimraf": "2.1.x",
+    "request": "2.12.x",
+    "routable": "git@github.com:3rd-Eden/routable.git#master"
+  }
+}

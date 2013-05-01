@@ -1,0 +1,3 @@
+[submodule "node_modules/nodeunit"]
+	path = node_modules/nodeunit
+	url = git://github.com/caolan/nodeunit.git

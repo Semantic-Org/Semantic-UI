@@ -1,0 +1,33 @@
+<!DOCTYPE html>  <html> <head>   <title>syslog-config.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="../../docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="../..//winston/common.html">                 winston/common.html               </a>                                           <a class="source" href="../..//winston/config/cli-config.html">                 winston/config/cli-config.html               </a>                                           <a class="source" href="../..//winston/config/npm-config.html">                 winston/config/npm-config.html               </a>                                           <a class="source" href="../..//winston/config/syslog-config.html">                 winston/config/syslog-config.html               </a>                                           <a class="source" href="../..//winston/config.html">                 winston/config.html               </a>                                           <a class="source" href="../..//winston/exception.html">                 winston/exception.html               </a>                                           <a class="source" href="../..//winston/logger.html">                 winston/logger.html               </a>                                           <a class="source" href="../..//winston/transports/console.html">                 winston/transports/console.html               </a>                                           <a class="source" href="../..//winston/transports/couchdb.html">                 winston/transports/couchdb.html               </a>                                           <a class="source" href="../..//winston/transports/file.html">                 winston/transports/file.html               </a>                                           <a class="source" href="../..//winston/transports/loggly.html">                 winston/transports/loggly.html               </a>                                           <a class="source" href="../..//winston/transports/transport.html">                 winston/transports/transport.html               </a>                                           <a class="source" href="../..//winston/transports/webhook.html">                 winston/transports/webhook.html               </a>                                           <a class="source" href="../..//winston/transports.html">                 winston/transports.html               </a>                                           <a class="source" href="../..//winston.html">                 winston.html               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               syslog-config.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm"> * syslog-config.js: Config that conform to syslog logging levels. </span>
+<span class="cm"> *</span>
+<span class="cm"> * (C) 2010 Charlie Robbins</span>
+<span class="cm"> * MIT LICENCE</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+ 
+<span class="kd">var</span> <span class="nx">syslogConfig</span> <span class="o">=</span> <span class="nx">exports</span><span class="p">;</span>
+
+<span class="nx">syslogConfig</span><span class="p">.</span><span class="nx">levels</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">debug</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+  <span class="nx">info</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> 
+  <span class="nx">notice</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
+  <span class="nx">warning</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="nx">error</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> 
+  <span class="nx">crit</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">alert</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="nx">emerg</span><span class="o">:</span> <span class="mi">7</span>
+<span class="p">};</span>
+
+<span class="nx">syslogConfig</span><span class="p">.</span><span class="nx">colors</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">debug</span><span class="o">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+  <span class="nx">info</span><span class="o">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+  <span class="nx">notice</span><span class="o">:</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span>
+  <span class="nx">warning</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+  <span class="nx">error</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> 
+  <span class="nx">crit</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+  <span class="nx">alert</span><span class="o">:</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span>
+  <span class="nx">emerg</span><span class="o">:</span> <span class="s1">&#39;red&#39;</span>
+<span class="p">};</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

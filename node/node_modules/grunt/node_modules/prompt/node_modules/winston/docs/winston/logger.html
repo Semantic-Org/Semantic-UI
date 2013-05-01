@@ -1,0 +1,344 @@
+<!DOCTYPE html>  <html> <head>   <title>logger.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="../docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="..//winston/common.html">                 winston/common.html               </a>                                           <a class="source" href="..//winston/config/cli-config.html">                 winston/config/cli-config.html               </a>                                           <a class="source" href="..//winston/config/npm-config.html">                 winston/config/npm-config.html               </a>                                           <a class="source" href="..//winston/config/syslog-config.html">                 winston/config/syslog-config.html               </a>                                           <a class="source" href="..//winston/config.html">                 winston/config.html               </a>                                           <a class="source" href="..//winston/exception.html">                 winston/exception.html               </a>                                           <a class="source" href="..//winston/logger.html">                 winston/logger.html               </a>                                           <a class="source" href="..//winston/transports/console.html">                 winston/transports/console.html               </a>                                           <a class="source" href="..//winston/transports/couchdb.html">                 winston/transports/couchdb.html               </a>                                           <a class="source" href="..//winston/transports/file.html">                 winston/transports/file.html               </a>                                           <a class="source" href="..//winston/transports/loggly.html">                 winston/transports/loggly.html               </a>                                           <a class="source" href="..//winston/transports/transport.html">                 winston/transports/transport.html               </a>                                           <a class="source" href="..//winston/transports/webhook.html">                 winston/transports/webhook.html               </a>                                           <a class="source" href="..//winston/transports.html">                 winston/transports.html               </a>                                           <a class="source" href="..//winston.html">                 winston.html               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               logger.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm"> * logger.js: Core logger object used by winston.</span>
+<span class="cm"> *</span>
+<span class="cm"> * (C) 2010 Charlie Robbins</span>
+<span class="cm"> * MIT LICENCE</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+ 
+<span class="kd">var</span> <span class="nx">events</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;events&#39;</span><span class="p">),</span>
+    <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;util&#39;</span><span class="p">),</span>
+    <span class="nx">async</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;async&#39;</span><span class="p">),</span>
+    <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./config&#39;</span><span class="p">),</span>
+    <span class="nx">common</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./common&#39;</span><span class="p">),</span>
+    <span class="nx">exception</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./exception&#39;</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">capitalize</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">str</span> <span class="o">&amp;&amp;</span> <span class="nx">str</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">str</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>Time constants</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">ticksPerMillisecond</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h3>function Logger (options)</h3>
+
+<h4>@options {Object} Options for this instance.</h4>
+
+<p>Constructor function for the Logger object responsible
+for persisting log messages and metadata to one or more transports.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">Logger</span> <span class="o">=</span> <span class="nx">exports</span><span class="p">.</span><span class="nx">Logger</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">events</span><span class="p">.</span><span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="nx">options</span> <span class="o">=</span> <span class="nx">options</span> <span class="o">||</span> <span class="p">{};</span>
+  
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
+      <span class="nx">handleExceptions</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <p>Set Levels and default logging level</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="k">this</span><span class="p">.</span><span class="nx">padLevels</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">padLevels</span> <span class="o">||</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setLevels</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">levels</span><span class="p">);</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Setup other intelligent default settings.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="k">this</span><span class="p">.</span><span class="nx">level</span>             <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">level</span> <span class="o">||</span> <span class="s1">&#39;info&#39;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">emitErrs</span>          <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">emitErrs</span> <span class="o">||</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">stripColors</span>       <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">stripColors</span> <span class="o">||</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">transports</span>        <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">exceptionHandlers</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">profilers</span>         <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">_names</span>            <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">_hnames</span>           <span class="o">=</span> <span class="p">[];</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">transports</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">transport</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">transport</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+      
+      <span class="k">if</span> <span class="p">(</span><span class="nx">transport</span><span class="p">.</span><span class="nx">handleExceptions</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">handleExceptions</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">exceptionHandlers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="p">.</span><span class="nx">exceptionHandlers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">handler</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">_hnames</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">exceptionHandlers</span><span class="p">[</span><span class="nx">handler</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">handler</span><span class="p">;</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">handleExceptions</span> <span class="o">||</span> <span class="nx">handleExceptions</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleExceptions</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Inherit from <code>events.EventEmitter</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">util</span><span class="p">.</span><span class="nx">inherits</span><span class="p">(</span><span class="nx">Logger</span><span class="p">,</span> <span class="nx">events</span><span class="p">.</span><span class="nx">EventEmitter</span><span class="p">);</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <h3>function extend (target)</h3>
+
+<h4>@target {Object} Target to extend.</h4>
+
+<p>Extends the target object with a 'log' method
+along with a method for each level in this instance.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">extend</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">[</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;profile&#39;</span><span class="p">].</span><span class="nx">concat</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">levels</span><span class="p">)).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">method</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">target</span><span class="p">[</span><span class="nx">method</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">self</span><span class="p">[</span><span class="nx">method</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">});</span>
+  
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <h3>function log (level, msg, [meta], callback)</h3>
+
+<h4>@level {string} Level at which to log the message.</h4>
+
+<h4>@msg {string} Message to log</h4>
+
+<h4>@meta {Object} <strong>Optional</strong> Additional metadata to attach</h4>
+
+<h4>@callback {function} Continuation to respond to when complete.</h4>
+
+<p>Core logging method exposed to Winston. Metadata is optional.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">log</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">level</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span> 
+      <span class="nx">callback</span><span class="p">,</span>
+      <span class="nx">meta</span><span class="p">;</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">meta</span> <span class="o">=</span> <span class="p">{};</span>
+      <span class="nx">callback</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;object&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">meta</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">meta</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="nx">callback</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+  <span class="p">}</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>If we should pad for levels, do so</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">padLevels</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">levelLength</span> <span class="o">-</span> <span class="nx">level</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">onError</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">emitErrs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">onError</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Cannot log with no transports.&#39;</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">self</span><span class="p">.</span><span class="nx">levels</span><span class="p">[</span><span class="nx">level</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">onError</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Unknown log level: &#39;</span> <span class="o">+</span> <span class="nx">level</span><span class="p">));</span>
+  <span class="p">}</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>For consideration of terminal 'color" programs like colors.js,
+which can add ANSI escape color codes to strings, we destyle the 
+ANSI color escape codes when <code>this.stripColors</code> is set.</p>
+
+<p>see: http://en.wikipedia.org/wiki/ANSI<em>escape</em>code</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">stripColors</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="sr">/\u001b\[\d+m/g</span><span class="p">;</span>
+    <span class="nx">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="nx">code</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">l</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_names</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">transport</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">_names</span><span class="p">[</span><span class="nx">i</span><span class="p">]];</span>
+    <span class="k">if</span> <span class="p">((</span><span class="nx">transport</span><span class="p">.</span><span class="nx">level</span> <span class="o">&amp;&amp;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">levels</span><span class="p">[</span><span class="nx">transport</span><span class="p">.</span><span class="nx">level</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">levels</span><span class="p">[</span><span class="nx">level</span><span class="p">])</span>
+      <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="nx">transport</span><span class="p">.</span><span class="nx">level</span> <span class="o">&amp;&amp;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">levels</span><span class="p">[</span><span class="nx">self</span><span class="p">.</span><span class="nx">level</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">levels</span><span class="p">[</span><span class="nx">level</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="nx">transport</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">level</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">meta</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;logging&#39;</span><span class="p">,</span> <span class="nx">transport</span><span class="p">,</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">meta</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-11">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-11">&#182;</a>               </div>               <p>Immediately respond to the callback</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="k">if</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">level</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">meta</span><span class="p">);</span>    
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-12">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-12">&#182;</a>               </div>               <h3>function handleExceptions ()</h3>
+
+<p>Handles <code>uncaughtException</code> events for the current process</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">handleExceptions</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">),</span>
+      <span class="nx">handlers</span> <span class="o">=</span> <span class="p">[],</span>
+      <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+      
+  <span class="nx">args</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">handlers</span> <span class="o">=</span> <span class="nx">handlers</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">handlers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+  
+  <span class="nx">handlers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">handler</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">exceptionHandlers</span><span class="p">[</span><span class="nx">handler</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">handler</span><span class="p">;</span>
+  <span class="p">});</span>
+  
+  <span class="k">this</span><span class="p">.</span><span class="nx">_hnames</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">exceptionHandlers</span><span class="p">);</span>
+    
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">catchExceptions</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">catchExceptions</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_uncaughtException</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;uncaughtException&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">catchExceptions</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-13">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-13">&#182;</a>               </div>               <h3>function unhandleExceptions ()</h3>
+
+<p>Removes any handlers to <code>uncaughtException</code> events
+for the current process</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">unhandleExceptions</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">catchExceptions</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">exceptionHandlers</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">close</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">handler</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+    
+    <span class="k">this</span><span class="p">.</span><span class="nx">exceptionHandlers</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">transport</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">transport</span><span class="p">.</span><span class="nx">handleExceptions</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">transport</span><span class="p">.</span><span class="nx">handleExceptions</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+    
+    <span class="nx">process</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="s1">&#39;uncaughtException&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">catchExceptions</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">catchExceptions</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>    
+  <span class="p">}</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-14">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-14">&#182;</a>               </div>               <h3>function add (transport, [options])</h3>
+
+<h4>@transport {Transport} Prototype of the Transport object to add.</h4>
+
+<h4>@options {Object} <strong>Optional</strong> Options for the Transport to add.</h4>
+
+<h4>@instance {Boolean} <strong>Optional</strong> Value indicating if <code>transport</code> is already instantiated.</h4>
+
+<p>Adds a transport of the specified type to this instance.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">transport</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">created</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">created</span> <span class="o">?</span> <span class="nx">transport</span> <span class="o">:</span> <span class="p">(</span><span class="k">new</span> <span class="p">(</span><span class="nx">transport</span><span class="p">)(</span><span class="nx">options</span><span class="p">));</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">instance</span><span class="p">.</span><span class="nx">name</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">instance</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Unknown transport with no log() method&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="nx">instance</span><span class="p">.</span><span class="nx">name</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Transport already attached: &#39;</span> <span class="o">+</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="nx">instance</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">_names</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">);</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-15">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-15">&#182;</a>               </div>               <p>Listen for the <code>error</code> event on the new Transport</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">instance</span><span class="p">.</span><span class="nx">_onError</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_onError</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">instance</span><span class="p">)</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">_onError</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-16">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-16">&#182;</a>               </div>               <h3>function remove (transport)</h3>
+
+<h4>@transport {Transport} Transport to remove.</h4>
+
+<p>Removes a transport of the specified type from this instance.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">remove</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">transport</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">transport</span><span class="p">.</span><span class="nx">name</span> <span class="o">||</span> <span class="nx">transport</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+    
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="nx">name</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Transport &#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39; not attached to this instance&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="kd">var</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>
+  <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">_names</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">);</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="nx">instance</span><span class="p">.</span><span class="nx">close</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="p">}</span>
+  
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">_onError</span><span class="p">);</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-17">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-17">&#182;</a>               </div>               <h3>function profile (id, [msg, meta, callback])</h3>
+
+<h4>@id {string} Unique id of the profiler</h4>
+
+<h4>@msg {string} <strong>Optional</strong> Message to log</h4>
+
+<h4>@meta {Object} <strong>Optional</strong> Additional metadata to attach</h4>
+
+<h4>@callback {function} <strong>Optional</strong> Continuation to respond to when complete.</h4>
+
+<p>Tracks the time inbetween subsequent calls to this method
+with the same <code>id</code> parameter. The second call to this method
+will log the difference in milliseconds along with the message.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">profile</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">now</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">(),</span> <span class="nx">then</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span>
+      <span class="nx">msg</span><span class="p">,</span> <span class="nx">meta</span><span class="p">,</span> <span class="nx">callback</span><span class="p">;</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">profilers</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">!==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">then</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">profilers</span><span class="p">[</span><span class="nx">id</span><span class="p">];</span>
+    <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">profilers</span><span class="p">[</span><span class="nx">id</span><span class="p">];</span>
+    </pre></div>             </td>           </tr>                               <tr id="section-18">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-18">&#182;</a>               </div>               <p>Support variable arguments: msg, meta, callback</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">args</span>     <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+    <span class="nx">callback</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">args</span><span class="p">[</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;function&#39;</span> <span class="o">?</span> <span class="nx">args</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="nx">meta</span>     <span class="o">=</span> <span class="k">typeof</span> <span class="nx">args</span><span class="p">[</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;object&#39;</span> <span class="o">?</span> <span class="nx">args</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span> <span class="o">:</span> <span class="p">{};</span>
+    <span class="nx">msg</span>      <span class="o">=</span> <span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">2</span> <span class="o">?</span> <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span> <span class="nx">id</span><span class="p">;</span> 
+    </pre></div>             </td>           </tr>                               <tr id="section-19">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-19">&#182;</a>               </div>               <p>Set the duration property of the metadata</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">meta</span><span class="p">.</span><span class="nx">duration</span> <span class="o">=</span> <span class="nx">now</span> <span class="o">-</span> <span class="nx">then</span> <span class="o">+</span> <span class="s1">&#39;ms&#39;</span><span class="p">;</span> 
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">meta</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">profilers</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">now</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-20">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-20">&#182;</a>               </div>               <h3>function setLevels (target)</h3>
+
+<h4>@target {Object} Target levels to use on this instance</h4>
+
+<p>Sets the <code>target</code> levels specified on this instance.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setLevels</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">common</span><span class="p">.</span><span class="nx">setLevels</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">levels</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-21">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-21">&#182;</a>               </div>               <h3>function cli ()</h3>
+
+<p>Configures this instance to have the default
+settings for command-line interfaces: no timestamp,
+colors enabled, padded output, and additional levels.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">cli</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">padLevels</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setLevels</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">cli</span><span class="p">.</span><span class="nx">levels</span><span class="p">);</span>
+  <span class="nx">config</span><span class="p">.</span><span class="nx">addColors</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">cli</span><span class="p">.</span><span class="nx">colors</span><span class="p">);</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">console</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">console</span><span class="p">.</span><span class="nx">colorize</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">console</span><span class="p">.</span><span class="nx">timestamp</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-22">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-22">&#182;</a>               </div>               <h3>@private function _uncaughtException (err)</h3>
+
+<h4>@err {Error} Error to handle</h4>
+
+<p>Logs all relevant information around the <code>err</code> and
+exits the current process.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_uncaughtException</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span>
+      <span class="nx">responded</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nx">info</span> <span class="o">=</span> <span class="nx">exception</span><span class="p">.</span><span class="nx">getAllInfo</span><span class="p">(</span><span class="nx">err</span><span class="p">),</span>
+      <span class="nx">handlers</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_getExceptionHandlers</span><span class="p">(),</span>
+      <span class="nx">timeout</span><span class="p">;</span>
+  
+  <span class="kd">function</span> <span class="nx">logAndWait</span> <span class="p">(</span><span class="nx">transport</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">transport</span><span class="p">.</span><span class="nx">logException</span><span class="p">(</span><span class="s1">&#39;uncaughtException&#39;</span><span class="p">,</span> <span class="nx">info</span><span class="p">,</span> <span class="nx">next</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="kd">function</span> <span class="nx">gracefulExit</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">responded</span><span class="p">)</span> <span class="p">{</span></pre></div>             </td>           </tr>                               <tr id="section-23">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-23">&#182;</a>               </div>               <p>Remark: Currently ignoring any exceptions from transports
+        when catching uncaught exceptions.</p>             </td>             <td class="code">               <div class="highlight"><pre>      <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timeout</span><span class="p">);</span>
+      <span class="nx">responded</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">handlers</span> <span class="o">||</span> <span class="nx">handlers</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gracefulExit</span><span class="p">();</span>
+  <span class="p">}</span>
+  </pre></div>             </td>           </tr>                               <tr id="section-24">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-24">&#182;</a>               </div>               <p>Log to all transports and allow the operation to take
+only up to <code>3000ms</code>.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nx">async</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">handlers</span><span class="p">,</span> <span class="nx">logAndWait</span><span class="p">,</span> <span class="nx">gracefulExit</span><span class="p">);</span>
+  <span class="nx">timeout</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">gracefulExit</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-25">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-25">&#182;</a>               </div>               <h3>@private function _getExceptionHandlers ()</h3>
+
+<p>Returns the list of transports and exceptionHandlers
+for this instance.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_getExceptionHandlers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_hnames</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">exceptionHandlers</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>
+  <span class="p">}).</span><span class="nx">concat</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_names</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">handleExceptions</span> <span class="o">&amp;&amp;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">transports</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>
+  <span class="p">})).</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">);</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-26">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-26">&#182;</a>               </div>               <h3>@private function _onError (transport, err)</h3>
+
+<h4>@transport {Object} Transport on which the error occured</h4>
+
+<h4>@err {Error} Error that occurred on the transport</h4>
+
+<p>Bubbles the error, <code>err</code>, that occured on the specified <code>transport</code>
+up from this instance if <code>emitErrs</code> has been set.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">Logger</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_onError</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">transport</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">emitErrs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">,</span> <span class="nx">transport</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

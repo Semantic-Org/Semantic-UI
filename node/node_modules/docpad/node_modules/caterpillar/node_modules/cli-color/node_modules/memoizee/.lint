@@ -1,0 +1,61 @@
+@root
+
+jslint_medikoo.indent 2
+jslint_medikoo.maxlen 80
+es5
+
+jslint_medikoo.tabs
+jslint_medikoo.module
+jslint_medikoo.plusplus
+jslint_medikoo.nomen
+
+jshint.laxcomma
+jshint.camelcase
+jshint.curly
+jshint.eqeqeq
+jshint.forin
+jshint.immed
+jshint.latedef
+jshint.newcap
+jshint.noarg
+jshint.noempty
+jshint.nonew
+jshint.regexp
+jshint.undef
+jshint.unused
+jshint.strict
+jshint.trailing
+jshint.globalstrict
+jshint.global module, require, exports
+jshint.smarttabs
+jshint.eqnull
+jshint.expr
+
+./lib/_base.js
+jslint_medikoo.bitwise
+
+./lib/ext/max-age.js
+jslint_medikoo.bitwise
+jslint_medikoo.predef+ setTimeout, clearTimeout
+jshint.global+ setTimeout, clearTimeout
+
+./lib/ext/max.js
+jslint_medikoo.bitwise
+jslint_medikoo.continue
+jslint_medikoo.predef+ setTimeout, clearTimeout
+jshint.global+ setTimeout, clearTimeout
+!jshint.curly
+
+./test/index.js
+jslint_medikoo.predef+ setTimeout
+jshint.global+ setTimeout
+
+./test/ext/max-age.js
+jslint_medikoo.predef+ setTimeout
+jshint.global+ setTimeout
+
+./benchmark
+jslint_medikoo.sub
+jshint.sub
+jslint_medikoo.predef+ console
+jshint.global+ console

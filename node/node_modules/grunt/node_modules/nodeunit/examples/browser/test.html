@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Example tests</title>
+    <script src="nodeunit.js"></script>
+    <script src="suite1.js"></script>
+    <script src="suite2.js"></script>
+    <script src="suite3.js"></script>
+  </head>
+  <body>
+    <script>
+      nodeunit.run({
+        'suite1': suite1,
+        'suite2': suite2,
+        'suite3': suite3
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+try {
+    var reporter = require('nodeunit').reporters.default;
+    var sinon = require('sinon');
+} catch(e) {
+    console.log("Testing dependencies not met.");
+    console.log("You can get them by running:");
+    console.log("");
+    console.log("    npm install");
+    console.log("");
+    process.exit();
+}
+
+process.chdir(__dirname + "/..");
+reporter.run(['test']);

@@ -1,0 +1,41 @@
+<!DOCTYPE html>  <html> <head>   <title>config.js</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="../docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>            <div id="jump_to">         Jump To &hellip;         <div id="jump_wrapper">           <div id="jump_page">                                           <a class="source" href="..//loggly/common.html">                 loggly/common.html               </a>                                           <a class="source" href="..//loggly/config.html">                 loggly/config.html               </a>                                           <a class="source" href="..//loggly/core.html">                 loggly/core.html               </a>                                           <a class="source" href="..//loggly/device.html">                 loggly/device.html               </a>                                           <a class="source" href="..//loggly/facet.html">                 loggly/facet.html               </a>                                           <a class="source" href="..//loggly/input.html">                 loggly/input.html               </a>                                           <a class="source" href="..//loggly/search.html">                 loggly/search.html               </a>                                           <a class="source" href="..//loggly.html">                 loggly.html               </a>                        </div>         </div>       </div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               config.js             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm"> * config.js: Configuration information for your Loggly account.</span>
+<span class="cm"> *            This information is only used for require(&#39;loggly&#39;)./\.+/ methods</span>
+<span class="cm"> *</span>
+<span class="cm"> * (C) 2010 Nodejitsu Inc.</span>
+<span class="cm"> * MIT LICENSE</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>function createConfig (defaults) 
+  Creates a new instance of the configuration 
+  object based on default values</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="nx">exports</span><span class="p">.</span><span class="nx">createConfig</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">defaults</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Config</span><span class="p">(</span><span class="nx">defaults</span><span class="p">);</span>
+<span class="p">};</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <p>Config (defaults) 
+  Constructor for the Config object</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">Config</span> <span class="o">=</span> <span class="nx">exports</span><span class="p">.</span><span class="nx">Config</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">defaults</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">subdomain</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Subdomain is required to create an instance of Config&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">this</span><span class="p">.</span><span class="nx">subdomain</span> <span class="o">=</span> <span class="nx">defaults</span><span class="p">.</span><span class="nx">subdomain</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">json</span> <span class="o">=</span> <span class="nx">defaults</span><span class="p">.</span><span class="nx">json</span> <span class="o">||</span><span class="err"> </span><span class="kc">null</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">auth</span> <span class="o">=</span> <span class="nx">defaults</span><span class="p">.</span><span class="nx">auth</span> <span class="o">||</span> <span class="kc">null</span><span class="p">;</span>
+<span class="p">};</span>
+ 
+<span class="nx">Config</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">get</span> <span class="nx">subdomain</span> <span class="p">()</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_subdomain</span><span class="p">;</span> 
+  <span class="p">},</span>
+
+  <span class="nx">set</span> <span class="nx">subdomain</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_subdomain</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">},</span>
+  
+  <span class="nx">get</span> <span class="nx">logglyUrl</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">_subdomain</span><span class="p">,</span> <span class="s1">&#39;loggly&#39;</span><span class="p">,</span> <span class="s1">&#39;com&#39;</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/api&#39;</span><span class="p">;</span>
+  <span class="p">},</span>
+  
+  <span class="nx">get</span> <span class="nx">inputUrl</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;https://logs.loggly.com/inputs/&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - 0.8
+  - 0.9
+
+before_install:
+  - mkdir node_modules; ln -s ../ node_modules/cli-color
+
+notifications:
+  email:
+    - medikoo+cli-color@medikoo.com

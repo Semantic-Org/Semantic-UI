@@ -1,0 +1,35 @@
+{
+  "name": "backbone",
+  "description": "Give your JS App some Backbone with Models, Views, Collections, and Events.",
+  "url": "http://backbonejs.org",
+  "keywords": [
+    "model",
+    "view",
+    "controller",
+    "router",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": {
+    "name": "Jeremy Ashkenas",
+    "email": "jeremy@documentcloud.org"
+  },
+  "dependencies": {
+    "underscore": ">=1.4.3"
+  },
+  "devDependencies": {
+    "phantomjs": "1.8.1-3",
+    "docco": "0.6.1",
+    "coffee-script": "1.6.1"
+  },
+  "scripts": {
+    "test": "phantomjs test/vendor/runner.js test/index.html?noglobals=true && coffee test/model.coffee"
+  },
+  "main": "backbone.js",
+  "version": "1.0.0",
+  "readme": "     ____                     __      __                                                 \n    /\\  _`\\                  /\\ \\    /\\ \\                                   __           \n    \\ \\ \\ \\ \\     __      ___\\ \\ \\/'\\\\ \\ \\____    ___     ___      __      /\\_\\    ____  \n     \\ \\  _ <'  /'__`\\   /'___\\ \\ , < \\ \\ '__`\\  / __`\\ /' _ `\\  /'__`\\    \\/\\ \\  /',__\\ \n      \\ \\ \\ \\ \\/\\ \\ \\.\\_/\\ \\__/\\ \\ \\\\`\\\\ \\ \\ \\ \\/\\ \\ \\ \\/\\ \\/\\ \\/\\  __/  __ \\ \\ \\/\\__, `\\\n       \\ \\____/\\ \\__/.\\_\\ \\____\\\\ \\_\\ \\_\\ \\_,__/\\ \\____/\\ \\_\\ \\_\\ \\____\\/\\_\\_\\ \\ \\/\\____/\n        \\/___/  \\/__/\\/_/\\/____/ \\/_/\\/_/\\/___/  \\/___/  \\/_/\\/_/\\/____/\\/_/\\ \\_\\ \\/___/ \n                                                                           \\ \\____/      \n                                                                            \\/___/       \n    (_'_______________________________________________________________________________'_)\n    (_.———————————————————————————————————————————————————————————————————————————————._)\n                                               \n                                              \nBackbone supplies structure to JavaScript-heavy applications by providing models key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing application over a RESTful JSON interface.\n\nFor Docs, License, Tests, pre-packed downloads, and everything else, really, see:\nhttp://backbonejs.org\n\nTo suggest a feature, report a bug, or general discussion:\nhttp://github.com/documentcloud/backbone/issues/\n\nAll contributors are listed here:\nhttp://github.com/documentcloud/backbone/contributors\n\nSpecial thanks to Robert Kieffer for the original philosophy behind Backbone. \nhttp://github.com/broofa\n",
+  "readmeFilename": "README.md",
+  "_id": "backbone@1.0.0",
+  "_from": "backbone@1.0.0"
+}

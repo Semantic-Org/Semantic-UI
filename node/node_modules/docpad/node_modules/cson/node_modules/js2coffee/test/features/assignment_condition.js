@@ -1,0 +1,1 @@
+if ( (options = arguments[ i ]) != null ) { for (x in y) { 2 + 2; 3 + 3; } }
