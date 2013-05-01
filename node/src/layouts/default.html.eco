@@ -30,6 +30,8 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/ui/flat/modules/shape.css">
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/shape.css">
+    
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/sidr.css">
 
   <script src="/javascript/library/jquery.js"></script>
@@ -39,6 +41,7 @@
   <script src="/modules/behavior/state.js"></script>
   <script src="/modules/ui/shape.js"></script>
   <script src="/javascript/semantic.js"></script>
+  <script src="/javascript/shape.js"></script>
 </head>
 <% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
 <% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
