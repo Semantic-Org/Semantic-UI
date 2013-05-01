@@ -37,10 +37,10 @@
   <script src="modules/ui/shape.js"></script>
   <script src="javascript/semantic.js"></script>
 </head> 
-<% uiElements        = @getCollection("html").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
-<% uiCollections     = @getCollection("html").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
-<% uiModules         = @getCollection("html").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
-<% currentCollection = @getCollection("html").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
+<% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+<% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiModules         = @getCollection("documents").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+<% currentCollection = @getCollection("documents").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
 <% pageCount         = @pageCount(currentCollection) %>
 <% pageNumber        = @getPage(currentCollection, @document.id) %>
 <% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
@@ -80,7 +80,7 @@
         <b>Semantic:</b> <%= @document.type %>
       </div>
       <div class="icon previous link<%= if pageNumber is 1 then " disabled" %> item">
-        <% if pageNumber > 1 and pageCollection[pageNumber]?: %>
+        <% if pageNumber > 1 and pageCollection[pageNumber - 2]?: %>
         <a href="<%= pageCollection[pageNumber - 2].url %>"><i class="icon left-open"></i></a>
         <% else: %>
         <i class="icon left-open"></i>
@@ -91,7 +91,7 @@
         <div class="menu">
           <% for element, index in pageCollection: %>
             <div class="<%= if element.id is @document.id then 'active ' %>item">
-              <a href="<%= element.url %>"><%= element.title %></a>
+              <a href="<%= element.url %>"><%= (index+1) %>. <%= element.title %></a>
             </div>
           <% end %>
         </div>
@@ -122,9 +122,6 @@
   <div class="ui huge left attached vertical side buttons">
     <div class="ui large blue sidebar button"><i class="icon th-list"></i></div>
   </div>
-  <% for element in @getCollection("html").toJSON(): %>
-    <%= "#{element.title} " %>
-  <% end %>
   <%- @content %>
 </body>
 
