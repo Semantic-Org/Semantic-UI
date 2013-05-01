@@ -1,0 +1,7 @@
+
+/*! SAMPLE
+ * BANNER */
+
+// Comment
+
+/* Comment */

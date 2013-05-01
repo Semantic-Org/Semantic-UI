@@ -1,0 +1,24 @@
+{
+  "name": "base64id",
+  "version": "0.1.0",
+  "description": "Generates a base64 id",
+  "author": {
+    "name": "Kristian Faeldt",
+    "email": "faeldt_kristian@cyberagent.co.jp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/faeldt/base64id.git"
+  },
+  "main": "./lib/base64id.js",
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "readme": "base64id\n========\n\nNode.js module that generates a base64 id.\n\nUses crypto.randomBytes when available, falls back to unsafe methods for node.js <= 0.4.\n\nTo increase performance, random bytes are buffered to minimize the number of synchronous calls to crypto.randomBytes.\n\n## Installation\n\n   $ npm install mongoose\n\n## Usage\n\n   var base64id = require('base64id');\n\n   var id = base64id.generateId();\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/faeldt/base64id/issues"
+  },
+  "_id": "base64id@0.1.0",
+  "_from": "base64id@0.1.0"
+}

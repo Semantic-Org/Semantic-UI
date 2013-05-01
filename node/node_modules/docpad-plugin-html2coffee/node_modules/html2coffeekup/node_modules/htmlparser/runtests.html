@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Node.js HTML Parser</title>
+		<style type="text/css">
+			.good {
+				color: #363;
+			}
+			.bad {
+				color: #633;
+				font-style: italic;
+			}
+		</style>
+		<script language="JavaScript">
+			if ((typeof JSON) != "object") {
+				var head = document.getElementsByTagName("head")[0];
+				var script = document.createElement('script');
+				script.type = "text/javascript";
+				script.src = "json2.js";
+				head.insertBefore(script, head.firstChild)
+			}
+		</script>
+		<script language="JavaScript" src="lib/htmlparser.js"></script>
+		<script language="JavaScript" src="tests/01-basic.js"></script>
+		<script language="JavaScript" src="tests/02-single_tag_1.js"></script>
+		<script language="JavaScript" src="tests/03-single_tag_2.js"></script>
+		<script language="JavaScript" src="tests/04-unescaped_in_script.js"></script>
+		<script language="JavaScript" src="tests/05-tags_in_comment.js"></script>
+		<script language="JavaScript" src="tests/06-comment_in_script.js"></script>
+		<script language="JavaScript" src="tests/07-unescaped_in_style.js"></script>
+		<script language="JavaScript" src="tests/08-extra_spaces_in_tag.js"></script>
+		<script language="JavaScript" src="tests/09-unquoted_attrib.js"></script>
+		<script language="JavaScript" src="tests/10-singular_attribute.js"></script>
+		<script language="JavaScript" src="tests/11-text_outside_tags.js"></script>
+		<script language="JavaScript" src="tests/12-text_only.js"></script>
+		<script language="JavaScript" src="tests/13-comment_in_text.js"></script>
+		<script language="JavaScript" src="tests/14-comment_in_text_in_script.js"></script>
+		<script language="JavaScript" src="tests/15-non-verbose.js"></script>
+		<script language="JavaScript" src="tests/16-ignore_whitespace.js"></script>
+		<script language="JavaScript" src="tests/17-xml_namespace.js"></script>
+		<script language="JavaScript" src="tests/18-enforce_empty_tags.js"></script>
+		<script language="JavaScript" src="tests/19-ignore_empty_tags.js"></script>
+		<script language="JavaScript" src="tests/20-rss.js"></script>
+		<script language="JavaScript" src="tests/21-atom.js"></script>
+		<script language="JavaScript" src="tests/22-position_data.js"></script>
+		<!-- //TODO: dynamic loading of test files -->
+	</head>
+	<body style="font-size: small; font-family:Arial, Helvetica, sans-serif;">
+
+		<script language="JavaScript">
+			var chunkSize = 5;
+			var testCount = 0;
+			var failedCount = 0;
+			while (Tautologistics.NodeHtmlParser.Tests.length) {
+				testCount++;
+				var test = Tautologistics.NodeHtmlParser.Tests.shift();
+				try {
+					var handlerCallback = function handlerCallback (error) {
+						if (error)
+							document.write("<hr>Handler error: " + error + "<hr>");
+					}
+					var handler = (test.type == "rss") ?
+						new Tautologistics.NodeHtmlParser.RssHandler(handlerCallback, test.options.handler)
+						:
+						new Tautologistics.NodeHtmlParser.DefaultHandler(handlerCallback, test.options.handler)
+						;
+					var parser = new Tautologistics.NodeHtmlParser.Parser(handler, test.options.parser);
+					document.write("<b>" + test.name + "</b>: ");
+					parser.parseComplete(test.html);
+					var resultComplete = handler.dom;
+					var chunkPos = 0;
+					parser.reset();
+					while (chunkPos < test.html.length) {
+						parser.parseChunk(test.html.substring(chunkPos, chunkPos + chunkSize));
+						chunkPos += chunkSize;
+					}
+					parser.done();
+					var resultChunk = handler.dom;
+					var testResult =
+						JSON.stringify(resultComplete).toString() === JSON.stringify(test.expected).toString()
+						&&
+						JSON.stringify(resultChunk).toString() === JSON.stringify(test.expected).toString()
+						;
+					document.write(testResult ? "<font class='good'>passed</font>" : "<font class='bad'>FAILED</font>");
+					if (!testResult) {
+						failedCount++;
+						document.write("<pre>");
+						document.write("<b>Complete</b>\n");
+						document.write(JSON.stringify(resultComplete, null, 2));
+						document.write("<b>Chunked</b>\n");
+						document.write(JSON.stringify(resultChunk, null, 2));
+						document.write("<h2>Expected</h2>\n");
+						document.write(JSON.stringify(test.expected, null, 2));
+						document.write("</pre>");
+					}
+				} catch (ex) {
+					document.write("<h1>Exception occured during test: " + ex + "</h1>")
+				}
+				document.write("<br>");
+			}
+			document.write("<hr>");
+			document.write("Total tests: " + testCount + "<br>");
+			document.write("Failed tests: " + failedCount + "<br>");
+		</script>
+	
+	</body>
+</html>

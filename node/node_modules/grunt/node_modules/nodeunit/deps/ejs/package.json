@@ -1,0 +1,11 @@
+{
+  "name": "ejs",
+  "description": "Embedded JavaScript templates",
+  "version": "0.4.3",
+  "author": "TJ Holowaychuk <tj@vision-media.ca>",
+  "keywords": ["template", "engine", "ejs"],
+  "devDependencies": {
+    "expresso": "0.9.2"
+  },
+  "main": "./lib/ejs.js"
+}

@@ -1,0 +1,7 @@
+/test/Boolean/is-boolean.js
+/test/Date/is-date.js
+/test/Number/is-number.js
+/test/Object/is-copy.js
+/test/Object/is-object.js
+/test/RegExp/is-reg-exp.js
+/test/String/is-string.js

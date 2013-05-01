@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+var command = [process.argv[0],'--debug-brk',__dirname+'/../out/bin/docpad'].concat(process.argv.slice(2));
+require('bal-util').spawn(command,{cwd:process.cwd(),output:true},function(err){
+	if (err)  console.log(err);
+});

@@ -1,0 +1,193 @@
+#!/usr/bin/env node
+
+var optimist = require('optimist')
+    .usage('Precompile handlebar templates.\nUsage: $0 template...', {
+      'f': {
+        'type': 'string',
+        'description': 'Output File',
+        'alias': 'output'
+      },
+      'a': {
+        'type': 'boolean',
+        'description': 'Exports amd style (require.js)',
+        'alias': 'amd'
+      },
+      'c': {
+        'type': 'string',
+        'description': 'Exports CommonJS style, path to Handlebars module',
+        'alias': 'commonjs',
+        'default': null
+      },
+      'h': {
+        'type': 'string',
+        'description': 'Path to handlebar.js (only valid for amd-style)',
+        'alias': 'handlebarPath',
+		    'default': ''
+      },
+      'k': {
+        'type': 'string',
+        'description': 'Known helpers',
+        'alias': 'known'
+      },
+      'o': {
+        'type': 'boolean',
+        'description': 'Known helpers only',
+        'alias': 'knownOnly'
+      },
+      'm': {
+        'type': 'boolean',
+        'description': 'Minimize output',
+        'alias': 'min'
+      },
+      'n': {
+        'type': 'string',
+        'description': 'Template namespace',
+        'alias': 'namespace',
+        'default': 'Handlebars.templates'
+      },
+      's': {
+        'type': 'boolean',
+        'description': 'Output template function only.',
+        'alias': 'simple'
+      },
+      'r': {
+        'type': 'string',
+        'description': 'Template root. Base value that will be stripped from template names.',
+        'alias': 'root'
+      },
+      'p' : {
+        'type': 'boolean',
+        'description': 'Compiling a partial template',
+        'alias': 'partial'
+      },
+      'd' : {
+        'type': 'boolean',
+        'description': 'Include data when compiling',
+        'alias': 'data'
+      }
+    })
+
+    .check(function(argv) {
+      var template = [0];
+      if (!argv._.length) {
+        throw 'Must define at least one template or directory.';
+      }
+
+      argv._.forEach(function(template) {
+        try {
+          fs.statSync(template);
+        } catch (err) {
+          throw 'Unable to open template file "' + template + '"';
+        }
+      });
+    })
+    .check(function(argv) {
+      if (argv.simple && argv.min) {
+        throw 'Unable to minimze simple output';
+      }
+      if (argv.simple && (argv._.length !== 1 || fs.statSync(argv._[0]).isDirectory())) {
+        throw 'Unable to output multiple templates in simple mode';
+      }
+    });
+
+var fs = require('fs'),
+    handlebars = require('../lib/handlebars'),
+    basename = require('path').basename,
+    uglify = require('uglify-js');
+
+var argv = optimist.argv,
+    template = argv._[0];
+
+// Convert the known list into a hash
+var known = {};
+if (argv.known && !Array.isArray(argv.known)) {
+  argv.known = [argv.known];
+}
+if (argv.known) {
+  for (var i = 0, len = argv.known.length; i < len; i++) {
+    known[argv.known[i]] = true;
+  }
+}
+
+var output = [];
+if (!argv.simple) {
+  if (argv.amd) {
+    output.push('define([\'' + argv.handlebarPath + 'handlebars\'], function(Handlebars) {\n');
+  } else if (argv.commonjs) {
+    output.push('var Handlebars = require("' + argv.commonjs + '");');
+  } else {
+    output.push('(function() {\n');
+  }
+  output.push('  var template = Handlebars.template, templates = ');
+  output.push(argv.namespace);
+  output.push(' = ');
+  output.push(argv.namespace);
+  output.push(' || {};\n');
+}
+function processTemplate(template, root) {
+  var path = template,
+      stat = fs.statSync(path);
+  if (stat.isDirectory()) {
+    fs.readdirSync(template).map(function(file) {
+      var path = template + '/' + file;
+
+      if (/\.handlebars$/.test(path) || fs.statSync(path).isDirectory()) {
+        processTemplate(path, root || template);
+      }
+    });
+  } else {
+    var data = fs.readFileSync(path, 'utf8');
+
+    var options = {
+      knownHelpers: known,
+      knownHelpersOnly: argv.o
+    };
+
+    if (argv.data) {
+      options.data = true;
+    }
+
+    // Clean the template name
+    if (!root) {
+      template = basename(template);
+    } else if (template.indexOf(root) === 0) {
+      template = template.substring(root.length+1);
+    }
+    template = template.replace(/\.handlebars$/, '');
+
+    if (argv.simple) {
+      output.push(handlebars.precompile(data, options) + '\n');
+    } else if (argv.partial) {
+      output.push('Handlebars.partials[\'' + template + '\'] = template(' + handlebars.precompile(data, options) + ');\n');
+    } else {
+      output.push('templates[\'' + template + '\'] = template(' + handlebars.precompile(data, options) + ');\n');
+    }
+  }
+}
+
+argv._.forEach(function(template) {
+  processTemplate(template, argv.root);
+});
+
+// Output the content
+if (!argv.simple) {
+  if (argv.amd) {
+    output.push('});');
+  } else if (!argv.commonjs) {
+    output.push('})();');
+  }
+}
+output = output.join('');
+
+if (argv.min) {
+  var ast = uglify.parser.parse(output);
+  ast = uglify.uglify.ast_mangle(ast);
+  ast = uglify.uglify.ast_squeeze(ast);
+  output = uglify.uglify.gen_code(ast);
+}
+
+if (argv.output) {
+  fs.writeFileSync(argv.output, output, 'utf8');
+} else {
+  console.log(output);
+}

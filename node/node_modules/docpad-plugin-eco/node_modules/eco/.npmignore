@@ -1,0 +1,5 @@
+.git*
+Cakefile
+doc/
+test/
+vendor/

@@ -1,0 +1,567 @@
+---
+layout : 'default'
+dynamic: true
+url    : 'menu.html'
+id     : 'menu'
+
+title  : 'Menu'
+type   : 'UI Collection'
+---
+<div class="segment">
+  <div class="container">
+    <h1>Menu</h1>
+    <p>A menu is a ui collection made up of items. These items can be links, dropdowns, menus themselves, badges, or other standard html types.</p>
+    <p>Items containing menus are formatted as sub menus. Menus containing menus are formatted as the same tier as the parent menu.</p>
+  </div>
+</div>
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing link menu">
+      <div class="active item">Collection</div>
+      <div class="item">Elements</div>
+      <div class="item">States</div>
+      <div class="item">Variations</div>
+    </div>
+  </div>
+
+  <h2>Collection</h2>
+  <div class="example">
+    <h4>Menu</h4>
+
+    <p>This example uses several menu elements to display the versatility of a menu collection.</p>
+    <div class="ui menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="item">
+        <a>Section 1</a>
+      </div>
+      <div class="item">
+        <a>
+          <div class="badge">2</div>
+          <i class="icon mail"></i>
+        </a>
+      </div>
+      <div class="right menu">
+        <div class="fitted borderless item">
+            <input class="ui input" type="text" placeholder="Search...">
+        </div>
+        <div class="dropdown item">
+          Dropdown <i class="icon down-dir"></i>
+          <div class="menu">
+            <div class="item">Choice 1</div>
+            <div class="item">Choice 2</div>
+            <div class="item">Choice 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Vertical Menu</h4>
+    <p>This example uses several menu elements, an unclickable block, a clickable text link, a clickable icon link, and a dropdown group</p>
+    <div class="ui ignore warning block"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
+    <div class="ui vertical menu">
+      <div class="item">
+        <b>Site Title</b>
+      </div>
+      <div class="item">
+        <p>This is a paragraph of expository text</p>
+      </div>
+      <div class="item">
+        <a>Grouped Section</a>
+        <div class="menu">
+          <a class="active item">Current Section</a>
+          <a class="item">Subsection 2</a>
+          <a class="item">Subsection 3</a>
+        </div>
+      </div>
+      <div class="dropdown item">
+        Dropdown <i class="icon right-dir"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Elements</h2>
+
+  <div class="example">
+    <h4>Text Item</h4>
+    <p>A menu may have a simple text item</p>
+    <div class="ui vertical menu">
+      <div class="item">
+        Text Item
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4>Link Item</h4>
+    <p>A menu may have either a real page link or an item that behaves as a link.</p>
+    <div class="ui vertical menu">
+      <a href="http://www.google.com" class="item">
+        Visit Google
+      </a>
+      <div class="link item">
+        Javascript Link
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Dropdown Item</h4>
+    <p>An item may contain a list of dropdowns to chose from. By default it will appear automatically with css.</p>
+    <div class="ui ignore warning block">
+      <p><i class="icon heart"></i>  A dropdown menu will, by default, automatically show when the parent element is hovered.</p>
+      <p>If you need to programmatically close the dropdown, use the "stateful" variant and the javascript state module, which will allow you to manipulate the state directly.</p>
+    </div>
+    <div class="ui vertical menu">
+      <div class="dropdown item">
+        Dropdown <i class="icon right-dir"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4>Menu</h4>
+    <p>A menu may contain another menu group inside. This can be useful for formatting multiple menu items with the same qualities.</p>
+    <div class="ui menu">
+      <div class="item">Left item 1</div>
+      <div class="item">Left item 2</div>
+      <div class="right menu">
+        <div class="item">Right item 1</div>
+        <div class="item">Right item 2</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Nested Menu</h4>
+    <p>A menu may contain another menu nested inside an item that acts as a grouped sub-menu. This is only available when using a vertical menu.</p>
+    <div class="ui vertical menu">
+      <div class="item">
+        <a>Grouped Section</a>
+        <div class="menu">
+          <a class="item">Subsection 1</a>
+          <a class="item">Subsection 1</a>
+          <a class="item">Subsection 1</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>States</h2>
+
+  <div class="example">
+    <h4>Hover</h4>
+    <p>A menu item can be hovered</p>
+    <div class="ui ignore warning block"><i class="icon heart"></i> Menu items are only hoverable if they are links, defined with the variant "link", or are given the class name hover programmatically.</div>
+    <div class="ui compact menu">
+      <div class="hover item">
+        Link
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4>Down</h4>
+    <p>A menu item can be pressed in</p>
+    <div class="ui compact menu">
+      <div class="down item">
+        Link
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Active</h4>
+    <p>A menu item can be active in</p>
+    <div class="ui compact menu">
+      <div class="active item">
+        Link
+      </div>
+    </div>
+  </div>
+
+
+  <h2>Variations</h2>
+
+  <h3>Menu</h3>
+  <div class="example">
+    <h4>Contrasting</h4>
+    <p>A menu may have its colors inverted to show greater contrast</p>
+    <div class="ui contrasting menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="right menu">
+        <div class="dropdown item">
+          Dropdown <i class="icon down-dir"></i>
+          <div class="menu">
+            <div class="item">Choice 1</div>
+            <div class="item">Choice 2</div>
+            <div class="item">Choice 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Colors</h4>
+    <p>Additional colors can be specified</p>
+    <div class="ui grey compact menu">
+      <a class="item">
+        Green 1
+      </a>
+      <a class="item">
+        Green 2
+      </a>
+    </div>
+    <div class="ui green contrasting compact menu">
+      <a class="item">
+        Green 1
+      </a>
+      <a class="item">
+        Green 2
+      </a>
+    </div>
+    <div class="ui red contrasting compact menu">
+      <a class="item">
+        Red 1
+      </a>
+      <a class="item">
+        Red 2
+      </a>
+    </div>
+    <div class="ui blue contrasting compact menu">
+      <a class="item">
+        Blue 1
+      </a>
+      <a class="item">
+        Blue 2
+      </a>
+    </div>
+    <br><br>
+    <div class="ui purple contrasting compact menu">
+      <a class="item">
+        Purple 1
+      </a>
+      <a class="item">
+        Purple 2
+      </a>
+    </div>
+    <div class="ui orange contrasting compact menu">
+      <a class="item">
+        Orange 1
+      </a>
+      <a class="item">
+        Orange 2
+      </a>
+    </div>
+    <div class="ui teal contrasting compact menu">
+      <a class="item">
+        Teal 1
+      </a>
+      <a class="item">
+        Teal 2
+      </a>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Icons</h4>
+    <p>A menu may have just icons</p>
+    <div class="ui icon link menu">
+      <div class="item">
+        <i class="icon mail"></i>
+      </div>
+      <div class="item">
+        <i class="icon th-list"></i>
+      </div>
+      <div class="item">
+        <i class="icon star"></i>
+      </div>
+    </div>
+    <br><br>
+    <div class="ui vertical icon link menu">
+      <div class="item">
+        <i class="icon mail"></i>
+      </div>
+      <div class="item">
+        <i class="icon th-list"></i>
+      </div>
+      <div class="item">
+        <i class="icon star"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Icons</h4>
+    <p>A menu may have labeled icons</p>
+    <div class="ui labeled icon link menu">
+      <div class="item">
+        <i class="icon mail"></i>
+        Mail
+      </div>
+      <div class="item">
+        <i class="icon th-list"></i>
+        Directory
+      </div>
+      <div class="item">
+        <i class="icon star"></i>
+        Favorites
+      </div>
+    </div>
+    <br><br>
+    <div class="ui vertical red contrasting labeled icon link menu">
+      <div class="item">
+        <i class="icon mail"></i>
+        Mail
+      </div>
+      <div class="item">
+        <i class="icon th-list"></i>
+        Directory
+      </div>
+      <div class="item">
+        <i class="icon star"></i>
+        Favorites
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4>Fluid</h4>
+    <p>A menu may take the size of its container, and be divided evenly.</p>
+    <div class="ui three fluid menu">
+      <div class="item">Choice 1</div>
+      <div class="item">Choice 2</div>
+      <div class="item">Choice 3</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Pointing (Horizontal)</h4>
+    <p>A menu can point to content below itself to show ownership</p>
+    <div class="ui pointing menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="right menu">
+        <div class="dropdown item">
+          Dropdown <i class="icon down-dir"></i>
+          <div class="menu">
+            <div class="item">Choice 1</div>
+            <div class="item">Choice 2</div>
+            <div class="item">Choice 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Pointing (Horizontal)</h4>
+    <p>A vertical menu can point to content adjacent to itself to show ownership</p>
+    <div class="ui pointing vertical menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="item">
+        <a>Current section</a>
+      </div>
+      <div class="item">
+        <a>Grouped Section</a>
+        <div class="menu">
+          <a class="item">Subsection 1</a>
+          <a class="active item">Subsection 1</a>
+          <a class="item">Subsection 1</a>
+        </div>
+      </div>
+      <div class="dropdown item">
+        Dropdown <i class="icon right-dir"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4>Attached</h4>
+    <p>A menu may be attached to other content segments</p>
+    <div class="ui top attached pointing menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="right menu">
+        <div class="dropdown item">
+          Dropdown <i class="icon down-dir"></i>
+          <div class="menu">
+            <div class="item">Choice 1</div>
+            <div class="item">Choice 2</div>
+            <div class="item">Choice 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui bottom attached segment">
+      There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Horizontal Sizes</h4>
+    <p>A horizontal menu can vary in size</p>
+    <div class="ui large menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="item">
+        <a>Another section</a>
+      </div>
+    </div>
+    <br><br>
+    <div class="ui small menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="dropdown item">
+        Dropdown <i class="icon down-dir"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4>Vertical Sizes</h4>
+    <p>A vertical menu can vary in size</p>
+    <div class="ui large vertical menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="item">
+        <a>Grouped Section</a>
+        <div class="menu">
+          <a class="item">Subsection 1</a>
+          <a class="item">Subsection 1</a>
+          <a class="item">Subsection 1</a>
+        </div>
+      </div>
+      <div class="dropdown item">
+        Dropdown <i class="icon right-dir"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="ui small vertical menu">
+      <div class="item">
+        Site Title
+      </div>
+      <div class="active item">
+        <a>Current section</a>
+      </div>
+      <div class="item">
+        <a>Grouped Section</a>
+        <div class="menu">
+          <a class="item">Subsection 1</a>
+          <a class="item">Subsection 1</a>
+          <a class="item">Subsection 1</a>
+        </div>
+      </div>
+      <div class="dropdown item">
+        Dropdown <i class="icon right-dir"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Items</h3>
+
+  <div class="example">
+    <h4>Fitted</h4>
+    <p>A menu item or menu might be fitted to remove element padding</p>
+    <div class="ui menu">
+      <div class="fitted item">
+        No vertical padding
+      </div>
+      <div class="tight item">
+        No padding at all
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4>Borderless</h4>
+    <p>A menu item or menu might might have no dividers</p>
+    <div class="ui borderless menu">
+      <div class="item">
+        <i class="icon left-open"></i> Previous
+      </div>
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">
+        <i class="icon right-open"></i> Next
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</body>
+
+</html>

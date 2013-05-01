@@ -1,0 +1,1 @@
+Version: <%= grunt.version %>, today: <%= grunt.template.today("yyyy-mm-dd") %>.

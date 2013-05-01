@@ -1,0 +1,40 @@
+{
+  "name": "eyes",
+  "description": "a customizable value inspector",
+  "url": "http://github.com/cloudhead/eyes.js",
+  "keywords": [
+    "inspector",
+    "debug",
+    "inspect",
+    "print"
+  ],
+  "author": {
+    "name": "Alexis Sellier",
+    "email": "self@cloudhead.net"
+  },
+  "contributors": [
+    {
+      "name": "Charlie Robbins",
+      "email": "charlie@nodejitsu.com"
+    }
+  ],
+  "licenses": [
+    "MIT"
+  ],
+  "main": "./lib/eyes",
+  "version": "0.1.8",
+  "scripts": {
+    "test": "node test/*-test.js"
+  },
+  "directories": {
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": "> 0.1.90"
+  },
+  "readme": "eyes\n====\n\na customizable value inspector for Node.js\n\nsynopsis\n--------\n\nI was tired of looking at cluttered output in the console -- something needed to be done,\n`sys.inspect()` didn't display regexps correctly, and was too verbose, and I had an hour or two to spare. \nSo I decided to have some fun. _eyes_ were born.\n\n![eyes-ss](http://dl.dropbox.com/u/251849/eyes-js-ss.gif)\n\n_example of the output of a user-customized eyes.js inspector_\n\n*eyes* also deals with circular objects in an intelligent way, and can pretty-print object literals.\n\nusage\n-----\n\n    var inspect = require('eyes').inspector({styles: {all: 'magenta'}});\n\n    inspect(something); // inspect with the settings passed to `inspector`\n\nor\n\n    var eyes = require('eyes');\n\n    eyes.inspect(something); // inspect with the default settings\n\nyou can pass a _label_ to `inspect()`, to keep track of your inspections:\n\n    eyes.inspect(something, \"a random value\");\n\nIf you want to return the output of eyes without printing it, you can set it up this way:\n\n    var inspect = require('eyes').inspector({ stream: null });\n\n    sys.puts(inspect({ something: 42 }));\n\ncustomization\n-------------\n\nThese are the default styles and settings used by _eyes_.\n\n    styles: {                 // Styles applied to stdout\n        all:     'cyan',      // Overall style applied to everything\n        label:   'underline', // Inspection labels, like 'array' in `array: [1, 2, 3]`\n        other:   'inverted',  // Objects which don't have a literal representation, such as functions\n        key:     'bold',      // The keys in object literals, like 'a' in `{a: 1}`\n        special: 'grey',      // null, undefined...\n        string:  'green',\n        number:  'magenta',\n        bool:    'blue',      // true false\n        regexp:  'green',     // /\\d+/\n    },\n    \n    pretty: true,             // Indent object literals\n    hideFunctions: false,     // Don't output functions at all\n    stream: process.stdout,   // Stream to write to, or null\n    maxLength: 2048           // Truncate output if longer\n\nYou can overwrite them with your own, by passing a similar object to `inspector()` or `inspect()`.\n\n    var inspect = require('eyes').inspector({\n        styles: {\n            all: 'magenta',\n            special: 'bold'\n        },\n        maxLength: 512\n    });\n\n",
+  "readmeFilename": "README.md",
+  "_id": "eyes@0.1.8",
+  "_from": "eyes@0.1.x"
+}

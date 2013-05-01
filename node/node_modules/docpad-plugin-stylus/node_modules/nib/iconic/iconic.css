@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'IconicStroke';
+    src: url("iconic_stroke.eot");
+    src: local('IconicStroke'),
+       url("iconic_stroke.svg#iconic") format('svg'),
+	   url("iconic_stroke.otf") format('opentype');
+}
+
+.iconic {
+	color:inherit;
+	font-family: "IconicStroke";
+}
+
+a.iconic:hover {
+	color:inherit;
+}
+
+.iconic.home:before { content: '!'; }
+.iconic.at:before { content: "@"; }
+.iconic.quote:before { content: '"'; }
+.iconic.quote-alt:before { content: "'"; }
+.iconic.arrow-up:before { content: "3"; }
+.iconic.arrow-right:before { content: "4"; }
+.iconic.arrow-bottom:before { content: "5"; }
+.iconic.arrow-left:before { content: "6"; }
+.iconic.arrow-up-alt:before { content: "#"; }
+.iconic.arrow-right-alt:before { content: "$"; }
+.iconic.arrow-bottom-alt:before { content: "%"; }
+.iconic.arrow-left-alt:before { content: "^"; }
+.iconic.move:before { content: "9"; }
+.iconic.move-vertical:before { content: "8"; }
+.iconic.move-horizontal:before { content: "7"; }
+.iconic.move-alt:before { content: "("; }
+.iconic.move-vertical-alt:before { content: "*"; }
+.iconic.move-horizontal-alt:before { content: "&"; }
+.iconic.cursor:before { content: ")"; }
+.iconic.plus:before { content: "+"; }
+.iconic.plus-alt:before { content: "="; }
+.iconic.minus:before { content: "-"; }
+.iconic.minus-alt:before { content: "_"; }
+.iconic.new-window:before { content: "1"; }
+.iconic.dial:before { content: "2"; }
+.iconic.lightbulb:before { content: "0"; }
+.iconic.link:before { content: "/"; }
+.iconic.image:before { content: "?"; }
+.iconic.article:before { content: ">"; }
+.iconic.read-more:before { content: "."; }
+.iconic.headphones:before { content: ","; }
+.iconic.equalizer:before { content: "<"; }
+.iconic.fullscreen:before { content: ":"; }
+.iconic.exit-fullscreen:before { content: ";"; }
+.iconic.spin:before { content: "["; }
+.iconic.spin-alt:before { content: "{"; }
+.iconic.moon:before { content: "]"; }
+.iconic.sun:before { content: "}"; }
+.iconic.map-pin:before { content: "\\"; }
+.iconic.pin:before { content: "|"; }
+.iconic.eyedropper:before { content: "~"; }
+.iconic.denied:before { content: "`"; }
+.iconic.calendar:before { content: "a"; }
+.iconic.calendar-alt:before { content: "A"; }
+.iconic.bolt:before { content: "b"; }
+.iconic.clock:before { content: "c"; }
+.iconic.document:before { content: "d"; }
+.iconic.book:before { content: "e"; }
+.iconic.book-alt:before { content: "E"; }
+.iconic.magnifying-glass:before { content: "f"; }
+.iconic.tag:before { content: "g"; }
+.iconic.heart:before { content: "h"; }
+.iconic.info:before { content: "i"; }
+.iconic.chat:before { content: "j"; }
+.iconic.chat-alt:before { content: "J"; }
+.iconic.key:before { content: "k"; }
+.iconic.unlocked:before { content: "l"; }
+.iconic.locked:before { content: "L"; }
+.iconic.mail:before { content: "m"; }
+.iconic.mail-alt:before { content: "M"; }
+.iconic.phone:before { content: "n"; }
+.iconic.box:before { content: "o"; }
+.iconic.pencil:before { content: "p"; }
+.iconic.pencil-alt:before { content: "P"; }
+.iconic.comment:before { content: "q"; }
+.iconic.comment-alt:before { content: "Q"; }
+.iconic.rss:before { content: "r"; }
+.iconic.star:before { content: "s"; }
+.iconic.trash:before { content: "t"; }
+.iconic.user:before { content: "u"; }
+.iconic.volume:before { content: "v"; }
+.iconic.mute:before { content: "V"; }
+.iconic.cog:before { content: "w"; }
+.iconic.cog-alt:before { content: "W"; }
+.iconic.x:before { content: "x"; }
+.iconic.x-alt:before { content: "X"; }
+.iconic.check:before { content: "y"; }
+.iconic.check-alt:before { content: "Y"; }
+.iconic.beaker:before { content: "z"; }
+.iconic.beaker-alt:before { content: "Z"; }

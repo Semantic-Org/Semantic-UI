@@ -1,0 +1,301 @@
+line 663: unknown command: .str.split.
+line 664: unknown command: .map.join.
+line 665: unknown command:  sys:139"
+Statistical profiling result from v8.log, (3681 ticks, 563 unaccounted, 0 excluded).
+
+ [Unknown]:
+   ticks  total  nonlib   name
+    563   15.3%
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    545   14.8%   14.8%  Function: timeLibXmlJs.testLXJS.timeExecutions.testIterations /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:48
+    225    6.1%    6.1%  Function: Parser$parseTags /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:205
+    110    3.0%    3.0%  Function: Parser$parseChunk /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:88
+     91    2.5%    2.5%  LazyCompile: test native regexp.js:264
+     81    2.2%    2.2%  Stub: RegExpExecStub
+     73    2.0%    2.0%  LazyCompile: exec native regexp.js:186
+     66    1.8%    1.8%  Stub: SubString
+     66    1.8%    1.8%  LazyCompile: BuildResultFromMatchInfo native regexp.js:151
+     54    1.5%    1.5%  RegExp: ^\\s*(\\/?)\\s*([^\\s\\/]+)
+     52    1.4%    1.4%  LazyCompile: substring native string.js:707
+     50    1.4%    1.4%  LazyCompile: split native string.js:587
+     46    1.2%    1.2%  Stub: CEntry
+     44    1.2%    1.2%  Function: DefaultHandler$writeTag /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:465
+     42    1.1%    1.1%  Stub: Compare {1}
+     38    1.0%    1.0%  LazyCompile: slice native string.js:552
+     31    0.8%    0.8%  LazyCompile: indexOf native string.js:109
+     29    0.8%    0.8%  RegExp: [\\<\\>]
+     29    0.8%    0.8%  LazyCompile: SubString native string.js:214
+     29    0.8%    0.8%  Function: DefaultHandler$handleElement /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:499
+     28    0.8%    0.8%  Function: Parser$parseTagName /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:194
+     26    0.7%    0.7%  Stub: Compare {2}
+     26    0.7%    0.7%  Function: DefaultHandler$writeText /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:468
+     20    0.5%    0.5%  KeyedLoadIC: A keyed load IC from the snapshot
+     20    0.5%    0.5%  Function: Parser$writeHandler /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:384
+     19    0.5%    0.5%  LazyCompile: STRING_ADD_LEFT native runtime.js:175
+     19    0.5%    0.5%  Function: Parser$parseAttribs /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:165
+     17    0.5%    0.5%  LazyCompile: EQUALS native runtime.js:54
+     16    0.4%    0.4%  Stub: ToBoolean
+     16    0.4%    0.4%  RegExp: ^\\s*(\\/?)\\s*([^\\s\\/]+) {1}
+     15    0.4%    0.4%  RegExp: (^\\s+|\\s+$) {1}
+     14    0.4%    0.4%  RegExp: (^\\s+|\\s+$)
+     13    0.4%    0.4%  LazyCompile: StringReplaceRegExp native string.js:278
+     12    0.3%    0.3%  LazyCompile: replace native string.js:236
+     12    0.3%    0.3%  LazyCompile: charAt native string.js:64
+     12    0.3%    0.3%  KeyedStoreIC: A keyed store IC from the snapshot
+     10    0.3%    0.3%  RegExp: \\s
+      9    0.2%    0.2%  Stub: StringAdd
+      9    0.2%    0.2%  Stub: FastCloneShallowArray
+      9    0.2%    0.2%  Function: DefaultHandler$_tagStack$last /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:456
+      8    0.2%    0.2%  RegExp: \\s {1}
+      7    0.2%    0.2%  Stub: Compare {3}
+      7    0.2%    0.2%  LazyCompile: splitMatch native string.js:696
+      4    0.1%    0.1%  Stub: Compare
+      4    0.1%    0.1%  LazyCompile: DoRegExpExec native regexp.js:117
+      3    0.1%    0.1%  Builtin: A builtin from the snapshot
+      2    0.1%    0.1%  Stub: GenericBinaryOpStub_ADD_Alloc_RegArgs_UnknownType_Default
+      1    0.0%    0.0%  Stub: ArgumentsAccess
+      1    0.0%    0.0%  RegExp: ([^=<>\\ {1}
+      1    0.0%    0.0%  RegExp: ([^=<>\\
+      1    0.0%    0.0%  Function: DefaultHandler /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:415
+
+ [C++]:
+   ticks  total  nonlib   name
+    214    5.8%    5.8%  _libinfoDSmig_Query_async
+     74    2.0%    2.0%  v8::internal::String::ReadBlock
+     63    1.7%    1.7%  v8::internal::JSObject::LocalLookupRealNamedProperty
+     61    1.7%    1.7%  v8::internal::CallIC::UpdateCaches
+     55    1.5%    1.5%  v8::internal::CallIC::LoadFunction
+     53    1.4%    1.4%  v8::internal::Object::GetProperty
+     53    1.4%    1.4%  v8::String::WriteUtf8
+     52    1.4%    1.4%  v8::internal::CallIC_Miss
+     46    1.2%    1.2%  v8::internal::JSObject::LocalLookup
+     36    1.0%    1.0%  v8::internal::JSObject::LookupInDescriptor
+     31    0.8%    0.8%  v8::internal::JSObject::Lookup
+     26    0.7%    0.7%  v8::internal::Object::Lookup
+     26    0.7%    0.7%  ___vfprintf
+     25    0.7%    0.7%  v8::internal::String::Utf8Length
+     25    0.7%    0.7%  v8::internal::Heap::AllocateRawFixedArray
+     23    0.6%    0.6%  v8::internal::Heap::CopyJSObject
+     23    0.6%    0.6%  __mh_dylib_header
+     22    0.6%    0.6%  v8::internal::SharedStoreIC_ExtendStorage
+     22    0.6%    0.6%  v8::internal::SetElement
+     22    0.6%    0.6%  v8::internal::Runtime_CreateObjectLiteralShallow
+     22    0.6%    0.6%  v8::internal::HashTable<v8::internal::StringDictionaryShape, v8::internal::String*>::FindEntry
+     21    0.6%    0.6%  v8::internal::Runtime::StringMatch
+     20    0.5%    0.5%  v8::internal::JSObject::SetFastElement
+     19    0.5%    0.5%  v8::internal::IC::StateFrom
+     19    0.5%    0.5%  v8::internal::Heap::AllocateSubString
+     19    0.5%    0.5%  v8::internal::Heap::AllocateRawTwoByteString
+     19    0.5%    0.5%  _asprintf
+     18    0.5%    0.5%  v8::internal::Runtime_StringReplaceRegExpWithString
+     18    0.5%    0.5%  v8::internal::Object::GetPrototype
+     18    0.5%    0.5%  v8::internal::DescriptorArray::BinarySearch
+     17    0.5%    0.5%  v8::internal::Runtime::SetObjectProperty
+     16    0.4%    0.4%  v8::internal::String::SlowEquals
+     15    0.4%    0.4%  v8::internal::AllocateFixedArrayWithFiller
+     14    0.4%    0.4%  v8::internal::LookupForRead
+     14    0.4%    0.4%  v8::internal::Heap::AllocateRawAsciiString
+     13    0.4%    0.4%  v8::internal::Runtime_StringIndexOf
+     12    0.3%    0.3%  v8::internal::JSObject::SetFastElements
+     11    0.3%    0.3%  v8::internal::Runtime_SubString
+     11    0.3%    0.3%  v8::internal::Runtime_StringEquals
+     11    0.3%    0.3%  v8::internal::Heap::AllocateFixedArray
+     10    0.3%    0.3%  v8::internal::RegExpImpl::IrregexpExecOnce
+     10    0.3%    0.3%  _szone_calloc
+     10    0.3%    0.3%  _nanosleep$UNIX2003
+     10    0.3%    0.3%  _mach_init_doit
+      9    0.2%    0.2%  v8::internal::TwoCharHashTableKey::IsMatch
+      9    0.2%    0.2%  v8::internal::JSObject::GetNormalizedProperty
+      9    0.2%    0.2%  _bootstrap_look_up
+      8    0.2%    0.2%  v8::internal::String::ComputeAndSetHash
+      8    0.2%    0.2%  v8::internal::RegExpStack::RegExpStack
+      8    0.2%    0.2%  v8::internal::RegExpImpl::IrregexpPrepare
+      8    0.2%    0.2%  v8::internal::RegExpImpl::IrregexpExec
+      8    0.2%    0.2%  v8::internal::JSObject::SetElementWithoutInterceptor
+      7    0.2%    0.2%  v8::internal::String::WriteToFlat<unsigned short>
+      7    0.2%    0.2%  v8::internal::SimpleIndexOf<char, unsigned short>
+      7    0.2%    0.2%  v8::internal::ScavengeVisitor::VisitPointers
+      7    0.2%    0.2%  v8::internal::HashTable<v8::internal::SymbolTableShape, v8::internal::HashTableKey*>::FindEntry
+      6    0.2%    0.2%  v8::internal::ArrayPrototypeHasNoElements
+      5    0.1%    0.1%  v8::internal::SymbolTable::LookupTwoCharsSymbolIfExists
+      5    0.1%    0.1%  v8::internal::Runtime_SetProperty
+      5    0.1%    0.1%  v8::internal::Runtime_KeyedGetProperty
+      5    0.1%    0.1%  v8::internal::Runtime::GetObjectProperty
+      5    0.1%    0.1%  v8::internal::NativeRegExpMacroAssembler::Match
+      5    0.1%    0.1%  v8::internal::JumpTarget::ComputeEntryFrame
+      5    0.1%    0.1%  v8::internal::Heap::AllocateConsString
+      5    0.1%    0.1%  v8::internal::Builtin_ArrayShift
+      5    0.1%    0.1%  v8::internal::Builtin_ArrayPush
+      5    0.1%    0.1%  _small_malloc_from_region_no_lock
+      4    0.1%    0.1%  v8::internal::String::WriteToFlat<char>
+      4    0.1%    0.1%  v8::internal::String::SubString
+      4    0.1%    0.1%  v8::internal::NativeRegExpMacroAssembler::StringCharacterPosition
+      4    0.1%    0.1%  v8::internal::LeftTrimFixedArray
+      4    0.1%    0.1%  v8::internal::JSObject::SetElement
+      4    0.1%    0.1%  v8::internal::Heap::AllocateFixedArrayWithHoles
+      3    0.1%    0.1%  v8::internal::String::ToUC16Vector
+      3    0.1%    0.1%  v8::internal::RegExpImpl::Exec
+      3    0.1%    0.1%  v8::internal::NativeRegExpMacroAssembler::Execute
+      3    0.1%    0.1%  v8::internal::JumpTarget::DoBind
+      3    0.1%    0.1%  v8::internal::HeapObject::IterateBody
+      3    0.1%    0.1%  v8::internal::Heap::DoScavenge
+      3    0.1%    0.1%  v8::internal::AssignedVariablesAnalyzer::ProcessExpression
+      3    0.1%    0.1%  _select$NOCANCEL$UNIX2003
+      3    0.1%    0.1%  _mach_init
+      2    0.1%    0.1%  v8::internal::VirtualFrame::PrepareMergeTo
+      2    0.1%    0.1%  v8::internal::StringHasher::GetHashField
+      2    0.1%    0.1%  v8::internal::String::ToAsciiVector
+      2    0.1%    0.1%  v8::internal::Scanner::ScanJavaScript
+      2    0.1%    0.1%  v8::internal::Result::Result
+      2    0.1%    0.1%  v8::internal::RegExpStack::~RegExpStack
+      2    0.1%    0.1%  v8::internal::HeapObject::SlowSizeFromMap
+      2    0.1%    0.1%  v8::internal::Heap::ScavengeObjectSlow
+      2    0.1%    0.1%  v8::internal::Context::global_context
+      2    0.1%    0.1%  v8::internal::CharacterStreamUTF16Buffer::Advance
+      2    0.1%    0.1%  v8::internal::AstVisitor::CheckStackOverflow
+      2    0.1%    0.1%  v8::internal::AstOptimizer::VisitVariableProxy
+      2    0.1%    0.1%  unibrow::Utf8::ReadBlock
+      2    0.1%    0.1%  _mach_reply_port
+      2    0.1%    0.1%  __keymgr_get_and_lock_processwide_ptr_2
+      1    0.0%    0.0%  v8::internal::Zone::NewExpand
+      1    0.0%    0.0%  v8::internal::VirtualFrame::Pop
+      1    0.0%    0.0%  v8::internal::TypeInfo::TypeFromValue
+      1    0.0%    0.0%  v8::internal::SweepNewSpace
+      1    0.0%    0.0%  v8::internal::String::ToCString
+      1    0.0%    0.0%  v8::internal::String::IsEqualTo
+      1    0.0%    0.0%  v8::internal::String::ComputeHashField
+      1    0.0%    0.0%  v8::internal::Slot::AsSlot
+      1    0.0%    0.0%  v8::internal::SetProperty
+      1    0.0%    0.0%  v8::internal::ScopeInfo<v8::internal::ZoneListAllocationPolicy>::ScopeInfo
+      1    0.0%    0.0%  v8::internal::Scope::Scope
+      1    0.0%    0.0%  v8::internal::ScavengeVisitor::VisitPointer
+      1    0.0%    0.0%  v8::internal::Scanner::ScanIdentifier
+      1    0.0%    0.0%  v8::internal::Runtime::GetElementOrCharAt
+      1    0.0%    0.0%  v8::internal::RelocIterator::next
+      1    0.0%    0.0%  v8::internal::Parser::ParseUnaryExpression
+      1    0.0%    0.0%  v8::internal::Parser::ParseStatement
+      1    0.0%    0.0%  v8::internal::OldSpace::SlowAllocateRaw
+      1    0.0%    0.0%  v8::internal::MarkingVisitor::VisitPointer
+      1    0.0%    0.0%  v8::internal::Literal::IsPropertyName
+      1    0.0%    0.0%  v8::internal::KeyedLookupCache::Lookup
+      1    0.0%    0.0%  v8::internal::JumpTarget::DoBranch
+      1    0.0%    0.0%  v8::internal::JumpTarget::Branch
+      1    0.0%    0.0%  v8::internal::HeapObject::Iterate
+      1    0.0%    0.0%  v8::internal::Heap::UpdateRSet
+      1    0.0%    0.0%  v8::internal::Heap::CreateFillerObjectAt
+      1    0.0%    0.0%  v8::internal::Heap::AllocateUninitializedFixedArray
+      1    0.0%    0.0%  v8::internal::Heap::AllocateStringFromUtf8
+      1    0.0%    0.0%  v8::internal::Heap::AllocateStringFromAscii
+      1    0.0%    0.0%  v8::internal::HashTable<v8::internal::StringDictionaryShape, v8::internal::String*>::EnsureCapacity
+      1    0.0%    0.0%  v8::internal::HashMap::HashMap
+      1    0.0%    0.0%  v8::internal::FreeListNode::set_size
+      1    0.0%    0.0%  v8::internal::FixedArray::CopySize
+      1    0.0%    0.0%  v8::internal::Deserializer::GetAddressFromStart
+      1    0.0%    0.0%  v8::internal::DescriptorArray::LinearSearch
+      1    0.0%    0.0%  v8::internal::ContextSlotCache::Lookup
+      1    0.0%    0.0%  v8::internal::CodeGenerator::VisitObjectLiteral
+      1    0.0%    0.0%  v8::internal::CodeGenerator::VisitAssignment
+      1    0.0%    0.0%  v8::internal::AstOptimizer::VisitCompareOperation
+      1    0.0%    0.0%  v8::internal::Assembler::push
+      1    0.0%    0.0%  v8::internal::Assembler::j
+      1    0.0%    0.0%  v8::Integer::New
+      1    0.0%    0.0%  node::Socket
+      1    0.0%    0.0%  node::DLOpen
+      1    0.0%    0.0%  _tiny_malloc_from_free_list
+      1    0.0%    0.0%  _szone_free
+      1    0.0%    0.0%  _small_free_list_remove_ptr
+      1    0.0%    0.0%  _sha1_block_data_order
+      1    0.0%    0.0%  _pthread_mutex_unlock
+      1    0.0%    0.0%  _memset_pattern4
+      1    0.0%    0.0%  _memset_pattern16
+      1    0.0%    0.0%  _mach_port_allocate
+      1    0.0%    0.0%  _mach_msg_trap
+      1    0.0%    0.0%  _localeconv_l
+      1    0.0%    0.0%  _libSystem_initializer
+      1    0.0%    0.0%  _getsectbynamefromheader
+      1    0.0%    0.0%  _get_or_create_key_element
+      1    0.0%    0.0%  _expl
+      1    0.0%    0.0%  __nc_table_insert_n
+      1    0.0%    0.0%  ___sfvwrite
+      1    0.0%    0.0%  __LI_async_send
+
+ [GC]:
+   ticks  total  nonlib   name
+     30    0.8%
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 2.0% are not shown.
+
+   ticks parent  name
+    545   14.8%  Function: timeLibXmlJs.testLXJS.timeExecutions.testIterations /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:48
+    545  100.0%    Function: timeExecutions /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:21
+    545  100.0%      Function: <anonymous> /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:38
+    545  100.0%        LazyCompile: process.EventEmitter.emit events:4
+    545  100.0%          Function: parser.onMessageComplete http:99
+    545  100.0%            Function: Client.self.ondata http:635
+
+    225    6.1%  Function: Parser$parseTags /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:205
+    225  100.0%    Function: Parser$parseChunk /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:88
+    225  100.0%      Function: Parser$parseComplete /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:81
+    225  100.0%        Function: timeNodeHtmlParser.testNHP.timeExecutions.testIterations /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:39
+    225  100.0%          Function: timeExecutions /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:21
+    225  100.0%            Function: <anonymous> /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:38
+
+    214    5.8%  _libinfoDSmig_Query_async
+    214  100.0%    node::Loop
+    214  100.0%      LazyCompile: <anonymous> node.js:1
+
+    110    3.0%  Function: Parser$parseChunk /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:88
+    110  100.0%    Function: Parser$parseComplete /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:81
+    110  100.0%      Function: timeNodeHtmlParser.testNHP.timeExecutions.testIterations /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:39
+    110  100.0%        Function: timeExecutions /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:21
+    110  100.0%          Function: <anonymous> /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:38
+    110  100.0%            LazyCompile: process.EventEmitter.emit events:4
+
+     91    2.5%  LazyCompile: test native regexp.js:264
+     89   97.8%    Function: Parser$parseTags /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:205
+     89  100.0%      Function: Parser$parseChunk /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:88
+     89  100.0%        Function: Parser$parseComplete /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:81
+     89  100.0%          Function: timeNodeHtmlParser.testNHP.timeExecutions.testIterations /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:39
+     89  100.0%            Function: timeExecutions /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:21
+      2    2.2%    Function: Parser$parseChunk /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:88
+      2  100.0%      Function: Parser$parseComplete /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:81
+      2  100.0%        Function: timeNodeHtmlParser.testNHP.timeExecutions.testIterations /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:39
+      2  100.0%          Function: timeExecutions /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:21
+      2  100.0%            Function: <anonymous> /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:38
+
+     81    2.2%  Stub: RegExpExecStub
+     38   46.9%    LazyCompile: test native regexp.js:264
+     38  100.0%      Function: Parser$parseTags /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:205
+     38  100.0%        Function: Parser$parseChunk /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:88
+     38  100.0%          Function: Parser$parseComplete /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:81
+     38  100.0%            Function: timeNodeHtmlParser.testNHP.timeExecutions.testIterations /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:39
+     31   38.3%    LazyCompile: exec native regexp.js:186
+     30   96.8%      Function: Parser$parseTagName /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:194
+     30  100.0%        Function: Parser$parseTags /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:205
+     30  100.0%          Function: Parser$parseChunk /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:88
+     30  100.0%            Function: Parser$parseComplete /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:81
+      1    3.2%      Function: Parser$parseAttribs /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:165
+      1  100.0%        Function: Parser$parseTags /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:205
+      1  100.0%          Function: Parser$parseChunk /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:88
+      1  100.0%            Function: Parser$parseComplete /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:81
+     12   14.8%    LazyCompile: DoRegExpExec native regexp.js:117
+     12  100.0%      LazyCompile: splitMatch native string.js:696
+     12  100.0%        LazyCompile: split native string.js:587
+     12  100.0%          Function: Parser$parseAttribs /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:165
+     12  100.0%            Function: Parser$parseTags /Users/chris/Documents/workspace_3.5/NodeHtmlParser/node-htmlparser.js:205
+
+     74    2.0%  v8::internal::String::ReadBlock
+     74  100.0%    Function: timeLibXmlJs.testLXJS.timeExecutions.testIterations /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:48
+     74  100.0%      Function: timeExecutions /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:21
+     74  100.0%        Function: <anonymous> /Users/chris/Documents/workspace_3.5/NodeHtmlParser/profile.js:38
+     74  100.0%          LazyCompile: process.EventEmitter.emit events:4
+     74  100.0%            Function: parser.onMessageComplete http:99
+

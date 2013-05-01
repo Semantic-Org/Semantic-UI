@@ -1,0 +1,13 @@
+#ignore these files
+*.swp
+*~
+*.lock
+*.DS_Store
+node_modules
+npm-debug.log
+*.out
+*.o
+*.tmp
+
+
+

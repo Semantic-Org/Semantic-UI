@@ -1,0 +1,9 @@
+
+v1.5.0
+	* Added DefaultHandler option "enforceEmptyTags" so that XML can be parsed correctly
+
+v1.4.2
+	* Added tests for parsing XML with namespaces
+
+v1.4.1
+	* Added minified version

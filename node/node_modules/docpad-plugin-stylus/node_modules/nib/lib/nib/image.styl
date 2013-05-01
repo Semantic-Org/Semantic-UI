@@ -1,0 +1,14 @@
+
+/*
+ * Define background-image as `path`
+ * with optional width and height,
+ * adding an @2x variant.
+ */
+
+image(path, w = auto, h = auto)
+  background-image: url(path)
+  @media all and (-webkit-min-device-pixel-ratio: 1.5)
+    ext = extname(path)
+    path = pathjoin(dirname(path), basename(path, ext) + '@2x' + ext)
+    background-image: url(path)
+    background-size: w h

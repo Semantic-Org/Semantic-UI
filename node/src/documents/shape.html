@@ -1,0 +1,206 @@
+---
+layout : 'default'
+dynamic: true
+url    : 'button.html'
+id     : 'button'
+
+title  : 'Shape'
+type   : 'UI Module'
+---
+
+<div class="segment">
+  <div class="container">
+    <h1>Shape</h1>
+    <p>Shape is a plugin for 3D transitioning elements.</p>
+  </div>
+</div>
+<div class="main container">
+    
+  <div class="ui large vertical pointing panel peek">
+    <li class="active">Examples</li>
+    <li>Usage</li>
+    <li>Settings</li>
+  </div>
+  <p>Shapes makes creating 3D tweens easier by taking care of the dirty business of calculating translations based on content sizing, which can be a confusing, frustrating task.</p>
+  <p>The module uses 3D transformations which are currently only supported in modern versions of Chrome, Safari, and Firefox.</p>
+  <p>Shapes is written using the semantic module specification. Semantic is a standard pattern for writing Javascript modules which intends to make understanding new code less confusing, and debugging errors less frustrating, by making coding decisions less arbitrary and more semantic. <a href="module.html">
+    
+  <p>Click here to read more</a> about Semantic spec, and the upcoming library.</p>
+
+  <h2>Examples</h2>
+
+  <h3>Standard</h3>
+  <div class="demo square shape module">
+    <div class="shape">
+      <div class="active jira side">
+        <img src="images/shape/jira.png">
+      </div>
+      <div class="heroku side">
+        <img src="images/shape/heroku.png">
+      </div>
+      <div class="quirky side">
+        <img src="images/shape/quirky.png">
+      </div>
+    </div>
+  </div>
+
+  <h3>Shape</h3>
+  <div class="ui shape buttons">
+    <div class="active ui button" data-shape="square">Square</div>
+    <div class="ui button" data-shape="rectangle">Rectangle</div>
+    <div class="ui button" data-shape="irregular">Irregular</div>
+  </div>
+
+  <h3>Flip</h3>
+  <div class="ui direction buttons">
+    <div class="ui button" data-animation="flip" data-direction="left">Left</div>
+    <div class="ui button" data-animation="flip" data-direction="right">Right</div>
+    <div class="ui button" data-animation="flip" data-direction="up">Up</div>
+    <div class="ui button" data-animation="flip" data-direction="down">Down</div>
+    <div class="ui button" data-animation="flip" data-direction="over">Over</div>
+  </div>
+
+  <h2>Usage</h2>
+
+  <p>The plugin must be initialized once before methods can be accessed</p>
+  <div class="code">$('.shape')
+  .shape()
+;</div>
+
+  <p>Transitions automatically assume next side is the next sibling (or first if last element)</p>
+  <div class="code">$('.shape')
+  .shape('flip.up')
+;</div>
+
+  <p>To manually set the next side to appear use a selector or jQuery object</p>
+  <div class="code">$('.shape')
+  .shape('set.nextSide', '.second')
+  .shape('flip.up')
+;</div>
+
+  <p>Any internal method can be invoked programmatically</p>
+  <div class="code">$('.shape')
+  .shape('repaint')
+;</div>
+
+  <h2>Settings</h2>
+  <h3>Changing Settings</h3> 
+  <ol>
+    <li>A settings object can be passed in when initializing the plugin
+      <br> <div class="code">$('.foo')
+  .shape({ 
+    moduleName: 'Godzilla'
+  })
+;</div>
+    </li>
+    <li>Default settings for the module can be overridden by modifying $.fn.shape.settings.
+      <br><div class="code">$.fn.shape.settings.moduleName = 'Godzilla';</div>
+    </li>
+    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
+      <br><div class="code">$('.foo').shape('setting', 'moduleName', 'Godzilla');</div>
+    </li>
+  </ol>
+  <h3>Reading Settings</h3>
+  <p>Settings can also be read programmatically: <div class="code">$('.foo').shape('setting', 'moduleName');</div>
+  <h3>Defaults</h3>
+  <table class="ui grid settings table">
+    <thead>
+      <th>Setting</th>
+      <th>Default</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>useCSS</td>
+        <td>True</td>
+        <td>Not currently supported. Will allow for use of javascript requestAnimationFrame transitions instead of css3 transitions.</td>
+      </tr>
+      <tr>
+        <td>duration</td>
+        <td>1000ms</td>
+        <td>Duration of animation (javascript only). To modify animation duration for css simply modify the css property transition-duration.</td>
+      </tr>
+      <tr>
+        <td>easing</td>
+        <td>easeInOutQuad</td>
+        <td>Easing equation for animation (javascript only). To modify the easing for css simply modify the css property transition-easing</td>
+      </tr>
+      <tr>
+        <td>selector</td>
+        <td>
+          <div class="code" data-type="css">{
+  shape : '.shape',
+  side  : '.side'
+}</div>
+        </td>
+        <td>Object containing selectors used by module.</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>
+<div class="code">{
+  css       : 'css',
+  animating : 'animating',
+  hidden    : 'hidden',
+  active    : 'active'
+}</div>
+        </td>
+        <td>Object containing class names used by module.</td>
+      </tr>
+      <tr class="emphasis">
+        <td colspan="3">Callbacks</td>
+      </tr>
+      <tr>
+        <td>beforeChange</td>
+        <td>None</td>
+        <td>Callback before side is changed. This context is the new side.</td>
+      </tr>
+      <tr>
+        <td>onChange</td>
+        <td>None</td>
+        <td>Callback after side is changed. This context is new side.</td>
+      </tr>
+      <tr class="emphasis">
+        <td colspan="3">Standard</td>
+      </tr>
+      <tr>
+        <td>moduleName</td>
+        <td>Shape</td>
+        <td>Name used in debug logs</td>
+      </tr>
+      <tr>
+        <td>debug</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>performance</td>
+        <td>False</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>verbose</td>
+        <td>False</td>
+        <td>Provides ancillary debug output to console</td>
+      </tr>
+      <tr>
+        <td>namespace</td>
+        <td>shape</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>errors</td>
+        <td colspan="2">
+            <div class="code">{
+  side   : 'You tried to switch to a side that does not exist.',
+  method : 'The method you called is not defined'
+}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+
+</html>

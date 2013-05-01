@@ -1,0 +1,6 @@
+{
+  "name": "querystring",
+  "description": "Querystring parser / stringifier with nesting support",
+  "keywords": ["querystring", "query", "parser"],
+  "main": "lib/querystring.js"
+}

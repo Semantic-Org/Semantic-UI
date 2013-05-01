@@ -1,0 +1,620 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var fs = require('fs')
+  , stylus = require('../lib/stylus')
+  , basename = require('path').basename
+  , dirname = require('path').dirname
+  , resolve = require('path').resolve
+  , join = require('path').join
+  , isWindows = process.platform === 'win32';
+
+/**
+ * Arguments.
+ */
+
+var args = process.argv.slice(2);
+
+/**
+ * Compare flag.
+ */
+
+var compare = false;
+
+/**
+ * Compress flag.
+ */
+
+var compress = false;
+
+/**
+ * CSS conversion flag.
+ */
+
+var convertCSS = false;
+
+/**
+ * Line numbers flag.
+ */
+
+var linenos = false;
+
+/**
+ * Firebug flag
+ */
+
+var firebug = false;
+
+/**
+ * Files to processes.
+ */
+
+var files = [];
+
+/**
+ * Import paths.
+ */
+
+var paths = [];
+
+/**
+ * Destination directory.
+ */
+
+var dest;
+
+/**
+ * Watcher hash.
+ */
+
+var watchers;
+
+/**
+ * Enable REPL.
+ */
+
+var interactive;
+
+/**
+ * Plugins.
+ */
+
+var plugins = [];
+
+/**
+ * Optional url() function.
+ */
+
+var urlFunction = false;
+
+/**
+ * Include css on import.
+ */
+
+var includeCSS = false;
+
+/**
+ * Set file imports.
+ */
+
+var imports = [];
+
+/**
+ * Usage docs.
+ */
+
+var usage = [
+    ''
+  , '  Usage: stylus [options] [command] [< in [> out]]'
+  , '                [file|dir ...]'
+  , ''
+  , '  Commands:'
+  , ''
+  , '    help [<type>:]<prop> Opens help info at MDC for <prop> in'
+  , '                         your default browser. Optionally'
+  , '                         searches other resources of <type>:'
+  , '                         safari opera w3c ms caniuse quirksmode'
+  , ''
+  , '  Options:'
+  , ''
+  , '    -i, --interactive       Start interactive REPL'
+  , '    -u, --use <path>        Utilize the stylus plugin at <path>'
+  , '    -U, --inline            Utilize image inlining via data uri support'
+  , '    -w, --watch             Watch file(s) for changes and re-compile'
+  , '    -o, --out <dir>         Output to <dir> when passing files'
+  , '    -C, --css <src> [dest]  Convert css input to stylus'
+  , '    -I, --include <path>    Add <path> to lookup paths'
+  , '    -c, --compress          Compress css output'
+  , '    -d, --compare           Display input along with output'
+  , '    -f, --firebug           Emits debug infos in the generated css that'
+  , '                            can be used by the FireStylus Firebug plugin'
+  , '    -l, --line-numbers      Emits comments in the generated css'
+  , '                            indicating the corresponding stylus line'
+  , '    --import <file>         Import stylus <file>'
+  , '    --include-css           Include regular css on @import'
+  , '    -V, --version           Display the version of stylus'
+  , '    -h, --help              Display help information'
+  , ''
+].join('\n');
+
+/**
+ * Handle arguments.
+ */
+
+var arg;
+while (args.length) {
+  arg = args.shift();
+  switch (arg) {
+    case '-h':
+    case '--help':
+      console.error(usage);
+      process.exit(1);
+    case '-d':
+    case '--compare':
+      compare = true;
+      break;
+    case '-c':
+    case '--compress':
+      compress = true;
+      break;
+    case '-C':
+    case '--css':
+      convertCSS = true;
+      break;
+    case '-f':
+    case '--firebug':
+      firebug = true;
+      break;
+    case '-l':
+    case '--line-numbers':
+      linenos = true;
+      break;
+    case '-V':
+    case '--version':
+      console.log(stylus.version);
+      process.exit(0);
+      break;
+    case '-o':
+    case '--out':
+      dest = args.shift();
+      if (!dest) throw new Error('--out <dir> required');
+      break;
+    case 'help':
+      var name = args.shift()
+        , browser = name.split(':');
+      if (browser.length > 1) {
+        name = [].slice.call(browser, 1).join(':');
+        browser = browser[0];
+      } else {
+        name = browser[0];
+        browser = '';
+      }
+      if (!name) throw new Error('help <property> required');
+      help(name);
+      break;
+    case '--include-css':
+      includeCSS = true;
+      break;
+    case '-i':
+    case '--repl':
+    case '--interactive':
+      interactive = true;
+      break;
+    case '-I':
+    case '--include':
+      var path = args.shift();
+      if (!path) throw new Error('--include <path> required');
+      paths.push(path);
+      break;
+    case '-w':
+    case '--watch':
+      watchers = {};
+      break;
+    case '-U':
+    case '--inline':
+      args.unshift('--use', 'url');
+      break;
+    case '-u':
+    case '--use':
+      var options;
+      var path = args.shift();
+      if (!path) throw new Error('--use <path> required');
+
+      // options
+      if ('--with' == args[0]) {
+        args.shift();
+        options = args.shift();
+        if (!options) throw new Error('--with <options> required');
+        options = eval('(' + options + ')');
+      }
+
+      // url support
+      if ('url' == path) {
+        urlFunction = options || {};
+      } else {
+        paths.push(dirname(path));
+        plugins.push({ path: path, options: options });
+      }
+      break;
+    case '--import':
+      var file = args.shift();
+      if (!file) throw new Error('--import <file> required');
+      imports.push(file);
+      break;
+    default:
+      files.push(arg);
+  }
+}
+
+// if --watch is used, assume we are
+// not working with stdio
+
+if (watchers && !files.length) {
+  files = fs.readdirSync(process.cwd())
+    .filter(function(file){
+    return file.match(/\.styl$/);
+  });
+}
+
+/**
+ * Open the default browser to the CSS property `name`.
+ *
+ * @param {String} name
+ */
+
+function help(name) {
+  var url
+    , exec = require('child_process').exec
+    , command;
+
+  name = encodeURIComponent(name);
+
+  switch (browser) {
+    case 'safari':
+    case 'webkit':
+      url = 'https://developer.apple.com/library/safari/search/?q=' + name;
+      break;
+    case 'opera':
+      url = 'http://dev.opera.com/search/?term=' + name;
+      break;
+    case 'w3c':
+      url = 'http://www.google.com/search?q=site%3Awww.w3.org%2FTR+' + name;
+      break;
+    case 'ms':
+      url = 'http://social.msdn.microsoft.com/search/en-US/ie?query=' + name + '&refinement=59%2c61';
+      break;
+    case 'caniuse':
+      url = 'http://caniuse.com/#search=' + name;
+      break;
+    case 'quirksmode':
+      url = 'http://www.google.com/search?q=site%3Awww.quirksmode.org+' + name;
+      break;
+    default:
+      url = 'https://developer.mozilla.org/en/CSS/' + name;
+  }
+
+  switch (process.platform) {
+    case 'linux': command = 'x-www-browser'; break;
+    default: command = 'open';
+  }
+
+  exec(command + ' "' + url + '"', function(){
+    process.exit(0);
+  });
+}
+
+// Compilation options
+
+var options = {
+    filename: 'stdin'
+  , compress: compress
+  , firebug: firebug
+  , linenos: linenos
+  , paths: [process.cwd()].concat(paths)
+};
+
+// Buffer stdin
+
+var str = '';
+
+// Convert css to stylus
+
+if (convertCSS) {
+    switch (files.length) {
+    case 2:
+      compileCSSFile(files[0], files[1]);
+      break;
+    case 1:
+      compileCSSFile(files[0], files[0].replace('.css', '.styl'));
+      break;
+    default:
+      var stdin = process.openStdin();
+      stdin.setEncoding('utf8');
+      stdin.on('data', function(chunk){ str += chunk; });
+      stdin.on('end', function(){
+        var out = stylus.convertCSS(str);
+        console.log(out);
+      });
+  }
+} else if (interactive) {
+  repl();
+} else {
+  if (files.length) {
+    compileFiles(files);
+  } else {
+    compileStdio();
+  }
+}
+
+/**
+ * Start stylus REPL.
+ */
+
+function repl() {
+  var options = { filename: 'stdin', imports: [join(__dirname, '..', 'lib', 'functions')] }
+    , parser = new stylus.Parser('', options)
+    , evaluator = new stylus.Evaluator(parser.parse(), options)
+    , rl = require('readline')
+    , repl = rl.createInterface(process.stdin, process.stdout, autocomplete)
+    , global = evaluator.global.scope;
+
+  // expose BIFs
+  evaluator.evaluate();
+
+  // readline
+  repl.setPrompt('> ');
+  repl.prompt();
+
+  // HACK: flat-list auto-complete
+  function autocomplete(line){
+    var out = process.stdout
+      , keys = Object.keys(global.locals)
+      , len = keys.length
+      , words = line.split(/\s+/)
+      , word = words.pop()
+      , names = []
+      , name
+      , node
+      , key;
+
+    // find words that match
+    for (var i = 0; i < len; ++i) {
+      key = keys[i];
+      if (0 == key.indexOf(word)) {
+        node = global.lookup(key);
+        switch (node.nodeName) {
+          case 'function':
+            names.push(node.toString());
+            break;
+          default:
+            names.push(key);
+        }
+      }
+    }
+
+    return [names, line];
+  };
+
+  repl.on('line', function(line){
+    if (!line.trim().length) return repl.prompt();
+    parser = new stylus.Parser(line, options);
+    parser.state.push('expression');
+    evaluator.return = true;
+    try {
+      var expr = parser.parse();
+      var ret = evaluator.visit(expr);
+      ret = ret.nodes[ret.nodes.length - 1];
+      ret = ret.toString();
+      if ('(' == ret[0]) ret = ret.replace(/^\(|\)$/g, '');
+      console.log('\033[90m=> \033[0m' + highlight(ret));
+      repl.prompt();
+    } catch (err) {
+      console.error('\033[31merror: %s\033[0m', err.message || err.stack);
+      repl.prompt();
+    }
+  });
+
+  repl.on('SIGINT', function(){
+    console.log();
+    process.exit(0);
+  });
+}
+
+/**
+ * Highlight the given string of stylus.
+ */
+
+function highlight(str) {
+  return str
+    .replace(/(#)?(\d+(\.\d+)?)/g, function($0, $1, $2){
+      return $1 ? $0 : '\033[36m' + $2 + '\033[0m';
+    })
+    .replace(/(#[\da-fA-F]+)/g, '\033[33m$1\033[0m')
+    .replace(/('.*?'|".*?")/g, '\033[32m$1\033[0m');
+}
+
+/**
+ * Convert a CSS file to a Styl file
+ */
+
+function compileCSSFile(file, fileOut) {
+  fs.lstat(file, function(err, stat){
+    if (err) throw err;
+    if (stat.isFile()) {
+      fs.readFile(file, 'utf8', function(err, str){
+        if (err) throw err;
+        var styl = stylus.convertCSS(str);
+        fs.writeFile(fileOut, styl, function(err){
+         if (err) throw err;
+        });
+      });
+    }
+  });
+}
+
+/**
+ * Compile with stdio.
+ */
+
+function compileStdio() {
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('data', function(chunk){ str += chunk; });
+  process.stdin.on('end', function(){
+    // Compile to css
+    var style = stylus(str, options);
+    if (includeCSS) style.set('include css', true);
+    usePlugins(style);
+    importFiles(style);
+    style.render(function(err, css){
+      if (err) throw err;
+      if (compare) {
+        console.log('\n\x1b[1mInput:\x1b[0m');
+        console.log(str);
+        console.log('\n\x1b[1mOutput:\x1b[0m');
+      }
+      console.log(css);
+      if (compare) console.log();
+    });
+  }).resume();
+}
+
+/**
+ * Compile the given files.
+ */
+
+function compileFiles(files) {
+  files.forEach(compileFile);
+}
+
+/**
+ * Compile the given file.
+ */
+
+function compileFile(file) {
+  // ensure file exists
+  fs.lstat(file, function(err, stat){
+    if (err) throw err;
+    // file
+    if (stat.isFile()) {
+      fs.readFile(file, 'utf8', function(err, str){
+        if (err) throw err;
+        options.filename = file;
+        options._imports = [];
+        var style = stylus(str, options);
+        if (includeCSS) style.set('include css', true);
+        usePlugins(style);
+        importFiles(style);
+        style.render(function(err, css){
+          watchImports(file, options._imports);
+          if (err) {
+            if (watchers) {
+              console.error(err.stack || err.message);
+            } else {
+              throw err;
+            }
+          } else {
+            writeFile(file, css);
+          }
+        });
+      });
+    // directory
+    } else if (stat.isDirectory()) {
+      fs.readdir(file, function(err, files){
+        if (err) throw err;
+        files.filter(function(path){
+          return path.match(/\.styl$/);
+        }).map(function(path){
+          return join(file, path);
+        }).forEach(compileFile);
+      });
+    }
+  });
+}
+
+/**
+ * Write the given css output.
+ */
+
+function writeFile(file, css) {
+  // --out support
+  var path = dest
+    ? join(dest, basename(file, '.styl') + '.css')
+    : file.replace('.styl', '.css');
+  fs.writeFile(path, css, function(err){
+    if (err) throw err;
+    console.log('  \033[90mcompiled\033[0m %s', path);
+    // --watch support
+    watch(file, compileFile);
+  });
+}
+
+/**
+ * Watch the given `file` and invoke `fn` when modified.
+ */
+
+function watch(file, fn) {
+  // not watching
+  if (!watchers) return;
+
+  // already watched
+  if (watchers[file]) return;
+
+  // watch the file itself
+  watchers[file] = true;
+  console.log('  \033[90mwatching\033[0m %s', file);
+  // if is windows use fs.watch api instead
+  // TODO: remove watchFile when fs.watch() works on osx etc
+  if (isWindows) {
+    fs.watch(file, function(event) {
+      if (event === 'change') fn(file);
+    });
+  } else {
+    fs.watchFile(file, { interval: 300 }, function(curr, prev) {
+      if (curr.mtime > prev.mtime) fn(file);
+    });
+  }
+}
+
+/**
+ * Watch `imports`, re-compiling `file` when they change.
+ */
+
+function watchImports(file, imports) {
+  imports.forEach(function(imported){
+    if (!imported.path) return;
+    watch(imported.path, function(){
+      compileFile(file);
+    });
+  });
+}
+
+/**
+ * Utilize plugins.
+ */
+
+function usePlugins(style) {
+  plugins.forEach(function(plugin){
+    var path = plugin.path;
+    var options = plugin.options;
+    fn = require(/^\.+\//.test(path) ? resolve(path) : path);
+    if ('function' != typeof fn) {
+      throw new Error('plugin ' + path + ' does not export a function');
+    }
+    style.use(fn(options));
+  });
+
+  if (urlFunction) style.define('url', stylus.url(urlFunction));
+}
+
+/**
+ * Imports the indicated files.
+ */
+
+function importFiles(style) {
+  imports.forEach(function(file) {
+    style.import(file);
+  });
+}

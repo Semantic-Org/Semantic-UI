@@ -1,0 +1,10 @@
+.DS_Store
+.gitignore
+.rvmrc
+Gemfile
+Gemfile.lock
+Rakefile
+bench/*
+spec/*
+src/*
+vendor/*

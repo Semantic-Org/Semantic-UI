@@ -1,0 +1,4 @@
+#!/bin/sh
+node --prof --prof_auto profile.js
+~/Documents/src/NodeJS/node-v0.1.91/deps/v8/tools/mac-tick-processor v8.log > profileresults.txt
+
