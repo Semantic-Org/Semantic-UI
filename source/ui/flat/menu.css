@@ -92,6 +92,13 @@
   background-color: rgba(0, 0, 0, 0.02);
   color: rgba(0, 0, 0, 0.9);
 }
+.ui.menu .dropdown.item .menu .item,
+.ui.menu .dropdown.item .menu .item a {
+  color: rgba(0, 0, 0, 0.75);
+}
+.ui.menu .dropdown.item .menu .item a:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
 
 /*--------------
       Items 
@@ -213,7 +220,6 @@
 
   font-size: 0.9em;
   display: block;
-  color: rgba(0, 0, 0, 0.75);
   
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -368,7 +374,6 @@
   background-color: #F0F0F0;
 }
 
-
 /*--- Contrasting ---*/
 .ui.contrasting.menu {
   background-color: #333333;
@@ -389,6 +394,10 @@
 .ui.contrasting.menu .item .item > a:hover {
   background-color: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.9);
+}
+.ui.contrasting.menu .dropdown.item .menu .item,
+.ui.contrasting.menu .dropdown.item .menu .item a {
+  color: rgba(0, 0, 0, 0.75);
 }
 
 /*--- Contrasting Colors  ---*/
@@ -490,7 +499,6 @@
 }
 
 /*--- Pointers ---*/
-
 .ui.contrasting.pointing.menu .item.active:after {
   background-color: #3E3E3E;
   box-shadow: none;
