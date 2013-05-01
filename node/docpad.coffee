@@ -5,7 +5,6 @@ docpadConfig = {
  	outPath: '../docs'
  	
  	enabledPlugins:
-	 	ghpages: false
 	 	handlebars: false
 	 	html2coffee: false
 	 	jade: false
