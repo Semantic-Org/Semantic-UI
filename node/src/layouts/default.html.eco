@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="module.html"><b>UI Modules</b></a>
+      <a href="/module.html"><b>UI Modules</b></a>
       <div class="menu">
         <% for element in uiModules: %>
           <div class="<%= if element.id is @document.id then 'active ' %>item"><a href="<%= element.url %>"><%= element.title %></a></div>
