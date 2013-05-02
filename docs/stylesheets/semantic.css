@@ -160,11 +160,13 @@ a:hover {
 #example #menu {
   display: none;
   width: 275px;
+
+  border-radius: 0px;
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
-  -webkit-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
-  border-right: 1px solid #DDDDDD;
+/*   -webkit-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
+box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
+  border-right: none;
 }
 
 #example .sidr .ui.menu {
@@ -248,6 +250,9 @@ a:hover {
 
 #example .main.container {
   position: relative;
+}
+#example .swap {
+  background: url(http://beta.myfav.es/images/themes/bg/subtle/subtle-handmade-paper.png) repeat;
 }
 #example .peek {
   position: absolute;

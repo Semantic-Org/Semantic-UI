@@ -1,17 +1,18 @@
 {
-  "name"        : "Shape",
-  "version"     : "0.0.1",
-  "description" : "3D animation made easy. A jQuery plugin built with the Semantic module spec.",
+  "name"        : "Semantic UI",
+  "version"     : "0.0.2",
+  "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
 
-  "homepage"    : "https://github.com/quirkyinc/shapeful",
+  "homepage"    : "https://github.com/quirkyinc/semantic",
   "author": {
     "name" : "Jack Lukic",
     "web"  : "http://www.github.com/quirkyjack/"
   },
   "keywords": [
-    "origami",
-    "animation",
-    "css3"
+    "semantic",
+    "ui",
+    "css3",
+    "framework"
   ],
   "license" : [
     "http://bartaz.mit-license.org/", 
@@ -19,8 +20,106 @@
   ],
 
   "main": [
-    "./build/origami.js",
-    "./build/origami.css"
+
+    /* UI Collections */
+    "./source/flat/collections/form.css",
+    "./source/flat/collections/grid.css",
+    "./source/flat/collections/items.css",
+    "./source/flat/collections/menu.css",
+    "./source/flat/collections/table.css",
+
+    /* UI Elements */
+    "./source/flat/elements/banner.css",
+    "./source/flat/elements/block.css",
+    "./source/flat/elements/button.css",
+    "./source/flat/elements/checkbox.css",
+    "./source/flat/elements/column.css",
+    "./source/flat/elements/divider.css",
+    "./source/flat/elements/flag.css",
+    "./source/flat/elements/footnote.css",
+    "./source/flat/elements/header.css",
+    "./source/flat/elements/icons.css",
+    "./source/flat/elements/images.css",
+    "./source/flat/elements/label.css",
+    "./source/flat/elements/paperclip.css",
+    "./source/flat/elements/progress.css",
+    "./source/flat/elements/segment.css",
+    "./source/flat/elements/step.css",
+    "./source/flat/elements/throbber.css",
+    "./source/flat/elements/well.css",
+
+    /* UI Views */
+    "./source/flat/views/activity-feed.css",
+    "./source/flat/views/cover.css",
+    "./source/flat/views/data-grid.css",
+    "./source/flat/views/notecard.css",
+    "./source/flat/views/video.css",
+
+    /* Fonts */
+    "./source/flat/fonts/icons.eot",
+    "./source/flat/fonts/icons.svg",
+    "./source/flat/fonts/icons.ttf",
+    "./source/flat/fonts/icons.woff",
+
+    /* Images */
+    "./source/flat/images/button-error.gif",
+    "./source/flat/images/footnote.gif",
+    "./source/flat/images/loader-generic-transparent.gif",
+    "./source/flat/images/notecard-stripes.gif",
+    "./source/flat/images/paperclip.png",
+    "./source/flat/images/placeholder-subtle.png",
+    "./source/flat/images/placeholder-tiny.png",
+    "./source/flat/images/placeholder.png",
+    "./source/flat/images/throbber-blue-large.gif",
+    "./source/flat/images/throbber-blue-medium.gif",
+    "./source/flat/images/throbber-blue-small.gif",
+    "./source/flat/images/throbber-blue-tiny.gif",
+    "./source/flat/images/throbber-blue-large.gif",
+    "./source/flat/images/throbber-blue-medium.gif",
+    "./source/flat/images/throbber-blue-small.gif",
+    "./source/flat/images/throbber-blue-tiny.gif",
+
+    /* UI Modules */
+    "./source/flat/modules/accordion.css",
+    "./source/flat/modules/accordion.js",
+    
+    "./source/flat/modules/chat.css",
+    "./source/flat/modules/chat.js",
+    
+    "./source/flat/modules/checkbox.css",
+    "./source/flat/modules/checkbox.js",
+
+    "./source/flat/modules/modal.css",
+    "./source/flat/modules/modal.js",
+
+    "./source/flat/modules/nag.css",
+    "./source/flat/modules/nag.js",
+
+    "./source/flat/modules/popup.css",
+    "./source/flat/modules/popup.js",
+
+    "./source/flat/modules/search.css",
+    "./source/flat/modules/search.js",
+
+    "./source/flat/modules/shape.css",
+    "./source/flat/modules/shape.js",
+
+    "./source/flat/modules/star.css",
+    "./source/flat/modules/star.js",
+
+    "./source/flat/modules/tab.css",
+    "./source/flat/modules/tab.js",
+
+    "./source/flat/modules/video.css",
+    "./source/flat/modules/video.js",
+
+    /* Behavior Modules */
+    "./source/flat/modules/animation.js",
+    "./source/flat/modules/api.js",
+    "./source/flat/modules/colorize.js",
+    "./source/flat/modules/default-text.js",
+    "./source/flat/modules/state.js",
+    "./source/flat/modules/validate-form.js"
   ],
   "dependencies": {
     "jquery"      : ">=1.8"
