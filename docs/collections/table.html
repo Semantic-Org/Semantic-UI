@@ -199,7 +199,7 @@
       </tbody>
       <tfoot>
         <th colspan="3">
-          <div class="ui blue button">Add User</div>
+          <div class="ui blue button"><i class="icon plus-circle"></i> Add User</div>
         </th>
       </tfoot>
     </table>
@@ -220,22 +220,22 @@
       <tbody>
         <tr>
           <td>No Name Specified</td>
-          <td>Approved</td>
+          <td>Unknown</td>
           <td>None</td>
         </tr>
         <tr class="positive">
           <td>Jimmy</td>
-          <td>Approved</td>
+          <td><i class="icon check"></i> Approved</td>
           <td>None</td>
         </tr>
         <tr>
           <td>Jamie</td>
-          <td>Approved</td>
-          <td class="negative">Requires call</td>
+          <td>Unknown</td>
+          <td class="negative"><i class="icon close"></i> Requires call</td>
         </tr>
         <tr>
           <td>Jill</td>
-          <td>Approved</td>
+          <td>Unknown</td>
           <td>None</td>
         </tr>
       </tbody>
@@ -260,13 +260,13 @@
         </tr>
         <tr class="error">
           <td>Jimmy</td>
-          <td>Approved</td>
+          <td><i class="icon attention-circle"></i> Cannot pull data</td>
           <td>None</td>
         </tr>
         <tr>
           <td>Jamie</td>
           <td>Approved</td>
-          <td class="error">Requires call</td>
+          <td class="error"><i class="icon attention-circle"></i> Classified</td>
         </tr>
         <tr>
           <td>Jill</td>
@@ -289,22 +289,22 @@
       <tbody>
         <tr>
           <td>No Name Specified</td>
-          <td>Approved</td>
+          <td>Unknown</td>
           <td>None</td>
         </tr>
         <tr class="warning">
           <td>Jimmy</td>
-          <td>Approved</td>
+          <td><i class="icon info"></i> Requires Action</td>
           <td>None</td>
         </tr>
         <tr>
           <td>Jamie</td>
-          <td>Approved</td>
-          <td class="warning">Requires call</td>
+          <td>Unknown</td>
+          <td class="warning"><i class="icon info"></i> Hostile</td>
         </tr>
         <tr>
           <td>Jill</td>
-          <td>Approved</td>
+          <td>Unknown</td>
           <td>None</td>
         </tr>
       </tbody>
@@ -328,7 +328,7 @@
         </tr>
         <tr class="active">
           <td>John</td>
-          <td>Approved</td>
+          <td>Selected</td>
           <td>None</td>
         </tr>
         <tr>
@@ -338,6 +338,38 @@
         </tr>
         <tr>
           <td class="active">Jill</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+  <div class="example">
+    <h4>Disabled</h4>
+    <p>A cell can be disabled:</p>
+    <table class="ui grid table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr class="disabled">
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Selected</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td class="disabled">Jill</td>
           <td>Approved</td>
           <td>None</td>
         </tr>

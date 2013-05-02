@@ -31,26 +31,26 @@
 .ui.table td {
   border-collapse: collapse;
 
-  
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 
-  -webkit-transition: background-color 0.3s ease-out;
-  -moz-transition: background-color 0.3s ease-out;
-  -o-transition: background-color 0.3s ease-out;
-  -ms-transition: background-color 0.3s ease-out;
-  transition: background-color 0.3s ease-out;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
 }
 .ui.table thead {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(50, 50, 50, 0.1);
 }
 .ui.table th {
   cursor: auto;
   text-align: left;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.95);
+  color: rgba(80, 80, 80, 0.85);
   padding: 0.5em 0.7em;
   vertical-align: middle;
 }
@@ -78,9 +78,11 @@
 }
 
 /* Icons */
-.ui.table i.icon {
-  vertical-align: middle;
-  margin: 0px;
+.ui.table > .icon {
+  vertical-align: baseline;
+}
+.ui.table > .icon:only-child {
+  margin: 0em;
 }
 
 
@@ -121,8 +123,11 @@
 
 .ui.table tr.positive td,
 .ui.table td.positive {
-  background-color: #EEFFE9;
+  background-color: #F2F8F0 !important;
   color: #119000;
+  -moz-box-shadow: 0px 0px 1px 0px #3FF63B inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #3FF63B inset;
+  box-shadow: 0px 0px 1px 0px #3FF63B inset;
   /* border-color: #2FCB05 !important; */
 }
 .ui.grid.table tr.positive:hover td,
@@ -130,7 +135,7 @@
 .ui.table tr.positive:hover td,
 .ui.table td:hover.positive,
 .ui.table th:hover.positive {
-  background-color: #DEF5D7 !important;
+  background-color: #ECF5E9 !important;
   color: #119000;
 }
 
@@ -140,17 +145,16 @@
 
 .ui.table tr.negative td,
 .ui.table td.negative {
-  background-color: #F8EBEB;
-  color: #AD0000;
-  /* border-color: #B06C6C !important; */
+  background-color: #F9F4F4;
+  color: #CD2929;
 }
 .ui.grid.table tr.negative:hover td,
 .ui.grid.table tr:hover td.negative,
 .ui.table tr.negative:hover td,
 .ui.table td:hover.negative,
 .ui.table th:hover.negative {
-  background-color: #F1DFDF !important;
-  color: #AD0000;
+  background-color: #F2E8E8 !important;
+  color: #CD2929;
 }
 
 /*--------------
@@ -160,17 +164,19 @@
 .ui.table tr.error td,
 .ui.table td.error,
 .ui.table th.error {
-  background-color: #F8EBEB;
-  color: #AD0000;
-  /* border-color: #B06C6C !important; */
+  background-color: #F9F4F4 !important;
+  color: #CD2929;
+  -moz-box-shadow: 0px 0px 1px 0px #F3A2A2 inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #F3A2A2 inset;
+  box-shadow: 0px 0px 1px 0px #F3A2A2 inset;
 }
 .ui.grid.table tr.error:hover td,
 .ui.grid.table tr:hover td.error,
 .ui.table tr.error:hover td,
 .ui.table td:hover.error,
 .ui.table th:hover.error {
-  background-color: #F1DFDF !important;
-  color: #AD0000;
+  background-color: #F2E8E8 !important;
+  color: #CD2929;
 }
 
 /*--------------
@@ -180,16 +186,19 @@
 .ui.table tr.warning td,
 .ui.table td.warning,
 .ui.table th.warning {
-  background-color: #F6F3D5;
+  background-color: #FBF6E9;
   /* border-color: #CBB105 !important; */
   color: #7D6C00;
+  -moz-box-shadow: 0px 0px 1px 0px #FFE569 inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #FFE569 inset;
+  box-shadow: 0px 0px 1px 0px #FFE569 inset;
 }
 .ui.grid.table tr.warning:hover td,
 .ui.grid.table tr:hover td.warning,
 .ui.table tr.warning:hover td,
 .ui.table td:hover.warning,
 .ui.table th:hover.warning {
-  background-color: #F3EFC8 !important;
+  background-color: #F3EDDC !important;
   color: #7D6C00;
 }
 
@@ -200,10 +209,21 @@
 
 .ui.table tr.active td,
 .ui.table tr td.active {
-  background-color: #E8E8E8 !important;
-  font-weight: bold;
-  color: #555555;
+  background-color: #F0F0F0 !important;
+  color: rgba(50, 50, 50, 0.9);
   /* border-color: rgba(0, 0, 0, 0.15) !important; */
+}
+
+/*--------------
+     Disabled 
+---------------*/
+
+.ui.table tr.disabled td,
+.ui.table tr td.disabled,
+.ui.table tr.disabled:hover td,
+.ui.table tr:hover td.disabled {
+  background-color: #FAFAFA !important;
+  color: rgba(150, 150, 150, 0.5);
 }
 
 /*******************************
@@ -226,12 +246,6 @@
 }
 .ui.grid.table tbody td {
   border: 1px solid #E0E0E0;
-
-  -webkit-transition: color 0.5s ease-out;
-  -moz-transition: color 0.5s ease-out;
-  -o-transition: color 0.5s ease-out;
-  -ms-transition: color 0.5s ease-out;
-  transition: color 0.5s ease-out;
 }
 
 /* Sortable Table */

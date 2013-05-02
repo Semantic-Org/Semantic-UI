@@ -293,6 +293,9 @@ a:hover {
   margin-left: -630px;
 }
 
+#example .settings.table {
+  margin-bottom: 20px;
+}
 #example .settings.table td:first-child {
   font-weight: bold;
 }
