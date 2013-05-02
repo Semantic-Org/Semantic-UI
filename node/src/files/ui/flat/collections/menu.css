@@ -271,8 +271,15 @@
   box-shadow: 0px -0.1em 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
+/*--------------
+      Images 
+---------------*/
 
-
+.ui.menu .item > img:only-child {
+  display: block;
+  max-width: 100%;
+  margin: 0em auto;
+}
 
 /*******************************
              States

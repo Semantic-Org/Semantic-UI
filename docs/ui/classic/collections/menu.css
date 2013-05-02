@@ -179,6 +179,16 @@
 }
 
 /*--------------
+      Images 
+---------------*/
+
+.ui.menu .item > img {
+  display: block;
+  max-width: 100%;
+  margin: 0em auto;
+}
+
+/*--------------
     Dropdowns 
 ---------------*/
 
