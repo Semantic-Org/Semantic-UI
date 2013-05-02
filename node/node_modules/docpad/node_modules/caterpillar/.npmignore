@@ -3,6 +3,7 @@ Cakefile
 Makefile
 History.md
 
-docs/
-example/
 src/
+out/test/
+test/
+media/
