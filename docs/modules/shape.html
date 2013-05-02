@@ -231,12 +231,10 @@
   <h3>Reading Settings</h3>
   <p>Settings can also be read programmatically: <div class="code">$('.foo').shape('setting', 'moduleName');</div>
   <h3>Defaults</h3>
-  <table class="ui grid settings table">
-    <thead>
-      <th>Setting</th>
-      <th>Default</th>
-      <th>Description</th>
-    </thead>
+  <table class="ui settings table">
+      <thead>
+        <th colspan="3">Shape Settings</th>
+      </thead>
     <tbody>
       <tr>
         <td>useCSS</td>
@@ -275,9 +273,11 @@
         </td>
         <td>Object containing class names used by module.</td>
       </tr>
-      <tr class="emphasis">
-        <td colspan="3">Callbacks</td>
-      </tr>
+    </table>
+    <table class="ui settings table">
+      <thead>
+        <th colspan="3">Callbacks</th>
+      </thead>
       <tr>
         <td>beforeChange</td>
         <td>None</td>
@@ -288,9 +288,11 @@
         <td>None</td>
         <td>Callback after side is changed. This context is new side.</td>
       </tr>
-      <tr class="emphasis">
-        <td colspan="3">Standard</td>
-      </tr>
+    </table>
+    <table class="ui settings table">
+      <thead>
+        <th colspan="3">UI Module Settings</th>
+      </thead>
       <tr>
         <td>moduleName</td>
         <td>Shape</td>
