@@ -56,7 +56,7 @@
 <% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
 <body id="example">
   <div class="ui large vertical menu" id="menu">
-    <div class="tight item"><img src="/images/quirky.png"></div>
+    <div class="header item">Contents.</div>
     <div class="item"><a href="/index.html"><b>Introduction</b></a></div>
     <div class="item"><a href="/download.html"><b>Download</b></a></div>
     <div class="item">
