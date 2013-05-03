@@ -186,6 +186,20 @@
 
 
 /*--------------
+      Header 
+---------------*/
+
+.ui.menu .header.item {
+  background-color: #666666;
+  box-shadow: 0 -5px 0 0 rgba(0, 0, 0, 0.1) inset;
+  color: #FFFFFF;
+  font-weight: normal;
+  padding: 0.5em 0.7em 0.7em;
+}
+
+
+
+/*--------------
     Dropdowns 
 ---------------*/
 
@@ -913,4 +927,7 @@
 }
 .ui.large.menu .item {
   font-size: 18px;
+}
+.ui.large.menu .header.item {
+  font-size: 24px;
 }
