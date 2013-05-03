@@ -98,14 +98,14 @@ semantic.ready = function() {
         contentType   = $code.data('type') || 'javascript',
         editor        = ace.edit($code[0]),
         editorSession = editor.getSession(),
-        padding       = 4,
+        padding       = -1,
         codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding
       ;
       editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);
       editor.setReadOnly(true);
-      editor.renderer.setShowGutter(false);
-      editor.setHighlightActiveLine(false);
+      //editor.renderer.setShowGutter(false);
+      //editor.setHighlightActiveLine(false);
       editorSession.setUseWrapMode(true);
 
       editorSession.setMode('ace/mode/'+ contentType);
@@ -116,6 +116,19 @@ semantic.ready = function() {
       $(this).height(codeHeight + 'px');
       editor.resize();
 
+    },
+
+    movePeek: function() {
+      if( $('.stuck .peek').size() > 0 ) {
+        $('.peek')
+          .toggleClass('pushed')
+        ;
+      }
+      else {
+        $('.peek')
+          .removeClass('pushed')
+        ;
+      }
     },
 
     peek: function() {
@@ -209,6 +222,7 @@ semantic.ready = function() {
     .sidr({
       name: 'menu'
     })
+    .on('click', handler.movePeek)
   ;
 
   $peek

@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+<% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiModules         = @getCollection("documents").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+<% currentCollection = @getCollection("documents").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
+<% pageCount         = @pageCount(currentCollection) %>
+<% pageNumber        = @getPage(currentCollection, @document.id) %>
+<% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
 <head>
 
   <!-- Standard Meta -->
@@ -47,23 +55,16 @@
   <script src="/javascript/shape.js"></script>
 
 </head>
-<% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
-<% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
-<% uiModules         = @getCollection("documents").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
-<% currentCollection = @getCollection("documents").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
-<% pageCount         = @pageCount(currentCollection) %>
-<% pageNumber        = @getPage(currentCollection, @document.id) %>
-<% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
 <body id="example">
   <div class="ui large vertical menu" id="menu">
-    <div class="header item">Contents.</div>
+    <div class="header item">Table of Contents</div>
     <div class="item"><a href="/index.html"><b>Introduction</b></a></div>
     <div class="item"><a href="/download.html"><b>Download</b></a></div>
     <div class="item">
       <a href="/element.html"><b>UI Elements</b></a>
       <div class="menu">
         <% for element in uiElements: %>
-          <div class="<%= if element.id is @document.id then 'active ' %>item"><a href="<%= element.url %>"><%= element.title %></a></div>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
         <% end %>
       </div>
     </div>
@@ -71,7 +72,7 @@
       <a href="/collection.html"><b>UI Collections</b></a>
       <div class="menu">
         <% for element in uiCollections: %>
-          <div class="<%= if element.id is @document.id then 'active ' %>item"><a href="<%= element.url %>"><%= element.title %></a></div>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
         <% end %>
       </div>
     </div>
@@ -79,7 +80,7 @@
       <a href="/module.html"><b>UI Modules</b></a>
       <div class="menu">
         <% for element in uiModules: %>
-          <div class="<%= if element.id is @document.id then 'active ' %>item"><a href="<%= element.url %>"><%= element.title %></a></div>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
         <% end %>
       </div>
     </div>
@@ -88,7 +89,7 @@
   <div class="ui fixed transparent contrasting main menu">
     <div class="container">
       <div class="title item">
-        <b>Semantic:</b> <%= @document.type %>
+        <b><%= @document.type %>:</b> <%= @document.title %>
       </div>
       <div class="icon previous link<%= if pageNumber is 1 then " disabled" %> item">
         <% if pageNumber > 1 and pageCollection[pageNumber - 2]?: %>
@@ -129,7 +130,6 @@
       </div>
     </div>
   </div>
-
   <div class="ui huge left attached vertical side buttons">
     <div class="ui large blue sidebar button"><i class="icon th-list"></i> Menu</div>
   </div>
