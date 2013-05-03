@@ -326,16 +326,8 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 #example .peek .menu {
+  margin-left: 0px;
   width: 180px;
-}
-#example .sticky-wrapper.stuck {
-  height: 0px !important;
-}
-#example .sticky-wrapper.stuck .peek {
-  position: fixed;
-  top: 75px;
-  left: 50%;
-  margin-left: -630px;
   -webkit-transition: 
     margin-left 0.3s ease-out,
     opacity 0.3s ease-out
@@ -357,41 +349,17 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
     opacity 0.3s ease-out
   ;
 }
-#example .sticky-wrapper.stuck .peek.pushed {
-  margin-left: -340px;
-
-  -webkit-animation-name: fadeIn;
-  -moz-animation-name: fadeIn;
-  -o-animation-name: fadeIn;
-  animation-name: fadeIn;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  -moz-animation-fill-mode: both;
-  -o-animation-fill-mode: both;
-  animation-fill-mode: both;
+#example .sticky-wrapper.stuck {
+  height: 0px !important;
 }
-
-@-webkit-keyframes fadeIn {
-  0% {opacity: 0;}  
-  100% {opacity: 1;}
+#example .sticky-wrapper.stuck .peek {
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  margin-left: -630px;
 }
-
-@-moz-keyframes fadeIn {
-  0% {opacity: 0;}  
-  100% {opacity: 1;}
-}
-
-@-o-keyframes fadeIn {
-  0% {opacity: 0;}  
-  100% {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  0% {opacity: 0;}  
-  100% {opacity: 1;}
+#example .sticky-wrapper.stuck .peek.pushed .menu {
+  margin-left: 275px;
 }
 
 #example .settings.table {
@@ -535,10 +503,5 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
     margin-left: 0px;
     left: 165px;
   }
-  #example .sticky-wrapper.stuck .peek.pushed {
-    margin-left: 275px;
-    left: 165px;
-  }
-
 }
 
