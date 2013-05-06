@@ -77,37 +77,37 @@
 
 
 /* Sizing Combinations */
-.ui.grid .two.across.column {
+.ui.grid .two.wide.column {
   width: 16.66667%;
 }
-.ui.grid .three.across.column {
+.ui.grid .three.wide.column {
   width: 25%;
 }
-.ui.grid .four.across.column {
+.ui.grid .four.wide.column {
   width: 33.3333%;
 }
-.ui.grid .five.across.column {
+.ui.grid .five.wide.column {
   width: 41.6666%;
 }
-.ui.grid .six.across.column {
+.ui.grid .six.wide.column {
   width: 50%;
 }
-.ui.grid .seven.across.column {
+.ui.grid .seven.wide.column {
   width: 58.3333%;
 }
-.ui.grid .eight.across.column {
+.ui.grid .eight.wide.column {
   width: 66.6666%;
 }
-.ui.grid .nine.across.column {
+.ui.grid .nine.wide.column {
   width: 75%;
 }
-.ui.grid .ten.across.column {
+.ui.grid .ten.wide.column {
   width: 83.3333%;
 }
-.ui.grid .eleven.across.column {
+.ui.grid .eleven.wide.column {
   width: 91.666%;
 }
-.ui.grid .twelve.across.column {
+.ui.grid .twelve.wide.column {
   width: 100%;
 }
 
