@@ -1,0 +1,86 @@
+/*******************************
+             Grid
+*******************************/
+
+/* Classic 12 section grid */
+.ui.grid {
+  width: 100%;
+  display: table;
+}
+.ui.grid > .division {
+  display: table-cell;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  vertical-align: top;
+}
+.ui.grid .division:first-child {
+  padding-left: 0% !important;
+}
+.ui.grid .division:last-child {
+  padding-right: 0% !important;
+}
+
+/* Sizing Combinations */
+.ui.grid .division,
+.ui.grid .one.wide.division {
+  width: 8.3333%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+.ui.six.part.grid .division,
+.ui.grid .two.wide.division {
+  width: 16.66667%;
+}
+.ui.four.part.grid .division,
+.ui.grid .three.wide.division {
+  width: 25%;
+}
+.ui.three.part.grid .division,
+.ui.grid .four.wide.division {
+  width: 33.3333%;
+}
+.ui.grid .five.wide.division {
+  width: 41.6666%;
+}
+.ui.two.part.grid .division,
+.ui.grid .six.wide.division {
+  width: 50%;
+}
+.ui.grid .seven.wide.division {
+  width: 58.3333%;
+}
+.ui.grid .eight.wide.division {
+  width: 66.6666%;
+}
+.ui.grid .nine.wide.division {
+  width: 75%;
+}
+.ui.grid .ten.wide.division {
+  width: 83.3333%;
+}
+.ui.grid .eleven.wide.division {
+  width: 91.666%;
+}
+.ui.grid .twelve.wide.division {
+  width: 100%;
+}
+
+/* Variations */
+
+
+/* Fitted grid */
+.ui.fitted.grid .division,
+.ui.grid .fitted.division {
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+/* Vertical Centered */
+.ui.centered.grid .division,
+.ui.centered.division {
+  vertical-align: middle;
+}
