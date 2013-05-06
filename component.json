@@ -121,6 +121,11 @@
     "./src/modules/state.js",
     "./src/modules/validate-form.js"
   ],
+  "ignore": [
+    "./node",
+    "./source",
+    "./docs"
+  ],
   "dependencies": {
     "jquery"      : ">=1.8"
   }
