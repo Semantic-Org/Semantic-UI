@@ -54,7 +54,8 @@
     "docpad-plugin-livereload": "2.x",
     "grunt-contrib-watch": "~0.4.0",
     "grunt-css": "~0.5.4",
-    "grunt-bower-task": "~0.2.2"
+    "grunt-bower-task": "~0.2.2",
+    "grunt-contrib-copy": "~0.4.1"
   },
   "main": "node_modules/docpad/bin/docpad-server"
 }

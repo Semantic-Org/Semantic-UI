@@ -1,0 +1,90 @@
+/*******************************
+        shape Module
+*******************************/
+
+.shape.module {
+  position: relative;
+
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  -ms-perspective: 2000px;
+  perspective: 2000px;
+}
+
+.shape.module .shape {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.shape.module .side {
+  opacity: 1;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/*---------------
+    States
+----------------*/
+
+/* Standard */
+.shape.module .side {
+  display: none;
+}
+
+/* Animating */
+.shape.module.animating .shape {
+  position: absolute;
+}
+.shape.module .animating.side {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+}
+.shape.module .hidden.side {
+  opacity: 0.7;
+}
+
+/* css animation */
+.shape.css.module {
+  -webkit-transition: 
+    all 0.6s ease-in-out;
+  ;
+  -moz-transition: 
+    all 0.6s ease-in-out;
+  ;
+  -o-transition: 
+    all 0.6s ease-in-out;
+  ;
+  -ms-transition: 
+    all 0.6s ease-in-out;
+  ;
+  transition: 
+    all 0.6s ease-in-out;
+  ;
+}
+.shape.css.module .shape {
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+.shape.css.module .side {
+  -webkit-transition: opacity 0.6s ease-out;
+  -moz-transition: opacity 0.6s ease-out;
+  -o-transition: opacity 0.6s ease-out;
+  -ms-transition: opacity 0.6s ease-out;
+  transition: opacity 0.6s ease-out;
+}
+
+/* Active */
+.shape.module .active.side {
+  display: block;
+}
