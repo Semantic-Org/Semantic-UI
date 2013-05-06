@@ -21,14 +21,12 @@
 
   "main": [
 
-    /* UI Collections */
     "./src/collections/form.css",
     "./src/collections/grid.css",
     "./src/collections/items.css",
     "./src/collections/menu.css",
     "./src/collections/table.css",
 
-    /* UI Elements */
     "./src/elements/banner.css",
     "./src/elements/block.css",
     "./src/elements/button.css",
@@ -48,20 +46,17 @@
     "./src/elements/throbber.css",
     "./src/elements/well.css",
 
-    /* UI Views */
     "./src/views/activity-feed.css",
     "./src/views/cover.css",
     "./src/views/data-grid.css",
     "./src/views/notecard.css",
     "./src/views/video.css",
 
-    /* Fonts */
     "./src/fonts/icons.eot",
     "./src/fonts/icons.svg",
     "./src/fonts/icons.ttf",
     "./src/fonts/icons.woff",
 
-    /* Images */
     "./src/images/button-error.gif",
     "./src/images/footnote.gif",
     "./src/images/loader-generic-transparent.gif",
@@ -79,7 +74,6 @@
     "./src/images/throbber-blue-small.gif",
     "./src/images/throbber-blue-tiny.gif",
 
-    /* UI Modules */
     "./src/modules/accordion.css",
     "./src/modules/accordion.js",
     
@@ -113,7 +107,6 @@
     "./src/modules/video.css",
     "./src/modules/video.js",
 
-    /* Behavior Modules */
     "./src/modules/animation.js",
     "./src/modules/api.js",
     "./src/modules/colorize.js",
