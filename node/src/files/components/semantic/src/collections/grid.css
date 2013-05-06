@@ -19,13 +19,38 @@
   display: block;
   text-align: center;
 
-  padding: 0% 5.55555%;
   font-size: 0em;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+@media only screen and (max-width : 1000px) {
+  body > .ui.grid {
+    padding: 0% 5%;
+  }
+}
+@media only screen and (min-width : 1000px) {
+  body > .ui.grid {
+    padding: 0% 10%;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  body > .ui.grid {
+    padding: 0% 15%;
+  }
+}
+@media only screen and (min-width : 1750px) {
+  body >.ui.grid {
+    padding: 0% 20%;
+  }
+}
+@media only screen and (min-width : 2000px) {
+  body > .ui.grid {
+    padding: 0% 25%;
+  }
 }
 
 /*-------------------
@@ -252,6 +277,10 @@
   vertical-align: middle;
 }
 
+
+/*-------------------
+       Folding
+--------------------*/
 
 @media only screen and (max-width : 1000px) {
   .ui.folding.grid {
