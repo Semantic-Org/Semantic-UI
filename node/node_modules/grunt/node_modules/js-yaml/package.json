@@ -1,0 +1,60 @@
+{
+  "name": "js-yaml",
+  "version": "2.0.5",
+  "description": "YAML 1.2 parser and serializer",
+  "keywords": [
+    "yaml",
+    "parser",
+    "serializer",
+    "pyyaml"
+  ],
+  "homepage": "https://github.com/nodeca/js-yaml",
+  "author": {
+    "name": "Dervus Grim",
+    "email": "dervus@lavabit.com"
+  },
+  "contributors": [
+    {
+      "name": "Aleksey V Zapparov",
+      "email": "ixti@member.fsf.org",
+      "url": "http://www.ixti.net/"
+    },
+    {
+      "name": "Martin Grenfell",
+      "email": "martin.grenfell@gmail.com",
+      "url": "http://got-ravings.blogspot.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/nodeca/js-yaml/issues"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/nodeca/js-yaml/blob/master/LICENSE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nodeca/js-yaml.git"
+  },
+  "main": "./index.js",
+  "bin": {
+    "js-yaml": "bin/js-yaml.js"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "argparse": "~ 0.1.11",
+    "esprima": "~ 1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "readme": "JS-YAML - YAML 1.2 parser and serializer for JavaScript\n=======================================================\n\n[![Build Status](https://secure.travis-ci.org/nodeca/js-yaml.png)](http://travis-ci.org/nodeca/js-yaml)\n\n[Online Demo](http://nodeca.github.com/js-yaml/)\n\n\nThis is an implementation of [YAML](http://yaml.org/), a human friendly data\nserialization language. Started as [PyYAML](http://pyyaml.org/) port, it was\ncompletely rewritten from scratch. Now it's very fast, and supports 1.2 spec.\n\n\nBreaking changes in 1.x.x -> 2.0.x\n----------------------------------\n\nIf your have not used __custom__ tags or loader classes - no changes needed. Just\nupgrade library and enjoy high parse speed.\n\nIn other case, you should rewrite your tag constructors and custom loader\nclasses, to conform new schema-based API. See\n[examples](https://github.com/nodeca/js-yaml/tree/master/examples) and\n[wiki](https://github.com/nodeca/js-yaml/wiki) for details.\nNote, that parser internals were completely rewritten.\n\n\nInstallation\n------------\n\n### YAML module for node.js\n\n```\nnpm install js-yaml\n```\n\n\n### CLI executable\n\nIf you want to inspect your YAML files from CLI, install js-yaml globally:\n\n```\nnpm install js-yaml -g\n```\n\n#### Usage\n\n```\nusage: js-yaml [-h] [-v] [-c] [-j] [-t] file\n\nPositional arguments:\n  file           File with YAML document(s)\n\nOptional arguments:\n  -h, --help     Show this help message and exit.\n  -v, --version  Show program's version number and exit.\n  -c, --compact  Display errors in compact mode\n  -j, --to-json  Output a non-funky boring JSON\n  -t, --trace    Show stack trace on error\n```\n\n\n### Bundled YAML library for browsers\n\n``` html\n<script src=\"js-yaml.min.js\"></script>\n<script type=\"text/javascript\">\nvar doc = jsyaml.load('greeting: hello\\nname: world');\n</script>\n```\n\nBrowser support was done mostly for online demo. If you find any errors - feel\nfree to send pull requests with fixes. Also note, that IE and other old browsers\nneeds [es5-shims](https://github.com/kriskowal/es5-shim) to operate.\n\n\nAPI\n---\n\nHere we cover the most 'useful' methods. If you need advanced details (creating\nyour own tags), see [wiki](https://github.com/nodeca/js-yaml/wiki) and\n[examples](https://github.com/nodeca/js-yaml/tree/master/examples) for more\ninfo.\n\nIn node.js JS-YAML automatically registers handlers for `.yml` and `.yaml`\nfiles. You can load them just with `require`. That's mostly equivalent to\ncalling `load()` on fetched content of a file. Just with one string!\n\n``` javascript\nrequire('js-yaml');\n\n// Get document, or throw exception on error\ntry {\n  var doc = require('/home/ixti/example.yml');\n  console.log(doc);\n} catch (e) {\n  console.log(e);\n}\n```\n\n\n### load (string [ , options ])\n\nParses `string` as single YAML document. Returns a JavaScript object or throws\n`YAMLException` on error.\n\nNOTE: This function **does not** understands multi-document sources, it throws\nexception on those.\n\noptions:\n\n- `filename` _(default: null)_ - string to be used as a file path in\n  error/warning messages.\n- `strict` _(default - false)_ makes the loader to throw errors instead of\n  warnings.\n- `schema` _(default: `DEFAULT_SCHEMA`)_ - specifies a schema to use.\n\n\n### loadAll (string, iterator [ , options ])\n\nSame as `load()`, but understands multi-document sources and apply `iterator` to\neach document.\n\n``` javascript\nvar yaml = require('js-yaml');\n\nyaml.loadAll(data, function (doc) {\n  console.log(doc);\n});\n```\n\n\n### safeLoad (string [ , options ])\n\nSame as `load()` but uses `SAFE_SCHEMA` by default - only recommended tags of\nYAML specification (no JavaScript-specific tags, e.g. `!!js/regexp`).\n\n\n### safeLoadAll (string, iterator [ , options ])\n\nSame as `loadAll()` but uses `SAFE_SCHEMA` by default - only recommended tags of\nYAML specification (no JavaScript-specific tags, e.g. `!!js/regexp`).\n\n\n### dump (object [ , options ])\n\nSerializes `object` as YAML document.\n\noptions:\n\n- `indent` _(default: 2)_ - indentation width to use (in spaces).\n- `flowLevel` (default: -1) - specifies level of nesting, when to switch from\n  block to flow style for collections. -1 means block style everwhere\n- `styles` - \"tag\" => \"style\" map. Each tag may have own set of styles.\n- `schema` _(default: `DEFAULT_SCHEMA`)_ specifies a schema to use.\n\nstyles:\n\n``` none\n!!null\n  \"canonical\"   => \"~\"\n\n!!int\n  \"binary\"      => \"0b1\", \"0b101010\", \"0b1110001111010\"\n  \"octal\"       => \"01\", \"052\", \"016172\"\n  \"decimal\"     => \"1\", \"42\", \"7290\"\n  \"hexadecimal\" => \"0x1\", \"0x2A\", \"0x1C7A\"\n\n!!null, !!bool, !!float\n  \"lowercase\"   => \"null\", \"true\", \"false\", \".nan\", '.inf'\n  \"uppercase\"   => \"NULL\", \"TRUE\", \"FALSE\", \".NAN\", '.INF'\n  \"camelcase\"   => \"Null\", \"True\", \"False\", \".NaN\", '.Inf'\n```\n\nBy default, !!int uses `decimal`, and !!null, !!bool, !!float use `lowercase`.\n\n\n### safeDump (object [ , options ])\n\nSame as `dump()` but uses `SAFE_SCHEMA` by default - only recommended tags of\nYAML specification (no JavaScript-specific tags, e.g. `!!js/regexp`).\n\n\nSupported YAML types\n--------------------\n\nThe list of standard YAML tags and corresponding JavaScipt types. See also\n[YAML tag discussion](http://pyyaml.org/wiki/YAMLTagDiscussion) and\n[YAML types repository](http://yaml.org/type/).\n\n```\n!!null ''                   # null\n!!bool 'yes'                # bool\n!!int '3...'                # number\n!!float '3.14...'           # number\n!!binary '...base64...'     # buffer\n!!timestamp 'YYYY-...'      # date\n!!omap [ ... ]              # array of key-value pairs\n!!pairs [ ... ]             # array or array pairs\n!!set { ... }               # array of objects with given keys and null values\n!!str '...'                 # string\n!!seq [ ... ]               # array\n!!map { ... }               # object\n```\n\n**JavaScript-specific tags**\n\n```\n!!js/regexp /pattern/gim            # RegExp\n!!js/undefined ''                   # Undefined\n!!js/function 'function () {...}'   # Function\n```\n\n\n\n\n## Caveats\n\nNote, that you use arrays or objects as key in JS-YAML. JS do not allows objects\nor array as keys, and stringifies (by calling .toString method) them at the\nmoment of adding them.\n\n``` yaml\n---\n? [ foo, bar ]\n: - baz\n? { foo: bar }\n: - baz\n  - baz\n```\n\n``` javascript\n{ \"foo,bar\": [\"baz\"], \"[object Object]\": [\"baz\", \"baz\"] }\n```\n\nAlso, reading of properties on implicit block mapping keys is not supported yet.\nSo, the following YAML document cannot be loaded.\n\n``` yaml\n&anchor foo:\n  foo: bar\n  *anchor: duplicate key\n  baz: bat\n  *anchor: duplicate key\n```\n\n## License\n\nView the [LICENSE](https://github.com/nodeca/js-yaml/blob/master/LICENSE) file\n(MIT).\n",
+  "readmeFilename": "README.md",
+  "_id": "js-yaml@2.0.5",
+  "_from": "js-yaml@~2.0.2"
+}

@@ -11,10 +11,9 @@ task :build do
   puts "compressed dist/underscore.string.min.js: #{compressed.length}/#{source.length} #{(compression_rate * 100).round}%"
 end
 
-
 desc 'Run tests'
 task :test do
-  system %{bundle exec serve 2>/dev/null &}
+  pid = spawn('bundle exec serve', err: '/dev/null')
   sleep 2
 
   puts "Running underscore.string test suite."
@@ -22,6 +21,8 @@ task :test do
 
   puts "Running Underscore test suite."
   result2 = system %{phantomjs ./test/run-qunit.js "http://localhost:4000/test/test_underscore/test.html"}
-
+  
+  Process.kill 'INT', pid
+  
   exit(result1 && result2 ? 0 : 1)
 end

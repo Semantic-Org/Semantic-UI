@@ -1,0 +1,10 @@
+{
+  "name": "b1",
+  "version": "0.0.1",
+  "main": [
+    "b1.js",
+    "b1.css"
+  ],
+  "dependencies": {
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "dependencies": {
+    "package-bootstrap": "git://github.com/maccman/package-bootstrap.git#~1.0.0",
+    "jquery-ui": "latest"
+  }
+}

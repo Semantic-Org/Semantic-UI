@@ -1,0 +1,13 @@
+{
+    "name": "honor_bowerrc",
+    "version": "0.0.0",
+    "dependencies": {
+        "bootstrap": "2.2.1"
+    },
+    "exportsOverride": {
+        "bootstrap": {
+            "js": "js/*.js",
+            "scss": "lib/*.scss"
+        }
+    }
+}

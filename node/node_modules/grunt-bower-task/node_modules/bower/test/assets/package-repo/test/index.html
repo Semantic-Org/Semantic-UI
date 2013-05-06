@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SparkMD5 tests</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="http://code.jquery.com/qunit/qunit-git.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+         <script src="../spark-md5.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <h1 id="qunit-header">SparkMD5 test</h1>
+        <h2 id="qunit-banner"></h2>
+        <div id="qunit-testrunner-toolbar"></div>
+        <h2 id="qunit-userAgent"></h2>
+        <ol id="qunit-tests"></ol>
+        <div id="qunit-fixture"></div>
+
+        <script type="text/javascript">
+
+            var hasher = new SparkMD5();
+
+            test("Hash of 'hello'", function() {
+
+                var str = "hello",
+                    hash = "5d41402abc4b2a76b9719d911017c592";
+
+                equal(SparkMD5.hash(str), hash, "SparkMD5.hash()");
+                equal(SparkMD5.hashBinary(str), hash, "SparkMD5.hashBinary()");
+
+                hasher.reset();
+                hasher.append(str);
+                equal(hasher.end(), hash, "Incremental (normal)");
+                hasher.appendBinary(str);
+                equal(hasher.end(), hash, "Incremental (binary)");
+            });
+
+            test("Hash of 64 bytes", function() {
+
+                var str = "5d41402abc4b2a76b9719d911017c5925d41402abc4b2a76b9719d911017c592",
+                    hash = "e0b153045b08d59d4e18a98ab823ac42";
+
+                equal(SparkMD5.hash(str), hash, "SparkMD5.hash()");
+                equal(SparkMD5.hashBinary(str), hash, "SparkMD5.hashBinary()");
+
+                hasher.reset();
+                hasher.append(str);
+                equal(hasher.end(), hash, "Incremental (normal)");
+                hasher.appendBinary(str);
+                equal(hasher.end(), hash, "Incremental (binary)");
+            });
+
+            test("Hash of 128 bytes", function() {
+
+                var str = "5d41402abc4b2a76b9719d911017c5925d41402abc4b2a76b9719d911017c5925d41402abc4b2a76b9719d911017c5925d41402abc4b2a76b9719d911017c592",
+                    hash = "b12bc24f5507eba4ee27092f70148415";
+
+                equal(SparkMD5.hash(str), hash, "SparkMD5.hash()");
+                equal(SparkMD5.hashBinary(str), hash, "SparkMD5.hashBinary()");
+
+                hasher.reset();
+                hasher.append(str);
+                equal(hasher.end(), hash, "Incremental (normal)");
+                hasher.appendBinary(str);
+                equal(hasher.end(), hash, "Incremental (binary)");
+            });
+
+            test("Hash of 160 bytes", function() {
+
+                var str = "5d41402abc4b2a76b9719d911017c5925d41402abc4b2a76b9719d911017c5925d41402abc4b2a765d41402abc4b2a76b9719d911017c5925d41402abc4b2a76b9719d911017c5925d41402abc4b2a76",
+                    hash = "66a1e6b119bf30ade63378f770e52549";
+
+                equal(SparkMD5.hash(str), hash, "SparkMD5.hash()");
+                equal(SparkMD5.hashBinary(str), hash, "SparkMD5.hashBinary()");
+
+                hasher.reset();
+                hasher.append(str);
+                equal(hasher.end(), hash, "Incremental (normal)");
+                hasher.appendBinary(str);
+                equal(hasher.end(), hash, "Incremental (binary)");
+            });
+
+            test("Incremental usage", function() {
+
+                hasher.reset();
+                hasher.append("5d41402abc4b2a421456");
+                hasher.append("5d41402abc4b2a421456");
+                hasher.append("5d41402abc4b2a421456a234");
+
+                equal(hasher.end(), "014d4bbb02c66c98249114dc674a7187", "Incremental (normal) of 20+20+24");
+
+                hasher.reset();
+                hasher.appendBinary("5d41402abc4b2a421456");
+                hasher.appendBinary("5d41402abc4b2a421456");
+                hasher.appendBinary("5d41402abc4b2a421456a234");
+
+                equal(hasher.end(), "014d4bbb02c66c98249114dc674a7187", "Incremental (binary) of 20+20+24");
+
+                hasher.reset();
+                hasher.append("5d41402abc4b2a421456");
+                hasher.append("5d41402abc4b2a421456");
+                hasher.append("5d41402abc4b2a421456");
+
+                equal(hasher.end(), "f15937a66ae98c76c0dfbc6df2b75703", "Incremental (normal) of 20+20+20");
+
+                hasher.reset();
+                hasher.appendBinary("5d41402abc4b2a421456");
+                hasher.appendBinary("5d41402abc4b2a421456");
+                hasher.appendBinary("5d41402abc4b2a421456");
+
+                equal(hasher.end(), "f15937a66ae98c76c0dfbc6df2b75703", "Incremental (binary) of 20+20+20");
+
+                hasher.reset();
+                hasher.append("5d41402abc4b2a421456");
+                hasher.append("5d41402abc4b2a4214565d41402abc4b2a4214565d41402abc4b2a421456");
+                hasher.append("5d41402abc4b2a421456");
+
+                equal(hasher.end(), "45762198a57a35c8523915898fb8c68c", "Incremental (normal) of 20+60+20");
+
+                hasher.reset();
+                hasher.appendBinary("5d41402abc4b2a421456");
+                hasher.appendBinary("5d41402abc4b2a4214565d41402abc4b2a4214565d41402abc4b2a421456");
+                hasher.appendBinary("5d41402abc4b2a421456");
+
+                equal(hasher.end(), "45762198a57a35c8523915898fb8c68c", "Incremental (binary) of 20+60+20");
+            });
+
+            test("UTF-8", function() {
+
+                var str = "räksmörgås";
+
+                equal(SparkMD5.hash(str), "e462805dcf84413d5eddca45a4b88a5e", "SparkMD5.hash() of '" + str + "'");
+                equal(SparkMD5.hashBinary(str), "09d9d71ec8a8e3bc74e51ebd587154f3", "SparkMD5.hashBinary() of '" + str + "'");
+
+                hasher.reset();
+                hasher.append(str);
+                equal(hasher.end(), "e462805dcf84413d5eddca45a4b88a5e", "Incremental (normal) of '" + str + "'");
+
+                hasher.reset();
+                hasher.appendBinary(str);
+                equal(hasher.end(), "09d9d71ec8a8e3bc74e51ebd587154f3", "Incremental (binary) of '" + str + "'");
+
+                str = "\u30b9\u3092\u98df";
+
+                equal(SparkMD5.hash(str), "453931ab48a4a5af69f3da3c21064fc9", "SparkMD5.hash() of '" + str + "'");
+                equal(SparkMD5.hashBinary(str), "24e3399be06b7cf59dbd848e18d9246c", "SparkMD5.hashBinary() of '" + str + "'");
+
+                hasher.reset();
+                hasher.append(str);
+                equal(hasher.end(), "453931ab48a4a5af69f3da3c21064fc9", "Incremental (normal) of '" + str + "'");
+
+                hasher.reset();
+                hasher.appendBinary(str);
+                equal(hasher.end(), "24e3399be06b7cf59dbd848e18d9246c", "Incremental (binary) of '" + str + "'");
+            });
+        </script>
+    </body>
+</html>

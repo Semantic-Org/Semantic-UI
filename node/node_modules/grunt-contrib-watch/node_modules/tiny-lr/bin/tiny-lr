@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+
+var fs    = require('fs');
+var path  = require('path');
+
+// default DEBUG if not set already
+process.env.DEBUG = process.env.DEBUG || 'tinylr tinylr:*';
+
+var Server = require('..').Server;
+var noptify = require('noptify');
+
+var program = noptify(process.argv, { program: 'tiny-lr' })
+  .version('0.0.1')
+  .option('port', '-p', 'Port to listen on (default: 35729)', Number)
+  .option('pid', 'Path to the generated PID file (default: ./tiny-lr.pid)', String);
+
+var opts = program.parse();
+opts.port = opts.port || 35729;
+opts.pid = opts.pid || path.resolve('tiny-lr.pid');
+
+// if it was required, don't start the server and expose the Server object.
+if (module.parent) {
+  module.exports = Server;
+  return;
+}
+
+// Server
+
+// Thanks to @FGRibreau for his very simple and very handy gist:
+// https://gist.github.com/1846952
+
+process.title = 'tiny-lr';
+
+process.on('exit', function() {
+  console.log('... Closing server ...');
+  console.log('... Removing pid file (%s) ...', opts.pid);
+  fs.unlinkSync(opts.pid);
+});
+
+process.on('SIGTERM', function() {
+  return process.exit(0);
+});
+
+process.on('SIGINT', function() {
+  return process.exit(0);
+});
+
+
+var srv = new Server(opts);
+
+srv.on('close', function() {
+  process.nextTick(function() {
+    process.exit();
+  });
+});
+
+console.log();
+srv.listen(opts.port, function(err) {
+  fs.writeFile(opts.pid, process.pid, function(err) {
+    if(err) {
+      console.log('... Cannot write pid file: %s', opts.pid);
+      process.exit(1)
+    }
+
+    console.log('... Listening on %s (pid: %s) ...', opts.port, process.pid);
+    console.log('... pid file: %s', opts.pid);
+  });
+});

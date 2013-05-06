@@ -1,3 +1,5 @@
+'use strict';
+
 var namespace = require('../../lib/util/namespace.js');
 
 exports.get = {

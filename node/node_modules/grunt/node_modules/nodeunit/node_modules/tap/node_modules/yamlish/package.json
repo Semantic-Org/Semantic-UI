@@ -1,9 +1,0 @@
-{ "name" : "yamlish"
-, "description" : "Parser/encoder for the yamlish format"
-, "repository":"https://github.com/isaacs/yamlish"
-, "version" : "0.0.5"
-, "main" : "yamlish.js"
-, "keywords" : [ "yaml", "yamlish", "test", "anything", "protocol", "tap"]
-, "license" : { "type" : "MIT"
-              , "url" : "http://github.com/isaacs/yamlish/raw/master/LICENSE" }
-, "author" : "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)" }

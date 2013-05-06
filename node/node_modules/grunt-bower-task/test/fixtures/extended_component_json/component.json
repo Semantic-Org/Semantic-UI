@@ -1,0 +1,13 @@
+{
+    "name": "simple-bower",
+    "version": "0.0.0",
+    "dependencies": {
+        "bootstrap-sass": "2.2.1"
+    },
+    "exportsOverride": {
+        "bootstrap-sass": {
+            "js": "js/*.js",
+            "scss": "lib/*.scss"
+        }
+    }
+}

@@ -1,0 +1,4 @@
+.field ::-webkit-input-placeholder{color:#bbb}
+.field :-moz-placeholder{color:#bbb}
+.field :-ms-input-placeholder{color:#bbb}
+.field.enabled ::-webkit-input-placeholder{opacity:0}

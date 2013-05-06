@@ -1,0 +1,602 @@
+/*
+	960 Grid System ~ Core CSS.
+	Learn more ~ http://960.gs/
+
+	Licensed under GPL and MIT.
+*/
+
+/* `Container >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+.container_24 {
+	margin-right: auto;
+	margin-left: auto;
+	width: 960px;
+}
+
+/* `Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12,
+.grid_13,
+.grid_14,
+.grid_15,
+.grid_16,
+.grid_17,
+.grid_18,
+.grid_19,
+.grid_20,
+.grid_21,
+.grid_22,
+.grid_23,
+.grid_24 {
+	display: inline;
+	float: right;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4,
+.push_5, .pull_5,
+.push_6, .pull_6,
+.push_7, .pull_7,
+.push_8, .pull_8,
+.push_9, .pull_9,
+.push_10, .pull_10,
+.push_11, .pull_11,
+.push_12, .pull_12,
+.push_13, .pull_13,
+.push_14, .pull_14,
+.push_15, .pull_15,
+.push_16, .pull_16,
+.push_17, .pull_17,
+.push_18, .pull_18,
+.push_19, .pull_19,
+.push_20, .pull_20,
+.push_21, .pull_21,
+.push_22, .pull_22,
+.push_23, .pull_23 {
+	position: relative;
+}
+
+/* `Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+	margin-right: 0;
+}
+
+.omega {
+	margin-left: 0;
+}
+
+/* `Grid >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_24 .grid_1 {
+	width: 30px;
+}
+
+.container_24 .grid_2 {
+	width: 70px;
+}
+
+.container_24 .grid_3 {
+	width: 110px;
+}
+
+.container_24 .grid_4 {
+	width: 150px;
+}
+
+.container_24 .grid_5 {
+	width: 190px;
+}
+
+.container_24 .grid_6 {
+	width: 230px;
+}
+
+.container_24 .grid_7 {
+	width: 270px;
+}
+
+.container_24 .grid_8 {
+	width: 310px;
+}
+
+.container_24 .grid_9 {
+	width: 350px;
+}
+
+.container_24 .grid_10 {
+	width: 390px;
+}
+
+.container_24 .grid_11 {
+	width: 430px;
+}
+
+.container_24 .grid_12 {
+	width: 470px;
+}
+
+.container_24 .grid_13 {
+	width: 510px;
+}
+
+.container_24 .grid_14 {
+	width: 550px;
+}
+
+.container_24 .grid_15 {
+	width: 590px;
+}
+
+.container_24 .grid_16 {
+	width: 630px;
+}
+
+.container_24 .grid_17 {
+	width: 670px;
+}
+
+.container_24 .grid_18 {
+	width: 710px;
+}
+
+.container_24 .grid_19 {
+	width: 750px;
+}
+
+.container_24 .grid_20 {
+	width: 790px;
+}
+
+.container_24 .grid_21 {
+	width: 830px;
+}
+
+.container_24 .grid_22 {
+	width: 870px;
+}
+
+.container_24 .grid_23 {
+	width: 910px;
+}
+
+.container_24 .grid_24 {
+	width: 950px;
+}
+
+/* `Prefix Extra Space >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_24 .prefix_1 {
+	padding-right: 40px;
+}
+
+.container_24 .prefix_2 {
+	padding-right: 80px;
+}
+
+.container_24 .prefix_3 {
+	padding-right: 120px;
+}
+
+.container_24 .prefix_4 {
+	padding-right: 160px;
+}
+
+.container_24 .prefix_5 {
+	padding-right: 200px;
+}
+
+.container_24 .prefix_6 {
+	padding-right: 240px;
+}
+
+.container_24 .prefix_7 {
+	padding-right: 280px;
+}
+
+.container_24 .prefix_8 {
+	padding-right: 320px;
+}
+
+.container_24 .prefix_9 {
+	padding-right: 360px;
+}
+
+.container_24 .prefix_10 {
+	padding-right: 400px;
+}
+
+.container_24 .prefix_11 {
+	padding-right: 440px;
+}
+
+.container_24 .prefix_12 {
+	padding-right: 480px;
+}
+
+.container_24 .prefix_13 {
+	padding-right: 520px;
+}
+
+.container_24 .prefix_14 {
+	padding-right: 560px;
+}
+
+.container_24 .prefix_15 {
+	padding-right: 600px;
+}
+
+.container_24 .prefix_16 {
+	padding-right: 640px;
+}
+
+.container_24 .prefix_17 {
+	padding-right: 680px;
+}
+
+.container_24 .prefix_18 {
+	padding-right: 720px;
+}
+
+.container_24 .prefix_19 {
+	padding-right: 760px;
+}
+
+.container_24 .prefix_20 {
+	padding-right: 800px;
+}
+
+.container_24 .prefix_21 {
+	padding-right: 840px;
+}
+
+.container_24 .prefix_22 {
+	padding-right: 880px;
+}
+
+.container_24 .prefix_23 {
+	padding-right: 920px;
+}
+
+/* `Suffix Extra Space >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_24 .suffix_1 {
+	padding-left: 40px;
+}
+
+.container_24 .suffix_2 {
+	padding-left: 80px;
+}
+
+.container_24 .suffix_3 {
+	padding-left: 120px;
+}
+
+.container_24 .suffix_4 {
+	padding-left: 160px;
+}
+
+.container_24 .suffix_5 {
+	padding-left: 200px;
+}
+
+.container_24 .suffix_6 {
+	padding-left: 240px;
+}
+
+.container_24 .suffix_7 {
+	padding-left: 280px;
+}
+
+.container_24 .suffix_8 {
+	padding-left: 320px;
+}
+
+.container_24 .suffix_9 {
+	padding-left: 360px;
+}
+
+.container_24 .suffix_10 {
+	padding-left: 400px;
+}
+
+.container_24 .suffix_11 {
+	padding-left: 440px;
+}
+
+.container_24 .suffix_12 {
+	padding-left: 480px;
+}
+
+.container_24 .suffix_13 {
+	padding-left: 520px;
+}
+
+.container_24 .suffix_14 {
+	padding-left: 560px;
+}
+
+.container_24 .suffix_15 {
+	padding-left: 600px;
+}
+
+.container_24 .suffix_16 {
+	padding-left: 640px;
+}
+
+.container_24 .suffix_17 {
+	padding-left: 680px;
+}
+
+.container_24 .suffix_18 {
+	padding-left: 720px;
+}
+
+.container_24 .suffix_19 {
+	padding-left: 760px;
+}
+
+.container_24 .suffix_20 {
+	padding-left: 800px;
+}
+
+.container_24 .suffix_21 {
+	padding-left: 840px;
+}
+
+.container_24 .suffix_22 {
+	padding-left: 880px;
+}
+
+.container_24 .suffix_23 {
+	padding-left: 920px;
+}
+
+/* `Push Space >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_24 .push_1 {
+	right: 40px;
+}
+
+.container_24 .push_2 {
+	right: 80px;
+}
+
+.container_24 .push_3 {
+	right: 120px;
+}
+
+.container_24 .push_4 {
+	right: 160px;
+}
+
+.container_24 .push_5 {
+	right: 200px;
+}
+
+.container_24 .push_6 {
+	right: 240px;
+}
+
+.container_24 .push_7 {
+	right: 280px;
+}
+
+.container_24 .push_8 {
+	right: 320px;
+}
+
+.container_24 .push_9 {
+	right: 360px;
+}
+
+.container_24 .push_10 {
+	right: 400px;
+}
+
+.container_24 .push_11 {
+	right: 440px;
+}
+
+.container_24 .push_12 {
+	right: 480px;
+}
+
+.container_24 .push_13 {
+	right: 520px;
+}
+
+.container_24 .push_14 {
+	right: 560px;
+}
+
+.container_24 .push_15 {
+	right: 600px;
+}
+
+.container_24 .push_16 {
+	right: 640px;
+}
+
+.container_24 .push_17 {
+	right: 680px;
+}
+
+.container_24 .push_18 {
+	right: 720px;
+}
+
+.container_24 .push_19 {
+	right: 760px;
+}
+
+.container_24 .push_20 {
+	right: 800px;
+}
+
+.container_24 .push_21 {
+	right: 840px;
+}
+
+.container_24 .push_22 {
+	right: 880px;
+}
+
+.container_24 .push_23 {
+	right: 920px;
+}
+
+/* `Pull Space >> 24 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_24 .pull_1 {
+	right: -40px;
+}
+
+.container_24 .pull_2 {
+	right: -80px;
+}
+
+.container_24 .pull_3 {
+	right: -120px;
+}
+
+.container_24 .pull_4 {
+	right: -160px;
+}
+
+.container_24 .pull_5 {
+	right: -200px;
+}
+
+.container_24 .pull_6 {
+	right: -240px;
+}
+
+.container_24 .pull_7 {
+	right: -280px;
+}
+
+.container_24 .pull_8 {
+	right: -320px;
+}
+
+.container_24 .pull_9 {
+	right: -360px;
+}
+
+.container_24 .pull_10 {
+	right: -400px;
+}
+
+.container_24 .pull_11 {
+	right: -440px;
+}
+
+.container_24 .pull_12 {
+	right: -480px;
+}
+
+.container_24 .pull_13 {
+	right: -520px;
+}
+
+.container_24 .pull_14 {
+	right: -560px;
+}
+
+.container_24 .pull_15 {
+	right: -600px;
+}
+
+.container_24 .pull_16 {
+	right: -640px;
+}
+
+.container_24 .pull_17 {
+	right: -680px;
+}
+
+.container_24 .pull_18 {
+	right: -720px;
+}
+
+.container_24 .pull_19 {
+	right: -760px;
+}
+
+.container_24 .pull_20 {
+	right: -800px;
+}
+
+.container_24 .pull_21 {
+	right: -840px;
+}
+
+.container_24 .pull_22 {
+	right: -880px;
+}
+
+.container_24 .pull_23 {
+	right: -920px;
+}
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after {
+	content: '\0020';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+/*
+	The following zoom:1 rule is specifically for IE6 + IE7.
+	Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix {
+	zoom: 1;
+}

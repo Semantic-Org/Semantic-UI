@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var fs      = require('fs');
+var path    = require('path');
+var request = require('request');
+
+var file = path.join(__dirname, '..', 'lib/public/livereload.js');
+var url = process.argv.slice(2)[0] || 'https://raw.github.com/livereload/livereload-js/master/dist/livereload.js';
+
+console.error('Updating livereload.js %s from %s', file, url);
+request(url)
+  .pipe(fs.createWriteStream(file))
+  .on('close', console.log.bind(console, 'Done'));

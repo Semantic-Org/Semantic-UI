@@ -40,8 +40,7 @@
     "docpad-plugin-partials": "2.x",
     "docpad-plugin-stylus": "2.x",
     "docpad-plugin-text": "2.x",
-    "grunt": "~0.3.17",
-    "grunt-css": "~0.3.2",
+    "grunt": "~0.4.0",
     "bal-util": "~1.15.3",
     "underscore": "~1.4.3",
     "docpad-plugin-html2coffee": "~2.1.3",
@@ -52,7 +51,10 @@
     "docpad-plugin-handlebars": "~2.2.1"
   },
   "devDependencies": {
-    "docpad-plugin-livereload": "2.x"
+    "docpad-plugin-livereload": "2.x",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-css": "~0.5.4",
+    "grunt-bower-task": "~0.2.2"
   },
   "main": "node_modules/docpad/bin/docpad-server"
 }
