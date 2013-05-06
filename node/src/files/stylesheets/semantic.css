@@ -387,6 +387,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   position: relative;
   width: 100%;
   height: 200px;
+  text-align: left;
 }
 #example div.code {
   font-size: 14px;
@@ -433,12 +434,12 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 #example div.code .ace_attribute-name {
   color: #934E4E;
 }
-/*
+
 #example div.code .ace_gutter,
 #example div.code .ace_scroller {
   margin: 14px 10px;
 }
-*/
+
 #example div.code .ace_content {
 }
 #example div.code .ace_string {
@@ -470,6 +471,9 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 /* examples */
 #example .example {
   position: relative;
+}
+#example .example .grid i.code {
+  right: 25%;
 }
 #example .example i.code {
   cursor: pointer;
@@ -515,3 +519,13 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   }
 }
 
+@media only screen and (max-width : 1000px) {
+  #example .fixed .section,
+  #example .fixed .title b {
+    display: none;
+  }
+  #example .fixed .container {
+    width: auto;
+    margin: 0px auto;
+  }
+}

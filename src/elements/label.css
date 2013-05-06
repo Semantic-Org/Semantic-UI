@@ -92,6 +92,11 @@ a.ui.label {
            Variations
 *******************************/
 
+
+/*-------------------
+         Tag
+--------------------*/
+
 .ui.tag.labels .label,
 .ui.tag.label {
   margin-left: 1em;
@@ -158,9 +163,9 @@ a.ui.label {
   border-radius: 100px 100px 100px 100px;
 }
 
-/*******************************
-             Attached
-*******************************/
+/*-------------------
+       Attached
+--------------------*/
 
 .ui.attached.label {
   position: absolute;
@@ -198,11 +203,9 @@ a.ui.label {
 }
 
 
-
-
-/*******************************
-             Colors
-*******************************/
+/*-------------------
+       Colors
+--------------------*/
 
 /*--- Standard ---*/
 
@@ -461,6 +464,7 @@ a.ui.teal.tag.label:hover:before {
 /*------------------
    Floating Label
 -------------------*/
+
 .ui.floating.label {
   position: absolute;
   z-index: 100;
@@ -473,11 +477,9 @@ a.ui.teal.tag.label:hover:before {
   box-shadow: 0px -2px 0 0px rgba(0, 0, 0, 0.1) inset;
 }
 
-
-
-/*******************************
-            Sizes
-*******************************/
+/*-------------------
+        Sizes
+--------------------*/
 
 .ui.label {
   font-size: 13px;

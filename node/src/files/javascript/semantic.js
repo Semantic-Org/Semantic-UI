@@ -43,8 +43,7 @@ semantic.ready = function() {
     createCode: function() {
       var
         $example   = $(this).closest('.example'),
-        $shape     = $example.find('.shape.module'),
-        $demo      = $example.children().slice(3).not('.annotated, .ignore'),
+        $demo      = $example.children().not('p, h4, i.code, .annotated, .ignore'),
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),
@@ -99,13 +98,13 @@ semantic.ready = function() {
         contentType   = $code.data('type') || 'javascript',
         editor        = ace.edit($code[0]),
         editorSession = editor.getSession(),
-        padding       = -1,
+        padding       = 4,
         codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding
       ;
       editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);
       editor.setReadOnly(true);
-      //editor.renderer.setShowGutter(false);
+      editor.renderer.setShowGutter(false);
       editor.setHighlightActiveLine(false);
       editorSession.setUseWrapMode(true);
 
@@ -288,11 +287,10 @@ semantic.ready = function() {
 
   $peek
     .waypoint('sticky', {
-      offset: 85,
-      stuckClass: 'stuck'
+      offset     : 85,
+      stuckClass : 'stuck'
     })
   ;
-  console.log($peekItem);
   $peekItem
     .state('destroy')
     .on('click', handler.peek)
