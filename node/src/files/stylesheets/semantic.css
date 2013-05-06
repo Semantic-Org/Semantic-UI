@@ -325,7 +325,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   color: #A24096;
 }
 
-#example .peek .menu {
+#example .peek > .menu {
   margin-left: 0px;
   width: 180px;
   -webkit-transition: 
@@ -349,6 +349,16 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
     opacity 0.3s ease-out
   ;
 }
+/* #example .peek > .menu.animating > .active {
+  background-color: transparent;
+  border: none;
+  padding-left: 0.95em;
+}
+#example .peek > .menu.animating > .active:after {
+  background-color: #FFFFFF;
+} */
+
+
 #example .sticky-wrapper.stuck {
   height: 0px !important;
 }
@@ -358,7 +368,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   left: 50%;
   margin-left: -630px;
 }
-#example .sticky-wrapper.stuck .peek.pushed .menu {
+#example .sticky-wrapper.stuck .peek.pushed > .menu {
   margin-left: 275px;
 }
 

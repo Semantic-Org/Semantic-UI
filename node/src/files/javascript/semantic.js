@@ -14,11 +14,12 @@ semantic.ready = function() {
     $sortTable   = $('.sortable.table'),
     $demo        = $('.demo'),
     $waypoints   = $('h2'),
-
+    
     $example     = $('.example'),
-
+    
     $peek        = $('.peek'),
-    $peekMenu    = $peek.find('.item'),
+    $peekItem    = $peek.children('.menu').children('a.item'),
+    $peekSubItem = $peek.find('.item .menu .item'),
     $code        = $('div.code'),
 
     // alias
@@ -105,7 +106,7 @@ semantic.ready = function() {
       editor.setShowPrintMargin(false);
       editor.setReadOnly(true);
       //editor.renderer.setShowGutter(false);
-      //editor.setHighlightActiveLine(false);
+      editor.setHighlightActiveLine(false);
       editorSession.setUseWrapMode(true);
 
       editorSession.setMode('ace/mode/'+ contentType);
@@ -132,20 +133,80 @@ semantic.ready = function() {
     },
 
     peek: function() {
-      $('html, body')
+      var
+        $body     = $('html, body'),
+        $header   = $(this),
+        $menu     = $header.parent(),
+        $group    = $menu.children(),
+        $headers  = $group.add( $group.find('.menu .item') )
+        $waypoint = $('h2').eq( $group.index( $header ) ),
+        offset    = $waypoint.offset().top - 80
+      ;
+      console.log($headers);
+      $menu
+        .addClass('animating')
+      ;
+      $headers
+        .removeClass('active')
+      ;
+      $body
         .stop()
         .animate({
-          scrollTop: $waypoints.eq( $peekMenu.index( $(this) ) ).offset().top - 90
-        }, 500, function(){
-          $(this).addClass('active').siblings().removeClass('active');
+          scrollTop: offset
+        }, 500, function() {
+          $menu
+            .removeClass('animating')
+          ;
+          $header
+            .addClass('active')
+          ;
         })
-      ;
-      $('html')
         .one('scroll', function() {
-          $('html,body').stop();
+          $body.stop();
         })
       ;
     },
+
+    peekSub: function() {
+      var
+        $body           = $('html, body'),
+        $subHeader      = $(this),
+        $header         = $subHeader.parents('.item'),
+        $menu           = $header.parent(),
+        $subHeaderGroup = $header.find('.item'),
+        $headerGroup    = $menu.children(),
+        $waypoint       = $('h2').eq( $headerGroup.index( $header ) )
+        $subWaypoint    = $waypoint.nextAll('h3').eq( $subHeaderGroup.index($subHeader) ),
+        offset          = $subWaypoint.offset().top - 80
+      ;
+      console.log($subHeader, $headerGroup, $header, $waypoint, $subWaypoint, $subHeaderGroup.index($subHeader))
+      $menu
+        .addClass('animating')
+      ;
+      $headerGroup
+        .removeClass('active')
+      ;
+      $subHeaderGroup
+        .removeClass('active')
+      ;
+      $body
+        .stop()
+        .animate({
+          scrollTop: offset
+        }, 500, function() {
+          $menu
+            .removeClass('animating')
+          ;
+          $subHeader
+            .addClass('active')
+          ;
+        })
+        .one('scroll', function() {
+          $body.stop();
+        })
+      ;
+    },
+
     swapStyle: function() {
       var
         theme = $(this).data('theme')
@@ -184,7 +245,7 @@ semantic.ready = function() {
   $waypoints
     .waypoint({
       continuous : false,
-      offset     : 215,
+      offset     : 100,
       handler    : function(direction) {
         var
           index = (direction == 'down')
@@ -193,7 +254,7 @@ semantic.ready = function() {
               ? ($waypoints.index(this) - 1)
               : 0
         ;
-        $peekMenu
+        $peekItem
           .removeClass('active')
           .eq( index )
             .addClass('active')
@@ -227,13 +288,17 @@ semantic.ready = function() {
 
   $peek
     .waypoint('sticky', {
-      offset: 80,
+      offset: 85,
       stuckClass: 'stuck'
     })
   ;
-  $peekMenu
-    .state()
+  console.log($peekItem);
+  $peekItem
+    .state('destroy')
     .on('click', handler.peek)
+  ;
+  $peekSubItem
+    .on('click', handler.peekSub)
   ;
 
 };
