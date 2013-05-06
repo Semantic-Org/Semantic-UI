@@ -1,14 +1,46 @@
+/*
+ * # Semantic Grid 
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: May 6 2013
+ */
+
 /*******************************
-             Grid
+            Grid
 *******************************/
 
-/* Classic 12 section grid */
 .ui.grid {
   width: 100%;
-  display: table;
+  display: block;
+  text-align: center;
+
+  padding: 0% 5.55555%;
+  font-size: 0em;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.ui.grid > .division {
-  display: table-cell;
+
+/*-------------------
+       Columns
+--------------------*/
+
+.ui.grid > .column,
+.ui.grid > .row > .column {
+
+  display: inline-block;
+  text-align: left;
+  font-size: 1rem;
+
+  padding-left: 1em;
+  padding-right: 1em;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -17,70 +49,217 @@
 
   vertical-align: top;
 }
-.ui.grid .division:first-child {
-  padding-left: 0% !important;
+.ui.grid > .column:first-child,
+.ui.grid > .row > .column:first-child {
+  padding-left: 0%;
 }
-.ui.grid .division:last-child {
-  padding-right: 0% !important;
+.ui.grid > .column:last-child,
+.ui.grid > .row > .column:last-child {
+  padding-right: 0%;
 }
 
-/* Sizing Combinations */
-.ui.grid .division,
-.ui.grid .one.wide.division {
-  width: 8.3333%;
-  padding-left: 1.5%;
-  padding-right: 1.5%;
+/*-------------------
+         Rows
+--------------------*/
+
+.ui.grid > .row {
+  padding-top: 2.55%;
 }
-.ui.six.part.grid .division,
-.ui.grid .two.wide.division {
+.ui.grid > .row:first-child {
+  padding-top: 0px;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+
+/* Sizing Combinations */
+.ui.grid .two.across.column {
   width: 16.66667%;
 }
-.ui.four.part.grid .division,
-.ui.grid .three.wide.division {
+.ui.grid .three.across.column {
   width: 25%;
 }
-.ui.three.part.grid .division,
-.ui.grid .four.wide.division {
+.ui.grid .four.across.column {
   width: 33.3333%;
 }
-.ui.grid .five.wide.division {
+.ui.grid .five.across.column {
   width: 41.6666%;
 }
-.ui.two.part.grid .division,
-.ui.grid .six.wide.division {
+.ui.grid .six.across.column {
   width: 50%;
 }
-.ui.grid .seven.wide.division {
+.ui.grid .seven.across.column {
   width: 58.3333%;
 }
-.ui.grid .eight.wide.division {
+.ui.grid .eight.across.column {
   width: 66.6666%;
 }
-.ui.grid .nine.wide.division {
+.ui.grid .nine.across.column {
   width: 75%;
 }
-.ui.grid .ten.wide.division {
+.ui.grid .ten.across.column {
   width: 83.3333%;
 }
-.ui.grid .eleven.wide.division {
+.ui.grid .eleven.across.column {
   width: 91.666%;
 }
-.ui.grid .twelve.wide.division {
+.ui.grid .twelve.across.column {
   width: 100%;
 }
 
-/* Variations */
+/*-------------------
+    Column Count
+--------------------*/
+
+/* Standard */
+.ui.grid > .column,
+.ui.grid > .row > .column {
+  width: 8.3333%;
+}
+
+.ui.two.column.grid .column {
+  width: 50%;
+}
+.ui.two.column.grid .column:nth-child(2n+1) {
+  padding-left: 0%;
+}
+.ui.two.column.grid .column:nth-child(2n) {
+  padding-right: 0%;
+}
+
+.ui.three.column.grid .column {
+  width: 33.3333%;
+}
+.ui.three.column.grid .column:nth-child(3n+1) {
+  padding-left: 0%;
+}
+.ui.three.column.grid .column:nth-child(3n) {
+  padding-right: 0%;
+}
+
+.ui.four.column.grid .column {
+  width: 25%;
+}
+.ui.four.column.grid .column:nth-child(4n+1) {
+  padding-left: 0%;
+}
+.ui.four.column.grid .column:nth-child(4n) {
+  padding-right: 0%;
+}
+
+.ui.five.column.grid .column {
+  width: 20%;
+}
+.ui.five.column.grid .column:nth-child(5n+1) {
+  padding-left: 0%;
+}
+.ui.five.column.grid .column:nth-child(5n) {
+  padding-right: 0%;
+}
+
+.ui.six.column.grid .column {
+  width: 16.66667%;
+}
+.ui.six.column.grid .column:nth-child(6n+1) {
+  padding-left: 0%;
+}
+.ui.six.column.grid .column:nth-child(6n) {
+  padding-right: 0%;
+}
+
+.ui.seven.column.grid .column {
+  width: 14.2857%;
+}
+.ui.seven.column.grid .column:nth-child(7n+1) {
+  padding-left: 0%;
+}
+.ui.seven.column.grid .column:nth-child(7n) {
+  padding-right: 0%;
+}
+
+.ui.eight.column.grid .column {
+  width: 12.5%;
+}
+.ui.eight.column.grid .column:nth-child(8n+1) {
+  padding-left: 0%;
+}
+.ui.eight.column.grid .column:nth-child(8n) {
+  padding-right: 0%;
+}
+
+.ui.nine.column.grid .column {
+  width: 11.1111%;
+}
+.ui.nine.column.grid .column:nth-child(9n+1) {
+  padding-left: 0%;
+}
+.ui.nine.column.grid .column:nth-child(9n) {
+  padding-right: 0%;
+}
+
+.ui.ten.column.grid .column {
+  width: 10%;
+}
+.ui.ten.column.grid .column:nth-child(10n+1) {
+  padding-left: 0%;
+}
+.ui.ten.column.grid .column:nth-child(10n) {
+  padding-right: 0%;
+}
+
+.ui.eleven.column.grid .column {
+  width: 9.0909%;
+}
+.ui.eleven.column.grid .column:nth-child(11n+1) {
+  padding-left: 0%;
+}
+.ui.eleven.column.grid .column:nth-child(11n) {
+  padding-right: 0%;
+}
 
 
-/* Fitted grid */
-.ui.fitted.grid .division,
-.ui.grid .fitted.division {
+/*-------------------
+       Fitted
+--------------------*/
+
+.ui.fitted.grid {
+  padding: 0%;
+}
+.ui.fitted.grid .column,
+.ui.grid .fitted.column {
   padding-left: 0%;
   padding-right: 0%;
 }
 
+/*-------------------
+       Padded
+--------------------*/
+
+
+/*----------------------
+  Vertically Centered
+-----------------------*/
+
+
 /* Vertical Centered */
-.ui.centered.grid .division,
-.ui.centered.division {
+.ui.centered.grid .column,
+.ui.centered.column {
+  display: table-cell;
   vertical-align: middle;
+}
+
+
+@media only screen and (max-width : 1000px) {
+  .ui.folding.grid {
+    display: block !important;
+  }
+  .ui.folding.grid .column {
+    display: block !important;
+    width: 100% !important;
+    padding: 0% !important;
+  }
 }

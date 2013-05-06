@@ -48,7 +48,7 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   vertical-align: middle;
-  min-height: 1.25em;
+  min-height: 1.3em;
 
   -webkit-transition:
     opacity 0.1s linear,
@@ -120,6 +120,7 @@
   -webkit-border-radius: 0px;
   border-radius: 0px;
 }
+
 
 /*--------------
       Items
@@ -244,7 +245,6 @@
   position: absolute;
   top: 100%;
   left: 0px;
-  margin: 1px 0px 0px 0px;
   background-color: #FFFFFF;
   opacity: 0;
 
