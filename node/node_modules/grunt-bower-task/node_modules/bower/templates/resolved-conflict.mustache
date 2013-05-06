@@ -1,0 +1,13 @@
+
+{{#yellow}}Please note that{{/yellow}}
+{{#requirements}}
+    {{#cyan}}{{{pkg.manager.name}}}{{/cyan}} requires {{{pkg.name}}} {{#white}}{{{tag}}}{{/white}}
+{{/requirements}}
+
+{{#forceLatest}}
+Resorting to using latest version, {{{name}}} {{#white}}v{{{resolvedTo}}}{{/white}}.
+{{/forceLatest}}
+{{^forceLatest}}
+Resolved to {{{name}}} {{#white}}v{{{resolvedTo}}}{{/white}}, which matches the requirement defined in the project's {{{json}}}.
+{{/forceLatest}}
+Conflicts may occur.

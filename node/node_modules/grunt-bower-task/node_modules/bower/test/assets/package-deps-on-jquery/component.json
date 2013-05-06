@@ -1,0 +1,7 @@
+{
+  "name": "package-deps-on-jquery",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "test/assets/package-jquery-copy"
+  }
+}

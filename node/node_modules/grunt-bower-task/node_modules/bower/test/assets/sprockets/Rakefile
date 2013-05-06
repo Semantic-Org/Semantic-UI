@@ -1,0 +1,13 @@
+task :build do
+  require 'sprockets'
+
+  environment = Sprockets::Environment.new
+  environment.append_path('browser_modules')
+  environment.append_path('assets')
+
+  File.open('public/application.js', 'w+') do |f|
+    f.write environment['application.js'].to_s
+  end
+end
+
+task :default => :build

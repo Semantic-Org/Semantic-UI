@@ -1,0 +1,9 @@
+{
+  "name": "nested-deps",
+  "version": "0.0.1",
+  "dependencies": {
+    "b": "test/assets/package-complex-b",
+    "c": "test/assets/package-complex-c",
+    "a": "test/assets/package-complex-a"
+  }
+}

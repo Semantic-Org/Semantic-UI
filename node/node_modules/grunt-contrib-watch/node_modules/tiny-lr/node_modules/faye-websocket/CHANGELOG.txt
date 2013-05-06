@@ -1,0 +1,62 @@
+=== 0.4.4 / 2013-02-14
+
+* Emit the 'close' event if TCP is closed before CLOSE frame is acked
+
+
+=== 0.4.3 / 2012-07-09
+
+* Add 'Connection: close' to EventSource response
+* Handle situations where request.socket is undefined
+
+
+=== 0.4.2 / 2012-04-06
+
+* Add WebSocket error code 1011.
+* Handle URLs with no path correctly by sending 'GET /'
+
+
+=== 0.4.1 / 2012-02-26
+
+* Treat anything other than a Buffer as a string when calling send()
+
+
+=== 0.4.0 / 2012-02-13
+
+* Add ping() method to server-side WebSocket and EventSource
+* Buffer send() calls until the draft-76 handshake is complete
+* Fix HTTPS problems on Node 0.7
+
+
+=== 0.3.1 / 2012-01-16
+
+* Call setNoDelay(true) on net.Socket objects to reduce latency
+
+
+=== 0.3.0 / 2012-01-13
+
+* Add support for EventSource connections
+
+
+=== 0.2.0 / 2011-12-21
+
+* Add support for Sec-WebSocket-Protocol negotiation
+* Support hixie-76 close frames and 75/76 ignored segments
+* Improve performance of HyBi parsing/framing functions
+* Decouple parsers from TCP and reduce write volume
+
+
+=== 0.1.2 / 2011-12-05
+
+* Detect closed sockets on the server side when TCP connection breaks
+* Make hixie-76 sockets work through HAProxy
+
+
+=== 0.1.1 / 2011-11-30
+
+* Fix addEventListener() interface methods
+
+
+=== 0.1.0 / 2011-11-27
+
+* Initial release, based on WebSocket components from Faye
+

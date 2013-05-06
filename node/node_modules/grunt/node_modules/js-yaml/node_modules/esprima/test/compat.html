@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Esprima: Compatibility Tests</title>
+<link rel="stylesheet" type="text/css" href="../assets/style.css"/>
+<script src="../esprima.js"></script>
+<script src="../assets/json2.js"></script>
+<script id="reflect" src="reflect.js"></script>
+<script src="compat.js"></script>
+</head>
+<body>
+<div class="container">
+
+<div class="topbar">
+<ul class="nav">
+<li><a href="../index.html">&larr; Home</a></li>
+<li><a href="http://github.com/ariya/esprima">Code</a></li>
+<li><a href="../doc/index.html">Documentation</a></li>
+<li><a href="http://issues.esprima.org">Issues</a></li>
+</ul>
+</div>
+
+<h1>Compatibility <small>keeps everyone happy</small></h1>
+<p>Esprima version <span id="version"></span>.</p>
+<p>The following tests are to ensure that the syntax tree is compatible to
+that produced by Mozilla SpiderMonkey
+<a href="https://developer.mozilla.org/en/SpiderMonkey/Parser_API">Parser reflection</a>.</p>
+<p id="status">Please wait...</p>
+<div id="report"></div>
+<div class="footer"><strong>Esprima</strong> is created by
+<a href="http://ariya.ofilabs.com/about" target="_blank">Ariya Hidayat</a>. Follow <a href="http://twitter.com/ariyahidayat">@ariyahidayat</a> on Twitter.
+</div>
+</div>
+<script>
+/*jslint browser:true*/
+window.onload = window.runTests;
+</script>
+</body>
+</html>

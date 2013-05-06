@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SparkMD5 file reader test</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        <script src="../spark-md5.js" type="text/javascript"></script>
+
+        <style type="text/css" media="screen">
+            .input-file {
+                padding: 5px;
+                margin-right: 25px;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <h1>SparkMD5 file reader test, incremental and normal md5</h1>
+
+        <h4>Please note that the advantage of doing an incremental md5 is to keep memory usage low.</h4>
+        <p>
+            Keep an eye on the memory usage of your browser. If you got chrome, open about:memory to see all the browsers memory usage (you must refresh continuously).
+            <br/>With normal md5, you should observe slightly faster times but high memory usage (because the entire file need to be read into a binary string).
+            <br/>With incremental md5, you should observe stable memory usage but slightly higher times.
+            <br/>Be aware that while using normal md5, the browser can crash due to high memory usage.
+        </p>
+
+        <div class="actions">
+            <input type="file" id="file" class="input-file span5"/>
+            <input type="button" id="normal" value="Normal" class="btn primary"/>
+            <input type="button" id="incremental" value="Incremental" class="btn primary"/>
+            <input type="button" id="clear" value="Clear" class="btn"/>
+        </div>
+        <div id="log"></div>
+
+        <script type="text/javascript">
+
+            var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
+                log = document.getElementById("log"),
+                input = document.getElementById("file"),
+                running = false;
+
+            function registerLog(str, className) {
+                var elem = document.createElement("div");
+                elem.innerHTML = str;
+                elem.className = "alert-message" + (className ? " "  + className : "");
+                log.appendChild(elem);
+            }
+
+            if (!("FileReader" in window) || !("File" in window) || !blobSlice) {
+                registerLog("<p><strong>Your browser does not support the FileAPI or slicing of files.</strong></p>", "error");
+            }
+            else {
+                var ua = navigator.userAgent.toLowerCase();
+
+                if (/chrome/.test(ua)) {
+                    if (location.protocol === "file:") {
+                        registerLog("<p><strong>This example will only work in chrome (in file:// protocol) if you start it up with -allow-file-access-from-files argument.</strong><br/>This is a security measure introduced in chrome, please <a target=\"_blank\" href=\"http://code.google.com/p/chromium/issues/detail?id=60889\">see</a>.</p>");
+                    }
+                }
+                else if (/firefox/.test(ua)) {
+                    var firebugEnabled = !!(window.console && (window.console.firebug || (console.exception && console.table && console.memoryProfile && console.memoryProfileEnd)));
+                    if (firebugEnabled) registerLog("<p><strong>It seems you got firebug enabled.</strong><br/>Firebug slows down this script by a great margin and causes high memory/cpu usage, please disable it and use the built in web console instead.</p>");
+                }
+                else if (/opera/.test(ua)) {
+                    registerLog("<p><strong>If you got DragonFly open please consider closing it as it slows down the test by a great margin.</strong></p>");
+                }
+
+                function doIncrementalTest() {
+
+                    if (running) return;
+                    if (input.files.length == 0) {
+                        registerLog("<strong>Please select a file.</strong><br/>");
+                        return;
+                    }
+
+                    var fileReader = new FileReader(),
+                        file = input.files[0],
+                        chunkSize = 2097152,                           // read in chunks of 2MB
+                        chunks = Math.ceil(file.size / chunkSize),
+                        currentChunk = 0,
+                        spark = new SparkMD5(),
+                        time,
+                        uniqueId = "chunk_" + (new Date().getTime()),
+                        chunkId = null;
+
+                    fileReader.onload = function(e) {
+
+                        if (currentChunk == 0) registerLog("Read chunk number <strong id=\"" + uniqueId + "\">" + (currentChunk + 1) + "</strong> of <strong>" + chunks + "</strong><br/>", "info");
+                        else {
+                            if (chunkId === null) chunkId = document.getElementById(uniqueId);
+                            chunkId.innerHTML = currentChunk + 1;
+                        }
+
+                        spark.appendBinary(e.target.result);           // append binary string
+                        currentChunk++;
+
+                        if (currentChunk < chunks) {
+                            loadNext();
+                        }
+                        else {
+                            running = false;
+                            registerLog("<strong>Finished loading!</strong><br/>", "success");
+                            registerLog("<strong>Computed hash:</strong> " + spark.end() + "<br/>", "success"); // compute hash
+                            registerLog("<strong>Total time:</strong> " + (new Date().getTime() - time) + "ms<br/>", "success");
+                        }
+                    };
+
+                    fileReader.onerror = function() {
+                        running = false;
+                        registerLog("<strong>Oops, something went wrong.</strong>", "error");
+                    };
+
+                    function loadNext() {
+                        var start = currentChunk * chunkSize,
+                            end = start + chunkSize >= file.size ? file.size : start + chunkSize;
+
+                        fileReader.readAsBinaryString(blobSlice.call(file, start, end));
+                    };
+
+                    running = true;
+                    registerLog("<p></p><strong>Starting incremental test (" + file.name + ")</strong><br/>", "info");
+                    time = new Date().getTime();
+                    loadNext();
+                }
+
+                function doNormalTest() {
+
+                    if (running) return;
+                    if (input.files.length == 0) {
+                        registerLog("<strong>Please select a file.</strong><br/>");
+                        return;
+                    }
+
+                    var fileReader = new FileReader(),
+                        file = input.files[0],
+                        time;
+
+                    fileReader.onload = function(e) {
+
+                        running = false;
+
+                        if (file.size != e.target.result.length) {
+                            registerLog("<strong>ERROR:</strong> Browser reported success but could not read the file until the end.<br/>", "error");
+                        }
+                        else {
+                            registerLog("<strong>Finished loading!</strong><br/>", "success");
+                            registerLog("<strong>Computed hash:</strong> " + SparkMD5.hashBinary(e.target.result) + "<br/>", "success"); // compute hash
+                            registerLog("<strong>Total time:</strong> " + (new Date().getTime() - time) + "ms<br/>", "success");
+                        }
+                    };
+
+                    fileReader.onerror = function(e) {
+                        running = false;
+                        registerLog("<strong>ERROR:</strong> FileReader onerror was triggered, maybe the browser aborted due to high memory usage.<br/>", "error");
+                    };
+
+                    running = true;
+                    registerLog("<strong>Starting normal test (" + file.name + ")</strong><br/>", "info");
+                    time = new Date().getTime();
+                    fileReader.readAsBinaryString(file);
+                }
+
+                function clearLog() {
+                    log.getChildren().destroy();
+                }
+            }
+
+            document.getElementById("normal").addEventListener("click", doNormalTest);
+            document.getElementById("incremental").addEventListener("click", doIncrementalTest);
+            document.getElementById("clear").addEventListener("click", clearLog);
+        </script>
+    </body>
+</html>

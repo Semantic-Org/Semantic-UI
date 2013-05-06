@@ -1,0 +1,12 @@
+{
+  "name": "b",
+  "version": "0.0.1",
+  "main": [
+    "b.js",
+    "b.html"
+  ],
+  "dependencies": {
+    "a": "test/assets/package-complex-a",
+    "b1": "test/assets/package-complex-b1"
+  }
+}

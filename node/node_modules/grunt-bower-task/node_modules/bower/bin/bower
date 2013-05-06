@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var semver = require('semver');
+var nopt   = require('nopt');
+var path   = require('path');
+var pkg    = require(path.join(__dirname, '..', 'package.json'));
+
+var template = require('../lib/util/template');
+var bower    = require('../lib');
+
+var command;
+var options;
+var shorthand;
+var input   = process.argv;
+var cmdList = Object.keys(bower.commands);
+var nodeVer = process.version;
+var reqVer  = pkg.engines.node;
+
+process.title = 'bower';
+
+if (reqVer && !semver.satisfies(nodeVer, reqVer)) {
+  throw new Error('Required: node ' + reqVer);
+}
+
+shorthand = { 'v': ['--version'] };
+options   = { version: Boolean };
+options   = nopt(options, shorthand, process.argv);
+
+bower.version = pkg.version;
+
+if (options.version) return console.log(bower.version);
+if (~cmdList.indexOf(command = options.argv.remain && options.argv.remain.shift())) bower.command = command;
+
+bower.commands[bower.command || 'help'].line(input)
+  .on('data', function (data) {
+    if (data) console.log(data);
+  })
+  .on('end', function (data) {
+    if (data) console.log(data);
+  })
+  .on('error', function (err)  {
+    if (options.verbose) throw err;
+    else console.log(template('error', { message: err.message }, true));
+  });
