@@ -28,7 +28,7 @@ exports = module.exports = createServer;
  * Framework version.
  */
 
-exports.version = '2.7.6';
+exports.version = '2.7.8';
 
 /**
  * Expose mime module.

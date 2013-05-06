@@ -42,6 +42,8 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/shape.css">
 
+  <%- @getBlock('scripts').toHTML() %>
+
   <script src="/javascript/library/jquery.js"></script>
   <script src="/javascript/library/ace/ace.js"></script>
   <script src="/javascript/library/sidr.js"></script>

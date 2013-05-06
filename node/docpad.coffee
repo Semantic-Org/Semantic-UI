@@ -155,31 +155,9 @@ docpadConfig = {
 				else
 					next()
 
-		# Write After
-		# Used to minify our assets with grunt
-		writeAfter: (opts,next) ->
-			# Prepare
-			docpad = @docpad
-			rootPath = docpad.config.rootPath
-			balUtil = require 'bal-util'
-			_ = require 'underscore'
 
-			# Make sure to register a grunt `default` task
-			command = ["#{rootPath}/node_modules/.bin/grunt", 'default']
 
-			# Execute
-			balUtil.spawn command, {cwd:rootPath,output:true}, ->
-				src = []
-				gruntConfig = require './grunt-config.json'
-				_.each gruntConfig, (value, key) ->
-					src = src.concat _.flatten _.pluck value, 'src'
-				_.each src, (value) ->
-					balUtil.spawn ['rm', value], {cwd:rootPath, output:false}, ->
-				balUtil.spawn ['find', '.', '-type', 'd', '-empty', '-exec', 'rmdir', '{}', '\;'], {cwd:rootPath+'/out', output:false}, ->
-				next()
 
-			# Chain
-			@
 }
 
 # Export our DocPad Configuration
