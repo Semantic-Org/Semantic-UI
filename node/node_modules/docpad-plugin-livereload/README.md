@@ -17,6 +17,9 @@ Automatically refreshes your [DocPad](https://docpad.org) built website whenever
   <%- @getBlock('scripts').toHTML() %>
   ```
 
+## Test
+
+See http://docpad.org/docs/plugin-write to setup a test environment, then run `cake test` to run tests.
 
 ## Configure
 
