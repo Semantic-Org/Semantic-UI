@@ -131,7 +131,7 @@
       </div>
     </div>
   </div>
-    <div class="ui teal large sidebar right attached button"><i class="icon th-list"></i> Menu</div>
+    <div class="ui teal huge sidebar right attached button"><i class="icon th-list"></i> Menu</div>
   <%- @content %>
 </body>
 

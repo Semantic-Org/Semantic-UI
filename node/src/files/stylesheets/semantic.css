@@ -561,7 +561,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 
 }
 
-@media only screen and (max-width : 1420px) {
+@media only screen and (max-width : 1600px) {
 
   #example .container {
     width: auto;

@@ -1,0 +1,166 @@
+---
+layout : 'default'
+css    : 'button'
+
+title  : 'Checkbox'
+type   : 'UI Module'
+---
+
+<div class="segment">
+  <div class="container">
+    <h1>Checkbox</h1>
+    <p>Checkbox is a plugin for attaching form events to UI checkbox</p>
+  </div>
+</div>
+<div class="main container">
+  
+  <div class="peek">
+    <div class="ui vertical pointing menu">
+      <a class="active item">Examples</a>
+      <a class="item">Getting Started</a>
+      <a class="item">Settings</a>
+    </div>
+  </div>
+  <p>UI checkboxes do not need javascript to function correctly, checkboxs can be triggered by matching the label's for attribute to the id tag of an input field</p>
+  <p>However, there may be situations where it is less work to use javascript to initialize a checkbox then to manually assign ID tags to each field, or you might want to programmatically trigger the checkbox state. In these cases the checkbox module may be useful.</p>
+
+  <h2>Examples</h2>
+
+  <h3>Initializing a check box</h3>
+  <div class="code">$('.ui.checkbox')
+  .checkbox()
+;
+</div>
+
+  <div class="example">
+    <h3>Check Box</h3>
+    <p>The html required for a standard UI checkbox</p>
+    <div class="ui checkbox">
+      <input type="checkbox" id="uniqueid" />
+      <label for="uniqueid"></label>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h3>Radio Box</h3>
+    <p>The html required for a standard UI radio box</p>
+    <p>A radio box is just a reskinned version of a checkbox, the initialization of the module is the same.</p>
+    <div class="ui radio checkbox">
+      <input type="checkbox" id="uniqueid" />
+      <label for="uniqueid"></label>
+    </div>
+  </div>
+  
+  
+  <h2>Getting Started</h2>
+
+  <p>The plugin must be initialized once before methods can be accessed</p>
+  <div class="code">$('.ui.checkbox')
+  .checkbox()
+;</div>
+
+  <p>You can enable a checkbox programmatically using the enable method</p>
+  <div class="code">$('.ui.checkbox')
+  .checkbox('enable')
+;</div>
+
+  <p>You can enable all checkboxes initialized at the same time by calling the enableAll method</p>
+  <div class="code">$('.ui.checkbox')
+  .checkbox('enableAll')
+;</div>
+
+
+  <p>You can disable a checkbox programmatically using the disable method</p>
+  <div class="code">$('.ui.checkbox')
+  .checkbox('disable')
+;</div>
+
+  <p>You can disable all checkboxes initialized at the same time by calling the disableAll method</p>
+  <div class="code">$('.ui.checkbox')
+  .checkbox('disableAll')
+;</div>
+
+  <h2>Settings</h2>
+  <h3>Changing Settings</h3> 
+  <ol>
+    <li>A settings object can be passed in when initializing the plugin
+      <br> <div class="code">$('.foo')
+  .checkbox({ 
+    moduleName: 'Godzilla'
+  })
+;</div>
+    </li>
+    <li>Default settings for the module can be overridden by modifying $.fn.Checkbox.settings.
+      <br><div class="code">$.fn.Checkbox.settings.moduleName = 'Godzilla';</div>
+    </li>
+    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
+      <br><div class="code">$('.foo').checkbox('setting', 'moduleName', 'Godzilla');</div>
+    </li>
+  </ol>
+  <h3>Reading Settings</h3>
+  <p>Settings can also be read programmatically: <div class="code">$('.foo').checkbox('setting', 'moduleName');</div>
+  <h3>Defaults</h3>
+    <table class="ui settings table">
+      <thead>
+        <th colspan="3">Callbacks</th>
+      </thead>
+      <tr>
+        <td>onChange</td>
+        <td>None</td>
+        <td>Callback after a checkbox is either disabled or enabled.</td>
+      </tr>
+      <tr>
+        <td>onEnable</td>
+        <td>None</td>
+        <td>Callback after a checkbox is enabled.</td>
+      </tr>
+      <tr>
+        <td>onDisable</td>
+        <td>None</td>
+        <td>Callback after a checkbox is disabled.</td>
+      </tr>
+    </table>
+    <table class="ui settings table">
+      <thead>
+        <th colspan="3">UI Module Settings</th>
+      </thead>
+      <tr>
+        <td>moduleName</td>
+        <td>Checkbox</td>
+        <td>Name used in debug logs</td>
+      </tr>
+      <tr>
+        <td>debug</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>performance</td>
+        <td>False</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>verbose</td>
+        <td>False</td>
+        <td>Provides ancillary debug output to console</td>
+      </tr>
+      <tr>
+        <td>namespace</td>
+        <td>checkbox</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>errors</td>
+        <td colspan="2">
+            <div class="code">errors     : {
+  method   : 'The method you called is not defined.'
+}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+
+</html>

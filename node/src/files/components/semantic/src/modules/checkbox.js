@@ -72,6 +72,19 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        enableAll: function() {
+          module.debug('Disabling all checkbox');
+          $.each($allModules, function() {
+            $(this).checkbox('enable');
+          });
+        },
+        disableAll: function() {
+          module.debug('Enabling all checkbox');
+          $.each($allModules, function() {
+            $(this).checkbox('disable');
+          });
+        },
+
         enable: function() {
           module.debug('Enabling checkbox');
           $module
