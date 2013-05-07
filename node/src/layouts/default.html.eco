@@ -59,7 +59,6 @@
 </head>
 <body id="example">
   <div class="ui large vertical menu" id="menu">
-    <div class="header item">Table of Contents</div>
     <div class="item"><a href="/index.html"><b>Introduction</b></a></div>
     <div class="item"><a href="/download.html"><b>Download</b></a></div>
     <div class="item">
@@ -132,7 +131,7 @@
       </div>
     </div>
   </div>
-    <div class="ui large blue sidebar right attached button"><i class="icon th-list"></i> Menu</div>
+    <div class="ui huge blue sidebar right attached button"><i class="icon th-list"></i> Menu</div>
   <%- @content %>
 </body>
 
