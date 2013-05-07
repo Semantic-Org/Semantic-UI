@@ -31,20 +31,32 @@
   .ui.responsive.grid {
     padding: 0% 5%;
   }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
 }
 @media only screen and (min-width : 1000px) {
   .ui.responsive.grid {
     padding: 0% 12.5%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
   }
 }
 @media only screen and (min-width : 1500px) {
   .ui.responsive.grid {
     padding: 0% 15%;
   }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
 }
 @media only screen and (min-width : 1750px) {
   .ui.responsive.grid {
     padding: 0% 23%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
   }
 }
 @media only screen and (min-width : 2000px) {
@@ -53,7 +65,6 @@
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
-    font-size: 1.25rem;
   }
 }
 
@@ -68,8 +79,8 @@
   text-align: left;
   font-size: 1rem;
 
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 1.33%;
+  padding-right: 1.33%;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
