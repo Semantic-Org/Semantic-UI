@@ -25,9 +25,9 @@
 
   background-color: #F0F0F0;
 
-  padding: 12px 30px;
+  padding: 0.8em 1.5em;
 
-  font-size: 14px;
+  font-size: 1em;
   text-transform: uppercase;
   line-height: 1;
   font-weight: bold;
@@ -36,18 +36,18 @@
   color: #7A7A7A;
   text-align: center;
 
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
 
   -webkit-box-shadow:
-    0px -2px 0px rgba(0, 0, 0, 0.1) inset
+    0em -0.125em 0em rgba(0, 0, 0, 0.1) inset
   ;
   -moz-box-shadow:
-    0px -2px 0px rgba(0, 0, 0, 0.1) inset
+    0em -0.125em 0em rgba(0, 0, 0, 0.1) inset
   ;
   box-shadow:
-    0px -2px 0px rgba(0, 0, 0, 0.1) inset
+    0em -0.125em 0em rgba(0, 0, 0, 0.1) inset
   ;
 
   -webkit-user-select: none;
@@ -93,8 +93,9 @@
      Hover 
 ---------------*/
 
+.ui.button:hover,
 .ui.button.hover {
-  background-color: #DDDDDD;
+  background-color: #E0E0E0;
 }
 
 /*--------------
@@ -102,10 +103,12 @@
 ---------------*/
 
 /* Down */
+.ui.button:active,
 .ui.button.down {
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+  background-color: #DDDDDD;
+  -webkit-box-shadow: 0.125em 0.125em 0.125em 0 rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0.125em 0.125em 0.125em 0 rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0.125em 0.125em 0.125em 0 rgba(0, 0, 0, 0.1) inset;
 }
 
 
@@ -117,13 +120,13 @@
 .ui.button.active {
   background-color: #E6E6E6;
   -webkit-box-shadow:
-    0px 1px 6px -3px rgba(0, 0, 0, 0.3) inset
+    0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset
   ;
   -moz-box-shadow:
-    0px 1px 6px -3px rgba(0, 0, 0, 0.3) inset
+    0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset
   ;
   box-shadow:
-    0px 1px 6px -3px rgba(0, 0, 0, 0.3) inset
+    0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset
   ;
 }
 .ui.buttons .button.active,
@@ -135,14 +138,15 @@
 .ui.buttons .button.active.hover,
 .ui.button.active.hover {
   background: #E0E0E0;
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: 0px 0.0625 0.1875em 0em rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0em 0.0625 0.1875em 0em rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0em 0.0625 0.1875em 0em rgba(0, 0, 0, 0.2) inset;
 }
 .ui.buttons .button.active.hover,
 .ui.buttons .button.active.hover a,
 .ui.button.active.hover,
 .ui.button.active.hover a {
+  background: #DADADA;
   color: #555555;
 }
 
@@ -171,8 +175,8 @@
 }
 .ui.button.loading:after {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0em;
+  left: 0em;
   width: 100%;
   height: 100%;
   content: '';
@@ -180,9 +184,9 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
 
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -moz-border-radius: 0.3125em;
+  -webkit-border-radius: 0.3125em;
+  border-radius: 0.3125em;
 }
 /* Opposite color loader */
 .ui.grey.button.loading,
@@ -278,159 +282,222 @@
 *******************************/
 
 
-/*---------------
-      Blue
-----------------*/
-
-.ui.blue.buttons .button,
-.ui.blue.button {
-  background-color: #00B4AC;
+/*--- Black ---*/
+.ui.buttons.black .button,
+.ui.button.black {
+  background-color: #5C6166;
   color: #FFFFFF;
 }
-.ui.blue.buttons .button.hover,
-.ui.blue.button.hover {
-  background-color: #F15B40;
-}
-.ui.blue.buttons .button.down,
-.ui.blue.button.down {
-  background-color: #F15B40;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-}
-
-/*---------------
-    Purple
-----------------*/
-
-.ui.purple.buttons .button,
-.ui.purple.button {
+.ui.buttons.black .button.hover,
+.ui.buttons.black .button:hover,
+.ui.button.black.hover,
+.ui.button.black:hover {
+  background-color: #888888;
   color: #FFFFFF;
-  background-color: #6E4889;
 }
-.ui.purple.buttons .button.hover,
-.ui.purple.button.hover {
-  background-color: #62397F;
+.ui.buttons.black .button.down,
+.ui.buttons.black .button:active,
+.ui.button.black.down,
+.ui.button.black:active {
+  background-color: #888888;
+  color: #FFFFFF;
 }
-.ui.purple.buttons .button.down,
-.ui.purple.button.down {
-  background-color: #9254BD;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
+
+/*--- Green ---*/
+.ui.buttons.green .button,
+.ui.button.green {
+  background-color: #A1CF64;
+  color: #FFFFFF;
+}
+.ui.buttons.green .button.hover,
+.ui.buttons.green .button:hover,
+.ui.button.green.hover,
+.ui.button.green:hover {
+  background-color: #89B84C;
+  color: #FFFFFF;
+}
+.ui.buttons.green .button.down,
+.ui.buttons.green .button:active,
+.ui.button.green.down,
+.ui.button.green:active {
+  background-color: #89B84C;
+  color: #FFFFFF;
+}
+
+/*--- Red ---*/
+.ui.buttons.red .button,
+.ui.button.red {
+  background-color: #EF4D6D;
+  color: #FFFFFF;
+}
+.ui.buttons.red .button.hover,
+.ui.buttons.red .button:hover,
+.ui.button.red.hover,
+.ui.button.red:hover {
+  background-color: #DE3859;
+  color: #FFFFFF;
+}
+.ui.buttons.red .button.down,
+.ui.buttons.red .button:active,
+.ui.button.red.down,
+.ui.button.red:active {
+  background-color: #DE3859;
+  color: #FFFFFF;
+}
+
+/*--- Blue ---*/
+.ui.buttons.blue .button,
+.ui.button.blue {
+  background-color: #6ECFF5;
+  color: #FFFFFF;
+}
+.ui.buttons.blue .button.hover,
+.ui.buttons.blue .button:hover,
+.ui.button.blue.hover,
+.ui.button.blue:hover {
+  background-color: #1AB8F3;
+  color: #FFFFFF;
+}
+.ui.buttons.blue .button.down,
+.ui.buttons.blue .button:active,
+.ui.button.blue.down,
+.ui.button.blue:active {
+  background-color: #1AB8F3;
+  color: #FFFFFF;
+}
+
+/*--- Purple ---*/
+.ui.buttons.purple .button,
+.ui.button.purple {
+  background-color: #564F8A;
+  color: #FFFFFF;
+}
+.ui.buttons.purple .button.hover,
+.ui.buttons.purple .button:hover,
+.ui.button.purple.hover,
+.ui.button.purple:hover {
+  background-color: #3E3773;
+  color: #FFFFFF;
+}
+.ui.buttons.purple .button.down,
+.ui.buttons.purple .button:active,
+.ui.button.purple.down,
+.ui.button.purple:active {
+  background-color: #3E3773;
+  color: #FFFFFF;
+}
+
+/*--- Teal ---*/
+.ui.buttons.teal .button,
+.ui.button.teal {
+  background-color: #00B5AD;
+  color: #FFFFFF;
+}
+.ui.buttons.teal .button.hover,
+.ui.buttons.teal .button:hover,
+.ui.button.teal.hover,
+.ui.button.teal:hover {
+  background-color: #009A93;
+  color: #FFFFFF;
+}
+.ui.buttons.teal .button.down,
+.ui.buttons.teal .button:active,
+.ui.button.teal.down,
+.ui.button.teal:active {
+  background-color: #009A93;
+  color: #FFFFFF;
 }
 
 /*---------------
-Green / Positive
+    Positive
 ----------------*/
 
-.ui.button.green,
+.ui.buttons.positive .button,
 .ui.button.positive {
+  background-color: #A1CF64;
+  color: #FFFFFF;
+}
+.ui.buttons.positive .button.hover,
+.ui.buttons.positive .button:hover,
+.ui.button.positive.hover,
+.ui.button.positive:hover {
+  background-color: #7DDC5C;
+  color: #FFFFFF;
+}
+.ui.buttons.positive .button.down,
+.ui.buttons.positive .button:active,
+.ui.button.positive.down,
+.ui.button.positive:active {
   background-color: #7DDC5C;
   color: #FFFFFF;
 }
 
-.ui.button.green.hover,
-.ui.button.positive.hover {
-  background-color: #7FE95A;
-  color: #FFFFFF;
-}
-
-.ui.button.green.down,
-.ui.button.positive.down {
-  background-color: #59B94B;
-  color: #FFFFFF;
-  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.4) inset;
-}
-
 
 /*---------------
-  Red / Negative
+     Negative
 ----------------*/
 
-.ui.button.red,
+.ui.buttons.negative .button,
 .ui.button.negative {
-  background-color: #EF3F49;
+  background-color: #EF4D6D;
   color: #FFFFFF;
 }
-
-.ui.button.red.hover,
-.ui.button.negative.hover {
-  background-color: #FE313C;
+.ui.buttons.negative .button.hover,
+.ui.buttons.negative .button:hover,
+.ui.button.negative.hover,
+.ui.button.negative:hover {
+  background-color: #DE3859;
   color: #FFFFFF;
 }
-
-.ui.button.red.down,
-.ui.button.negative.down {
-  background-color: #DC323C;
+.ui.buttons.negative .button.down,
+.ui.buttons.negative .button:active,
+.ui.button.negative.down,
+.ui.button.negative:active {
+  background-color: #DE3859;
   color: #FFFFFF;
 }
 
 /*-------------------
-       Sizes
+        Sizes
 --------------------*/
 
 .ui.buttons.mini .button,
 .ui.mini.button {
-  font-size: 9px;
-  padding: 4px 5px;
-  border-radius: 3px;
-}
-.ui.buttons.mini .button i,
-.ui.mini.button i {
-  vertical-align: top;
+  font-size: 0.5625em;
 }
 .ui.tiny.buttons .button,
 .ui.tiny.button {
-  font-size: 11px;
-  font-weight: bold;
-  padding: 8px 15px;
+  font-size: 0.625em;
 }
 .ui.small.buttons .button,
 .ui.small.button {
-  font-size: 12px;
-  padding: 10px 20px;
+  font-size: 0.75em;
 }
-.ui.medium.buttons .button,
-.ui.medium.button {
-  font-size: 14px;
-  padding: 12px 30px;
+.ui.buttons .button,
+.ui.button {
+  font-size: 1em;
 }
 .ui.large.buttons .button,
 .ui.large.button {
-  font-size: 16px;
-  padding: 15px 30px;
+  font-size: 1.125em;
 }
 .ui.big.buttons .button,
 .ui.big.button {
-  font-size: 18px;
-  padding: 15px 30px;
+  font-size: 1.25em;
 }
 .ui.huge.buttons .button,
 .ui.huge.button {
-  font-size: 20px;
-  padding: 18px 30px;
+  font-size: 1.375em;
 }
 .ui.massive.buttons .button,
 .ui.massive.button {
-  padding: 20px 45px;
-
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: bold;
 }
 .ui.gigantic.buttons .button,
 .ui.gigantic.button {
-  padding: 18px 45px;
-
-  font-size: 30px;
+  font-size: 2em;
   font-weight: bold;
-}
-
-.ui.mini.button,
-.ui.tiny.button {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -467,48 +534,14 @@ Containing Icon
 ---------------*/
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 7px;
+  padding: 0.75em;
   text-align: center;
 }
 .ui.icon.buttons .button i,
 .ui.icon.button i {
-  margin: 0px;
+  margin: 0em;
   vertical-align: text-top;
 }
-/* Image Button Resizes */
-.ui.icon.buttons.mini .button,
-.ui.mini.icon.button {
-  padding: 4px;
-}
-.ui.tiny.icon.buttons .button,
-.ui.tiny.icon.button {
-  padding: 6px;
-}
-.ui.small.icon.buttons .button,
-.ui.small.icon.button {
-  padding: 6px;
-}
-.ui.medium.icon.buttons .button,
-.ui.medium.icon.button {
-  padding: 7px;
-}
-.ui.big.icon.buttons .button,
-.ui.big.icon.button {
-  padding: 10px;
-}
-.ui.huge.icon.buttons .button,
-.ui.huge.icon.button {
-  padding: 11px;
-}
-.ui.massive.icon.buttons .button,
-.ui.massive.icon.button {
-  padding: 15px;
-}
-.ui.gigantic.icon.buttons .button,
-.ui.gigantic.icon.button {
-  padding: 18px;
-}
-
 
 /*--------------
      Toggle 
@@ -553,9 +586,9 @@ Containing Icon
 ---------------*/
 
 .ui.button.bubbly {
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
 }
 
 
@@ -570,17 +603,17 @@ Containing Icon
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: none;
   
-  -webkit-border-radius: 5px 5px 0px 0px;
-  -moz-border-radius: 5px 5px 0px 0px;
-  border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 0.3125em 0.3125em 0px 0px;
+  -moz-border-radius: 0.3125em 0.3125em 0px 0px;
+  border-radius: 0.3125em 0.3125em 0px 0px;
 }
 .ui.button.attached.bottom {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: none;
 
-  -webkit-border-radius: 0px 0px 5px 5px;
-  -moz-border-radius: 0px 0px 5px 5px;
-  border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 0.3125em 0.3125em;
+  -moz-border-radius: 0px 0px 0.3125em 0.3125em;
+  border-radius: 0px 0px 0.3125em 0.3125em;
 }
 .ui.button.attached.left {
   display: inline-block;
@@ -588,18 +621,18 @@ Containing Icon
 
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   
-  -webkit-border-radius: 5px 0px 0px 5px;
-  -moz-border-radius: 5px 0px 0px 5px;
-  border-radius: 5px 0px 0px 5px;
+  -webkit-border-radius: 0.3125em 0px 0px 0.3125em;
+  -moz-border-radius: 0.3125em 0px 0px 0.3125em;
+  border-radius: 0.3125em 0px 0px 0.3125em;
 }
 .ui.button.attached.right {
   display: inline-block;
   
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 
-  -webkit-border-radius: 0px 5px 5px 0px;
-  -moz-border-radius: 0px 5px 5px 0px;
-  border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 0.3125em 0.3125em 0px;
+  -moz-border-radius: 0px 0.3125em 0.3125em 0px;
+  border-radius: 0px 0.3125em 0.3125em 0px;
 }
 
 /* Button attached to a form element */
@@ -615,9 +648,9 @@ input + .ui.attached.button {
   -moz-box-shadow: none;
   box-shadow: none;
 
-  -webkit-border-radius: 0px 5px 5px 0px;
-  -moz-border-radius: 0px 5px 5px 0px;
-  border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 0.3125em 0.3125em 0px;
+  -moz-border-radius: 0px 0.3125em 0.3125em 0px;
+  border-radius: 0px 0.3125em 0.3125em 0px;
 
   vertical-align: top;
 }
@@ -648,9 +681,9 @@ input + .ui.attached.button.down {
 .ui.buttons .huge.button,
 .ui.buttons .gigantic.button {
   float: left;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
 }
 .ui.buttons .button:first-child,
 .ui.buttons .mini.button:first-child,
@@ -659,9 +692,9 @@ input + .ui.attached.button.down {
 .ui.buttons .massive.button:first-child,
 .ui.buttons .huge.button:first-child,
 .ui.buttons .gigantic.button:first-child {
-  margin-left: 0px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  margin-left: 0em;
+  border-top-left-radius: 0.3125em;
+  border-bottom-left-radius: 0.3125em;
 }
 .ui.buttons .button:last-child,
 .ui.buttons .mini.button:last-child,
@@ -670,8 +703,8 @@ input + .ui.attached.button.down {
 .ui.buttons .massive.button:last-child,
 .ui.buttons .huge.button:last-child,
 .ui.buttons .gigantic.button:last-child {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-top-right-radius: 0.3125em;
+  border-bottom-right-radius: 0.3125em;
 }
 
 /* Vertical  Style */
@@ -690,9 +723,9 @@ input + .ui.attached.button.down {
 .ui.buttons.vertical .huge.button:first-child,
 .ui.buttons.vertical .gigantic.button:first-child {
   margin-top: 0px;
-  -moz-border-radius: 5px 5px 0px 0px;
-  -webkit-border-radius: 5px 5px 0px 0px;
-  border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 0.3125em 0.3125em 0px 0px;
+  -webkit-border-radius: 0.3125em 0.3125em 0px 0px;
+  border-radius: 0.3125em 0.3125em 0px 0px;
 }
 .ui.buttons.vertical .button:last-child,
 .ui.buttons.vertical .mini.button:last-child,
@@ -701,23 +734,9 @@ input + .ui.attached.button.down {
 .ui.buttons.vertical .massive.button:last-child,
 .ui.buttons.vertical .huge.button:last-child,
 .ui.buttons.vertical .gigantic.button:last-child {
-  -moz-border-radius: 0px 0px 5px 5px;
-  -webkit-border-radius: 0px 0px 5px 5px;
-  border-radius: 0px 0px 5px 5px;
-}
-
-/* Only show multiple borders when changing colors in group */
-.ui.buttons .grey.button + .grey.button,
-.ui.buttons .blue.button + .blue.button,
-.ui.buttons .purple.button + .purple.button,
-.ui.buttons .green.button + .green.button {
-  margin-left: -1px;
-}
-.ui.vertical.buttons .grey.button + .grey.button,
-.ui.vertical.buttons .blue.button + .blue.button,
-.ui.vertical.buttons .purple.button + .purple.button,
-.ui.vertical.buttons .green.button + .green.button {
-  margin-top: -1px;
+  -moz-border-radius: 0px 0px 0.3125em 0.3125em;
+  -webkit-border-radius: 0px 0px 0.3125em 0.3125em;
+  border-radius: 0px 0px 0.3125em 0.3125em;
 }
 
 /*******************************

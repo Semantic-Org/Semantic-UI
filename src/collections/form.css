@@ -21,17 +21,17 @@
 
 .ui.form {
   position: relative;
-  width: 450px;
+  width: 35em;
 }
 .ui.form :first-child {
-  margin-top: 0px;
+  margin-top: 0em;
 }
 
 /*--------------------
         Content
 ---------------------*/
 
-.ui.form p {
+.ui.form > p {
   margin: 1em 0;
 }
 
@@ -75,11 +75,12 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
 
+
   color: #555555;
 
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
 
   -webkit-transition: background-color 0.3s ease-out;
   -moz-transition: background-color 0.3s ease-out;
@@ -97,9 +98,10 @@
 
 .ui.textarea,
 .ui.form textarea {
-  min-height: 67px;
-  height: 101px;
-  max-height: 202px;
+  line-height: 1.33;
+  min-height: 8em;
+  height: 12em;
+  max-height: 24em;
   resize: vertical;
 }
 .ui.form select {
@@ -147,10 +149,8 @@
 
 .ui.form input:focus,
 .ui.form textarea:focus {
-  color: #222222;
-  background-color: #FFFFFF;
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15) inset;
+  color: rgba(20, 20, 20, 0.9);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 /*--------------------
