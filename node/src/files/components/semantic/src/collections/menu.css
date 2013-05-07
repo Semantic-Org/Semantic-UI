@@ -433,12 +433,12 @@
 .ui.contrasting.menu .item > a {
   color: #FFFFFF;
 }
-.ui.link.menu .item:hover,
-.ui.menu .item.hover,
-.ui.menu .link.item:hover,
-.ui.menu a.item:hover,
-.ui.menu .dropdown.item.hover,
-.ui.menu .dropdown.item:hover {
+.ui.link.contrasting.menu .item:hover,
+.ui.contrasting.menu .item.hover,
+.ui.contrasting.menu .link.item:hover,
+.ui.contrasting.menu a.item:hover,
+.ui.contrasting.menu .dropdown.item.hover,
+.ui.contrasting.menu .dropdown.item:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 .ui.contrasting.menu .item .item,
@@ -992,14 +992,14 @@
 ---------------*/
 
 .ui.small.menu .item {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .ui.small.vertical.menu {
-  width: 200px;
+  width: 18rem;
 }
 
 .ui.menu .item {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .ui.vertical.menu {
   width: 230px;
@@ -1007,7 +1007,7 @@
 
 
 .ui.large.menu .item {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .ui.large.vertical.menu {
   width: 275px;

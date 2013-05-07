@@ -34,22 +34,22 @@
 }
 @media only screen and (min-width : 1000px) {
   .ui.responsive.grid {
-    padding: 0% 7.5%;
+    padding: 0% 12.5%;
   }
 }
 @media only screen and (min-width : 1500px) {
   .ui.responsive.grid {
-    padding: 0% 10%;
+    padding: 0% 15%;
   }
 }
 @media only screen and (min-width : 1750px) {
   .ui.responsive.grid {
-    padding: 0% 15%;
+    padding: 0% 20%;
   }
 }
 @media only screen and (min-width : 2000px) {
   .ui.responsive.grid {
-    padding: 0% 20%;
+    padding: 0% 27%;
   }
 }
 
@@ -278,12 +278,28 @@
   Vertically Centered
 -----------------------*/
 
-
 /* Vertical Centered */
-.ui.centered.grid .column,
-.ui.centered.column {
+.ui.aligned.grid,
+.ui.grid .aligned.row {
+  display: table;
+  width: 100%;
+}
+.ui.aligned.grid .column,
+.ui.grid .aligned.row .column {
   display: table-cell;
+}
+
+.ui.top.aligned.grid .column,
+.ui.grid .top.aligned.row .column {
+  vertical-align: top;
+}
+.ui.middle.aligned.grid .column,
+.ui.grid .middle.aligned.row .column {
   vertical-align: middle;
+}
+.ui.bottom.aligned.grid .column,
+.ui.grid .bottom.aligned.row .column {
+  vertical-align: bottom;
 }
 
 

@@ -23,7 +23,6 @@
   background-color: rgba(0, 0, 0, 0.04);
   padding: 1em;
 
-  font-size: 16px;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.6);
   
@@ -245,17 +244,17 @@
 ---------------*/
 
 .ui.small.block {
-  font-size: 14px;
+  font-size: 0.875em;
 }
 .ui.block {
-  font-size: 16px;
+  font-size: 1em;
 }
 .ui.large.block {
-  font-size: 18px;
+  font-size: 1.125em;
 }
 .ui.huge.block {
-  font-size: 24px;
+  font-size: 1.5em;
 }
 .ui.massive.block {
-  font-size: 32px;
+  font-size: 2px;
 }
