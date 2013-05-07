@@ -57,20 +57,27 @@ type   : 'UI Collection'
 
   <div class="example">
     <h4>Vertical Menu</h4>
-    <p>This example uses several menu elements, an unclickable block, a clickable text link, a clickable icon link, and a dropdown group</p>
+    <p>A vertical menu can have its own sub menus. This example uses three levels of menu depth.</p>
     <div class="ui ignore warning block"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
     <div class="ui vertical menu">
       <div class="item">
         <b>Username</b>
       </div>
       <div class="item">
-        <p>Welcome to your profile you can do anything you want on your profile.</p>
+        <p>Welcome to your profile. You can do anything you want on your profile.</p>
       </div>
       <div class="item">
         <b>My Profile</b>
         <div class="menu">
           <a class="active item"><i class="icon th-list"></i>Summary</a>
-          <a class="item"><i class="icon users"></i>Friends <div class="ui teal label">2 new</div></a>
+          <div class="item">
+            <i class="icon users"></i>Friends <div class="ui teal label">2 new</div>
+            <div class="menu">
+              <a class="item">NYC</a>
+              <a class="item">San Francisco</a>
+              <a class="item">Abroad</a>
+            </div>
+          </div>
           <a class="item"><i class="icon bookmark"></i>Followers</a>
         </div>
       </div>

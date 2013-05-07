@@ -44,12 +44,16 @@
 }
 @media only screen and (min-width : 1750px) {
   .ui.responsive.grid {
-    padding: 0% 20%;
+    padding: 0% 23%;
   }
 }
 @media only screen and (min-width : 2000px) {
   .ui.responsive.grid {
     padding: 0% 27%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+    font-size: 1.25rem;
   }
 }
 

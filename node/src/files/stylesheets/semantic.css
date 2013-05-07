@@ -316,6 +316,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 #example .sidebar.button {
   position: fixed;
   margin-top: 75px;
+  z-index: 500;
 }
 
 #example .main.container {
