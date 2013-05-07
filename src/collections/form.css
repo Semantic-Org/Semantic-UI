@@ -415,7 +415,7 @@
 
 /* Standard */
 .ui.small.form {
-  font-size: 14px;
+  font-size: 0.875em;
 }
 .ui.small.form textarea,
 .ui.small.form input[type="text"],
@@ -424,13 +424,9 @@
   font-size: 1em;
 }
 
-.ui.form {
-  font-size: 16px;
-}
-
 /* Large */
 .ui.large.form {
-  font-size: 18px;
+  font-size: 1.125em;
 }
 .ui.large.form label {
   font-weight: bold;

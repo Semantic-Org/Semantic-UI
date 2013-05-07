@@ -21,16 +21,20 @@ i.icon {
   width: 1em;
   height: 1em;
 
-  margin: 0px 0.2em 0px 0px;
+  margin: 0em 0.2em 0em 0em;
 
   font-style: normal;
   line-height: 1;
   font-weight: normal;
   text-decoration: inherit;
   text-align: center;
-  -webkit-font-smoothing: antialiased;
 
   vertical-align: baseline;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+
 }
 i.icon:before {
   font-family: 'Icons';

@@ -81,7 +81,6 @@ h3::selection {
   font-style: normal;
   font-weight: normal;
   font-stretch: normal;
-  font-size-adjust: 0.448;
 }
 @font-face {
   font-family: 'Neutraface';
@@ -94,7 +93,6 @@ h3::selection {
   font-style: normal;
   font-weight: bold;
   font-stretch: normal;
-  font-size-adjust: 0.448;
 }
 
 @font-face {
@@ -108,7 +106,6 @@ h3::selection {
   font-style: italic;
   font-weight: normal;
   font-stretch: normal;
-  font-size-adjust: 0.448;
 }
 
 
@@ -117,8 +114,14 @@ h3::selection {
 /*******************************
              Global
 *******************************/
+
+html,
+body {
+  font-size: 16px;
+}
+
 body#example {
-  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Neutraface", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
   padding: 0px 0px 150px;
@@ -126,6 +129,31 @@ body#example {
   text-rendering: optimizeLegibility;
   min-width: 990px;
 }
+
+/*
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.ui {
+  font-family: "Neutraface", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size-adjust: 0.5;
+}
+
+p,
+ul,
+.ui.grid,
+li {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size-adjust: none;
+}
+
+*/
+
+
 
 /* text and headers */
 h1 {
@@ -285,7 +313,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   font-family: 'Neutraface';
 }
 
-#example .side.buttons {
+#example .sidebar.button {
   position: fixed;
   margin-top: 75px;
 }
