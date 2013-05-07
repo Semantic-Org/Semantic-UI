@@ -9,6 +9,7 @@ semantic.ready = function() {
   // selector cache
   var
     $ui          = $('.ui').not('.hover, .down'),
+    $checkbox    = $('.ui.checkbox'),
     $swap        = $('.theme.menu .item'),
     $menu        = $('.sidebar.button'),
     $sortTable   = $('.sortable.table'),
@@ -141,7 +142,6 @@ semantic.ready = function() {
         $waypoint = $('h2').eq( $group.index( $header ) ),
         offset    = $waypoint.offset().top - 80
       ;
-      console.log($headers);
       $menu
         .addClass('animating')
       ;
@@ -273,6 +273,11 @@ semantic.ready = function() {
     .find('i.code')
       .on('click', handler.createCode)
   ;
+
+  $checkbox
+    .checkbox()
+  ;
+  console.log($checkbox);
 
   $swap
     .on('click', handler.swapStyle)

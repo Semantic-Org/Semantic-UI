@@ -216,7 +216,7 @@
 
 
 /*--------------
-      Header
+     Header
 ---------------*/
 
 .ui.menu .header.item {
@@ -227,7 +227,6 @@
   -moz-box-shadow: 0 -0.1em 0 0 rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 -0.1em 0 0 rgba(0, 0, 0, 0.1) inset;
 }
-
 
 
 /*--------------
@@ -411,16 +410,9 @@
 
 
 /*--------------
-     Colors
+    Inverted
 ---------------*/
 
-/* Light Colors */
-.ui.grey.menu {
-  background-color: #F0F0F0;
-}
-
-
-/*--- inverted ---*/
 .ui.inverted.menu {
   background-color: #333333;
   box-shadow: none;
@@ -436,14 +428,6 @@
 .ui.inverted.menu .item > a {
   color: #FFFFFF;
 }
-.ui.link.inverted.menu .item:hover,
-.ui.inverted.menu .item.hover,
-.ui.inverted.menu .link.item:hover,
-.ui.inverted.menu a.item:hover,
-.ui.inverted.menu .dropdown.item.hover,
-.ui.inverted.menu .dropdown.item:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-}
 .ui.inverted.menu .item .item,
 .ui.inverted.menu .item .item > a {
   color: rgba(255, 255, 255, 0.8);
@@ -456,48 +440,53 @@
 .ui.inverted.menu .dropdown.item .menu .item a {
   color: rgba(0, 0, 0, 0.75);
 }
-.ui.inverted.menu .item .menu a.item:hover,
-.ui.inverted.menu .item .menu a.item.hover,
-.ui.inverted.menu .item .menu .link.item:hover,
-.ui.inverted.menu .item .menu .link.item.hover {
-  color: rgba(255, 255, 255, 1);
-}
-.ui.inverted.menu .item.active,
-.ui.inverted.menu .item.active a {
-  color: rgba(255, 255, 255, 1);
+
+
+/*--------------
+     Colors
+---------------*/
+
+/*--- Light Colors  ---*/
+.ui.grey.menu {
+  background-color: #F0F0F0;
 }
 
-/*--- inverted Colors  ---*/
+/*--- Inverted Colors  ---*/
 .ui.inverted.green.menu {
   background-color: #A1CF64;
 }
 .ui.inverted.green.pointing.menu .item.active:after {
   background-color: #A1CF64;
 }
+
 .ui.inverted.red.menu {
   background-color: #EF4D6D;
 }
 .ui.inverted.red.pointing.menu .item.active:after {
   background-color: #F16883;
 }
+
 .ui.inverted.blue.menu {
   background-color: #6ECFF5;
 }
 .ui.inverted.blue.pointing.menu .item.active:after {
   background-color: #6ECFF5;
 }
+
 .ui.inverted.purple.menu {
   background-color: #564F8A;
 }
 .ui.inverted.purple.pointing.menu .item.active:after {
   background-color: #564F8A;
 }
+
 .ui.inverted.orange.menu {
   background-color: #F05940;
 }
 .ui.inverted.orange.pointing.menu .item.active:after {
   background-color: #F05940;
 }
+
 .ui.inverted.teal.menu {
   background-color: #00B5AD;
 }
@@ -574,11 +563,29 @@
   -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
 }
+.ui.link.inverted.menu .item:hover,
+.ui.inverted.menu .item.hover,
+.ui.inverted.menu .link.item:hover,
+.ui.inverted.menu a.item:hover,
+.ui.inverted.menu .dropdown.item.hover,
+.ui.inverted.menu .dropdown.item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.ui.inverted.menu .item .menu a.item:hover,
+.ui.inverted.menu .item .menu a.item.hover,
+.ui.inverted.menu .item .menu .link.item:hover,
+.ui.inverted.menu .item .menu .link.item.hover {
+  color: rgba(255, 255, 255, 1);
+}
 
 /*--- Active ---*/
 .ui.inverted.menu .item.active {
   border-color: transparent;
   background-color: rgba(255, 255, 255, 0.15);
+}
+.ui.inverted.menu .item.active,
+.ui.inverted.menu .item.active a {
+  color: rgba(255, 255, 255, 1);
 }
 
 /*--- Pointers ---*/
@@ -590,13 +597,22 @@
   background-color: #3B3B3B;
 }
 
-
 /*--------------
-  Transparent
+     Basic
 ---------------*/
-
-.ui.transparent.menu {
-  opacity: 0.95;
+.ui.basic.menu {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.menu .item {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.menu .item:before {
+  display: none;
 }
 
 /*--------------

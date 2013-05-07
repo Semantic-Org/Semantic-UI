@@ -6,33 +6,60 @@
     Standard
 ---------------*/
 
+
+/*--- Content ---*/
 .ui.checkbox {
   position: relative;
   display: inline-block;
+
+  width: 1em;
+  height: 1em;
   vertical-align: baseline;
 }
 .ui.checkbox input {
   visibility: hidden;
 }
+
+
+/*--- Box ---*/
 .ui.checkbox label {
   cursor: pointer;
   position: absolute;
-  bottom: 0;
-  left: 0px;
+  width: 1em;
+  height: 1em;
+  bottom: 0em;
+  left: 0em;
   border-radius: 4px;
 
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
-  background: #fcfff4;
+  -webkit-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.2);
+  
+  background: #FCFFF4;
 
-  background: -webkit-linear-gradient(#FFFFFF 0%, #EAEAEA 100%);
-  background: -moz-linear-gradient(#FFFFFF 0%, #EAEAEA 100%);
-  background: -o-linear-gradient(#FFFFFF 0%, #EAEAEA 100%);
-  background: -ms-linear-gradient(#FFFFFF 0%, #EAEAEA 100%);
-  background: linear-gradient(#FFFFFF 0%, #EAEAEA 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+  -webkit-transition: 
+    background-color 0.1s ease-out,
+    box-shadow 0.1s ease-out
+  ;
+  -moz-transition: 
+    background-color 0.1s ease-out,
+    box-shadow 0.1s ease-out
+  ;
+  -o-transition: 
+    background-color 0.1s ease-out,
+    box-shadow 0.1s ease-out
+  ;
+  -ms-transition: 
+    background-color 0.1s ease-out,
+    box-shadow 0.1s ease-out
+  ;
+  transition: 
+    background-color 0.1s ease-out,
+    box-shadow 0.1s ease-out
+  ;
 }
+
+/*--- Checkbox ---*/
 .ui.checkbox label:after {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
@@ -40,7 +67,7 @@
   content: '';
   position: absolute;
   background: transparent;
-  border: 3px solid #333333;
+  border: 0.2em solid #333333;
   border-top: none;
   border-right: none;
   -webkit-transform: rotate(-45deg);
@@ -49,51 +76,53 @@
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-.ui.checkbox label:hover {
-  background-color: #FAFAFA;
-  background: -webkit-linear-gradient(#FFFFFF 0%, #F6F6F6 100%);
-  background: -moz-linear-gradient(#FFFFFF 0%, #F6F6F6 100%);
-  background: -o-linear-gradient(#FFFFFF 0%, #F6F6F6 100%);
-  background: -ms-linear-gradient(#FFFFFF 0%, #F6F6F6 100%);
-  background: linear-gradient(#FFFFFF 0%, #F6F6F6 100%);
+.ui.checkbox label:after {
+  width: 0.5em;
+  height: 0.2em;
+  top: 0.25em;
+  left: 0.2em;  
 }
 
+
+/*******************************
+           States
+*******************************/
+
+
+
+/*--- Hover ---*/
+.ui.checkbox label:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  -webkit-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.3);
+}
+
+
+/*--- Down ---*/
+.ui.checkbox label:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/*--- Active ---*/
 .ui.checkbox input:checked + label:after {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
   opacity: 1;
 }
 
-/* States */
+
+/*--- Disabled ---*/
 .ui.disabled.checkbox label,
 .ui.checkbox input[disabled] + label {
   opacity: 0.4;
 }
 
-/* Resizes */
-.ui.checkbox,
-.ui.checkbox label {
-  width: 16px;
-  height: 16px;
-}
-.ui.checkbox label:after {
-  width: 7px;
-  height: 3px;
-  top: 4px;
-  left: 3px;  
-}
 
-.ui.large.checkbox,
-.ui.large.checkbox label {
-  width: 20px;
-  height: 20px;
-}
-.ui.large.checkbox label:after {
-  width: 9px;
-  height: 5px;
-  top: 4px;
-  left: 4px;
-}
+/*******************************
+          Variations
+*******************************/
 
 
 /*--------------
@@ -125,6 +154,24 @@
   -moz-border-radius: 500px;
   border-radius: 500px;
 }
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.checkbox,
+.ui.checkbox label {
+  font-size: 1em;
+}
+.ui.large.checkbox,
+.ui.large.checkbox label {
+  font-size: 1.5em;
+}
+.ui.huge.checkbox,
+.ui.huge.checkbox label {
+  font-size: 1.5em;
+}
+
 
 /*--------------
      Rounded
@@ -232,22 +279,4 @@
   background: -o-linear-gradient(top, #016286 0%, #00506E 100%);
   background: -ms-linear-gradient(top, #016286 0%, #00506E 100%);
   background: linear-gradient(top, #016286 0%, #00506E 100%);
-}
-
-/* Resizes */
-.ui.large.round.checkbox {
-  width: 28px;
-  height: 28px;
-}
-.ui.large.round.checkbox label {
-  top: 4px;
-  left: 4px;
-  width: 20px;
-  height: 20px;
-}
-.ui.large.round.checkbox label:after {
-  top: 2px;
-  left: 2px;
-  width: 16px;
-  height: 16px;
 }
