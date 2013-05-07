@@ -171,27 +171,149 @@ type   : 'UI Collection'
     <p>A grid can be divided into equal parts.</p>
     <div class="ui three column grid">
       <div class="column">
-        <p><b>Colume One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien sed dui porta id sagittis sapien imperdiet. Quisque suscipit dui vel sapien dapibus a faucibus sapien mattis. Nulla facilisi. Aliquam vitae ante a quam tincidunt blandit. Duis adipiscing, metus at dictum auctor, odio enim ornare urna, quis aliquam arcu nibh vitae felis. Donec gravida aliquam enim in mattis. Phasellus risus purus, luctus quis lobortis eget, dignissim quis ante.</p>
+        <div class="ui fluid form segment">
+          <p>Let's go ahead and get you signed up.</p>
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              <input placeholder="First Name" type="text">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input placeholder="Last Name" type="text">
+            </div>
+          </div>
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password">
+          </div>
+          <div class="inline field">
+            <div class="ui checkbox">
+              <input type="checkbox" id="terms" />
+              <label for="terms"></label>
+            </div>
+            <label>I agree to the terms and conditions</label>
+          </div>
+          <div class="ui blue submit button">Submit</div>
+        </div>
       </div>
       <div class="column">
-        <p><b>Colume Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem. Nam augue erat, dignissim nec aliquam vel, congue et sapien. Integer viverra justo vel nibh suscipit commodo. Nullam ut turpis nibh, in luctus risus. Sed ut risus nec dui mattis porta. Nam nisi magna, ornare mollis congue a, suscipit at nisl.</p>
+        <div class="ui vertical fluid menu">
+          <div class="header item">
+            Dogs
+          </div>
+          <div class="item">
+            Poodle
+          </div>
+          <div class="item">
+            Cockerspaniel
+          </div>
+          <div class="header item">
+            Cats
+          </div>
+          <div class="item">
+            Abysinnian
+          </div>
+          <div class="item">
+            Sphynx
+          </div>
+        </div>
       </div>
       <div class="column">
-        <p><b>Colume Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. Pellentesque aliquet pellentesque nibh ut tincidunt. Nunc faucibus euismod tincidunt. Etiam convallis adipiscing est, id rutrum erat facilisis eu. Mauris in porttitor diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam consectetur orci nec quam semper sit amet bibendum nulla feugiat. Nam vehicula, arcu blandit semper sodales, nisi nisl imperdiet dolor, nec hendrerit dui lorem id felis. Integer diam ante, tempus dictum varius in, bibendum vitae nibh. Sed placerat, libero quis ultricies tempor, nisl ipsum semper orci, vitae viverra mauris lectus nec enim. Quisque eget massa eu ligula blandit molestie.</p>
+        <div class="ui fluid form segment">
+          <p>Log in to your account</p>
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password">
+          </div>
+          <div class="ui blue submit button">Login</div>
+        </div>
       </div>
     </div>
   </div>
   
   <div class="example">
+    <h4>Evenly Divided Grid w/ Rows</h4>
+    <p>Content that does not match evenly finish a row will be centered in the next row</p>
     <div class="ui two column grid">
-      <div class="column">
-        <p><b>Colume One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien sed dui porta id sagittis sapien imperdiet. Quisque suscipit dui vel sapien dapibus a faucibus sapien mattis. Nulla facilisi. Aliquam vitae ante a quam tincidunt blandit. Duis adipiscing, metus at dictum auctor, odio enim ornare urna, quis aliquam arcu nibh vitae felis. Donec gravida aliquam enim in mattis. Phasellus risus purus, luctus quis lobortis eget, dignissim quis ante.</p>
+      <div class="row">
+        <div class="column">
+          <div class="ui fluid form segment">
+            <p>Let's go ahead and get you signed up.</p>
+            <div class="two fields">
+              <div class="field">
+                <label>First Name</label>
+                <input placeholder="First Name" type="text">
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input placeholder="Last Name" type="text">
+              </div>
+            </div>
+            <div class="field">
+              <label>Username</label>
+              <input placeholder="Username" type="text">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password">
+            </div>
+            <div class="inline field">
+              <div class="ui checkbox">
+                <input type="checkbox" id="terms" />
+                <label for="terms"></label>
+              </div>
+              <label>I agree to the terms and conditions</label>
+            </div>
+            <div class="ui blue submit button">Submit</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui vertical fluid menu">
+            <div class="header item">
+              Dogs
+            </div>
+            <div class="item">
+              Poodle
+            </div>
+            <div class="item">
+              Cockerspaniel
+            </div>
+            <div class="header item">
+              Cats
+            </div>
+            <div class="item">
+              Abysinnian
+            </div>
+            <div class="item">
+              Sphynx
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="column">
-        <p><b>Colume Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem. Nam augue erat, dignissim nec aliquam vel, congue et sapien. Integer viverra justo vel nibh suscipit commodo. Nullam ut turpis nibh, in luctus risus. Sed ut risus nec dui mattis porta. Nam nisi magna, ornare mollis congue a, suscipit at nisl.</p>
-      </div>
-      <div class="column">
-        <p><b>Colume Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. Pellentesque aliquet pellentesque nibh ut tincidunt. Nunc faucibus euismod tincidunt. Etiam convallis adipiscing est, id rutrum erat facilisis eu. Mauris in porttitor diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam consectetur orci nec quam semper sit amet bibendum nulla feugiat. Nam vehicula, arcu blandit semper sodales, nisi nisl imperdiet dolor, nec hendrerit dui lorem id felis. Integer diam ante, tempus dictum varius in, bibendum vitae nibh. Sed placerat, libero quis ultricies tempor, nisl ipsum semper orci, vitae viverra mauris lectus nec enim. Quisque eget massa eu ligula blandit molestie.</p>
+      <div class="row">
+        <div class="column">
+          <div class="ui fluid form segment">
+            <p>Log in to your account</p>
+            <div class="field">
+              <label>Username</label>
+              <input placeholder="Username" type="text">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password">
+            </div>
+            <div class="ui blue submit button">Login</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
