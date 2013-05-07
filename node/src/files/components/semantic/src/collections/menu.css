@@ -786,9 +786,9 @@
         Fluid
 --------------------*/
 
-.ui.menu.fluid {
+.ui.menu.fluid,
+.ui.vertical.menu.fluid {
   width: 100%;
-  height: 43px;
 }
 .ui.menu.fluid,
 .ui.menu.fluid .item {
