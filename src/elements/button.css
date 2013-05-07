@@ -32,7 +32,7 @@
   line-height: 1;
   font-weight: bold;
   font-style: normal;
-  
+
   color: #7A7A7A;
   text-align: center;
 
@@ -90,7 +90,7 @@
 *******************************/
 
 /*--------------
-     Hover 
+     Hover
 ---------------*/
 
 .ui.button:hover,
@@ -99,7 +99,7 @@
 }
 
 /*--------------
-  Down (:active) 
+  Down (:active)
 ---------------*/
 
 /* Down */
@@ -113,7 +113,7 @@
 
 
 /*--------------
-     Active 
+     Active
 ---------------*/
 
 .ui.buttons .button.active,
@@ -151,7 +151,7 @@
 }
 
 /*--------------
-    Loading 
+    Loading
 ---------------*/
 
 .ui.button.loading,
@@ -230,7 +230,7 @@
 
 
 /*--------------
-      Error 
+      Error
 ---------------*/
 
 .ui.buttons .button.error,
@@ -268,7 +268,7 @@
   color: #DDDDDD;
   background-color: rgba(50, 50, 50, 0.05) !important;
   background-image: none !important;
-  
+
   text-shadow: none !important;
 
   -webkit-box-shadow: none !important;
@@ -540,11 +540,11 @@ Containing Icon
 .ui.icon.buttons .button i,
 .ui.icon.button i {
   margin: 0em;
-  vertical-align: text-top;
+  vertical-align: top;
 }
 
 /*--------------
-     Toggle 
+     Toggle
 ---------------*/
 
 /* Toggle (Modifies active state to give affordances) */
@@ -602,62 +602,63 @@ Containing Icon
 .ui.button.attached.top {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: none;
-  
-  -webkit-border-radius: 0.3125em 0.3125em 0px 0px;
-  -moz-border-radius: 0.3125em 0.3125em 0px 0px;
-  border-radius: 0.3125em 0.3125em 0px 0px;
+
+  -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
+  -moz-border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;
 }
 .ui.button.attached.bottom {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: none;
 
-  -webkit-border-radius: 0px 0px 0.3125em 0.3125em;
-  -moz-border-radius: 0px 0px 0.3125em 0.3125em;
-  border-radius: 0px 0px 0.3125em 0.3125em;
+  -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
+  -moz-border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em 0.3125em 0.3125em;
 }
 .ui.button.attached.left {
   display: inline-block;
   border-left: none;
 
+  padding-right: 0.75em;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  
-  -webkit-border-radius: 0.3125em 0px 0px 0.3125em;
-  -moz-border-radius: 0.3125em 0px 0px 0.3125em;
-  border-radius: 0.3125em 0px 0px 0.3125em;
+
+  -webkit-border-radius: 0.3125em 0em 0em 0.3125em;
+  -moz-border-radius: 0.3125em 0em 0em 0.3125em;
+  border-radius: 0.3125em 0em 0em 0.3125em;
 }
 .ui.button.attached.right {
   display: inline-block;
-  
+
+  padding-left: 0.75em;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 
-  -webkit-border-radius: 0px 0.3125em 0.3125em 0px;
-  -moz-border-radius: 0px 0.3125em 0.3125em 0px;
-  border-radius: 0px 0.3125em 0.3125em 0px;
+  -webkit-border-radius: 0em 0.3125em 0.3125em 0em;
+  -moz-border-radius: 0em 0.3125em 0.3125em 0em;
+  border-radius: 0em 0.3125em 0.3125em 0em;
 }
 
 /* Button attached to a form element */
 input + .ui.attached.button {
   display: inline-block;
-  min-width: 40px;
-  margin: 0px 0px 0px -15px;
-  height: 14px;
-  padding: 8px 15px;
-  border: 1px solid #D0D0D0;
 
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-
-  -webkit-border-radius: 0px 0.3125em 0.3125em 0px;
-  -moz-border-radius: 0px 0.3125em 0.3125em 0px;
-  border-radius: 0px 0.3125em 0.3125em 0px;
-
+  margin: 0 0 0 -1em;
+  padding: 0.68em 1em;
   vertical-align: top;
+
+  font-size: 0.825em;
+
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
+
+  -webkit-border-radius: 0em 0.3125em 0.3125em 0em;
+  -moz-border-radius: 0em 0.3125em 0.3125em 0em;
+  border-radius: 0em 0.3125em 0.3125em 0em;
 }
-input + .ui.attached.button.down {
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
+input:focus + .ui.attached.button {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
 }
 .ui.attached.button.loading,
 .ui.attached.button.loading.hover {
@@ -921,7 +922,7 @@ input + .ui.attached.button.down {
 
   font-size: 15px;
 }
-.ui.huge.buttons .or:after, 
+.ui.huge.buttons .or:after,
 .ui.buttons .huge.or:after {
   top: 6px;
   width: 6px;
