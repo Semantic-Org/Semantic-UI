@@ -87,7 +87,7 @@
     </div>
   </div>
 
-  <div class="ui fixed transparent contrasting main menu">
+  <div class="ui fixed transparent inverted main menu">
     <div class="container">
       <div class="title item">
         <b><%= @document.type %>:</b> <%= @document.title %>
