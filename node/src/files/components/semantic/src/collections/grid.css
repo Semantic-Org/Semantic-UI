@@ -28,28 +28,28 @@
 }
 
 @media only screen and (max-width : 1000px) {
-  body > .ui.grid {
+  .ui.responsive.grid {
     padding: 0% 5%;
   }
 }
 @media only screen and (min-width : 1000px) {
-  body > .ui.grid {
-    padding: 0% 10%;
+  .ui.responsive.grid {
+    padding: 0% 7.5%;
   }
 }
 @media only screen and (min-width : 1500px) {
-  body > .ui.grid {
-    padding: 0% 15%;
+  .ui.responsive.grid {
+    padding: 0% 10%;
   }
 }
 @media only screen and (min-width : 1750px) {
-  body >.ui.grid {
-    padding: 0% 20%;
+  .ui.responsive.grid {
+    padding: 0% 15%;
   }
 }
 @media only screen and (min-width : 2000px) {
-  body > .ui.grid {
-    padding: 0% 25%;
+  .ui.responsive.grid {
+    padding: 0% 20%;
   }
 }
 
@@ -102,6 +102,9 @@
 
 
 /* Sizing Combinations */
+.ui.grid .one.wide.column {
+  width: 8.3333%;
+}
 .ui.grid .two.wide.column {
   width: 16.66667%;
 }
@@ -145,6 +148,12 @@
 .ui.grid > .row > .column {
   width: 8.3333%;
 }
+/* Assume full width with one column */
+.ui.grid > .column:only-child,
+.ui.grid > .row > .column:only-child {
+  width: 100%;
+}
+
 
 .ui.two.column.grid .column {
   width: 50%;

@@ -331,7 +331,7 @@
 .ui.menu .dropdown.item .menu .item.hover,
 .ui.menu .dropdown.item .menu .item:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.02);
 }
 
 /* Dropdown Display */
@@ -433,16 +433,20 @@
 .ui.contrasting.menu .item > a {
   color: #FFFFFF;
 }
-.ui.contrasting.menu .item > a:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.95);
+.ui.link.menu .item:hover,
+.ui.menu .item.hover,
+.ui.menu .link.item:hover,
+.ui.menu a.item:hover,
+.ui.menu .dropdown.item.hover,
+.ui.menu .dropdown.item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 .ui.contrasting.menu .item .item,
 .ui.contrasting.menu .item .item > a {
   color: rgba(255, 255, 255, 0.8);
 }
 .ui.contrasting.menu .item .item > a:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.contrasting.menu .dropdown.item .menu .item,

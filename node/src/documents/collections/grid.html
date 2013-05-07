@@ -7,21 +7,23 @@ type   : 'UI Collection'
 ---
 
 <div class="segment">
-  <div class="ui grid">
-    <div class="eight wide column">
+  <div class="ui main responsive grid">
+    <div class="column">
       <h1>Grid</h1>
       <p>A grid is a set of elements without a visual definition, that creates a structure to harmonize negative space in a layout.</p>
     </div>
   </div>
 </div>
-<div class="main ui grid">
-<div class="twelve wide column">
+<div class="main responsive ui grid">
+<div class="column">
   
   <h2>Collection</h2>
   
   <div class="example">
     <h4>Grid</h4>
     <p>A grid is made up of columns of content. By default a grid must assume a certain number of columns. The semantic library assumes 12 columns by default.</p>
+    
+    <div class="ui ignore warning block"><i class="icon heart"></i> For convenience if only a single column is specified inside a grid or grid row, it will assume the column to take up the entire grid width. If you would like to override this behavior, specify the grid width as a <b>one wide column</b></div>
     <div class="ui grid">
       <div class="column">
         1
@@ -63,7 +65,9 @@ type   : 'UI Collection'
   </div>
   <div class="example">
     <h4>Rows</h4>
-    <p>A basic grid has padding on the first and last columns of each row. If no rows are specified, a grid will assume only one row. A row must always have the same number of columns as the grid.</p>
+    <p>A basic grid has padding on the first and last columns of each row.</p>
+    <p>A row is used to create vertical padding between rows of columns on a page. If no rows are specified, a grid column will sit flush along each side of the grid.</p>
+    <p>/p>
     <div class="ui grid">
       <div class="row">
         <div class="column">
@@ -165,6 +169,36 @@ type   : 'UI Collection'
   <h2>Variations</h2>
   
   <h3>Grid</h3>
+  
+  <div class="example">
+    <h4>Responsive Grid</h4>
+    <p>A responsive grid is a special type of grid useful for designing page layouts. A standard grid does not make any assumptions about how it should change gutters depending on content. Page grids will automatically resize the gutters as a browsers resolution changes size.</p>
+    
+    <div class="ui two column responsive grid">
+      <div class="column">
+        <div class="ui labeled vertical fluid contrasting icon menu">
+          <a class="item">
+            <i class="icon mail"></i>
+            Mail
+          </a>
+          <a class="item">
+            <i class="icon th-list"></i>
+            Directory
+          </a>
+          <a class="item">
+            <i class="icon star"></i>
+            Favorites
+          </a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <b>Inbox</b>
+          <p>Welcome to your inbox. Would you like to see more information?</p>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <div class="example">
     <h4>Evenly Divided Grid</h4>
