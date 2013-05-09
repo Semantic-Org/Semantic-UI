@@ -27,47 +27,6 @@
   box-sizing: border-box;
 }
 
-@media only screen and (max-width : 1000px) {
-  .ui.responsive.grid {
-    padding: 0% 5%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-@media only screen and (min-width : 1000px) {
-  .ui.responsive.grid {
-    padding: 0% 12.5%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-@media only screen and (min-width : 1500px) {
-  .ui.responsive.grid {
-    padding: 0% 15%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-@media only screen and (min-width : 1750px) {
-  .ui.responsive.grid {
-    padding: 0% 23%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-@media only screen and (min-width : 2000px) {
-  .ui.responsive.grid {
-    padding: 0% 27%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-
 /*-------------------
        Columns
 --------------------*/
@@ -103,6 +62,11 @@
 --------------------*/
 
 .ui.grid > .row {
+  display: block;
+  width: 100%;
+}
+
+.ui.grid > .row {
   padding-top: 2.55%;
 }
 .ui.grid > .row:first-child {
@@ -114,6 +78,57 @@
            Variations
 *******************************/
 
+
+
+/*-------------------
+      Responsive
+--------------------*/
+
+
+@media only screen and (max-width : 1000px) {
+  .ui.responsive.grid {
+    padding: 0% 5%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1000px) {
+  .ui.responsive.grid {
+    padding: 0% 5%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .ui.responsive.grid {
+    padding: 0% 10%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1750px) {
+  .ui.responsive.grid {
+    padding: 0% 20%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 2000px) {
+  .ui.responsive.grid {
+    padding: 0% 27%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+
+/*-------------------
+    Column Width
+--------------------*/
 
 
 /* Sizing Combinations */
