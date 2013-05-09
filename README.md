@@ -8,14 +8,19 @@ Semantic's goal is to define a vocabulary for interface elements based on consen
 For developers, this means defining class names for UI elements, outlining states that an elements can exist, and describing common variations of that element. 
 
 
-### Download
+### Getting Started
+
+The Semantic library describes many UI elements which might not exist on every website. In most instances it might be best to build a custom build with only the components you need.
 
 You can use our build tool to select only the components you want
 
     http://semantic-ui.com/download
 
-Or download the whole kit and kaboodle
+Or download the entire library and build out the code yourself using Grunt or another package management system.
 
+    git clone git@github.com:quirkyinc/semantic.git
+
+If you prefer to download the whole kit and kaboodle you can grab that as well.
     http://semantic-ui.com/ui/semantic.min.css
     http://semantic-ui.com/ui/semantic.min.js
 
