@@ -23,22 +23,24 @@ If you prefer to download the whole kit and kaboodle you can grab that as well.
 
 ## The Specification
 
-The aim of the semantic specification is to create conventions for structuring and naming code for describing interface elements. By defining a vocabulary for interface elements based on consensus, and convention, we can increase portability of UI design.
+The aim of the specification is to develop conventions around structuring and naming code for interface elements. 
 
-### What it defines
-
-**For all ui**: Defines class name and html structures which can be used to represent an element
-
-**For elements**: Outlines states that an elements can exist, lists common types, or variations, of an element, and if necessary, defines how the element functions in groups.
-
-**For collections**: Defines a list of elements that it can include, and ways which variations in the collection can affect each element.
-
-**For modules**: Defines a set of behaviors the module is expected to perform.
-
-**For views**: Defines the types of content it usually contains, and a standard heirarchy for presenting the content to the user.
+By defining a vocabulary the development community can exchange javascript and css definitions of UI in a similar language, making new code easier to grock, and reducing the complexity of starting a new project, or changing a sites design.
 
 
 ### How it is defined
+
+#### Scope of a definition
+
+**All UI**: The specification defines class name and html structures which can be used to represent an element
+
+**Elements**: The specification outlines states that an elements can exist, lists common types, or variations, of an element, and if necessary, defines how the element functions in groups.
+
+**Collections**: The specification defines a list of elements that it can include, and ways which variations in the collection can affect each element.
+
+**Modules**: The specification defines a set of behaviors the module is expected to perform.
+
+**Views**: The specification defines the types of content it usually contains, and a standard heirarchy for presenting the content to the user.
 
 #### Based on class
 
@@ -107,13 +109,11 @@ Here is part of Semantic's definition of a button
 
 ## Types of UI
 
-UI components are split into four categories, ranging from smallest to largest: 
+UI components are split into four categories, ranging from smallest to largest in scope: 
 * UI Elements
 * UI Collections
 * UI Modules
 * UI Views
-
-All UI definitions are made of a neutral, ideal definition, a list of states it can occupy, and a set of common variations or "types" of that element. 
 
 ### UI Elements
 UI Elements are interface elements which do not contain other elements inside themselves. This can be thought of as similar in definition as an "element" in chemistry.
