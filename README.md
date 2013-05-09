@@ -5,7 +5,7 @@ Semantic is a set of specifications for sharing UI elements between developers. 
 ## About
 Semantic's goal is to define a vocabulary for interface elements based on consensus, and convention.
 
-For developers, this means defining class names conventions for UI elements, outlining states that an elements can exist, and describing common variations of tnat element. 
+For developers, this means defining class names for UI elements, outlining states that an elements can exist, and describing common variations of tnat element. 
 
 ## How
 Just like English, adjectives, or *variations*, have meaning based on the context of the noun, the *ui element*. 
