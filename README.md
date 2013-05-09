@@ -12,7 +12,7 @@ You can use our build tool to select only the components you want
 
     http://semantic-ui.com/download
 
-Or download the entire library and build out the code yourself using [http://gruntjs.com/](Grunt) or another package management system.
+Or download the entire library and build out the code yourself using [Grunt](http://gruntjs.com/) or another package management system.
 
     git clone git@github.com:quirkyinc/semantic.git
 
