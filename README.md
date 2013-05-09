@@ -2,10 +2,7 @@
 
 Semantic is a set of specifications for sharing UI elements between developers. Semantic is also a UI library to make front end development simpler and easier to learn.
 
-## About
-Semantic's goal is to define a vocabulary for interface elements based on consensus, and convention.
-
-For developers, this means defining class names for UI elements, outlining states that an elements can exist, and listing common ways different types of an element can be described. 
+## The Library
 
 ### Getting Started
 
@@ -25,13 +22,28 @@ If you prefer to download the whole kit and kaboodle you can grab that as well.
 
 ## The Specification
 
-The aim of the semantic specification is to create conventions for structuring and naming code for describing interface elements. 
+The aim of the semantic specification is to create conventions for structuring and naming code for describing interface elements. By defining a vocabulary for interface elements based on consensus, and convention, we can increase portability of UI design.
 
-### Based on class
+### What it defines
+
+**For all ui**: Defines class name and html structures which can be used to represent an element
+
+**For elements**: Outlines states that an elements can exist, lists common types, or variations, of an element, and if necessary, defines how the element functions in groups.
+
+**For collections**: Defines a list of elements that it can include, and ways which variations in the collection can affect each element.
+
+**For modules**: Defines a set of behaviors the module is expected to perform.
+
+**For views**: Defines the types of content it usually contains, and a standard heirarchy for presenting the content to the user.
+
+
+### How it is defined
+
+#### Based on class
 
 Semantic is based on class names, instead of tags. This means, except for links, tables and form elements, you can use semantic with tags like ``<div> <article> <nav>`` without any difference.
 
-### Context sensitive
+#### Context sensitive
 
 In Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between elements. Just like how in English, the adjective 'big' may describe a different scale for a big planet versus a big insect.
 
@@ -59,7 +71,7 @@ The same variation can also be useful in the context of a menu.
 </div>
 ```
 
-### Defining UI
+#### Example
 
 Here is part of Semantic's definition of a button
 
