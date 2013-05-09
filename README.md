@@ -1,31 +1,38 @@
 # Semantic
 
-Semantic is a set of specifications for sharing UI elements between developers. Semantic is also a UI library, like Bootstrap, made to make front end development simpler.
+Semantic is a set of specifications for sharing UI elements between developers. Semantic is also a UI library to make front end development simpler and easier to learn.
 
 ## About
-Semantic's goal is to create conventions for html structures and class names of interface elements so that developers can exchange designs for UI components without restructuring their codebase. 
+Semantic's goal is to define a vocabulary for interface elements based on consensus, and convention.
 
-Semantic also tries to make web development more easy to learn, by reducing the complexity of html, and providing syntax based on natural language making it easier to define relationships like, singular and plural definitions. nouns and adjectives.
+For developers, this means defining class names conventions for UI elements, outlining states that an elements can exist, and describing common variations of tnat element. 
 
-For example here is Semantic's definition of a button
+## How
+Just like English, adjectives, or *variations*, have meaning based on the context of the noun, the *ui element*. 
 
+We know a big planet is a different size than a big house, but we can still describe the quality of something that is big. In the same way, in Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between elements, e.g. a big activity feed, is different than a big progress bar.
+
+
+For example here is part of Semantic's definition of a button
+
+**Standard**: A button is a shape that can be pressed in to complete an action
 ```html
     <div class="ui button"></div>
 ```
-A button can sometimes be active, or selected by the user
+**State**: A button can sometimes be active, or selected by the user
 
 ``` html
     <div class="ui active button">
 ```
 
-A button may sometimes look different than a simple button. 
+**Variations**: A button may sometimes look different than a simple button. 
 ``` html
     <div class="ui large blue icon button">
       <i class="ui icon heart"></i>
     </div>
 ```
 
-A button can sometimes exist in a group of buttons
+**Plurality**: A button can sometimes exist in a group of buttons
 ``` html
     <div class="ui large blue buttons">
       <div class="ui button">
@@ -37,6 +44,8 @@ A button can sometimes exist in a group of buttons
     </div>
 ```
 
+## Types of UI
+
 UI components are split into four categories: 
 * UI elements
 * UI Collections
@@ -46,16 +55,17 @@ UI components are split into four categories:
 All UI definitions are made of a neutral prototypical definition, a list of states it can occupy, and a set of common variations or "types" of that element. 
 
 ### UI Elements
-UI Elements are design elements are most useful to define on a singular level. They may also may be useful sometimes to define in plural. Groups of UI elements are always homogenous.
+UI Elements are basic design elements. Any part of the element cannot be thought of as something separate, although they may be made up of parts. In chemistry, you can think of this as an "element".
 
-For example in this case each button does not have to separately be defined as "large":
+They may also may be useful sometimes to define in plural. Groups of UI elements are always homogenous.
 
-`` html
+For example in this case each button can be described as large because we understand it is a type of large button
+``` html
     <div class="large buttons">
       <div class="ui button">Cancel</div>
       <div class="ui positive button">Continue</div>
     </div>
-``
+```
 
 Examples of UI elements:
 * Buttons
@@ -65,7 +75,9 @@ Examples of UI elements:
 
 
 ### UI Collections
-UI Collections are groups of heteregeneous UI elements which are usually found together. UI collections do not usually require all elements to be found, but they describe a list of the "usual suspects".Collections are not typically useful to define in plural.
+UI Collections are groups of heteregeneous UI elements which are usually found together. These can be thought of as molecules.
+
+UI collections do not usually require all elements to be found, but they describe a list of the "usual suspects". Collections are not typically useful to define in plural.
 
 Examples of UI collections: 
 * Forms
@@ -74,12 +86,17 @@ Examples of UI collections:
 * Menus
  
 ## UI Views
-UI Views are common ways that UI elements are grouped together to display lists of site content. These might be slightly prescriptive, but 
+UI Views are common ways that UI collections are grouped together. The focus is not on providing a specific interaction, but providing a view for a website's content. These might be difficult to define completely.
+
+Examples of UI views:
+** Comment Feed
+** Activity Feed
+** Product List
 
 
 ## UI Modules
 
-UI modules are UI elements where it's behavior is a fundamental part of its definition.
+UI modules are UI elements where it's behavior is a fundamental part of its existence. 
 
 Examples of UI modules:
 * Popups
@@ -87,27 +104,15 @@ Examples of UI modules:
 * Chatrooms
 * Calendar Pickers
 
-Views consist of things like: **activity feeds, user lists, product lists**. 
-
-Semantic is also a UI library, written to match the specification.
-
-
 ## Usage
 
 ### Specification
 
 #### I want to contribute to the spec
 
-Semantic is very new. Semantic aims to provide class name and structural definitions of all common UI tropes, and there are still lots of components which do not have standards written. 
-
-First, look at [foo]zzz
+Semantic is very new. We're still working out the best way to join in the discussion.
 
 We're currently working to figure ouin [coding guidelines](http://semantic-ui.com/guidelines).
-
-#### I want to code a UI component using the semantic standard
-
-Great! It's nice to meet you. Ju
-
 
 
 ###Library
