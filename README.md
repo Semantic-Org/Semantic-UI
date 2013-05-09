@@ -28,7 +28,7 @@ If you prefer to download the whole kit and kaboodle you can grab that as well.
 
 ### Based on class
 
-Semantic is based on class names, instead of tags. This means, except for links, tables and forms, you can use semantic with tags like ``<div> <article> <nav>`` without any difference.
+Semantic is based on class names, instead of tags. This means, except for links, tables and form elements, you can use semantic with tags like ``<div> <article> <nav>`` without any difference.
 
 ### Context sensitive
 
@@ -36,12 +36,26 @@ In Semantic, variations maintain context based on the element they modify, but k
 
 For example, a form you can have a variation called "inverted". This changes the appearance of form elements to work on dark backgrounds.
 ```html
-<div class="ui inverted form"></div>
+<div class="ui inverted form">
+    <div class="field">
+        <label>Name</label>
+        <input type="text">
+    </div>
+</div>
 ```
 
 The same variation can also be useful in the context of a menu.
 ```html
-<div class="ui inverted menu"></div>
+<div class="ui inverted menu">
+    <div class="item">Section 1</div>
+    <div class="dropdown item">
+        Dropdown
+        <div class="menu">
+            <div class="item">Dropdown item 1</div>
+            <div class="item">Dropdown item 2</div>
+        </div>
+    </div>
+</div>
 ```
 
 ### Defining UI
