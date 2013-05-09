@@ -36,7 +36,7 @@ type   : 'UI Module'
     <h3>Check Box</h3>
     <p>The html required for a standard UI checkbox</p>
     <div class="ui checkbox">
-      <input type="checkbox" id="uniqueid" />
+      <input type="checkbox" />
       <label for="uniqueid"></label>
     </div>
   </div>
@@ -46,7 +46,11 @@ type   : 'UI Module'
     <p>The html required for a standard UI radio box</p>
     <p>A radio box is just a reskinned version of a checkbox, the initialization of the module is the same.</p>
     <div class="ui radio checkbox">
-      <input type="checkbox" id="uniqueid" />
+      <input type="radio" name="foo" />
+      <label for="uniqueid"></label>
+    </div>
+    <div class="ui radio checkbox">
+      <input type="radio" name="foo" />
       <label for="uniqueid"></label>
     </div>
   </div>
@@ -90,8 +94,8 @@ type   : 'UI Module'
   })
 ;</div>
     </li>
-    <li>Default settings for the module can be overridden by modifying $.fn.Checkbox.settings.
-      <br><div class="code">$.fn.Checkbox.settings.moduleName = 'Godzilla';</div>
+    <li>Default settings for the module can be overridden by modifying $.fn.checkbox.settings.
+      <br><div class="code">$.fn.checkbox.settings.moduleName = 'Godzilla';</div>
     </li>
     <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
       <br><div class="code">$('.foo').checkbox('setting', 'moduleName', 'Godzilla');</div>

@@ -11,6 +11,7 @@
 .ui.checkbox {
   position: relative;
   display: inline-block;
+  outline: none;
 
   width: 1em;
   height: 1em;
@@ -18,11 +19,13 @@
 }
 .ui.checkbox input {
   visibility: hidden;
+  outline: none;
 }
 
 
 /*--- Box ---*/
 .ui.checkbox label {
+  outline: none;
   cursor: pointer;
   position: absolute;
   width: 1em;
