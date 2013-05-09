@@ -5,12 +5,11 @@ Semantic is a set of specifications for sharing UI elements between developers. 
 ## About
 Semantic's goal is to define a vocabulary for interface elements based on consensus, and convention.
 
-For developers, this means defining class names for UI elements, outlining states that an elements can exist, and describing common variations of that element. 
-
+For developers, this means defining class names for UI elements, outlining states that an elements can exist, and listing common ways different types of an element can be described. 
 
 ### Getting Started
 
-The Semantic library describes many UI elements which might not exist on every website. In most instances it might be best to build a custom build with only the components you need.
+The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need.
 
 You can use our build tool to select only the components you want
 
@@ -24,7 +23,9 @@ If you prefer to download the whole kit and kaboodle you can grab that as well.
     http://semantic-ui.com/ui/semantic.min.css
     http://semantic-ui.com/ui/semantic.min.js
 
-## A More Semantic Web
+## The Specification
+
+The aim of the semantic specification is to create conventions for structuring and naming code for describing interface elements. 
 
 ### Based on class
 
