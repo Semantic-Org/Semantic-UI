@@ -118,21 +118,11 @@ We're currently working to figure ouin [coding guidelines](http://semantic-ui.co
 ###Library
 
 You can use our build tool to select only the components you want
-  http://semantic-ui.com/download
+
+    http://semantic-ui.com/download
 
 Or download the whole kit and kaboodle
-  http://semantic-ui.com/ui/semantic.min.css
-  http://semantic-ui.com/ui/semantic.min.js
-  
 
+    http://semantic-ui.com/ui/semantic.min.css
+    http://semantic-ui.com/ui/semantic.min.js
 
-  
-  
-
-* **Designers**: Semantic, provides a standard set of des
-* **Authors**: If you'd like to design elements to be available for other developers, download the author's distribution pack which includes a definition pack to help you start writing custom designs for Semantic.
-
-Why Semantic
--------------
-
-HTML is developed by committee. Seman
