@@ -74,11 +74,11 @@ Here is part of Semantic's definition of a button
 
 ## Types of UI
 
-UI components are split into four categories: 
+UI components are split into four categories, ranging from smallest to largest: 
 * UI Elements
 * UI Collections
-* UI VIews
 * UI Modules
+* UI Views
 
 All UI definitions are made of a neutral, ideal definition, a list of states it can occupy, and a set of common variations or "types" of that element. 
 
@@ -113,24 +113,28 @@ Examples of UI collections:
 * Grids (Layout)
 * Menus
  
-## UI Views
-UI Views are common ways to display site content. Instead of providing a specific interaction, views structure content so that it can be understood more easily.
-
-Examples of UI views:
-** Comment Feed
-** Activity Feed
-** Product List
-
 
 ## UI Modules
 
-UI modules are UI elements where it's behavior is a fundamental part of its definition. UI Modules are dependent on the javascript which carry their definition. 
+UI modules are elements where it's behavior is a fundamental part of its definition. UI Modules are dependent on the javascript which carry their definition. They also may be more complex, and have a variety of different functions. Further abusing the scientific analogy: These can be thought of as "organs".
 
 Examples of UI modules:
 * Popups
 * Modals
 * Chatrooms
 * Calendar Pickers
+
+## UI Views
+UI Views are common ways to structure types of content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.
+
+For example an activity feed in 
+This is a UI
+
+Examples of UI views:
+** Comment Feed
+** Activity Feed
+** Product List
+
 
 ## Usage
 
