@@ -8,12 +8,25 @@ Semantic's goal is to define a vocabulary for interface elements based on consen
 For developers, this means defining class names for UI elements, outlining states that an elements can exist, and describing common variations of that element. 
 
 ## How
-Just like English, adjectives, or *variations*, have meaning based on the context of the noun, the *ui element*. 
 
-We know a big planet is a different size than a big house, but we can still describe the quality of something that is big. In the same way, in Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between elements, e.g. a big activity feed, is different than a big progress bar.
+### Context sensitive
 
+In Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between element,
+just like in natural language, the adjective 'big' may have very different implications for a big planet versus a big insect.
 
-For example here is part of Semantic's definition of a button
+For example, a UI Collection like a form you may have a size variation called "large". This may tell individual elements inside the form to change in size:
+```html
+    <div class="ui large form"></div>
+```
+
+However the same variation can exist on an individual element and carry its own contextual meaning
+```html
+    <div class="ui large button"></div>
+```
+
+### Defining UI
+
+Here is part of Semantic's definition of a button
 
 **Standard**: A button is a shape that can be pressed in to complete an action
 ```html
