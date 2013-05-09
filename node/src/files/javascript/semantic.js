@@ -142,28 +142,30 @@ semantic.ready = function() {
         $waypoint = $('h2').eq( $group.index( $header ) ),
         offset    = $waypoint.offset().top - 80
       ;
-      $menu
-        .addClass('animating')
-      ;
-      $headers
-        .removeClass('active')
-      ;
-      $body
-        .stop()
-        .animate({
-          scrollTop: offset
-        }, 500, function() {
-          $menu
-            .removeClass('animating')
-          ;
-          $header
-            .addClass('active')
-          ;
-        })
-        .one('scroll', function() {
-          $body.stop();
-        })
-      ;
+      if(!$header.hasClass('active') ) {
+        $menu
+          .addClass('animating')
+        ;
+        $headers
+          .removeClass('active')
+        ;
+        $body
+          .stop()
+          .animate({
+            scrollTop: offset
+          }, 500, function() {
+            $menu
+              .removeClass('animating')
+            ;
+            $header
+              .addClass('active')
+            ;
+          })
+          .one('scroll', function() {
+            $body.stop();
+          })
+        ;
+      }
     },
 
     peekSub: function() {
