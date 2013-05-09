@@ -160,13 +160,10 @@ Examples of UI modules:
 ## UI Views
 UI Views are common ways to structure types of content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.
 
-For example an activity feed in 
-This is a UI
-
 Examples of UI views:
-** Comment Feed
-** Activity Feed
-** Product List
+* Comment Feed
+* Activity Feed
+* Product List
 
 
 ## Usage
