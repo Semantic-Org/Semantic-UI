@@ -27,14 +27,15 @@
 
   padding: 0.8em 1.5em;
 
+
   font-size: 1em;
   text-transform: uppercase;
   line-height: 1;
   font-weight: bold;
   font-style: normal;
+  text-align: center;
 
   color: #7A7A7A;
-  text-align: center;
 
   -webkit-border-radius: 0.3125em;
   -moz-border-radius: 0.3125em;
@@ -535,12 +536,22 @@ Containing Icon
 .ui.icon.buttons .button,
 .ui.icon.button {
   padding: 0.75em;
-  text-align: center;
 }
 .ui.icon.buttons .button i,
 .ui.icon.button i {
   margin: 0em;
   vertical-align: top;
+}
+
+/*--------------
+   Labeled Icon
+---------------*/
+
+.ui.labeled.icon.buttons .button .icon,
+.ui.labeled.icon.button .icon {
+  display: block;
+  font-size: 1.5em;
+  margin: 0em auto 0.3em;
 }
 
 /*--------------
@@ -620,6 +631,7 @@ Containing Icon
   border-left: none;
 
   padding-right: 0.75em;
+  text-align: right;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 
   -webkit-border-radius: 0.3125em 0em 0em 0.3125em;
@@ -630,6 +642,7 @@ Containing Icon
   display: inline-block;
 
   padding-left: 0.75em;
+  text-align: left;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 
   -webkit-border-radius: 0em 0.3125em 0.3125em 0em;
@@ -747,6 +760,8 @@ input:focus + .ui.attached.button {
 .ui.buttons .or {
   position: relative;
   float: left;
+  width: 0.3em;
+  height: 1em;
 }
 .ui.buttons .or:before {
   position: absolute;
@@ -755,9 +770,16 @@ input:focus + .ui.attached.button {
   content: 'or';
   background-color: #FFFFFF;
 
-  line-height: 1;
+  margin-top: -0.15em;
+  margin-left: -0.9em;
+
+  width: 1.8em;
+  height: 1.8em;
+
+  line-height: 1.66;
   color: #AAAAAA;
-  font-style: italic;
+  font-style: normal;
+  font-weight: normal;
   text-align: center;
 
   -moz-box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2) inset;
@@ -775,159 +797,26 @@ input:focus + .ui.attached.button {
 }
 .ui.buttons .or:after {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0em;
+  left: 0em;
   content: ' ';
 
+  width: 0.3em;
+  height: 1.8em;
+
   background-color: transparent;
-  border-top: 10px solid #FFFFFF;
-  border-bottom: 11px solid #FFFFFF;
+  border-top: 0.6em solid #FFFFFF;
+  border-bottom: 0.6em solid #FFFFFF;
 }
 
-
-/* Or Sizes */
-.ui.buttons .or {
-  width: 5px;
-  height: 38px;
-}
-.ui.buttons .or:before {
-  margin-top: -15px;
-  margin-left: -15px;
-
-  padding-top: 6px;
-  width: 28px;
-  height: 28px;
-
-  font-style: normal;
-  font-weight: bold;
-}
-.ui.buttons .or:after {
-  top: 0px;
-  width: 5px;
-  height: 16px;
-}
+/* Fluid Or */
 .ui.fluid.buttons .or {
-  width: 0px !important;
+  width: 0em !important;
 }
 .ui.fluid.buttons .or:after{
   display: none;
 }
 
-/* mini */
-.ui.mini.buttons .or,
-.ui.buttons .mini.or {
-  height: 19px;
-}
-.ui.mini.buttons .or:before,
-.ui.buttons .mini.or:before {
-  margin-left: -8px;
-  margin-top: -6px;
-
-  padding-top: 2px;
-  width: 14px;
-  height: 14px;
-
-  font-size: 9px;
-}
-.ui.mini.buttons .or:after,
-.ui.buttons .mini.or:after {
-  top: 3px;
-  width: 4px;
-  height: 10px;
-}
-
-/* tiny */
-.ui.tiny.buttons .or,
-.ui.buttons .tiny.or {
-  height: 26px;
-}
-.ui.tiny.buttons .or:before,
-.ui.buttons .tiny.or:before {
-  margin-left: -11px;
-  margin-top: -10px;
-
-  padding-top: 4px;
-  width: 20px;
-  height: 19px;
-
-  font-size: 11px;
-}
-.ui.tiny.buttons .or:after,
-.ui.buttons .tiny.or:after {
-  top: 2px;
-  width: 5px;
-  height: 16px;
-}
-
-/* small */
-.ui.small.buttons .or,
-.ui.buttons .small.or {
-  height: 26px;
-}
-.ui.small.buttons .or:before,
-.ui.buttons .small.or:before {
-  margin-left: -11px;
-  margin-top: -10px;
-
-  padding-top: 4px;
-  width: 20px;
-  height: 19px;
-
-  font-size: 11px;
-}
-.ui.small.buttons .or:after,
-.ui.buttons .small.or:after {
-  top: 2px;
-  width: 5px;
-  height: 16px;
-}
-
-/* big */
-.ui.big.buttons .or,
-.ui.buttons .big.or {
-
-}
-.ui.big.buttons .or:before,
-.ui.buttons .big.or:before {
-  margin-left: -14px;
-  margin-top: -8px;
-
-  padding-top: 5px;
-  width: 26px;
-  height: 25px;
-
-  font-size: 14px;
-}
-.ui.big.buttons .or:after,
-.ui.buttons .big.or:after {
-  top: 5px;
-  width: 5px;
-  height: 22px;
-}
-
-/* huge */
-.ui.huge.buttons .or,
-.ui.buttons .huge.or {
-  width: 6px;
-  height: 41px;
-}
-.ui.huge.buttons .or:before,
-.ui.buttons .huge.or:before {
-  margin-left: -15px;
-  margin-top: -14px;
-
-  padding-top: 6px;
-  width: 30px;
-  height: 29px;
-
-  font-size: 15px;
-}
-.ui.huge.buttons .or:after,
-.ui.buttons .huge.or:after {
-  top: 6px;
-  width: 6px;
-  height: 26px;
-}
 
 /*-------------------
        Attached

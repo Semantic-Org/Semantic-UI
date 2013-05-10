@@ -10,6 +10,7 @@ docpadConfig = {
 	 	jade: false
 	 	marked: false
 	 	paged: false
+	 	liveReload: false
 
 	plugins:
     handlebars:

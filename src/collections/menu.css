@@ -658,8 +658,9 @@
   text-align: center;
 }
 .ui.labeled.icon.menu .icon {
-  font-size: 2em;
-  margin-bottom: 0.3em;
+  display: block;
+  font-size: 1.5em;
+  margin: 0em auto 0.3em;
 }
 
 /*--------------

@@ -441,59 +441,6 @@
   color: rgba(0, 0, 0, 0.75);
 }
 
-
-/*--------------
-     Colors
----------------*/
-
-/*--- Light Colors  ---*/
-.ui.grey.menu {
-  background-color: #F0F0F0;
-}
-
-/*--- Inverted Colors  ---*/
-.ui.inverted.green.menu {
-  background-color: #A1CF64;
-}
-.ui.inverted.green.pointing.menu .item.active:after {
-  background-color: #A1CF64;
-}
-
-.ui.inverted.red.menu {
-  background-color: #EF4D6D;
-}
-.ui.inverted.red.pointing.menu .item.active:after {
-  background-color: #F16883;
-}
-
-.ui.inverted.blue.menu {
-  background-color: #6ECFF5;
-}
-.ui.inverted.blue.pointing.menu .item.active:after {
-  background-color: #6ECFF5;
-}
-
-.ui.inverted.purple.menu {
-  background-color: #564F8A;
-}
-.ui.inverted.purple.pointing.menu .item.active:after {
-  background-color: #564F8A;
-}
-
-.ui.inverted.orange.menu {
-  background-color: #F05940;
-}
-.ui.inverted.orange.pointing.menu .item.active:after {
-  background-color: #F05940;
-}
-
-.ui.inverted.teal.menu {
-  background-color: #00B5AD;
-}
-.ui.inverted.teal.pointing.menu .item.active:after {
-  background-color: #00B5AD;
-}
-
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
   background-image: -webkit-linear-gradient(top,
@@ -590,7 +537,7 @@
 
 /*--- Pointers ---*/
 .ui.inverted.pointing.menu .item.active:after {
-  background-color: #3E3E3E;
+  background-color: #505050;
   box-shadow: none;
 }
 .ui.inverted.pointing.menu .item.active:hover:after {
@@ -598,8 +545,61 @@
 }
 
 /*--------------
+     Colors
+---------------*/
+
+/*--- Light Colors  ---*/
+.ui.grey.menu {
+  background-color: #F0F0F0;
+}
+
+/*--- Inverted Colors  ---*/
+.ui.inverted.green.menu {
+  background-color: #A1CF64;
+}
+.ui.inverted.green.pointing.menu .item.active:after {
+  background-color: #A1CF64;
+}
+
+.ui.inverted.red.menu {
+  background-color: #EF4D6D;
+}
+.ui.inverted.red.pointing.menu .item.active:after {
+  background-color: #F16883;
+}
+
+.ui.inverted.blue.menu {
+  background-color: #6ECFF5;
+}
+.ui.inverted.blue.pointing.menu .item.active:after {
+  background-color: #6ECFF5;
+}
+
+.ui.inverted.purple.menu {
+  background-color: #564F8A;
+}
+.ui.inverted.purple.pointing.menu .item.active:after {
+  background-color: #564F8A;
+}
+
+.ui.inverted.orange.menu {
+  background-color: #F05940;
+}
+.ui.inverted.orange.pointing.menu .item.active:after {
+  background-color: #F05940;
+}
+
+.ui.inverted.teal.menu {
+  background-color: #00B5AD;
+}
+.ui.inverted.teal.pointing.menu .item.active:after {
+  background-color: #00B5AD;
+}
+
+/*--------------
      Basic
 ---------------*/
+
 .ui.basic.menu {
   background-color: transparent;
   -webkit-box-shadow: none;
@@ -613,6 +613,11 @@
 }
 .ui.basic.menu .item:before {
   display: none;
+}
+.ui.basic.pointing.menu item.active:after {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 /*--------------
@@ -653,8 +658,9 @@
   text-align: center;
 }
 .ui.labeled.icon.menu .icon {
-  font-size: 2em;
-  margin-bottom: 0.3em;
+  display: block;
+  font-size: 1.5em;
+  margin: 0em auto 0.3em;
 }
 
 /*--------------

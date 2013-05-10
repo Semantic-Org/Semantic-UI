@@ -26,46 +26,12 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-@media only screen and (max-width : 1000px) {
-  .ui.responsive.grid {
-    padding: 0% 5%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-@media only screen and (min-width : 1000px) {
-  .ui.responsive.grid {
-    padding: 0% 12.5%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-@media only screen and (min-width : 1500px) {
-  .ui.responsive.grid {
-    padding: 0% 15%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-@media only screen and (min-width : 1750px) {
-  .ui.responsive.grid {
-    padding: 0% 23%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
-}
-@media only screen and (min-width : 2000px) {
-  .ui.responsive.grid {
-    padding: 0% 27%;
-  }
-  .ui.responsive.grid > .column,
-  .ui.responsive.grid > .row > .column {
-  }
+.ui.grid:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
 
 /*-------------------
@@ -103,10 +69,24 @@
 --------------------*/
 
 .ui.grid > .row {
+  display: block;
+  width: 100%;
+}
+
+.ui.grid > .row {
   padding-top: 2.55%;
 }
 .ui.grid > .row:first-child {
   padding-top: 0px;
+}
+
+/*-------------------
+      Content
+--------------------*/
+
+.ui.grid > .row > img,
+.ui.grid > .row > .column > img {
+  max-width: 100%;  
 }
 
 
@@ -114,6 +94,65 @@
            Variations
 *******************************/
 
+
+/*-------------------
+        Page
+--------------------*/
+
+.ui.page.grid {
+  padding: 0% 5%;
+}
+
+
+/*-------------------
+      Responsive
+--------------------*/
+
+
+@media only screen and (max-width : 1000px) {
+  .ui.responsive.grid {
+    padding: 0% 5%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1000px) {
+  .ui.responsive.grid {
+    padding: 0% 5%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .ui.responsive.grid {
+    padding: 0% 10%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1750px) {
+  .ui.responsive.grid {
+    padding: 0% 20%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 2000px) {
+  .ui.responsive.grid {
+    padding: 0% 27%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+
+/*-------------------
+    Column Width
+--------------------*/
 
 
 /* Sizing Combinations */
@@ -278,15 +317,28 @@
 .ui.fitted.grid {
   padding: 0%;
 }
+
+.ui.fitted.row {
+  padding-top: 0%
+}
+
 .ui.fitted.grid .column,
 .ui.grid .fitted.column {
   padding-left: 0%;
   padding-right: 0%;
 }
 
-/*-------------------
-       Padded
---------------------*/
+
+/*----------------------
+       "Floated"
+-----------------------*/
+
+.ui.grid .left.aligned.column {
+  float: left;
+}
+.ui.grid .right.aligned.column {
+  float: right;
+}
 
 
 /*----------------------

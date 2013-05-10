@@ -54,7 +54,7 @@ a.ui.label {
   display: inline-block;
   font-size: 0.9em;
   margin-left: 0.5em;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 .ui.label .icon.close {
   cursor: pointer;
