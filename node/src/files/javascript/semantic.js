@@ -137,13 +137,13 @@ semantic.ready = function() {
         $menu
           .stop()
           .animate({
-            width: '100px'
+            width: '105px'
           }, 300, function() {
-            $menu.find('.text').stop().fadeIn(200);
+            $menu.find('.text').show();
           })
         ;
       },
-      mouseleave: function() {
+      mouseleave: function(event) {
         $menu.find('.text').hide();
         $menu
           .stop()
