@@ -144,7 +144,7 @@ semantic.ready = function() {
         ;
       },
       mouseleave: function() {
-        $menu.hide();
+        $menu.find('.text').hide();
         $menu
           .stop()
           .animate({
