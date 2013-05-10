@@ -26,6 +26,13 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
+.ui.grid:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
 
 /*-------------------
        Columns
@@ -310,15 +317,28 @@
 .ui.fitted.grid {
   padding: 0%;
 }
+
+.ui.fitted.row {
+  padding-top: 0%
+}
+
 .ui.fitted.grid .column,
 .ui.grid .fitted.column {
   padding-left: 0%;
   padding-right: 0%;
 }
 
-/*-------------------
-       Padded
---------------------*/
+
+/*----------------------
+       "Floated"
+-----------------------*/
+
+.ui.grid .left.aligned.column {
+  float: left;
+}
+.ui.grid .right.aligned.column {
+  float: right;
+}
 
 
 /*----------------------

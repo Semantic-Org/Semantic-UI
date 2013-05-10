@@ -120,6 +120,7 @@
         <a class="item" href="https://github.com/quirkyinc/semantic">
           <i class="icon github"></i>
         </a>
+        <!--
         <div class="dropdown item">
           <i class="icon tint"></i> Theme
           <div class="theme menu">
@@ -128,10 +129,14 @@
             <div class="item" data-theme="classic">Classic</div>
           </div>
         </div>
+        !-->
       </div>
     </div>
   </div>
-    <div class="ui teal huge sidebar right attached button"><i class="icon th-list"></i> Menu</div>
+    <div class="ui teal huge sidebar right attached button">
+      <i class="icon th-list"></i>
+      <span class="text">Menu</span>
+    </div>
   <%- @content %>
 </body>
 

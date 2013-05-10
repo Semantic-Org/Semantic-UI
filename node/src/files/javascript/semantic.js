@@ -11,7 +11,7 @@ semantic.ready = function() {
     $ui          = $('.ui').not('.hover, .down'),
     $checkbox    = $('.ui.checkbox'),
     $swap        = $('.theme.menu .item'),
-    $menu        = $('.sidebar.button'),
+    $menu        = $('.sidebar'),
     $sortTable   = $('.sortable.table'),
     $demo        = $('.demo'),
     $waypoints   = $('h2'),
@@ -130,6 +130,29 @@ semantic.ready = function() {
           .removeClass('pushed')
         ;
       }
+    },
+
+    menu: {
+      mouseenter: function() {
+        $menu
+          .stop()
+          .animate({
+            width: '100px'
+          }, 300, function() {
+            $menu.find('.text').stop().fadeIn(200);
+          })
+        ;
+      },
+      mouseleave: function() {
+        $menu.hide();
+        $menu
+          .stop()
+          .animate({
+            width: '10px'
+          }, 300)
+        ;
+      }
+
     },
 
     peek: function() {
@@ -279,13 +302,14 @@ semantic.ready = function() {
   $checkbox
     .checkbox()
   ;
-  console.log($checkbox);
 
   $swap
     .on('click', handler.swapStyle)
   ;
 
   $menu
+    .on('mouseenter', handler.menu.mouseenter)
+    .on('mouseleave', handler.menu.mouseleave)
     .sidr({
       name: 'menu'
     })

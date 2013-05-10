@@ -326,6 +326,11 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   position: fixed;
   margin-top: 75px;
   z-index: 500;
+  width: 10px;
+}
+#example .sidebar.button .text {
+  display: inline-block;
+  display: none;
 }
 
 #example .main.container {
