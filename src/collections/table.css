@@ -95,7 +95,7 @@
 ---------------*/
 
 /* Grid */
-.ui.grid.table tr:hover td {
+.ui.celled.table tr:hover td {
   background-color: rgba(0, 0, 0, 0.02);
   color: rgba(0, 0, 0, 1);
 }
@@ -130,8 +130,8 @@
   box-shadow: 0px 0px 1px 0px #3FF63B inset;
   /* border-color: #2FCB05 !important; */
 }
-.ui.grid.table tr.positive:hover td,
-.ui.grid.table tr:hover td.positive,
+.ui.celled.table tr.positive:hover td,
+.ui.celled.table tr:hover td.positive,
 .ui.table tr.positive:hover td,
 .ui.table td:hover.positive,
 .ui.table th:hover.positive {
@@ -148,8 +148,8 @@
   background-color: #F9F4F4;
   color: #CD2929;
 }
-.ui.grid.table tr.negative:hover td,
-.ui.grid.table tr:hover td.negative,
+.ui.celled.table tr.negative:hover td,
+.ui.celled.table tr:hover td.negative,
 .ui.table tr.negative:hover td,
 .ui.table td:hover.negative,
 .ui.table th:hover.negative {
@@ -170,8 +170,8 @@
   -webkit-box-shadow: 0px 0px 1px 0px #F3A2A2 inset;
   box-shadow: 0px 0px 1px 0px #F3A2A2 inset;
 }
-.ui.grid.table tr.error:hover td,
-.ui.grid.table tr:hover td.error,
+.ui.celled.table tr.error:hover td,
+.ui.celled.table tr:hover td.error,
 .ui.table tr.error:hover td,
 .ui.table td:hover.error,
 .ui.table th:hover.error {
@@ -193,8 +193,8 @@
   -webkit-box-shadow: 0px 0px 1px 0px #FFE569 inset;
   box-shadow: 0px 0px 1px 0px #FFE569 inset;
 }
-.ui.grid.table tr.warning:hover td,
-.ui.grid.table tr:hover td.warning,
+.ui.celled.table tr.warning:hover td,
+.ui.celled.table tr:hover td.warning,
 .ui.table tr.warning:hover td,
 .ui.table td:hover.warning,
 .ui.table th:hover.warning {
@@ -234,17 +234,17 @@
       Grid
 ---------------*/
 
-.ui.grid.table {
+.ui.celled.table {
   color: rgba(0, 0, 0, 0.55);
 }
-.ui.grid.table tbody tr,
-.ui.grid.table tfoot tr {
+.ui.celled.table tbody tr,
+.ui.celled.table tfoot tr {
   border: none;
 }
-.ui.grid.table th {
+.ui.celled.table th {
   border: 1px solid #E0E0E0;
 }
-.ui.grid.table tbody td {
+.ui.celled.table tbody td {
   border: 1px solid #E0E0E0;
 }
 
