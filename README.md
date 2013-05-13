@@ -34,13 +34,13 @@ By defining a vocabulary the development community can exchange javascript and c
 
 **All UI**: The specification defines class name and html structures which can be used to represent an element
 
-**Elements**: The specification outlines states that an elements can exist, lists common types, or variations, of an element, and if necessary, defines how the element functions in groups.
+**Elements**: An element definition gives states which an elements can occupy, common types of that element, and if necessary, defines how the element functions in groups.
 
-**Collections**: The specification defines a list of elements that it can include, and ways which variations in the collection can affect each element.
+**Collections**: Collection definitions list elements that it can include, and variations which can apply to both the collection, or individual elements found in the collection.
 
-**Modules**: The specification defines a set of behaviors the module is expected to perform.
+**Modules**: Module definitions include a list of behaviors that are commonly associated with an element
 
-**Views**: The specification defines the types of content it usually contains, and a standard heirarchy for presenting the content to the user.
+**Views**: View specifications defines the types of content the view usually display, and the heirarchy typical to presenting this content to the user.
 
 #### Based on class
 
@@ -122,9 +122,9 @@ UI elements can have plural definitions when they are known to exist together fr
 
 In this case each button will be large because we understand it is a part of the large button group
 ``` html
-<div class="large buttons">
+<div class="large ui buttons">
   <div class="ui button">Cancel</div>
-  <div class="ui positive button">Continue</div>
+  <div class="ui button">Continue</div>
 </div>
 ```
 

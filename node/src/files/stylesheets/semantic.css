@@ -564,15 +564,15 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 #example .highlighted.example .grid .column,
 #example .ui.type.items .image .grid .column {
-  background-color: #E0E0E0;
-  height: 150px;
-  -webkit-box-shadow: 0px 0px 0px 1px #FFFFFF;
-  -moz-box-shadow: 0px 0px 0px 1px #FFFFFF;
-  box-shadow: 0px 0px 0px 1px #FFFFFF;
+  background-color: #F4F4F4;
+  min-height: 100px;
+  -webkit-box-shadow: 0px 0px 0px 1px #E2E2E2;
+  -moz-box-shadow: 0px 0px 0px 1px #E2E2E2;
+  box-shadow: 0px 0px 0px 1px #E2E2E2;
 }
 #example .highlighted.example .grid .segment,
 #example .ui.type.items .image .grid .segment {
-  height: 150px;
+  min-height: 100px;
   border: 1px solid #DDDDDD;
 
   -webkit-box-shadow: none;
