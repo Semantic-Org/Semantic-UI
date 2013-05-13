@@ -211,12 +211,12 @@ a.ui.label {
 
 .ui.labels .label,
 .ui.label {
-  background-color: #DDDDDD;
-  color: #777777;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.3);
 }
 .ui.labels .label:before,
 .ui.label:before {
-  background-color: #DDDDDD;
+  background-color: rgba(0, 0, 0, 0.1);
   color: #555555;
 }
 /* Hover */

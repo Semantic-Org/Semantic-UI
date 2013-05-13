@@ -12,7 +12,7 @@
 
   width: 100%;
   margin: 0%;
-  font-size: 13px;
+  font-size: 1em;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -38,7 +38,6 @@
   width: 48%;
   margin-left: 1%;
   margin-right: 1%;
-  font-size: 13px;
 }
 .ui.two.items .item:nth-child(2n+1) {
   clear: left;
@@ -52,7 +51,6 @@
   width: 31.333%;
   margin-left: 1%;
   margin-right: 1%;
-  font-size: 13px;
 }
 .ui.three.items .item:nth-child(3n+1) {
   clear: left;
@@ -66,7 +64,6 @@
   width: 24%;
   margin-left: 0.5%;
   margin-right: 0.5%;
-  font-size: 12px;
 }
 .ui.four.items .item:nth-child(4n+1) {
   clear: left;
@@ -80,7 +77,6 @@
   width: 19%;
   margin-left: 0.5%;
   margin-right: 0.5%;
-  font-size: 12px;
 }
 .ui.five.items .item:nth-child(5n+1) {
   clear: left;
@@ -94,7 +90,6 @@
   width: 15.66%;
   margin-left: 0.5%;
   margin-right: 0.5%;
-  font-size: 12px;
 }
 .ui.six.items .item:nth-child(6n+1) {
   clear: left;
@@ -186,26 +181,26 @@
 
 
 /*******************************
-           Grid Items
+           Items
 *******************************/
 
-.ui.grid.items {
+.ui.items {
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 0px;
 }
-.ui.grid.items > .item,
-.ui.grid.items > .item > .image,
-.ui.grid.items > .item > .image .overlay,
-.ui.grid.items > .item > .content,
-.ui.grid.items > .item > .extra {
+.ui.items > .item,
+.ui.items > .item > .image,
+.ui.items > .item > .image .overlay,
+.ui.items > .item > .content,
+.ui.items > .item > .extra {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-.ui.grid.items > .item {
+.ui.items > .item {
   display: block;
   position: relative;
   margin-top: 10px;
@@ -225,8 +220,8 @@
   padding: 0.7%;
 }
 
-.ui.grid.items .item > .image a,
-.ui.grid.items .item > .image img {
+.ui.items .item > .image a,
+.ui.items .item > .image img {
   position: relative;
   display: block;
   width: 100%;
@@ -235,7 +230,7 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-.ui.grid.items .item > .image a:after {
+.ui.items .item > .image a:after {
   position: absolute;
   display: block;
   content: '';
@@ -250,7 +245,7 @@
   -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;
 }
-.ui.grid.items .item > .image .overlay {
+.ui.items .item > .image .overlay {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -269,44 +264,44 @@
 
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.6);
 }
-.ui.grid.items .item > .image .overlay i {
+.ui.items .item > .image .overlay i {
   font-size: 1.3em;
   font-weight: bold;
 }
 
 /* Content */
-.ui.grid.items .item > .content {
+.ui.items .item > .content {
   padding: 4% 1% 6%;
   color: #888888;
 }
-.ui.grid.items .item > .content > .name,
-.ui.grid.items .item > .content > .title {
+.ui.items .item > .content > .name,
+.ui.items .item > .content > .title {
   margin-bottom: 1%;
 
   font-size: 1.2em;
   font-weight: bold;
   color: #009FDA;
 }
-.ui.grid.items .item > .content p {
+.ui.items .item > .content p {
   line-height: 1.33;
   margin: 0% 0% 5%;
 }
-.ui.grid.items .item > .content :last-child {
+.ui.items .item > .content :last-child {
   margin-bottom: 0%;
 }
 
 
 /* Optional Content */
-.ui.grid.items .item > .extra {
+.ui.items .item > .extra {
   color: #C6C7C9;
   padding: 0% 1% 1%;
 }
-.ui.grid.items .item > .extra img {
+.ui.items .item > .extra img {
   display: inline-block;
   vertical-align: middle;
 }
 
-.ui.grid.items .item .avatar {
+.ui.items .item .avatar {
   display: inline-block;
   width: 5.5%;
   min-width: 15px;
@@ -315,57 +310,57 @@
 }
 
 /*******************************
-       Table Grid Items
+       Table Items
 *******************************/
 
-.ui.horizontal.grid.items .item,
-.ui.grid.items .horizontal.item {
+.ui.horizontal.items .item,
+.ui.items .horizontal.item {
   display: table;
 }
 /* prevents reflow bug in chrome by targeting webkit browser */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .ui.grid.items .item {
+  .ui.items .item {
     display: block;
   }
 }
 
-.ui.horizontal.grid.items .item > .image
-.ui.grid.items .horizontal.item > .image {
+.ui.horizontal.items .item > .image
+.ui.items .horizontal.item > .image {
   display: table-cell;
   width: 50%;
 }
-.ui.horizontal.grid.items .item > .image + .content,
-.ui.grid.items .horizontal.item > .image + .content {
+.ui.horizontal.items .item > .image + .content,
+.ui.items .horizontal.item > .image + .content {
   width: 50%;
   display: table-cell;
 }
-.ui.horizontal.grid.items .item > .content,
-.ui.grid.items .horizontal.item > .content {
+.ui.horizontal.items .item > .content,
+.ui.items .horizontal.item > .content {
   padding: 1% 1.7% 11% 3%;
   vertical-align: top;
 }
 
-.ui.horizontal.grid.items .item > .extra,
-.ui.grid.items .horizontal.item > .extra {
+.ui.horizontal.items .item > .extra,
+.ui.items .horizontal.item > .extra {
   position: absolute;
   padding: 0%;
   bottom: 7%;
   left: 3%;
   width: 94%;
 }
-.ui.horizontal.grid.items .item > .image + .content + .extra,
-.ui.grid.items .horizontal.item > .image + .content + .extra {
+.ui.horizontal.items .item > .image + .content + .extra,
+.ui.items .horizontal.item > .image + .content + .extra {
   bottom: 7%;
   left: 53%;
   width: 44%;
 }
 
 
-.ui.horizontal.grid.items .item .avatar,
-.ui.grid.items .horizontal.item .avatar {
+.ui.horizontal.items .item .avatar,
+.ui.items .horizontal.item .avatar {
   width: 11.5%;
 }
 
-.ui.grid.items .item .avatar {
+.ui.items .item .avatar {
   max-width: 25px;
 }

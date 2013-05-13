@@ -574,7 +574,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: 0px;
-    left: 165px;
+    left: 105px;
   }
 }
 
