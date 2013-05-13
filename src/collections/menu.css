@@ -917,7 +917,7 @@
 
 .ui.pointing.menu .item.active:after {
   position: absolute;
-  bottom: -0.3em;
+  bottom: -0.35em;
   left: 50%;
   content: "";
 
@@ -925,10 +925,10 @@
   width: 0.6em;
   height: 0.6em;
 
-  -webkit-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1) inset;
-
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+ 
   background-image: none;
 
   -webkit-transform: rotate(45deg);
@@ -960,9 +960,9 @@
   bottom: auto;
   left: auto;
 
-  -webkit-box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 1px -1px 0px 1px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 
   margin-top: -0.3em;
 }
