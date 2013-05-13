@@ -286,7 +286,7 @@
 .ui.items > .item > .content > .name,
 .ui.items > .item > .content > .title {
   display: block;
-  margin-bottom: 1%;
+  margin-bottom: 0.3em;
 
   font-size: 1.25em;
   font-weight: bold;

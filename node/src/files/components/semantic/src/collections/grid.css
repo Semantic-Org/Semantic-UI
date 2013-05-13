@@ -357,14 +357,17 @@
 }
 
 .ui.top.aligned.grid .column,
+.ui.grid .top.aligned.column,
 .ui.grid .top.aligned.row .column {
   vertical-align: top;
 }
 .ui.middle.aligned.grid .column,
+.ui.grid .middle.aligned.column,
 .ui.grid .middle.aligned.row .column {
   vertical-align: middle;
 }
 .ui.bottom.aligned.grid .column,
+.ui.grid .bottom.aligned.column,
 .ui.grid .bottom.aligned.row .column {
   vertical-align: bottom;
 }

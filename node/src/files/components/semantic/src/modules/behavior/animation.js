@@ -122,7 +122,7 @@
   $.fn.popIn.settings = {
 
     // legacy browser
-    isLegacyBrowser: ($.browser.msie && parseInt($.browser.version) <= 8),
+    isLegacyBrowser: false,
 
     // class given until animation ends
     className: {
@@ -219,7 +219,7 @@
   $.fn.kenBurns.settings = {
 
     // legacy browser
-    isLegacyBrowser    : ($.browser.msie && parseInt($.browser.version, 10) <= 8),
+    isLegacyBrowser    : false,
 
     // duration of animation
     duration           : 10000,

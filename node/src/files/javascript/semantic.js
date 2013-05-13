@@ -16,6 +16,8 @@ semantic.ready = function() {
     $demo        = $('.demo'),
     $waypoints   = $('h2'),
     
+    $menuPopup   = $('.ui.main.menu .popup.item'),
+
     $example     = $('.example'),
     
     $peek        = $('.peek'),
@@ -305,6 +307,15 @@ semantic.ready = function() {
 
   $swap
     .on('click', handler.swapStyle)
+  ;
+
+  $menuPopup
+    .popup({
+      position: 'bottom center',
+      className: {
+        popup: 'ui popup'
+      }
+    })
   ;
 
   $menu
