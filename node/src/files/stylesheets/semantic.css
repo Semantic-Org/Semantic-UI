@@ -153,6 +153,12 @@ li {
 
 */
 
+ul.list {
+  list-style-type: disc;
+}
+ul.list li {
+  list-style-position: outside;
+}
 
 
 /* text and headers */
@@ -185,7 +191,6 @@ h4 {
 }
 h4 + p {
   margin: 0px 0px 20px;
-  color: #888888;
 }
 pre {
   background-color: #F0F0F0;
@@ -207,7 +212,7 @@ table code {
   background-color: transparent;
 }
 p {
-  margin: 10px 0px;
+  margin: 1em 0em;
 }
 p > a {
   font-weight: bold;
@@ -556,29 +561,26 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 
 #example .highlighted.example .grid,
 #example .ui.type.items .image .grid {
-  background-color: #F0F0F0;
+  background-color: #FCFCFC;
 }
 #example .highlighted.example .grid .row,
 #example .ui.type.items .image .grid .row {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #DDDDDD;
 }
 #example .highlighted.example .grid .column,
 #example .ui.type.items .image .grid .column {
   background-color: #F4F4F4;
-  min-height: 100px;
+  min-height: 50px;
   -webkit-box-shadow: 0px 0px 0px 1px #E2E2E2;
   -moz-box-shadow: 0px 0px 0px 1px #E2E2E2;
   box-shadow: 0px 0px 0px 1px #E2E2E2;
 }
 #example .highlighted.example .grid .segment,
 #example .ui.type.items .image .grid .segment {
-  min-height: 100px;
-  border: 1px solid #DDDDDD;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  
+  min-height: 50px;
+  -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
+  -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
+  box-shadow: 0px 0px 0px 1px #DDDDDD;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
@@ -609,7 +611,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: 0px;
-    left: 105px;
+    left: 165px;
   }
 }
 

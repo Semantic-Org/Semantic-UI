@@ -8,8 +8,8 @@ type   : 'UI Collection'
 <div class="segment">
   <div class="container">
     <h1>Menu</h1>
-    <p>A menu is a ui collection made up of items. These items can be links, dropdowns, menus themselves, badges, or other standard html types.</p>
-    <p>Items containing menus are formatted as sub menus. Menus containing menus are formatted as the same tier as the parent menu.</p>
+    <p>A menu is a collection of interface elements. These items can be links, dropdowns, menus themselves, badges, or other standard html types.</p>
+    <p>Menu items containing menus themselves are formatted as sub menus. Menus with menus as children are formatted as the same tier as the parent menu.</p>
   </div>
 </div>
 <div class="main container">
@@ -59,6 +59,7 @@ type   : 'UI Collection'
     <div class="ui ignore warning message"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
     <div class="ui vertical menu">
       <div class="item">
+        <i class="icon user"></i>
         <b>Username</b>
       </div>
       <div class="item">
@@ -125,22 +126,22 @@ type   : 'UI Collection'
     </div>
     <div class="ui vertical menu">
       <div class="item">
-        Text Item
+        <p>Are you ready to try out a pro membership?</p>
       </div>
-      <div class="text item">
-        <p>Welcome back <b>username</b></p>
-        <p>You have had:</p>
-        <ul>
-          <li><b>12 messages</b></li>
-          <li><b>9 new invites</b></li>
-        </ul>
-        <p>..and a birthday cake since you last were on the site.</p>
+      <div class="item">
+        <p>Welcome back <i class="icon user"></i><b>username</b></p>
       </div>
     </div>
   </div>
+  
+  
   <div class="example">
     <h4>Link Item</h4>
-    <p>A menu may have either a real page link or an item that behaves as a link.</p>
+    <p>A menu may contain a link item, or an item formatted as if it is a link.</p>
+    
+    <div class="ui ignore info message">
+      <p><i class="icon heart"></i> Items that are anchor tags will automatically be formatted as a link.</p>
+    </div>
     <div class="ui vertical menu">
       <a href="http://www.google.com" class="item">
         Visit Google
@@ -263,15 +264,15 @@ type   : 'UI Collection'
     <h4>Basic</h4>
     <p>A menu may reduce its complexity to blend in with a page</p>
     <div class="ui basic menu">
-      <div class="item">
+      <a class="item">
         Section 1
-      </div>
-      <div class="item">
+      </a>
+      <a class="item">
         Section 2
-      </div>
-      <div class="item">
+      </a>
+      <a class="item">
         Section 3
-      </div>
+      </a>
     </div>
   </div>
 

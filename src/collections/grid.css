@@ -106,7 +106,7 @@
 
 @media only screen and (max-width : 1000px) {
   .ui.responsive.grid {
-    padding: 0% 5%;
+    padding: 0% 5.55%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -114,7 +114,7 @@
 }
 @media only screen and (min-width : 1000px) {
   .ui.responsive.grid {
-    padding: 0% 10%;
+    padding: 0% 8%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -282,9 +282,12 @@
 
 /* Vertical Centered */
 .ui.aligned.grid,
-.ui.grid .aligned.row {
+.ui.grid > .aligned.row {
   display: table;
   width: 100%;
+}
+.ui.aligned.grid > .row {
+  display: table-row;
 }
 .ui.aligned.grid .column,
 .ui.grid .aligned.row .column {
@@ -293,17 +296,17 @@
 
 .ui.top.aligned.grid .column,
 .ui.grid .top.aligned.column,
-.ui.grid .top.aligned.row .column {
+.ui.grid > .top.aligned.row .column {
   vertical-align: top;
 }
 .ui.middle.aligned.grid .column,
 .ui.grid .middle.aligned.column,
-.ui.grid .middle.aligned.row .column {
+.ui.grid > .middle.aligned.row .column {
   vertical-align: middle;
 }
 .ui.bottom.aligned.grid .column,
 .ui.grid .bottom.aligned.column,
-.ui.grid .bottom.aligned.row .column {
+.ui.grid > .bottom.aligned.row .column {
   vertical-align: bottom;
 }
 
