@@ -1,98 +1,141 @@
+/*
+ * # Semantic Headers - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 29 2013
+ */
+
 /*******************************
-      Headers & Text Blocks
+            Header
 *******************************/
 
-/* Header Block */
+/* Standard */
 .ui.header {
-  min-height: 18px;
-  margin: 15px 0px;
-  padding: 8px 13px;
+  line-height: 1.33;
 
-  background-color: #FFFFFF;
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15);
-
-  line-height: 1.5;
-  font-size: 16px;
+  font-size: 1.33em;
   font-weight: bold;
-  text-shadow: 0px 1px 0px #FFFFFF;
+  color: rgba(50, 50, 50, 0.9);
 
-  -webkit-border-radius: 4px 4px 4px 4px;
-  -moz-border-radius: 4px 4px 4px 4px;
-  border-radius: 4px 4px 4px 4px;
-}
-
-/* Sub Header (De-emphasized) */
-.ui.sub.header {
-  margin: 0px;
-
+  padding: 0em;
   border: none;
-  border-bottom: 1px solid #DADADA;
-  border-radius: 0px;
-
-  background-color: #FFFFFF;
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
-  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
-  background: linear-gradient(top, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.03) 100%);
-
-  font-size: 14px;
-  padding: 6px 25px;
-  color: #55356A;
 }
 
-/* Neutral Header */
-.ui.neutral.block,
-.ui.neutral.header {
-  background-color: #E0E0E0;
-  background: -webkit-linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
-  background: -moz-linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
-  background: -o-linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
-  background: -ms-linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
-  background: linear-gradient(top, #E0E0E0 0px, #DCDCDC 100%);
-  border-color: #CCCCCC;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
+/* Positioning */
+.ui.header:first-child {
+  margin-top: 0em;
 }
+.ui.header + p {
+  margin-top: 0em;
+}
+
+
+/*--------------
+  Page Heading
+---------------*/
+
+h1.ui.header {
+  min-height: 1rem;
+  margin: 2rem 0rem 1.5rem;
+  line-height: 1.33rem;
+  font-size: 2rem;
+  color: rgba(20, 20, 20, 1);
+}
+h2.ui.header {
+  margin: 1.5rem 0rem 1rem;
+  line-height: 1.33rem;
+  font-size: 1.5rem;
+  color: rgba(20, 20, 20, 0.9);
+}
+h3.ui.header {
+  margin: 1.3rem 0rem 1rem;
+  line-height: 1.33rem;
+  font-size: 1.33rem;
+  color: rgba(30, 30, 30, 0.9);
+}
+h4.ui.header {
+  margin: 0.75rem 0rem 0.3rem;
+  line-height: 1.33rem;
+  font-size: 1.1rem;
+  color: rgba(30, 30, 30, 0.9);
+}
+h5.ui.header {
+  margin: 0rem 0rem 0.2rem;
+  line-height: 1.2rem;
+  font-size: 1rem;
+  color: rgba(40, 40, 40, 0.9);
+}
+
+/*--------------
+ Content Heading
+---------------*/
+
+.huge.ui.header {
+  min-height: 1em;
+  line-height: 1.33em;
+  font-size: 2em;
+  color: rgba(20, 20, 20, 1);
+}
+.large.ui.header {
+  line-height: 1.33em;
+  font-size: 1.5em;
+  color: rgba(20, 20, 20, 0.9);
+}
+.small.ui.header {
+  margin-bottom: 0.25em;
+  line-height: 1.33em;
+  font-size: 1.1em;
+  color: rgba(30, 30, 30, 0.9);
+}
+.tiny.ui.header {
+  margin-bottom: 0em;
+  line-height: 1.2em;
+  font-size: 1em;
+  color: rgba(40, 40, 40, 0.9);
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.header.disabled {
+  opacity: 0.5;
+}
+
+/*******************************
+           Variations
+*******************************/
+
 
 /* Attached Header */
 .ui.header.attached,
 .ui.header.attached.top {
-  margin: 0px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  margin: 0em;
+
   -webkit-border-radius: 4px 4px 0px 0px;
   -moz-border-radius: 4px 4px 0px 0px;
   border-radius: 4px 4px 0px 0px;
 }
 .ui.header.attached.bottom {
-  margin-top: 0px;
+  margin-top: 0em;
   -webkit-border-radius: 0px 0px 4px 4px;
   -moz-border-radius: 0px 0px 4px 4px;
   border-radius: 0px 0px 4px 4px;
 }
 .ui.header.simple {
-  border-radius: 0px;
+  border-radius: 0em;
   background-color: #FAFAFA;
   background-image: none;
 }
 
 
-/*--------------
-     Resizes
----------------*/
-.ui.header {
-  font-size: 16px;
-}
-.ui.header.large {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  font-size: 18px;
-}
-.ui.header.huge {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  font-size: 22px;
-}
+/*******************************
+            Groups
+*******************************/
+

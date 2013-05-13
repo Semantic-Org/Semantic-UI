@@ -21,10 +21,11 @@ type   : 'UI Collection'
   
   <div class="highlighted example">
     <h4>Grid</h4>
-    <p>A grid is made up of columns of content. By default a grid must assume a certain number of columns. The semantic library assumes 12 columns by default.</p>
+    <p>A grid is made up of columns of content. By default a grid must assume a certain number of columns.</p>
+    <p>Each set of columns matching up to the number of columns in a grid create a row.</p>
     
-    <div class="ui ignore warning message"><i class="icon heart"></i> <b>Tip</b>
-    <p>If only a single column is specified inside a grid or a grid row, semantic will assume the column to take up the entire grid width. If you would like to override this behavior, specify the grid width as a <b>one wide column</b></p>
+    <div class="ui ignore warning message"><i class="icon heart"></i> <b>Using Grids</b>
+    <p>The semantic library assumes 12 columns by default. If only a single column is specified inside a grid or a grid row, semantic will assume the column to take up the entire grid width. If you would like to override this behavior, specify the grid width as a <b>one wide column</b></p>
     <p>It is also important to note, that padding is applied directly to columns, which means other ui elements should not be used in combination with column, but directly as children.</div>
     <div class="ui grid">
       <div class="column">
@@ -91,8 +92,7 @@ type   : 'UI Collection'
   </div>
   <div class="highlighted example">
     <h4>Rows</h4>
-    <p>A basic grid has padding on the first and last columns of each row.</p>
-    <p>A row is used to create vertical padding between rows of columns on a page. If no rows are specified, a grid column will sit flush along each side of the grid.</p>
+    <p>A row is used to create vertical padding between groups of columns on a page. If no rows are specified columns will sit vertically flushed against the edge of a grid, but will still have vertical and horizontal gutters on the first and last column.</p>
     <p>
     <div class="ui grid">
       <div class="row">
@@ -222,31 +222,28 @@ type   : 'UI Collection'
     </div>
   </div>
   <div class="highlighted example">
-    <h4>Grid</h4>
-    <p>A  grid will automatically center any columns that do not match a full row width. This is useful for centering content</p>
+    <h4>Columns</h4>
+    <p>Columns each contain gutters giving them equal vertical spacing from other columns. Columns by default do not take up their entire row height.</p>
+    <p>A grid will automatically center any columns that do not match a full row width.</p>
     <div class="ui three column grid">
-      <div class="row">
-        <div class="column">
-          <div class="ui segment">
-            1
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            2
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            3
-          </div>
+      <div class="column">
+        <div class="ui segment">
+          1
         </div>
       </div>
-      <div class="row">
-        <div class="column">
-          <div class="ui segment">
-            4
-          </div>
+      <div class="column">
+        <div class="ui segment">
+          2
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          3
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          4
         </div>
       </div>
     </div>
@@ -256,7 +253,7 @@ type   : 'UI Collection'
   
   <h3>Grid</h3>
 
-  <div class="highlighted example">
+  <div class="example">
     <h4>Page Grid</h4>
     <p>A grid can be formatted for page content adding gutters before and after the content of the grid to help make page contents easier to read.</p>
     
@@ -286,9 +283,9 @@ type   : 'UI Collection'
     </div>
   </div>
   
-  <div class="highlighted example">
+  <div class="example">
     <h4>Responsive Grid</h4>
-    <p>A grid can be responsive to a browsers width.</p>
+    <p>A grid can be responsive to a browsers width. This means the gutters to left and right of grid columns will alter in size as a browser's resolution increases.</p>
 
     <div class="ui text message info ignore">
       <p>
@@ -321,9 +318,9 @@ type   : 'UI Collection'
     </div>
   </div>
   
-  <div class="highlighted example">
-    <h4>Changing column count</h4>
-    <p>A grid can have a different number of columns</p>
+  <div class="example">
+    <h4>Changing grid column count</h4>
+    <p>A grid can have a different number of columns per row</p>
     <div class="ui three column grid">
       <div class="column">
         <div class="ui fluid form segment">
@@ -394,43 +391,49 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  <div class="highlighted example">
-    <h4>Floating (Horizontal Alignment)</h4>
-    <p>A column can be aligned, or "floated", to either the left or right of its row.</p>
-    <div class="ui grid">
-      <div class="left aligned four wide column">
-        <div class="ui vertical fluid menu">
-          <div class="header item">
-            Dogs
-          </div>
-          <div class="item">
-            Poodle
-          </div>
-          <div class="item">
-            Cockerspaniel
+
+  
+  <div class="example">
+    <h4>Vertical Alignment</h4>
+    <p>A grid can specify its vertical alignment to have all its columns vertically centered.</p>
+    <div class="ui middle aligned three column grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui vertical fluid menu">
+            <div class="header item">
+              Cats
+            </div>
           </div>
         </div>
-      </div>
-      <div class="right aligned four wide column">
-        <div class="ui vertical fluid menu">
-          <div class="header item">
-            Cats
+        <div class="column">
+          <div class="ui vertical fluid menu">
+            <div class="header item">
+              Dogs
+            </div>
+            <div class="item">
+              Poodle
+            </div>
+            <div class="item">
+              Cockerspaniel
+            </div>
           </div>
-          <div class="item">
-            Abysinnian
-          </div>
-          <div class="item">
-            Sphynx
+        </div>
+        <div class="column">
+          <div class="ui vertical fluid menu">
+            <div class="header item">
+              Monkeys
+            </div>
           </div>
         </div>
       </div>
     </div>
-
+  </div>
   
-  <div class="highlighted example">
+  <h3>Rows</h3>
+  <div class="example">
     <h4>Vertical Alignment</h4>
-    <p>A grid or row can specify its vertical alignment can have its columns vertically centered.</p>
-    <div class="ui centered three column grid">
+    <p>A row can also specify its vertical alignment to have its columns vertically centered.</p>
+    <div class="ui three column grid">
       <div class="top aligned row">
         <div class="column">
           <div class="ui vertical fluid menu">
@@ -521,102 +524,55 @@ type   : 'UI Collection'
     </div>
   </div>
   
-  <div class="highlighted example">
-    <h4>Evenly Divided Grid w/ Rows</h4>
-    <p>Content that does not match evenly finish a row will be centered in the next row</p>
-    <div class="ui two column grid">
-      <div class="row">
-        <div class="column">
-          <div class="ui fluid form segment">
-            <p>Let's go ahead and get you signed up.</p>
-            <div class="two fields">
-              <div class="field">
-                <label>First Name</label>
-                <input placeholder="First Name" type="text">
-              </div>
-              <div class="field">
-                <label>Last Name</label>
-                <input placeholder="Last Name" type="text">
-              </div>
-            </div>
-            <div class="field">
-              <label>Username</label>
-              <input placeholder="Username" type="text">
-            </div>
-            <div class="field">
-              <label>Password</label>
-              <input type="password">
-            </div>
-            <div class="inline field">
-              <div class="ui checkbox">
-                <input type="checkbox" id="terms" />
-                <label for="terms"></label>
-              </div>
-              <label>I agree to the terms and conditions</label>
-            </div>
-            <div class="ui blue submit button">Submit</div>
+  <h3>Columns</h3>
+  
+  <div class="example">
+    <h4>Row Alignment (Floating)</h4>
+    <p>A column can be aligned, or "floated", to either the left or right of its row.</p>
+    <div class="ui grid">
+      <div class="left aligned four wide column">
+        <div class="ui vertical fluid menu">
+          <div class="header item">
+            Dogs
           </div>
-        </div>
-        <div class="column">
-          <div class="ui vertical fluid menu">
-            <div class="header item">
-              Dogs
-            </div>
-            <div class="item">
-              Poodle
-            </div>
-            <div class="item">
-              Cockerspaniel
-            </div>
-            <div class="header item">
-              Cats
-            </div>
-            <div class="item">
-              Abysinnian
-            </div>
-            <div class="item">
-              Sphynx
-            </div>
+          <div class="item">
+            Poodle
+          </div>
+          <div class="item">
+            Cockerspaniel
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="column">
-          <div class="ui fluid form segment">
-            <p>Log in to your account</p>
-            <div class="field">
-              <label>Username</label>
-              <input placeholder="Username" type="text">
-            </div>
-            <div class="field">
-              <label>Password</label>
-              <input type="password">
-            </div>
-            <div class="ui blue submit button">Login</div>
+      <div class="right aligned four wide column">
+        <div class="ui vertical fluid menu">
+          <div class="header item">
+            Cats
+          </div>
+          <div class="item">
+            Abysinnian
+          </div>
+          <div class="item">
+            Sphynx
           </div>
         </div>
       </div>
     </div>
-  </div>
   
-  <h3>Columns</h3>
-  
-  <div class="highlighted example">
+  <div class="example">
     <h4>Column Width</h4>
     <p>A column can span across multiple grid columns.</p>
     <div class="ui grid">
       <div class="three wide column">
-        <div class="ui segment"><b>Colume One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien sed dui porta id sagittis sapien imperdiet. Quisque suscipit dui vel sapien dapibus a faucibus sapien mattis. Nulla facilisi. Aliquam vitae ante a quam tincidunt blandit. Duis adipiscing, metus at dictum auctor, odio enim ornare urna, quis aliquam arcu nibh vitae felis. Donec gravida aliquam enim in mattis. Phasellus risus purus, luctus quis lobortis eget, dignissim quis ante.</div>
+        <div class="ui segment"><b>Colume One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien.</div>
       </div>
       <div class="six wide column">
         <div class="ui segment"><b>Colume Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem. Nam augue erat, dignissim nec aliquam vel, congue et sapien. Integer viverra justo vel nibh suscipit commodo. Nullam ut turpis nibh, in luctus risus. Sed ut risus nec dui mattis porta. Nam nisi magna, ornare mollis congue a, suscipit at nisl.</div>
       </div>
       <div class="three wide column">
-        <div class="ui segment"><b>Colume Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. Pellentesque aliquet pellentesque nibh ut tincidunt. Nunc faucibus euismod tincidunt. Etiam convallis adipiscing est, id rutrum erat facilisis eu. Mauris in porttitor diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam consectetur orci nec quam semper sit amet bibendum nulla feugiat. Nam vehicula, arcu blandit semper sodales, nisi nisl imperdiet dolor, nec hendrerit dui lorem id felis. Integer diam ante, tempus dictum varius in, bibendum vitae nibh. Sed placerat, libero quis ultricies tempor, nisl ipsum semper orci, vitae viverra mauris lectus nec enim. Quisque eget massa eu ligula blandit molestie.</div>
+        <div class="ui segment"><b>Colume Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. </div>
       </div>
     </div>
   </div>
-  
     
 </div>
 </div>
