@@ -11,7 +11,7 @@
  */
  
 /*******************************
-           Text Message
+           Text Block
 *******************************/
 
 .ui.message {
@@ -36,13 +36,13 @@
      Content
 ---------------*/
 
-/* message with header */
+/* block with headers */
 .ui.message .header {
   font-size: 1.33em;
   font-weight: bold;
 }
 
-/* message with paragraph */
+/* block with paragraphs */
 .ui.message p {
   opacity: 0.85;
   margin: 0.2em 0em;

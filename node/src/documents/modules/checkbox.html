@@ -16,7 +16,9 @@ type   : 'UI Module'
   
   <div class="peek">
     <div class="ui vertical pointing menu">
-      <a class="active item">Examples</a>
+      <a class="active item">Structure</a>
+      <a class="item">Behavior</a>
+      <a class="item">Examples</a>
       <a class="item">Getting Started</a>
       <a class="item">Settings</a>
     </div>
@@ -83,26 +85,6 @@ type   : 'UI Module'
   <div class="code">$('.ui.checkbox')
   .checkbox('disableAll')
 ;</div>
-
-  <h2>Settings</h2>
-  <h3>Changing Settings</h3> 
-  <ol>
-    <li>A settings object can be passed in when initializing the plugin
-      <br> <div class="code">$('.foo')
-  .checkbox({ 
-    moduleName: 'Godzilla'
-  })
-;</div>
-    </li>
-    <li>Default settings for the module can be overridden by modifying $.fn.checkbox.settings.
-      <br><div class="code">$.fn.checkbox.settings.moduleName = 'Godzilla';</div>
-    </li>
-    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
-      <br><div class="code">$('.foo').checkbox('setting', 'moduleName', 'Godzilla');</div>
-    </li>
-  </ol>
-  <h3>Reading Settings</h3>
-  <p>Settings can also be read programmatically: <div class="code">$('.foo').checkbox('setting', 'moduleName');</div>
   <h3>Defaults</h3>
     <table class="ui settings table">
       <thead>

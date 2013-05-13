@@ -19,52 +19,77 @@ type   : 'UI Collection'
   
   <h2>Collection</h2>
   
-  <div class="example">
+  <div class="highlighted example">
     <h4>Grid</h4>
     <p>A grid is made up of columns of content. By default a grid must assume a certain number of columns. The semantic library assumes 12 columns by default.</p>
     
-    <div class="ui ignore warning block"><i class="icon heart"></i> <b>Tip</b>
-    <p>If only a single column is specified inside a grid or a grid row, semantic will assume the column to take up the entire grid width. If you would like to override this behavior, specify the grid width as a <b>one wide column</b></p></div>
+    <div class="ui ignore warning message"><i class="icon heart"></i> <b>Tip</b>
+    <p>If only a single column is specified inside a grid or a grid row, semantic will assume the column to take up the entire grid width. If you would like to override this behavior, specify the grid width as a <b>one wide column</b></p>
+    <p>It is also important to note, that padding is applied directly to columns, which means other ui elements should not be used in combination with column, but directly as children.</div>
     <div class="ui grid">
       <div class="column">
-        1
+        <div class="ui segment">
+          1
+        </div>
       </div>
       <div class="column">
-        2
+        <div class="ui segment">
+          2
+        </div>
       </div>
       <div class="column">
-        3
+        <div class="ui segment">
+          3
+        </div>
       </div>
       <div class="column">
-        4
+        <div class="ui segment">
+          4
+        </div>
       </div>
       <div class="column">
-        5
+        <div class="ui segment">
+          5
+        </div>
       </div>
       <div class="column">
-        6
+        <div class="ui segment">
+          6
+        </div>
       </div>
       <div class="column">
-        7
+        <div class="ui segment">
+          7
+        </div>
       </div>
       <div class="column">
-        8
+        <div class="ui segment">
+          8
+        </div>
       </div>
       <div class="column">
-        9
+        <div class="ui segment">
+          9
+        </div>
       </div>
       <div class="column">
-        10
+        <div class="ui segment">
+          10
+        </div>
       </div>
       <div class="column">
-        11
+        <div class="ui segment">
+          11
+        </div>
       </div>
       <div class="column">
-        12
+        <div class="ui segment">
+          12
+        </div>
       </div>
     </div>
   </div>
-  <div class="example">
+  <div class="highlighted example">
     <h4>Rows</h4>
     <p>A basic grid has padding on the first and last columns of each row.</p>
     <p>A row is used to create vertical padding between rows of columns on a page. If no rows are specified, a grid column will sit flush along each side of the grid.</p>
@@ -72,97 +97,157 @@ type   : 'UI Collection'
     <div class="ui grid">
       <div class="row">
         <div class="column">
-          1a
+          <div class="ui segment">
+            1a
+          </div>
         </div>
         <div class="column">
-          2a
+          <div class="ui segment">
+            2a
+          </div>
         </div>
         <div class="column">
-          3a
+          <div class="ui segment">
+            3a
+          </div>
         </div>
         <div class="column">
-          4a
+          <div class="ui segment">
+            4a
+          </div>
         </div>
         <div class="column">
-          5a
+          <div class="ui segment">
+            5a
+          </div>
         </div>
         <div class="column">
-          6a
+          <div class="ui segment">
+            6a
+          </div>
         </div>
         <div class="column">
-          7a
+          <div class="ui segment">
+            7a
+          </div>
         </div>
         <div class="column">
-          8a
+          <div class="ui segment">
+            8a
+          </div>
         </div>
         <div class="column">
-          9a
+          <div class="ui segment">
+            9a
+          </div>
         </div>
         <div class="column">
-          10a
+          <div class="ui segment">
+            10a
+          </div>
         </div>
         <div class="column">
-          11a
+          <div class="ui segment">
+            11a
+          </div>
         </div>
         <div class="column">
-          12a
+          <div class="ui segment">
+            12a
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="column">
-          1b
+          <div class="ui segment">
+            1b
+          </div>
         </div>
         <div class="column">
-          2b
+          <div class="ui segment">
+            2b
+          </div>
         </div>
         <div class="column">
-          3b
+          <div class="ui segment">
+            3b
+          </div>
         </div>
         <div class="column">
-          4b
+          <div class="ui segment">
+            4b
+          </div>
         </div>
         <div class="column">
-          5b
+          <div class="ui segment">
+            5b
+          </div>
         </div>
         <div class="column">
-          6b
+          <div class="ui segment">
+            6b
+          </div>
         </div>
         <div class="column">
-          7b
+          <div class="ui segment">
+            7b
+          </div>
         </div>
         <div class="column">
-          8b
+          <div class="ui segment">
+            8b
+          </div>
         </div>
         <div class="column">
-          9b
+          <div class="ui segment">
+            9b
+          </div>
         </div>
         <div class="column">
-          10b
+          <div class="ui segment">
+            10b
+          </div>
         </div>
         <div class="column">
-          11b
+          <div class="ui segment">
+            11b
+          </div>
         </div>
         <div class="column">
-          12b
+          <div class="ui segment">
+            12b
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="example">
+  <div class="highlighted example">
     <h4>Grid</h4>
     <p>A  grid will automatically center any columns that do not match a full row width. This is useful for centering content</p>
-    <div class="ui grid">
-      <div class="column">
-        1
+    <div class="ui three column grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui segment">
+            1
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            2
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            3
+          </div>
+        </div>
       </div>
-      <div class="column">
-        2
-      </div>
-      <div class="column">
-        3
-      </div>
-      <div class="column">
-        4
+      <div class="row">
+        <div class="column">
+          <div class="ui segment">
+            4
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -310,7 +395,7 @@ type   : 'UI Collection'
     </div>
   </div>
   <div class="example">
-    <h4>Horizontal Alignment</h4>
+    <h4>Floating (Horizontal Alignment)</h4>
     <p>A column can be aligned, or "floated", to either the left or right of its row.</p>
     <div class="ui grid">
       <div class="left aligned four wide column">
