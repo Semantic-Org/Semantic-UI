@@ -126,14 +126,14 @@
    Types of Messages
 ---------------------*/
 
-.ui.form .info.block,
-.ui.form .warning.block,
-.ui.form .error.block {
+.ui.form .info.message,
+.ui.form .warning.message,
+.ui.form .error.message {
   display: none;
 }
 
 /* Assumptions */
-.ui.form .block:first-child {
+.ui.form .message:first-child {
   margin-top: 0px;
 }
 
@@ -158,7 +158,7 @@
 ---------------------*/
 
 /* On Form */
-.ui.form.warning .warning.block {
+.ui.form.warning .warning.message {
   display: block;
 }
 
@@ -167,7 +167,7 @@
 ---------------------*/
 
 /* On Form */
-.ui.form.error .error.block {
+.ui.form.error .error.message {
   display: block;
 }
 
