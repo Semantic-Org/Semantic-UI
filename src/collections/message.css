@@ -14,7 +14,7 @@
            Text Block
 *******************************/
 
-.ui.block {
+.ui.message {
   position: relative;
   min-height: 18px;
   margin: 1em 0em;
@@ -37,35 +37,35 @@
 ---------------*/
 
 /* block with headers */
-.ui.block .header {
+.ui.message .header {
   font-size: 1.33em;
   font-weight: bold;
 }
 
 /* block with paragraphs */
-.ui.block p {
+.ui.message p {
   opacity: 0.85;
   margin: 0.2em 0em;
 }
-.ui.block p:first-child {
+.ui.message p:first-child {
   margin-top: 0em;
 }
 
 /* block with child list */
-.ui.block ul.list {
+.ui.message ul.list {
   opacity: 0.85;
   list-style-position: inside;
   margin: 0.2em 0em;
   padding: 0em;
 }
-.ui.block ul.list li {
+.ui.message ul.list li {
   position: relative;
   list-style-type: none;
   font-style: italic;
   margin: 0em 0em 0em 1em;
   padding: 0em;
 }
-.ui.block ul.list li:before {
+.ui.message ul.list li:before {
   position: absolute;
   content: '\2022';
   top: -0.05em;
@@ -75,12 +75,12 @@
   vertical-align: baseline;
   opacity: 0.5;
 }
-.ui.block ul.list li:first-child {
+.ui.message ul.list li:first-child {
   margin-top: 0px;
 }
 
 /* dismissable block */
-.ui.block > .icon.close {
+.ui.message > .icon.close {
   cursor: pointer;
   position: absolute;
   top: 1em;
@@ -103,7 +103,7 @@
     opacity 0.1s linear
   ;
 }
-.ui.block > .icon.close:hover {
+.ui.message > .icon.close:hover {
   opacity: 1;
 }
 
@@ -113,11 +113,11 @@
             States
 *******************************/
 
-.ui.block.visible,
+.ui.message.visible,
 .ui.header.visible {
   display: block !important;
 }
-.ui.block.hidden,
+.ui.message.hidden,
 .ui.header.hidden {
   display: none;
 }
@@ -130,7 +130,7 @@
     Compact
 ---------------*/
 
-.ui.compact.block {
+.ui.compact.message {
   display: inline-block;
 }
 
@@ -139,7 +139,7 @@
     Attached
 ---------------*/
 
-.ui.attached.block {
+.ui.attached.message {
   margin-bottom: 0px;
 
   -webkit-border-radius: 4px 4px 0px 0px;
@@ -156,7 +156,7 @@
     0px 0px 0px 1px #DDDDDD
   ;
 }
-.ui.bottom.attached.block {
+.ui.bottom.attached.message {
   margin-top: 0px;
 
   -webkit-border-radius: 0px 0px 4px 4px;
@@ -179,14 +179,14 @@
       Icon
 ---------------*/
 
-.ui.icon.block > .icon {
+.ui.icon.message > .icon {
   display: table-cell;
   vertical-align: middle;
   font-size: 3.8em;
   padding-right: 0.4em;
   opacity: 0.2;
 }
-.ui.icon.block > .content {
+.ui.icon.message > .content {
   display: table-cell;
   vertical-align: middle;
 }
@@ -195,7 +195,7 @@
      Colors
 ---------------*/
 
-.ui.black.block {
+.ui.black.message {
   background-color: #333333;
   color: rgba(255, 255, 255, 0.95);
 }
@@ -205,33 +205,33 @@
 /*--------------
      Types
 ---------------*/
-.ui.blue.block,
-.ui.info.block {
+.ui.blue.message,
+.ui.info.message {
   border-color: #75C9E9;
   background-color: #E9F9FF;
   color: #1D6582;
 }
 
 /* Success Text Block */
-.ui.green.block,
-.ui.success.block,
-.ui.positive.block {
+.ui.green.message,
+.ui.success.message,
+.ui.positive.message {
   background-color: #EEFFE9;
   color: #119000;
   border-color: #2FCB05;
 }
 
 /* Warning Text Block */
-.ui.yellow.block,
-.ui.warning.block {
+.ui.yellow.message,
+.ui.warning.message {
   background-color: #F6F3D5;
   border-color: #CBB105;
   color: #AF9801;
 }
 /* Error Text Block */
-.ui.red.block,
-.ui.error.block,
-.ui.negative.block {
+.ui.red.message,
+.ui.error.message,
+.ui.negative.message {
   background-color: #F1D7D7;
 
   color: #AD0000;
@@ -243,18 +243,18 @@
      Sizes 
 ---------------*/
 
-.ui.small.block {
+.ui.small.message {
   font-size: 0.875em;
 }
-.ui.block {
+.ui.message {
   font-size: 1em;
 }
-.ui.large.block {
+.ui.large.message {
   font-size: 1.125em;
 }
-.ui.huge.block {
+.ui.huge.message {
   font-size: 1.5em;
 }
-.ui.massive.block {
+.ui.massive.message {
   font-size: 2px;
 }
