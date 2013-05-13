@@ -1,7 +1,7 @@
 .ui.progress {
   border: 1px solid #DDDDDD;
 
-  width: 350px;
+  width: 100%;
   max-width: 100%;
   height: 35px;
 
@@ -66,19 +66,26 @@
 }
 
 /* State */
-.ui.success.progress .bar {
+
+.ui.successful.progress .bar {
   background-color: #73E064 !important;
 }
-.ui.success.progress .bar,
-.ui.success.progress .bar::after {
+.ui.successful.progress .bar,
+.ui.successful.progress .bar::after {
   -webkit-animation: none !important;
   -moz-animation: none !important;
 }
-.ui.error.progress .bar {
+
+.ui.failed.progress .bar {
   background-color: #DF9BA4 !important;
 }
-.ui.error.progress .bar,
-.ui.error.progress .bar::after {
+.ui.failed.progress .bar,
+.ui.failed.progress .bar::after {
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+}
+.ui.disabled.progress .bar,
+.ui.disabled.progress .bar::after {
   -webkit-animation: none !important;
   -moz-animation: none !important;
 }

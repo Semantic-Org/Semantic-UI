@@ -16,6 +16,11 @@
   -moz-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  
   overflow: hidden;
 }
 
@@ -28,11 +33,6 @@
 }
 .ui.segment .bottom.attached.label:first-child + * {
   margin-top: 0em;
-}
-
-/* Compatability with Grid */
-.ui.fitted.elements .ui.segment.element:first-child {
-  border-radius: 5px 0px 0px 5px;
 }
 
 .ui.segment.attached {

@@ -119,7 +119,7 @@
 }
 @media only screen and (min-width : 1000px) {
   .ui.responsive.grid {
-    padding: 0% 5%;
+    padding: 0% 10%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -127,7 +127,7 @@
 }
 @media only screen and (min-width : 1500px) {
   .ui.responsive.grid {
-    padding: 0% 10%;
+    padding: 0% 20%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -135,7 +135,7 @@
 }
 @media only screen and (min-width : 1750px) {
   .ui.responsive.grid {
-    padding: 0% 20%;
+    padding: 0% 30%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -143,7 +143,7 @@
 }
 @media only screen and (min-width : 2000px) {
   .ui.responsive.grid {
-    padding: 0% 27%;
+    padding: 0% 35%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -194,7 +194,7 @@
 }
 
 /*-------------------
-    Column Count
+     Column Count
 --------------------*/
 
 /* Standard */

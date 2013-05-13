@@ -6,93 +6,94 @@ title  : 'UI Collections'
 type   : 'Library'
 ---
 
-<div class="segment">
-  <div class="container">
+<div class="responsive ui grid segment">
+  <div class="column">
     <h1>UI Collection</h1>
-    <p>UI collections are heterogeneous groups of elements<p>
+    <p>UI collections are elements which contain other elements which often appear together.<p>
   </div>
 </div>
-<div class="main container">
-  
-  <h2>Types of Collections</h2>
-  
-  <div class="ui horizontal items">
-    <div class="item">
-      <div class="image">
-        <div class="ui fluid form">
-          <div class="field">
-            <label>Name</label>
-            <input class="ui input" placeholder="Name">
-          </div>
-          <div class="field">
-            <label>E-mail</label>
-            <input class="ui input" placeholder="E-mail">
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <a href="/collections/form.html" class="name">Form</a>
-        <p>A form is used to solicit a user response</p>
-      </div>
-    </div>
-    <div class="item">
-      <div class="image">
-        <div class="ui three column aligned grid">
-          <div class="top aligned column">Top</div>
-          <div class="middle aligned column">Middle</div>
-          <div class="bottom aligned column">Bottom</div>
-        </div>
-      </div>
-      <div class="content">
-        <a href="/collections/grid.html" class="name">Grid</a>
-        <p>A grid helps harmonize negative space in a layout</p>
-      </div>
-    </div>
-    <div class="item">
-      <div class="image">
-        <div class="ui inverted compact menu">
-          <div class="item">Friends</div>
-          <div class="item">Messages</div>
-        </div>
-      </div>
-      <div class="content">
-        <a href="/collections/menu.html" class="name">Menu</a>
-        <p>A menu organizes related links</p>
-      </div>
-    </div>
-    <div class="item">
-      <div class="image">
-        <table class="ui table">
-          <thead>
-            <th>Name</th>
-            <th>Status</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>John</td>
-              <td class="positive"><i class="icon check"></i> Approved</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="content">
-        <a href="/collections/table.html" class="name">Table</a>
-        <p>A table organizes data that is grouped into rows</p>
-      </div>
-    </div>
-    <div class="item">
-      <div class="image">
-        <div class="ui warning block">
-          <div class="header">Alert</div>
-          <p>You forgot your name!</p>
-        </div>
-      </div>
-      <div class="content">
-        <a href="collections/block.html" class="name">Text Block</a>
-        <p>A text block is used to alert a user.</p>
-      </div>
-    </div>
+<div class="main responsive ui grid">
+  <div class="column">
+    <h2>Types of Collections</h2>
     
+    <div class="ui horizontal type items">
+      <div class="item">
+        <div class="image">
+          <div class="ui fluid form">
+            <div class="field">
+              <label>Name</label>
+              <input class="ui input" placeholder="Name">
+            </div>
+            <div class="field">
+              <label>E-mail</label>
+              <input class="ui input" placeholder="E-mail">
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <a href="/collections/form.html" class="name">Form</a>
+          <p>A form is used to solicit a user response</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <div class="ui three column aligned responsive grid">
+            <div class="column"><div class="ui segment">First</div></div>
+            <div class="column"><div class="ui segment">Second</div></div>
+            <div class="column"><div class="ui segment">Third</div></div>
+          </div>
+        </div>
+        <div class="content">
+          <a href="/collections/grid.html" class="name">Grid</a>
+          <p>A grid helps harmonize negative space in a layout</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <div class="ui inverted compact menu">
+            <div class="item">Friends</div>
+            <div class="item">Messages</div>
+          </div>
+        </div>
+        <div class="content">
+          <a href="/collections/menu.html" class="name">Menu</a>
+          <p>A menu organizes related links</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <table class="ui table">
+            <thead>
+              <th>Name</th>
+              <th>Status</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td class="positive"><i class="icon check"></i> Approved</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="content">
+          <a href="/collections/table.html" class="name">Table</a>
+          <p>A table collects related data into rows of content</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <div class="ui warning message">
+            <div class="header">Alert</div>
+            <p>You forgot your name!</p>
+          </div>
+        </div>
+        <div class="content">
+          <a href="collections/block.html" class="name">Message</a>
+          <p>Messages alert a user to something important.</p>
+        </div>
+      </div>
+      
+    </div>
   </div>
   
 </div>
