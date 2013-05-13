@@ -26,7 +26,8 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-.ui.grid:after {
+.ui.grid:after,
+.ui.row:after {
     content: ".";
     display: block;
     height: 0;
