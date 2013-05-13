@@ -553,6 +553,10 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   opacity: 1;
 }
 
+#example .ui.items > .item > .image {
+  padding: 1em;
+  vertical-align: middle;
+}
 
 /* some demo formatting */
 .ui.menu p:only-child {
