@@ -285,11 +285,11 @@
 }
 .ui.items > .item > .content > .name,
 .ui.items > .item > .content > .title {
+  display: block;
   margin-bottom: 1%;
 
-  font-size: 1.2em;
+  font-size: 1.25em;
   font-weight: bold;
-  color: #009FDA;
 }
 .ui.items > .item > .content p {
   line-height: 1.33;
