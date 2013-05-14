@@ -1,0 +1,327 @@
+/*
+ * # Semantic Grid 
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: May 6 2013
+ */
+
+/*******************************
+            Grid
+*******************************/
+
+.ui.grid {
+  width: 100%;
+  display: block;
+  text-align: center;
+
+  font-size: 0em;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ui.grid:after,
+.ui.row:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/*-------------------
+       Columns
+--------------------*/
+
+.ui.grid > .column,
+.ui.grid > .row > .column {
+
+  display: inline-block;
+  text-align: left;
+  font-size: 1rem;
+
+  padding-left: 1.33%;
+  padding-right: 1.33%;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  vertical-align: top;
+}
+
+/*-------------------
+         Rows
+--------------------*/
+
+.ui.grid > .row {
+  display: block;
+  width: 100%;
+}
+
+.ui.grid > .row {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+.ui.grid > .row:first-child {
+  padding-top: 0rem;
+  margin-top: 0rem;
+}
+
+/*-------------------
+      Content
+--------------------*/
+
+.ui.grid > .row > img,
+.ui.grid > .row > .column > img {
+  max-width: 100%;  
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*-------------------
+        Page
+--------------------*/
+
+.ui.page.grid {
+  padding: 0% 5%;
+}
+
+
+/*-------------------
+      Responsive
+--------------------*/
+
+
+@media only screen and (max-width : 1000px) {
+  .ui.responsive.grid {
+    padding: 0% 5.55%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1000px) {
+  .ui.responsive.grid {
+    padding: 0% 8%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .ui.responsive.grid {
+    padding: 0% 20%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 1750px) {
+  .ui.responsive.grid {
+    padding: 0% 30%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+@media only screen and (min-width : 2000px) {
+  .ui.responsive.grid {
+    padding: 0% 35%;
+  }
+  .ui.responsive.grid > .column,
+  .ui.responsive.grid > .row > .column {
+  }
+}
+
+/*-------------------
+    Column Width
+--------------------*/
+
+
+/* Sizing Combinations */
+.ui.grid .one.wide.column {
+  width: 8.3333%;
+}
+.ui.grid .two.wide.column {
+  width: 16.66667%;
+}
+.ui.grid .three.wide.column {
+  width: 25%;
+}
+.ui.grid .four.wide.column {
+  width: 33.3333%;
+}
+.ui.grid .five.wide.column {
+  width: 41.6666%;
+}
+.ui.grid .six.wide.column {
+  width: 50%;
+}
+.ui.grid .seven.wide.column {
+  width: 58.3333%;
+}
+.ui.grid .eight.wide.column {
+  width: 66.6666%;
+}
+.ui.grid .nine.wide.column {
+  width: 75%;
+}
+.ui.grid .ten.wide.column {
+  width: 83.3333%;
+}
+.ui.grid .eleven.wide.column {
+  width: 91.666%;
+}
+.ui.grid .twelve.wide.column {
+  width: 100%;
+}
+
+/*-------------------
+     Column Count
+--------------------*/
+
+/* Standard */
+.ui.grid > .column,
+.ui.grid > .row > .column {
+  width: 8.3333%;
+}
+/* Assume full width with one column */
+.ui.grid > .column:only-child,
+.ui.grid > .row > .column:only-child {
+  width: 100%;
+}
+
+
+.ui.two.column.grid .column {
+  width: 50%;
+}
+
+.ui.three.column.grid .column {
+  width: 33.3333%;
+}
+
+.ui.four.column.grid .column {
+  width: 25%;
+}
+
+.ui.five.column.grid .column {
+  width: 20%;
+}
+
+.ui.six.column.grid .column {
+  width: 16.66667%;
+}
+
+.ui.seven.column.grid .column {
+  width: 14.2857%;
+}
+
+.ui.eight.column.grid .column {
+  width: 12.5%;
+}
+
+.ui.nine.column.grid .column {
+  width: 11.1111%;
+}
+
+.ui.ten.column.grid .column {
+  width: 10%;
+}
+
+.ui.eleven.column.grid .column {
+  width: 9.0909%;
+}
+
+
+/*-------------------
+       Fitted
+--------------------*/
+
+.ui.fitted.grid {
+  padding: 0%;
+}
+
+.ui.fitted.row {
+  padding-top: 0%
+}
+
+.ui.fitted.grid .column,
+.ui.grid .fitted.column {
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+
+/*----------------------
+       "Floated"
+-----------------------*/
+
+.ui.grid .left.aligned.column {
+  float: left;
+}
+.ui.grid .right.aligned.column {
+  float: right;
+}
+
+
+/*----------------------
+  Vertically Centered
+-----------------------*/
+
+/* Vertical Centered */
+.ui.aligned.grid,
+.ui.grid > .aligned.row {
+  display: table;
+  width: 100%;
+}
+.ui.aligned.grid > .row {
+  display: table-row;
+}
+.ui.aligned.grid .column,
+.ui.grid .aligned.row .column {
+  display: table-cell;
+}
+
+.ui.top.aligned.grid .column,
+.ui.grid .top.aligned.column,
+.ui.grid > .top.aligned.row .column {
+  vertical-align: top;
+}
+.ui.middle.aligned.grid .column,
+.ui.grid .middle.aligned.column,
+.ui.grid > .middle.aligned.row .column {
+  vertical-align: middle;
+}
+.ui.bottom.aligned.grid .column,
+.ui.grid .bottom.aligned.column,
+.ui.grid > .bottom.aligned.row .column {
+  vertical-align: bottom;
+}
+
+
+/*-------------------
+       Folding
+--------------------*/
+
+@media only screen and (max-width : 1000px) {
+  .ui.folding.grid {
+    display: block !important;
+  }
+  .ui.folding.grid .column {
+    display: block !important;
+    width: 100% !important;
+    padding: 0% !important;
+  }
+}
