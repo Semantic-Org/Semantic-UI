@@ -229,8 +229,8 @@
   box-sizing: border-box;
 }
 
-.ui.items > .item > .image a,
-.ui.items > .item > .image img {
+.ui.items > .item > .image > a,
+.ui.items > .item > .image > img {
   position: relative;
   display: block;
   width: 100%;
@@ -239,7 +239,7 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-.ui.items > .item > .image a:after {
+.ui.items > .item > .image > a:after {
   position: absolute;
   display: block;
   content: '';
@@ -254,7 +254,7 @@
   -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;
 }
-.ui.items > .item > .image .overlay {
+.ui.items > .item > .image > .overlay {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -273,7 +273,7 @@
 
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.6);
 }
-.ui.items > .item > .image .overlay i {
+.ui.items > .item > .image > .overlay i {
   font-size: 1.3em;
   font-weight: bold;
 }
