@@ -131,12 +131,14 @@
         <% end %>
       </div>
       <div class="right menu">
+        <% if @document.type is 'UI Element' or @document.type is 'UI Collection': %>
         <a class="popup designer item" title="Designer Mode">
           <i class="icon easel"></i>
         </a>
         <a class="popup developer item" title="Developer Mode">
           <i class="icon terminal"></i>
         </a>
+        <% end %>
         <a class="popup item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
           <i class="icon github"></i>
         </a>
