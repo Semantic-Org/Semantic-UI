@@ -165,7 +165,7 @@ ul.list li {
 h1 {
   margin: 0px 0px 20px;
   padding: 50px 0px 5px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 h1 {
   margin: 0px auto;
@@ -303,11 +303,14 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   background-color: #EF4D6D;
   padding: 75px 0px 50px;
   color: #FFFFFF;
+  margin-bottom: 0px;
+  border-bottom: none;
 }
 #example .masthead h1 {
   font-size: 4em;
   line-height: 1.2;
   padding-bottom: 0px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
 }
 #example .masthead strike {
   color: rgba(255, 255, 255, 0.5);
@@ -341,6 +344,23 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   width: 800px;
   margin: 0px auto;
 }
+
+#example .solid .container,
+#example .stripe .container {
+  min-height: 240px;
+  padding: 50px 0px;
+  overflow: hidden;
+}
+
+#example .solid {
+  background-color: #FFFFFF;
+}
+#example .stripe {
+  background-color: #333333;
+  color: #FFFFFF;
+}
+
+
 #example .shortcuts {
   float: right;
   clear: both;

@@ -324,9 +324,9 @@
                 };
               break;
             }
-            // true width on popup
+            // true width on popup, avoid rounding error
             $.extend(positioning, {
-              width: $popup.width()
+              width: $popup.width() + 1
             });
             // tentatively place on stage
             $popup
