@@ -24,7 +24,6 @@
   color: rgba(0, 0, 0, 0.75);
 
   border: 1px solid #DDDDDD;
-  border-bottom-width: 3px;
 }
 
 .ui.table tr,
@@ -43,7 +42,7 @@
   transition: all 0.1s ease-out;
 }
 .ui.table thead {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(50, 50, 50, 0.1);
 }
 .ui.table th {
@@ -94,7 +93,7 @@
       Hover
 ---------------*/
 
-/* Grid */
+/* Celled */
 .ui.celled.table tr:hover td {
   background-color: rgba(0, 0, 0, 0.02);
   color: rgba(0, 0, 0, 1);
@@ -231,11 +230,11 @@
 *******************************/
 
 /*--------------
-      Grid
+     Celled
 ---------------*/
 
 .ui.celled.table {
-  color: rgba(0, 0, 0, 0.55);
+  color: rgba(25, 25, 25, 0.9);
 }
 .ui.celled.table tbody tr,
 .ui.celled.table tfoot tr {

@@ -15,18 +15,18 @@ semantic.ready = function() {
     $sortTable    = $('.sortable.table'),
     $demo         = $('.demo'),
     $waypoints    = $('h2:not(.ui)'),
-    
+
     $menuPopup    = $('.ui.main.menu .popup.item'),
-    
+
     $example      = $('.example'),
     $shownExample = $example.filter('.shown'),
-    
+
     $developer    = $('.developer.item'),
     $designer     = $('.designer.item'),
-    
+
     $increaseFont = $('.font .increase'),
     $decreaseFont = $('.font .decrease'),
-    
+
     $peek         = $('.peek'),
     $peekItem     = $peek.children('.menu').children('a.item'),
     $peekSubItem  = $peek.find('.item .menu .item'),
@@ -100,7 +100,7 @@ semantic.ready = function() {
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),
-        code = ''
+        code       = ''
       ;
       // if ui has wrapper use that
       if($demo.filter('.ui').size() === 0) {
@@ -125,12 +125,12 @@ semantic.ready = function() {
         $code = $('<div/>')
           .data('type', 'html')
           .addClass('code')
-          .text(code)
+          .html(code)
             .appendTo($annotated)
         ;
         $.proxy(handler.initializeCode, $code)();
       }
-      if( $demo.first().is(':visible') || type == 'developer' ) {
+      if( $demo.first().is(':visible') || type == 'developer' && type != 'designer' ) {
         $demo.hide();
         $annotated.fadeIn(500);
       }
@@ -147,13 +147,30 @@ semantic.ready = function() {
 
     initializeCode: function() {
       var
-        $code         = $(this),
-        contentType   = $code.data('type') || 'javascript',
-        editor        = ace.edit($code[0]),
-        editorSession = editor.getSession(),
-        padding       = 4,
-        codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding
+        $code       = $(this),
+        code        = $code.html(),
+        contentType = $code.data('type') || 'javascript',
+        whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
+        padding     = 4,
+        editor,
+        editorSession,
+        codeHeight
       ;
+
+      // trim whitespace
+      code = $.trim(code.replace(whiteSpace, '\n'));
+      $code.text(code);
+
+      if($code.hasClass('evaluated')) {
+        console.log(code);
+        eval(code);
+      }
+
+      // initialize 
+      editor        = ace.edit($code[0]);
+      editorSession = editor.getSession();
+      codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
+
       editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);
       editor.setReadOnly(true);
