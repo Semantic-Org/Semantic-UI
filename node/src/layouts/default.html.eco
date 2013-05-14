@@ -131,6 +131,12 @@
         <% end %>
       </div>
       <div class="right menu">
+        <a class="popup designer item" title="Designer Mode">
+          <i class="icon easel"></i>
+        </a>
+        <a class="popup developer item" title="Developer Mode">
+          <i class="icon terminal"></i>
+        </a>
         <a class="popup item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
           <i class="icon github"></i>
         </a>

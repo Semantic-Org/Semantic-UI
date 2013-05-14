@@ -19,6 +19,9 @@ semantic.ready = function() {
     $menuPopup   = $('.ui.main.menu .popup.item'),
 
     $example     = $('.example'),
+
+    $developer   = $('.developer.item'),
+    $designer    = $('.designer.item'),
     
     $peek        = $('.peek'),
     $peekItem    = $peek.children('.menu').children('a.item'),
