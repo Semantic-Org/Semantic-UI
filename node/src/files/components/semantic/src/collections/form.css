@@ -398,9 +398,15 @@
 .ui.form .inline.field > p,
 .ui.form .inline.field > input,
 .ui.form .inline.field > select {
+  
   display: inline-block;
-  vertical-align: middle;
   width: auto;
+
+  margin-top: 0em;
+  margin-bottom: 0em;
+
+  vertical-align: middle;
+  font-size: 1em;
 }
 
 .ui.form .inline.fields .field > :first-child,

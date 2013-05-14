@@ -9,87 +9,144 @@ type   : 'UI Module'
 <div class="segment">
   <div class="container">
     <h1>Checkbox</h1>
-    <p>Checkbox is a plugin for attaching form events to UI checkbox</p>
+    <p>A checkbox is a <a href="/module.html">ui module</a> which indicates a user's selection of a choice.</p>
   </div>
 </div>
 <div class="main container">
   
   <div class="peek">
     <div class="ui vertical pointing menu">
-      <a class="active item">Structure</a>
+      <a class="active item">Standard</a>
+      <a class="active item">Variations</a>
       <a class="item">Behavior</a>
-      <a class="item">Examples</a>
-      <a class="item">Getting Started</a>
       <a class="item">Settings</a>
     </div>
   </div>
-  <p>UI checkboxes do not need javascript to function correctly, checkboxs can be triggered by matching the label's for attribute to the id tag of an input field</p>
-  <p>However, there may be situations where it is less work to use javascript to initialize a checkbox then to manually assign ID tags to each field, or you might want to programmatically trigger the checkbox state. In these cases the checkbox module may be useful.</p>
+  
+  <h2>Standard</h2>
 
-  <h2>Examples</h2>
-
-  <h3>Initializing a check box</h3>
-  <div class="code">$('.ui.checkbox')
-  .checkbox()
-;
-</div>
-
-  <div class="shown example">
-    <h3>Check Box</h3>
-    <p>The html required for a standard UI checkbox</p>
+  <div class="example">
+    <h4>Check Box</h4>
+    <p>A standard checkbox</p>
     <div class="ui checkbox">
       <input type="checkbox" />
-      <label for="uniqueid"></label>
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Check Box</h4>
+    <p>A checkbox can function without javascript</p>
+    <div class="ui checkbox">
+      <input type="checkbox" id="unique-id" />
+      <label class="box" for="unique-id"></label>
     </div>
   </div>
   
   <div class="example">
-    <h3>Radio Box</h3>
-    <p>The html required for a standard UI radio box</p>
-    <p>A radio box is just a reskinned version of a checkbox, the initialization of the module is the same.</p>
-    <div class="ui radio checkbox">
-      <input type="radio" name="foo" />
-      <label for="uniqueid"></label>
-    </div>
-    <div class="ui radio checkbox">
-      <input type="radio" name="foo" />
-      <label for="uniqueid"></label>
+    <h4>Form Checkbox</h4>
+    <p>A checkbox can be found inside a form</p>
+    <div class="ui form segment">
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" />
+          <div class="box"></div>
+        </div>
+        <label>Join Us</label>
+      </div>
     </div>
   </div>
   
+  <h2>Variations</h2>
   
-  <h2>Getting Started</h2>
+  <div class="example">
+    <h4>Radio Box</h4>
+    <p>A checkbox can be formatted as a radio element. This means it is an exclusive option.</p>
+    <div class="ui radio checkbox">
+      <input type="radio" name="foo" />
+      <label></label>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4>Size</h4>
+    <p>A checkbox can be a different size.</p>
+    <div class="ui large checkbox">
+      <input type="checkbox" name="foo" />
+      <label></label>
+    </div>
+    <br><br>
+    <div class="ui huge checkbox">
+      <input type="checkbox" name="foo" />
+      <label></label>
+    </div>
+  </div>
+  
+  <h2>Behavior</h2>
 
-  <p>The plugin must be initialized once before methods can be accessed</p>
-  <div class="code">$('.ui.checkbox')
-  .checkbox()
-;</div>
-
-  <p>You can enable a checkbox programmatically using the enable method</p>
-  <div class="code">$('.ui.checkbox')
-  .checkbox('enable')
-;</div>
+  <div class="example">
+    <p>A checkbox can be enabled</p>
+    <div class="ignore evaluated code">
+      $('.enable.button')
+        .checkbox('enable')
+      ;
+    </div>
+    <div class="enable ui button">Enable</div>
+    <div class="ui checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+  </div>
 
   <p>You can enable all checkboxes initialized at the same time by calling the enableAll method</p>
-  <div class="code">$('.ui.checkbox')
-  .checkbox('enableAll')
-;</div>
+  <div class="code">
+  $('.ui.checkbox')
+    .checkbox('enableAll')
+  ;
+  </div>
 
 
   <p>You can disable a checkbox programmatically using the disable method</p>
-  <div class="code">$('.ui.checkbox')
-  .checkbox('disable')
-;</div>
+  <div class="code">
+    $('.ui.checkbox')
+      .checkbox('disable')
+    ;
+  </div>
 
   <p>You can disable all checkboxes initialized at the same time by calling the disableAll method</p>
-  <div class="code">$('.ui.checkbox')
-  .checkbox('disableAll')
-;</div>
+  <div class="code">
+    $('.ui.checkbox')
+      .checkbox('disableAll')
+    ;
+  </div>
+  
+  <h2>Getting Started</h2>
+  <h3>Initializing a check box</h3>
+  <div class="code">
+    $('.ui.checkbox')
+      .checkbox()
+    ;
+  </div>
+  
   <h3>Defaults</h3>
-    <table class="ui settings table">
-      <thead>
-        <th colspan="3">Callbacks</th>
-      </thead>
+  <table class="ui settings celled table">
+    <thead>
+      <th colspan="3">Checkbox Settings</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>context</td>
+        <td>false</td>
+        <td>A selector or jQuery object to use as a delegated event context</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="ui settings celled table">
+    <thead>
+      <th colspan="3">Callbacks</th>
+    </thead>
+    <tbody>
       <tr>
         <td>onChange</td>
         <td>None</td>
@@ -105,11 +162,14 @@ type   : 'UI Module'
         <td>None</td>
         <td>Callback after a checkbox is disabled.</td>
       </tr>
-    </table>
-    <table class="ui settings table">
-      <thead>
-        <th colspan="3">UI Module Settings</th>
-      </thead>
+    </tbody>
+  </table>
+  
+  <table class="ui settings celled table">
+    <thead>
+      <th colspan="3">UI Module Settings</th>
+    </thead>
+    <tbody>
       <tr>
         <td>moduleName</td>
         <td>Checkbox</td>
@@ -140,7 +200,7 @@ type   : 'UI Module'
         <td colspan="2">
             <div class="code">errors     : {
   method   : 'The method you called is not defined.'
-}</div>
+  }</div>
         </td>
       </tr>
     </tbody>
