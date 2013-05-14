@@ -54,7 +54,7 @@ semantic.ready = function() {
 
       increase: function() {
         var
-          $container = $(this).closest('.ui.segment'),
+          $container = $(this).parent().prev('.ui.segment'),
           fontSize   = parseInt( $container.css('font-size'), 10)
         ;
         $container
@@ -63,7 +63,7 @@ semantic.ready = function() {
       },
       decrease: function() {
         var
-          $container = $(this).closest('.ui.segment'),
+          $container = $(this).parent().prev('.ui.segment'),
           fontSize   = parseInt( $container.css('font-size'), 10)
         ;
         $container
