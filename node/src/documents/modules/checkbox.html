@@ -65,6 +65,10 @@ type   : 'UI Module'
     <div class="ui radio checkbox">
       <input type="radio" name="foo" />
       <label></label>
+    </div> 
+    <div class="ui radio checkbox">
+      <input type="radio" name="foo" />
+      <label></label>
     </div>
   </div>
   
@@ -72,12 +76,12 @@ type   : 'UI Module'
     <h4>Size</h4>
     <p>A checkbox can be a different size.</p>
     <div class="ui large checkbox">
-      <input type="checkbox" name="foo" />
+      <input type="checkbox" />
       <label></label>
     </div>
     <br><br>
     <div class="ui huge checkbox">
-      <input type="checkbox" name="foo" />
+      <input type="checkbox" />
       <label></label>
     </div>
   </div>
@@ -85,38 +89,135 @@ type   : 'UI Module'
   <h2>Behavior</h2>
 
   <div class="example">
-    <p>A checkbox can be enabled</p>
+    <p>A checkbox can be enabled or disabled</p>
     <div class="ignore evaluated code">
-      $('.enable.button')
-        .checkbox('enable')
-      ;
+    $('.enable.button')
+      .on('click', function() {
+        $(this)
+          .nextAll('.checkbox')
+            .checkbox('enable')
+        ;
+      })
+    ;
+    $('.disable.button')
+      .on('click', function() {
+        $(this)
+          .nextAll('.checkbox')
+            .checkbox('disable')
+        ;
+      })
+    ;
     </div>
-    <div class="enable ui button">Enable</div>
+    <div class="enable positive ui button">Enable</div>
+    <div class="disable negative ui button">Disable</div>
+    <br><br>
     <div class="ui checkbox">
       <input type="checkbox" />
       <div class="box"></div>
     </div>
   </div>
 
-  <p>You can enable all checkboxes initialized at the same time by calling the enableAll method</p>
-  <div class="code">
-  $('.ui.checkbox')
-    .checkbox('enableAll')
-  ;
+  <!--
+  <p>You can enable, disable, or  toggle all checkboxes initialized at the same time.</p>
+  <div class="ignore evaluated code">
+    var 
+      $someCheckbox = $('.example .grid .checkbox:nth-child(3n)')
+    ;
+    $someCheckbox
+      .checkbox()
+    ;
+    $('.toggle-all')
+      .on('click', function() {
+        $someCheckbox
+          .checkbox('all.toggle')
+        ;
+      })
+    ;
   </div>
+  <div class="ui three fluid buttons">
+    <div class="toggle-all ui button">Toggle All</div>
+  </div>
+  <div class="ui grid">
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <div class="box"></div>
+      </div>
+    </div>
+  </div>
+  !-->
 
 
   <p>You can disable a checkbox programmatically using the disable method</p>
   <div class="code">
     $('.ui.checkbox')
       .checkbox('disable')
-    ;
-  </div>
-
-  <p>You can disable all checkboxes initialized at the same time by calling the disableAll method</p>
-  <div class="code">
-    $('.ui.checkbox')
-      .checkbox('disableAll')
     ;
   </div>
   

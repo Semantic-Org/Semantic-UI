@@ -514,6 +514,9 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 /* example code reskin */
+#example div.code.hide {
+  display: none;
+}
 #example div.code {
   position: relative;
   width: 100%;
