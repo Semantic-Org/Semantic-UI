@@ -162,7 +162,6 @@ semantic.ready = function() {
       $code.text(code);
 
       if($code.hasClass('evaluated')) {
-        console.log(code);
         eval(code);
       }
 

@@ -1,22 +1,10 @@
-/*  ******************************
-  Semantic Module: Checkbox
-  Author: Jack Lukic
-  Notes: First Commit March 25, 2013
-
-  Simple plug-in which maintains the state for ui checkbox
-  This can be done without javascript, only in instances 
-  where each checkbox is assigned a unique ID. This provides a separate
-  programmatic option when that is not possible.
-
-******************************  */
-
 ;(function ( $, window, document, undefined ) {
 
-$.fn.checkbox = function(parameters) {
+$.fn.example = function(parameters) {
   var
     $allModules     = $(this),
-    
-    settings        = $.extend(true, {}, $.fn.checkbox.settings, parameters),
+
+    settings        = $.extend(true, {}, $.fn.example.settings, parameters),
 
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
@@ -34,99 +22,82 @@ $.fn.checkbox = function(parameters) {
   $allModules
     .each(function() {
       var
-        $module       = $(this),
-        $input        = $(this).find(settings.selector.input),
+        $module        = $(this),
+        $text          = $module.find(settings.selector.text),
 
-        selector      = $module.selector || '',
-        element       = this,
-        instance      = $module.data('module-' + settings.namespace),
-        
-        className     = settings.className,
-        namespace     = settings.namespace,
-        errors        = settings.errors,
+        foo            = false,
+
+        instance        = $module.data(moduleNamespace),
+        element         = this,
+
+        namespace      = settings.namespace,
+        error          = settings.error,
+        className      = settings.className,
+
+        text           = settings.text,
+
         module
       ;
 
-      module      = {
-
+      module = {
         initialize: function() {
-          if(settings.context && selector !== '') {
-            module.verbose('Initializing checkbox with delegated events', $module);
-            $(element, settings.context)
-              .on(selector, 'click' + eventNamespace, module.toggle)
-              .data(moduleNamespace, module)
-            ;
-          }
-          else {
-            module.verbose('Initializing checkbox with bound events', $module);
-            $module
-              .on('click' + eventNamespace, module.toggle)
-              .data(moduleNamespace, module)
-            ;
-          }
+          module.verbose('Initializing module for', element);
+          $module
+            .on('click' + eventNamespace, module.exampleBehavior)
+          ;
+          instance = module;
+          $module
+            .data(moduleNamespace, instance)
+          ;
         },
-
         destroy: function() {
-          module.verbose('Destroying previous module for', $module);
+          module.verbose('Destroying previous module for', element);
           $module
-            .off(namespace)
+            .removeData(moduleNamespace)
+            .off(eventNamespace)
           ;
         },
-
-        toggle: function() {
-          if( $input.prop('checked') === undefined || !$input.prop('checked') ) {
-            module.enable();
-          }
-          else {
-            module.disable();
-          }
+        refresh: function() {
+          module.verbose('Refreshing selector cache for', element);
+          $module = $(element);
+          $text   = $(this).find(settings.selector.text);
         },
-        
-        enable: function() {
-          module.debug('Enabling checkbox');
-          $module
-            .addClass(className.active)
-          ;
-          $input
-            .prop('checked', true)
-          ;
-          $.proxy(settings.onChange, $input.get())();
-          $.proxy(settings.onEnable, $input.get())();
-        },
-
-        disable: function() {
-          module.debug('Disabling checkbox');
-          $module
-            .removeClass(className.active)
-          ;
-          $input
-            .prop('checked', false)
-          ;
-          $.proxy(settings.onChange, $input.get())();
-          $.proxy(settings.onDisable, $input.get())();
-        },
-
-        all: {
-          enable: function() {
-            module.debug('Enabling all checkbox');
-            $allModules
-              .checkbox('enable')
-            ;
-          },
-          disable: function() {
-            module.debug('Disabling all checkbox');
-            $allModules
-              .checkbox('toggle')
-            ;
-          },
-          toggle: function() {
-            module.debug('Toggling all checkbox');
-            $allModules
-              .checkbox('toggle')
-            ;
+        event: {
+          click: function(event) {
+            module.verbose('Preventing default action');
+            if( !$module.hasClass(className.disabled) ) {
+              module.behavior();
+            }
+            event.preventDefault();
           }
         },
-        
+        behavior: function() {
+          module.debug('Changing the text to a new value', text);
+          if( !module.has.text() ) {
+            module.set.text( text);
+          }
+        },
+        has: {
+          text: function(state) {
+            module.verbose('Checking whether text state exists', state);
+            if( text[state] === undefined ) {
+              module.error(error.noText);
+              return false;
+            }
+            return true;
+          }
+        },
+        set: {
+          text: function(state) {
+            module.verbose('Setting text to new state', state);
+            if( module.has.text(state) ) {
+              $text
+                .text( text[state] )
+              ;
+              settings.onChange();
+            }
+          }
+        },
         setting: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
@@ -247,7 +218,6 @@ $.fn.checkbox = function(parameters) {
         }
       };
 
-      // check for invoking internal method
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -260,43 +230,48 @@ $.fn.checkbox = function(parameters) {
         }
         module.initialize();
       }
+
     })
   ;
-  // chain or return queried method
+
   return (invokedResponse)
     ? invokedResponse
     : this
   ;
 };
 
-$.fn.checkbox.settings = {
+$.fn.example.settings = {
 
-  // module info
-  moduleName : 'Checkbox Module',
-  verbose    : false,
-  debug      : true,
-  namespace  : 'checkbox',
+  moduleName  : 'Example Module',
+  debug       : true,
+  verbose     : false,
+  performance : false,
+  namespace   : 'example',
 
-  // delegated event context
-  context    : false,
-  
-  onChange   : function(){},
-  onEnable   : function(){},
-  onDisable  : function(){},
-  
-  // errors
-  errors     : {
-    method   : 'The method you called is not defined.'
+  selector    : {
+    example : '.example'
   },
 
-  selector : {
-    input  : 'input'
+  error: {
+    noText : 'The text you tried to display has not been defined.',    method : 'The method you called is not defined.'
   },
 
-  className : {
-    active : 'active'
+  className   : {
+    disabled : 'disabled'
+  },
+
+  metadata: {
+    notUsed: 'notUsed'
+  },
+
+  onChange     : function() {},
+
+  text: {
+    hover : 'You are hovering me now',
+    click : 'You clicked on me'
   }
 
 };
+
 
 })( jQuery, window , document );
