@@ -185,9 +185,9 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
 
-  -moz-border-radius: 0.3125em;
-  -webkit-border-radius: 0.3125em;
-  border-radius: 0.3125em;
+  -moz-border-radius: 0.2em;
+  -webkit-border-radius: 0.2em;
+  border-radius: 0.2em;
 }
 /* Opposite color loader */
 .ui.grey.button.loading,
@@ -261,7 +261,9 @@
   border-color: #588D0F;
 }
 
-/* Disabled State */
+/*-------------------
+      Disabled
+--------------------*/
 .ui.button.disabled,
 .ui.button.disabled.hover,
 .ui.button.disabled.down {

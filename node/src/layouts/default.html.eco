@@ -24,6 +24,7 @@
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
 
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/src/ui.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/src/elements/icons.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/src/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/src/elements/header.css">

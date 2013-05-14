@@ -107,26 +107,148 @@ h5.ui.header {
 *******************************/
 
 
-/* Attached Header */
-.ui.header.attached,
-.ui.header.attached.top {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  margin: 0em;
+/*-------------------
+       Colors
+--------------------*/
 
-  -webkit-border-radius: 4px 4px 0px 0px;
-  -moz-border-radius: 4px 4px 0px 0px;
-  border-radius: 4px 4px 0px 0px;
+.ui.blue.header {
+  color: #6ECFF5;
 }
-.ui.header.attached.bottom {
+.ui.black.header {
+  color: #5C6166;
+}
+.ui.green.header {
+  color: #A1CF64;
+}
+.ui.red.header {
+  color: #EF4D6D;
+}
+.ui.purple.header {
+  color: #564F8A;
+}
+.ui.teal.header {
+  color: #00B5AD;
+}
+
+/*-------------------
+   Inverted Colors
+--------------------*/
+
+.ui.inverted.blue.header {
+  background-color: #6ECFF5;
+  color: #FFFFFF;
+}
+.ui.inverted.header {
+  background-color: #5C6166;
+  color: #FFFFFF;
+}
+.ui.inverted.green.header {
+  background-color: #A1CF64;
+  color: #FFFFFF;
+}
+.ui.inverted.red.header {
+  background-color: #EF4D6D;
+  color: #FFFFFF;
+}
+.ui.inverted.purple.header {
+  background-color: #564F8A;
+  color: #FFFFFF;
+}
+.ui.inverted.teal.header {
+  background-color: #00B5AD;
+  color: #FFFFFF;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.left.aligned.header {
+  text-align: left;
+}
+.ui.right.aligned.header {
+  text-align: right;
+}
+.ui.center.aligned.header {
+  text-align: center;
+}
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.header,
+.ui.left.floated.header {
+  float: left;
+}
+.ui.right.floated.header {
+  float: right;
+}
+
+/*-------------------
+      Dividing
+--------------------*/
+
+.huge.ui.header {
+  min-height: 1em;
+  line-height: 1.33em;
+  font-size: 2em;
+}
+.large.ui.header {
+  line-height: 1.33em;
+  font-size: 1.5em;
+}
+.medium.ui.header {
+  margin-bottom: 0.25em;
+}
+.small.ui.header {
+  margin-bottom: 0.25em;
+}
+.tiny.ui.header {
+  margin-bottom: 0em;
+}
+
+/*-------------------
+       Attached
+--------------------*/
+
+.ui.attached.header {
+  padding: 0.7em 1rem;
+
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.top.attached.header {   
+  margin-bottom: 0em;
+
+  -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
+  -moz-border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;
+}
+.ui.bottom.attached.header {
   margin-top: 0em;
-  -webkit-border-radius: 0px 0px 4px 4px;
-  -moz-border-radius: 0px 0px 4px 4px;
-  border-radius: 0px 0px 4px 4px;
+
+  -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
+  -moz-border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em 0.3125em 0.3125em;
 }
-.ui.header.simple {
-  border-radius: 0em;
-  background-color: #FAFAFA;
-  background-image: none;
+
+
+/*-------------------
+        Icon
+--------------------*/
+
+.ui.header.icon {
+  display: inline-block;
+  text-align: center;
+}
+.ui.header.icon .icon {
+  display: block;
+  font-size: 4em;
+  width: auto;
+  margin: 0rem auto 2rem;
+  padding: 0em;
 }
 
 
