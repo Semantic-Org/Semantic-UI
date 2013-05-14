@@ -27,6 +27,63 @@ The aim of the specification is to develop conventions around structuring and na
 
 By defining a vocabulary the development community can exchange javascript and css definitions of UI in a similar language, making new code easier to grock, and reducing the complexity of starting a new project, or changing a sites design.
 
+## Types of UI
+
+UI components are split into four categories, ranging from smallest to largest in scope: 
+* UI Elements
+* UI Collections
+* UI Modules
+* UI Views
+
+### UI Elements
+UI Elements are interface elements which do not contain other elements inside themselves. This can be thought of as similar in definition as an "element" in chemistry.
+
+UI elements can have plural definitions when they are known to exist together frequently. 
+
+In this case each button will be large because we understand it is a part of the large button group
+``` html
+<div class="large ui buttons">
+  <div class="ui button">Cancel</div>
+  <div class="ui button">Continue</div>
+</div>
+```
+
+Examples of UI elements:
+* Buttons
+* Labels
+* Headers
+* Progress bars
+
+
+### UI Collections
+UI Collections are groups of heteregeneous UI elements which are usually found together. Carrying the chemistry metaphor, these can be thought of as molecules.
+
+UI collections have a definition of elements that exist, or could exist inside of them. They do not usually require all elements to be found, but they describe a list of the "usual suspects". Unlike elements, collections are not typically useful to define in plural.
+
+Examples of UI collections: 
+* Forms
+* Tables
+* Grids (Layout)
+* Menus
+ 
+
+### UI Modules
+
+UI modules are elements where it's behavior is a fundamental part of its definition. UI Modules are dependent on the javascript which carry their definition. They also may be more complex, and have a variety of different functions. Further abusing the scientific analogy: These can be thought of as "organs".
+
+Examples of UI modules:
+* Popups
+* Modals
+* Chatrooms
+* Calendar Pickers
+
+### UI Views
+UI Views are common ways to structure types of content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.
+
+Examples of UI views:
+* Comment Feed
+* Activity Feed
+* Product List
 
 ### How it is defined
 
@@ -106,64 +163,6 @@ Here is part of Semantic's definition of a button
   </div>
 </div>
 ```
-
-## Types of UI
-
-UI components are split into four categories, ranging from smallest to largest in scope: 
-* UI Elements
-* UI Collections
-* UI Modules
-* UI Views
-
-### UI Elements
-UI Elements are interface elements which do not contain other elements inside themselves. This can be thought of as similar in definition as an "element" in chemistry.
-
-UI elements can have plural definitions when they are known to exist together frequently. 
-
-In this case each button will be large because we understand it is a part of the large button group
-``` html
-<div class="large ui buttons">
-  <div class="ui button">Cancel</div>
-  <div class="ui button">Continue</div>
-</div>
-```
-
-Examples of UI elements:
-* Buttons
-* Labels
-* Headers
-* Progress bars
-
-
-### UI Collections
-UI Collections are groups of heteregeneous UI elements which are usually found together. Carrying the chemistry metaphor, these can be thought of as molecules.
-
-UI collections have a definition of elements that exist, or could exist inside of them. They do not usually require all elements to be found, but they describe a list of the "usual suspects". Unlike elements, collections are not typically useful to define in plural.
-
-Examples of UI collections: 
-* Forms
-* Tables
-* Grids (Layout)
-* Menus
- 
-
-## UI Modules
-
-UI modules are elements where it's behavior is a fundamental part of its definition. UI Modules are dependent on the javascript which carry their definition. They also may be more complex, and have a variety of different functions. Further abusing the scientific analogy: These can be thought of as "organs".
-
-Examples of UI modules:
-* Popups
-* Modals
-* Chatrooms
-* Calendar Pickers
-
-## UI Views
-UI Views are common ways to structure types of content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.
-
-Examples of UI views:
-* Comment Feed
-* Activity Feed
-* Product List
 
 
 ## Usage
