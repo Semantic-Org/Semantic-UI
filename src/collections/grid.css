@@ -28,11 +28,11 @@
 }
 .ui.grid:after,
 .ui.row:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 /*-------------------

@@ -1,16 +1,33 @@
+/*
+ * # Semantic Progress Bar
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: Nay 14, 2013
+ */
+
+
+/*******************************
+         Progress Bar
+*******************************/
+
 .ui.progress {
-  border: 1px solid #DDDDDD;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 
   width: 100%;
-  max-width: 100%;
+  max-width: 400px;
   height: 35px;
 
   background-color: #FAFAFA;
   padding: 5px;
 
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -28,44 +45,37 @@
   -webkit-border-radius: 3px;
   border-radius: 3px;
 
-  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5) inset;
-  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5) inset;
-  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5) inset;
-
   -webkit-transition: 
-    width 1s ease-out,
+    width 1s ease-in-out,
     background-color 1s ease-out
   ;
   -moz-transition: 
-    width 1s ease-out,
+    width 1s ease-in-out,
     background-color 1s ease-out
   ;
   -ms-transition: 
-    width 1s ease-out,
+    width 1s ease-in-out,
     background-color 1s ease-out
   ;
   -o-transition: 
-    width 1s ease-out,
+    width 1s ease-in-out,
     background-color 1s ease-out
   ;
   transition: 
-    width 1s ease-out,
+    width 1s ease-in-out,
     background-color 1s ease-out
   ;
 }
 
 
-/* Colors */
-.ui.blue.progress .bar {
-  background-color: #6ECFF5;
-}
+/*******************************
+            States
+*******************************/
 
-/* Fluid Width */
-.ui.fluid.progress {
-  width: 100%;
-}
 
-/* State */
+/*--------------
+  Successful
+---------------*/
 
 .ui.successful.progress .bar {
   background-color: #73E064 !important;
@@ -76,6 +86,10 @@
   -moz-animation: none !important;
 }
 
+/*--------------
+     Failed
+---------------*/
+
 .ui.failed.progress .bar {
   background-color: #DF9BA4 !important;
 }
@@ -84,6 +98,81 @@
   -webkit-animation: none !important;
   -moz-animation: none !important;
 }
+
+/*--------------
+     Active
+---------------*/
+
+.ui.active.progress .bar {
+  position: relative;
+}
+.ui.active.progress .bar::after {
+  content: '';
+  opacity: 0;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: #FFFFFF;
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+
+  -webkit-animation: animate-emphasis 2s ease-out infinite;
+  -moz-animation: animate-emphasis 2s ease-out infinite;
+  animation: animate-emphasis 2s ease-out infinite;
+}
+
+@-webkit-keyframes animate-emphasis {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    width: 95%;
+  }
+}
+@-moz-keyframes animate-emphasis {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+@keyframes animate-emphasis {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+/*--------------
+    Disabled
+---------------*/
+
+.ui.disabled.progress {
+  opacity: 0.35;
+}
 .ui.disabled.progress .bar,
 .ui.disabled.progress .bar::after {
   -webkit-animation: none !important;
@@ -91,8 +180,45 @@
 }
 
 
-/* Variations */
 
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+     Colors
+---------------*/
+
+.ui.blue.progress .bar {
+  background-color: #6ECFF5;
+}
+.ui.black.progress .bar {
+  background-color: #5C6166;
+}
+.ui.green.progress .bar {
+  background-color: #A1CF64;
+}
+.ui.red.progress .bar {
+  background-color: #EF4D6D;
+}
+.ui.blue.progress .bar {
+  background-color: #6ECFF5;
+}
+.ui.purple.progress .bar {
+  background-color: #564F8A;
+}
+.ui.teal.progress .bar {
+  background-color: #00B5AD;
+}
+
+/*--------------
+     Attached
+---------------*/
+
+
+/*--------------
+    Striped
+---------------*/
 
 .ui.progress.striped .bar {
   -webkit-background-size: 30px 30px;
@@ -141,7 +267,9 @@
       transparent 75%, transparent
     )
   ;
+}
 
+.ui.progress.active.striped .bar {
   -webkit-animation: animate-striped 3s linear infinite;
   -moz-animation: animate-striped 3s linear infinite;
 }
@@ -168,152 +296,5 @@
   }
   100% {
     background-position: 60px 0;
-  }
-}
-
-/* Shining animation */
-.ui.shiny.progress .bar {
-  position: relative;
-}
-.ui.shiny.progress .bar::after {
-  content: '';
-  opacity: 0;
-
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background: #FFFFFF;
-
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-
-  -webkit-animation: animate-shiny 2s ease-out infinite;
-  -moz-animation: animate-shiny 2s ease-out infinite;
-}
-
-@-webkit-keyframes animate-shiny {
-  0% {
-    opacity: 0;
-    width: 0;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0;
-    width: 95%;
-  }
-}
-@-moz-keyframes animate-shiny {
-  0% {
-    opacity: 0;
-    width: 0;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0;
-    width: 100%;
-  }
-}
-@keyframes animate-shiny {
-  0% {
-    opacity: 0;
-    width: 0;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0;
-    width: 100%;
-  }
-}
-
-/* Glowing animation */
-.ui.glowing.progress .bar {
-  -moz-box-shadow:
-    0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-    0px -5px 5px rgba(255, 255, 255, 0.7) inset
-  ;
-  -webkit-box-shadow:
-    0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-    0px -5px 5px rgba(255, 255, 255, 0.7) inset
-  ;
-  box-shadow:
-    0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-    0px -5px 5px rgba(255, 255, 255, 0.7) inset
-  ;
-  -webkit-animation: animate-glow 1s ease-out infinite;
-  -moz-animation: animate-glow 1s ease-out infinite;
-}
-
-@-webkit-keyframes animate-glow {
-  0% {
-    -webkit-box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.7) inset
-    ;
-    box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.7) inset
-    ;
-  }
-  50% {
-    -webkit-box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.3) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.3) inset
-    ;
-    box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.3) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.3) inset
-    ;
-  }
-  100% {
-    -webkit-box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.7) inset
-    ;
-    box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.7) inset
-    ;
-  }
-}
-
-@-moz-keyframes animate-glow {
-  0% {
-    -moz-box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.7) inset
-    ;
-    box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.7) inset
-    ;
-  }
-  50% {
-    -moz-box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.3) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.3) inset
-    ;
-    box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.3) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.3) inset
-    ;
-  }
-  100% {
-    -moz-box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.7) inset
-    ;
-    box-shadow:
-      0px 5px 5px rgba(255, 255, 255, 0.7) inset,
-      0px -5px 5px rgba(255, 255, 255, 0.7) inset
-    ;
   }
 }

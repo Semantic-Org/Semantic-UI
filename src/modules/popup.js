@@ -83,7 +83,7 @@
               var element = this;
               timer = setTimeout(function() {
                 $.proxy(module.toggle, element)();
-                if( $(element).hasClass(className.active) ) {
+                if( $(element).hasClass(className.visible) ) {
                   event.stopPropagation();
                 }
               }, settings.delay);
@@ -96,7 +96,7 @@
             },
             click: function(event) {
               $.proxy(module.toggle, this)();
-              if( $(this).hasClass(className.active) ) {
+              if( $(this).hasClass(className.visible) ) {
                 event.stopPropagation();
               }
             },
@@ -224,7 +224,7 @@
             if($popup.size() === 0) {
               module.create();
             }
-            if( !$module.hasClass(className.active) ) {
+            if( !$module.hasClass(className.visible) ) {
               if( module.position() ) {
                 module.show();
               }
@@ -367,10 +367,10 @@
                 .stop()
                 .fadeOut(200)
                 .prev($module)
-                  .removeClass(className.active)
+                  .removeClass(className.visible)
             ;
             $module
-              .addClass(className.active)
+              .addClass(className.visible)
             ;
             $popup
               .removeClass(className.loading)
@@ -398,7 +398,7 @@
 
           hide: function() {
             $module
-              .removeClass(className.active)
+              .removeClass(className.visible)
             ;
             if($popup.is(':visible') ) {
               module.debug('Hiding pop-up');
@@ -564,7 +564,7 @@
 
     className   : {
       popup       : 'ui popup',
-      active      : 'active',
+      visible     : 'visible',
       loading     : 'loading'
     },
 
