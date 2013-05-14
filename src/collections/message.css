@@ -45,7 +45,7 @@
 /* block with paragraphs */
 .ui.message p {
   opacity: 0.85;
-  margin: 0.2em 0em;
+  margin: 1em 0em;
 }
 .ui.message p:first-child {
   margin-top: 0em;
@@ -190,6 +190,17 @@
   display: table-cell;
   vertical-align: middle;
 }
+
+/*--------------
+     Inverted
+---------------*/
+
+.ui.inverted.message {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+
 
 /*--------------
      Colors
