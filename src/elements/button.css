@@ -687,36 +687,19 @@ input:focus + .ui.attached.button {
 .ui.buttons {
   overflow: hidden;
 }
-.ui.buttons .button,
-.ui.buttons .mini.button,
-.ui.buttons .tiny.button,
-.ui.buttons .small.button,
-.ui.buttons .massive.button,
-.ui.buttons .huge.button,
-.ui.buttons .gigantic.button {
+.ui.buttons .button {
   float: left;
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
 }
-.ui.buttons .button:first-child,
-.ui.buttons .mini.button:first-child,
-.ui.buttons .tiny.button:first-child,
-.ui.buttons .small.button:first-child,
-.ui.buttons .massive.button:first-child,
-.ui.buttons .huge.button:first-child,
-.ui.buttons .gigantic.button:first-child {
+.ui.buttons .button:first-child  {
   margin-left: 0em;
   border-top-left-radius: 0.3125em;
   border-bottom-left-radius: 0.3125em;
 }
-.ui.buttons .button:last-child,
-.ui.buttons .mini.button:last-child,
-.ui.buttons .tiny.button:last-child,
-.ui.buttons .small.button:last-child,
-.ui.buttons .massive.button:last-child,
-.ui.buttons .huge.button:last-child,
-.ui.buttons .gigantic.button:last-child {
+.ui.buttons .button:last-child {
   border-top-right-radius: 0.3125em;
   border-bottom-right-radius: 0.3125em;
 }
@@ -728,6 +711,9 @@ input:focus + .ui.attached.button {
 .ui.buttons.vertical .button {
   display: block;
   float: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: none;
+  box-shadow: none;
 }
 .ui.buttons.vertical .button:first-child,
 .ui.buttons.vertical .mini.button:first-child,
@@ -857,6 +843,7 @@ input:focus + .ui.attached.button {
   -moz-border-radius: 0px 0px 4px 0px;
   border-radius: 0px 0px 4px 0px;
 }
+
 /* Left Side */
 .left.attached.ui.buttons {
   margin-left: -1px;
