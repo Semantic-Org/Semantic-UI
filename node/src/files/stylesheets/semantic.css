@@ -345,9 +345,8 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   width: 800px;
   margin: 0px auto;
 }
-#example .masthead .container,
-#example .solid .container,
-#example .stripe .container {
+
+#example.index .container {
   width: 950px;
 }
 
@@ -668,14 +667,26 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 @media only screen and (max-width : 1600px) {
-
   #example .container {
     width: auto;
-    margin: 0px 100px 0px 395px;
+    margin-right: 100px;
+    margin-left: 395px;
+  }
+  #example.index .container {
+    margin-left: auto;
+    margin-right: auto;
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: 0px;
     left: 165px;
+  }
+}
+
+@media only screen and (max-width : 1130px) {
+  #example.index .container {
+    margin-left: 100px;
+    margin-right: 30px;
+    width: auto;
   }
 }
 

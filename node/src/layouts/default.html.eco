@@ -63,7 +63,7 @@
   <script src="/javascript/shape.js"></script>
 
 </head>
-<body id="example">
+<body id="example" class="<%= @document.css %>">
   <div class="ui large vertical menu" id="menu">
     <div class="item"><a href="/index.html"><b>Introduction</b></a></div>
     <div class="item"><a href="/download.html"><b>Download</b></a></div>
