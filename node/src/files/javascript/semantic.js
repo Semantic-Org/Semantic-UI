@@ -8,25 +8,29 @@ semantic.ready = function() {
 
   // selector cache
   var
-    $ui          = $('.ui').not('.hover, .down'),
-    $checkbox    = $('.ui.checkbox'),
-    $swap        = $('.theme.menu .item'),
-    $menu        = $('.sidebar'),
-    $sortTable   = $('.sortable.table'),
-    $demo        = $('.demo'),
-    $waypoints   = $('h2'),
+    $ui           = $('.ui').not('.hover, .down'),
+    $checkbox     = $('.ui.checkbox'),
+    $swap         = $('.theme.menu .item'),
+    $menu         = $('.sidebar'),
+    $sortTable    = $('.sortable.table'),
+    $demo         = $('.demo'),
+    $waypoints    = $('h2:not(.ui)'),
     
-    $menuPopup   = $('.ui.main.menu .popup.item'),
-
-    $example     = $('.example'),
-
-    $developer   = $('.developer.item'),
-    $designer    = $('.designer.item'),
+    $menuPopup    = $('.ui.main.menu .popup.item'),
     
-    $peek        = $('.peek'),
-    $peekItem    = $peek.children('.menu').children('a.item'),
-    $peekSubItem = $peek.find('.item .menu .item'),
-    $code        = $('div.code'),
+    $example      = $('.example'),
+    $shownExample = $example.filter('.shown'),
+    
+    $developer    = $('.developer.item'),
+    $designer     = $('.designer.item'),
+    
+    $increaseFont = $('.font .increase'),
+    $decreaseFont = $('.font .decrease'),
+    
+    $peek         = $('.peek'),
+    $peekItem     = $peek.children('.menu').children('a.item'),
+    $peekSubItem  = $peek.find('.item .menu .item'),
+    $code         = $('div.code'),
 
     // alias
     handler
@@ -46,10 +50,53 @@ semantic.ready = function() {
       ;
     },
 
-    createCode: function() {
+    font: {
+
+      increase: function() {
+        var
+          $container = $(this).closest('.ui.segment'),
+          fontSize   = parseInt( $container.css('font-size'), 10)
+        ;
+        $container
+          .css('font-size', fontSize + 1)
+        ;
+      },
+      decrease: function() {
+        var
+          $container = $(this).closest('.ui.segment'),
+          fontSize   = parseInt( $container.css('font-size'), 10)
+        ;
+        $container
+          .css('font-size', fontSize - 1)
+        ;
+      }
+    },
+
+    developerMode: function() {
+      console.log('dev mode');
+      $developer.addClass('active');
+      $designer.removeClass('active');
+      $example
+        .each(function() {
+          $.proxy(handler.createCode, $(this))('developer');
+        })
+      ;
+    },
+    designerMode: function() {
+      console.log('design mode');
+      $designer.addClass('active');
+      $developer.removeClass('active');
+      $example
+        .each(function() {
+          $.proxy(handler.createCode, $(this))('designer');
+        })
+      ;
+    },
+
+    createCode: function(type) {
       var
         $example   = $(this).closest('.example'),
-        $demo      = $example.children().not('p, h4, i.code, .annotated, .ignore'),
+        $demo      = $example.children().not('p:not(.ui), h4:not(.ui), i.code, .annotated, .ignore'),
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),
@@ -83,7 +130,7 @@ semantic.ready = function() {
         ;
         $.proxy(handler.initializeCode, $code)();
       }
-      if( $demo.first().is(':visible') ) {
+      if( $demo.first().is(':visible') || type == 'developer' ) {
         $demo.hide();
         $annotated.fadeIn(500);
       }
@@ -208,7 +255,6 @@ semantic.ready = function() {
         $subWaypoint    = $waypoint.nextAll('h3').eq( $subHeaderGroup.index($subHeader) ),
         offset          = $subWaypoint.offset().top - 80
       ;
-      console.log($subHeader, $headerGroup, $header, $waypoint, $subWaypoint, $subHeaderGroup.index($subHeader))
       $menu
         .addClass('animating')
       ;
@@ -262,9 +308,6 @@ semantic.ready = function() {
   };
 
   // attach events
-  $ui
-    .state()
-  ;
   if($.fn.tablesort !== undefined) {
     $sortTable
       .tablesort()
@@ -304,12 +347,30 @@ semantic.ready = function() {
       .on('click', handler.createCode)
   ;
 
+  $shownExample
+    .each(handler.createCode)
+  ;
+
   $checkbox
     .checkbox()
   ;
 
   $swap
     .on('click', handler.swapStyle)
+  ;
+
+  $increaseFont
+    .on('click', handler.font.increase)
+  ;
+  $decreaseFont
+    .on('click', handler.font.decrease)
+  ;
+
+  $developer
+    .on('click', handler.developerMode)
+  ;
+  $designer
+    .on('click', handler.designerMode)
   ;
 
   $menuPopup

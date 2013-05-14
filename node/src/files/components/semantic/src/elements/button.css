@@ -28,7 +28,7 @@
   padding: 0.8em 1.5em;
 
 
-  font-size: 1em;
+  font-size: 1rem;
   text-transform: uppercase;
   line-height: 1;
   font-weight: bold;
@@ -464,40 +464,40 @@
 
 .ui.buttons.mini .button,
 .ui.mini.button {
-  font-size: 0.5625em;
+  font-size: 0.5625rem;
 }
 .ui.tiny.buttons .button,
 .ui.tiny.button {
-  font-size: 0.625em;
+  font-size: 0.625rem;
 }
 .ui.small.buttons .button,
 .ui.small.button {
-  font-size: 0.75em;
+  font-size: 0.75rem;
 }
 .ui.buttons .button,
 .ui.button {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.buttons .button,
 .ui.large.button {
-  font-size: 1.125em;
+  font-size: 1.125rem;
 }
 .ui.big.buttons .button,
 .ui.big.button {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 .ui.huge.buttons .button,
 .ui.huge.button {
-  font-size: 1.375em;
+  font-size: 1.375rem;
 }
 .ui.massive.buttons .button,
 .ui.massive.button {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .ui.gigantic.buttons .button,
 .ui.gigantic.button {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
 }
 

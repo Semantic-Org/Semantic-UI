@@ -78,6 +78,11 @@ h5.ui.header {
   line-height: 1.33em;
   font-size: 1.5em;
 }
+.medium.ui.header {
+  margin-bottom: 0.25em;
+  line-height: 1.33em;
+  font-size: 1.25em;
+}
 .small.ui.header {
   margin-bottom: 0.25em;
   line-height: 1.33em;

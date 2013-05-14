@@ -30,8 +30,17 @@
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-
 }
+
+.ui.menu:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+
 .ui.menu > .item:first-child {
   border-radius: 5px 0px 0px 5px;
 }
