@@ -121,7 +121,7 @@ semantic.ready = function() {
             }
           })
         ;
-        code  = $.trim(code.replace(whiteSpace, '\n'));
+        // code  = $.trim(code.replace(whiteSpace, '\n'));
         $code = $('<div/>')
           .data('type', 'html')
           .addClass('code')
@@ -130,7 +130,7 @@ semantic.ready = function() {
         ;
         $.proxy(handler.initializeCode, $code)();
       }
-      if( $demo.first().is(':visible') || type == 'developer' && type != 'designer' ) {
+      if( ($demo.first().is(':visible') || type == 'developer') && type != 'designer' ) {
         $demo.hide();
         $annotated.fadeIn(500);
       }
@@ -168,7 +168,7 @@ semantic.ready = function() {
       // initialize 
       editor        = ace.edit($code[0]);
       editorSession = editor.getSession();
-      codeHeight    = editor.getSession().getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
+      codeHeight    = editor.session.getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
 
       editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);

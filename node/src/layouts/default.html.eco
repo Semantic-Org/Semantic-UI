@@ -24,7 +24,6 @@
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/src/ui.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/src/elements/icons.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/src/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/src/elements/header.css">
@@ -115,7 +114,7 @@
         <% end %>
       </div>
       <div class="section dropdown item">
-        <%= "#{pageNumber} of #{pageCount}" %>
+        <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
         <div class="menu">
           <% for element, index in pageCollection: %>
             <div class="<%= if element.id is @document.id then 'active ' %>item">

@@ -45,7 +45,7 @@
 /* block with paragraphs */
 .ui.message p {
   opacity: 0.85;
-  margin: 1em 0em 0em;
+  margin: 1em 0em;
 }
 .ui.message p:first-child {
   margin-top: 0em;

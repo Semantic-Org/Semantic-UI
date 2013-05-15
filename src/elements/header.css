@@ -123,22 +123,22 @@ h5.ui.header {
 --------------------*/
 
 .ui.blue.header {
-  color: #6ECFF5;
+  color: #6ECFF5 !important;
 }
 .ui.black.header {
-  color: #5C6166;
+  color: #5C6166 !important;
 }
 .ui.green.header {
-  color: #A1CF64;
+  color: #A1CF64 !important;
 }
 .ui.red.header {
-  color: #EF4D6D;
+  color: #EF4D6D !important;
 }
 .ui.purple.header {
-  color: #564F8A;
+  color: #564F8A !important;
 }
 .ui.teal.header {
-  color: #00B5AD;
+  color: #00B5AD !important;
 }
 
 /*-------------------
@@ -146,28 +146,28 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.black.header {
-  background-color: #5C6166;
-  color: #FFFFFF;
+  background-color: #5C6166 !important;
+  color: #FFFFFF !important;
 }
 .ui.inverted.blue.header {
-  background-color: #6ECFF5;
-  color: #FFFFFF;
+  background-color: #6ECFF5 !important;
+  color: #FFFFFF !important;
 }
 .ui.inverted.green.header {
-  background-color: #A1CF64;
-  color: #FFFFFF;
+  background-color: #A1CF64 !important;
+  color: #FFFFFF !important;
 }
 .ui.inverted.red.header {
-  background-color: #EF4D6D;
-  color: #FFFFFF;
+  background-color: #EF4D6D !important;
+  color: #FFFFFF !important;
 }
 .ui.inverted.purple.header {
-  background-color: #564F8A;
-  color: #FFFFFF;
+  background-color: #564F8A !important;
+  color: #FFFFFF !important;
 }
 .ui.inverted.teal.header {
-  background-color: #00B5AD;
-  color: #FFFFFF;
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
 }
 
 /*-------------------
@@ -243,9 +243,4 @@ h5.ui.header {
   margin: 0rem auto 2rem;
   padding: 0em;
 }
-
-
-/*******************************
-            Groups
-*******************************/
 
