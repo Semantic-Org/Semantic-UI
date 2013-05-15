@@ -161,11 +161,11 @@ type   : 'UI Collection'
     </div>
     <div class="ui vertical menu">
       <div class="dropdown item">
-        Dropdown <i class="icon right-dir"></i>
+        Categories <i class="icon right-dir"></i>
         <div class="menu">
-          <div class="item">Choice 1</div>
-          <div class="item">Choice 2</div>
-          <div class="item">Choice 3</div>
+          <a class="item">Electronics</a>
+          <a class="item">Automotive</a>
+          <a class="item">Home</a>
         </div>
       </div>
     </div>
@@ -174,11 +174,11 @@ type   : 'UI Collection'
     <h4>Menu</h4>
     <p>A menu may contain another menu group inside. This can be useful for formatting multiple menu items with the same qualities.</p>
     <div class="ui menu">
-      <div class="item">Left item 1</div>
-      <div class="item">Left item 2</div>
+      <a class="item">Browse</a>
+      <a class="item">Submit</a>
       <div class="right menu">
-        <div class="item">Right item 1</div>
-        <div class="item">Right item 2</div>
+        <a class="item">Sign Up</a>
+        <a class="item">Help</a>
       </div>
     </div>
   </div>
@@ -186,13 +186,14 @@ type   : 'UI Collection'
   <div class="example">
     <h4>Nested Menu</h4>
     <p>A menu may contain another menu nested inside an item that acts as a grouped sub-menu. This is only available when using a vertical menu.</p>
-    <div class="ui vertical menu">
+    <div class="ui compact vertical menu">
+      <a class="item"><b>Friends</b></a>
       <div class="item">
-        <a>Grouped Section</a>
+        <a><b>Your Profile</b></a>
         <div class="menu">
-          <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
+          <a class="item">Inbox</a>
+          <a class="item">Activity</a>
+          <a class="item">Groups</a>
         </div>
       </div>
     </div>
@@ -261,7 +262,7 @@ type   : 'UI Collection'
   </div>
   
   <div class="example">
-    <h4>Basic</h4>
+    <h4>Simple</h4>
     <p>A menu may reduce its complexity to blend in with a page</p>
     <div class="ui basic menu">
       <a class="item">
@@ -275,16 +276,46 @@ type   : 'UI Collection'
       </a>
     </div>
   </div>
+  <div class="example">
+    <h4>Text</h4>
+    <p>A menu can display simple text links</p>
+    <div class="ui text menu">
+      <div class="header item">Showing:</div>
+      <a class="item">
+        Newest
+      </a>
+      <a class="active item">
+        Oldest
+      </a>
+      <a class="item">
+        First
+      </a>
+    </div>
+  </div>
+  <div class="example">
+    <div class="ui text vertical menu">
+      <div class="header item">Filter By</div>
+      <a class="item">
+        Close-by
+      </a>
+      <a class="active item">
+        Available Now
+      </a>
+      <a class="item">
+        No Tax
+      </a>
+    </div>
+  </div>
 
   <div class="example">
     <h4>Colors</h4>
     <p>Additional colors can be specified</p>
     <div class="ui grey compact menu">
       <a class="item">
-        Green 1
+        Grey 1
       </a>
       <a class="item">
-        Green 2
+        Grey 2
       </a>
     </div>
     <div class="ui green inverted compact menu">
@@ -403,9 +434,11 @@ type   : 'UI Collection'
 
   <div class="example">
     <h4>Fluid</h4>
-    <p>A menu may take the size of its container.</p>
-    <div class="ui fluid menu">
-      <div class="item">Choice</div>
+    <p>A vertical menu may take the size of its container. (A horizontal menu does this by default) </p>
+    <div class="ui fluid vertical menu">
+      <a class="item">Run</a>
+      <a class="item">Walk</a>
+      <a class="item">Bike</a>
     </div>
   </div>
   
@@ -413,14 +446,14 @@ type   : 'UI Collection'
     <h4>Evenly sized items</h4>
     <p>A menu may divide its items evenly</p>
     <div class="ui fluid three item menu">
-      <div class="item">Buy</div>
-      <div class="item">Sell</div>
-      <div class="item">Rent</div>
+      <a class="item">Buy</a>
+      <a class="item">Sell</a>
+      <a class="item">Rent</a>
     </div>
   </div>
 
   <div class="example">
-    <h4>Pointing (Horizontal)</h4>
+    <h4>Pointing</h4>
     <p>A menu can point to content below itself to show ownership</p>
     <div class="ui pointing menu">
       <div class="item">
@@ -441,9 +474,7 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-
   <div class="example">
-    <h4>Pointing (Horizontal)</h4>
     <p>A vertical menu can point to content adjacent to itself to show ownership</p>
     <div class="ui pointing vertical menu">
       <div class="item">

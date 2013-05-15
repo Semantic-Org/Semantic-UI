@@ -169,23 +169,25 @@ h1 {
 }
 h1 {
   margin: 0px auto;
+  font-size: 38px;
 }
 h1:first-child {
   margin-top: 0px;
   padding-top: 0px;
 }
 h2 {
+  font-size: 28px;
   margin: 35px 0px 30px;
   padding-bottom: 10px;
   border-bottom: 1px solid #DDDDDD;
 }
 h3 {
-  font-size: 20px;
+  font-size: 24px;
   margin: 40px 0px 15px;
 }
 h4 {
   margin: 30px 0px 3px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #555555;
 }
@@ -269,6 +271,9 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 #example .main.menu {
   min-width: 370px;
   z-index: 999;
+}
+#example .main.menu .count {
+  font-family: "Hevletica Neue", Arial, sans-serif;
 }
 
 /* lists */
@@ -603,7 +608,23 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 /* examples */
+
+#example h2 + .example,
+#example h3 + .example,
+#example h4 + .example {
+  margin-top: 0px;
+  padding-top: 0px;
+  border-top: none;
+}
+#example h2 + .example i.code,
+#example h3 + .example i.code,
+#example h4 + .example i.code {
+  top: 0px;
+}
 #example .example {
+  margin: 16px 0px;
+  padding: 16px 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   clear: both;
   position: relative;
 }
@@ -613,7 +634,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 #example .example i.code {
   cursor: pointer;
   position: absolute;
-  top: 0px;
+  top: 50px;
   right: 0px;
   opacity: 0.2;
 

@@ -122,7 +122,7 @@
 }
 @media only screen and (min-width : 1500px) {
   .ui.responsive.grid {
-    padding: 0% 15%;
+    padding: 0% 13%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -130,7 +130,7 @@
 }
 @media only screen and (min-width : 1750px) {
   .ui.responsive.grid {
-    padding: 0% 20%;
+    padding: 0% 18%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -138,7 +138,7 @@
 }
 @media only screen and (min-width : 2000px) {
   .ui.responsive.grid {
-    padding: 0% 25%;
+    padding: 0% 20%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
