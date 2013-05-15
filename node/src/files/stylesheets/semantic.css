@@ -274,6 +274,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 #example .main.menu .count {
   font-family: "Hevletica Neue", Arial, sans-serif;
+  font-size: 0.8em;
 }
 
 /* lists */
@@ -432,6 +433,9 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   position: relative;
 }
 
+#example .another.example {
+  border-top: none;
+}
 #example .example > p {
   color: #888888;
 }
