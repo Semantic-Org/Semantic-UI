@@ -108,6 +108,17 @@ h5.ui.header {
 
 
 /*-------------------
+      Inverted 
+--------------------*/
+
+.ui.inverted.header {
+  background-color: #222222;
+  padding: 0.7em 1em;
+  color: #FFFFFF;
+}
+
+
+/*-------------------
        Colors
 --------------------*/
 
@@ -134,12 +145,12 @@ h5.ui.header {
    Inverted Colors
 --------------------*/
 
-.ui.inverted.blue.header {
-  background-color: #6ECFF5;
+.ui.inverted.black.header {
+  background-color: #5C6166;
   color: #FFFFFF;
 }
-.ui.inverted.header {
-  background-color: #5C6166;
+.ui.inverted.blue.header {
+  background-color: #6ECFF5;
   color: #FFFFFF;
 }
 .ui.inverted.green.header {
@@ -189,24 +200,6 @@ h5.ui.header {
       Dividing
 --------------------*/
 
-.huge.ui.header {
-  min-height: 1em;
-  line-height: 1.33em;
-  font-size: 2em;
-}
-.large.ui.header {
-  line-height: 1.33em;
-  font-size: 1.5em;
-}
-.medium.ui.header {
-  margin-bottom: 0.25em;
-}
-.small.ui.header {
-  margin-bottom: 0.25em;
-}
-.tiny.ui.header {
-  margin-bottom: 0em;
-}
 
 /*-------------------
        Attached
