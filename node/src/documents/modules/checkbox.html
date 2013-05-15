@@ -35,7 +35,7 @@ type   : 'UI Module'
   </div>
 
   <div class="example">
-    <h4>Check Box</h4>
+    <h4>Static Check Box</h4>
     <p>A checkbox can function without javascript</p>
     <div class="ui checkbox">
       <input type="checkbox" id="unique-id" />
@@ -47,24 +47,18 @@ type   : 'UI Module'
     <h4>Form Checkbox</h4>
     <p>A checkbox can be found inside a form</p>
     <div class="ui form segment">
-      <div class="two fields">
-        <div class="field">
-          <label>First Name</label>
-          <input placeholder="First Name" type="text">
-        </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input placeholder="Last Name" type="text">
-        </div>
+      <div class="field">
+        <label>Name</label>
+        <input placeholder="Name" type="text">
       </div>
       <div class="inline field">
         <div class="ui checkbox">
           <input type="checkbox" />
           <div class="box"></div>
         </div>
-        <label>Join Us</label>
+        <label>Accept all our evil terms and conditions</label>
       </div>
-      <div class="ui button">Submit</div>
+      <div class="ui teal button">Submit</div>
     </div>
   </div>
   
@@ -177,110 +171,6 @@ type   : 'UI Module'
       <div class="box"></div>
     </div>
   </div>
-
-  <!--
-  <p>You can enable, disable, or  toggle all checkboxes initialized at the same time.</p>
-  <div class="ignore evaluated code">
-    var 
-      $someCheckbox = $('.example .grid .checkbox:nth-child(3n)')
-    ;
-    $someCheckbox
-      .checkbox()
-    ;
-    $('.toggle-all')
-      .on('click', function() {
-        $someCheckbox
-          .checkbox('all.toggle')
-        ;
-      })
-    ;
-  </div>
-  <div class="ui three fluid buttons">
-    <div class="toggle-all ui button">Toggle All</div>
-  </div>
-  <div class="ui grid">
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui checkbox">
-        <input type="checkbox" />
-        <div class="box"></div>
-      </div>
-    </div>
-  </div>
-  !-->
-
-
-  <p>You can disable a checkbox programmatically using the disable method</p>
-  <div class="code">
-    $('.ui.checkbox')
-      .checkbox('disable')
-    ;
-  </div>
   
   <h2>Getting Started</h2>
   <h3>Initializing a check box</h3>
@@ -360,9 +250,11 @@ type   : 'UI Module'
       <tr>
         <td>errors</td>
         <td colspan="2">
-            <div class="code">errors     : {
-  method   : 'The method you called is not defined.'
-  }</div>
+          <div class="code">
+  errors : {
+    method : 'The method you called is not defined.'
+  }
+          </div>
         </td>
       </tr>
     </tbody>

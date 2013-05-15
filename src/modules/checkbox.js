@@ -73,15 +73,6 @@ $.fn.checkbox = function(parameters) {
           ;
         },
 
-        toggle: function() {
-          if( $input.prop('checked') === undefined || !$input.prop('checked') ) {
-            module.enable();
-          }
-          else {
-            module.disable();
-          }
-        },
-        
         enable: function() {
           module.debug('Enabling checkbox');
           $module
@@ -106,27 +97,15 @@ $.fn.checkbox = function(parameters) {
           $.proxy(settings.onDisable, $input.get())();
         },
 
-        all: {
-          enable: function() {
-            module.debug('Enabling all checkbox');
-            $allModules
-              .checkbox('enable')
-            ;
-          },
-          disable: function() {
-            module.debug('Disabling all checkbox');
-            $allModules
-              .checkbox('toggle')
-            ;
-          },
-          toggle: function() {
-            module.debug('Toggling all checkbox');
-            $allModules
-              .checkbox('toggle')
-            ;
+        toggle: function() {
+          if( $input.prop('checked') === undefined || !$input.prop('checked') ) {
+            module.enable();
+          }
+          else {
+            module.disable();
           }
         },
-        
+
         setting: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
@@ -183,6 +162,7 @@ $.fn.checkbox = function(parameters) {
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({ 
+                'Element'        : element,
                 'Name'           : message, 
                 'Execution Time' : executionTime
               });
@@ -192,12 +172,15 @@ $.fn.checkbox = function(parameters) {
           },
           display: function() {
             var
-              title              = settings.moduleName + ' Performance (' + selector + ')',
+              title              = settings.moduleName,
               caption            = settings.moduleName + ': ' + selector + '(' + $allModules.size() + ' elements)',
               totalExecutionTime = 0
             ;
+            if(selector) {
+              title += 'Performance (' + selector + ')';
+            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
-              console.groupCollapsed(title );
+              console.groupCollapsed(title);
               if(console.table) {
                 $.each(performance, function(index, data) {
                   totalExecutionTime += data['Execution Time'];
@@ -209,7 +192,7 @@ $.fn.checkbox = function(parameters) {
                   totalExecutionTime += data['Execution Time'];
                 });
               }
-              console.log('Total Execution Time:', totalExecutionTime);
+              console.log('Total Execution Time:', totalExecutionTime +'ms');
               console.groupEnd();
               performance = [];
               time        = false;
@@ -235,7 +218,7 @@ $.fn.checkbox = function(parameters) {
                 found = instance[value];
                 return true;
               }
-              module.error(error.method);
+              module.error(errors.method);
               return false;
             });
           }
@@ -247,7 +230,6 @@ $.fn.checkbox = function(parameters) {
         }
       };
 
-      // check for invoking internal method
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -262,7 +244,6 @@ $.fn.checkbox = function(parameters) {
       }
     })
   ;
-  // chain or return queried method
   return (invokedResponse)
     ? invokedResponse
     : this
@@ -271,20 +252,20 @@ $.fn.checkbox = function(parameters) {
 
 $.fn.checkbox.settings = {
 
-  // module info
-  moduleName : 'Checkbox Module',
-  verbose    : false,
-  debug      : true,
-  namespace  : 'checkbox',
+  moduleName  : 'Checkbox Module',
+  namespace   : 'checkbox',
 
+  verbose     : true,
+  debug       : true,
+  performance : true,
+  
   // delegated event context
-  context    : false,
+  context     : false,
+
+  onChange    : function(){},
+  onEnable    : function(){},
+  onDisable   : function(){},
   
-  onChange   : function(){},
-  onEnable   : function(){},
-  onDisable  : function(){},
-  
-  // errors
   errors     : {
     method   : 'The method you called is not defined.'
   },

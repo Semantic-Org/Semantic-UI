@@ -1,6 +1,6 @@
 ---
 layout : 'default'
-css    : 'index'
+css    : 'module'
 
 title  : 'UI Modules'
 type   : 'Semantic'
@@ -74,29 +74,37 @@ type   : 'Semantic'
   <h3>Changing Settings</h3> 
   <ol>
     <li>A settings object can be passed in when initializing the plugin
-      <br> <div class="code">$('.foo')
-  .module({ 
-    moduleName: 'Godzilla',
-    verbose: true
-  })
-;</div>
+      <br> 
+    <div class="code">
+    $('.foo')
+      .module({ 
+        moduleName: 'Godzilla',
+        verbose: true
+      })
+    ;
+    </div>
     </li>
     <li>Default settings for the module can be overridden by modifying $.fn.module.settings.
       <br><div class="code">$.fn.module.settings.moduleName = 'Godzilla';</div>
     </li>
     <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
-      <br><div class="code">$('.foo')
-  // lets initialize that!
-  .module()
-  // oh wait forgot something
-  .module('setting', 'moduleName', 'Godzilla')
-;</div>
+      <br>
+    <div class="code">
+    $('.foo')
+      // lets initialize that!
+      .module()
+      // oh wait forgot something
+      .module('setting', 'moduleName', 'Godzilla')
+    ;
+    </div>
     </li>
   </ol>
   <h3>Reading Settings</h3>
-  <p>Settings can also be read programmatically: <div class="code">$('.foo').module('setting', 'moduleName');
-// outputs godzilla</div>
-  
+  <p>Settings can also be read programmatically: 
+  <div class="code">
+    $('.foo').module('setting', 'moduleName');
+    // outputs godzilla
+  </div>  
 </div>
 </body>
 
