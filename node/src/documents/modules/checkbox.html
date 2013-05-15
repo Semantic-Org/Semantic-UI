@@ -47,6 +47,16 @@ type   : 'UI Module'
     <h4>Form Checkbox</h4>
     <p>A checkbox can be found inside a form</p>
     <div class="ui form segment">
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" type="text">
+        </div>
+      </div>
       <div class="inline field">
         <div class="ui checkbox">
           <input type="checkbox" />
@@ -54,6 +64,7 @@ type   : 'UI Module'
         </div>
         <label>Join Us</label>
       </div>
+      <div class="ui button">Submit</div>
     </div>
   </div>
   
@@ -89,11 +100,12 @@ type   : 'UI Module'
   <h2>Behavior</h2>
 
   <div class="example">
-    <p>A checkbox can be enabled or disabled</p>
+    <p>A checkbox can be enabled, disabled, or toggled.</p>
     <div class="ignore evaluated code">
     $('.enable.button')
       .on('click', function() {
         $(this)
+          .parent()
           .nextAll('.checkbox')
             .checkbox('enable')
         ;
@@ -102,15 +114,64 @@ type   : 'UI Module'
     $('.disable.button')
       .on('click', function() {
         $(this)
+          .parent()
           .nextAll('.checkbox')
             .checkbox('disable')
         ;
       })
     ;
+    $('.toggle.button')
+      .on('click', function() {
+        $(this)
+          .parent()
+          .nextAll('.checkbox')
+            .checkbox('toggle')
+        ;
+      })
+    ;
     </div>
-    <div class="enable positive ui button">Enable</div>
-    <div class="disable negative ui button">Disable</div>
+    <div class="ui buttons">
+      <div class="ui enable button">Enable</div>
+      <div class="ui disable button">Disable</div>
+      <div class="ui toggle button">Toggle</div>
+    </div>
     <br><br>
+    <div class="ui checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" checked="checked" />
+      <div class="box"></div>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" checked="checked" />
+      <div class="box"></div>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" checked="checked" />
+      <div class="box"></div>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" checked="checked" />
+      <div class="box"></div>
+    </div>
     <div class="ui checkbox">
       <input type="checkbox" />
       <div class="box"></div>

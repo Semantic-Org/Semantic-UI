@@ -30,7 +30,12 @@
   -moz-border-radius: 4px 4px 4px 4px;
   border-radius: 4px 4px 4px 4px;
 }
-
+.ui.message :first-child {
+  margin-top: 0em;
+}
+.ui.message :last-child {
+  margin-bottom: 0em;
+}
 
 /*--------------
      Content
@@ -46,9 +51,6 @@
 .ui.message p {
   opacity: 0.85;
   margin: 1em 0em;
-}
-.ui.message p:first-child {
-  margin-top: 0em;
 }
 
 /* block with child list */
