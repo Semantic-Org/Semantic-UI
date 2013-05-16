@@ -1,0 +1,60 @@
+{
+  "name": "grunt-lib-contrib",
+  "description": "Common functionality shared across grunt-contrib tasks.",
+  "version": "0.6.1",
+  "homepage": "http://github.com/gruntjs/grunt-lib-contrib",
+  "author": {
+    "name": "Grunt Team",
+    "url": "http://gruntjs.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gruntjs/grunt-lib-contrib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gruntjs/grunt-lib-contrib/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/gruntjs/grunt-lib-contrib/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt": "~0.4.0"
+  },
+  "main": "lib/contrib",
+  "dependencies": {
+    "zlib-browserify": "0.0.1"
+  },
+  "contributors": [
+    {
+      "name": "Tyler Kellen",
+      "url": "http://goingslowly.com/"
+    },
+    {
+      "name": "Chris Talkington",
+      "url": "http://christalkington.com/"
+    },
+    {
+      "name": "Larry Davis",
+      "url": "http://lazd.net/"
+    },
+    {
+      "name": "Sindre Sorhus",
+      "url": "http://sindresorhus.com"
+    }
+  ],
+  "readme": "# grunt-lib-contrib [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-lib-contrib.png?branch=master)](http://travis-ci.org/gruntjs/grunt-lib-contrib)\n\n> Common functionality shared across grunt-contrib tasks.\n\nThe purpose of grunt-lib-contrib is to explore solutions to common problems task writers encounter, and to ease the upgrade path for contrib tasks.\n\n**These APIs should be considered highly unstable. Depend on them at your own risk!**\n\n_Over time, some of the functionality provided here may be incorporated directly into grunt for mainstream use. Until then, you may require `grunt-lib-contrib` as a dependency in your projects, but be very careful to specify an exact version number instead of a range, as backwards-incompatible changes are likely to be introduced._\n\n### Helper Functions\n\n#### getNamespaceDeclaration(ns)\n\nThis helper is used to build JS namespace declarations.\n\n#### optsToArgs(options)\n\nConvert an object to an array of CLI arguments, which can be used with `child_process.spawn()`.\n\n```js\n// Example\n{\n  fooBar: 'a',        // ['--foo-bar', 'a']\n  fooBar: 1,          // ['--foo-bar', '1']\n  fooBar: true,       // ['--foo-bar']\n  fooBar: false,      //\n  fooBar: ['a', 'b']  // ['--foo-bar', 'a', '--foo-bar', 'b']\n}\n```\n\n#### stripPath(pth, strip)\n\nStrip a path from a path. normalize both paths for best results.\n\n#### minMaxInfo(min, max, report)\n\nHelper for logging compressed, uncompressed and gzipped sizes of strings.\n\n#### report\nChoices: `false`, `'min'`, `'gzip'`\nDefault: `false`\n\nEither do not report anything, report only minification result, or report minification and gzip results.\n\n**Important** Including `'gzip'` results can make this task 5-10x slower depending on the size of the file.\n\n\n```js\nvar max = grunt.file.read('max.js');\nvar min = minify(max);\nminMaxInfo(min, max, 'gzip');\n```\n\nWould print:\n\n```\nOriginal: 495 bytes.\nMinified: 396 bytes.\nGzipped: 36 bytes.\n```\n\n--\n\n*Lib submitted by [Tyler Kellen](https://goingslowly.com/).*",
+  "readmeFilename": "README.md",
+  "_id": "grunt-lib-contrib@0.6.1",
+  "_from": "grunt-lib-contrib@~0.6.0"
+}

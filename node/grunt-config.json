@@ -1,8 +1,0 @@
-{
-  "watch": {
-    "scripts": {
-      "files": ["../src/**/*"],
-      "tasks": ["bower"]
-    }
-  }
-}
