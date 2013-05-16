@@ -417,9 +417,9 @@
 /*--------------
 Containing Icon
 ---------------*/
-.ui.button i {
+.ui.button i.icon {
   line-height: 1;
-  margin-right: 0.2em;
+  margin-right: 0.5em;
 }
 /* left arrow icons */
 .ui.button i.icon.left,
