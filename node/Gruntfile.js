@@ -1,9 +1,8 @@
 module.exports = function(grunt) {
   var
     tasks = [
-
+      // clean build directory
       'clean:build',
-
 
       // compiles less
       'less:buildCSS',
