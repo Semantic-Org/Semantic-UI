@@ -1,0 +1,96 @@
+/*--------------------
+  Horizontal Dividers
+---------------------*/
+.ui.divider {
+  margin: 1em 0em;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+.ui.vertical.divider,
+.ui.horizontal.divider {
+  position: relative;
+  margin: 25px 0px 10px;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
+  color: #555555;
+  font-weight: bold;
+}
+.ui.divider .rule {
+  position: absolute;
+  top: 6px;
+  width: 45%;
+  height: 1px;
+  background-color: #ADADAD;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #F8F8F8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+}
+.ui.divider .left.rule {
+  left: 0px;
+}
+.ui.divider .right.rule {
+  right: 0px;
+}
+.ui.divider .label {
+  display: block;
+  margin: 14px 0px 0px;
+  text-transform: none;
+  color: #333333;
+}
+/*--------------------
+   Vertical Dividers
+---------------------*/
+.vertical.ui.divider {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  height: 100%;
+  margin: 0px 0px 0px -50px;
+  min-width: 100px;
+  color: #555555;
+  font-weight: bold;
+}
+.vertical.ui.divider .rule {
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 45%;
+  background-color: #ADADAD;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #F8F8F8;
+  border-right: 1px solid rgba(255, 255, 255, 0.9);
+}
+.vertical.ui.divider .top.rule {
+  top: 0px;
+}
+.vertical.ui.divider .bottom.rule {
+  top: auto;
+  bottom: 0px;
+}
+.vertical.ui.divider .label {
+  position: relative;
+  top: 50%;
+  margin-top: -7px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
+  text-transform: none;
+  color: #333333;
+}
+/* Inverted Color Divider (Black BG) */
+.ui.divider.inverted {
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
+}
+.ui.divider.inverted .rule {
+  border-color: #4A4A4A;
+  border-color: rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,81 @@
+/*******************************
+          UI Cover View
+*******************************/
+/*--------------
+  UI Note Card
+---------------*/
+/* Normal */
+.ui.notecard {
+  position: relative;
+  width: 520px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #FDFBE9;
+  border: 1px solid #DDDDDD;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.ui.notecard .stripes {
+  height: 100%;
+  margin-top: 10px;
+  padding: 0px 5px 10px;
+  background: url(../images/notecard-stripes.png) repeat;
+  line-height: 21px;
+}
+.ui.notecard .stripes h2 {
+  margin: 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.ui.notecard .stripes p {
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+}
+.ui.notecard .stripes .image {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #DAD8C9;
+  background: #ffffff url(../images/placeholder-tiny.png) no-repeat center center;
+  padding: 4px;
+}
+.ui.notecard .stripes .image img {
+  display: block;
+}
+.ui.notecard br,
+.ui.notecard hr {
+  height: 21px;
+  border: none;
+  background-color: transparent;
+}
+/* imageless */
+.ui.notecard.simple .stripes {
+  margin-top: 10px;
+  background-image: -moz-repeating-linear-gradient(transparent 19px, rgba(255, 255, 255, 0.2) 20px, transparent 0px, transparent 40px);
+  background-image: -webkit-repeating-linear-gradient(transparent 19px, rgba(255, 255, 255, 0.2) 20px, transparent 0px, transparent 40px);
+  background-image: -ms-repeating-linear-gradient(transparent 19px, rgba(255, 255, 255, 0.2) 20px, transparent 0px, transparent 40px);
+  background-image: -o-repeating-linear-gradient(transparent 19px, rgba(255, 255, 255, 0.2) 20px, transparent 0px, transparent 40px);
+  background-image: repeating-linear-gradient(transparent 19px, rgba(255, 255, 255, 0.2) 20px, transparent 0px, transparent 40px);
+}
+/* contrast */
+.ui.notecard.contrast {
+  border: none;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+}
+/*--------------
+     Clipped
+---------------*/
+.ui.clipped.notecard.paperclip img {
+  height: auto;
+  width: 135px;
+}
+.ui.clipped.notecard.stripes {
+  min-height: 150px;
+  padding: 0px 5px 10px 160px;
+}

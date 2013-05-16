@@ -1,10 +1,8 @@
 {
-
   "semantic": {
     "name": "Semantic UI",
     "version": 0.1
   },
-  
   "name": "html5-boilerplate-frontend.docpad",
   "version": "0.1.0",
   "private": true,
@@ -62,7 +60,8 @@
     "grunt-bower-task": "~0.2.2",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-cssmin": "~0.6.0"
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-less": "~0.5.1"
   },
   "main": "node_modules/docpad/bin/docpad-server"
 }

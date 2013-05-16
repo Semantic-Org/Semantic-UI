@@ -1,0 +1,60 @@
+/*******************************
+         Content Well
+*******************************/
+.ui.well {
+  display: inline-block;
+  padding: 6px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.05) inset, 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.05) inset, 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.05) inset, 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  background-image: -webkit-linear-gradient(top, rgba(80, 80, 80, 0.24) 0%, rgba(119, 119, 119, 0.24) 100%);
+  background-image: -moz-linear-gradient(top, rgba(80, 80, 80, 0.24) 0%, rgba(119, 119, 119, 0.24) 100%);
+  background-image: -o-linear-gradient(top, rgba(80, 80, 80, 0.24) 0%, rgba(119, 119, 119, 0.24) 100%);
+  background-image: -ms-linear-gradient(top, rgba(80, 80, 80, 0.24) 0%, rgba(119, 119, 119, 0.24) 100%);
+  background-image: linear-gradient(top, rgba(80, 80, 80, 0.24) 0%, rgba(119, 119, 119, 0.24) 100%);
+}
+.ui.well .button {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+/* Lighter Color Well */
+.ui.light.well {
+  background-image: -webkit-linear-gradient(top, rgba(80, 80, 80, 0.14) 0%, rgba(119, 119, 119, 0.14) 100%);
+  background-image: -moz-linear-gradient(top, rgba(80, 80, 80, 0.14) 0%, rgba(119, 119, 119, 0.14) 100%);
+  background-image: -o-linear-gradient(top, rgba(80, 80, 80, 0.14) 0%, rgba(119, 119, 119, 0.14) 100%);
+  background-image: -ms-linear-gradient(top, rgba(80, 80, 80, 0.14) 0%, rgba(119, 119, 119, 0.14) 100%);
+  background-image: linear-gradient(top, rgba(80, 80, 80, 0.14) 0%, rgba(119, 119, 119, 0.14) 100%);
+}
+/* Shallow Well */
+.ui.shallow.well {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 4px;
+}
+.ui.shallow.well .button {
+  border-radius: 4px;
+}
+/* Deeper Well */
+.ui.deep.well {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  padding: 10px;
+}
+.ui.deep.well .button {
+  border-radius: 50px;
+}
+/* Fluid Width */
+.ui.well.fluid,
+.ui.well.fluid .button {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}

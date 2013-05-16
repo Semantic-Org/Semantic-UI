@@ -1,0 +1,92 @@
+/*******************************
+     Global Throbber Styles
+*******************************/
+/* Standard Size */
+.ui.throbber {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url(../images/throbber-medium.gif) no-repeat;
+  background-position: 48% 0px;
+}
+.ui.throbber.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -16px 0px 0px -16px;
+  z-index: 1000;
+}
+/* Large Size */
+.ui.throbber.large {
+  width: 64px;
+  height: 64px;
+  background-image: url(../images/throbber-large.gif);
+}
+.ui.throbber.large.center {
+  margin: -32px 0px 0px -32px;
+}
+/* Small Size */
+.ui.throbber.small {
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/throbber-small.gif);
+}
+.ui.throbber.small.center {
+  margin: -12px 0px 0px -12px;
+}
+/* Tiny Size */
+.ui.throbber.tiny {
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/throbber-tiny.gif);
+}
+.ui.throbber.tiny.center {
+  margin: -8px 0px 0px -8px;
+}
+/* Text Styles */
+.ui.throbber.text {
+  width: auto !important;
+  height: auto !important;
+  text-align: center;
+  font-style: normal;
+  color: #422256;
+  margin-top: -28px;
+  min-width: 32px;
+  padding-top: 40px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.ui.throbber.text.tiny {
+  margin-top: -16px;
+  min-width: 16px;
+  padding-top: 20px;
+  font-size: 9px;
+}
+.ui.throbber.text.small {
+  margin-top: -23px;
+  min-width: 24px;
+  padding-top: 32px;
+  font-size: 11px;
+}
+.ui.throbber.text.large {
+  margin-top: -46px;
+  min-width: 64px;
+  padding-top: 80px;
+  font-size: 14px;
+}
+/* Blue */
+.ui.throbber.text.blue {
+  color: #ffffff;
+}
+.ui.throbber.tiny.blue {
+  background-image: url(../images/throbber-blue-tiny.gif);
+}
+.ui.throbber.small.blue {
+  background-image: url(../images/throbber-blue-small.gif);
+}
+.ui.throbber.blue {
+  background-image: url(../images/throbber-blue-medium.gif);
+}
+.ui.throbber.large.blue {
+  background-image: url(../images/throbber-blue-large.gif);
+}

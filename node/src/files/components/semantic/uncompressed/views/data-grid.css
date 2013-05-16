@@ -1,0 +1,53 @@
+/*******************************
+       Data Display Grid
+*******************************/
+.ui.data-grid {
+  width: 100%;
+  font-size: 12px;
+  color: #555555;
+}
+.ui.data-grid.hide {
+  display: none;
+}
+.ui.data-grid tbody tr {
+  border-top: 1px solid #D9D9D9;
+}
+.ui.data-grid tbody tr:first-child {
+  border-top: none;
+}
+.ui.data-grid tbody td {
+  padding: 10px 14px;
+  vertical-align: middle;
+}
+/* Special Row Types */
+.ui.data-grid tbody td.who {
+  width: 240px;
+}
+.ui.data-grid tbody td.who i {
+  float: left;
+  width: 35px;
+  height: 35px;
+  background: #efefef url(../images/placeholder-tiny.png) no-repeat center center;
+}
+.ui.data-grid tbody td.who img {
+  width: 35px;
+}
+.ui.data-grid tbody td.who hgroup {
+  display: block;
+  margin-left: 50px;
+}
+.ui.data-grid tbody td.who hgroup h2 {
+  font-size: 14px;
+  font-weight: bold;
+}
+.ui.data-grid tbody td.who hgroup h3 {
+  font-size: 12px;
+}
+.ui.data-grid tbody td.action {
+  width: 120px;
+  text-align: right;
+}
+/* data-grid Hover Style */
+.ui.data-grid tbody tr.hover {
+  background-color: #F4F4F4;
+}

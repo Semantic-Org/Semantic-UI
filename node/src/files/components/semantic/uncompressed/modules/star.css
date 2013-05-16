@@ -1,0 +1,53 @@
+/*******************************
+           Star Rating
+*******************************/
+.star.module {
+  min-width: 88px;
+  height: 42px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 26px;
+}
+.star.module i,
+.ui.star {
+  cursor: default;
+  float: left;
+  padding: 2px 1px;
+  font-style: normal;
+  font-weight: normal;
+  content: "\2605";
+  color: transparent;
+}
+/* Non Selected Star */
+.star.module i:after,
+.ui.star:after {
+  content: "\2605";
+  color: #8C8C8C;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  transition: all 0.25s;
+}
+/*--------------
+     States
+---------------*/
+/* Initialized is now clickable */
+.star.module.initialize,
+.star.module.initialize i {
+  cursor: pointer;
+}
+/* Current Star Rating */
+.star.module i.active:after {
+  color: #FFCB08;
+}
+.star.module.hover i.active:after {
+  opacity: 0.5;
+}
+/* Hover */
+.star.module i.hover:after,
+.star.module i.hover.active:after {
+  opacity: 1;
+  color: #FFB70A;
+  text-shadow: 0px 0px 7px #FFCB08;
+}

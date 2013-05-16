@@ -1,0 +1,69 @@
+/*******************************
+          UI Paperclip
+*******************************/
+/*--------------
+   Paperclip
+---------------*/
+/* Normal */
+.ui.paperclip {
+  z-index: 2;
+}
+.ui.paperclip .paperclip {
+  display: block;
+  position: absolute;
+  z-index: 4;
+  background: url(../images/paperclip.png) no-repeat;
+  width: 37px;
+  height: 21px;
+}
+.ui.paperclip .label {
+  position: absolute;
+  top: 42px;
+  left: 8px;
+  z-index: 3;
+  border: 1px solid #D3CB4F;
+  background-color: #FFF557;
+  font-size: 9px;
+  color: #444005;
+  font-weight: bold;
+  padding: 2px 7px;
+}
+.ui.paperclip .content,
+.ui.paperclip img {
+  border: 5px solid #FFFFFF;
+  -webkit-transform: rotate(-11deg);
+  -moz-transform: rotate(-11deg);
+  -o-transform: rotate(-11deg);
+  -ms-transform: rotate(-11deg);
+  transform: rotate(-11deg);
+}
+.ui.paperclip img {
+  height: 60px;
+  -webkit-box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.3);
+}
+/* positioning */
+.ui.paperclip {
+  position: absolute;
+  top: 10%;
+  left: -3px;
+}
+.ui.paperclip .paperclip {
+  position: absolute;
+  bottom: 10px;
+  left: -10px;
+}
+/* hidden */
+.ui.paperclip.hidden {
+  display: none;
+}
+/* simple */
+.ui.paperclip.simple .content,
+.ui.paperclip.simple img {
+  border: none;
+}
+/* large */
+.ui.paperclip.large img {
+  height: 140px;
+}

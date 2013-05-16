@@ -1,0 +1,43 @@
+/*---------------
+    Video Module
+----------------*/
+.video.module {
+  position: relative;
+  background: #333333 url(/images/icon-placeholder-logo.png) no-repeat center center;
+}
+.video.module .play {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  background: url(/images/icon-play.png) no-repeat center center;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.video.module .play:hover {
+  opacity: 1;
+}
+.video.module .placeholder {
+  width: 100%;
+  height: 100%;
+}
+.video.module .embed {
+  display: none;
+}
+/* Video Active */
+.video.module.active .play,
+.video.module.active .placeholder {
+  display: none;
+}
+.video.module.active .embed {
+  display: block;
+}
