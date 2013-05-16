@@ -1,0 +1,32 @@
+v0.4.1:
+  date: 2013-04-16
+  changes:
+    - Check if file exists to avoid trying to delete a non-existent file.
+v0.4.0:
+  date: 2013-02-15
+  changes:
+    - First official release for Grunt 0.4.0.
+v0.4.0rc6:
+  date: 2013-01-18
+  changes:
+    - Updating grunt/gruntplugin dependencies to rc6.
+    - Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
+v0.4.0rc5:
+  date: 2013-01-09
+  changes:
+    - Updating to work with grunt v0.4.0rc5.
+    - Switching to this.filesSrc api.
+v0.4.0a:
+  date: 2012-12-07
+  changes:
+    - Conversion to grunt v0.4 conventions.
+    - Remove node v0.6 and grunt v0.3 support.
+    - Add force option to bypass CWD check.
+v0.3.0:
+  date: 2012-09-23
+  changes:
+    - Options no longer accepted from global config key.
+v0.2.0:
+ date: 2012-09-10
+ changes:
+   - Refactored from grunt-contrib into individual repo.
