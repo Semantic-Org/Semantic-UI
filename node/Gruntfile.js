@@ -1,6 +1,10 @@
 module.exports = function(grunt) {
   var
     tasks = [
+
+      'clean:build',
+
+
       // compiles less
       'less:buildCSS',
 
@@ -18,6 +22,9 @@ module.exports = function(grunt) {
 
       // creates release js of all together
       'uglify:buildReleaseJS',
+
+      // cleans docs folder
+      'clean:docs',
 
       // copies files over to docs
       'copy:toDocs'
@@ -39,10 +46,25 @@ module.exports = function(grunt) {
       }
     },
 
+    clean: {
+      build : {
+        cwd: '../build',
+        src: '*'
+      },
+      docs : {
+        cwd: 'src/files/components/semantic/',
+        src: '*'
+      }
+    },
+
     less: {
+      options: {
+        compress     : false,
+        optimization : 2
+      },
       buildCSS: {
-        options: {
-          paths: ['../build']
+        options : {
+          paths : ['../build']
         },
         expand : true,
         cwd    : '../src',
@@ -93,7 +115,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand : true,
-            cwd    : '../build',
+            cwd    : '../build/uncompressed',
             src    : [
               '**'
             ],
@@ -179,7 +201,7 @@ module.exports = function(grunt) {
 
   };
 
-
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-css');
 
