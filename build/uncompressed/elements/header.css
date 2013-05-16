@@ -1,0 +1,210 @@
+/*
+ * # Semantic Headers - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 29 2013
+ */
+/*******************************
+            Header
+*******************************/
+/* Standard */
+.ui.header {
+  line-height: 1.33;
+  font-size: 1.33em;
+  font-weight: bold;
+  padding: 0em;
+  border: none;
+}
+/* Positioning */
+.ui.header:first-child {
+  margin-top: 0em;
+}
+.ui.header + p {
+  margin-top: 0em;
+}
+/*--------------
+  Page Heading
+---------------*/
+h1.ui.header {
+  min-height: 1rem;
+  margin: 2rem 0rem 1.5rem;
+  line-height: 1.33rem;
+  font-size: 2rem;
+}
+h2.ui.header {
+  margin: 1.5rem 0rem 1rem;
+  line-height: 1.33rem;
+  font-size: 1.5rem;
+}
+h3.ui.header {
+  margin: 1.3rem 0rem 1rem;
+  line-height: 1.33rem;
+  font-size: 1.33rem;
+}
+h4.ui.header {
+  margin: 0.75rem 0rem 0.3rem;
+  line-height: 1.33rem;
+  font-size: 1.1rem;
+}
+h5.ui.header {
+  margin: 0rem 0rem 0.2rem;
+  line-height: 1.2rem;
+  font-size: 1rem;
+}
+/*--------------
+ Content Heading
+---------------*/
+.huge.ui.header {
+  min-height: 1em;
+  line-height: 1.33em;
+  font-size: 2em;
+}
+.large.ui.header {
+  line-height: 1.33em;
+  font-size: 1.5em;
+}
+.medium.ui.header {
+  margin-bottom: 0.25em;
+  line-height: 1.33em;
+  font-size: 1.25em;
+}
+.small.ui.header {
+  margin-bottom: 0.25em;
+  line-height: 1.33em;
+  font-size: 1.1em;
+}
+.tiny.ui.header {
+  margin-bottom: 0em;
+  line-height: 1.2em;
+  font-size: 1em;
+}
+/*******************************
+            States
+*******************************/
+.ui.header.disabled {
+  opacity: 0.5;
+}
+/*******************************
+           Variations
+*******************************/
+/*-------------------
+      Inverted 
+--------------------*/
+.ui.inverted.header {
+  background-color: #222222;
+  padding: 0.7em 1em;
+  color: #FFFFFF;
+}
+/*-------------------
+       Colors
+--------------------*/
+.ui.blue.header {
+  color: #6ECFF5 !important;
+}
+.ui.black.header {
+  color: #5C6166 !important;
+}
+.ui.green.header {
+  color: #A1CF64 !important;
+}
+.ui.red.header {
+  color: #EF4D6D !important;
+}
+.ui.purple.header {
+  color: #564F8A !important;
+}
+.ui.teal.header {
+  color: #00B5AD !important;
+}
+/*-------------------
+   Inverted Colors
+--------------------*/
+.ui.inverted.black.header {
+  background-color: #5C6166 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.blue.header {
+  background-color: #6ECFF5 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.green.header {
+  background-color: #A1CF64 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.red.header {
+  background-color: #EF4D6D !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.purple.header {
+  background-color: #564F8A !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.teal.header {
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
+}
+/*-------------------
+       Aligned
+--------------------*/
+.ui.left.aligned.header {
+  text-align: left;
+}
+.ui.right.aligned.header {
+  text-align: right;
+}
+.ui.center.aligned.header {
+  text-align: center;
+}
+/*-------------------
+       Floated
+--------------------*/
+.ui.floated.header,
+.ui.left.floated.header {
+  float: left;
+}
+.ui.right.floated.header {
+  float: right;
+}
+/*-------------------
+      Dividing
+--------------------*/
+/*-------------------
+       Attached
+--------------------*/
+.ui.attached.header {
+  padding: 0.7em 1rem;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.top.attached.header {
+  margin-bottom: 0em;
+  -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
+  -moz-border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;
+}
+.ui.bottom.attached.header {
+  margin-top: 0em;
+  -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
+  -moz-border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em 0.3125em 0.3125em;
+}
+/*-------------------
+        Icon
+--------------------*/
+.ui.header.icon {
+  display: inline-block;
+  text-align: center;
+}
+.ui.header.icon .icon {
+  display: block;
+  font-size: 4em;
+  width: auto;
+  margin: 0rem auto 2rem;
+  padding: 0em;
+}

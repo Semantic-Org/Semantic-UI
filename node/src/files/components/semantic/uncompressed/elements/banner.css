@@ -1,0 +1,66 @@
+/*******************************
+            Banner
+*******************************/
+.ui.banner {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  margin-left: 6px;
+  padding: 8px 10px;
+  border: 1px solid #D4DBDE;
+  background-color: #ECF6FB;
+  text-align: center;
+  font-size: 10px;
+  color: #999999;
+  color: rgba(0, 0, 0, 0.5);
+}
+.ui.banner b {
+  color: #666666;
+}
+.ui.banner:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  font-size: 12px;
+}
+.ui.banner:after,
+.ui.banner.left:after {
+  color: #ECF6FB;
+  left: -7px;
+  right: auto;
+  content: '\25C0';
+  text-shadow: -2px 0px 0px #d4dbde;
+}
+.ui.banner.right {
+  margin-right: 6px;
+}
+.ui.banner.right:after {
+  left: auto;
+  right: -7px;
+  content: '\25B6';
+  text-shadow: 2px 0px 0px #D4DBDE;
+}
+/* Banner Icons */
+.ui.banner i {
+  margin-right: 0.5em;
+  vertical-align: baseline;
+}
+/* Banner Colors */
+.ui.banner.grey {
+  border-color: #D6D6D6;
+  background-color: #F3F3F3;
+}
+.ui.banner.grey:after,
+.ui.banner.grey.left:after {
+  color: #F3F3F3;
+  text-shadow: -2px 0px 0px #d6d6d6;
+}
+.ui.banner.grey.right:after {
+  color: #F3F3F3;
+  text-shadow: 2px 0px 0px #D6D6D6;
+}
+.ui.banner.big {
+  font-size: 12px;
+  padding: 11px 15px;
+}

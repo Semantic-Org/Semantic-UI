@@ -1,0 +1,306 @@
+/*******************************
+           Chat Room
+*******************************/
+.ui.chat {
+  background-color: #F8F8F8;
+  width: 330px;
+  height: 370px;
+  padding: 0px;
+}
+.ui.chat .room {
+  position: relative;
+  overflow: hidden;
+  height: 286px;
+  border: 1px solid #999999;
+  border-top: none;
+  border-bottom: none;
+}
+.ui.chat .room .throbber {
+  display: none;
+  margin: -25px 0px 0px -25px;
+}
+/* Chat Room Actions */
+.ui.chat .actions {
+  overflow: hidden;
+  background-color: #EEEEEE;
+  padding: 4px;
+  border: 1px solid #BBBBBB;
+  -moz-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+}
+.ui.chat .actions .button {
+  float: right;
+  margin-left: 3px;
+}
+/* Online User Count */
+.ui.chat .actions .message {
+  float: left;
+  margin-left: 6px;
+  font-size: 11px;
+  color: #AAAAAA;
+  text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.8);
+  line-height: 28px;
+}
+.ui.chat .actions .message .throbber {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+  vertical-align: text-bottom;
+}
+/* Chat Room Text Log */
+.ui.chat .log {
+  float: left;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.ui.chat .log .message {
+  padding: 3px 0px;
+  border-top: 1px dotted #DADADA;
+}
+.ui.chat .log .message:first-child {
+  border-top: none;
+}
+/* status event */
+.ui.chat .status {
+  padding: 5px 0px;
+  color: #AAAAAA;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.33;
+  border-top: 1px dotted #DADADA;
+}
+.ui.chat .log .status:first-child {
+  border-top: none;
+}
+.ui.chat .log .flag {
+  float: left;
+}
+.ui.chat .log p {
+  margin-left: 0px;
+}
+.ui.chat .log .author {
+  font-weight: bold;
+  -webkit-transition: color 0.3s ease-out;
+  -moz-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  -ms-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+.ui.chat .log a.author:hover {
+  opacity: 0.8;
+}
+.ui.chat .log .message.admin p {
+  font-weight: bold;
+  margin: 1px 0px 0px 23px;
+}
+.ui.chat .log .divider {
+  margin: -1px 0px;
+  font-size: 11px;
+  padding: 10px 0px;
+  border-top: 1px solid #F8F8F8;
+  border-bottom: 1px solid #F8F8F8;
+}
+.ui.chat .log .divider .rule {
+  top: 50%;
+  width: 15%;
+}
+.ui.chat .log .divider .label {
+  color: #777777;
+  margin: 0px;
+}
+/* Chat Room User List */
+.ui.chat .room .user-list {
+  position: relative;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  float: left;
+  background-color: #EEEEEE;
+  border-left: 1px solid #DDDDDD;
+}
+.ui.chat .room .user-list .user {
+  display: table;
+  padding: 3px 7px;
+  border-bottom: 1px solid #DDDDDD;
+}
+.ui.chat .room .user-list .user:hover {
+  background-color: #F8F8F8;
+}
+.ui.chat .room .user-list .image {
+  display: table-cell;
+  vertical-align: middle;
+  width: 20px;
+}
+.ui.chat .room .user-list .image img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.ui.chat .room .user-list p {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 7px;
+  padding-right: 14px;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+.ui.chat .room .user-list a:hover {
+  opacity: 0.8;
+}
+/* User List Loading */
+.ui.chat.loading .throbber {
+  display: block;
+}
+/* Chat Room Talk Input */
+.ui.chat .talk {
+  border: 1px solid #999999;
+  border-top: 1px solid #BBBBBB;
+  padding: 5px 0px 0px;
+  background-color: #CCCCCC;
+  background: #ffffff -webkit-linear-gradient(top, #eeeeee 0%, #aaaaaa 100%) repeat;
+  background: #ffffff -moz-linear-gradient(top, #eeeeee 0%, #aaaaaa 100%) repeat;
+  background: #ffffff -o-linear-gradient(top, #eeeeee 0%, #aaaaaa 100%) repeat;
+  background: #ffffff -ms-linear-gradient(top, #eeeeee 0%, #aaaaaa 100%) repeat;
+  background: #ffffff linear-gradient(top, #eeeeee 0%, #aaaaaa 100%) repeat;
+  -webkit-box-shadow: 0px 1px 0px #FFFFFF inset;
+  -moz-box-shadow: 0px 1px 0px #FFFFFF inset;
+  box-shadow: 0px 1px 0px #FFFFFF inset;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
+}
+.ui.chat .talk .avatar,
+.ui.chat .talk input,
+.ui.chat .talk .button {
+  float: left;
+}
+.ui.chat .talk .avatar {
+  border-top: 1px solid #BBBBBB;
+  border-left: 1px solid #BBBBBB;
+  width: 30px;
+  height: 30px;
+  margin: 0px 0px 0px 5px;
+  background-color: #DADADA;
+}
+.ui.chat .talk .avatar img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+}
+.ui.chat .talk input {
+  border: 1px solid #CCCCCC;
+  margin: 0px;
+  width: 196px;
+  height: 14px;
+  padding: 8px 5px;
+  font-size: 12px;
+  color: #555555;
+}
+.ui.chat .talk input.focus {
+  border: 1px solid #AAAAAA;
+}
+.ui.chat .send {
+  margin-left: -2px;
+  width: 54px;
+  height: 22px;
+  line-height: 23px;
+  font-size: 12px;
+  padding: 4px 12px;
+  -moz-box-shadow: -2px 0 2px -2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: -2px 0 2px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: -2px 0 2px -2px rgba(0, 0, 0, 0.3);
+  border-radius: 0px 5px 5px 0px;
+}
+.ui.chat .talk .log-in.button {
+  display: block;
+  float: none;
+  margin-top: -6px;
+  height: 22px;
+  border-radius: 0px 0px 4px 4px;
+}
+.ui.chat .talk .log-in.button i {
+  vertical-align: text-top;
+}
+/* Quirky Flags */
+.ui.chat .log .team.flag {
+  width: 18px;
+}
+/* Chat room Loaded */
+.ui.chat.loading .throbber {
+  display: block;
+}
+/* Standard Size */
+.ui.chat {
+  width: 330px;
+  height: 370px;
+}
+.ui.chat .room .container {
+  width: 3000px;
+}
+.ui.chat .log {
+  width: 314px;
+  height: 278px;
+  padding: 4px 7px;
+}
+.ui.chat .room .user-list {
+  width: 124px;
+  height: 278px;
+  padding: 4px 0px;
+}
+.ui.chat .room .user-list .user {
+  width: 110px;
+}
+.ui.chat .talk {
+  height: 40px;
+}
+/* Full Width (Based off 960) */
+/*
+.ui.chat.expand {
+	width: 665px;
+	height: 368px;
+}
+.ui.chat.expand .room {
+	width: 663px;
+	height: 283px;
+}
+.ui.chat.expand .room .user-list,
+.ui.chat.expand .room .log {
+	height: 275px;
+}
+.ui.chat.expand .room .log {
+	width: 650px;
+}
+.ui.chat.expand .talk input {
+	width: 530px;
+}
+.ui.chat.expand .send {
+	width: 50px;
+}
+
+.ui.chat.massive {
+	width: 960px;
+	height: 415px;
+}
+.ui.chat.massive .room {
+	width: 958px;
+	height: 330px;
+}
+.ui.chat.massive .room .user-list,
+.ui.chat.massive .room .log {
+	height: 321px;
+}
+.ui.chat.massive .room .log {
+	width: 944px;
+}
+.ui.chat.massive .talk input {
+	width: 830px;
+}
+.ui.chat.massive .send {
+	width: 50px;
+}
+
+*/

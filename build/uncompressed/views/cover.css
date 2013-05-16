@@ -1,0 +1,109 @@
+/*******************************
+          UI Cover View
+*******************************/
+/*--------------
+  UI Cover View
+---------------*/
+/* Normal */
+ul.ui.cover-view li,
+div.ui.cover-view {
+  position: relative;
+  width: 220px;
+  height: 290px;
+  background-color: #111111;
+  background: transparent -webkit-linear-gradient(top, rgba(110, 110, 110, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%) repeat;
+  background: transparent -moz-linear-gradient(top, rgba(110, 110, 110, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%) repeat;
+  background: transparent -o-linear-gradient(top, rgba(110, 110, 110, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%) repeat;
+  background: transparent -ms-linear-gradient(top, rgba(110, 110, 110, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%) repeat;
+  background: transparent linear-gradient(top, rgba(110, 110, 110, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%) repeat;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset;
+  -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3), 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset;
+}
+ul.ui.cover-view li .content,
+.ui.cover-view .content {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+ul.ui.cover-view li .cover,
+.ui.cover-view .cover {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  opacity: 1;
+}
+ul.ui.cover-view li .text,
+.ui.cover-view .text {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 15px 15px;
+  line-height: 1.44;
+  background-color: #111111;
+  background: transparent -webkit-linear-gradient(top, rgba(40, 40, 40, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%) repeat;
+  background: transparent -moz-linear-gradient(top, rgba(40, 40, 40, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%) repeat;
+  background: transparent -o-linear-gradient(top, rgba(40, 40, 40, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%) repeat;
+  background: transparent -ms-linear-gradient(top, rgba(40, 40, 40, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%) repeat;
+  background: transparent linear-gradient(top, rgba(40, 40, 40, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%) repeat;
+  -webkit-border-radius: 0px 0px 9px 9px;
+  -moz-border-radius: 0px 0px 9px 9px;
+  border-radius: 0px 0px 9px 9px;
+  -moz-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.3) inset, 0px -1px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  opacity: 1;
+}
+ul.ui.cover-view li .text h2,
+.ui.cover-view .text h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #009FDA;
+  margin: 0px 0px 5px;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.9);
+}
+ul.ui.cover-view li .text h3,
+.ui.cover-view .text h3 {
+  color: #FFFFFF;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.9);
+}
+/* Loading State */
+ul.ui.cover-view li > .throbber,
+div.ui.cover-view > .throbber {
+  display: none;
+}
+ul.ui.cover-view li.loading > .throbber,
+div.ui.cover-view.loading > .throbber {
+  display: block;
+  opacity: 0.3;
+}
+ul.ui.cover-view li.loading .text,
+div.ui.cover-view.loading .text,
+ul.ui.cover-view li.loading .cover,
+div.ui.cover-view.loading .cover {
+  opacity: 0;
+}
+/* Cover Flow Floated List */
+ul.ui.cover-view li {
+  float: left;
+  margin: 0px 5px 10px;
+}

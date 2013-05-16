@@ -1,0 +1,26 @@
+/*---------------
+ UI Notification
+----------------*/
+.ui.notification.hidden {
+  display: none;
+}
+.ui.notification {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #EEEEEE;
+  padding: 3px 5px;
+  background: -webkit-linear-gradient(top, #ffffff 0%, #dddddd 100%);
+  background: -moz-linear-gradient(top, #ffffff 0%, #dddddd 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #dddddd 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #dddddd 100%);
+  background: linear-gradient(top, #ffffff 0%, #dddddd 100%);
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), 0px 1px 0px rgba(255, 255, 255, 0.6) inset;
+  font-size: 11px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #555555;
+  z-index: 100;
+}

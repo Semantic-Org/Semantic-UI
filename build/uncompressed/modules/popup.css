@@ -1,0 +1,224 @@
+/*******************************
+    UI Popup (Tooltip/ Popover)
+*******************************/
+.ui.popup {
+  display: none;
+  position: absolute;
+  top: 57px;
+  right: 0px;
+  z-index: 900;
+  max-width: 250px;
+  background-color: #FAFAFA;
+  padding: 6px 8px;
+  border: 1px solid #DFDFDF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 11px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+/* Default Interactions */
+.ui.popup .ui.button,
+.ui.popup form.ui input .ui.popup form.ui textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*--------------
+     Pointer
+---------------*/
+.ui.popup:after {
+  font-family: Arial, "Helevetica Neue", sans-serif;
+  display: block;
+  position: absolute;
+  font-size: 14px;
+  color: #FAFAFA;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+/* Arrow UTF Style */
+.ui.popup:after,
+.ui.popup.top.left:after,
+.ui.popup.top.center:after,
+.ui.popup.top.right:after {
+  content: '\25BC';
+}
+.ui.popup.bottom:after,
+.ui.popup.bottom.left:after,
+.ui.popup.bottom.right:after,
+.ui.popup.bottom.center:after {
+  content: '\25B2';
+}
+.ui.popup.left:after {
+  content: '\25B6';
+}
+.ui.popup.right:after {
+  content: '\25C0';
+}
+/* Position */
+.ui.popup {
+  margin: 0px;
+}
+.ui.popup.bottom {
+  margin: 9px 0px 0px;
+}
+.ui.popup.top {
+  margin: 0px 0px 9px;
+}
+.ui.popup.top.left,
+.ui.popup.bottom.left {
+  margin-left: -12px;
+}
+.ui.popup.top.right,
+.ui.popup.bottom.right {
+  margin-right: -12px;
+}
+.ui.popup.left.center {
+  margin: 0px 9px 0px 0px;
+}
+.ui.popup.right.center {
+  margin: 0px 0px 0px 10px;
+}
+/* Arrow Offset */
+.ui.popup:after {
+  line-height: 1;
+  bottom: -10px;
+  left: 50%;
+}
+.ui.popup.bottom:after {
+  top: -11px;
+  right: 18px;
+  text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.3);
+}
+.ui.popup.top.right:after,
+.ui.popup.bottom.right:after {
+  left: auto;
+  right: 8px;
+}
+.ui.popup.top.left:after,
+.ui.popup.bottom.left:after {
+  right: auto;
+  left: 8px;
+}
+.ui.popup.left.center:after {
+  left: auto;
+  right: -10px;
+  top: 50%;
+  margin-top: -7px;
+  text-shadow: 2px 0 2px rgba(0, 0, 0, 0.3);
+}
+.ui.popup.right.center:after {
+  left: -10px;
+  right: auto;
+  top: 50%;
+  margin-top: -7px;
+  text-shadow: -2px 0 2px rgba(0, 0, 0, 0.3);
+}
+.ui.popup.top.center:after,
+.ui.popup.bottom.center:after {
+  margin-left: -7px;
+  left: 50%;
+  right: auto;
+}
+/*--------------
+     States
+---------------*/
+.ui.popup.loading {
+  display: block;
+  visibility: hidden;
+}
+.ui.popup.active {
+  display: block;
+}
+/*--------------
+      Sizes
+---------------*/
+.ui.large.popup {
+  padding: 10px;
+}
+.ui.large.popup .content {
+  font-size: 13px;
+}
+/* popup offset */
+.ui.large.popup.bottom {
+  margin: 11px 0px 0px;
+}
+.ui.large.popup.top {
+  margin: 0px 0px 11px;
+}
+.ui.large.popup.top.left,
+.ui.large.popup.bottom.left {
+  margin-left: -12px;
+}
+.ui.large.popup.top.right,
+.ui.large.popup.bottom.right {
+  margin-right: -12px;
+}
+.ui.large.popup.left.center {
+  margin: 0px 12px 0px 0px;
+}
+.ui.large.popup.right.center {
+  margin: 0px 0px 0px 12px;
+}
+/* arrow offset */
+.ui.large.popup:after {
+  bottom: -13px;
+  font-size: 18px;
+}
+.ui.popup.large.bottom:after {
+  top: -15px;
+}
+.ui.popup.large.left.center:after {
+  right: -13px;
+  margin-top: -9px;
+}
+.ui.popup.large.right.center:after {
+  left: -13px;
+  margin-top: -9px;
+}
+/*--------------
+     Themes
+---------------*/
+/* Standard */
+.ui.popup h2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #603E72;
+  margin-bottom: 5px;
+}
+.ui.popup .content {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.33;
+  color: #666666;
+  padding: 0px;
+}
+.ui.popup .content p {
+  margin-top: 5px;
+}
+.ui.popup .content p b {
+  color: #603E72;
+}
+.ui.popup .content p:first-child {
+  margin-top: 0px;
+}
+/* Slightly Transparent */
+.ui.popup.transparent,
+.ui.popup.transparent:after {
+  background-color: rgba(250, 250, 250, 0.9);
+}
+/* Black Styling */
+.ui.black.popup {
+  background-color: #000000;
+  border: none;
+}
+.ui.black.popup:after {
+  color: #000000;
+}
+.ui.black.popup .content {
+  color: #FFFFFF;
+}
