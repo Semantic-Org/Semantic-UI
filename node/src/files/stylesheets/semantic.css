@@ -433,6 +433,20 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   position: relative;
 }
 
+#example .icon.example {
+  border-top: none;
+}
+#example .icon.example h3,
+#example .icon.example h4 {
+  margin: 0.5em 0em 2em;
+}
+#example .icon.example i.code {
+  top: 30px;
+}
+
+#example .icon.example .grid {
+  text-align: left;
+}
 #example .icon.example .grid .column {
   opacity: 0.8;
   margin-bottom: 4%;
@@ -489,14 +503,8 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   color: #009FDA;
 }
 #example .another.icon.example {
-  margin-top: -15px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 50px;
 }
-#example .another.icon.example i.code {
-  top: 15px;
-}
-
 
 #example .another.example {
   border-top: none;
@@ -750,8 +758,8 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   top: 0px;
 }
 #example .example {
-  margin: 16px 0px;
-  padding: 16px 0px;
+  margin: 1em 0em;
+  padding: 1em 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   clear: both;
   position: relative;

@@ -108,9 +108,9 @@
       </div>
       <div class="icon previous link<%= if pageNumber is 1 then " disabled" %> item">
         <% if pageNumber > 1 and pageCollection[pageNumber - 2]?: %>
-        <a href="<%= pageCollection[pageNumber - 2].url %>"><i class="icon left-open"></i></a>
+        <a href="<%= pageCollection[pageNumber - 2].url %>"><i class="left arrow icon"></i></a>
         <% else: %>
-        <i class="icon left-open"></i>
+        <i class="left arrow icon"></i>
         <% end %>
       </div>
       <div class="section dropdown item">
@@ -125,9 +125,9 @@
       </div>
       <div class="icon next <%= if pageNumber is pageCount then "disabled " %>link item">
         <% if pageNumber isnt pageCount and pageCollection[pageNumber]?: %>
-        <a href="<%= pageCollection[pageNumber].url %>"><i class="icon right-open"></i></a>
+        <a href="<%= pageCollection[pageNumber].url %>"><i class="right arrow icon"></i></a>
         <% else: %>
-        <i class="icon right-open"></i>
+        <i class="right arrow icon"></i>
         <% end %>
       </div>
       <div class="right menu">
