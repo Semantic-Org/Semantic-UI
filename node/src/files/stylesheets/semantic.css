@@ -433,6 +433,71 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   position: relative;
 }
 
+#example .icon.example .grid .column {
+  opacity: 0.8;
+  margin-bottom: 4%;
+  text-align: center;
+  color: #888888;
+
+  -webkit-transition: 
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+  -moz-transition: 
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+  -o-transition: 
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+  -ms-transition: 
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+  transition: 
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+}
+#example .icon.example .grid .column:hover {
+  opacity: 1;
+}
+#example .icon.example .column .icon {
+  opacity: 1;
+  color: #333333;
+  display: block;
+  margin: 0em auto 0.25em;
+  font-size: 2em;
+  -webkit-transition: 
+    color 0.2s ease-out
+  ;
+  -moz-transition: 
+    color 0.2s ease-out
+  ;
+  -o-transition: 
+    color 0.2s ease-out
+  ;
+  -ms-transition: 
+    color 0.2s ease-out
+  ;
+  transition: 
+    color 0.2s ease-out
+  ;
+}
+#example .icon.example .grid .column:hover .icon {
+  color: #009FDA;
+}
+#example .another.icon.example {
+  margin-top: -15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 50px;
+}
+#example .another.icon.example i.code {
+  top: 15px;
+}
+
+
 #example .another.example {
   border-top: none;
 }
@@ -555,12 +620,6 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-#example div.code .ace_line {
-  color: #555555;
-}
-#example div.code .ace_tag {
-  color: #892A6F;
-}
 #example div.code .ace_indent-guide {
   position: relative;
   background: none;
@@ -574,15 +633,43 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   border-left: 1px solid #ECF5F3;
 } */
 
-#example div.code .ace_attribute-name {
-  color: #934E4E;
-}
 
 #example div.code .ace_gutter,
 #example div.code .ace_scroller {
   margin: 14px 10px;
 }
+#example div.code .ace_scrollbar {
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
 
+#example div.code .ace_line,
+#example div.code .ace_line span {
+  -webkit-transition: 
+    color 1s ease-out
+  ;
+  -moz-transition: 
+    color 1s ease-out
+  ;
+  -o-transition: 
+    color 1s ease-out
+  ;
+  -ms-transition: 
+    color 1s ease-out
+  ;
+  transition: 
+    color 1s ease-out
+  ;
+}
+#example div.code .ace_line {
+  color: #555555;
+}
+#example div.code .ace_tag {
+  color: #DCBCD3;
+}
+#example div.code .ace_attribute-name {
+  color: #F4C5C5;
+}
 #example div.code .ace_content {
 }
 #example div.code .ace_string {
@@ -592,24 +679,61 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   border-left: 1px solid #AAAAAA;
 }
 #example div.code .ace_paren {
-  color: #555555;
+  color: #CCCCCC;
 }
 #example div.code .ace_keyword {
-  color: #555555;
+  color: #CCCCCC;
 }
 #example div.code .ace_identifier {
-  color: #555555;
-}
-#example div.code .ace_scrollbar {
-  overflow: hidden;
-  background-color: #FFFFFF;
+  color: #CCCCCC;
 }
 #example div.code .ace_punctuation {
-  color: #555555;
+  color: #CCCCCC;
 }
 #example div.code .ace_active_line {
   background-color: #FBFBE5;
 }
+
+/* Hovered Style */
+
+#example div.code:hover .ace_line {
+  color: #555555;
+}
+#example div.code:hover .ace_tag {
+  color: #892A6F;
+}
+#example div.code:hover .ace_attribute-name {
+  color: #934E4E;
+}
+#example div.code:hover .ace_content {
+}
+#example div.code:hover .ace_string {
+  color: #00A59D;
+}
+#example div.code:hover .ace_cursor {
+  border-left: 1px solid #AAAAAA;
+}
+#example div.code:hover .ace_paren {
+  color: #555555;
+}
+#example div.code:hover .ace_keyword {
+  color: #555555;
+}
+#example div.code:hover .ace_identifier {
+  color: #555555;
+}
+#example div.code:hover .ace_scrollbar {
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+#example div.code:hover .ace_punctuation {
+  color: #555555;
+}
+#example div.code:hover .ace_active_line {
+  background-color: #FBFBE5;
+}
+
+
 
 /* examples */
 
@@ -659,7 +783,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 #example .highlighted.example {
-  min-height: 280px;
+  min-height: 340px;
 }
 #example .highlighted.example .grid,
 #example .ui.type.items .image .grid {

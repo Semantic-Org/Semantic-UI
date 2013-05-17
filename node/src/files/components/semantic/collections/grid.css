@@ -47,7 +47,7 @@
   vertical-align: top;
 }
 /*-------------------
-         Rows
+        Rows
 --------------------*/
 .ui.grid > .row {
   display: block;
@@ -67,6 +67,13 @@
 .ui.grid > .row > img,
 .ui.grid > .row > .column > img {
   max-width: 100%;
+}
+/*-------------------
+    Grids in Grids
+--------------------*/
+.ui.grid .column > .grid {
+  margin-left: -1.333%;
+  margin-right: -1.333%;
 }
 /*******************************
            Variations
@@ -235,6 +242,13 @@
 -----------------------*/
 .ui.grid .equal.row .column {
   display: table-cell;
+}
+/*----------------------
+       Fitted
+-----------------------*/
+.ui.fitted.grid {
+  margin-left: -1.333%;
+  margin-right: -1.333%;
 }
 /*-------------------
        Folding
