@@ -133,7 +133,7 @@
       <div class="right menu">
         <% if @document.type is 'UI Element' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
         <a class="popup designer item" title="Designer Mode">
-          <i class="icon easel"></i>
+          <i class="icon paint"></i>
         </a>
         <a class="popup developer item" title="Developer Mode">
           <i class="icon terminal"></i>
