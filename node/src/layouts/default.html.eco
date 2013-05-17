@@ -156,7 +156,7 @@
     </div>
   </div>
     <div class="ui black huge sidebar right attached button">
-      <i class="icon th-list"></i>
+      <i class="icon list layout"></i>
       <span class="text">Menu</span>
     </div>
   <%- @content %>

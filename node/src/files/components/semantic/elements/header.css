@@ -33,27 +33,27 @@
 h1.ui.header {
   min-height: 1rem;
   margin: 2rem 0rem 1.5rem;
-  line-height: 1.33rem;
+  line-height: 1.33;
   font-size: 2rem;
 }
 h2.ui.header {
   margin: 1.5rem 0rem 1rem;
-  line-height: 1.33rem;
+  line-height: 1.33;
   font-size: 1.5rem;
 }
 h3.ui.header {
   margin: 1.3rem 0rem 1rem;
-  line-height: 1.33rem;
+  line-height: 1.33;
   font-size: 1.33rem;
 }
 h4.ui.header {
   margin: 0.75rem 0rem 0.3rem;
-  line-height: 1.33rem;
+  line-height: 1.33;
   font-size: 1.1rem;
 }
 h5.ui.header {
   margin: 0rem 0rem 0.2rem;
-  line-height: 1.2rem;
+  line-height: 1.2;
   font-size: 1rem;
 }
 /*--------------

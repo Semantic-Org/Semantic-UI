@@ -9,3 +9,8 @@
 * Renamed "grid" variation of table to "celled"  to fix conflict with ui grid (may 10, 2013)
 * Buttons are now grey by default
 * Header styles have changed significantly
+
+* Icon changes
+basket is now "cart"
+th-list, th-alt, th-large is now, layout list, layout grid, layout block
+hyphenated icons have become spaced classes
