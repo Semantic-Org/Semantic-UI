@@ -1,5 +1,18 @@
+/*
+ * # Semantic Segment - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: May 17 2013
+ */
+
+
 /*******************************
-          Page Segments
+            Segment
 *******************************/
 
 .ui.segment {
@@ -10,7 +23,8 @@
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
-  padding: 1em;
+  margin: 1em 0em;
+  padding: 0.5em 1em;
 
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
@@ -24,16 +38,175 @@
   overflow: hidden;
 }
 
-/* Label at the top of a segment */
+/*-------------------
+    Loose Coupling
+--------------------*/
+
+/* No padding on edge content */
 .ui.segment div:first-child {
   margin-top: 0px;
 }
+.ui.segment div:last-child {
+  margin-bottom: 0px;
+}
+
+/* Padding on next content after a label */
 .ui.segment .attached.label:first-child + * {
   margin-top: 2em;
 }
 .ui.segment .bottom.attached.label:first-child + * {
   margin-top: 0em;
 }
+
+/*******************************
+            States
+*******************************/
+
+.ui.disabled.segment {
+  opacity: 0.5;
+}
+
+
+
+/*******************************
+           Variations
+*******************************/
+
+/*-------------------
+      Inverted 
+--------------------*/
+
+.ui.inverted.segment {
+  background-color: #222222;
+  padding: 0.7em 1em;
+  color: #FFFFFF;
+}
+
+/*-------------------
+       Basic
+--------------------*/
+
+.ui.basic.segment {
+  position: relative;
+  background-color: transparent;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.ui.basic.segment:before {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  content: '';
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/*-------------------
+       Colors
+--------------------*/
+
+.ui.blue.segment {
+  color: #6ECFF5 !important;
+}
+.ui.green.segment {
+  color: #A1CF64 !important;
+}
+.ui.red.segment {
+  color: #EF4D6D !important;
+}
+.ui.purple.segment {
+  color: #564F8A !important;
+}
+.ui.teal.segment {
+  color: #00B5AD !important;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.left.aligned.segment {
+  text-align: left;
+}
+.ui.right.aligned.segment {
+  text-align: right;
+}
+.ui.center.aligned.segment {
+  text-align: center;
+}
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.segment,
+.ui.left.floated.segment {
+  float: left;
+}
+.ui.right.floated.segment {
+  float: right;
+}
+
+/*-------------------
+       Raised
+--------------------*/
+
+.ui.raised.segment {
+  -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+/*-------------------
+      Inverted
+--------------------*/
+
+.ui.inverted.segment {
+  background-color: #555555;
+}
+
+.ui.primary.inverted.segment {
+  background-color: #777777;
+  color: #F5F5F5;
+}
+.ui.secondary.inverted.segment {
+  background-color: #777777;
+  color: #F5F5F5;
+}
+
+.ui.tertiary.inverted.segment {
+  background-color: #B0B0B0;
+  color: #EBEBEB;
+}
+
+
+/*-------------------
+     Ordinality
+--------------------*/
+
+.ui.primary.segment {
+  background-color: #FFFFFF;
+  color: #555555;
+}
+
+.ui.secondary.segment {
+  background-color: #F5F5F5;
+  color: #777777;
+}
+
+.ui.tertiary.segment {
+  background-color: #EBEBEB;
+  color: #B0B0B0;
+}
+
+
+/*-------------------
+      Attached
+--------------------*/
 
 .ui.segment.attached {
   top: -1px;
@@ -43,6 +216,8 @@
   -webkit-border-radius: 0px;
   border-radius: 0px;
 
+  margin: 0em;
+
   -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
   -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
   box-shadow: 0px 0px 0px 1px #DDDDDD;
@@ -50,6 +225,9 @@
 .ui.top.attached.segment {
   top: 0px;
   bottom: -1px;
+
+  margin-top: 0em;
+
   -moz-border-radius: 5px 5px 0px 0px;
   -webkit-border-radius: 5px 5px 0px 0px;
   border-radius: 5px 5px 0px 0px;
@@ -57,12 +235,10 @@
 .ui.segment.bottom.attached {
   top: -1px;
   bottom: 0px;
+
+  margin-bottom: 0em;
+
   -moz-border-radius: 0px 0px 5px 5px;
   -webkit-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;
-}
-
-/* Common Views */
-.ui.segment .list li {
-  padding: 10px 25px;
 }
