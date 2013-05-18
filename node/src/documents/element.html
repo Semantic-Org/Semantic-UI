@@ -1,6 +1,6 @@
 ---
 layout : 'default'
-css    : 'index'
+css    : 'element'
 
 title  : 'UI Elements'
 type   : 'Semantic'
@@ -9,7 +9,7 @@ type   : 'Semantic'
 <div class="segment">
   <div class="container">
     <h1>UI Element</h1>
-    <p>UI elements are distinct interface elements, that can be explained both as single elements and as plural groups.</p>
+    <p>UI elements are the basic building blocks of a website. They help to structure content so that information, and possible user interactions on a website are more intuitive.</p>
   </div>
 </div>
 <div class="main container">
@@ -21,18 +21,27 @@ type   : 'Semantic'
     </div>
   </div>
   <h2>Definition</h2>
-  <p>UI Elements are single interface elements that do not contain other elements inside themselves.</p>
+  <p>UI Elements are the smallest useful unit for describing page content, and do not contain other elements inside themselves.</p>
   
-  <p>Elements are often found in groups, so many element definitions include a plural definition.</p>
-  
-  <div class="example">
-    <h4>Groups</h4>
-    <p>The plural of button is "buttons" a button wrapped inside "buttons" will automatically apply styling appropriate for a group. Also many button variations can be used on plural definitions just like they would be used in singular.</p>
-    <p>For example, in this case each button will be large because we understand it is a part of the large button group</p>
+  <h3>Plurality</h3>
+  <p>Element usually exist by themselves, but they my also be grouped together with other elements of their kind. This forms a plural definition of an element.</p>
+  <p>The look and feel of the plural may change to show a relationship, and plural definitions can often share many of the same variations as singular definitions.</p>
+
+  <div class="ui segment">
+    <h4 class="ui header">Groups</h4>
+    <p>The plural of button is "buttons" a button wrapped inside "buttons" will automatically apply styling appropriate for a group. Many button variations can be used on plural definitions just like they would be used in singular.</p>
+    <p>For example, in this case each button will be large because we understand it is a part of the large button group, but the continue button has its own variations applied as well.</p>
     <div class="ui simple ignored divider"></div>
     <div class="large ui buttons">
       <div class="ui button">Cancel</div>
       <div class="ui positive button">Continue</div>
+    </div>
+    <br>
+    <div class="code">
+    <div class="large ui buttons">
+      <div class="ui button">Cancel</div>
+      <div class="ui positive button">Continue</div>
+    </div>
     </div>
   </div>
   

@@ -323,9 +323,6 @@
 /*--------------------
     Inline Fields
 ---------------------*/
-.ui.form .inline.fields .field {
-  width: auto;
-}
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
