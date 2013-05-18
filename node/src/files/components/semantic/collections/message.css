@@ -34,6 +34,9 @@
   font-weight: bold;
 }
 /* block with paragraphs */
+.ui.message .header + p {
+  margin-top: 0em;
+}
 .ui.message p {
   opacity: 0.85;
   margin: 1em 0em;
