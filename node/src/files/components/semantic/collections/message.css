@@ -41,10 +41,10 @@
   opacity: 0.85;
   margin: 1em 0em;
 }
-.ui.message :first-child {
+.ui.message > :first-child {
   margin-top: 0em;
 }
-.ui.message :last-child {
+.ui.message > :last-child {
   margin-bottom: 0em;
 }
 /* block with child list */

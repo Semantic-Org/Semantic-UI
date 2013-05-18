@@ -96,8 +96,8 @@
   color: rgba(0, 0, 0, 0.9);
 }
 /* Active */
-.ui.menu .item.active,
-.ui.menu .item.active a {
+.ui.menu .active.item,
+.ui.menu .active.item a {
   color: rgba(0, 0, 0, 0.95);
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -188,6 +188,7 @@
   left: 0px;
   background-color: #FFFFFF;
   opacity: 0;
+  border-top: 0.2em solid rgba(50, 50, 50, 0.8);
   -moz-border-radius: 0px 0px 5px 5px;
   -webkit-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;
@@ -211,7 +212,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-.ui.menu .dropdown.item .menu .item.active {
+.ui.menu .dropdown.item .menu .active.item {
   font-weight: bold;
 }
 .ui.menu .dropdown.item .menu .item:first-child {
@@ -257,12 +258,21 @@
 .ui.menu .item.hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
-.ui.menu .dropdown.item.hover,
-.ui.menu .dropdown.item:hover,
 .ui.menu .dropdown.item .menu .item.hover,
 .ui.menu .dropdown.item .menu .item:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.02);
+}
+.ui.menu .dropdown.item.hover,
+.ui.menu .dropdown.item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(170, 170, 170, 0.6);
+  -webkit-border-bottom-right-radius: 0em;
+  -moz-border-bottom-right-radius: 0em;
+  border-bottom-right-radius: 0em;
+  -webkit-border-bottom-left-radius: 0em;
+  -moz-border-bottom-left-radius: 0em;
+  border-bottom-left-radius: 0em;
 }
 /* Dropdown Display */
 .ui.menu .dropdown.item:hover .menu {
@@ -273,6 +283,7 @@
   height: auto;
   opacity: 1;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px rgba(50, 50, 50, 0.8);
   border-top: none;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
@@ -293,22 +304,22 @@
 /*--------------
      Active
 ---------------*/
-.ui.menu .item.active {
-  border-top: 0.2em solid #999999;
+.ui.menu .active.item {
   padding-top: 0.55em;
+  border-top: 0.2em solid rgba(50, 50, 50, 0.8);
   color: rgba(0, 0, 0, 0.95);
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.01);
 }
-.ui.vertical.menu .item.active {
+.ui.vertical.menu .active.item {
   border-top: none;
-  border-left: 0.2em solid #999999;
+  border-left: 0.2em solid rgba(50, 50, 50, 0.8);
   padding-top: 0.75em;
   padding-left: 0.75em;
 }
-.ui.vertical.menu .item.active .menu .item.active {
+.ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
 }
-.ui.vertical.menu .item .menu .item.active {
+.ui.vertical.menu .item .menu .active.item {
   padding-top: 0.5rem;
   padding-left: 1.3rem;
 }
@@ -395,20 +406,20 @@
   color: #ffffff;
 }
 /*--- Active ---*/
-.ui.inverted.menu .item.active {
+.ui.inverted.menu .active.item {
   border-color: transparent;
   background-color: rgba(255, 255, 255, 0.15);
 }
-.ui.inverted.menu .item.active,
-.ui.inverted.menu .item.active a {
+.ui.inverted.menu .active.item,
+.ui.inverted.menu .active.item a {
   color: #ffffff;
 }
 /*--- Pointers ---*/
-.ui.inverted.pointing.menu .item.active:after {
+.ui.inverted.pointing.menu .active.item:after {
   background-color: #505050;
   box-shadow: none;
 }
-.ui.inverted.pointing.menu .item.active:hover:after {
+.ui.inverted.pointing.menu .active.item:hover:after {
   background-color: #3B3B3B;
 }
 /*--------------
@@ -419,22 +430,22 @@
   background-color: #F0F0F0;
 }
 /*--- Inverted Colors  ---*/
-.ui.green.menu .item.active {
+.ui.green.menu .active.item {
   border-color: #A1CF64;
 }
-.ui.red.menu .item.active {
+.ui.red.menu .active.item {
   border-color: #EF4D6D;
 }
-.ui.blue.menu .item.active {
+.ui.blue.menu .active.item {
   border-color: #6ECFF5;
 }
-.ui.purple.menu .item.active {
+.ui.purple.menu .active.item {
   border-color: #564F8A;
 }
-.ui.orange.menu .item.active {
+.ui.orange.menu .active.item {
   border-color: #F05940;
 }
-.ui.teal.menu .item.active {
+.ui.teal.menu .active.item {
   border-color: #00B5AD;
 }
 /*--------------
@@ -448,37 +459,37 @@
 .ui.inverted.green.menu {
   background-color: #A1CF64;
 }
-.ui.inverted.green.pointing.menu .item.active:after {
+.ui.inverted.green.pointing.menu .active.item:after {
   background-color: #A1CF64;
 }
 .ui.inverted.red.menu {
   background-color: #EF4D6D;
 }
-.ui.inverted.red.pointing.menu .item.active:after {
+.ui.inverted.red.pointing.menu .active.item:after {
   background-color: #F16883;
 }
 .ui.inverted.blue.menu {
   background-color: #6ECFF5;
 }
-.ui.inverted.blue.pointing.menu .item.active:after {
+.ui.inverted.blue.pointing.menu .active.item:after {
   background-color: #6ECFF5;
 }
 .ui.inverted.purple.menu {
   background-color: #564F8A;
 }
-.ui.inverted.purple.pointing.menu .item.active:after {
+.ui.inverted.purple.pointing.menu .active.item:after {
   background-color: #564F8A;
 }
 .ui.inverted.orange.menu {
   background-color: #F05940;
 }
-.ui.inverted.orange.pointing.menu .item.active:after {
+.ui.inverted.orange.pointing.menu .active.item:after {
   background-color: #F05940;
 }
 .ui.inverted.teal.menu {
   background-color: #00B5AD;
 }
-.ui.inverted.teal.pointing.menu .item.active:after {
+.ui.inverted.teal.pointing.menu .active.item:after {
   background-color: #00B5AD;
 }
 /*--------------
@@ -555,7 +566,7 @@
   font-weight: bold;
 }
 /* disable variations */
-.ui.text.pointing.menu item.active:after {
+.ui.text.pointing.menu .active.item:after {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -681,7 +692,7 @@
   -moz-border-radius: 0px 5px 5px 0px;
   -webkit-border-radius: 0px 5px 5px 0px;
   border-radius: 0px 5px 5px 0px;
-  border-left: none;
+  border-left: 0.2em solid rgba(50, 50, 50, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 1em;
 }
@@ -846,7 +857,7 @@
 /*-------------------
        Pointing
 --------------------*/
-.ui.pointing.menu .item.active:after {
+.ui.pointing.menu .active.item:after {
   position: absolute;
   bottom: -0.35em;
   left: 50%;
@@ -873,7 +884,7 @@
   transition: background 0.1s linear
   ;
 }
-.ui.vertical.pointing.menu .item.active:after {
+.ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
   right: -0.4em;
@@ -885,15 +896,15 @@
   margin-top: -0.3em;
 }
 /* Colors */
-.ui.pointing.menu .item.active:after {
-  background-color: #F3F3F3;
+.ui.pointing.menu .active.item:after {
+  background-color: #FCFCFC;
 }
-.ui.pointing.menu .item.active.hover:after,
-.ui.pointing.menu .item.active:hover:after {
+.ui.pointing.menu .active.item.hover:after,
+.ui.pointing.menu .active.item:hover:after {
   background-color: #FAFAFA;
 }
-.ui.pointing.menu .item.active.down:after,
-.ui.pointing.menu .item.active:active:after {
+.ui.pointing.menu .active.item.down:after,
+.ui.pointing.menu .active.item:active:after {
   background-color: #F0F0F0;
 }
 /*--------------

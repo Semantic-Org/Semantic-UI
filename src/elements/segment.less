@@ -45,21 +45,21 @@
 
 
 /* No padding on edge content */
-.ui.segment :first-child {
+.ui.segment > :first-child {
   margin-top: 0em;
 }
-.ui.segment :last-child {
+.ui.segment > :last-child {
   margin-bottom: 0em;
 }
-.ui.segment :only-child {
+.ui.segment > :only-child {
   margin: 0em;
 }
 
 /* Padding on next content after a label */
-.ui.segment .attached.label:first-child + * {
+.ui.segment > .attached.label:first-child + * {
   margin-top: 2em;
 }
-.ui.segment .bottom.attached.label:first-child + * {
+.ui.segment > .bottom.attached.label:first-child + * {
   margin-top: 0em;
 }
 
