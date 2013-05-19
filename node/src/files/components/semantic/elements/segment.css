@@ -29,6 +29,24 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+.ui.vertical.segment {
+  margin: 0em;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px -1px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px -1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.horizontal.segment {
+  margin: 0em;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1), -1px 0px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1), -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1), -1px 0px 0px rgba(0, 0, 0, 0.1);
+}
 /*-------------------
     Loose Coupling
 --------------------*/
@@ -53,7 +71,8 @@
             States
 *******************************/
 .ui.disabled.segment {
-  opacity: 0.5;
+  opacity: 0.8;
+  color: #DDDDDD;
 }
 /*******************************
            Variations
@@ -81,19 +100,46 @@
        Colors
 --------------------*/
 .ui.blue.segment {
-  color: #6ECFF5 !important;
+  border-top: 0.2em solid #6ECFF5;
 }
 .ui.green.segment {
-  color: #A1CF64 !important;
+  border-top: 0.2em solid #A1CF64;
 }
 .ui.red.segment {
-  color: #EF4D6D !important;
+  border-top: 0.2em solid #EF4D6D;
 }
 .ui.purple.segment {
-  color: #564F8A !important;
+  border-top: 0.2em solid #564F8A;
 }
 .ui.teal.segment {
-  color: #00B5AD !important;
+  border-top: 0.2em solid #00B5AD;
+}
+/*-------------------
+   Inverted Colors
+--------------------*/
+.ui.inverted.black.segment {
+  background-color: #5C6166 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.blue.segment {
+  background-color: #6ECFF5 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.green.segment {
+  background-color: #A1CF64 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.red.segment {
+  background-color: #EF4D6D !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.purple.segment {
+  background-color: #564F8A !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.teal.segment {
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
 }
 /*-------------------
        Aligned
@@ -149,16 +195,18 @@
       Inverted
 --------------------*/
 .ui.inverted.segment {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.inverted.segment,
+.ui.primary.inverted.segment {
   background-color: #555555;
   color: #FFFFFF;
 }
-.ui.primary.inverted.segment {
-  background-color: #777777;
-  color: #F5F5F5;
-}
 .ui.secondary.inverted.segment {
   background-color: #777777;
-  color: #F5F5F5;
+  color: #E2E2E2;
 }
 .ui.tertiary.inverted.segment {
   background-color: #B0B0B0;
