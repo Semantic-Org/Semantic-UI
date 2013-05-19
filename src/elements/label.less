@@ -18,7 +18,9 @@
   display: inline-block;
   vertical-align: middle;
 
-  padding: 0.33em 0.8em;
+  background-color: #F5F5F5;
+  padding: 0.6em 1em;
+  color: #999999;
 
   font-weight: bold;
   text-transform: uppercase;
@@ -82,10 +84,25 @@ a.ui.label {
              States
 *******************************/
 
-/* Hover */
+/*-------------------
+        Hover
+--------------------*/
+
+a.ui.labels .label:hover,
+a.ui.label:hover {
+  background-color: #F0F0F0;
+  color: #555555;
+}
+.ui.labels a.label:hover:before,
+a.ui.label:hover:before {
+  background-color: #F0F0F0;
+  color: #555555;
+}
+
 .ui.label .icon.close:hover {
   opacity: 1;
 }
+
 
 
 /*******************************
@@ -173,8 +190,7 @@ a.ui.label {
   left: 0px;
   margin-top: 0px !important;
 
-  padding: 0.5em 1em;
-  color: #AAAAAA;
+  background-color: transparent;
 
   -webkit-border-radius: 4px 0px 0px 0px;
   -moz-border-radius: 4px 0px 0px 0px;
@@ -221,27 +237,6 @@ a.ui.label {
        Colors
 --------------------*/
 
-/*--- Standard ---*/
-
-.ui.labels .label,
-.ui.label {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.3);
-}
-.ui.labels .label:before,
-.ui.label:before {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: #555555;
-}
-/* Hover */
-a.ui.labels .label:hover,
-a.ui.label:hover {
-  background-color: #F0F0F0;
-}
-.ui.labels a.label:hover:before,
-a.ui.label:hover:before {
-  background-color: #F0F0F0;
-}
 
 
 /*--- Black ---*/

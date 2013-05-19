@@ -27,8 +27,10 @@ type   : 'UI Element'
   <div class="example">
     <h4>Label</h4>
     <p>A basic label</p>
-    <div class="ui label">
-      Fun
+    <div class="ui segment">
+      <div class="ui label">
+        <i class="icon location"></i> 23
+      </div>
     </div>
   </div>
   
@@ -43,22 +45,28 @@ type   : 'UI Element'
   <div class="example">
     <h4>Label with detail</h4>
     <p>A tag can optionally display a detail</p>
-    <div class="ui label">
-      Fun
-      <div class="detail">New</div>
+    <div class="ui segment">
+      <div class="ui label">
+        Fun
+        <div class="detail">New</div>
+      </div>
     </div>
-    <div class="ui label">
-      Red
-      <div class="detail">22</div>
+    <div class="ui segment">
+      <div class="ui label">
+        Red
+        <div class="detail">22</div>
+      </div>
     </div>
   </div>
 
   <div class="example">
     <h4>Removable label</h4>
     <p>A tag can also be removable</p>
-    <div class="ui label">
-      Witty
-      <i class="icon close"></i>
+    <div class="ui segment">
+      <div class="ui label">
+        Witty
+        <i class="icon close"></i>
+      </div>
     </div>
   </div>
   
@@ -113,13 +121,13 @@ type   : 'UI Element'
       <div class="field">
         <input type="text" placeholder="First name">
         <div class="ui pointing black label">
-          First Name
+          Please enter a value
         </div>
       </div>
       <div class="ui simple divider"></div>
       <div class="field" placeholder="Last Name">
         <div class="ui pointing below black label">
-          Last Name
+          Please enter a value
         </div>
         <input type="text">
       </div>
@@ -127,13 +135,13 @@ type   : 'UI Element'
       <div class="inline field">
         <input type="text" placeholder="Username">
         <div class="ui pointing left black label">
-          Username
+          That name is taken!
         </div>
       </div>
       <div class="ui simple divider"></div>
       <div class="inline field">
         <div class="ui pointing right black label">
-          Password
+          Your password must be 6 characters or more
         </div>
         <input type="password">
       </div>
