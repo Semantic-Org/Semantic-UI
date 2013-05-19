@@ -24,6 +24,7 @@
   min-height: 1em;
 
   background-color: #F0F0F0;
+  color: #999999;
 
   padding: 0.8em 1.5em;
 
@@ -35,7 +36,6 @@
   font-style: normal;
   text-align: center;
 
-  color: #7A7A7A;
 
   -webkit-border-radius: 0.3125em;
   -moz-border-radius: 0.3125em;
@@ -60,26 +60,31 @@
 
   -webkit-transition:
     opacity 0.1s linear,
+    color 0.1s linear,
     background 0.1s linear,
     box-shadow 0.1s linear
   ;
   -moz-transition:
     opacity 0.1s linear,
+    color 0.1s linear,
     background 0.1s linear,
     box-shadow 0.1s linear
   ;
   -o-transition:
     opacity 0.1s linear,
+    color 0.1s linear,
     background 0.1s linear,
     box-shadow 0.1s linear
   ;
   -ms-transition:
     opacity 0.1s linear,
+    color 0.1s linear,
     background 0.1s linear,
     box-shadow 0.1s linear
   ;
   transition:
     opacity 0.1s linear,
+    color 0.1s linear,
     background 0.1s linear,
     box-shadow 0.1s linear
   ;
@@ -96,7 +101,8 @@
 
 .ui.button:hover,
 .ui.button.hover {
-  background-color: #E0E0E0;
+  background-color: #EAEAEA;
+  color: #777777;
 }
 
 /*--------------
@@ -106,10 +112,11 @@
 /* Down */
 .ui.button:active,
 .ui.button.down {
-  background-color: #DDDDDD;
-  -webkit-box-shadow: 0.125em 0.125em 0.125em 0 rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0.125em 0.125em 0.125em 0 rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0.125em 0.125em 0.125em 0 rgba(0, 0, 0, 0.1) inset;
+  background-color: #E6E6E6;
+  color: #777777;
+  -webkit-box-shadow: 0em 0em 0.125em 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0em 0em 0.125em 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0.125em 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 
@@ -134,7 +141,7 @@
 .ui.buttons .button.active a,
 .ui.button.active,
 .ui.button.active a {
-  color: #7A7A7A;
+  color: #666666;
 }
 .ui.buttons .button.active.hover,
 .ui.button.active.hover {
@@ -467,15 +474,17 @@
 
 .ui.buttons.mini .button,
 .ui.mini.button {
-  font-size: 0.5625rem;
+  font-size: 0.8rem;
+  padding: 0.6em 0.8em;
 }
 .ui.tiny.buttons .button,
 .ui.tiny.button {
-  font-size: 0.625rem;
+  font-size: 0.9rem;
+  padding: 0.6em 0.8em;
 }
 .ui.small.buttons .button,
 .ui.small.button {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 .ui.buttons .button,
 .ui.button {
@@ -492,18 +501,16 @@
 .ui.huge.buttons .button,
 .ui.huge.button {
   font-size: 1.375rem;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 .ui.massive.buttons .button,
 .ui.massive.button {
   font-size: 1.5rem;
   font-weight: bold;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
 }
-.ui.gigantic.buttons .button,
-.ui.gigantic.button {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
 
 /*--------------
 Containing Icon
@@ -723,8 +730,7 @@ input:focus + .ui.attached.button {
 .ui.buttons.vertical .tiny.button:first-child,
 .ui.buttons.vertical .small.button:first-child,
 .ui.buttons.vertical .massive.button:first-child,
-.ui.buttons.vertical .huge.button:first-child,
-.ui.buttons.vertical .gigantic.button:first-child {
+.ui.buttons.vertical .huge.button:first-child {
   margin-top: 0px;
   -moz-border-radius: 0.3125em 0.3125em 0px 0px;
   -webkit-border-radius: 0.3125em 0.3125em 0px 0px;
