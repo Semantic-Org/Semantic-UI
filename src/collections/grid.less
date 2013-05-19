@@ -283,10 +283,10 @@
        "Floated"
 -----------------------*/
 
-.ui.grid .left.aligned.column {
+.ui.grid .left.floated.column {
   float: left;
 }
-.ui.grid .right.aligned.column {
+.ui.grid .right.floated.column {
   float: right;
 }
 
@@ -352,13 +352,33 @@
   box-shadow: none;
 }
 
+/*----------------------
+  Horizontally Centered
+-----------------------*/
+
+/* Vertical Centered */
+.ui.left.aligned.grid .column,
+.ui.grid .left.aligned.column,
+.ui.grid > .left.aligned.row .column {
+  text-align: left;
+}
+.ui.center.aligned.grid .column,
+.ui.grid .center.aligned.column,
+.ui.grid > .center.aligned.row .column {
+  text-align: center;
+}
+.ui.right.aligned.grid .column,
+.ui.grid .right.aligned.column,
+.ui.grid > .right.aligned.row .column {
+  text-align: right;
+}
+
 
 /*----------------------
   Vertically Centered
 -----------------------*/
 
 /* Vertical Centered */
-
 .ui.top.aligned.grid .column,
 .ui.grid .top.aligned.column,
 .ui.grid > .top.aligned.row .column {

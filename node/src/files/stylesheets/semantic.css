@@ -474,33 +474,36 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
     opacity 0.3s ease-out
   ;
 }
-#example .icon.example .grid .column:hover {
-  opacity: 1;
-}
 #example .icon.example .column .icon {
   opacity: 1;
   color: #333333;
   display: block;
   margin: 0em auto 0.25em;
   font-size: 2em;
+
   -webkit-transition: 
-    color 0.2s ease-out
+    all 0.2s ease-out
   ;
   -moz-transition: 
-    color 0.2s ease-out
+    all 0.2s ease-out
   ;
   -o-transition: 
-    color 0.2s ease-out
+    all 0.2s ease-out
   ;
   -ms-transition: 
-    color 0.2s ease-out
+    all 0.2s ease-out
   ;
   transition: 
-    color 0.2s ease-out
+    all 0.2s ease-out
   ;
 }
 #example .icon.example .grid .column:hover .icon {
   color: #009FDA;
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
 }
 #example .another.icon.example {
   border-top: 1px solid rgba(0, 0, 0, 0.1);

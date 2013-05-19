@@ -28,6 +28,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/step.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/message.css">
