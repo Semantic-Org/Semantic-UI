@@ -193,8 +193,7 @@
 .ui.table tr td.disabled,
 .ui.table tr.disabled:hover td,
 .ui.table tr:hover td.disabled {
-  background-color: #FAFAFA !important;
-  color: rgba(150, 150, 150, 0.5);
+  color: rgba(150, 150, 150, 0.3);
 }
 /*******************************
              Variations
