@@ -10,13 +10,13 @@ module.exports = function(grunt) {
       // copies assets and js over to build dir
       'copy:toBuild',
 
-      // creates minified css of each
+      // creates minified css of each file
       'cssmin:minifyCSS',
 
-      // creates release css of all together
+      // creates release css 
       'cssmin:buildReleaseCSS',
 
-      // creates minified js of each
+      // creates minified js of each file
       'uglify:minifyJS',
 
       // creates release js of all together
@@ -212,7 +212,5 @@ module.exports = function(grunt) {
 
   grunt.initConfig(config);
 
-  // add watch task to default task
-  tasks.push('watch');
-  grunt.registerTask('default', tasks);
+  grunt.registerTask('default', [ 'watch' ]);
 };
