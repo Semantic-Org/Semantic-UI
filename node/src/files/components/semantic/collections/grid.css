@@ -38,8 +38,8 @@
   display: inline-block;
   text-align: left;
   font-size: 1rem;
-  padding-left: 1.33%;
-  padding-right: 1.33%;
+  padding-left: 2%;
+  padding-right: 2%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -259,6 +259,7 @@
 .ui.celled.grid > .column,
 .ui.celled.grid > .row > .column {
   display: table-cell;
+  padding: 2%;
   -webkit-box-shadow: -1px 0px 0px 0px #dfdfdf;
   -moz-box-shadow: -1px 0px 0px 0px #dfdfdf;
   box-shadow: -1px 0px 0px 0px #dfdfdf;
