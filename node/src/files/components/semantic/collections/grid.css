@@ -17,6 +17,7 @@
   display: block;
   text-align: center;
   font-size: 0em;
+  margin: 0% -1.33%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -38,8 +39,8 @@
   display: inline-block;
   text-align: left;
   font-size: 1rem;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 1.33%;
+  padding-right: 1.33%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -85,11 +86,15 @@
         Page
 --------------------*/
 .ui.page.grid {
+  margin: 0%:
   padding: 0% 5%;
 }
 /*-------------------
       Responsive
 --------------------*/
+.ui.responsive.grid {
+  margin: 0%;
+}
 @media only screen and (max-width: 1000px) {
   .ui.responsive.grid {
     padding: 0% 5.55%;
@@ -199,18 +204,11 @@
   width: 9.0909%;
 }
 /*-------------------
-       Fitted
+       Padded
 --------------------*/
-.ui.fitted.grid {
-  padding: 0%;
-}
-.ui.fitted.row {
-  padding-top: 0%;
-}
-.ui.fitted.grid .column,
-.ui.grid .fitted.column {
-  padding-left: 0%;
-  padding-right: 0%;
+.ui.padded.grid {
+  margin-left: 0%;
+  margin-right: 0%;
 }
 /*----------------------
        "Floated"
@@ -274,16 +272,19 @@
   Horizontally Centered
 -----------------------*/
 /* Vertical Centered */
+.ui.left.aligned.grid,
 .ui.left.aligned.grid .column,
 .ui.grid .left.aligned.column,
 .ui.grid > .left.aligned.row .column {
   text-align: left;
 }
+.ui.center.aligned.grid,
 .ui.center.aligned.grid .column,
 .ui.grid .center.aligned.column,
 .ui.grid > .center.aligned.row .column {
   text-align: center;
 }
+.ui.right.aligned.grid,
 .ui.right.aligned.grid .column,
 .ui.grid .right.aligned.column,
 .ui.grid > .right.aligned.row .column {
@@ -313,13 +314,6 @@
 -----------------------*/
 .ui.grid .equal.row .column {
   display: table-cell;
-}
-/*----------------------
-       Fitted
------------------------*/
-.ui.fitted.grid {
-  margin-left: -1.333%;
-  margin-right: -1.333%;
 }
 /*-------------------
        Folding

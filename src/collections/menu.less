@@ -844,7 +844,7 @@
 }
 .ui.text.menu .header.item {
   background-color: transparent;
-  margin: 0em 0.5em 0em 0em;
+  margin: 0em;
   padding: 0.35em 0.5em;
 
   opacity: 1;
@@ -853,6 +853,9 @@
   text-transform: uppercase;
   font-weight: bold;
 }
+.ui.text.menu .header.item > a {
+  background-color: transparent;
+}
 
 /*--- fluid text ---*/
 .ui.fluid.text.menu {
@@ -860,6 +863,9 @@
 }
 
 /*--- vertical text ---*/
+.ui.vertical.text.menu {
+  margin: 1rem 0em;
+}
 .ui.vertical.text.menu .item {
   float: left;
   clear: left;
@@ -1258,6 +1264,20 @@
 /*--------------
      Sizes
 ---------------*/
+
+
+.ui.tiny.menu .item {
+  font-size: 0.875rem;
+  padding: 0.35em 0.5em;
+}
+.ui.tiny.menu .item > a {
+  display: block;
+  margin: -0.35em -0.5em;
+  padding: 0.35em 0.5em;
+}
+.ui.tiny.vertical.menu {
+  width: 9rem;
+}
 
 .ui.small.menu .item {
   font-size: 0.875rem;

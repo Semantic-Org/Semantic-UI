@@ -40,7 +40,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/form.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/menu.css">
     
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/comment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/comment.css">
     
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
