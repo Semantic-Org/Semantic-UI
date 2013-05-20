@@ -315,6 +315,9 @@
   border-left: 0.2em solid rgba(50, 50, 50, 0.8);
   padding-top: 0.75em;
   padding-left: 0.75em;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
 }
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
@@ -334,8 +337,107 @@
   background-color: transparent;
 }
 /*******************************
-            Variations
+          Variations
 *******************************/
+/*******************************
+            Types
+*******************************/
+/*--------------
+    Vertical
+---------------*/
+.ui.vertical.menu .item {
+  display: block;
+  border-left: none;
+  border-right: none;
+}
+.ui.vertical.menu > .item:first-child {
+  border-radius: 0.325em 0.325em 0px 0px;
+}
+.ui.vertical.menu > .item:last-child {
+  border-radius: 0px 0px 0.325em 0.325em;
+}
+/*--- Border ---*/
+.ui.vertical.menu .item:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+}
+.ui.vertical.menu .item:first-child:before {
+  background-image: none;
+}
+/*--- Dropdown ---*/
+.ui.vertical.menu .dropdown.item > i {
+  float: right;
+}
+.ui.vertical.menu .dropdown.item .menu {
+  width: auto;
+  top: 0%;
+  left: 100%;
+  margin: 0px 0px 0px 1px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
+  border-left: 0.2em solid rgba(50, 50, 50, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1em;
+}
+.ui.vertical.menu .dropdown.item .menu .item {
+  font-size: 1em;
+}
+/*--- Sub Menu ---*/
+.ui.vertical.menu .item > .menu {
+  margin: 0.5em -1em 0em;
+}
+.ui.vertical.menu .item > .menu > .item > .icon {
+  margin-right: 0.7em;
+}
+.ui.vertical.menu .item > .menu > .item {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.85em;
+}
+.ui.vertical.menu .item > .menu > .item:before {
+  display: none;
+}
+.ui.vertical.menu .item > .menu > .item > a {
+  margin: -0.5rem -1.5rem;
+  padding: 0.5rem 1.5rem;
+}
+/*--------------
+     Tiered
+---------------*/
+.ui.tiered.menu .item.active {
+  box-shadow: 0 1px 0 0 #FBFBFB;
+}
+.ui.tiered.menu {
+  border-radius: 0px;
+}
+.ui.tiered.menu .secondary.menu {
+  background-color: rgba(0, 0, 0, 0.01);
+  border-radius: 0em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  color: #FFFFFF;
+}
+.ui.tiered.menu .secondary.menu .item {
+  font-size: 0.9rem;
+}
+.ui.tiered.menu .secondary.menu .item:after {
+  background-image: none;
+}
+.ui.tiered.menu .secondary.menu .active.item {
+  background-color: transparent;
+  border-radius: 0 0 0 0;
+  border-top: medium none;
+  box-shadow: none;
+}
 /*--------------
     Inverted
 ---------------*/
@@ -655,74 +757,6 @@
   display: block;
   font-size: 1.5em;
   margin: 0em auto 0.3em;
-}
-/*--------------
-    Vertical
----------------*/
-.ui.vertical.menu .item {
-  display: block;
-  border-left: none;
-  border-right: none;
-}
-.ui.vertical.menu > .item:first-child {
-  border-radius: 0.325em 0.325em 0px 0px;
-}
-.ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px 0.325em 0.325em;
-}
-/*--- Border ---*/
-.ui.vertical.menu .item:before {
-  position: absolute;
-  content: '';
-  top: 0%;
-  left: 0px;
-  width: 100%;
-  height: 1px;
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-}
-.ui.vertical.menu .item:first-child:before {
-  background-image: none;
-}
-/*--- Dropdown ---*/
-.ui.vertical.menu .dropdown.item > i {
-  float: right;
-}
-.ui.vertical.menu .dropdown.item .menu {
-  width: auto;
-  top: 0%;
-  left: 100%;
-  margin: 0px 0px 0px 1px;
-  -moz-border-radius: 0px 5px 5px 0px;
-  -webkit-border-radius: 0px 5px 5px 0px;
-  border-radius: 0px 5px 5px 0px;
-  border-left: 0.2em solid rgba(50, 50, 50, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 1em;
-}
-.ui.vertical.menu .dropdown.item .menu .item {
-  font-size: 1em;
-}
-/*--- Sub Menu ---*/
-.ui.vertical.menu .item > .menu {
-  margin: 0.5em -1em 0em;
-}
-.ui.vertical.menu .item > .menu > .item > .icon {
-  margin-right: 0.7em;
-}
-.ui.vertical.menu .item > .menu > .item {
-  padding: 0.5rem 1.5rem;
-  font-size: 0.85em;
-}
-.ui.vertical.menu .item > .menu > .item:before {
-  display: none;
-}
-.ui.vertical.menu .item > .menu > .item > a {
-  margin: -0.5rem -1.5rem;
-  padding: 0.5rem 1.5rem;
 }
 /*--------------
      Fitted

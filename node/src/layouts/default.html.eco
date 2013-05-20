@@ -2,6 +2,7 @@
 
 <% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
 <% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiViews           = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
 <% uiModules         = @getCollection("documents").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
 <% uiSpecification   = @getCollection("documents").findAllLive({type: $in: ['UI Specification']},[{title: 1}]).toJSON() %>
 <% currentCollection = @getCollection("documents").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
@@ -38,6 +39,8 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/table.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/form.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/menu.css">
+    
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/comment.css">
     
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
@@ -88,6 +91,14 @@
       <a href="/module.html"><b>UI Modules</b></a>
       <div class="menu">
         <% for element in uiModules: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <a href="/view.html"><b>UI Views</b></a>
+      <div class="menu">
+        <% for element in uiViews: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
         <% end %>
       </div>
