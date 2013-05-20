@@ -86,15 +86,11 @@
         Page
 --------------------*/
 .ui.page.grid {
-  margin: 0%;
-  padding: 0% 5%;
+  padding: 0% 2%;
 }
 /*-------------------
       Responsive
 --------------------*/
-.ui.responsive.grid {
-  margin: 0%;
-}
 @media only screen and (max-width: 1000px) {
   .ui.responsive.grid {
     padding: 0% 5.55%;
