@@ -429,7 +429,7 @@
 .ui.tiered.menu .secondary.menu .item {
   font-size: 0.9rem;
 }
-.ui.tiered.menu .secondary.menu .item:after {
+.ui.tiered.menu .secondary.menu .item:before {
   background-image: none;
 }
 .ui.tiered.menu .secondary.menu .active.item {
