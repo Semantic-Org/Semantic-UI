@@ -141,6 +141,12 @@
   box-shadow: 0px 0px 0px 1px #DDDDDD
   ;
 }
+.ui.attached.message .header {
+  font-size: 1.1em;
+}
+.ui.attached.message .icon {
+  float: right;
+}
 /*--------------
       Icon
 ---------------*/
