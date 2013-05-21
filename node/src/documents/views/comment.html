@@ -60,7 +60,7 @@ type   : 'UI View'
   
   <div class="example">
     <h4 class="ui header">Metadata</h4>
-    <p>A comment can optionally contain metadata about the comment, metadata can be an arbitrary length.</p>
+    <p>A comment can optionally contain metadata about the comment, an arbitrary amount of metadata may be defined.</p>
     <div class="ui comments">
       <div class="comment">
         <a class="avatar">
@@ -75,6 +75,64 @@ type   : 'UI View'
           <div class="text">
             I think this is a great idea and i am voting on it
           </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Actions</h4>
+    <p>A comment can contain an list of actions a user may perform related to this comment.</p>
+    <div class="ui comments">
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/dog.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Dog Doggington</a>
+          <div class="metadata">
+            <div class="date data">2 days ago</div>
+            <div class="stars data">5 stars</div>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+            <a class="delete">Delete</a>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Reply Form</h4>
+    <p>A comment can contain a form to reply to a comment. This may have arbitrary content.</p>
+    <div class="ui comments">
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/dog.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Dog Doggington</a>
+          <div class="metadata">
+            <div class="date data">2 days ago</div>
+            <div class="stars data">5 stars</div>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply active">Reply</a>
+            <a class="delete">Delete</a>
+          </div>
+          <form class="ui reply form">
+            <div class="field">
+              <textarea></textarea>
+            </div>
+            <div class="ui button teal submit labeled icon">
+              <i class="icon edit"></i> Add Comment
+            </div>
+          </form>
         </div>
     </div>
   </div>

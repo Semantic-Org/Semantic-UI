@@ -34,7 +34,7 @@ i.icon {
 
   margin: 0em 0.25em 0em 0em;
 
-  width: 1.2em;
+  width: 1.23em;
   height: 1em;
 
   font-family: 'Icons';
@@ -203,12 +203,16 @@ i.icon.zoom.out:before { content: '\e751'; } /* '' */
 i.icon.left,
 i.icon.left,
 i.icon.left {
+  width: auto;
+  vertical-align: middle;
   margin: 0em 0.5em 0em 0em;
 }
 
 i.icon.up,
 i.icon.down,
-i.icon.right, {
+i.icon.right {
+  width: auto;
+  vertical-align: middle;
   margin: 0em 0em 0em 0.1em;
 }
 
@@ -253,9 +257,14 @@ i.circular.icon {
   -moz-border-radius: 500px;
   border-radius: 500px;
 
-  padding: 0.5em;
-
+  padding: 0.35em;
   border: 1px solid rgba(0, 0, 0, 0.1);
+
+  width: 1.23em;
+  height: 1.23em;
+}
+i.circular.icon:before {
+  vertical-align: middle;
 }
 i.circular.inverted.icon {
   border: none;

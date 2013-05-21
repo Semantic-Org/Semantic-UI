@@ -554,15 +554,68 @@ Containing Icon
   vertical-align: top;
 }
 
+
 /*--------------
    Labeled Icon
 ---------------*/
+.ui.labeled.icon.buttons .button,
+.ui.labeled.icon.button {
+  position: relative;
+  padding: 0.8em 1.5em 0.8em 4em !important;
+}
 
 .ui.labeled.icon.buttons .button .icon,
 .ui.labeled.icon.button .icon {
-  display: block;
-  font-size: 1.5em;
-  margin: 0em auto 0.3em;
+  position: absolute;
+  top: 0em;
+  left: 0em;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 2.75em;
+  height: 100%;
+  padding-top: 0.8em;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+
+  -webkit-border-radius: 0.3125em 0px 0px 0.3125em;
+  -moz-border-radius: 0.3125em 0px 0px 0.3125em;
+  border-radius: 0.3125em 0px 0px 0.3125em;
+
+  line-height: 1;
+
+  -webkit-box-shadow: -2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  -moz-box-shadow: -2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: -2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+}
+
+.ui.labeled.icon.buttons .button .icon {
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+}
+.ui.labeled.icon.buttons .button:first-child  .icon {
+  border-top-left-radius: 0.3125em;
+  border-bottom-left-radius: 0.3125em;
+}
+.ui.labeled.icon.buttons .button:last-child .icon {
+  border-top-right-radius: 0.3125em;
+  border-bottom-right-radius: 0.3125em;
+}
+.ui.vertical.labeled.icon.buttons .button:first-child .icon {
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+  border-top-left-radius: 0.3125em;
+}
+.ui.vertical.labeled.icon.buttons .button:last-child .icon {
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+  border-bottom-left-radius: 0.3125em;
 }
 
 /*--------------
