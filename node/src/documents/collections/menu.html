@@ -7,7 +7,7 @@ type   : 'UI Collection'
 ---
 <div class="segment">
   <div class="container">
-    <h1>Menu</h1>
+    <h1 class="ui dividing header">Menu</h1>
     <p>A menu is a collection of interface elements usually showing several actions which a user can take</p>
   </div>
 </div>
@@ -22,9 +22,9 @@ type   : 'UI Collection'
     </div>
   </div>
 
-  <h2>Collection</h2>
+  <h2 class="ui dividing header">Collection</h2>
   <div class="example">
-    <h4>Menu</h4>
+    <h4 class="ui header">Menu</h4>
 
     <p>This example uses several menu elements to display the versatility of a menu collection.</p>
     <div class="ui menu">
@@ -34,7 +34,7 @@ type   : 'UI Collection'
       </a>
       <a class="item">
         <i class="icon mail"></i> Messages
-        <div class="left ui label">22</div>
+        <div class="ui label">22</div>
       </a>
       <div class="right menu">
         <div class="fitted borderless item">
@@ -54,13 +54,13 @@ type   : 'UI Collection'
   
 
   <div class="example">
-    <h4>Vertical Menu</h4>
+    <h4 class="ui header">Vertical Menu</h4>
     <p>A vertical menu can have its own sub menus. This example uses three levels of menu depth.</p>
     <div class="ui ignore warning message"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
     <div class="ui vertical menu">
       <div class="item">
         <i class="icon user"></i>
-        <b>Username</b>
+        <b>Zombo_213</b>
       </div>
       <div class="item">
         <p>Welcome to your profile. You can do anything you want on your profile.</p>
@@ -68,23 +68,28 @@ type   : 'UI Collection'
       <div class="item">
         <b>My Profile</b>
         <div class="menu">
-          <a class="active item"><i class="icon mail"></i>Messages 
-            <div class="ui teal label">2 new
-            </div>
+          <a class="active item">
+            Messages 
+            <div class="ui teal label">2 new</div>
           </a>
           <div class="item">
-            <i class="icon users"></i>Friends 
+            Friends 
+            <i class="icon users"></i>
             <div class="menu">
               <a class="item">Close Friends</a>
               <a class="item">School</a>
               <a class="item">Work</a>
             </div>
           </div>
-          <a class="item"><i class="icon bookmark"></i>Followers</a>
+          <a class="item">
+            Followers
+            <i class="icon bookmark"></i>
+          </a>
         </div>
       </div>
       <div class="dropdown item">
-        Actions <i class="icon right triangle"></i>
+        Actions 
+        <i class="icon right triangle"></i>
         <div class="menu">
           <div class="item">Search</div>
           <div class="item">Add</div>
@@ -95,7 +100,7 @@ type   : 'UI Collection'
   </div>
   
   <div class="example">
-    <h4>Tiered Menu</h4>
+    <h4 class="ui header">Tiered Menu</h4>
 
     <p>This example uses several menu elements to display the versatility of a menu collection.</p>
     <div class="ui tiered menu">
@@ -130,10 +135,10 @@ type   : 'UI Collection'
     </div>
   </div>
 
-  <h2>Elements</h2>
+  <h2 class="ui dividing header">Elements</h2>
 
   <div class="example">
-    <h4>Header Item</h4>
+    <h4 class="ui header">Header Item</h4>
     <p>A menu may have a header to help label sections of a menu. This can also be a <a href="/elements/header.html">ui header</a>.</p>
     <div class="ui vertical menu">
       <div class="header item">
@@ -159,7 +164,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Text Item</h4>
+    <h4 class="ui header">Text Item</h4>
     <p>A menu may have a simple text item.</p>
     <div class="ui ignore info message">
       <p><i class="icon heart"></i> Single paragraphs are automatically formatted as text. You can also specify an item as textual by adding the classname <b>text</b></p>
@@ -176,7 +181,7 @@ type   : 'UI Collection'
   
   
   <div class="example">
-    <h4>Link Item</h4>
+    <h4 class="ui header">Link Item</h4>
     <p>A menu may contain a link item, or an item formatted as if it is a link.</p>
     
     <div class="ui ignore info message">
@@ -193,7 +198,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Dropdown Item</h4>
+    <h4 class="ui header">Dropdown Item</h4>
     <p>An item may contain a nested menu in a dropdown.</p>
     <div class="ui ignore warning message">
       <p><i class="icon heart"></i>  A dropdown menu will, by default, automatically show when the parent element is hovered.</p>
@@ -211,7 +216,7 @@ type   : 'UI Collection'
     </div>
   </div>
   <div class="example">
-    <h4>Menu</h4>
+    <h4 class="ui header">Menu</h4>
     <p>A menu may contain another menu group in the same level as menu items.</p>
     <div class="ui menu">
       <a class="item">Browse</a>
@@ -224,7 +229,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Nested Menu</h4>
+    <h4 class="ui header">Nested Menu</h4>
     <p>A menu item may contain another menu nested inside that acts as a grouped sub-menu.</p>
     <div class="ui vertical menu">
       <a class="item"><b>Friends</b></a>
@@ -240,10 +245,10 @@ type   : 'UI Collection'
   </div>
 
 
-  <h2>States</h2>
+  <h2 class="ui dividing header">States</h2>
 
   <div class="example">
-    <h4>Hover</h4>
+    <h4 class="ui header">Hover</h4>
     <p>A menu item can be hovered</p>
     <div class="ui ignore warning message"><i class="icon heart"></i> Menu items are only hoverable if they are links, defined with the variant "link", or are given the class name hover programmatically.</div>
     <div class="ui compact menu">
@@ -255,7 +260,7 @@ type   : 'UI Collection'
 
 
   <div class="example">
-    <h4>Down</h4>
+    <h4 class="ui header">Down</h4>
     <p>A menu item can be pressed in</p>
     <div class="ui compact menu">
       <div class="down item">
@@ -265,7 +270,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Active</h4>
+    <h4 class="ui header">Active</h4>
     <p>A menu item can be active</p>
     <div class="ui compact menu">
       <div class="active item">
@@ -275,11 +280,11 @@ type   : 'UI Collection'
   </div>
 
 
-  <h2>Variations</h2>
+  <h2 class="ui dividing header">Variations</h2>
 
-  <h3>Menu</h3>
+  <h3 class="ui header">Menu</h3>
   <div class="example">
-    <h4>Inverted</h4>
+    <h4 class="ui header">Inverted</h4>
     <p>A menu may have its colors inverted to show greater contrast</p>
     <div class="ui inverted menu">
       <div class="item">
@@ -301,7 +306,7 @@ type   : 'UI Collection'
     </div>
   </div>
   <div class="example">
-    <h4>Colors</h4>
+    <h4 class="ui header">Colors</h4>
     <p>Additional colors can be specified.</p>
     <div class="ui green menu">
       <a class="active item">
@@ -421,7 +426,7 @@ type   : 'UI Collection'
   </div>
   
   <div class="example">
-    <h4>Basic</h4>
+    <h4 class="ui header">Basic</h4>
     <p>A menu may reduce its complexity to blend in with a page</p>
     <div class="ui segment">
       <div class="ui basic menu">
@@ -452,7 +457,7 @@ type   : 'UI Collection'
     </div>
   </div>
   <div class="example">
-    <h4>Text</h4>
+    <h4 class="ui header">Text</h4>
     <p>A menu can display simple text links</p>
     <div class="ui segment">
       <div class="ui text menu">
@@ -487,7 +492,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Colors</h4>
+    <h4 class="ui header">Colors</h4>
     <p>Additional colors can be specified</p>
     <div class="ui grey compact menu">
       <a class="item">
@@ -549,7 +554,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Icons</h4>
+    <h4 class="ui header">Icons</h4>
     <p>A menu may have just icons</p>
     <div class="ui icon menu">
       <a class="item">
@@ -577,7 +582,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Icons</h4>
+    <h4 class="ui header">Icons</h4>
     <p>A menu may have labeled icons</p>
     <div class="ui labeled icon menu">
       <a class="item">
@@ -612,7 +617,7 @@ type   : 'UI Collection'
 
 
   <div class="example">
-    <h4>Fluid</h4>
+    <h4 class="ui header">Fluid</h4>
     <p>A vertical menu may take the size of its container. (A horizontal menu does this by default) </p>
     <div class="ui fluid vertical menu">
       <a class="item">Run</a>
@@ -622,7 +627,7 @@ type   : 'UI Collection'
   </div>
   
   <div class="example">
-    <h4>Evenly sized items</h4>
+    <h4 class="ui header">Evenly sized items</h4>
     <p>A menu may divide its items evenly</p>
     <div class="ui fluid three item menu">
       <a class="item">Buy</a>
@@ -632,7 +637,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Pointing</h4>
+    <h4 class="ui header">Pointing</h4>
     <p>A menu can point to content below itself to show ownership</p>
     <div class="ui pointing menu">
       <div class="item">
@@ -683,7 +688,7 @@ type   : 'UI Collection'
 
 
   <div class="example">
-    <h4>Attached</h4>
+    <h4 class="ui header">Attached</h4>
     <p>A menu may be attached to other content segments</p>
     <div class="ui top attached pointing menu">
       <div class="item">
@@ -709,7 +714,7 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4>Horizontal Sizes</h4>
+    <h4 class="ui header">Horizontal Sizes</h4>
     <p>A horizontal menu can vary in size</p>
     <div class="ui large menu">
       <div class="item">
@@ -741,7 +746,7 @@ type   : 'UI Collection'
     </div>
   </div>
   <div class="example">
-    <h4>Vertical Sizes</h4>
+    <h4 class="ui header">Vertical Sizes</h4>
     <p>A vertical menu can vary in size</p>
     <div class="ui large vertical menu">
       <div class="item">
@@ -794,10 +799,10 @@ type   : 'UI Collection'
     </div>
   </div>
 
-  <h3>Items</h3>
+  <h3 class="ui header">Items</h3>
 
   <div class="example">
-    <h4>Fitted</h4>
+    <h4 class="ui header">Fitted</h4>
     <p>A menu item or menu might be fitted to remove element padding</p>
     <div class="ui menu">
       <div class="fitted item">
@@ -811,11 +816,11 @@ type   : 'UI Collection'
 
 
   <div class="example">
-    <h4>Borderless</h4>
+    <h4 class="ui header">Borderless</h4>
     <p>A menu item or menu might might have no dividers</p>
     <div class="ui borderless menu">
       <div class="item">
-        <i class="icon left-open"></i> Previous
+        <i class="icon left arrow"></i> Previous
       </div>
       <div class="item">1</div>
       <div class="item">2</div>
@@ -824,7 +829,7 @@ type   : 'UI Collection'
       <div class="item">5</div>
       <div class="item">6</div>
       <div class="item">
-        <i class="icon right-open"></i> Next
+        Next <i class="icon right arrow"></i>
       </div>
     </div>
   </div>
