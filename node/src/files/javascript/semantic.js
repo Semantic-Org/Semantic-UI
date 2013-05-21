@@ -3,6 +3,24 @@ window.semantic = {
   handler: {}
 };
 
+// Allow for console.log to not break IE
+if (typeof window.console == "undefined" || typeof window.console.log == "undefined") {
+  window.console = {
+    log  : function() {},
+    info : function(){},
+    warn : function(){}
+  };
+}
+if(typeof window.console.group == 'undefined' || typeof window.console.groupEnd == 'undefined' || typeof window.console.groupCollapsed == 'undefined') {
+  window.console.group = function(){};
+  window.console.groupEnd = function(){};
+  window.console.groupCollapsed = function(){};
+}
+if(typeof window.console.markTimeline == 'undefined') {
+  window.console.markTimeline = function(){};
+}
+window.console.clear = function(){};
+
 // ready event
 semantic.ready = function() {
 
@@ -96,7 +114,8 @@ semantic.ready = function() {
     createCode: function(type) {
       var
         $example   = $(this).closest('.example'),
-        $demo      = $example.children().not('p:not(.ui), h4:not(.ui), i.code, .annotated, .ignore'),
+        $header    = $example.children('.ui.header:first-of-type, p:first-of-type'),
+        $demo      = $example.children().not($header).not('i.code:first-child, .annotated, .ignore'),
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),
@@ -132,6 +151,7 @@ semantic.ready = function() {
       }
       if( ($demo.first().is(':visible') || type == 'developer') && type != 'designer' ) {
         $demo.hide();
+        $header.show();
         $annotated.fadeIn(500);
       }
       else {

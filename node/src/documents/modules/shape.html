@@ -8,7 +8,7 @@ type   : 'UI Module'
 
 <div class="segment">
   <div class="container">
-    <h1>Shape</h1>
+    <h1 class="ui dividing header">Shape</h1>
     <p>Shape is a plugin for 3D transitioning elements.</p>
   </div>
 </div>
@@ -27,9 +27,9 @@ type   : 'UI Module'
     
   <p>Click here to read more</a> about Semantic spec, and the upcoming library.</p>
 
-  <h2>Examples</h2>
+  <h2 class="ui dividing header">Examples</h2>
 
-  <h3>Standard</h3>
+  <h3 class="ui header">Standard</h3>
   <div class="demo square shape module">
     <div class="shape">
       <div class="active jira side">
@@ -44,14 +44,14 @@ type   : 'UI Module'
     </div>
   </div>
 
-  <h3>Shape</h3>
+  <h3 class="ui header">Shape</h3>
   <div class="ui shape buttons">
     <div class="active ui button" data-shape="square">Square</div>
     <div class="ui button" data-shape="rectangle">Rectangle</div>
     <div class="ui button" data-shape="irregular">Irregular</div>
   </div>
 
-  <h3>Flip</h3>
+  <h3 class="ui header">Flip</h3>
   <div class="ui direction buttons">
     <div class="ui button" data-animation="flip" data-direction="left">Left</div>
     <div class="ui button" data-animation="flip" data-direction="right">Right</div>
@@ -60,7 +60,7 @@ type   : 'UI Module'
     <div class="ui button" data-animation="flip" data-direction="over">Over</div>
   </div>
 
-  <h2>Usage</h2>
+  <h2 class="ui dividing header">Usage</h2>
 
   <p>The plugin must be initialized once before methods can be accessed</p>
   <div class="code">$('.shape')
@@ -83,8 +83,8 @@ type   : 'UI Module'
   .shape('repaint')
 ;</div>
 
-  <h2>Settings</h2>
-  <h3>Changing Settings</h3> 
+  <h2 class="ui dividing header">Settings</h2>
+  <h3 class="ui header">Changing Settings</h3> 
   <ol>
     <li>A settings object can be passed in when initializing the plugin
       <br> <div class="code">$('.foo')
@@ -100,9 +100,9 @@ type   : 'UI Module'
       <br><div class="code">$('.foo').shape('setting', 'moduleName', 'Godzilla');</div>
     </li>
   </ol>
-  <h3>Reading Settings</h3>
+  <h3 class="ui header">Reading Settings</h3>
   <p>Settings can also be read programmatically: <div class="code">$('.foo').shape('setting', 'moduleName');</div>
-  <h3>Defaults</h3>
+  <h3 class="ui header">Defaults</h3>
   <table class="ui settings table">
       <thead>
         <th colspan="3">Shape Settings</th>

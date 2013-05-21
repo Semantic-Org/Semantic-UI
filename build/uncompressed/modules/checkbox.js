@@ -66,6 +66,23 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        is: {
+          radio: function() {
+            return $module
+              .hasClass(className.radio)
+            ;
+          }
+        },
+
+        can: {
+          disable: function() {
+            return (typeof settings.required === 'boolean')
+              ? settings.required
+              : !module.is.radio()
+            ;
+          }
+        },
+
         destroy: function() {
           module.verbose('Destroying previous module for', $module);
           $module
@@ -98,10 +115,11 @@ $.fn.checkbox = function(parameters) {
         },
 
         toggle: function() {
-          if( $input.prop('checked') === undefined || !$input.prop('checked') ) {
+          if($input.prop('checked') === undefined || !$input.prop('checked')) {
             module.enable();
           }
-          else {
+          else if( module.can.disable() ) {
+            console.log(settings.required, module.can.disable());
             module.disable();
           }
         },
@@ -257,10 +275,11 @@ $.fn.checkbox.settings = {
 
   verbose     : true,
   debug       : true,
-  performance : true,
+  performance : false,
   
   // delegated event context
   context     : false,
+  required    : 'auto',
 
   onChange    : function(){},
   onEnable    : function(){},
@@ -275,7 +294,8 @@ $.fn.checkbox.settings = {
   },
 
   className : {
-    active : 'active'
+    active : 'active',
+    radio  : 'radio'
   }
 
 };
