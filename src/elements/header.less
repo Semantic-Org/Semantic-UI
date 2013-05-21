@@ -16,13 +16,25 @@
 
 /* Standard */
 .ui.header {
-  line-height: 1.33;
 
+  border: none;
+  margin: 1em 0em 1rem;
+  padding: 0em;
+  
   font-size: 1.33em;
   font-weight: bold;
+  line-height: 1.33;
+}
 
+.ui.header .ui.sub.header,
+.ui.header .sub.header {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0em;
   padding: 0em;
-  border: none;
+
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /* Positioning */
@@ -40,27 +52,22 @@
 
 h1.ui.header {
   min-height: 1rem;
-  margin: 2rem 0rem 1.5rem;
   line-height: 1.33;
   font-size: 2rem;
 }
 h2.ui.header {
-  margin: 1.5rem 0rem 1rem;
   line-height: 1.33;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 h3.ui.header {
-  margin: 1.3rem 0rem 1rem;
   line-height: 1.33;
   font-size: 1.33rem;
 }
 h4.ui.header {
-  margin: 0.75rem 0rem 0.3rem;
   line-height: 1.33;
   font-size: 1.1rem;
 }
 h5.ui.header {
-  margin: 0rem 0rem 0.2rem;
   line-height: 1.2;
   font-size: 1rem;
 }
@@ -69,28 +76,20 @@ h5.ui.header {
  Content Heading
 ---------------*/
 
-.huge.ui.header {
+.ui.huge.header {
   min-height: 1em;
-  line-height: 1.33em;
   font-size: 2em;
 }
-.large.ui.header {
-  line-height: 1.33em;
-  font-size: 1.5em;
+.ui.large.header {
+  font-size: 1.75em;
 }
-.medium.ui.header {
-  margin-bottom: 0.25em;
-  line-height: 1.33em;
-  font-size: 1.25em;
+.ui.medium.header {
+  font-size: 1.33em;
 }
-.small.ui.header {
-  margin-bottom: 0.25em;
-  line-height: 1.33em;
+.ui.small.header {
   font-size: 1.1em;
 }
-.tiny.ui.header {
-  margin-bottom: 0em;
-  line-height: 1.2em;
+.ui.tiny.header {
   font-size: 1em;
 }
 
@@ -106,18 +105,6 @@ h5.ui.header {
 /*******************************
            Variations
 *******************************/
-
-
-/*-------------------
-      Inverted 
---------------------*/
-
-.ui.inverted.header {
-  background-color: #222222;
-  padding: 0.7em 1em;
-  color: #FFFFFF;
-}
-
 
 /*-------------------
        Colors
@@ -141,6 +128,41 @@ h5.ui.header {
 .ui.teal.header {
   color: #00B5AD !important;
 }
+
+.ui.blue.block.header {
+  background-color: #E6EEF1;
+  border-left: 0.2em solid #6ECFF5;
+}
+.ui.black.block.header {
+  background-color: #EAEAEA;
+  border-left: 0.2em solid #5C6166;
+}
+.ui.green.block.header {
+  background-color: #EFF8E4;
+  border-left: 0.2em solid #A1CF64;
+}
+.ui.red.block.header {
+  background-color: #F6E5E8;
+  border-left: 0.2em solid #EF4D6D;
+}
+.ui.purple.block.header {
+  background-color: #EFEDF8;
+  border-left: 0.2em solid #564F8A;
+}
+.ui.teal.block.header {
+  background-color: #E9F7F6;
+  border-left: 0.2em solid #00B5AD;
+}
+
+/*-------------------
+      Inverted 
+--------------------*/
+
+.ui.inverted.header {
+  background-color: #222222;
+  color: #FFFFFF;
+}
+
 
 /*-------------------
    Inverted Colors
@@ -171,6 +193,10 @@ h5.ui.header {
   color: #FFFFFF !important;
 }
 
+.ui.inverted.block.header {
+  border-left: none;
+}
+
 /*-------------------
        Aligned
 --------------------*/
@@ -198,9 +224,22 @@ h5.ui.header {
 }
 
 /*-------------------
+        Block
+--------------------*/
+
+.ui.block.header {
+  background-color: #F0F0F0;
+  padding: 0.5em 1em;  
+}
+
+/*-------------------
       Dividing
 --------------------*/
 
+.ui.dividing.header {
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
 
 /*-------------------
        Attached
@@ -244,4 +283,3 @@ h5.ui.header {
   margin: 0rem auto 2rem;
   padding: 0em;
 }
-

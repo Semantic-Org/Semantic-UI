@@ -229,15 +229,10 @@
 .ui.menu .item > a > .label {
   font-size: 0.9em;
   line-height: 1.33;
-  margin: -0.2em 0.6em;
+  margin: 0em 0em -0.3em 0.3em;
   padding: 0.2em 0.6em;
-  vertical-align: top;
+  vertical-align: baseline;
   text-transform: none;
-}
-.ui.vertical.menu .item > .label,
-.ui.vertical.menu .item > a > .label {
-  display: block;
-  float: right;
 }
 /*--------------
       Images
@@ -265,8 +260,6 @@
 }
 .ui.menu .dropdown.item.hover,
 .ui.menu .dropdown.item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: rgba(170, 170, 170, 0.6);
   -webkit-border-bottom-right-radius: 0em;
   -moz-border-bottom-right-radius: 0em;
   border-bottom-right-radius: 0em;
@@ -319,6 +312,11 @@
   -moz-border-radius: 0px 5px 5px 0px;
   border-radius: 0px 5px 5px 0px;
 }
+.ui.vertical.menu .active.item,
+.ui.vertical.menu > .item:first-child,
+.ui.vertical.menu > .item:last-child {
+  border-radius: 0em;
+}
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
 }
@@ -339,9 +337,6 @@
 /*******************************
           Variations
 *******************************/
-/*******************************
-            Types
-*******************************/
 /*--------------
     Vertical
 ---------------*/
@@ -355,6 +350,10 @@
 }
 .ui.vertical.menu > .item:last-child {
   border-radius: 0px 0px 0.325em 0.325em;
+}
+.ui.vertical.menu .item > .icon {
+  float: right;
+  margin: 0em 0em 0em 0.2em;
 }
 /*--- Border ---*/
 .ui.vertical.menu .item:before {
@@ -381,7 +380,6 @@
   width: auto;
   top: 0%;
   left: 100%;
-  margin: 0px 0px 0px 1px;
   -moz-border-radius: 0px 5px 5px 0px;
   -webkit-border-radius: 0px 5px 5px 0px;
   border-radius: 0px 5px 5px 0px;
@@ -395,9 +393,6 @@
 /*--- Sub Menu ---*/
 .ui.vertical.menu .item > .menu {
   margin: 0.5em -1em 0em;
-}
-.ui.vertical.menu .item > .menu > .item > .icon {
-  margin-right: 0.7em;
 }
 .ui.vertical.menu .item > .menu > .item {
   padding: 0.5rem 1.5rem;
@@ -528,7 +523,6 @@
 .ui.grey.menu {
   background-color: #F0F0F0;
 }
-/*--- Inverted Colors  ---*/
 .ui.green.menu .active.item {
   border-color: #A1CF64;
 }
@@ -693,7 +687,16 @@
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-.ui.basic.menu .item {
+.ui.basic.menu {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+.ui.basic.menu > .item {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -703,19 +706,22 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-.ui.basic.menu .item:before {
+.ui.basic.menu > .item:before {
   display: none;
 }
 /* active */
-.ui.basic.menu .active.item {
+.ui.basic.menu > .active.item {
   border-top: none;
   background-color: rgba(0, 0, 0, 0.08);
 }
-.ui.basic.inverted.menu .active.item {
+.ui.basic.inverted.menu > .active.item {
   background-color: rgba(255, 255, 255, 0.2);
 }
 /* disable variations */
-.ui.basic.pointing.menu item.active:after {
+.ui.basic.item.menu > .item {
+  margin: 0em;
+}
+.ui.basic.pointing.menu > item.active:after {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

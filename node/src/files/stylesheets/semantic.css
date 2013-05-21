@@ -167,7 +167,7 @@ h1 {
   padding: 50px 0px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-h1 {
+/* h1 {
   margin: 0px auto;
   font-size: 38px;
 }
@@ -190,7 +190,7 @@ h4 {
   font-size: 18px;
   font-weight: bold;
   color: #555555;
-}
+} */
 h4 + p {
   margin: 0px 0px 20px;
 }
@@ -762,6 +762,9 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 #example h3 + .example i.code,
 #example h4 + .example i.code {
   top: 0px;
+}
+#example .example h4 {
+  margin-bottom: 0em;
 }
 #example .example {
   margin: 1em 0em;

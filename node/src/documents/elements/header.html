@@ -7,7 +7,7 @@ type   : 'UI Element'
 ---
 <div class="segment">
   <div class="container">
-  <h1>Header</h1>
+  <h1 class="ui dividing header">Header</h1>
   <p>Headers provide a short summary of content</p>
   </div>
 </div>
@@ -20,12 +20,12 @@ type   : 'UI Element'
       <a class="item">Variations</a> 
     </div>
   </div>
-  <h2>Standard</h2>
+  <h2 class="ui dividing header">Standard</h2>
   
   <div class="example">
-    <h4>Page Headings</h4>
-    <p>Page headings are ordered headings showing the structure of content on a page. There size is always relative to the page's font size</p>
-    <div class="ui top attached segment">
+    <h4 class="ui header">Page Headings</h4>
+      <p class="header">Page headings are ordered headings showing the structure of content on a page. There size is always relative to the page's font size</p>
+    <div class="ui basic vertical segment">
       <h1 class="ui header">First header</h1>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
       <h2 class="ui header">Second header</h2>
@@ -37,47 +37,47 @@ type   : 'UI Element'
       <h5 class="ui header">Fifth header</h5>
       <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
     </div>
-    <div class="ui two item bottom attached small basic font menu">
+    <div class="ui two item font menu">
       <a class="increase item"> <i class="icon plus"></i> Base Font</a>
       <a class="decrease item"> <i class="icon minus"></i> Base Font</a>
     </div>
   </div>
   
   <div class="example">
-    <h4>Content Headings</h4>
+    <h4 class="ui header">Content Headings</h4>
     <p>Content headings are specified by their size and will change their size relative to the font-size of the content that surrounds it.</p>
-    <div class="ui top attached segment">
-      <h3 class="ui huge header">Huge Header</h3>
+    <div class="ui basic vertical segment">
+      <div class="ui huge header">Huge Header</div>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-      <h3 class="ui large header">Large Header</h3>
+      <div class="ui large header">Large Header</div>
       <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-      <h3 class="ui medium header">Medium Header</h3>
+      <div class="ui medium header">Medium Header</div>
       <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-      <h3 class="ui small header">Small Header</h3>
+      <div class="ui small header">Small Header</div>
       <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-      <h3 class="ui tiny header">Tiny Header</h3>
+      <div class="ui tiny header">Tiny Header</div>
       <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
     </div>
-    <div class="ui two item bottom attached small basic font menu">
+    <div class="ui two item font menu">
       <a class="increase item"> <i class="icon plus"></i> Base Font</a>
       <a class="decrease item"> <i class="icon minus"></i> Base Font</a>
     </div>
   </div>
 
-  <h2>States</h2>
+  <h2 class="ui dividing header">States</h2>
   
   <div class="example">
-    <h4>Disabled</h4>
+    <h4 class="ui header">Disabled</h4>
     <p>A header can show that its inactive</p>
     <div class="ui disabled header">
       Disabled Header
     </div>
   </div>
   
-  <h2>Variations</h2>
+  <h2 class="ui dividing header">Variations</h2>
   
   <div class="example">
-    <h4>Icon</h4>
+    <h4 class="ui header">Icon</h4>
     <p>A header can be formatted to emphasize an icon</p>
     <h1 class="ui icon header">
       <i class="icon mail"></i>
@@ -86,7 +86,7 @@ type   : 'UI Element'
   </div>
   
   <div class="example">
-    <h4>Floating</h4>
+    <h4 class="ui header">Floating</h4>
     <p>A header can sit to the left or right of other content</p>
     <div class="ui segment">
       <h3 class="ui right floated header">
@@ -98,7 +98,7 @@ type   : 'UI Element'
     </div>
   </div>
   <div class="example">
-    <h4>Text Alignment</h4>
+    <h4 class="ui header">Text Alignment</h4>
     <p>A header can have its text aligned to a side</p>
     <div class="ui segment">
       <h3 class="ui right aligned header">
@@ -114,7 +114,7 @@ type   : 'UI Element'
   </div>
   
   <div class="example">
-    <h4>Colors</h4>
+    <h4 class="ui header">Colors</h4>
     <p>A header can be formatted with different colors</p>
     <h5 class="ui black header">
       Black
@@ -135,9 +135,41 @@ type   : 'UI Element'
       Teal
     </h5>
   </div>
+  <div class="another example">
+    <h5 class="ui black block header">
+      Black
+    </h5>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h5 class="ui blue block header">
+      Blue
+    </h5>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h5 class="ui red block header">
+      Red
+    </h5>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h5 class="ui green block header">
+      Green
+    </h5>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h5 class="ui purple block header">
+      Purple
+    </h5>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h5 class="ui teal block header">
+      Teal
+    </h5>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+  </div>
+  
   
   <div class="example">
-    <h4>Inverted</h4>
+    <h4 class="ui header">Inverted</h4>
     <p>A header can have its colors inverted for contrast</p>
     <h5 class="ui inverted black header">
       Black
@@ -158,10 +190,41 @@ type   : 'UI Element'
       Teal
     </h5>
   </div>
+  <div class="another example">
+    <h4 class="ui black inverted block header">
+      Black
+    </h4>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h4 class="ui blue inverted block header">
+      Blue
+    </h4>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h4 class="ui red inverted block header">
+      Red
+    </h4>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h4 class="ui green inverted block header">
+      Green
+    </h4>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h4 class="ui purple inverted block header">
+      Purple
+    </h4>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    
+    <h4 class="ui teal inverted block header">
+      Teal
+    </h4>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+  </div>
   
 <!--   
 <div class="example">
-  <h4>Dividing</h4>
+  <h4 class="ui header">Dividing</h4>
   <p>A header can be formatted to be displayed with a divider</p>
   <h1 class="ui dividing header">
     <i class="icon easel"></i>
@@ -170,7 +233,7 @@ type   : 'UI Element'
 </div> -->
   
   <div class="example">
-    <h4>Attached</h4>
+    <h4 class="ui header">Attached</h4>
     <p>A header can be attached to other content</p>
     <h3 class="ui top attached header">
       Sign Up For Our Site
@@ -184,10 +247,4 @@ type   : 'UI Element'
     </h3>
     
   </div>
-  
-  
-  <h2>Groups</h2>
-  
-  
-  
 </div>
