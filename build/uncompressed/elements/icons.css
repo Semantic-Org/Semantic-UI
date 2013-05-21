@@ -591,10 +591,18 @@ i.icon.disabled {
 /*******************************
            Variations
 *******************************/
-i.emphasized.icon {
-  opacity: 1;
+/*-------------------
+      Circular 
+--------------------*/
+i.circular.icon {
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
   padding: 0.5em;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+i.circular.inverted.icon {
+  border: none;
 }
 /*-------------------
       Inverted 
@@ -665,13 +673,25 @@ i.icon {
 }
 i.large.icon {
   font-size: 1.5em;
+  margin-right: 0.5em;
   vertical-align: middle;
 }
 i.huge.icon {
   font-size: 2em;
+  margin-right: 0.75em;
   vertical-align: middle;
 }
 i.massive.icon {
   font-size: 4em;
+  margin-right: 1em;
+  vertical-align: middle;
+}
+/*-------------------
+      Emphasized 
+--------------------*/
+i.emphasized.icon {
+  opacity: 1;
+  padding: 0.5em;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   vertical-align: middle;
 }
