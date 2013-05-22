@@ -536,6 +536,11 @@ i.icon.zoom.out:before {
 /*--------------
    Spacing Fix
 ---------------*/
+/* stars are usually consecutive */
+i.icon.star {
+  width: auto;
+  margin: 0em;
+}
 i.icon.left,
 i.icon.left,
 i.icon.left {

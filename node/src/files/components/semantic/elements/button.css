@@ -75,6 +75,11 @@
 .ui.buttons .button.active,
 .ui.button.active {
   background-color: #E6E6E6;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.15)), to(rgba(0, 0, 0, 0.15)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%);
   -webkit-box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset;
   -moz-box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset;
   box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset;
@@ -230,7 +235,7 @@
 .ui.buttons.black .button:active,
 .ui.button.black.down,
 .ui.button.black:active {
-  background-color: #888888;
+  background-color: #666666;
   color: #FFFFFF;
 }
 /*--- Green ---*/
@@ -250,7 +255,7 @@
 .ui.buttons.green .button:active,
 .ui.button.green.down,
 .ui.button.green:active {
-  background-color: #89B84C;
+  background-color: #7AAA3D;
   color: #FFFFFF;
 }
 /*--- Red ---*/
@@ -270,7 +275,7 @@
 .ui.buttons.red .button:active,
 .ui.button.red.down,
 .ui.button.red:active {
-  background-color: #DE3859;
+  background-color: #CD2D4D;
   color: #FFFFFF;
 }
 /*--- Blue ---*/
@@ -290,7 +295,7 @@
 .ui.buttons.blue .button:active,
 .ui.button.blue.down,
 .ui.button.blue:active {
-  background-color: #1AB8F3;
+  background-color: #0AA5DF;
   color: #FFFFFF;
 }
 /*--- Purple ---*/
@@ -310,7 +315,7 @@
 .ui.buttons.purple .button:active,
 .ui.button.purple.down,
 .ui.button.purple:active {
-  background-color: #3E3773;
+  background-color: #2E2860;
   color: #FFFFFF;
 }
 /*--- Teal ---*/
@@ -330,7 +335,7 @@
 .ui.buttons.teal .button:active,
 .ui.button.teal.down,
 .ui.button.teal:active {
-  background-color: #009A93;
+  background-color: #00847E;
   color: #FFFFFF;
 }
 /*---------------
@@ -345,14 +350,14 @@
 .ui.buttons.positive .button:hover,
 .ui.button.positive.hover,
 .ui.button.positive:hover {
-  background-color: #7DDC5C;
+  background-color: #89B84C;
   color: #FFFFFF;
 }
 .ui.buttons.positive .button.down,
 .ui.buttons.positive .button:active,
 .ui.button.positive.down,
 .ui.button.positive:active {
-  background-color: #7DDC5C;
+  background-color: #7AAA3D;
   color: #FFFFFF;
 }
 /*---------------
@@ -374,7 +379,7 @@
 .ui.buttons.negative .button:active,
 .ui.button.negative.down,
 .ui.button.negative:active {
-  background-color: #DE3859;
+  background-color: #CD2D4D;
   color: #FFFFFF;
 }
 /*-------------------
