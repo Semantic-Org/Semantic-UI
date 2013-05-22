@@ -24,7 +24,7 @@
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
-
+    
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/icons.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">

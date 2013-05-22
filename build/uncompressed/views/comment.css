@@ -95,7 +95,12 @@
 ---------------------*/
 .ui.comments .reply.form {
   margin-top: 0.5em;
-  width: 30em;
+  width: 100%;
+  max-width: 30em;
+}
+.ui.comments > .reply.form {
+  margin-top: 1.5em;
+  max-width: 40em;
 }
 .ui.comments .reply.form textarea {
   height: 12em;
@@ -131,10 +136,32 @@
 /*******************************
            Variations
 *******************************/
+/*--------------------
+        Threaded
+---------------------*/
 .ui.threaded.comments .comment .comments {
   margin-left: 1.5em !important;
   padding-left: 1.5em !important;
   -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
   box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+}
+/*--------------------
+        Minimal
+---------------------*/
+.ui.minimal.comments .comment .actions {
+  opacity: 0;
+  -webkit-transition: opacity 0.1s ease-out;
+  -moz-transition: opacity 0.1s ease-out;
+  -o-transition: opacity 0.1s ease-out;
+  -ms-transition: opacity 0.1s ease-out;
+  transition: opacity 0.1s ease-out;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+  -ms-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+.ui.minimal.comments .comment > .content:hover > .actions {
+  opacity: 1;
 }

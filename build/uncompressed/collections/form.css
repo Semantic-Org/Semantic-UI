@@ -118,7 +118,7 @@
 .ui.form input:focus,
 .ui.form textarea:focus {
   color: rgba(20, 20, 20, 0.9);
-  border-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 /*--------------------
         Error
