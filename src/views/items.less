@@ -43,47 +43,18 @@
 ---------------*/
 
 .ui.items .item {
+  display: block;
   float: left;
-  display: block;
-
-  margin: 1em 0.5em 2.5em;
-  padding: 0em;
-
-  width: 100%;
-  margin: 0%;
-  font-size: 1em;
-  line-height: 1.2;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.ui.items .item a {
-  cursor: pointer;
-}
-
-.ui.items .item > .image,
-.ui.items .item > .image .overlay,
-.ui.items .item > .content,
-.ui.items .item > .content > .meta,
-.ui.items .item > .content > .extra {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.ui.items .item {
-  display: block;
   position: relative;
 
   width: 316px;
   min-height: 375px;
-  margin: 1em 0.5em;
+  margin: 1em 0.5em 2.5em;
+  padding: 0em;
 
   background-color: #FFFFFF;
+  line-height: 1.2;
+  font-size: 1em;
 
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -96,6 +67,21 @@
   border-radius: 0.33em;
 
   padding: 0.5em;
+}
+.ui.items .item a {
+  cursor: pointer;
+}
+
+.ui.items .item,
+.ui.items .item > .image,
+.ui.items .item > .image .overlay,
+.ui.items .item > .content,
+.ui.items .item > .content > .meta,
+.ui.items .item > .content > .extra {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /*--------------
