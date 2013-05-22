@@ -1,0 +1,297 @@
+---
+layout : 'default'
+css    : 'items'
+
+title  : 'Items'
+type   : 'UI View'
+---
+<div class="segment">
+  <div class="container">
+  <h1 class="ui dividing header">Items</h1>
+  <p>An item view is a generic list of site content, and can be useful for displaying a wide variety of named image content.</p>
+  </div>
+</div>
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing menu">
+      <a class="active item">Standard</a>
+      <a class="item">Content</a>
+      <a class="item">Variations</a>
+    </div>
+  </div>
+  
+  <h2 class="ui dividing header">Standard</h2>
+  
+  <div class="example">
+    <h4 class="ui header">Items</h4>
+    <p>A basic item list. </p>
+    <div class="ignored error ui message">
+      <i class="info icon"></i>
+      Items are given an arbitrary width and height which matches up to the proportions of the content it typically displays. This means metadata must be truncated to ensure content fits well.
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <div class="image">
+          <a class="like label">
+            <i class="like icon"></i>
+          </a>
+          <img src="/images/demo/item1.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Cute Dog</div>
+          <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          <div class="extra">
+              199 votes
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="like label">
+            <i class="like icon"></i>
+          </a>
+          <img src="/images/demo/item2.jpg">
+        </div>
+        <div class="content">
+          <div class="meta">5 days ago</div>
+          <div class="name">Faithful Dog</div>
+          <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          <div class="extra">
+              311 votes
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="like label">
+            <i class="like icon"></i>
+          </a>
+          <img src="/images/demo/item3.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Silly Dog</div>
+          <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+          <div class="extra">
+              522 votes
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <h2 class="ui dividing header">Variations</h2>
+  
+  <div class="example">
+    <h4 class="ui header">Connected</h4>
+    <p>An item list can be automatically sized to be even height.</p>
+    <div class="ignored warning ui message">
+      <i class="info icon"></i>
+      Connected item lists cannot display extra information. A connected row must also assume an arbitrary column width unless specified.
+    </div>
+    <div class="ui connected items">
+      <div class="row">
+        <div class="item">
+          <div class="image">
+            <a class="star label">
+              <i class="star icon"></i>
+            </a>
+            <img src="/images/demo/item4.jpg">
+          </div>
+          <div class="content">
+            <div class="name">Cute Dog</div>
+            <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <a class="star label">
+              <i class="star icon"></i>
+            </a>
+            <img src="/images/demo/item5.jpg">
+          </div>
+          <div class="content">
+            <div class="meta">5 days ago</div>
+            <div class="name">Faithful Dog</div>
+            <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <a class="star label">
+              <i class="star icon"></i>
+            </a>
+            <img src="/images/demo/item3.jpg">
+          </div>
+          <div class="content">
+            <div class="name">Silly Dog</div>
+            <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="item">
+          <div class="image">
+            <a class="star label">
+              <i class="star icon"></i>
+            </a>
+            <img src="/images/demo/item2.jpg">
+          </div>
+          <div class="content">
+            <div class="name">Cute Dog</div>
+            <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <a class="star label">
+              <i class="star icon"></i>
+            </a>
+            <img src="/images/demo/item1.jpg">
+          </div>
+          <div class="content">
+            <div class="meta">5 days ago</div>
+            <div class="name">Faithful Dog</div>
+            <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="image">
+            <a class="star label">
+              <i class="star icon"></i>
+            </a>
+            <img src="/images/demo/item4.jpg">
+          </div>
+          <div class="content">
+            <div class="name">Silly Dog</div>
+            <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="example">
+    <h4 class="ui header">Column count</h4>
+    <p>An item list can list how many columns should exist in a row</p>
+    <div class="ui four items">
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item4.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Cute Dog</div>
+          <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item5.jpg">
+        </div>
+        <div class="content">
+          <div class="meta">5 days ago</div>
+          <div class="name">Faithful Dog</div>
+          <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item3.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Silly Dog</div>
+          <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item2.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Happy Dog</div>
+          <p class="description">Happy dogs are pretty interesting if you are an unhappy person.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <p>A connected item list with a specified column count</p>
+    <div class="ui five connected items">
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item4.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Cute Dog</div>
+          <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item5.jpg">
+        </div>
+        <div class="content">
+          <div class="meta">5 days ago</div>
+          <div class="name">Faithful Dog</div>
+          <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item3.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Silly Dog</div>
+          <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item2.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Happy Dog</div>
+          <p class="description">Happy dogs are pretty interesting if you are an unhappy person.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <a class="star label">
+            <i class="star icon"></i>
+          </a>
+          <img src="/images/demo/item1.jpg">
+        </div>
+        <div class="content">
+          <div class="name">Quiet Dog</div>
+          <p class="description">A quiet dog is nice if you dont like a lot of upkeep for your dogs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

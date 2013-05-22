@@ -25,26 +25,27 @@
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
     
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/icons.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/label.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/step.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/message.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/icons.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/segment.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/grid.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/items.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/table.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/step.css">
+    
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/form.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/grid.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/menu.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/message.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/table.css">
     
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/comment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/items.css">
     
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/checkbox.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/sidr.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
@@ -59,9 +60,9 @@
   <script src="/javascript/library/waypoints.js"></script>
 
   <script src="/components/semantic/modules/behavior/state.js"></script>
-  <script src="/components/semantic/modules/shape.js"></script>
   <script src="/components/semantic/modules/checkbox.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
+  <script src="/components/semantic/modules/shape.js"></script>
 
   <script src="/javascript/semantic.js"></script>
   <script src="/javascript/shape.js"></script>

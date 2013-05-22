@@ -53,7 +53,8 @@
 .ui.items .item > .image,
 .ui.items .item > .image .overlay,
 .ui.items .item > .content,
-.ui.items .item > .meta {
+.ui.items .item > .content > .meta,
+.ui.items .item > .content > .extra {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -212,8 +213,10 @@
 ---------------*/
 .ui.items .item .extra {
   position: absolute;
+  width: 100%;
+  padding: 0em 0.5em;
   bottom: -2em;
-  left: 0.5em;
+  left: 0em;
   height: 1.5em;
   color: rgba(0, 0, 0, 0.25);
 }

@@ -971,3 +971,11 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
     margin: 0px auto;
   }
 }
+@media only screen and (min-width : 1600px) {
+  #example .container {
+    width: 1100px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: -780px;
+  }
+}
