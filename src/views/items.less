@@ -9,12 +9,18 @@
  *
  * Released: April 17 2013
  */
+
+
 /*******************************
             Standard
 *******************************/
+
+
 /*--------------
       Items
 ---------------*/
+
+
 /* Force Clearing */
 .ui.items:after {
   display: block;
@@ -24,64 +30,83 @@
   overflow: hidden;
   visibility: hidden;
 }
+
 /* prevents reflow bug in chrome by targeting webkit browser */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .ui.items > .item {
     display: block;
   }
 }
+
 /*--------------
       Item
 ---------------*/
+
 .ui.items .item {
   float: left;
   display: block;
+
   margin: 1em 0.5em 2.5em;
   padding: 0em;
+
   width: 100%;
   margin: 0%;
   font-size: 1em;
   line-height: 1.2;
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 .ui.items .item a {
   cursor: pointer;
 }
+
 .ui.items .item > .image,
 .ui.items .item > .image .overlay,
 .ui.items .item > .content,
-.ui.items .item > .meta {
+.ui.items .item > .content > .meta,
+.ui.items .item > .content > .extra {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 .ui.items .item {
   display: block;
   position: relative;
+
   width: 316px;
   min-height: 375px;
   margin: 1em 0.5em;
+
   background-color: #FFFFFF;
+
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+
   border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
+
   -moz-border-radius: 0.33em;
   -webkit-border-radius: 0.33em;
   border-radius: 0.33em;
+
   padding: 0.5em;
 }
+
 /*--------------
       Images
 ---------------*/
+
 .ui.items .item > .image {
   display: block;
   position: relative;
   background-color: rgba(0, 0, 0, 0.05);
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -96,33 +121,41 @@
   -moz-border-radius: 0.22em;
   border-radius: 0.22em;
 }
+
 /*--------------
   Image Labels
 ---------------*/
+
 .ui.items .item .label:after {
-  position: absolute;
-  content: "";
-  right: 0em;
-  top: 0em;
-  z-index: -1;
-  width: 0em;
-  height: 0em;
-  border-color: transparent #F5F5F5 transparent transparent;
-  border-style: solid;
-  border-width: 0em 2.75em 2.75em 0em;
+    position: absolute;
+    content: "";
+    right: 0em;
+    top: 0em;
+    z-index: -1;
+
+    width: 0em;
+    height: 0em;
+
+    border-color: transparent #F5F5F5 transparent transparent;
+    border-style: solid;
+    border-width: 0em 2.75em 2.75em 0em;
+
 }
 .ui.items .item .label {
-  position: absolute;
-  top: 0em;
-  right: 0em;
-  z-index: 10;
-  width: 1.4em;
-  height: 1.5em;
-  padding: 0.1em 0.1em 0em 0em;
-  color: #AAAAAA;
-  font-size: 0.9em;
-  text-align: center;
+    position: absolute;
+    top: 0em;
+    right: 0em;
+    z-index: 10;
+
+    width: 1.4em;
+    height: 1.5em;
+    padding: 0.1em 0.1em 0em 0em;
+
+    color: #AAAAAA;
+    font-size: 0.9em;
+    text-align: center;
 }
+
 /* Hover */
 .ui.items .item a.label:hover {
   color: #999999;
@@ -130,49 +163,59 @@
 .ui.items .item a.label:hover::after {
   border-right-color: #EEEEEE;
 }
+
 /*--------------
    Star Label
 ---------------*/
+
 /* hover */
 .ui.items .item a.star.label:hover::after {
   border-right-color: #F6EFC3;
 }
 .ui.items .item a.star.label:hover .icon {
-  color: #ac9400;
+  color: #AC9400
 }
 /* active */
 .ui.items .item a.star.label.active::after {
   border-right-color: #F6EFC3;
 }
 .ui.items .item a.star.label.active .icon {
-  color: #ac9400;
+  color: #AC9400
 }
+
 /*--------------
    Like Label
 ---------------*/
+
 /* hover */
 .ui.items .item a.like.label:hover::after {
   border-right-color: #F5E1E2;
 }
 .ui.items .item a.like.label:hover .icon {
-  color: #ef404a;
+  color: #EF404A
 }
 /* active */
 .ui.items .item a.like.label.active::after {
   border-right-color: #F5E1E2;
 }
 .ui.items .item a.like.label.active .icon {
-  color: #ef404a;
+  color: #EF404A
 }
+
+
 /*--------------
   Common Labels
 ---------------*/
+
 .ui.items .item a.label:hover .like {
   color: #EF404A;
 }
 .ui.items .item a.label:hover .star {
   color: #928D44;
 }
+
+
+
 /*--------------
      Content
 ---------------*/
@@ -181,6 +224,7 @@
 }
 .ui.items .item > .content > .name {
   display: block;
+
   font-size: 1.25em;
   font-weight: bold;
   margin-bottom: 0.2em;
@@ -197,9 +241,11 @@
 .ui.items .item > .content > .description p:last-child {
   margin-bottom: 0em;
 }
+
 /*--------------
       Meta
 ---------------*/
+
 .ui.items .item .meta {
   float: right;
   color: rgba(0, 0, 0, 0.35);
@@ -207,13 +253,18 @@
 .ui.items .item > .content > .meta + .name {
   float: left;
 }
+
+
 /*--------------
       Extra
 ---------------*/
+
 .ui.items .item .extra {
   position: absolute;
+  width: 100%;
+  padding: 0em 0.5em;
   bottom: -2em;
-  left: 0.5em;
+  left: 0em;
   height: 1.5em;
   color: rgba(0, 0, 0, 0.25);
 }
@@ -230,12 +281,17 @@
 .ui.items .item .extra .right {
   float: right;
 }
+
+
 /*******************************
            Variations
 *******************************/
+
+
 /*--------------
     Connected
 ---------------*/
+
 .ui.connected.items {
   display: table;
   width: 100%;
@@ -256,6 +312,7 @@
 .ui.connected.items > .row {
   display: table-row;
 }
+
 .ui.connected.items > .item,
 .ui.connected.items > .row:last-child > .item {
   border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
@@ -268,6 +325,7 @@
 .ui.connected.items > .item:last-child {
   border-radius: 0em 0em 0.33em 0em;
 }
+
 .ui.two.connected.items > .row > .item,
 .ui.two.connected.items > .item {
   width: 50%;
@@ -334,6 +392,9 @@
   padding-left: 0.1%;
   padding-right: 0.1%;
 }
+
+
+
 /*--------------
     Horizontal
 ---------------*/
@@ -341,7 +402,9 @@
 .ui.items > .horizontal.item {
   display: table;
 }
-.ui.horizontal.items > .item > .image .ui.items > .horizontal.item > .image {
+
+.ui.horizontal.items > .item > .image
+.ui.items > .horizontal.item > .image {
   display: table-cell;
   width: 50%;
 }
@@ -355,6 +418,7 @@
   padding: 1% 1.7% 11% 3%;
   vertical-align: top;
 }
+
 .ui.horizontal.items > .item > .meta,
 .ui.items > .horizontal.item > .meta {
   position: absolute;
@@ -369,16 +433,21 @@
   left: 53%;
   width: 44%;
 }
+
+
 .ui.horizontal.items > .item .avatar,
 .ui.items > .horizontal.item .avatar {
   width: 11.5%;
 }
+
 .ui.items > .item .avatar {
   max-width: 25px;
 }
+
 /*--------------
     Item Count
 ---------------*/
+
 .ui.two.items {
   margin-left: -1%;
   margin-right: -1%;
@@ -391,6 +460,7 @@
 .ui.two.items > .item:nth-child(2n+1) {
   clear: left;
 }
+
 .ui.three.items {
   margin-left: -1%;
   margin-right: -1%;
@@ -403,6 +473,7 @@
 .ui.three.items > .item:nth-child(3n+1) {
   clear: left;
 }
+
 .ui.four.items {
   margin-left: -0.5%;
   margin-right: -0.5%;
@@ -415,6 +486,7 @@
 .ui.four.items > .item:nth-child(4n+1) {
   clear: left;
 }
+
 .ui.five.items {
   margin-left: -0.5%;
   margin-right: -0.5%;
@@ -427,6 +499,7 @@
 .ui.five.items > .item:nth-child(5n+1) {
   clear: left;
 }
+
 .ui.six.items {
   margin-left: -0.5%;
   margin-right: -0.5%;
@@ -439,6 +512,7 @@
 .ui.six.items > .item:nth-child(6n+1) {
   clear: left;
 }
+
 .ui.seven.items {
   margin-left: -0.5%;
   margin-right: -0.5%;
@@ -452,6 +526,7 @@
 .ui.seven.items > .item:nth-child(7n+1) {
   clear: left;
 }
+
 .ui.eight.items {
   margin-left: -0.25%;
   margin-right: -0.25%;
@@ -465,6 +540,7 @@
 .ui.eight.items > .item:nth-child(8n+1) {
   clear: left;
 }
+
 .ui.nine.items {
   margin-left: -0.25%;
   margin-right: -0.25%;
@@ -478,6 +554,7 @@
 .ui.nine.items > .item:nth-child(9n+1) {
   clear: left;
 }
+
 .ui.ten.items {
   margin-left: -0.2%;
   margin-right: -0.2%;
@@ -491,6 +568,7 @@
 .ui.ten.items > .item:nth-child(10n+1) {
   clear: left;
 }
+
 .ui.eleven.items {
   margin-left: -0.2%;
   margin-right: -0.2%;
@@ -504,6 +582,7 @@
 .ui.eleven.items > .item:nth-child(11n+1) {
   clear: left;
 }
+
 .ui.twelve.items {
   margin-left: -0.1%;
   margin-right: -0.1%;
@@ -517,3 +596,4 @@
 .ui.twelve.items > .item:nth-child(12n+1) {
   clear: left;
 }
+

@@ -1,6 +1,6 @@
 ---
 layout : 'default'
-css    : 'progress'
+css    : 'comment'
 
 title  : 'Comments'
 type   : 'UI View'
@@ -15,7 +15,7 @@ type   : 'UI View'
 
   <div class="peek">
     <div class="ui vertical pointing menu">
-      <a class="active item">Example</a>
+      <a class="active item">Standard</a>
       <a class="item">Content</a>
       <a class="item">Variations</a>
     </div>
@@ -25,17 +25,47 @@ type   : 'UI View'
   
   <div class="example">
     <h4 class="ui header">Comments</h4>
-    <p>A basic comment with only required sections</p>
+    <p>A basic list of comments</p>
+    
     <div class="ui comments">
       <div class="comment">
-        <a class="author">Dog Doggington</a>
-        <div class="text">
-          I think this is a great idea and i am voting on it
+        <a class="avatar">
+          <img src="/images/demo/avatar.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Dog Doggington</a>
+          <div class="metadata">
+            <span class="date">2 days ago</span>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+            <a class="delete">Delete</a>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/avatar2.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Pawfin Dog</a>
+          <div class="metadata">
+            <span class="date">2 days ago</span>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+            <a class="delete">Delete</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
   <h2 class="ui dividing header">Content</h2>
   
   <h3 class="ui header">Comment</h3>
@@ -46,7 +76,7 @@ type   : 'UI View'
     <div class="ui comments">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
@@ -64,13 +94,19 @@ type   : 'UI View'
     <div class="ui comments">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
           <div class="metadata">
             <div class="date">2 days ago</div>
-            <div class="stars">5 stars</div>
+            <div class="stars">
+              <i class="icon star"></i>
+              <i class="icon star"></i>
+              <i class="icon star"></i>
+              <i class="icon empty star"></i>
+              <i class="icon empty star"></i>
+            </div>
           </div>
           <div class="text">
             I think this is a great idea and i am voting on it
@@ -85,13 +121,19 @@ type   : 'UI View'
     <div class="ui comments">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
           <div class="metadata">
             <div class="date">2 days ago</div>
-            <div class="stars">5 stars</div>
+            <div class="stars">
+              <i class="icon star"></i>
+              <i class="icon star"></i>
+              <i class="icon star"></i>
+              <i class="icon empty star"></i>
+              <i class="icon empty star"></i>
+            </div>
           </div>
           <div class="text">
             I think this is a great idea and i am voting on it
@@ -110,7 +152,7 @@ type   : 'UI View'
     <div class="ui comments">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
@@ -141,7 +183,7 @@ type   : 'UI View'
     <div class="ui comments">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
@@ -159,7 +201,7 @@ type   : 'UI View'
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog2.jpg">
+          <img src="/images/demo/avatar2.jpg">
         </a>
         <div class="content">
           <a class="author">Pawfin Dog</a>
@@ -194,7 +236,7 @@ type   : 'UI View'
     <div class="ui threaded comments">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
@@ -212,7 +254,7 @@ type   : 'UI View'
         <div class="comments">
           <div class="comment">
             <a class="avatar">
-              <img src="/images/demo/dog2.jpg">
+              <img src="/images/demo/avatar2.jpg">
             </a>
             <div class="content">
               <a class="author">Pawfin Dog</a>
@@ -230,7 +272,7 @@ type   : 'UI View'
             <div class="comments">
               <div class="comment">
                 <a class="avatar">
-                  <img src="/images/demo/dog.jpg">
+                  <img src="/images/demo/avatar.jpg">
                 </a>
                 <div class="content">
                   <a class="author">Dog Doggington</a>
@@ -248,7 +290,7 @@ type   : 'UI View'
               </div>
               <div class="comment">
                 <a class="avatar">
-                  <img src="/images/demo/dog.jpg">
+                  <img src="/images/demo/avatar.jpg">
                 </a>
                 <div class="content">
                   <a class="author">Dog Doggington</a>
@@ -268,7 +310,7 @@ type   : 'UI View'
           </div>
           <div class="comment">
             <a class="avatar">
-              <img src="/images/demo/dog.jpg">
+              <img src="/images/demo/avatar.jpg">
             </a>
             <div class="content">
               <a class="author">Dog Doggington</a>
@@ -288,7 +330,7 @@ type   : 'UI View'
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
@@ -305,7 +347,7 @@ type   : 'UI View'
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog2.jpg">
+          <img src="/images/demo/avatar2.jpg">
         </a>
         <div class="content">
           <a class="author">Pawfin Dog</a>
@@ -330,7 +372,7 @@ type   : 'UI View'
     <div class="ui minimal comments">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
@@ -348,7 +390,7 @@ type   : 'UI View'
         <div class="comments">
           <div class="comment">
             <a class="avatar">
-              <img src="/images/demo/dog2.jpg">
+              <img src="/images/demo/avatar2.jpg">
             </a>
             <div class="content">
               <a class="author">Pawfin Dog</a>
@@ -366,7 +408,7 @@ type   : 'UI View'
             <div class="comments">
               <div class="comment">
                 <a class="avatar">
-                  <img src="/images/demo/dog.jpg">
+                  <img src="/images/demo/avatar.jpg">
                 </a>
                 <div class="content">
                   <a class="author">Dog Doggington</a>
@@ -384,7 +426,7 @@ type   : 'UI View'
               </div>
               <div class="comment">
                 <a class="avatar">
-                  <img src="/images/demo/dog.jpg">
+                  <img src="/images/demo/avatar.jpg">
                 </a>
                 <div class="content">
                   <a class="author">Dog Doggington</a>
@@ -404,7 +446,7 @@ type   : 'UI View'
           </div>
           <div class="comment">
             <a class="avatar">
-              <img src="/images/demo/dog.jpg">
+              <img src="/images/demo/avatar.jpg">
             </a>
             <div class="content">
               <a class="author">Dog Doggington</a>
@@ -424,7 +466,7 @@ type   : 'UI View'
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog.jpg">
+          <img src="/images/demo/avatar.jpg">
         </a>
         <div class="content">
           <a class="author">Dog Doggington</a>
@@ -441,7 +483,7 @@ type   : 'UI View'
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/dog2.jpg">
+          <img src="/images/demo/avatar2.jpg">
         </a>
         <div class="content">
           <a class="author">Pawfin Dog</a>
