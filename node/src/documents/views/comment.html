@@ -42,7 +42,7 @@ type   : 'UI View'
   
   <div class="example">
     <h4 class="ui header">Avatar</h4>
-    <p>A comment can optionally contain an image or avatar</p>
+    <p>A comment can contain an image or avatar</p>
     <div class="ui comments">
       <div class="comment">
         <a class="avatar">
@@ -60,7 +60,7 @@ type   : 'UI View'
   
   <div class="example">
     <h4 class="ui header">Metadata</h4>
-    <p>A comment can optionally contain metadata about the comment, an arbitrary amount of metadata may be defined.</p>
+    <p>A comment can contain metadata about the comment, an arbitrary amount of metadata may be defined.</p>
     <div class="ui comments">
       <div class="comment">
         <a class="avatar">
@@ -90,8 +90,8 @@ type   : 'UI View'
         <div class="content">
           <a class="author">Dog Doggington</a>
           <div class="metadata">
-            <div class="date data">2 days ago</div>
-            <div class="stars data">5 stars</div>
+            <div class="date">2 days ago</div>
+            <div class="stars">5 stars</div>
           </div>
           <div class="text">
             I think this is a great idea and i am voting on it
@@ -115,13 +115,7 @@ type   : 'UI View'
         <div class="content">
           <a class="author">Dog Doggington</a>
           <div class="metadata">
-            <div class="date data">2 days ago</div>
-            <div class="stars data">
-              <i class="icon star"></i>
-              <i class="icon star"></i>
-              <i class="icon star"></i>
-              <i class="icon half star"></i>
-            </div>
+            <div class="date">2 days ago</div>
           </div>
           <div class="text">
             I think this is a great idea and i am voting on it
@@ -135,10 +129,59 @@ type   : 'UI View'
               <textarea></textarea>
             </div>
             <div class="ui button teal submit labeled icon">
-              <i class="icon edit"></i> Add Comment
+              <i class="icon edit"></i> Add Reply
             </div>
           </form>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <p>A comment reply form can also exist below a comment feed to reply specifically to the original content.
+    <div class="ui comments">
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/dog.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Dog Doggington</a>
+          <div class="metadata">
+            <div class="date">2 days ago</div>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+            <a class="delete">Delete</a>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/dog2.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Pawfin Dog</a>
+          <div class="metadata">
+            <div class="date">1 day ago</div>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+      <form class="ui reply form">
+        <div class="field">
+          <textarea></textarea>
+        </div>
+        <div class="ui button teal submit labeled icon">
+          <i class="icon edit"></i> Add Comment
+        </div>
+      </form>
     </div>
   </div>
   
@@ -149,6 +192,142 @@ type   : 'UI View'
     <h4 class="ui header">Threaded</h4>
     <p>A comment list can be threaded to showing the relationship between conversations</p>
     <div class="ui threaded comments">
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/dog.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Dog Doggington</a>
+          <div class="metadata">
+            <span class="date">2 days ago</span>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+            <a class="delete">Delete</a>
+          </div>
+        </div>
+        <div class="comments">
+          <div class="comment">
+            <a class="avatar">
+              <img src="/images/demo/dog2.jpg">
+            </a>
+            <div class="content">
+              <a class="author">Pawfin Dog</a>
+              <div class="metadata">
+                <span class="date">1 day ago</span>
+              </div>
+              <div class="text">
+                I think this is a great idea and i am voting on it
+              </div>
+              <div class="actions">
+                <a class="reply">Reply</a>
+                <a class="delete">Delete</a>
+              </div>
+            </div>
+            <div class="comments">
+              <div class="comment">
+                <a class="avatar">
+                  <img src="/images/demo/dog.jpg">
+                </a>
+                <div class="content">
+                  <a class="author">Dog Doggington</a>
+                  <div class="metadata">
+                    <span class="date">20 minutes ago</span>
+                  </div>
+                  <div class="text">
+                    I think this is a great idea and i am voting on it
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                    <a class="delete">Delete</a>
+                  </div>
+                </div>
+              </div>
+              <div class="comment">
+                <a class="avatar">
+                  <img src="/images/demo/dog.jpg">
+                </a>
+                <div class="content">
+                  <a class="author">Dog Doggington</a>
+                  <div class="metadata">
+                    <span class="date">20 minutes ago</span>
+                  </div>
+                  <div class="text">
+                    Also pizza.
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                    <a class="delete">Delete</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="comment">
+            <a class="avatar">
+              <img src="/images/demo/dog.jpg">
+            </a>
+            <div class="content">
+              <a class="author">Dog Doggington</a>
+              <div class="metadata">
+                <span class="date">2 days ago</span>
+              </div>
+              <div class="text">
+                I think this is a great idea and i am voting on it
+              </div>
+              <div class="actions">
+                <a class="reply">Reply</a>
+                <a class="delete">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/dog.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Dog Doggington</a>
+          <div class="metadata">
+            <span class="date">20 hours ago</span>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/dog2.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Pawfin Dog</a>
+          <div class="metadata">
+            <span class="date">15 hours ago</span>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="example">
+    <h4 class="ui header">Minimal</h4>
+    <p>Comments can hide extra information unless a user shows intent to interact with a comment.</p>
+    <div class="ui minimal comments">
       <div class="comment">
         <a class="avatar">
           <img src="/images/demo/dog.jpg">

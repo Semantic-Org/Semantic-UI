@@ -49,12 +49,9 @@ i.icon {
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
-
 }
 
 /* icons available */
-
-
 i.icon.circle.attention:before { content: '\2757'; } /* '❗' */
 i.icon.circle.help:before { content: '\e704'; } /* '' */
 i.icon.circle.info:before { content: '\e705'; } /* '' */
@@ -156,7 +153,7 @@ i.icon.question:before { content: '\2753'; } /* '❓' */
 i.icon.home:before { content: '\2302'; } /* '⌂' */
 i.icon.i:before { content: '\2139'; } /* 'ℹ' */
 i.icon.idea:before { content: '💡'; } /* '\1f4a1' */
-i.icon.link.open:before { content: '🔗'; } /* '\1f517' */
+i.icon.open:before { content: '🔗'; } /* '\1f517' */
 i.icon.content:before { content: '\e782'; } /* '' */
 i.icon.location:before { content: '\e724'; } /* '' */
 i.icon.mail:before { content: '\2709'; } /* '✉' */
@@ -204,13 +201,13 @@ i.icon.zoom.out:before { content: '\e751'; } /* '' */
 i.icon.star {
   width: auto;
   margin: 0em;
+  vertical-align: middle;
 }
 
 i.icon.left,
 i.icon.left,
 i.icon.left {
   width: auto;
-  vertical-align: middle;
   margin: 0em 0.5em 0em 0em;
 }
 
@@ -218,7 +215,6 @@ i.icon.up,
 i.icon.down,
 i.icon.right {
   width: auto;
-  vertical-align: middle;
   margin: 0em 0em 0em 0.1em;
 }
 
@@ -244,6 +240,14 @@ i.icon.date:before { content: '📅'; } /* '\1f4c5' */
              States
 *******************************/
 
+i.icon.hover {
+  opacity: 1;
+}
+
+i.icon.active {
+  opacity: 1;
+}
+
 i.icon.disabled {
   opacity: 0.3;
 }
@@ -253,6 +257,22 @@ i.icon.disabled {
            Variations
 *******************************/
 
+/*-------------------
+         Link 
+--------------------*/
+
+i.link.icon {
+  cursor: pointer;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+.link.icon:hover {
+  opacity: 1;
+}
 
 /*-------------------
       Circular 
