@@ -24,16 +24,11 @@
   overflow: hidden;
   visibility: hidden;
 }
-/* prevents reflow bug in chrome by targeting webkit browser */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .ui.items > .item {
-    display: block;
-  }
-}
 /*--------------
       Item
 ---------------*/
-.ui.items .item {
+.ui.items > .row > .item,
+.ui.items > .item {
   display: block;
   float: left;
   position: relative;
@@ -314,6 +309,12 @@
   border-bottom-width: 0.2em;
 }
 /* Item Count */
+.ui.one.connected.items > .row > .item,
+.ui.one.connected.items > .item {
+  width: 50%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
 .ui.two.connected.items > .row > .item,
 .ui.two.connected.items > .item {
   width: 50%;
@@ -425,6 +426,15 @@
 /*--------------
     Item Count
 ---------------*/
+.ui.one.items {
+  margin-left: -2%;
+  margin-right: -2%;
+}
+.ui.one.items > .item {
+  width: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
 .ui.two.items {
   margin-left: -1%;
   margin-right: -1%;

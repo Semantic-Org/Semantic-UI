@@ -102,8 +102,7 @@ type   : 'UI Collection'
   
   <div class="example">
     <h4 class="ui header">Tiered Menu</h4>
-
-    <p>This example uses several menu elements to display the versatility of a menu collection.</p>
+    <p>A tiered menu can show the sub-sections available as part of an activated section.</p>
     <div class="ui tiered menu">
       <div class="menu">
         <a class="active item">
@@ -111,28 +110,79 @@ type   : 'UI Collection'
           Friends
         </a>
         <a class="item">
-          <i class="icon mail"></i> Messages
-          <div class="left ui label">22</div>
+          <i class="icon layout grid"></i> Browse
         </a>
-        <div class="right menu">
-          <div class="fitted borderless item">
-              <input class="ui input" type="text" placeholder="Search...">
-          </div>
-          <div class="dropdown item">
-            <i class="icon layout list"></i>
-            <div class="menu">
-              <div class="item">Invite Friends</div>
-              <div class="item">Contact Us</div>
-              <div class="item">About</div>
-            </div>
-          </div>
-        </div>
+        <a class="item">
+          <i class="icon mail"></i> Messages
+        </a>
       </div>
+      <div class="ui sub menu">
+        <a class="active item">Search</a>
+        <a class="item">Add</a>
+        <a class="item">Remove</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Secondary Menu</h4>
+    <p>A secondary menu allows for a section of content on a page to be activated</p>
+    <div class="ui segment">
       <div class="ui secondary menu">
-        <div class="active item">Search</div>
-        <div class="item">Add</div>
-        <div class="item">Remove</div>
+        <a class="active item">
+          Summary
+        </a>
+        <a class="item">
+          Followers
+        </a>
+        <a class="item">
+          Following
+        </a>
       </div>
+      <br><br>
+      <div class="ui secondary pointing menu">
+        <a class="active item">
+          Summary
+        </a>
+        <a class="item">
+          Followers
+        </a>
+        <a class="item">
+          Following
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Text</h4>
+    <p>A menu can display simple text links</p>
+    <div class="ui text menu">
+      <div class="header item">Sort</div>
+      <a class="item">
+        Newest
+      </a>
+      <a class="active item">
+        Oldest
+      </a>
+      <a class="item">
+        First
+      </a>
+    </div>
+  </div>
+  <div class="another example">
+    <p>A vertical text menu</p>
+    <div class="ui text vertical menu">
+      <div class="header item">Filter By</div>
+      <a class="item">
+        Close-by
+      </a>
+      <a class="active item">
+        Available Now
+      </a>
+      <a class="item">
+        No Tax
+      </a>
     </div>
   </div>
 
@@ -140,9 +190,10 @@ type   : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Header Item</h4>
-    <p>A menu may have a header to help label sections of a menu. This can also be a <a href="/elements/header.html">ui header</a>.</p>
+    <p>A menu may have a header to help label sections of a menu.</p>
     <div class="ui vertical menu">
       <div class="header item">
+        <i class="icon community"></i>
         Dogs
       </div>
       <div class="item">
@@ -151,7 +202,7 @@ type   : 'UI Collection'
       <div class="item">
         Cockerspaniel
       </div>
-      <div class="ui black inverted header item">
+      <div class="header item">
         <i class="icon users"></i>
         Users
       </div>
@@ -172,10 +223,10 @@ type   : 'UI Collection'
     </div>
     <div class="ui vertical menu">
       <div class="item">
-        <p>Are you ready to try out a pro membership?</p>
+        <p><a>Join now</a> and save $10!</p>
       </div>
       <div class="item">
-        <p>Welcome back <i class="icon user"></i><b>username</b></p>
+        <p>Welcome back <b>username</b></p>
       </div>
     </div>
   </div>
@@ -311,16 +362,10 @@ type   : 'UI Collection'
     <p>Additional colors can be specified.</p>
     <div class="ui green menu">
       <a class="active item">
-        Home
+        Green 1
       </a>
       <a class="item">
-        Shop
-      </a>
-      <a class="item">
-        Create
-      </a>
-      <a class="item">
-        Submit
+        Green 2
       </a>
     </div>
     <br>
@@ -375,7 +420,7 @@ type   : 'UI Collection'
       <a class="item">
         Green 1
       </a>
-      <a class="item">
+      <a class="active item">
         Green 2
       </a>
     </div>
@@ -384,7 +429,7 @@ type   : 'UI Collection'
       <a class="item">
         Red 1
       </a>
-      <a class="item">
+      <a class="active item">
         Red 2
       </a>
     </div>
@@ -393,7 +438,7 @@ type   : 'UI Collection'
       <a class="item">
         Blue 1
       </a>
-      <a class="item">
+      <a class="active item">
         Blue 2
       </a>
     </div>
@@ -402,7 +447,7 @@ type   : 'UI Collection'
       <a class="item">
         Purple 1
       </a>
-      <a class="item">
+      <a class="active item">
         Purple 2
       </a>
     </div>
@@ -411,7 +456,7 @@ type   : 'UI Collection'
       <a class="item">
         Orange 1
       </a>
-      <a class="item">
+      <a class="active item">
         Orange 2
       </a>
     </div>
@@ -420,139 +465,12 @@ type   : 'UI Collection'
       <a class="item">
         Teal 1
       </a>
-      <a class="item">
+      <a class="active item">
         Teal 2
       </a>
     </div>
   </div>
   
-  <div class="example">
-    <h4 class="ui header">Basic</h4>
-    <p>A menu may reduce its complexity to blend in with a page</p>
-    <div class="ui segment">
-      <div class="ui basic menu">
-        <a class="active item">
-          Summary
-        </a>
-        <a class="item">
-          Followers
-        </a>
-        <a class="item">
-          Following
-        </a>
-      </div>
-    </div>
-
-    <div class="ui inverted segment">
-      <div class="ui inverted basic menu">
-        <a class="active item">
-          Summary
-        </a>
-        <a class="item">
-          Followers
-        </a>
-        <a class="item">
-          Following
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="example">
-    <h4 class="ui header">Text</h4>
-    <p>A menu can display simple text links</p>
-    <div class="ui segment">
-      <div class="ui text menu">
-        <div class="header item">Showing:</div>
-        <a class="item">
-          Newest
-        </a>
-        <a class="active item">
-          Oldest
-        </a>
-        <a class="item">
-          First
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui segment">
-      <div class="ui text vertical menu">
-        <div class="header item">Filter By</div>
-        <a class="item">
-          Close-by
-        </a>
-        <a class="active item">
-          Available Now
-        </a>
-        <a class="item">
-          No Tax
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Colors</h4>
-    <p>Additional colors can be specified</p>
-    <div class="ui grey compact menu">
-      <a class="item">
-        Grey 1
-      </a>
-      <a class="item">
-        Grey 2
-      </a>
-    </div>
-    <div class="ui green inverted compact menu">
-      <a class="item">
-        Green 1
-      </a>
-      <a class="item">
-        Green 2
-      </a>
-    </div>
-    <div class="ui red inverted compact menu">
-      <a class="item">
-        Red 1
-      </a>
-      <a class="item">
-        Red 2
-      </a>
-    </div>
-    <div class="ui blue inverted compact menu">
-      <a class="item">
-        Blue 1
-      </a>
-      <a class="item">
-        Blue 2
-      </a>
-    </div>
-    <br><br>
-    <div class="ui purple inverted compact menu">
-      <a class="item">
-        Purple 1
-      </a>
-      <a class="item">
-        Purple 2
-      </a>
-    </div>
-    <div class="ui orange inverted compact menu">
-      <a class="item">
-        Orange 1
-      </a>
-      <a class="item">
-        Orange 2
-      </a>
-    </div>
-    <div class="ui teal inverted compact menu">
-      <a class="item">
-        Teal 1
-      </a>
-      <a class="item">
-        Teal 2
-      </a>
-    </div>
-  </div>
 
   <div class="example">
     <h4 class="ui header">Icons</h4>

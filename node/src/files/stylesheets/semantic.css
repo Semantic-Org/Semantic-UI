@@ -879,9 +879,13 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 
+#example .ui.type.items > .item {
+  min-height: 255px;
+}
 
 #example .ui.type.items > .item > .image {
   padding: 1em;
+  height: 165px;
   vertical-align: middle;
 }
 

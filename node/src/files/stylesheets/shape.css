@@ -3,6 +3,50 @@
         Shapes Example
 *******************************/
 
+#example .dog.shape {
+  float: left;
+  margin: 0 1em 3em 0;
+}
+
+#example .dog.shape .side .item {
+  margin: 0em;
+  min-height: 400px;
+}
+#example .dog.two.shape .side {
+  width: 315px;
+}
+#example .dog.two.shape .side:nth-child(n+1),
+#example .dog.two.shape .side:nth-child(n+1) .item {
+  width: 315px;
+}
+#example .dog.two.shape .side:nth-child(n+2),
+#example .dog.two.shape .side:nth-child(n+2) .item {
+  width: 150px;
+}
+#example .dog.two.shape .side:nth-child(n+3),
+#example .dog.two.shape .side:nth-child(n+3) .item {
+  width: 200px;
+}
+
+#example .dog.three.shape .side:nth-child(n+1),
+#example .dog.three.shape .side:nth-child(n+1) .item {
+  width: 215px;
+}
+#example .dog.three.shape .side:nth-child(n+2),
+#example .dog.three.shape .side:nth-child(n+2) .item {
+  width: 350px;
+}
+#example .dog.three.shape .side:nth-child(n+3),
+#example .dog.three.shape .side:nth-child(n+3) .item {
+  width: 140px;
+}
+
+#example .ui.header {
+  clear: both;
+  margin-top: 1rem;
+}
+
+
 #example .demo.shape {
 
 }

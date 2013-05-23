@@ -32,7 +32,7 @@ semantic.ready = function() {
     $menu         = $('.sidebar'),
     $sortTable    = $('.sortable.table'),
     $demo         = $('.demo'),
-    $waypoints    = $('h2:not(.ui)'),
+    $waypoints    = $('.main.container > h2'),
 
     $menuPopup    = $('.ui.main.menu .popup.item'),
 
@@ -349,7 +349,7 @@ semantic.ready = function() {
       .tablesort()
     ;
   }
-
+  console.log($waypoints);
   $waypoints
     .waypoint({
       continuous : false,

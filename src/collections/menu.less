@@ -94,7 +94,7 @@
 }
 
 /*--------------
-      Colors
+    Colors
 ---------------*/
 
 /* Text Color */
@@ -103,11 +103,11 @@
 }
 .ui.menu .item,
 .ui.menu .item > a {
-  color: rgba(80, 80, 80, 0.95);
+  color: rgba(0, 0, 0, 0.75);
 }
 .ui.menu .item > a:hover {
   background-color: rgba(0, 0, 0, 0.03);
-  color: rgba(30, 30, 30, 0.95);
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.menu .item .item,
 .ui.menu .item .item > a {
@@ -225,6 +225,7 @@
 .ui.menu .text.item > *,
 .ui.menu .item > p:only-child {
   line-height: 1.3;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.menu .item > p:first-child {
   margin-top: 0px;
@@ -239,9 +240,10 @@
 ---------------*/
 
 .ui.menu .header.item {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.04);
   font-weight: bold;
 
+  margin: 0em;
   -webkit-box-shadow: 0 -0.1em 0 0 rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0 -0.1em 0 0 rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 -0.1em 0 0 rgba(0, 0, 0, 0.1) inset;
@@ -266,7 +268,9 @@
   background-color: #FFFFFF;
   opacity: 0;
 
-  border-top: 0.2em solid rgba(50, 50, 50, 0.8);
+  -webkit-box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
 
   -moz-border-radius: 0px 0px 5px 5px;
   -webkit-border-radius: 0px 0px 5px 5px;
@@ -281,7 +285,7 @@
 }
 .ui.menu .dropdown.item .menu .item {
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 
   font-size: 0.9em;
   display: block;
@@ -561,31 +565,51 @@
 ---------------*/
 
 .ui.tiered.menu .item.active {
-  box-shadow: 0 1px 0 0 #FBFBFB;
+  box-shadow: 0px 1px 0px 0px #FBFBFB;
 }
 
 .ui.tiered.menu {
-  border-radius: 0px;
 }
-.ui.tiered.menu .secondary.menu {
+.ui.tiered.menu .sub.menu {
   background-color: rgba(0, 0, 0, 0.01);
   border-radius: 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: none;
   color: #FFFFFF;
 }
-.ui.tiered.menu .secondary.menu .item {
+.ui.tiered.menu .sub.menu .item {
   font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.4);
 }
-.ui.tiered.menu .secondary.menu .item:before {
+.ui.tiered.menu .sub.menu .item:before {
   background-image: none;
 }
-.ui.tiered.menu .secondary.menu .active.item {
+.ui.tiered.menu .sub.menu .active.item {
+  padding-top: 0.75em;
   background-color: transparent;
   border-radius: 0 0 0 0;
   border-top: medium none;
   box-shadow: none;
+  color: rgba(0, 0, 0, 0.7);
 }
+
+
+.ui.inverted.tiered.menu .item.active {
+  box-shadow: 0px 1px 0px 0px #FBFBFB;
+}
+.ui.inverted.tiered.menu .sub.menu {
+  background-color: rgba(255, 255, 255, 0.01);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ui.inverted.tiered.menu .sub.menu .item {
+  color: rgba(255, 255, 255, 0.4);
+}
+.ui.inverted.tiered.menu .sub.menu .active.item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+
 
 /*--------------
     Inverted
@@ -619,6 +643,9 @@
 .ui.inverted.menu .dropdown.item .menu .item,
 .ui.inverted.menu .dropdown.item .menu .item a {
   color: rgba(0, 0, 0, 0.75);
+}
+.ui.inverted.menu .item > p:only-child {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /*--- Border ---*/
@@ -703,6 +730,8 @@
 
 /*--- Active ---*/
 .ui.inverted.menu .active.item {
+  border-top: none;
+  padding-top: 0.75em;
   border-color: transparent;
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -807,6 +836,7 @@
 .ui.text.menu {
   background-color: transparent;
 
+  margin: 0rem -1rem;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -818,7 +848,7 @@
 .ui.text.menu .item {
   opacity: 0.6;
 
-  margin: 0.35em 0.5em;
+  margin: 0em 1em;
   padding: 0em;
 
   -webkit-border-radius: 0px;
@@ -828,6 +858,8 @@
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+
+  color: rgba(0, 0, 0, 0.6);
 
   -webkit-transition:
     opacity 0.1s linear
@@ -850,12 +882,12 @@
 }
 .ui.text.menu .header.item {
   background-color: transparent;
-  margin: 0em;
-  padding: 0.35em 0.5em;
+  padding: 0em;
 
   opacity: 1;
   color: rgba(50, 50, 50, 0.8);
   font-size: 0.9rem;
+  padding: 0em;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -875,10 +907,10 @@
 .ui.vertical.text.menu .item {
   float: left;
   clear: left;
+  margin: 0.3em 0em;
 }
 .ui.vertical.text.menu .header.item {
-  margin: 0em 0em 0.5em 0em;
-  padding: 0.35em 0.5em;
+  margin: 0.8em 0em;
 }
 
 /*--- hover ---*/
@@ -910,11 +942,12 @@
 }
 
 
+
 /*--------------
-     Basic
+   Secondary
 ---------------*/
 
-.ui.basic.menu {
+.ui.secondary.menu {
   background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -925,7 +958,7 @@
   border-radius: 0px;
 }
 
-.ui.basic.menu {
+.ui.secondary.menu {
   background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -934,7 +967,7 @@
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-.ui.basic.menu > .item {
+.ui.secondary.menu > .item {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -944,33 +977,93 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-.ui.basic.menu > .item:before {
+.ui.secondary.menu > .item:before {
   display: none;
 }
 
 /* active */
-.ui.basic.menu > .active.item {
+.ui.secondary.menu > .active.item {
   border-top: none;
   background-color: rgba(0, 0, 0, 0.08);
 }
-.ui.basic.inverted.menu > .active.item {
+.ui.secondary.inverted.menu > .active.item {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* disable variations */
-.ui.basic.item.menu > .item {
+.ui.secondary.item.menu > .item {
   margin: 0em;
 }
-.ui.basic.pointing.menu > item.active:after {
+.ui.secondary.attached.menu {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.ui.basic.attached.menu {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+
+/*---------------------
+   Secondary Pointing
+-----------------------*/
+
+.ui.secondary.pointing.menu {
+  border-bottom: 0.2rem solid rgba(0, 0, 0, 0.1);
 }
+.ui.secondary.pointing.menu .item {
+  padding: 0.6em 1.3em;
+  margin: 0em;
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 0em;
+}
+.ui.secondary.pointing.menu .item:after {
+  display: none;
+}
+
+/* Hover */
+.ui.secondary.pointing.menu .item.hover,
+.ui.secondary.pointing.menu .item:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Down */
+.ui.secondary.pointing.menu .item:active,
+.ui.secondary.pointing.menu .item.down {
+  background-color: transparent;
+  box-shadow: 0px 0.2em 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Active */
+.ui.secondary.pointing.menu .item.active {
+  background-color: transparent;
+  box-shadow: 0px 0.2em 0px 0px rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.85);
+}
+
+
+.ui.secondary.inverted.pointing.menu {
+  border-bottom: 0.2rem solid rgba(255, 255, 255, 0.1);
+}
+.ui.secondary.inverted.pointing.menu .item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Hover */
+.ui.secondary.inverted.pointing.menu .item.hover,
+.ui.secondary.inverted.pointing.menu .item:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Down */
+.ui.secondary.inverted.pointing.menu .item:active,
+.ui.secondary.inverted.pointing.menu .item.down {
+  box-shadow: 0px 0.2em 0px 0px rgba(255, 255, 255, 0.4);
+}
+
+/* Active */
+.ui.secondary.inverted.pointing.menu .item.active {
+  box-shadow: 0px 0.2em 0px 0px rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
+}
+
 
 
 /*--------------
