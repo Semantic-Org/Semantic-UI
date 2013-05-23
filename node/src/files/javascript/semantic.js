@@ -91,7 +91,6 @@ semantic.ready = function() {
     },
 
     developerMode: function() {
-      console.log('dev mode');
       $developer.addClass('active');
       $designer.removeClass('active');
       $example
@@ -101,7 +100,6 @@ semantic.ready = function() {
       ;
     },
     designerMode: function() {
-      console.log('design mode');
       $designer.addClass('active');
       $developer.removeClass('active');
       $example
@@ -334,7 +332,6 @@ semantic.ready = function() {
             subDirectory = href.split('/')[3],
             newLink      = href.replace(subDirectory, theme)
           ;
-          console.log(theme, newLink);
           $(this)
             .attr('href', newLink)
           ;
@@ -349,7 +346,6 @@ semantic.ready = function() {
       .tablesort()
     ;
   }
-  console.log($waypoints);
   $waypoints
     .waypoint({
       continuous : false,

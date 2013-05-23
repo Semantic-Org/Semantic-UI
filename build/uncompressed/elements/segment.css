@@ -94,6 +94,12 @@
   box-shadow: none;
 }
 /*-------------------
+       Fittted
+--------------------*/
+.ui.fitted.segment {
+  padding: 0em;
+}
+/*-------------------
        Colors
 --------------------*/
 .ui.blue.segment {
@@ -173,7 +179,7 @@
   bottom: -3px;
   left: 0%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
   width: 100%;
   height: 5px;
 }

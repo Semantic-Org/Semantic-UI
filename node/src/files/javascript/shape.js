@@ -77,16 +77,16 @@ semantic.shape.ready = function() {
   setInterval(function() {
     $dogDemo
       .filter('.one')
-        .shape('flip.down')
+        .shape('flip.over')
         .end()
       .filter('.two')
-        .shape('flip.up')
+        .shape('flip.left')
         .end()
       .filter('.three')
-        .shape('flip.up')
+        .shape('flip.right')
         .end()
     ;
-  }, 3500);
+  }, 4000);
   
 };
 
