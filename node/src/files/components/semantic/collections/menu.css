@@ -231,7 +231,7 @@
 ---------------*/
 .ui.menu .item > .label,
 .ui.menu .item > a > .label {
-  font-size: 0.875em;
+  font-size: 0.9em;
   margin: -0.3em 0em -0.3em 0.3em;
   padding: 0.1em 0.5em;
   vertical-align: baseline;
@@ -707,6 +707,25 @@
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+/* colors */
+.ui.green.text.menu .active.item {
+  color: #A1CF64;
+}
+.ui.red.text.menu .active.item {
+  color: #EF4D6D;
+}
+.ui.blue.text.menu .active.item {
+  color: #6ECFF5;
+}
+.ui.purple.text.menu .active.item {
+  color: #564F8A;
+}
+.ui.orange.text.menu .active.item {
+  color: #F05940;
+}
+.ui.teal.text.menu .active.item {
+  color: #00B5AD;
 }
 /*--------------
    Secondary

@@ -40,7 +40,7 @@
 .ui.feed .event .what img {
   max-width: 100%;
 }
-.ui.feed .event .what blockquote {
+.ui.feed .event .what .summary {
   display: block;
   overflow: hidden;
   margin: 8px 0px;
@@ -51,17 +51,17 @@
   color: #666666;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
 }
-.ui.feed .event .what blockquote.grey {
+.ui.feed .event .what .summary.grey {
   background-color: #FAFAFA;
   border: 1px solid #EAEAEA;
   font-weight: bold;
 }
-.ui.feed .event blockquote img {
+.ui.feed .event .summary img {
   float: left;
   width: 75px;
   margin-right: 20px;
 }
-.ui.feed .event .what blockquote p {
+.ui.feed .event .what .summary p {
   margin: 0px 0px 10px;
 }
 .ui.feed .event .what .attached {
@@ -98,7 +98,7 @@
   font-size: 14px;
   line-height: 1.33;
 }
-.ui.large.feed .what blockquote {
+.ui.large.feed .what .summary {
   color: #555555;
 }
 .ui.large.feed .what img {
