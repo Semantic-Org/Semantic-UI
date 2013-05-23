@@ -37,6 +37,7 @@
   display: block;
   float: left;
   position: relative;
+  top: 0px;
   width: 316px;
   min-height: 375px;
   margin: 1em 0.5em 2.5em;
@@ -51,8 +52,14 @@
   -moz-border-radius: 0.33em;
   -webkit-border-radius: 0.33em;
   border-radius: 0.33em;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
   padding: 0.5em;
 }
+.ui.items a.item,
 .ui.items .item a {
   cursor: pointer;
 }
@@ -210,6 +217,11 @@
   left: 0em;
   height: 1.5em;
   color: rgba(0, 0, 0, 0.25);
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 .ui.items .item .extra > img {
   display: inline-block;
@@ -223,6 +235,37 @@
 }
 .ui.items .item .extra .right {
   float: right;
+}
+/*******************************
+           States
+*******************************/
+.ui.items .item:hover {
+  cursor: pointer;
+  z-index: 5;
+  top: -0.25em;
+  border-bottom-width: 0.3em;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.ui.items .item:hover .extra {
+  color: rgba(0, 0, 0, 0.5);
+}
+.ui.items .item:nth-of-type(n+1):hover {
+  border-bottom-color: #6ECFF5 !important;
+}
+.ui.items .item:nth-of-type(n+2):hover {
+  border-bottom-color: #5C6166 !important;
+}
+.ui.items .item:nth-of-type(n+3):hover {
+  border-bottom-color: #A1CF64 !important;
+}
+.ui.items .item:nth-of-type(n+4):hover {
+  border-bottom-color: #EF4D6D !important;
+}
+.ui.items .item:nth-of-type(n+5):hover {
+  border-bottom-color: #564F8A !important;
+}
+.ui.items .item:nth-of-type(n+6):hover {
+  border-bottom-color: #00B5AD !important;
 }
 /*******************************
            Variations
@@ -245,11 +288,15 @@
   border-radius: 0px;
   margin: 0em;
   width: 33.33%;
-  border-bottom: none;
 }
 .ui.connected.items > .row {
-  display: table-row;
+  display: table;
+  margin: 0.5em 0em;
 }
+.ui.connected.items > .row:first-child {
+  margin-top: 0em;
+}
+/* Borders */
 .ui.connected.items > .item,
 .ui.connected.items > .row:last-child > .item {
   border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
@@ -262,6 +309,11 @@
 .ui.connected.items > .item:last-child {
   border-radius: 0em 0em 0.33em 0em;
 }
+/* Hover */
+.ui.connected.items .item:hover {
+  border-bottom-width: 0.2em;
+}
+/* Item Count */
 .ui.two.connected.items > .row > .item,
 .ui.two.connected.items > .item {
   width: 50%;
