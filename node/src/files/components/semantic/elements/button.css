@@ -356,13 +356,13 @@
 .ui.secondary.button {
   font-weight: normal;
   box-shadow: none;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .ui.buttons.tertiary .button,
 .ui.tertiary.button {
   font-weight: normal;
   box-shadow: none;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 /*-------------------
         Sizes
@@ -436,24 +436,6 @@ Containing Icon
 .ui.button i.icon {
   line-height: 1;
   margin-right: 0.5em;
-}
-/* left arrow icons */
-.ui.button i.icon.left,
-.ui.button i.icon.left-open,
-.ui.button i.icon.left-dir {
-  margin: 0em 0.2em 0em;
-}
-/* right positioned icons */
-.ui.button i.icon.up,
-.ui.button i.icon.up-open,
-.ui.button i.icon.up-dir,
-.ui.button i.icon.down,
-.ui.button i.icon.down-open,
-.ui.button i.icon.down-dir,
-.ui.button i.icon.right,
-.ui.button i.icon.right-open,
-.ui.button i.icon.right-dir {
-  margin: 0em;
 }
 /*--------------
     Icon Only
