@@ -1,6 +1,6 @@
 ---
 layout : 'default'
-css    : 'button'
+css    : 'shape'
 
 title  : 'Shape'
 type   : 'UI Module'
@@ -9,29 +9,210 @@ type   : 'UI Module'
 <div class="segment">
   <div class="container">
     <h1 class="ui dividing header">Shape</h1>
-    <p>Shape is a plugin for 3D transitioning elements.</p>
+    <p>Shapes are three dimensional objects displayed on a 2d plane.</p>
   </div>
 </div>
 <div class="main container">
   
   <div class="peek">
     <div class="ui vertical pointing menu">
-      <a class="active item">Examples</a>
-      <a class="item">Usage</a>
-      <a class="item">Settings</a>
+      <a class="active item">Standard</a>
+      <a class="item">Examples</a>
+      <a class="item">Getting Started</a>
     </div>
   </div>
-  <p>Shapes makes creating 3D tweens easier by taking care of the dirty business of calculating translations based on content sizing, which can be a confusing, frustrating task.</p>
-  <p>The module uses 3D transformations which are currently only supported in modern versions of Chrome, Safari, and Firefox.</p>
-  <p>Shapes is written using the semantic module specification. Semantic is a standard pattern for writing Javascript modules which intends to make understanding new code less confusing, and debugging errors less frustrating, by making coding decisions less arbitrary and more semantic. <a href="module.html">
+  
+  
+  
+  <h2 class="ui dividing header">Standard</h2>
+  
+  <div class="ui info message">The module uses 3D transformations which are currently only supported in modern versions of Chrome, Safari, and Firefox.</div>
+
+  <div class="shown example">
+    <h4 class="ui header">Check Box</h4>
+    <p>A shape has multiple sides of arbitrary content. Only one is visible</p>
     
-  <p>Click here to read more</a> about Semantic spec, and the upcoming library.</p>
+    <div class="ui shape">
+      <div class="sides">
+        <div class="active side">This side is visible.</div>
+        <div class="side">This side is not visible.</div>
+        <div class="side">This side is not visible.</div>
+      </div>
+    </div>
+  </div>
+  
+  <p>Shapes makes creating 3D tweens easier by taking care of the dirty business of calculating translations based on content sizing, which can be a confusing, frustrating task.</p>
 
   <h2 class="ui dividing header">Examples</h2>
+  
+  <h3 class="ui header">Automatic</h3>
+  <div class="dog two ui shape">
+    <div class="sides">
+      <div class="active side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item1.jpg">
+            </div>
+            <div class="content">
+              <div class="name">Cute Dog</div>
+              <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item3.jpg">
+            </div>
+            <div class="content">
+              <div class="name">Silly Dog</div>
+              <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item2.jpg">
+            </div>
+            <div class="content">
+              <div class="meta">5 days ago</div>
+              <div class="name">Faithful Dog</div>
+              <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="dog one ui shape">
+    <div class="sides">
+      <div class="active side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item4.jpg">
+            </div>
+            <div class="content">
+              <div class="name">Cute Dog</div>
+              <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item2.jpg">
+            </div>
+            <div class="content">
+              <div class="name">Silly Dog</div>
+              <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item5.jpg">
+            </div>
+            <div class="content">
+              <div class="meta">5 days ago</div>
+              <div class="name">Faithful Dog</div>
+              <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="dog three ui shape">
+    <div class="sides">
+      <div class="active side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item1.jpg">
+            </div>
+            <div class="content">
+              <div class="name">Cute Dog</div>
+              <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item3.jpg">
+            </div>
+            <div class="content">
+              <div class="name">Silly Dog</div>
+              <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="ui items">
+          <div class="item">
+            <div class="image">
+              <a class="like label">
+                <i class="like icon"></i>
+              </a>
+              <img src="/images/demo/item2.jpg">
+            </div>
+            <div class="content">
+              <div class="meta">5 days ago</div>
+              <div class="name">Faithful Dog</div>
+              <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <h3 class="ui header">Standard</h3>
-  <div class="demo square shape module">
-    <div class="shape">
+  <div class="ui clearing divider"></div>
+  
+  <h3 class="ui header">Interactive</h3>
+  <div class="demo square ui shape">
+    <div class="sides">
       <div class="active jira side">
         <img src="/images/shape/jira.png">
       </div>
@@ -60,9 +241,9 @@ type   : 'UI Module'
     <div class="ui button" data-animation="flip" data-direction="over">Over</div>
   </div>
 
-  <h2 class="ui dividing header">Usage</h2>
+  <h2 class="ui dividing header">Getting Started</h2>
 
-  <p>The plugin must be initialized once before methods can be accessed</p>
+  <p>Initializing a shape</p>
   <div class="code">$('.shape')
   .shape()
 ;</div>
@@ -83,25 +264,6 @@ type   : 'UI Module'
   .shape('repaint')
 ;</div>
 
-  <h2 class="ui dividing header">Settings</h2>
-  <h3 class="ui header">Changing Settings</h3> 
-  <ol>
-    <li>A settings object can be passed in when initializing the plugin
-      <br> <div class="code">$('.foo')
-  .shape({ 
-    moduleName: 'Godzilla'
-  })
-;</div>
-    </li>
-    <li>Default settings for the module can be overridden by modifying $.fn.shape.settings.
-      <br><div class="code">$.fn.shape.settings.moduleName = 'Godzilla';</div>
-    </li>
-    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
-      <br><div class="code">$('.foo').shape('setting', 'moduleName', 'Godzilla');</div>
-    </li>
-  </ol>
-  <h3 class="ui header">Reading Settings</h3>
-  <p>Settings can also be read programmatically: <div class="code">$('.foo').shape('setting', 'moduleName');</div>
   <h3 class="ui header">Defaults</h3>
   <table class="ui settings table">
       <thead>

@@ -6,6 +6,7 @@ semantic.shape.ready = function() {
   // selector cache
   var 
     $demo            = $('.demo'),
+    $dogDemo         = $('.dog.shape'),
     $directionButton = $('.direction .button'),
     $shapeButton     = $('.shape .button'),
     // alias
@@ -69,6 +70,23 @@ semantic.shape.ready = function() {
   $shapeButton
     .on('click', handler.changeShape)
   ;
+
+  $dogDemo
+    .shape()
+  ;
+  setInterval(function() {
+    $dogDemo
+      .filter('.one')
+        .shape('flip.down')
+        .end()
+      .filter('.two')
+        .shape('flip.up')
+        .end()
+      .filter('.three')
+        .shape('flip.up')
+        .end()
+    ;
+  }, 3500);
   
 };
 

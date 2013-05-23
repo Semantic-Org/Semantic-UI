@@ -33,7 +33,7 @@ $.fn.shape = function(parameters) {
       var
         // selector cache
         $module       = $(this),
-        $shape        = $module.find(settings.selector.shape),
+        $sides        = $module.find(settings.selector.sides),
         $side         = $module.find(settings.selector.side),
         
         // private variables
@@ -76,14 +76,14 @@ $.fn.shape = function(parameters) {
         refresh: function() {
           module.verbose('Refreshing selector cache for', element);
           $module = $(element);
-          $shape  = $(this).find(settings.selector.shape);
+          $sides  = $(this).find(settings.selector.shape);
           $side   = $(this).find(settings.selector.side);
         },
 
         repaint: function() {
           module.verbose('Forcing repaint event');
           var 
-            shape          = $shape.get(0) || document.createElement('div'),
+            shape          = $sides.get(0) || document.createElement('div'),
             fakeAssignment = shape.offsetWidth
           ;
         },
@@ -109,7 +109,7 @@ $.fn.shape = function(parameters) {
             $activeSide
               .addClass(className.hidden)
             ;
-            $shape
+            $sides
               .css(propertyObject)
               .one(endTransition, callback)
             ;
@@ -128,7 +128,7 @@ $.fn.shape = function(parameters) {
                 opacity: 0
               }, settings.duration, settings.easing)
             ;
-            $shape
+            $sides
               .animate(propertyObject, settings.duration, settings.easing, callback)
             ;
           }
@@ -136,7 +136,7 @@ $.fn.shape = function(parameters) {
 
         queue: function(method) {
           module.debug('Queueing animation of', method);
-          $shape
+          $sides
             .one(endTransition, function() {
               module.debug('Executing queued animation');
               $module.shape(method);
@@ -151,7 +151,7 @@ $.fn.shape = function(parameters) {
             .removeClass(className.animating)
             .removeAttr('style')
           ;
-          $shape
+          $sides
             .removeAttr('style')
           ;
           $side
@@ -630,7 +630,7 @@ $.fn.shape.settings = {
 
   // selectors used
   selector    : {
-    shape : '.shape',
+    sides : '.sides',
     side  : '.side'
   }
 
