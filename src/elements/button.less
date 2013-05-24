@@ -545,7 +545,6 @@ Containing Icon
 .ui.icon.buttons .button i,
 .ui.icon.button i {
   margin: 0em;
-  vertical-align: top;
 }
 
 
@@ -654,10 +653,10 @@ Containing Icon
      Bubbly
 ---------------*/
 
-.ui.button.bubbly {
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  border-radius: 1em;
+.ui.circular.button {
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
 }
 
 
@@ -738,67 +737,9 @@ input:focus + .ui.attached.button {
 
 
 
-/*******************************
-      Buttons (Button Group)
-*******************************/
-
-.ui.buttons {
-  overflow: hidden;
-}
-.ui.buttons .button {
-  float: left;
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
-  border-radius: 0em;
-  border-left: 1px solid rgba(0, 0, 0, 0.05);
-}
-.ui.buttons .button:first-child  {
-  margin-left: 0em;
-  border-top-left-radius: 0.3125em;
-  border-bottom-left-radius: 0.3125em;
-}
-.ui.buttons .button:last-child {
-  border-top-right-radius: 0.3125em;
-  border-bottom-right-radius: 0.3125em;
-}
-
-/* Vertical  Style */
-.ui.buttons.vertical {
-  display: inline-block;
-}
-.ui.buttons.vertical .button {
-  display: block;
-  float: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-left: none;
-  box-shadow: none;
-}
-.ui.buttons.vertical .button:first-child,
-.ui.buttons.vertical .mini.button:first-child,
-.ui.buttons.vertical .tiny.button:first-child,
-.ui.buttons.vertical .small.button:first-child,
-.ui.buttons.vertical .massive.button:first-child,
-.ui.buttons.vertical .huge.button:first-child {
-  margin-top: 0px;
-  -moz-border-radius: 0.3125em 0.3125em 0px 0px;
-  -webkit-border-radius: 0.3125em 0.3125em 0px 0px;
-  border-radius: 0.3125em 0.3125em 0px 0px;
-}
-.ui.buttons.vertical .button:last-child,
-.ui.buttons.vertical .mini.button:last-child,
-.ui.buttons.vertical .tiny.button:last-child,
-.ui.buttons.vertical .small.button:last-child,
-.ui.buttons.vertical .massive.button:last-child,
-.ui.buttons.vertical .huge.button:last-child,
-.ui.buttons.vertical .gigantic.button:last-child {
-  -moz-border-radius: 0px 0px 0.3125em 0.3125em;
-  -webkit-border-radius: 0px 0px 0.3125em 0.3125em;
-  border-radius: 0px 0px 0.3125em 0.3125em;
-}
-
-/*******************************
-       OR Button Divisions
-*******************************/
+/*-------------------
+      Or Buttons
+--------------------*/
 
 .ui.buttons .or {
   position: relative;
@@ -1028,4 +969,64 @@ input:focus + .ui.attached.button {
 }
 .ui.twelve.fluid.buttons > .button {
   height: 8.3333%;
+}
+
+
+
+/*******************************
+            Groups
+*******************************/
+
+.ui.buttons {
+  overflow: hidden;
+}
+.ui.buttons .button {
+  float: left;
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+.ui.buttons .button:first-child  {
+  margin-left: 0em;
+  border-top-left-radius: 0.3125em;
+  border-bottom-left-radius: 0.3125em;
+}
+.ui.buttons .button:last-child {
+  border-top-right-radius: 0.3125em;
+  border-bottom-right-radius: 0.3125em;
+}
+
+/* Vertical  Style */
+.ui.buttons.vertical {
+  display: inline-block;
+}
+.ui.buttons.vertical .button {
+  display: block;
+  float: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: none;
+  box-shadow: none;
+}
+.ui.buttons.vertical .button:first-child,
+.ui.buttons.vertical .mini.button:first-child,
+.ui.buttons.vertical .tiny.button:first-child,
+.ui.buttons.vertical .small.button:first-child,
+.ui.buttons.vertical .massive.button:first-child,
+.ui.buttons.vertical .huge.button:first-child {
+  margin-top: 0px;
+  -moz-border-radius: 0.3125em 0.3125em 0px 0px;
+  -webkit-border-radius: 0.3125em 0.3125em 0px 0px;
+  border-radius: 0.3125em 0.3125em 0px 0px;
+}
+.ui.buttons.vertical .button:last-child,
+.ui.buttons.vertical .mini.button:last-child,
+.ui.buttons.vertical .tiny.button:last-child,
+.ui.buttons.vertical .small.button:last-child,
+.ui.buttons.vertical .massive.button:last-child,
+.ui.buttons.vertical .huge.button:last-child,
+.ui.buttons.vertical .gigantic.button:last-child {
+  -moz-border-radius: 0px 0px 0.3125em 0.3125em;
+  -webkit-border-radius: 0px 0px 0.3125em 0.3125em;
+  border-radius: 0px 0px 0.3125em 0.3125em;
 }

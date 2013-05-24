@@ -3,6 +3,12 @@
         Shapes Example
 *******************************/
 
+
+#example.shape .ui.header {
+  clear: both;
+  margin-top: 1rem;
+}
+
 #example .dog.shape {
   float: left;
   margin: 0 1em 3em 0;
@@ -39,11 +45,6 @@
 #example .dog.three.shape .side:nth-child(n+3),
 #example .dog.three.shape .side:nth-child(n+3) .item {
   width: 140px;
-}
-
-#example .ui.header {
-  clear: both;
-  margin-top: 1rem;
 }
 
 
