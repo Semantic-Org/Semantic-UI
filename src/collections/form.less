@@ -68,7 +68,7 @@
 .ui.textarea,
 .ui.input {
   width: 100%;
-  padding: 0.53em 0.7em;
+  padding: 0.9em 1.2em;
   font-size: 0.825em;
 
   background-color: #FFFFFF;
@@ -82,11 +82,35 @@
   -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
 
-  -webkit-transition: background-color 0.3s ease-out;
-  -moz-transition: background-color 0.3s ease-out;
-  -o-transition: background-color 0.3s ease-out;
-  -ms-transition: background-color 0.3s ease-out;
-  transition: background-color 0.3s ease-out;
+  -webkit-transition: 
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  -moz-transition: 
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  -o-transition: 
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  -ms-transition: 
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  transition: 
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+
+  -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  -moz-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
 
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 
@@ -150,7 +174,13 @@
 .ui.form input:focus,
 .ui.form textarea:focus {
   color: rgba(20, 20, 20, 0.9);
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  
+  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
 }
 
 /*--------------------
@@ -174,8 +204,7 @@
 /* On Field(s) */
 .ui.form .fields.error .field label,
 .ui.form .field.error label {
-  font-weight: bold;
-  color: #EF3F49;
+  color: #EF4D6D;
 }
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input[type="text"],
@@ -186,13 +215,28 @@
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="password"] {
   background-color: #FFFAFA;
-  border-color: rgba(255, 80, 80, 0.7);
-  color: rgba(255, 80, 80, 0.7);
+  border-color: #E7BEBE;
+  border-left: none;
+
+  color: #EF4D6D;
+  padding-left: 1.2em;
+
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  
+  -webkit-box-shadow: 0.3em 0em 0em 0em #EF4D6D inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em #EF4D6D inset;
+  box-shadow: 0.3em 0em 0em 0em #EF4D6D inset;
+
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input:focus {
   border-color: rgba(255, 80, 80, 1);
   color: rgba(255, 80, 80, 1);
+
+  -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
 }
 
 /*--------------------

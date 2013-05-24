@@ -441,11 +441,12 @@ Containing Icon
 ---------------*/
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.75em;
+  padding: 0.8em 1em;
 }
-.ui.icon.buttons .button i,
-.ui.icon.button i {
+.ui.icon.buttons .button > .icon,
+.ui.icon.button > .icon {
   margin: 0em;
+  vertical-align: top;
 }
 /*--------------
    Labeled Icon
@@ -455,8 +456,8 @@ Containing Icon
   position: relative;
   padding: 0.8em 1.5em 0.8em 4em !important;
 }
-.ui.labeled.icon.buttons .button .icon,
-.ui.labeled.icon.button .icon {
+.ui.labeled.icon.buttons > .button > .icon,
+.ui.labeled.icon.button > .icon {
   position: absolute;
   top: 0em;
   left: 0em;
@@ -477,26 +478,26 @@ Containing Icon
   -moz-box-shadow: -2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
   box-shadow: -2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 }
-.ui.labeled.icon.buttons .button .icon {
+.ui.labeled.icon.buttons .button > .icon {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
 }
-.ui.labeled.icon.buttons .button:first-child .icon {
+.ui.labeled.icon.buttons .button:first-child > .icon {
   border-top-left-radius: 0.3125em;
   border-bottom-left-radius: 0.3125em;
 }
-.ui.labeled.icon.buttons .button:last-child .icon {
+.ui.labeled.icon.buttons .button:last-child > .icon {
   border-top-right-radius: 0.3125em;
   border-bottom-right-radius: 0.3125em;
 }
-.ui.vertical.labeled.icon.buttons .button:first-child .icon {
+.ui.vertical.labeled.icon.buttons .button:first-child > .icon {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
   border-top-left-radius: 0.3125em;
 }
-.ui.vertical.labeled.icon.buttons .button:last-child .icon {
+.ui.vertical.labeled.icon.buttons .button:last-child > .icon {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
@@ -815,8 +816,12 @@ input:focus + .ui.attached.button {
 /*******************************
             Groups
 *******************************/
-.ui.buttons {
-  overflow: hidden;
+.ui.buttons:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 .ui.buttons .button {
   float: left;
