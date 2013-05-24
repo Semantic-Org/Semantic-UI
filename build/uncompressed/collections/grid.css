@@ -253,7 +253,7 @@
 .ui.celled.grid > .column,
 .ui.celled.grid > .row > .column {
   display: table-cell;
-  padding: 2%;
+  padding: 1.33%;
   -webkit-box-shadow: -1px 0px 0px 0px #dfdfdf;
   -moz-box-shadow: -1px 0px 0px 0px #dfdfdf;
   box-shadow: -1px 0px 0px 0px #dfdfdf;
@@ -315,10 +315,11 @@
        Folding
 --------------------*/
 @media only screen and (max-width: 1000px) {
-  .ui.folding.grid {
+  .ui.stackable.grid {
     display: block !important;
   }
-  .ui.folding.grid .column {
+  .ui.stackable.grid .column {
+    margin-bottom: 0em 2em 1em !important;
     display: block !important;
     width: 100% !important;
     padding: 0% !important;

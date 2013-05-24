@@ -50,16 +50,19 @@
   margin: 0em;
   border-radius: 50em;
 }
+.ui.feed .label + .content {
+  padding: 1em 1em 0em;
+}
 /* Content */
 .ui.feed .content {
   display: table-cell;
   vertical-align: top;
   text-align: left;
-  padding: 1em 1em 0em;
 }
 /* Date */
 .ui.feed .content .date {
   float: right;
+  padding-left: 1em;
   color: rgba(0, 0, 0, 0.4);
 }
 /* Summary */
@@ -99,7 +102,7 @@
 .ui.feed .event {
   padding: 0.75em 0em;
 }
-.ui.small.feed .content {
+.ui.small.feed .label + .content {
   padding: 0.5em 0.5em 0;
 }
 .ui.small.feed .content .extra.images img {

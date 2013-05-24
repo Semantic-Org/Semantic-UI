@@ -111,27 +111,33 @@ h5.ui.header {
   color: #00B5AD !important;
 }
 .ui.blue.block.header {
-  background-color: #E6EEF1;
+  /* background-color: #E6EEF1; */
+
   border-left: 0.2em solid #6ECFF5;
 }
 .ui.black.block.header {
-  background-color: #EAEAEA;
+  /* background-color: #EAEAEA; */
+
   border-left: 0.2em solid #5C6166;
 }
 .ui.green.block.header {
-  background-color: #EFF8E4;
+  /* background-color: #EFF8E4; */
+
   border-left: 0.2em solid #A1CF64;
 }
 .ui.red.block.header {
-  background-color: #F6E5E8;
+  /* background-color: #F6E5E8; */
+
   border-left: 0.2em solid #EF4D6D;
 }
 .ui.purple.block.header {
-  background-color: #EFEDF8;
+  /* background-color: #EFEDF8; */
+
   border-left: 0.2em solid #564F8A;
 }
 .ui.teal.block.header {
-  background-color: #E9F7F6;
+  /* background-color: #E9F7F6; */
+
   border-left: 0.2em solid #00B5AD;
 }
 /*-------------------
