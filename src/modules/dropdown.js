@@ -12,6 +12,7 @@
 $.fn.dropdown = function(parameters) {
   var
     $allModules     = $(this),
+    $document       = $(document),
     
     settings        = $.extend(true, {}, $.fn.dropdown.settings, parameters),
 
@@ -32,8 +33,10 @@ $.fn.dropdown = function(parameters) {
     .each(function() {
       var
         $module       = $(this),
-        $menu        = $(this).find(settings.selector.menu),
-
+        $menu         = $(this).find(settings.selector.menu),
+        
+        isTouchDevice = ('ontouchstart' in document.documentElement),
+        
         selector      = $module.selector || '',
         element       = this,
         instance      = $module.data('module-' + settings.namespace),
@@ -56,16 +59,67 @@ $.fn.dropdown = function(parameters) {
           }
           else {
             module.verbose('Initializing dropdown with bound events', $module);
+            
             $module
-              .on('click' + eventNamespace, module.toggle)
+              .on(module.get.event() + eventNamespace, module.toggle)
+            ;
+
+            $module
               .data(moduleNamespace, module)
             ;
           }
         },
 
+        intent: {
+
+          test: function(event) {
+            module.debug('User clicked away from the dropdown');
+            if( $(event.target).closest($module).size() == 0 ) {
+              module.hide();
+              module.intent.unbind();
+            }
+          },
+
+          bind: function() {
+            module.verbose('Binding click-away intent event to document');
+            $document
+              .one('click' + eventNamespace, function() {
+                if( module.can.hide() ) {
+                  module.hide();
+                }
+              })
+            ;
+          },
+
+          unbind: function() {
+            module.verbose('Removing click-away intent event to document');
+            $document
+              .off('click' + eventNamespace, module.test)
+            ;
+          }
+
+        },
+
+        get: {
+
+          event: function() {
+            module.verbose('Removing click-away intent event to document');
+            if(isTouchDevice) {
+              return 'touchstart';
+            }
+            if(settings.on == 'hover') {
+              return 'hover';
+            }
+            else if(settings.on == 'click') {
+              return 'click';
+            }
+          }
+
+        },
+
         can: {
           show: function() {
-            return $module.hasClass(className.disabled);
+            return !$module.hasClass(className.disabled);
           }
         },
 
@@ -76,7 +130,7 @@ $.fn.dropdown = function(parameters) {
           ;
         },
 
-        enable: function() {
+        show: function() {
           module.debug('Enabling dropdown');
           $module
             .addClass(className.active)
@@ -88,7 +142,7 @@ $.fn.dropdown = function(parameters) {
           $.proxy(settings.onShow, $menu.get())();
         },
 
-        disable: function() {
+        hide: function() {
           module.debug('Disabling dropdown');
           $module
             .removeClass(className.active)
@@ -101,7 +155,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         toggle: function() {
-          if(module.can.show()) {
+          if(module.can.show() && $menu.not(':visible') ) {
             module.show();
           }
           else {
@@ -262,10 +316,8 @@ $.fn.dropdown.settings = {
   debug       : true,
   performance : false,
   
-  // delegated event context
-  context     : false,
-  required    : 'auto',
-  
+  on          : 'click',
+
   onChange    : function(){},
   onShow      : function(){},
   onHide      : function(){},

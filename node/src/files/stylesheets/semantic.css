@@ -349,7 +349,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 
 /* content */
 #example .container {
-  width: 800px;
+  width: 915px;
   margin: 0px auto;
 }
 
@@ -586,7 +586,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   position: fixed;
   top: 75px;
   left: 50%;
-  margin-left: -630px;
+  margin-left: -685px;
 }
 #example .sticky-wrapper.stuck .peek.pushed > .menu {
   margin-left: 275px;
@@ -945,7 +945,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   display: none;
 }
 
-@media only screen and (max-width : 1600px) {
+@media only screen and (max-width : 1725px) {
   #example .container {
     width: auto;
     margin-right: 100px;
