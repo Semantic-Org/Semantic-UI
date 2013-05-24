@@ -32,7 +32,7 @@
   border-top: 0px;
 }
 .ui.feed .event:last-child {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 /* Event Label */
 .ui.feed .label {

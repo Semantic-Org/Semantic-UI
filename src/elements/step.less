@@ -1,3 +1,20 @@
+/*
+ * # Semantic Steps
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+
+
+/*******************************
+            Steps
+*******************************/
+
 .ui.steps {
   display: inline-block;
   font-size: 0em;
@@ -9,6 +26,10 @@
   -moz-border-radius: 0.3125rem;
   -webkit-border-radius: 0.3125rem;
   border-radius: 0.3125rem;
+}
+
+.ui.steps a.step {
+  cursor: pointer;
 }
 
 .ui.steps .step {
@@ -26,13 +47,11 @@
   z-index: 2;
 
   top: 0.45em;
-  right: -1em;
+  right: -1.05em;
 
-  width: 2em;
-  height: 2em;
-
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  width: 2.05em;
+  height: 2.05em;
+  transform: rotate(45deg);
   background-color: #FFFFFF;
 
   -moz-transform: rotate(45deg);
@@ -59,6 +78,92 @@
   height: 0em !important;
 }
 
+
+/*******************************
+             States
+*******************************/
+
+/* Hover */
+.ui.steps a.step:hover {
+  cursor: pointer;
+  background: -webkit-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
+  background: -moz-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
+  background: -o-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
+  background: -ms-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
+  background: linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
+}
+.ui.steps a.step:hover::after {
+  cursor: pointer;
+  background: -webkit-linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
+  background: -moz-linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
+  background: -o-linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
+  background: -ms-linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
+  background: linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
+}
+.ui.steps a.step:hover::before {
+  position: absolute;
+  top: 7px;
+  left: -10.3125em;
+
+  width: 32px;
+  height: 31px;
+  content: '';
+
+  background-color: transparent;
+  background-image: none;
+
+  -moz-box-shadow: -1px 1px 1px 0em rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: -1px 1px 1px 0em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: -1px 1px 1px 0em rgba(0, 0, 0, 0.1) inset;
+
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+  z-index: 2;
+}
+.ui.steps .hover:first-child:before {
+  width: 0em;
+  height: 0em;
+}
+
+/* Down */
+.ui.steps .down.step {
+  background: -webkit-linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
+  background: -moz-linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
+  background: -o-linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
+  background: -ms-linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
+  background: linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
+}
+.ui.steps .down.step:after {
+  background: -webkit-linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
+  background: -moz-linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
+  background: -o-linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
+  background: -ms-linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
+  background: linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
+}
+
+/* Active */
+.ui.steps .active.step {
+  cursor: auto;
+  background-color: #555555;
+  
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.ui.steps .active.step:first-child:before {
+  width: 0em;
+  height: 0em;
+}
+.ui.steps .active.step:after {
+  background-color: #555555;
+  border-color: #555555;
+}
+
+/* Disabled */
+.ui.steps .disabled.step {
+  color: #BFBFBF;
+}
 
 /*******************************
            Variations
@@ -138,102 +243,4 @@
 
 .ui.steps .step {
   font-size: 1rem;
-}
-
-/*******************************
-             States
-*******************************/
-
-/* Hover */
-.ui.steps .hover.step {
-  cursor: pointer;
-  background: -webkit-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
-  background: -moz-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
-  background: -o-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
-  background: -ms-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
-  background: linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
-
-  -moz-box-shadow: 0em 0em 2px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0em 0em 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0em 0em 2px rgba(0, 0, 0, 0.2);
-}
-.ui.steps .hover.step:after {
-  cursor: pointer;
-  background: -webkit-linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
-  background: -moz-linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
-  background: -o-linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
-  background: -ms-linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
-  background: linear-gradient(top left, #FFFFFF 0%, #F0F0F0 100%);
-
-  -moz-box-shadow: 2px -2px 1px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 2px -2px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 2px -2px 1px rgba(0, 0, 0, 0.2);
-}
-.ui.steps .hover.step:before {
-  position: absolute;
-  top: 7px;
-  left: -10.3125em;
-
-  width: 32px;
-  height: 31px;
-  content: '';
-
-  background-color: transparent;
-  background-image: none;
-
-  -moz-box-shadow: -1px 1px 1px 0em rgba(0, 0, 0, 0.1) inset;
-  -webkit-box-shadow: -1px 1px 1px 0em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: -1px 1px 1px 0em rgba(0, 0, 0, 0.1) inset;
-
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-
-  z-index: 2;
-}
-.ui.steps .hover:first-child:before {
-  width: 0em;
-  height: 0em;
-}
-
-/* Down */
-.ui.steps .down.step {
-  background: -webkit-linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
-  background: -moz-linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
-  background: -o-linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
-  background: -ms-linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
-  background: linear-gradient(top, #F0F0F0 0%, #FFFFFF 100%);
-}
-.ui.steps .down.step:after {
-  background: -webkit-linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
-  background: -moz-linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
-  background: -o-linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
-  background: -ms-linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
-  background: linear-gradient(top left, #F0F0F0 0%, #FFFFFF 100%);
-}
-
-/* Active */
-.ui.steps .active.step {
-  cursor: auto;
-  background-color: #555555;
-  
-  color: #FFFFFF;
-  font-weight: bold;
-}
-.ui.steps .active.step:first-child:before {
-  width: 0em;
-  height: 0em;
-}
-.ui.steps .active.step:after {
-  background-color: #555555;
-  border-color: #555555;
-
-  -moz-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15) inset;
-  -webkit-box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15) inset;
-  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.15) inset;
-}
-
-/* Disabled */
-.ui.steps .disabled.step {
-  color: #BFBFBF;
 }

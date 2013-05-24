@@ -17,7 +17,7 @@
   vertical-align: middle;
   background-color: #F5F5F5;
   padding: 0.6em 1em;
-  color: #999999;
+  color: rgba(0, 0, 0, 0.65);
   font-weight: bold;
   text-transform: uppercase;
   -webkit-border-radius: 3px;
@@ -42,9 +42,8 @@ a.ui.label {
 }
 .ui.label .detail {
   display: inline-block;
-  font-size: 0.9em;
-  margin-left: 0.5em;
-  opacity: 0.6;
+  margin-left: 1em;
+  opacity: 0.8;
 }
 .ui.label .icon.close {
   cursor: pointer;
@@ -70,12 +69,12 @@ a.ui.label {
 a.ui.labels .label:hover,
 a.ui.label:hover {
   background-color: #F0F0F0;
-  color: #555555;
+  color: rgba(0, 0, 0, 0.7);
 }
 .ui.labels a.label:hover:before,
 a.ui.label:hover:before {
   background-color: #F0F0F0;
-  color: #555555;
+  color: rgba(0, 0, 0, 0.7);
 }
 .ui.label .icon.close:hover {
   opacity: 1;
@@ -406,13 +405,13 @@ a.ui.teal.tag.label:hover:before {
         Sizes
 --------------------*/
 .ui.label {
-  font-size: 13px;
+  font-size: 0.8em;
 }
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 11px;
+  font-size: 0.7em;
 }
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 15px;
+  font-size: 1em;
 }

@@ -261,11 +261,11 @@ i.icon.email:before {
   content: '\40';
 }
 /* '@' */
-i.icon.setting:before {
+i.icon.settings:before {
   content: '\26ef';
 }
 /* '⛯' */
-i.icon.settings:before {
+i.icon.setting:before {
   content: '\2699';
 }
 /* '⚙' */

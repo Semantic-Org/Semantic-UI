@@ -223,7 +223,7 @@ h5.ui.header {
        Attached
 --------------------*/
 .ui.attached.header {
-  padding: 0.7em 1rem;
+  padding: 0.5em 1rem;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);

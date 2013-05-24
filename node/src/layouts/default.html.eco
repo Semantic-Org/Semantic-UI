@@ -117,7 +117,7 @@
 
   <div class="ui fixed transparent inverted main menu">
     <div class="container">
-      <a class="sidebar item"><i class="icon list layout"></i></a>
+      <a class="sidebar item"><i class="icon list layout"></i> Contents</a>
       <div class="title item">
         <b><%= @document.type %>:</b> <%= @document.title %>
       </div>

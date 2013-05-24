@@ -29,23 +29,24 @@ type   : 'UI Collection'
     <p>This example uses several menu elements to display the versatility of a menu collection.</p>
     <div class="ui menu">
       <a class="active item">
-        <i class="icon users"></i>
-        Friends
+        <i class="icon home"></i> Home
       </a>
       <a class="item">
         <i class="icon mail"></i> Messages
-        <div class="ui label">22</div>
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
       <div class="right menu">
         <div class="fitted borderless item">
             <input class="ui input" type="text" placeholder="Search...">
         </div>
         <div class="dropdown item">
-          <i class="icon layout list"></i>
+          More <i class="icon down triangle"></i>
           <div class="menu">
-            <div class="item">Invite Friends</div>
-            <div class="item">Contact Us</div>
-            <div class="item">About</div>
+            <div class="item"><i class="icon edit"></i> Edit Profile</div>
+            <div class="item"><i class="icon globe"></i> Choose Language</div>
+            <div class="item"><i class="icon settings"></i> Account Settings</div>
           </div>
         </div>
       </div>
@@ -57,44 +58,27 @@ type   : 'UI Collection'
     <h4 class="ui header">Vertical Menu</h4>
     <p>A vertical menu can have its own sub menus. This example uses three levels of menu depth.</p>
     <div class="ui ignore warning message"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
+
     <div class="ui vertical menu">
+      <a class="active item">
+        <i class="icon users"></i>
+        Feed
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
       <div class="item">
-        <i class="icon user"></i>
-        <b>Zombo_213</b>
+          <input class="ui input" type="text" placeholder="Search...">
       </div>
-      <div class="item">
-        <p>Welcome to your profile. You can do anything you want on your profile.</p>
-      </div>
-      <div class="item">
-        <b>My Profile</b>
+      <div class="dropdown item">
+        More <i class="icon right triangle"></i>
         <div class="menu">
-          <a class="active item">
-            Messages 
-            <i class="icon mail"></i>
-            <div class="ui red label">25</div>
-          </a>
-          <div class="item">
-            Friends 
-            <i class="icon users"></i>
-            <div class="menu">
-              <a class="item">Close Friends</a>
-              <a class="item">School</a>
-              <a class="item">Work</a>
-            </div>
-          </div>
-          <a class="item">
-            Followers
-            <i class="icon bookmark"></i>
-          </a>
-          <div class="dropdown item">
-            Edit 
-            <i class="icon right triangle"></i>
-            <div class="menu">
-              <div class="item">Search</div>
-              <div class="item">Add</div>
-              <div class="item">Remove</div>
-            </div>
-          </div>
+          <div class="item"><i class="icon edit"></i> Edit Profile</div>
+          <div class="item"><i class="icon globe"></i> Choose Language</div>
+          <div class="item"><i class="icon settings"></i> Account Settings</div>
         </div>
       </div>
     </div>
@@ -115,6 +99,19 @@ type   : 'UI Collection'
         <a class="item">
           <i class="icon mail"></i> Messages
         </a>
+        <div class="right menu">
+          <div class="fitted borderless item">
+              <input class="ui input" type="text" placeholder="Search...">
+          </div>
+          <div class="dropdown item">
+            More <i class="icon down triangle"></i>
+            <div class="menu">
+              <div class="item"><i class="icon edit"></i> Edit Profile</div>
+              <div class="item"><i class="icon globe"></i> Choose Language</div>
+              <div class="item"><i class="icon settings"></i> Account Settings</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="ui sub menu">
         <a class="active item">Search</a>
@@ -123,34 +120,147 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Tiered Vertical Menu</h4>
+    <p>A tiered menu can show the sub-sections available as part of an activated section.</p>
+    <div class="ui vertical menu">
+      <div class="item">
+        <i class="icon home"></i> Home
+        <div class="menu">
+          <a class="active item">Search</a>
+          <a class="item">Add</a>
+          <a class="item">Remove</a>
+        </div>
+      </div>
+      <a class="item">
+        <i class="icon layout grid"></i> Browse
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <div class="item">
+          <input class="ui input" type="text" placeholder="Search...">
+      </div>
+      <div class="dropdown item">
+        More <i class="icon down triangle"></i>
+        <div class="menu">
+          <div class="item"><i class="icon edit"></i> Edit Profile</div>
+          <div class="item"><i class="icon globe"></i> Choose Language</div>
+          <div class="item"><i class="icon settings"></i> Account Settings</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   
   <div class="example">
     <h4 class="ui header">Secondary Menu</h4>
     <p>A secondary menu allows for a section of content on a page to be activated</p>
-    <div class="ui segment">
-      <div class="ui secondary menu">
-        <a class="active item">
-          Summary
-        </a>
-        <a class="item">
-          Followers
-        </a>
-        <a class="item">
-          Following
-        </a>
+    <div class="ui secondary menu">
+      <a class="active item">
+        <i class="icon users"></i>
+        Friends
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
+      <div class="right menu">
+        <div class="fitted borderless item">
+            <input class="ui input" type="text" placeholder="Search...">
+        </div>
+        <div class="dropdown item">
+          More <i class="icon down triangle"></i>
+          <div class="menu">
+            <div class="item"><i class="icon edit"></i> Edit Profile</div>
+            <div class="item"><i class="icon globe"></i> Choose Language</div>
+            <div class="item"><i class="icon settings"></i> Account Settings</div>
+          </div>
+        </div>
       </div>
-      <br><br>
-      <div class="ui secondary pointing menu">
-        <a class="active item">
-          Summary
-        </a>
-        <a class="item">
-          Followers
-        </a>
-        <a class="item">
-          Following
-        </a>
+    </div>
+  </div>
+  <div class="another example">
+    <p>A vertical secondary menu</p>
+    <div class="ui secondary vertical menu">
+      <a class="active item">
+        <i class="icon users"></i>
+        Friends
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
+      <div class="item">
+          <input class="ui input" type="text" placeholder="Search...">
       </div>
+      <div class="dropdown item">
+        More <i class="icon right triangle"></i>
+        <div class="menu">
+          <div class="item"><i class="icon edit"></i> Edit Profile</div>
+          <div class="item"><i class="icon globe"></i> Choose Language</div>
+          <div class="item"><i class="icon settings"></i> Account Settings</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Pointing</h4>
+    <p>A menu can point to content to show relationship</p>
+    <div class="ui pointing menu">
+      <a class="active item">
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
+    </div>
+    <br><br>
+    <div class="ui secondary pointing menu">
+      <a class="active item">
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
+    </div>
+  </div>
+  <div class="example">
+    <p>A pointing menu can also be vertical</p>
+    <div class="ui vertical pointing menu">
+      <a class="active item">
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
+    </div>
+    <br><br>
+    <div class="ui secondary vertical pointing menu">
+      <a class="active item">
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
     </div>
   </div>
   
@@ -158,30 +268,28 @@ type   : 'UI Collection'
     <h4 class="ui header">Text</h4>
     <p>A menu can display simple text links</p>
     <div class="ui text menu">
-      <div class="header item">Sort</div>
-      <a class="item">
-        Newest
-      </a>
       <a class="active item">
-        Oldest
+        <i class="icon home"></i> Home
       </a>
       <a class="item">
-        First
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
   </div>
   <div class="another example">
     <p>A vertical text menu</p>
-    <div class="ui text vertical menu">
-      <div class="header item">Filter By</div>
-      <a class="item">
-        Close-by
-      </a>
+    <div class="ui vertical text menu">
       <a class="active item">
-        Available Now
+        <i class="icon home"></i> Home
       </a>
       <a class="item">
-        No Tax
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
   </div>
@@ -339,22 +447,15 @@ type   : 'UI Collection'
     <h4 class="ui header">Inverted</h4>
     <p>A menu may have its colors inverted to show greater contrast</p>
     <div class="ui inverted menu">
-      <div class="item">
-        Site Title
-      </div>
-      <div class="active item">
-        <a>Current section</a>
-      </div>
-      <div class="right menu">
-        <div class="dropdown item">
-          Dropdown <i class="icon down-dir"></i>
-          <div class="menu">
-            <div class="item">Choice 1</div>
-            <div class="item">Choice 2</div>
-            <div class="item">Choice 3</div>
-          </div>
-        </div>
-      </div>
+      <a class="active item">
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
     </div>
   </div>
   <div class="example">
@@ -362,111 +463,147 @@ type   : 'UI Collection'
     <p>Additional colors can be specified.</p>
     <div class="ui green menu">
       <a class="active item">
-        Green 1
+        <i class="icon home"></i> Home
       </a>
       <a class="item">
-        Green 2
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
     <br>
     <div class="ui red menu">
-      <a class="item">
-        Red 1
-      </a>
       <a class="active item">
-        Red 2
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
     <br>
     <div class="ui blue menu">
-      <a class="item">
-        Blue 1
-      </a>
       <a class="active item">
-        Blue 2
+        <i class="icon home"></i> Home
       </a>
-    </div>
-    <br>
-    <div class="ui purple menu">
       <a class="item">
-        Purple 1
+        <i class="icon mail"></i> Messages
       </a>
-      <a class="active item">
-        Purple 2
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
     <br>
     <div class="ui orange menu">
-      <a class="item">
-        Orange 1
-      </a>
       <a class="active item">
-        Orange 2
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
+    </div>
+    <br>
+    <div class="ui purple menu">
+      <a class="active item">
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
     <br>
     <div class="ui teal menu">
-      <a class="item">
-        Teal 1
-      </a>
       <a class="active item">
-        Teal 2
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
   </div>
   <div class="another example">
     <p>These colors can also be inverted</p>
     <div class="ui green inverted menu">
-      <a class="item">
-        Green 1
-      </a>
       <a class="active item">
-        Green 2
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
     <br>
     <div class="ui red inverted menu">
-      <a class="item">
-        Red 1
-      </a>
       <a class="active item">
-        Red 2
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
     <br>
     <div class="ui blue inverted menu">
-      <a class="item">
-        Blue 1
-      </a>
       <a class="active item">
-        Blue 2
+        <i class="icon home"></i> Home
       </a>
-    </div>
-    <br>
-    <div class="ui purple inverted menu">
       <a class="item">
-        Purple 1
+        <i class="icon mail"></i> Messages
       </a>
-      <a class="active item">
-        Purple 2
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
     <br>
     <div class="ui orange inverted menu">
-      <a class="item">
-        Orange 1
-      </a>
       <a class="active item">
-        Orange 2
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
+      </a>
+    </div>
+    <br>
+    <div class="ui purple inverted menu">
+      <a class="active item">
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
     <br>
     <div class="ui teal inverted menu">
-      <a class="item">
-        Teal 1
-      </a>
       <a class="active item">
-        Teal 2
+        <i class="icon home"></i> Home
+      </a>
+      <a class="item">
+        <i class="icon mail"></i> Messages
+      </a>
+      <a class="item">
+        <i class="icon community"></i> Browse
       </a>
     </div>
   </div>
@@ -556,28 +693,6 @@ type   : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Pointing</h4>
-    <p>A menu can point to content below itself to show ownership</p>
-    <div class="ui pointing menu">
-      <div class="item">
-        Site Title
-      </div>
-      <a class="active item">
-        Current section
-      </a>
-      <div class="right menu">
-        <div class="dropdown item">
-          Dropdown <i class="icon down-dir"></i>
-          <div class="menu">
-            <div class="item">Choice 1</div>
-            <div class="item">Choice 2</div>
-            <div class="item">Choice 3</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="example">
     <p>A vertical menu can point to content adjacent to itself to show ownership</p>
     <div class="ui pointing vertical menu">
       <div class="item">
@@ -665,8 +780,7 @@ type   : 'UI Collection'
     </div>
   </div>
   <div class="example">
-    <h4 class="ui header">Vertical Sizes</h4>
-    <p>A vertical menu can vary in size</p>
+    <p>A vertical menu can also vary in size</p>
     <div class="ui large vertical menu">
       <div class="item">
         Site Title
