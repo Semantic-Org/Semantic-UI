@@ -127,7 +127,6 @@ body#example {
   padding: 0px 0px 150px;
   color: #555555;
   text-rendering: optimizeLegibility;
-  min-width: 990px;
 }
 
 /*
@@ -938,16 +937,15 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 
-
-@media only screen and (max-width : 1100px) {
-
+#example .fixed .sidebar {
+  display: none;
 }
 
 @media only screen and (max-width : 1600px) {
   #example .container {
     width: auto;
     margin-right: 100px;
-    margin-left: 395px;
+    margin-left: 325px;
   }
   #example.index .container {
     margin-left: auto;
@@ -955,19 +953,11 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: 0px;
-    left: 165px;
+    left: 95px;
   }
 }
 
-@media only screen and (max-width : 1130px) {
-  #example.index .container {
-    margin-left: 100px;
-    margin-right: 30px;
-    width: auto;
-  }
-}
-
-@media only screen and (max-width : 1000px) {
+@media only screen and (max-width : 1050px) {
   #example .fixed .section,
   #example .fixed .title b {
     display: none;
@@ -976,12 +966,36 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
     width: auto;
     margin: 0px auto;
   }
+  #example .fixed .sidebar {
+    display: inline-block;
+  }
+  #example .sticky-wrapper {
+    display: none;
+  }
+  #example .container {
+    width: auto;
+    margin: 0% 30px 0px;
+  }
+  #example .right.attached.sidebar {
+    display: none;
+  }
 }
-@media only screen and (min-width : 1600px) {
+
+@media only screen and (min-width : 1725px) {
   #example .container {
     width: 1100px;
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: -780px;
+  }
+}
+
+
+@media only screen and (min-width : 2300px) {
+  #example .container {
+    width: 1320px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: -890px;
   }
 }

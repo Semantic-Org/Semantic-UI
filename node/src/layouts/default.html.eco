@@ -117,6 +117,7 @@
 
   <div class="ui fixed transparent inverted main menu">
     <div class="container">
+      <a class="sidebar item"><i class="icon list layout"></i></a>
       <div class="title item">
         <b><%= @document.type %>:</b> <%= @document.title %>
       </div>
@@ -145,7 +146,7 @@
         <% end %>
       </div>
       <div class="right menu">
-        <% if @document.type is 'UI Element' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
         <a class="popup designer item" title="Designer Mode">
           <i class="icon paint"></i>
         </a>

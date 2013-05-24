@@ -220,18 +220,18 @@ semantic.ready = function() {
 
     menu: {
       mouseenter: function() {
-        $menu
+        $(this)
           .stop()
           .animate({
             width: '105px'
           }, 300, function() {
-            $menu.find('.text').show();
+            $(this).find('.text').show();
           })
         ;
       },
       mouseleave: function(event) {
-        $menu.find('.text').hide();
-        $menu
+        $(this).find('.text').hide();
+        $(this)
           .stop()
           .animate({
             width: '10px'
@@ -415,12 +415,13 @@ semantic.ready = function() {
   ;
 
   $menu
-    .on('mouseenter', handler.menu.mouseenter)
-    .on('mouseleave', handler.menu.mouseleave)
     .sidr({
       name: 'menu'
     })
-    .on('click', handler.movePeek)
+    .filter('.button')
+      .on('click', handler.movePeek)
+      .on('mouseenter', handler.menu.mouseenter)
+      .on('mouseleave', handler.menu.mouseleave)
   ;
 
   $peek

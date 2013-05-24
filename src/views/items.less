@@ -442,10 +442,25 @@
   padding-right: 0.1%;
 }
 
+/*-------------------
+      Responsive 
+--------------------*/
 
-/*--------------
-    Horizontal
----------------*/
+@media only screen and (max-width : 600px) {
+  .ui.stackable.items {
+    display: block !important;
+  }
+  .ui.stackable.items .item {
+    margin-bottom: 1.5em !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 0% !important;
+  }
+}
+
+/*--------------------
+      Horizontal
+---------------------*/
 .ui.horizontal.items > .item,
 .ui.items > .horizontal.item {
   display: table;
