@@ -765,7 +765,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 #example h4 + .example i.code {
   top: 0px;
 }
-#example .example h4 {
+#example .example > h4 {
   margin-bottom: 0em;
 }
 #example .example {

@@ -194,10 +194,16 @@ h5.ui.header {
   float: right;
 }
 /*-------------------
+       Fittted
+--------------------*/
+.ui.fitted.header {
+  padding: 0em;
+}
+/*-------------------
         Block
 --------------------*/
 .ui.block.header {
-  background-color: #F0F0F0;
+  background-color: #F5F5F5;
   padding: 0.5em 1em;
 }
 /*-------------------
