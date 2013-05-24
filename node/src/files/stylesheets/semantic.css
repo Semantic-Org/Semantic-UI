@@ -937,6 +937,10 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 
+#example.feed .segment {
+  max-width: 800px;
+}
+
 #example .fixed .sidebar {
   display: none;
 }

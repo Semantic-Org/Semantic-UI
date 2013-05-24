@@ -35,7 +35,14 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 
-  overflow: hidden;
+}
+
+.ui.segment:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 .ui.vertical.segment {

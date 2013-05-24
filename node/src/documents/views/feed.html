@@ -25,7 +25,7 @@ type   : 'UI View'
 
   <div class="example">
     <h4>Feed</h4>
-    <p>A standard feed with no additonal elements</p>
+    <p>A standard feed with some optional elements</p>
     <div class="ui red feed segment">
       <h3 class="ui header">Recent Activity</h3>
       <div class="event">
@@ -74,94 +74,95 @@ type   : 'UI View'
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example">
+    <h4>Label</h4>
+    <p>An event can contain a label</p>
+    <div class="ignored ui info message">In semantic's implementation a label is formatted to contain an icon or an image</div>
+    <div class="ui feed segment">
+      <div class="event">
+        <div class="label">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="content">
+          <div class="summary">
+             <a>Sally Poodle</a> added you as a friend
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="icon circular idea"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            You submitted a new post to the page
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Date</h4>
+    <p>An event can contain a date</p>
+    <div class="ignored ui info message">In semantic's implementation a label is formatted to contain an icon or an image</div>
+    <div class="ui feed segment">
       <div class="event">
         <div class="label">
           <img src="/images/demo/avatar.jpg">
         </div>
         <div class="content">
           <div class="date">
-            Just moments ago
+            3 days ago
           </div>
           <div class="summary">
-            <a>James Doggington</a> added you as a friend
+             <a>Sally Poodle</a> added you as a friend
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Additional information</h4>
+    <p>An event can contain additional content explaining the event</p>
+    <div class="ignored ui info message">In semantic's implementation a label is formatted to contain an icon or an image</div>
+    <div class="ui feed segment">
       <div class="event">
         <div class="label">
-          <i class="icon circular idea"></i>
+          <img src="/images/demo/avatar.jpg">
         </div>
         <div class="content">
           <div class="date">
             3 days ago
           </div>
           <div class="summary">
-            You submitted a new post to the page
-          </div>
-          <div class="extra text">
-            I am a dog and I do not know how to make a post
-          </div>
-        </div>
-      </div>
-      <div class="event">
-        <div class="label">
-          <i class="icon circular photo"></i>
-        </div>
-        <div class="content">
-          <div class="date">
-            3 days ago
-          </div>
-          <div class="summary">
-            <a>Sally Poodle</a> added <a>a new photos</a> of you
-          </div>
-          <div class="extra images">
-            <img src="/images/demo/item1.jpg">
-          </div>
-        </div>
-      </div>
-      <div class="event">
-        <div class="label">
-          <i class="icon circular add user"></i>
-        </div>
-        <div class="content">
-          <div class="date">
-            Just moments ago
-          </div>
-          <div class="summary">
-            <a>Sally Poodle</a> added you as a friend
-          </div>
-        </div>
-      </div>
-      <div class="event">
-        <div class="label">
-          <i class="icon circular idea"></i>
-        </div>
-        <div class="content">
-          <div class="date">
-            3 days ago
-          </div>
-          <div class="summary">
-            You submitted a new post to the page
-          </div>
-          <div class="extra text">
-            I am a dog and I do not know how to make a post
-          </div>
-        </div>
-      </div>
-      <div class="event">
-        <div class="label">
-          <i class="icon circular photos"></i>
-        </div>
-        <div class="content">
-          <div class="date">
-            3 days ago
-          </div>
-          <div class="summary">
-            <a>Sally Poodle</a> added <a>2 new photos</a> of you
+             <a>Sally Poodle</a> added 2 photos of you
           </div>
           <div class="extra images">
             <img src="/images/demo/item1.jpg">
             <img src="/images/demo/item2.jpg">
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+            3 days ago
+          </div>
+          <div class="summary">
+             <a>Sally Poodle</a> created a post
+          </div>
+          <div class="extra text">
+            I am a dog and I do not know how to make a post
           </div>
         </div>
       </div>
@@ -170,8 +171,6 @@ type   : 'UI View'
 
 
   <h2 class="ui dividing header">Variations</h2>
-
-
   <div class="example">
     <h4 class="ui header">Sizes</h4>
     <p>A feed can have different sizes</p>
