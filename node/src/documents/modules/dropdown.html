@@ -33,8 +33,8 @@ type   : 'UI Module'
     <h4 class="ui header">Dropdown</h4>
     <p>The markup for a dropdown</p>
     <div class="ui dropdown">
-      <i class="icon down triangle"></i>
       Select
+      <i class="icon dropdown"></i>
       <div class="menu">
         <div class="item"><i class="edit icon"></i>Edit</div>
         <div class="item"><i class="delete icon"></i>Remove</div>
@@ -62,7 +62,7 @@ type   : 'UI Module'
     <div class="ui teal buttons">
       <div class="ui button">Save</div>
       <div class="ui teal dropdown icon button">
-        <i class="down triangle icon"></i>
+        <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item"><i class="edit icon"></i>Edit</div>
           <div class="item"><i class="delete icon"></i>Remove</div>
@@ -71,6 +71,27 @@ type   : 'UI Module'
       </div>
     </div>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Menu Dropdown</h4>
+    <p>A button can be formatted with a dropdown beside it</p>
+      <div class="ui compact purple inverted menu">
+        <a class="active item">
+          <i class="icon home"></i> Home
+        </a>
+        <a class="ui dynamic dropdown item">
+          <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item"><i class="mail icon"></i>Inbox</div>
+            <div class="item"><i class="book icon"></i>Archive</div>
+          </div>
+        </a>
+        <a class="item">
+          <i class="icon community"></i> Browse
+        </a>
+      </div>
+  </div>
+  
   
   <div class="example">
     <h4 class="ui header">Select</h4>
@@ -90,7 +111,7 @@ type   : 'UI Module'
       <div class="field">
         <label>Gender</label>
         <div class="ui dropdown selection">
-          <i class="icon down triangle"></i> 
+          <i class="icon dropdown"></i> 
           Male
           <div class="menu">
             <div class="item">Male</div>
