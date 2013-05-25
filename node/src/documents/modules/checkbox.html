@@ -5,6 +5,9 @@ css    : 'checkbox'
 title  : 'Checkbox'
 type   : 'UI Module'
 ---
+<link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/checkbox.css">
+<script src="/components/semantic/modules/checkbox.js"></script>
+<script src="/javascript/checkbox.js"></script>
 
 <div class="segment">
   <div class="container">
@@ -19,7 +22,8 @@ type   : 'UI Module'
       <a class="active item">Standard</a>
       <a class="item">Variations</a>
       <a class="item">Behavior</a>
-      <a class="item">Settings</a>
+      <a class="item">Examples</a>
+      <a class="item">Usage</a>
     </div>
   </div>
   
@@ -67,35 +71,90 @@ type   : 'UI Module'
   <div class="example">
     <h4 class="ui header">Radio Box</h4>
     <p>A checkbox can be formatted as a radio element. This means it is an exclusive option.</p>
-    <div class="ui radio checkbox">
-      <input type="radio" name="foo" />
-      <label></label>
-    </div> 
-    <div class="ui radio checkbox">
-      <input type="radio" name="foo" />
-      <label></label>
+    <div class="ui form">
+      <div class="inline field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="fruit" />
+          <label></label>
+        </div>
+        <label> Apples</label> 
+      </div>
+      <div class="inline field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="fruit" />
+          <label></label>
+        </div>
+        <label> Oranges</label> 
+      </div>
+      <div class="inline field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="fruit" />
+          <label></label>
+        </div>
+        <label> Pears</label> 
+      </div>
+      <div class="inline field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="fruit" />
+          <label></label>
+        </div>
+        <label> Grapefruit</label> 
+      </div>
     </div>
   </div>
   
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A checkbox can be a different size.</p>
-    <div class="ui large checkbox">
-      <input type="checkbox" />
-      <label></label>
-    </div>
+    <h4 class="ui red block header">
+      <div class="ui large checkbox">
+        <input type="checkbox" />
+        <label></label>
+      </div>
+      Add a pro membership
+    </h4>
     <br><br>
-    <div class="ui huge checkbox">
-      <input type="checkbox" />
-      <label></label>
-    </div>
+    <h3 class="ui blue block header">
+      <div class="ui huge checkbox">
+        <input type="checkbox" />
+        <label></label>
+      </div>
+      Signup for our mailing list
+    </h3>
   </div>
   
   <h2 class="ui dividing header">Behavior</h2>
 
   <div class="example">
-    <p>A checkbox can be enabled, disabled, or toggled.</p>
-    <div class="ignore evaluated code">
+    <p>A checkbox can change to show a user has selected it</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('enable')
+    ;
+    </div>
+  </div>
+  <div class="example">
+    <p>A checkbox can change to show a user has not selected it</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('disable')
+    ;
+    </div>
+  </div>
+  <div class="example">
+    <p>A checkbox can toggle between states</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('toggle')
+    ;
+    </div>
+  </div>
+
+  <h2>Examples</h2>
+
+  <div class="example">
+    <p>Example of using checkbox states to alter multiple checkboxes</p>
+    <div class="evaluated code">
     $('.enable.button')
       .on('click', function() {
         $(this)
@@ -171,8 +230,11 @@ type   : 'UI Module'
       <div class="box"></div>
     </div>
   </div>
-  
-  <h2 class="ui dividing header">Getting Started</h2>
+
+
+  <h2 class="ui dividing header">Usage</h2>
+
+  <h3>Initializing</h3>
   <h3 class="ui header">Initializing a check box</h3>
   <div class="code">
     $('.ui.checkbox')
@@ -180,7 +242,7 @@ type   : 'UI Module'
     ;
   </div>
   
-  <h3 class="ui header">Defaults</h3>
+  <h3 class="ui header">Settings</h3>
   <table class="ui settings celled table">
     <thead>
       <th colspan="3">Checkbox Settings</th>
@@ -256,9 +318,9 @@ type   : 'UI Module'
         <td>errors</td>
         <td colspan="2">
           <div class="code">
-  errors : {
-    method : 'The method you called is not defined.'
-  }
+    errors : {
+      method : 'The method you called is not defined.'
+    }
           </div>
         </td>
       </tr>

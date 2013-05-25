@@ -27,7 +27,6 @@ semantic.ready = function() {
   // selector cache
   var
     $ui           = $('.ui').not('.hover, .down'),
-    $checkbox     = $('.ui.checkbox'),
     $swap         = $('.theme.menu .item'),
     $menu         = $('.sidebar'),
     $sortTable    = $('.sortable.table'),
@@ -223,7 +222,7 @@ semantic.ready = function() {
         $(this)
           .stop()
           .animate({
-            width: '105px'
+            width: '120px'
           }, 300, function() {
             $(this).find('.text').show();
           })
@@ -382,11 +381,7 @@ semantic.ready = function() {
   $shownExample
     .each(handler.createCode)
   ;
-
-  $checkbox
-    .checkbox()
-  ;
-
+  
   $swap
     .on('click', handler.swapStyle)
   ;

@@ -121,7 +121,7 @@ The same variation can also be useful in the context of a menu.
 ```html
 <div class="ui inverted menu">
     <div class="item">Section 1</div>
-    <div class="dropdown item">
+    <div class="ui simple dropdown item">
         Dropdown
         <div class="menu">
             <div class="item">Dropdown item 1</div>
