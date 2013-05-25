@@ -73,7 +73,7 @@ $.fn.dropdown = function(parameters) {
         intent: {
 
           test: function(event) {
-            module.debug('User clicked away from the dropdown');
+            module.debug('Checking if click was inside the dropdown', event.target);
             if( $(event.target).closest($module).size() == 0 ) {
               module.hide();
               module.intent.unbind();
@@ -81,21 +81,25 @@ $.fn.dropdown = function(parameters) {
           },
 
           bind: function() {
-            module.verbose('Binding click-away intent event to document');
-            $document
-              .one('click' + eventNamespace, function() {
-                if( module.can.hide() ) {
-                  module.hide();
-                }
-              })
+            module.verbose('Binding hide intent event to document');
+            $(document)
+              .on('click', module.intent.test)
             ;
           },
 
           unbind: function() {
-            module.verbose('Removing click-away intent event to document');
+            module.verbose('Removing hide intent event from document');
             $document
-              .off('click' + eventNamespace, module.test)
+              .off('click')
             ;
+          }
+
+        },
+
+        is: {
+
+          clickable: function() {
+            return (isTouchDevice || settings.on == 'click');
           }
 
         },
@@ -103,7 +107,6 @@ $.fn.dropdown = function(parameters) {
         get: {
 
           event: function() {
-            module.verbose('Removing click-away intent event to document');
             if(isTouchDevice) {
               return 'touchstart';
             }
@@ -135,6 +138,9 @@ $.fn.dropdown = function(parameters) {
           $module
             .addClass(className.active)
           ;
+          if( module.is.clickable() ) {
+            module.intent.bind();
+          }
           $menu
             .show()
           ;
@@ -147,6 +153,9 @@ $.fn.dropdown = function(parameters) {
           $module
             .removeClass(className.active)
           ;
+          if( module.is.clickable() ) {
+            module.intent.unbind();
+          }
           $menu
             .hide()
           ;
@@ -155,7 +164,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         toggle: function() {
-          if(module.can.show() && $menu.not(':visible') ) {
+          if(module.can.show() && $menu.is(':not(:visible)') ) {
             module.show();
           }
           else {

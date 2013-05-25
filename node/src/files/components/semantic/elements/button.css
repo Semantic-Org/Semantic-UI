@@ -432,9 +432,9 @@
 /*--------------
 Containing Icon
 ---------------*/
-.ui.button i.icon {
+.ui.button > .icon {
   line-height: 1;
-  margin-right: 0.5em;
+  margin-right: 0.75em;
 }
 /*--------------
     Icon Only
