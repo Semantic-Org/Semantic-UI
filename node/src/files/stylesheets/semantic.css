@@ -348,9 +348,6 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   margin: 0px auto;
 }
 
-#example.index .container {
-  width: 950px;
-}
 
 #example .solid .container,
 #example .stripe .container {
@@ -947,8 +944,8 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
     margin-left: 325px;
   }
   #example.index .container {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5em;
+    margin-right: 5em;
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: 0px;
