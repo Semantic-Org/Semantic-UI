@@ -142,7 +142,7 @@ $.fn.dropdown = function(parameters) {
             module.intent.bind();
           }
           $menu
-            .show()
+            .fadeIn(200)
           ;
           $.proxy(settings.onChange, $menu.get())();
           $.proxy(settings.onShow, $menu.get())();
