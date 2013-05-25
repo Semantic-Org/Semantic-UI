@@ -96,14 +96,6 @@ $.fn.dropdown = function(parameters) {
 
         },
 
-        is: {
-
-          clickable: function() {
-            return (isTouchDevice || settings.on == 'click');
-          }
-
-        },
-
         get: {
 
           event: function() {
@@ -121,6 +113,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         can: {
+          click: function() {
+            return (isTouchDevice || settings.on == 'click');
+          },
           show: function() {
             return !$module.hasClass(className.disabled);
           }
@@ -138,11 +133,11 @@ $.fn.dropdown = function(parameters) {
           $module
             .addClass(className.active)
           ;
-          if( module.is.clickable() ) {
+          if( module.can.click() ) {
             module.intent.bind();
           }
           $menu
-            .fadeIn(200)
+            .show()
           ;
           $.proxy(settings.onChange, $menu.get())();
           $.proxy(settings.onShow, $menu.get())();
@@ -153,7 +148,7 @@ $.fn.dropdown = function(parameters) {
           $module
             .removeClass(className.active)
           ;
-          if( module.is.clickable() ) {
+          if( module.can.click() ) {
             module.intent.unbind();
           }
           $menu

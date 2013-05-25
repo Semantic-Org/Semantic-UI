@@ -249,11 +249,6 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 }
 
 
-#example .section.dropdown .menu {
-  left: -46px;
-  width: 215px;
-}
-
 /* segment headers */
 #example > .segment {
   margin: 0px 0px 46px;

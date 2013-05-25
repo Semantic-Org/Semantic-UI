@@ -41,7 +41,7 @@
 .ui.dropdown .menu {
   left: 0px;
 }
-.ui.dropdown:last-child .menu {
+.ui > .ui.dropdown:last-child .menu {
   left: auto;
   right: 0px;
 }
@@ -76,11 +76,36 @@
   background-color: rgba(0, 0, 0, 0.02);
 }
 .ui.dropdown .menu .active.item {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   font-weight: bold;
 }
 /*******************************
            Variations
 *******************************/
+/*--------------
+     Simple
+---------------*/
+/* Displays without javascript */
+.ui.simple.dropdown .menu {
+  overflow: hidden;
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.ui.simple.dropdown:hover .menu {
+  display: block;
+  overflow: visible;
+  min-width: 210px;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+}
 /*--------------
     Selection
 ---------------*/
@@ -120,7 +145,7 @@
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
-.ui.dropdown:hover .menu {
+.ui.selection.dropdown:hover .menu {
   -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
   -moz-box-shadow: 0px 1px 0px 1px #D3D3D3;
   box-shadow: 0px 1px 0px 1px #D3D3D3;

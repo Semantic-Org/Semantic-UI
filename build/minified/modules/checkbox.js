@@ -115,11 +115,11 @@ $.fn.checkbox = function(parameters) {
         },
 
         toggle: function() {
+          module.verbose('Toggling checkbox state');
           if($input.prop('checked') === undefined || !$input.prop('checked')) {
             module.enable();
           }
           else if( module.can.disable() ) {
-            console.log(settings.required, module.can.disable());
             module.disable();
           }
         },
@@ -127,9 +127,11 @@ $.fn.checkbox = function(parameters) {
         setting: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
+              module.verbose('Modifying settings object', name, value);
               $.extend(true, settings, name);
             }
             else {
+              module.verbose('Modifying setting', name, value);
               settings[name] = value;
             }
           }
@@ -140,9 +142,11 @@ $.fn.checkbox = function(parameters) {
         internal: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
+              module.verbose('Modifying internal property', name, value);
               $.extend(true, module, name);
             }
             else {
+              module.verbose('Changing internal method to', value);
               module[name] = value;
             }
           }

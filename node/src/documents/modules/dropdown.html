@@ -6,7 +6,6 @@ title  : 'Dropdown'
 type   : 'UI Module'
 ---
 
-<link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
 <script src="/components/semantic/modules/dropdown.js"></script>
 <script src="/javascript/dropdown.js"></script>
 
@@ -74,21 +73,28 @@ type   : 'UI Module'
 
   <div class="example">
     <h4 class="ui header">Menu Dropdown</h4>
-    <p>A button can be formatted with a dropdown beside it</p>
-      <div class="ui compact purple inverted menu">
-        <a class="active item">
-          <i class="icon home"></i> Home
-        </a>
-        <a class="ui dynamic dropdown item">
-          <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item"><i class="mail icon"></i>Inbox</div>
-            <div class="item"><i class="book icon"></i>Archive</div>
-          </div>
-        </a>
-        <a class="item">
-          <i class="icon community"></i> Browse
-        </a>
+    <p>A menu element can contain a dropdown</p>
+      <div class="ui compact tiered purple inverted menu">
+        <div class="menu">
+          <a class="active item">
+            <i class="icon home"></i> Home
+          </a>
+          <a class="ui dropdown item">
+            <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item"><i class="mail icon"></i>Inbox</div>
+              <div class="item"><i class="book icon"></i>Archive</div>
+            </div>
+          </a>
+          <a class="item">
+            <i class="icon community"></i> Browse
+          </a>
+        </div>
+        <div class="sub menu">
+          <div class="active item">Activity Feed</div>
+          <div class="item">Profile</div>
+          <div class="item">Events</div>
+        </div>
       </div>
   </div>
   
