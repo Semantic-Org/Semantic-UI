@@ -45,7 +45,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/items.css">
     
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/checkbox.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
 
@@ -68,9 +67,9 @@
 
 </head>
 <body id="example" class="<%= @document.css %>">
-  <div class="ui large vertical menu" id="menu">
-    <div class="item"><a href="/index.html"><b>Introduction</b></a></div>
-    <div class="item"><a href="/download.html"><b>Download</b></a></div>
+  <div class="ui large vertical inverted labeled icon menu" id="menu">
+    <div class="item"><a href="/index.html"><i class="inverted circular book icon"></i> <b>Introduction</b></a></div>
+    <div class="item"><a href="/download.html"><i class="inverted circular upload icon"></i> <b>Download</b></a></div>
     <div class="item">
       <a href="/element.html"><b>UI Elements</b></a>
       <div class="menu">
@@ -104,7 +103,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/specification.html"><b>Specification</b></a>
+      <a href="/specification.html"><i class="inverted circular asterisk icon"></i><b>Specification</b></a>
       <div class="menu">
         <% for element in uiSpecification: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
