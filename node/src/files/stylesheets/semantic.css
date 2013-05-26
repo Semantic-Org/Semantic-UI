@@ -124,9 +124,12 @@ body#example {
   font-family: "Neutraface", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
-  padding: 0px 0px 150px;
+  padding: 0px;
   color: #555555;
   text-rendering: optimizeLegibility;
+}
+body > .content  {
+background: #FCFCFC url(../images/bg.jpg) repeat;
 }
 
 /*
@@ -228,7 +231,6 @@ a:hover {
 }
 
 #example #menu {
-  display: none;
   width: 275px;
 
   border-radius: 0px;
@@ -250,6 +252,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 
 
 /* segment headers */
+#example > .content > .segment,
 #example > .segment {
   margin: 0px 0px 46px;
   padding-top: 65px;
@@ -257,6 +260,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
+#example > .content > .segment .text,
 #example > .segment .text {
   width: 800px;
   margin: 0px auto;
@@ -399,7 +403,7 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
 
 #example .sidebar.button {
   position: fixed;
-  margin-top: 75px;
+  top: 75px;
   z-index: 500;
   width: 10px;
 }
@@ -953,6 +957,16 @@ box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
   }
 }
 
+@media only screen and (max-width : 450px) {
+  #example .fixed .right.menu {
+    display: inline-block;
+    float: none;
+  }
+  #example .fixed .previous,
+  #example .fixed .next {
+    display: none;
+  }
+}
 @media only screen and (max-width : 1050px) {
   #example .fixed .section,
   #example .fixed .title b {

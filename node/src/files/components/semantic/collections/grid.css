@@ -314,7 +314,7 @@
 /*-------------------
        Folding
 --------------------*/
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 960px) {
   .ui.stackable.grid {
     display: block !important;
   }
