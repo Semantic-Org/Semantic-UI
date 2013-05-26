@@ -235,9 +235,11 @@ a:hover {
 
   border-radius: 0px;
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
-/*   -webkit-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
--moz-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2);
-box-shadow: 3px 0px 2px rgba(0, 0, 0, 0.2); */
+
+  -webkit-box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2); 
+
   border-right: none;
 }
 #example #menu .item {

@@ -26,7 +26,7 @@ semantic.ready = function() {
 
   // selector cache
   var
-    $contents     = $('#menu'),
+    $content      = $('#content'),
     $ui           = $('.ui').not('.hover, .down'),
     $swap         = $('.theme.menu .item'),
     $menu         = $('.sidebar'),
@@ -419,14 +419,26 @@ semantic.ready = function() {
     })
   ;
 
+ 
+
+
   sideMenu = new Snap({
     element: document.getElementById('content'),
     tapToClose: false,
     disable: 'right',
     maxPosition: 275,
     minPosition: -275,
+    addBodyClasses: false
   });
-
+  $content
+    .on('mousedown touchstart', function() {
+      $(this).addClass('drag');
+    })
+    .on('mouseup touchend', function() {
+      $(this).removeClass('drag');
+    })
+  ;
+  
   $menu
     .filter('.button')
       .on('click', handler.movePeek)

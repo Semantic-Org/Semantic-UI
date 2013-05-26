@@ -20,20 +20,26 @@ body > .content  {
   -webkit-overflow-scrolling: touch;
 
   -webkit-transition:
-    all 0.3s ease
+    all 0.2s ease
   ;
   -moz-transition:
-    all 0.3s ease
+    all 0.2s ease
   ;
   -o-transition:
-    all 0.3s ease
+    all 0.2s ease
   ;
   -ms-transition:
-    all 0.3s ease
+    all 0.2s ease
   ;
   transition:
-    all 0.3s ease
+    all 0.2s ease
   ;
+
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden; /* Chrome and Safari */
+  -moz-backface-visibility:hidden; /* Firefox */
+  -ms-backface-visibility:hidden; /* Internet Explorer 10+ */
+
   -webkit-transform: translate3d(0, 0, 0);
      -moz-transform: translate3d(0, 0, 0);
       -ms-transform: translate3d(0, 0, 0);
@@ -44,9 +50,17 @@ body > .content > .page {
   overflow: auto;
 }
 
+body > .content.drag {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+
 .drawers {
   position: absolute;
-  background-color: #333333;
+  background-color: #2D2D2D;
   top: 0;
   right: 0;
   bottom: 0;
@@ -65,7 +79,8 @@ body > .content > .page {
   width: 275px;
   height: auto;
   overflow: auto;
-
+  
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
