@@ -26,6 +26,7 @@ semantic.ready = function() {
 
   // selector cache
   var
+    $contents     = $('#menu'),
     $ui           = $('.ui').not('.hover, .down'),
     $swap         = $('.theme.menu .item'),
     $menu         = $('.sidebar'),
@@ -49,7 +50,7 @@ semantic.ready = function() {
     $peekSubItem  = $peek.find('.item .menu .item'),
     $code         = $('div.code'),
 
-    // alias
+    sideMenu,
     handler
   ;
 
@@ -205,6 +206,13 @@ semantic.ready = function() {
     },
 
     movePeek: function() {
+      if( sideMenu.state().state=="left" ){
+        sideMenu.close();
+      } 
+      else {
+        sideMenu.open('left');
+      }
+      /*
       if( $('.stuck .peek').size() > 0 ) {
         $('.peek')
           .toggleClass('pushed')
@@ -215,6 +223,8 @@ semantic.ready = function() {
           .removeClass('pushed')
         ;
       }
+      */
+
     },
 
     menu: {
@@ -409,10 +419,15 @@ semantic.ready = function() {
     })
   ;
 
+  sideMenu = new Snap({
+    element: document.getElementById('content'),
+    tapToClose: false,
+    disable: 'right',
+    maxPosition: 275,
+    minPosition: -275,
+  });
+
   $menu
-    .sidr({
-      name: 'menu'
-    })
     .filter('.button')
       .on('click', handler.movePeek)
       .on('mouseenter', handler.menu.mouseenter)

@@ -48,7 +48,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
 
-  <link rel="stylesheet" type="text/css" href="/stylesheets/library/sidr.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/library/snap.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 
   <%- @getBlock('scripts').toHTML() %>
@@ -56,7 +56,7 @@
   <script src="/javascript/library/jquery.js"></script>
   <script src="/javascript/library/easing.js"></script>
   <script src="/javascript/library/ace/ace.js"></script>
-  <script src="/javascript/library/sidr.js"></script>
+  <script src="/javascript/library/snap.js"></script>
   <script src="/javascript/library/waypoints.js"></script>
 
   <script src="/components/semantic/modules/behavior/state.js"></script>
@@ -66,111 +66,116 @@
 
 </head>
 <body id="example" class="<%= @document.css %>">
-  <div class="ui large vertical inverted labeled icon menu" id="menu">
-    <div class="item"><a href="/index.html"><i class="inverted circular book icon"></i> <b>Introduction</b></a></div>
-    <div class="item"><a href="/download.html"><i class="inverted circular upload icon"></i> <b>Download</b></a></div>
-    <div class="item">
-      <a href="/element.html"><b>UI Elements</b></a>
-      <div class="menu">
-        <% for element in uiElements: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="item">
-      <a href="/collection.html"><b>UI Collections</b></a>
-      <div class="menu">
-        <% for element in uiCollections: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="item">
-      <a href="/module.html"><b>UI Modules</b></a>
-      <div class="menu">
-        <% for element in uiModules: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="item">
-      <a href="/view.html"><b>UI Views</b></a>
-      <div class="menu">
-        <% for element in uiViews: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="item">
-      <a href="/specification.html"><i class="inverted circular asterisk icon"></i><b>Specification</b></a>
-      <div class="menu">
-        <% for element in uiSpecification: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="ui fixed transparent inverted main menu">
-    <div class="container">
-      <a class="sidebar item"><i class="icon list layout"></i> Contents</a>
-      <div class="title item">
-        <b><%= @document.type %>:</b> <%= @document.title %>
-      </div>
-      <div class="icon previous link<%= if pageNumber is 1 then " disabled" %> item">
-        <% if pageNumber > 1 and pageCollection[pageNumber - 2]?: %>
-        <a href="<%= pageCollection[pageNumber - 2].url %>"><i class="left arrow icon"></i></a>
-        <% else: %>
-        <i class="left arrow icon"></i>
-        <% end %>
-      </div>
-      <div class="section ui simple dropdown item">
-        <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
+  <div class="drawers">
+    <div class="ui large vertical inverted labeled icon left drawer menu" id="menu">
+      <div class="item"><a href="/index.html"><i class="inverted circular book icon"></i> <b>Introduction</b></a></div>
+      <div class="item"><a href="/download.html"><i class="inverted circular upload icon"></i> <b>Download</b></a></div>
+      <div class="item">
+        <a href="/element.html"><b>UI Elements</b></a>
         <div class="menu">
-          <% for element, index in pageCollection: %>
-            <div class="<%= if element.id is @document.id then 'active ' %>item">
-              <a href="<%= element.url %>"><%= (index+1) %>. <%= element.title %></a>
-            </div>
+          <% for element in uiElements: %>
+            <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
           <% end %>
         </div>
       </div>
-      <div class="icon next <%= if pageNumber is pageCount then "disabled " %>link item">
-        <% if pageNumber isnt pageCount and pageCollection[pageNumber]?: %>
-        <a href="<%= pageCollection[pageNumber].url %>"><i class="right arrow icon"></i></a>
-        <% else: %>
-        <i class="right arrow icon"></i>
-        <% end %>
-      </div>
-      <div class="right menu">
-        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
-        <a class="popup designer item" title="Designer Mode">
-          <i class="icon paint"></i>
-        </a>
-        <a class="popup developer item" title="Developer Mode">
-          <i class="icon terminal"></i>
-        </a>
-        <% end %>
-        <a class="popup item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
-          <i class="icon github"></i>
-        </a>
-        <!--
-        <div class="ui simple dropdown item">
-          <i class="icon tint"></i> Theme
-          <div class="theme menu">
-            <div class="active item" data-theme="flat">Flat</div>
-            <div class="item" data-theme="shaded">Shaded</div>
-            <div class="item" data-theme="classic">Classic</div>
-          </div>
+      <div class="item">
+        <a href="/collection.html"><b>UI Collections</b></a>
+        <div class="menu">
+          <% for element in uiCollections: %>
+            <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <% end %>
         </div>
-        !-->
+      </div>
+      <div class="item">
+        <a href="/module.html"><b>UI Modules</b></a>
+        <div class="menu">
+          <% for element in uiModules: %>
+            <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <% end %>
+        </div>
+      </div>
+      <div class="item">
+        <a href="/view.html"><b>UI Views</b></a>
+        <div class="menu">
+          <% for element in uiViews: %>
+            <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <% end %>
+        </div>
+      </div>
+      <div class="item">
+        <a href="/specification.html"><i class="inverted circular asterisk icon"></i><b>Specification</b></a>
+        <div class="menu">
+          <% for element in uiSpecification: %>
+            <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+  <div class="content" id="content">
+    <div class="ui fixed transparent inverted main menu">
+      <div class="container">
+        <a class="sidebar item"><i class="icon list layout"></i> Contents</a>
+        <div class="title item">
+          <b><%= @document.type %>:</b> <%= @document.title %>
+        </div>
+        <div class="icon previous link<%= if pageNumber is 1 then " disabled" %> item">
+          <% if pageNumber > 1 and pageCollection[pageNumber - 2]?: %>
+          <a href="<%= pageCollection[pageNumber - 2].url %>"><i class="left arrow icon"></i></a>
+          <% else: %>
+          <i class="left arrow icon"></i>
+          <% end %>
+        </div>
+        <div class="section ui simple dropdown item">
+          <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
+          <div class="menu">
+            <% for element, index in pageCollection: %>
+              <div class="<%= if element.id is @document.id then 'active ' %>item">
+                <a href="<%= element.url %>"><%= (index+1) %>. <%= element.title %></a>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="icon next <%= if pageNumber is pageCount then "disabled " %>link item">
+          <% if pageNumber isnt pageCount and pageCollection[pageNumber]?: %>
+          <a href="<%= pageCollection[pageNumber].url %>"><i class="right arrow icon"></i></a>
+          <% else: %>
+          <i class="right arrow icon"></i>
+          <% end %>
+        </div>
+        <div class="right menu">
+          <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+          <a class="popup designer item" title="Designer Mode">
+            <i class="icon paint"></i>
+          </a>
+          <a class="popup developer item" title="Developer Mode">
+            <i class="icon terminal"></i>
+          </a>
+          <% end %>
+          <a class="popup item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
+            <i class="icon github"></i>
+          </a>
+          <!--
+          <div class="ui simple dropdown item">
+            <i class="icon tint"></i> Theme
+            <div class="theme menu">
+              <div class="active item" data-theme="flat">Flat</div>
+              <div class="item" data-theme="shaded">Shaded</div>
+              <div class="item" data-theme="classic">Classic</div>
+            </div>
+          </div>
+          !-->
+        </div>
+      </div>
+    </div>
     <div class="ui black huge sidebar right attached button">
       <i class="icon list layout"></i>
       <span class="text">Menu</span>
     </div>
-  <%- @content %>
+    <div class="page">
+      <%- @content %>
+    </div>
+  </div>
 </body>
 
 </html>
