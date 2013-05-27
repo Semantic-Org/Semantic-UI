@@ -319,9 +319,24 @@
     display: block !important;
   }
   .ui.stackable.grid .column {
-    margin: 0em 3em 3em !important;
     display: block !important;
     width: auto !important;
-    padding: 0% !important;
+    margin: 1.5em 3em 0em !important;
+    padding: 1.5em 0em 0em !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+  .ui.stackable.grid .column:first-child {
+    margin-top: 0em !important;
+    padding-top: 0em !important;
+  }
+  .ui.stackable.divided.grid .column,
+  .ui.stackable.celled.grid .column {
+    border-top: 1px dotted rgba(0, 0, 0, 0.1);
+  }
+  .ui.stackable.divided.grid .column:first-child,
+  .ui.stackable.celled.grid .column:first-child {
+    border-top: none !important;
   }
 }

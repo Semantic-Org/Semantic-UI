@@ -43,6 +43,8 @@ $.fn.dropdown = function(parameters) {
         
         className     = settings.className,
         namespace     = settings.namespace,
+        animation     = settings.animation,
+
         errors        = settings.errors,
         module
       ;
@@ -76,7 +78,6 @@ $.fn.dropdown = function(parameters) {
             module.debug('Checking if click was inside the dropdown', event.target);
             if( $(event.target).closest($module).size() == 0 ) {
               module.hide();
-              module.intent.unbind();
             }
           },
 
@@ -128,32 +129,70 @@ $.fn.dropdown = function(parameters) {
           ;
         },
 
+        animate: {
+          show: function() {
+            if(animation.show == 'show') {
+              $menu
+                .show()
+              ;
+            }
+            else if(animation.show == 'slide') {
+              $menu
+                .children()
+                  .css('opacity', 0)
+                  .delay(100)
+                  .animate({
+                    opacity : 1
+                  }, 300, 'easeOutQuad')
+                  .end()
+                .slideDown(200, 'easeOutQuad')
+              ;
+            }
+          },
+          hide: function() {
+            console.log(animation.hide);
+            if(animation.hide == 'hide') {
+              $menu
+                .hide()
+              ;
+            }
+            else if(animation.hide == 'slide') {
+              $menu
+                .children()
+                  .css('opacity', 1)
+                  .animate({
+                    opacity : 0
+                  }, 300, 'easeOutQuad')
+                  .end()
+                .delay(100)
+                .slideUp(200, 'easeOutQuad')
+              ;
+            }
+          }
+        },
+
         show: function() {
-          module.debug('Enabling dropdown');
+          module.debug('Showing dropdown');
           $module
             .addClass(className.active)
           ;
+          module.animate.show();
           if( module.can.click() ) {
             module.intent.bind();
           }
-          $menu
-            .show()
-          ;
           $.proxy(settings.onChange, $menu.get())();
           $.proxy(settings.onShow, $menu.get())();
         },
 
         hide: function() {
-          module.debug('Disabling dropdown');
+          module.debug('Hiding dropdown');
           $module
             .removeClass(className.active)
           ;
           if( module.can.click() ) {
             module.intent.unbind();
           }
-          $menu
-            .hide()
-          ;
+          module.animate.hide();
           $.proxy(settings.onChange, $menu.get())();
           $.proxy(settings.onHide, $menu.get())();
         },
@@ -319,6 +358,11 @@ $.fn.dropdown.settings = {
   verbose     : true,
   debug       : true,
   performance : false,
+
+  animation: {
+    show: 'slide',
+    hide: 'slide'
+  },
   
   on          : 'click',
 
