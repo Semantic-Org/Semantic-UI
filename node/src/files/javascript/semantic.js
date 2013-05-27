@@ -26,8 +26,6 @@ semantic.ready = function() {
 
   // selector cache
   var
-    $content      = $('#content'),
-    $page         = $('#content').children('.page'),
     $ui           = $('.ui').not('.hover, .down'),
     $swap         = $('.theme.menu .item'),
     $menu         = $('.sidebar'),
@@ -51,7 +49,7 @@ semantic.ready = function() {
     $peekSubItem  = $peek.find('.item .menu .item'),
     $code         = $('div.code'),
 
-    sideMenu,
+    // alias
     handler
   ;
 
@@ -206,14 +204,7 @@ semantic.ready = function() {
 
     },
 
-    showSidebar: function() {
-      if( sideMenu.state().state=="left" ){
-        sideMenu.close();
-      } 
-      else {
-        sideMenu.open('left');
-      }
-      /*
+    movePeek: function() {
       if( $('.stuck .peek').size() > 0 ) {
         $('.peek')
           .toggleClass('pushed')
@@ -224,8 +215,6 @@ semantic.ready = function() {
           .removeClass('pushed')
         ;
       }
-      */
-
     },
 
     menu: {
@@ -275,6 +264,9 @@ semantic.ready = function() {
           }, 500, function() {
             $menu
               .removeClass('animating')
+            ;
+            $headers
+              .removeClass('active')
             ;
             $header
               .addClass('active')
@@ -356,28 +348,6 @@ semantic.ready = function() {
       .tablesort()
     ;
   }
-  $waypoints
-    .waypoint({
-      continuous : false,
-      context    : $page,
-      offset     : 100,
-      handler    : function(direction) {
-        console.log('here');
-        var
-          index = (direction == 'down')
-            ? $waypoints.index(this)
-            : ($waypoints.index(this) - 1 >= 0)
-              ? ($waypoints.index(this) - 1)
-              : 0
-        ;
-        $peekItem
-          .removeClass('active')
-          .eq( index )
-            .addClass('active')
-        ;
-      }
-    })
-  ;
 
   if(window.ace !== undefined) {
     $code
@@ -422,37 +392,51 @@ semantic.ready = function() {
     })
   ;
 
- 
-
-
-  sideMenu = new Snap({
-    element: document.getElementById('content'),
-    tapToClose: false,
-    disable: 'right',
-    maxPosition: 275,
-    minPosition: -275,
-    addBodyClasses: false
-  });
-  $content
-    .on('mousedown touchstart', function() {
-      $(this).addClass('drag');
-    })
-    .on('mouseup touchend', function() {
-      $(this).removeClass('drag');
-    })
-  ;
-
   $menu
-    .on('click', handler.showSidebar)
+    .sidr({
+      name: 'menu'
+    })
     .filter('.button')
+      .on('click', handler.movePeek)
       .on('mouseenter', handler.menu.mouseenter)
       .on('mouseleave', handler.menu.mouseleave)
   ;
 
+  $waypoints
+    .waypoint({
+      continuous : false,
+      offset     : 100,
+      handler    : function(direction) {
+        var
+          index = (direction == 'down')
+            ? $waypoints.index(this)
+            : ($waypoints.index(this) - 1 >= 0)
+              ? ($waypoints.index(this) - 1)
+              : 0
+        ;
+        $peekItem
+          .removeClass('active')
+          .eq( index )
+            .addClass('active')
+        ;
+      }
+    })
+  ;
+  $('body')
+    .waypoint({
+      handler: function() {
+        $peekItem
+          .removeClass('active')
+          .eq( $peekItem.size() - 1 )
+            .addClass('active')
+        ;
+      },
+      offset: 'bottom-in-view'
+     })
+  ;
   $peek
     .waypoint('sticky', {
       offset     : 85,
-      context    : $page,
       stuckClass : 'stuck'
     })
   ;
