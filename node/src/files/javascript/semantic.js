@@ -27,6 +27,7 @@ semantic.ready = function() {
   // selector cache
   var
     $content      = $('#content'),
+    $page         = $('#content').children('.page'),
     $ui           = $('.ui').not('.hover, .down'),
     $swap         = $('.theme.menu .item'),
     $menu         = $('.sidebar'),
@@ -205,7 +206,7 @@ semantic.ready = function() {
 
     },
 
-    movePeek: function() {
+    showSidebar: function() {
       if( sideMenu.state().state=="left" ){
         sideMenu.close();
       } 
@@ -358,8 +359,10 @@ semantic.ready = function() {
   $waypoints
     .waypoint({
       continuous : false,
+      context    : $page,
       offset     : 100,
       handler    : function(direction) {
+        console.log('here');
         var
           index = (direction == 'down')
             ? $waypoints.index(this)
@@ -438,10 +441,10 @@ semantic.ready = function() {
       $(this).removeClass('drag');
     })
   ;
-  
+
   $menu
+    .on('click', handler.showSidebar)
     .filter('.button')
-      .on('click', handler.movePeek)
       .on('mouseenter', handler.menu.mouseenter)
       .on('mouseleave', handler.menu.mouseleave)
   ;
@@ -449,6 +452,7 @@ semantic.ready = function() {
   $peek
     .waypoint('sticky', {
       offset     : 85,
+      context    : $page,
       stuckClass : 'stuck'
     })
   ;

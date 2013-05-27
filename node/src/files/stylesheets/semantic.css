@@ -254,7 +254,7 @@ a:hover {
 
 
 /* segment headers */
-#example > .content > .segment,
+#example > .content > .page > .segment,
 #example > .segment {
   margin: 0px 0px 46px;
   padding-top: 65px;
