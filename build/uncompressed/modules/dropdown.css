@@ -17,6 +17,11 @@
   display: inline-block;
   line-height: 1;
   white-space: nowrap;
+  -webkit-transition: border-radius 0.1s ease;
+  -moz-transition: border-radius 0.1s ease;
+  -o-transition: border-radius 0.1s ease;
+  -ms-transition: border-radius 0.1s ease;
+  transition: border-radius 0.1s ease;
 }
 .ui.dropdown .menu {
   position: absolute;
@@ -30,11 +35,11 @@
   -moz-border-radius: 0px 0px 0.325em 0.325em;
   -webkit-border-radius: 0px 0px 0.325em 0.325em;
   border-radius: 0px 0px 0.325em 0.325em;
-  -webkit-transition: opacity 0.2s ease-out;
-  -moz-transition: opacity 0.2s ease-out;
-  -o-transition: opacity 0.2s ease-out;
-  -ms-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
   z-index: 11;
 }
 /* Flyout Direction */

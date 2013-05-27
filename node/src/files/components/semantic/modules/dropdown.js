@@ -61,9 +61,8 @@ $.fn.dropdown = function(parameters) {
           }
           else {
             module.verbose('Initializing dropdown with bound events', $module);
-            
             $module
-              .on(module.get.event() + eventNamespace, module.toggle)
+              .on(module.get.event() + eventNamespace, module.intent.test)
             ;
 
             $module
@@ -76,8 +75,9 @@ $.fn.dropdown = function(parameters) {
 
           test: function(event) {
             module.debug('Checking if click was inside the dropdown', event.target);
-            if( $(event.target).closest($module).size() == 0 ) {
-              module.hide();
+            if( $(event.target).closest($menu).size() == 0 ) {
+              module.toggle();
+              event.stopPropagation();
             }
           },
 
@@ -150,7 +150,6 @@ $.fn.dropdown = function(parameters) {
             }
           },
           hide: function() {
-            console.log(animation.hide);
             if(animation.hide == 'hide') {
               $menu
                 .hide()
@@ -235,7 +234,7 @@ $.fn.dropdown = function(parameters) {
         debug: function() {
           if(settings.debug) {
             module.performance.log(arguments[0]);
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
           }
         },
         verbose: function() {
@@ -358,6 +357,8 @@ $.fn.dropdown.settings = {
   verbose     : true,
   debug       : true,
   performance : false,
+
+  action: 'close',
 
   animation: {
     show: 'slide',

@@ -66,6 +66,13 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        destroy: function() {
+          module.verbose('Destroying previous module for', $module);
+          $module
+            .off(namespace)
+          ;
+        },
+
         is: {
           radio: function() {
             return $module
@@ -81,13 +88,6 @@ $.fn.checkbox = function(parameters) {
               : !module.is.radio()
             ;
           }
-        },
-
-        destroy: function() {
-          module.verbose('Destroying previous module for', $module);
-          $module
-            .off(namespace)
-          ;
         },
 
         enable: function() {
@@ -157,7 +157,7 @@ $.fn.checkbox = function(parameters) {
         debug: function() {
           if(settings.debug) {
             module.performance.log(arguments[0]);
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
           }
         },
         verbose: function() {
