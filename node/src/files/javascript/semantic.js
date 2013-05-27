@@ -31,7 +31,7 @@ semantic.ready = function() {
     $menu         = $('.sidebar'),
     $sortTable    = $('.sortable.table'),
     $demo         = $('.demo'),
-    $waypoints    = $('.main.container > h2'),
+    $waypoints    = $('.main.container').children('h2'),
 
     $menuPopup    = $('.ui.main.menu .popup.item'),
 
@@ -247,7 +247,7 @@ semantic.ready = function() {
         $menu     = $header.parent(),
         $group    = $menu.children(),
         $headers  = $group.add( $group.find('.menu .item') )
-        $waypoint = $('h2').eq( $group.index( $header ) ),
+        $waypoint = $waypoints.eq( $group.index( $header ) ),
         offset    = $waypoint.offset().top - 80
       ;
       if(!$header.hasClass('active') ) {
@@ -424,12 +424,14 @@ semantic.ready = function() {
   ;
   $('body')
     .waypoint({
-      handler: function() {
-        $peekItem
-          .removeClass('active')
-          .eq( $peekItem.size() - 1 )
-            .addClass('active')
-        ;
+      handler: function(direction) {
+        if(direction == 'down') {
+          $peekItem
+            .removeClass('active')
+            .eq( $peekItem.size() - 1 )
+              .addClass('active')
+          ;
+        }
       },
       offset: 'bottom-in-view'
      })

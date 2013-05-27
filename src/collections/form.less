@@ -175,13 +175,13 @@
 .ui.form input:focus,
 .ui.form textarea:focus {
   color: rgba(20, 20, 20, 0.9);
-  border-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.5);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   
-  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
-  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.5) inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.5) inset;
+  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.5) inset;
 }
 
 /*--------------------
@@ -282,6 +282,9 @@
 
 .ui.form .field :disabled,
 .ui.form .field.disabled {
+  opacity: 0.5;
+}
+.ui.form .field.disabled label {
   opacity: 0.5;
 }
 .ui.form .field.disabled :disabled {

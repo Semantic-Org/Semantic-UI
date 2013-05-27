@@ -238,10 +238,6 @@ a:hover {
   border-radius: 0px;
   font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
 
-  -webkit-box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2); 
-
   border-right: none;
 }
 #example #menu .item {
@@ -264,10 +260,9 @@ a:hover {
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
-#example > .content > .segment .text,
-#example > .segment .text {
-  width: 800px;
-  margin: 0px auto;
+#example .download.menu {
+  margin-top: 5px;
+  float: right;
 }
 
 #example .main.menu {
@@ -317,15 +312,15 @@ a:hover {
 #example .masthead h1 {
   font-size: 5em;
   line-height: 1.2;
+  margin-bottom: 0px;
   padding-bottom: 0px;
-  text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
 }
 #example .masthead strike {
   color: rgba(0, 0, 0, 0.2);
 }
 #example .masthead h2 {
   font-weight: normal;
-  margin: 0.25em 0em 0em;
+  margin: -10px 0 30px 122px;
   font-size: 1.75em;
   border-bottom: none;
   line-height: 1;
@@ -424,7 +419,7 @@ a:hover {
 }
 #example .peek {
   position: absolute;
-  top: -8px;
+  top: 0px;
   left: -230px;
   width: 180px;
 

@@ -47,6 +47,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/checkbox.css">
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/sidr.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
@@ -60,6 +61,7 @@
   <script src="/javascript/library/waypoints.js"></script>
 
   <script src="/components/semantic/modules/behavior/state.js"></script>
+  <script src="/components/semantic/modules/checkbox.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
 
   <script src="/javascript/semantic.js"></script>

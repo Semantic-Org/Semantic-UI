@@ -177,11 +177,16 @@
   background-color: rgba(0, 0, 0, 0.04);
   font-weight: bold;
   margin: 0em;
+  -webkit-box-shadow: -0.1em 0em 0em 0em rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: -0.1em 0em 0em 0em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: -0.1em 0em 0em 0em rgba(0, 0, 0, 0.1) inset;
+}
+.ui.vertical.menu .header.item {
   padding-top: 1em;
   padding-bottom: 1em;
-  -webkit-box-shadow: 0 -0.1em 0 0 rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0 -0.1em 0 0 rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 -0.1em 0 0 rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0em -0.1em 0em 0em rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0em -0.1em 0em 0em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em -0.1em 0em 0em rgba(0, 0, 0, 0.1) inset;
 }
 /*--------------
     Dropdowns
@@ -722,8 +727,8 @@
   -moz-box-shadow: none;
   box-shadow: none;
   border: none;
-  margin: 0em 0.2em;
-  padding: 0.4em 1.3em;
+  margin: 0em 0.25em;
+  padding: 0.4em 1em;
   -webkit-border-radius: 0.325em;
   -moz-border-radius: 0.325em;
   border-radius: 0.325em;
@@ -731,11 +736,20 @@
 .ui.secondary.menu > .item:before {
   display: none;
 }
+.ui.secondary.menu .header.item {
+  background-color: transparent;
+  border-right: 0.1em solid rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+}
 /* active */
 .ui.secondary.menu > .active.item {
   border-top: none;
   background-color: rgba(0, 0, 0, 0.08);
-  padding: 0.4em 1.3em;
+  -webkit-border-radius: 0.325em;
+  -moz-border-radius: 0.325em;
+  border-radius: 0.325em;
 }
 .ui.secondary.inverted.menu > .active.item {
   background-color: rgba(255, 255, 255, 0.2);

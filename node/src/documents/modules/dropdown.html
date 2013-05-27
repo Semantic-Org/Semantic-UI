@@ -22,7 +22,8 @@ type   : 'UI Module'
       <a class="active item">Standard</a>
       <a class="item">Variations</a>
       <a class="item">Behavior</a>
-      <a class="item">Settings</a>
+      <a class="item">Examples</a>
+      <a class="item">Usage</a>
     </div>
   </div>
   
@@ -127,11 +128,41 @@ type   : 'UI Module'
       </div>
     </div>
   </div>
-  
+
   <h2 class="ui dividing header">Variations</h2>
+
+  <h2 class="ui dividing header">Behavior</h2>
+
+  <div class="example">
+    <p>A checkbox can change to show a user has selected it</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('enable')
+    ;
+    </div>
+  </div>
+  <div class="example">
+    <p>A checkbox can change to show a user has not selected it</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('disable')
+    ;
+    </div>
+  </div>
+  <div class="example">
+    <p>A checkbox can toggle between states</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('toggle')
+    ;
+    </div>
+  </div>
   
+  <h2 class="ui dividing header">Examples</h2>
   
-  <h2 class="ui dividing header">Getting Started</h2>
+
+  <h2 class="ui dividing header">Usage</h2>
+  
   <h3 class="ui header">Initializing a dropdown</h3>
   <div class="code">
     $('.ui.dropdown')

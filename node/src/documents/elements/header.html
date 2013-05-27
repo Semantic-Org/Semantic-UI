@@ -23,9 +23,26 @@ type   : 'UI Element'
   <h2 class="ui dividing header">Standard</h2>
   
   <div class="example">
+    <h4 class="ui header">Header</h4>
+    <p>A simple header</p>
+    <h2 class="ui header">
+      Account Settings
+    </h2>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Descriptive Headers</h4>
+    <p>Headers may have sub headers containing further context to the section</p>
+    <h2 class="ui header">
+      <i class="settings icon"></i> Account Settings
+      <div class="sub header">Manage your account settings and set e-mail preferences.</div>
+    </h2>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Page Headings</h4>
-      <p class="header">Page headings are ordered headings showing the structure of content on a page. There size is always relative to the page's font size</p>
-    <div class="ui basic vertical segment">
+      <p class="header">Headers may be oriented to give the heirarchy of a section in the context of the page</p>
+    <div class="ui segment">
       <h1 class="ui header">First header</h1>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
       <h2 class="ui header">Second header</h2>
@@ -37,16 +54,16 @@ type   : 'UI Element'
       <h5 class="ui header">Fifth header</h5>
       <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
     </div>
-    <div class="ui two item font menu">
-      <a class="increase item"> <i class="icon plus"></i> Base Font</a>
-      <a class="decrease item"> <i class="icon minus"></i> Base Font</a>
+    <div class="ui secondary font menu">
+      <a class="increase item"> <i class="icon green plus"></i> Base Font</a>
+      <a class="decrease item"> <i class="icon red minus"></i> Base Font</a>
     </div>
   </div>
   
   <div class="example">
     <h4 class="ui header">Content Headings</h4>
-    <p>Content headings are specified by their size and will change their size relative to the font-size of the content that surrounds it.</p>
-    <div class="ui basic vertical segment">
+    <p>Headers may be oriented to give the importance of a section in the context of the content that surrounds it</p>
+    <div class="ui segment">
       <div class="ui huge header">Huge Header</div>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
       <div class="ui large header">Large Header</div>
@@ -58,9 +75,9 @@ type   : 'UI Element'
       <div class="ui tiny header">Tiny Header</div>
       <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
     </div>
-    <div class="ui two item font menu">
-      <a class="increase item"> <i class="icon plus"></i> Base Font</a>
-      <a class="decrease item"> <i class="icon minus"></i> Base Font</a>
+    <div class="ui secondary font menu">
+      <a class="increase item"> <i class="icon green plus"></i> Base Font</a>
+      <a class="decrease item"> <i class="icon red minus"></i> Base Font</a>
     </div>
   </div>
 
@@ -68,7 +85,7 @@ type   : 'UI Element'
   
   <div class="example">
     <h4 class="ui header">Disabled</h4>
-    <p>A header can show that its inactive</p>
+    <p>A header can show that it is inactive</p>
     <div class="ui disabled header">
       Disabled Header
     </div>
