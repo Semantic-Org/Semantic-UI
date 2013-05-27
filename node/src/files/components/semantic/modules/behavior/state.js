@@ -485,7 +485,7 @@ $.fn.state = function(parameters) {
         debug: function() {
           if(settings.debug) {
             module.performance.log(arguments[0]);
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
           }
         },
         error: function() {

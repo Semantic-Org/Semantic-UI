@@ -34,6 +34,8 @@ $.fn.dropdown = function(parameters) {
       var
         $module       = $(this),
         $menu         = $(this).find(settings.selector.menu),
+        $item         = $(this).find(settings.selector.item),
+        $input        = $(this).find(settings.selector.input)
         
         isTouchDevice = ('ontouchstart' in document.documentElement),
         
@@ -61,23 +63,53 @@ $.fn.dropdown = function(parameters) {
           }
           else {
             module.verbose('Initializing dropdown with bound events', $module);
-            
             $module
-              .on(module.get.event() + eventNamespace, module.toggle)
+              .on(module.get.event() + eventNamespace, module.intent.test)
             ;
-
+            $item
+              .on('click' + eventNamespace, module.event.select)
+            ;
             $module
               .data(moduleNamespace, module)
             ;
           }
         },
 
+        destroy: function() {
+          module.verbose('Destroying previous module for', $module);
+          $module
+            .off(namespace)
+          ;
+        },
+
+        event: {
+
+          item: {
+
+            click: function () {
+              var
+                value = $(this).data(metadata.value) || $(this).html()
+              ;
+              module.verbose('Determining select action');
+              if( $.isFunction( module.action[settings.action] ) {
+                module.action[ settings.action ](value);
+              }
+              else {
+                module.error(errors.action);
+              }
+            }
+
+          }
+
+        },
+
         intent: {
 
           test: function(event) {
             module.debug('Checking if click was inside the dropdown', event.target);
-            if( $(event.target).closest($module).size() == 0 ) {
-              module.hide();
+            if( $(event.target).closest($menu).size() == 0 ) {
+              module.toggle();
+              event.stopPropagation();
             }
           },
 
@@ -96,6 +128,22 @@ $.fn.dropdown = function(parameters) {
           }
 
         },
+
+        action: {
+
+          nothing: function() {},
+
+          close: function() {
+            module.hide();
+          },
+
+          form: function(value) {
+            module.debug('Adding selected value to hidden input', value);
+            $input.val(value);
+            module.hide();
+          }
+
+        }
 
         get: {
 
@@ -122,13 +170,6 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        destroy: function() {
-          module.verbose('Destroying previous dropdown for', $module);
-          $module
-            .off(namespace)
-          ;
-        },
-
         animate: {
           show: function() {
             if(animation.show == 'show') {
@@ -150,7 +191,6 @@ $.fn.dropdown = function(parameters) {
             }
           },
           hide: function() {
-            console.log(animation.hide);
             if(animation.hide == 'hide') {
               $menu
                 .hide()
@@ -235,7 +275,7 @@ $.fn.dropdown = function(parameters) {
         debug: function() {
           if(settings.debug) {
             module.performance.log(arguments[0]);
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
           }
         },
         verbose: function() {
@@ -359,6 +399,8 @@ $.fn.dropdown.settings = {
   debug       : true,
   performance : false,
 
+  action: 'close',
+
   animation: {
     show: 'slide',
     hide: 'slide'
@@ -371,11 +413,18 @@ $.fn.dropdown.settings = {
   onHide      : function(){},
   
   errors      : {
+    action   : 'You called a dropdown action that was not defined',
     method   : 'The method you called is not defined.'
   },
 
+  metadata: {
+    value: 'value'
+  },
+
   selector : {
+    input : 'input[type="hidden"]',
     menu  : '.menu'
+    item  : '.menu > .item'
   },
 
   className : {
