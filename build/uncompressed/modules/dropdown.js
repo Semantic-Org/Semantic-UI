@@ -57,15 +57,14 @@ $.fn.dropdown = function(parameters) {
 
         initialize: function() {
           module.verbose('Initializing dropdown with bound events', $module);
-          console.log(settings.on);
           if(isTouchDevice) {
             $module
-              .on('touchstart' + eventNamespace, module.toggle)
+              .on('touchstart' + eventNamespace, module.event.test.toggle)
             ;
           }
           else if(settings.on == 'click') {
             $module
-              .on('click' + eventNamespace, module.toggle)
+              .on('click' + eventNamespace, module.event.test.toggle)
             ;
           }
           else if(settings.on == 'hover') {
@@ -97,24 +96,38 @@ $.fn.dropdown = function(parameters) {
 
         event: {
 
+          stopPropagation: function(event) {
+            event.stopPropagation();
+          },
+
+          test: {
+            toggle: function(event) {
+              module.intent.test(event, module.toggle);
+              event.stopPropagation();
+            },
+            hide: function(event) {
+              module.intent.test(event, module.hide);
+              event.stopPropagation();
+            }
+          },
+
           item: {
 
             click: function () {
               var
-                value = $(this).data(metadata.value) || $(this).text()
+                $choice = $(this),
+                name    = $choice.data(metadata.name)  || $choice.text(),
+                value   = $choice.data(metadata.value) || name
               ;
-              if( $.isFunction( module.action[settings.action] ) ) {
-                module.verbose('Triggering preset item action', settings.action);
-                module.action[ settings.action ](value);
-              }
-              else if( $.isFunction(settings.action) ) {
-                module.verbose('Triggering user action', settings.action);
-                settings.action(value);
-              }
-              else {
-                module.error(errors.action);
-              }
-              $.proxy(settings.onChange, $menu.get())(value);
+              module.verbose('Adding active state to selected item');
+              $item
+                .removeClass(className.active)
+              ;
+              $choice
+                .addClass(className.active)
+              ;
+              module.action.determine(name, value);
+              $.proxy(settings.onChange, $menu.get())(name, value);
             }
 
           }
@@ -125,25 +138,27 @@ $.fn.dropdown = function(parameters) {
 
           test: function(event, callback) {
             module.debug('Determining whether event occurred in dropdown', event.target);
+            callback = callback || function(){};
             if( $(event.target).closest($menu).size() == 0 ) {
+              module.verbose('Triggering event', callback)
               callback();
-              event.stopPropagation();
+            }
+            else {
+              module.verbose('Event occurred in dropdown, canceling callback');
             }
           },
 
           bind: function() {
             module.verbose('Binding hide intent event to document');
-            $(document)
-              .on('click', function(event) {
-                 module.intent.test(event, module.hide);
-              })
+            $document
+              .on(module.get.selectEvent(), module.event.test.hide)
             ;
           },
 
           unbind: function() {
             module.verbose('Removing hide intent event from document');
             $document
-              .off('click')
+              .off(module.get.selectEvent())
             ;
           }
 
@@ -151,25 +166,48 @@ $.fn.dropdown = function(parameters) {
 
         action: {
 
+          determine: function(name, value) {
+            if( $.isFunction( module.action[settings.action] ) ) {
+              module.verbose('Triggering preset action', settings.action);
+              module.action[ settings.action ](name, value);
+            }
+            else if( $.isFunction(settings.action) ) {
+              module.verbose('Triggering user action', settings.action);
+              settings.action(name, value);
+            }
+            else {
+              module.error(errors.action);
+            }
+          },
+
           nothing: function() {},
 
           hide: function() {
             module.hide();
           },
 
-          changeText: function(value) {
-            module.debug('Changing text', value);
-            $text.text(value);
+          changeText: function(name, value) {
+            module.debug('Changing text', name);
+            $text.text(name);
             module.hide();
           },
 
-          form: function(value) {
-            module.debug('Adding selected value to hidden input', value);
-            $text.text(value);
+          form: function(name, value) {
+            module.debug('Adding selected value to hidden input', name, value);
+            $text.text(name);
             $input.val(value);
             module.hide();
           }
 
+        },
+
+        get: {
+          selectEvent: function() {
+            return (isTouchDevice)
+              ? 'touchstart'
+              : 'click'
+            ;
+          }
         },
 
         is: {
@@ -242,7 +280,7 @@ $.fn.dropdown = function(parameters) {
           if( !module.is.visible() ) {
             module.debug('Showing dropdown');
             $module
-              .addClass(className.active)
+              .addClass(className.visible)
             ;
             module.animate.show();
             if( module.can.click() ) {
@@ -261,7 +299,7 @@ $.fn.dropdown = function(parameters) {
           if( !module.is.hidden() ) {
             module.debug('Hiding dropdown');
             $module
-              .removeClass(className.active)
+              .removeClass(className.visible)
             ;
             if( module.can.click() ) {
               module.intent.unbind();
@@ -434,16 +472,14 @@ $.fn.dropdown.settings = {
   debug       : true,
   performance : false,
   
+  on          : 'click',
+  gracePeriod : 300,
   action      : 'hide',
   
   animation   : {
     show: 'slide',
     hide: 'slide'
   },
-  
-  on          : 'click',
-  
-  gracePeriod : 300,
   
   onChange : function(){},
   onShow   : function(){},
@@ -455,7 +491,8 @@ $.fn.dropdown.settings = {
   },
 
   metadata: {
-    value: 'value'
+    name  : 'name',
+    value : 'value'
   },
 
   selector : {
@@ -466,7 +503,9 @@ $.fn.dropdown.settings = {
   },
 
   className : {
-    active : 'visible'
+    active   : 'active',
+    disabled : 'disabled',
+    visible  : 'visible'
   }
 
 };
