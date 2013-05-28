@@ -185,7 +185,6 @@ semantic.ready = function() {
       // initialize
       editor        = ace.edit($code[0]);
       editorSession = editor.getSession();
-      codeHeight    = editor.session.getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
 
       editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);
@@ -198,6 +197,7 @@ semantic.ready = function() {
       editorSession.setTabSize(2);
       editorSession.setUseSoftTabs(true);
 
+      codeHeight    = editor.session.getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
 
       $(this).height(codeHeight + 'px');
       editor.resize();
