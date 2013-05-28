@@ -80,7 +80,7 @@ $.fn.dropdown = function(parameters) {
           }
 
           $item
-            .on('click' + eventNamespace, module.event.item.click)
+            .on(module.get.selectEvent() + eventNamespace, module.event.item.click)
           ;
           $module
             .data(moduleNamespace, module)

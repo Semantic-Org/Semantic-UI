@@ -309,6 +309,7 @@
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.8) url(../images/throbber-large.gif) no-repeat 50% 50%;
+  visibility: visible;
 }
 
 
@@ -347,8 +348,8 @@
 }
 .ui.form .date.field > label:after {
   position: absolute;
-  top: 1.2em;
-  right: 0.4em;
+  top: 1.4em;
+  right: 0.5em;
 
   font-family: 'Icons';
   content: '📅'; /* '\1f4c5' */
@@ -453,6 +454,10 @@
   vertical-align: middle;
   font-size: 1em;
 }
+.ui.form .inline.fields .field > input,
+.ui.form .inline.field > input {
+  font-size: 0.875em;
+}
 
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
@@ -478,8 +483,5 @@
 /* Large */
 .ui.large.form {
   font-size: 1.125em;
-}
-.ui.large.form label {
-  font-weight: bold;
 }
 
