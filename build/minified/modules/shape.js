@@ -40,7 +40,7 @@ $.fn.shape = function(parameters) {
         // private variables
         $activeSide,
         $nextSide,
-        endTransition = 'transitionend msTransitionEnd oTransitionEnd',
+        endTransition = 'transitionend msTransitionEnd oTransitionEnd webkitTransitionEnd',
         
         // standard module
         element       = this,
