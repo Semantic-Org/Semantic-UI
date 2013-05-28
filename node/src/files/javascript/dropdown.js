@@ -5,8 +5,10 @@ semantic.dropdown.ready = function() {
 
   // selector cache
   var 
-    $hover  = $('.hover .ui.dropdown'),
-    $select = $('.ui.dropdown').not($hover),
+    $examples      = $('.example'),
+    $hoverDropdown = $examples.filter('.hover').find('.ui.dropdown'),
+    $formDropdown  = $examples.filter('.form').find('.ui.dropdown'),
+    $dropdown      = $examples.filter('.dropdown').find('.ui.dropdown'),
     // alias
     handler
   ;
@@ -16,11 +18,22 @@ semantic.dropdown.ready = function() {
     
   };
 
-  $select
+  $dropdown
+    .dropdown()
+  ;
+  console.log($dropdown);
+  $formDropdown
+    .dropdown({
+      action: 'form'
+    })
+  ;
+  console.log($formDropdown);
+  $hoverDropdown
     .dropdown({
       on: 'hover'
     })
   ;
+  console.log($hoverDropdown);
   
 };
 

@@ -21,15 +21,15 @@ type   : 'UI Module'
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Standard</a>
       <a class="item">Variations</a>
+      <a class="item">States</a>
       <a class="item">Behavior</a>
-      <a class="item">Examples</a>
       <a class="item">Usage</a>
     </div>
   </div>
   
   <h2 class="ui dividing header">Standard</h2>
 
-  <div class="visible example">
+  <div class="visible hover example">
     <h4 class="ui header">Dropdown</h4>
     <p>The markup for a dropdown</p>
     <div class="ui dropdown">
@@ -43,7 +43,7 @@ type   : 'UI Module'
     </div>
   </div>
 
-  <div class="example">
+  <div class="dropdown example">
     <h4 class="ui header">Button Dropdown</h4>
     <p>A button can be formatted to open a dropdown</p>
     <div class="ui red labeled icon dropdown button">
@@ -57,7 +57,7 @@ type   : 'UI Module'
     </div>
   </div>
 
-  <div class="example">
+  <div class="dropdown example">
     <h4 class="ui header">Combo Dropdown</h4>
     <p>A button group can be formatted with a dropdown</p>
     <div class="ui teal buttons">
@@ -73,7 +73,7 @@ type   : 'UI Module'
     </div>
   </div>
 
-  <div class="example">
+  <div class="hover example">
     <h4 class="ui header">Menu Dropdown</h4>
     <p>A menu element can contain a dropdown</p>
       <div class="ui compact tiered purple inverted menu">
@@ -101,7 +101,7 @@ type   : 'UI Module'
   </div>
   
   
-  <div class="example">
+  <div class="form example">
     <h4 class="ui header">Select</h4>
     <p>A dropdown can be formatted to allow selection inside a form</p>
     <div class="ui form segment">
@@ -119,11 +119,12 @@ type   : 'UI Module'
       <div class="field">
         <label>Gender</label>
         <div class="ui dropdown selection">
+          <input type="hidden" name="gender">
           <i class="icon dropdown"></i> 
-          Male
+          <div class="text">Male</div>
           <div class="menu">
-            <div class="item">Male</div>
-            <div class="item">Female</div>
+            <div class="item" data-value="male">Male</div>
+            <div class="item" data-value="female">Female</div>
           </div>
         </div>
       </div>
@@ -134,8 +135,39 @@ type   : 'UI Module'
   <div class="example">
     <h4 class="ui header">Simple</h4>
     <p>A dropdown can open without javascript</p>
-    <div class="ui menu">
+    <div class="ui compact menu">
       <div class="ui simple dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Visible</h4>
+    <p>A visible dropdown menu has its menu open</p>
+    <div class="ui compact menu">
+      <div class="ui simple visible dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A disabled dropdown menu will not open or close</p>
+    <div class="ui menu">
+      <div class="ui simple disabled dropdown item">
         Dropdown <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Choice 1</div>
@@ -228,8 +260,6 @@ type   : 'UI Module'
     ;
     </div>
   </div>
-  
-  <h2 class="ui dividing header">Examples</h2>
   
 
   <h2 class="ui dividing header">Usage</h2>

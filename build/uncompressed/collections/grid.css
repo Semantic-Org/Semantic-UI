@@ -218,6 +218,7 @@
 /*----------------------
        Divided
 -----------------------*/
+.ui.divided.grid,
 .ui.divided.grid > .row {
   display: table;
 }

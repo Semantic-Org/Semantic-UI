@@ -16,11 +16,11 @@
   position: relative;
   display: inline-block;
   line-height: 1;
-  -webkit-transition: border-radius 0.1s ease;
-  -moz-transition: border-radius 0.1s ease;
-  -o-transition: border-radius 0.1s ease;
-  -ms-transition: border-radius 0.1s ease;
-  transition: border-radius 0.1s ease;
+  -webkit-transition: border-radius 0.1s ease, width 0.2s ease;
+  -moz-transition: border-radius 0.1s ease, width 0.2s ease;
+  -o-transition: border-radius 0.1s ease, width 0.2s ease;
+  -ms-transition: border-radius 0.1s ease, width 0.2s ease;
+  transition: border-radius 0.1s ease, width 0.2s ease;
 }
 .ui.dropdown .menu {
   position: absolute;
@@ -41,6 +41,12 @@
   -ms-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
   z-index: 11;
+}
+.ui.dropdown > .dropdown.icon {
+  width: auto;
+}
+.ui.dropdown > .text {
+  display: inline-block;
 }
 /* Flyout Direction */
 .ui.dropdown .menu {
@@ -93,6 +99,7 @@
 ---------------*/
 /* Displays without javascript */
 .ui.simple.dropdown .menu {
+  display: block;
   overflow: hidden;
   height: 0px;
   width: 0px;
@@ -104,16 +111,22 @@
   -ms-transition: opacity 0.2s ease-out;
   transition: opacity 0.2s ease-out;
 }
+.ui.simple.dropdown.visible .menu,
 .ui.simple.dropdown:hover .menu {
-  display: block;
   overflow: visible;
   width: auto;
   height: auto;
   opacity: 1;
 }
+.ui.simple.disabled.dropdown:hover .menu {
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+}
 /*--------------
     Selection
 ---------------*/
+/* Displays like a select box */
 .ui.selection.dropdown {
   cursor: pointer;
   display: inline-block;
