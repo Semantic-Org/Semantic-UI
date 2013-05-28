@@ -230,7 +230,7 @@ $.fn.form = function(fields, parameters) {
             var
               $field      = module.get.field(field.identifier),
               $fieldGroup = $field.closest($group),
-              $prompt     = $group.find($prompt)
+              $prompt     = $fieldGroup.find(settings.selector.prompt)
             ;
             $fieldGroup
               .removeClass(className.error)
