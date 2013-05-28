@@ -56,7 +56,7 @@ $.fn.form = function(fields, parameters) {
       module      = {
 
         initialize: function() {
-          module.verbose('Initializing form validation');
+          module.verbose('Initializing form validation', $module, validation, settings);
           if(settings.keyboardShortcuts) {
             $field
               .on('keydown' + eventNamespace, module.event.field.keydown)
@@ -66,7 +66,7 @@ $.fn.form = function(fields, parameters) {
             .on('submit' + eventNamespace, module.validate.form)
           ;
           $field
-            .on('change' + eventNamespace, module.event.field.change)
+            .on('blur' + eventNamespace, module.event.field.change)
           ;
           $submit
             .on('click' + eventNamespace, module.submit)
@@ -129,6 +129,7 @@ $.fn.form = function(fields, parameters) {
                 $field      = $(this),
                 $fieldGroup = $field.closest($group)
               ;
+              console.log('here', settings.on);
               if( $fieldGroup.hasClass(className.error) ) {
                 module.debug('Revalidating field', $field,  module.get.validation($field));
                 module.validate.field( module.get.validation($field) );
@@ -176,10 +177,10 @@ $.fn.form = function(fields, parameters) {
               return true;
             }
             else if( $field.filter('[name="' + identifier +'"]').size() > 0 ) {
-              return true
+              return true;
             }
             else if( $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]').size() > 0 ) {
-              return true
+              return true;
             }
             return false;
           }
@@ -248,7 +249,7 @@ $.fn.form = function(fields, parameters) {
             ;
             // reset errors
             formErrors = [];
-            $.each(validation, function(fieldName, field){
+            $.each(validation, function(fieldName, field) {
               if( !( module.validate.field(field) ) ) {
                 allValid = false;
               }
@@ -485,11 +486,11 @@ $.fn.form.settings = {
   moduleName        : 'Form',
   debug             : true,
   verbose           : true,
-  performance       : true,
+  performance       : false,
   namespace         : 'validate',
   
   keyboardShortcuts : true,
-  on                : 'change',
+  on                : 'submit',
   animateSpeed      : 150,
   inlineError       : false,
   
@@ -524,84 +525,7 @@ $.fn.form.settings = {
     method   : 'The method you called is not defined.'
   },
 
-  defaults: {
-    firstName: {
-      identifier  : 'first-name',
-      rules: [
-        {
-          type   : 'empty',
-          prompt : 'Please enter your first name'
-        }
-      ]
-    },
-    lastName: {
-      identifier  : 'last-name',
-      rules: [
-        {
-          type   : 'empty',
-          prompt : 'Please enter your last name'
-        }
-      ]
-    },
-    username: {
-      identifier : 'username',
-      rules: [
-        {
-          type   : 'empty',
-          prompt : 'Please enter a username'
-        }
-      ]
-    },
-    email: {
-      identifier : 'email',
-      rules: [
-        {
-          type   : 'empty',
-          prompt : 'Please enter your email'
-        },
-        {
-          type   : 'email',
-          prompt : 'Please enter a valid email'
-        }
-      ]
-    },
-    password: {
-      identifier : 'password',
-      rules: [
-        {
-          type   : 'empty',
-          prompt : 'Please enter a password'
-        },
-        {
-          type   : 'length[6]',
-          prompt : 'Your password must be at least 6 characters'
-        }
-      ]
-    },
-    passwordConfirm: {
-      identifier : 'password-confirm',
-      rules: [
-        {
-          type   : 'empty',
-          prompt : 'Please confirm your password'
-        },
-        {
-          identifier : 'password-confirm',
-          type       : 'match[password]',
-          prompt     : 'Please verify password matches'
-        }
-      ]
-    },
-    terms: {
-      identifier : 'terms',
-      rules: [
-        {
-          type   : 'checked',
-          prompt : 'You must agree to the terms and conditions'
-        }
-      ]
-    }
-  },
+  
 
   templates: {
     error: function(errors) {
