@@ -1,0 +1,11 @@
+<% 
+    var comments = [];
+    for (var i=0, l=sections.length; i<l; i++) {  
+        var section = sections[i];
+        comments.push(section.docsText.replace(/[\n|,]/g,'').trim());
+    }
+    var output = comments.join(',');
+    if(comments.length==1)
+        output += ',';
+%>
+<%= output %>
