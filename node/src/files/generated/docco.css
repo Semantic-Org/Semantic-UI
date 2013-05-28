@@ -1,39 +1,29 @@
 /*--------------------- Typography ----------------------------*/
 
 @font-face {
-    font-family: 'aller-light';
-    src: url('public/fonts/aller-light.eot');
-    src: url('public/fonts/aller-light.eot?#iefix') format('embedded-opentype'),
-         url('public/fonts/aller-light.woff') format('woff'),
-         url('public/fonts/aller-light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Neutraface';
+  src:
+    url("../fonts/neutraface-book.otf") format('opentype')
+  ;
+  font-weight: normal;
+  font-style: normal;
+  font-size-adjust: 0.448;
+}
+@font-face {
+  font-family: 'Neutraface';
+  src:
+    url("../fonts/neutraface-bold.otf") format('opentype')
+  ;
+  font-weight: bold;
+  font-style: normal;
+  font-size-adjust: 0.448;
 }
 
-@font-face {
-    font-family: 'aller-bold';
-    src: url('public/fonts/aller-bold.eot');
-    src: url('public/fonts/aller-bold.eot?#iefix') format('embedded-opentype'),
-         url('public/fonts/aller-bold.woff') format('woff'),
-         url('public/fonts/aller-bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'novecento-bold';
-    src: url('public/fonts/novecento-bold.eot');
-    src: url('public/fonts/novecento-bold.eot?#iefix') format('embedded-opentype'),
-         url('public/fonts/novecento-bold.woff') format('woff'),
-         url('public/fonts/novecento-bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 /*--------------------- Layout ----------------------------*/
 html { height: 100%; }
 body {
-  font-family: "aller-light";
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
   font-size: 14px;
   line-height: 18px;
   color: #30404f;
@@ -48,7 +38,6 @@ a {
 
 b, strong {
   font-weight: normal;
-  font-family: "aller-bold";
 }
 
 p, ul, ol {
@@ -57,15 +46,42 @@ p, ul, ol {
 
 h1, h2, h3, h4, h5, h6 {
   color: #112233;
+  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
   line-height: 1em;
-  font-weight: normal;
-  font-family: "novecento-bold";
-  text-transform: uppercase;
+  text-transform: none;
   margin: 30px 0 15px 0;
 }
-
 h1 {
-  margin-top: 40px;
+  margin: 0px 0px 20px;
+  font-size: 38px;
+  color: #00B4AC;
+}
+h2 {
+  margin: 0px 0px 20px;
+  font-size: 28px;
+  color: #6E4889;
+}
+h3 {
+  margin: 0px 0px 20px;
+  font-size: 22px;
+}
+h4 {
+  margin: 0px 0px 10px;
+  font-size: 18px;
+  color: #555555;
+}
+h5 {
+  margin: 0px 0px 10px;
+  font-size: 16px;
+  color: #555555;
+}
+a {
+  font-weight: bold;
+  color: #009FDA;
+  text-decoration: none;
+}
+a:hover {
+  color: #00BAFF;
 }
 
 hr {
@@ -220,10 +236,12 @@ ul.sections > li > div {
   }
 
   ul.sections > li > div.annotation p tt, .annotation code {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 14px;
+    margin-top: 10px;
     background: #f8f8ff;
     border: 1px solid #dedede;
-    font-size: 12px;
-    padding: 0 0.2em;
   }
 }
 
@@ -266,14 +284,14 @@ ul.sections > li > div {
   }
 
 
-
   #background {
     position: absolute;
     top: 0; bottom: 0;
     width: 350px;
-    background: #fff;
     border-right: 1px solid #e5e5ee;
     z-index: -1;
+    background: #FCFCFC url(../images/bg.jpg) repeat;
+
   }
 
   ul.sections > li > div.annotation ul, ul.sections > li > div.annotation ol {
@@ -350,6 +368,9 @@ ul.sections > li > div {
   #background {
     width: 525px;
   }
+  ul.sections {
+    padding-top: 50px;
+  }
   ul.sections > li > div.annotation {
     max-width: 525px;
     min-width: 525px;
@@ -357,6 +378,11 @@ ul.sections > li > div {
   }
   ul.sections > li > div.content {
     padding: 9px 15px 16px 25px;
+  }
+
+  ul.sections p {
+    font-size: 16px;
+    line-height: 1.33;
   }
 }
 

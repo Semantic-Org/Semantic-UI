@@ -21,8 +21,8 @@ $.fn.form = function(fields, parameters) {
 
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
+    moduleSelector  = $allModules.selector || '',
 
-    selector        = $allModules.selector || '',
     time            = new Date().getTime(),
     performance     = [],
 
@@ -49,7 +49,7 @@ $.fn.form = function(fields, parameters) {
         namespace  = settings.namespace,
         metadata   = settings.metadata,
         className  = settings.className,
-        errors     = settings.errors,
+        error      = settings.error,
         module
       ;
 
@@ -403,11 +403,11 @@ $.fn.form = function(fields, parameters) {
           display: function() {
             var
               title              = settings.moduleName,
-              caption            = settings.moduleName + ': ' + selector + '(' + $allModules.size() + ' elements)',
+              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
               totalExecutionTime = 0
             ;
-            if(selector) {
-              title += ' Performance (' + selector + ')';
+            if(moduleSelector) {
+              title += ' Performance (' + moduleSelector + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -420,6 +420,7 @@ $.fn.form = function(fields, parameters) {
               else {
                 $.each(performance, function(index, data) {
                   totalExecutionTime += data['Execution Time'];
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
               console.log('Total Execution Time:', totalExecutionTime +'ms');
@@ -448,7 +449,7 @@ $.fn.form = function(fields, parameters) {
                 found = instance[value];
                 return true;
               }
-              module.error(errors.method);
+              module.error(error.method);
               return false;
             });
           }
@@ -521,7 +522,7 @@ $.fn.form.settings = {
   },
 
   // errors
-  errors: {
+  error: {
     method   : 'The method you called is not defined.'
   },
 
