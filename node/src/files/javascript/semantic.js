@@ -182,7 +182,7 @@ semantic.ready = function() {
         eval(code);
       }
 
-      // initialize 
+      // initialize
       editor        = ace.edit($code[0]);
       editorSession = editor.getSession();
       codeHeight    = editor.session.getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
@@ -364,7 +364,7 @@ semantic.ready = function() {
   $shownExample
     .each(handler.createCode)
   ;
-  
+
   $swap
     .on('click', handler.swapStyle)
   ;

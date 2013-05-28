@@ -112,6 +112,23 @@
 .ui.form .message:first-child {
   margin-top: 0px;
 }
+/*--------------------
+   Validation Prompt
+---------------------*/
+.ui.form .field .prompt.label {
+  white-space: nowrap;
+}
+.ui.form .inline.field .prompt {
+  margin-top: 0em;
+  margin-left: 1em;
+}
+.ui.form .inline.field .prompt:before {
+  margin-top: -0.3em;
+  bottom: auto;
+  right: auto;
+  top: 50%;
+  left: 0em;
+}
 /*******************************
             States
 *******************************/
