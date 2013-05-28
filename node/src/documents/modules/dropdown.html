@@ -278,14 +278,30 @@ type   : 'UI Module'
     </thead>
     <tbody>
       <tr>
-        <td>required</td>
-        <td>auto</td>
-        <td>Setting to true/false will determine whether an input will allow no selection. Auto will set disallow this behavior only for radio boxes</td>
+        <td>on</td>
+        <td>click</td>
+        <td>Event used to trigger dropdown</td>
       </tr>
       <tr>
-        <td>context</td>
-        <td>false</td>
-        <td>A selector or jQuery object to use as a delegated event context</td>
+        <td>gracePeriod</td>
+        <td>300</td>
+        <td>Time in milliseconds to allow a user to move cursor back into dropdown before hiding when on event is set to hover</td>
+      </tr>
+      <tr>
+        <td>action</td>
+        <td colspan="2">
+          <div class="code">
+    {
+      show: 'slide',
+      hide: 'slide'
+    }
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>animation</td>
+        <td>auto</td>
+        <td>Setting to true/false will determine whether an input will allow no selection. Auto will set disallow this behavior only for radio boxes</td>
       </tr>
     </tbody>
   </table>
@@ -298,24 +314,24 @@ type   : 'UI Module'
       <tr>
         <td>onChange</td>
         <td>None</td>
-        <td>Callback after a dropdown is either disabled or enabled.</td>
+        <td>Callback after a dropdown is either disabled or enabled, receieves name and value of selection.</td>
       </tr>
       <tr>
-        <td>onEnable</td>
+        <td>onShow</td>
         <td>None</td>
-        <td>Callback after a dropdown is enabled.</td>
+        <td>Callback after a dropdown is shown.</td>
       </tr>
       <tr>
-        <td>onDisable</td>
+        <td>onHide</td>
         <td>None</td>
-        <td>Callback after a dropdown is disabled.</td>
+        <td>Callback after a dropdown is hidden.</td>
       </tr>
     </tbody>
   </table>
   
   <table class="ui settings celled table">
     <thead>
-      <th colspan="3">UI Module Settings</th>
+      <th colspan="3">General Settings</th>
     </thead>
     <tbody>
       <tr>
@@ -347,9 +363,10 @@ type   : 'UI Module'
         <td>errors</td>
         <td colspan="2">
           <div class="code">
-  errors : {
-    method : 'The method you called is not defined.'
-  }
+    errors   : {
+      action   : 'You called a dropdown action that was not defined',
+      method   : 'The method you called is not defined.'
+    }
           </div>
         </td>
       </tr>
