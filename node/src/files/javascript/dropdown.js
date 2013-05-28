@@ -21,19 +21,16 @@ semantic.dropdown.ready = function() {
   $dropdown
     .dropdown()
   ;
-  console.log($dropdown);
   $formDropdown
     .dropdown({
       action: 'form'
     })
   ;
-  console.log($formDropdown);
   $hoverDropdown
     .dropdown({
       on: 'hover'
     })
   ;
-  console.log($hoverDropdown);
   
 };
 

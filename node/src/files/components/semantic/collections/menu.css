@@ -199,10 +199,15 @@
 ---------------*/
 .ui.menu .item > .label,
 .ui.menu .item > a > .label {
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin: -0.3em 0em -0.3em 0.3em;
-  padding: 0.1em 0.5em;
+  padding: 0.1em 0.8em;
   vertical-align: baseline;
+  text-transform: none;
+}
+.ui.menu .item > .floating.label,
+.ui.menu .item > a > .floating.label {
+  padding: 0.3em 0.8em;
 }
 /*--------------
       Images

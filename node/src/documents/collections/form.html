@@ -11,6 +11,7 @@ type   : 'UI Collection'
   <div class="container">
     <h1 class="ui dividing header">Form</h1>
     <p>Forms are a grouping of elements requiring user input.</p>
+    <p>Form input can be validated using the <a href="/modules/form.html">form validation behavior</a></p>
     <p> 
       Forms always include fields, and fields always contain form elements. Fields themselves may also include:
         <a href="#">standard form fields</a>, like labels, inputs and textareas, as well as:
@@ -40,6 +41,9 @@ type   : 'UI Collection'
     </div>
     <div class="ui form segment">
       <p>Let's go ahead and get you signed up.</p>
+      <div class="ui error message">
+        <div class="header">We noticed some issues</div>
+      </div>
       <div class="two fields">
         <div class="field">
           <label>First Name</label>
@@ -160,7 +164,7 @@ type   : 'UI Collection'
   
   <div class="example">
     <h4 class="ui header">Text Block</h4>
-    <p>Text blocks have special meaning inside a form tag. All message blocks are hidden by default.</p>
+    <p>Text blocks have special meaning inside a form tag. Any info, error, or warning message blocks found inside a form are hidden by default.</p>
     <div class="ui form">
       <div class="ui message">
         <div class="header">We had some issues</div>
