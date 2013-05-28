@@ -59,7 +59,7 @@ type   : 'UI Module'
 
   <div class="example">
     <h4 class="ui header">Combo Dropdown</h4>
-    <p>A button can be formatted with a dropdown beside it</p>
+    <p>A button group can be formatted with a dropdown</p>
     <div class="ui teal buttons">
       <div class="ui button">Update Post</div>
       <div class="ui teal dropdown icon button">
@@ -131,30 +131,100 @@ type   : 'UI Module'
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
+  <div class="example">
+    <h4 class="ui header">Simple</h4>
+    <p>A dropdown can open without javascript</p>
+    <div class="ui menu">
+      <div class="ui simple dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <h2 class="ui dividing header">Behavior</h2>
 
   <div class="example">
-    <p>A checkbox can change to show a user has selected it</p>
+    <h4>Trigger event</h4>
+    <p>A dropdown can trigger based on a variety of user events</p>
     <div class="ignore code">
-    $('.ui.checkbox')
-      .checkbox('enable')
+    // changes dropdown visibility on hover
+    $('.ui.dropdown')
+      .dropdown({
+        on: 'hover'
+      })
+    ;
+    // changes dropdown visibility on click
+    $('.ui.dropdown')
+      .dropdown({
+        on: 'click'
+      })
     ;
     </div>
   </div>
   <div class="example">
-    <p>A checkbox can change to show a user has not selected it</p>
+    <h4>Dropdown Action</h4>
+    <p>A dropdown can trigger different behaviors on selection</p>
     <div class="ignore code">
-    $('.ui.checkbox')
-      .checkbox('disable')
+    // just hides content
+    $('.ui.dropdown')
+      .dropdown({
+        action: 'hide'
+      })
+    ;
+    // changes text of matching text selector
+    $('.ui.dropdown')
+      .dropdown({
+        action: 'changeText'
+      })
+    ;
+    // changes text of matching text selector and hidden input field
+    $('.ui.dropdown')
+      .dropdown({
+        action: 'form'
+      })
+    ;
+    // triggers custom action
+    $('.ui.dropdown')
+      .dropdown({
+        action: function() {
+          // custom action
+        }
+      })
+    ;
+    // triggers a default action and a custom action
+    $('.ui.dropdown')
+      .dropdown({
+        action: 'hide',
+        onChange: function() {
+          // do something
+        }
+      })
     ;
     </div>
   </div>
   <div class="example">
-    <p>A checkbox can toggle between states</p>
+    <h4>Display state</h4>
+    <p>A dropdown can show or hide itself</p>
     <div class="ignore code">
-    $('.ui.checkbox')
-      .checkbox('toggle')
+    $('.ui.dropdown')
+      .dropdown('show')
+    ;
+    $('.ui.dropdown')
+      .dropdown('hide')
+    ;
+    </div>
+  </div>
+  <div class="example">
+    <h4>Toggle</h4>
+    <p>A dropdown can toggle between states</p>
+    <div class="ignore code">
+    $('.ui.dropdown')
+      .dropdown('toggle')
     ;
     </div>
   </div>
