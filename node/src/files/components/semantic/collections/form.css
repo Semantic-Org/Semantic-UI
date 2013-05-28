@@ -313,7 +313,6 @@
   box-shadow: none;
 }
 /* Other Combinations */
-.ui.form .fields .field,
 .ui.form .two.fields .field {
   width: 50%;
   padding-left: 1%;
@@ -344,6 +343,9 @@
 /*--------------------
     Inline Fields
 ---------------------*/
+.ui.form .inline.fields .field {
+  margin-right: 1.5em;
+}
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
