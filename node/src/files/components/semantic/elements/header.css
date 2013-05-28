@@ -146,6 +146,9 @@ h5.ui.header {
 .ui.inverted.header {
   color: #FFFFFF;
 }
+.ui.inverted.header .sub.header {
+  color: rgba(255, 255, 255, 0.85);
+}
 /*-------------------
    Inverted Colors
 --------------------*/
@@ -242,12 +245,15 @@ h5.ui.header {
 /*-------------------
         Icon
 --------------------*/
-.ui.header.icon {
+.ui.icon.header {
   display: inline-block;
   text-align: center;
 }
-.ui.header.icon .icon {
+.ui.icon.header .icon {
   display: block;
   font-size: 4em;
   margin: 0em auto 0.2em;
+}
+.ui.block.icon.header .icon {
+  margin-bottom: 0em;
 }

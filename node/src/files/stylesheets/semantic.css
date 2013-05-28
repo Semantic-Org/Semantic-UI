@@ -952,8 +952,8 @@ a:hover {
     margin-left: 325px;
   }
   #example.index .container {
-    margin-left: 5em;
-    margin-right: 5em;
+    margin-left: 8em;
+    margin-right: 8em;
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: 0px;
@@ -1014,4 +1014,33 @@ a:hover {
   #example .sticky-wrapper.stuck .peek {
     margin-left: -890px;
   }
+}
+
+
+@media only screen and (max-width : 780px) {
+  #example.index .masthead {
+    text-align: center;
+    padding: 50px 0px 15px;
+  }
+  #example.index .masthead h1 {
+    font-size: 3em;
+  }
+  #example.index .masthead h1 .icon {
+    display: none;
+  }
+  #example.index .masthead .button {
+    margin-bottom: 0.5em;
+  }
+  #example.index .masthead h2 {
+    font-size: 1.25em;
+    margin: 0em 0em 1em;
+  }
+  #example.index .container {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+  #example.index .icon.header .icon {
+    font-size: 3em;
+  }
+
 }
