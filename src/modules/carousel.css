@@ -1,0 +1,23 @@
+
+.ui.carousel .throbber {
+  position: absolute;
+  top: 219px;
+  left: 446px;
+  display: none;
+  background: url(../images/welcome/throbber.gif) no-repeat 0px 0px;
+  width: 32px;
+  height: 32px;
+  z-index: 9999;
+}
+
+
+
+/* loading state */
+.ui.loading.carousel .select,
+.ui.loading.carousel .arrow,
+.ui.loading.carousel .slide {
+  visibility: hidden;
+}
+.ui.loading.carousel .throbber {
+  display: block;
+}
