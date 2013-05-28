@@ -29,7 +29,12 @@ type   : 'UI Module'
   <div class="example">
     <h4>Basic Validation</h4>
     <p>Form validation requires passing in a validation object with the rules required to validate your form.</p>
-    <div class="ui green message">If no validation object is specified then the form will validate against the default validation set up for the plugin. </div>
+    <div class="ui green message">If no validation object is specified then the form will validate against the default validation set up for the plugin. See <em>default validation</em> below.</div>
+    <div class="ignore code">
+    $('.ui.form')
+      .form()
+    ;
+    </div>
     <div class="ui form segment">
       <p>Let's go ahead and get you signed up.</p>
       <div class="two fields">
@@ -65,11 +70,7 @@ type   : 'UI Module'
     <h4>Validation w/ Message</h4>
     <p>Forms that contain a <a href="elements/message.html">ui message</a> error block will automatically be filled in with form validation information.</p>
     <div class="info message">The template for error messages can be modified by adjusting settings.template.error</div>
-    <div class="ignore code">
-    $('.ui.form')
-      .form()
-    ;
-    </div>
+ 
     <div class="ui form segment">
       <p>Let's go ahead and get you signed up.</p>
       <div class="two fields">
@@ -101,7 +102,6 @@ type   : 'UI Module'
       <div class="ui error message"></div>
     </div>
   </div>
-  
   <div class="dog example">
     <h4>Custom Validation</h4>
     <p>Custom form validation requires passing in a validation object with the rules required to validate your form.</p>
@@ -141,6 +141,128 @@ type   : 'UI Module'
       <div class="ui error message"></div>
     </div>
   </div>
+  
+  <div class="inline example">
+    <h4>Inline Validation</h4>
+    <p>Validation messages can also appear inline. UI Forms automatically format <a href="/elements/label.html">labels</a> with the className prompt. These validation prompts are also set to appear on input change instead of form submission.</p>
+    <div class="ui form segment">
+      <p>Let's go ahead and get you signed up.</p>
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" name="first-name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" name="last-name" type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>Username</label>
+        <input placeholder="Username" name="username" type="text">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="terms" />
+          <label class="box"></label>
+        </div>
+        <label>I agree to the terms and conditions</label>
+      </div>
+      <div class="ui blue submit button">Submit</div>
+    </div>
+  </div>
+  
+  
+  <div class="example">
+    <h4>Setting Defaults</h4>
+    <p>It may be useful to set default form validation values, since similar fields are often validated across multiple forms. This can be done by modifying the defaults of the settings object</p>
+    
+    <div class="code">
+    $.fn.form.settings.defaults = {
+      firstName: {
+        identifier  : 'first-name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your first name'
+          }
+        ]
+      },
+      lastName: {
+        identifier  : 'last-name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your last name'
+          }
+        ]
+      },
+      username: {
+        identifier : 'username',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a username'
+          }
+        ]
+      },
+      email: {
+        identifier : 'email',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your email'
+          },
+          {
+            type   : 'email',
+            prompt : 'Please enter a valid email'
+          }
+        ]
+      },
+      password: {
+        identifier : 'password',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a password'
+          },
+          {
+            type   : 'length[6]',
+            prompt : 'Your password must be at least 6 characters'
+          }
+        ]
+      },
+      passwordConfirm: {
+        identifier : 'password-confirm',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please confirm your password'
+          },
+          {
+            identifier : 'password-confirm',
+            type       : 'match[password]',
+            prompt     : 'Please verify password matches'
+          }
+        ]
+      },
+      terms: {
+        identifier : 'terms',
+        rules: [
+          {
+            type   : 'checked',
+            prompt : 'You must agree to the terms and conditions'
+          }
+        ]
+      }
+    };
+    </div>
+  </div>
+  
   
   
   

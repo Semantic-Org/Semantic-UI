@@ -5,9 +5,10 @@ semantic.validateForm.ready = function() {
 
   // selector cache
   var
-    $dogForm  = $('.dog.example .ui.form'),
-    $form     = $('.ui.form').not($dogForm),
-    $checkbox = $('.ui.checkbox'),
+    $dogForm    = $('.dog.example .ui.form'),
+    $inlineForm = $('.inline.example .ui.form'),
+    $form       = $('.ui.form').not($dogForm).not($inlineForm),
+    $checkbox   = $('.ui.checkbox'),
     // alias
     handler
   ;
@@ -16,10 +17,97 @@ semantic.validateForm.ready = function() {
   handler = {
 
   };
-
   $checkbox
     .checkbox()
   ;
+
+  $.fn.form.settings.defaults = {
+    firstName: {
+      identifier  : 'first-name',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please enter your first name'
+        }
+      ]
+    },
+    lastName: {
+      identifier  : 'last-name',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please enter your last name'
+        }
+      ]
+    },
+    username: {
+      identifier : 'username',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please enter a username'
+        }
+      ]
+    },
+    email: {
+      identifier : 'email',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please enter your email'
+        },
+        {
+          type   : 'email',
+          prompt : 'Please enter a valid email'
+        }
+      ]
+    },
+    password: {
+      identifier : 'password',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please enter a password'
+        },
+        {
+          type   : 'length[6]',
+          prompt : 'Your password must be at least 6 characters'
+        }
+      ]
+    },
+    passwordConfirm: {
+      identifier : 'password-confirm',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please confirm your password'
+        },
+        {
+          identifier : 'password-confirm',
+          type       : 'match[password]',
+          prompt     : 'Please verify password matches'
+        }
+      ]
+    },
+    terms: {
+      identifier : 'terms',
+      rules: [
+        {
+          type   : 'checked',
+          prompt : 'You must agree to the terms and conditions'
+        }
+      ]
+    }
+  };
+
+
+  $inlineForm
+    .form({}, {
+      on: 'change',
+      inlineError: true
+    })
+  ;
+
 
   $dogForm
     .form({

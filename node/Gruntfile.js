@@ -57,6 +57,19 @@ module.exports = function(grunt) {
       }
     },
 
+    docco: {
+      generate: {
+        expand : true,
+        cwd    : '../spec',
+        src    : [
+          '**/*.commented.js'
+        ],
+        options: {
+          output: 'src/files/generated/'
+        }
+      }
+    },
+
     less: {
       options: {
         compress     : false,
@@ -202,6 +215,7 @@ module.exports = function(grunt) {
   };
 
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-css');
 
