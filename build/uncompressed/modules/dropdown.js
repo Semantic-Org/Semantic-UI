@@ -78,7 +78,9 @@ $.fn.dropdown = function(parameters) {
               .on(settings.on + eventNamespace, module.toggle)
             ;
           }
-
+          if(settings.action == 'form') {
+            module.set.selected();
+          }
           $item
             .on(module.get.selectEvent() + eventNamespace, module.event.item.click)
           ;
@@ -116,8 +118,8 @@ $.fn.dropdown = function(parameters) {
             click: function () {
               var
                 $choice = $(this),
-                name    = $choice.data(metadata.name)  || $choice.text(),
-                value   = $choice.data(metadata.value) || name
+                text    = $choice.data(metadata.text)  || $choice.text(),
+                value   = $choice.data(metadata.value) || text
               ;
               module.verbose('Adding active state to selected item');
               $item
@@ -126,8 +128,8 @@ $.fn.dropdown = function(parameters) {
               $choice
                 .addClass(className.active)
               ;
-              module.action.determine(name, value);
-              $.proxy(settings.onChange, $menu.get())(name, value);
+              module.action.determine(text, value);
+              $.proxy(settings.onChange, $menu.get())(text, value);
             }
 
           }
@@ -139,8 +141,8 @@ $.fn.dropdown = function(parameters) {
           test: function(event, callback) {
             module.debug('Determining whether event occurred in dropdown', event.target);
             callback = callback || function(){};
-            if( $(event.target).closest($menu).size() == 0 ) {
-              module.verbose('Triggering event', callback)
+            if( $(event.target).closest($menu).size() === 0 ) {
+              module.verbose('Triggering event', callback);
               callback();
             }
             else {
@@ -166,14 +168,14 @@ $.fn.dropdown = function(parameters) {
 
         action: {
 
-          determine: function(name, value) {
+          determine: function(text, value) {
             if( $.isFunction( module.action[settings.action] ) ) {
               module.verbose('Triggering preset action', settings.action);
-              module.action[ settings.action ](name, value);
+              module.action[ settings.action ](text, value);
             }
             else if( $.isFunction(settings.action) ) {
               module.verbose('Triggering user action', settings.action);
-              settings.action(name, value);
+              settings.action(text, value);
             }
             else {
               module.error(errors.action);
@@ -186,16 +188,14 @@ $.fn.dropdown = function(parameters) {
             module.hide();
           },
 
-          changeText: function(name, value) {
-            module.debug('Changing text', name);
-            $text.text(name);
+          changeText: function(text, value) {
+            module.set.text(text);
             module.hide();
           },
 
-          form: function(name, value) {
-            module.debug('Adding selected value to hidden input', name, value);
-            $text.text(name);
-            $input.val(value);
+          form: function(text, value) {
+            module.set.text(text);
+            module.set.value(value);
             module.hide();
           }
 
@@ -207,6 +207,52 @@ $.fn.dropdown = function(parameters) {
               ? 'touchstart'
               : 'click'
             ;
+          },
+          text: function() {
+            return $text.text();
+          },
+          value: function() {
+            return $input.val();
+          },
+          item: function(value) {
+            var 
+              $selectedItem
+            ;
+            value = value || $input.val();
+            $item
+              .each(function() {
+                if( $(this).data(metadata.value) == value ) {
+                  $selectedItem = $(this);
+                }
+              })
+            ;
+            return $selectedItem;
+          }
+        },
+
+        set: {
+          text: function(text) {
+            module.debug('Changing text', text);
+            $text.text(text);
+          },
+          value: function(value) {
+            module.debug('Adding selected value to hidden input', value);
+            $input.val(value);
+          },
+          selected: function(value) {
+            var
+              selectedValue = value || $input.val(),
+              $selectedItem = module.get.item(value),
+              selectedText  = $selectedItem.data(metadata.text) || $selectedItem.text()
+            ;
+            module.debug('Setting selected menu item to', $selectedItem);
+            $item
+              .removeClass(className.active)
+            ;
+            $selectedItem 
+              .addClass(className.active)
+            ;
+            module.set.text(selectedText);
           }
         },
 
@@ -348,7 +394,7 @@ $.fn.dropdown = function(parameters) {
         debug: function() {
           if(settings.debug) {
             module.performance.log(arguments[0]);
-            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.debug = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
           }
         },
         verbose: function() {
@@ -358,9 +404,7 @@ $.fn.dropdown = function(parameters) {
           }
         },
         error: function() {
-          if(console.log !== undefined) {
-            module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
-          }
+          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
         },
         performance: {
           log: function(message) {
@@ -491,7 +535,7 @@ $.fn.dropdown.settings = {
   },
 
   metadata: {
-    name  : 'name',
+    text  : 'text',
     value : 'value'
   },
 
@@ -499,7 +543,7 @@ $.fn.dropdown.settings = {
     menu  : '.menu',
     item  : '.menu > .item',
     text  : '> .text',
-    input : '> input[type="hidden"]',
+    input : '> input[type="hidden"]'
   },
 
   className : {
