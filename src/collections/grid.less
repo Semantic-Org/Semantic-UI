@@ -423,16 +423,19 @@
     -moz-box-shadow: none !important;
     box-shadow: none !important;
   }
-  .ui.stackable.grid .column:first-child {
-    margin-top: 0em !important;
-    padding-top: 0em !important;
-  }
   .ui.stackable.divided.grid .column,
   .ui.stackable.celled.grid .column {
     border-top: 1px dotted rgba(0, 0, 0, 0.1);
   }
-  .ui.stackable.divided.grid .column:first-child,
-  .ui.stackable.celled.grid .column:first-child {
+  .ui.stackable.grid > .row:first-child > .column:first-child,
+  .ui.stackable.grid > .column:first-child {
+    margin-top: 0em !important;
+    padding-top: 0em !important;
+  }
+  .ui.stackable.divided.grid > .row:first-child > .column:first-child,
+  .ui.stackable.celled.grid > .row:first-child > .column:first-child,
+  .ui.stackable.divided.grid > .column:first-child,
+  .ui.stackable.celled.grid > .column:first-child {
     border-top: none !important;
   }
 }
