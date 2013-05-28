@@ -393,14 +393,22 @@ $.fn.dropdown = function(parameters) {
         },
         debug: function() {
           if(settings.debug) {
-            module.performance.log(arguments[0]);
-            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
         verbose: function() {
           if(settings.verbose && settings.debug) {
-            module.performance.log(arguments[0]);
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
         error: function() {
@@ -420,7 +428,8 @@ $.fn.dropdown = function(parameters) {
               time          = currentTime;
               performance.push({ 
                 'Element'        : element,
-                'Name'           : message, 
+                'Name'           : message[0], 
+                'Arguments'      : message[1] || 'None',
                 'Execution Time' : executionTime
               });
               clearTimeout(module.performance.timer);
@@ -434,7 +443,7 @@ $.fn.dropdown = function(parameters) {
               totalExecutionTime = 0
             ;
             if(selector) {
-              title += 'Performance (' + selector + ')';
+              title += ' Performance (' + selector + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -514,7 +523,7 @@ $.fn.dropdown.settings = {
   
   verbose     : true,
   debug       : true,
-  performance : false,
+  performance : true,
   
   on          : 'click',
   gracePeriod : 300,

@@ -47,7 +47,6 @@ $.fn.form = function(fields, parameters) {
         instance   = $module.data('module-' + settings.namespace),
         
         namespace  = settings.namespace,
-        selector   = settings.selector,
         metadata   = settings.metadata,
         className  = settings.className,
         errors     = settings.errors,
@@ -81,12 +80,14 @@ $.fn.form = function(fields, parameters) {
         },
 
         refresh: function() {
-          $field = $module.find(selector.field);
+          $field = $module.find(settings.selector.field);
         },
 
         submit: function() {
           module.verbose('Submitting form', $module);
-          $module.submit();
+          $module
+            .submit()
+          ;
         },
 
         event: {
@@ -102,9 +103,11 @@ $.fn.form = function(fields, parameters) {
               ;
               if( key == keyCode.escape) {
                 module.verbose('Escape key pressed blurring field');
-                $field.blur();
+                $field
+                  .blur()
+                ;
               }
-              if( key == keyCode.enter && $field.is(selector.input) ) {
+              if( key == keyCode.enter && $field.is(settings.selector.input) ) {
                 module.debug('Enter key pressed, submitting form');
                 $submit
                   .addClass(className.down)
@@ -140,6 +143,7 @@ $.fn.form = function(fields, parameters) {
 
         get: {
           field: function(identifier) {
+            module.verbose('Finding field with identifier', identifier);
             if( $field.filter('#' + identifier).size() > 0 ) {
               return $field.filter('#' + identifier);
             }
@@ -164,12 +168,30 @@ $.fn.form = function(fields, parameters) {
           }
         },
 
+        has: {
+
+          field: function(identifier) {
+            module.verbose('Checking for existence of a field with identifier', identifier);
+            if( $field.filter('#' + identifier).size() > 0 ) {
+              return true;
+            }
+            else if( $field.filter('[name="' + identifier +'"]').size() > 0 ) {
+              return true
+            }
+            else if( $field.filter('[data-' + metadata.validate + '="'+ identifier +'"]').size() > 0 ) {
+              return true
+            }
+            return false;
+          }
+
+        },
+
         add: {
           prompt: function(field, errors) {
             var
               $field       = module.get.field(field.identifier),
               $fieldGroup  = $field.closest($group),
-              $prompt      = $fieldGroup.find(selector.prompt),
+              $prompt      = $fieldGroup.find(settings.selector.prompt),
               promptExists = ($prompt.size() !== 0)
             ;
             module.verbose('Adding inline validation prompt');
@@ -188,7 +210,9 @@ $.fn.form = function(fields, parameters) {
                 .html(errors[0])
               ;
               if($prompt.is(':not(:visible)')) {
-                $prompt.fadeIn(200);
+                $prompt
+                  .fadeIn(settings.animateSpeed)
+                ;
               }
             }
           },
@@ -230,7 +254,10 @@ $.fn.form = function(fields, parameters) {
               }
             });
             if(allValid) {
-              $module.removeClass(className.error);
+              $module
+                .removeClass(className.error)
+                .addClass(className.success)
+              ;
               $.proxy(settings.onSuccess, this)(event);
             }
             else {
@@ -251,7 +278,7 @@ $.fn.form = function(fields, parameters) {
             ;
             if(field.rules !== undefined) {
               $.each(field.rules, function(index, rule) {
-                if( !( module.validate.rule(field, rule) ) ) {
+                if( module.has.field(field.identifier) && !( module.validate.rule(field, rule) ) ) {
                   module.debug('Field is invalid', field.identifier, rule.type);
                   fieldErrors.push(rule.prompt);
                   fieldValid = false;
@@ -329,14 +356,22 @@ $.fn.form = function(fields, parameters) {
         },
         debug: function() {
           if(settings.debug) {
-            module.performance.log(arguments[0]);
-            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
         verbose: function() {
           if(settings.verbose && settings.debug) {
-            module.performance.log(arguments[0]);
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
         error: function() {
@@ -356,7 +391,8 @@ $.fn.form = function(fields, parameters) {
               time          = currentTime;
               performance.push({ 
                 'Element'        : element,
-                'Name'           : message, 
+                'Name'           : message[0], 
+                'Arguments'      : message[1] || 'None',
                 'Execution Time' : executionTime
               });
               clearTimeout(module.performance.timer);
@@ -370,7 +406,7 @@ $.fn.form = function(fields, parameters) {
               totalExecutionTime = 0
             ;
             if(selector) {
-              title += 'Performance (' + selector + ')';
+              title += ' Performance (' + selector + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -446,9 +482,10 @@ $.fn.form = function(fields, parameters) {
 $.fn.form.settings = {
 
   // module info
-  moduleName        : 'Validate Form Module',
+  moduleName        : 'Form',
   debug             : true,
   verbose           : true,
+  performance       : true,
   namespace         : 'validate',
   
   keyboardShortcuts : true,
@@ -477,6 +514,7 @@ $.fn.form.settings = {
 
   className : {
     error  : 'error',
+    success: 'success',
     down   : 'down',
     label  : 'ui label prompt'
   },
@@ -602,6 +640,9 @@ $.fn.form.settings = {
     },
     not: function(value, notValue) {
       return (value != notValue);
+    },
+    is: function(value, text) {
+      return (value == text);
     },
     maxLength: function(value, maxLength) {
       return (value !== undefined)
