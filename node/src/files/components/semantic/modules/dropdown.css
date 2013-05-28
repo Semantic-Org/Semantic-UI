@@ -16,7 +16,6 @@
   position: relative;
   display: inline-block;
   line-height: 1;
-  white-space: nowrap;
   -webkit-transition: border-radius 0.1s ease;
   -moz-transition: border-radius 0.1s ease;
   -o-transition: border-radius 0.1s ease;
@@ -29,6 +28,7 @@
   top: 100%;
   background-color: #FFFFFF;
   min-width: 100%;
+  white-space: nowrap;
   -webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1), 1px 0px 0px 0px rgba(0, 0, 0, 0.1) inset, -1px 0px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1), 1px 0px 0px 0px rgba(0, 0, 0, 0.1) inset, -1px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1), 1px 0px 0px 0px rgba(0, 0, 0, 0.1) inset, -1px 0px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
@@ -46,6 +46,7 @@
 .ui.dropdown .menu {
   left: 0px;
 }
+.ui.menu .dropdown:last-child .menu,
 .ui > .ui.dropdown:last-child .menu {
   left: auto;
   right: 0px;
@@ -106,8 +107,7 @@
 .ui.simple.dropdown:hover .menu {
   display: block;
   overflow: visible;
-  min-width: 210px;
-  width: 100%;
+  width: auto;
   height: auto;
   opacity: 1;
 }

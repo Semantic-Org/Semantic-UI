@@ -35,7 +35,8 @@ $.fn.dropdown = function(parameters) {
         $module       = $(this),
         $menu         = $(this).find(settings.selector.menu),
         $item         = $(this).find(settings.selector.item),
-        $input        = $(this).find(settings.selector.input)
+        $text         = $(this).find(settings.selector.text),
+        $input        = $(this).find(settings.selector.input),
         
         isTouchDevice = ('ontouchstart' in document.documentElement),
         
@@ -44,9 +45,10 @@ $.fn.dropdown = function(parameters) {
         instance      = $module.data('module-' + settings.namespace),
         
         className     = settings.className,
+        metadata      = settings.metadata,
         namespace     = settings.namespace,
         animation     = settings.animation,
-
+        
         errors        = settings.errors,
         module
       ;
@@ -54,25 +56,31 @@ $.fn.dropdown = function(parameters) {
       module      = {
 
         initialize: function() {
-          if(settings.context && selector !== '') {
-            module.verbose('Initializing dropdown with delegated events', $module);
-            $(element, settings.context)
-              .on(selector, 'click' + eventNamespace, module.toggle)
-              .data(moduleNamespace, module)
+          module.verbose('Initializing dropdown with bound events', $module);
+          console.log(settings.on);
+          if(isTouchDevice) {
+            $module
+              .on('touchstart' + eventNamespace, module.toggle)
             ;
           }
-          else {
-            module.verbose('Initializing dropdown with bound events', $module);
+          else if(settings.on == 'click') {
             $module
-              .on(module.get.event() + eventNamespace, module.intent.test)
-            ;
-            $item
-              .on('click' + eventNamespace, module.event.select)
-            ;
-            $module
-              .data(moduleNamespace, module)
+              .on('click' + eventNamespace, module.toggle)
             ;
           }
+          else if(settings.on == 'hover') {
+            $module
+              .on('mouseenter' + eventNamespace, module.show)
+              .on('mouseleave' + eventNamespace, module.delayedHide)
+            ;
+          }
+
+          $item
+            .on('click' + eventNamespace, module.event.item.click)
+          ;
+          $module
+            .data(moduleNamespace, module)
+          ;
         },
 
         destroy: function() {
@@ -88,15 +96,20 @@ $.fn.dropdown = function(parameters) {
 
             click: function () {
               var
-                value = $(this).data(metadata.value) || $(this).html()
+                value = $(this).data(metadata.value) || $(this).text()
               ;
-              module.verbose('Determining select action');
-              if( $.isFunction( module.action[settings.action] ) {
+              if( $.isFunction( module.action[settings.action] ) ) {
+                module.verbose('Triggering preset item action', settings.action);
                 module.action[ settings.action ](value);
+              }
+              else if( $.isFunction(settings.action) ) {
+                module.verbose('Triggering user action', settings.action);
+                settings.action(value);
               }
               else {
                 module.error(errors.action);
               }
+              $.proxy(settings.onChange, $menu.get())(value);
             }
 
           }
@@ -105,10 +118,10 @@ $.fn.dropdown = function(parameters) {
 
         intent: {
 
-          test: function(event) {
-            module.debug('Checking if click was inside the dropdown', event.target);
+          test: function(event, callback) {
+            module.debug('Determining whether event occurred in dropdown', event.target);
             if( $(event.target).closest($menu).size() == 0 ) {
-              module.toggle();
+              callback();
               event.stopPropagation();
             }
           },
@@ -116,7 +129,9 @@ $.fn.dropdown = function(parameters) {
           bind: function() {
             module.verbose('Binding hide intent event to document');
             $(document)
-              .on('click', module.intent.test)
+              .on('click', function(event) {
+                 module.intent.test(event, module.hide);
+              })
             ;
           },
 
@@ -133,32 +148,32 @@ $.fn.dropdown = function(parameters) {
 
           nothing: function() {},
 
-          close: function() {
+          hide: function() {
+            module.hide();
+          },
+
+          changeText: function(value) {
+            module.debug('Changing text', value);
+            $text.text(value);
             module.hide();
           },
 
           form: function(value) {
             module.debug('Adding selected value to hidden input', value);
+            $text.text(value);
             $input.val(value);
             module.hide();
           }
 
-        }
+        },
 
-        get: {
-
-          event: function() {
-            if(isTouchDevice) {
-              return 'touchstart';
-            }
-            if(settings.on == 'hover') {
-              return 'hover';
-            }
-            else if(settings.on == 'click') {
-              return 'click';
-            }
+        is: {
+          visible: function() {
+            return $menu.is(':visible');
+          },
+          hidden: function() {
+            return $menu.is(':not(:visible)');
           }
-
         },
 
         can: {
@@ -172,6 +187,7 @@ $.fn.dropdown = function(parameters) {
 
         animate: {
           show: function() {
+            module.verbose('Doing menu showing animation');
             if(animation.show == 'show') {
               $menu
                 .show()
@@ -179,7 +195,9 @@ $.fn.dropdown = function(parameters) {
             }
             else if(animation.show == 'slide') {
               $menu
+                .clearQueue()
                 .children()
+                  .clearQueue()
                   .css('opacity', 0)
                   .delay(100)
                   .animate({
@@ -191,6 +209,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           hide: function() {
+            module.verbose('Doing menu hiding animation');
             if(animation.hide == 'hide') {
               $menu
                 .hide()
@@ -198,7 +217,9 @@ $.fn.dropdown = function(parameters) {
             }
             else if(animation.hide == 'slide') {
               $menu
+                .clearQueue()
                 .children()
+                  .clearQueue()
                   .css('opacity', 1)
                   .animate({
                     opacity : 0
@@ -212,33 +233,42 @@ $.fn.dropdown = function(parameters) {
         },
 
         show: function() {
-          module.debug('Showing dropdown');
-          $module
-            .addClass(className.active)
-          ;
-          module.animate.show();
-          if( module.can.click() ) {
-            module.intent.bind();
+          clearTimeout(module.graceTimer);
+          if( !module.is.visible() ) {
+            module.debug('Showing dropdown');
+            $module
+              .addClass(className.active)
+            ;
+            module.animate.show();
+            if( module.can.click() ) {
+              module.intent.bind();
+            }
+            $.proxy(settings.onShow, $menu.get())();
           }
-          $.proxy(settings.onChange, $menu.get())();
-          $.proxy(settings.onShow, $menu.get())();
+        },
+
+        delayedHide: function() {
+          module.verbose('User moused away setting timer to hide dropdown');
+          module.graceTimer = setTimeout(module.hide, settings.gracePeriod);
         },
 
         hide: function() {
-          module.debug('Hiding dropdown');
-          $module
-            .removeClass(className.active)
-          ;
-          if( module.can.click() ) {
-            module.intent.unbind();
+          if( !module.is.hidden() ) {
+            module.debug('Hiding dropdown');
+            $module
+              .removeClass(className.active)
+            ;
+            if( module.can.click() ) {
+              module.intent.unbind();
+            }
+            module.animate.hide();
+            $.proxy(settings.onHide, $menu.get())();
           }
-          module.animate.hide();
-          $.proxy(settings.onChange, $menu.get())();
-          $.proxy(settings.onHide, $menu.get())();
         },
 
         toggle: function() {
-          if(module.can.show() && $menu.is(':not(:visible)') ) {
+          module.verbose('Toggling menu visibility');
+          if(module.can.show()) {
             module.show();
           }
           else {
@@ -398,21 +428,23 @@ $.fn.dropdown.settings = {
   verbose     : true,
   debug       : true,
   performance : false,
-
-  action: 'close',
-
-  animation: {
+  
+  action      : 'hide',
+  
+  animation   : {
     show: 'slide',
     hide: 'slide'
   },
   
   on          : 'click',
-
-  onChange    : function(){},
-  onShow      : function(){},
-  onHide      : function(){},
   
-  errors      : {
+  gracePeriod : 300,
+  
+  onChange : function(){},
+  onShow   : function(){},
+  onHide   : function(){},
+  
+  errors   : {
     action   : 'You called a dropdown action that was not defined',
     method   : 'The method you called is not defined.'
   },
@@ -422,9 +454,10 @@ $.fn.dropdown.settings = {
   },
 
   selector : {
-    input : 'input[type="hidden"]',
-    menu  : '.menu'
-    item  : '.menu > .item'
+    menu  : '.menu',
+    item  : '.menu > .item',
+    text  : '> .text',
+    input : '> input[type="hidden"]',
   },
 
   className : {

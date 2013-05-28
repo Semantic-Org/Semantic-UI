@@ -255,13 +255,13 @@ a:hover {
 #example > .content > .page > .segment,
 #example > .segment {
   margin: 0px 0px 46px;
-  padding-top: 65px;
+  padding-top: 45px;
   padding-bottom: 20px;
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
 #example .download.menu {
-  margin-top: 5px;
+  margin-top: 15px;
   float: right;
 }
 
@@ -414,6 +414,13 @@ a:hover {
 #example .main.container {
   position: relative;
 }
+#example .main.container > h2 {
+  -webkit-transition: 0.5s color ease;
+  -moz-transition: 0.5s color ease;
+  -o-transition: 0.5s color ease;
+  -ms-transition: 0.5s color ease;
+  transition: 0.5s color ease;
+}
 #example .swap {
   background: url(http://beta.myfav.es/images/themes/bg/subtle/subtle-handmade-paper.png) repeat;
 }
@@ -519,21 +526,12 @@ a:hover {
   box-shadow: 0.2em 0em 0em #00B9F0;
   color: #00B9F0;
 }
-#example .main h2.standard {
-  color: #00B9F0;
-}
 #example .peek .menu .active:nth-child(2) {
   box-shadow: 0.2em 0em 0em #56BB73;
   color: #56BB73;
 }
-#example .main h2.states {
-  color: #56BB73;
-}
 #example .peek .menu .active:nth-child(3) {
   box-shadow: 0.2em 0em 0em #EF3F49;
-  color: #EF3F49;
-}
-#example .main h2.variations {
   color: #EF3F49;
 }
 #example .peek .menu .active:nth-child(4) {

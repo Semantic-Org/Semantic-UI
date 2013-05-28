@@ -17,9 +17,6 @@ semantic.dropdown.ready = function() {
   };
 
   $select
-    .dropdown()
-  ;
-  $hover
     .dropdown({
       on: 'hover'
     })
