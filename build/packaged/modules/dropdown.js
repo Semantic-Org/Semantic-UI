@@ -456,6 +456,7 @@ $.fn.dropdown = function(parameters) {
               else {
                 $.each(performance, function(index, data) {
                   totalExecutionTime += data['Execution Time'];
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
               console.log('Total Execution Time:', totalExecutionTime +'ms');

@@ -1,13 +1,11 @@
-/*  *******************************************************************************************
+/*  ******************************
+  Semantic Module: Shape
+  Author: Jack Lukic
+  Notes: First Commit March 25, 2013
 
-  Shape - A 3D Animation Plugin
-  Version 0.1
-  (built using Semantic module spec)
+  An experimental plugin for manipulating 3D shapes on a 2D plane
 
-  Author        : Jack Lukic
-  Last revision : April 2013
-
-*********************************************************************************************  */
+******************************  */
 
 ;(function ( $, window, document, undefined ) {
 
@@ -20,11 +18,14 @@ $.fn.shape = function(parameters) {
     // define namespaces for modules
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
+    moduleSelector  = $allModules.selector || '',
+    
+    time            = new Date().getTime(),
+    performance     = [],
 
-    // allow methods to be queried directly
     query           = arguments[0],
-    queryArguments  = [].slice.call(arguments, 1),
     methodInvoked   = (typeof query == 'string'),
+    queryArguments  = [].slice.call(arguments, 1),
     invokedResponse
   ;
 
@@ -42,7 +43,6 @@ $.fn.shape = function(parameters) {
         endTransition = 'transitionend msTransitionEnd oTransitionEnd',
         
         // standard module
-        selector      = $module.selector || '',
         element       = this,
         instance      = $module.data(moduleNamespace),
 
@@ -485,61 +485,117 @@ $.fn.shape = function(parameters) {
             ;
           }
         },
-
-        /* standard module */
         setting: function(name, value) {
-          if( $.isPlainObject(name) ) {
-            $.extend(true, settings, name);
-          }
-          else if(value === undefined) {
-            return settings[name];
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              module.verbose('Modifying settings object', name, value);
+              $.extend(true, settings, name);
+            }
+            else {
+              module.verbose('Modifying setting', name, value);
+              settings[name] = value;
+            }
           }
           else {
-            settings[name] = value;
+            return settings[name];
           }
         },
-
-        verbose: function() {
-          if(settings.verbose) {
-            module.debug.apply(this, arguments);
+        internal: function(name, value) {
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              module.verbose('Modifying internal property', name, value);
+              $.extend(true, module, name);
+            }
+            else {
+              module.verbose('Changing internal method to', value);
+              module[name] = value;
+            }
+          }
+          else {
+            return module[name];
           }
         },
-
         debug: function() {
-          var
-            output    = [],
-            message   = settings.moduleName + ': ' + arguments[0],
-            variables = [].slice.call( arguments, 1 ),
-            log       = console.info || console.log || function(){}
-          ;
-          log = Function.prototype.bind.call(log, console);
           if(settings.debug) {
-            output.push(message);
-            log.apply(console, output.concat(variables) );
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
-
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
+          }
+        },
         error: function() {
-          var
-            output       = [],
-            errorMessage = settings.moduleName + ': ' + arguments[0],
-            variables    = [].slice.call( arguments, 1 ),
-            log          = console.warn || console.log || function(){}
-          ;
-          log = Function.prototype.bind.call(log, console);
-          if(settings.debug) {
-            output.push(errorMessage);
-            output.concat(variables);
-            log.apply(console, output.concat(variables) );
+          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+        },
+        performance: {
+          log: function(message) {
+            var
+              currentTime,
+              executionTime,
+              previousTime
+            ;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime,
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({ 
+                'Element'        : element,
+                'Name'           : message[0], 
+                'Arguments'      : message[1] || 'None',
+                'Execution Time' : executionTime
+              });
+              clearTimeout(module.performance.timer);
+              module.performance.timer = setTimeout(module.performance.display, 100);
+            }
+          },
+          display: function() {
+            var
+              title              = settings.moduleName,
+              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
+              totalExecutionTime = 0
+            ;
+            if(moduleSelector) {
+              title += ' Performance (' + moduleSelector + ')';
+            }
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                $.each(performance, function(index, data) {
+                  totalExecutionTime += data['Execution Time'];
+                });
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  totalExecutionTime += data['Execution Time'];
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.log('Total Execution Time:', totalExecutionTime +'ms');
+              console.groupEnd();
+              performance = [];
+              time        = false;
+            }
           }
         },
-
         invoke: function(query, passedArguments, context) {
           var
             maxDepth,
             found
           ;
-          passedArguments = passedArguments || queryArguments || [].slice.call( arguments, 2 );
+          passedArguments = passedArguments || queryArguments;
           context         = element         || context;
           if(typeof query == 'string' && instance !== undefined) {
             query    = query.split('.');
@@ -553,7 +609,7 @@ $.fn.shape = function(parameters) {
                 found = instance[value];
                 return true;
               }
-              module.error(error.method);
+              module.error(errors.method);
               return false;
             });
           }
@@ -561,28 +617,24 @@ $.fn.shape = function(parameters) {
             module.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
-          // return retrieved variable or chain
           return found || false;
         }
       };
 
-      // check for invoking internal method
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
         }
         invokedResponse = module.invoke(query);
       }
-      // otherwise initialize
       else {
         if(instance !== undefined) {
           module.destroy();
         }
         module.initialize();
-      } 
+      }
     })
   ;
-  // chain or return queried method
   return (invokedResponse)
     ? invokedResponse
     : this
@@ -599,6 +651,9 @@ $.fn.shape.settings = {
   
   // verbose debug output
   verbose    : true,
+
+  // performance data output
+  performance: true,
 
   // event namespace
   namespace  : 'shape',

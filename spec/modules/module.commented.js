@@ -32,9 +32,9 @@ $.fn.example = function(parameters) {
     // Define namespaces for storing module instance and binding events
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
-
     // Preserve selector from outside each scope and mark current time for performance tracking
-    selector        = $allModules.selector || '',
+    moduleSelector  = $allModules.selector || '',
+
     time            = new Date().getTime(),
     performance     = [],
 
@@ -246,12 +246,15 @@ $.fn.example = function(parameters) {
           // Performance data is assumed to be complete 500ms after the last log message receieved
           display: function() {
             var
-              title              = settings.moduleName + ' Performance (' + selector + ')',
-              caption            = settings.moduleName + ': ' + selector + '(' + $allModules.size() + ' elements)',
+              title              = settings.moduleName,
+              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
               totalExecutionTime = 0
             ;
+            if(moduleSelector) {
+              title += ' Performance (' + moduleSelector + ')';
+            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
-              console.groupCollapsed(title );
+              console.groupCollapsed(title);
               if(console.table) {
                 $.each(performance, function(index, data) {
                   totalExecutionTime += data['Execution Time'];
@@ -261,9 +264,10 @@ $.fn.example = function(parameters) {
               else {
                 $.each(performance, function(index, data) {
                   totalExecutionTime += data['Execution Time'];
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
-              console.log('Total Execution Time:', totalExecutionTime);
+              console.log('Total Execution Time:', totalExecutionTime +'ms');
               console.groupEnd();
               performance = [];
               time        = false;
