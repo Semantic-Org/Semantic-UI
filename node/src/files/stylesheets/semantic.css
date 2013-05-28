@@ -260,6 +260,9 @@ a:hover {
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
+#example .segment h1.dividing.header {
+  margin-top: 35px;
+}
 #example .download.menu {
   margin-top: 15px;
   float: right;

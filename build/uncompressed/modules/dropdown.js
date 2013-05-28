@@ -74,6 +74,11 @@ $.fn.dropdown = function(parameters) {
               .on('mouseleave' + eventNamespace, module.delayedHide)
             ;
           }
+          else {
+            $module
+              .on(settings.on + eventNamespace, module.toggle)
+            ;
+          }
 
           $item
             .on('click' + eventNamespace, module.event.item.click)
