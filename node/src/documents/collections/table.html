@@ -30,7 +30,10 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Table</h4>
     <p>A standard table</p>
-    <table class="ui table">
+    <div class="ui info message">
+      <p>This example uses a <a href="/elements/segment.html">ui segment</a> to add padding and a background color. This is not required.</p>
+    </div>
+    <table class="ui table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -55,7 +58,7 @@ type   : 'UI Collection'
       </tbody>
       <tfoot>
         <th colspan="3">
-          <div class="ui blue button"><i class="icon add user"></i> Add User</div>
+          <div class="ui small blue labeled icon button"><i class="icon add user"></i> Add User</div>
         </th>
       </tfoot>
     </table>
@@ -239,7 +242,42 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Collapsing</h4>
     <p>By default tables take the size of their container. A collapsing takes up only as much space as its rows.</p>
-    <table class="ui table collapsing">
+    <table class="ui collapsing table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Inverted</h4>
+    <p>A tables colors can be inverted</p>
+    <table class="ui inverted segment table">
       <thead>
         <th>Name</th>
         <th>Status</th>

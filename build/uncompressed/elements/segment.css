@@ -211,7 +211,7 @@
       Inverted
 --------------------*/
 .ui.inverted.segment {
-  border-top: none;
+  border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

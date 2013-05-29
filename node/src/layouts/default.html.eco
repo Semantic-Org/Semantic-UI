@@ -4,6 +4,7 @@
 <% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
 <% uiViews           = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
 <% uiModules         = @getCollection("documents").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+<% uiBehavior        = @getCollection("documents").findAllLive({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
 <% uiSpecification   = @getCollection("documents").findAllLive({type: $in: ['UI Specification']},[{title: 1}]).toJSON() %>
 <% currentCollection = @getCollection("documents").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
 <% pageCount         = @pageCount(currentCollection) %>
@@ -69,10 +70,10 @@
 </head>
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon menu" id="menu">
-    <div class="item"><a href="/index.html"><i class="inverted circular book icon"></i> <b>Introduction</b></a></div>
+    <div class="item"><a href="/playground.html"><i class="inverted circular lab icon"></i> <b>Playground</b></a></div>
     <div class="item"><a href="/download.html"><i class="inverted circular upload icon"></i> <b>Download</b></a></div>
     <div class="item">
-      <a href="/element.html"><b>UI Elements</b></a>
+      <a href="/element.html"><b>Elements</b></a>
       <div class="menu">
         <% for element in uiElements: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -80,7 +81,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/collection.html"><b>UI Collections</b></a>
+      <a href="/collection.html"><b>Collections</b></a>
       <div class="menu">
         <% for element in uiCollections: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -88,7 +89,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/module.html"><b>UI Modules</b></a>
+      <a href="/module.html"><b>Modules</b></a>
       <div class="menu">
         <% for element in uiModules: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -96,7 +97,15 @@
       </div>
     </div>
     <div class="item">
-      <a href="/view.html"><b>UI Views</b></a>
+      <a href="/module.html"><b>Behavior</b></a>
+      <div class="menu">
+        <% for element in uiBehavior: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <a href="/view.html"><b>Views</b></a>
       <div class="menu">
         <% for element in uiViews: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -104,7 +113,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/specification.html"><i class="inverted circular asterisk icon"></i><b>Specification</b></a>
+      <a href="/specification.html"><b>Specification</b></a>
       <div class="menu">
         <% for element in uiSpecification: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
