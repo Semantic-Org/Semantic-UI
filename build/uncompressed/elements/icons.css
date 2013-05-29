@@ -681,12 +681,12 @@ i.circular.icon {
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
-  padding: 0.48em 0.4em 0.32em !important;
+  padding: 0.5em 0.35em !important;
   -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  width: 1.23em;
-  height: 1.23em;
+  width: 2em;
+  height: 2em;
 }
 i.circular.icon:before {
   vertical-align: middle;
