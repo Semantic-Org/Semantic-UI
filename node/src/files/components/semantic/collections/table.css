@@ -15,11 +15,10 @@
 /* Prototype */
 .ui.table {
   width: 100%;
-  background-color: #FFFFFF;
   border-collapse: collapse;
-  color: #444444;
-  color: rgba(0, 0, 0, 0.75);
-  border: 1px solid #DDDDDD;
+}
+.ui.table thead {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.table tr,
 .ui.table td {
@@ -34,32 +33,23 @@
   -ms-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-.ui.table thead {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(50, 50, 50, 0.1);
-}
 .ui.table th {
   cursor: auto;
   text-align: left;
   font-weight: bold;
-  color: rgba(80, 80, 80, 0.85);
   padding: 0.5em 0.7em;
   vertical-align: middle;
 }
 .ui.table tfoot th {
   font-weight: normal;
   font-style: italic;
-  color: rgba(0, 0, 0, 0.8);
 }
 .ui.table td {
   padding: 0.40em 0.7em;
   vertical-align: middle;
 }
-.ui.table tfoot th {
-  background-color: #FFFFFF;
-}
 .ui.table tfoot {
-  border-top: 1px dotted rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 /* Table Striping */
 .ui.table tbody tr:nth-child(2n) {
@@ -71,6 +61,13 @@
 }
 .ui.table > .icon:only-child {
   margin: 0em;
+}
+/* table segment */
+.ui.table.segment:after {
+  display: none;
+}
+.ui.table.segment.stacked:after {
+  display: block;
 }
 /*******************************
              States
@@ -245,6 +242,12 @@
 }
 .ui.sortable.table thead th.descending:after {
   content: '\25be';
+}
+/*--------------
+    Inverted
+---------------*/
+.ui.inverted.table tbody tr:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.06);
 }
 /*--------------
    Collapsing
