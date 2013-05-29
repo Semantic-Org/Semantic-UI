@@ -407,7 +407,7 @@ a:hover {
   position: fixed;
   top: 75px;
   z-index: 500;
-  width: 10px;
+  width: 70px;
 }
 #example .sidebar.button .text {
   display: inline-block;
