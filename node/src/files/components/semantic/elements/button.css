@@ -450,8 +450,6 @@ Containing Icon
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   margin: 0em;
-  width: auto;
-  vertical-align: top;
 }
 /*--------------
    Labeled Icon
