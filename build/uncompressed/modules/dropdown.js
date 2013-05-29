@@ -115,7 +115,7 @@ $.fn.dropdown = function(parameters) {
 
           item: {
 
-            click: function () {
+            click: function (event) {
               var
                 $choice = $(this),
                 text    = $choice.data(metadata.text)  || $choice.text(),
@@ -130,6 +130,7 @@ $.fn.dropdown = function(parameters) {
               ;
               module.action.determine(text, value);
               $.proxy(settings.onChange, $menu.get())(text, value);
+              event.stopPropagation();
             }
 
           }
