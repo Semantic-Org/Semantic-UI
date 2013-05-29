@@ -41,7 +41,7 @@ a.ui.label {
 }
 .ui.label .detail {
   display: inline-block;
-  margin-left: 1em;
+  margin-left: 0.5em;
   font-weight: bold;
   opacity: 0.8;
 }

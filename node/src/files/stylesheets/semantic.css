@@ -416,6 +416,7 @@ a:hover {
 
 #example .main.container {
   position: relative;
+  padding-bottom: 100px;
 }
 #example .main.container > h2 {
   -webkit-transition: 0.5s color ease;
