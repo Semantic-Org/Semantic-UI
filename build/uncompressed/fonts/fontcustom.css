@@ -1,0 +1,34 @@
+/* 
+ * Font Custom: bare CSS
+ */
+
+@font-face {
+  font-family: "quirky-icons";
+  src: url("quirky-icons_94b6667e46c5601c4e08e650e3872625.eot");
+  src: url("quirky-icons_94b6667e46c5601c4e08e650e3872625.eot?#iefix") format("embedded-opentype"),
+       url("quirky-icons_94b6667e46c5601c4e08e650e3872625.woff") format("woff"),
+       url("quirky-icons_94b6667e46c5601c4e08e650e3872625.ttf") format("truetype"),
+       url("quirky-icons_94b6667e46c5601c4e08e650e3872625.svg#quirky-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-blast-off:before,
+.icon-pen-and-paint-brush:before,
+.icon-price-tag:before,
+.icon-tools:before {
+  font-family: "quirky-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.icon-blast-off:before { content: "\f100"; }
+.icon-pen-and-paint-brush:before { content: "\f101"; }
+.icon-price-tag:before { content: "\f102"; }
+.icon-tools:before { content: "\f103"; }

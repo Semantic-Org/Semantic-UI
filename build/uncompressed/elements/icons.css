@@ -16,8 +16,21 @@
   font-family: 'Icons';
   src: url(../fonts/icons.eot);
   src: url(../fonts/icons.eot?#iefix) format('embedded-opentype'), url(../fonts/icons.woff) format('woff'), url(../fonts/icons.ttf) format('truetype'), url(../fonts/icons.svg#icons) format('svg');
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
+}
+@font-face {
+  font-family: 'Custom Icons';
+  src: url(../fonts/custom-icons.eot);
+  src: url(../fonts/custom-icons.eot?#iefix) format('embedded-opentype'), url(../fonts/custom-icons.woff) format('woff'), url(../fonts/custom-icons.ttf) format('truetype'), url(../fonts/custom-icons.svg#icons) format('svg');
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
 }
 i.icon {
   display: inline-block;
@@ -533,6 +546,25 @@ i.icon.zoom.out:before {
   content: '\e751';
 }
 /* '' */
+/*******************************
+         Additional Icons
+*******************************/
+i.icon.rocket:before {
+  font-family: "Custom Icons";
+  content: "\f100";
+}
+i.icon.paint:before {
+  font-family: "Custom Icons";
+  content: "\f101";
+}
+i.icon.price:before {
+  font-family: "Custom Icons";
+  content: "\f102";
+}
+i.icon.tools:before {
+  font-family: "Custom Icons";
+  content: "\f103";
+}
 /*--------------
    Spacing Fix
 ---------------*/
