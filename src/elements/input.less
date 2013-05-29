@@ -182,14 +182,28 @@
   -o-transition: opacity 0.3s ease-out;
   -ms-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
-
 }
 .ui.icon.input input {
-  padding-left: 4em;
+  padding-left: 4em !important;
   border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 /* Focus */
+
+
+.ui.icon.input input.error,
+.ui.icon.input input.focus,
+.ui.icon.input input:focus {
+  border-left-width: 1px;
+  -webkit-border-radius: 0.3125em !important;
+  -moz-border-radius: 0.3125em !important;
+  border-radius: 0.3125em !important;
+
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 .ui.icon.input input:focus ~ .icon {
   opacity: 1;
 }
@@ -207,7 +221,7 @@
   border-top-right-radius: 0.3125em;
 }
 .ui.labeled.input input {
-  padding-right: 2.5em;
+  padding-right: 2.5em !important;
 }
 
 
