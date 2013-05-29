@@ -806,8 +806,8 @@ a:hover {
 }
 #example .highlighted.example .grid,
 #example .ui.type.items .image .grid {
-  -webkit-animation: grid 5s ease-in-out infinite;
-  -moz-animation: grid 5s ease-in-out infinite;
+  -webkit-animation: grid 15s ease infinite;
+  -moz-animation: grid 15s ease infinite;
   background-color: #F6F6F6;
   margin: 0em auto;
 }
