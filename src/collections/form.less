@@ -64,9 +64,7 @@
 .ui.form textarea,
 .ui.form input[type="text"],
 .ui.form input[type="date"],
-.ui.form input[type="password"],
-.ui.textarea,
-.ui.input {
+.ui.form input[type="password"] {
   width: 100%;
   padding: 0.9em 1.2em;
   font-size: 0.825em;
@@ -76,7 +74,7 @@
   outline: none;
 
 
-  color: #555555;
+  color: rgba(0, 0, 0, 0.7);
 
   -webkit-border-radius: 0.3125em;
   -moz-border-radius: 0.3125em;
@@ -192,7 +190,7 @@
 
 .ui.form input:focus,
 .ui.form textarea:focus {
-  color: rgba(20, 20, 20, 0.9);
+  color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.5);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
@@ -274,10 +272,6 @@
 }
 .ui.form :focus::-moz-placeholder {
   color: #AAAAAA;
-}
-.ui.form textarea.empty,
-.ui.form input.empty {
-  color: #E0E0E0;
 }
 
 /* Error Placeholder */

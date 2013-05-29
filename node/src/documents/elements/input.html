@@ -14,7 +14,7 @@ type   : 'UI Element'
     </div>
     <h1 class="ui header">
       Input
-      <div class="sub header">Inputs indicate a possible user action.</div>
+      <div class="sub header">Inputs allow a user to enter information into a website</div>
     </h1>
   </div>
 </div>
@@ -25,7 +25,6 @@ type   : 'UI Element'
       <a class="active item">Standard</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
-      <a class="item">Groups</a>
     </div>
   </div>
   <h2 class="ui dividing header">Standard</h2>
@@ -33,16 +32,9 @@ type   : 'UI Element'
   <div class="example">
     <h4 class="ui header">Input:</h4>
     <p>A standard input</p>
-    <div class="ui input">Input</div>
-  </div>
-  
-  <div class="example">
-    <h4 class="ui header">Search</h4>
-    <p>A input can indicate</p>
-    <div class="ui secondary input">Secondary</div>
-    <div class="ui secondary teal input">Secondary</div>
-    <div class="ui secondary purple input">Secondary</div>
-    <div class="ui secondary red input">Secondary</div>
+    <div class="ui input">
+      <input type="text">
+    </div>
   </div>
 
   <h2 class="ui dividing header">States</h2>
@@ -50,16 +42,54 @@ type   : 'UI Element'
   <div class="example">
     <h4 class="ui header">Focus</h4>
     <p>An input field can show a user is currently interacting with it</p>
-    <input class="ui hover input"></input>
+    <div class="ui input focus">
+      <input type="text">
+    </div>
   </div>
   
   <div class="example">
     <h4 class="ui header">Error</h4>
     <p>An input field can show the data contains errors</p>
-    <input class="ui hover input"></input>
+    <div class="ui input error">
+      <input type="text">
+    </div>
   </div>
   
   <h2 class="ui dividing header">Variations</h2>
+  
+  <div class="example">
+    <h4 class="ui header">Icon</h4>
+    <p>An input can be formatted with an icon</p>
+    <div class="ui icon input">
+      <input type="text" placeholder="Search...">
+      <i class="icon search"></i>
+    </div>
+    <br><br>
+    <div class="ui icon input">
+      <input type="text" placeholder="Search users...">
+      <i class="icon blue inverted users"></i>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Labeled</h4>
+    <p>An input can be formatted with a label</p>
+    <div class="ui labeled input">
+      <input type="text" placeholder="Search...">
+      <div class="ui corner label">
+        <i class="asterisk icon"></i>
+      </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Action</h4>
+    <p>An input can be formatted so a user can trigger an action</p>
+    <div class="ui input action">
+      <input type="text" placeholder="Search...">
+      <div class="ui button">Go</div>
+    </div>
+  </div>
 
 </div>
 </body>

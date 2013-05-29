@@ -45,6 +45,10 @@ i.icon {
   text-decoration: inherit;
   text-align: center;
   speak: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -553,7 +557,7 @@ i.icon.rocket:before {
   font-family: "Custom Icons";
   content: "\f100";
 }
-i.icon.paint:before {
+i.icon.brush:before {
   font-family: "Custom Icons";
   content: "\f101";
 }

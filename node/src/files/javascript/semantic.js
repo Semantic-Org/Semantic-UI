@@ -222,7 +222,7 @@ semantic.ready = function() {
         $(this)
           .stop()
           .animate({
-            width: '120px'
+            width: '180px'
           }, 300, function() {
             $(this).find('.text').show();
           })
@@ -233,7 +233,7 @@ semantic.ready = function() {
         $(this)
           .stop()
           .animate({
-            width: '10px'
+            width: '70px'
           }, 300)
         ;
       }

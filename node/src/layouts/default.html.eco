@@ -30,6 +30,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/icons.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/label.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/segment.css">
