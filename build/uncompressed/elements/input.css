@@ -109,10 +109,11 @@
   position: absolute;
   top: 1px;
   left: 1px;
+  margin: 0em;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #E8E8E8;
   width: 2.5em;
-  height: 2.47em;
+  height: 2.5em;
   padding-top: 0.75em;
   text-align: center;
   -webkit-border-radius: 0.2em 0em 0em 0.2em;
@@ -156,9 +157,10 @@
   position: absolute;
   top: 0em;
   left: 100%;
+  opacity: 0.8;
   margin: 0em 0em 0em -1px;
-  min-height: 3.1em;
-  padding: 0.92em !important;
+  line-height: 1.26;
+  padding: 0.92em 1.3em !important;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
@@ -172,6 +174,7 @@
   border-bottom-right-radius: 0px;
 }
 .ui.action.input input:focus ~ .button {
+  opacity: 1;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;

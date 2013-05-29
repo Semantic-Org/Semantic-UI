@@ -35,6 +35,11 @@ type   : 'UI Element'
     <div class="ui input">
       <input type="text">
     </div>
+    <br><br>
+    <div class="ui input">
+      <i class="search icon"></i>
+      <input type="text">
+    </div>
   </div>
 
   <h2 class="ui dividing header">States</h2>
@@ -80,14 +85,27 @@ type   : 'UI Element'
         <i class="asterisk icon"></i>
       </div>
     </div>
+    <br><br>
+    <div class="ui labeled input">
+      <input type="text" placeholder="Search...">
+      <div class="ui corner label">
+        <div class="text">New</div>
+      </div>
+    </div>
+    
   </div>
   
   <div class="example">
     <h4 class="ui header">Action</h4>
-    <p>An input can be formatted so a user can trigger an action</p>
+    <p>An input can be formatted to alert the user to an action they may perform</p>
     <div class="ui input action">
       <input type="text" placeholder="Search...">
-      <div class="ui button">Go</div>
+      <div class="ui button">Search</div>
+    </div>
+    <br><br>
+    <div class="ui input action">
+      <input type="text" placeholder="Search...">
+      <div class="ui teal button"><i class="add user icon"></i> Add users</div>
     </div>
   </div>
 
