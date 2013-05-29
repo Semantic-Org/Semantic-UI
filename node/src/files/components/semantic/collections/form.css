@@ -1,5 +1,5 @@
 /*
- * # Semantic Button - Flat
+ * # Semantic Form
  * http://github.com/quirkyinc/semantic
  *
  *
@@ -135,9 +135,6 @@
 /*--------------------
         Focus
 ---------------------*/
-.ui.input:focus {
-  color: rgba(20, 20, 20, 0.9);
-}
 .ui.form input:focus,
 .ui.form textarea:focus {
   color: rgba(20, 20, 20, 0.9);

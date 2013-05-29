@@ -294,6 +294,10 @@ i.icon.clockwise:before {
   content: '\27f3';
 }
 /* '⟳' */
+i.icon.cube:before {
+  content: '\e807';
+}
+/* '' */
 i.icon.direction:before {
   content: '\27a2';
 }
@@ -470,10 +474,6 @@ i.icon.shuffle:before {
   content: '\e803';
 }
 /* '' */
-i.icon.square:before {
-  content: '\e807';
-}
-/* '' */
 i.icon.tag:before {
   content: '\e80a';
 }
@@ -645,6 +645,9 @@ i.icon.hover {
 i.icon.active {
   opacity: 1;
 }
+i.emphasized.icon {
+  opacity: 1;
+}
 i.icon.disabled {
   opacity: 0.3;
 }
@@ -688,6 +691,16 @@ i.circular.inverted.icon {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+/*-------------------
+        Square 
+--------------------*/
+i.square.icon {
+  padding: 0.5em;
+  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  vertical-align: middle;
 }
 /*-------------------
       Inverted 
@@ -769,14 +782,5 @@ i.huge.icon {
 i.massive.icon {
   font-size: 12em;
   margin-right: 1em;
-  vertical-align: middle;
-}
-/*-------------------
-      Emphasized 
---------------------*/
-i.emphasized.icon {
-  opacity: 1;
-  padding: 0.5em;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   vertical-align: middle;
 }

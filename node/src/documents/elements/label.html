@@ -36,11 +36,36 @@ type   : 'UI Element'
   
   <div class="example">
     <h4 class="ui header">Linkable Label</h4>
-    <p>If an a tag is used, a label will be formatted as a link</p>
+    <p>If an html link tag is used, a label will be formatted as a link</p>
     <a class="ui label">
       Fun
     </a>
   </div>
+  
+  <div class="example">
+    <h4 class="ui header">Corner Label</h4>
+    <p>A label can position itself in the corner of an element</p>
+    <div class="yellow ui message">A label must be positioned inside a container with position: relative to display properly</div>
+    <div class="ui segment">
+      <div class="ui right corner label">
+        <i class="heart icon"></i>
+      </div>
+      <div class="ui left corner label">
+        <div class="text">New</div>
+      </div>
+      <p>This is a normal text segment
+    </div>
+    <div class="ui segment">
+      <a class="ui left corner label">
+        <i class="heart icon"></i>
+      </a>
+      <a class="ui right corner label">
+        <div class="text">New</div>
+      </a>
+      <p>These corner labels are formatted as links
+    </div>
+  </div>
+  
   
   <div class="example">
     <h4 class="ui header">Label with detail</h4>
@@ -97,6 +122,7 @@ type   : 'UI Element'
       Exciting
     </a>
   </div>
+  
   <div class="example">
     <h4 class="ui header">Floating</h4>
     <p>A label can float above another element</p>

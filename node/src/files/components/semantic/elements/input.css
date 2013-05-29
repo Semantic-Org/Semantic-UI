@@ -1,0 +1,64 @@
+/*
+ * # Semantic Form
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 22 2013
+ */
+/*******************************
+           Standard
+*******************************/
+/*--------------------
+        Inputs
+---------------------*/
+.ui.input input[type="text"],
+input.ui.input {
+  font-family: "Helvetica Neue", "Helvetica", Arial;
+  padding: 0.9em 1.2em;
+  font-size: 0.825em;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+  color: #555555;
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+  -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -moz-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -o-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -ms-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*******************************
+            States
+*******************************/
+/*--------------------
+        Focus
+---------------------*/
+.ui.input:focus {
+  color: rgba(20, 20, 20, 0.9);
+}
+/*--------------------
+        Error
+---------------------*/
+.ui.input.error {
+  background-color: #FFFAFA;
+  border-color: #E7BEBE;
+  border-left: none;
+  color: #EF4D6D;
+}
+/*******************************
+           Variations
+*******************************/
+/*--------------------
+      Fluid Width
+---------------------*/

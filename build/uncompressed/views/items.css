@@ -91,83 +91,6 @@
   border-radius: 0.22em;
 }
 /*--------------
-  Image Labels
----------------*/
-.ui.items .item .label:after {
-  position: absolute;
-  content: "";
-  right: 0em;
-  top: 0em;
-  z-index: -1;
-  width: 0em;
-  height: 0em;
-  border-color: transparent #F5F5F5 transparent transparent;
-  border-style: solid;
-  border-width: 0em 2.75em 2.75em 0em;
-}
-.ui.items .item .label {
-  position: absolute;
-  top: 0em;
-  right: 0em;
-  z-index: 10;
-  width: 1.4em;
-  height: 1.5em;
-  padding: 0.25em 0.1em 0em 0em;
-  color: #AAAAAA;
-  font-size: 0.9em;
-  text-align: center;
-}
-/* Hover */
-.ui.items .item a.label:hover {
-  color: #999999;
-}
-.ui.items .item a.label:hover::after {
-  border-right-color: #EEEEEE;
-}
-/*--------------
-   Star Label
----------------*/
-/* hover */
-.ui.items .item a.star.label:hover::after {
-  border-right-color: #F6EFC3;
-}
-.ui.items .item a.star.label:hover .icon {
-  color: #ac9400;
-}
-/* active */
-.ui.items .item a.star.label.active::after {
-  border-right-color: #F6EFC3;
-}
-.ui.items .item a.star.label.active .icon {
-  color: #ac9400;
-}
-/*--------------
-   Like Label
----------------*/
-/* hover */
-.ui.items .item a.like.label:hover::after {
-  border-right-color: #F5E1E2;
-}
-.ui.items .item a.like.label:hover .icon {
-  color: #ef404a;
-}
-/* active */
-.ui.items .item a.like.label.active::after {
-  border-right-color: #F5E1E2;
-}
-.ui.items .item a.like.label.active .icon {
-  color: #ef404a;
-}
-/*--------------
-  Common Labels
----------------*/
-.ui.items .item a.label:hover .like {
-  color: #EF404A;
-}
-.ui.items .item a.label:hover .star {
-  color: #928D44;
-}
-/*--------------
      Content
 ---------------*/
 .ui.items .item > .content {
@@ -200,6 +123,55 @@
 }
 .ui.items .item > .content > .meta + .name {
   float: left;
+}
+/*--------------
+     Labels
+---------------*/
+/*-----star----- */
+/* hover */
+.ui.items .item .star.label:hover::after {
+  border-right-color: #F6EFC3;
+}
+.ui.items .item .star.label:hover::after {
+  border-right-color: transparent;
+  border-top-color: #F6EFC3;
+}
+.ui.items .item .star.label:hover .icon {
+  color: #ac9400;
+}
+/* active */
+.ui.items .item .star.label.active::after {
+  border-right-color: #F6EFC3;
+}
+.ui.items .item .star.label.active::after {
+  border-right-color: transparent;
+  border-top-color: #F6EFC3;
+}
+.ui.items .item .star.label.active .icon {
+  color: #ac9400;
+}
+/*-----like----- */
+/* hover */
+.ui.items .item .like.label:hover::after {
+  border-right-color: #F5E1E2;
+}
+.ui.items .item .like.label.active::after {
+  border-right-color: transparent;
+  border-top-color: #F5E1E2;
+}
+.ui.items .item .like.label:hover .icon {
+  color: #ef404a;
+}
+/* active */
+.ui.items .item .like.label.active::after {
+  border-right-color: #F5E1E2;
+}
+.ui.items .item .like.label.active::after {
+  border-right-color: transparent;
+  border-top-color: #F5E1E2;
+}
+.ui.items .item .like.label.active .icon {
+  color: #ef404a;
 }
 /*--------------
       Extra
