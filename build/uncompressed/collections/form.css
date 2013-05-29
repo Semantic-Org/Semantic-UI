@@ -51,8 +51,14 @@
 .ui.form textarea,
 .ui.form input[type="text"],
 .ui.form input[type="date"],
-.ui.form input[type="password"] {
+.ui.form input[type="password"],
+.ui.form .ui.input {
   width: 100%;
+}
+.ui.form textarea,
+.ui.form input[type="text"],
+.ui.form input[type="date"],
+.ui.form input[type="password"] {
   padding: 0.9em 1.2em;
   font-size: 0.825em;
   background-color: #FFFFFF;
@@ -136,12 +142,12 @@
 .ui.form input:focus,
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
-  border-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.5) inset;
-  -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.5) inset;
-  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.5) inset;
+  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
 }
 /*--------------------
         Error
