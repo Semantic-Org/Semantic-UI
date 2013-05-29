@@ -188,6 +188,7 @@
   background-color: rgba(0, 0, 0, 0.02);
   width: 100%;
   height: 5px;
+  visibility: visible;
 }
 .ui.stacked.segment:before {
   bottom: 0px;
@@ -210,7 +211,7 @@
       Inverted
 --------------------*/
 .ui.inverted.segment {
-  border-top: none;
+  border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

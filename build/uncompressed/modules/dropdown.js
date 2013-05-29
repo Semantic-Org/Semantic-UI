@@ -226,7 +226,7 @@ $.fn.dropdown = function(parameters) {
                 }
               })
             ;
-            return $selectedItem;
+            return $selectedItem || false;
           }
         },
 
@@ -243,16 +243,19 @@ $.fn.dropdown = function(parameters) {
             var
               selectedValue = value || $input.val(),
               $selectedItem = module.get.item(value),
-              selectedText  = $selectedItem.data(metadata.text) || $selectedItem.text()
+              selectedText
             ;
-            module.debug('Setting selected menu item to', $selectedItem);
-            $item
-              .removeClass(className.active)
-            ;
-            $selectedItem 
-              .addClass(className.active)
-            ;
-            module.set.text(selectedText);
+            if($selectedItem) {
+              module.debug('Setting selected menu item to', $selectedItem);
+              selectedText = $selectedItem.data(metadata.text) || $selectedItem.text();
+              $item
+                .removeClass(className.active)
+              ;
+              $selectedItem 
+                .addClass(className.active)
+              ;
+              module.set.text(selectedText);
+            }
           }
         },
 
