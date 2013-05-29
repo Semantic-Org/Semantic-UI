@@ -757,17 +757,17 @@ i.icon {
   vertical-align: baseline;
 }
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 3em;
   margin-right: 0.5em;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 2em;
+  font-size: 6em;
   margin-right: 0.75em;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 4em;
+  font-size: 12em;
   margin-right: 1em;
   vertical-align: middle;
 }
