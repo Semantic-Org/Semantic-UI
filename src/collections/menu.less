@@ -637,13 +637,14 @@
   background-color: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.9);
 }
-.ui.inverted.menu .dropdown.item .menu .item,
-.ui.inverted.menu .dropdown.item .menu .item a {
-  color: rgba(0, 0, 0, 0.75);
-}
 .ui.inverted.menu .item > p:only-child {
   color: rgba(255, 255, 255, 0.75);
 }
+.ui.inverted.menu .dropdown.item .menu .item,
+.ui.inverted.menu .dropdown.item .menu .item a {
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+
 
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
@@ -990,6 +991,7 @@
 /* active */
 .ui.secondary.menu > .active.item {
   border-top: none;
+  padding-top: 0.5em;
   background-color: rgba(0, 0, 0, 0.08);
 }
 .ui.secondary.vertical.menu > .active.item {
