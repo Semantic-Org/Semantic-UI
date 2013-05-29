@@ -112,16 +112,16 @@ semantic.ready = function() {
       var
         $example   = $(this).closest('.example'),
         $header    = $example.children('.ui.header:first-of-type, p:first-of-type'),
-        $demo      = $example.children().not($header).not('i.code:first-child, .annotated, .ignore'),
+        $demo      = $example.children().not($header).not('i.code:first-child, .annotated, br, .ignore'),
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),
         code       = ''
       ;
       // if ui has wrapper use that
-      if($demo.filter('.ui').size() === 0) {
-        $demo = $example.children().eq(3).children();
-      }
+      // if($demo.filter('.ui').size() === 0) {
+      //   $demo = $example.children().eq(3).children();
+      // }
       // add source if doesnt exist and initialize
       if($annotated.size() === 0) {
         $annotated = $('<div/>')
@@ -132,7 +132,7 @@ semantic.ready = function() {
       if( $code.size() === 0) {
         $demo
           .each(function(){
-            if($(this).hasClass('ui')) {
+            if($(this).not('br')) {
               code += $(this).get(0).outerHTML + "\n";
             }
           })
