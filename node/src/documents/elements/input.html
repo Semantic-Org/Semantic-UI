@@ -7,10 +7,17 @@ type   : 'UI Element'
 ---
 <div class="segment">
   <div class="container">
-    <div class="ui small inverted teal download menu">
+    <div class="ui small download menu">
       <div class="header item">Download</div>
-      <a class="item"><i class="icon setting"></i> Uncompressed</a>
-      <a class="item"><i class="icon cloud"></i> Minified</a>
+      <div class="simple ui dropdown item">
+        <i class="icon setting"></i> Download <i class="icon dropdown"></i>
+        <div class="menu">
+          <a class="item">Uncompressed</a>
+          <a class="item">Minified</a>
+          <a class="item">LESS</a>
+        </div>
+      </div>
+      <a class="item"><i class="icon edit"></i> Authoring Guide</a>
     </div>
     <h1 class="ui header">
       Input
@@ -33,11 +40,6 @@ type   : 'UI Element'
     <h4 class="ui header">Input:</h4>
     <p>A standard input</p>
     <div class="ui input">
-      <input type="text">
-    </div>
-    <br><br>
-    <div class="ui input">
-      <i class="search icon"></i>
       <input type="text">
     </div>
   </div>
