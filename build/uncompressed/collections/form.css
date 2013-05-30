@@ -361,7 +361,7 @@
     Inline Fields
 ---------------------*/
 .ui.form .inline.fields .field {
-  margin-right: 1.5em;
+  margin-right: 0.5em;
 }
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
@@ -385,6 +385,10 @@
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
   margin: 0em 0.5em 0em 0em;
+}
+.ui.form .inline.fields .field > :only-child,
+.ui.form .inline.field > :only-child {
+  margin: 0em;
 }
 /*--------------------
         Sizes
