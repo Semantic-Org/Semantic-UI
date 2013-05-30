@@ -314,6 +314,10 @@ a:hover {
   border-bottom: none;
 }
 #example .masthead .labeled.button {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: auto !important;
   margin-right: 1em;
 }
 #example .masthead h1 {
@@ -947,6 +951,12 @@ a:hover {
 
 #example .fixed .sidebar {
   display: none;
+}
+
+
+#example.index .grid .column {
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
 @media only screen and (max-width : 1725px) {
