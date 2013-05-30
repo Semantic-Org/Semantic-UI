@@ -252,6 +252,8 @@
 .ui.divided.grid,
 .ui.divided.grid > .row {
   display: table;
+  margin-left: 0%;
+  margin-right: 0%;
 }
 .ui.divided.grid > .column,
 .ui.divided.grid > .row > .column {
@@ -271,6 +273,8 @@
 -----------------------*/
 .ui.celled.grid {
   display: table;
+  margin-left: 0%;
+  margin-right: 0%;
   -webkit-box-shadow: 0px 0px 0px 1px #DFDFDF;
   -moz-box-shadow: 0px 0px 0px 1px #DFDFDF;
   box-shadow: 0px 0px 0px 1px #DFDFDF;
