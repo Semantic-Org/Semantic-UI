@@ -21,6 +21,7 @@
 }
 .ui.input input {
   font-family: "Helvetica Neue", "Helvetica", Arial;
+  margin: 0em;
   padding: 0.9em 1.2em;
   font-size: 0.825em;
   background-color: #FFFFFF;
