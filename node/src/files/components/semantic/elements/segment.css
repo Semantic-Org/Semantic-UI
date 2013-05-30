@@ -76,8 +76,9 @@
 .ui.segment > .attached.label:first-child + * {
   margin-top: 2em;
 }
-.ui.segment > .bottom.attached.label:first-child + * {
+.ui.segment > .bottom.attached.label:first-child ~ :last-child {
   margin-top: 0em;
+  margin-bottom: 2em;
 }
 /*******************************
             States

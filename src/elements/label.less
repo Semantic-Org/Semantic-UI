@@ -28,6 +28,11 @@
   -moz-border-radius: 0.325em;
   border-radius: 0.325em;
 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
   -webkit-transition:
     background 0.1s linear
   ;
@@ -183,17 +188,36 @@ a.ui.label:hover:before {
        Attached
 --------------------*/
 
+.ui.top.attached.label,
 .ui.attached.label {
+  width: 100%;
   position: absolute;
   top: 0px;
   left: 0px;
+  -webkit-border-radius: 4px 4px 0px 0px;
+  -moz-border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 4px 0px 0px;  
+}
+.ui.bottom.attached.label {
+  top: auto;
+  bottom: 0px;
+
+  -webkit-border-radius: 4px 0px 0px 0px;
+  -moz-border-radius: 4px 0px 0px 0px;
+  border-radius: 4px 0px 0px 0px;  
+}
+
+.ui.top.left.attached.label {
+  width: auto;
   margin-top: 0px !important;
 
   -webkit-border-radius: 4px 0px 0px 0px;
   -moz-border-radius: 4px 0px 0px 0px;
-  border-radius: 4px 0px 0px 0px;
+  border-radius: 4px 0px 0px 0px;  
 }
-.ui.right.attached.label {
+
+.ui.top.right.attached.label {
+  width: auto;
   left: auto;
   right: 0px;
 
@@ -201,7 +225,8 @@ a.ui.label:hover:before {
   -moz-border-radius: 0px 4px 0px 0px;
   border-radius: 0px 4px 0px 0px;
 }
-.ui.bottom.attached.label {
+.ui.bottom.left.attached.label {
+  width: auto;
   top: auto;
   bottom: 0px;
 
@@ -210,6 +235,7 @@ a.ui.label:hover:before {
   border-radius: 0px 0px 0px 4px;
 }
 .ui.bottom.right.attached.label {
+  width: auto;
   -webkit-border-radius: 0px 0px 4px 0px;
   -moz-border-radius: 0px 0px 4px 0px;
   border-radius: 0px 0px 4px 0px;
