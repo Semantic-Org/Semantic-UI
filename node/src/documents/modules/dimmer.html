@@ -21,7 +21,7 @@ type   : 'UI Element'
     </div>
     <h1 class="ui header">
       Dimmer
-      <div class="sub header">Dimmers allow content to be hidden</div>
+      <div class="sub header">Dimmers focus a users attention on particular content</div>
     </h1>
   </div>
 </div>
@@ -30,7 +30,10 @@ type   : 'UI Element'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Standard</a>
+      <a class="item">Behavior</a>
       <a class="item">States</a>
+      <a class="item">Variations</a>
+      <a class="item">Usage</a>
     </div>
   </div>
   <h2 class="ui dividing header">Standard</h2>
@@ -38,76 +41,46 @@ type   : 'UI Element'
   <div class="example">
     <h4 class="ui header">Dimmer:</h4>
     <p>A standard dimmer</p>
-    <div class="ui dimmer">
-      <dimmer type="text">
+    <div class="ui segment">
+      <div class="ui dimmer"></div>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+    <div class="ignore ui icon buttons">
+      <div class="ui button"><i class="plus icon"></i></div>
+      <div class="ui button"><i class="minus icon"></i></div>
     </div>
   </div>
 
+  <h2 class="ui dividing header">Behavior</h2>
+  
+  
   <h2 class="ui dividing header">States</h2>
 
   <div class="example">
-    <h4 class="ui header">Focus</h4>
-    <p>An dimmer field can show a user is currently interacting with it</p>
-    <div class="ui dimmer focus">
-      <dimmer type="text">
-    </div>
+    <h4 class="ui header">Active</h4>
+    <p>A dimmer can dim content</p>
+    <div class="ui active dimmer"></div>
   </div>
   
   <div class="example">
-    <h4 class="ui header">Error</h4>
-    <p>An dimmer field can show the data contains errors</p>
-    <div class="ui dimmer error">
-      <dimmer type="text">
-    </div>
+    <h4 class="ui header">Disabled</h4>
+    <p>A disabled dimmer cannot be activated</p>
+    <div class="ui error dimmer"></div>
   </div>
   
   <h2 class="ui dividing header">Variations</h2>
   
   <div class="example">
-    <h4 class="ui header">Icon</h4>
-    <p>An dimmer can be formatted with an icon</p>
-    <div class="ui icon dimmer">
-      <dimmer type="text" placeholder="Search...">
-      <i class="icon search"></i>
-    </div>
-    <br><br>
-    <div class="ui icon dimmer">
-      <dimmer type="text" placeholder="Search users...">
-      <i class="icon blue inverted users"></i>
-    </div>
+    <h4 class="ui header">Simple Dimmer</h4>
+    <p>A dimmer can be controlled without javascript</p>
+    <i class="ignored info message">Having any parent element receive the class "dimmed" will trigger the dimmer to display.</i>
+    <div class="ui simple dimmer"></div>
   </div>
   
   <div class="example">
-    <h4 class="ui header">Labeled</h4>
-    <p>An dimmer can be formatted with a label</p>
-    <div class="ui labeled dimmer">
-      <dimmer type="text" placeholder="Search...">
-      <div class="ui corner label">
-        <i class="asterisk icon"></i>
-      </div>
-    </div>
-    <br><br>
-    <div class="ui labeled dimmer">
-      <dimmer type="text" placeholder="Search...">
-      <div class="ui corner label">
-        <div class="text">New</div>
-      </div>
-    </div>
-    
-  </div>
-  
-  <div class="example">
-    <h4 class="ui header">Action</h4>
-    <p>An dimmer can be formatted to alert the user to an action they may perform</p>
-    <div class="ui dimmer action">
-      <dimmer type="text" placeholder="Search...">
-      <div class="ui button">Search</div>
-    </div>
-    <br><br>
-    <div class="ui dimmer action">
-      <dimmer type="text" placeholder="Search...">
-      <div class="ui teal button"><i class="add user icon"></i> Add users</div>
-    </div>
+    <h4 class="ui header">Page Dimmer</h4>
+    <p>A dimmer can be formatted with an icon</p>
+    <div class="ui page dimmer"></div>
   </div>
 
 </div>

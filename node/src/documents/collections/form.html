@@ -34,40 +34,34 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Form:</h4>
     <p>A form is a collection of user input elements, and has no stylings of its own.</p>
-    <div class="ui info message">
+    <div class="ui ignored info message">
       <p>This example uses a <a href="/elements/segment.html">ui segment</a> to add the padding and background color. This is not required.</p>
     </div>
     <div class="ui form segment">
-      <p>Let's go ahead and get you signed up.</p>
-      <div class="ui error message">
-        <div class="header">We noticed some issues</div>
-      </div>
-      <div class="two fields">
-        <div class="field">
-          <label>First Name</label>
-          <input placeholder="First Name" type="text">
-        </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input placeholder="Last Name" type="text">
-        </div>
-      </div>
       <div class="field">
         <label>Username</label>
-        <input placeholder="Username" type="text">
+        <div class="ui labeled icon input">
+          <input type="password" placeholder="Username">
+          <i class="user icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
       </div>
       <div class="field">
         <label>Password</label>
-        <input type="password">
-      </div>
-      <div class="inline field">
-        <div class="ui checkbox">
-          <input type="checkbox" id="terms" />
-          <label for="terms"></label>
+        <div class="ui labeled icon input">
+          <input type="password">
+          <i class="lock icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
         </div>
-        <label>I agree to the terms and conditions</label>
       </div>
-      <div class="ui blue submit button">Submit</div>
+      <div class="ui error message">
+        <div class="header">We noticed some issues</div>
+      </div>
+      <div class="ui blue submit button">Login</div>
     </div>
   </div>
 
