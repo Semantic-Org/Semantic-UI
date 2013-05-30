@@ -373,7 +373,7 @@ $.fn.dropdown = function(parameters) {
 
         toggle: function() {
           module.verbose('Toggling menu visibility');
-          if(module.can.show()) {
+          if( module.is.hidden() ) {
             module.show();
           }
           else {

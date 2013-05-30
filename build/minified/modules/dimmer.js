@@ -13,15 +13,20 @@ $.fn.dimmer = function(parameters) {
   var
     $allModules     = $(this),
     $document       = $(document),
-    
+
     settings        = $.extend(true, {}, $.fn.dimmer.settings, parameters),
 
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
+    moduleSelector  = $allModules.selector || '',
 
     selector        = $allModules.selector || '',
     time            = new Date().getTime(),
     performance     = [],
+
+    namespace       = settings.namespace,
+    className       = settings.className,
+    errors          = settings.errors,
 
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
@@ -33,61 +38,27 @@ $.fn.dimmer = function(parameters) {
   $allModules
     .each(function() {
       var
-        $module       = $(this),
-        $menu         = $(this).find(settings.selector.menu),
-        $item         = $(this).find(settings.selector.item),
-        $text         = $(this).find(settings.selector.text),
-        $input        = $(this).find(settings.selector.input),
-        
-        isTouchDevice = ('ontouchstart' in document.documentElement),
-        
-        selector      = $module.selector || '',
-        element       = this,
-        instance      = $module.data('module-' + settings.namespace),
-        
-        className     = settings.className,
-        metadata      = settings.metadata,
-        namespace     = settings.namespace,
-        animation     = settings.animation,
-        
-        errors        = settings.errors,
+        $module   = $(this),
+        $dimmer   = $module.children(selector.dimmer),
+
+        element   = this,
+        instance  = $module.data('module-' + namespace),
         module
       ;
 
       module      = {
 
         initialize: function() {
-          module.verbose('Initializing dimmer with bound events', $module);
-          if(isTouchDevice) {
-            $module
-              .on('touchstart' + eventNamespace, module.event.test.toggle)
-            ;
-          }
-          else if(settings.on == 'click') {
-            $module
-              .on('click' + eventNamespace, module.event.test.toggle)
-            ;
-          }
-          else if(settings.on == 'hover') {
-            $module
-              .on('mouseenter' + eventNamespace, module.show)
-              .on('mouseleave' + eventNamespace, module.delayedHide)
-            ;
+          if( $module.is(settings.selector.dimmer) ) {
+            $dimmer = $module;
           }
           else {
-            $module
-              .on(settings.on + eventNamespace, module.toggle)
-            ;
+            if($dimmer.size() === 0) {
+              module.create();
+            }
+            $dimmer = $module.find(selector.dimmer);
           }
-          if(settings.action == 'form') {
-            module.set.selected();
-          }
-          $item
-            .on(module.get.selectEvent() + eventNamespace, module.event.item.click)
-          ;
-          $module
-            .data(moduleNamespace, module)
-          ;
+          module.debug('Module initialized with dimmer', $dimmer);
         },
 
         destroy: function() {
@@ -97,290 +68,85 @@ $.fn.dimmer = function(parameters) {
           ;
         },
 
-        event: {
-
-          stopPropagation: function(event) {
-            event.stopPropagation();
-          },
-
-          test: {
-            toggle: function(event) {
-              module.intent.test(event, module.toggle);
-              event.stopPropagation();
-            },
-            hide: function(event) {
-              module.intent.test(event, module.hide);
-              event.stopPropagation();
-            }
-          },
-
-          item: {
-
-            click: function (event) {
-              var
-                $choice = $(this),
-                text    = $choice.data(metadata.text)  || $choice.text(),
-                value   = $choice.data(metadata.value) || text
-              ;
-              module.verbose('Adding active state to selected item');
-              $item
-                .removeClass(className.active)
-              ;
-              $choice
+        animate: {
+          show: function() {
+            if(settings.animation.show == 'css') {
+              $dimmer
                 .addClass(className.active)
               ;
-              module.action.determine(text, value);
-              $.proxy(settings.onChange, $menu.get())(text, value);
-              event.stopPropagation();
             }
-
-          }
-
-        },
-
-        intent: {
-
-          test: function(event, callback) {
-            module.debug('Determining whether event occurred in dimmer', event.target);
-            callback = callback || function(){};
-            if( $(event.target).closest($menu).size() === 0 ) {
-              module.verbose('Triggering event', callback);
-              callback();
-            }
-            else {
-              module.verbose('Event occurred in dimmer, canceling callback');
+            else if(settings.animation.show == 'fade') {
+              $dimmer
+                .fadeTo(settings.duration, settings.opacity)
+              ;
             }
           },
-
-          bind: function() {
-            module.verbose('Binding hide intent event to document');
-            $document
-              .on(module.get.selectEvent(), module.event.test.hide)
-            ;
-          },
-
-          unbind: function() {
-            module.verbose('Removing hide intent event from document');
-            $document
-              .off(module.get.selectEvent())
-            ;
-          }
-
-        },
-
-        action: {
-
-          determine: function(text, value) {
-            if( $.isFunction( module.action[settings.action] ) ) {
-              module.verbose('Triggering preset action', settings.action);
-              module.action[ settings.action ](text, value);
-            }
-            else if( $.isFunction(settings.action) ) {
-              module.verbose('Triggering user action', settings.action);
-              settings.action(text, value);
-            }
-            else {
-              module.error(errors.action);
-            }
-          },
-
-          nothing: function() {},
-
           hide: function() {
-            module.hide();
-          },
-
-          changeText: function(text, value) {
-            module.set.text(text);
-            module.hide();
-          },
-
-          form: function(text, value) {
-            module.set.text(text);
-            module.set.value(value);
-            module.hide();
-          }
-
-        },
-
-        get: {
-          selectEvent: function() {
-            return (isTouchDevice)
-              ? 'touchstart'
-              : 'click'
-            ;
-          },
-          text: function() {
-            return $text.text();
-          },
-          value: function() {
-            return $input.val();
-          },
-          item: function(value) {
-            var 
-              $selectedItem
-            ;
-            value = value || $input.val();
-            $item
-              .each(function() {
-                if( $(this).data(metadata.value) == value ) {
-                  $selectedItem = $(this);
-                }
-              })
-            ;
-            return $selectedItem || false;
-          }
-        },
-
-        set: {
-          text: function(text) {
-            module.debug('Changing text', text);
-            $text.text(text);
-          },
-          value: function(value) {
-            module.debug('Adding selected value to hidden input', value);
-            $input.val(value);
-          },
-          selected: function(value) {
-            var
-              selectedValue = value || $input.val(),
-              $selectedItem = module.get.item(value),
-              selectedText
-            ;
-            if($selectedItem) {
-              module.debug('Setting selected menu item to', $selectedItem);
-              selectedText = $selectedItem.data(metadata.text) || $selectedItem.text();
-              $item
-                .removeClass(className.active)
-              ;
-              $selectedItem 
+            if(settings.animation.show == 'css') {
+              $dimmer
                 .addClass(className.active)
               ;
-              module.set.text(selectedText);
+            }
+            else if(settings.animation.show == 'fade') {
+              $dimmer
+                .fadeOut(settings.duration)
+              ;
+            }
+            else if( $.isFunction(settings.animation.hide) ) {
+              $.proxy(settings.animation.hide, $dimmer)();
             }
           }
         },
 
         is: {
+          enabled: function() {
+            return !$module.hasClass(className.disabled);
+          },
+          disabled: function() {
+            return $module.hasClass(className.disabled);
+          },
           visible: function() {
-            return $menu.is(':visible');
+            return $dimmer.is(':visible');
           },
           hidden: function() {
-            return $menu.is(':not(:visible)');
+            return $dimmer.is(':not(:visible)');
           }
         },
 
         can: {
-          click: function() {
-            return (isTouchDevice || settings.on == 'click');
-          },
           show: function() {
-            return !$module.hasClass(className.disabled);
-          }
-        },
-
-        animate: {
-          show: function() {
-            module.verbose('Doing menu showing animation');
-            if(animation.show == 'show') {
-              $menu
-                .show()
-              ;
-            }
-            else if(animation.show == 'slide') {
-              $menu
-                .clearQueue()
-                .children()
-                  .clearQueue()
-                  .css('opacity', 0)
-                  .delay(100)
-                  .animate({
-                    opacity : 1
-                  }, 300, 'easeOutQuad')
-                  .end()
-                .slideDown(200, 'easeOutQuad')
-              ;
-            }
-          },
-          hide: function() {
-            module.verbose('Doing menu hiding animation');
-            if(animation.hide == 'hide') {
-              $menu
-                .hide()
-              ;
-            }
-            else if(animation.hide == 'slide') {
-              $menu
-                .clearQueue()
-                .children()
-                  .clearQueue()
-                  .css('opacity', 1)
-                  .animate({
-                    opacity : 0
-                  }, 300, 'easeOutQuad')
-                  .end()
-                .delay(100)
-                .slideUp(200, 'easeOutQuad')
-              ;
-            }
+            return !$dimmer.hasClass(className.disabled);
           }
         },
 
         show: function() {
-          module.debug('Checking if dimmer can show');
-          clearTimeout(module.graceTimer);
-          if( !module.is.visible() ) {
-            module.hideOthers();
-            $module
-              .addClass(className.visible)
-            ;
+          module.debug('Showing dimmer', $dimmer);
+          if( !module.is.visible() && module.is.enabled() ) {
             module.animate.show();
-            if( module.can.click() ) {
-              module.intent.bind();
-            }
-            $.proxy(settings.onShow, $menu.get())();
+            $.proxy(settings.onShow, $module.get())();
+            $.proxy(settings.onChange, $module.get())();
           }
         },
 
         hide: function() {
           if( !module.is.hidden() ) {
-            module.debug('Hiding dimmer');
-            $module
-              .removeClass(className.visible)
-            ;
-            if( module.can.click() ) {
-              module.intent.unbind();
-            }
+            module.debug('Hiding dimmer', $dimmer);
             module.animate.hide();
-            $.proxy(settings.onHide, $menu.get())();
+            $.proxy(settings.onHide, $module.get())();
+            $.proxy(settings.onChange, $module.get())();
           }
         },
 
-        delayedHide: function() {
-          module.verbose('User moused away setting timer to hide dimmer');
-          module.graceTimer = setTimeout(module.hide, settings.gracePeriod);
-        },
-
-        hideOthers: function() {
-          module.verbose('Finding other dimmers to hide');
-          $allModules
-            .not($module)
-              .has(settings.selector.menu + ':visible')
-              .dimmer('hide')
-          ;
-          console.log($allModules.not($module).has(settings.selector.menu + ':visible'));
-        },
-
         toggle: function() {
-          module.verbose('Toggling menu visibility');
-          if(module.can.show()) {
+          module.verbose('Toggling dimmer visibility', $dimmer);
+          if( module.is.hidden() ) {
             module.show();
           }
           else {
             module.hide();
           }
         },
-
+        
         setting: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
@@ -442,9 +208,9 @@ $.fn.dimmer = function(parameters) {
               previousTime  = time || currentTime,
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
+              performance.push({
                 'Element'        : element,
-                'Name'           : message[0], 
+                'Name'           : message[0],
                 'Arguments'      : message[1] || 'None',
                 'Execution Time' : executionTime
               });
@@ -455,11 +221,11 @@ $.fn.dimmer = function(parameters) {
           display: function() {
             var
               title              = settings.moduleName,
-              caption            = settings.moduleName + ': ' + selector + '(' + $allModules.size() + ' elements)',
+              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
               totalExecutionTime = 0
             ;
-            if(selector) {
-              title += ' Performance (' + selector + ')';
+            if(moduleSelector) {
+              title += ' Performance (' + moduleSelector + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -520,7 +286,7 @@ $.fn.dimmer = function(parameters) {
         invokedResponse = module.invoke(query);
       }
       else {
-        if(instance !== undefined) {
+        if(instance === undefined) {
           module.destroy();
         }
         module.initialize();
@@ -535,47 +301,37 @@ $.fn.dimmer = function(parameters) {
 
 $.fn.dimmer.settings = {
 
-  moduleName  : 'Dropdown Module',
+  moduleName  : 'Dimmer Module',
   namespace   : 'dimmer',
-  
+
   verbose     : true,
   debug       : true,
   performance : false,
-  
-  on          : 'click',
-  gracePeriod : 300,
-  action      : 'hide',
-  
+
   animation   : {
-    show: 'slide',
-    hide: 'slide'
+    show: 'css',
+    hide: 'css'
   },
-  
+
+  duration : 500,
+  opacity  : 0.85,
+
   onChange : function(){},
   onShow   : function(){},
   onHide   : function(){},
-  
+
   errors   : {
-    action   : 'You called a dimmer action that was not defined',
     method   : 'The method you called is not defined.'
   },
 
-  metadata: {
-    text  : 'text',
-    value : 'value'
-  },
-
-  selector : {
-    menu  : '.menu',
-    item  : '.menu > .item',
-    text  : '> .text',
-    input : '> input[type="hidden"]'
+  selector: {
+    dimmer  : '.ui.dimmer'
   },
 
   className : {
+    dimmed   : 'dimmed',
     active   : 'active',
-    disabled : 'disabled',
-    visible  : 'visible'
+    disabled : 'disabled'
   }
 
 };

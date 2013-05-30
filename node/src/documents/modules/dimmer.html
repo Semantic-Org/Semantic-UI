@@ -3,8 +3,12 @@ layout : 'default'
 css    : 'dimmer'
 
 title  : 'Dimmer'
-type   : 'UI Element'
+type   : 'UI Module'
 ---
+
+<script src="/components/semantic/modules/dimmer.js"></script>
+<script src="/javascript/dimmer.js"></script>
+
 <div class="segment">
   <div class="container">
     <div class="ui small download menu">
@@ -44,10 +48,11 @@ type   : 'UI Element'
     <div class="ui segment">
       <div class="ui dimmer"></div>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
     </div>
     <div class="ignore ui icon buttons">
-      <div class="ui button"><i class="plus icon"></i></div>
-      <div class="ui button"><i class="minus icon"></i></div>
+      <div class="ui show button"><i class="plus icon"></i></div>
+      <div class="ui hide button"><i class="minus icon"></i></div>
     </div>
   </div>
 
@@ -58,14 +63,18 @@ type   : 'UI Element'
 
   <div class="example">
     <h4 class="ui header">Active</h4>
-    <p>A dimmer can dim content</p>
-    <div class="ui active dimmer"></div>
+    <p>An active dimmer will dim its parent container</p>
+    <div class="ui segment">
+      <div class="ui active dimmer"></div>
+    </div>
   </div>
   
   <div class="example">
     <h4 class="ui header">Disabled</h4>
     <p>A disabled dimmer cannot be activated</p>
-    <div class="ui error dimmer"></div>
+    <div class="ui segment">
+      <div class="ui disabled dimmer"></div>
+    </div>
   </div>
   
   <h2 class="ui dividing header">Variations</h2>
@@ -73,13 +82,19 @@ type   : 'UI Element'
   <div class="example">
     <h4 class="ui header">Simple Dimmer</h4>
     <p>A dimmer can be controlled without javascript</p>
-    <i class="ignored info message">Having any parent element receive the class "dimmed" will trigger the dimmer to display.</i>
+    <div class="ignored ui info message">Having any parent element receive the class "dimmed" will trigger the dimmer to display.</div>
     <div class="ui simple dimmer"></div>
   </div>
   
   <div class="example">
+    <h4 class="ui header">Inverted Dimmer</h4>
+    <p>A dimmer can have its colors inverted</p>
+    <div class="ui inverted dimmer"></div>
+  </div>
+  
+  <div class="example">
     <h4 class="ui header">Page Dimmer</h4>
-    <p>A dimmer can be formatted with an icon</p>
+    <p>A dimmer can be formatted to be fixed to the page</p>
     <div class="ui page dimmer"></div>
   </div>
 
