@@ -26,7 +26,8 @@ $.fn.dropdown = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    invokedResponse
+    invokedResponse,
+    allModules
   ;
 
   $allModules
@@ -326,9 +327,10 @@ $.fn.dropdown = function(parameters) {
         },
 
         show: function() {
+          module.debug('Checking if dropdown can show');
           clearTimeout(module.graceTimer);
           if( !module.is.visible() ) {
-            module.debug('Showing dropdown');
+            module.hideOthers();
             $module
               .addClass(className.visible)
             ;
@@ -338,11 +340,6 @@ $.fn.dropdown = function(parameters) {
             }
             $.proxy(settings.onShow, $menu.get())();
           }
-        },
-
-        delayedHide: function() {
-          module.verbose('User moused away setting timer to hide dropdown');
-          module.graceTimer = setTimeout(module.hide, settings.gracePeriod);
         },
 
         hide: function() {
@@ -357,6 +354,21 @@ $.fn.dropdown = function(parameters) {
             module.animate.hide();
             $.proxy(settings.onHide, $menu.get())();
           }
+        },
+
+        delayedHide: function() {
+          module.verbose('User moused away setting timer to hide dropdown');
+          module.graceTimer = setTimeout(module.hide, settings.gracePeriod);
+        },
+
+        hideOthers: function() {
+          module.verbose('Finding other dropdowns to hide');
+          $allModules
+            .not($module)
+              .has(settings.selector.menu + ':visible')
+              .dropdown('hide')
+          ;
+          console.log($allModules.not($module).has(settings.selector.menu + ':visible'));
         },
 
         toggle: function() {
@@ -528,7 +540,7 @@ $.fn.dropdown.settings = {
   
   verbose     : true,
   debug       : true,
-  performance : true,
+  performance : false,
   
   on          : 'click',
   gracePeriod : 300,

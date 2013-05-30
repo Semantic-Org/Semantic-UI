@@ -449,6 +449,7 @@ Containing Icon
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
+  height: 0.9em;
   margin: 0em;
 }
 /*--------------
