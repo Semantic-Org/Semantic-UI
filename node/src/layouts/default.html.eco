@@ -57,6 +57,7 @@
   <%- @getBlock('scripts').toHTML() %>
 
   <script src="/javascript/library/jquery.js"></script>
+  <script src="/javascript/library/jquery-ui.js"></script>
   <script src="/javascript/library/easing.js"></script>
   <script src="/javascript/library/ace/ace.js"></script>
   <script src="/javascript/library/sidr.js"></script>

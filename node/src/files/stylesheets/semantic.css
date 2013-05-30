@@ -306,14 +306,19 @@ a:hover {
 ---------------*/
 
 #example .masthead {
+  text-align: center;
   background-color: #00B5AD;
   padding: 75px 0px 50px;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
   border-bottom: none;
 }
+#example .masthead .labeled.button {
+  margin-right: 1em;
+}
 #example .masthead h1 {
   font-size: 5em;
+  color: #FFFFFF;
   line-height: 1.2;
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -323,7 +328,7 @@ a:hover {
 }
 #example .masthead h2 {
   font-weight: normal;
-  margin: -10px 0 30px 122px;
+  margin: -10px 0 16px 0px;
   font-size: 1.75em;
   border-bottom: none;
   line-height: 1;
@@ -332,8 +337,8 @@ a:hover {
   width: 375px;
 }
 #example .masthead p {
-  font-size: 1.25em;
-  margin: 0.5em 0em 1.5em;
+  font-size: 1.5em;
+  margin: 1em 0em 1.5em;
   padding: 0px;
 }
 
@@ -347,18 +352,15 @@ a:hover {
 }
 
 
-
 /* content */
 #example .container {
   width: 915px;
   margin: 0px auto;
 }
 
-
-#example .solid .container,
-#example .stripe .container {
+#example .solid,
+#example .stripe {
   padding: 50px 0px;
-  overflow: hidden;
 }
 
 #example .solid {
@@ -369,13 +371,14 @@ a:hover {
 }
 #example .solid .column {
   text-align: center;
+  color: #555555;
+}
+#example .solid .column p {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 #example .stripe {
   color: #7E7E7E;
-}
-#example .stripe .header {
-  color: #333333;
 }
 #example .stripe .message {
   margin: 0em;
@@ -1030,11 +1033,15 @@ a:hover {
     display: none;
   }
   #example.index .masthead .button {
+    font-size: 1.1em;
     margin-bottom: 0.5em;
   }
   #example.index .masthead h2 {
     font-size: 1.25em;
     margin: 0em 0em 1em;
+  }
+  #example.index .masthead p {
+    font-size: 1.35em;
   }
   #example.index .container {
     margin-left: 2em;
