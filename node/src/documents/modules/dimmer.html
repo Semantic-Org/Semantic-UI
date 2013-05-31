@@ -43,20 +43,73 @@ type   : 'UI Module'
   <h2 class="ui dividing header">Standard</h2>
 
   <div class="example">
-    <h4 class="ui header">Dimmer:</h4>
-    <p>A standard dimmer</p>
+    <h4 class="ui header">Dimmer Content</h4>
+    <p>A dimmer can contain content which will display when dimmed</p>
+    <div class="ui info message">If no UI dimmer exists inside a content segment it will automatically be added on first use</div>
     <div class="ui segment">
-      <div class="ui dimmer"></div>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <h4 class="ui red inverted block header">
+        Check out these pictures of dogs
+      </h4>
+      <img src="/images/demo/item1.jpg">
+      <img src="/images/demo/item2.jpg">
+      <div class="ui dimmer">
+        <h2 class="ui inverted header">This is a message for you</h2>
+      </div>
     </div>
     <div class="ignore ui icon buttons">
       <div class="ui show button"><i class="plus icon"></i></div>
       <div class="ui hide button"><i class="minus icon"></i></div>
     </div>
   </div>
+  
+  <div class="example">
+    <h4 class="ui header">Page Dimmer</h4>
+    <p>A dimmer can be formatted to be fixed to the page</p>
+    <div class="ui page dimmer"></div>
+    <div class="ui page button"><i class="plus icon"></i> Show</div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Stand-alone Dimmer</h4>
+    <p>A dimmer can exist on its own without defining content that is /p>
+    <div class="ui segment">
+      <h4 class="ui red inverted block header">
+        Check out these pictures of dogs
+      </h4>
+      <img src="/images/demo/item1.jpg">
+      <img src="/images/demo/item2.jpg">
+      <div class="ui dimmer"></div>
+    </div>
+    <div class="ignored ui icon buttons">
+      <div class="ui show button"><i class="plus icon"></i></div>
+      <div class="ui hide button"><i class="minus icon"></i></div>
+    </div>
+  </div>
 
   <h2 class="ui dividing header">Behavior</h2>
+  
+  
+  <div class="no example">
+    <h4>Display</h4>
+    <p>A dimmer can show or hide itself, a can show or hide a dimmer</p>
+    <div class="ignore code">
+    // these two are the same
+    $('.ui.)
+      .dimmer('show')
+    ;
+    $('.ui.dimmer')
+      .dimmer('show')
+    ;
+    
+    // these two as well
+    $('.ui.)
+      .dimmer('hide')
+    ;
+    $('.ui.dimmer')
+      .dimmer('hide')
+    ;
+    </div>
+  </div>
   
   
   <h2 class="ui dividing header">States</h2>
@@ -79,25 +132,51 @@ type   : 'UI Module'
   
   <h2 class="ui dividing header">Variations</h2>
   
+  <h3>Dimmer</h3>
   <div class="example">
     <h4 class="ui header">Simple Dimmer</h4>
     <p>A dimmer can be controlled without javascript</p>
     <div class="ignored ui info message">Having any parent element receive the class "dimmed" will trigger the dimmer to display.</div>
-    <div class="ui simple dimmer"></div>
+    <div class="ui dimmed segment">
+      <div class="ui simple dimmer"></div>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
   </div>
   
   <div class="example">
     <h4 class="ui header">Inverted Dimmer</h4>
-    <p>A dimmer can have its colors inverted</p>
-    <div class="ui inverted dimmer"></div>
+    <p>A dimmer can be formatted to have its colors inverted</p>
+    <div class="ui segment">
+      <div class="ui inverted dimmer"></div>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+    <div class="ignore ui icon buttons">
+      <div class="ui show button"><i class="plus icon"></i></div>
+      <div class="ui hide button"><i class="minus icon"></i></div>
+    </div>
   </div>
   
+  <h3>/h3>
   <div class="example">
-    <h4 class="ui header">Page Dimmer</h4>
-    <p>A dimmer can be formatted to be fixed to the page</p>
-    <div class="ui page dimmer"></div>
+    <h4 class="ui header">Blurred /h4>
+    <p>A section may have its content blurred when dimmed</p>
+    <div class="ui red message">CSS Filters are only currently supported in Webkit browsers</div>
+    <div class="ui blurring segment">
+      <h4 class="ui red inverted block header">
+        Check out these pictures of dogs
+      </h4>
+      <img src="/images/demo/item1.jpg">
+      <img src="/images/demo/item2.jpg">
+      <div class="ui dimmer"></div>
+    </div>
+    <div class="ignore ui icon buttons">
+      <div class="ui show button"><i class="plus icon"></i></div>
+      <div class="ui hide button"><i class="minus icon"></i></div>
+    </div>
   </div>
-
+  
 </div>
 </body>
 

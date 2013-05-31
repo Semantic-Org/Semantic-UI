@@ -14,7 +14,9 @@ $.fn.dropdown = function(parameters) {
     $allModules     = $(this),
     $document       = $(document),
     
-    settings        = $.extend(true, {}, $.fn.dropdown.settings, parameters),
+    settings        = ( $.isPlainObject(parameters) )
+      ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
+      : $.fn.dropdown.settings,
 
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
@@ -506,7 +508,7 @@ $.fn.dropdown = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            module.verbose('Executing invoked function', found);
+            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;

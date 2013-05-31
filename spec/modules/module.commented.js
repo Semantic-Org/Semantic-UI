@@ -27,7 +27,9 @@ $.fn.example = function(parameters) {
     $allModules     = $(this),
 
     // Extend settings to merge run-time settings with defaults
-    settings        = $.extend(true, {}, $.fn.example.settings, parameters),
+    settings        = ( $.isPlainObject(parameters) )
+      ? $.extend(true, {}, $.fn.example.settings, parameters)
+      : $.fn.example.settings,
 
     // Define namespaces for storing module instance and binding events
     eventNamespace  = '.' + settings.namespace,
@@ -80,10 +82,15 @@ $.fn.example = function(parameters) {
         // #### Initialize
         // Initialize attaches events and preserves each instance in html metadata
         initialize: function() {
-          module.verbose('Initializing module for', element);
+          module.debug('Initializing module for', element);
           $module
             .on('click' + eventNamespace, module.exampleBehavior)
           ;
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module');
           // The instance is just a copy of the module definition, we store it in metadata so we can use it outside of scope, but also define it for immediate use
           instance = module;
           $module
@@ -291,18 +298,17 @@ $.fn.example = function(parameters) {
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
-                return true;
               }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
-                return true;
               }
-              module.error(error.method);
-              return false;
+              else {
+                module.error(error.method);
+              }
             });
           }
           if ( $.isFunction( found ) ) {
-            module.verbose('Executing invoked function', found);
+            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
@@ -329,6 +335,9 @@ $.fn.example = function(parameters) {
       }
     })
   ;
+
+  // lets performance tracking  know this is the end of a single trace through module
+  time = false;
 
   // If you called invoke, you may have a returned value which shoudl be returned, otherwise allow the call to chain
   return (invokedResponse)
@@ -360,7 +369,8 @@ $.fn.example.settings = {
   },
   // Error messages returned by the module
   error: {
-    noText : 'The text you tried to display has not been defined.',    method : 'The method you called is not defined.'
+    noText : 'The text you tried to display has not been defined.',    
+    method : 'The method you called is not defined.'
   },
   // Class names which your module refers to
   className   : {

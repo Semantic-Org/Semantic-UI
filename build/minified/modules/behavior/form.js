@@ -443,18 +443,17 @@ $.fn.form = function(fields, parameters) {
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
-                return true;
               }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
-                return true;
               }
-              module.error(error.method);
-              return false;
+              else {
+                module.error(error.method);
+              }
             });
           }
           if ( $.isFunction( found ) ) {
-            module.verbose('Executing invoked function', found);
+            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;

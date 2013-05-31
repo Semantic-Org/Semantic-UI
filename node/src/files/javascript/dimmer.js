@@ -7,6 +7,7 @@ semantic.dimmer.ready = function() {
   var
     $examples   = $('.example'),
     $showButton = $examples.find('.show.button'),
+    $pageButton = $examples.find('.page.button'),
     $hideButton = $examples.find('.hide.button'),
     // alias
     handler
@@ -15,20 +16,30 @@ semantic.dimmer.ready = function() {
   // event handlers
   handler = {
     show: function() {
-      console.log($(this).closest('.example'));
       $(this)
         .closest('.example')
-        .dimmer('show')
+        .find('.segment')
+          .dimmer('show')
       ;
     },
     hide: function() {
       $(this)
         .closest('.example')
-        .dimmer('hide')
+        .find('.segment')
+          .dimmer('hide')
+      ;
+    },
+    page: function() {
+      $(this)
+        .prev('.dimmer')
+        .dimmer('show')
       ;
     }
   };
-
+  
+  $pageButton
+    .on('click', handler.page)
+  ;
   $showButton
     .on('click', handler.show)
   ;

@@ -758,6 +758,9 @@ a:hover {
 
 
 /* examples */
+#example .no.example i.code {
+  display: none;
+}
 
 #example h2 + .example,
 #example h3 + .example,

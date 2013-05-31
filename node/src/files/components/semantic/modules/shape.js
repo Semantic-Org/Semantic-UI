@@ -40,7 +40,7 @@ $.fn.shape = function(parameters) {
         // private variables
         $activeSide,
         $nextSide,
-        endTransition = 'transitionend msTransitionEnd oTransitionEnd webkitTransitionEnd',
+        transitionEnd = 'transitionend msTransitionEnd oTransitionEnd webkitTransitionEnd',
         
         // standard module
         element       = this,
@@ -111,7 +111,7 @@ $.fn.shape = function(parameters) {
             ;
             $sides
               .css(propertyObject)
-              .one(endTransition, callback)
+              .one(transitionEnd, callback)
             ;
           }
           else {
@@ -137,7 +137,7 @@ $.fn.shape = function(parameters) {
         queue: function(method) {
           module.debug('Queueing animation of', method);
           $sides
-            .one(endTransition, function() {
+            .one(transitionEnd, function() {
               module.debug('Executing queued animation');
               $module.shape(method);
             })
@@ -614,7 +614,7 @@ $.fn.shape = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            module.verbose('Executing invoked function', found);
+            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
