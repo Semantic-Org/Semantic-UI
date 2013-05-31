@@ -112,7 +112,7 @@ semantic.ready = function() {
       var
         $example   = $(this).closest('.example'),
         $header    = $example.children('.ui.header:first-of-type, p:first-of-type'),
-        $demo      = $example.children().not($header).not('i.code:first-child, .annotated, br, .ignore'),
+        $demo      = $example.children().not($header).not('i.code:first-child, .annotated, br, .ignore, .ignored'),
         $annotated = $example.find('.annotated'),
         $code      = $annotated.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),

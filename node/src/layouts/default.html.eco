@@ -15,7 +15,7 @@
   <!-- Standard Meta -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properities -->
   <%- @getBlock('meta').toHTML() %>
@@ -58,7 +58,6 @@
   <%- @getBlock('scripts').toHTML() %>
 
   <script src="/javascript/library/jquery.js"></script>
-  <script src="/javascript/library/jquery-ui.js"></script>
   <script src="/javascript/library/easing.js"></script>
   <script src="/javascript/library/ace/ace.js"></script>
   <script src="/javascript/library/sidr.js"></script>

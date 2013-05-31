@@ -1,7 +1,10 @@
 /*  ******************************
-  Tooltip / Popup
+  Semantic Module: Popup
   Author: Jack Lukic
-  Notes: First Commit Sep 07, 2012
+  Notes: May 30, 2013
+
+  Simple plug-in to display popups
+
 ******************************  */
 
 ;(function ($, window, document, undefined) {
@@ -9,19 +12,29 @@
 $.fn.popup = function(parameters) {
   var
     $allModules     = $(this),
-    
-    settings        = $.extend(true, {}, $.fn.popup.settings, parameters),
-    
+
+    settings        = ( $.isPlainObject(parameters) )
+      ? $.extend(true, {}, $.fn.popup.settings, parameters)
+      : $.fn.popup.settings,
+
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
     moduleSelector  = $allModules.selector || '',
+    moduleCount     = $allModules.size(),
 
     time            = new Date().getTime(),
     performance     = [],
-    
+
+    selector    = settings.selector,
+    className   = settings.className,
+    error       = settings.error,
+    metadata    = settings.metadata,
+    namespace   = settings.namespace,
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
+
     invokedResponse
   ;
   $allModules
@@ -31,19 +44,13 @@ $.fn.popup = function(parameters) {
         $window       = $(window),
         $offsetParent = $module.offsetParent(),
         $popup        = (settings.inline)
-          ? $module.next(settings.selector.popup)
-          : $window.children(settings.selector.popup).last(),
-        
+          ? $module.next(selector.popup)
+          : $window.children(selector.popup).last(),
+
         searchDepth = 0,
-        
+
         element     = this,
         instance    = $module.data('module-' + settings.namespace),
-        
-        selector    = settings.selector,
-        className   = settings.className,
-        error       = settings.error,
-        metadata    = settings.metadata,
-        namespace   = settings.namespace,
         module
       ;
 
@@ -51,6 +58,7 @@ $.fn.popup = function(parameters) {
 
         // binds events
         initialize: function() {
+          module.debug('Initializing module', $module);
           if(settings.on == 'hover') {
             $module
               .on('mouseenter.' + namespace, module.event.mouseenter)
@@ -65,8 +73,14 @@ $.fn.popup = function(parameters) {
           $window
             .on('resize.' + namespace, module.event.resize)
           ;
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module');
+          instance = module;
           $module
-            .data('module-' + namespace, module)
+            .data('module-' + namespace, instance)
           ;
         },
 
@@ -508,44 +522,42 @@ $.fn.popup = function(parameters) {
               previousTime  = time || currentTime,
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
+              performance.push({
                 'Element'        : element,
-                'Name'           : message[0], 
-                'Arguments'      : message[1] || 'None',
+                'Name'           : message[0],
+                'Arguments'      : message[1] || '',
                 'Execution Time' : executionTime
               });
-              clearTimeout(module.performance.timer);
-              module.performance.timer = setTimeout(module.performance.display, 100);
             }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var
-              title              = settings.moduleName,
-              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
-              totalExecutionTime = 0
+              title = settings.moduleName + ':',
+              totalTime = 0
             ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
-              title += ' Performance (' + moduleSelector + ')';
+              title += ' \'' + moduleSelector + '\'';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
-                $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
-                });
                 console.table(performance);
               }
               else {
                 $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
                   console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
-              console.log('Total Execution Time:', totalExecutionTime +'ms');
               console.groupEnd();
-              performance = [];
-              time        = false;
             }
+            performance = [];
           }
         },
         invoke: function(query, passedArguments, context) {
@@ -561,24 +573,23 @@ $.fn.popup = function(parameters) {
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
-                return true;
               }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
-                return true;
               }
-              module.error(error.method);
-              return false;
+              else {
+                module.error(error.method);
+              }
             });
           }
           if ( $.isFunction( found ) ) {
-            module.verbose('Executing invoked function', found);
+            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
         }
-
       };
+
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -586,13 +597,14 @@ $.fn.popup = function(parameters) {
         invokedResponse = module.invoke(query);
       }
       else {
-        if(instance !== undefined) {
+        if(instance === undefined) {
           module.destroy();
         }
         module.initialize();
       }
     })
   ;
+
   return (invokedResponse)
     ? invokedResponse
     : this
@@ -600,31 +612,31 @@ $.fn.popup = function(parameters) {
 };
 
 $.fn.popup.settings = {
-  
-  moduleName     : 'Pop-up Module',
+
+  moduleName     : 'Popup',
   debug          : true,
   verbose        : true,
   performance    : true,
   namespace      : 'popup',
-  
+
   onShow         : function(){},
   onHide         : function(){},
-  
+
   content        : false,
   html           : false,
   title          : false,
-  
+
   on             : 'hover',
   clicktoClose   : true,
-  
+
   position       : 'top center',
   delay          : 0,
   inline         : true,
-  
+
   duration       : 250,
   easing         : 'easeOutQuint',
   animation      : 'pop',
-  
+
   distanceAway   : 2,
   arrowOffset    : 0,
   maxSearchDepth :  10,

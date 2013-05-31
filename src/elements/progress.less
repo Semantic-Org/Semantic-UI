@@ -83,6 +83,7 @@
 .ui.successful.progress .bar::after {
   -webkit-animation: none !important;
   -moz-animation: none !important;
+  animation: none !important;
 }
 
 /*--------------
@@ -96,6 +97,7 @@
 .ui.failed.progress .bar::after {
   -webkit-animation: none !important;
   -moz-animation: none !important;
+  animation: none !important;
 }
 
 /*--------------
@@ -120,12 +122,12 @@
   -webkit-border-radius: 3px;
   border-radius: 3px;
 
-  -webkit-animation: animate-emphasis 2s ease-out infinite;
-  -moz-animation: animate-emphasis 2s ease-out infinite;
-  animation: animate-emphasis 2s ease-out infinite;
+  -webkit-animation: progress-active 2s ease-out infinite;
+  -moz-animation: progress-active 2s ease-out infinite;
+  animation: progress-active 2s ease-out infinite;
 }
 
-@-webkit-keyframes animate-emphasis {
+@-webkit-keyframes progress-active {
   0% {
     opacity: 0;
     width: 0;
@@ -138,7 +140,7 @@
     width: 95%;
   }
 }
-@-moz-keyframes animate-emphasis {
+@-moz-keyframes progress-active {
   0% {
     opacity: 0;
     width: 0;
@@ -151,7 +153,7 @@
     width: 100%;
   }
 }
-@keyframes animate-emphasis {
+@keyframes progress-active {
   0% {
     opacity: 0;
     width: 0;
@@ -176,6 +178,7 @@
 .ui.disabled.progress .bar::after {
   -webkit-animation: none !important;
   -moz-animation: none !important;
+  animation: none !important;
 }
 
 
@@ -266,11 +269,12 @@
 }
 
 .ui.progress.active.striped .bar {
-  -webkit-animation: animate-striped 3s linear infinite;
-  -moz-animation: animate-striped 3s linear infinite;
+  -webkit-animation: progress-striped 3s linear infinite;
+  -moz-animation: progress-striped 3s linear infinite;
+  animation: progress-striped 3s linear infinite;
 }
 
-@-webkit-keyframes animate-striped {
+@-webkit-keyframes progress-striped {
   0% {
     background-position: 0px 0;
   }
@@ -278,7 +282,7 @@
     background-position: 60px 0;
   }
 }
-@-moz-keyframes animate-striped {
+@-moz-keyframes progress-striped {
   0% {
     background-position: 0px 0;
   }
@@ -286,7 +290,7 @@
     background-position: 60px 0;
   }
 }
-@keyframes animate-striped {
+@keyframes progress-striped {
   0% {
     background-position: 0px 0;
   }
