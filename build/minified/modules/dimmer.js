@@ -76,6 +76,9 @@ $.fn.dimmer = function(parameters) {
               module.debug('Module initialized with created dimmer', $dimmer);
             }
           }
+          $module
+            .addClass(className.dimmable)
+          ;
           if(settings.closable) {
             $dimmer
               .on('click', module.event.click)
@@ -103,7 +106,7 @@ $.fn.dimmer = function(parameters) {
 
           click: function(event) {
             module.verbose('Determining if event occured on dimmer', event);
-            if( event.target == element ) {
+            if( $dimmer.find(event.target).size() === 0 ) {
               module.hide();
             }
           }
@@ -117,8 +120,8 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Showing dimmer animation with css');
               $dimmer
                 .one(animationEnd, function() {
-                  $dimmer.removeClass(className.show);
                   module.set.active();
+                  $dimmer.removeClass(className.show);
                 })
                 .addClass(className.show)
               ;
@@ -132,7 +135,10 @@ $.fn.dimmer = function(parameters) {
                   width   : '100%',
                   height  : '100%'
                 })
-                .fadeTo(settings.duration, 1, module.set.active)
+                .fadeTo(settings.duration, 1, function() {
+                  $dimmer.removeAttr('style');
+                  module.set.active();
+                })
               ;
             }
           },
@@ -448,9 +454,10 @@ $.fn.dimmer.settings = {
 
   className : {
     active    : 'active',
+    animating : 'animating',
+    dimmable  : 'dimmable',
     dimmed    : 'dimmed',
     disabled  : 'disabled',
-    animating : 'animating',
     hide      : 'hide',
     show      : 'show'
   }
