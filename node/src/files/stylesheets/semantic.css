@@ -376,6 +376,9 @@ a:hover {
 #example .solid .column {
   color: #555555;
 }
+#example .solid .column p b {
+  color: rgba(0, 0, 0, 0.9);
+}
 #example .solid .column p {
   color: rgba(0, 0, 0, 0.5);
 }
