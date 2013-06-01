@@ -23,8 +23,8 @@
 ---------------*/
 .ui.comments .comment {
   position: relative;
-  margin-top: 0.5em;
-  padding-top: 0.5em;
+  margin-top: 0.75em;
+  padding-top: 0.75em;
   width: 100%;
 }
 .ui.comments .comment:first-child {
@@ -37,12 +37,12 @@
 .ui.comments .comment .avatar {
   display: block;
   float: left;
+  width: 4em;
 }
-.ui.comments .comment .avatar,
 .ui.comments .comment .avatar img {
+  display: block;
+  margin: 0em auto;
   width: 3em;
-}
-.ui.comments .comment .avatar img {
   height: 3em;
   border-radius: 500px;
 }
@@ -58,7 +58,8 @@
 }
 /* If there is an avatar move content over */
 .ui.comments .comment > .avatar ~ .content {
-  margin-left: 3em;
+  padding-top: 0.25em;
+  margin-left: 3.5em;
 }
 .ui.comments .comment .metadata {
   display: inline-block;
@@ -94,7 +95,7 @@
       Reply Form
 ---------------------*/
 .ui.comments .reply.form {
-  margin-top: 0.5em;
+  margin-top: 0.75em;
   width: 100%;
   max-width: 30em;
 }

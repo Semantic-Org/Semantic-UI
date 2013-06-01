@@ -15,7 +15,7 @@
 .ui.grid {
   width: 100%;
   display: block;
-  text-align: center;
+  text-align: left;
   font-size: 0em;
   margin: 0% -1%;
   -webkit-box-sizing: border-box;
