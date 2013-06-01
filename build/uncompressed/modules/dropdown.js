@@ -303,6 +303,9 @@ $.fn.dropdown = function(parameters) {
                 .slideDown(200, 'easeOutQuad')
               ;
             }
+            else {
+              module.errors(error.animation);
+            }
           },
           hide: function() {
             module.verbose('Doing menu hiding animation');
@@ -324,6 +327,9 @@ $.fn.dropdown = function(parameters) {
                 .delay(100)
                 .slideUp(200, 'easeOutQuad')
               ;
+            }
+            else {
+              module.errors(error.animation);
             }
           }
         },
@@ -370,7 +376,6 @@ $.fn.dropdown = function(parameters) {
               .has(settings.selector.menu + ':visible')
               .dropdown('hide')
           ;
-          console.log($allModules.not($module).has(settings.selector.menu + ':visible'));
         },
 
         toggle: function() {
@@ -550,7 +555,7 @@ $.fn.dropdown.settings = {
   
   animation   : {
     show: 'slide',
-    hide: 'slide'
+    hide: 'hide'
   },
   
   onChange : function(){},
@@ -558,8 +563,9 @@ $.fn.dropdown.settings = {
   onHide   : function(){},
   
   errors   : {
-    action   : 'You called a dropdown action that was not defined',
-    method   : 'The method you called is not defined.'
+    action    : 'You called a dropdown action that was not defined',
+    method    : 'The method you called is not defined.',
+    animation : 'The requested animation was not found'
   },
 
   metadata: {

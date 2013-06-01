@@ -19,6 +19,9 @@
   position: absolute;
   top: 0em !important;
   left: 0em !important;
+  text-align: center;
+  vertical-align: middle;
+  padding: 1em;
   background-color: rgba(0, 0, 0, 0.85);
   opacity: 0;
   line-height: 1;
@@ -27,15 +30,31 @@
   -o-animation-fill-mode: forwards;
   -ms-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  -webkit-translate: rotateZ(0deg);
+  -moz-translate: rotateZ(0deg);
+  translate: rotateZ(0deg);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-transition: background-color 0.5s ease;
   -moz-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;
   -ms-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
-  z-index: 100;
+  z-index: 1000;
 }
-body.dimmable > .ui.dimmer {
-  position: fixed;
+.ui.dimmable.dimmed > :not(.dimmer) {
+  -webkit-transition: filter 0.5s ease
+  ;
+  -moz-transition: filter 0.5s ease
+  ;
+  -o-transition: filter 0.5s ease
+  ;
+  -ms-transition: filter 0.5s ease
+  ;
+  transition: filter 0.5s ease
+  ;
 }
 /* Loose Coupling */
 .ui.segment > .ui.dimmer {
@@ -52,10 +71,13 @@ body.dimmable > .ui.dimmer {
 /*******************************
             States
 *******************************/
-.ui.dimmable.dimmed :not(.dimmer) {
-  -webkit-filter: blur(10px) grayscale(0.7);;
-  -moz-filter: blur(10px) grayscale(0.7);;
-  filter: blur(10px) grayscale(0.7);;
+.ui.dimmable.dimmed > :not(.dimmer) {
+  -webkit-filter: blur(5px) grayscale(0.7);;
+  -moz-filter: blur(5px) grayscale(0.7);;
+  filter: blur(5px) grayscale(0.7);;
+}
+body.dimmable.dimmed {
+  overflow: hidden;
 }
 .ui.dimmable.dimmed > .ui.dimmer,
 .ui.dimmer.active {

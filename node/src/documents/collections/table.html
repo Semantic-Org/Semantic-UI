@@ -9,11 +9,7 @@ type   : 'UI Collection'
 <div class="segment">
   <div class="container">
     <h1 class="ui dividing header">Tables</h1>
-    <p>Tables are useful for displaying collections of tuples.</p>
-    <p> 
-      Tables consist of an optional table header, content, and table footer. They may be formatted to show numeric content or for rows of text.
-    </p>
-    <p>Although no plugin has been created using the <a href="generated/multiple.html">semantic module spec</a> for sorting tables, other plugins such as kylefox's <a href="https://github.com/kylefox/jquery-tablesort">tablesort</a> may be useful.</p>
+    <p>Tables display collections of data grouped into rows.</p>
   </div>
 </div>
 <div class="main container">
@@ -239,6 +235,52 @@ type   : 'UI Collection'
 
   <h2 class="ui dividing header">Variations</h2>
   
+
+  <div class="example">
+    <h4 class="ui header">Even Width</h4>
+    <p>A table can specify its column count to divide its content evenly</p>
+    <table class="ui five column table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>22</td>
+          <td>Male</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>32</td>
+          <td>Male</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>22</td>
+          <td>Female</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
+
+
   <div class="example">
     <h4 class="ui header">Collapsing</h4>
     <p>By default tables take the size of their container. A collapsing takes up only as much space as its rows.</p>

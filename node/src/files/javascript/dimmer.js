@@ -30,8 +30,7 @@ semantic.dimmer.ready = function() {
       ;
     },
     page: function() {
-      $(this)
-        .prev('.dimmer')
+      $('body > .page')
         .dimmer('show')
       ;
     }

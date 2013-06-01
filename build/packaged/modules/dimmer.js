@@ -58,11 +58,6 @@ $.fn.dimmer = function(parameters) {
             $module = $dimmer.parent();
             module.debug('Module initialized as dimmer', $dimmer);
           }
-          else if( module.is.pageDimmer() ) {
-            $dimmer = $module;
-            $module = $('body');
-            module.debug('Initializing page dimmer', $dimmer);
-          }
           else {
             if( module.has.dimmer() ) {
               $dimmer = $module.find(selector.dimmer);
@@ -183,6 +178,9 @@ $.fn.dimmer = function(parameters) {
           dimmer: function() {
             return $module.is(selector.dimmer);
           },
+          pageDimmer: function() {
+            return $module.is(selector.pageDimmer);
+          },
 
           dimmable: function() {
             return $module.is(selector.dimmable);
@@ -195,9 +193,6 @@ $.fn.dimmer = function(parameters) {
           },
           active: function() {
             return $dimmer.hasClass(className.active);
-          },
-          pageDimmer: function() {
-            return $dimmer.is(selector.pageDimmer);
           }
         },
 
@@ -442,8 +437,7 @@ $.fn.dimmer.settings = {
 
   selector: {
     dimmable   : '.ui.dimmable',
-    dimmer     : '.ui.dimmer',
-    pageDimmer : '.ui.page.dimmer'
+    dimmer     : '.ui.dimmer'
   },
 
   template: {
@@ -455,7 +449,7 @@ $.fn.dimmer.settings = {
   className : {
     active    : 'active',
     animating : 'animating',
-    dimmable  : 'dimmable',
+    dimmable  : 'ui dimmable',
     dimmed    : 'dimmed',
     disabled  : 'disabled',
     hide      : 'hide',
