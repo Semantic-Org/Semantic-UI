@@ -234,49 +234,64 @@
   width: 100%;
 }
 
-.ui.two.column.grid .column {
+.ui.two.column.grid > .row > .column,
+.ui.two.column.grid > .column {
   width: 50%;
 }
-.ui.three.column.grid .column {
+.ui.three.column.grid > .row > .column,
+.ui.three.column.grid > .column {
   width: 33.3333%;
 }
-.ui.four.column.grid .column {
+.ui.four.column.grid > .row > .column,
+.ui.four.column.grid > .column {
   width: 25%;
 }
-.ui.five.column.grid .column {
+.ui.five.column.grid > .row > .column,
+.ui.five.column.grid > .column {
   width: 20%;
 }
-.ui.six.column.grid .column {
+.ui.six.column.grid > .row > .column,
+.ui.six.column.grid > .column {
   width: 16.66667%;
 }
-.ui.seven.column.grid .column {
+.ui.seven.column.grid > .row > .column,
+.ui.seven.column.grid > .column {
   width: 14.2857%;
 }
-.ui.eight.column.grid .column {
+.ui.eight.column.grid > .row > .column,
+.ui.eight.column.grid > .column {
   width: 12.5%;
 }
-.ui.nine.column.grid .column {
+.ui.nine.column.grid > .row > .column,
+.ui.nine.column.grid > .column {
   width: 11.1111%;
 }
-.ui.ten.column.grid .column {
+.ui.ten.column.grid > .row > .column,
+.ui.ten.column.grid > .column {
   width: 10%;
 }
-.ui.eleven.column.grid .column {
+.ui.eleven.column.grid > .row > .column,
+.ui.eleven.column.grid > .column {
   width: 9.0909%;
 }
-.ui.twelve.column.grid .column {
+.ui.twelve.column.grid > .row > .column,
+.ui.twelve.column.grid > .column {
   width: 8.3333%;
 }
-.ui.thirteen.column.grid .column {
+.ui.thirteen.column.grid > .row > .column,
+.ui.thirteen.column.grid > .column {
   width: 7.6923%;
 }
-.ui.fourteen.column.grid .column {
+.ui.fourteen.column.grid > .row > .column,
+.ui.fourteen.column.grid > .column {
   width: 7.1428%;
 }
-.ui.fifteen.column.grid .column {
+.ui.fifteen.column.grid > .row > .column,
+.ui.fifteen.column.grid > .column {
   width: 6.6666%;
 }
-.ui.sixteen.column.grid .column {
+.ui.sixteen.column.grid > .row > .column,
+.ui.sixteen.column.grid > .column {
   width: 6.25%;
 }
 
@@ -377,21 +392,24 @@
 
 /* Vertical Centered */
 .ui.left.aligned.grid,
-.ui.left.aligned.grid .column,
+.ui.left.aligned.grid > .row > .column,
+.ui.left.aligned.grid > .column,
 .ui.grid .left.aligned.column,
-.ui.grid > .left.aligned.row .column {
+.ui.grid > .left.aligned.row > .column {
   text-align: left;
 }
 .ui.center.aligned.grid,
-.ui.center.aligned.grid .column,
+.ui.center.aligned.grid > .row > .column,
+.ui.center.aligned.grid > .column,
 .ui.grid .center.aligned.column,
-.ui.grid > .center.aligned.row .column {
+.ui.grid > .center.aligned.row > .column {
   text-align: center;
 }
 .ui.right.aligned.grid,
-.ui.right.aligned.grid .column,
+.ui.right.aligned.grid > .row > .column,
+.ui.right.aligned.grid > .column,
 .ui.grid .right.aligned.column,
-.ui.grid > .right.aligned.row .column {
+.ui.grid > .right.aligned.row > .column {
   text-align: right;
 }
 
@@ -401,19 +419,25 @@
 -----------------------*/
 
 /* Vertical Centered */
-.ui.top.aligned.grid .column,
+.ui.top.aligned.grid,
+.ui.top.aligned.grid > .row > .column,
+.ui.top.aligned.grid > .column,
 .ui.grid .top.aligned.column,
-.ui.grid > .top.aligned.row .column {
+.ui.grid > .top.aligned.row > .column {
   vertical-align: top;
 }
-.ui.middle.aligned.grid .column,
+.ui.middle.aligned.grid,
+.ui.middle.aligned.grid > .row > .column,
+.ui.middle.aligned.grid > .column,
 .ui.grid .middle.aligned.column,
-.ui.grid > .middle.aligned.row .column {
+.ui.grid > .middle.aligned.row > .column {
   vertical-align: middle;
 }
-.ui.bottom.aligned.grid .column,
+.ui.bottom.aligned.grid,
+.ui.bottom.aligned.grid > .row > .column,
+.ui.bottom.aligned.grid > .column,
 .ui.grid .bottom.aligned.column,
-.ui.grid > .bottom.aligned.row .column {
+.ui.grid > .bottom.aligned.row > .column {
   vertical-align: bottom;
 }
 
@@ -421,10 +445,10 @@
   Equal Height Columns
 -----------------------*/
 
-.ui.grid .equal.row {
+.ui.grid > .equal.row {
   display: table;
 }
-.ui.grid .equal.row .column {
+.ui.grid > .equal.row > .column {
   display: table-cell;
 }
 
