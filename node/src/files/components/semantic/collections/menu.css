@@ -52,11 +52,11 @@
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: opacity 0.1s linear, background 0.1s linear, box-shadow 0.1s linear;
-  -moz-transition: opacity 0.1s linear, background 0.1s linear, box-shadow 0.1s linear;
-  -o-transition: opacity 0.1s linear, background 0.1s linear, box-shadow 0.1s linear;
-  -ms-transition: opacity 0.1s linear, background 0.1s linear, box-shadow 0.1s linear;
-  transition: opacity 0.1s linear, background 0.1s linear, box-shadow 0.1s linear;
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -moz-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -o-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -ms-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 /*--------------
     Colors
@@ -110,6 +110,7 @@
   position: relative;
   display: inline-block;
   padding: 0.75em 0.95em;
+  border-top: 0em solid rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
@@ -242,15 +243,6 @@
   -moz-border-bottom-left-radius: 0em;
   border-bottom-left-radius: 0em;
 }
-/* Darken Labels */
-.ui.menu .item:hover .label,
-.ui.menu .item.hover .label {
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%);
-}
 /*--------------
       Down
 ---------------*/
@@ -276,13 +268,22 @@
   border-top: none;
   border-left: 0.2em solid rgba(50, 50, 50, 0.8);
   padding-top: 0.75em;
-  padding-left: 0.75em;
+  padding-left: 0.76em;
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
 }
-.ui.vertical.menu > .active.item:first-child,
+.ui.vertical.menu > .active.item:first-child {
+  -webkit-border-radius: 0em 0.325em 0em 0em;
+  -moz-border-radius: 0em 0.325em 0em 0em;
+  border-radius: 0em 0.325em 0em 0em;
+}
 .ui.vertical.menu > .active.item:last-child {
+  -webkit-border-radius: 0em 0em 0.325em 0em;
+  -moz-border-radius: 0em 0em 0.325em 0em;
+  border-radius: 0em 0em 0.325em 0em;
+}
+.ui.vertical.menu > .active.item:only-child {
   -webkit-border-radius: 0em 0.325em 0.325em 0em;
   -moz-border-radius: 0em 0.325em 0.325em 0em;
   border-radius: 0em 0.325em 0.325em 0em;
@@ -294,7 +295,8 @@
   padding-left: 1.5rem;
 }
 .ui.vertical.menu .item .menu .active.item {
-  padding-left: 1.3rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left: none;
 }
 /*--------------
      Disabled
@@ -314,7 +316,8 @@
 ---------------*/
 .ui.vertical.menu .item {
   display: block;
-  border-left: none;
+  border-top: none;
+  border-left: 0em solid rgba(0, 0, 0, 0);
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
@@ -554,6 +557,9 @@
 .ui.inverted.menu .active.item a {
   color: #ffffff;
 }
+.ui.inverted.vertical.menu .item .menu .active.item {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 /*--- Pointers ---*/
 .ui.inverted.pointing.menu .active.item:after {
   background-color: #505050;
@@ -631,15 +637,15 @@
   -moz-box-shadow: none;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.6);
-  -webkit-transition: opacity 0.1s linear
+  -webkit-transition: opacity 0.2s ease
   ;
-  -moz-transition: opacity 0.1s linear
+  -moz-transition: opacity 0.2s ease
   ;
-  -o-transition: opacity 0.1s linear
+  -o-transition: opacity 0.2s ease
   ;
-  -ms-transition: opacity 0.1s linear
+  -ms-transition: opacity 0.2s ease
   ;
-  transition: opacity 0.1s linear
+  transition: opacity 0.2s ease
   ;
 }
 .ui.text.menu > .item:before {
@@ -1083,15 +1089,15 @@
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
   z-index: 2;
-  -webkit-transition: background 0.1s linear
+  -webkit-transition: background 0.2s ease
   ;
-  -moz-transition: background 0.1s linear
+  -moz-transition: background 0.2s ease
   ;
-  -o-transition: background 0.1s linear
+  -o-transition: background 0.2s ease
   ;
-  -ms-transition: background 0.1s linear
+  -ms-transition: background 0.2s ease
   ;
-  transition: background 0.1s linear
+  transition: background 0.2s ease
   ;
 }
 .ui.vertical.pointing.menu .active.item:after {

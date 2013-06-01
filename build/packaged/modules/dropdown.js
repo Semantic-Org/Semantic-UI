@@ -555,7 +555,7 @@ $.fn.dropdown.settings = {
   
   animation   : {
     show: 'slide',
-    hide: 'hide'
+    hide: 'slide'
   },
   
   onChange : function(){},

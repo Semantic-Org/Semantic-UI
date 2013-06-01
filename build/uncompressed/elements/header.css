@@ -30,6 +30,9 @@
   line-height: 1.2;
   color: rgba(0, 0, 0, 0.5);
 }
+.ui.header .icon {
+  margin-right: 0.5em;
+}
 /* Positioning */
 .ui.header:first-child {
   margin-top: 0em;

@@ -707,7 +707,16 @@ i.square.icon {
   -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  vertical-align: baseline;
+}
+i.square.icon:before {
   vertical-align: middle;
+}
+i.square.inverted.icon {
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 /*-------------------
       Inverted 
@@ -770,11 +779,9 @@ i.inverted.teal.icon {
 --------------------*/
 i.small.icon {
   font-size: 0.875em;
-  vertical-align: top;
 }
 i.icon {
   font-size: 1em;
-  vertical-align: baseline;
 }
 i.large.icon {
   font-size: 3em;
