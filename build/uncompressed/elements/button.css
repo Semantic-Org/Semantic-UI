@@ -375,20 +375,6 @@
   color: #FFFFFF;
 }
 /*-------------------
-      Secondary
---------------------*/
-.ui.buttons.secondary .button,
-.ui.secondary.button {
-  font-weight: normal;
-  opacity: 0.9;
-}
-.ui.buttons.tertiary .button,
-.ui.tertiary.button {
-  font-weight: normal;
-  box-shadow: none;
-  opacity: 0.7;
-}
-/*-------------------
         Sizes
 --------------------*/
 .ui.buttons.mini .button,
@@ -466,6 +452,27 @@
   opacity: 1;
   height: 0.9em;
   margin: 0em;
+}
+/*-------------------
+      Ordinality
+--------------------*/
+.ui.buttons.secondary .button,
+.ui.secondary.button {
+  font-weight: normal;
+  text-transform: none;
+  opacity: 1;
+}
+/*--- Tertiary ---*/
+.ui.buttons.tertiary .button,
+.ui.tertiary.button {
+  background-color: transparent;
+  color: #999999;
+  font-weight: normal;
+  text-transform: none;
+  box-shadow: none;
+}
+.ui.buttons.tertiary .button:first-child {
+  border-left: none;
 }
 /*--------------
    Labeled Icon
@@ -570,17 +577,16 @@
 ---------------*/
 .ui.button.attached {
   display: block;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.button.attached.top {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: none;
   -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
   -moz-border-radius: 0.3125em 0.3125em 0em 0em;
   border-radius: 0.3125em 0.3125em 0em 0em;
 }
 .ui.button.attached.bottom {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: none;
   -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
   -moz-border-radius: 0em 0em 0.3125em 0.3125em;
   border-radius: 0em 0em 0.3125em 0.3125em;
@@ -590,7 +596,6 @@
   border-left: none;
   padding-right: 0.75em;
   text-align: right;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-border-radius: 0.3125em 0em 0em 0.3125em;
   -moz-border-radius: 0.3125em 0em 0em 0.3125em;
   border-radius: 0.3125em 0em 0em 0.3125em;
@@ -599,33 +604,9 @@
   display: inline-block;
   padding-left: 0.75em;
   text-align: left;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-border-radius: 0em 0.3125em 0.3125em 0em;
   -moz-border-radius: 0em 0.3125em 0.3125em 0em;
   border-radius: 0em 0.3125em 0.3125em 0em;
-}
-/* Button attached to a form element */
-input + .ui.attached.button {
-  display: inline-block;
-  margin: 0 0 0 -1em;
-  padding: 0.68em 1em;
-  vertical-align: top;
-  font-size: 0.825em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
-  -webkit-border-radius: 0em 0.3125em 0.3125em 0em;
-  -moz-border-radius: 0em 0.3125em 0.3125em 0em;
-  border-radius: 0em 0.3125em 0.3125em 0em;
-}
-input:focus + .ui.attached.button {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
-}
-.ui.attached.button.loading,
-.ui.attached.button.loading.hover {
-  opacity: 1;
 }
 /*-------------------
       Or Buttons
