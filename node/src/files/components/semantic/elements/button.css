@@ -474,6 +474,17 @@
 .ui.buttons.tertiary .button:first-child {
   border-left: none;
 }
+.ui.button.tertiary.active {
+  opacity: 0.9 !important;
+}
+.ui.button.tertiary.hover,
+.ui.button.tertiary:hover {
+  opacity: 0.8 !important;
+}
+.ui.button.tertiary.down,
+.ui.button.tertiary:active {
+  opacity: 1 !important;
+}
 /*--------------
    Labeled Icon
 ---------------*/
