@@ -1,7 +1,7 @@
 /*******************************
           Modal Styles
 *******************************/
-.modal {
+.ui.modal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -16,16 +16,16 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-.modal.absolute {
-  position: absolute;
-}
-.modal.fixed {
+.ui.page.modal {
   position: fixed;
+}
+.ui.dimmer > .ui.modal {
+  display: table-cell;
 }
 /*--------------
   Close Button
 ---------------*/
-.modal > .close {
+.ui.modal > .close {
   cursor: pointer;
   position: absolute;
   font-size: 14px;
@@ -34,49 +34,44 @@
   right: -18px;
   opacity: 0.8;
 }
-.modal > .close:hover {
+.ui.modal > .close:hover {
   opacity: 1;
 }
 /*--------------
      Header
 ---------------*/
-.modal > hgroup {
+.ui.modal > .header {
   background-color: #442359;
   padding: 15px 20px;
-  -webkit-border-radius: 10px 10px 0px 0px;
-  -moz-border-radius: 10px 10px 0px 0px;
-  border-radius: 10px 10px 0px 0px;
+  -webkit-border-radius: 0.325em 0.325em 0px 0px;
+  -moz-border-radius: 0.325em 0.325em 0px 0px;
+  border-radius: 0.325em 0.325em 0px 0px;
 }
-.modal > hgroup h2 {
+.ui.modal > .header h2 {
   margin: 0px;
-  font-size: 22px;
+  font-size: 1.5em;
   font-weight: bold;
   color: #FFFFFF;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.75);
 }
-.modal > hgroup h3 {
-  font-size: 18px;
-  color: #FFF;
-}
-.modal > .content {
+.ui.modal > .content {
   position: relative;
   overflow: hidden;
-  padding: 20px 20px 40px;
+  padding: 1em 1em 2em;
   background-color: #FAFAFA;
-  -webkit-border-radius: 0px 0px 10px 10px;
-  -moz-border-radius: 0px 0px 10px 10px;
-  border-radius: 0px 0px 10px 10px;
+  -webkit-border-radius: 0px 0px 0.325em 0.325em;
+  -moz-border-radius: 0px 0px 0.325em 0.325em;
+  border-radius: 0px 0px 0.325em 0.325em;
 }
-.modal > .content .left {
+.ui.modal > .content .left {
   float: left;
   width: 50%;
 }
-.modal > .content .right {
+.ui.modal > .content .right {
   float: right;
   width: 50%;
 }
 /* Static In-Page Modal */
-.modal.static {
+.ui.modal.static {
   display: block;
   position: relative;
   overflow: hidden;
@@ -95,8 +90,8 @@
   -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
 }
-.modal.static > hgroup,
-.modal.static > .content {
+.ui.modal.static > .header,
+.ui.modal.static > .content {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;

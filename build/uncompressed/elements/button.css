@@ -50,6 +50,23 @@
   -ms-transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
 }
+/*--------------
+     Icon
+---------------*/
+.ui.button > .icon {
+  margin-right: 0.5em;
+  line-height: 1;
+  -webkit-transition: opacity 0.1s ease
+  ;
+  -moz-transition: opacity 0.1s ease
+  ;
+  -o-transition: opacity 0.1s ease
+  ;
+  -ms-transition: opacity 0.1s ease
+  ;
+  transition: opacity 0.1s ease
+  ;
+}
 /*******************************
              States
 *******************************/
@@ -61,6 +78,10 @@
   opacity: 1 !important;
   background-color: #EAEAEA;
   color: #777777;
+}
+.ui.button:hover .icon,
+.ui.button.hover .icon {
+  opacity: 0.85;
 }
 /*--------------
   Down (:active)
@@ -434,21 +455,15 @@
   background-image: url(../images/throbber-medium.gif);
 }
 /*--------------
-Containing Icon
----------------*/
-.ui.button > .icon {
-  line-height: 1;
-  margin-right: 0.75em;
-}
-/*--------------
     Icon Only
 ---------------*/
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.8em 1em;
+  padding: 0.8em;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
+  opacity: 1;
   height: 0.9em;
   margin: 0em;
 }
@@ -458,7 +473,7 @@ Containing Icon
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding: 0.8em 1.5em 0.8em 4em !important;
+  padding-left: 4em !important;
 }
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {

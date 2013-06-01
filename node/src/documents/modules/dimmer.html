@@ -1,6 +1,6 @@
 ---
 layout : 'default'
-css    : 'dimmer'
+css    : ''
 
 title  : 'Dimmer'
 type   : 'UI Module'
@@ -8,6 +8,7 @@ type   : 'UI Module'
 
 <script src="/components/semantic/modules/dimmer.js"></script>
 <script src="/javascript/dimmer.js"></script>
+<div class="ui page dimmer"></div>
 
 <div class="segment">
   <div class="container">
@@ -47,8 +48,8 @@ type   : 'UI Module'
     <p>A dimmer can contain content which will display when dimmed</p>
     <div class="ui info message">If no UI dimmer exists inside a content segment it will automatically be added on first use</div>
     <div class="ui segment">
-      <h4 class="ui red inverted block header">
-        Check out these pictures of dogs
+      <h4 class="ui red block header">
+        <i class="icon photos"></i>Dog Photos
       </h4>
       <img src="/images/demo/item1.jpg">
       <img src="/images/demo/item2.jpg">
@@ -76,8 +77,8 @@ type   : 'UI Module'
     <h4 class="ui header">Stand-alone Dimmer</h4>
     <p>A dimmer can exist on its own without defining content that is /p>
     <div class="ui segment">
-      <h4 class="ui red inverted block header">
-        Check out these pictures of dogs
+      <h4 class="ui red block header">
+        <i class="icon photos"></i>Dog Photos
       </h4>
       <img src="/images/demo/item1.jpg">
       <img src="/images/demo/item2.jpg">
@@ -160,26 +161,7 @@ type   : 'UI Module'
       <div class="ui hide button"><i class="minus icon"></i></div>
     </div>
   </div>
-  
-  <h3>/h3>
-  <div class="example">
-    <h4 class="ui header">Blurred /h4>
-    <p>A section may have its content blurred when dimmed</p>
-    <div class="ui red message">CSS Filters are only currently supported in Webkit browsers</div>
-    <div class="ui blurring segment">
-      <h4 class="ui red inverted block header">
-        Check out these pictures of dogs
-      </h4>
-      <img src="/images/demo/item1.jpg">
-      <img src="/images/demo/item2.jpg">
-      <div class="ui dimmer"></div>
-    </div>
-    <div class="ignore ui icon buttons">
-      <div class="ui show button"><i class="plus icon"></i></div>
-      <div class="ui hide button"><i class="minus icon"></i></div>
-    </div>
-  </div>
-  
+
 </div>
 </body>
 
