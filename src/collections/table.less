@@ -23,6 +23,7 @@
 .ui.table thead {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+.ui.table th,
 .ui.table tr,
 .ui.table td {
   border-collapse: collapse;
@@ -40,6 +41,9 @@
 }
 .ui.table th {
   cursor: auto;
+
+  background-color: rgba(0, 0, 0, 0.05);
+
   text-align: left;
   font-weight: bold;
   padding: 0.5em 0.7em;
@@ -119,10 +123,6 @@
 .ui.table td.positive {
   background-color: #F2F8F0 !important;
   color: #119000;
-  -moz-box-shadow: 0px 0px 1px 0px #3FF63B inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #3FF63B inset;
-  box-shadow: 0px 0px 1px 0px #3FF63B inset;
-  /* border-color: #2FCB05 !important; */
 }
 .ui.celled.table tr.positive:hover td,
 .ui.celled.table tr:hover td.positive,
@@ -160,9 +160,6 @@
 .ui.table th.error {
   background-color: #F9F4F4 !important;
   color: #CD2929;
-  -moz-box-shadow: 0px 0px 1px 0px #F3A2A2 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #F3A2A2 inset;
-  box-shadow: 0px 0px 1px 0px #F3A2A2 inset;
 }
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error,
@@ -183,9 +180,6 @@
   background-color: #FBF6E9;
   /* border-color: #CBB105 !important; */
   color: #7D6C00;
-  -moz-box-shadow: 0px 0px 1px 0px #FFE569 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #FFE569 inset;
-  box-shadow: 0px 0px 1px 0px #FFE569 inset;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning,
@@ -278,7 +272,7 @@
 ---------------*/
 
 .ui.celled.table {
-  color: rgba(25, 25, 25, 0.9);
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.celled.table tbody tr,
 .ui.celled.table tfoot tr {
@@ -299,20 +293,23 @@
 }
 .ui.sortable.table thead th.sorted,
 .ui.sortable.table thead th.sorted:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
-  color: #EEEEEE;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .ui.sortable.table thead th:after {
   display: inline-block;
   content: '';
   width: 1em;
-  opacity: 0.5;
+  opacity: 0.8;
 
-  margin: 0px 0px 0px 8px;
-  font-size: 18px;
-  line-height: 12px;
+  float: right;
+  margin: 0.25em 0em 0em 0.25em;
+  line-height: 1;
 
   font-family: 'Icons';
   font-style: normal;
@@ -333,6 +330,9 @@
     Inverted
 ---------------*/
 
+.ui.inverted.table th {
+  background-color: rgba(0, 0, 0, 0.15);
+}
 .ui.inverted.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
 }

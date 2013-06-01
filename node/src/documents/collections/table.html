@@ -5,6 +5,8 @@ css    : 'table'
 title  : 'Table'
 type   : 'UI Collection'
 ---
+<script src="/javascript/library/tablesort.js"></script>
+<script src="/javascript/table.js"></script>
 
 <div class="segment">
   <div class="container">
@@ -27,9 +29,9 @@ type   : 'UI Collection'
     <h4 class="ui header">Table</h4>
     <p>A standard table</p>
     <div class="ui info message">
-      <p>This example uses a <a href="/elements/segment.html">ui segment</a> to add padding and a background color. This is not required.</p>
+      <p>This example uses a <a href="/elements/segment.html">ui segment</a> and to add padding and a background color. This is not required.</p>
     </div>
-    <table class="ui table segment">
+    <table class="ui sortable table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -66,7 +68,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Positive / Negative</h4>
     <p>A cell may let a user know whether a value is good or bad:</p>
-    <table class="ui table">
+    <table class="ui table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -101,7 +103,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Error</h4>
     <p>A cell or row may alert the user to an error or a negative value:</p>
-    <table class="ui table">
+    <table class="ui table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -135,7 +137,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Warning</h4>
     <p>A cell or row may warn a user:</p>
-    <table class="ui table">
+    <table class="ui table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -169,7 +171,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Active</h4>
     <p>A cell or row can be active:</p>
-    <table class="ui table">
+    <table class="ui table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -201,7 +203,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Disabled</h4>
     <p>A cell can be disabled:</p>
-    <table class="ui table">
+    <table class="ui table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -239,7 +241,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Even Width</h4>
     <p>A table can specify its column count to divide its content evenly</p>
-    <table class="ui five column table">
+    <table class="ui five column table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -284,7 +286,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Collapsing</h4>
     <p>By default tables take the size of their container. A collapsing takes up only as much space as its rows.</p>
-    <table class="ui collapsing table">
+    <table class="ui collapsing table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -319,7 +321,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A tables colors can be inverted</p>
-    <table class="ui inverted segment table">
+    <table class="ui inverted segment table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -353,7 +355,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Cells</h4>
     <p>A table may be divided each row into separate cells</p>
-    <table class="ui celled table">
+    <table class="ui celled table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -390,7 +392,7 @@ type   : 'UI Collection'
     
     <p>Adding a classname of ascending or descending, will show the user the direction of sort. This example uses a modified version of the kylefox's <a href="library/tablesort.js">tablesort plugin</a> to provide the proper class names.</p>
     
-    <table class="ui sortable table">
+    <table class="ui sortable table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -423,7 +425,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Padded</h4>
     <p>A table may sometimes need to be more padded for legibility</p>
-    <table class="ui padded table">
+    <table class="ui padded table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -446,7 +448,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Compact</h4>
     <p>A table may sometimes need to be more compact to make more rows visible at a time</p>
-    <table class="ui compact table">
+    <table class="ui compact table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -500,7 +502,7 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A table can also be small or large</p>
-    <table class="ui small table">
+    <table class="ui small table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -530,7 +532,7 @@ type   : 'UI Collection'
       </tfoot>
     </table>
     <br><br>
-    <table class="ui large table">
+    <table class="ui large table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
