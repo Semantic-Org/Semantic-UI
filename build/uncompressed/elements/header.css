@@ -258,13 +258,19 @@ h5.ui.header {
         Icon
 --------------------*/
 .ui.icon.header {
-  display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 .ui.icon.header .icon {
   display: block;
   font-size: 4em;
   margin: 0em auto 0.2em;
+}
+.ui.icon.header .circular.icon,
+.ui.icon.header .square.icon {
+  font-size: 2em;
 }
 .ui.block.icon.header .icon {
   margin-bottom: 0em;
