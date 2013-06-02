@@ -23,20 +23,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-.ui.vertical.divider,
-.ui.horizontal.divider {
-  position: relative;
-  margin: 25px 0px 10px;
-
-  font-size: 14px;
-  line-height: 14px;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
-  color: #555555;
-  font-weight: bold;
-}
-
 .ui.divider .rule {
   position: absolute;
   top: 6px;
@@ -50,21 +36,39 @@
   border-bottom: 1px solid #F8F8F8;
   border-bottom: 1px solid rgba(255, 255, 255, 0.9)
 }
-
-.ui.divider .left.rule {
-  left: 0px;
-}
-
-.ui.divider .right.rule {
-  right: 0px;
-}
-
 .ui.divider .label {
   display: block;
   margin: 14px 0px 0px;
   text-transform: none;
   color: #333333;
 }
+
+/*******************************
+          Variations
+*******************************/
+
+
+.ui.vertical.divider,
+.ui.horizontal.divider {
+  position: relative;
+  margin: 25px 0px 10px;
+
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
+  color: #555555;
+  font-weight: bold;
+}
+.ui.divider .left.rule {
+  left: 0px;
+}
+.ui.divider .right.rule {
+  right: 0px;
+}
+
+
 
 /*--------------
     Vertical 
@@ -121,6 +125,10 @@
   text-transform: none;
   color: #333333;
 }
+
+
+
+
 /* Inverted Color Divider (Black BG) */
 .ui.divider.inverted {
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
@@ -131,11 +139,6 @@
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-
-
-/*******************************
-          Variations
-*******************************/
 
 /*--------------
     Clearing 

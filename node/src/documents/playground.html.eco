@@ -1,0 +1,132 @@
+---
+layout : 'default'
+css    : 'playground'
+
+title  : 'Playground'
+type   : 'Library'
+---
+<% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+<% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiModules         = @getCollection("documents").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+<% uiViews           = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
+<script src="/components/semantic/modules/dropdown.js"></script>
+<script src="/javascript/playground.js"></script>
+<div class="ui page grid center aligned title">
+  <div class="ten wide column">
+    <h1 class="ui dividing header">
+      <i class="icon circular red lab"></i> Playground
+    </h1>
+    <p>Build out user interface and grab the code.</p>
+  </div>
+</div>
+<div class="ui page grid">
+  <div class="ui three wide column">
+    <div class="ui fluid vertical menu">
+      <div class="ui header item">UI Type</div>
+      <div class="ui item">
+        <form class="ui form">
+          <div class="field">
+            <label>Element Type</label>
+            <div class="ui fluid dropdown selection">
+              <input type="hidden" name="element">
+              <i class="icon dropdown"></i> 
+              <div class="text">Button</div>
+              <div class="menu">
+                <% for element in uiElements: %>
+                  <div data-value="<%= element.title %>" class="item">
+                    <%= element.title %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Collection Type</label>
+            <div class="ui fluid dropdown selection">
+              <input type="hidden" name="collection">
+              <i class="icon dropdown"></i> 
+              <div class="text">---</div>
+              <div class="menu">
+                <% for element in uiCollections: %>
+                  <div data-value="<%= element.title %>" class="item">
+                    <%= element.title %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Module Type</label>
+            <div class="ui fluid dropdown selection">
+              <input type="hidden" name="module">
+              <i class="icon dropdown"></i> 
+              <div class="text">---</div>
+              <div class="menu">
+                <% for element in uiModules: %>
+                  <div data-value="<%= element.title %>" class="item">
+                    <%= element.title %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>View Type</label>
+            <div class="ui fluid dropdown selection">
+              <input type="hidden" name="view">
+              <i class="icon dropdown"></i> 
+              <div class="text">---</div>
+              <div class="menu">
+                <% for element in uiViews: %>
+                  <div data-value="<%= element.title %>" class="item">
+                    <%= element.title %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="ui fluid vertical menu">
+      <div class="ui header item">Variation</div>
+      <div class="ui variation item">
+        <form class="ui form">
+
+        </form>
+      </div>
+    </div>
+    <div class="ui large red labeled fluid icon button"><i class="icon add"></i>Add</div>
+
+  </div>
+  <div class="ui ten wide column">
+  
+  </div>
+  <div class="three  wide column">
+
+  <div class="ui piled segment">
+    <div class="ui small dividing header">Preview</div>
+    <div class="ui secondary segment">
+    </div>
+  </div>
+  <div class="ui segment">
+    <div class="ui small dividing header">Text</div>
+    <div class="ui form">
+      <div class="field">
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="ui segment">
+    <div class="ui small dividing header">View</div>
+    <div class="ui two fluid blue secondary buttons">
+      <div class="ui active button">Layout</div>
+      <div class="ui button">Code</div>
+    </div>
+    <div class="ui small dividing header">Finish Up</div>
+    <div class="ui positive secondary fluid button"><i class="icon cloud"></i> Download</div>
+  </div>
+</div>
+</body>
+
+</html>

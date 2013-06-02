@@ -254,10 +254,6 @@
 }
 .ui.vertical.menu .header.item {
   font-weight: bold;
-
-  -webkit-box-shadow: 0em -0.1em 0em 0em rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0em -0.1em 0em 0em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em -0.1em 0em 0em rgba(0, 0, 0, 0.1) inset;
 }
 
 
@@ -416,6 +412,12 @@
     Vertical
 ---------------*/
 
+.ui.vertical.menu {
+  margin: 0em 0em 1rem;
+}
+.ui.vertical.menu:last-child {
+  margin-bottom: 0em;
+}
 .ui.vertical.menu .item {
   display: block;
   border-top: none;
@@ -620,7 +622,7 @@
 .ui.inverted.menu .header.item {
   margin: 0em;
 
-  background-color: #555555;
+  background-color: rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -744,6 +746,7 @@
 }
 .ui.inverted.vertical.menu .item .menu .active.item {
   background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 1);
 }
 
 /*--- Pointers ---*/

@@ -37,6 +37,14 @@
 
 }
 
+.ui.segment:first-child {
+  margin-top: 0em;
+}
+
+.ui.segment:last-child {
+  margin-bottom: 0em;
+}
+
 .ui.segment:after {
   content: ".";
   display: block;
@@ -79,22 +87,20 @@
   border-radius: 0px;
 
   -webkit-box-shadow:
-    1px 0px 0px rgba(0, 0, 0, 0.1),
-    -1px 0px 0px rgba(0, 0, 0, 0.1)
+    1px 0px 0px rgba(0, 0, 0, 0.1)
   ;
   -moz-box-shadow:
-    1px 0px 0px rgba(0, 0, 0, 0.1),
-    -1px 0px 0px rgba(0, 0, 0, 0.1)
+    1px 0px 0px rgba(0, 0, 0, 0.1)
   ;
   box-shadow:
-    1px 0px 0px rgba(0, 0, 0, 0.1),
-    -1px 0px 0px rgba(0, 0, 0, 0.1)
+    1px 0px 0px rgba(0, 0, 0, 0.1)
   ;
 }
 
 /*-------------------
     Loose Coupling
 --------------------*/
+
 
 /* No padding on edge content */
 .ui.segment > :first-child {
@@ -408,20 +414,22 @@
   box-shadow: 0px 0px 0px 1px #DDDDDD;
 }
 .ui.top.attached.segment {
-  top: 0px;
-  bottom: -1px;
+  top: -1px;
+  bottom: 0px;
 
-  margin-top: 0em;
+  margin-top: 1em;
+  margin-bottom: 0em;
 
   -moz-border-radius: 5px 5px 0px 0px;
   -webkit-border-radius: 5px 5px 0px 0px;
   border-radius: 5px 5px 0px 0px;
 }
 .ui.segment.bottom.attached {
-  top: -1px;
-  bottom: 0px;
+  top: 0px;
+  bottom: -1px;
 
-  margin-bottom: 0em;
+  margin-top: 0em;
+  margin-bottom: 1em;
 
   -moz-border-radius: 0px 0px 5px 5px;
   -webkit-border-radius: 0px 0px 5px 5px;
