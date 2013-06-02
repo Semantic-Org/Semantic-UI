@@ -301,10 +301,29 @@ a:hover {
   font-weight: bold;
 }
 
+
+/*--------------
+    Playground 
+---------------*/
+
+#example.playground {
+  min-width: 1000px;
+}
+#example.playground > .title.grid {
+  padding-top: 60px;
+  
+}
+
+
 /*--------------
     Masthead 
 ---------------*/
-
+#example .error.masthead {
+  position: absolute;
+  margin-top: -290px;
+  top: 50%;
+  width: 100%;
+}
 #example .masthead {
   text-align: center;
   background-color: #00B5AD;
@@ -369,9 +388,9 @@ a:hover {
 
 #example .solid {
   background-color: #FFFFFF;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 #example .solid .column {
   color: #555555;
@@ -948,7 +967,6 @@ a:hover {
     width: 100%;
   }
 }
-
 
 #example.feed .example .segment {
   max-width: 800px;

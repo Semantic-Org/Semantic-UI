@@ -132,7 +132,7 @@ $.fn.dropdown = function(parameters) {
                 .addClass(className.active)
               ;
               module.action.determine(text, value);
-              $.proxy(settings.onChange, $menu.get())(text, value);
+              $.proxy(settings.onChange, $module.get())(text, value);
               event.stopPropagation();
             }
 
@@ -295,12 +295,12 @@ $.fn.dropdown = function(parameters) {
                 .children()
                   .clearQueue()
                   .css('opacity', 0)
-                  .delay(100)
+                  .delay(50)
                   .animate({
                     opacity : 1
-                  }, 300, 'easeOutQuad')
+                  }, 200, 'easeOutQuad')
                   .end()
-                .slideDown(200, 'easeOutQuad')
+                .slideDown(100, 'easeOutQuad')
               ;
             }
             else {
@@ -322,10 +322,10 @@ $.fn.dropdown = function(parameters) {
                   .css('opacity', 1)
                   .animate({
                     opacity : 0
-                  }, 300, 'easeOutQuad')
+                  }, 100, 'easeOutQuad')
                   .end()
-                .delay(100)
-                .slideUp(200, 'easeOutQuad')
+                .delay(50)
+                .slideUp(100, 'easeOutQuad')
               ;
             }
             else {
@@ -346,7 +346,7 @@ $.fn.dropdown = function(parameters) {
             if( module.can.click() ) {
               module.intent.bind();
             }
-            $.proxy(settings.onShow, $menu.get())();
+            $.proxy(settings.onShow, $module.get() )();
           }
         },
 
@@ -360,7 +360,7 @@ $.fn.dropdown = function(parameters) {
               module.intent.unbind();
             }
             module.animate.hide();
-            $.proxy(settings.onHide, $menu.get())();
+            $.proxy(settings.onHide, $module.get() )();
           }
         },
 

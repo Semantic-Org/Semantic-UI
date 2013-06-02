@@ -1,7 +1,7 @@
-semantic.table = {};
+semantic.menu = {};
 
 // ready event
-semantic.table.ready = function() {
+semantic.menu.ready = function() {
 
   // selector cache
   var 
@@ -33,5 +33,5 @@ semantic.table.ready = function() {
 
 // attach ready event
 $(document)
-  .ready(semantic.table.ready)
+  .ready(semantic.menu.ready)
 ;

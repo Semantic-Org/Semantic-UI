@@ -19,6 +19,25 @@
   border-top: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
+.ui.divider .rule {
+  position: absolute;
+  top: 6px;
+  width: 45%;
+  height: 1px;
+  background-color: #ADADAD;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #F8F8F8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+}
+.ui.divider .label {
+  display: block;
+  margin: 14px 0px 0px;
+  text-transform: none;
+  color: #333333;
+}
+/*******************************
+          Variations
+*******************************/
 .ui.vertical.divider,
 .ui.horizontal.divider {
   position: relative;
@@ -31,27 +50,11 @@
   color: #555555;
   font-weight: bold;
 }
-.ui.divider .rule {
-  position: absolute;
-  top: 6px;
-  width: 45%;
-  height: 1px;
-  background-color: #ADADAD;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid #F8F8F8;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-}
 .ui.divider .left.rule {
   left: 0px;
 }
 .ui.divider .right.rule {
   right: 0px;
-}
-.ui.divider .label {
-  display: block;
-  margin: 14px 0px 0px;
-  text-transform: none;
-  color: #333333;
 }
 /*--------------
     Vertical 
@@ -105,9 +108,6 @@
   border-color: #4A4A4A;
   border-color: rgba(255, 255, 255, 0.2);
 }
-/*******************************
-          Variations
-*******************************/
 /*--------------
     Clearing 
 ---------------*/
