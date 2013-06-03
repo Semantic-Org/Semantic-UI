@@ -187,7 +187,7 @@
 .ui.menu .dropdown.item .menu .item {
   color: rgba(0, 0, 0, 0.75);
 }
-.ui.menu .dropdown.item .menu .item:before {
+.ui.menu .ui.dropdown .menu .item:before {
   display: none;
 }
 /*--------------
@@ -224,13 +224,13 @@
 .ui.menu .item.hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
-.ui.menu .dropdown.item .menu .item.hover,
-.ui.menu .dropdown.item .menu .item:hover {
+.ui.menu .ui.dropdown .menu .item.hover,
+.ui.menu .ui.dropdown .menu .item:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.02);
 }
-.ui.menu .dropdown.item.hover,
-.ui.menu .dropdown.item:hover {
+.ui.menu .ui.dropdown.hover,
+.ui.menu .ui.dropdown:hover {
   -webkit-border-bottom-right-radius: 0em;
   -moz-border-bottom-right-radius: 0em;
   border-bottom-right-radius: 0em;
@@ -246,8 +246,8 @@
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
 .ui.menu .item > a:active,
-.ui.menu .dropdown.item .menu .item.down,
-.ui.menu .dropdown.item .menu .item:active {
+.ui.menu .ui.dropdown .menu .item.down,
+.ui.menu .ui.dropdown .menu .item:active {
   background-color: rgba(0, 0, 0, 0.05);
 }
 /*--------------
@@ -301,6 +301,23 @@
   cursor: default;
   opacity: 0.3;
   background-color: transparent;
+}
+/*--------------------
+     Loading 
+---------------------*/
+/* On Form */
+.ui.menu.loading {
+  position: relative;
+}
+.ui.menu.loading:after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8) url(../images/throbber-large.gif) no-repeat 50% 50%;
+  visibility: visible;
 }
 /*******************************
           Variations

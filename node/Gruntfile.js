@@ -26,7 +26,10 @@ module.exports = function(grunt) {
       'clean:docs',
 
       // copies files over to docs
-      'copy:toDocs'
+      'copy:specToDocs',
+
+      // copies files over to docs
+      'copy:libraryToDocs'
     ],
     config
   ;
@@ -124,7 +127,7 @@ module.exports = function(grunt) {
           }
         ]
       },
-      toDocs: {
+      libraryToDocs: {
         files: [
           {
             expand : true,
@@ -133,6 +136,18 @@ module.exports = function(grunt) {
               '**'
             ],
             dest   : 'src/files/components/semantic/'
+          }
+        ]
+      },
+      specToDocs: {
+        files: [
+          {
+            expand : true,
+            cwd    : '../spec',
+            src    : [
+              '**'
+            ],
+            dest   : 'src/files/spec/'
           }
         ]
       }
@@ -153,18 +168,18 @@ module.exports = function(grunt) {
       buildReleaseCSS: {
         options : {
           banner : '' +
-          '/*\n' +
-          '* # <%= package.semantic.name %>\n' +
-          '* Version: <%= package.semantic.version %>\n' +
-          '* http://github.com/quirkyinc/semantic\n' +
-          '*\n' +
-          '*\n' +
-          '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
-          '* Released under the MIT license\n' +
-          '* http://opensource.org/licenses/MIT\n' +
-          '*\n' +
-          '* Released: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
-          '*/\n'
+            '/*\n' +
+            '* # <%= package.semantic.name %>\n' +
+            '* Version: <%= package.semantic.version %>\n' +
+            '* http://github.com/quirkyinc/semantic\n' +
+            '*\n' +
+            '*\n' +
+            '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
+            '* Released under the MIT license\n' +
+            '* http://opensource.org/licenses/MIT\n' +
+            '*\n' +
+            '* Released: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
+            '*/\n'
         },
         files: {
           '../build/packaged/semantic.min.css': [

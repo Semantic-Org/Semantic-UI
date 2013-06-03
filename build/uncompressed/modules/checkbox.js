@@ -189,44 +189,42 @@ $.fn.checkbox = function(parameters) {
               previousTime  = time || currentTime,
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
+              performance.push({
                 'Element'        : element,
-                'Name'           : message[0], 
-                'Arguments'      : message[1] || 'None',
+                'Name'           : message[0],
+                'Arguments'      : message[1] || '',
                 'Execution Time' : executionTime
               });
-              clearTimeout(module.performance.timer);
-              module.performance.timer = setTimeout(module.performance.display, 100);
             }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var
-              title              = settings.moduleName,
-              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
-              totalExecutionTime = 0
+              title = settings.moduleName + ':',
+              totalTime = 0
             ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
-              title += ' Performance (' + moduleSelector + ')';
+              title += ' \'' + moduleSelector + '\'';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
-                $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
-                });
                 console.table(performance);
               }
               else {
                 $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
                   console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
-              console.log('Total Execution Time:', totalExecutionTime +'ms');
               console.groupEnd();
-              performance = [];
-              time        = false;
             }
+            performance = [];
           }
         },
         invoke: function(query, passedArguments, context) {
@@ -282,7 +280,7 @@ $.fn.checkbox = function(parameters) {
 
 $.fn.checkbox.settings = {
 
-  moduleName  : 'Checkbox Module',
+  moduleName  : 'Checkbox',
   namespace   : 'checkbox',
 
   verbose     : true,

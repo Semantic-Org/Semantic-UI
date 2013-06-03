@@ -20,8 +20,8 @@ $.fn.dropdown = function(parameters) {
 
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
+    moduleSelector  = $allModules.selector || '',
 
-    selector        = $allModules.selector || '',
     time            = new Date().getTime(),
     performance     = [],
 
@@ -132,7 +132,7 @@ $.fn.dropdown = function(parameters) {
                 .addClass(className.active)
               ;
               module.action.determine(text, value);
-              $.proxy(settings.onChange, $module.get())(text, value);
+              $.proxy(settings.onChange, $module.get())(value, text);
               event.stopPropagation();
             }
 
@@ -236,11 +236,11 @@ $.fn.dropdown = function(parameters) {
 
         set: {
           text: function(text) {
-            module.debug('Changing text', text);
+            module.debug('Changing text', text, $text);
             $text.text(text);
           },
           value: function(value) {
-            module.debug('Adding selected value to hidden input', value);
+            module.debug('Adding selected value to hidden input', value, $input);
             $input.val(value);
           },
           selected: function(value) {
@@ -284,7 +284,7 @@ $.fn.dropdown = function(parameters) {
         animate: {
           show: function() {
             module.verbose('Doing menu showing animation');
-            if(animation.show == 'show') {
+            if(animation.show == 'none') {
               $menu
                 .show()
               ;
@@ -309,7 +309,7 @@ $.fn.dropdown = function(parameters) {
           },
           hide: function() {
             module.verbose('Doing menu hiding animation');
-            if(animation.hide == 'hide') {
+            if(animation.hide == 'none') {
               $menu
                 .hide()
               ;
@@ -389,6 +389,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         setting: function(name, value) {
+          module.debug('Changing setting', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, settings, name);
@@ -402,6 +403,7 @@ $.fn.dropdown = function(parameters) {
           }
         },
         internal: function(name, value) {
+          module.debug('Changing internal', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, module, name);
@@ -437,6 +439,7 @@ $.fn.dropdown = function(parameters) {
         error: function() {
           module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
         },
+        
         performance: {
           log: function(message) {
             var
@@ -449,44 +452,42 @@ $.fn.dropdown = function(parameters) {
               previousTime  = time || currentTime,
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
+              performance.push({
                 'Element'        : element,
-                'Name'           : message[0], 
-                'Arguments'      : message[1] || 'None',
+                'Name'           : message[0],
+                'Arguments'      : message[1] || '',
                 'Execution Time' : executionTime
               });
-              clearTimeout(module.performance.timer);
-              module.performance.timer = setTimeout(module.performance.display, 100);
             }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var
-              title              = settings.moduleName,
-              caption            = settings.moduleName + ': ' + selector + '(' + $allModules.size() + ' elements)',
-              totalExecutionTime = 0
+              title = settings.moduleName + ':',
+              totalTime = 0
             ;
-            if(selector) {
-              title += ' Performance (' + selector + ')';
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
-                $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
-                });
                 console.table(performance);
               }
               else {
                 $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
                   console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
-              console.log('Total Execution Time:', totalExecutionTime +'ms');
               console.groupEnd();
-              performance = [];
-              time        = false;
             }
+            performance = [];
           }
         },
         invoke: function(query, passedArguments, context) {
@@ -542,12 +543,12 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  moduleName  : 'Dropdown Module',
+  moduleName  : 'Dropdown',
   namespace   : 'dropdown',
   
   verbose     : true,
   debug       : true,
-  performance : false,
+  performance : true,
   
   on          : 'click',
   gracePeriod : 300,
