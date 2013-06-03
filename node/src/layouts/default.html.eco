@@ -131,8 +131,8 @@
         <b><%= @document.type %>:</b> <%= @document.title %>
       </div>
       <div class="icon previous link<%= if pageNumber is 1 then " disabled" %> item">
-        <% if pageNumber > 1 and pageCollection[pageNumber - 2]?: %>
-        <a href="<%= pageCollection[pageNumber - 2].url %>"><i class="left arrow icon"></i></a>
+        <% if pageNumber > 1 and currentCollection[pageNumber - 2]?: %>
+        <a href="<%= currentCollection[pageNumber - 2].url %>"><i class="left arrow icon"></i></a>
         <% else: %>
         <i class="left arrow icon"></i>
         <% end %>
@@ -140,7 +140,7 @@
       <div class="section ui simple dropdown item">
         <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
         <div class="menu">
-          <% for element, index in pageCollection: %>
+          <% for element, index in currentCollection: %>
             <div class="<%= if element.id is @document.id then 'active ' %>item">
               <a href="<%= element.url %>"><%= (index+1) %>. <%= element.title %></a>
             </div>
@@ -148,8 +148,8 @@
         </div>
       </div>
       <div class="icon next <%= if pageNumber is pageCount then "disabled " %>link item">
-        <% if pageNumber isnt pageCount and pageCollection[pageNumber]?: %>
-        <a href="<%= pageCollection[pageNumber].url %>"><i class="right arrow icon"></i></a>
+        <% if pageNumber isnt pageCount and currentCollection[pageNumber]?: %>
+        <a href="<%= currentCollection[pageNumber].url %>"><i class="right arrow icon"></i></a>
         <% else: %>
         <i class="right arrow icon"></i>
         <% end %>
