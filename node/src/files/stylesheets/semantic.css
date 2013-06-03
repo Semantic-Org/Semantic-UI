@@ -219,6 +219,9 @@ table code {
 p {
   margin: 1em 0em;
 }
+p:last-child {
+  margin-bottom: 0em;
+}
 p > a {
   font-weight: bold;
 }

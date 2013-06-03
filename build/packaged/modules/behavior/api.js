@@ -181,23 +181,14 @@
               module.debug('API request successful');
               // take a stab at finding success state if json
               if(settings.dataType == 'json') {
-                if(response.success === true) {
-                  $.proxy(settings.success, $context)(response, settings, $module);
+                if (response.error !== undefined) {
+                  $.proxy(settings.failure, $context)(response.error, settings, $module);
+                }
+                else if ($.isArray(response.errors)) {
+                  $.proxy(settings.failure, $context)(response.errors[0], settings, $module);
                 }
                 else {
-                  module.debug('JSON success flag is not set.');
-                  if (response.error !== undefined) {
-                    $.proxy(settings.failure, $context)(response.error, settings, $module);
-                  }
-                  else if ($.isArray(response.errors)) {
-                    $.proxy(settings.failure, $context)(response.errors[0], settings, $module);
-                  }
-                  else if(response.message !== undefined) {
-                    $.proxy(settings.failure, $context)(response.message, settings, $module);
-                  }
-                  else {
-                    $.proxy(settings.failure, $context)(errors.error, settings, $module);
-                  }
+                  $.proxy(settings.success, $context)(response, settings, $module);
                 }
               }
               // otherwise
@@ -258,6 +249,9 @@
 
         // look for params in data
         $.extend(true, ajaxSettings, settings, {
+          success    : function(){},
+          failure    : function(){},
+          complete   : function(){},
           type       : settings.method || settings.type,
           data       : data,
           url        : url,

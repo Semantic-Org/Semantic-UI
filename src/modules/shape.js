@@ -592,24 +592,25 @@ $.fn.shape = function(parameters) {
         },
         invoke: function(query, passedArguments, context) {
           var
+            searchInstance = instance,
             maxDepth,
             found
           ;
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
-          if(typeof query == 'string' && instance !== undefined) {
+          if(typeof query == 'string' && searchInstance !== undefined) {
             query    = query.split('.');
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
+              if( $.isPlainObject( searchInstance[value] ) && (depth != maxDepth) ) {
+                searchInstance = searchInstance[value];
                 return true;
               }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
+              else if( searchInstance[value] !== undefined ) {
+                found = searchInstance[value];
                 return true;
               }
-              module.error(errors.method);
+              module.error(error.method);
               return false;
             });
           }
@@ -647,13 +648,13 @@ $.fn.shape.settings = {
   moduleName : 'Shape Module',
   
   // debug content outputted to console
-  debug      : true,
+  debug      : false,
   
   // verbose debug output
-  verbose    : true,
+  verbose    : false,
 
   // performance data output
-  performance: true,
+  performance: false,
 
   // event namespace
   namespace  : 'shape',

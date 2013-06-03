@@ -91,6 +91,15 @@
   background-color: rgba(0, 0, 0, 0.04);
   border-left: none;
 }
+/* Default Text */
+.ui.dropdown > .default.text,
+.ui.default.dropdown > .text {
+  color: rgba(0, 0, 0, 0.2);
+}
+.ui.dropdown:hover > .default.text,
+.ui.default.dropdown:hover > .text {
+  color: rgba(0, 0, 0, 0.4);
+}
 /*******************************
            Variations
 *******************************/

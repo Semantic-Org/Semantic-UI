@@ -77,14 +77,19 @@
 .ui.button.active {
   opacity: 1 !important;
   background-color: #E6E6E6;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.08)), to(rgba(0, 0, 0, 0.05)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.05) 100%);
-  -webkit-box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset;
-  -moz-box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset;
-  box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.15) inset;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+  -webkit-box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.1) inset;
+}
+.ui.buttons .button.active:hover,
+.ui.button.active:hover {
+  background-color: #E6E6E6;
+  color: #333333;
 }
 .ui.buttons .button.active,
 .ui.buttons .button.active a,
@@ -206,14 +211,14 @@
 .ui.buttons.black .button:hover,
 .ui.button.black.hover,
 .ui.button.black:hover {
-  background-color: #888888;
+  background-color: #4C4C4C;
   color: #FFFFFF;
 }
 .ui.buttons.black .button.down,
 .ui.buttons.black .button:active,
 .ui.button.black.down,
 .ui.button.black:active {
-  background-color: #666666;
+  background-color: #333333;
   color: #FFFFFF;
 }
 /*--- Green ---*/
