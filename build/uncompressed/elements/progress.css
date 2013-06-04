@@ -143,6 +143,32 @@
            Variations
 *******************************/
 /*--------------
+    Attached
+---------------*/
+.ui.progress.attached {
+  position: relative;
+  top: -2px;
+  border: none;
+}
+.ui.progress.attached,
+.ui.progress.attached .bar {
+  display: block;
+  height: 4px;
+  padding: 0px;
+  -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
+  -moz-border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em 0.3125em 0.3125em;
+}
+.ui.progress.bottom.attached {
+  top: 0px;
+}
+.ui.progress.top.attached,
+.ui.progress.top.attached .bar {
+  -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
+  -moz-border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;
+}
+/*--------------
      Colors
 ---------------*/
 .ui.blue.progress .bar {
@@ -164,9 +190,6 @@
   background-color: #00B5AD;
 }
 /*--------------
-     Attached
----------------*/
-/*--------------
     Striped
 ---------------*/
 .ui.progress.striped .bar {
@@ -179,6 +202,13 @@
   background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+.ui.progress.active.striped .bar:after {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  -o-animation: none;
+  animation: none;
 }
 .ui.progress.active.striped .bar {
   -webkit-animation: progress-striped 3s linear infinite;
@@ -208,4 +238,10 @@
   100% {
     background-position: 60px 0;
   }
+}
+/*--------------
+     Sizes
+---------------*/
+.ui.small.progress .bar {
+  height: 14px;
 }
