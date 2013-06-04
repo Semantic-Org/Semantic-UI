@@ -99,6 +99,9 @@
   width: 100%;
   max-width: 30em;
 }
+.ui.comments .comment .reply.form {
+  margin-left: 2em;
+}
 .ui.comments > .reply.form {
   margin-top: 1.5em;
   max-width: 40em;
@@ -141,8 +144,8 @@
         Threaded
 ---------------------*/
 .ui.threaded.comments .comment .comments {
-  margin-left: 1.5em !important;
-  padding-left: 1.5em !important;
+  margin-left: 2em !important;
+  padding-left: 2em !important;
   -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
   box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);

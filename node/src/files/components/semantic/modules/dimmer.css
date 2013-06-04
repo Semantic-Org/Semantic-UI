@@ -21,7 +21,6 @@
   left: 0em !important;
   text-align: center;
   vertical-align: middle;
-  padding: 1em;
   background-color: rgba(0, 0, 0, 0.85);
   opacity: 0;
   line-height: 1;
@@ -55,6 +54,15 @@
   ;
   transition: filter 0.5s ease
   ;
+}
+/* Dimmer Content */.ui.dimmer .content {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+.ui.dimmer .content > * {
+  display: table-cell;
+  vertical-align: middle;
 }
 /* Loose Coupling */
 .ui.segment > .ui.dimmer {
@@ -97,6 +105,15 @@ body.dimmable.dimmed {
 ---------------*/
 .ui.page.dimmer {
   position: fixed;
+}
+/*--------------
+    Aligned
+---------------*/
+.ui.dimmer .top.aligned.content > * {
+  vertical-align: top;
+}
+.ui.dimmer .bottom.aligned.content > * {
+  vertical-align: bottom;
 }
 /*--------------
     Inverted

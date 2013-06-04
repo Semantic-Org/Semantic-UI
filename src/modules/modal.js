@@ -49,6 +49,7 @@
               visibility : 'visible'
             })
         ;
+        settings.dim();
       }
       else {
         $dimmer
@@ -193,10 +194,12 @@
                   .hide()
               ;
             }
+            console.log('zzz');
             $.dimScreen({
               context  : settings.context,
               duration : 0,
               dim      : function() {
+                console.log('aaa');
                 $(document)
                   .on('keyup.' + namespace, function(event) {
                     var
@@ -205,21 +208,23 @@
                     ;
                     switch(keyCode) {
                       case escapeKey:
-                        $modal.trigger('modalHide');
+                        $modal.modal('hide');
                         event.preventDefault();
                         break;
                     }
                   })
                 ;
+                console.log($closeButton);
+                console.log('attaching click');
                 $closeButton
                   .one('click', function() {
-                    $modal.trigger('modalHide');
+                    $modal.modal('hide');
                   })
                 ;
                 settings.dim();
               },
               unDim: function() {
-                $modal.trigger('modalHide');
+                $modal.modal('hide');
                 $closeButton.unbind('click');
               }
             });

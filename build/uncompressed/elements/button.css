@@ -149,7 +149,7 @@
   width: 100%;
   height: 100%;
   content: '';
-  background: #eeeeee url(../images/throbber-tiny.gif) no-repeat 50% 50%;
+  background: #eeeeee url(../images/loader-tiny.gif) no-repeat 50% 50%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   -moz-border-radius: 0.2em;
@@ -423,17 +423,17 @@
 }
 /* loading */
 .ui.huge.button.loading:after {
-  background-image: url(../images/throbber-small.gif);
+  background-image: url(../images/loader-small.gif);
 }
 .ui.massive.buttons .button.loading:after,
 .ui.gigantic.buttons .button.loading:after,
 .ui.massive.button.loading:after,
 .ui.gigantic.button.loading:after {
-  background-image: url(../images/throbber-medium.gif);
+  background-image: url(../images/loader-medium.gif);
 }
 .ui.huge.grey.button.loading:after,
 .ui.huge.button.loading.active:after {
-  background-image: url(../images/throbber-small.gif);
+  background-image: url(../images/loader-small.gif);
 }
 .ui.massive.grey.buttons .button.loading:after,
 .ui.gigantic.grey.buttons .button.loading:after,
@@ -443,7 +443,7 @@
 .ui.gigantic.grey.buttons .button.loading.active:after,
 .ui.massive.button.loading.active:after,
 .ui.gigantic.button.loading.active:after {
-  background-image: url(../images/throbber-medium.gif);
+  background-image: url(../images/loader-medium.gif);
 }
 /*--------------
     Icon Only
