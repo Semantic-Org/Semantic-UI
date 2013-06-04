@@ -192,6 +192,7 @@
     Attached
 ---------------*/
 
+/* bottom attached */
 .ui.progress.attached {
   position: relative;
   top: -2px;
@@ -202,18 +203,28 @@
   display: block;
   height: 4px;
   padding: 0px;
+  overflow: hidden;
   -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
   -moz-border-radius: 0em 0em 0.3125em 0.3125em;
   border-radius: 0em 0em 0.3125em 0.3125em;
 }
-.ui.progress.bottom.attached {
-  top: 0px;
+.ui.progress.attached .bar {
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
 }
+
+/* top attached */
 .ui.progress.top.attached,
 .ui.progress.top.attached .bar {
   -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
   -moz-border-radius: 0.3125em 0.3125em 0em 0em;
   border-radius: 0.3125em 0.3125em 0em 0em;
+}
+.ui.progress.top.attached .bar {
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
 }
 
 
