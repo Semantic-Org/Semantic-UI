@@ -198,7 +198,8 @@
         Focus
 ---------------------*/
 
-.ui.form input:focus,
+.ui.form input[type="text"]:focus,
+.ui.form input[type="password"]:focus,
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
@@ -257,7 +258,8 @@
 
 }
 .ui.form .field.error textarea:focus,
-.ui.form .field.error input:focus {
+.ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="password"]:focus {
   border-color: rgba(255, 80, 80, 1);
   color: rgba(255, 80, 80, 1);
 

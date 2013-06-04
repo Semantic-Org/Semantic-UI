@@ -140,7 +140,8 @@
 /*--------------------
         Focus
 ---------------------*/
-.ui.form input:focus,
+.ui.form input[type="text"]:focus,
+.ui.form input[type="password"]:focus,
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
@@ -189,7 +190,8 @@
   box-shadow: 0.3em 0em 0em 0em #EF4D6D inset;
 }
 .ui.form .field.error textarea:focus,
-.ui.form .field.error input:focus {
+.ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="password"]:focus {
   border-color: #ff5050;
   color: #ff5050;
   -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
