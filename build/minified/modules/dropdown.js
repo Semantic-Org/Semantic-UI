@@ -289,6 +289,11 @@ $.fn.dropdown = function(parameters) {
                 .show()
               ;
             }
+            else if(animation.show == 'fade') {
+              $menu
+                .fadeIn(150)
+              ;
+            }
             else if(animation.show == 'slide') {
               $menu
                 .clearQueue()
@@ -304,7 +309,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
-              module.errors(error.animation);
+              module.error(errors.animation);
             }
           },
           hide: function() {
@@ -312,6 +317,11 @@ $.fn.dropdown = function(parameters) {
             if(animation.hide == 'none') {
               $menu
                 .hide()
+              ;
+            }
+            else if(animation.hide == 'fade') {
+              $menu
+                .fadeOut(150)
               ;
             }
             else if(animation.hide == 'slide') {
@@ -329,7 +339,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
-              module.errors(error.animation);
+              module.error(errors.animation);
             }
           }
         },
