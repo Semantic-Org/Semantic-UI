@@ -46,6 +46,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/feed.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/items.css">
     
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/carousel.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">

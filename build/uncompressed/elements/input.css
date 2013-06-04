@@ -20,6 +20,7 @@
   position: relative;
 }
 .ui.input input {
+  width: 100%;
   font-family: "Helvetica Neue", "Helvetica", Arial;
   margin: 0em;
   padding: 0.9em 1.2em;

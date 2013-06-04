@@ -19,6 +19,9 @@
         "Vertical": ".vertical.ui.buttons > .button+.button+.button"
       }
   },
+  "Text": {
+    ".ui.button": "Button"
+  },
   "Variations": {
     "Size": [
       "mini",

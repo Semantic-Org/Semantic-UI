@@ -31,7 +31,7 @@
 }
 .ui.divider .label {
   display: block;
-  margin: 14px 0px 0px;
+  margin: 16px 0px 0px;
   text-transform: none;
   color: #333333;
 }
@@ -40,10 +40,10 @@
 *******************************/
 .ui.vertical.divider,
 .ui.horizontal.divider {
+  background-color: transparent;
   position: relative;
-  margin: 25px 0px 10px;
-  font-size: 14px;
-  line-height: 14px;
+  margin: 1em 0em 1em;
+  font-size: 0.8em;
   text-align: center;
   text-transform: uppercase;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
@@ -92,8 +92,8 @@
   margin-top: -7px;
   display: block;
   width: 100%;
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 16px;
+  line-height: 16px;
   text-align: center;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
   text-transform: none;

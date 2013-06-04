@@ -101,7 +101,8 @@ $.fn.dimmer = function(parameters) {
 
           click: function(event) {
             module.verbose('Determining if event occured on dimmer', event);
-            if( $dimmer.find(event.target).size() === 0 ) {
+            console.log(event.target, selector.content, $(event.target).is(selector.content));
+            if( $dimmer.find(event.target).size() === 0 || $(event.target).is(selector.content) ) {
               module.hide();
             }
           }
@@ -436,8 +437,9 @@ $.fn.dimmer.settings = {
   },
 
   selector: {
-    dimmable   : '.ui.dimmable',
-    dimmer     : '.ui.dimmer'
+    dimmable : '.ui.dimmable',
+    dimmer   : '.ui.dimmer',
+    content  : '.ui.dimmer > .content'
   },
 
   template: {

@@ -44,20 +44,42 @@ type   : 'UI Module'
   <h2 class="ui dividing header">Standard</h2>
 
   <div class="example">
-    <h4 class="ui header">Dimmer Content</h4>
-    <p>A dimmer can contain content which will display when dimmed</p>
-    <div class="ui ignored info message">If no UI dimmer exists inside a content segment it will automatically be added on first use</div>
+    <h4 class="ui header">Dimmable</h4>
+    <p>A dimmable section can be dimmed</p>
+    <div class="ui ignored info message">A dimmer will automatically be inserted the first time you create a dimmer on a dimmable section</div>
     <div class="ui segment">
-      <h4 class="ui red block header">
+      <h4 class="ui header">
+        <i class="icon photos"></i>Dog Photos
+      </h4>
+      <img src="/images/demo/item1.jpg">
+      <img src="/images/demo/item2.jpg">
+    </div>
+    <div class="ignored ui icon buttons">
+      <div class="ui show button"><i class="plus icon"></i></div>
+      <div class="ui hide button"><i class="minus icon"></i></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Dimmer with Content</h4>
+    <p>A dimmer can display simple messages in a content block</p>
+    <div class="ui ignored info message">Messages that are direct descendants of a content block will be vertically centered table cell. To avoid content being stretched include it as child element.</div>
+    <div class="ui segment">
+      <h4 class="ui header">
         <i class="icon photos"></i>Dog Photos
       </h4>
       <img src="/images/demo/item1.jpg">
       <img src="/images/demo/item2.jpg">
       <div class="ui dimmer">
-        <h2 class="ui inverted header">
-          This is a message for you
-          <div class="sub header">How are you doing</div>            
-        </h2>
+        <div class="content">
+          <div class="center">
+            <h2 class="ui inverted teal block icon header">
+              <i class="icon globe"></i>
+              Wait a second
+              <div class="sub header">You forgot something</div>            
+            </h2>
+          </div>
+        </div>
       </div>
     </div>
     <div class="ignored ui icon buttons">
@@ -77,7 +99,7 @@ type   : 'UI Module'
     <h4 class="ui header">Stand-alone Dimmer</h4>
     <p>A dimmer can exist on its own without defining content that is /p>
     <div class="ui segment">
-      <h4 class="ui red block header">
+      <h4 class="ui header">
         <i class="icon photos"></i>Dog Photos
       </h4>
       <img src="/images/demo/item1.jpg">
