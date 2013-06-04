@@ -1165,6 +1165,9 @@
 /*--------------
      Sizes
 ---------------*/
+.ui.vertical.menu .item {
+  min-height: 0em !important;
+}
 .ui.tiny.menu .item {
   font-size: 0.875rem;
   padding: 0.5em 0.75em;
