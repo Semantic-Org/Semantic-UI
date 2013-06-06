@@ -2,24 +2,101 @@
 layout : 'default'
 css    : 'guide'
 
-title  : 'CSS Tips'
+title  : 'CSS Guide'
 type   : 'UI Specification'
 ---
 <div class="segment">
   <div class="container">
-    <h1 class="ui dividing header">Style Guide</h1>
+    <h1 class="ui header">CSS Guide</h1>
   </div>
 </div>
 <div class="main container">
 
-  <h2>Writing CSS</h2>
-  <p>Here's a set of guidelines that may help make writing UI components easier.</p>
+  <h2>General</h2>
+
+  <div class="example">
+    <h4 class="ui header">Namespace</h4>
+    <p>All css code must live inside a namespace. By default all ui elements use the class "ui". This prevents rules from altering styles of other content in the page. This also helps differentiate between UI elements and parts of an element</p>
+    <div class="code" data-type="css">
+    // incorrect
+    .menu {
+    }
+
+    // incorrect
+    .ui.menu {
+    }
+    .ui.menu .ui.item {
+
+    }
+
+    // correct
+    .ui.menu {
+    }
+    .ui.menu .item {
+
+    }
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Don't Hyphenate</h4>
+    <p>All elements are designed to include their own namespace. As long as rules descend from their parent element there is no possibility of rule collision.</p>
+    <p>Hyphenated class names often describe the intersection of separate concepts, and can be better written to represent each concept separately.</p>
+    <div class="code" data-type="css">
+    // no no no
+    .ui.button-active-red {
+      background-color: #FF0000;
+      font-weight: bold;
+      color: #FFFFFF;
+    }
+
+    // better
+    .red.ui.button {
+      background-color: #FF0000;
+      color: #FFFFFF;
+    }
+    .active.ui.button {
+      font-weight: bold;
+    }
+    </div>
+  </div>
+  <div class="example">
+  <h4 class="ui header">No wrappers, no excess markup</h4>
+  <p>UI elements should be designed to include the minimum footprint of an element. If extra styling is needed, consider using pseudo selectors :after and :before. This allows for the creation of two extra divs inside each div context which can almost always be enough to accomodate extra styling.</p>
+  <p>If there is no other option than wrapping content in a containing HTML element, consider using a name that describes the content instead of the word wrapper or container.</p>
+    <div class="code" data-type="css">
+    // not tops
+    .ui.message .wrapper .title,
+    .ui.message .wrapper .description {
+
+    }
+    // better
+    .ui.message .content .title,
+    .ui.message .content .description {
+
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Grammatical order</h4>
+    <p>Consider using similar class syntax as if you were actually describing the element in english. Although this is by no means required it may help provide clarity in some circumstances.</p>
+    <div class="code" data-type="css">
+    // not perfect
+    .ui.red.button.pointing {
+
+    }
+    // much more semantic
+    .red.pointing.ui.button {
+
+    }
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Use Border Box</h4>
     <p>Border box fixes the box model, and allows padding to be included as part of width and height definitions. Using it opens up another world of possibilities for sizing content to fit fluidly</p>
     <div class="code" data-type="css">
-    .ui.two.thingies .ui.thingy {
+    .two.ui.thingies .ui.thingy {
       width: 50%;
       padding: 1em;
       -webkit-box-sizing: border-box;
@@ -29,6 +106,67 @@ type   : 'UI Specification'
     }
     </div>
   </div>
+
+  <h2>Units and Measurements</h2>
+
+  <div class="example">
+    <h4 class="ui header"><em>Relatively</em> Relative</h4>
+    <p>EMs are defined so that 1em is equal to the current font size inside of an element. Using EMs can allow you to size content inside an element in proportion to the overall size of the element. Be careful though because this will stack with nested elements</p>
+    <div class="code" data-type="css">
+    .ui.thingy {
+      font-size: 14px;
+    }
+    // this is 28 pixels
+    .ui.thingy .thing {
+      font-size: 2em;
+    }
+    // woah this is now 48 pixels
+    .ui.thingy .thing .thing {
+      font-size: 2em;
+    }
+
+    // .ui.thingy .thingy should grow as well
+    .ui.large.thingy {
+      font-size: 16px;
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header"><em>Recursively</em> Relative</h4>
+    <p>Using EMs multiplicative nature can often be used to your advantage. Instead of defining multiple tiers of a menu system. Consider using ems for its sizing. As you continue to nest menu elements each nested menu will computer its values with smaller proportions.</p>
+    <div class="code" data-type="css">
+    .ui.menu {
+      font-size: 1rem;
+    }
+    .ui.menu .menu {
+      margin-left: 0.5em;
+      font-size: 0.9em;
+    }
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header"><em>Absolutely</em> Relative</h4>
+    <p>REMs are defined so that 1rem is equal to 1 em on the html tag of the page. This is needed to explain how content should be sized related to the overall size of elements on the page</p>
+    <div class="code" data-type="css">
+    // i am a weird page with very tiny fonts
+    html {
+      font-size: 10px;
+    }
+    // thats ok i am sizing everything relative to your tiny fonts
+    .ui.menu {
+      font-size: 1rem;
+    }
+    // i am sizing relative to the menu element
+    .ui.menu .menu {
+      font-size: 0.8em;
+    }
+    </div>
+  </div>
+
+
+  <h2>Coding Guidelines</h2>
 
   <div class="example">
     <h4 class="ui header">Prevent Accidental Highlighting</h4>
@@ -69,52 +207,6 @@ type   : 'UI Specification'
   </div>
 
   <div class="example">
-    <h4 class="ui header"><em>Relatively</em> Relative</h4>
-    <p>It's often useful to have multiple sizes of an element. One tip that makes creating resizes easier is to use EMs and relative EMs or rems.</p>
-    <p>EMs are defined so that 1em is equal to the current font size inside of an element. 
-    <div class="code" data-type="css">
-    .ui.thingy {
-      font-size: 14px;
-    }
-    // this is 28 pixels
-    .ui.thingy .thing {
-      font-size: 2em;
-    }
-    // woah this is now 48 pixels
-    .ui.thingy .thing .thing {
-      font-size: 2em;
-    }
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header"><em>Absolutely</em> Relative</h4>
-    <p>REMs are defined so that 1rem is equal to 1 em on the html tag of the page. This is needed to explain how content should be sized related to the overall size of elements on the page</p>
-    <div class="code" data-type="css">
-    .ui.menu {
-      font-size: 1rem;
-    }
-    .ui.menu .menu {
-    }
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header"><em>Recursively</em> Relative</h4>
-    <p>Using EMs however can often be used to your advantage. Instead of defining multiple tiers of a menu system. Consider using ems for its sizing. As you continue to nest menu elements each nested menu will computer its values with smaller proportions.</p>
-    <div class="code" data-type="css">
-    .ui.menu {
-      font-size: 1rem;
-    }
-    .ui.menu .menu {
-      margin-left: 0.5em;
-      font-size: 0.9em;
-    }
-    </div>
-  </div>
-
-
-  <div class="example">
     <h4 class="ui header">Using transparency</h4>
     <p>RGBA colors in css allow you to specify colors with a transparency channel. This is very useful.</p>
     <p>Consider for example, defining the text states of an element. If the elements color changes, the text might appear more complementary as a shade of black with a portion of the original color. This can be done easily with rgba</p>
@@ -123,7 +215,7 @@ type   : 'UI Specification'
       background-color: #FAFAFA;
       color: rgba(0, 0, 0, 0.7);
     }
-    .ui.red.thingy {
+    .red.ui.thingy {
       background-color: #FF0000;
     }
     </div>
@@ -160,13 +252,19 @@ type   : 'UI Specification'
 
   <div class="example">
     <h4 class="ui header">Onion Skinning</h4>
-    <p>One technique that is useful for allowing for infinite color variations of an element, without having to completely reskin each variation and shade, is to use background color and background-image together to define colors.</p>
+    <p>One technique that is useful for allowing for multiple color variations of an element, without having to completely reskin each variation and shade is to use background-image gradients to define shading and state, and background-color to define the color of an element. If done well you can add a variety of colors with very little code.</p>
     <div class="code" data-type="css">
     .ui.thingy {
       background-color: #FAFAFA;
     }
     .ui.red.thingy {
       background-color: #FF0000;
+    }
+    .ui.green.thingy {
+      background-color: #00FF00;
+    }
+    .ui.blue.thingy {
+      background-color: #0000FF;
     }
     .ui.thingy:hover {
       background-image: 
