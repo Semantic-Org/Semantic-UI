@@ -6,6 +6,7 @@ title  : 'Menu'
 type   : 'UI Collection'
 ---
 <script src="/javascript/menu.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/menu.css">
 <div class="segment">
   <div class="container">
     <h1 class="ui dividing header">Menu</h1>
@@ -128,6 +129,9 @@ type   : 'UI Collection'
     <p>A tiered menu can show the sub-sections available as part of an activated section.</p>
     <div class="ui vertical menu">
       <div class="item">
+        <div class="ui input"><input type="text" placeholder="Search..."></div>
+      </div>
+      <div class="item">
         <i class="home icon"></i> Home
         <div class="menu">
           <a class="active item">Search</a>
@@ -141,9 +145,6 @@ type   : 'UI Collection'
       <a class="item">
         <i class="mail icon"></i> Messages
       </a>
-      <div class="item">
-        <div class="ui input"><input type="text" placeholder="Search..."></div>
-      </div>
       <div class="ui simple dropdown item">
         More <i class="icon right triangle"></i>
         <div class="menu">

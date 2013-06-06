@@ -93,7 +93,6 @@ $.fn.shape = function(parameters) {
           callback = callback || function(event) {
             module.verbose('Executing animation callback', event);
             event.stopPropagation();
-            $sides.off();
             module.reset();
             module.set.active();
             $.proxy(settings.onChange, $nextSide)();
