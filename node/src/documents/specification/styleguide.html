@@ -2,50 +2,111 @@
 layout : 'default'
 css    : 'guide'
 
-title  : 'Style Guide'
+title  : 'Authoring Guide'
 type   : 'UI Specification'
 ---
 <div class="segment">
   <div class="container">
-    <h1 class="ui dividing header">Project Roadmap</h1>
+    <h1 class="ui dividing header">Style Guide</h1>
   </div>
 </div>
 <div class="main container">
   
-  <div class="ui icon info message">
-    <i class="icon heart"></i>
-    <div class="content">
-      <div class="header">
-        Progress Report
-      </div>
-      <p>Current status of work on Semantic UI</p>
+  <h2>Creating UI Definitions</h2>
+
+  <p>Defining anything will involve some slightly arbitrary decision making. The goal of semantic is not to create code that is free from prescription, but to create code that tends to avoid it if possible.</p>
+  <p>The following are some guidelines which help avoid some common pitfalls in writing UI element definitions.</p>
+
+  <div class="example">
+    <h4 class="ui header">Commonality</h4>
+    <p>Try to use the most obvious names for classes. If you're not sure, prototype the element, then ask a friend or two what they would call it.<p>
+    <div class="code" data-type="css">
+    // hmm
+    .ginormous.ui.thingy {
+      font-size: 1.5em;
+    }
+    // better
+    .large.ui.thingy {
+      font-size: 1.5em;
+    }
     </div>
   </div>
-  
-  <div class="ui divider simple"></div>
-  
-  HTML
-  
-  
-  Variations should be defined in one word - if its a class then a word exists for it in english
-  
-  
-  Use Border Box
-  
-  Use gradients for tinting solid colors
-  
-  Use ems or rems
-  
-  Use inline block not float
-  
-  Use after clear fix
-  
-  Scale content with ems not pixels  
-  
-  Use box shadow instead of borders for adding borders that dont use box model
-  
-  Use rgba instead of hexcode unless you dont want color layering to be additive
-  
-  
+  <div class="example">
+    <h4 class="ui header">Precision</h4>
+    <p>Classes should be defined in one word, if the concept cannot be reduced to a single word then consider factoring it into multiple sub classes</p>
+    <div class="code" data-type="css">
+    .attached.ui.thingy {
+      position: relative;
+    }
+    .left.attached.ui.thingy {
+      left: 0px;
+      top: 50%;
+      margin-top: -0.5em;
+    }
+    .right.attached.ui.thingy {
+      right: 0px;
+      top: 50%;
+      margin-top: -0.5em
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Non prescriptive</h4>
+    <p>Avoid requiring any specific tags in your definitions. This will allow developers to choose which tags they would like to use with an element.</p>
+    <p>Sometimes however it makes sense to allow for common tags to be used in place of classnames for brevity. Paragraph tags, links, labels, and tables may be useful to use in a UI element definition without classnames.</p>
+    <p>Be cautious though, for example, requiring a form definition to use a form tag limits a developers ability to nest form elements inside other forms. The same is true for anchor tags</p>
+    <div class="code" data-type="css">
+      
+    // hey how do you know this is the third heading?
+    // and what about all the other possible sizes?  
+    .ui.thingy h3 {
+
+    }
+
+    // yay the developer can choose what type of heading tag to use
+    .ui.thingy .header {
+
+    }
+
+    // wow this guy is going to have to do a lot of typing...
+    .ui.table .cell {
+
+    }
+    // this seems like a reasonable assumption, html is a bit strict about these things
+    .ui.table td {
+
+    }
+    </div>
+  </div>
+  <div class="another example">
+    <div class="code" data-type="css">
+      
+    // wow this guy is going to have to do a lot of typing...
+    .ui.table .cell {
+
+    }
+    // this seems like a reasonable assumption, html is a bit strict about these things
+    .ui.table td {
+
+    }
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Inversion</h4>
+    <p>Elements are often inverted to stand out on dark backgrounds. Consider creating a variation of your element defines how the element can invert its colors.</p>
+    <p>Keep in mind you might have to increase the contrast between shades of your element when inverting colors, its much easier to detect in a design between multiple shades of a light color than a dark one.</p>
+    <div class="code" data-type="css">
+    .ui.thingy {
+      background-color: #FFFFFF;
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .ui.inverted.thingy {
+      background-color: #222222;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    </div>
+  </div>
+
   
 </div>
