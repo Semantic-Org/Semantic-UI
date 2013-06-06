@@ -1,0 +1,195 @@
+  ---
+layout : 'default'
+css    : 'guide'
+
+title  : 'CSS Tips'
+type   : 'UI Specification'
+---
+<div class="segment">
+  <div class="container">
+    <h1 class="ui dividing header">Style Guide</h1>
+  </div>
+</div>
+<div class="main container">
+
+  <h2>Writing CSS</h2>
+  <p>Here's a set of guidelines that may help make writing UI components easier.</p>
+
+  <div class="example">
+    <h4 class="ui header">Use Border Box</h4>
+    <p>Border box fixes the box model, and allows padding to be included as part of width and height definitions. Using it opens up another world of possibilities for sizing content to fit fluidly</p>
+    <div class="code" data-type="css">
+    .ui.two.thingies .ui.thingy {
+      width: 50%;
+      padding: 1em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Prevent Accidental Highlighting</h4>
+    <p>Sometimes text can be accidentally highlighted when a user double clicks an element. No need to pull out javascript to solve this.</p>
+    <div class="code" data-type="css">
+    .ui.thingy {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Joining borders</h4>
+    <p>Sometimes bordered content must sit next to other bordered content. If each element uses border the borders will double. Consider using either outline or a box shadow to accomplish the same effect but without overlapping borders.</p>
+    <div class="code" data-type="css">
+    // this might not go so well
+    .ui.thingy {
+      border: 1px solid #DDDDDD;
+    }
+    // rgba is great, but keep in mind the overlapping borders will be added together to create a darker shade
+    .ui.thingy {
+      outline: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    // classic but works
+    .ui.thingy {
+      outline: 1px solid #DDDDDD;
+    }
+    // this works too
+    .ui.thingy {
+      -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
+      -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
+      box-shadow: 0px 0px 0px 1px #DDDDDD;
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header"><em>Relatively</em> Relative</h4>
+    <p>It's often useful to have multiple sizes of an element. One tip that makes creating resizes easier is to use EMs and relative EMs or rems.</p>
+    <p>EMs are defined so that 1em is equal to the current font size inside of an element. 
+    <div class="code" data-type="css">
+    .ui.thingy {
+      font-size: 14px;
+    }
+    // this is 28 pixels
+    .ui.thingy .thing {
+      font-size: 2em;
+    }
+    // woah this is now 48 pixels
+    .ui.thingy .thing .thing {
+      font-size: 2em;
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header"><em>Absolutely</em> Relative</h4>
+    <p>REMs are defined so that 1rem is equal to 1 em on the html tag of the page. This is needed to explain how content should be sized related to the overall size of elements on the page</p>
+    <div class="code" data-type="css">
+    .ui.menu {
+      font-size: 1rem;
+    }
+    .ui.menu .menu {
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header"><em>Recursively</em> Relative</h4>
+    <p>Using EMs however can often be used to your advantage. Instead of defining multiple tiers of a menu system. Consider using ems for its sizing. As you continue to nest menu elements each nested menu will computer its values with smaller proportions.</p>
+    <div class="code" data-type="css">
+    .ui.menu {
+      font-size: 1rem;
+    }
+    .ui.menu .menu {
+      margin-left: 0.5em;
+      font-size: 0.9em;
+    }
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Using transparency</h4>
+    <p>RGBA colors in css allow you to specify colors with a transparency channel. This is very useful.</p>
+    <p>Consider for example, defining the text states of an element. If the elements color changes, the text might appear more complementary as a shade of black with a portion of the original color. This can be done easily with rgba</p>
+    <div class="code" data-type="css">
+    .ui.thingy {
+      background-color: #FAFAFA;
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .ui.red.thingy {
+      background-color: #FF0000;
+    }
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Consider alternatives to floats</h4>
+    <p>CSS floats can create issues with the containing element not receiving the size of its children. Using overflow:hidden to clear floats means that no peice of an element can be shown outside the bounding box of the element, which limits the possibilities in an element. Clearfixes can use up one of two available pseudo class which can often be useful for styling elements.</p>
+    <p>Consider using another means of putting content side by side like inline-block or table-cell. These provide more freedom than floated block elements, and can add additional benefits.</p>
+    <p>To avoid issues with inline-block causing spacing between elements, specify no font size on the group and 1rem on the floated content</p>
+    <div class="code" data-type="css">
+    // not the best
+    .ui.thingy {
+      display: block;
+      overflow: hidden;
+    }
+    .ui.thingy .part {
+      display: block;
+      float: left;
+    }
+
+    // these do the same thing
+    .ui.thingy {
+      display: block;
+      font-size: 0rem;
+    }
+    .ui.thingy .part {
+      display: inline-block;
+      font-size: 1rem;
+    }
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Onion Skinning</h4>
+    <p>One technique that is useful for allowing for infinite color variations of an element, without having to completely reskin each variation and shade, is to use background color and background-image together to define colors.</p>
+    <div class="code" data-type="css">
+    .ui.thingy {
+      background-color: #FAFAFA;
+    }
+    .ui.red.thingy {
+      background-color: #FF0000;
+    }
+    .ui.thingy:hover {
+      background-image: 
+        -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)))
+      ;
+      background-image: -webkit-linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.05) 100%)
+      ;
+      background-image: -moz-linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.05) 100%)
+      ;
+      background-image: -o-linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.05) 100%)
+      ;
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.05) 100%)
+      ;
+    }
+    </div>
+  </div>
+  
+</div>
