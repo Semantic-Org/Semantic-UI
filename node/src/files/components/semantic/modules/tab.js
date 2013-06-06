@@ -44,16 +44,19 @@
       initialize: function() {
         module.debug('Initializing Tabs', $tabNavigation);
         // attach history events
-        if(settings.history && settings.path !== false) {
-          if( $.address !== undefined ) {
+        if(settings.history) {
+          if( $.address === undefined ) {
+            module.error(errors.state);
+          }
+          else if(settings.path === false) {
+            module.error(errors.path);
+          }
+          else {
             module.verbose('Address library found adding state change event');
             $.address
               .state(settings.path)
               .change(module.event.history.change)
             ;
-          }
-          else {
-            module.error(errors.state);
           }
         }
         // attach events if navigation wasn't set to window
@@ -500,6 +503,7 @@
       method     : 'The method you called is not defined',
       state      : 'The state library has not been initialized',
       missingTab : 'Missing tab: ',
+      path       : 'History enabled, but no path was specified',
       recursion  : 'Max recursive depth reached'
     },
 

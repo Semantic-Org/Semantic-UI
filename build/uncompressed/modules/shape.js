@@ -40,7 +40,7 @@ $.fn.shape = function(parameters) {
         // private variables
         $activeSide,
         $nextSide,
-        transitionEnd = 'transitionend msTransitionEnd oTransitionEnd webkitTransitionEnd',
+        transitionEnd = 'msTransitionEnd oTransitionEnd webkitTransitionEnd',
         
         // standard module
         element       = this,
@@ -91,10 +91,12 @@ $.fn.shape = function(parameters) {
         animate: function(propertyObject, callback) {
           module.verbose('Animating box with properties', propertyObject);
           callback = callback || function(event) {
-              module.reset();
-              module.set.active();
-              $.proxy(settings.onChange, $nextSide)();
-              event.stopImmediatePropagation();
+            module.verbose('Executing animation callback', event);
+            event.stopPropagation();
+            $sides.off();
+            module.reset();
+            module.set.active();
+            $.proxy(settings.onChange, $nextSide)();
           };
           if(settings.useCSS) {
             module.verbose('Starting CSS animation');
@@ -111,7 +113,7 @@ $.fn.shape = function(parameters) {
             ;
             $sides
               .css(propertyObject)
-              .one(transitionEnd, callback)
+              .one(transitionEnd + eventNamespace, callback)
             ;
           }
           else {

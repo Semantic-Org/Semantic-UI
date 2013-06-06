@@ -68,6 +68,9 @@
 /*-------------------
     Loose Coupling
 --------------------*/
+.ui.pointing.menu + .ui.attached.segment {
+  top: 1px;
+}
 /* No padding on edge content */
 .ui.segment > :first-child {
   margin-top: 0em;
@@ -321,8 +324,8 @@
   box-shadow: 0px 0px 0px 1px #DDDDDD;
 }
 .ui.top.attached.segment {
-  top: -1px;
-  bottom: 0px;
+  top: 0px;
+  bottom: -1px;
   margin-top: 1em;
   margin-bottom: 0em;
   -moz-border-radius: 5px 5px 0px 0px;
@@ -330,8 +333,8 @@
   border-radius: 5px 5px 0px 0px;
 }
 .ui.segment.bottom.attached {
-  top: 0px;
-  bottom: -1px;
+  top: -1px;
+  bottom: 0px;
   margin-top: 0em;
   margin-bottom: 1em;
   -moz-border-radius: 0px 0px 5px 5px;

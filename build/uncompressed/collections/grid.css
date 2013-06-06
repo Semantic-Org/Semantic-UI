@@ -94,6 +94,7 @@
 --------------------*/
 .ui.responsive.grid {
   margin: 0%;
+  min-width: 320px;
 }
 @media only screen and (max-width: 1000px) {
   .ui.responsive.grid {
@@ -381,11 +382,12 @@
 @media only screen and (max-width: 960px) {
   .ui.stackable.grid {
     display: block !important;
+    padding: 0em;
   }
   .ui.stackable.grid .column {
     display: block !important;
     width: auto !important;
-    margin: 1.5em 3em 0em !important;
+    margin: 1.5em 5% 0em !important;
     padding: 1.5em 0em 0em !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
@@ -405,5 +407,9 @@
   .ui.stackable.divided.grid > .column:first-child,
   .ui.stackable.celled.grid > .column:first-child {
     border-top: none !important;
+  }
+  /* Remove pointers from vertical menus */
+  .ui.stackable.grid .vertical.pointing.menu .item:after {
+    display: none;
   }
 }

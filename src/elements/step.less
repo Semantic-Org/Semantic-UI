@@ -18,41 +18,11 @@
 .ui.steps .step {
   display: inline-block;
   position: relative;
+  height: 1em;
   padding: 1em 2em 1em 3em;
 
+  vertical-align: top;
   background-color: #FFFFFF;
-
-  -webkit-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -moz-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -o-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -ms-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-
   color: #888888;
 } 
 .ui.step:after,
@@ -69,6 +39,36 @@
 
   width: 0em;
   height: 0em;
+}
+
+.ui.step,
+.ui.steps .step,
+.ui.steps .step:after {
+  -webkit-transition:
+    opacity 0.1s ease,
+    color 0.1s ease,
+    box-shadow 0.1s ease
+  ;
+  -moz-transition:
+    opacity 0.1s ease,
+    color 0.1s ease,
+    box-shadow 0.1s ease
+  ;
+  -o-transition:
+    opacity 0.1s ease,
+    color 0.1s ease,
+    box-shadow 0.1s ease
+  ;
+  -ms-transition:
+    opacity 0.1s ease,
+    color 0.1s ease,
+    box-shadow 0.1s ease
+  ;
+  transition:
+    opacity 0.1s ease,
+    color 0.1s ease,
+    box-shadow 0.1s ease
+  ;
 }
 
 /*******************************
@@ -162,7 +162,7 @@
   font-weight: bold;
 }
 .ui.steps .step.active:after,
-.ui.active.step:after {
+.ui.active.steps:after {
   border-left-color: #555555;
 }
 
@@ -173,9 +173,24 @@
   background-color: #FFFFFF;
   color: #CBCBCB;
 }
-.ui.steps .disabled.step:after,
 .ui.disabled.step:after {
-  border-left-color: #FFFFFF;
+  border: none;
+  background-color: #FFFFFF;
+  top: 0.42em;
+  right: -1em;
+
+  width: 2.15em;
+  height: 2.15em;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+
+  -webkit-box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 
 /*******************************
