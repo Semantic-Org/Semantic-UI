@@ -246,7 +246,7 @@ semantic.ready = function() {
         $header   = $(this),
         $menu     = $header.parent(),
         $group    = $menu.children(),
-        $headers  = $group.add( $group.find('.menu .item') )
+        $headers  = $group.add( $group.find('.menu .item') ),
         $waypoint = $waypoints.eq( $group.index( $header ) ),
         offset    = $waypoint.offset().top - 80
       ;
@@ -259,22 +259,32 @@ semantic.ready = function() {
         ;
         $body
           .stop()
-          .animate({
-            scrollTop: offset
-          }, 500, function() {
-            $menu
-              .removeClass('animating')
-            ;
-            $headers
-              .removeClass('active')
-            ;
-            $header
-              .addClass('active')
-            ;
-          })
           .one('scroll', function() {
             $body.stop();
           })
+          .animate({
+            scrollTop: offset
+          }, 500)
+          .promise()
+            .done(function() {
+              $menu
+                .removeClass('animating')
+              ;
+              $headers
+                .removeClass('active')
+              ;
+              $header
+                .addClass('active')
+              ;
+              console.log($header, $waypoint);
+              console.log($header.css('border-right-color'));
+              $waypoint
+                .css('color', $header.css('border-right-color'))
+              ;
+              $waypoints
+                .removeAttr('style')
+              ;
+            })
         ;
       }
     },
@@ -426,11 +436,13 @@ semantic.ready = function() {
     .waypoint({
       handler: function(direction) {
         if(direction == 'down') {
-          $peekItem
-            .removeClass('active')
-            .eq( $peekItem.size() - 1 )
-              .addClass('active')
-          ;
+          if( !$('body').is(':animated') ) {
+            $peekItem
+              .removeClass('active')
+              .eq( $peekItem.size() - 1 )
+                .addClass('active')
+            ;
+          }
         }
       },
       offset: 'bottom-in-view'
@@ -443,7 +455,6 @@ semantic.ready = function() {
     })
   ;
   $peekItem
-    .state('destroy')
     .on('click', handler.peek)
   ;
   $peekSubItem

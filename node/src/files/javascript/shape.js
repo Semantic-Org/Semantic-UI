@@ -62,7 +62,10 @@ semantic.shape.ready = function() {
 
   // attach events
   $demo
-    .shape()
+    .shape({
+      debug: true,
+      verbose: true
+    })
   ;
   $directionButton
     .on('click', handler.rotate)

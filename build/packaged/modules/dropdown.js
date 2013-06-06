@@ -186,7 +186,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
 
-          nothing: function() {},
+          none: function() {},
 
           hide: function() {
             module.hide();

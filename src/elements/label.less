@@ -18,6 +18,7 @@
   display: inline-block;
   vertical-align: middle;
 
+  margin: -0.5em 0.25em 0em;
   background-color: #E8E8E8;
   padding: 0.5em 0.8em;
   color: rgba(0, 0, 0, 0.65);
@@ -192,53 +193,53 @@ a.ui.label:hover:before {
 .ui.attached.label {
   width: 100%;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  -webkit-border-radius: 4px 4px 0px 0px;
-  -moz-border-radius: 4px 4px 0px 0px;
-  border-radius: 4px 4px 0px 0px;  
+  top: 0em;
+  left: 0em;
+  -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
+  -moz-border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;  
 }
 .ui.bottom.attached.label {
   top: auto;
-  bottom: 0px;
+  bottom: 0em;
 
-  -webkit-border-radius: 4px 0px 0px 0px;
-  -moz-border-radius: 4px 0px 0px 0px;
-  border-radius: 4px 0px 0px 0px;  
+  -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
+  -moz-border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em 0.3125em 0.3125em;  
 }
 
 .ui.top.left.attached.label {
   width: auto;
-  margin-top: 0px !important;
+  margin-top: 0em !important;
 
-  -webkit-border-radius: 4px 0px 0px 0px;
-  -moz-border-radius: 4px 0px 0px 0px;
-  border-radius: 4px 0px 0px 0px;  
+  -webkit-border-radius: 0.3125em 0em 0em 0em;
+  -moz-border-radius: 0.3125em 0em 0em 0em;
+  border-radius: 0.3125em 0em 0em 0em;  
 }
 
 .ui.top.right.attached.label {
   width: auto;
   left: auto;
-  right: 0px;
+  right: 0em;
 
-  -webkit-border-radius: 0px 4px 0px 0px;
-  -moz-border-radius: 0px 4px 0px 0px;
-  border-radius: 0px 4px 0px 0px;
+  -webkit-border-radius: 0em 0.3125em 0em 0em;
+  -moz-border-radius: 0em 0.3125em 0em 0em;
+  border-radius: 0em 0.3125em 0em 0em;
 }
 .ui.bottom.left.attached.label {
   width: auto;
   top: auto;
-  bottom: 0px;
+  bottom: 0em;
 
-  -webkit-border-radius: 0px 0px 0px 4px;
-  -moz-border-radius: 0px 0px 0px 4px;
-  border-radius: 0px 0px 0px 4px;
+  -webkit-border-radius: 0em 0em 0em 0.3125em;
+  -moz-border-radius: 0em 0em 0em 0.3125em;
+  border-radius: 0em 0em 0em 0.3125em;
 }
 .ui.bottom.right.attached.label {
   width: auto;
-  -webkit-border-radius: 0px 0px 4px 0px;
-  -moz-border-radius: 0px 0px 4px 0px;
-  border-radius: 0px 0px 4px 0px;
+  -webkit-border-radius: 0em 0em 0.3125em 0em;
+  -moz-border-radius: 0em 0em 0.3125em 0em;
+  border-radius: 0em 0em 0.3125em 0em;
 }
 
 /*-------------------
@@ -251,6 +252,7 @@ a.ui.label:hover:before {
   top: 0em;
   right: 0em;
   z-index: 10;
+  margin: 0em;
 
   width: 1.75em;
   height: 1.75em;
@@ -512,6 +514,23 @@ a.ui.teal.label:hover {
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.tag.label:hover:before {
   background-color: #009A93 !important;
+}
+
+/*-------------------
+       Circular
+--------------------*/
+
+.ui.circular.label {
+    margin-right: 0.5em;
+    margin-top: -1em;
+    
+    width: 2em;
+    height: 2em;
+
+    padding: 0.5em;
+
+    line-height: 1em;
+    text-align: center;
 }
 
 /*-------------------
