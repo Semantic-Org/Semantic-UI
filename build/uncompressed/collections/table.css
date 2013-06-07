@@ -55,7 +55,7 @@
 }
 /* Table Striping */
 .ui.table tbody tr:nth-child(2n) {
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 50, 0.02);
 }
 /* Icons */
 .ui.table > .icon {
@@ -253,8 +253,7 @@
 /* Sortable Table */
 .ui.sortable.table thead th {
   cursor: pointer;
-  color: #555555;
-  vertical-align: top;
+  white-space: nowrap;
 }
 .ui.sortable.table thead th.sorted,
 .ui.sortable.table thead th.sorted:hover {
@@ -262,22 +261,19 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 .ui.sortable.table thead th:after {
   display: inline-block;
   content: '';
   width: 1em;
   opacity: 0.8;
-  float: right;
-  margin: 0.25em 0em 0em 0.25em;
-  line-height: 1;
+  margin: 0em 0em 0em 0.5em;
   font-family: 'Icons';
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
-  vertical-align: middle;
-  vertical-align: calc();
+  vertical-align: text-top;
 }
 .ui.sortable.table thead th.ascending:after {
   content: '\25b4';
@@ -299,6 +295,20 @@
 ---------------*/
 .ui.collapsing.table {
   width: auto;
+}
+/*--------------
+      Basic
+---------------*/
+.ui.basic.table th {
+  background-color: transparent;
+  padding: 0.5em;
+  font-weight: normal;
+}
+.ui.basic.table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.ui.basic.table td {
+  padding: 0.8em 0.5em;
 }
 /*--------------
      Padded
