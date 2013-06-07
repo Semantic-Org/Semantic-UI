@@ -31,6 +31,10 @@
   line-height: 1.2;
   color: rgba(0, 0, 0, 0.5);
 }
+.ui.header .content {
+  display: inline-block;
+  vertical-align: middle;
+}
 .ui.header .icon {
   margin-right: 0.5em;
 }
