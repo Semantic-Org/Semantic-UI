@@ -172,6 +172,9 @@
   transition: box-shadow 0.2s ease-out;
 }
 .ui.selection.dropdown .menu {
+  max-height: 312px;
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-box-shadow: 0px 1px 0px 1px #EEEEEE;
   -moz-box-shadow: 0px 1px 0px 1px #EEEEEE;
   box-shadow: 0px 1px 0px 1px #EEEEEE;

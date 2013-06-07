@@ -1,16 +1,23 @@
+/*
+ * # Semantic Loader
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+
+
 /*******************************
-     Global loader Styles
+            Loader
 *******************************/
+
 
 /* Standard Size */
 .ui.loader {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  background: url(../images/loader-medium.gif) no-repeat;
-  background-position: 48% 0px;
-}
-.ui.loader.center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,35 +25,9 @@
   z-index: 1000;
 }
 
-/* Large Size */
-.ui.loader.large {
-  width: 64px;
-  height: 64px;
-  background-image: url(../images/loader-large.gif);
-}
-.ui.loader.large.center {
-  margin: -32px 0px 0px -32px;
-}
-
-/* Small Size */
-.ui.loader.small {
-  width: 24px;
-  height: 24px;
-  background-image: url(../images/loader-small.gif);
-}
-.ui.loader.small.center {
-  margin: -12px 0px 0px -12px;
-}
-
-/* Tiny Size */
-.ui.loader.tiny {
-  width: 16px;
-  height: 16px;
-  background-image: url(../images/loader-tiny.gif);
-}
-.ui.loader.tiny.center {
-  margin: -8px 0px 0px -8px;
-}
+/*-------------------
+        Text
+--------------------*/
 
 /* Text Styles */
 .ui.loader.text {
@@ -59,9 +40,8 @@
   min-width: 32px;
   padding-top: 40px;
   font-size: 14px;
-  font-weight: bold;
 }
-.ui.loader.text.tiny {
+.ui.loader.text.mini {
   margin-top: -16px;
   min-width: 16px;
   padding-top: 20px;
@@ -80,19 +60,110 @@
   font-size: 16px;
 }
 
-/* Blue */
-.ui.loader.text.blue {
-  color: #FFFFFF
+/*******************************
+            States
+*******************************/
+
+
+.ui.loader.active,
+.ui.loader.visible {
+  display: block;
 }
-.ui.loader.tiny.blue {
-  background-image: url(../images/loader-blue-tiny.gif);
+
+.ui.loader.disabled,
+.ui.loader.hidden {
+  display: none;
 }
-.ui.loader.small.blue {
-  background-image: url(../images/loader-blue-small.gif);
+
+.ui.loading .ui.loader {
+  display: block;
 }
-.ui.loader.blue {
-  background-image: url(../images/loader-blue-medium.gif);
+
+
+/*******************************
+            Variations
+*******************************/
+
+
+/*-------------------
+       Inverted
+--------------------*/
+
+.ui.dimmer .ui.text.loader,
+.ui.inverted.text.loader {
+  color: #FFFFFF;
 }
-.ui.loader.large.blue {
-  background-image: url(../images/loader-blue-large.gif);
+
+/* Tiny Size */
+.ui.dimmer .mini.ui.loader,
+.ui.inverted .mini.ui.loader {
+  background-image: url(../images/loader-mini-inverted.gif);
+}
+
+/* Small Size */
+.ui.dimmer .small.ui.loader,
+.ui.inverted .small.ui.loader {
+  background-image: url(../images/loader-small-inverted.gif);
+}
+
+/* Standard Size */
+.ui.dimmer .ui.loader,
+.ui.inverted.loader  {
+  background-image: url(../images/loader-medium-inverted.gif);
+}
+
+/* Large Size */
+.ui.dimmer .large.ui.loader,
+.ui.inverted .large.ui.loader {
+  background-image: url(../images/loader-large-inverted.gif);
+}
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/* Tiny Size */
+.ui.inverted.dimmer .ui.loader.mini,
+.ui.loader.mini {
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/loader-mini.gif);
+  margin: -8px 0px 0px -8px;
+}
+
+/* Small Size */
+.ui.inverted.dimmer .ui.loader.small,
+.ui.loader.small {
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/loader-small.gif);
+  margin: -12px 0px 0px -12px;
+}
+
+.ui.inverted.dimmer .ui.loader,
+.ui.loader {
+  width: 32px;
+  height: 32px;
+  background: url(../images/loader-medium.gif) no-repeat;
+  background-position: 48% 0px;
+}
+
+/* Large Size */
+.ui.inverted.dimmer .ui.loader.large,
+.ui.loader.large {
+  width: 64px;
+  height: 64px;
+  background-image: url(../images/loader-large.gif);
+  margin: -32px 0px 0px -32px;
+}
+
+
+
+/*-------------------
+        Inline
+--------------------*/
+
+.ui.inline.loader {
+  display: inline-block;
+  margin: 0em;
 }
