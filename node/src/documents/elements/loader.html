@@ -16,8 +16,8 @@ type   : 'UI Element'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Standard</a>
+      <a class="item">States</a>
       <a class="item">Variations</a>
-      <a class="item">Groups</a>
     </div>
   </div>
   
@@ -25,6 +25,7 @@ type   : 'UI Element'
   <div class="example">
     <h4 class="ui header">Loader</h4>
     <p>A loader</p>
+    <div class="ui info message">Loaders by default are hidden unless inside of a dimmer.</div>
     <div class="ui segment">
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
       <div class="ui active dimmer">
@@ -36,6 +37,7 @@ type   : 'UI Element'
   <div class="example">
     <h4 class="ui header">Text Loader</h4>
     <p>Text loader</p>
+    <div class="ui info message">If the text for a loader is larger than the size of a loader it might need to have its margins manually adjusted to center itself precisely.</p>
     <div class="ui segment">
       <div class="ui active dimmer">
         <div class="ui text loader">Loading</div>
@@ -44,9 +46,34 @@ type   : 'UI Element'
     </div>
   </div>
   
+  <h2 class="ui dividing header">States</h2>
+  
+  <div class="example">
+    <h4 class="ui header">Active</h4>
+    <p>A loader can be active or visible</p>
+    <div class="ui segment">
+      <div class="ui active loader"></div>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A loader can be disabled or hidden</p>
+    <div class="ui segment">
+      <div class="ui disabled loader"></div>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+  </div>
+  
 
   <h2 class="ui dividing header">Variations</h2>
   
+  <div class="example">
+    <h4 class="ui header">Inline</h4>
+    <p>Loaders can appear inline with content </p>
+    <div class="ui active inline loader"></div>
+  </div>
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>Loaders can have different sizes</p>

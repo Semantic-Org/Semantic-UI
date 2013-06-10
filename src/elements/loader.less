@@ -18,11 +18,16 @@
 
 /* Standard Size */
 .ui.loader {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
   margin: -16px 0px 0px -16px;
   z-index: 1000;
+}
+
+.ui.dimmer .loader {
+  display: block;
 }
 
 /*-------------------
@@ -73,10 +78,6 @@
 .ui.loader.disabled,
 .ui.loader.hidden {
   display: none;
-}
-
-.ui.loading .ui.loader {
-  display: block;
 }
 
 
@@ -158,12 +159,12 @@
 }
 
 
-
 /*-------------------
-        Inline
+       Inline
 --------------------*/
 
 .ui.inline.loader {
   display: inline-block;
+  vertical-align: middle;
   margin: 0em;
 }

@@ -26,10 +26,12 @@
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
     
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/crumb.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/icons.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/image.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/label.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/loader.css">
@@ -37,6 +39,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/segment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/step.css">
     
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/breadcrumb.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/form.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/grid.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/menu.css">
