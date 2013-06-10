@@ -212,9 +212,11 @@ h5.ui.header {
 .ui.floated.header,
 .ui.left.floated.header {
   float: left;
+  margin-right: 0.5em;
 }
 .ui.right.floated.header {
   float: right;
+  margin-left: 0.5em;
 }
 /*-------------------
        Fittted

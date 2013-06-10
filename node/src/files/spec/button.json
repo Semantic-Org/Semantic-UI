@@ -1,28 +1,30 @@
 {
-  "Name": "Button",
-  "Type": "UI Element",
-  "States": {
-    "Active": "active",
-    "Loading": "loading",
-    "Disabled": "disabled"
-  },
+  "Name" : "Button",
+  "Type" : "UI Element",
   "Types": {
       "Singular": {
-        "Standard": ".ui.button",
-        "Icon": ".ui.icon.button > i.add.icon",
-        "Labeled Icon": ".ui.labeled.icon.button > i.add.icon"
+        "Standard"     : ".ui.button",
+        "Icon"         : ".ui.icon.button > i.add.icon",
+        "Labeled Icon" : ".ui.labeled.icon.button > i.add.icon"
       },
       "Group": {
-        "Standard": ".ui.buttons > .button+.button+.button",
-        "Icon": ".ui.buttons > ( (.button > i.icon.user) + (.button > i.icon.heart) + (.button > i.icon.lab))",
-        "Conditional": ".ui.buttons > .button+.or+.button",
-        "Vertical": ".vertical.ui.buttons > .button+.button+.button"
+        "Standard"    : ".ui.buttons > .button+.button+.button",
+        "Icon"        : ".ui.buttons > ( (.button > i.icon.user) + (.button > i.icon.heart) + (.button > i.icon.lab))",
+        "Conditional" : ".ui.buttons > .button+.or+.button",
+        "Vertical"    : ".vertical.ui.buttons > .button+.button+.button"
       }
   },
   "Text": {
-    ".ui.button": "Button"
+    ".ui.button" : "Button"
   },
-  "Variations": {
+  "States": {
+    "Active"   : "active",
+    "Loading"  : "loading",
+    "Disabled" : "disabled"
+  },
+  "Variations" : {
+    "Circular" : "circular",
+    "Fluid"    : "fluid",
     "Size": [
       "mini",
       "tiny",
@@ -45,13 +47,11 @@
       "secondary",
       "tertiary"
     ],
-    "Attached": [
+    "Attached" : [
       "attached top",
       "attached bottom",
       "attached left",
       "attached right"
-    ],
-    "Circular": "circular",
-    "Fluid": "fluid"
+    ]
   }
 }
