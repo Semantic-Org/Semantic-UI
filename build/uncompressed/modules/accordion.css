@@ -26,7 +26,6 @@
 .ui.accordion .title {
   cursor: pointer;
   padding: 0.75em 1em;
-  font-weight: bold;
   color: rgba(0, 0, 0, 0.6);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   -webkit-transition: background-color 0.2s ease-out;
