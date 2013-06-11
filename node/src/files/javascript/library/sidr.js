@@ -101,7 +101,6 @@
 
         // Open menu
         $body.css({
-          width: $body.width(),
           position: 'absolute'
         }).animate(bodyAnimation, speed);
         $menu.css('display', 'block').animate(menuAnimation, speed, function() {
