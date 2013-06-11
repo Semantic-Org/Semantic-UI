@@ -186,7 +186,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
 
-          nothing: function() {},
+          none: function() {},
 
           hide: function() {
             module.hide();
@@ -237,6 +237,7 @@ $.fn.dropdown = function(parameters) {
         set: {
           text: function(text) {
             module.debug('Changing text', text, $text);
+            $text.removeClass(className.placeholder);
             $text.text(text);
           },
           value: function(value) {
@@ -592,9 +593,10 @@ $.fn.dropdown.settings = {
   },
 
   className : {
-    active   : 'active',
-    disabled : 'disabled',
-    visible  : 'visible'
+    active      : 'active',
+    placeholder : 'default',
+    disabled    : 'disabled',
+    visible     : 'visible'
   }
 
 };

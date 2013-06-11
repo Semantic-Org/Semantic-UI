@@ -33,9 +33,9 @@
   -webkit-border-radius: 0.3125em;
   -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
-  -webkit-box-shadow: 0em -0.185em 0em rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0em -0.185em 0em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em -0.185em 0em rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -86,11 +86,6 @@
   -webkit-box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.1) inset;
-}
-.ui.buttons .button.active:hover,
-.ui.button.active:hover {
-  background-color: #E6E6E6;
-  color: #333333;
 }
 .ui.buttons .button.active,
 .ui.buttons .button.active a,

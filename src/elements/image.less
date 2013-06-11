@@ -1,39 +1,165 @@
-.ui.feature.image {
-  position: relative;
+/*
+ * # Semantic Image
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+
+
+/*******************************
+             Image
+*******************************/
+
+.ui.image {
   display: inline-block;
-  border: 1px solid #CCCCCC;
-  background: #F5F5F5 url(../images/placeholder-subtle.png) no-repeat center center;
+  vertical-align: middle;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
 }
-.ui.feature.image img {
+img.ui.image {
   display: block;
+  background: none;
 }
-.ui.feature.image:after {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  content: '';
-  -webkit-box-shadow: 
-    0px 0px 0px 3px rgba(255, 255, 255, 0.6) inset,
-    0px 1px 1px rgba(0, 0, 0, 0.3)
-  ;
-  -moz-box-shadow: 
-    0px 0px 0px 3px rgba(255, 255, 255, 0.6) inset,
-    0px 1px 1px rgba(0, 0, 0, 0.3)
-  ;
-  box-shadow: 
-    0px 0px 0px 3px rgba(255, 255, 255, 0.6) inset,
-    0px 1px 1px rgba(0, 0, 0, 0.3)
-  ;
-  z-index: 10;
+.ui.image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Rounded Corners */
-.ui.feature.image,
-.ui.feature.image img,
-.ui.feature.image:after {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+/*******************************
+            States
+*******************************/
+
+
+.ui.disabled.image {
+  cursor: default;
+  opacity: 0.3;
+}
+
+
+/*******************************
+          Variations
+*******************************/
+
+/*--------------
+     Rounded
+---------------*/
+
+.ui.rounded.images .image,
+.ui.rounded.images img,
+.ui.rounded.image {
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+}
+
+/*--------------
+     Circular
+---------------*/
+
+.ui.circular.images .image,
+.ui.circular.images img,
+.ui.circular.image {
+  margin-right: 0.5em;
+  -webkit-border-radius: 500em;
+  -moz-border-radius: 500em;
+  border-radius: 500em;
+}
+
+/*--------------
+     Avatar
+---------------*/
+
+
+.ui.avatar.images .image,
+.ui.avatar.images img,
+.ui.avatar.image {
+  margin-right: 0.5em;
+
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+}
+
+
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.image,
+.ui.floated.images {
+  float: left;
+  margin-right: 0.5em;
+}
+.ui.right.floated.images,
+.ui.right.floated.image {
+  float: right;
+  margin-left: 0.5em;
+}
+
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.tiny.images .image,
+.ui.tiny.images img,
+.ui.tiny.image {
+  width: 20px;
+  font-size: 0.7rem;
+}
+.ui.mini.images .image,
+.ui.mini.images img,
+.ui.mini.image {
+  width: 35px;
+  font-size: 0.8rem;
+}
+.ui.small.images .image,
+.ui.small.images img,
+.ui.small.image {
+  width: 80px;
+  font-size: 0.9rem;
+}
+.ui.medium.images .image,
+.ui.medium.images img,
+.ui.medium.image {
+  width: 300px;
+  font-size: 1rem;
+}
+.ui.large.images .image,
+.ui.large.images img,
+.ui.large.image {
+  width: 450px;
+  font-size: 1.1rem;
+}
+.ui.huge.images .image,
+.ui.huge.images img,
+.ui.huge.image {
+  width: 600px;
+  font-size: 1.2rem;
+}
+
+/*******************************
+              Groups
+*******************************/
+
+.ui.images {
+  font-size: 0em;
+  margin: 0em -0.25rem 0rem;
+}
+
+.ui.images .image,
+.ui.images img {
+  display: inline-block;
+  margin: 0em 0.25em 0.5em;
 }
