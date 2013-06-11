@@ -8,7 +8,7 @@ semantic.shape.ready = function() {
     $demo            = $('.demo'),
     $dogDemo         = $('.dog.shape'),
     $directionButton = $('.direction .button'),
-    $shapeButton     = $('.shape .button'),
+    $shapeButton     = $('.shape.buttons .button'),
     // alias
     handler
   ;
@@ -21,9 +21,6 @@ semantic.shape.ready = function() {
         animation = $(this).data('animation') || false
       ;
       if(direction && animation) {
-        $('.active.side')
-          .next()
-        ;
         $demo
           .shape(animation + '.' + direction)
         ;
@@ -62,7 +59,10 @@ semantic.shape.ready = function() {
 
   // attach events
   $demo
-    .shape()
+    .shape({
+      debug: true,
+      verbose: true
+    })
   ;
   $directionButton
     .on('click', handler.rotate)

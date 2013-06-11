@@ -46,8 +46,7 @@
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   vertical-align: middle;
-  line-height: 1em;
-  min-height: 1.25em;
+  line-height: 1;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -460,32 +459,26 @@
 .ui.menu .green.active.item,
 .ui.green.menu .active.item {
   border-color: #A1CF64;
-  color: #A1CF64;
 }
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
   border-color: #EF4D6D;
-  color: #EF4D6D;
 }
 .ui.menu .blue.active.item,
 .ui.blue.menu .active.item {
   border-color: #6ECFF5;
-  color: #6ECFF5;
 }
 .ui.menu .purple.active.item,
 .ui.purple.menu .active.item {
   border-color: #564F8A;
-  color: #564F8A;
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
   border-color: #F05940;
-  color: #F05940;
 }
 .ui.menu .teal.active.item,
 .ui.teal.menu .active.item {
   border-color: #00B5AD;
-  color: #00B5AD;
 }
 /*--------------
     Inverted
@@ -583,6 +576,17 @@
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
   background-color: #3B3B3B;
+}
+/*--------------
+     Floated
+---------------*/
+.ui.floated.menu {
+  float: left;
+  margin-right: 0.5rem;
+}
+.ui.right.floated.menu {
+  float: right;
+  margin-left: 0.5rem;
 }
 /*--------------
  Inverted Colors
@@ -807,12 +811,23 @@
   border-bottom: 0.2rem solid rgba(0, 0, 0, 0.1);
 }
 .ui.secondary.pointing.menu > .item {
+  margin: 0em 0em -0.2em;
   padding: 0.6em 0.95em;
-  margin: 0em;
   color: rgba(0, 0, 0, 0.5);
+  border-bottom: 0.2em solid rgba(0, 0, 0, 0);
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
+  -webkit-transition: color 0.2s
+  ;
+  -moz-transition: color 0.2s
+  ;
+  -o-transition: color 0.2s
+  ;
+  -ms-transition: color 0.2s
+  ;
+  transition: color 0.2s
+  ;
 }
 .ui.secondary.pointing.menu > .item:after {
   display: none;
@@ -827,12 +842,12 @@
 .ui.secondary.pointing.menu > .item:active,
 .ui.secondary.pointing.menu > .item.down {
   background-color: transparent;
-  box-shadow: 0px 0.2em 0px 0px rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 /* Active */
 .ui.secondary.pointing.menu > .item.active {
   background-color: transparent;
-  box-shadow: 0px 0.2em 0px 0px rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0.4);
   color: rgba(0, 0, 0, 0.85);
 }
 /*------- Vertical------- */
@@ -842,7 +857,7 @@
 }
 .ui.secondary.vertical.menu > .item {
   border: none;
-  margin: 0.2em 0em;
+  margin: 0em 0em -0.2rem;
   padding: 0.6em 0.8em;
   -webkit-border-radius: 0.325em;
   -moz-border-radius: 0.325em;
@@ -854,19 +869,30 @@
   border-radius: 0em;
 }
 .ui.secondary.vertical.pointing.menu > .item {
-  margin: 0em;
+  margin: 0em -0.2rem 0em 0em;
+  border-bottom: none;
+  border-right: 0.2rem solid transparent;
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
 }
+/* Hover */
+.ui.secondary.vertical.pointing.menu > .item.hover,
+.ui.secondary.vertical.pointing.menu > .item:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+}
 /* Down */
 .ui.secondary.vertical.pointing.menu > .item:active,
 .ui.secondary.vertical.pointing.menu > .item.down {
-  box-shadow: 0.2em 0em 0em 0em rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 /* Active */
 .ui.secondary.vertical.pointing.menu > .item.active {
-  box-shadow: 0.2em 0em 0em 0em rgba(0, 0, 0, 0.4);
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.85);
 }
 /*------- Inverted------- */
 .ui.secondary.inverted.pointing.menu {
@@ -883,18 +909,19 @@
 /* Down */
 .ui.secondary.inverted.pointing.menu > .item:active,
 .ui.secondary.inverted.pointing.menu > .item.down {
-  box-shadow: 0em 0.2em 0em 0em rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 /* Active */
 .ui.secondary.inverted.pointing.menu > .item.active {
-  box-shadow: 0em 0.2em 0em 0em rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.8);
   color: #ffffff;
 }
 /*--------------
-    Icon Only
+ Inverted Sec
 ---------------*/
 .ui.secondary.inverted.vertical.pointing.menu {
   border-right: 0.2rem solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
 }
 /* Down */
 .ui.secondary.inverted.vertical.pointing.menu .item:active,
@@ -1134,6 +1161,9 @@
 .ui.pointing.menu .active.item.hover:after,
 .ui.pointing.menu .active.item:hover:after {
   background-color: #FAFAFA;
+}
+.ui.vertical.pointing.menu .menu .active.item:after {
+  background-color: #F4F4F4;
 }
 .ui.pointing.menu .active.item.down:after,
 .ui.pointing.menu .active.item:active:after {

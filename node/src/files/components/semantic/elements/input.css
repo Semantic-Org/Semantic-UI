@@ -156,6 +156,7 @@
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
+  font-size: 0.6em;
   -webkit-border-top-right-radius: 0.3125em;
   -moz-border-top-right-radius: 0.3125em;
   border-top-right-radius: 0.3125em;

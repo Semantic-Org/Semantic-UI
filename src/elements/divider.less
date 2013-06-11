@@ -17,127 +17,151 @@
 
 .ui.divider {
   margin: 1em 0em;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-top: none;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  height: 0em;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.ui.divider .rule {
-  position: absolute;
-  top: 6px;
-
-  width: 45%;
-  height: 1px;
-
-  background-color: #ADADAD;
-  background-color: rgba(0, 0, 0, 0.1);
-
-  border-bottom: 1px solid #F8F8F8;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9)
-}
-.ui.divider .label {
-  display: block;
-  margin: 16px 0px 0px;
-  text-transform: none;
-  color: #333333;
-}
-
-/*******************************
-          Variations
-*******************************/
 
 
 .ui.vertical.divider,
 .ui.horizontal.divider {
+  position: absolute;
 
+  border: none;
+  height: 0em;
+  margin: 0em;
   background-color: transparent;
-  position: relative;
-  margin: 1em 0em 1em;
 
-  font-size: 0.8em;
+  font-size: 0.8rem;
+  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
-  color: #555555;
-  font-weight: bold;
-}
-.ui.divider .left.rule {
-  left: 0px;
-}
-.ui.divider .right.rule {
-  right: 0px;
-}
 
+  color: rgba(0, 0, 0, 0.8);
+}
 
 
 /*--------------
     Vertical 
 ---------------*/
 
-.vertical.ui.divider {
+.vertical.ui.divider {    
   position: absolute;
-  top: 0px;
-  left: 50%;
-  height: 100%;
-
-  margin: 0px 0px 0px -50px;
-  min-width: 100px;
-
-  color: #555555;
-  font-weight: bold;
-}
-
-.vertical.ui.divider .rule {
-  position: absolute;
+  z-index: 2;
+  top: 50%;
   left: 50%;
 
-  width: 1px;
-  height: 45%;
+  margin: 0% 0% 0% -3%;
 
-  background-color: #ADADAD;
-  background-color: rgba(0, 0, 0, 0.2);
-
-  border-right: 1px solid #F8F8F8;
-  border-right: 1px solid rgba(255, 255, 255, 0.9)
+  width: 6%;
+  height: 50%;
+  
+  line-height: 0;
+  padding: 0em;
 }
 
-.vertical.ui.divider .top.rule {
-  top: 0px;
+.vertical.ui.divider:before,
+.vertical.ui.divider:after {    
+  position: absolute;
+  left: 50%;
+  content: " ";
+  z-index: 3;
+  
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
+
+  width: 0%;
+  height: 80%;
 }
 
-.vertical.ui.divider .bottom.rule {
+.vertical.ui.divider:before {
+  top: -100%;
+}
+
+.vertical.ui.divider:after {
   top: auto;
   bottom: 0px;
 }
 
-.vertical.ui.divider .label {
+/*--------------
+    Horizontal 
+---------------*/
+
+.horizontal.ui.divider {    
   position: relative;
-  top: 50%;
-  margin-top: -7px;
+  top: 0%;
+  left: 0%;
 
-  display: block;
+  margin: 1rem 0rem;
   width: 100%;
+  height: 1em;
+  padding: 0em;
 
-  font-size: 16px;
-  line-height: 16px;
-  text-align: center;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
-  text-transform: none;
-  color: #333333;
+  line-height: 1;
+}
+
+.horizontal.ui.divider:before,
+.horizontal.ui.divider:after {    
+  position: absolute;
+  top: 50%;
+  content: " ";
+  z-index: 3;
+
+  width: 45%;
+  top: 50%;
+  height: 0%;
+  
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.horizontal.ui.divider:before {
+  left: 0%;
+}
+.horizontal.ui.divider:after {
+  left: auto;
+  right: 0%;
 }
 
 
 
+/*******************************
+            Variations
+*******************************/
 
-/* Inverted Color Divider (Black BG) */
+
+/*--------------
+    Inverted 
+---------------*/
+
 .ui.divider.inverted {
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 1);
 }
-.ui.divider.inverted .rule {
-  border-color: #4A4A4A;
-  border-color: rgba(255, 255, 255, 0.2);
+.ui.vertical.inverted.divider, 
+.ui.horizontal.inverted.divider {
+  color: rgba(255, 255, 255, 0.9);
+}
+.ui.divider.inverted,
+.ui.divider.inverted:after,
+.ui.divider.inverted:before {
+  border-top-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+
+  border-left-color: rgba(0, 0, 0, 0.15);
+  border-right-color: rgba(255, 255, 255, 0.15);
 }
 
 
