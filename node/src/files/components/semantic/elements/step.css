@@ -16,11 +16,14 @@
 .ui.steps .step {
   display: inline-block;
   position: relative;
-  height: 1em;
   padding: 1em 2em 1em 3em;
   vertical-align: top;
   background-color: #FFFFFF;
   color: #888888;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .ui.step:after,
 .ui.steps .step:after {
@@ -186,33 +189,29 @@
   border-radius: 0em 0em 0.3125em 0em;
 }
 /* Fluid  */
-.ui.steps.fluid,
-.ui.steps.fluid > .step {
+.ui.steps,
+.ui.steps > .step {
   width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
 }
-.ui.steps.two.fluid > .step {
+.ui.two.steps > .step {
   width: 50%;
 }
-.ui.steps.three.fluid > .step {
+.ui.three.steps > .step {
   width: 33.333%;
 }
-.ui.steps.four.fluid > .step {
+.ui.four.steps > .step {
   width: 25%;
 }
-.ui.steps.five.fluid > .step {
+.ui.five.steps > .step {
   width: 20%;
 }
-.ui.steps.six.fluid > .step {
+.ui.six.steps > .step {
   width: 16.666%;
 }
-.ui.steps.seven.fluid > .step {
+.ui.seven.steps > .step {
   width: 14.285%;
 }
-.ui.steps.eight.fluid > .step {
+.ui.eight.steps > .step {
   width: 12.500%;
 }
 /*******************************
