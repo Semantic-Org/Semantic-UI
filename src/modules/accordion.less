@@ -1,92 +1,102 @@
-.ui.accordion {
+/*
+ * # Semantic Accordion
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
 
+
+/*******************************
+            Button
+*******************************/
+
+.ui.accordion {
+  overflow: hidden;
+
+  font-size: 1rem;
+  border-radius: 0.3125em;
+
+  background-color: #FFFFFF;
+
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
 .ui.accordion .title {
 	cursor: pointer;
-	font-size: 16px;
-	font-weight: bold;
-	color: #3E2151;
-	margin-top: 8px;
-	padding: 8px 8px;
-	border: 1px solid transparent;
-	border-top: 1px solid #E0E0E0;
 
-	-webkit-box-shadow: 0px 1px 0px #FFFFFF inset;
-	-moz-box-shadow: 0px 1px 0px #FFFFFF inset;
-	box-shadow: 0px 1px 0px #FFFFFF inset;
+	padding: 0.75em 1em;
 
-	transition: color 0.2s ease-out;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.6);
+
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  -webkit-transition: 
+    background-color 0.2s ease-out
+  ;
+  -moz-transition: 
+    background-color 0.2s ease-out
+  ;
+  -o-transition: 
+    background-color 0.2s ease-out
+  ;
+  -ms-transition: 
+    background-color 0.2s ease-out
+  ;
+  transition: 
+    background-color 0.2s ease-out
+  ;
 }
 .ui.accordion .title:first-child {
-	margin-top: 0px;
-	border-top-color: transparent;
-	
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
+	border-top: none;
 }
+
+
+/* Content */
+.ui.accordion .content {
+  display: none;
+  padding: 1.3em 1em;
+/*
+  border-left: 0.2em solid rgba(0, 0, 0, 0.1);
+  border-right: 0.2em solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.2em solid rgba(0, 0, 0, 0.1);*/
+}
+
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------
+      Hover
+---------------*/
+
 .ui.accordion .title:hover,
 .ui.accordion .title.active {
-	color: #335687;
+	color: rgba(0, 0, 0, 0.8);
 }
+
+
+/*--------------
+      Active
+---------------*/
 .ui.accordion .title.active {
-	background-color: #E0E0E0;
-	border: 1px solid #BBBBBB;
-	-webkit-box-shadow: 0px 1px 0px #FFFFFF inset;
-	-moz-box-shadow: 0px 1px 0px #FFFFFF inset;
-	box-shadow: 0px 1px 0px #FFFFFF inset;
-	color: #335687;
-}
-
-.ui.accordion .icon {
-  margin: 0px 4px 4px 2px;
-  display: inline-block;
-  text-indent: -9999px;
-
-  vertical-align: middle;
-
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 6px solid #3E2151;
-  border-right: 4px solid transparent;
-}
-.ui.accordion .title:hover .icon {
-  border-left-color: #335687;
-}
-.ui.accordion .title.active .icon {
-  border-left: 4px solid transparent;
-  border-top: 6px solid #335687;
-  margin-left: 0px;
-  margin-bottom: 0px;
-}
-
-.ui.accordion .content {
-	display: none;
-	padding: 10px 20px;
-	margin: 0px;
-	font-size: 12px;
-	line-height: 2;
-}
-.ui.accordion .content p {
-	margin: 12px 0px;
-	font-size: 12px;
+	background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.accordion .content.active {
-	display: block;
-	background-color: #EEEEEE;
-
-	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25) inset;
-	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25) inset;
-	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25) inset;
+  display: block;
 }
 
 
-/* Connected Accordion */
-.ui.accordion.connected {
-	background-color: #FAFAFA;
-	border: 1px solid #DDDDDD;
-}
-.ui.accordion.connected .title {
-	margin-top: 0px;
-}
+/*******************************
+            Variations
+*******************************/

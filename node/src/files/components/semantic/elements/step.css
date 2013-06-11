@@ -189,8 +189,7 @@
   border-radius: 0em 0em 0.3125em 0em;
 }
 /* Fluid  */
-.ui.steps,
-.ui.steps > .step {
+.ui.one.steps > .step {
   width: 100%;
 }
 .ui.two.steps > .step {

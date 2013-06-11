@@ -8,189 +8,344 @@
 
 ;(function ($, window, document, undefined) {
 
-  $.fn.accordion = function(parameters) {
-    var
-      settings = $.extend(true, {}, $.fn.accordion.settings, parameters),
-      // hoist arguments
-      moduleArguments = arguments || false
-    ;
-    $(this)
-      .each(function() {
+$.fn.accordion = function(parameters) {
+  var
+    $allModules     = $(this),
+    
+    settings        = ( $.isPlainObject(parameters) )
+      ? $.extend(true, {}, $.fn.accordion.settings, parameters)
+      : $.fn.accordion.settings,
 
-        var
-          $module   = $(this),
-          $title    = $module.find(settings.selector.title),
-          $icon     = $module.find(settings.selector.icon),
-          $content  = $module.find(settings.selector.content),
-          
-          instance  = $module.data('module'),
-          className = settings.className,
-          module
-        ;
+    eventNamespace  = '.' + settings.namespace,
+    moduleNamespace = 'module-' + settings.namespace,
+    moduleSelector  = $allModules.selector || '',
 
-        module = {
+    time            = new Date().getTime(),
+    performance     = [],
 
-          initialize: function() {
-            // initializing
-            $title
-              .on('click', module.change)
-            ;
-            $module
-              .data('module', module)
-            ;
-          },
-            
-          change: function() {
+    query           = arguments[0],
+    methodInvoked   = (typeof query == 'string'),
+    queryArguments  = [].slice.call(arguments, 1),
+    invokedResponse,
+    allModules
+  ;
+  $allModules
+    .each(function() {
+      var
+        $module   = $(this),
+        $title    = $module.find(settings.selector.title),
+        $icon     = $module.find(settings.selector.icon),
+        $content  = $module.find(settings.selector.content),
+
+        selector      = $module.selector || '',
+        element       = this,
+        instance      = $module.data('module-' + settings.namespace),
+        
+        className     = settings.className,
+        metadata      = settings.metadata,
+        namespace     = settings.namespace,
+        animation     = settings.animation,
+        
+        errors        = settings.errors,
+        module
+      ;
+
+      module = {
+
+        initialize: function() {
+          module.debug('Initializing accordion with bound events', $module);
+          // initializing
+          $title
+            .on('click', module.event.click)
+          ;
+          $module
+            .data('module', module)
+          ;
+        },
+
+        destroy: function() {
+          module.debug('Destroying previous accordion for', $module);
+          $module
+            .off(namespace)
+          ;
+        },
+
+        event: {
+
+          click: function() {
             var
-              $activeTitle   = $(this),
-              $activeContent = $activeTitle.next($content),
-              contentIsOpen  = $activeTitle.hasClass(className.active)
+              $activeTitle  = $(this),
+              activeIndex   = $title.index($activeTitle),
+              contentIsOpen = $activeTitle.next($content).hasClass(className.active)
             ;
+            module.verbose('Accordion title clicked', $activeTitle);
             if(contentIsOpen) {
               if(settings.collapsible) {
-                $.proxy(module.close, $activeTitle)();
+                module.close(activeIndex);
+              }
+              else {
+                module.debug('Cannot close accordion content collapsing is disabled');
               }
             }
             else {
-              $.proxy(module.open, $activeTitle)();
+              module.open(activeIndex);
             }
-          },
+          }
 
-          open: function() {
-            var
-              $activeTitle    = $(this),
-              $activeContent  = $activeTitle.next($content),
-              $currentTitle   = $title.filter('.' + className.active),
-              $currentContent = $currentTitle.next($title)
+        },
+
+        open: function(index) {
+          var
+            $activeTitle     = $title.eq(index),
+            $activeContent   = $activeTitle.next($content),
+            $previousTitle   = $title.filter('.' + className.active),
+            $previousContent = $previousTitle.next($title),
+            contentIsOpen    =  ($previousTitle.size() > 0)
+          ;
+          module.debug('Opening accordion content', $activeTitle);
+          if(settings.exclusive && contentIsOpen) {
+            $previousTitle
+              .removeClass(className.active)
             ;
-            if(settings.exclusive && $currentTitle.size() > 0) {
-
-              $currentTitle
-                .removeClass('active')
-              ;
-              $currentContent
-                .stop()
-                .slideUp(settings.speed , settings.easing, function() {
-                  $(this)
-                    .removeClass('active')
+            $previousContent
+              .stop()
+              .children()
+                .animate({
+                  opacity: 0
+                }, settings.speed)
+                .end()
+              .slideUp(settings.speed , settings.easing, function() {
+                $previousContent
+                  .removeClass(className.active)
+                  .removeAttr('style')
+                  .children()
                     .removeAttr('style')
-                  ;
-                })
+                ;
+              })
+            ;
+          }
+          $activeTitle
+            .addClass(className.active)
+          ;
+          $activeContent
+            .stop()
+            .slideDown(settings.speed, settings.easing, function() {
+              $activeContent
+                .addClass(className.active)
+                .removeAttr('style')
               ;
-            }
-            $activeTitle
-              .addClass(className.active)
-            ;
-            $activeContent
-              .hide()
-              .addClass(className.active)
-              .stop()
-              .slideDown(settings.speed, settings.easing, function() {
-                $(this)
-                  .removeAttr('style')
-                ;
-              })
-            ;
-          },
+              $.proxy(settings.onOpen, $activeContent)();
+              $.proxy(settings.onChange, $activeContent)();
+            })
+          ;
+        },
 
-          close: function() {
-            var
-              $activeTitle   = $(this),
-              $activeContent = $activeTitle.next($content)
-            ;
-            $activeTitle
-              .removeClass(className.active)
-            ;
-            $activeContent
-              .removeClass(className.active)
-              .show()
-              .stop()
-              .slideUp(settings.speed, settings.easing, function(){
-                $(this)
-                  .removeAttr('style')
-                ;
-              })
-            ;
-          },
+        close: function(index) {
+          var
+            $activeTitle   = $title.eq(index),
+            $activeContent = $activeTitle.next($content)
+          ;
+          module.debug('Closing accordion content', $activeTitle);
+          $activeTitle
+            .removeClass(className.active)
+          ;
+          $activeContent
+            .removeClass(className.active)
+            .show()
+            .stop()
+            .slideUp(settings.speed, settings.easing, function(){
+              $activeContent
+                .removeAttr('style')
+              ;
+              $.proxy(settings.onClose, $activeContent)();
+              $.proxy(settings.onChange, $activeContent)();
+            })
+          ;
+        },
 
-          debug: function(message) {
-            if(settings.debug) {
-              console.info(settings.moduleName + ': ' + message);
+        setting: function(name, value) {
+          module.debug('Changing setting', name, value);
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, settings, name);
             }
-          },
-          error: function(errorMessage) {
-            console.warn(settings.moduleName + ': ' + errorMessage);
-          },
-          invoke: function(methodName, context, methodArguments) {
+            else {
+              settings[name] = value;
+            }
+          }
+          else {
+            return settings[name];
+          }
+        },
+        internal: function(name, value) {
+          module.debug('Changing internal', name, value);
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, module, name);
+            }
+            else {
+              module[name] = value;
+            }
+          }
+          else {
+            return module[name];
+          }
+        },
+        debug: function() {
+          if(settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
+          }
+        },
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
+          }
+        },
+        error: function() {
+          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+        },
+        performance: {
+          log: function(message) {
             var
-              method
+              currentTime,
+              executionTime,
+              previousTime
             ;
-            methodArguments = methodArguments || Array.prototype.slice.call( arguments, 2 );
-            if(typeof methodName == 'string' && instance !== undefined) {
-              methodName = methodName.split('.');
-              $.each(methodName, function(index, name) {
-                if( $.isPlainObject( instance[name] ) ) {
-                  instance = instance[name];
-                  return true;
-                }
-                else if( $.isFunction( instance[name] ) ) {
-                  method = instance[name];
-                  return true;
-                }
-                module.error(settings.errors.method);
-                return false;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime,
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Element'        : element,
+                'Name'           : message[0],
+                'Arguments'      : message[1] || '',
+                'Execution Time' : executionTime
               });
             }
-            if ( $.isFunction( method ) ) {
-              return method.apply(context, methodArguments);
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
+          },
+          display: function() {
+            var
+              title = settings.moduleName + ':',
+              totalTime = 0
+            ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
             }
-            // return retrieved variable or chain
-            return method;
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
           }
-
-        };
-
-        // calling a method
-        if(instance !== undefined && moduleArguments) {
-          // simpler than invoke realizing to invoke itself (and losing scope due prototype.call()
-          if(moduleArguments[0] == 'invoke') {
-            moduleArguments = Array.prototype.slice.call( moduleArguments, 1 );
+        },
+        invoke: function(query, passedArguments, context) {
+          var
+            maxDepth,
+            found
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && instance !== undefined) {
+            query    = query.split('.');
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+                return true;
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
+                return true;
+              }
+              module.error(errors.method);
+              return false;
+            });
           }
-          return module.invoke(moduleArguments[0], this, Array.prototype.slice.call( moduleArguments, 1 ) );
+          if ( $.isFunction( found ) ) {
+            instance.verbose('Executing invoked function', found);
+            return found.apply(context, passedArguments);
+          }
+          return found || false;
         }
-        // initializing
+      };
+      if(methodInvoked) {
+        if(instance === undefined) {
+          module.initialize();
+        }
+        invokedResponse = module.invoke(query);
+      }
+      else {
+        if(instance !== undefined) {
+          module.destroy();
+        }
         module.initialize();
+      }
+    })
+  ;
+  return (invokedResponse)
+    ? invokedResponse
+    : this
+  ;
+};
 
-      })
-    ;
-    return this;
-  };
+$.fn.accordion.settings = {
+  moduleName  : 'Accordion',
 
-  $.fn.accordion.settings = {
-    moduleName  : 'Accordion',
-    debug       : false,
-    
-    exclusive   : true,
-    collapsible : true,
+  debug       : true,
+  verbose     : true,
+  performance : false,
+  
+  exclusive   : true,
+  collapsible : true,
+  
+  onOpen      : function(){},
+  onClose     : function(){},
+  onChange    : function(){},
 
-    errors: {
-      method    : 'The method you called is not defined'
-    },
+  errors: {
+    method    : 'The method you called is not defined'
+  },
 
-    className   : {
-      active    : 'active',
-      hover     : 'hover'
-    },
+  className   : {
+    active    : 'active',
+    hover     : 'hover'
+  },
 
-    selector    : {
-      title     : '.title',
-      icon      : '.icon',
-      content   : '.content'
-    },
+  selector    : {
+    title     : '.title',
+    icon      : '.icon',
+    content   : '.content'
+  },
 
-    speed       : 500,
-    easing      : 'easeInOutQuint'
+  speed       : 500,
+  easing      : 'easeInOutQuint'
 
-  };
+};
 
 })( jQuery, window , document );

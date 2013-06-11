@@ -448,6 +448,7 @@ semantic.ready = function() {
       offset: 'bottom-in-view'
      })
   ;
+
   $peek
     .waypoint('sticky', {
       offset     : 85,
