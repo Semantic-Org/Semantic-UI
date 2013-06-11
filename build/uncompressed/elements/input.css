@@ -109,6 +109,7 @@
 ---------------------*/
 .ui.icon.input > .icon {
   position: absolute;
+  opacity: 1;
   top: 1px;
   left: 1px;
   margin: 0em;
@@ -156,7 +157,7 @@
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
-  font-size: 0.6em;
+  font-size: 0.7em;
   -webkit-border-top-right-radius: 0.3125em;
   -moz-border-top-right-radius: 0.3125em;
   border-top-right-radius: 0.3125em;
@@ -171,7 +172,7 @@
   position: absolute;
   top: 0em;
   left: 100%;
-  opacity: 0.8;
+  opacity: 0.9;
   margin: 0em 0em 0em -1px;
   line-height: 1.26;
   padding: 0.9em 1.3em !important;
