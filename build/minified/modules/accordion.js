@@ -129,6 +129,9 @@ $.fn.accordion = function(parameters) {
           ;
           $activeContent
             .stop()
+            .children()
+              .removeAttr('style')
+              .end()
             .slideDown(settings.speed, settings.easing, function() {
               $activeContent
                 .addClass(className.active)
