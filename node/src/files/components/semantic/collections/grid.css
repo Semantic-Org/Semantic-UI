@@ -269,6 +269,7 @@
   width: 100%;
 }
 /* Increase Gutters */
+/*
 .ui.two.column.grid,
 .ui.three.column.grid,
 .ui.four.column.grid {
@@ -284,6 +285,7 @@
   padding-left: 3%;
   padding-right: 3%;
 }
+
 .ui.five.column.grid,
 .ui.six.column.grid,
 .ui.seven.column.grid,
@@ -302,6 +304,7 @@
   padding-left: 2%;
   padding-right: 2%;
 }
+*/
 /*----------------------
        "Floated"
 -----------------------*/
