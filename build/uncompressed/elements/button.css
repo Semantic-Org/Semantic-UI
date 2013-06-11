@@ -754,42 +754,38 @@
 .ui.button.fluid,
 .ui.fluid.buttons > .button {
   width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
 }
-.ui.two.fluid.buttons > .button {
+.ui.two.buttons > .button {
   width: 50%;
 }
-.ui.three.fluid.buttons > .button {
+.ui.three.buttons > .button {
   width: 33.333%;
 }
-.ui.four.fluid.buttons > .button {
+.ui.four.buttons > .button {
   width: 25%;
 }
-.ui.five.fluid.buttons > .button {
+.ui.five.buttons > .button {
   width: 20%;
 }
-.ui.six.fluid.buttons > .button {
+.ui.six.buttons > .button {
   width: 16.666%;
 }
-.ui.seven.fluid.buttons > .button {
+.ui.seven.buttons > .button {
   width: 14.285%;
 }
-.ui.eight.fluid.buttons > .button {
+.ui.eight.buttons > .button {
   width: 12.500%;
 }
-.ui.nine.fluid.buttons > .button {
+.ui.nine.buttons > .button {
   width: 11.11%;
 }
-.ui.ten.fluid.buttons > .button {
+.ui.ten.buttons > .button {
   width: 10%;
 }
-.ui.eleven.fluid.buttons > .button {
+.ui.eleven.buttons > .button {
   width: 9.09%;
 }
-.ui.twelve.fluid.buttons > .button {
+.ui.twelve.buttons > .button {
   width: 8.3333%;
 }
 /* Fluid Vertical Buttons */
@@ -801,37 +797,37 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-.ui.two.fluid.buttons > .button {
+.ui.two.vertical.buttons > .button {
   height: 50%;
 }
-.ui.three.fluid.buttons > .button {
+.ui.three.vertical.buttons > .button {
   height: 33.333%;
 }
-.ui.four.fluid.buttons > .button {
+.ui.four.vertical.buttons > .button {
   height: 25%;
 }
-.ui.five.fluid.buttons > .button {
+.ui.five.vertical.buttons > .button {
   height: 20%;
 }
-.ui.six.fluid.buttons > .button {
+.ui.six.vertical.buttons > .button {
   height: 16.666%;
 }
-.ui.seven.fluid.buttons > .button {
+.ui.seven.vertical.buttons > .button {
   height: 14.285%;
 }
-.ui.eight.fluid.buttons > .button {
+.ui.eight.vertical.buttons > .button {
   height: 12.500%;
 }
-.ui.nine.fluid.buttons > .button {
+.ui.nine.vertical.buttons > .button {
   height: 11.11%;
 }
-.ui.ten.fluid.buttons > .button {
+.ui.ten.vertical.buttons > .button {
   height: 10%;
 }
-.ui.eleven.fluid.buttons > .button {
+.ui.eleven.vertical.buttons > .button {
   height: 9.09%;
 }
-.ui.twelve.fluid.buttons > .button {
+.ui.twelve.vertical.buttons > .button {
   height: 8.3333%;
 }
 /*******************************

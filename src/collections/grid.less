@@ -68,8 +68,8 @@
 }
 
 .ui.grid > .row {
-  margin-top: 2%;
-  padding-top: 2%;
+  margin-top: 1rem;
+  padding-top: 1rem;
 }
 .ui.grid > .row:first-child {
   padding-top: 0rem;
@@ -121,7 +121,8 @@
 --------------------*/
 
 .ui.responsive.grid {
-  margin: 0%;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
   min-width: 320px;
 }
 
@@ -229,72 +230,95 @@
 .ui.grid > .row > .column {
   width: 6.25%;
 }
+
+/* Assume full width with one column */
+.ui.one.column.grid > .row > .column,
+.ui.one.column.grid > .column,
+.ui.grid > .one.column.row > .column {
+  width: 100%;
+}
+.ui.two.column.grid > .row > .column,
+.ui.two.column.grid > .column,
+.ui.grid > .two.column.row > .column {
+  width: 50%;
+}
+.ui.three.column.grid > .row > .column, 
+.ui.three.column.grid > .column,
+.ui.grid > .three.column.row > .column {
+  width: 33.3333%;
+}
+.ui.four.column.grid > .row > .column, 
+.ui.four.column.grid > .column,
+.ui.grid > .four.column.row > .column {
+  width: 25%;
+}
+.ui.five.column.grid > .row > .column, 
+.ui.five.column.grid > .column,
+.ui.grid > .five.column.row > .column {
+  width: 20%;
+}
+.ui.six.column.grid > .row > .column,
+.ui.six.column.grid > .column,
+.ui.grid > .six.column.row > .column {
+  width: 16.66667%;
+}
+.ui.seven.column.grid > .row > .column, 
+.ui.seven.column.grid > .column,
+.ui.grid > .seven.column.row > .column {
+  width: 14.2857%;
+}
+.ui.eight.column.grid > .row > .column, 
+.ui.eight.column.grid > .column,
+.ui.grid > .eight.column.row > .column {
+  width: 12.5%;
+}
+.ui.nine.column.grid > .row > .column, 
+.ui.nine.column.grid > .column,
+.ui.grid > .nine.column.row > .column {
+  width: 11.1111%;
+}
+.ui.ten.column.grid > .row > .column,
+.ui.ten.column.grid > .column,
+.ui.grid > .ten.column.row > .column {
+  width: 10%;
+}
+.ui.eleven.column.grid > .row > .column, 
+.ui.eleven.column.grid > .column,
+.ui.grid > .eleven.column.row > .column {
+  width: 9.0909%;
+}
+.ui.twelve.column.grid > .row > .column, 
+.ui.twelve.column.grid > .column,
+.ui.grid > .twelve.column.row > .column {
+  width: 8.3333%;
+}
+.ui.thirteen.column.grid > .row > .column, 
+.ui.thirteen.column.grid > .column,
+.ui.grid > .thirteen.column.row > .column {
+  width: 7.6923%;
+}
+.ui.fourteen.column.grid > .row > .column, 
+.ui.fourteen.column.grid > .column,
+.ui.grid > .fourteen.column.row > .column {
+  width: 7.1428%;
+}
+.ui.fifteen.column.grid > .row > .column, 
+.ui.fifteen.column.grid > .column,
+.ui.grid > .fifteen.column.row > .column {
+  width: 6.6666%;
+}
+.ui.sixteen.column.grid > .row > .column, 
+.ui.sixteen.column.grid > .column,
+.ui.grid > .sixteen.column.row > .column {
+  width: 6.25%;
+}
+
 /* Assume full width with one column */
 .ui.grid > .column:only-child,
 .ui.grid > .row > .column:only-child {
   width: 100%;
 }
 
-.ui.two.column.grid > .row > .column,
-.ui.two.column.grid > .column {
-  width: 50%;
-}
-.ui.three.column.grid > .row > .column,
-.ui.three.column.grid > .column {
-  width: 33.3333%;
-}
-.ui.four.column.grid > .row > .column,
-.ui.four.column.grid > .column {
-  width: 25%;
-}
-.ui.five.column.grid > .row > .column,
-.ui.five.column.grid > .column {
-  width: 20%;
-}
-.ui.six.column.grid > .row > .column,
-.ui.six.column.grid > .column {
-  width: 16.66667%;
-}
-.ui.seven.column.grid > .row > .column,
-.ui.seven.column.grid > .column {
-  width: 14.2857%;
-}
-.ui.eight.column.grid > .row > .column,
-.ui.eight.column.grid > .column {
-  width: 12.5%;
-}
-.ui.nine.column.grid > .row > .column,
-.ui.nine.column.grid > .column {
-  width: 11.1111%;
-}
-.ui.ten.column.grid > .row > .column,
-.ui.ten.column.grid > .column {
-  width: 10%;
-}
-.ui.eleven.column.grid > .row > .column,
-.ui.eleven.column.grid > .column {
-  width: 9.0909%;
-}
-.ui.twelve.column.grid > .row > .column,
-.ui.twelve.column.grid > .column {
-  width: 8.3333%;
-}
-.ui.thirteen.column.grid > .row > .column,
-.ui.thirteen.column.grid > .column {
-  width: 7.6923%;
-}
-.ui.fourteen.column.grid > .row > .column,
-.ui.fourteen.column.grid > .column {
-  width: 7.1428%;
-}
-.ui.fifteen.column.grid > .row > .column,
-.ui.fifteen.column.grid > .column {
-  width: 6.6666%;
-}
-.ui.sixteen.column.grid > .row > .column,
-.ui.sixteen.column.grid > .column {
-  width: 6.25%;
-}
 
 /* Increase Gutters */
 .ui.two.column.grid,
@@ -493,7 +517,8 @@
     display: block !important;
     padding: 0em;
   }
-  .ui.stackable.grid .column {
+  .ui.stackable.grid .row > .column,
+  .ui.stackable.grid > .column {
     display: block !important;
     width: auto !important;
     

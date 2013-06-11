@@ -47,9 +47,11 @@
         if(settings.history) {
           if( $.address === undefined ) {
             module.error(errors.state);
+            return false;
           }
           else if(settings.path === false) {
             module.error(errors.path);
+            return false;
           }
           else {
             module.verbose('Address library found adding state change event');

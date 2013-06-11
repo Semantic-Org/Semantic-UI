@@ -768,3 +768,10 @@ i.massive.icon {
   margin-right: 1em;
   vertical-align: middle;
 }
+/*--------------
+  Sketchy Sizing
+---------------*/
+i.sketchy.circular.icon,
+i.sketchy.square.icon {
+  padding: 0.35em !important;
+}

@@ -38,7 +38,7 @@
   cursor: auto;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: left;
-  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
   padding: 0.5em 0.7em;
   vertical-align: middle;
 }
@@ -77,11 +77,6 @@
 /*--------------
       Hover
 ---------------*/
-/* Celled */
-.ui.celled.table tr:hover td {
-  background-color: rgba(0, 0, 0, 0.02);
-  color: #000000;
-}
 /* Sortable */
 .ui.sortable.table thead th:hover {
   background-image: none;
@@ -286,6 +281,7 @@
 ---------------*/
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
