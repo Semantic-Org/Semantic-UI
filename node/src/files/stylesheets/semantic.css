@@ -219,6 +219,9 @@ table code {
 p {
   margin: 1em 0em;
 }
+p:first-child {
+  margin-top: 0em;
+}
 p:last-child {
   margin-bottom: 0em;
 }
@@ -979,11 +982,6 @@ a:hover {
   display: none;
 }
 
-
-#example.index .grid .column {
-  padding-left: 3%;
-  padding-right: 3%;
-}
 
 @media only screen and (max-width : 1725px) {
   #example .container {

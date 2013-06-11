@@ -54,6 +54,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/tab.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/checkbox.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dimmer.css">
 
@@ -63,6 +64,7 @@
   <%- @getBlock('scripts').toHTML() %>
 
   <script src="/javascript/library/jquery.js"></script>
+  <script src="/javascript/library/history.js"></script>
   <script src="/javascript/library/easing.js"></script>
   <script src="/javascript/library/ace/ace.js"></script>
   <script src="/javascript/library/sidr.js"></script>
@@ -71,6 +73,7 @@
   <script src="/components/semantic/modules/behavior/state.js"></script>
   <script src="/components/semantic/modules/checkbox.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
+  <script src="/components/semantic/modules/tab.js"></script>
 
   <script src="/javascript/semantic.js"></script>
 

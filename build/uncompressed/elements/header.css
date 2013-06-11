@@ -22,6 +22,13 @@
   font-weight: bold;
   line-height: 1.33;
 }
+.ui.header:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 .ui.header .ui.sub.header,
 .ui.header .sub.header {
   font-size: 1rem;
@@ -41,6 +48,9 @@
 /* Positioning */
 .ui.header:first-child {
   margin-top: 0em;
+}
+.ui.header:last-child {
+  margin-bottom: 0em;
 }
 .ui.header + p {
   margin-top: 0em;
@@ -118,25 +128,6 @@ h5.ui.header {
 .ui.teal.header {
   color: #00B5AD !important;
 }
-/*
-.ui.blue.block.header {
-  background-color: #E6EEF1;
-}
-.ui.black.block.header {
-  background-color: #EAEAEA;
-}
-.ui.green.block.header {
-  background-color: #EFF8E4;
-}
-.ui.red.block.header {
-  background-color: #F6E5E8;
-}
-.ui.purple.block.header {
-  background-color: #EFEDF8;
-}
-.ui.teal.block.header {
-  background-color: #E9F7F6;
-}*/
 .ui.blue.dividing.header {
   border-bottom: 3px solid #6ECFF5;
 }
@@ -272,6 +263,7 @@ h5.ui.header {
   text-align: center;
 }
 .ui.icon.header .icon {
+  float: none;
   display: block;
   font-size: 4em;
   margin: 0em auto 0.2em;
