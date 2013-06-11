@@ -54,6 +54,7 @@
           }
           else {
             module.error(errors.state);
+            return false;
           }
         }
         // attach events if navigation wasn't set to window

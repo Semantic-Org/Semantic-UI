@@ -26,6 +26,14 @@
   font-weight: bold;
   line-height: 1.33;
 }
+.ui.header:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
 
 .ui.header .ui.sub.header,
 .ui.header .sub.header {
@@ -37,7 +45,6 @@
   line-height: 1.2;
   color: rgba(0, 0, 0, 0.5);
 }
-
 .ui.header .icon {
   margin-right: 0.5em;
 }
@@ -45,6 +52,9 @@
 /* Positioning */
 .ui.header:first-child {
   margin-top: 0em;
+}
+.ui.header:last-child {
+  margin-bottom: 0em;
 }
 .ui.header + p {
   margin-top: 0em;
@@ -135,6 +145,7 @@ h5.ui.header {
   color: #00B5AD !important;
 }
 
+/*
 .ui.blue.block.header {
   background-color: #E6EEF1;
 }
@@ -153,7 +164,7 @@ h5.ui.header {
 .ui.teal.block.header {
   background-color: #E9F7F6;
 }
-
+*/
 .ui.blue.dividing.header {
   border-bottom: 3px solid #6ECFF5;
 }
@@ -313,6 +324,7 @@ h5.ui.header {
   text-align: center;
 }
 .ui.icon.header .icon {
+  float: none;
   display: block;
   font-size: 4em;
   margin: 0em auto 0.2em;
