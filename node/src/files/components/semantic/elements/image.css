@@ -68,9 +68,9 @@ img.ui.image {
   display: inline-block;
   width: 2em;
   height: 2em;
-  -webkit-border-radius: 0.3125em;
-  -moz-border-radius: 0.3125em;
-  border-radius: 0.3125em;
+  -webkit-border-radius: 500em;
+  -moz-border-radius: 500em;
+  border-radius: 500em;
 }
 /*-------------------
        Floated

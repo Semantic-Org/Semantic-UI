@@ -25,7 +25,6 @@
   position: relative;
   margin-top: 0.75em;
   padding-top: 0.75em;
-  width: 100%;
 }
 .ui.comments .comment:first-child {
   margin-top: 0em;
