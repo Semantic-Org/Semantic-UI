@@ -195,15 +195,15 @@
      Colors
 ---------------*/
 /* Black  */
-.ui.black.popup {
+.ui.inverted.popup {
   background-color: #333333;
   border: none;
   color: #FFFFFF;
 }
-.ui.black.popup .header {
+.ui.inverted.popup .header {
   background-color: rgba(0, 0, 0, 0.2);
   color: #FFFFFF;
 }
-.ui.black.popup:before {
+.ui.inverted.popup:before {
   background-color: #333333;
 }
