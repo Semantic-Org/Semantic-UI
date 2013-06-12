@@ -37,10 +37,11 @@ type   : 'UI Specification'
       // All elements must specify whether it is an element, collection, module, or behavior
       "Type": "Element",
 
-      // definition of the html structure of each type of an element
+      // Types are exclusive forms of your element. For example a button cannot be an icon button and a text button. The definitions of the html structure of each element is written using emmet syntax. These are used to generate html structures for your elements. For more information visit: http://docs.emmet.io/abbreviations/syntax/
       "Types": {
-        "Standard" : ".ui.button"
-      },
+        "Standard"     : ".ui.button",
+        "Icon"         : ".ui.icon.button > i.icon",
+      }
 
       // States are ways which elements show an innate change in its quality. 
       "States": {
@@ -62,11 +63,6 @@ type   : 'UI Specification'
           "huge",
           "massive"
         ],
-        // Types are exclusive forms of your element. For example a button cannot be an icon button and a text button. The definitions of the html structure of each element is written using emmet syntax. These are used to generate html structures for your elements. For more information visit: http://docs.emmet.io/abbreviations/syntax/
-        "Types": {
-          "Standard"     : ".ui.button",
-          "Icon"         : ".ui.icon.button > i.icon",
-        }
         "Color": [
           "black",
           "green",

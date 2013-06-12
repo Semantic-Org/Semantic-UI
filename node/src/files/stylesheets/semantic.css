@@ -935,7 +935,7 @@ a:hover {
 }
 
 
-.ui.progress .bar {
+body.progress .ui.progress .bar {
   -webkit-animation: finish 10s ease-in-out infinite;
   -moz-animation: finish 10s ease-in-out infinite;
 }
