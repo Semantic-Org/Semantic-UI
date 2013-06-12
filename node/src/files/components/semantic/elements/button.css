@@ -451,8 +451,8 @@
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   opacity: 1;
-  height: 0.9em;
   margin: 0em;
+  vertical-align: top;
 }
 /*-------------------
       Ordinality

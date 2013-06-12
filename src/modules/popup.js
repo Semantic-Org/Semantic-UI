@@ -135,10 +135,12 @@ $.fn.popup = function(parameters) {
         create: function() {
           module.debug('Creating pop-up content');
           var
-            html    = $module.data(metadata.html)    || settings.html,
-            title   = $module.data(metadata.title)   || settings.title,
-            content = $module.data(metadata.content) || $module.attr('title') || settings.content
+            html      = $module.data(metadata.html)      || settings.html,
+            variation = $module.data(metadata.variation) || settings.variation,
+            title     = $module.data(metadata.title)     || settings.title,
+            content   = $module.data(metadata.content)   || $module.attr('title') || settings.content
           ;
+          console.log(variation);
           if(html || content || title) {
             if(!html) {
               html = settings.template({
@@ -148,6 +150,7 @@ $.fn.popup = function(parameters) {
             }
             $popup = $('<div/>')
               .addClass(className.popup)
+              .addClass(variation)
               .html(html)
             ;
             if(settings.inline) {
@@ -160,6 +163,7 @@ $.fn.popup = function(parameters) {
                 .appendTo( $('body') )
               ;
             }
+            $.proxy(settings.onInit, $popup)();
           }
           else {
             module.error(error.content);
@@ -182,7 +186,7 @@ $.fn.popup = function(parameters) {
                 right  : $(window).width()
               },
               popup     = {
-                width    : $popup.outerWidth(),
+                width    : $popup.width(),
                 height   : $popup.outerHeight(),
                 position : $popup.offset()
               },
@@ -264,7 +268,7 @@ $.fn.popup = function(parameters) {
             windowHeight = $(window).height(),
             width        = $module.outerWidth(),
             height       = $module.outerHeight(),
-            popupWidth   = $popup.outerWidth(),
+            popupWidth   = $popup.width(),
             popupHeight  = $popup.outerHeight(),
 
             offset       = (settings.inline)
@@ -614,14 +618,16 @@ $.fn.popup = function(parameters) {
 $.fn.popup.settings = {
 
   moduleName     : 'Popup',
-  debug          : true,
-  verbose        : true,
-  performance    : true,
+  debug          : false,
+  verbose        : false,
+  performance    : false,
   namespace      : 'popup',
 
+  onInit         : function(){},
   onShow         : function(){},
   onHide         : function(){},
 
+  variation      : '',
   content        : false,
   html           : false,
   title          : false,
@@ -637,9 +643,9 @@ $.fn.popup.settings = {
   easing         : 'easeOutQuint',
   animation      : 'pop',
 
-  distanceAway   : 2,
+  distanceAway   : 0,
   arrowOffset    : 0,
-  maxSearchDepth :  10,
+  maxSearchDepth : 10,
 
   error: {
     content   : 'Warning: Your popup has no content specified',
@@ -649,11 +655,12 @@ $.fn.popup.settings = {
 
 
   metadata: {
+    arrowOffset : 'arrowOffset',
     content     : 'content',
     html        : 'html',
-    title       : 'title',
     position    : 'position',
-    arrowOffset : 'arrowOffset'
+    title       : 'title',
+    variation   : 'variation'
   },
 
   className   : {
@@ -670,7 +677,7 @@ $.fn.popup.settings = {
     var html = '';
     if(typeof text !== undefined) {
       if(typeof text.title !== undefined && text.title) {
-        html += '<h2>' + text.title + '</h2>';
+        html += '<div class="header">' + text.title + '</div class="header">';
       }
       if(typeof text.content !== undefined && text.content) {
         html += '<div class="content">' + text.content + '</div>';
