@@ -1015,6 +1015,7 @@
 --------------------*/
 .ui.compact.menu {
   display: inline-block;
+  vertical-align: middle;
 }
 .ui.vertical.compact.menu {
   width: auto !important;

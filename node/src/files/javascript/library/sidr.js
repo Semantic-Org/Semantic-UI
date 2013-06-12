@@ -101,7 +101,8 @@
 
         // Open menu
         $body.css({
-          position: 'absolute'
+          position: 'absolute',
+          width: $body.width()
         }).animate(bodyAnimation, speed);
         $menu.css('display', 'block').animate(menuAnimation, speed, function() {
           sidrMoving = false;
