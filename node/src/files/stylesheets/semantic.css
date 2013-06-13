@@ -473,7 +473,10 @@ a:hover {
 #example .main.ui.grid {
   position: relative;
 }
-
+#example .example .two.column.grid .column {
+  padding-left: 4%;
+  padding-right: 4%;
+}
 #example .icon.example {
   border-top: none;
 }

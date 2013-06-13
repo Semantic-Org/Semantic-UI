@@ -1,104 +1,113 @@
-;(function ( $, window, document, undefined ) {
+/*  ******************************
+  Card
+  Author: Jack Lukic
+  Notes: First Commit June 13, 2013
 
-$.fn.example = function(parameters) {
+  Quirky Cards
+******************************  */
+
+;(function ($, window, document, undefined) {
+
+$.fn.card = function(parameters) {
   var
     $allModules     = $(this),
     
-    settings        = $.extend(true, {}, $.fn.example.settings, parameters),
-    
+    settings        = ( $.isPlainObject(parameters) )
+      ? $.extend(true, {}, $.fn.card.settings, parameters)
+      : $.fn.card.settings,
+
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    invokedResponse
+    invokedResponse,
+    allModules
   ;
-
   $allModules
     .each(function() {
       var
-        $module        = $(this),
-        $text          = $module.find(settings.selector.text),
+        $module   = $(this),
+        $overlay    = $module.find(settings.selector.overlay),
 
-        foo            = false,
-
-        instance        = $module.data(moduleNamespace),
-        element         = this,
-
-        namespace      = settings.namespace,
-        error          = settings.error,
-        className      = settings.className,
-
-        text           = settings.text,
-
+        selector      = $module.selector || '',
+        element       = this,
+        instance      = $module.data('module-' + settings.namespace),
+        
+        className     = settings.className,
+        metadata      = settings.metadata,
+        namespace     = settings.namespace,
+        animation     = settings.animation,
+        
+        errors        = settings.errors,
         module
       ;
 
       module = {
+
         initialize: function() {
-          module.verbose('Initializing module for', element);
+          module.debug('Initializing card with bound events', $module);
           $module
-            .on('click' + eventNamespace, module.exampleBehavior)
+            .dimmer({
+              on       : 'hover',
+              closable : false
+            })
           ;
-          instance = module;
           $module
-            .data(moduleNamespace, instance)
+            .data('module', module)
           ;
         },
+
         destroy: function() {
-          module.verbose('Destroying previous module for', element);
+          module.debug('Destroying previous card for', $module);
           $module
-            .removeData(moduleNamespace)
-            .off(eventNamespace)
+            .off(namespace)
           ;
         },
-        refresh: function() {
-          module.verbose('Refreshing selector cache for', element);
-          $module = $(element);
-          $text   = $(this).find(settings.selector.text);
-        },
+
         event: {
-          click: function(event) {
-            module.verbose('Preventing default action');
-            if( !$module.hasClass(className.disabled) ) {
-              module.behavior();
-            }
-            event.preventDefault();
+
+          mouseenter: function() {
+            
+          },
+
+          mouseleave: function() {
+
           }
+
         },
-        behavior: function() {
-          module.debug('Changing the text to a new value', text);
-          if( !module.has.text() ) {
-            module.set.text( text);
-          }
-        },
-        has: {
-          text: function(state) {
-            module.verbose('Checking whether text state exists', state);
-            if( text[state] === undefined ) {
-              module.error(error.noText);
-              return false;
-            }
-            return true;
+
+        get: {
+          progress: function() {
+
+          },
+          votes: function() {
+
           }
         },
         set: {
-          text: function(state) {
-            module.verbose('Setting text to new state', state);
-            if( module.has.text(state) ) {
-              $text
-                .text( text[state] )
-              ;
-              settings.onChange();
+          progress: function() {
+
+          },
+          votes: function(count) {
+            if(count == 'increase') {
+
             }
           }
         },
+
+        vote: function() {
+
+        },
+
+        
         setting: function(name, value) {
+          module.debug('Changing setting', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, settings, name);
@@ -112,6 +121,7 @@ $.fn.example = function(parameters) {
           }
         },
         internal: function(name, value) {
+          module.debug('Changing internal', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, module, name);
@@ -126,20 +136,26 @@ $.fn.example = function(parameters) {
         },
         debug: function() {
           if(settings.debug) {
-            module.performance.log(arguments[0]);
-            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
         verbose: function() {
           if(settings.verbose && settings.debug) {
-            module.performance.log(arguments[0]);
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
         error: function() {
-          if(console.log !== undefined) {
-            module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
-          }
+          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
         },
         performance: {
           log: function(message) {
@@ -153,42 +169,42 @@ $.fn.example = function(parameters) {
               previousTime  = time || currentTime,
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
-                'Name'           : message, 
+              performance.push({
+                'Element'        : element,
+                'Name'           : message[0],
+                'Arguments'      : message[1] || '',
                 'Execution Time' : executionTime
               });
-              clearTimeout(module.performance.timer);
-              module.performance.timer = setTimeout(module.performance.display, 100);
             }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var
-              title              = settings.moduleName,
-              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
-              totalExecutionTime = 0
+              title = settings.moduleName + ':',
+              totalTime = 0
             ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
-              title += ' Performance (' + moduleSelector + ')';
+              title += ' \'' + moduleSelector + '\'';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
-                $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
-                });
                 console.table(performance);
               }
               else {
                 $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
                   console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
-              console.log('Total Execution Time:', totalExecutionTime +'ms');
               console.groupEnd();
-              performance = [];
-              time        = false;
             }
+            performance = [];
           }
         },
         invoke: function(query, passedArguments, context) {
@@ -204,13 +220,14 @@ $.fn.example = function(parameters) {
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
+                return true;
               }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
+                return true;
               }
-              else {
-                module.error(error.method);
-              }
+              module.error(errors.method);
+              return false;
             });
           }
           if ( $.isFunction( found ) ) {
@@ -220,7 +237,6 @@ $.fn.example = function(parameters) {
           return found || false;
         }
       };
-
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -233,50 +249,41 @@ $.fn.example = function(parameters) {
         }
         module.initialize();
       }
-
     })
   ;
-
-  time = false;
-
   return (invokedResponse)
     ? invokedResponse
     : this
   ;
 };
 
-$.fn.example.settings = {
+$.fn.card.settings = {
+  moduleName  : 'Card',
 
-  moduleName  : 'Example Module',
   debug       : true,
-  verbose     : false,
+  verbose     : true,
   performance : false,
-  namespace   : 'example',
+  
+  exclusive   : true,
+  collapsible : true,
+  
+  onVote      : function(){},
 
-  selector    : {
-    example : '.example'
-  },
-
-  error: {
-    noText : 'The text you tried to display has not been defined.',    method : 'The method you called is not defined.'
+  errors: {
+    method    : 'The method you called is not defined'
   },
 
   className   : {
-    disabled : 'disabled'
+    active    : 'active',
+    hover     : 'hover'
   },
 
-  metadata: {
-    notUsed: 'notUsed'
+  selector    : {
+    title     : '.title',
+    icon      : '.icon',
+    content   : '.content'
   },
-
-  onChange     : function() {},
-
-  text: {
-    hover : 'You are hovering me now',
-    click : 'You clicked on me'
-  }
 
 };
-
 
 })( jQuery, window , document );

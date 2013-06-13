@@ -70,6 +70,17 @@ $.fn.dimmer = function(parameters) {
               ;
               module.debug('Module initialized with created dimmer', $dimmer);
             }
+            if(settings.on == 'hover') {
+              $module
+                .on('mouseenter', module.show)
+                .on('mouseleave', module.hide)
+              ;
+            }
+            else if(settings.on == 'click') {
+              $module
+                .on('click', module.toggle)
+              ;
+            }
           }
           $module
             .addClass(className.dimmable)
@@ -229,7 +240,7 @@ $.fn.dimmer = function(parameters) {
 
         show: function() {
           module.debug('Showing dimmer', $dimmer);
-          if( !module.is.active() && module.is.enabled() ) {
+          if( (!module.is.active() || module.is.animating() ) && module.is.enabled() ) {
             module.animate.show();
             $.proxy(settings.onShow, element)();
             $.proxy(settings.onChange, element)();
@@ -240,7 +251,7 @@ $.fn.dimmer = function(parameters) {
         },
 
         hide: function() {
-          if( module.is.active() ) {
+          if( module.is.active() || module.is.animating() ) {
             module.debug('Hiding dimmer', $dimmer);
             module.animate.hide();
             $.proxy(settings.onHide, element)();
@@ -425,6 +436,8 @@ $.fn.dimmer.settings = {
     hide: 'fade'
   },
 
+  on       : false,
+  
   closable : true,
   duration : 500,
 
