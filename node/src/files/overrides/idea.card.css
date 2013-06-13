@@ -156,17 +156,16 @@
 .ui.idea.cards .card > .progress,
 .ui.idea.card > .progress {
   background-color: transparent;
-}
-
-.ui.idea.cards .card > .progress,
-.ui.idea.card > .progress,
-.ui.idea.cards .card > .progress .bar,
-.ui.idea.card > .progress .bar {
   height: 5px;
   top: 0px;
   z-index: 2;
-
   -webkit-border-radius: 0px 0px 4px 4px;
   -moz-border-radius: 0px 0px 4px 4px;
   border-radius: 0px 0px 4px 4px;
+}
+.ui.idea.cards .card > .progress .bar,
+.ui.idea.card > .progress .bar {
+  width: 0%;
+  height: 5px;
+  background-color: rgba(0, 177, 219, 1);
 }

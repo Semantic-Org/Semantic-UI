@@ -38,9 +38,11 @@
      Overlay
 ---------------*/
 
+.ui.cards .card .dimmer,
 .ui.card .dimmer {
-  background-color: rgba(0, 181, 173, 0.8);
+  background-color: rgba(0, 177, 219, 0.6);
 }
+.ui.cards .card .dimmer .close,
 .ui.card .dimmer .close {    
   position: absolute;
   top: 0.5em;
@@ -54,21 +56,46 @@
   color: #FFFFFF;
 }
 
+.ui.cards .card .dimmer .content,
 .ui.card .dimmer .content {
 
 }
+.ui.cards .card .dimmer .buttons,
 .ui.card .dimmer .buttons {
   display: inline-block;
   background-color: #FFFFFF;
+  width: 80%;
   padding: 0.6em;
   border-radius: 4px;
 }
+.ui.cards .card .dimmer .buttons .button,
 .ui.card .dimmer .buttons .button {
   display: inline-block;
-  margin-left: 0.6em;
+  margin-left: 2%;
+  width: 48%;
 }
+.ui.cards .card .dimmer .buttons .button:first-child,
 .ui.card .dimmer .buttons .button:first-child {
   margin-left: 0em;
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.cards .dimmed.card > :not(.dimmer),
+.ui.dimmed.card > :not(.dimmer) {
+  -webkit-filter: blur(5px) grayscale(0.7);
+  -moz-filter: blur(5px) grayscale(0.7);
+}
+
+/*******************************
+            Variations
+*******************************/
+
+.ui.fluid.card {
+  display: block;
+  width: 100%;
 }
 
 
