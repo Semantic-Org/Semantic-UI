@@ -11,31 +11,62 @@ type   : 'UI Specification'
   </div>
 </div>
 <div class="main container">
+  
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">General</a>
+      <a class="item">Style Guide</a>
+      <a class="item">Units</a>
+      <a class="item">Techniques</a>
+    </div>
+  </div>
 
-  <h2>General</h2>
+  <h2 class="ui dividing header">General</h2>
 
-  <div class="example">
     <h4 class="ui header">Namespace</h4>
     <p>All css code must live inside a namespace. By default all ui elements use the class "ui". This prevents rules from altering styles of other content in the page. This also helps differentiate between UI elements and parts of an element</p>
+    <p>Tags inside of a ui element <b>do not</b> need to be prefixed with ui. They can simple descend from the element.</p>
     <div class="code" data-type="css">
     // incorrect
     .menu {
+      
     }
 
     // incorrect
     .ui.menu .ui.item {
-
+      
     }
 
     // correct
     .ui.menu {
+      
     }
     .ui.menu .item {
-
+      
     }
     </div>
-  </div>
-  <div class="example">
+  
+    <h4 class="ui header">Use real words</h4>
+    <p>Abbreviations are useful for taking notes, but css definitions should attempt to use consistent, common language.</p>
+    <div class="code" data-type="css">
+    // nope
+    .ui.btn {
+      
+    }
+    .ui.widget .cpttext {
+      
+    }
+    // good
+    .ui.button {
+    
+    }
+    .ui.widget .caption {
+    
+    }
+    </div>
+  
+  <h2 class="ui dividing header">Style Guide</h2>
+  
     <h4 class="ui header">Don't Hyphenate</h4>
     <p>All elements are designed to include their own namespace. As long as rules descend from their parent element there is no possibility of rule collision.</p>
     <p>Hyphenated class names often describe the intersection of separate concepts, and can be better written to represent each concept separately.</p>
@@ -56,8 +87,92 @@ type   : 'UI Specification'
       font-weight: bold;
     }
     </div>
-  </div>
-  <div class="example">
+  
+    <h4 class="ui header">Unit Consistency</h4>
+    <p>CSS provides a broad selection of measurements for values. It's helpful toIt is helpful to keep unit definitions consistent across a single property definition, or unless you specifically need to override them. Including consistent units for 0 values also allows for quicker tweaking and shows greater precision in a property definition.</p>
+   
+    <div class="code" data-type="css">
+    // not tops
+    .ui.widget {
+      padding:  0 16px .6em;
+    }
+    // hex are uppercase
+    .ui.widget {
+      color: #09ffda;
+    }
+    // good
+    .ui.widget {
+      padding: 0em 0em 0em 0.2em;
+      color: #009FDA;
+    }
+    </div>
+  
+    <h4 class="ui header">CSS Legibility</h4>
+    <p>Keeping comma separated selectors on separate lines, adding a space after css properties with commasm and always having zeros before a decimal value assist in code legibility.</p>
+   
+    <div class="code" data-type="css">
+    // not so easy to read
+    .ui.widgets .widget, ui.widget, .ui.widget.type, ui.widgets .widget.type {
+      color: #FFFFFF;
+    }
+    .ui.widget {
+      // this should have spaces after the commas and a decimal should aways have a leading zero
+      color:rgba(0,0,0,.3);
+    }
+    
+    // more legible
+    .ui.widgets .widget,
+    .ui.widget,
+    .ui.widgets .widget.type,
+    .ui.widget.type {
+      color: #FFFFFF;
+    }
+    // spaces and zeros
+    .ui.widget {
+      color: rgba(0, 0, 0, 0.3);
+    }
+    </div>
+  
+  
+    <h4 class="ui header">Keep Things Ordered</h4>
+    <p>Although css rule order may be considered a chore, grouping related rules together can help keep css code organized.</p>
+    <p>An easy way to do this is to consider ordering rules from the outside in. First describing positioning rules, then border rules, margin, sizing, padding, font-size, line height and ending with vendor prefixed attributes.</p>
+   
+    <div class="code" data-type="css">
+    // not so easy to read
+    .ui.widgets .widget, ui.widget, .ui.widget.type, ui.widgets .widget.type {
+      color: #FFFFFF;
+    }
+    // more legible
+    .ui.widgets .widget,
+    .ui.widget,
+    .ui.widgets .widget.type,
+    .ui.widget.type {
+      color: #FFFFFF;
+    }
+      
+    // i have some extra time so lets group these rules
+    .ui.widget {
+      position: relative;
+      top: 0em;
+      left: 0em;
+      
+      margin: 1em;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      width: 100px;
+      height: 100px;
+      padding: 1em;
+      
+      font-size: 1.2em;
+      color: rgba(0, 0, 0, 0.8);
+      line-height: 1.2em;
+      
+      -webkit-border-radius: 0.3em;
+      -moz-border-radius: 0.3em;
+      border-radius: 0.3em;
+    }
+    </div>
+  
   <h4 class="ui header">No wrappers, no excess markup</h4>
   <p>UI elements should be designed to include the minimum footprint of an element. If extra styling is needed, consider using pseudo selectors :after and :before. This allows for the creation of two extra divs inside each div context which can almost always be enough to accomodate extra styling.</p>
   <p>If there is no other option than wrapping content in a containing HTML element, consider using a name that describes the content instead of the word wrapper or container.</p>
@@ -65,32 +180,28 @@ type   : 'UI Specification'
     // not tops
     .ui.message .wrapper .title,
     .ui.message .wrapper .description {
-
+      
     }
     // better
     .ui.message .content .title,
     .ui.message .content .description {
-
+      
     }
     </div>
-  </div>
 
-  <div class="example">
     <h4 class="ui header">Grammatical order</h4>
     <p>Consider using similar class syntax as if you were actually describing the element in english. Although this is by no means required it may help provide clarity in some circumstances.</p>
     <div class="code" data-type="css">
-    // not perfect
+    // confusing word order
     .ui.red.button.pointing {
-
+      
     }
     // much more semantic
     .red.pointing.ui.button {
-
+      
     }
     </div>
-  </div>
 
-  <div class="example">
     <h4 class="ui header">Use Border Box</h4>
     <p>Border box fixes the box model, and allows padding to be included as part of width and height definitions. Using it opens up another world of possibilities for sizing content to fit fluidly</p>
     <div class="code" data-type="css">
@@ -103,11 +214,9 @@ type   : 'UI Specification'
       box-sizing: border-box;
     }
     </div>
-  </div>
 
-  <h2>Units and Measurements</h2>
+  <h2 class="ui dividing header">Units and Measurements</h2>
 
-  <div class="example">
     <h4 class="ui header"><em>Relatively</em> Relative</h4>
     <p>EMs are defined so that 1em is equal to the current font size inside of an element. Using EMs can allow you to size content inside an element in proportion to the overall size of the element. Be careful though because this will stack with nested elements</p>
     <div class="code" data-type="css">
@@ -128,9 +237,7 @@ type   : 'UI Specification'
       font-size: 16px;
     }
     </div>
-  </div>
 
-  <div class="example">
     <h4 class="ui header"><em>Recursively</em> Relative</h4>
     <p>Using EMs multiplicative nature can often be used to your advantage. Instead of defining multiple tiers of a menu system. Consider using ems for its sizing. As you continue to nest menu elements each nested menu will computer its values with smaller proportions.</p>
     <div class="code" data-type="css">
@@ -142,9 +249,7 @@ type   : 'UI Specification'
       font-size: 0.9em;
     }
     </div>
-  </div>
   
-  <div class="example">
     <h4 class="ui header"><em>Absolutely</em> Relative</h4>
     <p>REMs are defined so that 1rem is equal to 1 em on the html tag of the page. This is needed to explain how content should be sized related to the overall size of elements on the page</p>
     <div class="code" data-type="css">
@@ -161,12 +266,10 @@ type   : 'UI Specification'
       font-size: 0.8em;
     }
     </div>
-  </div>
 
 
-  <h2>Coding Guidelines</h2>
+  <h2 class="ui dividing header">Techniques</h2>
 
-  <div class="example">
     <h4 class="ui header">Prevent Accidental Highlighting</h4>
     <p>Sometimes text can be accidentally highlighted when a user double clicks an element. No need to pull out javascript to solve this.</p>
     <div class="code" data-type="css">
@@ -177,9 +280,7 @@ type   : 'UI Specification'
       user-select: none;
     }
     </div>
-  </div>
 
-  <div class="example">
     <h4 class="ui header">Joining borders</h4>
     <p>Sometimes bordered content must sit next to other bordered content. If each element uses border the borders will double. Consider using either outline or a box shadow to accomplish the same effect but without overlapping borders.</p>
     <div class="code" data-type="css">
@@ -202,9 +303,7 @@ type   : 'UI Specification'
       box-shadow: 0px 0px 0px 1px #DDDDDD;
     }
     </div>
-  </div>
 
-  <div class="example">
     <h4 class="ui header">Using transparency</h4>
     <p>RGBA colors in css allow you to specify colors with a transparency channel. This is very useful.</p>
     <p>Consider for example, defining the text states of an element. If the elements color changes, the text might appear more complementary as a shade of black with a portion of the original color. This can be done easily with rgba</p>
@@ -217,9 +316,7 @@ type   : 'UI Specification'
       background-color: #FF0000;
     }
     </div>
-  </div>
 
-  <div class="example">
     <h4 class="ui header">Consider alternatives to floats</h4>
     <p>CSS floats can create issues with the containing element not receiving the size of its children. Using overflow:hidden to clear floats means that no peice of an element can be shown outside the bounding box of the element, which limits the possibilities in an element. Clearfixes can use up one of two available pseudo class which can often be useful for styling elements.</p>
     <p>Consider using another means of putting content side by side like inline-block or table-cell. These provide more freedom than floated block elements, and can add additional benefits.</p>
@@ -245,10 +342,8 @@ type   : 'UI Specification'
       font-size: 1rem;
     }
     </div>
-  </div>
 
 
-  <div class="example">
     <h4 class="ui header">Onion Skinning</h4>
     <p>One technique that is useful for allowing for multiple color variations of an element, without having to completely reskin each variation and shade is to use background-image gradients to define shading and state, and background-color to define the color of an element. If done well you can add a variety of colors with very little code.</p>
     <div class="code" data-type="css">
@@ -286,6 +381,5 @@ type   : 'UI Specification'
       ;
     }
     </div>
-  </div>
   
 </div>

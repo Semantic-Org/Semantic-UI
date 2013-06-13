@@ -29,31 +29,36 @@
   -o-animation-fill-mode: forwards;
   -ms-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-translate: rotateZ(0deg);
-  -moz-translate: rotateZ(0deg);
-  translate: rotateZ(0deg);
+  -webkit-transition: background-color 0.5s linear;
+  -moz-transition: background-color 0.5s linear;
+  -o-transition: background-color 0.5s linear;
+  -ms-transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: background-color 0.5s ease;
-  -moz-transition: background-color 0.5s ease;
-  -o-transition: background-color 0.5s ease;
-  -ms-transition: background-color 0.5s ease;
-  transition: background-color 0.5s ease;
   z-index: 1000;
 }
 .ui.dimmable.dimmed > :not(.dimmer) {
-  -webkit-transition: filter 0.5s ease
+  /*  
+  -webkit-transition:
+    filter 0.5s ease
   ;
-  -moz-transition: filter 0.5s ease
+  -moz-transition:
+    filter 0.5s ease
   ;
-  -o-transition: filter 0.5s ease
+  -o-transition:
+    filter 0.5s ease
   ;
-  -ms-transition: filter 0.5s ease
+  -ms-transition:
+    filter 0.5s ease
   ;
-  transition: filter 0.5s ease
+  transition:
+    filter 0.5s ease
   ;
+  */
+
 }
 /* Dimmer Content */.ui.dimmer .content {
   width: 100%;
@@ -105,6 +110,14 @@ body.dimmable.dimmed {
 ---------------*/
 .ui.page.dimmer {
   position: fixed;
+}
+body.ui.dimmable.dimmed > :not(.dimmer) {
+  -webkit-filter: blur(15px) grayscale(0.7);;
+  -moz-filter: blur(15px) grayscale(0.7);;
+  filter: blur(15px) grayscale(0.7);;
+  -webkit-translate: rotateZ(0deg);
+  -moz-translate: rotateZ(0deg);
+  translate: rotateZ(0deg);
 }
 /*--------------
     Aligned

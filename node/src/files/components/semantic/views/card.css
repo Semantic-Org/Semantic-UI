@@ -68,7 +68,7 @@
 /*--------------
      Images
 ---------------*/
-.ui.idea.cards .card .image {
+.ui.idea.cards .card > .image {
   float: right;
   margin: 2em 0em 2em 2em;
   padding: 5px;
@@ -83,18 +83,18 @@
   -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
 }
-.ui.idea.cards .card .image img {
+.ui.idea.cards .card > .image img {
   display: block;
   max-width: 100%;
 }
 /*--------------
      Meta
 ---------------*/
-.ui.idea.cards .card .meta {
+.ui.idea.cards .card > .meta {
   border-top: 1px solid #DCDDDE;
   padding: 1em;
 }
-.ui.idea.cards .card .meta:after {
+.ui.idea.cards .card > .meta:after {
   content: ".";
   display: block;
   height: 0;
@@ -102,17 +102,17 @@
   visibility: hidden;
 }
 /* types of metadata */
-.ui.idea.cards .card .meta .countdown {
+.ui.idea.cards .card > .meta .countdown {
   float: left;
 }
-.ui.idea.cards .card .meta .votes {
+.ui.idea.cards .card > .meta .votes {
   float: right;
 }
 /*--------------
      Progress
 ---------------*/
-.ui.idea.cards .card .progress,
-.ui.idea.cards .card .progress .bar {
+.ui.idea.cards .card > .progress,
+.ui.idea.cards .card > .progress .bar {
   height: 5px;
   top: 0px;
 }

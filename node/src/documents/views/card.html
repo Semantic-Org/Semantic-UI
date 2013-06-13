@@ -5,6 +5,15 @@ css    : 'card'
 title  : 'Card'
 type   : 'UI View'
 ---
+
+<script src="/javascript/card.js"></script>
+<script src="/overrides/card.js"></script>
+
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/button.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/card.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/idea.card.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/profile.card.css">
+
 <div class="segment">
   <div class="container">
   <h1 class="ui dividing header">Card</h1>
@@ -15,47 +24,57 @@ type   : 'UI View'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Standard</a>
+      <a class="active item">Idea</a>
+      <a class="item">Profile</a>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Standard</h2>
+  <h2 class="ui dividing header">Idea Card</h2>
 
   <div class="example">
-    <h4 class="ui header">Idea Card</h4>
+    <h4 class="ui header">Single</h4>
     <p>A card for displaying an idea</p>
 
-    <div class="ui idea cards">
-      <div class="card">
-        <div class="idea">
-          <div class="image">
-            <img src="/images/demo/invention.jpg">
-          </div>
-          <div class="header">Dog Moods</div>
-          <div class="description">
-            Wouldn't it be nice if your dog could always be happy. Introducing a device which will help your dog maintain his mood in any situation.
-          </div>
+    <div class="ui idea card">
+      <div class="idea">
+        <div class="image">
+          <img src="/images/demo/invention.jpg">
         </div>
-        <div class="meta">
-          <div class="countdown">
-            <i class="icon sketchy clock"></i>
-            12 days left
-          </div>
-          <div class="votes">
-            <i class="sketchy checkmark circle icon"></i>
-            58 votes to go
-          </div>
+        <div class="header">Dog Moods</div>
+        <div class="description">
+          Wouldn't it be nice if your dog could always be happy. Introducing a device which will help your dog maintain his mood in any situation.
         </div>
-        <div class="ui bottom attached green progress">
-          <div class="bar"></div>
+      </div>
+      <div class="meta">
+        <div class="countdown">
+          <i class="icon sketchy clock"></i>
+          12 days left
+        </div>
+        <div class="votes">
+          <i class="sketchy checkmark circle icon"></i>
+          58 votes to go
+        </div>
+      </div>
+      <div class="ui bottom attached teal progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui dimmer">
+        <div class="content">
+          <div class="middle">
+            <i class="sketchy x circle close link icon"></i>
+            <div class="buttons">
+              <div class="ui submit button">Vote</div>
+              <div class="ui button">View Details</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   
   <div class="example">
-    <h4 class="ui header">Idea Cards</h4>
-    <p> A set of idea cards</p>
+    <h4 class="ui header">Group</h4>
+    <p>A set of idea cards</p>
     <div class="ui idea cards">
       <div class="card">
         <div class="idea">
@@ -77,18 +96,18 @@ type   : 'UI View'
             58 votes to go
           </div>
         </div>
-        <div class="ui bottom attached green progress">
+        <div class="ui bottom attached teal progress">
           <div class="bar"></div>
         </div>
       </div>
       <div class="card">
         <div class="idea">
           <div class="image">
-            <img src="/images/demo/invention.jpg">
+            <img src="/images/demo/invention2.jpg">
           </div>
-          <div class="header">Dog Moods</div>
+          <div class="header">Dog Sense Box</div>
           <div class="description">
-            Wouldn't it be nice if your dog could always be happy. Introducing a device which will help your dog maintain his mood in any situation.
+            Treat your dog to the luxuries of sensory deprivation. He can meditate on the nature of dogness and realize the true focus of his life.
           </div>
         </div>
         <div class="meta">
@@ -101,18 +120,18 @@ type   : 'UI View'
             58 votes to go
           </div>
         </div>
-        <div class="ui bottom attached green progress">
+        <div class="ui bottom attached teal progress">
           <div class="bar"></div>
         </div>
       </div>
       <div class="card">
         <div class="idea">
           <div class="image">
-            <img src="/images/demo/invention.jpg">
+            <img src="/images/demo/invention3.jpg">
           </div>
-          <div class="header">Dog Moods</div>
+          <div class="header">Dog Carrying</div>
           <div class="description">
-            Wouldn't it be nice if your dog could always be happy. Introducing a device which will help your dog maintain his mood in any situation.
+            I always want to take my dogs places, but then my hands get tired from carrying him. This device would allow you to walk around HANDS-FREE!
           </div>
         </div>
         <div class="meta">
@@ -125,11 +144,141 @@ type   : 'UI View'
             58 votes to go
           </div>
         </div>
-        <div class="ui bottom attached green progress">
+        <div class="ui bottom attached teal progress">
           <div class="bar"></div>
         </div>
       </div>
     </div>
   </div>
-
+  
+  <h2 class="ui dividing header">Profile Card</h2>
+  
+  <div class="example">
+    <h4 class="ui header">Single</h4>
+    <p>A profile card</p>
+    <div class="ui profile card">
+      <div class="content">
+        <div class="caption">Invented by</div>
+        <a class="name">
+          <img class="ui circular image" src="/images/demo/photo2.jpg"> 
+          Dog Doggington
+        </a>  
+        <div class="location">
+          <i class="location icon"></i>
+          Poodle Palace
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="count">16</div>
+          <div class="text">Ideas</div>
+        </div>
+        <div class="stat">
+          <div class="count">14%</div>
+          <div class="text">Influence</div>
+        </div>
+        <div class="stat">
+          <div class="count">22</div>
+          <div class="text">Followers</div>
+        </div>
+      </div>
+      <a class="bottom attached secondary ui button">View profile</a>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Groups</h4>
+    <p>A set of profile cards</p>
+    <div class="ui profile cards">
+      
+      <div class="card">
+        <div class="content">
+          <div class="caption">Invented by</div>
+          <a class="name">
+            <img class="ui circular image" src="/images/demo/photo2.jpg"> 
+            Dog Doggington
+          </a>  
+          <div class="location">
+            <i class="location icon"></i>
+            Poodle Palace
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="count">16</div>
+            <div class="text">Ideas</div>
+          </div>
+          <div class="stat">
+            <div class="count">14%</div>
+            <div class="text">Influence</div>
+          </div>
+          <div class="stat">
+            <div class="count">22</div>
+            <div class="text">Followers</div>
+          </div>
+        </div>
+        <a class="bottom attached secondary ui button">View profile</a>
+      </div>
+      
+      <div class="card">
+        <div class="content">
+          <div class="caption">Invented by</div>
+          <a class="name">
+            <img class="ui circular image" src="/images/demo/avatar3.jpg"> 
+            Pinklebert
+          </a>  
+          <div class="location">
+            <i class="location icon"></i>
+            Dogtown
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="count">1</div>
+            <div class="text">Idea</div>
+          </div>
+          <div class="stat">
+            <div class="count">0%</div>
+            <div class="text">Influence</div>
+          </div>
+          <div class="stat">
+            <div class="count">2</div>
+            <div class="text">Followers</div>
+          </div>
+        </div>
+        <a class="bottom attached secondary ui button">View profile</a>
+      </div>
+      
+      <div class="card">
+        <div class="content">
+          <div class="caption">Invented by</div>
+          <a class="name">
+            <img class="ui circular image" src="/images/demo/avatar4.jpg"> 
+            Missy
+          </a>  
+          <div class="location">
+            <i class="location icon"></i>
+            Taiwan
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="count">416</div>
+            <div class="text">Ideas</div>
+          </div>
+          <div class="stat">
+            <div class="count">54%</div>
+            <div class="text">Influence</div>
+          </div>
+          <div class="stat">
+            <div class="count">1111</div>
+            <div class="text">Followers</div>
+          </div>
+        </div>
+        <a class="bottom attached secondary ui button">View profile</a>
+      </div>
+    </div>
+    
+  </div>
+  
 </div>

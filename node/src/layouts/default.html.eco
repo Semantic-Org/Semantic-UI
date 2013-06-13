@@ -26,7 +26,6 @@
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
     
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/crumb.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">
@@ -46,7 +45,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/message.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/table.css">
     
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/card.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/comment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/feed.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/items.css">
@@ -74,6 +72,7 @@
 
   <script src="/components/semantic/modules/behavior/state.js"></script>
   <script src="/components/semantic/modules/checkbox.js"></script>
+  <script src="/components/semantic/modules/dimmer.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
   <script src="/components/semantic/modules/tab.js"></script>
 

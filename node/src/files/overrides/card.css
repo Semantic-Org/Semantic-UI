@@ -1,0 +1,87 @@
+/*
+ * # Quirky Card
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+
+/*******************************
+             Card
+*******************************/
+
+.ui.cards .card,
+.ui.card {
+  position: relative;
+  display: block;
+  margin: 1em 0em;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  
+  -webkit-box-shadow: 0px 0px 0px 1px #DCDDDE;
+  -moz-box-shadow: 0px 0px 0px 1px #DCDDDE;
+  box-shadow: 0px 0px 0px 1px #DCDDDE;
+}
+.ui.card:first-child {
+  margin-top: 0em;
+}
+.ui.card:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+     Overlay
+---------------*/
+
+.ui.card .dimmer {
+  background-color: rgba(0, 181, 173, 0.8);
+}
+.ui.card .dimmer .close {    
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+
+  margin: 0em;
+  width: auto;
+  height: auto;
+  
+  font-size: 2em;
+  color: #FFFFFF;
+}
+
+.ui.card .dimmer .content {
+
+}
+.ui.card .dimmer .buttons {
+  display: inline-block;
+  background-color: #FFFFFF;
+  padding: 0.6em;
+  border-radius: 4px;
+}
+.ui.card .dimmer .buttons .button {
+  display: inline-block;
+  margin-left: 0.6em;
+}
+.ui.card .dimmer .buttons .button:first-child {
+  margin-left: 0em;
+}
+
+
+/*******************************
+            Plural
+*******************************/
+
+.ui.cards {
+  display: block;
+  margin: 0em -0.5em -1em;
+}
+.ui.cards .card {
+  display: inline-block;
+  margin: 0em 0.5em 1em;
+}
+
