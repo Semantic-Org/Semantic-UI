@@ -33,18 +33,19 @@ $.fn.card = function(parameters) {
     .each(function() {
       var
         $module   = $(this),
-        $overlay    = $module.find(settings.selector.overlay),
-
-        selector      = $module.selector || '',
-        element       = this,
-        instance      = $module.data('module-' + settings.namespace),
+        $vote     = $module.find(settings.selector.vote),
+        $close    = $module.find(settings.selector.close),
         
-        className     = settings.className,
-        metadata      = settings.metadata,
-        namespace     = settings.namespace,
-        animation     = settings.animation,
+        selector  = $module.selector || '',
+        element   = this,
+        instance  = $module.data('module-' + settings.namespace),
         
-        errors        = settings.errors,
+        className = settings.className,
+        metadata  = settings.metadata,
+        namespace = settings.namespace,
+        animation = settings.animation,
+        
+        errors    = settings.errors,
         module
       ;
 
@@ -54,9 +55,18 @@ $.fn.card = function(parameters) {
           module.debug('Initializing card with bound events', $module);
           $module
             .dimmer({
-              on       : 'hover',
-              closable : false
+              on        : 'hover',
+              closable  : false,
+              className : {
+                dimmable: 'card'
+              }
             })
+          ;
+          $vote
+            .state(settings.state.vote)
+          ;
+          $close
+            .on('click', module.undim)
           ;
           $module
             .data('module', module)
@@ -70,24 +80,15 @@ $.fn.card = function(parameters) {
           ;
         },
 
-        event: {
-
-          mouseenter: function() {
-            
-          },
-
-          mouseleave: function() {
-
-          }
-
-        },
-
         get: {
           progress: function() {
 
           },
           votes: function() {
 
+          },
+          type: function() {
+            
           }
         },
         set: {
@@ -99,6 +100,13 @@ $.fn.card = function(parameters) {
 
             }
           }
+        },
+
+        dim: function() {
+          $module.dimmer('show');
+        },
+        undim: function() {
+          $module.dimmer('hide');
         },
 
         vote: function() {
@@ -278,11 +286,42 @@ $.fn.card.settings = {
     hover     : 'hover'
   },
 
-  selector    : {
-    title     : '.title',
-    icon      : '.icon',
-    content   : '.content'
+  state: {
+    vote: {
+      states: {
+        active: true
+      },
+      className: {
+        active: 'positive'
+      },
+      text: {
+        inactive : 'Vote',
+        active   : 'Voted!',
+        disable  : 'Undo'
+      }
+    },
+    follow: {
+      states: {
+        active: true
+      },
+      text: {
+        inactive : 'Follow',
+        active   : 'Following',
+        disable  : 'Undo'
+      }
+    }
   },
+
+  popup: {
+    vote: {
+      content: ''
+    }
+  },
+
+  selector    : {
+    vote  : '.vote.button',
+    close : '.close.icon'
+  }
 
 };
 

@@ -52,6 +52,11 @@
   transition:
     background-color 0.5s linear
   ;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -86,6 +91,11 @@
   width: 100%;
   height: 100%;
   display: table;
+
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 .ui.dimmer .content > * {
   display: table-cell;
@@ -110,10 +120,10 @@
             States
 *******************************/
 
-.ui.dimmable.dimmed > :not(.dimmer){
+.ui.dimmable.dimmed > :not(.dimmer) {
   -webkit-filter: ~"blur(5px) grayscale(0.7);";
   -moz-filter: ~"blur(5px) grayscale(0.7);";
-  filter: ~"blur(5px) grayscale(0.7);";
+  filter: url(../vector/blur.svg#blur);
 }
 body.dimmable.dimmed {
   overflow: hidden;
@@ -147,7 +157,8 @@ body.dimmable.dimmed {
 body.ui.dimmable.dimmed > :not(.dimmer){
   -webkit-filter: ~"blur(15px) grayscale(0.7);";
   -moz-filter: ~"blur(15px) grayscale(0.7);";
-  filter: ~"blur(15px) grayscale(0.7);";
+  filter: url(../vector/blur.svg#blur);
+  
   -webkit-translate: rotateZ(0deg);
   -moz-translate: rotateZ(0deg);
   translate: rotateZ(0deg);

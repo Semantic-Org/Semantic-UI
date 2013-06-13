@@ -332,7 +332,7 @@
 ----------------*/
 .ui.buttons.positive .button,
 .ui.button.positive {
-  background-color: #A1CF64;
+  background-color: #A1CF64 !important;
   color: #FFFFFF;
 }
 .ui.buttons.positive .button.hover,
@@ -341,14 +341,14 @@
 .ui.button.positive:hover,
 .ui.buttons.positive .button.active,
 .ui.button.positive.active {
-  background-color: #89B84C;
+  background-color: #89B84C !important;
   color: #FFFFFF;
 }
 .ui.buttons.positive .button.down,
 .ui.buttons.positive .button:active,
 .ui.button.positive.down,
 .ui.button.positive:active {
-  background-color: #7AAA3D;
+  background-color: #7AAA3D !important;
   color: #FFFFFF;
 }
 /*---------------
@@ -356,7 +356,7 @@
 ----------------*/
 .ui.buttons.negative .button,
 .ui.button.negative {
-  background-color: #EF4D6D;
+  background-color: #EF4D6D !important;
   color: #FFFFFF;
 }
 .ui.buttons.negative .button.hover,
@@ -365,14 +365,14 @@
 .ui.button.negative:hover,
 .ui.buttons.negative .button.active,
 .ui.button.negative.active {
-  background-color: #DE3859;
+  background-color: #DE3859 !important;
   color: #FFFFFF;
 }
 .ui.buttons.negative .button.down,
 .ui.buttons.negative .button:active,
 .ui.button.negative.down,
 .ui.button.negative:active {
-  background-color: #CD2D4D;
+  background-color: #CD2D4D !important;
   color: #FFFFFF;
 }
 /*-------------------
