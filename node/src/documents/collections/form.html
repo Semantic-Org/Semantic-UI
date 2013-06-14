@@ -10,14 +10,6 @@ type   : 'UI Collection'
 <div class="segment">
   <div class="container">
     <h1 class="ui dividing header">Form</h1>
-    <p>Forms are a grouping of elements requiring user input.</p>
-    <p>Form input can be validated using the <a href="/modules/form.html">form validation behavior</a></p>
-    <p> 
-      Forms always include fields, and fields always contain form elements. Fields themselves may also include:
-        <a href="/elements/input.html">ui inputs</a>, standard form fields, <a href="/elements/labels.html">ui labels</a>, textareas, as well as:
-        <a href="/modules/checkbox.html">checkboxes</a>, and <a href="/elements/message.html">message blocks</a>.
-    </p>
-    <p>Validation messages use <a href="/collections/message.html">messages</a> which are formatted for use inside forms.</p>
   </div>
 </div>
 <div class="main container">
@@ -34,6 +26,16 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Form:</h4>
     <p>A form is a collection of user input elements, and has no stylings of its own.</p>
+    <div class="warning ui message">
+      <b>Looking for form validation?</b> 
+      Form input can be validated using the <a href="/modules/form.html">form validation behavior</a>
+    </div>
+    <p> 
+      Forms always include fields, and fields always contain form elements. Fields themselves may also include:
+        <a href="/elements/input.html">ui inputs</a>, standard form fields, <a href="/elements/labels.html">ui labels</a>, textareas, as well as:
+        <a href="/modules/checkbox.html">checkboxes</a>, and <a href="/elements/message.html">message blocks</a>.
+    </p>
+    <p>Validation messages use <a href="/collections/message.html">messages</a> which are formatted for use inside forms.</p>
     <div class="ui ignored info message">
       <p>This example uses a <a href="/elements/segment.html">ui segment</a> to add the padding and background color. This is not required.</p>
     </div>
@@ -435,8 +437,8 @@ type   : 'UI Collection'
   <h2 class="ui dividing header">Groups</h2>
   
   <div class="example">
-    <h4 class="ui header">Field Groups</h4>
-    <p>Fields can exist side by side to show relation</p>
+    <h4 class="ui header">Fields</h4>
+    <p>Fields can exist together side by side</p>
     <div class="ui form">
       <div class="ui three fields">
         <div class="field">
@@ -450,6 +452,43 @@ type   : 'UI Collection'
         <div class="field">
           <label>Last name</label>
           <input type="text" placeholder="Last Name">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Grouped Fields</h4>
+    <p>Fields can be grouped to show related choices</p>
+    <div class="ui form">
+      <div class="grouped inline fields">
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Apples</label> 
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Oranges</label> 
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Pears</label> 
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Grapefruit</label> 
         </div>
       </div>
     </div>

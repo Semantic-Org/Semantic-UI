@@ -63,6 +63,7 @@ $.fn.card = function(parameters) {
             })
           ;
           $vote
+            .popup(settings.popup.vote)
             .state(settings.state.vote)
           ;
           $close
@@ -314,7 +315,8 @@ $.fn.card.settings = {
 
   popup: {
     vote: {
-      content: ''
+      delay   : 500,
+      content : 'Vote for an idea to help it get to eval'
     }
   },
 

@@ -226,7 +226,7 @@ p:last-child {
   margin-bottom: 0em;
 }
 p > a {
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 /* links */
 a {
@@ -472,6 +472,9 @@ a:hover {
 
 #example .main.ui.grid {
   position: relative;
+}
+#example .example .language.label {
+  margin: 1em 0em 0.75em;
 }
 #example .example .two.column.grid .column {
   padding-left: 4%;

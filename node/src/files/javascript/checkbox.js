@@ -5,7 +5,7 @@ semantic.dropdown.ready = function() {
 
   // selector cache
   var 
-    $checkbox = $('.ui.checkbox'),
+    $checkbox = $('.example').not('.static').find('.ui.checkbox'),
     // alias
     handler
   ;

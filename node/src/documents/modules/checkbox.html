@@ -30,18 +30,38 @@ type   : 'UI Module'
   <div class="example">
     <h4 class="ui header">Check Box</h4>
     <p>A standard checkbox</p>
-    <div class="ui checkbox">
-      <input type="checkbox" />
-      <div class="box"></div>
+    
+    <div class="ui language label">Javascript</div>
+    <div class="code">
+    $('.ui.checkbox')
+      .checkbox()
+    ;
     </div>
+    <div class="ui language label">HTML</div>
+    <div class="ui form">
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" />
+          <div class="box"></div>
+        </div>
+        <label>I would like a dog.</label>
+      </div>
+    </div>
+    
   </div>
 
-  <div class="example">
+  <div class="static example">
     <h4 class="ui header">Static Check Box</h4>
     <p>A checkbox can function without javascript</p>
-    <div class="ui checkbox">
-      <input type="checkbox" id="unique-id" />
-      <label class="box" for="unique-id"></label>
+    <div class="ui language label">HTML Only</div>
+    <div class="ui form">
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" id="unique-id" />
+          <label class="box" for="unique-id"></label>
+        </div>
+        <label for="unique-id"> I would like a dog but i am lazy.</label>
+      </div>
     </div>
   </div>
   
@@ -70,33 +90,35 @@ type   : 'UI Module'
     <h4 class="ui header">Radio Box</h4>
     <p>A checkbox can be formatted as a radio element. This means it is an exclusive option.</p>
     <div class="ui form">
-      <div class="inline field">
-        <div class="ui radio checkbox">
-          <input type="radio" name="fruit" />
-          <label></label>
+      <div class="grouped inline fields">
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Apples</label> 
         </div>
-        <label> Apples</label> 
-      </div>
-      <div class="inline field">
-        <div class="ui radio checkbox">
-          <input type="radio" name="fruit" />
-          <label></label>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Oranges</label> 
         </div>
-        <label> Oranges</label> 
-      </div>
-      <div class="inline field">
-        <div class="ui radio checkbox">
-          <input type="radio" name="fruit" />
-          <label></label>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Pears</label> 
         </div>
-        <label> Pears</label> 
-      </div>
-      <div class="inline field">
-        <div class="ui radio checkbox">
-          <input type="radio" name="fruit" />
-          <label></label>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Grapefruit</label> 
         </div>
-        <label> Grapefruit</label> 
       </div>
     </div>
   </div>

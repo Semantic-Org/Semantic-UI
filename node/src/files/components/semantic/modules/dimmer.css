@@ -150,8 +150,7 @@ body.ui.dimmable.dimmed > :not(.dimmer) {
   display: block;
   overflow: hidden;
   opacity: 1;
-  height: 0px;
-  width: 0px;
+  z-index: -100;
   background-color: rgba(0, 0, 0, 0);
 }
 .ui.dimmable.dimmed > .ui.simple.dimmer {
