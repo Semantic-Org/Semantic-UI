@@ -4,7 +4,7 @@
   Notes: First Commit March 25, 2013
 
   Simple plug-in which maintains the state for ui checkbox
-  This can be done without javascript, only in instances 
+  This can be done without javascript, only in instances
   where each checkbox is assigned a unique ID. This provides a separate
   programmatic option when that is not possible.
 
@@ -15,7 +15,7 @@
 $.fn.checkbox = function(parameters) {
   var
     $allModules     = $(this),
-    
+
     settings        = $.extend(true, {}, $.fn.checkbox.settings, parameters),
 
     eventNamespace  = '.' + settings.namespace,
@@ -35,12 +35,13 @@ $.fn.checkbox = function(parameters) {
     .each(function() {
       var
         $module       = $(this),
+        $label        = $(this).next(settings.selector.label).first(),
         $input        = $(this).find(settings.selector.input),
 
         selector      = $module.selector || '',
         element       = this,
         instance      = $module.data('module-' + settings.namespace),
-        
+
         className     = settings.className,
         namespace     = settings.namespace,
         errors        = settings.errors,
@@ -54,6 +55,7 @@ $.fn.checkbox = function(parameters) {
             module.verbose('Initializing checkbox with delegated events', $module);
             $(element, settings.context)
               .on(selector, 'click' + eventNamespace, module.toggle)
+              .on(selector + ' + ' + settings.selector.label, 'click' + eventNamespace, module.toggle)
               .data(moduleNamespace, module)
             ;
           }
@@ -62,6 +64,9 @@ $.fn.checkbox = function(parameters) {
             $module
               .on('click' + eventNamespace, module.toggle)
               .data(moduleNamespace, module)
+            ;
+            $label
+              .on('click' + eventNamespace, module.toggle)
             ;
           }
         },
@@ -286,7 +291,7 @@ $.fn.checkbox.settings = {
   verbose     : true,
   debug       : true,
   performance : true,
-  
+
   // delegated event context
   context     : false,
   required    : 'auto',
@@ -294,13 +299,14 @@ $.fn.checkbox.settings = {
   onChange    : function(){},
   onEnable    : function(){},
   onDisable   : function(){},
-  
+
   errors     : {
     method   : 'The method you called is not defined.'
   },
 
   selector : {
-    input  : 'input'
+    input  : 'input',
+    label  : 'label'
   },
 
   className : {

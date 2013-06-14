@@ -167,9 +167,7 @@
 .ui.simple.dropdown .menu {
   display: block;
   overflow: hidden;
-  top: 100%;
-  height: 0px;
-  width: 0px;
+  top: -9999px;
   position: absolute;
   opacity: 0;
   -webkit-transition: opacity 0.2s ease-out;
@@ -178,11 +176,19 @@
   -ms-transition: opacity 0.2s ease-out;
   transition: opacity 0.2s ease-out;
 }
+
+.ui.simple.dropdown.visible,
+.ui.simple.dropdown:hover {
+  border-bottom-left-radius: 0em !important;
+  border-bottom-right-radius: 0em !important;
+}
+
 .ui.simple.dropdown.visible .menu,
 .ui.simple.dropdown:hover .menu {
   overflow: visible;
   width: auto;
   height: auto;
+  top: 100%;
   opacity: 1;
 }
 .ui.simple.disabled.dropdown:hover .menu {
