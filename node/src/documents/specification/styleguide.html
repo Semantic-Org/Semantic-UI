@@ -7,7 +7,7 @@ type   : 'UI Specification'
 ---
 <div class="segment">
   <div class="container">
-    <h1 class="ui dividing header">Style Guide</h1>
+    <h1 class="ui header">Style Guide</h1>
   </div>
 </div>
 <div class="main container">
@@ -17,10 +17,33 @@ type   : 'UI Specification'
   <p>Defining anything will involve some subjectivity. The goal of semantic is not to create code that is free from prescription, but to create code that tends to avoid arbitrary decisions if a conventional choice presents itself.</p>
   <p>The following are some guidelines which help avoid some common pitfalls in writing UI element definitions.</p>
 
-  <div class="example">
+  <div class="ui simple divider"></div>
 
     <h4 class="ui header">Neutral Base Form</h4>
     <p>In order to make UI components be able to exist in most websites, the prototype version of an element should be neutrally styled using greytones and neutral colors. This will allow other elements to be more robust giving other developers freedom to make decisions about color and style when adapting your element for their website.</p>
+
+    <h4 class="ui header">Namespacing</h4>
+    <p>All css code must live inside a namespace. By default all ui elements use the class "ui". This prevents rules from altering styles of other content in the page. This also helps differentiate between UI elements and parts of an element</p>
+    <p>Tags inside of a ui element <b>do not</b> need to be prefixed with ui. They can simple descend from the element.</p>
+    <div class="code" data-type="css">
+    // incorrect
+    .menu {
+      
+    }
+
+    // incorrect
+    .ui.menu .ui.item {
+      
+    }
+
+    // correct
+    .ui.menu {
+      
+    }
+    .ui.menu .item {
+      
+    }
+    </div>
 
 
     <h4 class="ui header">Commonality</h4>
@@ -35,8 +58,7 @@ type   : 'UI Specification'
       font-size: 1.5em;
     }
     </div>
-  </div>
-  <div class="example">
+    
     <h4 class="ui header">Precision</h4>
     <p>Classes should be defined in one word, if the concept cannot be reduced to a single word then consider factoring it into multiple sub classes</p>
     <div class="code" data-type="css">
@@ -54,9 +76,26 @@ type   : 'UI Specification'
       margin-top: -0.5em
     }
     </div>
-  </div>
+  
+    <h4 class="ui header">Use real words</h4>
+    <p>Abbreviations are useful for taking notes, but css definitions should attempt to use consistent, common language.</p>
+    <div class="code" data-type="css">
+    // nope
+    .ui.btn {
+      
+    }
+    .ui.widget .cpttext {
+      
+    }
+    // good
+    .ui.button {
+    
+    }
+    .ui.widget .caption {
+    
+    }
+    </div>
 
-  <div class="example">
     <h4 class="ui header">Non prescriptive</h4>
     <p>Avoid requiring any specific tags in your definitions. This will allow developers to choose which tags they would like to use with an element.</p>
     <p>Sometimes however it makes sense to allow for common tags to be used in place of classnames for brevity. Paragraph tags, links, labels, and tables may be useful to use in a UI element definition without classnames.</p>
@@ -83,8 +122,7 @@ type   : 'UI Specification'
       
     }
     </div>
-  </div>
-  <div class="another example">
+    
     <div class="code" data-type="css">
       
     // wow this guy is going to have to do a lot of typing...
@@ -96,8 +134,6 @@ type   : 'UI Specification'
       
     }
     </div>
-  </div>
-  <div class="example">
     <h4 class="ui header">Inversion</h4>
     <p>Elements are often inverted to stand out on dark backgrounds. Consider creating a variation of your element defines how the element can invert its colors.</p>
     <p>Keep in mind you might have to increase the contrast between shades of your element when inverting colors, its much easier to detect in a design between multiple shades of a light color than a dark one.</p>
@@ -111,7 +147,6 @@ type   : 'UI Specification'
       color: rgba(255, 255, 255, 0.7);
     }
     </div>
-  </div>
 
   
 </div>

@@ -473,6 +473,9 @@ a:hover {
 #example .main.ui.grid {
   position: relative;
 }
+#example .example .toggle.button {
+  min-width: 200px;
+}
 #example .example .language.label {
   margin: 1em 0em 0.75em;
 }

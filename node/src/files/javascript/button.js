@@ -6,7 +6,8 @@ semantic.button.ready = function() {
   // selector cache
   var 
     $buttons = $('.ui.buttons .button'),
-    $button  = $('.ui.button').not($buttons),
+    $toggle  = $('.ui.toggle.button'),
+    $button  = $('.ui.button').not($buttons).not($toggle),
     // alias
     handler = {
 
@@ -23,6 +24,19 @@ semantic.button.ready = function() {
 
   $buttons
     .on('click', handler.activate)
+  ;
+
+  $toggle
+    .state({
+      states: {
+        active: true
+      },
+      text: {
+        inactive : 'Vote',
+        active   : 'Voted',
+        disable  : 'Undo'
+      }
+    })
   ;
 
   $button

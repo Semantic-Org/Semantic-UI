@@ -21,49 +21,6 @@ type   : 'UI Specification'
     </div>
   </div>
 
-  <h2 class="ui dividing header">General</h2>
-
-    <h4 class="ui header">Namespace</h4>
-    <p>All css code must live inside a namespace. By default all ui elements use the class "ui". This prevents rules from altering styles of other content in the page. This also helps differentiate between UI elements and parts of an element</p>
-    <p>Tags inside of a ui element <b>do not</b> need to be prefixed with ui. They can simple descend from the element.</p>
-    <div class="code" data-type="css">
-    // incorrect
-    .menu {
-      
-    }
-
-    // incorrect
-    .ui.menu .ui.item {
-      
-    }
-
-    // correct
-    .ui.menu {
-      
-    }
-    .ui.menu .item {
-      
-    }
-    </div>
-  
-    <h4 class="ui header">Use real words</h4>
-    <p>Abbreviations are useful for taking notes, but css definitions should attempt to use consistent, common language.</p>
-    <div class="code" data-type="css">
-    // nope
-    .ui.btn {
-      
-    }
-    .ui.widget .cpttext {
-      
-    }
-    // good
-    .ui.button {
-    
-    }
-    .ui.widget .caption {
-    
-    }
-    </div>
   
   <h2 class="ui dividing header">Style Guide</h2>
   
