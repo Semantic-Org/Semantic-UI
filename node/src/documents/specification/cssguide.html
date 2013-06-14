@@ -108,26 +108,26 @@ type   : 'UI Specification'
     </div>
   
     <h4 class="ui header">CSS Legibility</h4>
-    <p>Keeping comma separated selectors on separate lines, adding a space after css properties with commasm and always having zeros before a decimal value assist in code legibility.</p>
+    <p>Adding extra formatting can help increase clarity in your code. We suggest separating css selectors on separate lines, adding a space after css properties with commas (like box-shadow) and placing a zero before any decimal value.</p>
    
     <div class="code" data-type="css">
     // not so easy to read
     .ui.widgets .widget, ui.widget, .ui.widget.type, ui.widgets .widget.type {
       color: #FFFFFF;
     }
+    // this should have spaces after commas and a zero before any decimal value
     .ui.widget {
-      // this should have spaces after the commas and a decimal should aways have a leading zero
       color:rgba(0,0,0,.3);
     }
     
-    // more legible
+    // easier to read
     .ui.widgets .widget,
     .ui.widget,
     .ui.widgets .widget.type,
     .ui.widget.type {
       color: #FFFFFF;
     }
-    // spaces and zeros
+    // properly formatted
     .ui.widget {
       color: rgba(0, 0, 0, 0.3);
     }
@@ -190,7 +190,7 @@ type   : 'UI Specification'
     </div>
 
     <h4 class="ui header">Grammatical order</h4>
-    <p>Consider using similar class syntax as if you were actually describing the element in english. Although this is by no means required it may help provide clarity in some circumstances.</p>
+    <p>Consider using similar class syntax as if you were actually describing the element in English. Although this is by no means required it may help provide clarity in some circumstances.</p>
     <div class="code" data-type="css">
     // confusing word order
     .ui.red.button.pointing {
@@ -218,7 +218,7 @@ type   : 'UI Specification'
   <h2 class="ui dividing header">Units and Measurements</h2>
 
     <h4 class="ui header"><em>Relatively</em> Relative</h4>
-    <p>EMs are defined so that 1em is equal to the current font size inside of an element. Using EMs can allow you to size content inside an element in proportion to the overall size of the element. Be careful though because this will stack with nested elements</p>
+    <p>EMs are defined so that 1em is equal to the current font size inside of an element. Using EMs can allow you to size content inside an element in proportion to the overall size of the element. Be careful though because this will stack with nested elements.</p>
     <div class="code" data-type="css">
     .ui.thingy {
       font-size: 14px;
@@ -239,7 +239,7 @@ type   : 'UI Specification'
     </div>
 
     <h4 class="ui header"><em>Recursively</em> Relative</h4>
-    <p>Using EMs multiplicative nature can often be used to your advantage. Instead of defining multiple tiers of a menu system. Consider using ems for its sizing. As you continue to nest menu elements each nested menu will computer its values with smaller proportions.</p>
+    <p>Using EMs multiplicative nature can be used to your advantage. Instead of defining multiple tiers of a menu system, consider using ems to reduce each tier's sizing. As you continue to nest menu elements each nested menu will computer its values with smaller proportions.</p>
     <div class="code" data-type="css">
     .ui.menu {
       font-size: 1rem;
@@ -251,7 +251,7 @@ type   : 'UI Specification'
     </div>
   
     <h4 class="ui header"><em>Absolutely</em> Relative</h4>
-    <p>REMs are defined so that 1rem is equal to 1 em on the html tag of the page. This is needed to explain how content should be sized related to the overall size of elements on the page</p>
+    <p>Relative EMs (rems) are calculated relative to the font size of the entire page. This is needed to explain how content should be sized related to the overall size of elements on the page, and will not increase geometrically when nested like EMs.</p>
     <div class="code" data-type="css">
     // i am a weird page with very tiny fonts
     html {
@@ -263,6 +263,10 @@ type   : 'UI Specification'
     }
     // i am sizing relative to the menu element
     .ui.menu .menu {
+      font-size: 0.8em;
+    }
+    // i am the same size as the rule above
+    .ui.menu .menu .menu {
       font-size: 0.8em;
     }
     </div>
