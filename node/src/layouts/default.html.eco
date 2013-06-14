@@ -93,7 +93,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/element.html"><b>Quirky</b></a>
+      <b>Quirky</b>
       <div class="menu">
         <% for element in quirkyElements: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
