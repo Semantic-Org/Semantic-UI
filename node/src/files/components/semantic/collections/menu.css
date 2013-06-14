@@ -16,6 +16,7 @@
       Menu
 ---------------*/
 .ui.menu {
+  margin: 1rem 0rem;
   background-color: #FFFFFF;
   font-size: 0px;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -24,6 +25,12 @@
   -webkit-border-radius: 0.325rem;
   -moz-border-radius: 0.325rem;
   border-radius: 0.325rem;
+}
+.ui.menu:first-child {
+  margin-top: 0rem;
+}
+.ui.menu:last-child {
+  margin-bottom: 0rem;
 }
 .ui.menu:after {
   content: ".";
@@ -607,11 +614,11 @@
 ---------------*/
 .ui.floated.menu {
   float: left;
-  margin-right: 0.5rem;
+  margin: 0rem 0.5rem 0rem 0rem;
 }
 .ui.right.floated.menu {
   float: right;
-  margin-left: 0.5rem;
+  margin: 0rem 0rem 0rem 0.5rem;
 }
 /*--------------
  Inverted Colors

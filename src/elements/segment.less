@@ -249,6 +249,7 @@
 --------------------*/
 
 .ui.piled.segment {
+  margin: 2em 0em;
   -webkit-box-shadow:
     0px 0px 1px 1px rgba(0, 0, 0, 0.15)
   ;
@@ -264,6 +265,12 @@
   box-shadow:
     0px 0px 1px 1px rgba(0, 0, 0, 0.15)
   ;
+}
+.ui.piled.segment:first-child {
+  margin-top: 0em;
+}
+.ui.piled.segment:last-child {
+  margin-bottom: 0em;
 }
 .ui.piled.segment:after,
 .ui.piled.segment:before {
@@ -296,11 +303,11 @@
   z-index: -1;
 }
 .ui.piled.segment:before {
-  -webkit-transform: rotate(-1.9deg);
-  -moz-transform: rotate(-1.9deg);
-  -ms-transform: rotate(-1.9deg);
-  -o-transform: rotate(-1.9deg);
-  transform: rotate(-1.9deg);
+  -webkit-transform: rotate(-1.5deg);
+  -moz-transform: rotate(-1.5deg);
+  -ms-transform: rotate(-1.5deg);
+  -o-transform: rotate(-1.5deg);
+  transform: rotate(-1.5deg);
   top: 0;
   z-index: -2;
 }
