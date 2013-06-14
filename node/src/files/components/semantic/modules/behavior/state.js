@@ -305,7 +305,7 @@ $.fn.state = function(parameters) {
           if(settings.sync) {
             module.sync();
           }
-          $.proxy(settings.onChange, $module)();
+          settings.onChange();
         },
 
         activate: function() {
@@ -315,7 +315,6 @@ $.fn.state = function(parameters) {
               .addClass(className.active)
             ;
             module.text.update(text.active);
-            $.proxy(settings.onActivate, $module)();
           }
         },
 
@@ -326,7 +325,6 @@ $.fn.state = function(parameters) {
               .removeClass(className.active)
             ;
             module.text.update(text.inactive);
-            $.proxy(settings.onDeactivate, $module)();
           }
         },
 
@@ -563,9 +561,7 @@ $.fn.state.settings = {
   performance: true,
 
   // callback occurs on state change
-  onChange     : function() {},
-  onActivate   : function() {},
-  onDeactivate : function() {},
+  onChange: function() {},
 
   // state test functions
   activateTest   : function() { return true; },
@@ -630,7 +626,6 @@ $.fn.state.settings = {
   },
 
   states     : {
-    flash   : false,
     hover   : true,
     focus   : true,
     pressed : true,
@@ -643,7 +638,6 @@ $.fn.state.settings = {
     hover    : false,
     active   : false,
     inactive : false,
-    loading  : false,
     enable   : false,
     disable  : false
   }

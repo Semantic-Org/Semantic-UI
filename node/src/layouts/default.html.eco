@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<% quirkyElements    = @getCollection("documents").findAllLive({type: $in: ['Quirky Element']},[{title: 1}]).toJSON() %>
 <% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
 <% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
 <% uiViews           = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
@@ -87,6 +88,14 @@
       <a href="/specification.html"><b>Specification</b></a>
       <div class="menu">
         <% for element in uiSpecification: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Quirky</b></a>
+      <div class="menu">
+        <% for element in quirkyElements: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
         <% end %>
       </div>

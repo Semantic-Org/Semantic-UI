@@ -87,6 +87,34 @@ type   : 'UI Collection'
   </div>
   
   <div class="example">
+    <h4 class="ui header">Pagination</h4>
+    <p>A pagination menu is specially formatted to present links to pages of content</p>
+    <div class="ui pagination menu">
+      <a class="icon item">
+        <i class="icon left arrow"></i>
+      </a>
+      <a class="active item">
+        1
+      </a>
+      <div class="disabled item">
+        ...
+      </div>
+      <a class="item">
+        10
+      </a>
+      <a class="item">
+        11
+      </a>
+      <a class="item">
+        12
+      </a>
+      <a class="icon item">
+        <i class="icon right arrow"></i>
+      </a>
+    </div>
+  </div>
+  
+  <div class="example">
     <h4 class="ui header">Tiered Menu</h4>
     <p>A tiered menu can show the sub-sections available as part of an activated section.</p>
     <div class="ui tiered menu">
@@ -170,19 +198,6 @@ type   : 'UI Collection'
       <a class="item">
         <i class="community icon"></i> Browse
       </a>
-      <div class="right menu">
-        <div class="fitted borderless item">
-          <div class="ui input"><input type="text" placeholder="Search..."></div>
-        </div>
-        <div class="ui simple dropdown item">
-          More <i class="icon dropdown"></i>
-          <div class="menu">
-            <a class="item"><i class="edit icon"></i> Edit Profile</a>
-            <a class="item"><i class="globe icon"></i> Choose Language</a>
-            <a class="item"><i class="settings icon"></i> Account Settings</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="another example">
@@ -198,11 +213,8 @@ type   : 'UI Collection'
       <a class="item">
         <i class="community icon"></i> Browse
       </a>
-      <div class="item">
-        <div class="ui input"><input type="text" placeholder="Search..."></div>
-      </div>
       <div class="ui simple dropdown item">
-        More <i class="icon dropdown"></i>
+        More <i class="icon right triangle"></i>
         <div class="menu">
           <a class="item"><i class="edit icon"></i> Edit Profile</a>
           <a class="item"><i class="globe icon"></i> Choose Language</a>

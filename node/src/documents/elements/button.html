@@ -22,7 +22,7 @@ type       : 'UI Element'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Standard</a>
+      <a class="active item">Types</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
       <a class="item">Groups</a>
@@ -31,67 +31,74 @@ type       : 'UI Element'
   <h2 class="ui dividing header">Standard</h2>
 
   <div class="example">
-    <h4 class="ui header">Button:</h4>
+    <h4 class="ui header">Basic:</h4>
     <p>A standard button</p>
     <div class="ui button"><i class="icon add user"></i> Follow</div>
   </div>
+    
+  <div class="example">
+    <h4 class="ui header">Icon</h4>
+    <p>Icon only button</p>
+    <div class="ui icon button">
+      <i class="icon cloud"></i>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Labeled Icon</h4>
+    <p>An icon and a label</p>
+    <div class="ui labeled icon button">
+      <i class="icon pause"></i> Pause
+    </div>
+  </div>
+
 
   <h2 class="ui dividing header">States</h2>
 
   <div class="example">
-  <h4 class="ui header">Hover</h4>
-  <p>Changes when a user moves their cursor over it</p>
-  <div class="ui hover button"><i class="icon add user"></i> Follow</div>
+    <h4 class="ui header">Hover</h4>
+    <p>Changes when a user moves their cursor over it</p>
+    <div class="ui hover button"><i class="icon add user"></i> Follow</div>
   </div>
 
   <div class="example">
-  <h4 class="ui header">Down</h4>
-  <p>Changes when pressed using touch or mouse events</p>
-  <div class="ui down button"><i class="icon add user"></i> Follow</div>
+    <h4 class="ui header">Down</h4>
+    <p>Changes when pressed using touch or mouse events</p>
+    <div class="ui down button"><i class="icon add user"></i> Follow</div>
   </div>
 
   <div class="example">
-  <h4 class="ui header">Active</h4>
-  <p>Changes to show it is currently the selected user action</p>
-  <div class="ui active button"><i class="icon add user"></i> Follow</div>
+    <h4 class="ui header">Active</h4>
+    <p>Changes to show it is currently the selected user action</p>
+    <div class="ui active button"><i class="icon add user"></i> Follow</div>
   </div>
 
   <div class="example">
-  <h4 class="ui header">Disabled</h4>
-  <p>Changes to show it is currently unable to be interacted with</p>
-  <div class="ui disabled button"><i class="icon add user"></i> Followed</div>
+    <h4 class="ui header">Disabled</h4>
+    <p>Changes to show it is currently unable to be interacted with</p>
+    <div class="ui disabled button"><i class="icon add user"></i> Followed</div>
   </div>
 
   <div class="example">
-  <h4 class="ui header">Loading</h4>
-  <p>Can show a loading indicator:</p>
-  <div class="ui loading button">Loading Button</div>
+    <h4 class="ui header">Loading</h4>
+    <p>Can show a loading indicator:</p>
+    <div class="ui loading button">Loading Button</div>
   </div>
 
   <div class="example">
-  <h4 class="ui header">Success</h4>
-  <p>Can alert to a succesful action:</p>
-  <div class="ui success button"><i class="icon add user"></i> Follow</div>
+    <h4 class="ui header">Success</h4>
+    <p>Can alert to a succesful action:</p>
+    <div class="ui success button">
+      <i class="icon add user"></i> Follow User
+    </div>
   </div>
-
   <div class="example">
-  <h4 class="ui header">Error</h4>
-  <p>Can alert user of an error:</p>
-  <div class="ui error button">Error</div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">All together:</h4>
-    <div class="ui button">Normal</div>
-    <div class="ui button hover">Hover</div>
-    <div class="ui button down">Down</div>
-    <div class="ui button loading">Loading</div>
-    <br><br>
-    <div class="ui button disabled">Disabled</div>
-    <div class="ui button active">Active</div>
-    <div class="ui button active toggle">Toggled</div>
-    <div class="ui button error">Error</div>
-    <div class="ui button success">Success</div>
+    <h4 class="ui header">Error</h4>
+    <p>Can alert user of an error:</p>
+    <div class="ui error button">
+      <i class="icon add user"></i>
+      Follow User
+    </div>
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
@@ -105,7 +112,6 @@ type       : 'UI Element'
     <div class="ui secondary red button">Secondary</div>
   </div>
   <div class="another example">
-    <div class="ui tertiary button">Tertiary</div>
     <div class="ui tertiary teal button">Tertiary</div>
     <div class="ui tertiary purple button">Tertiary</div>
     <div class="ui tertiary red button">Tertiary</div>
@@ -153,7 +159,15 @@ type       : 'UI Element'
     <a class="ui purple button">Purple Button</a>
     <a class="ui teal button">Teal Button</a>
   </div>
-
+  
+  <div class="example">
+    <h4 class="ui header">Toggle</h4>
+    <p>Can be formatted to toggle on and off</p>
+    <div class="ui toggle button">
+      Vote
+    </div>
+  </div>
+  
   <h4 class="ui header">Feedback</h4>
   <div class="example">
     <p>Can be positive or negative:</p>
@@ -173,21 +187,6 @@ type       : 'UI Element'
     <div class="circular ui button">Rounded</div>
     <div class="circular ui icon button"><i class="icon settings"></i></div>
   </div>
-
-  <div class="example">
-    <h4 class="ui header">Icon</h4>
-    <p>Can be formatted as an icon toolbar:</p>
-    <div class="ui icon button">
-      <i class="icon cloud"></i>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Labeled Icon</h4>
-    <p>can be formatted as labeled icons</p>
-    <div class="ui labeled icon button"><i class="icon pause"></i> Pause</div>
-  </div>
-
 
   <div class="example">
     <h4 class="ui header">Vertically Attached</h4>

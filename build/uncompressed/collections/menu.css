@@ -298,7 +298,7 @@
 .ui.menu .item.disabled:hover,
 .ui.menu .item.disabled.hover {
   cursor: default;
-  opacity: 0.3;
+  color: rgba(0, 0, 0, 0.2);
   background-color: transparent;
 }
 /*--------------------
@@ -481,6 +481,26 @@
   border-color: #00B5AD;
 }
 /*--------------
+    Pagination
+---------------*/
+.ui.pagination.menu {
+  display: inline-block;
+}
+.ui.pagination.menu .item {
+  min-width: 2.7em;
+  min-height: 2.55em;
+  text-align: center;
+}
+.ui.pagination.menu.floated {
+  display: block;
+}
+/* active */
+.ui.pagination.menu .active.item {
+  border-top: none;
+  padding-top: 0.75em;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+/*--------------
     Inverted
 ---------------*/
 .ui.inverted.menu {
@@ -512,6 +532,11 @@
 .ui.inverted.menu .dropdown.item .menu .item,
 .ui.inverted.menu .dropdown.item .menu .item a {
   color: rgba(0, 0, 0, 0.75) !important;
+}
+.ui.inverted.menu .item.disabled,
+.ui.inverted.menu .item.disabled:hover,
+.ui.inverted.menu .item.disabled.hover {
+  color: rgba(255, 255, 255, 0.2);
 }
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
@@ -808,13 +833,13 @@
    Secondary Pointing
 -----------------------*/
 .ui.secondary.pointing.menu {
-  border-bottom: 0.2rem solid rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
 }
 .ui.secondary.pointing.menu > .item {
-  margin: 0em 0em -0.2em;
+  margin: 0em 0em -3px;
   padding: 0.6em 0.95em;
   color: rgba(0, 0, 0, 0.5);
-  border-bottom: 0.2em solid rgba(0, 0, 0, 0);
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
@@ -853,11 +878,11 @@
 /*------- Vertical------- */
 .ui.secondary.vertical.pointing.menu {
   border: none;
-  border-right: 0.2rem solid rgba(0, 0, 0, 0.1);
+  border-right: 3px solid rgba(0, 0, 0, 0.1);
 }
 .ui.secondary.vertical.menu > .item {
   border: none;
-  margin: 0em 0em -0.2rem;
+  margin: 0em 0em 0.3em;
   padding: 0.6em 0.8em;
   -webkit-border-radius: 0.325em;
   -moz-border-radius: 0.325em;
@@ -869,9 +894,9 @@
   border-radius: 0em;
 }
 .ui.secondary.vertical.pointing.menu > .item {
-  margin: 0em -0.2rem 0em 0em;
+  margin: 0em -3px 0em 0em;
   border-bottom: none;
-  border-right: 0.2rem solid transparent;
+  border-right: 3px solid transparent;
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
@@ -896,7 +921,7 @@
 }
 /*------- Inverted------- */
 .ui.secondary.inverted.pointing.menu {
-  border-bottom: 0.2rem solid rgba(255, 255, 255, 0.1);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
 }
 .ui.secondary.inverted.pointing.menu > .item {
   color: rgba(255, 255, 255, 0.7);
@@ -920,7 +945,7 @@
  Inverted Sec
 ---------------*/
 .ui.secondary.inverted.vertical.pointing.menu {
-  border-right: 0.2rem solid rgba(255, 255, 255, 0.1);
+  border-right: 3px solid rgba(255, 255, 255, 0.1);
   border-bottom: none;
 }
 /* Down */
