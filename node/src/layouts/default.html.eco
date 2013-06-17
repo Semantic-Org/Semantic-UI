@@ -71,6 +71,7 @@
   <script src="/javascript/library/sidr.js"></script>
   <script src="/javascript/library/waypoints.js"></script>
 
+  <script src="/components/semantic/modules/behavior/api.js"></script>
   <script src="/components/semantic/modules/behavior/state.js"></script>
   <script src="/components/semantic/modules/checkbox.js"></script>
   <script src="/components/semantic/modules/dimmer.js"></script>

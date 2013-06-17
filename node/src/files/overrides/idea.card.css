@@ -90,6 +90,15 @@
 }
 
 /*--------------
+     Popup
+---------------*/
+
+.ui.idea.cards .card .popup,
+.ui.idea.card .popup {
+  max-width: 40%;
+}
+
+/*--------------
      Images
 ---------------*/
 

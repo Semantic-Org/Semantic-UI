@@ -200,9 +200,19 @@ $.fn.state = function(parameters) {
           }
         },
 
+        allow: function(state) {
+          module.debug('Now allowing state', state);
+          states[state] = true;
+        },
+        disallow: function(state) {
+          module.debug('No longer allowing', state);
+          states[state] = false;
+        },
+
         allows: function(state) {
           return states[state] || false;
         },
+
         enable: function(state) {
           if(module.allows(state)) {
             $module.addClass( className[state] );
@@ -305,7 +315,7 @@ $.fn.state = function(parameters) {
           if(settings.sync) {
             module.sync();
           }
-          settings.onChange();
+          $.proxy(settings.onChange, element)();
         },
 
         activate: function() {
@@ -316,6 +326,7 @@ $.fn.state = function(parameters) {
             ;
             module.text.update(text.active);
           }
+          $.proxy(settings.onActivate, element)();
         },
 
         deactivate: function() {
@@ -326,6 +337,7 @@ $.fn.state = function(parameters) {
             ;
             module.text.update(text.inactive);
           }
+          $.proxy(settings.onDeactivate, element)();
         },
 
         sync: function() {
@@ -490,7 +502,7 @@ $.fn.state = function(parameters) {
         },
         error: function() {
           if(console.log !== undefined) {
-            module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+            module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
           }
         },
         invoke: function(query, context, passedArguments) {
@@ -558,10 +570,12 @@ $.fn.state.settings = {
   namespace  : 'state',
 
   // debug data includes performance
-  performance: true,
+  performance: false,
 
   // callback occurs on state change
-  onChange: function() {},
+  onActivate   : function() {},
+  onDeactivate : function() {},
+  onChange     : function() {},
 
   // state test functions
   activateTest   : function() { return true; },
