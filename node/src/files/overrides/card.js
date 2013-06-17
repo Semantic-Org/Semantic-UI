@@ -30,29 +30,34 @@ $.fn.card = function(parameters) {
     allModules
   ;
   $allModules
-    .each(function() {
+    .each(function(moduleIndex) {
       var
-        $module   = $(this),
-        $vote     = $module.find(settings.selector.vote),
-        $close    = $module.find(settings.selector.close),
+        $module      = $(this),
+        $vote        = $module.find(settings.selector.vote),
+        $voteCount   = $module.find(settings.selector.voteCount),
+        $progressBar = $module.find(settings.selector.progressBar),
+        $follow      = $module.find(settings.selector.follow),
+        $close       = $module.find(settings.selector.close),
+
+        initialVotes = $module.data('votes') || false,
         
-        selector  = $module.selector || '',
-        element   = this,
-        instance  = $module.data('module-' + settings.namespace),
+        selector     = $module.selector || '',
+        element      = this,
+        instance     = $module.data('module-' + settings.namespace),
         
-        className = settings.className,
-        metadata  = settings.metadata,
-        namespace = settings.namespace,
-        animation = settings.animation,
+        className    = settings.className,
+        metadata     = settings.metadata,
+        namespace    = settings.namespace,
+        animation    = settings.animation,
         
-        errors    = settings.errors,
+        errors       = settings.errors,
         module
       ;
 
       module = {
 
         initialize: function() {
-          module.debug('Initializing card with bound events', $module);
+          module.verbose('Initializing card with bound events', $module);
           $module
             .dimmer({
               on        : 'hover',
@@ -62,10 +67,27 @@ $.fn.card = function(parameters) {
               }
             })
           ;
-          $vote
-            .popup(settings.popup.vote)
-            .state(settings.state.vote)
-          ;
+          if( initialVotes ) {
+            module.verbose('Setting initial votes to', initialVotes);
+            setTimeout(function() {
+              module.set.votes( initialVotes );
+            }, moduleIndex * settings.animationDelay);
+          }
+          if($vote.size() > 0) {
+            $vote
+              .apiButton( $.extend(true, {}, settings.api.vote, module.api.vote) )
+              .state($.extend(true, {}, settings.state.vote, { 
+                onChange: module.toggle.vote
+              }))
+            ;
+          }
+          if($follow.size() > 0) {
+            $follow
+              .popup(settings.popup.follow)
+              .apiButton( $.extend(true, {}, settings.api.follow, module.api.follow) )
+              .state(settings.state.follow)
+            ;
+          }
           $close
             .on('click', module.undim)
           ;
@@ -81,25 +103,110 @@ $.fn.card = function(parameters) {
           ;
         },
 
-        get: {
-          progress: function() {
+        api: {
 
+          vote: {
+            beforeSend: function(settings) {
+              if( $(this).hasClass(className.active) ) {
+                settings.method = 'DELETE';
+              }
+              return settings;
+            }
+          },
+          follow: {
+            beforeSend: function(settings) {
+              if( $(this).hasClass(className.active) ) {
+                settings.method = 'DELETE';
+              }
+              return settings;
+            }
+          }
+
+        },
+
+        enable: {
+          allVotes: function() {
+            $allModules.find(settings.selector.vote).state('allow', 'active');
           },
           votes: function() {
-
-          },
-          type: function() {
-            
+            $vote.state('allow', 'active');
           }
         },
-        set: {
-          progress: function() {
-
+        disable: {
+          allVotes: function() {
+            $allModules.find(settings.selector.vote).state('disallow', 'active');
           },
-          votes: function(count) {
-            if(count == 'increase') {
+          votes: function() {
+            $vote.state('disallow', 'active');
+          }
+        },
 
+        get: {
+          request: function(type) {
+            if( type == 'vote' ) {
+              return $vote.data('promise') || false;
             }
+            else if( type == 'follow' ) {
+              return $follow.data('promise') || false;
+            }
+          },
+          progress: function() {
+            return ( module.get.votes() / settings.maxVotes * 100);
+          },
+          votes: function() {
+            return parseInt( $voteCount.html(), 10) || 0;
+          }
+        },
+
+        set: {
+          votes: function(count) {
+            module.debug('Setting votes to', count);
+            if(count <= settings.maxVotes) {
+              $voteCount
+                .html( count )
+              ;
+              $progressBar
+                .css('width', module.get.progress() + '%')
+              ;
+              if(count == settings.maxVotes) {
+                module.debug('Reached maximum votes');
+                settings.onVoteMax();
+              }
+            }
+            else {
+              module.error(settings.votesExceeded);
+            }
+          }
+        },
+
+        toggle: {
+          vote: function() {
+            module.debug('Toggling user vote');
+            console.log($vote, $(this));
+            if( $vote.hasClass(className.active) ) {
+              module.add.vote();
+            }
+            else {
+              module.remove.vote();
+            }
+          }
+        },
+        add: {
+          vote: function() {
+            module.debug('Adding vote');
+            module.set.votes( module.get.votes()  + 1 );
+            $module
+              .addClass(className.voted)
+            ;
+          }
+        },
+        remove: {
+          vote: function() {
+            module.debug('Removing vote');
+            module.set.votes( module.get.votes() - 1 );
+            $module
+              .removeClass(className.voted)
+            ;
           }
         },
 
@@ -108,10 +215,6 @@ $.fn.card = function(parameters) {
         },
         undim: function() {
           $module.dimmer('hide');
-        },
-
-        vote: function() {
-
         },
 
         
@@ -267,25 +370,48 @@ $.fn.card = function(parameters) {
 };
 
 $.fn.card.settings = {
+  
   moduleName  : 'Card',
 
   debug       : true,
   verbose     : true,
   performance : false,
-  
-  exclusive   : true,
-  collapsible : true,
+
+  selector    : {
+    close       : '.close.icon',
+    follow      : '.follow.button',
+    progressBar : '.progress .bar',
+    vote        : '.vote.button',
+    voteCount   : '.meta .votes .count'
+  },
   
   onVote      : function(){},
+  onVoteMax   : function(){},
 
   errors: {
-    method    : 'The method you called is not defined'
+    method        : 'The method you called is not defined',
+    votesExceeded : 'This idea has already reached its maximum vote count'
   },
 
   className   : {
     active    : 'active',
-    hover     : 'hover'
+    hover     : 'hover',
+    voted     : 'voted'
   },
+
+  api: {
+    vote: {
+      action: 'vote',
+      success: function(){}
+    },
+    follow: {
+      action: 'follow',
+      success: function(){}
+    }
+  },
+
+  maxVotes       : 200,
+  animationDelay : 50,
 
   state: {
     vote: {
@@ -293,7 +419,7 @@ $.fn.card.settings = {
         active: true
       },
       className: {
-        active: 'positive'
+        active: 'active positive'
       },
       text: {
         inactive : 'Vote',
@@ -314,15 +440,10 @@ $.fn.card.settings = {
   },
 
   popup: {
-    vote: {
+    follow: {
       delay   : 500,
-      content : 'Vote for an idea to help it get to eval'
+      content : 'You used up all of your votes for today. Follow this idea and vote on it tomorrow.'
     }
-  },
-
-  selector    : {
-    vote  : '.vote.button',
-    close : '.close.icon'
   }
 
 };

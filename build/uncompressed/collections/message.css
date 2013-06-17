@@ -35,6 +35,7 @@
 ---------------*/
 /* block with headers */
 .ui.message .header {
+  margin: 0em 0em 0.5em;
   font-size: 1.33em;
   font-weight: bold;
 }

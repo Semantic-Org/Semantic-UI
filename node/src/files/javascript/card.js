@@ -23,8 +23,12 @@ semantic.card.ready = function() {
 
   };
 
+  $.api.settings.api = {
+    vote   : '/api.json',
+    follow : '/api.json'
+  };
+
   $card
-    .each(handler.randomProgress)
     .card()
   ;
   
