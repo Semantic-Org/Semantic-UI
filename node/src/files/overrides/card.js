@@ -155,6 +155,9 @@ $.fn.card = function(parameters) {
           },
           votes: function() {
             return parseInt( $voteCount.html(), 10) || 0;
+          },
+          votesLeft: function() {
+            return settings.maxVotes - module.get.votes();
           }
         },
 
@@ -163,7 +166,7 @@ $.fn.card = function(parameters) {
             module.debug('Setting votes to', count);
             if(count <= settings.maxVotes) {
               $voteCount
-                .html( count )
+                .html( settings.maxVotes - count )
               ;
               $progressBar
                 .css('width', module.get.progress() + '%')
@@ -182,7 +185,6 @@ $.fn.card = function(parameters) {
         toggle: {
           vote: function() {
             module.debug('Toggling user vote');
-            console.log($vote, $(this));
             if( $vote.hasClass(className.active) ) {
               module.add.vote();
             }
@@ -194,7 +196,7 @@ $.fn.card = function(parameters) {
         add: {
           vote: function() {
             module.debug('Adding vote');
-            module.set.votes( module.get.votes()  + 1 );
+            module.set.votes( module.get.votes() + 1 );
             $module
               .addClass(className.voted)
             ;
@@ -267,7 +269,9 @@ $.fn.card = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+          if(console.log !== undefined) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          }
         },
         performance: {
           log: function(message) {
