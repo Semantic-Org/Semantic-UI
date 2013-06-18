@@ -16,7 +16,7 @@
   display: block;
   text-align: left;
   font-size: 0em;
-  margin: 0% -0.75rem;
+  margin: 0% -1.5%;
   padding: 0%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -39,8 +39,8 @@
   display: inline-block;
   text-align: left;
   font-size: 1rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -76,8 +76,8 @@
     Grids in Grids
 --------------------*/
 .ui.grid .column > .grid {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
+  margin-left: -1.5%;
+  margin-right: -1.5%;
 }
 /*******************************
            Variations
@@ -361,7 +361,7 @@
 .ui.celled.grid > .column,
 .ui.celled.grid > .row > .column {
   display: table-cell;
-  padding: 0.75rem;
+  padding: 0.75em;
   -webkit-box-shadow: -1px 0px 0px 0px #dfdfdf;
   -moz-box-shadow: -1px 0px 0px 0px #dfdfdf;
   box-shadow: -1px 0px 0px 0px #dfdfdf;
