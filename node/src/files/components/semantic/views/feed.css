@@ -67,6 +67,7 @@
 }
 /* Summary */
 .ui.feed .content .summary {
+  margin-top: 0.75em;
   color: rgba(0, 0, 0, 0.75);
 }
 .ui.feed .content .summary img {
