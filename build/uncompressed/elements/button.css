@@ -244,6 +244,12 @@
   content: '';
   background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
+.ui.labeled.icon.button.loading .icon {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
 /*-------------------
       Disabled
 --------------------*/
@@ -536,6 +542,7 @@
   color: #999999;
   font-weight: normal;
   text-transform: none;
+  text-shadow: none;
   box-shadow: none;
 }
 .ui.buttons.tertiary .button:first-child {
@@ -809,6 +816,7 @@
 .ui.fluid.buttons,
 .ui.button.fluid,
 .ui.fluid.buttons > .button {
+  display: block;
   width: 100%;
 }
 .ui.two.buttons > .button {
