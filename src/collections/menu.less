@@ -172,6 +172,10 @@
   padding: 0.75em 0.95em;
 }
 
+.ui.menu .menu {
+  margin: 0em;
+}
+
 .ui.menu .menu.left,
 .ui.menu .item.left {
   float: left;
@@ -413,7 +417,7 @@
 
 
 /*--------------------
-     Loading 
+     Loading
 ---------------------*/
 
 /* On Form */
@@ -611,27 +615,27 @@
 /*--- Light Colors  ---*/
 .ui.menu .green.active.item,
 .ui.green.menu .active.item {
-  border-color: #A1CF64; 
+  border-color: #A1CF64 !important;
 }
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
-  border-color: #EF4D6D; 
+  border-color: #EF4D6D !important;
 }
 .ui.menu .blue.active.item,
 .ui.blue.menu .active.item {
-  border-color: #6ECFF5; 
+  border-color: #6ECFF5 !important;
 }
 .ui.menu .purple.active.item,
 .ui.purple.menu .active.item {
-  border-color: #564F8A; 
+  border-color: #564F8A !important;
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
-  border-color: #F05940; 
+  border-color: #F05940 !important;
 }
 .ui.menu .teal.active.item,
 .ui.teal.menu .active.item {
-  border-color: #00B5AD;
+  border-color: #00B5AD !important;
 }
 
 /*--------------
@@ -887,7 +891,7 @@
 .ui.text.menu {
   background-color: transparent;
 
-  margin: 0rem -1rem;
+  margin: 1rem -1rem;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -1044,7 +1048,7 @@
 
   margin: 0em 0.25em;
   padding: 0.5em 1em;
-  
+
   -webkit-border-radius: 0.325em;
   -moz-border-radius: 0.325em;
   border-radius: 0.325em;
@@ -1112,19 +1116,19 @@
   -moz-border-radius: 0em;
   border-radius: 0em;
 
-  -webkit-transition: 
+  -webkit-transition:
     color 0.2s
   ;
-  -moz-transition: 
+  -moz-transition:
     color 0.2s
   ;
-  -o-transition: 
+  -o-transition:
     color 0.2s
   ;
-  -ms-transition: 
+  -ms-transition:
     color 0.2s
   ;
-  transition: 
+  transition:
     color 0.2s
   ;
 }
@@ -1476,7 +1480,7 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
- 
+
   background-image: none;
 
   -webkit-transform: rotate(45deg);
@@ -1566,22 +1570,9 @@
   min-height: 0em !important;
 }
 
-.ui.tiny.menu .item {
-  font-size: 0.875rem;
-  padding: 0.5em 0.75em;
-}
-.ui.tiny.menu .item > a {
-  display: block;
-  margin: -0.5em -0.75em;
-  padding: 0.5em 0.75em;
-}
-.ui.tiny.vertical.menu {
-  width: 9rem;
-}
-
 .ui.small.menu .item {
   font-size: 0.875rem;
-/*  min-height: 2.25rem;*/
+  min-height: 2.25rem;
 }
 .ui.small.vertical.menu {
   width: 13rem;
@@ -1589,7 +1580,7 @@
 
 .ui.menu .item {
   font-size: 1rem;
-/*  min-height: 2.5em;*/
+  min-height: 2.5em;
 }
 .ui.vertical.menu {
   width: 15rem;

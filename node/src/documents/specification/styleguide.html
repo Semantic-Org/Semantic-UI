@@ -45,6 +45,19 @@ type   : 'UI Specification'
     }
     </div>
 
+    <h4 class="ui header">Margins</h4>
+    <p>Adding default margins to your content allow for it to have vertical rhythm in a page, but be careful about forcing margin in all circumstances. Here's a useful way to make sure content inside container elements doesn't receieve unnecessary padding.</p> 
+    <div class="code" data-type="css">
+    .ui.thingy {
+      margin: 1em 0em;
+    }
+    .ui.thingy:first-child {
+      margin-top: 0em;
+    }
+    .ui.thingy:last-child {
+      margin-bottom: 0em;
+    }
+    </div>
 
     <h4 class="ui header">Commonality</h4>
     <p>Try to use the most obvious names for classes. If you're not sure, prototype the element, then ask a friend or two what they would call it.<p>
