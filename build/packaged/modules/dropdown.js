@@ -427,28 +427,22 @@ $.fn.dropdown = function(parameters) {
             return module[name];
           }
         },
-        debug: function() {
-          if(settings.debug) {
-            if(settings.performance) {
-              module.performance.log(arguments);
-            }
-            else {
-              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
-            }
-          }
-        },
         verbose: function() {
           if(settings.verbose && settings.debug) {
-            if(settings.performance) {
-              module.performance.log(arguments);
-            }
-            else {
-              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
-            }
+            module.performance.log(arguments[0]);
+            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+          }
+        },
+        debug: function() {
+          if(settings.debug) {
+            module.performance.log(arguments[0]);
+            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+          if(console.log !== undefined) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          }
         },
         
         performance: {

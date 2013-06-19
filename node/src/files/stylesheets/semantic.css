@@ -479,10 +479,6 @@ a:hover {
 #example .example .language.label {
   margin: 1em 0em 0.75em;
 }
-#example .example .two.column.grid .column {
-  padding-left: 4%;
-  padding-right: 4%;
-}
 #example .icon.example {
   border-top: none;
 }

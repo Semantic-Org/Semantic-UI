@@ -58,8 +58,13 @@
         ? $(context)
         : $context,
 
-      action         = $module.data(settings.metadata.action) || settings.action || false,
-
+      instance       = $module.data('module-' + settings.namespace),
+      element        = $module.get(),
+      query          = arguments[0],
+      methodInvoked  = (typeof query == 'string'),
+      queryArguments = [].slice.call(arguments, 1),
+      invokedResponse,
+      
       className      = settings.className,
       metadata       = settings.metadata,
       errors         = settings.errors,
@@ -91,15 +96,12 @@
 
         // serialize parent form if requested!
         if(settings.serializeForm && $(this).toJSON() !== undefined) {
-          formData = $module
-            .closest('form')
-              .toJSON()
-          ;
-          $.extend(true, settings.data, formData);
+          formData = module.get.formData();
           module.debug('Adding form data to API Request', formData);
+          $.extend(true, settings.data, formData);
         }
 
-        // let beforesend change settings object
+        // let beforeSend change settings object
         runSettings = $.proxy(settings.beforeSend, $module)(settings);
 
         // check for exit conditions
@@ -109,59 +111,12 @@
           return;
         }
 
-        if(action) {
-          module.debug('Initializing API Request for: ', action);
-          if(settings.api[action] !== undefined) {
-            url = settings.api[action];
-          }
-          else {
-            module.error(errors.missingAction);
-          }
-        }
-        // override with url if specified
-        if(settings.url) {
-          url = settings.url;
-          module.debug('Using specified url: ', url);
-        }
-
-        if(!url) {
-          module.error(errors.missingURL);
-          module.reset();
-        }
-
-        // replace url data in url
-        urlVariables = url.match(settings.regExpTemplate);
-
-        if(urlVariables) {
-          module.debug('Looking for URL variables', urlVariables);
-          $.each(urlVariables, function(index, templateValue){
-            var
-              term      = templateValue.substr( 2, templateValue.length - 3),
-              termValue = ($.isPlainObject(parameters.urlData) && parameters.urlData[term] !== undefined)
-                ? parameters.urlData[term]
-                : ($module.data(term) !== undefined)
-                  ? $module.data(term)
-                  : settings.urlData[term]
-            ;
-            module.verbose('Looking for variable', term, $module, $module.data(term), settings.urlData[term]);
-            // remove optional value
-            if(termValue === false) {
-              module.debug('Removing variable from URL', urlVariables);
-              url = url.replace('/' + templateValue, '');
-            }
-            // undefined condition
-            else if(termValue === undefined || !termValue) {
-              module.error(errors.missingParameter + term);
-              exitConditions = true;
-            }
-            else {
-              url = url.replace(templateValue, termValue);
-            }
-          });
-        }
+        // get real url from template
+        url = module.get.url( module.get.templateURL() );
 
         // exit conditions reached from missing url parameters
-        if( exitConditions ) {
+        if( !url ) {
+          module.error(errors.missingURL);
           module.reset();
           return;
         }
@@ -339,6 +294,76 @@
         }
       },
 
+      get: {
+        formData: function() {
+          return $module
+            .closest('form')
+              .toJSON()
+          ;
+        },
+        templateURL: function() {
+          var
+            action = $module.data(settings.metadata.action) || settings.action || false,
+            url
+          ;
+          if(action) {
+            module.debug('Creating url for: ', action);
+            if(settings.api[action] !== undefined) {
+              url = settings.api[action];
+            }
+            else {
+              module.error(errors.missingAction);
+            }
+          }
+          // override with url if specified
+          if(settings.url) {
+            url = settings.url;
+            module.debug('Getting url', url);
+          }
+          return url;
+        },
+        url: function(url, urlData) {
+          var
+            missingTerm = false,
+            urlVariables
+          ;
+          if(url) {
+            urlVariables = url.match(settings.regExpTemplate);
+            urlData      = urlData || settings.urlData;
+
+            if(urlVariables) {
+              module.debug('Looking for URL variables', urlVariables);
+              $.each(urlVariables, function(index, templateValue){
+                var
+                  term      = templateValue.substr( 2, templateValue.length - 3),
+                  termValue = ($.isPlainObject(urlData) && urlData[term] !== undefined)
+                    ? urlData[term]
+                    : ($module.data(term) !== undefined)
+                      ? $module.data(term)
+                      : urlData[term]
+                ;
+                module.verbose('Looking for variable', term, $module, $module.data(term), urlData[term]);
+                // remove optional value
+                if(termValue === false) {
+                  module.debug('Removing variable from URL', urlVariables);
+                  url = url.replace('/' + templateValue, '');
+                }
+                // undefined condition
+                else if(termValue === undefined || !termValue) {
+                  module.error(errors.missingParameter + term);
+                  url = false;
+                  return false;
+                }
+                else {
+                  url = url.replace(templateValue, termValue);
+                }
+              });
+            }
+          }
+          return url;
+        }
+      },
+
       // reset api request
       reset: function() {
         $module
@@ -349,7 +374,6 @@
           .removeClass(className.error)
           .removeClass(className.loading)
         ;
-        module.error(errors.exitConditions);
       },
       
       /* standard module */
@@ -360,41 +384,67 @@
         settings[name] = value;
       },
       verbose: function() {
-        if(settings.verbose) {
-          module.debug.apply(this, arguments);
+        if(settings.verbose && settings.debug) {
+          module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
         }
       },
       debug: function() {
-        var
-          output    = [],
-          message   = settings.moduleName + ': ' + arguments[0],
-          variables = [].slice.call( arguments, 1 ),
-          log       = console.info || console.log || function(){}
-        ;
-        log = Function.prototype.bind.call(log, console);
         if(settings.debug) {
-          output.push(message);
-          log.apply(console, output.concat(variables) );
+          module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
         }
       },
       error: function() {
-        var
-          output       = [],
-          errorMessage = settings.moduleName + ': ' + arguments[0],
-          variables    = [].slice.call( arguments, 1 ),
-          log          = console.warn || console.log || function(){}
-        ;
-        log = Function.prototype.bind.call(log, console);
-        if(settings.debug) {
-          output.push(errorMessage);
-          output.concat(variables);
-          log.apply(console, output.concat(variables) );
+        if(console.log !== undefined) {
+          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
         }
+      },
+      invoke: function(query, passedArguments, context) {
+        var
+          maxDepth,
+          found
+        ;
+        passedArguments = passedArguments || queryArguments;
+        context         = element         || context;
+        if(typeof query == 'string' && instance !== undefined) {
+          query    = query.split('.');
+          maxDepth = query.length - 1;
+          $.each(query, function(depth, value) {
+            if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+              instance = instance[value];
+              return true;
+            }
+            else if( instance[value] !== undefined ) {
+              found = instance[value];
+              return true;
+            }
+            module.error(errors.method);
+            return false;
+          });
+        }
+        if ( $.isFunction( found ) ) {
+          instance.verbose('Executing invoked function', found);
+          return found.apply(context, passedArguments);
+        }
+        return found || false;
       }
     };
 
-    module.initialize();
-    return this;
+    if(methodInvoked) {
+      if(instance === undefined) {
+        module.initialize();
+      }
+      invokedResponse = module.invoke(query);
+    }
+    else {
+      if(instance !== undefined) {
+        module.destroy();
+      }
+      module.initialize();
+    }
+    return (invokedResponse)
+      ? invokedResponse
+      : this
+    ;
   };
 
   // handle DOM attachment to API functionality
@@ -441,8 +491,8 @@
     moduleName : 'API Module',
     namespace  : 'api',
 
-    verbose    : true,
     debug      : true,
+    verbose    : true,
 
     api        : {},
 

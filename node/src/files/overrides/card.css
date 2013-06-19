@@ -38,9 +38,35 @@
      Overlay
 ---------------*/
 
+.ui.cards .card .vote.corner.label,
+.ui.card .vote.corner.label {
+  opacity: 0;
+  font-size: 1em;
+  background-color: transparent;
+  color: #FFFFFF;
+
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.ui.cards .card .vote.corner.label .icon,
+.ui.card .vote.corner.label .icon {
+  font-size: 0.9em;
+}
+.ui.cards .card .vote.corner.label:after,
+.ui.card .vote.corner.label:after {
+  border-right-color: #5BBD72
+}
+
+
 .ui.cards .card .dimmer,
 .ui.card .dimmer {
-  background-color: rgba(0, 177, 219, 0.6);
+  background-color: rgba(80, 80, 80, 0.6);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 .ui.cards .card .dimmer .close,
 .ui.card .dimmer .close {    
@@ -83,10 +109,17 @@
             States
 *******************************/
 
+/* Dimmed */
 .ui.cards .dimmed.card > :not(.dimmer),
 .ui.dimmed.card > :not(.dimmer) {
   -webkit-filter: blur(5px) grayscale(0.7);
   -moz-filter: blur(5px) grayscale(0.7);
+}
+
+/* Voted */
+.ui.cards .card.voted .vote.corner.label,
+.ui.voted.card .vote.corner.label {
+  opacity: 1;
 }
 
 /*******************************
@@ -111,4 +144,9 @@
   display: inline-block;
   margin: 0em 0.5em 1em;
 }
+
+
+/*******************************
+         Transitions
+*******************************/
 
