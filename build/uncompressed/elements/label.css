@@ -82,7 +82,7 @@ a.ui.label:hover:before {
   color: rgba(0, 0, 0, 0.7);
 }
 .ui.label .icon.close:hover {
-  opacity: 1;
+  opacity: 0.99;
 }
 /*******************************
            Variations

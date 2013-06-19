@@ -106,13 +106,12 @@
 .ui.idea.cards .card > .idea .image,
 .ui.idea.card > .idea .image {
   float: right;
-  margin: 2em 0em 2em 2em;
+  margin: 0em 0em 1em 1em;
   padding: 5px;
 
-  width: 120px;
-  height: 82px;
+  width: 40%;
 
-  background-color: #EEEFEF;
+  background-color: #FFFFFF;
   border: 1px solid #D9DCDD;
 
   -moz-box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.1);
@@ -136,6 +135,7 @@
 
 .ui.idea.cards .card > .meta,
 .ui.idea.card > .meta {
+  clear: both;
   border-top: 1px solid #DCDDDE;
   padding: 1em;
 }

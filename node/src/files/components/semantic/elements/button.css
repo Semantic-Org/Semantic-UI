@@ -144,7 +144,7 @@
   position: absolute;
   left: 50%;
   content: "Error";
-  margin-left: -1.2em;
+  margin-left: -1.8em;
   color: #FFFFFF;
   -webkit-animation: button-text 0.5s;
   -moz-animation: button-text 0.5s;
@@ -162,9 +162,9 @@
 .ui.button.success,
 .ui.button.success.hover,
 .ui.button.success.down {
-  position: relative;
-  background-color: #5BBD72;
-  color: transparent;
+  position: relative !important;
+  background-color: #5BBD72 !important;
+  color: transparent !important;
 }
 .ui.button.success .icon {
   opacity: 1;
@@ -178,7 +178,7 @@
   position: absolute;
   left: 50%;
   content: "Success";
-  margin-left: -1.6em;
+  margin-left: -2em;
   color: #FFFFFF;
   -webkit-animation: button-text 0.5s;
   -moz-animation: button-text 0.5s;

@@ -67,6 +67,9 @@
   float: right;
   width: 50%;
 }
+.ui.modal.fixed {
+  position: fixed;
+}
 /* Static In-Page Modal */
 .ui.modal.static {
   display: block;
