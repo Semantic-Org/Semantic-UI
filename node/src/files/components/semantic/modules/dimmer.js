@@ -165,7 +165,7 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with javascript');
               $dimmer
                 .stop()
-                .fadeOut(settings.duration, function() {
+                .fadeOut( (settings.duration * 0.75) , function() {
                   $dimmer.removeAttr('style');
                   module.remove.active();
                 })
