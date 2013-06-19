@@ -400,7 +400,6 @@ $.fn.dropdown = function(parameters) {
         },
 
         setting: function(name, value) {
-          module.debug('Changing setting', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, settings, name);
@@ -414,7 +413,6 @@ $.fn.dropdown = function(parameters) {
           }
         },
         internal: function(name, value) {
-          module.debug('Changing internal', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, module, name);
@@ -427,24 +425,29 @@ $.fn.dropdown = function(parameters) {
             return module[name];
           }
         },
-        verbose: function() {
-          if(settings.verbose && settings.debug) {
-            module.performance.log(arguments[0]);
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
-          }
-        },
         debug: function() {
           if(settings.debug) {
-            module.performance.log(arguments[0]);
-            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
+          }
+        },
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
         error: function() {
-          if(console.log !== undefined) {
-            module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
-          }
+          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
         },
-        
         performance: {
           log: function(message) {
             var
@@ -508,14 +511,13 @@ $.fn.dropdown = function(parameters) {
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
-                return true;
               }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
-                return true;
               }
-              module.error(errors.method);
-              return false;
+              else {
+                module.error(error.method);
+              }
             });
           }
           if ( $.isFunction( found ) ) {

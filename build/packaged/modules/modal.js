@@ -148,22 +148,30 @@
               modalType = (cantFit)
                 ? 'absolute'
                 : 'fixed',
-              topCentering  = (cantFit)
-                ? '0'
-                : '50%',
-              offsetTop     = (cantFit)
-                ? (windowHeight / 8)
-                : -( (modalHeight  - settings.closeSpacing) / 2),
-
-              finalPosition = ($modal.css('position') == 'absolute')
-                ? offsetTop + $(window).prop('pageYOffset')
-                : offsetTop,
-              startPosition = finalPosition + settings.animationOffset
+              topCentering,
+              offsetTop,
+              finalPosition,
+              startPosition
             ;
+            $modal
+              .addClass(modalType)
+            ;
+            topCentering  = (cantFit)
+              ? '0'
+              : '50%'
+            ;
+            offsetTop     = (cantFit)
+              ? (windowHeight / 8)
+              : -( (modalHeight  - settings.closeSpacing) / 2)
+            ;
+            finalPosition = ($modal.css('position') == 'absolute')
+              ? offsetTop + $(window).prop('pageYOffset')
+              : offsetTop
+            ;
+            startPosition = finalPosition + settings.animationOffset;
             // set top margin as offset
             if($.fn.popIn !== undefined) {
               $modal
-                .addClass(modalType)
                 .css({
                   display   : 'block',
                   opacity   : 0,
@@ -175,7 +183,6 @@
             }
             else {
               $modal
-                .addClass(modalType)
                 .css({
                   display   : 'block',
                   opacity   : 0,
@@ -194,12 +201,10 @@
                   .hide()
               ;
             }
-            console.log('zzz');
             $.dimScreen({
               context  : settings.context,
               duration : 0,
               dim      : function() {
-                console.log('aaa');
                 $(document)
                   .on('keyup.' + namespace, function(event) {
                     var
@@ -214,8 +219,6 @@
                     }
                   })
                 ;
-                console.log($closeButton);
-                console.log('attaching click');
                 $closeButton
                   .one('click', function() {
                     $modal.modal('hide');

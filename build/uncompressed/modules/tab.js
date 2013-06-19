@@ -13,7 +13,7 @@
     var
       settings        = $.extend(true, {}, $.fn.tabNavigation.settings, parameters),
       
-      $tabNavigation  = $(this),
+      $module         = $(this),
       $tabs           = $(settings.context).find(settings.selector.tabs),
       
       firstLoad       = true,
@@ -24,12 +24,17 @@
       parameterArray,
       historyEvent,
       
+      element         = this,
+      time            = new Date().getTime(),
+      performance     = [],
+      moduleSelector  = $module.selector || '',
+      
       className       = settings.className,
       metadata        = settings.metadata,
       namespace       = settings.namespace,
       errors          = settings.errors,
       
-      instance        = $tabNavigation.data('module'),
+      instance        = $module.data('module'),
       
       query           = arguments[0],
       methodInvoked   = (instance !== undefined && typeof query == 'string'),
@@ -42,7 +47,7 @@
     module = {
 
       initialize: function() {
-        module.debug('Initializing Tabs', $tabNavigation);
+        module.debug('Initializing Tabs', $module);
         // attach history events
         if(settings.history) {
           if( $.address === undefined ) {
@@ -62,19 +67,19 @@
           }
         }
         // attach events if navigation wasn't set to window
-        if( !$.isWindow( $tabNavigation.get(0) ) ) {
-          $tabNavigation
+        if( !$.isWindow( $module.get(0) ) ) {
+          $module
             .on('click.' + namespace, module.event.click)
           ;
         }
-        $tabNavigation
+        $module
           .data('module', module)
         ;
       },
 
       destroy: function() {
-        module.debug('Destroying tabs', $tabNavigation);
-        $tabNavigation
+        module.debug('Destroying tabs', $module);
+        $module
           .off('.' + namespace)
         ;
       },
@@ -281,7 +286,7 @@
           module.deactivate.tabs();
         },
         navigation: function() {
-          $tabNavigation
+          $module
             .removeClass(className.active)
           ;
         },
@@ -300,7 +305,7 @@
 
       get: {
         initialPath: function() {
-          return $tabNavigation.eq(0).data(metadata.tab) || $tabs.eq(0).data(metadata.tab);
+          return $module.eq(0).data(metadata.tab) || $tabs.eq(0).data(metadata.tab);
         },
         // adds default tabs to tab path
         defaultPathArray: function(tabPath) {
@@ -308,7 +313,7 @@
         },
         defaultPath: function(tabPath) {
           var
-            $defaultNav = $tabNavigation.filter('[data-' + metadata.tab + '^="' + tabPath + '/"]').eq(0),
+            $defaultNav = $module.filter('[data-' + metadata.tab + '^="' + tabPath + '/"]').eq(0),
             defaultTab  = $defaultNav.data(metadata.tab) || false
           ;
           if( defaultTab ) {
@@ -324,7 +329,7 @@
         },
         navElement: function(tabPath) {
           tabPath = tabPath || activeTabPath;
-          return $tabNavigation.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
+          return $module.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
         },
         tabElement: function(tabPath) {
           var
@@ -376,44 +381,101 @@
           ;
         }
       },
-
-      /* standard module */
+     
       setting: function(name, value) {
-        if(value === undefined) {
+        module.debug('Changing setting', name, value);
+        if(value !== undefined) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else {
+            settings[name] = value;
+          }
+        }
+        else {
           return settings[name];
         }
-        settings[name] = value;
+      },
+      internal: function(name, value) {
+        module.debug('Changing internal', name, value);
+        if(value !== undefined) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else {
+            module[name] = value;
+          }
+        }
+        else {
+          return module[name];
+        }
       },
       verbose: function() {
-        if(settings.verbose) {
-          module.debug.apply(this, arguments);
+        if(settings.verbose && settings.debug) {
+          module.performance.log(arguments[0]);
+          module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
         }
       },
       debug: function() {
-        var
-          output    = [],
-          message   = settings.moduleName + ': ' + arguments[0],
-          variables = [].slice.call( arguments, 1 ),
-          log       = console.info || console.log || function(){}
-        ;
-        log = Function.prototype.bind.call(log, console);
         if(settings.debug) {
-          output.push(message);
-          log.apply(console, output.concat(variables) );
+          module.performance.log(arguments[0]);
+          module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
         }
       },
       error: function() {
-        var
-          output       = [],
-          errorMessage = settings.moduleName + ': ' + arguments[0],
-          variables    = [].slice.call( arguments, 1 ),
-          log          = console.warn || console.log || function(){}
-        ;
-        log = Function.prototype.bind.call(log, console);
-        if(settings.debug) {
-          output.push(errorMessage);
-          output.concat(variables);
-          log.apply(console, output.concat(variables));
+        if(console.log !== undefined) {
+          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+        }
+      },
+      
+      performance: {
+        log: function(message) {
+          var
+            currentTime,
+            executionTime,
+            previousTime
+          ;
+          if(settings.performance) {
+            currentTime   = new Date().getTime();
+            previousTime  = time || currentTime,
+            executionTime = currentTime - previousTime;
+            time          = currentTime;
+            performance.push({
+              'Element'        : element,
+              'Name'           : message[0],
+              'Arguments'      : message[1] || '',
+              'Execution Time' : executionTime
+            });
+          }
+          clearTimeout(module.performance.timer);
+          module.performance.timer = setTimeout(module.performance.display, 100);
+        },
+        display: function() {
+          var
+            title = settings.moduleName + ':',
+            totalTime = 0
+          ;
+          time        = false;
+          $.each(performance, function(index, data) {
+            totalTime += data['Execution Time'];
+          });
+          title += ' ' + totalTime + 'ms';
+          if(moduleSelector) {
+            title += ' \'' + moduleSelector + '\'';
+          }
+          if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+            console.groupCollapsed(title);
+            if(console.table) {
+              console.table(performance);
+            }
+            else {
+              $.each(performance, function(index, data) {
+                console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+              });
+            }
+            console.groupEnd();
+          }
+          performance = [];
         }
       },
       invoke: function(query, context, passedArguments) {
@@ -446,12 +508,16 @@
       }
     };
 
-    // check for invoking internal method
     if(methodInvoked) {
-      invokedResponse = module.invoke(query, this, passedArguments);
+      if(instance === undefined) {
+        module.initialize();
+      }
+      invokedResponse = module.invoke(query);
     }
-    // otherwise initialize
     else {
+      if(instance !== undefined) {
+        module.destroy();
+      }
       module.initialize();
     }
 

@@ -135,7 +135,11 @@
        Inline
 --------------------*/
 .ui.inline.loader {
-  display: inline-block;
+  position: static;
   vertical-align: middle;
   margin: 0em;
+}
+.ui.inline.loader.active,
+.ui.inline.loader.visible {
+  display: inline-block;
 }

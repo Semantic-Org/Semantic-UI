@@ -121,9 +121,8 @@
 *******************************/
 
 .ui.dimmable.dimmed > :not(.dimmer) {
-  -webkit-filter: ~"blur(5px) grayscale(0.7);";
-  -moz-filter: ~"blur(5px) grayscale(0.7);";
-  filter: url(../vector/blur.svg#blur);
+  -webkit-filter: ~"blur(5px) grayscale(0.7)";
+  -moz-filter: ~"blur(5px) grayscale(0.7)";
 }
 body.dimmable.dimmed {
   overflow: hidden;
@@ -155,13 +154,8 @@ body.dimmable.dimmed {
   position: fixed;
 }
 body.ui.dimmable.dimmed > :not(.dimmer){
-  -webkit-filter: ~"blur(15px) grayscale(0.7);";
-  -moz-filter: ~"blur(15px) grayscale(0.7);";
-  filter: url(../vector/blur.svg#blur);
-  
-  -webkit-translate: rotateZ(0deg);
-  -moz-translate: rotateZ(0deg);
-  translate: rotateZ(0deg);
+  -webkit-filter: ~"blur(15px) grayscale(0.7)";
+  -moz-filter: ~"blur(15px) grayscale(0.7)";
 }
 
 /*--------------
