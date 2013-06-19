@@ -6,7 +6,7 @@ title  : 'Accordion'
 type   : 'UI Module'
 ---
 <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/accordion.css">
-  
+
 <script src="/javascript/accordion.js"></script>
 <script src="/components/semantic/modules/accordion.js"></script>
 
@@ -17,14 +17,15 @@ type   : 'UI Module'
   </div>
 </div>
 <div class="main container">
-  
+
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Standard</a>
+      <a class="item">Variations</a>
       <a class="item">Usage</a>
     </div>
   </div>
-  
+
   <h2 class="ui dividing header">Standard</h2>
   <div class="example">
     <h4 class="ui header">Accordion</h4>
@@ -47,6 +48,36 @@ type   : 'UI Module'
 
   </div>
 
+  <h2 class="ui dividing header">Variations </h2>
+
+  <div class="example">
+    <h4 class="ui header">Accordion</h4>
+    <p>A standard accordion</p>
+    <div class="ui basic accordion">
+      <div class="active title">
+        What is a dog?
+        <i class="dropdown icon"></i>
+      </div>
+      <div class="active content">
+        <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+      </div>
+      <div class="title">
+        What kinds of dogs are there?
+        <i class="dropdown icon"></i>
+      </div>
+      <div class="content">
+        <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+      </div>
+      <div class="title">
+        How do you acquire a dog?
+        <i class="dropdown icon"></i>
+      </div>
+      <div class="content">
+        <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
+        <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+      </div>
+    </div>
+
   <h2 class="ui dividing header">Usage</h2>
 
   <h3 class="ui header">Initializing an accordion</h3>
@@ -55,7 +86,8 @@ type   : 'UI Module'
       .accordion()
     ;
   </div>
-  
+
+
   <h3 class="ui header">Settings</h3>
   <table class="ui red table segment">
     <thead>
@@ -74,7 +106,7 @@ type   : 'UI Module'
       </tr>
     </tbody>
   </table>
-  
+
   <table class="ui teal table segment">
     <thead>
       <th colspan="3">Callbacks</th>
@@ -97,7 +129,7 @@ type   : 'UI Module'
       </tr>
     </tbody>
   </table>
-  
+
   <table class="ui blue table segment">
     <thead>
       <th colspan="3">UI Module Settings</th>

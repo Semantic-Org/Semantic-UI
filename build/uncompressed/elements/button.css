@@ -126,9 +126,9 @@
 .ui.button.error.hover,
 .ui.button.error.down {
   cursor: default;
-  position: relative;
-  background-color: #D95C5C;
-  color: transparent;
+  position: relative !important;
+  background-color: #D95C5C !important;
+  color: transparent !important;
   text-shadow: none;
   -webkit-transition: all 0s linear;
   -moz-transition: all 0s linear;

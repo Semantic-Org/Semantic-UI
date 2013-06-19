@@ -76,7 +76,7 @@ $.fn.accordion = function(parameters) {
             var
               $activeTitle  = $(this),
               activeIndex   = $title.index($activeTitle),
-              contentIsOpen = $activeTitle.next($content).hasClass(className.active)
+              contentIsOpen = $activeTitle.hasClass(className.active)
             ;
             module.verbose('Accordion title clicked', $activeTitle);
             if(contentIsOpen) {
@@ -102,45 +102,47 @@ $.fn.accordion = function(parameters) {
             $previousContent = $previousTitle.next($title),
             contentIsOpen    =  ($previousTitle.size() > 0)
           ;
-          module.debug('Opening accordion content', $activeTitle);
-          if(settings.exclusive && contentIsOpen) {
-            $previousTitle
-              .removeClass(className.active)
+          if( !$activeContent.is(':animated') ) {
+            module.debug('Opening accordion content', $activeTitle);
+            if(settings.exclusive && contentIsOpen) {
+              $previousTitle
+                .removeClass(className.active)
+              ;
+              $previousContent
+                .stop()
+                .children()
+                  .animate({
+                    opacity: 0
+                  }, settings.speed)
+                  .end()
+                .slideUp(settings.speed , settings.easing, function() {
+                  $previousContent
+                    .removeClass(className.active)
+                    .removeAttr('style')
+                    .children()
+                      .removeAttr('style')
+                  ;
+                })
+              ;
+            }
+            $activeTitle
+              .addClass(className.active)
             ;
-            $previousContent
+            $activeContent
               .stop()
               .children()
-                .animate({
-                  opacity: 0
-                }, settings.speed)
+                .removeAttr('style')
                 .end()
-              .slideUp(settings.speed , settings.easing, function() {
-                $previousContent
-                  .removeClass(className.active)
+              .slideDown(settings.speed, settings.easing, function() {
+                $activeContent
+                  .addClass(className.active)
                   .removeAttr('style')
-                  .children()
-                    .removeAttr('style')
                 ;
+                $.proxy(settings.onOpen, $activeContent)();
+                $.proxy(settings.onChange, $activeContent)();
               })
             ;
           }
-          $activeTitle
-            .addClass(className.active)
-          ;
-          $activeContent
-            .stop()
-            .children()
-              .removeAttr('style')
-              .end()
-            .slideDown(settings.speed, settings.easing, function() {
-              $activeContent
-                .addClass(className.active)
-                .removeAttr('style')
-              ;
-              $.proxy(settings.onOpen, $activeContent)();
-              $.proxy(settings.onChange, $activeContent)();
-            })
-          ;
         },
 
         close: function(index) {
@@ -156,6 +158,11 @@ $.fn.accordion = function(parameters) {
             .removeClass(className.active)
             .show()
             .stop()
+            .children()
+              .animate({
+                opacity: 0
+              }, settings.speed)
+              .end()
             .slideUp(settings.speed, settings.easing, function(){
               $activeContent
                 .removeAttr('style')

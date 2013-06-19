@@ -43,12 +43,6 @@
   display: none;
   margin: 0em;
   padding: 1.3em 1em;
-  /*
-  border-left: 0.2em solid rgba(0, 0, 0, 0.1);
-  border-right: 0.2em solid rgba(0, 0, 0, 0.1);
-  border-bottom: 0.2em solid rgba(0, 0, 0, 0.1);
-  */
-
 }
 /*******************************
             States
@@ -73,3 +67,13 @@
 /*******************************
             Variations
 *******************************/
+.ui.basic.accordion {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.accordion .title {
+  background-color: transparent;
+  border-top: none;
+}
