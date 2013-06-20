@@ -1,0 +1,260 @@
+
+/*******************************
+         Question Game
+*******************************/
+
+.question.module {
+  position: relative;
+  overflow: hidden;
+
+  margin: 35px 0px 0px;
+  min-height: 150px;
+  background-color: #FFFFFF;
+  padding: 18px;
+  text-align: left;
+
+  border-radius: 5px;
+
+  -webkit-box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.27);
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.27);  
+}
+.question.module .image {
+  position: relative;
+  background-color: #F5F5F5;
+  float: left;
+  width: 280px;
+  height: 160px;
+  border: 1px solid #E1E1E1;
+}
+.question.module .image .throbber {
+  display: none;
+}
+.question.module .image img {
+  opacity: 1;
+  width: 280px;
+  height: 160px;
+
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+/* Loading Style */
+.question.module .image.loading img {
+  display: none;
+}
+.question.module .image.loading .throbber {
+  display: block;
+}
+
+.question.module .content {
+  position: relative;
+  margin-left: 305px;
+}
+.question.module .content .position {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.question.module .content .influence {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  display: block;
+  color: #768288;
+}
+.question.module .content hgroup {
+
+}
+.question.module .content .title {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  color: #009FDA;
+}
+.question.module .content .tagline {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #777777;
+}
+.question.module .content > .question {
+  display: block;
+  padding-top: 10px;
+  font-size: 13px;
+}
+.question.module .content .question p {
+  font-size: 15px;
+  color: #333333;
+}
+.question.module .content .question p b {
+  color: #442359;
+}
+.question.module .content .question p em {
+  color: #CD0000;
+  font-weight: bold;
+  font-style: normal;
+}
+.question.module .question .suggestion {
+  position: relative;
+  margin-top: 20px;
+}
+.question.module input[type="text"] {
+  background-color: #FAFAFA;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px 3px 3px 3px;
+
+  height: 38px;
+  width: 145px;
+  font-size: 26px;
+
+  padding-left: 10px;
+  padding-right: 35px;
+  color: #999999;
+
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+.question.module input[type="text"]:focus {
+  background-color: #FFFFFF;
+  border-color: #AAAAAA;
+  color: #555555;
+}
+/* Numeric Question */
+.question.module .numeric.question .suggestion .currency {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 40px;
+}
+.question.module .numeric.question input {
+  padding-left: 35px;
+}
+
+.question.module .question .yes.button {
+  position: absolute;
+  top: 0px;
+  left: 185px;
+}
+.question.module .question .skip.button {
+  position: absolute;
+  top: 8px;
+  right: 0px;
+}
+
+/* Skip Form */
+.question.module .content > .skip {
+  position: relative;
+  display: none;
+  padding: 10px 0px 0px;
+}
+.question.module .skip h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.question.module .skip .field {
+  margin: 3px 0px;
+}
+.question.module .skip input[type="radio"] {
+
+}
+.question.module .skip input.custom {
+  margin-top: 8px;
+  padding: 0px 10px;
+  font-size: 12px;
+  width: 175px;
+}
+.question.module .skip label {
+  font-size: 12px;
+}
+.question.module .skip .buttons {
+  position: absolute;
+  bottom: -2px;
+  right: 0px;
+}
+
+/* Image Icons */
+.question.module .image.warning img,
+.question.module .image.success img {
+  opacity: 0;
+}
+.question.module .image.warning {
+  background: #FFFFFF url(/images/icon-placeholder-warning.png) no-repeat center center;
+  border-color: #DDDDDD;
+  
+  -webkit-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1) inset;
+}
+.question.module .image.success {
+  background: #FFFFFF url(/images/icon-placeholder-success.png) no-repeat center center;
+  border-color: #DDDDDD;
+
+  -webkit-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+/* Message  */
+.question.module .message {
+  display: none;
+  margin-left: 305px;
+}
+.question.module .message h2 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  color: #555555;
+}
+.question.module .message p {
+  margin: 10px 0px;
+  font-size: 15px;
+  color: #555555;
+}
+.question.module .message .button {
+  display: block;
+  margin: 10px 0px 0px;
+}
+
+
+/* Loading State */
+.question.module .throbber {
+  display: none;
+}
+.question.module .dimmer {
+  margin-left: 310px;
+  opacity: 0.95;
+}
+.question.module.loading > .throbber {
+  display: block;
+  left: 62%;
+}
+/* dont auto trigger image loader this is separate */
+.question.module.loading .image .throbber {
+  display: none;
+}
+
+.question.module.loading .image img {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+
+/* Init State */
+.question.module.init .content {
+  display: none;
+}
+.question.module.init .image {
+  opacity: 0.4;
+}
+.question.module.init .throbber {
+  left: 50%;
+}
