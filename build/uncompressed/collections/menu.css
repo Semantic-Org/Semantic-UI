@@ -334,12 +334,6 @@
 /*--------------
     Vertical
 ---------------*/
-.ui.vertical.menu {
-  margin: 0em 0em 1rem;
-}
-.ui.vertical.menu:last-child {
-  margin-bottom: 0em;
-}
 .ui.vertical.menu .item {
   display: block;
   border-top: none;
