@@ -1,4 +1,4 @@
-# grunt-contrib-less [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-less.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-less)
+# grunt-contrib-less [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-less.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-less)
 
 > Compile LESS files to CSS.
 
@@ -92,17 +92,18 @@ less: {
 
 ## Release History
 
- * 2013-04-24   v0.5.1   Gracefully handle configuration without sources
- * 2013-02-14   v0.5.0   First official release for Grunt 0.4.0.
- * 2013-01-22   v0.5.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions. Remove experimental wildcard destination support. Switching to this.files api.
- * 2012-10-17   v0.3.2   Add support for dumpLineNumbers.
- * 2012-10-11   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
- * 2012-09-23   v0.3.0   Global options depreciated Revert normalize linefeeds.
- * 2012-09-15   v0.2.2   Support all less options Normalize linefeeds Default path to dirname of src file.
- * 2012-09-09   v0.2.0   Refactored from grunt-contrib into individual repo.
+ * 2013-0523   v0.5.2   Improve error handling.
+ * 2013-04-25   v0.5.1   Gracefully handle configuration without sources.
+ * 2013-02-15   v0.5.0   First official release for Grunt 0.4.0.
+ * 2013-01-23   v0.5.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions. Remove experimental wildcard destination support. Switching to this.files api.
+ * 2012-10-18   v0.3.2   Add support for dumpLineNumbers.
+ * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
+ * 2012-09-24   v0.3.0   Global options depreciated Revert normalize linefeeds.
+ * 2012-09-16   v0.2.2   Support all less options Normalize linefeeds Default path to dirname of src file.
+ * 2012-09-10   v0.2.0   Refactored from grunt-contrib into individual repo.
 
 ---
 
 Task submitted by [Tyler Kellen](http://goingslowly.com/)
 
-*This file was generated on Thu Apr 25 2013 09:47:05.*
+*This file was generated on Thu May 23 2013 12:17:19.*

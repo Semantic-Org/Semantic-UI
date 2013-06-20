@@ -14,7 +14,8 @@ function _spawnTestWithoutError(testFile, params, cb) {
 function _spawnTest(passError, testFile, params, cb) {
   var
     filename,
-    command = [ 'node', path.join(__dirname, testFile) ].concat(params).join(' ');
+    node_path = process.argv[0],
+    command = [ node_path, path.join(__dirname, testFile) ].concat(params).join(' ');
 
   exec(command, function _execDone(err, stdout, stderr) {
     if (passError) {

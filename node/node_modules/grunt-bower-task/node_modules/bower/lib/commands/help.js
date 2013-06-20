@@ -29,7 +29,10 @@ module.exports = function (name) {
   var validCommand = !!(name  && commands[name]);
   var templateName = validCommand ? 'help-' + name : 'help';
 
-  if (!validCommand) context = { commands: Object.keys(commands).join(', ') };
+  if (!validCommand) context = {
+    commands: Object.keys(commands).sort().join(', ')
+  }
+
   _.extend(context, config);
 
   template(templateName, context)

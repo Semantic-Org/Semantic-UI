@@ -1,7 +1,0 @@
-{
-  "name": "package-dev-dep",
-  "version": "1.0.0",
-  "devDependencies": {
-    "qunit": "latest"
-  }
-}

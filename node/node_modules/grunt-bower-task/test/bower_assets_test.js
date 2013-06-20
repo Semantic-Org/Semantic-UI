@@ -78,7 +78,7 @@ exports.bower_assets = {
 
     var expected = {
       "__untyped__": {
-        "jquery": ["components/jquery/jquery.js"]
+        "jquery": [path.normalize("components/jquery/jquery.js")]
       }
     };
 
@@ -89,7 +89,7 @@ exports.bower_assets = {
       test,
       this.bower);
 
-    this.bowerCommands.list.emit('data', {"jquery": "components/jquery/jquery.js"});
+    this.bowerCommands.list.emit('data', {"jquery": path.normalize("components/jquery/jquery.js")});
   },
 
   extendedComponentJson: function(test) {
@@ -97,16 +97,16 @@ exports.bower_assets = {
 
     var expected = {
       "__untyped__": {
-        "jquery": [ "components/jquery/jquery.js" ]
+        "jquery": [ path.normalize("components/jquery/jquery.js") ]
       },
       "js": {
         "bootstrap-sass": [
-          "components/bootstrap-sass/js/bootstrap-affix.js",
-          "components/bootstrap-sass/js/bootstrap-modal.js"
+          path.normalize("components/bootstrap-sass/js/bootstrap-affix.js"),
+          path.normalize("components/bootstrap-sass/js/bootstrap-modal.js")
         ]
       },
       "scss": {
-        "bootstrap-sass": [ "components/bootstrap-sass/lib/_mixins.scss" ]
+        "bootstrap-sass": [ path.normalize("components/bootstrap-sass/lib/_mixins.scss") ]
       }
     };
 
@@ -119,10 +119,10 @@ exports.bower_assets = {
 
     this.bowerCommands.list.emit('data', {
       "bootstrap-sass": [
-        "components/bootstrap-sass/docs/assets/js/bootstrap.js",
-        "components/bootstrap-sass/docs/assets/css/bootstrap.css"
+        path.normalize("components/bootstrap-sass/docs/assets/js/bootstrap.js"),
+        path.normalize("components/bootstrap-sass/docs/assets/css/bootstrap.css")
       ],
-      "jquery": "components/jquery/jquery.js"
+      "jquery": path.normalize("components/jquery/jquery.js")
     });
   },
 
@@ -131,15 +131,15 @@ exports.bower_assets = {
 
     var expected = {
       "__untyped__": {
-        "jquery": [ "bo_co/jquery/jquery.js" ]
+        "jquery": [ path.normalize("bo_co/jquery/jquery.js") ]
       },
       "js": {
         "bootstrap": [
-          "bo_co/bootstrap/js/bootstrap-affix.js"
+          path.normalize("bo_co/bootstrap/js/bootstrap-affix.js")
         ]
       },
       "scss": {
-        "bootstrap": [ "bo_co/bootstrap/lib/_mixins.scss" ]
+        "bootstrap": [ path.normalize("bo_co/bootstrap/lib/_mixins.scss") ]
       }
     };
 
@@ -154,10 +154,10 @@ exports.bower_assets = {
 
     this.bowerCommands.list.emit('data', {
       "bootstrap": [
-        "bo_co/bootstrap/docs/assets/js/bootstrap.js",
-        "bo_co/bootstrap/docs/assets/css/bootstrap.css"
+        path.normalize("bo_co/bootstrap/docs/assets/js/bootstrap.js"),
+        path.normalize("bo_co/bootstrap/docs/assets/css/bootstrap.css")
       ],
-      "jquery": "bo_co/jquery/jquery.js"
+      "jquery": path.normalize("bo_co/jquery/jquery.js")
     });
   }
 };

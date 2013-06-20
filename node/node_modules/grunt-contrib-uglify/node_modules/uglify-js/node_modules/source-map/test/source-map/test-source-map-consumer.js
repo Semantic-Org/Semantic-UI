@@ -288,4 +288,19 @@ define(function (require, exports, module) {
                  'Source should be relative the host of the source root.');
   };
 
+  exports['test github issue #64'] = function (assert, util) {
+    var map = new SourceMapConsumer({
+      "version": 3,
+      "file": "foo.js",
+      "sourceRoot": "http://example.com/",
+      "sources": ["/a"],
+      "names": [],
+      "mappings": "AACA",
+      "sourcesContent": ["foo"]
+    });
+
+    assert.equal(map.sourceContentFor("a"), "foo");
+    assert.equal(map.sourceContentFor("/a"), "foo");
+  };
+
 });

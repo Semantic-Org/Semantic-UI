@@ -12,6 +12,10 @@ if (!PassThrough) {
 inherits(Entry, PassThrough);
 
 function Entry () {
-  PassThrough.call(this, { lowWaterMark: 0 });
+  PassThrough.call(this);
   this.props = {};
 }
+
+Entry.prototype.autodrain = function () {
+  this.on('readable', this.read.bind(this));
+};

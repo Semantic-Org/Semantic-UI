@@ -21,6 +21,17 @@ Handlebars.create = create;
 
 module.exports = Handlebars; // instantiate an instance
 
+// Publish a Node.js require() handler for .handlebars and .hbs files
+if (require.extensions) {
+  var extension = function(module, filename) {
+    var fs = require("fs");
+    var templateString = fs.readFileSync(filename, "utf8");
+    module.exports = Handlebars.compile(templateString);
+  };
+  require.extensions[".handlebars"] = extension;
+  require.extensions[".hbs"] = extension;
+}
+
 // BEGIN(BROWSER)
 
 // END(BROWSER)

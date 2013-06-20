@@ -23,6 +23,8 @@ function File(properties) {
 
   if(typeof this.hash === 'string') {
     this.hash = crypto.createHash(properties.hash);
+  } else {
+    this.hash = null;
   }
 }
 module.exports = File;
@@ -47,12 +49,10 @@ File.prototype.toJSON = function() {
 
 File.prototype.write = function(buffer, cb) {
   var self = this;
+  if (self.hash) {
+    self.hash.update(buffer);
+  }
   this._writeStream.write(buffer, function() {
-    if (self.hash) {
-      if (self.hash.hasOwnProperty('update')) {
-        self.hash.update(buffer);
-      }
-    }
     self.lastModifiedDate = new Date();
     self.size += buffer.length;
     self.emit('progress', self.size);
@@ -62,10 +62,10 @@ File.prototype.write = function(buffer, cb) {
 
 File.prototype.end = function(cb) {
   var self = this;
+  if (self.hash) {
+    self.hash = self.hash.digest('hex');
+  }
   this._writeStream.end(function() {
-    if(self.hash) {
-      self.hash = self.hash.digest('hex');
-    }
     self.emit('end');
     cb();
   });

@@ -7,7 +7,19 @@ var temp = require('temp');
 var dirdiff = require('dirdiff');
 var unzip = require('../');
 
-test("uncompressed archive", function (t) {
+test("parse uncompressed archive", function (t) {
+  var archive = path.join(__dirname, '../testData/uncompressed/archive.zip');
+
+  var unzipParser = unzip.Parse();
+  fs.createReadStream(archive).pipe(unzipParser);
+  unzipParser.on('error', function(err) {
+    throw err;
+  });
+
+  unzipParser.on('close', t.end.bind(this));
+});
+
+test("extract uncompressed archive", function (t) {
   var archive = path.join(__dirname, '../testData/uncompressed/archive.zip');
 
   temp.mkdir('node-unzip-', function (err, dirPath) {

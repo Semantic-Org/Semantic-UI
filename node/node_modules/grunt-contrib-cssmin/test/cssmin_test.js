@@ -36,5 +36,14 @@ exports.cssmin = {
     test.equal(expect, result, 'should minify and replace banner');
 
     test.done();
+  },
+  imports: function(test) {
+    test.expect(1);
+
+    var expect = grunt.file.read('test/expected/inline_import.css');
+    var result = grunt.file.read('tmp/inline_import.css');
+    test.equal(expect, result, 'should inline @import');
+
+    test.done();
   }
 };

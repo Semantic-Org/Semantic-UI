@@ -28,8 +28,8 @@ vows.describe("Generic UTF8-UCS2 tests").addBatch({
         assert.strictEqual(iconv.toEncoding(testStringLatin1, "latin1").toString("binary"), testStringLatin1);
         assert.strictEqual(iconv.fromEncoding(new Buffer(testStringLatin1, "binary"), "latin1"), testStringLatin1);
     },
-    "Convert from string, not buffer (utf8 used)": function() {
-        assert.strictEqual(iconv.fromEncoding(testStringLatin1, "utf8"), testStringLatin1);
+    "Convert from string, not buffer (binary encoding used)": function() {
+        assert.strictEqual(iconv.fromEncoding(testStringLatin1, "binary"), testStringLatin1);
     },
     "Convert to string, not buffer (utf8 used)": function() {
         var res = iconv.toEncoding(new Buffer(testStringLatin1, "utf8"));

@@ -57,3 +57,8 @@ test('parse->serialize', function() {
       cookie.serialize('cat', ' ";/')));
 });
 
+test('unencoded', function() {
+    assert.deepEqual('cat=+ ', cookie.serialize('cat', '+ ', {
+        encode: function(value) { return value; }
+    }));
+})

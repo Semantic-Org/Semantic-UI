@@ -57,7 +57,7 @@ module.exports = function(grunt) {
             compiled.push(css);
             next();
           } else {
-            nextFileObj(false);
+            nextFileObj(err);
           }
         });
       }, function() {

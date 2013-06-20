@@ -32,6 +32,7 @@ module.exports = function (paths, options) {
 
   manager
     .on('data', emitter.emit.bind(emitter, 'data'))
+    .on('warn', emitter.emit.bind(emitter, 'warn'))
     .on('error', emitter.emit.bind(emitter, 'error'))
     .on('resolve', function (resolved) {
       // Handle save/save-dev

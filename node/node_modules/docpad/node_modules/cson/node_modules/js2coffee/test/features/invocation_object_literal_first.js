@@ -1,1 +1,0 @@
-test({url: url}, options || {});

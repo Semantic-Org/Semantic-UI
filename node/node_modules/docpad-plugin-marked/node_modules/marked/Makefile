@@ -6,4 +6,7 @@ clean:
 	@rm marked.js
 	@rm marked.min.js
 
+bench:
+	@node test --bench
+
 .PHONY: clean all

@@ -55,6 +55,11 @@ module.exports = function(grunt) {
         files: {
           'tmp/remove_first_comment.css': ['test/fixtures/input_bannered.css']
         }
+      },
+      inline_import: {
+        files: {
+          'tmp/inline_import.css': ['test/fixtures/input_inline_import.css', 'test/fixtures/inner/input_inline_import.css']
+        }
       }
     },
 

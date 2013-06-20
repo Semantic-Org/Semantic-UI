@@ -7,7 +7,19 @@ var temp = require('temp');
 var dirdiff = require('dirdiff');
 var unzip = require('../');
 
-test("compressed archive w/ file sizes known prior to zlib inflation (created by POSIX zip)", function (t) {
+test("parse compressed archive (created by POSIX zip)", function (t) {
+  var archive = path.join(__dirname, '../testData/compressed-standard/archive.zip');
+
+  var unzipParser = unzip.Parse();
+  fs.createReadStream(archive).pipe(unzipParser);
+  unzipParser.on('error', function(err) {
+    throw err;
+  });
+
+  unzipParser.on('close', t.end.bind(this));
+});
+
+test("extract compressed archive w/ file sizes known prior to zlib inflation (created by POSIX zip)", function (t) {
   var archive = path.join(__dirname, '../testData/compressed-standard/archive.zip');
 
   temp.mkdir('node-unzip-', function (err, dirPath) {

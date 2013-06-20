@@ -29,6 +29,15 @@ module.exports = function(grunt) {
       this.server = servers[options.port];
     } else {
       this.server = tinylr();
+      this.server.server.removeAllListeners('error');
+      this.server.server.on('error', function(err) {
+        if (err.code === 'EADDRINUSE') {
+          grunt.fatal('Port ' + options.port + ' is already in use by another process.');
+        } else {
+          grunt.fatal(err);
+        }
+        process.exit(1);
+      });
       this.server.listen(options.port, function(err) {
         if (err) { return grunt.fatal(err); }
         grunt.log.verbose.writeln('Live reload server started on port: ' + options.port);

@@ -92,17 +92,18 @@ exports.minify = function(files, options) {
     }
 
     // 4. output
-    var map = null;
-    var inMap = null;
-    if (options.inSourceMap) {
+    var inMap = options.inSourceMap;
+    var output = {};
+    if (typeof options.inSourceMap == "string") {
         inMap = fs.readFileSync(options.inSourceMap, "utf8");
     }
-    if (options.outSourceMap) map = UglifyJS.SourceMap({
-        file: options.outSourceMap,
-        orig: inMap,
-        root: options.sourceRoot
-    });
-    var output = { source_map: map };
+    if (options.outSourceMap) {
+        output.source_map = UglifyJS.SourceMap({
+            file: options.outSourceMap,
+            orig: inMap,
+            root: options.sourceRoot
+        });
+    }
     if (options.output) {
         UglifyJS.merge(output, options.output);
     }
@@ -110,7 +111,7 @@ exports.minify = function(files, options) {
     toplevel.print(stream);
     return {
         code : stream + "",
-        map  : map + ""
+        map  : output.source_map + ""
     };
 };
 

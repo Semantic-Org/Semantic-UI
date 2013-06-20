@@ -7,6 +7,11 @@ var human  = new (require('caterpillar-human').Human)();
 // Pipe logger output to filter, then filter output to stdout
 logger.pipe(filter).pipe(human).pipe(process.stdout);
 
+// If we are debugging, then write the original logger data to debug.log
+if ( level === 7 ) {
+	logger.pipe(require('fs').createWriteStream('./debug.log'));
+}
+
 // Log messages
 logger.log('emergency', 'this is level 0');
 logger.log('emerg', 'this is level 0');

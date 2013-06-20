@@ -148,12 +148,14 @@
     };
 
     function From_Moz_Unary(M) {
-        return new (M.prefix ? AST_UnaryPrefix : AST_UnaryPostfix)({
+        var prefix = "prefix" in M ? M.prefix
+            : M.type == "UnaryExpression" ? true : false;
+        return new (prefix ? AST_UnaryPrefix : AST_UnaryPostfix)({
             start      : my_start_token(M),
             end        : my_end_token(M),
             operator   : M.operator,
             expression : from_moz(M.argument)
-        })
+        });
     };
 
     var ME_TO_MOZ = {};

@@ -7,7 +7,19 @@ var temp = require('temp');
 var dirdiff = require('dirdiff');
 var unzip = require('../');
 
-test("archive w/ file size unknown flag set (created by OS X Finder)", function (t) {
+test("parse archive w/ file size unknown flag set (created by OS X Finder)", function (t) {
+  var archive = path.join(__dirname, '../testData/compressed-OSX-Finder/archive.zip');
+
+  var unzipParser = unzip.Parse();
+  fs.createReadStream(archive).pipe(unzipParser);
+  unzipParser.on('error', function(err) {
+    throw err;
+  });
+
+  unzipParser.on('close', t.end.bind(this));
+});
+
+test("extract archive w/ file size unknown flag set (created by OS X Finder)", function (t) {
   var archive = path.join(__dirname, '../testData/compressed-OSX-Finder/archive.zip');
 
   temp.mkdir('node-unzip-', function (err, dirPath) {

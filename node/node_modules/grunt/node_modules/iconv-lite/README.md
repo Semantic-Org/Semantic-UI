@@ -47,6 +47,7 @@ Note: your results may vary, so please always check on your hardware.
 
 ## Notes
 
+When decoding, a 'binary'-encoded string can be used as a source buffer.  
 Untranslatable characters are set to � or ?. No transliteration is currently supported, pull requests are welcome.
 
 ## Testing

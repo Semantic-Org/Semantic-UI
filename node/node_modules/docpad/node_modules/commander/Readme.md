@@ -185,6 +185,12 @@ program.prompt('Birthdate: ', Date, function(date){
 });
 ```
 
+```js
+program.prompt('Email: ', /^.+@.+\..+$/, function(email){
+  console.log('email: %j', email);
+});
+```
+
 ## .password(msg[, mask], fn)
 
 Prompt for password without echoing:

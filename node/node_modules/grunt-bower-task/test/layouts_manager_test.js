@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 var layoutsManager = require('../tasks/lib/layouts_manager');
 
 exports.layouts_manager = {
@@ -8,10 +10,10 @@ exports.layouts_manager = {
     test.expect(2);
 
     var byTypeLayout = layoutsManager.getLayout('byType');
-    test.equal(byTypeLayout('js', 'bootstrap'), 'js/bootstrap');
+    test.equal(byTypeLayout('js', 'bootstrap'), path.normalize('js/bootstrap'));
 
     var byComponentLayout = layoutsManager.getLayout('byComponent');
-    test.equal(byComponentLayout('sass', 'bourbone'), 'bourbone/sass');
+    test.equal(byComponentLayout('sass', 'bourbone'), path.normalize('bourbone/sass'));
 
     test.done();
   },
