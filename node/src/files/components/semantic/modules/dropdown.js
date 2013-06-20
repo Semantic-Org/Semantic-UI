@@ -136,6 +136,10 @@ $.fn.dropdown = function(parameters) {
               event.stopPropagation();
             }
 
+          },
+
+          resetStyle: function() {
+            $(this).removeAttr('style');
           }
 
         },
@@ -292,11 +296,13 @@ $.fn.dropdown = function(parameters) {
             }
             else if(animation.show == 'fade') {
               $menu
+                .clearQueue()
                 .fadeIn(150)
               ;
             }
             else if(animation.show == 'slide') {
               $menu
+                .hide()
                 .clearQueue()
                 .children()
                   .clearQueue()
@@ -304,9 +310,9 @@ $.fn.dropdown = function(parameters) {
                   .delay(50)
                   .animate({
                     opacity : 1
-                  }, 200, 'easeOutQuad')
+                  }, 200, 'easeOutQuad', module.event.resetStyle)
                   .end()
-                .slideDown(100, 'easeOutQuad')
+                .slideDown(100, 'easeOutQuad', module.event.resetStyle)
               ;
             }
             else {
@@ -322,21 +328,23 @@ $.fn.dropdown = function(parameters) {
             }
             else if(animation.hide == 'fade') {
               $menu
+                .clearQueue()
                 .fadeOut(150)
               ;
             }
             else if(animation.hide == 'slide') {
               $menu
+                .show()
                 .clearQueue()
                 .children()
                   .clearQueue()
                   .css('opacity', 1)
                   .animate({
                     opacity : 0
-                  }, 100, 'easeOutQuad')
+                  }, 100, 'easeOutQuad', module.event.resetStyle)
                   .end()
                 .delay(50)
-                .slideUp(100, 'easeOutQuad')
+                .slideUp(100, 'easeOutQuad', module.event.resetStyle)
               ;
             }
             else {
