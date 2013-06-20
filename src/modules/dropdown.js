@@ -72,8 +72,8 @@ $.fn.dropdown = function(parameters) {
           }
           else if(settings.on == 'hover') {
             $module
-              .on('mouseenter' + eventNamespace, module.show)
-              .on('mouseleave' + eventNamespace, module.delayedHide)
+              .on('mouseenter' + eventNamespace, module.delay.show)
+              .on('mouseleave' + eventNamespace, module.delay.hide)
             ;
           }
           else {
@@ -355,7 +355,6 @@ $.fn.dropdown = function(parameters) {
 
         show: function() {
           module.debug('Checking if dropdown can show');
-          clearTimeout(module.graceTimer);
           if( !module.is.visible() ) {
             module.hideOthers();
             $module
@@ -383,9 +382,17 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        delayedHide: function() {
-          module.verbose('User moused away setting timer to hide dropdown');
-          module.graceTimer = setTimeout(module.hide, settings.gracePeriod);
+        delay: {
+          show: function() {
+            module.verbose('Delaying show event to ensure user intent');
+            clearTimeout(module.graceTimer);
+            module.graceTimer = setTimeout(module.show, settings.delay.show);
+          },
+          hide: function() {
+            module.verbose('Delaying hide event to ensure user intent');
+            clearTimeout(module.graceTimer);
+            module.graceTimer = setTimeout(module.hide, settings.delay.hide);
+          }
         },
 
         hideOthers: function() {
@@ -524,7 +531,7 @@ $.fn.dropdown = function(parameters) {
                 found = instance[value];
               }
               else {
-                module.error(error.method);
+                module.error(errors.method);
               }
             });
           }
@@ -566,8 +573,12 @@ $.fn.dropdown.settings = {
   performance : true,
   
   on          : 'click',
-  gracePeriod : 300,
   action      : 'hide',
+
+  delay: {
+    show: 50,
+    hide: 300
+  },
   
   animation   : {
     show: 'slide',
