@@ -132,8 +132,9 @@ semantic.ready = function() {
       if( $code.size() === 0) {
         $demo
           .each(function(){
-            if($(this).not('br')) {
-              code += $(this).get(0).outerHTML + "\n";
+            var $this = $(this).clone(false);
+            if($this.not('br')) {
+              code += $this.removeAttr('style').get(0).outerHTML + "\n";
             }
           })
         ;
