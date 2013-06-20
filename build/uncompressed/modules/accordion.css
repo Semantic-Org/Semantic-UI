@@ -77,3 +77,8 @@
   background-color: transparent;
   border-top: none;
 }
+.ui.basic.accordion .title,
+.ui.basic.accordion .content {
+  padding-left: 0em;
+  padding-right: 0em;
+}
