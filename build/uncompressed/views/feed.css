@@ -15,6 +15,16 @@
 .ui.feed a {
   cursor: pointer;
 }
+.ui.feed,
+.ui.feed .event,
+.ui.feed .label,
+.ui.feed .content,
+.ui.feed .extra {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
 /*******************************
             Content
 *******************************/
@@ -23,10 +33,6 @@
   width: 100%;
   display: table;
   padding: 1em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
 }
 .ui.feed .event:first-child {
   border-top: 0px;
