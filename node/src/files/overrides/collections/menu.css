@@ -1,0 +1,284 @@
+/*===========*/
+/* C O L O R */
+/*===========*/
+
+/*======== PRIMARY ==========*/
+/*
+
+<<<<<<< Updated upstream
+Quirky       ==== #46166B
+Quirky Black ==== #231F20
+White        ==== #FFFFFF
+=======
+Quirkle         	====	#46166b
+White           	====	#ffffff
+Quirky Off white 	====	#f8f8f8
+Quirky Black		====	#231f20
+>>>>>>> Stashed changes
+
+*/
+/*======== SECONDARY (CATEGORIES) ==========*/
+/*
+
+Electronics & Acc. ==== #00B1DB
+Health & Fitness   ==== #F36525
+Home & Garden      ==== #FFDD19
+Kitchen            ==== #BED733
+Parenting          ==== #94297B
+Pets               ==== #01B5AA
+Travel & Adv.      ==== #D2232A
+
+*/
+/*======== TERTIARY (CATEGORIES) ==========*/
+/*
+
+Cat. 08 (Pink)    ====	#D9499A
+Cat. 09 (Blue)    ====	#2A5CAA
+Cat. 10 (Orange)  ====	#FAA61A
+Cat. 11 (Grayish) ====	#8D94A4
+Cat. 12 (Red)     ====	#ED1558
+Cat. 13 (Tan)     ====	#92847A
+
+*/
+/*======== NEUTRAL ==========*/
+/*
+
+Dark Gray     ====  #5D6266
+Light Gray    ==== #DCDDDE
+Mid Gray      ====  #9DA6AB
+Neutral Blue  ====  #1B1464
+Neutral Brown ====  #3F261E
+Neutral Tan   ====  #C8B59B
+
+*/
+/*======== INDICATIONS ==========*/
+/*
+
+
+Success	====	#5BBD72
+Error   ====	#D95C5C
+Warning ====	#??
+
+*/
+
+/*******************************
+            Navigation
+*******************************/
+
+.ui.navigation.menu {
+  display: inline-block;
+  border-color: #9DA6AB;
+}
+
+.ui.navigation.menu .item {
+  font-style: italic;
+  color: #9DA6AB;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.ui.navigation.menu .item.active {
+  border-color: #D9499A;
+  color: #5D6266;
+}
+
+.ui.vertical.navigation.menu .item {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+
+/*******************************
+            Circular
+*******************************/
+
+.ui.circular.text.menu .header.item {
+  cursor: auto;
+  text-transform: none;
+  font-size: 1.2rem;
+}
+
+.ui.circular.text.menu .header.item:hover {
+  color: rgba(50, 50, 50, 0.8);
+}
+
+.ui.circular.text.menu .item {
+  cursor: pointer;
+  margin: 0.375em 0em;
+
+  -webkit-transition: 
+    color 0.2s ease,
+    opacity 0.2s ease
+  ;
+  -moz-transition: 
+    color 0.2s ease,
+    opacity 0.2s ease
+  ;
+  -o-transition: 
+    color 0.2s ease,
+    opacity 0.2s ease
+  ;
+  -ms-transition: 
+    color 0.2s ease,
+    opacity 0.2s ease
+  ;
+  transition: 
+    color 0.2s ease,
+    opacity 0.2s ease
+  ;
+}
+
+.ui.circular.text.menu .item > .icon {
+  margin: 0em 0.5em 0em 0em;
+
+  height: 1.5em;
+  width: 1.5em;
+  background-color: transparent;
+  padding: 0.25em;
+
+  text-shadow: none;
+  font-size: 1.4em;
+
+  -webkit-border-radius: 500em;
+  -moz-border-radius: 500em;
+  border-radius: 500em;
+
+  -webkit-transition: 
+    background 0.2s ease,
+    color 0.2s ease
+  ;
+  -moz-transition: 
+    background 0.2s ease,
+    color 0.2s ease
+  ;
+  -o-transition: 
+    background 0.2s ease,
+    color 0.2s ease
+  ;
+  -ms-transition: 
+    background 0.2s ease,
+    color 0.2s ease
+  ;
+  transition: 
+    background 0.2s ease,
+    color 0.2s ease
+  ;
+}
+
+.ui.circular.text.menu .item.active,
+.ui.circular.text.menu .item:hover {
+  color: #D9499A;
+  font-weight: bold;
+}
+
+
+
+.ui.circular.text.menu .item.active i,
+.ui.circular.text.menu .item:hover i {
+  color: #FFFFFF;
+  background-color: #D9499A;
+}
+
+.ui.circular.text.menu .item:hover i:hover {
+  color: #FFFFFF;
+}
+
+/** Color Categories **/
+
+.ui.circular.text.sort.menu .newest.active,
+.ui.circular.text.sort.menu .newest:hover {
+  color: #FAA61A;
+}
+
+.ui.circular.text.sort.menu .ending.active,
+.ui.circular.text.sort.menu .ending:hover {
+  color: #2A5CAA;
+}
+
+.ui.circular.text.sort.menu .newest.active i,
+.ui.circular.text.sort.menu .newest:hover i {
+  background-color: #FAA61A;
+}
+
+.ui.circular.text.sort.menu .ending.active i,
+.ui.circular.text.sort.menu .ending:hover i {
+  background-color: #2A5CAA;
+}
+
+.ui.circular.text.categories.menu .all.active,
+.ui.circular.text.categories.menu .all:hover {
+  color: #D9499A;
+}
+
+.ui.circular.text.categories.menu .kitchen.active,
+.ui.circular.text.categories.menu .kitchen:hover {
+  color: #BED733;
+}
+
+.ui.circular.text.categories.menu .health.active,
+.ui.circular.text.categories.menu .health:hover {
+  color: #F36525;
+}
+
+.ui.circular.text.categories.menu .home.active,
+ .ui.circular.text.categories.menu .home:hover {
+  color: #FFDD19;
+}
+
+.ui.circular.text.categories.menu .electronics.active,
+.ui.circular.text.categories.menu .electronics:hover {
+  color: #00B1DB;
+}
+
+.ui.circular.text.categories.menu .travel.active,
+.ui.circular.text.categories.menu .travel:hover {
+  color: #D2232A;
+}
+
+.ui.circular.text.categories.menu .parenting.active,
+.ui.circular.text.categories.menu .parenting:hover {
+  color: #94297B;
+}
+
+.ui.circular.text.categories.menu .pets.active,
+.ui.circular.text.categories.menu .pets:hover {
+  color: #01B5AA;
+}
+
+.ui.circular.text.categories.menu .all.active i,
+.ui.circular.text.categories.menu .all:hover i {
+  background-color: #D9499A;
+}
+.ui.circular.text.categories.menu .kitchen.active i,
+.ui.circular.text.categories.menu .kitchen:hover i {
+  background-color: #BED733;
+}
+
+.ui.circular.text.categories.menu .health.active i,
+.ui.circular.text.categories.menu .health:hover i {
+  background-color: #F36525;
+}
+
+.ui.circular.text.categories.menu .home.active i,
+.ui.circular.text.categories.menu .home:hover i {
+  background-color: #FFDD19;
+}
+
+.ui.circular.text.categories.menu .electronics.active i,
+.ui.circular.text.categories.menu .electronics:hover i {
+  background-color: #00B1DB;
+}
+
+.ui.circular.text.categories.menu .travel.active i,
+.ui.circular.text.categories.menu .travel:hover i {
+  background-color: #D2232A;
+}
+
+.ui.circular.text.categories.menu .parenting.active i,
+.ui.circular.text.categories.menu .parenting:hover i {
+  background-color: #94297B;
+}
+
+.ui.circular.text.categories.menu .pets.active i,
+.ui.circular.text.categories.menu .pets:hover i {
+  background-color: #01B5AA;
+}

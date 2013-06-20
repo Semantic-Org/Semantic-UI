@@ -1,0 +1,15 @@
+/*******************************
+          Breadcrumb
+*******************************/
+
+.ui.breadcrumb .divider {
+  color: #DCDDDE;
+}
+
+.ui.breadcrumb .slash.divider {
+  position: relative;
+  top: -0.1em;
+  font-size: 1.5em;
+  width: 1.5rem;
+  vertical-align: top;
+}

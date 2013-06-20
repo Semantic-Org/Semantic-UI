@@ -1,0 +1,12 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "test/assets/package-jquery",
+    "package-dev-dep": "test/assets/package-dev-dep"
+  },
+  "devDependencies": {
+    "bootstrap": "test/assets/package-bootstrap",
+    "turtles": "test/assets/package-ignorables"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "a1",
+  "version": "0.0.1",
+  "scripts": [
+    "a1.js"
+  ],
+  "dependencies": {
+  }
+}

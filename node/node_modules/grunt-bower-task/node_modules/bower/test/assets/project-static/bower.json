@@ -1,0 +1,8 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "test/assets/package-jquery",
+    "package-deps-on-jquery": "test/assets/package-deps-on-jquery"
+  }
+}

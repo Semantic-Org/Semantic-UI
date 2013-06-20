@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+var fs   = require('fs');
+var narc = require('../lib/narcissus_packed');
+var cmd  = require('../lib/command');
+var build= require('../lib/js2coffee').build;
+
+// Redefine the command's 'work' function.
+var work = function(fname){
+	var contents = fs.readFileSync(fname, 'utf-8');
+
+	var output = narc.parser.parse(contents);
+	output = output.inspect();
+	console.log("%s", output);
+
+	var built  = build(contents);
+	console.log("%s", built);
+};
+
+cmd.run(work);

@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+function longFunctionC(n,o){return longNameA+longNameB+n+o}var longNameA=1,longNameB=2,result=longFunctionC(3,4);
+//# sourceMappingURL=test/fixtures/expected/multiple_sourcemaps1.mapurl
+=======
+function longFunctionC(a,b){return longNameA+longNameB+a+b}var longNameA=1,longNameB=2,result=longFunctionC(3,4);
+/*
+//@ sourceMappingURL=test/fixtures/expected/multiple_sourcemaps1.mapurl
+*/
+>>>>>>> d03b545c1df422073a9a3280df7a2ade0e7bf921

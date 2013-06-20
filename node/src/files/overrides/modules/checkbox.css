@@ -1,0 +1,13 @@
+/* .ui.checkbox .box:after, .ui.checkbox label:after {
+  border: none;
+  font-family: "Sketchy Icons";
+  content: "\f11b";
+
+  top: 0.15em;
+
+  -webkit-transform: none;
+  -moz-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  transform: none;
+} */

@@ -1,0 +1,13 @@
+
+/* default link style */
+a,
+h2 a,
+h3 a {
+  text-decoration: none;
+  color: #01B5AA;
+}
+a:hover,
+h2 a:hover,
+h3 a:hover {
+  color: #008B82;
+}
