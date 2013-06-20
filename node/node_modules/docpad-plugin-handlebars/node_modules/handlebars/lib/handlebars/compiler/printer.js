@@ -121,7 +121,7 @@ Handlebars.PrintVisitor.prototype.PARTIAL_NAME = function(partialName) {
 };
 
 Handlebars.PrintVisitor.prototype.DATA = function(data) {
-  return "@" + data.id;
+  return "@" + this.accept(data.id);
 };
 
 Handlebars.PrintVisitor.prototype.content = function(content) {

@@ -85,6 +85,8 @@
    */
 
   HTMLFile.prototype._ = function (data, doc) {
+    // unescape all forward slashes. see GH-1251
+    data = data.replace(/\\\//g, '/');
     this.onData(data);
     try {
       var script = doc.getElementsByTagName('script')[0];

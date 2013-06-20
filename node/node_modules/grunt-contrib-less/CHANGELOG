@@ -1,7 +1,11 @@
+v0.5.2:
+  date: 2013-0523
+  changes:
+    - Improve error handling.
 v0.5.1:
   date: 2013-04-25
   changes:
-    - Gracefully handle configuration without sources
+    - Gracefully handle configuration without sources.
 v0.5.0:
   date: 2013-02-15
   changes:

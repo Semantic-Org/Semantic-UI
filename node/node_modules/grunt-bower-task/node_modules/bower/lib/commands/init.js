@@ -40,7 +40,7 @@ Init.prototype.getDependenciesJSON = function () {
 
     pkg.on('loadJSON', function () {
       // TODO: use fetch endpoint here
-      json[pkg.name] = '~' + pkg.version;
+      json[pkg.name] = pkg.commit ? '*' : '~' + pkg.version;
       remaining -= 1;
       if (remaining === 0) {
         this.manager.emit('loadDependencies', json);

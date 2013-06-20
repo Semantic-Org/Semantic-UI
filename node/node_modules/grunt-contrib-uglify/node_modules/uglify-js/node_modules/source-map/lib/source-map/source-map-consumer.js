@@ -309,15 +309,19 @@ define(function (require, exports, module) {
       }
 
       if (this.sourceRoot) {
-        // Try to remove the sourceRoot
-        var relativeUrl = util.relative(this.sourceRoot, aSource);
-        if (this._sources.has(relativeUrl)) {
-          return this.sourcesContent[this._sources.indexOf(relativeUrl)];
-        }
+        aSource = util.relative(this.sourceRoot, aSource);
       }
 
       if (this._sources.has(aSource)) {
         return this.sourcesContent[this._sources.indexOf(aSource)];
+      }
+
+      var url;
+      if (this.sourceRoot
+          && (url = util.urlParse(this.sourceRoot))
+          && (!url.path || url.path == "/")
+          && this._sources.has("/" + aSource)) {
+        return this.sourcesContent[this._sources.indexOf("/" + aSource)];
       }
 
       throw new Error('"' + aSource + '" is not in the SourceMap.');

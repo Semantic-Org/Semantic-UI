@@ -45,6 +45,25 @@ define(function (require, exports, module) {
       path: match[7]
     };
   }
+  exports.urlParse = urlParse;
+
+  function urlGenerate(aParsedUrl) {
+    var url = aParsedUrl.scheme + "://";
+    if (aParsedUrl.auth) {
+      url += aParsedUrl.auth + "@"
+    }
+    if (aParsedUrl.host) {
+      url += aParsedUrl.host;
+    }
+    if (aParsedUrl.port) {
+      url += ":" + aParsedUrl.port
+    }
+    if (aParsedUrl.path) {
+      url += aParsedUrl.path;
+    }
+    return url;
+  }
+  exports.urlGenerate = urlGenerate;
 
   function join(aRoot, aPath) {
     var url;
@@ -54,7 +73,8 @@ define(function (require, exports, module) {
     }
 
     if (aPath.charAt(0) === '/' && (url = urlParse(aRoot))) {
-      return aRoot.replace(url.path, '') + aPath;
+      url.path = aPath;
+      return urlGenerate(url);
     }
 
     return aRoot.replace(/\/$/, '') + '/' + aPath;
@@ -82,6 +102,12 @@ define(function (require, exports, module) {
 
   function relative(aRoot, aPath) {
     aRoot = aRoot.replace(/\/$/, '');
+
+    var url = urlParse(aRoot);
+    if (aPath.charAt(0) == "/" && url && url.path == "/") {
+      return aPath.slice(1);
+    }
+
     return aPath.indexOf(aRoot + '/') === 0
       ? aPath.substr(aRoot.length + 1)
       : aPath;

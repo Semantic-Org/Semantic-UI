@@ -1,4 +1,10 @@
 
+1.2.0 / 2013-06-13 
+==================
+
+ * allow "-" hyphen as an option argument
+ * support for RegExp coercion
+
 1.1.1 / 2012-11-20 
 ==================
 

@@ -1,3 +1,7 @@
+v0.6.1:
+  date: 2013-05-25
+  changes:
+    - Support import in-lining vis clean-css ~1.0.4.
 v0.6.0:
   date: 2013-04-05
   changes:

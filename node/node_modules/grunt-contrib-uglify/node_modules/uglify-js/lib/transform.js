@@ -44,7 +44,6 @@
 "use strict";
 
 // Tree transformer helpers.
-// XXX: eventually I should refactor the compressor to use this infrastructure.
 
 function TreeTransformer(before, after) {
     TreeWalker.call(this);

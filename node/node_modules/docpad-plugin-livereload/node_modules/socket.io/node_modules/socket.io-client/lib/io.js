@@ -21,7 +21,7 @@
    * @api public
    */
 
-  io.version = '0.9.11';
+  io.version = '0.9.16';
 
   /**
    * Protocol implemented.

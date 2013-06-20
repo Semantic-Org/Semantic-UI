@@ -29,35 +29,48 @@ var Handlebars = {};
 ;
 // lib/handlebars/base.js
 
-Handlebars.VERSION = "1.0.0-rc.3";
-Handlebars.COMPILER_REVISION = 2;
+Handlebars.VERSION = "1.0.0";
+Handlebars.COMPILER_REVISION = 4;
 
 Handlebars.REVISION_CHANGES = {
   1: '<= 1.0.rc.2', // 1.0.rc.2 is actually rev2 but doesn't report it
-  2: '>= 1.0.0-rc.3'
+  2: '== 1.0.0-rc.3',
+  3: '== 1.0.0-rc.4',
+  4: '>= 1.0.0'
 };
 
 Handlebars.helpers  = {};
 Handlebars.partials = {};
 
+var toString = Object.prototype.toString,
+    functionType = '[object Function]',
+    objectType = '[object Object]';
+
 Handlebars.registerHelper = function(name, fn, inverse) {
-  if(inverse) { fn.not = inverse; }
-  this.helpers[name] = fn;
+  if (toString.call(name) === objectType) {
+    if (inverse || fn) { throw new Handlebars.Exception('Arg not supported with multiple helpers'); }
+    Handlebars.Utils.extend(this.helpers, name);
+  } else {
+    if (inverse) { fn.not = inverse; }
+    this.helpers[name] = fn;
+  }
 };
 
 Handlebars.registerPartial = function(name, str) {
-  this.partials[name] = str;
+  if (toString.call(name) === objectType) {
+    Handlebars.Utils.extend(this.partials,  name);
+  } else {
+    this.partials[name] = str;
+  }
 };
 
 Handlebars.registerHelper('helperMissing', function(arg) {
   if(arguments.length === 2) {
     return undefined;
   } else {
-    throw new Error("Could not find property '" + arg + "'");
+    throw new Error("Missing helper: '" + arg + "'");
   }
 });
-
-var toString = Object.prototype.toString, functionType = "[object Function]";
 
 Handlebars.registerHelper('blockHelperMissing', function(context, options) {
   var inverse = options.inverse || function() {}, fn = options.fn;
@@ -112,6 +125,9 @@ Handlebars.registerHelper('each', function(context, options) {
   var fn = options.fn, inverse = options.inverse;
   var i = 0, ret = "", data;
 
+  var type = toString.call(context);
+  if(type === functionType) { context = context.call(this); }
+
   if (options.data) {
     data = Handlebars.createFrame(options.data);
   }
@@ -140,23 +156,26 @@ Handlebars.registerHelper('each', function(context, options) {
   return ret;
 });
 
-Handlebars.registerHelper('if', function(context, options) {
-  var type = toString.call(context);
-  if(type === functionType) { context = context.call(this); }
+Handlebars.registerHelper('if', function(conditional, options) {
+  var type = toString.call(conditional);
+  if(type === functionType) { conditional = conditional.call(this); }
 
-  if(!context || Handlebars.Utils.isEmpty(context)) {
+  if(!conditional || Handlebars.Utils.isEmpty(conditional)) {
     return options.inverse(this);
   } else {
     return options.fn(this);
   }
 });
 
-Handlebars.registerHelper('unless', function(context, options) {
-  return Handlebars.helpers['if'].call(this, context, {fn: options.inverse, inverse: options.fn});
+Handlebars.registerHelper('unless', function(conditional, options) {
+  return Handlebars.helpers['if'].call(this, conditional, {fn: options.inverse, inverse: options.fn});
 });
 
 Handlebars.registerHelper('with', function(context, options) {
-  return options.fn(context);
+  var type = toString.call(context);
+  if(type === functionType) { context = context.call(this); }
+
+  if (!Handlebars.Utils.isEmpty(context)) return options.fn(context);
 });
 
 Handlebars.registerHelper('log', function(context, options) {
@@ -203,6 +222,14 @@ var escapeChar = function(chr) {
 };
 
 Handlebars.Utils = {
+  extend: function(obj, value) {
+    for(var key in value) {
+      if(value.hasOwnProperty(key)) {
+        obj[key] = value[key];
+      }
+    }
+  },
+
   escapeExpression: function(string) {
     // don't escape SafeStrings, since they're already safe
     if (string instanceof Handlebars.SafeString) {
@@ -210,6 +237,11 @@ Handlebars.Utils = {
     } else if (string == null || string === false) {
       return "";
     }
+
+    // Force a string conversion as this will be done by the append regardless and
+    // the regex test will do this transparently behind the scenes, causing issues if
+    // an object's to string has escaped characters in it.
+    string = string.toString();
 
     if(!possible.test(string)) { return string; }
     return string.replace(badChars, escapeChar);
@@ -238,13 +270,21 @@ Handlebars.VM = {
       program: function(i, fn, data) {
         var programWrapper = this.programs[i];
         if(data) {
-          return Handlebars.VM.program(fn, data);
-        } else if(programWrapper) {
-          return programWrapper;
-        } else {
-          programWrapper = this.programs[i] = Handlebars.VM.program(fn);
-          return programWrapper;
+          programWrapper = Handlebars.VM.program(i, fn, data);
+        } else if (!programWrapper) {
+          programWrapper = this.programs[i] = Handlebars.VM.program(i, fn);
         }
+        return programWrapper;
+      },
+      merge: function(param, common) {
+        var ret = param || common;
+
+        if (param && common) {
+          ret = {};
+          Handlebars.Utils.extend(ret, common);
+          Handlebars.Utils.extend(ret, param);
+        }
+        return ret;
       },
       programWithDepth: Handlebars.VM.programWithDepth,
       noop: Handlebars.VM.noop,
@@ -276,21 +316,27 @@ Handlebars.VM = {
     };
   },
 
-  programWithDepth: function(fn, data, $depth) {
-    var args = Array.prototype.slice.call(arguments, 2);
+  programWithDepth: function(i, fn, data /*, $depth */) {
+    var args = Array.prototype.slice.call(arguments, 3);
 
-    return function(context, options) {
+    var program = function(context, options) {
       options = options || {};
 
       return fn.apply(this, [context, options.data || data].concat(args));
     };
+    program.program = i;
+    program.depth = args.length;
+    return program;
   },
-  program: function(fn, data) {
-    return function(context, options) {
+  program: function(i, fn, data) {
+    var program = function(context, options) {
       options = options || {};
 
       return fn(context, options.data || data);
     };
+    program.program = i;
+    program.depth = 0;
+    return program;
   },
   noop: function() { return ""; },
   invokePartial: function(partial, name, context, helpers, partials, data) {

@@ -51,7 +51,7 @@ function Extract (opts) {
   this._parser.pipe(writer);
 }
 
-Extract.prototype._write = function (chunk, callback) {
+Extract.prototype._write = function (chunk, encoding, callback) {
   if (this._parser.write(chunk)) {
     return callback();
   }

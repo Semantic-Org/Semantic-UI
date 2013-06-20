@@ -20,6 +20,7 @@ CAKE    = "#{BIN}/cake#{EXT}"
 COFFEE  = "#{BIN}/coffee#{EXT}"
 OUT     = "#{APP}/out"
 SRC     = "#{APP}/src"
+TEST    = "#{APP}/test"
 
 
 # -----------------
@@ -44,6 +45,9 @@ clean = (opts,next) ->
 		pathUtil.join(APP,'node_modules')
 		pathUtil.join(APP,'*out')
 		pathUtil.join(APP,'*log')
+		pathUtil.join(TEST,'node_modules')
+		pathUtil.join(TEST,'*out')
+		pathUtil.join(TEST,'*log')
 	]
 	spawn('rm', args, {stdio:'inherit',cwd:APP}).on('exit',next)
 
@@ -57,13 +61,12 @@ watch = (opts,next) ->
 
 install = (opts,next) ->
 	(next = opts; opts = {})  unless next?
-	spawn(NPM, ['install'], {stdio:'inherit',cwd:APP}).on('exit',next)
+	spawn(NPM, ['install'], {stdio:'inherit',cwd:APP}).on 'exit', safe next, ->
+		spawn(NPM, ['install'], {stdio:'inherit',cwd:TEST}).on('exit',next)
 
 reset = (opts,next) ->
 	(next = opts; opts = {})  unless next?
-	clean opts, safe next, ->
-		install opts, safe next, ->
-			compile opts, next
+	clean opts, safe next, -> install opts, safe next, -> compile opts, next
 
 setup = (opts,next) ->
 	(next = opts; opts = {})  unless next?
@@ -72,7 +75,10 @@ setup = (opts,next) ->
 
 test = (opts,next) ->
 	(next = opts; opts = {})  unless next?
-	spawn(NPM, ['test'], {stdio:'inherit',cwd:APP}).on('exit',next)
+	args = []
+	args.push("--debug-brk")  if opts.debug
+	args.push("#{OUT}/test/everything.test.js")
+	spawn(NODE, args, {stdio:'inherit',cwd:APP}, next)
 
 finish = (err) ->
 	throw err  if err

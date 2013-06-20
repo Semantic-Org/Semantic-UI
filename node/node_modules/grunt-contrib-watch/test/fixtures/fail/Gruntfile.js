@@ -21,9 +21,17 @@ module.exports = function(grunt) {
   grunt.loadTasks('../../../tasks');
 
   grunt.registerTask('warn', function() {
-    grunt.warn('This task should warn!');
+    var done = this.async();
+    setTimeout(function() {
+      grunt.warn('This task should warn!');
+      done();
+    }, 1000);
   });
   grunt.registerTask('fatal', function() {
-    grunt.fatal('This task should be fatal!');
+    var done = this.async();
+    setTimeout(function() {
+      grunt.fatal('This task should be fatal!');
+      done();
+    }, 1000);
   });
 };

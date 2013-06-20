@@ -7,10 +7,13 @@ type   : 'Quirky Element'
 ---
 
 
-<link rel="stylesheet" type="text/css" class="ui" href="/overrides/button.css">
-<link rel="stylesheet" type="text/css" class="ui" href="/overrides/menu.css">
-<link rel="stylesheet" type="text/css" class="ui" href="/overrides/segment.css">
-<link rel="stylesheet" type="text/css" class="ui" href="/overrides/steps.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/quirky.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/elements/segment.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/elements/button.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/elements/step.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/elements/button.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/collections/breadcrumb.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/overrides/collections/menu.css">
 
 <div class="segment">
   <div class="container">
@@ -23,12 +26,47 @@ type   : 'Quirky Element'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Pagination</a>
+      <a class="item">Menu</a>
+      <a class="item">Segment</a>
       <a class="item">Steps</a>
+      <a class="item">Breadcrumb</a>
     </div>
   </div>
-
-  <h3 class="ui dividing header">Pagination</h3>
+  
+  <h3 class="ui dividing header">Menu</h3>
+  
   <div class="example">
+    <h4 class="ui header">Navigation</h4>
+    <div class="ui pointing navigation menu">
+      <a class="active item">
+        <i class="home sketchy icon"></i> Home
+      </a>
+      <a class="item">
+        <i class="sketchy pencil icon"></i> Edit
+      </a>
+      <a class="item">
+        <i class="sketchy photos icon"></i> Add Photos
+      </a>
+    </div>
+  </div>
+  
+  <div class="another example">
+    <h4 class="ui header">Vertical</h4>
+    <div class="ui vertical pointing navigation menu">
+      <a class="active item">
+        <i class="home sketchy icon"></i> Home
+      </a>
+      <a class="item">
+        <i class="sketchy pencil icon"></i> Edit
+      </a>
+      <a class="item">
+        <i class="sketchy photos icon"></i> Add Photos
+      </a>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Pagination</h4>
     <div class="ui pagination menu">
       <a class="icon item">
         <i class="icon left sketchy arrow"></i>
@@ -53,22 +91,45 @@ type   : 'Quirky Element'
       </a>
     </div>
   </div>
+  <div class="ui vertical categories circular text menu">
+    <a class="header item">Circular</a>
+    
+  </div>
   
-  <h3 class="ui dividing header">Menu</h3>
-  
-  <div class="example">
-    <h4 class="ui header">Pointing</h4>
-    <div class="ui pointing menu">
-      <a class="active item">
-        <i class="home icon"></i> Home
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="community icon"></i> Browse
-      </a>
-    </div>
+  <div class="ui vertical categories circular text menu">
+    <a class="header item">Categories</a>
+    <a class="active all item">
+      <i class="sketchy all icon"></i>
+      All
+    </a>
+    <a class="kitchen item">
+      <i class="sketchy kitchen category icon"></i>
+      Kitchen
+    </a>
+    <a class="health item">
+      <i class="sketchy health category icon"></i>
+      Health & Fitness
+    </a>
+    <a class="home item">
+      <i class="sketchy home category icon"></i>
+      Home & Garden
+    </a>
+    <a class="electronics item">
+      <i class="sketchy electronics category icon"></i>
+      Electronics & Accessories
+    </a>
+    <a class="travel item">
+      <i class="sketchy travel category icon"></i>
+      Travel & Adventure
+    </a>
+    <a class="parenting item">
+      <i class="sketchy parenting category icon"></i>
+      Parenting
+    </a>
+    <a class="pets item">
+      <i class="sketchy pets category icon"></i>
+      Pets
+    </a>
   </div>
   
   <h3 class="ui dividing header">Segment</h3>
@@ -91,12 +152,17 @@ type   : 'Quirky Element'
   </div>
   
   <h3 class="ui dividing header">Steps</h3>
+  
   <div class="example">
+    <h4 class="ui header">Standard</h4>
     <div class="ui steps">
-      <div class="ui active step">
+      <div class="ui completed step">
+        Shop
+      </div>
+      <div class="ui completed step">
         Shipping
       </div>
-      <div class="ui disabled step">
+      <div class="ui active step">
         Billing
       </div>
       <div class="ui disabled step">
@@ -107,34 +173,40 @@ type   : 'Quirky Element'
       </div>
     </div>
   </div>
-  <div class="another example">
-    <p>A vertical text menu</p>
-    <div class="ui vertical text menu">
-      <div class="header item">Sort By</div>
-      <a class="active item">
-        <i class="sketchy newest icon"></i>Newest 
-      </a>
-      <a class="item">
-        <i class="sketchy clock icon"></i>Ending Soon
-      </a>
-    </div>
-  </div>
-  
   
   <div class="example">
-    <h4 class="ui header">Text</h4>
-    <div class="ui text menu">
-      <a class="active item">
-        <i class="home icon"></i> Home
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="community icon"></i> Browse
-      </a>
+    <h4 class="ui header">Icon</h4>
+    <div class="ui steps">
+      <div class="ui completed step">
+        <i class="icon sketchy tagline phase"></i>
+        Elevator Pitch
+      </div>
+      <div class="ui completed step">
+        <i class="icon sketchy research phase"></i>
+        Describe Your Idea
+      </div>
+      <div class="ui active step">
+        <i class="icon sketchy photos"></i>
+        Images & Media
+      </div>
+      <div class="ui disabled step">
+        <i class="icon sketchy checkmark circle"></i>
+        Review Your Submission
+      </div>
     </div>
   </div>
   
+  <h3 class="ui dividing header">Breadcrumb</h3>
+  
+  <h4 class="ui header">Standard</h4>
+  <div class="example">
+    <div class="ui breadcrumb">
+      <a class="section">Submissions</a>
+      <i class="sketchy slash icon divider"></i>
+      <a class="section">Kitchen</a>
+      <i class="sketchy slash icon divider"></i>
+      <div class="active section">Newest</div>
+    </div>  
+  </div>
   
 </div>

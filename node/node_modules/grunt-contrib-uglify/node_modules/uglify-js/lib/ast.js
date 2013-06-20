@@ -285,6 +285,27 @@ var AST_Toplevel = DEFNODE("Toplevel", "globals", {
     $propdoc: {
         globals: "[Object/S] a map of name -> SymbolDef for all undeclared names",
     },
+    wrap_enclose: function(arg_parameter_pairs) {
+        var self = this;
+        var args = [];
+        var parameters = [];
+
+        arg_parameter_pairs.forEach(function(pair) {
+            var split = pair.split(":");
+
+            args.push(split[0]);
+            parameters.push(split[1]);
+        });
+
+        var wrapped_tl = "(function(" + parameters.join(",") + "){ '$ORIG'; })(" + args.join(",") + ")";
+        wrapped_tl = parse(wrapped_tl);
+        wrapped_tl = wrapped_tl.transform(new TreeTransformer(function before(node){
+            if (node instanceof AST_Directive && node.value == "$ORIG") {
+                return MAP.splice(self.body);
+            }
+        }));
+        return wrapped_tl;
+    },
     wrap_commonjs: function(name, export_all) {
         var self = this;
         var to_export = [];

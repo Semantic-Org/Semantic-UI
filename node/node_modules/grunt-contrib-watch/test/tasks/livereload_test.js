@@ -98,10 +98,46 @@ exports.livereload = {
       result = helper.unixify(result);
       helper.verboseLog(result);
       test.ok(result.indexOf('I ran before livereload.') !== -1, 'task should have ran before live reload.');
-      test.ok(result.indexOf('Live reload server started on port: 1337') !== -1, 'live reload server should have been started on port 35729.');
+      test.ok(result.indexOf('Live reload server started on port: 1337') !== -1, 'live reload server should have been started on port 1337.');
       test.ok(result.indexOf('Live reloading lib/one.js...') !== -1, 'live reload should have triggered on lib/one.js');
       resultData = JSON.parse(resultData);
       test.equal(resultData.tinylr, 'Welcome', 'tinylr server should have welcomed you.');
+      test.done();
+    });
+  },
+  notasks: function(test) {
+    test.expect(3);
+    var resultData = '';
+    var cwd = path.resolve(fixtures, 'livereload');
+    var assertWatch = helper.assertTask(['watch:notasks', '-v'], {cwd: cwd});
+    assertWatch([function() {
+      request(35729, function(data) {
+        resultData += data;
+        grunt.file.write(path.join(cwd, 'lib', 'one.js'), 'var one = true;');
+      });
+    }], function(result) {
+      result = helper.unixify(result);
+      helper.verboseLog(result);
+      test.ok(result.indexOf('Live reload server started on port: 35729') !== -1, 'live reload server should have been started on port 35729.');
+      test.ok(result.indexOf('Live reloading lib/one.js...') !== -1, 'live reload should have triggered on lib/one.js');
+      resultData = JSON.parse(resultData);
+      test.equal(resultData.tinylr, 'Welcome', 'tinylr server should have welcomed you.');
+      test.done();
+    });
+  },
+  onlytriggeron: function(test) {
+    test.expect(2);
+    var cwd = path.resolve(fixtures, 'livereload');
+    var assertWatch = helper.assertTask(['watch', '-v'], {cwd: cwd});
+    assertWatch([function() {
+      request(35729, function(data) {
+        grunt.file.write(path.join(cwd, 'sass', 'one.scss'), '#one {}');
+      });
+    }], function(result) {
+      result = helper.unixify(result);
+      helper.verboseLog(result);
+      test.ok(result.indexOf('Live reloading sass/one.scss') === -1, 'Should not trigger live reload on non livereload targets.');
+      test.ok(result.indexOf('Live reloading css/one.css') !== -1, 'Should trigger live reload when other tasks trigger livereload targets.');
       test.done();
     });
   },

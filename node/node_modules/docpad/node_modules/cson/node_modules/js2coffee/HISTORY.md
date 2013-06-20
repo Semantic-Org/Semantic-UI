@@ -1,4 +1,19 @@
-v0.1.3 - Jan 6, 2012
+v0.1.4 - June 7, 2013
+--------------------
+
+Thanks to @balupton, @tsantef, @ForbesLindesay
+
+- [Fixed CoffeeScript version problems](https://github.com/rstacruz/js2coffee/issues/189)
+  - [Use only compatible coffee-script version](https://github.com/rstacruz/js2coffee/pull/196)
+  - [Defines RESERVED words if not defined](https://github.com/rstacruz/js2coffee/pull/194)
+  - Rewrote to only use local coffee-script installation, rather than using global installation
+- [Fixed global leak](https://github.com/rstacruz/js2coffee/pull/174)
+- Tests now use the [Joe Test Runner](https://github.com/bevry/joe), instead of using nothing before
+- Watched, compiled, bundled, and automatically tested with [DocPad](http://docpad.org/)
+- Added [TravisCI](https://travis-ci.org/) support
+
+
+v0.1.3 - January 6, 2012
 --------------------
 
 Small "emergency" bugfixes, thanks @tricknotes.
@@ -7,7 +22,8 @@ Small "emergency" bugfixes, thanks @tricknotes.
  * Exit when compilation completes in Node 0.6. (#112)
  * Fix typo in the help text when typing `js2coffee`. (#113)
 
-v0.1.2 - Oct 15, 2011
+
+v0.1.2 - October 15, 2011
 ---------------------
 
 Thanks to @Wisdom, @nilbus, @joelvh, @gabipurcaru, @michaelficarra, @tricknotes,
@@ -44,7 +60,8 @@ Thanks to @Wisdom, @nilbus, @joelvh, @gabipurcaru, @michaelficarra, @tricknotes,
   * Running tests now shows less output.
   * Running tests now exits with an error code when it fails.
 
-v0.1.1 - Jul 09, 2011
+
+v0.1.1 - July 09, 2011
 ---------------------
 
 ### Fixed:
@@ -52,7 +69,8 @@ v0.1.1 - Jul 09, 2011
   * Fix the problem where passing an anonymous function as a parameter can
     sometimes lead to syntax errors. (#55)
 
-v0.1.0 - Jun 13, 2011
+
+v0.1.0 - June 13, 2011
 ---------------------
 
 Lots of refactoring and new improvements.
@@ -78,7 +96,8 @@ Lots of refactoring and new improvements.
   * Recursive functions now use `Node::walk()`.
   * Move stuff into `js2coffee/helpers.coffee` and `js2coffee/node_ext.coffee`.
 
-v0.0.5 - Jun 10, 2011
+
+v0.0.5 - June 10, 2011
 ---------------------
 
 Special thanks to [Michael Ficarra](http://github.com/michaelficarra) for agressively
@@ -99,7 +118,8 @@ reporting issues and suggesting numerous improvements.
   * Keys in object literals now get quoted if needed. This fixes the erroneous
     compilation of objects such as `{ 'click #button': function() { ... } }`.
 
-v0.0.4 - Jun 09, 2011
+
+v0.0.4 - June 09, 2011
 ---------------------
 
 ### Changed:
@@ -120,7 +140,8 @@ v0.0.4 - Jun 09, 2011
   * Annotate the source code.
   * Make a simpler (but less stringent) JS packing routine for `js2coffee.min.js`.
 
-v0.0.3 - Jun 05, 2011
+
+v0.0.3 - June 05, 2011
 ---------------------
 
 ### Fixed:
@@ -130,6 +151,7 @@ v0.0.3 - Jun 05, 2011
 ### Changed:
   * Implement += and friends. (#9)
   * Use 'cake' instead of 'make'.
+
 
 v0.0.2 - June 4, 2011
 ---------------------
@@ -141,6 +163,7 @@ v0.0.2 - June 4, 2011
   * Returns and breaks are omitted when not needed
   * Switch/case now uses `switch` instead of `if`
   * Some other improvements
+
 
 v0.0.1
 ------

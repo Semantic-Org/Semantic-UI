@@ -208,3 +208,53 @@ constant_switch_9: {
         }
     }
 }
+
+drop_default_1: {
+    options = { dead_code: true };
+    input: {
+        switch (foo) {
+          case 'bar': baz();
+          default:
+        }
+    }
+    expect: {
+        switch (foo) {
+          case 'bar': baz();
+        }
+    }
+}
+
+drop_default_2: {
+    options = { dead_code: true };
+    input: {
+        switch (foo) {
+          case 'bar': baz(); break;
+          default:
+            break;
+        }
+    }
+    expect: {
+        switch (foo) {
+          case 'bar': baz();
+        }
+    }
+}
+
+keep_default: {
+    options = { dead_code: true };
+    input: {
+        switch (foo) {
+          case 'bar': baz();
+          default:
+            something();
+            break;
+        }
+    }
+    expect: {
+        switch (foo) {
+          case 'bar': baz();
+          default:
+            something();
+        }
+    }
+}

@@ -245,6 +245,13 @@ function makePredicate(words) {
     return new Function("str", f);
 };
 
+function all(array, predicate) {
+    for (var i = array.length; --i >= 0;)
+        if (!predicate(array[i]))
+            return false;
+    return true;
+};
+
 function Dictionary() {
     this._values = Object.create(null);
     this._size = 0;

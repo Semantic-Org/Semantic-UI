@@ -22,6 +22,8 @@ test("pipe a single file entry out of a zip", function (t) {
           t.end();
         });
         entry.pipe(writableStream);
+      } else {
+        entry.autodrain();
       }
     });
 });

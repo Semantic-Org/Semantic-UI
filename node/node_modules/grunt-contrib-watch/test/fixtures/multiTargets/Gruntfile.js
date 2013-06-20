@@ -11,26 +11,26 @@ module.exports = function(grunt) {
     watch: {
       one: {
         files: ['lib/one.js', 'Gruntfile.js'],
-        tasks: ['echo:one']
+        tasks: 'echo:one',
       },
       two: {
         files: ['lib/two.js'],
-        tasks: ['echo:two']
+        tasks: ['echo:two'],
       },
       wait: {
         files: ['lib/wait.js'],
-        tasks: ['echo:wait']
+        tasks: ['echo:wait'],
       },
       interrupt: {
         files: ['lib/interrupt.js'],
         tasks: ['echo:interrupt'],
-        options: { interrupt: true }
+        options: { interrupt: true },
       },
       fail: {
         files: ['lib/fail.js'],
-        tasks: ['echo:fail']
-      }
-    }
+        tasks: ['echo:fail'],
+      },
+    },
   });
   // Load the echo task
   grunt.loadTasks('../tasks');

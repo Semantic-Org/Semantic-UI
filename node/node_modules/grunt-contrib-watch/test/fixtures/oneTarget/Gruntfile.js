@@ -2,12 +2,14 @@ module.exports = function(grunt) {
   'use strict';
   grunt.initConfig({
     echo: {
-      files: ['lib/*.js']
+      files: ['lib/*.js'],
     },
     watch: {
       files: ['<%= echo.files %>'],
-      tasks: ['echo']
-    }
+      // Dont make tasks an array
+      // To ensure it works with cliArgs: See #115
+      tasks: 'echo',
+    },
   });
   // Load the echo task
   grunt.loadTasks('../tasks');

@@ -1,6 +1,6 @@
 /**
  * @license
- * Lo-Dash 1.2.1 (Custom Build) <http://lodash.com/>
+ * Lo-Dash 1.3.1 (Custom Build) <http://lodash.com/>
  * Build: `lodash underscore exports="amd,commonjs,global,node" -o ./dist/lodash.underscore.js`
  * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.4.4 <http://underscorejs.org/>
@@ -12,18 +12,6 @@
   /** Used as a safe reference for `undefined` in pre ES5 environments */
   var undefined;
 
-  /** Detect free variable `exports` */
-  var freeExports = typeof exports == 'object' && exports;
-
-  /** Detect free variable `module` */
-  var freeModule = typeof module == 'object' && module && module.exports == freeExports && module;
-
-  /** Detect free variable `global`, from Node.js or Browserified code, and use it as `window` */
-  var freeGlobal = typeof global == 'object' && global;
-  if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal) {
-    window = freeGlobal;
-  }
-
   /** Used to generate unique IDs */
   var idCounter = 0;
 
@@ -34,7 +22,7 @@
   var keyPrefix = +new Date + '';
 
   /** Used as the size when optimizations are enabled for large arrays */
-  var largeArraySize = 200;
+  var largeArraySize = 75;
 
   /** Used to match empty string literals in compiled template source */
   var reEmptyStringLeading = /\b__p \+= '';/g,
@@ -73,6 +61,7 @@
       arrayClass = '[object Array]',
       boolClass = '[object Boolean]',
       dateClass = '[object Date]',
+      errorClass = '[object Error]',
       funcClass = '[object Function]',
       numberClass = '[object Number]',
       objectClass = '[object Object]',
@@ -100,18 +89,112 @@
     '\u2029': 'u2029'
   };
 
+  /** Detect free variable `exports` */
+  var freeExports = objectTypes[typeof exports] && exports;
+
+  /** Detect free variable `module` */
+  var freeModule = objectTypes[typeof module] && module && module.exports == freeExports && module;
+
+  /** Detect free variable `global`, from Node.js or Browserified code, and use it as `window` */
+  var freeGlobal = objectTypes[typeof global] && global;
+  if (freeGlobal && (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal)) {
+    window = freeGlobal;
+  }
+
   /*--------------------------------------------------------------------------*/
 
-  /** Used for `Array` and `Object` method references */
-  var arrayRef = Array(),
-      objectRef = Object();
+  /**
+   * A basic implementation of `_.indexOf` without support for binary searches
+   * or `fromIndex` constraints.
+   *
+   * @private
+   * @param {Array} array The array to search.
+   * @param {Mixed} value The value to search for.
+   * @param {Number} [fromIndex=0] The index to search from.
+   * @returns {Number} Returns the index of the matched value or `-1`.
+   */
+  function basicIndexOf(array, value, fromIndex) {
+    var index = (fromIndex || 0) - 1,
+        length = array.length;
+
+    while (++index < length) {
+      if (array[index] === value) {
+        return index;
+      }
+    }
+    return -1;
+  }
+
+  /**
+   * Used by `sortBy` to compare transformed `collection` values, stable sorting
+   * them in ascending order.
+   *
+   * @private
+   * @param {Object} a The object to compare to `b`.
+   * @param {Object} b The object to compare to `a`.
+   * @returns {Number} Returns the sort order indicator of `1` or `-1`.
+   */
+  function compareAscending(a, b) {
+    var ai = a.index,
+        bi = b.index;
+
+    a = a.criteria;
+    b = b.criteria;
+
+    // ensure a stable sort in V8 and other engines
+    // http://code.google.com/p/v8/issues/detail?id=90
+    if (a !== b) {
+      if (a > b || typeof a == 'undefined') {
+        return 1;
+      }
+      if (a < b || typeof b == 'undefined') {
+        return -1;
+      }
+    }
+    return ai < bi ? -1 : 1;
+  }
+
+  /**
+   * Used by `template` to escape characters for inclusion in compiled
+   * string literals.
+   *
+   * @private
+   * @param {String} match The matched character to escape.
+   * @returns {String} Returns the escaped character.
+   */
+  function escapeStringChar(match) {
+    return '\\' + stringEscapes[match];
+  }
+
+  /**
+   * A no-operation function.
+   *
+   * @private
+   */
+  function noop() {
+    // no operation performed
+  }
+
+  /*--------------------------------------------------------------------------*/
+
+  /**
+   * Used for `Array` method references.
+   *
+   * Normally `Array.prototype` would suffice, however, using an array literal
+   * avoids issues in Narwhal.
+   */
+  var arrayRef = [];
+
+  /** Used for native method references */
+  var objectProto = Object.prototype,
+      stringProto = String.prototype;
 
   /** Used to restore the original `_` reference in `noConflict` */
   var oldDash = window._;
 
   /** Used to detect if a method is native */
   var reNative = RegExp('^' +
-    String(objectRef.valueOf)
+    String(objectProto.valueOf)
       .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
       .replace(/valueOf|for [^\]]+/g, '.+?') + '$'
   );
@@ -121,13 +204,15 @@
       clearTimeout = window.clearTimeout,
       concat = arrayRef.concat,
       floor = Math.floor,
-      hasOwnProperty = objectRef.hasOwnProperty,
+      hasOwnProperty = objectProto.hasOwnProperty,
       push = arrayRef.push,
+      propertyIsEnumerable = objectProto.propertyIsEnumerable,
       setTimeout = window.setTimeout,
-      toString = objectRef.toString;
+      toString = objectProto.toString;
 
   /* Native method shortcuts for methods with the same name as other `lodash` methods */
   var nativeBind = reNative.test(nativeBind = toString.bind) && nativeBind,
+      nativeCreate = reNative.test(nativeCreate =  Object.create) && nativeCreate,
       nativeIsArray = reNative.test(nativeIsArray = Array.isArray) && nativeIsArray,
       nativeIsFinite = window.isFinite,
       nativeIsNaN = window.isNaN,
@@ -162,8 +247,8 @@
    * `invoke`, `keys`, `map`, `max`, `memoize`, `merge`, `min`, `object`, `omit`,
    * `once`, `pairs`, `partial`, `partialRight`, `pick`, `pluck`, `push`, `range`,
    * `reject`, `rest`, `reverse`, `shuffle`, `slice`, `sort`, `sortBy`, `splice`,
-   * `tap`, `throttle`, `times`, `toArray`, `union`, `uniq`, `unshift`, `unzip`,
-   * `values`, `where`, `without`, `wrap`, and `zip`
+   * `tap`, `throttle`, `times`, `toArray`, `transform`, `union`, `uniq`, `unshift`,
+   * `unzip`, `values`, `where`, `without`, `wrap`, and `zip`
    *
    * The non-chainable wrapper functions are:
    * `clone`, `cloneDeep`, `contains`, `escape`, `every`, `find`, `has`,
@@ -179,6 +264,7 @@
    *
    * @name _
    * @constructor
+   * @alias chain
    * @category Chaining
    * @param {Mixed} value The value to wrap in a `lodash` instance.
    * @returns {Object} Returns a `lodash` instance.
@@ -208,6 +294,19 @@
       ? value
       : new lodashWrapper(value);
   }
+
+  /**
+   * A fast path for creating `lodash` wrapper objects.
+   *
+   * @private
+   * @param {Mixed} value The value to wrap in a `lodash` instance.
+   * @returns {Object} Returns a `lodash` instance.
+   */
+  function lodashWrapper(value) {
+    this.__wrapped__ = value;
+  }
+  // ensure `new lodashWrapper` is an instance of `lodash`
+  lodashWrapper.prototype = lodash.prototype;
 
   /**
    * An object used to flag environments features.
@@ -291,47 +390,6 @@
   /*--------------------------------------------------------------------------*/
 
   /**
-   * Used by `_.max` and `_.min` as the default `callback` when a given
-   * `collection` is a string value.
-   *
-   * @private
-   * @param {String} value The character to inspect.
-   * @returns {Number} Returns the code unit of given character.
-   */
-  function charAtCallback(value) {
-    return value.charCodeAt(0);
-  }
-
-  /**
-   * Used by `sortBy` to compare transformed `collection` values, stable sorting
-   * them in ascending order.
-   *
-   * @private
-   * @param {Object} a The object to compare to `b`.
-   * @param {Object} b The object to compare to `a`.
-   * @returns {Number} Returns the sort order indicator of `1` or `-1`.
-   */
-  function compareAscending(a, b) {
-    var ai = a.index,
-        bi = b.index;
-
-    a = a.criteria;
-    b = b.criteria;
-
-    // ensure a stable sort in V8 and other engines
-    // http://code.google.com/p/v8/issues/detail?id=90
-    if (a !== b) {
-      if (a > b || typeof a == 'undefined') {
-        return 1;
-      }
-      if (a < b || typeof b == 'undefined') {
-        return -1;
-      }
-    }
-    return ai < bi ? -1 : 1;
-  }
-
-  /**
    * Creates a function that, when called, invokes `func` with the `this` binding
    * of `thisArg` and prepends any `partialArgs` to the arguments passed to the
    * bound function.
@@ -377,9 +435,7 @@
       }
       if (this instanceof bound) {
         // ensure `new bound` is an instance of `func`
-        noop.prototype = func.prototype;
-        thisBinding = new noop;
-        noop.prototype = null;
+        thisBinding = createObject(func.prototype);
 
         // mimic the constructor's `return` behavior
         // http://es5.github.com/#x13.2.2
@@ -392,15 +448,25 @@
   }
 
   /**
-   * Used by `template` to escape characters for inclusion in compiled
-   * string literals.
+   * Creates a new object with the specified `prototype`.
    *
    * @private
-   * @param {String} match The matched character to escape.
-   * @returns {String} Returns the escaped character.
+   * @param {Object} prototype The prototype object.
+   * @returns {Object} Returns the new object.
    */
-  function escapeStringChar(match) {
-    return '\\' + stringEscapes[match];
+  function createObject(prototype) {
+    return isObject(prototype) ? nativeCreate(prototype) : {};
+  }
+  // fallback for browsers without `Object.create`
+  if  (!nativeCreate) {
+    var createObject = function(prototype) {
+      if (isObject(prototype)) {
+        noop.prototype = prototype;
+        var result = new noop;
+        noop.prototype = null;
+      }
+      return result || {};
+    };
   }
 
   /**
@@ -415,25 +481,16 @@
   }
 
   /**
-   * A fast path for creating `lodash` wrapper objects.
+   * Gets the appropriate "indexOf" function. If the `_.indexOf` method is
+   * customized, this method returns the custom method, otherwise it returns
+   * the `basicIndexOf` function.
    *
    * @private
-   * @param {Mixed} value The value to wrap in a `lodash` instance.
-   * @returns {Object} Returns a `lodash` instance.
+   * @returns {Function} Returns the "indexOf" function.
    */
-  function lodashWrapper(value) {
-    this.__wrapped__ = value;
-  }
-  // ensure `new lodashWrapper` is an instance of `lodash`
-  lodashWrapper.prototype = lodash.prototype;
-
-  /**
-   * A no-operation function.
-   *
-   * @private
-   */
-  function noop() {
-    // no operation performed
+  function getIndexOf(array, value, fromIndex) {
+    var result = (result = lodash.indexOf) === indexOf ? basicIndexOf : result;
+    return result;
   }
 
   /**
@@ -507,11 +564,10 @@
   var shimKeys = function (object) {
     var index, iterable = object, result = [];
     if (!iterable) return result;
-    if (!(objectTypes[typeof object])) return result;
-
+    if (!(objectTypes[typeof object])) return result;  
       for (index in iterable) {
-        if (hasOwnProperty.call(iterable, index)) {    
-        result.push(index);    
+        if (hasOwnProperty.call(iterable, index)) {
+          result.push(index);    
         }
       }  
     return result
@@ -721,7 +777,6 @@
     var index, iterable = collection, result = iterable;
     if (!iterable) return result;
     if (!objectTypes[typeof iterable]) return result;
-
       for (index in iterable) {
         if (callback(iterable[index], index, collection) === indicatorObject) return result;    
       }  
@@ -753,10 +808,9 @@
     var index, iterable = collection, result = iterable;
     if (!iterable) return result;
     if (!objectTypes[typeof iterable]) return result;
-
       for (index in iterable) {
-        if (hasOwnProperty.call(iterable, index)) {    
-        if (callback(iterable[index], index, collection) === indicatorObject) return result;    
+        if (hasOwnProperty.call(iterable, index)) {
+          if (callback(iterable[index], index, collection) === indicatorObject) return result;    
         }
       }  
     return result
@@ -1137,7 +1191,7 @@
     // http://es5.github.com/#x8
     // and avoid a V8 bug
     // http://code.google.com/p/v8/issues/detail?id=2291
-    return value ? objectTypes[typeof value] : false;
+    return !!(value && objectTypes[typeof value]);
   }
 
   /**
@@ -1222,7 +1276,7 @@
    * // => true
    */
   function isRegExp(value) {
-    return value ? (objectTypes[typeof value] && toString.call(value) == regexpClass) : false;
+    return !!(value && objectTypes[typeof value]) && toString.call(value) == regexpClass;
   }
 
   /**
@@ -1286,7 +1340,8 @@
    * // => { 'name': 'moe' }
    */
   function omit(object) {
-    var props = concat.apply(arrayRef, nativeSlice.call(arguments, 1)),
+    var indexOf = getIndexOf(),
+        props = concat.apply(arrayRef, nativeSlice.call(arguments, 1)),
         result = {};
 
     forIn(object, function(value, key) {
@@ -1419,9 +1474,10 @@
    * // => true
    */
   function contains(collection, target) {
-    var length = collection ? collection.length : 0,
+    var indexOf = getIndexOf(),
+        length = collection ? collection.length : 0,
         result = false;
-    if (typeof length == 'number') {
+    if (length && typeof length == 'number') {
       result = indexOf(collection, target) > -1;
     } else {
       forOwn(collection, function(value) {
@@ -1615,7 +1671,7 @@
    *
    * @static
    * @memberOf _
-   * @alias detect
+   * @alias detect, findWhere
    * @category Collections
    * @param {Array|Object|String} collection The collection to iterate over.
    * @param {Function|Object|String} [callback=identity] The function called per
@@ -2450,6 +2506,7 @@
    */
   function difference(array) {
     var index = -1,
+        indexOf = getIndexOf(),
         length = array.length,
         flattened = concat.apply(arrayRef, nativeSlice.call(arguments, 1)),
         result = [];
@@ -2623,21 +2680,14 @@
    * // => 2
    */
   function indexOf(array, value, fromIndex) {
-    var index = -1,
-        length = array ? array.length : 0;
-
     if (typeof fromIndex == 'number') {
-      index = (fromIndex < 0 ? nativeMax(0, length + fromIndex) : fromIndex || 0) - 1;
+      var length = array ? array.length : 0;
+      fromIndex = (fromIndex < 0 ? nativeMax(0, length + fromIndex) : fromIndex || 0);
     } else if (fromIndex) {
-      index = sortedIndex(array, value);
+      var index = sortedIndex(array, value);
       return array[index] === value ? index : -1;
     }
-    while (++index < length) {
-      if (array[index] === value) {
-        return index;
-      }
-    }
-    return -1;
+    return array ? basicIndexOf(array, value, fromIndex) : -1;
   }
 
   /**
@@ -2734,6 +2784,7 @@
     var args = arguments,
         argsLength = args.length,
         index = -1,
+        indexOf = getIndexOf(),
         length = array ? array.length : 0,
         result = [];
 
@@ -3078,7 +3129,7 @@
    * Creates a duplicate-value-free version of the `array` using strict equality
    * for comparisons, i.e. `===`. If the `array` is already sorted, passing `true`
    * for `isSorted` will run a faster algorithm. If `callback` is passed, each
-   * element of `array` is passed through a `callback` before uniqueness is computed.
+   * element of `array` is passed through the `callback` before uniqueness is computed.
    * The `callback` is bound to `thisArg` and invoked with three arguments; (value, index, array).
    *
    * If a property name is passed for `callback`, the created "_.pluck" style
@@ -3107,11 +3158,11 @@
    * _.uniq([1, 1, 2, 2, 3], true);
    * // => [1, 2, 3]
    *
-   * _.uniq([1, 2, 1.5, 3, 2.5], function(num) { return Math.floor(num); });
-   * // => [1, 2, 3]
+   * _.uniq(['A', 'b', 'C', 'a', 'B', 'c'], function(letter) { return letter.toLowerCase(); });
+   * // => ['A', 'b', 'C']
    *
-   * _.uniq([1, 2, 1.5, 3, 2.5], function(num) { return this.floor(num); }, Math);
-   * // => [1, 2, 3]
+   * _.uniq([1, 2.5, 3, 1.5, 2, 3.5], function(num) { return this.floor(num); }, Math);
+   * // => [1, 2.5, 3]
    *
    * // using "_.pluck" callback shorthand
    * _.uniq([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
@@ -3119,6 +3170,7 @@
    */
   function uniq(array, isSorted, callback, thisArg) {
     var index = -1,
+        indexOf = getIndexOf(),
         length = array ? array.length : 0,
         result = [],
         seen = result;
@@ -3145,6 +3197,31 @@
         }
         result.push(value);
       }
+    }
+    return result;
+  }
+
+  /**
+   * The inverse of `_.zip`, this method splits groups of elements into arrays
+   * composed of elements from each group at their corresponding indexes.
+   *
+   * @static
+   * @memberOf _
+   * @category Arrays
+   * @param {Array} array The array to process.
+   * @returns {Array} Returns a new array of the composed arrays.
+   * @example
+   *
+   * _.unzip([['moe', 30, true], ['larry', 40, false]]);
+   * // => [['moe', 'larry'], [30, 40], [true, false]];
+   */
+  function unzip(array) {
+    var index = -1,
+        length = array ? max(pluck(array, 'length')) : 0,
+        result = Array(length < 0 ? 0 : length);
+
+    while (++index < length) {
+      result[index] = pluck(array, index);
     }
     return result;
   }
@@ -3187,7 +3264,7 @@
   function zip(array) {
     var index = -1,
         length = array ? max(pluck(arguments, 'length')) : 0,
-        result = Array(length);
+        result = Array(length < 0 ? 0 : length);
 
     while (++index < length) {
       result[index] = pluck(arguments, index);
@@ -3430,27 +3507,27 @@
         return result;
       };
     }
-    if (typeof thisArg != 'undefined') {
-      if (argCount === 1) {
-        return function(value) {
-          return func.call(thisArg, value);
-        };
-      }
-      if (argCount === 2) {
-        return function(a, b) {
-          return func.call(thisArg, a, b);
-        };
-      }
-      if (argCount === 4) {
-        return function(accumulator, value, index, collection) {
-          return func.call(thisArg, accumulator, value, index, collection);
-        };
-      }
-      return function(value, index, collection) {
-        return func.call(thisArg, value, index, collection);
+    if (typeof thisArg == 'undefined') {
+      return func;
+    }
+    if (argCount === 1) {
+      return function(value) {
+        return func.call(thisArg, value);
       };
     }
-    return func;
+    if (argCount === 2) {
+      return function(a, b) {
+        return func.call(thisArg, a, b);
+      };
+    }
+    if (argCount === 4) {
+      return function(accumulator, value, index, collection) {
+        return func.call(thisArg, accumulator, value, index, collection);
+      };
+    }
+    return function(value, index, collection) {
+      return func.call(thisArg, value, index, collection);
+    };
   }
 
   /**
@@ -3471,6 +3548,7 @@
    * @param {Number} wait The number of milliseconds to delay.
    * @param {Object} options The options object.
    *  [leading=false] A boolean to specify execution on the leading edge of the timeout.
+   *  [maxWait] The maximum time `func` is allowed to be delayed before it's called.
    *  [trailing=true] A boolean to specify execution on the trailing edge of the timeout.
    * @returns {Function} Returns the new debounced function.
    * @example
@@ -3487,7 +3565,7 @@
     var args,
         result,
         thisArg,
-        timeoutId;
+        timeoutId = null;
 
     function delayed() {
       timeoutId = null;
@@ -3557,7 +3635,8 @@
    * passed, it will be used to determine the cache key for storing the result
    * based on the arguments passed to the memoized function. By default, the first
    * argument passed to the memoized function is used as the cache key. The `func`
-   * is executed with the `this` binding of the memoized function.
+   * is executed with the `this` binding of the memoized function. The result
+   * cache is exposed as the `cache` property on the memoized function.
    *
    * @static
    * @memberOf _
@@ -3670,8 +3749,8 @@
     var args,
         result,
         thisArg,
-        timeoutId,
-        lastCalled = 0;
+        lastCalled = 0,
+        timeoutId = null;
 
     function trailingCall() {
       lastCalled = new Date;
@@ -3748,7 +3827,7 @@
   }
 
   /**
-   * This function returns the first argument passed to it.
+   * This method returns the first argument passed to it.
    *
    * @static
    * @memberOf _
@@ -3848,8 +3927,13 @@
     if (max == null) {
       max = min;
       min = 0;
+    } else {
+      max = +max || 0;
     }
-    return min + floor(nativeRandom() * ((+max || 0) - min + 1));
+    var rand = nativeRandom();
+    return (min % 1 || max % 1)
+      ? min + nativeMin(rand * (max - min + parseFloat('1e-' + ((rand +'').length - 1))), max)
+      : min + floor(rand * (max - min + 1));
   }
 
   /**
@@ -3964,8 +4048,9 @@
    * ');
    */
   function template(text, data, options) {
+    var settings = lodash.templateSettings;
     text || (text = '');
-    options = defaults({}, options, lodash.templateSettings);
+    options = defaults({}, options, settings);
 
     var index = 0,
         source = "__p += '",
@@ -4260,6 +4345,9 @@
   lodash.tail = rest;
   lodash.unique = uniq;
 
+  // add Underscore compat
+  lodash.chain = chain;
+
   /*--------------------------------------------------------------------------*/
 
   // add functions that return unwrapped values when chaining
@@ -4268,7 +4356,6 @@
   lodash.escape = escape;
   lodash.every = every;
   lodash.find = find;
-  lodash.findWhere = findWhere;
   lodash.has = has;
   lodash.identity = identity;
   lodash.indexOf = indexOf;
@@ -4306,6 +4393,7 @@
   lodash.all = every;
   lodash.any = some;
   lodash.detect = find;
+  lodash.findWhere = findWhere;
   lodash.foldl = reduce;
   lodash.foldr = reduceRight;
   lodash.include = contains;
@@ -4323,8 +4411,6 @@
 
   /*--------------------------------------------------------------------------*/
 
-  lodash.chain = chain;
-
   /**
    * The semantic version number.
    *
@@ -4332,7 +4418,7 @@
    * @memberOf _
    * @type String
    */
-  lodash.VERSION = '1.2.1';
+  lodash.VERSION = '1.3.1';
 
   // add functions to `lodash.prototype`
   mixin(lodash);
