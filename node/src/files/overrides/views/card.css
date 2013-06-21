@@ -92,7 +92,7 @@
 .ui.card > .meta {
   clear: both;
   border-top: 1px solid #EDEEEE;
-  padding: 1em;
+  padding: 0.875em;
   color: #9DA6AB;
 }
 .ui.cards .card > .meta:after,
