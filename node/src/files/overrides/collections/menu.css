@@ -198,102 +198,87 @@ Warning ====	#??
           Categories
 *******************************/
 
-.ui.categories.menu .all.active,
-.ui.categories.menu .all:hover {
-  color: #D9499A;
+.ui.menu .all.active,
+.ui.menu .all:hover {
+  color: #D9499A !important;
 }
 
-.ui.categories.menu .kitchen.active,
-.ui.categories.menu .kitchen:hover {
-  color: #BED733;
+.ui.menu .kitchen.active,
+.ui.menu .kitchen:hover {
+  color: #BED733 !important;
+}
+.ui.menu .health.active,
+.ui.menu .health:hover {
+  color: #F36525 !important;
+}
+.ui.menu .home.active,
+ .ui.menu .home:hover {
+  color: #F7D81F !important;
+}
+.ui.menu .electronics.active,
+.ui.menu .electronics:hover {
+  color: #00B1DB !important;
+}
+.ui.menu .travel.active,
+.ui.menu .travel:hover {
+  color: #D2232A !important;
+}
+.ui.menu .parenting.active,
+.ui.menu .parenting:hover {
+  color: #94297B !important;
+}
+.ui.menu .pets.active,
+.ui.menu .pets:hover {
+  color: #01B5AA !important;
+}
+.ui.menu .play.active,
+.ui.menu .play:hover {
+  color: #ED3897 !important;
+}
+.ui.menu .wildcard.active,
+.ui.menu .wildcard:hover {
+  color: #9DA6AB !important;
 }
 
-.ui.categories.menu .health.active,
-.ui.categories.menu .health:hover {
-  color: #F36525;
+.ui.menu .all.active i,
+.ui.menu .all:hover i {
+  background-color: #D9499A !important;
 }
-
-.ui.categories.menu .home.active,
- .ui.categories.menu .home:hover {
-  color: #F7D81F;
+.ui.menu .kitchen.active i,
+.ui.menu .kitchen:hover i {
+  background-color: #BED733 !important;
 }
-
-.ui.categories.menu .electronics.active,
-.ui.categories.menu .electronics:hover {
-  color: #00B1DB;
+.ui.menu .health.active i,
+.ui.menu .health:hover i {
+  background-color: #F36525 !important;
 }
-
-.ui.categories.menu .travel.active,
-.ui.categories.menu .travel:hover {
-  color: #D2232A;
+.ui.menu .home.active i,
+.ui.menu .home:hover i {
+  background-color: #F7D81F !important;
 }
-
-.ui.categories.menu .parenting.active,
-.ui.categories.menu .parenting:hover {
-  color: #94297B;
+.ui.menu .electronics.active i,
+.ui.menu .electronics:hover i {
+  background-color: #00B1DB !important;
 }
-
-.ui.categories.menu .pets.active,
-.ui.categories.menu .pets:hover {
-  color: #01B5AA;
+.ui.menu .travel.active i,
+.ui.menu .travel:hover i {
+  background-color: #D2232A !important;
 }
-
-.ui.categories.menu .play.active,
-.ui.categories.menu .play:hover {
-  color: #ED3897;
+.ui.menu .parenting.active i,
+.ui.menu .parenting:hover i {
+  background-color: #94297B !important;
 }
-
-.ui.categories.menu .wildcard.active,
-.ui.categories.menu .wildcard:hover {
-  color: #9DA6AB;
+.ui.menu .pets.active i,
+.ui.menu .pets:hover i {
+  background-color: #01B5AA !important;
 }
-
-
-.ui.categories.menu .all.active i,
-.ui.categories.menu .all:hover i {
-  background-color: #D9499A;
+.ui.menu .play.active i,
+.ui.menu .play:hover i {
+  background-color: #ED3897 !important;
 }
-.ui.categories.menu .kitchen.active i,
-.ui.categories.menu .kitchen:hover i {
-  background-color: #BED733;
-}
-
-.ui.categories.menu .health.active i,
-.ui.categories.menu .health:hover i {
-  background-color: #F36525;
-}
-
-.ui.categories.menu .home.active i,
-.ui.categories.menu .home:hover i {
-  background-color: #F7D81F;
-}
-
-.ui.categories.menu .electronics.active i,
-.ui.categories.menu .electronics:hover i {
-  background-color: #00B1DB;
-}
-
-.ui.categories.menu .travel.active i,
-.ui.categories.menu .travel:hover i {
-  background-color: #D2232A;
-}
-
-.ui.categories.menu .parenting.active i,
-.ui.categories.menu .parenting:hover i {
-  background-color: #94297B;
-}
-
-.ui.categories.menu .pets.active i,
-.ui.categories.menu .pets:hover i {
-  background-color: #01B5AA;
-}
-.ui.categories.menu .play.active i,
-.ui.categories.menu .play:hover i {
-  background-color: #ED3897;
-}
-.ui.categories.menu .wildcard.active i,
-.ui.categories.menu .wildcard:hover i {
-  background-color: #9DA6AB;
+.ui.menu .wildcard.active i,
+.ui.menu .wildcard:hover i {
+  background-color: #9DA6AB !important;
 }
 
 
