@@ -23,12 +23,6 @@
 .ui.idea.cards .card,
 .ui.idea.card {
   width: 388px;
-  background-color: #FFFFFF;
-
-  -webkit-border-radius: 0.3125em;
-  -moz-border-radius: 0.3125em;
-  border-radius: 0.3125em;
-
   color: rgba(93, 98, 102, 0.7);
 }
 
@@ -58,9 +52,9 @@
     border-top: medium none;
     background-color: rgba(0, 0, 0, 0.03);
 
-    -webkit-border-radius: 0px 0px 4px 4px;
-    -moz-border-radius: 0px 0px 4px 4px;
-    border-radius: 0px 0px 4px 4px;
+    -webkit-border-radius: 0px 0px 3px 3px;
+    -moz-border-radius: 0px 0px 3px 3px;
+    border-radius: 0px 0px 3px 3px;
 }
 /*--------------
      Idea
@@ -130,23 +124,36 @@
 
 
 /*--------------
-      Meta
+     Vote 
 ---------------*/
 
-.ui.idea.cards .card > .meta,
-.ui.idea.card > .meta {
-  clear: both;
-  border-top: 1px solid #DCDDDE;
-  padding: 1em;
+
+.ui.cards .card .vote.corner.label,
+.ui.card .vote.corner.label {
+  opacity: 0;
+  font-size: 1em;
+  background-color: transparent;
+  color: #FFFFFF;
+
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  -ms-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
-.ui.idea.cards .card > .meta:after,
-.ui.idea.card > .meta:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
+.ui.cards .card .vote.corner.label .icon,
+.ui.card .vote.corner.label .icon {
+  font-size: 0.9em;
 }
+.ui.cards .card .vote.corner.label:after,
+.ui.card .vote.corner.label:after {
+  border-right-color: #5BBD72
+}
+
+
+/*--------------
+      Meta
+---------------*/
 
 /* types of metadata */
 .ui.idea.cards .card > .meta .countdown,
@@ -158,23 +165,14 @@
   float: right;
 }
 
-/*--------------
-    Progress
----------------*/
 
-.ui.idea.cards .card > .progress,
-.ui.idea.card > .progress {
-  background-color: transparent;
-  height: 5px;
-  top: 0px;
-  z-index: 2;
-  -webkit-border-radius: 0px 0px 4px 4px;
-  -moz-border-radius: 0px 0px 4px 4px;
-  border-radius: 0px 0px 4px 4px;
-}
-.ui.idea.cards .card > .progress .bar,
-.ui.idea.card > .progress .bar {
-  width: 0%;
-  height: 5px;
-  background-color: rgba(0, 177, 219, 1);
+/*******************************
+            States
+*******************************/
+
+
+/* Voted */
+.ui.cards .card.voted .vote.corner.label,
+.ui.voted.card .vote.corner.label {
+  opacity: 1;
 }

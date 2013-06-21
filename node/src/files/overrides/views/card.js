@@ -33,12 +33,14 @@ $.fn.card = function(parameters) {
     .each(function(moduleIndex) {
       var
         $module      = $(this),
+        $dimmer      = $module.find(settings.selector.dimmer),
         $vote        = $module.find(settings.selector.vote),
         $voteCount   = $module.find(settings.selector.voteCount),
         $progressBar = $module.find(settings.selector.progressBar),
+        $project     = $module.find(settings.selector.project),
         $follow      = $module.find(settings.selector.follow),
         $close       = $module.find(settings.selector.close),
-
+        
         initialVotes = $module.data('votes') || false,
         
         selector     = $module.selector || '',
@@ -57,23 +59,31 @@ $.fn.card = function(parameters) {
       module = {
 
         initialize: function() {
-          module.verbose('Initializing card with bound events', $module);
-          $module
-            .dimmer({
-              on        : 'hover',
-              closable  : false,
-              className : {
-                dimmable: 'card'
-              }
-            })
-          ;
+          module.verbose('Initializing card', $module);
           if( initialVotes ) {
             module.verbose('Setting initial votes to', initialVotes);
             setTimeout(function() {
               module.set.votes( initialVotes );
             }, moduleIndex * settings.animationDelay);
           }
+          console.log($dimmer.size());
+          if($dimmer.size() > 0) {
+            module.verbose('Adding dimmer events');
+            $module
+              .dimmer({
+                on        : 'hover',
+                closable  : false,
+                className : {
+                  dimmable: 'card'
+                }
+              })
+            ;
+            $close
+              .on('click', module.undim)
+            ;
+          }
           if($vote.size() > 0) {
+            module.verbose('Adding vote button');
             $vote
               .apiButton( $.extend(true, {}, settings.api.vote, module.api.vote) )
               .state($.extend(true, {}, settings.state.vote, { 
@@ -81,16 +91,20 @@ $.fn.card = function(parameters) {
               }))
             ;
           }
+          if($project.size() > 0) {
+            module.verbose('Adding project popups');
+            $project
+              .popup(settings.popup.project)
+            ;
+          }
           if($follow.size() > 0) {
+            module.verbose('Adding follow button');
             $follow
               .popup(settings.popup.follow)
               .apiButton( $.extend(true, {}, settings.api.follow, module.api.follow) )
               .state(settings.state.follow)
             ;
           }
-          $close
-            .on('click', module.undim)
-          ;
           $module
             .data('module', module)
           ;
@@ -154,10 +168,10 @@ $.fn.card = function(parameters) {
             return ( module.get.votes() / settings.maxVotes * 100);
           },
           votes: function() {
-            return parseInt( settings.maxVotes - $voteCount.html(), 10) || 0;
+            return ( settings.maxVotes - module.get.votesLeft() ) || 0;
           },
           votesLeft: function() {
-            return settings.maxVotes - module.get.votes();
+            return parseInt($voteCount.html(), 10) || 0;
           }
         },
 
@@ -379,12 +393,14 @@ $.fn.card.settings = {
 
   debug       : true,
   verbose     : true,
-  performance : false,
+  performance : true,
 
   selector    : {
     close       : '.close.icon',
+    dimmer      : '.dimmer',
     follow      : '.follow.button',
     progressBar : '.progress .bar',
+    project     : '.projects .project',
     vote        : '.vote.button',
     voteCount   : '.meta .votes .count'
   },
@@ -405,7 +421,6 @@ $.fn.card.settings = {
 
   api: {
     vote: {
-      method: 'post',
       action: 'vote',
       success: function(){}
     },
@@ -445,7 +460,12 @@ $.fn.card.settings = {
   },
 
   popup: {
-    vote: {
+    project: {
+      delay   : 200,
+      position: 'right center',
+      inline: false
+    },
+    follow: {
       delay   : 500,
       content : 'You used up all of your votes for today. Follow this idea and vote on it tomorrow.'
     }
