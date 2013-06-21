@@ -66,7 +66,6 @@ $.fn.card = function(parameters) {
               module.set.votes( initialVotes );
             }, moduleIndex * settings.animationDelay);
           }
-          console.log($dimmer.size());
           if($dimmer.size() > 0) {
             module.verbose('Adding dimmer events');
             $module
