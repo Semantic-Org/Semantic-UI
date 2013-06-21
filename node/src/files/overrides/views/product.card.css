@@ -114,7 +114,8 @@
 .ui.product.card .statistic .label {
   font-style: italic;
 }
-.ui.product.cards .card .statistic + .projects {
+.ui.product.cards .card .statistic + .projects,
+.ui.product.card .statistic + .projects {
   margin-left: 120px;
 }
 
@@ -228,6 +229,7 @@
              States
 *******************************/
 
+/* Active Product */
 .ui.product.cards .card .projects .active.project,
 .ui.product.card .projects .active.project {
   color: #5D6266;

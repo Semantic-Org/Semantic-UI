@@ -5,7 +5,7 @@ semantic.card.ready = function() {
 
   // selector cache
   var 
-    $card = $('.ui.product.cards .card, ui.product.card, .ui.idea.cards .card, .ui.idea.card'),
+    $card = $('.ui.product.cards .card, .ui.product.card, .ui.idea.cards .card, .ui.idea.card'),
     handler
   ;
 

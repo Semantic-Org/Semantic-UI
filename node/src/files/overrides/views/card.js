@@ -461,9 +461,9 @@ $.fn.card.settings = {
 
   popup: {
     project: {
-      delay   : 200,
-      position: 'right center',
-      inline: false
+      delay    : 200,
+      position : 'right center',
+      inline   : false
     },
     follow: {
       delay   : 500,
