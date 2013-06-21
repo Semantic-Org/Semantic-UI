@@ -91,7 +91,13 @@
 .ui.product.cards .card > .product .description,
 .ui.product.card > .product .description {
   margin: 1rem;
-  min-height: 2.85em;
+  min-height: 2.8em;
+  line-height: 1.4;
+}
+.ui.product.cards .card > .product .tagline,
+.ui.product.card > .product .tagline {
+  margin: 1rem;
+  min-height: 1.4em;
   line-height: 1.4;
 }
 
@@ -170,7 +176,7 @@
 
 .ui.product.cards .card .dimmer .buttons,
 .ui.product.card .dimmer .buttons {
-  width: 70%;
+  width: 75%;
   padding: 0em 0.6em;
 }
 
