@@ -159,63 +159,63 @@
     Categories
 ---------------*/
 
-.ui.cards .card .progress .bar,
+.ui.cards .card:hover .progress .bar,
 .ui.cards .progress .bar,
-.ui.cards .card .progress .bar {
+.ui.cards .card:hover .progress .bar {
   background-color: #D9499A;
 }
 
-.ui.cards .kitchen.card .progress .bar,
-.ui.kitchen.card .progress .bar,
-.ui.kitchen.cards .card .progress .bar {
+.ui.cards .kitchen.card:hover .progress .bar,
+.ui.kitchen.card:hover .progress .bar,
+.ui.kitchen.cards .card:hover .progress .bar {
   background-color: #BED733;
 }
 
-.ui.cards .health.card .progress .bar,
-.ui.health.card .progress .bar,
-.ui.health.cards .card .progress .bar {
+.ui.cards .health.card:hover .progress .bar,
+.ui.health.card:hover .progress .bar,
+.ui.health.cards .card:hover .progress .bar {
   background-color: #F36525;
 }
 
-.ui.cards .home.card .progress .bar,
-.ui.home.card .progress .bar,
-.ui.home.cards .card .progress .bar {
+.ui.cards .home.card:hover .progress .bar,
+.ui.home.card:hover .progress .bar,
+.ui.home.cards .card:hover .progress .bar {
   background-color: #F7D81F;
 }
 
-.ui.cards .electronics.card .progress .bar,
-.ui.electronics.card .progress .bar,
-.ui.electronics.cards .card .progress .bar {
+.ui.cards .electronics.card:hover .progress .bar,
+.ui.electronics.card:hover .progress .bar,
+.ui.electronics.cards .card:hover .progress .bar {
   background-color: #00B1DB;
 }
 
-.ui.cards .travel.card .progress .bar,
-.ui.travel.card .progress .bar,
-.ui.travel.cards .card .progress .bar {
+.ui.cards .travel.card:hover .progress .bar,
+.ui.travel.card:hover .progress .bar,
+.ui.travel.cards .card:hover .progress .bar {
   background-color: #D2232A;
 }
 
-.ui.cards .parenting.card .progress .bar,
-.ui.parenting.card .progress .bar,
-.ui.parenting.cards .card .progress .bar {
+.ui.cards .parenting.card:hover .progress .bar,
+.ui.parenting.card:hover .progress .bar,
+.ui.parenting.cards .card:hover .progress .bar {
   background-color: #94297B;
 }
 
-.ui.cards .pets.card .progress .bar,
-.ui.pets.card .progress .bar,
-.ui.pets.cards .card .progress .bar {
+.ui.cards .pets.card:hover .progress .bar,
+.ui.pets.card:hover .progress .bar,
+.ui.pets.cards .card:hover .progress .bar {
   background-color: #01B5AA;
 }
 
-.ui.cards .play.card .progress .bar,
-.ui.play.card .progress .bar,
-.ui.play.cards .card .progress .bar {
+.ui.cards .play.card:hover .progress .bar,
+.ui.play.card:hover .progress .bar,
+.ui.play.cards .card:hover .progress .bar {
   background-color: #ED3897;
 }
 
-.ui.cards .wildcard.card .progress .bar,
-.ui.wildcard.card .progress .bar,
-.ui.wildcard.cards .card .progress .bar {
+.ui.cards .wildcard.card:hover .progress .bar,
+.ui.wildcard.card:hover .progress .bar,
+.ui.wildcard.cards .card:hover .progress .bar {
   background-color: #9DA6AB;
 }
 
