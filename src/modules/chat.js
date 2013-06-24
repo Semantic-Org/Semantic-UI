@@ -174,29 +174,11 @@
                 if(member.info.isAdmin) {
                   $(html)
                     .prependTo($userList)
-                    .preview({
-                      type      : 'user',
-                      placement : 'left'
-                    })
                   ;
                 }
                 else {
                   $(html)
                     .appendTo($userList)
-                    .preview({
-                      type      : 'user',
-                      placement : 'left'
-                    })
-                  ;
-                }
-                if( $.fn.preview !== undefined ) {
-                  $userList
-                    .children()
-                    .last()
-                      .preview({
-                        type: 'user',
-                        placement: 'left'
-                      })
                   ;
                 }
                 if(settings.partingMessages) {
@@ -257,15 +239,6 @@
                 $userList
                   .html(html)
                 ;
-                if( $.fn.preview !== undefined ) {
-                  $userList
-                    .children()
-                      .preview({
-                        type: 'user',
-                        placement: 'left'
-                      })
-                  ;
-                }
                 module.user.updateCount();
                 $.proxy(settings.onJoin, $userList.children())();
               },
