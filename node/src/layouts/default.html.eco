@@ -87,22 +87,6 @@
     <div class="item"><a href="/playground.html"><i class="inverted red circular lab icon"></i> <b>Playground</b></a></div>
     <div class="item"><a href="/download.html"><i class="inverted circular upload icon"></i> <b>Download</b></a></div>
     <div class="item">
-      <b>Style Guide</b>
-      <div class="menu">
-        <% for element in uiGuide: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="item">
-      <b>Specification</b>
-      <div class="menu">
-        <% for element in uiSpecification: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="item">
       <b>Quirky</b>
       <div class="menu">
         <% for element in quirkyElements: %>
@@ -146,6 +130,22 @@
       <a href="/module.html"><b>Behavior</b></a>
       <div class="menu">
         <% for element in uiBehavior: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        <% for element in uiGuide: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        <% for element in uiSpecification: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
         <% end %>
       </div>

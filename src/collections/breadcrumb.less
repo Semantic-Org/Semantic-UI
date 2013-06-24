@@ -16,8 +16,15 @@
 *******************************/
 
 .ui.breadcrumb {
+  margin: 1em 0em;
   display: inline-block;
   vertical-align: middle;
+}
+.ui.breadcrumb:first-child {
+  margin-top: 0em;
+}
+.ui.breadcrumb:last-child {
+  margin-bottom: 0em;
 }
 
 .ui.breadcrumb .divider {
@@ -41,6 +48,5 @@
 /* Loose Coupling */
 .ui.breadcrumb.segment {
   display: inline-block;
-  background-color: #FFFFFF;
   padding: 0.5em 1em;
 }
