@@ -3,20 +3,22 @@ layout : 'default'
 css    : 'javascript'
 
 title  : 'Javascript'
-type   : 'UI Specification'
+type   : 'UI Guide'
 ---
 <div class="segment">
   <div class="container">
     <h1 class="ui header">Javascript Guide</h1>
+    <div class="ui large red message">
+      This is a starting draft, check back later.
+    </div>
   </div>
 </div>
 <div class="main container">
   
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="item">Style Guide</a>
-      <a class="item">Units</a>
-      <a class="item">Techniques</a>
+      <a class="active item">General</a>
+      <a class="item">Optional</a>
     </div>
   </div>
 
@@ -47,6 +49,21 @@ type   : 'UI Specification'
         .end()
       .find('.two')
         .doSomethingElse()
+    ;
+  </div>
+  
+  <h4 class="ui header">Verbs</h4>
+  <p>When creating javascript modules consider using verbs to show behavior. This may be more intuitive than allowing a user to directly set properties or manage your internal namespace.</p>
+  <div class="code" data-type="javascript">
+
+    // this might require some more times with docs
+    $element
+      .widget('states.select.set')
+    ;
+
+    // reduce complexity to api
+    $(element)
+      .widget('activate', true)
     ;
   </div>
   

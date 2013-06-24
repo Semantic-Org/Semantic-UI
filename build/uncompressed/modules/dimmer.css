@@ -154,6 +154,7 @@ body.ui.dimmable.dimmed > :not(.dimmer) {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1;
 }
 .ui.simple.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0);

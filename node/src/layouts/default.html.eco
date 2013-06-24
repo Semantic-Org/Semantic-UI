@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<% uiGuide           = @getCollection("documents").findAllLive({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
 <% quirkyElements    = @getCollection("documents").findAllLive({type: $in: ['Quirky Element']},[{title: 1}]).toJSON() %>
 <% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
 <% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
@@ -86,14 +87,6 @@
     <div class="item"><a href="/playground.html"><i class="inverted red circular lab icon"></i> <b>Playground</b></a></div>
     <div class="item"><a href="/download.html"><i class="inverted circular upload icon"></i> <b>Download</b></a></div>
     <div class="item">
-      <a href="/specification.html"><b>Specification</b></a>
-      <div class="menu">
-        <% for element in uiSpecification: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="item">
       <b>Quirky</b>
       <div class="menu">
         <% for element in quirkyElements: %>
@@ -141,6 +134,22 @@
         <% end %>
       </div>
     </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        <% for element in uiGuide: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        <% for element in uiSpecification: %>
+          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="ui fixed transparent inverted main menu">
@@ -174,7 +183,7 @@
         <% end %>
       </div>
       <div class="right menu">
-        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'Quirky Element' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
         <a class="popup designer icon item" title="Designer Mode">
           <i class="icon paint"></i>
         </a>
