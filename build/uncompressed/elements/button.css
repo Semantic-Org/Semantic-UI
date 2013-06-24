@@ -242,7 +242,7 @@
   width: 100%;
   height: 100%;
   content: '';
-  background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
+  background: transparent url(../images/loader-tiny.gif) no-repeat 50% 50%;
 }
 .ui.labeled.icon.button.loading .icon {
   background-color: transparent;
@@ -618,6 +618,11 @@
 .ui.right.labeled.icon.button {
   padding-left: 1.4em !important;
   padding-right: 4em !important;
+}
+.ui.left.fluid.labeled.icon.button,
+.ui.right.fluid.labeled.icon.button {
+  padding-left: 1.4em !important;
+  padding-right: 1.4em !important;
 }
 .ui.right.labeled.icon.button .icon {
   left: auto;

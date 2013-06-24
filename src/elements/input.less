@@ -235,16 +235,24 @@
         Action
 ---------------------*/
 
+.ui.action.input {
+  display: table;
+}
+
+.ui.action.input input {
+  display: table-cell;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
 .ui.action.input .button {
-  position: absolute;
-  top: 0em;
-  left: 100%;
+  display: table-cell;
   opacity: 0.9;
 
   margin: 0em 0em 0em -1px;
 
   line-height: 1.26;
-  padding: 0.9em 1.3em !important;
+  padding-top: 0.9em !important;
+  padding-bottom: 0.9em !important;
 
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -256,11 +264,10 @@
   font-size: 0.85em;
   white-space: nowrap;
 }
-
-.ui.action.input input {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+.ui.action.input .labeled.icon.button .icon {
+  padding-top: 0.9em !important;
 }
+
 .ui.action.input input:focus ~ .button {
   opacity: 1;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
