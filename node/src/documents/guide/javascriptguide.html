@@ -56,12 +56,12 @@ type   : 'UI Guide'
   <p>When creating javascript modules consider using verbs to show behavior. This may be more intuitive than allowing a user to directly set properties or manage your internal namespace.</p>
   <div class="code" data-type="javascript">
 
-    // this developer will probably spend more time looking at docs
+    // this might require some more times with docs
     $element
-      .widget('states.selctd.active', '.something')
+      .widget('states.select.set')
     ;
 
-    // now this is semantic
+    // reduce complexity to api
     $(element)
       .widget('activate', true)
     ;

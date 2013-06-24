@@ -696,6 +696,7 @@
   float: left;
   width: 0.3em;
   height: 1em;
+  z-index: 3;
 }
 .ui.buttons .or:before {
   position: absolute;
