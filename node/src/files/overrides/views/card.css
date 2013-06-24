@@ -104,7 +104,6 @@
   visibility: hidden;
 }
 
-
 /*--------------
     Progress
 ---------------*/
@@ -123,6 +122,12 @@
 .ui.card > .progress .bar {
   width: 0%;
   height: 5px;
+
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  -ms-transition: background 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 
@@ -154,13 +159,39 @@
   width: 100% !important;
 }
 
+.two.ui.cards {
+  margin: 0% !important;
+  padding: 0% !important;
+}
+.two.ui.cards .card {
+  float: left !important;
+  margin: 0% 1% 2% !important;
+  width: 49% !important;
+}
+.two.ui.cards .card:nth-child(odd) {
+  margin-left: 0% !important;
+}
+.two.ui.cards .card:nth-child(even) {
+  margin-right: 0% !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .two.ui.cards {
+    margin: 0% auto;
+  }
+  .two.ui.cards .card {
+    width: 100% !important;
+    margin: 0% 0% 2% !important;
+  }
+}
+
 
 /*--------------
     Categories
 ---------------*/
 
 .ui.cards .card:hover .progress .bar,
-.ui.cards .progress .bar,
+.ui.card:hover .progress .bar,
 .ui.cards .card:hover .progress .bar {
   background-color: #D9499A;
 }

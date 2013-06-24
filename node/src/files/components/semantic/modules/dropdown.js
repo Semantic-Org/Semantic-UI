@@ -296,8 +296,9 @@ $.fn.dropdown = function(parameters) {
             }
             else if(animation.show == 'fade') {
               $menu
+                .hide()
                 .clearQueue()
-                .fadeIn(150)
+                .fadeIn(150, module.event.resetStyle)
               ;
             }
             else if(animation.show == 'slide') {
@@ -328,6 +329,7 @@ $.fn.dropdown = function(parameters) {
             }
             else if(animation.hide == 'fade') {
               $menu
+                .show()
                 .clearQueue()
                 .fadeOut(150)
               ;

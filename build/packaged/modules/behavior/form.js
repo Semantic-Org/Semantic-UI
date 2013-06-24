@@ -129,7 +129,6 @@ $.fn.form = function(fields, parameters) {
                 $field      = $(this),
                 $fieldGroup = $field.closest($group)
               ;
-              console.log('here', settings.on);
               if( $fieldGroup.hasClass(className.error) ) {
                 module.debug('Revalidating field', $field,  module.get.validation($field));
                 module.validate.field( module.get.validation($field) );
@@ -255,6 +254,7 @@ $.fn.form = function(fields, parameters) {
               }
             });
             if(allValid) {
+              module.debug('Form has no validation errors, submitting');
               $module
                 .removeClass(className.error)
                 .addClass(className.success)
@@ -262,11 +262,12 @@ $.fn.form = function(fields, parameters) {
               $.proxy(settings.onSuccess, this)(event);
             }
             else {
+              module.debug('Form has errors');
               $module.addClass(className.error);
               if(!settings.inlineError) {
                 module.add.errors(formErrors);
               }
-              $.proxy(settings.onFailure, this)(formErrors);
+              return $.proxy(settings.onFailure, this)(formErrors);
             }
           },
 
@@ -313,7 +314,7 @@ $.fn.form = function(fields, parameters) {
               functionType
             ;
             // if bracket notation is used, pass in extra parameters
-            if(bracket !== undefined && bracket != null) {
+            if(bracket !== undefined && bracket !== null) {
               ancillary    = bracket[1];
               functionType = type.replace(bracket[0], '');
               isValid      = $.proxy(settings.rules[functionType], $module)(value, ancillary);

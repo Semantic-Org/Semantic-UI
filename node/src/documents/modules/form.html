@@ -29,10 +29,60 @@ type   : 'UI Behavior'
   <div class="example">
     <h4>Basic Validation</h4>
     <p>Form validation requires passing in a validation object with the rules required to validate your form.</p>
-    <div class="ui green message">If no validation object is specified then the form will validate against the default validation set up for the plugin. See <em>default validation</em> below.</div>
+    <!-- <div class="ui green message">If no validation object is specified then the form will validate against the default validation set up for the plugin. See <em>default validation</em> below.</div> -->
     <div class="ignore code">
     $('.ui.form')
-      .form()
+      .form({
+        firstName: {
+          identifier  : 'first-name',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter your first name'
+            }
+          ]
+        },
+        lastName: {
+          identifier  : 'last-name',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter your last name'
+            }
+          ]
+        },
+        username: {
+          identifier : 'username',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter a username'
+            }
+          ]
+        },
+        password: {
+          identifier : 'password',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter a password'
+            },
+            {
+              type   : 'length[6]',
+              prompt : 'Your password must be at least 6 characters'
+            }
+          ]
+        }
+        terms: {
+          identifier : 'terms',
+          rules: [
+            {
+              type   : 'checked',
+              prompt : 'You must agree to the terms and conditions'
+            }
+          ]
+        }
+      })
     ;
     </div>
     <div class="ui form segment">
@@ -175,97 +225,7 @@ type   : 'UI Behavior'
       <div class="ui blue submit button">Submit</div>
     </div>
   </div>
-  
-  
-  <div class="example">
-    <h4>Setting Defaults</h4>
-    <p>It may be useful to set default form validation values, since similar fields are often validated across multiple forms. This can be done by modifying the defaults of the settings object</p>
-    
-    <div class="code">
-    $.fn.form.settings.defaults = {
-      firstName: {
-        identifier  : 'first-name',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter your first name'
-          }
-        ]
-      },
-      lastName: {
-        identifier  : 'last-name',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter your last name'
-          }
-        ]
-      },
-      username: {
-        identifier : 'username',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter a username'
-          }
-        ]
-      },
-      email: {
-        identifier : 'email',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter your email'
-          },
-          {
-            type   : 'email',
-            prompt : 'Please enter a valid email'
-          }
-        ]
-      },
-      password: {
-        identifier : 'password',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter a password'
-          },
-          {
-            type   : 'length[6]',
-            prompt : 'Your password must be at least 6 characters'
-          }
-        ]
-      },
-      passwordConfirm: {
-        identifier : 'password-confirm',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please confirm your password'
-          },
-          {
-            identifier : 'password-confirm',
-            type       : 'match[password]',
-            prompt     : 'Please verify password matches'
-          }
-        ]
-      },
-      terms: {
-        identifier : 'terms',
-        rules: [
-          {
-            type   : 'checked',
-            prompt : 'You must agree to the terms and conditions'
-          }
-        ]
-      }
-    };
-    </div>
-  </div>
-  
-  
-  
-  
+
   <h2>Settings</h2>
   
   <h3 class="ui header">Defaults</h3>

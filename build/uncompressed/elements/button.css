@@ -619,6 +619,11 @@
   padding-left: 1.4em !important;
   padding-right: 4em !important;
 }
+.ui.left.fluid.labeled.icon.button,
+.ui.right.fluid.labeled.icon.button {
+  padding-left: 1.4em !important;
+  padding-right: 1.4em !important;
+}
 .ui.right.labeled.icon.button .icon {
   left: auto;
   right: 0em;
@@ -691,6 +696,7 @@
   float: left;
   width: 0.3em;
   height: 1em;
+  z-index: 3;
 }
 .ui.buttons .or:before {
   position: absolute;

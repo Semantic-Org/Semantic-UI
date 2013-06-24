@@ -140,7 +140,6 @@ $.fn.popup = function(parameters) {
             title     = $module.data(metadata.title)     || settings.title,
             content   = $module.data(metadata.content)   || $module.attr('title') || settings.content
           ;
-          console.log(variation);
           if(html || content || title) {
             if(!html) {
               html = settings.template({
@@ -652,7 +651,6 @@ $.fn.popup.settings = {
     method    : 'The method you called is not defined.',
     recursion : 'Popup attempted to reposition element to fit, but could not find an adequate position.'
   },
-
 
   metadata: {
     arrowOffset : 'arrowOffset',
