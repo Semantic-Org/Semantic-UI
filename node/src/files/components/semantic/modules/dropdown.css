@@ -62,7 +62,7 @@
   cursor: pointer;
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  font-size: 0.9em;
+  font-size: 0.875em;
   display: block;
   color: rgba(0, 0, 0, 0.75);
   padding: 0.85em 1em !important;
@@ -121,7 +121,7 @@
 .ui.simple.dropdown .menu {
   display: block;
   overflow: hidden;
-  top: -9999px;
+  top: -9999px !important;
   position: absolute;
   opacity: 0;
   -webkit-transition: opacity 0.2s ease-out;
@@ -140,7 +140,7 @@
   overflow: visible;
   width: auto;
   height: auto;
-  top: 100%;
+  top: 100% !important;
   opacity: 1;
 }
 .ui.simple.disabled.dropdown:hover .menu {
@@ -190,19 +190,18 @@
   -webkit-border-radius: 0px 0px 0.325em 0.325em;
   border-radius: 0px 0px 0.325em 0.325em;
 }
-.ui.selection.dropdown.visible,
 .ui.selection.dropdown:hover,
 .ui.selection.dropdown.hover {
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.ui.selection.dropdown.visible {
   -webkit-border-radius: 0.3125em 0.3125em 0em 0em !important;
   -moz-border-radius: 0.3125em 0.3125em 0em 0em !important;
   border-radius: 0.3125em 0.3125em 0em 0em !important;
 }
-.ui.selection.dropdown.visible .menu,
-.ui.selection.dropdown.hover .menu,
-.ui.selection.dropdown:hover .menu {
+.ui.selection.dropdown.visible .menu {
   -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
   -moz-box-shadow: 0px 1px 0px 1px #D3D3D3;
   box-shadow: 0px 1px 0px 1px #D3D3D3;
