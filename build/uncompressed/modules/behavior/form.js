@@ -313,7 +313,7 @@ $.fn.form = function(fields, parameters) {
               functionType
             ;
             // if bracket notation is used, pass in extra parameters
-            if(bracket !== undefined && bracket != null) {
+            if(bracket !== undefined && bracket !== null) {
               ancillary    = bracket[1];
               functionType = type.replace(bracket[0], '');
               isValid      = $.proxy(settings.rules[functionType], $module)(value, ancillary);

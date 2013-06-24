@@ -251,6 +251,7 @@ semantic.ready = function() {
         $waypoint = $waypoints.eq( $group.index( $header ) ),
         offset    = $waypoint.offset().top - 80
       ;
+      console.log($waypoint, $header, $group);
       if(!$header.hasClass('active') ) {
         $menu
           .addClass('animating')
