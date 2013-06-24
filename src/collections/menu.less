@@ -955,6 +955,12 @@
 .ui.vertical.text.menu {
   margin: 1rem 0em;
 }
+.ui.vertical.text.menu:first-child {
+  margin-top: 0rem;
+}
+.ui.vertical.text.menu:last-child {
+  margin-bottom: 0rem;
+}
 .ui.vertical.text.menu .item {
   float: left;
   clear: left;
@@ -1360,6 +1366,7 @@
 
 .ui.menu.fluid,
 .ui.vertical.menu.fluid {
+  display: block !important;
   width: 100%;
 }
 
