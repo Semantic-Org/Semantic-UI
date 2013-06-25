@@ -532,6 +532,10 @@ i.icon.id:before {
   content: '\e722';
 }
 /* '' */
+i.icon.url:before {
+  content: '🔗';
+}
+/* '\1f517' */
 i.icon.zoom.in:before {
   content: '\e750';
 }

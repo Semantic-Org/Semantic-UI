@@ -97,9 +97,6 @@ $.fn.popup = function(parameters) {
           $module
             .off('.' + namespace)
           ;
-          $popup
-            .remove()
-          ;
         },
 
         event: {
@@ -249,6 +246,7 @@ $.fn.popup = function(parameters) {
           // refresh state of module
           module.refresh();
           if($popup.size() === 0) {
+            module.verbose('Creating pop-up html');
             module.create();
           }
           if( !$module.hasClass(className.visible) ) {
@@ -511,7 +509,8 @@ $.fn.popup = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+          console.log($module.next());
+          module.error = Function.prototype.bind.call(console.warn, console, settings.moduleName + ':');
         },
         performance: {
           log: function(message) {
@@ -635,7 +634,7 @@ $.fn.popup.settings = {
   clicktoClose   : true,
 
   position       : 'top center',
-  delay          : 0,
+  delay          : 150,
   inline         : true,
 
   duration       : 250,
@@ -647,7 +646,7 @@ $.fn.popup.settings = {
   maxSearchDepth : 10,
 
   error: {
-    content   : 'Warning: Your popup has no content specified',
+    content   : 'Your popup has no content specified',
     method    : 'The method you called is not defined.',
     recursion : 'Popup attempted to reposition element to fit, but could not find an adequate position.'
   },

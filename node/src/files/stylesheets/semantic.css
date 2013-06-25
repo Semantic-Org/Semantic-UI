@@ -71,10 +71,10 @@ h3::selection {
 @font-face {
   font-family: 'Neutraface';
   src:
-    url('../fonts/neutraface-demi.eot');
+    url('../fonts/neutraface-bold.eot');
   src:
-    url('../fonts/neutraface-demi.eot?#iefix') format('embeddedopentype'),
-    url('../fonts/neutraface-demi.woff') format('woff')
+    url('../fonts/neutraface-bold.eot?#iefix') format('embeddedopentype'),
+    url('../fonts/neutraface-bold.woff') format('woff')
   ;
   font-style: normal;
   font-weight: bold;

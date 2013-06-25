@@ -68,9 +68,6 @@
     Colors
 ---------------*/
 /* Text Color */
-.ui.menu .item .header {
-  color: rgba(50, 50, 50, 0.95);
-}
 .ui.menu .item,
 .ui.menu .item > a {
   color: rgba(0, 0, 0, 0.75);

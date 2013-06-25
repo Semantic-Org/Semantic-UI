@@ -79,14 +79,17 @@ a.ui.nag {
            Variations
 *******************************/
 /*--------------
+     Static
+---------------*/
+.ui.static.nag {
+  position: static;
+  display: block;
+}
+/*--------------
      Fixed
 ---------------*/
-.ui.nag.fixed {
+.ui.fixed.nag {
   position: fixed;
-}
-.ui.nag.bottom.fixed {
-  top: auto;
-  bottom: 0px;
 }
 /*--------------
      Bottom
@@ -95,6 +98,10 @@ a.ui.nag {
   -webkit-border-radius: 5px 5px 0px 0px;
   -moz-border-radius: 5px 5px 0px 0px;
   border-radius: 5px 5px 0px 0px;
+}
+.ui.nag.bottom.fixed {
+  top: auto;
+  bottom: 0px;
 }
 /*--------------
      White
