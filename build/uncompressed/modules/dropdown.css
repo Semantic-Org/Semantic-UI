@@ -93,10 +93,12 @@
 }
 .ui.dropdown .menu .item:hover {
   background-color: rgba(0, 0, 0, 0.02);
+  z-index: 12;
 }
 .ui.dropdown .menu .active.item {
   background-color: rgba(0, 0, 0, 0.04);
   border-left: none;
+  z-index: 12;
 }
 /* Default Text */
 .ui.dropdown > .default.text,

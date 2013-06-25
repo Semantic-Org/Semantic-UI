@@ -545,7 +545,7 @@
   text-shadow: none;
   box-shadow: none;
 }
-.ui.buttons.tertiary .button:first-child {
+.ui.buttons.tertiary .button {
   border-left: none;
 }
 .ui.button.tertiary.active {
