@@ -22,9 +22,9 @@
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 0.325rem;
-  -moz-border-radius: 0.325rem;
-  border-radius: 0.325rem;
+  -webkit-border-radius: 0.1875rem;
+  -moz-border-radius: 0.1875rem;
+  border-radius: 0.1875rem;
 }
 .ui.menu:first-child {
   margin-top: 0rem;
@@ -40,10 +40,10 @@
   visibility: hidden;
 }
 .ui.menu > .item:first-child {
-  border-radius: 0.325em 0px 0px 0.325em;
+  border-radius: 0.1875em 0px 0px 0.1875em;
 }
 .ui.menu > .item:last-child {
-  border-radius: 0px 0.325em 0.325em 0px;
+  border-radius: 0px 0.1875em 0.1875em 0px;
 }
 .ui.menu .item,
 .ui.menu .item > a {
@@ -177,6 +177,7 @@
   Form Content
 ---------------*/
 .ui.menu input {
+  margin: 0.25em 0em;
   padding-top: 0.55em;
   padding-bottom: 0.55em;
 }
@@ -277,19 +278,19 @@
   border-radius: 0em;
 }
 .ui.vertical.menu > .active.item:first-child {
-  -webkit-border-radius: 0em 0.325em 0em 0em;
-  -moz-border-radius: 0em 0.325em 0em 0em;
-  border-radius: 0em 0.325em 0em 0em;
+  -webkit-border-radius: 0em 0.1875em 0em 0em;
+  -moz-border-radius: 0em 0.1875em 0em 0em;
+  border-radius: 0em 0.1875em 0em 0em;
 }
 .ui.vertical.menu > .active.item:last-child {
-  -webkit-border-radius: 0em 0em 0.325em 0em;
-  -moz-border-radius: 0em 0em 0.325em 0em;
-  border-radius: 0em 0em 0.325em 0em;
+  -webkit-border-radius: 0em 0em 0.1875em 0em;
+  -moz-border-radius: 0em 0em 0.1875em 0em;
+  border-radius: 0em 0em 0.1875em 0em;
 }
 .ui.vertical.menu > .active.item:only-child {
-  -webkit-border-radius: 0em 0.325em 0.325em 0em;
-  -moz-border-radius: 0em 0.325em 0.325em 0em;
-  border-radius: 0em 0.325em 0.325em 0em;
+  -webkit-border-radius: 0em 0.1875em 0.1875em 0em;
+  -moz-border-radius: 0em 0.1875em 0.1875em 0em;
+  border-radius: 0em 0.1875em 0.1875em 0em;
 }
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
@@ -341,10 +342,10 @@
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
-  border-radius: 0.325em 0.325em 0px 0px;
+  border-radius: 0.1875em 0.1875em 0px 0px;
 }
 .ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px 0.325em 0.325em;
+  border-radius: 0px 0px 0.1875em 0.1875em;
 }
 .ui.vertical.menu .item > .icon {
   float: right;
@@ -373,10 +374,9 @@
   float: right;
 }
 .ui.vertical.menu .dropdown.item .menu {
-  top: 0%;
+  top: 0% !important;
   left: 100%;
   margin: 0em;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.vertical.menu .dropdown.item .menu .item {
   font-size: 0.9em;
@@ -803,9 +803,9 @@
   min-height: 0em !important;
   margin: 0em 0.25em;
   padding: 0.5em 1em;
-  -webkit-border-radius: 0.325em;
-  -moz-border-radius: 0.325em;
-  border-radius: 0.325em;
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
 }
 .ui.secondary.menu > .item:before {
   display: none;
@@ -829,9 +829,9 @@
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.secondary.vertical.menu > .active.item {
-  -webkit-border-radius: 0.325em;
-  -moz-border-radius: 0.325em;
-  border-radius: 0.325em;
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
 }
 .ui.secondary.inverted.menu > .active.item {
   background-color: rgba(255, 255, 255, 0.2);
@@ -898,9 +898,9 @@
   border: none;
   margin: 0em 0em 0.3em;
   padding: 0.6em 0.8em;
-  -webkit-border-radius: 0.325em;
-  -moz-border-radius: 0.325em;
-  border-radius: 0.325em;
+  -webkit-border-radius: 0.1875em;
+  -moz-border-radius: 0.1875em;
+  border-radius: 0.1875em;
 }
 .ui.secondary.vertical.menu > .header.item {
   -webkit-border-radius: 0em;
@@ -1227,14 +1227,14 @@
   box-shadow: 0px 0px 0px 1px #DDDDDD;
 }
 .ui.top.attached.menu {
-  -moz-border-radius: 0.325em 0.325em 0px 0px;
-  -webkit-border-radius: 0.325em 0.325em 0px 0px;
-  border-radius: 0.325em 0.325em 0px 0px;
+  -moz-border-radius: 0.1875em 0.1875em 0px 0px;
+  -webkit-border-radius: 0.1875em 0.1875em 0px 0px;
+  border-radius: 0.1875em 0.1875em 0px 0px;
 }
 .ui.menu.bottom.attached {
-  -moz-border-radius: 0px 0px 0.325em 0.325em;
-  -webkit-border-radius: 0px 0px 0.325em 0.325em;
-  border-radius: 0px 0px 0.325em 0.325em;
+  -moz-border-radius: 0px 0px 0.1875em 0.1875em;
+  -webkit-border-radius: 0px 0px 0.1875em 0.1875em;
+  border-radius: 0px 0px 0.1875em 0.1875em;
 }
 /*--------------
      Sizes

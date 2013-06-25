@@ -62,7 +62,7 @@
 .ui.form input[type="date"],
 .ui.form input[type="password"] {
   margin: 0em;
-  padding: 0.9em 1.2em;
+  padding: 0.85em 1.2em;
   font-size: 0.875em;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);

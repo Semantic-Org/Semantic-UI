@@ -497,7 +497,10 @@ $.fn.searchPrompt = function(source, parameters) {
     maxResults      : 7,
     cache           : true,
 
-    searchFields    : ['title', 'description'],
+    searchFields    : [
+      'title', 
+      'description'
+    ],
 
     // api config
     apiSettings: {
@@ -540,17 +543,16 @@ $.fn.searchPrompt = function(source, parameters) {
         if(message !== undefined && type !== undefined) {
           html +=  ''
             + '<div class="message ' + type +'">'
-            + '<div class="text">'
           ;
           // message type
           if(type == 'empty') {
             html += ''
-              + '<h2>No Results</h2>'
-              + '<p>' + message + '</p>'
+              + '<div class="header">No Results</div class="header">'
+              + '<div class="description">' + message + '</div class="description">'
             ;
           }
           else {
-            html += ' <div class="text">' + message + '</div>';
+            html += ' <div class="description">' + message + '</div>';
           }
           html += '</div>';
         }
@@ -567,11 +569,10 @@ $.fn.searchPrompt = function(source, parameters) {
               html  += ''
                 + '<div class="category">'
                 + '<div class="name">' + category.name + '</div>'
-                + '<ul>'
               ;
               // each item inside category
               $.each(category.results, function(index, result) {
-                html  += '<li class="result">';
+                html  += '<div class="result">';
                 html  += '<a href="' + result.url + '"></a>';
                 if(result.image !== undefined) {
                   html+= ''
@@ -580,10 +581,7 @@ $.fn.searchPrompt = function(source, parameters) {
                     + '</div>'
                   ;
                 }
-                html += (result.image !== undefined)
-                  ? '<div class="indented info">'
-                  : '<div class="info">'
-                ;
+                html += '<div class="info">';
                 if(result.price !== undefined) {
                   html+= '<div class="price">' + result.price + '</div>';
                 }
@@ -595,18 +593,17 @@ $.fn.searchPrompt = function(source, parameters) {
                 }
                 html  += ''
                   + '</div>'
-                  + '</li>'
+                  + '</div>'
                 ;
               });
               html  += ''
-                + '</ul>'
                 + '</div>'
               ;
             }
           });
           if(response.resultPage) {
             html += ''
-            + '<a href="' + response.resultPage.url + '" class="result-page">'
+            + '<a href="' + response.resultPage.url + '" class="all">'
             +   response.resultPage.text
             + '</a>';
           }
@@ -619,14 +616,10 @@ $.fn.searchPrompt = function(source, parameters) {
           html = ''
         ;
         if(response.results !== undefined) {
-          html += '<ul>';
+          
           // each result
           $.each(response.results, function(index, result) {
-            html  += '<li class="result">';
-
-            if(result.url !== undefined) {
-              html  += '<a href="' + result.url + '"></a>';
-            }
+            html  += '<a class="result" href="' + result.url + '">';
             if(result.image !== undefined) {
               html+= ''
                 + '<div class="image">'
@@ -634,10 +627,7 @@ $.fn.searchPrompt = function(source, parameters) {
                 + '</div>'
               ;
             }
-            html += (result.image !== undefined)
-              ? '<div class="indented info">'
-              : '<div class="info">'
-            ;
+            html += '<div class="info">';
             if(result.price !== undefined) {
               html+= '<div class="price">' + result.price + '</div>';
             }
@@ -649,14 +639,13 @@ $.fn.searchPrompt = function(source, parameters) {
             }
             html  += ''
               + '</div>'
-              + '</li>'
+              + '</a>'
             ;
           });
-          html += '</ul>';
 
           if(response.resultPage) {
             html += ''
-            + '<a href="' + response.resultPage.url + '" class="result-page">'
+            + '<a href="' + response.resultPage.url + '" class="all">'
             +   response.resultPage.text
             + '</a>';
           }

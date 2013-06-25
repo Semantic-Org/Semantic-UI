@@ -1,5 +1,20 @@
+/*
+ * # Semantic Nag
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+/*******************************
+             Nag
+*******************************/
 .ui.nag {
   display: none;
+  opacity: 0.95;
   position: absolute;
   top: 0px;
   left: 10%;
@@ -10,21 +25,15 @@
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 8px 20px;
-  background-color: #272626;
-  background: -webkit-linear-gradient(top, rgba(22, 22, 22, 0.85) 0%, #111111 100%);
-  background: -moz-linear-gradient(top, rgba(22, 22, 22, 0.85) 0%, #111111 100%);
-  background: -o-linear-gradient(top, rgba(22, 22, 22, 0.85) 0%, #111111 100%);
-  background: -ms-linear-gradient(top, rgba(22, 22, 22, 0.85) 0%, #111111 100%);
-  background: linear-gradient(top, rgba(22, 22, 22, 0.85) 0%, #111111 100%);
-  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 1px 0px rgba(255, 255, 255, 0.1) inset;
-  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 1px 0px rgba(255, 255, 255, 0.1) inset;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 1px 0px rgba(255, 255, 255, 0.1) inset;
+  margin: 0em;
+  padding: 0.75em 1em;
+  background-color: #555555;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  font-size: 1em;
   text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  color: #009FDA;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   -webkit-border-radius: 0px 0px 5px 5px;
   -moz-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;
@@ -34,14 +43,21 @@
   -ms-transition: 0.2s background;
   transition: 0.2s background;
 }
-.ui.nag .close {
+a.ui.nag {
+  cursor: pointer;
+}
+.ui.nag > .title {
+  display: inline-block;
+  margin: 0em 0.5em;
+  color: #FFFFFF;
+}
+.ui.nag > .icon.close {
   cursor: pointer;
   opacity: 0.4;
   position: absolute;
   top: 50%;
-  right: 15px;
-  margin-top: -6px;
-  font-size: 12px;
+  right: 1em;
+  margin-top: -0.5em;
   color: #FFFFFF;
   -webkit-transition: 0.1s opacity;
   -moz-transition: 0.1s opacity;
@@ -49,20 +65,22 @@
   -ms-transition: 0.1s opacity;
   transition: 0.1s opacity;
 }
-.ui.nag .close.hover {
+/*******************************
+             States
+*******************************/
+/* Hover */
+.ui.nag:hover {
   opacity: 1;
 }
-.ui.nag b {
-  font-weight: bold;
-  color: #EEEEEE;
+.ui.nag .close:hover {
+  opacity: 1;
 }
-/* Bottom Style */
-.ui.nag.bottom {
-  -webkit-border-radius: 5px 5px 0px 0px;
-  -moz-border-radius: 5px 5px 0px 0px;
-  border-radius: 5px 5px 0px 0px;
-}
-/* Fixed Style */
+/*******************************
+           Variations
+*******************************/
+/*--------------
+     Fixed
+---------------*/
 .ui.nag.fixed {
   position: fixed;
 }
@@ -70,35 +88,23 @@
   top: auto;
   bottom: 0px;
 }
-/* Link Style */
-.ui.nag.hover {
-  cursor: pointer;
-  background-color: #272626;
-  background: -webkit-linear-gradient(top, #161616 0%, #111111 100%);
-  background: -moz-linear-gradient(top, #161616 0%, #111111 100%);
-  background: -o-linear-gradient(top, #161616 0%, #111111 100%);
-  background: -ms-linear-gradient(top, #161616 0%, #111111 100%);
-  background: linear-gradient(top, #161616 0%, #111111 100%);
+/*--------------
+     Bottom
+---------------*/
+.ui.nag.bottom {
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
 }
-.ui.nag.hover b {
-  font-weight: bold;
-  color: #FFFFFF;
-}
-/* White Variation */
+/*--------------
+     White
+---------------*/
 .ui.nag.white {
-  background-color: #EEEEEE;
-  background: -webkit-linear-gradient(top, #ffffff 0%, #dddddd 100%);
-  background: -moz-linear-gradient(top, #ffffff 0%, #dddddd 100%);
-  background: -o-linear-gradient(top, #ffffff 0%, #dddddd 100%);
-  background: -ms-linear-gradient(top, #ffffff 0%, #dddddd 100%);
-  background: linear-gradient(top, #ffffff 0%, #dddddd 100%);
-  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(255, 255, 255, 0.1) inset;
-  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(255, 255, 255, 0.1) inset;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(255, 255, 255, 0.1) inset;
+  background-color: #F1F1F1;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
-  color: #888888;
+  color: #ACACAC;
 }
 .ui.nag.white .close,
-.ui.nag.white b {
-  color: #000000;
+.ui.nag.white .title {
+  color: #333333;
 }

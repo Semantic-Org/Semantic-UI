@@ -58,7 +58,6 @@
               .data('module', module)
             ;
             $close
-              .on('mouseenter mouseleave', module.event.hover)
               .on('click', module.dismiss)
             ;
             // lets avoid javascript if we dont need to reposition
@@ -82,12 +81,6 @@
               }
               // fire once to position on init
               $.proxy(module.event.scroll, this)();
-            }
-            if(settings.followLink) {
-              $module
-                .on('mouseenter mouseleave', module.event.hover)
-                .on('click', module.followLink)
-              ;
             }
 
             if(settings.displayTime > 0) {
@@ -172,7 +165,7 @@
 
           should: {
             show: function() {
-              if( module.storage.get(settings.storedKey) == settings.storedValue) {
+              if( !settings.persist && module.storage.get(settings.storedKey) == settings.storedValue) {
                 return false;
               }
               return true;
@@ -194,19 +187,11 @@
             }
           },
 
-          followLink: function() {
-            if($.fn.followLink !== undefined) {
-              $module
-                .followLink()
-              ;
-            }
-          },
-
           storage: {
 
             set: function(key, value) {
-              if(settings.storageMethod == 'local' && store !== undefined) {
-                store.set(key, value);
+              if(settings.storageMethod == 'local' && window.store !== undefined) {
+                window.store.set(key, value);
               }
               // store by cookie
               else if($.cookie !== undefined) {
@@ -217,8 +202,8 @@
               }
             },
             get: function(key) {
-              if(settings.storageMethod == 'local' && store !== undefined) {
-                return store.get(key);
+              if(settings.storageMethod == 'local' && window.store !== undefined) {
+                return window.store.get(key);
               }
               // get by cookie
               else if($.cookie !== undefined) {
@@ -232,11 +217,6 @@
           },
 
           event: {
-            hover: function() {
-              $(this)
-                .toggleClass(className.hover)
-              ;
-            },
             scroll: function() {
               if(timer !== undefined) {
                 clearTimeout(timer);
@@ -301,11 +281,11 @@
 
   $.fn.nag.settings = {
 
+    // allows cookie to be overriden
+    persist        : false,
+
     // set to zero to manually dismiss, otherwise hides on its own
     displayTime    : 0,
-
-    // if there is a link to follow
-    followLink     : true,
 
     // method of stickyness
     position       : 'fixed',
@@ -319,7 +299,7 @@
     storedValue    : 'dismiss',
 
     // need to calculate stickyness on scroll
-    sticky         : true,
+    sticky         : false,
 
     // how often to check scroll event
     lag            : 0,
@@ -328,13 +308,11 @@
     context        : window,
 
     errors: {
-      noStorage  : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
-      followLink : 'Follow link is set but the plugin is not included'
+      noStorage  : 'Neither $.cookie or store is defined. A storage solution is required for storing state'
     },
 
     className     : {
       bottom      : 'bottom',
-      hover       : 'hover',
       fixed       : 'fixed'
     },
 
