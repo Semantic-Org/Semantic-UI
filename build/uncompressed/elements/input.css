@@ -146,6 +146,7 @@
 }
 .ui.left.icon.input input {
   padding-left: 3em !important;
+  padding-right: 1.2em !important;
 }
 .ui.icon.input input:focus ~ .icon {
   opacity: 1;

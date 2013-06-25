@@ -28,17 +28,20 @@
       time            = new Date().getTime(),
       performance     = [],
       moduleSelector  = $module.selector || '',
+
+      eventNamespace  = '.' + settings.namespace,
+      moduleNamespace = 'module-' + settings.namespace,
       
       className       = settings.className,
       metadata        = settings.metadata,
       namespace       = settings.namespace,
       errors          = settings.errors,
       
-      instance        = $module.data('module'),
+      instance        = $module.data(moduleNamespace),
       
       query           = arguments[0],
       methodInvoked   = (instance !== undefined && typeof query == 'string'),
-      passedArguments = [].slice.call(arguments, 1),
+      queryArguments  = [].slice.call(arguments, 1),
       
       module,
       invokedResponse
@@ -69,11 +72,11 @@
         // attach events if navigation wasn't set to window
         if( !$.isWindow( $module.get(0) ) ) {
           $module
-            .on('click.' + namespace, module.event.click)
+            .on('click.' + eventNamespace, module.event.click)
           ;
         }
         $module
-          .data('module', module)
+          .data(moduleNamespace, module)
         ;
       },
 
@@ -381,9 +384,8 @@
           ;
         }
       },
-     
+
       setting: function(name, value) {
-        module.debug('Changing setting', name, value);
         if(value !== undefined) {
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
@@ -397,7 +399,6 @@
         }
       },
       internal: function(name, value) {
-        module.debug('Changing internal', name, value);
         if(value !== undefined) {
           if( $.isPlainObject(name) ) {
             $.extend(true, module, name);
@@ -410,24 +411,29 @@
           return module[name];
         }
       },
-      verbose: function() {
-        if(settings.verbose && settings.debug) {
-          module.performance.log(arguments[0]);
-          module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
-        }
-      },
       debug: function() {
         if(settings.debug) {
-          module.performance.log(arguments[0]);
-          module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+          if(settings.performance) {
+            module.performance.log(arguments);
+          }
+          else {
+            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+          }
+        }
+      },
+      verbose: function() {
+        if(settings.verbose && settings.debug) {
+          if(settings.performance) {
+            module.performance.log(arguments);
+          }
+          else {
+            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+          }
         }
       },
       error: function() {
-        if(console.log !== undefined) {
-          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
-        }
+        module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
       },
-      
       performance: {
         log: function(message) {
           var
@@ -478,33 +484,33 @@
           performance = [];
         }
       },
-      invoke: function(query, context, passedArguments) {
+      invoke: function(query, passedArguments, context) {
         var
           maxDepth,
           found
         ;
-        passedArguments = passedArguments || [].slice.call( arguments, 2 );
+        passedArguments = passedArguments || queryArguments;
+        context         = element         || context;
         if(typeof query == 'string' && instance !== undefined) {
           query    = query.split('.');
           maxDepth = query.length - 1;
           $.each(query, function(depth, value) {
             if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
               instance = instance[value];
-              return true;
             }
             else if( instance[value] !== undefined ) {
               found = instance[value];
-              return true;
             }
-            module.error(settings.errors.method);
-            return false;
+            else {
+              module.error(errors.method);
+            }
           });
         }
         if ( $.isFunction( found ) ) {
+          module.verbose('Executing invoked function', found);
           return found.apply(context, passedArguments);
         }
-        // return retrieved variable or chain
-        return found;
+        return found || false;
       }
     };
 
@@ -536,8 +542,9 @@
   $.fn.tabNavigation.settings = {
 
     moduleName      : 'Tab Module',
-    verbose         : false,
+    verbose         : true,
     debug           : true,
+    performance     : true,
     namespace       : 'tab',
 
     // only called first time a tab's content is loaded (when remote source)

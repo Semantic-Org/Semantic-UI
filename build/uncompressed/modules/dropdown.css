@@ -192,6 +192,12 @@
   -webkit-border-radius: 0px 0px 0.325em 0.325em;
   border-radius: 0px 0px 0.325em 0.325em;
 }
+.ui.selection.dropdown .menu img {
+  height: 2.5em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
 .ui.selection.dropdown:hover,
 .ui.selection.dropdown.hover {
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
@@ -294,7 +300,7 @@
 .ui.left.pointing.dropdown .menu:after {
   top: 1em;
   left: 0em;
-  margin-top: -0.25em 0em 0em 0em;
+  margin: -0.25em 0em 0em 0em;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -309,7 +315,7 @@
   top: 1em;
   left: auto;
   right: -0.25em;
-  margin-top: -0.25em 0em 0em 0em;
+  margin: -0.25em 0em 0em 0em;
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   transform: rotate(135deg);

@@ -463,7 +463,7 @@ $.fn.dropdown = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
         },
         performance: {
           log: function(message) {
