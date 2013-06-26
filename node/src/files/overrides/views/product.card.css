@@ -38,7 +38,6 @@
   bottom: 2px;
   left: 0%;
 
-  border-top: 1px solid #DCDDDE;
   width: 100%;
   height: 2px;
 
@@ -96,9 +95,10 @@
 }
 .ui.product.cards .card > .product .tagline,
 .ui.product.card > .product .tagline {
-  margin: 1rem;
+  margin: -0.75rem 1rem 1rem;
   min-height: 1.4em;
   line-height: 1.4;
+  color: #9DA6AB;
 }
 
 /*--------------
@@ -107,46 +107,61 @@
 
 .ui.product.cards .card .statistic,
 .ui.product.card .statistic {
-  width: 120px;
+  width: 35%;
   float: left;
 }
 .ui.product.cards .card .statistic .number,
 .ui.product.card .statistic .number {
-  font-size: 1.75em;
+  font-size: 1.5em;
   font-weight: bold;
   color: #5D6266;
 }
 .ui.product.cards .card .statistic .label,
 .ui.product.card .statistic .label {
   font-style: italic;
+  font-size: 0.9em;
 }
 .ui.product.cards .card .statistic + .projects,
 .ui.product.card .statistic + .projects {
-  margin-left: 120px;
+  margin-left: 100px;
 }
 
 /*--------------
      Projects
 ---------------*/
 
-.ui.product.cards .card .projects,
-.ui.product.card .projects {
-  margin: 0% -5%;
+.ui.product.cards .card .meta .projects,
+.ui.product.card .meta .projects {
+  width: 65%;
+  float: left;
+
+  margin: 0;
 }
+
 .ui.product.cards .card .projects .project,
 .ui.product.card .projects .project {
   float: left;
-
-  margin: 0% 5%;
+  width: 46%;
+  margin: 0% 2%;
   border-bottom: 1px solid #E2E3E4;
-  width: 40%;
   
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 2;
   color: #DCDDDE;
 }
 
-.ui.product.cards .card .projects a.project,
-.ui.product.card .projects a.project {
+.ui.product.cards .card .meta .projects .project .icon,
+.ui.product.card .meta .projects .project .icon {
+  float: none;
+  font-style: normal;
+  color: #DCDDDE;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.ui.product.cards .card .meta .projects a.project,
+.ui.product.card .meta .projects a.project {
   opacity: 0.8;
 
   -webkit-transition: opacity 0.2s ease;
@@ -155,8 +170,8 @@
   -ms-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
 }
-.ui.product.cards .card .projects a.project:hover,
-.ui.product.card .projects a.project:hover {
+.ui.product.cards .card .meta .projects a.project:hover,
+.ui.product.card .meta .projects a.project:hover {
   cursor: pointer;
   opacity: 1;
 }
@@ -165,10 +180,17 @@
      Progress
 ---------------*/
 
+.ui.product.cards .card .progress,
+.ui.product.card .progress {
+  height: 3px;
+}
+
 .ui.product.cards .card .progress .bar,
 .ui.product.card .progress .bar {
   width: 100%;
 }
+
+
 
 /*--------------
      Overlay
@@ -237,6 +259,8 @@
 
 /* Active Product */
 .ui.product.cards .card .projects .active.project,
-.ui.product.card .projects .active.project {
+.ui.product.card .projects .active.project,
+.ui.product.cards .card .projects .active.project .icon,
+.ui.product.card .projects .active.project .icon {
   color: #5D6266;
 }
