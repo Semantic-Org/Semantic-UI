@@ -35,6 +35,7 @@ $.fn.card = function(parameters) {
         $module      = $(this),
         $dimmer      = $module.find(settings.selector.dimmer),
         $vote        = $module.find(settings.selector.vote),
+        $avatar      = $module.find(settings.selector.avatar),
         $voteCount   = $module.find(settings.selector.voteCount),
         $progressBar = $module.find(settings.selector.progressBar),
         $project     = $module.find(settings.selector.project),
@@ -79,6 +80,12 @@ $.fn.card = function(parameters) {
             ;
             $close
               .on('click', module.undim)
+            ;
+          }
+          if($avatar.size() > 0) {
+            $avatar
+              .on('mouseenter', module.avatar.show)
+              .on('mouseleave', module.avatar.hide)
             ;
           }
           if($vote.size() > 0) {
@@ -397,6 +404,7 @@ $.fn.card.settings = {
   selector    : {
     close       : '.close.icon',
     dimmer      : '.dimmer',
+    avatar      : '.avatar',
     follow      : '.follow.button',
     progressBar : '.progress .bar',
     project     : '.projects .project',

@@ -49,15 +49,12 @@
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  -webkit-box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
-}
-.ui.vertical.segment:last-child {
-  padding-bottom: 0em;
 }
 .ui.horizontal.segment {
   margin: 0em;
@@ -70,6 +67,9 @@
   -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.horizontal.segment:first-child {
+  padding-left: 0em;
 }
 /*-------------------
     Loose Coupling
