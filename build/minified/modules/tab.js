@@ -16,8 +16,8 @@
       $module         = $(this),
       $tabs           = $(settings.context).find(settings.selector.tabs),
       
-      firstLoad       = true,
       cache           = {},
+      firstLoad       = true,
       recursionDepth  = 0,
       
       activeTabPath,
@@ -62,6 +62,12 @@
             return false;
           }
           else {
+            if(!settings.apiSettings) {
+              module.debug('No API url found, using current url');
+              settings.apiSettings = {
+                url: settings.path + '/{$tab}'
+              };
+            }
             module.verbose('Address library found adding state change event');
             $.address
               .state(settings.path)
@@ -70,7 +76,7 @@
           }
         }
         // attach events if navigation wasn't set to window
-        if( !$.isWindow( $module.get(0) ) ) {
+        if( !$.isWindow( element ) ) {
           $module
             .on('click.' + eventNamespace, module.event.click)
           ;
@@ -133,21 +139,22 @@
       },
 
       cache: {
-        read: function(tabPath) {
-          return (tabPath !== undefined)
-            ? cache[tabPath]
-            : cache
+
+        read: function(cacheKey) {
+          return (cacheKey !== undefined)
+            ? cache[cacheKey]
+            : false
           ;
         },
-        add: function(tabPath, content) {
-          tabPath = tabPath || activeTabPath;
-          module.debug('Adding cached content for', tabPath);
-          cache[tabPath] = content;
+        add: function(cacheKey, content) {
+          cacheKey = cacheKey || activeTabPath;
+          module.debug('Adding cached content for', cacheKey);
+          cache[cacheKey] = content;
         },
-        remove: function(tabPath) {
-          tabPath = tabPath || activeTabPath;
-          module.debug('Removing cached content for', tabPath);
-          delete cache[tabPath];
+        remove: function(cacheKey) {
+          cacheKey = cacheKey || activeTabPath;
+          module.debug('Removing cached content for', cacheKey);
+          delete cache[cacheKey];
         }
       },
 
@@ -160,61 +167,75 @@
           var
             currentPathArray   = pathArray.slice(0, index + 1),
             currentPath        = module.utils.arrayToPath(currentPathArray),
-            
-            isLastTab          = (module.utils.last(pathArray) == currentPath),
+
             isTab              = module.is.tab(currentPath),
-            isParam            = !(isTab),
+            isLastIndex        = (index + 1 == pathArray.length),
 
             pushStateAvailable = (window.history && window.history.pushState),
             shouldIgnoreLoad   = (pushStateAvailable && settings.ignoreFirstLoad && firstLoad),
             remoteContent      = $.isPlainObject(settings.apiSettings),
             
-            $tab               = module.get.tabElement(currentPath)
+            $tab               = module.get.tabElement(currentPath),
+            nextPathArray,
+            nextPath,
+            isLastTab   
           ;
           module.verbose('Looking for tab', tab);
-          if(isParam) {
-            module.verbose('Tab is not found, assuming it is a parameter', tab);
-            return true;
-          }
-          else if(isTab) {
-            // scope up
+          if(isTab) {
             module.verbose('Tab was found', tab);
+
+            // scope up
             activeTabPath = currentPath;
             parameterArray = module.utils.filterArray(pathArray, currentPathArray);
+
+            if(isLastIndex) {
+              isLastTab = true;
+            }
+            else {
+              nextPathArray = pathArray.slice(0, index + 2);
+              nextPath      = module.utils.arrayToPath(nextPathArray);
+              isLastTab     = ( !module.is.tab(nextPath) );
+              module.verbose('Tab parameters found', nextPathArray);
+            }
             if(isLastTab && remoteContent) {
               if(!shouldIgnoreLoad) {
                 module.activate.navigation(currentPath);
-                module.content.fetch(currentPath, settings.onTabLoad);
+                module.content.fetch(currentPath, tabPath);
               }
               else {
                 module.debug('Ignoring remote content on first tab load', currentPath);
                 firstLoad = false;
-                cache[tabPath] = $tab.html();
+                module.cache.add(tabPath, $tab.html());
                 module.activate.all(currentPath);
                 $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
               }
             }
             else {
-              module.debug('Opened tab', currentPath);
+              module.debug('Opened local tab', currentPath);
               module.activate.all(currentPath);
               $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
             }
-
+            return false;
+          }
+          else {
+            module.error(errors.missingTab, tab);
+            return false;
           }
         });
       },
 
       content: {
         
-        fetch: function(tabPath) {
+        fetch: function(tabPath, fullTabPath) {
           var
             $tab             = module.get.tabElement(tabPath),
-            cachedContent    = cache[tabPath] || false,
+            fullTabPath      = fullTabPath || tabPath,
+            cachedContent    = module.cache.read(fullTabPath),
             apiSettings      = {
               dataType     : 'html',
               stateContext : $tab,
               success      : function(response) {
-                cache[tabPath] = response;
+                module.cache.add(fullTabPath, response);
                 module.content.update(tabPath, response);
                 if(tabPath == activeTabPath) {
                   module.debug('Content loaded', tabPath);
@@ -225,26 +246,26 @@
                 }
                 $.proxy(settings.onTabInit, $tab)(tabPath, parameterArray, historyEvent);
               },
-              urlData: { tab: tabPath }
+              urlData: { tab: fullTabPath }
             },
             request         = $tab.data(metadata.promise) || false,
             existingRequest = ( request && request.state() === 'pending' )
           ;
           if(settings.cache && cachedContent) {
-            module.debug('Showing existing content', tabPath);
-            // module.content.update(tabPath, cachedContent);
+            module.debug('Showing existing content', fullTabPath);
+            module.content.update(tabPath, cachedContent);
             module.activate.tab(tabPath);
-            $.proxy(settings.onTabLoad, $tab)(tabPath, parameterArray, historyEvent);
+            $.proxy(settings.onTabInit, $tab)(tabPath, parameterArray, historyEvent);
           }
           else if(existingRequest) {
-            module.debug('Content is already loading', tabPath);
+            module.debug('Content is already loading', fullTabPath);
             $tab
               .addClass(className.loading)
             ;
           }
           else if($.api !== undefined) {
-            module.debug('Retrieving content', tabPath);
-            $.api( $.extend(true, {}, settings.apiSettings, apiSettings) );
+            module.debug('Retrieving remote content', fullTabPath);
+            $.api( $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings) );
           }
           else {
             module.error(errors.api);
@@ -302,13 +323,19 @@
 
       is: {
         tab: function(tabName) {
-          return ( module.get.tabElement(tabName).size() > 0 );
+          return (tabName !== undefined)
+            ? ( module.get.tabElement(tabName).size() > 0 )
+            : false
+          ;
         }
       },
 
       get: {
         initialPath: function() {
           return $module.eq(0).data(metadata.tab) || $tabs.eq(0).data(metadata.tab);
+        },
+        path: function() {
+          return $.address.value();
         },
         // adds default tabs to tab path
         defaultPathArray: function(tabPath) {
@@ -449,7 +476,7 @@
             performance.push({
               'Element'        : element,
               'Name'           : message[0],
-              'Arguments'      : message[1] || '',
+              'Arguments'      : [].slice.call(message, 1) || '',
               'Execution Time' : executionTime
             });
           }
@@ -577,7 +604,7 @@
       noContent  : 'The tab you specified is missing a content url.',
       method     : 'The method you called is not defined',
       state      : 'The state library has not been initialized',
-      missingTab : 'Missing tab: ',
+      missingTab : 'Tab cannot be found',
       path       : 'History enabled, but no path was specified',
       recursion  : 'Max recursive depth reached'
     },

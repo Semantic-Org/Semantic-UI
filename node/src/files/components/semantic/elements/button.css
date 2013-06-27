@@ -119,138 +119,6 @@
   -moz-box-shadow: 0em 0em 0.125em 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0.125em 1px rgba(0, 0, 0, 0.1) inset;
 }
-/*--------------
-     Error
----------------*/
-.ui.button.error,
-.ui.button.error.hover,
-.ui.button.error.down {
-  cursor: default;
-  position: relative !important;
-  background-color: #D95C5C !important;
-  color: transparent !important;
-  text-shadow: none;
-  -webkit-transition: all 0s linear;
-  -moz-transition: all 0s linear;
-  -o-transition: all 0s linear;
-  -ms-transition: all 0s linear;
-  transition: all 0s linear;
-}
-.ui.button.error .icon {
-  opacity: 1;
-  color: #FFFFFF;
-}
-.ui.button.error:after {
-  position: absolute;
-  left: 50%;
-  content: "Error";
-  margin-left: -1.8em;
-  color: #FFFFFF;
-  -webkit-animation: button-text 0.5s;
-  -moz-animation: button-text 0.5s;
-  -ms-animation: button-text 0.5s;
-  -o-animation: button-text 0.5s;
-  animation: button-text 0.5s;
-}
-.ui.button.error .icon:before {
-  font-family: 'Icons';
-  content: '\26a0';
-}
-/*--------------
-     Success
----------------*/
-.ui.button.success,
-.ui.button.success.hover,
-.ui.button.success.down {
-  position: relative !important;
-  background-color: #5BBD72 !important;
-  color: transparent !important;
-}
-.ui.button.success .icon {
-  opacity: 1;
-  color: #FFFFFF;
-}
-.ui.button.success .icon:before {
-  font-family: 'Icons';
-  content: '\2611';
-}
-.ui.button.success:after {
-  position: absolute;
-  left: 50%;
-  content: "Success";
-  margin-left: -2em;
-  color: #FFFFFF;
-  -webkit-animation: button-text 0.5s;
-  -moz-animation: button-text 0.5s;
-  -ms-animation: button-text 0.5s;
-  -o-animation: button-text 0.5s;
-  animation: button-text 0.5s;
-}
-@-webkit-keyframes button-text {
-  0% {
-    -webkit-transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-@-moz-keyframes button-text {
-  0% {
-    -moz-transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    -moz-transform: translateY(0);
-  }
-}
-@keyframes button-text {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/*--------------
-    Loading
----------------*/
-.ui.button.loading,
-.ui.button.loading.hover {
-  position: relative;
-  cursor: default;
-  background-color: #F3F3F3 !important;
-  color: transparent !important;
-  text-shadow: none !important;
-  background-image: none !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  box-shadow: none !important;
-  -webkit-transition: all 0s linear;
-  -moz-transition: all 0s linear;
-  -o-transition: all 0s linear;
-  -ms-transition: all 0s linear;
-  transition: all 0s linear;
-}
-.ui.button.loading:after {
-  position: absolute;
-  top: 0em;
-  left: 0em;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
-}
-.ui.labeled.icon.button.loading .icon {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
 /*-------------------
       Disabled
 --------------------*/
@@ -958,4 +826,136 @@
   -moz-border-radius: 0px 0px 0.3125em 0.3125em;
   -webkit-border-radius: 0px 0px 0.3125em 0.3125em;
   border-radius: 0px 0px 0.3125em 0.3125em;
+}
+/*--------------
+    Loading
+---------------*/
+.ui.button.loading,
+.ui.button.loading.hover {
+  position: relative;
+  cursor: default;
+  background-color: #F3F3F3 !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  background-image: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-transition: all 0s linear;
+  -moz-transition: all 0s linear;
+  -o-transition: all 0s linear;
+  -ms-transition: all 0s linear;
+  transition: all 0s linear;
+}
+.ui.button.loading:after {
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
+}
+.ui.labeled.icon.button.loading .icon {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/*--------------
+     Error
+---------------*/
+.ui.button.error,
+.ui.button.error.hover,
+.ui.button.error.down {
+  cursor: default;
+  position: relative !important;
+  background-color: #D95C5C !important;
+  color: transparent !important;
+  text-shadow: none;
+  -webkit-transition: all 0s linear;
+  -moz-transition: all 0s linear;
+  -o-transition: all 0s linear;
+  -ms-transition: all 0s linear;
+  transition: all 0s linear;
+}
+.ui.button.error .icon {
+  opacity: 1;
+  color: #FFFFFF;
+}
+.ui.button.error:after {
+  position: absolute;
+  left: 50%;
+  content: "Error";
+  margin-left: -1.8em;
+  color: #FFFFFF;
+  -webkit-animation: button-text 0.5s;
+  -moz-animation: button-text 0.5s;
+  -ms-animation: button-text 0.5s;
+  -o-animation: button-text 0.5s;
+  animation: button-text 0.5s;
+}
+.ui.button.error .icon:before {
+  font-family: 'Icons';
+  content: '\26a0';
+}
+/*--------------
+     Success
+---------------*/
+.ui.button.success,
+.ui.button.success.hover,
+.ui.button.success.down {
+  position: relative !important;
+  background-color: #5BBD72 !important;
+  color: transparent !important;
+}
+.ui.button.success .icon {
+  opacity: 1;
+  color: #FFFFFF;
+}
+.ui.button.success .icon:before {
+  font-family: 'Icons';
+  content: '\2611';
+}
+.ui.button.success:after {
+  position: absolute;
+  left: 50%;
+  content: "Success";
+  margin-left: -2em;
+  color: #FFFFFF;
+  -webkit-animation: button-text 0.5s;
+  -moz-animation: button-text 0.5s;
+  -ms-animation: button-text 0.5s;
+  -o-animation: button-text 0.5s;
+  animation: button-text 0.5s;
+}
+@-webkit-keyframes button-text {
+  0% {
+    -webkit-transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes button-text {
+  0% {
+    -moz-transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+@keyframes button-text {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

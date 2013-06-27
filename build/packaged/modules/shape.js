@@ -40,7 +40,6 @@ $.fn.shape = function(parameters) {
         // private variables
         $activeSide,
         $nextSide,
-        transitionEnd = 'msTransitionEnd oTransitionEnd webkitTransitionEnd',
         
         // standard module
         element       = this,
@@ -112,7 +111,7 @@ $.fn.shape = function(parameters) {
             ;
             $sides
               .css(propertyObject)
-              .one(transitionEnd + eventNamespace, callback)
+              .one(module.get.transitionEvent(), callback)
             ;
           }
           else {
@@ -138,9 +137,11 @@ $.fn.shape = function(parameters) {
         queue: function(method) {
           module.debug('Queueing animation of', method);
           $sides
-            .one(transitionEnd, function() {
+            .one(module.get.transitionEvent(), function() {
               module.debug('Executing queued animation');
-              $module.shape(method);
+              setTimeout(function(){
+                $module.shape(method);
+              }, 0);
             })
           ;
         },
@@ -174,6 +175,24 @@ $.fn.shape = function(parameters) {
         },
 
         get: {
+
+          transitionEvent: function() {
+            var
+              element     = document.createElement('element'),
+              transitions = {
+                'transition'       :'transitionend',
+                'OTransition'      :'oTransitionEnd',
+                'MozTransition'    :'transitionend',
+                'WebkitTransition' :'webkitTransitionEnd'
+              },
+              transition
+            ;
+            for(transition in transitions){
+              if( element.style[transition] !== undefined ){
+                return transitions[transition];
+              }
+            }
+          },
 
           nextSide: function() {
             return ( $activeSide.next(settings.selector.side).size() > 0 )
@@ -501,14 +520,25 @@ $.fn.shape = function(parameters) {
             return settings[name];
           }
         },
+        setting: function(name, value) {
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, settings, name);
+            }
+            else {
+              settings[name] = value;
+            }
+          }
+          else {
+            return settings[name];
+          }
+        },
         internal: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
-              module.verbose('Modifying internal property', name, value);
               $.extend(true, module, name);
             }
             else {
-              module.verbose('Changing internal method to', value);
               module[name] = value;
             }
           }
@@ -537,7 +567,7 @@ $.fn.shape = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
         },
         performance: {
           log: function(message) {
@@ -551,44 +581,42 @@ $.fn.shape = function(parameters) {
               previousTime  = time || currentTime,
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
+              performance.push({
                 'Element'        : element,
-                'Name'           : message[0], 
-                'Arguments'      : message[1] || 'None',
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
                 'Execution Time' : executionTime
               });
-              clearTimeout(module.performance.timer);
-              module.performance.timer = setTimeout(module.performance.display, 100);
             }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var
-              title              = settings.moduleName,
-              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
-              totalExecutionTime = 0
+              title = settings.moduleName + ':',
+              totalTime = 0
             ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
-              title += ' Performance (' + moduleSelector + ')';
+              title += ' \'' + moduleSelector + '\'';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
-                $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
-                });
                 console.table(performance);
               }
               else {
                 $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
                   console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
-              console.log('Total Execution Time:', totalExecutionTime +'ms');
               console.groupEnd();
-              performance = [];
-              time        = false;
             }
+            performance = [];
           }
         },
         invoke: function(query, passedArguments, context) {

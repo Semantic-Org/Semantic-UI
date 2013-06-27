@@ -43,6 +43,7 @@
 .ui.cards .card .dimmer,
 .ui.card .dimmer {
   background-color: rgba(80, 80, 80, 0.6);
+  
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -59,11 +60,6 @@
   
   font-size: 2em;
   color: #FFFFFF;
-}
-
-.ui.cards .card .dimmer .content,
-.ui.card .dimmer .content {
-
 }
 .ui.cards .card .dimmer .buttons,
 .ui.card .dimmer .buttons {

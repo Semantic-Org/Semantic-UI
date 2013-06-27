@@ -331,11 +331,11 @@ a:hover {
   width: auto !important;
   margin-right: 1em;
 }
-#example .masthead h1 {
+#example .masthead.segment h1 {
   font-size: 5em;
   color: #FFFFFF;
   line-height: 1.2;
-  margin-bottom: 0px;
+  margin: 0em;
   padding-bottom: 0px;
 }
 #example .masthead strike {

@@ -647,7 +647,7 @@ i.link.icon {
   transition: opacity 0.3s ease-out;
 }
 .link.icon:hover {
-  opacity: 1;
+  opacity: 1 !important;
 }
 /*-------------------
       Circular 
