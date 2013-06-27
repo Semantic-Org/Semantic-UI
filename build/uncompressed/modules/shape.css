@@ -1,5 +1,16 @@
+/*
+ * # Semantic Button
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
 /*******************************
-             Shape
+              Shape
 *******************************/
 .ui.shape {
   position: relative;
@@ -22,14 +33,15 @@
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/*---------------
-    States
-----------------*/
-/* Standard */
 .ui.shape .side {
   display: none;
 }
-/* Animating */
+/*******************************
+             States
+*******************************/
+/*--------------
+    Animating
+---------------*/
 .ui.shape.animating .sides {
   position: absolute;
 }
@@ -43,7 +55,9 @@
 .ui.shape .hidden.side {
   opacity: 0.7;
 }
-/* css animation */
+/*--------------
+      CSS
+---------------*/
 .ui.shape.css {
   -webkit-transition: all 0.6s ease-in-out;
   -moz-transition: all 0.6s ease-in-out;
@@ -65,7 +79,9 @@
   -ms-transition: opacity 0.6s ease-in-out;
   transition: opacity 0.6s ease-in-out;
 }
-/* Active */
+/*--------------
+     Active
+---------------*/
 .ui.shape .active.side {
   display: block;
 }

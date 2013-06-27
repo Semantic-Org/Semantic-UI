@@ -329,7 +329,7 @@ $.fn.accordion.settings = {
 
   debug       : true,
   verbose     : true,
-  performance : false,
+  performance : true,
   
   exclusive   : true,
   collapsible : true,
