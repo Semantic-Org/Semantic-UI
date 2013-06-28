@@ -96,16 +96,28 @@
   margin: 0em;
   padding: 0em 1em;
   -webkit-transition:
-    all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important
+    top 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    right 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    bottom 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important
   ;
   -moz-transition:
-    all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important
+    top 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    right 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    bottom 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important
   ;
   -ms-transition:
-    all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important
+    top 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    right 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    bottom 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important
   ;
   transition:
-    all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important
+    top 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    right 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important,
+    bottom 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s !important
   ;
 }
 .ui.slide.reveal > :first-child {
@@ -144,10 +156,14 @@
 .ui.up.slide.reveal > :first-child {
   top: 0% !important;
   left: 0% !important;
+  right: auto !important;
+  bottom: auto !important;
 }
 .ui.up.slide.reveal > :last-child {
   top: 100% !important;
   left: 0% !important;
+  right: auto !important;
+  bottom: auto !important;
 }
 .ui.slide.up.reveal:hover > :first-child {
   top: -100% !important;
@@ -159,10 +175,14 @@
 }
 
 .ui.down.slide.reveal > :first-child {
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
   bottom: 0% !important;
 }
 .ui.down.slide.reveal > :last-child {
   top: auto !important;
+  right: auto !important;
   bottom: 100% !important;
   left: 0% !important;
 }
