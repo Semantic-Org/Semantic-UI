@@ -35,7 +35,7 @@
   margin-bottom: 0em;
 }
 .ui.segment:after {
-  content: ".";
+  content: '';
   display: block;
   height: 0;
   clear: both;

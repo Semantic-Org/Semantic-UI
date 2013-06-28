@@ -30,7 +30,7 @@
       moduleSelector  = $module.selector || '',
 
       eventNamespace  = '.' + settings.namespace,
-      moduleNamespace = 'module-' + settings.namespace,
+      moduleNamespace = settings.namespace + '-module',
       
       className       = settings.className,
       metadata        = settings.metadata,

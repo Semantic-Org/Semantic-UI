@@ -61,6 +61,7 @@
 }
 .ui.profile.cards .card > .content .name .image,
 .ui.profile.card > .content .name .image {
+  display: block;
   width: 140px;
   height: 140px;
   margin: 0em auto 0.25em;
@@ -69,81 +70,6 @@
 .ui.profile.card > .content .name .image img {
   max-width: 100%;;
 }
-
-/*--------------
-     Avatar
----------------*/
-
-.ui.profile.card > .content .avatar {
-  position: relative;
-  z-index: 2;
-
-  -webkit-border-radius: 500em;
-  -moz-border-radius: 500em;
-  border-radius: 500em;
-
-}
-
-.ui.profile.card > .content .avatar:after,
-.ui.profile.card > .content .avatar img {
-  position: absolute;
-  top: 0em;
-  left: 0em;
-  width: 100%;
-  height: 100%;
-
-  -webkit-transform-origin: bottom right;
-  -moz-transform-origin: bottom right;
-  -o-transform-origin: bottom right;
-  -ms-transform-origin: bottom right;
-  transform-origin: bottom right;
-
-
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-
-  -webkit-border-radius: 500em;
-  -moz-border-radius: 500em;
-  border-radius: 500em;
-}
-.ui.profile.card > .content .avatar img:first-child {
-  z-index: 4;
-
-  -webkit-transition: 
-    -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.5s,
-    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.5s
-  ;
-  -moz-transition: 
-    -moz-transform 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.5s,
-    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.5s
-  ;
-  -ms-transition: 
-    -ms-transform 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.5s,
-    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.5s
-  ;
-  transition: 
-    transform 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.5s,
-    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.5s
-  ;
-}
-.ui.profile.card > .content .avatar img:last-child {
-  z-index: 3;
-}
-
-.ui.profile.card > .content .avatar:hover img:first-child {
-  -webkit-transform: rotate(110deg);
-  -moz-transform: rotate(110deg);
-  -o-transform: rotate(110deg);
-  -ms-transform: rotate(110deg);
-  transform: rotate(110deg);
-
-  left: 5px;
-}
-
-
 
 /*--------------
      Stats

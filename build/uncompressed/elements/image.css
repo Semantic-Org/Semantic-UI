@@ -42,6 +42,7 @@ img.ui.image {
 ---------------*/
 .ui.rounded.images .image,
 .ui.rounded.images img,
+.ui.rounded.image img,
 .ui.rounded.image {
   -webkit-border-radius: 0.3125em;
   -moz-border-radius: 0.3125em;
@@ -52,8 +53,8 @@ img.ui.image {
 ---------------*/
 .ui.circular.images .image,
 .ui.circular.images img,
+.ui.circular.image img,
 .ui.circular.image {
-  margin-right: 0.5em;
   -webkit-border-radius: 500em;
   -moz-border-radius: 500em;
   border-radius: 500em;
@@ -63,6 +64,7 @@ img.ui.image {
 ---------------*/
 .ui.avatar.images .image,
 .ui.avatar.images img,
+.ui.avatar.image img,
 .ui.avatar.image {
   margin-right: 0.5em;
   display: inline-block;
