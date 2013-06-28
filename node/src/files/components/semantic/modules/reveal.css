@@ -102,10 +102,14 @@
 .ui.up.slide.reveal > :first-child {
   top: 0% !important;
   left: 0% !important;
+  right: auto !important;
+  bottom: auto !important;
 }
 .ui.up.slide.reveal > :last-child {
   top: 100% !important;
   left: 0% !important;
+  right: auto !important;
+  bottom: auto !important;
 }
 .ui.slide.up.reveal:hover > :first-child {
   top: -100% !important;
@@ -116,10 +120,14 @@
   left: 0% !important;
 }
 .ui.down.slide.reveal > :first-child {
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
   bottom: 0% !important;
 }
 .ui.down.slide.reveal > :last-child {
   top: auto !important;
+  right: auto !important;
   bottom: 100% !important;
   left: 0% !important;
 }
