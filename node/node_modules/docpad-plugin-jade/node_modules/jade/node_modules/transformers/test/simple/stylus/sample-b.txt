@@ -1,0 +1,10 @@
+border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  border-radius arguments
+  
+body
+  font 20px Helvetica, Arial, sans-serif
+  
+a.button
+  border-radius(5px)
