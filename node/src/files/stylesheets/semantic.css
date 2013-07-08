@@ -236,7 +236,9 @@ a:hover {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  font-size: 0.85em;
+}
+#example #menu .item .item {
+  font-size: 0.875rem;
 }
 
 #example .sidr .ui.menu {
