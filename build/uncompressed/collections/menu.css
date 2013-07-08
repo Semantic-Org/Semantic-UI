@@ -205,7 +205,7 @@
 ---------------*/
 .ui.menu .item > .label,
 .ui.menu .item > a > .label {
-  font-size: 0.8em;
+  font-size: 0.875em;
   margin: -0.3em 0em -0.3em 0.3em;
   padding: 0.3em 0.8em;
   vertical-align: baseline;
@@ -379,7 +379,7 @@
   margin: 0em;
 }
 .ui.vertical.menu .dropdown.item .menu .item {
-  font-size: 0.9em;
+  font-size: 0.875em;
   padding: 0.75em 1em;
 }
 .ui.vertical.menu .dropdown.item .menu .item .icon {
@@ -391,7 +391,7 @@
 }
 .ui.vertical.menu .item > .menu > .item {
   padding: 0.5rem 1.5rem;
-  font-size: 0.85em;
+  font-size: 0.875em;
 }
 .ui.vertical.menu .item > .menu > .item:before {
   display: none;
@@ -422,7 +422,7 @@
   color: #FFFFFF;
 }
 .ui.tiered.menu .sub.menu .item {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 .ui.tiered.menu .sub.menu .item:before {
   background-image: none;
@@ -705,7 +705,7 @@
   background-color: transparent;
   opacity: 1;
   color: rgba(50, 50, 50, 0.8);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   padding: 0em;
   text-transform: uppercase;
   font-weight: bold;
@@ -1186,16 +1186,20 @@
   transition: background 0.2s ease
   ;
 }
+/* Don't double up pointers */
+.ui.pointing.menu .active.item .menu .active.item:after {
+  display: none;
+}
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
+  margin-top: -0.3em;
   right: -0.4em;
   bottom: auto;
   left: auto;
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  margin-top: -0.3em;
 }
 /* Colors */
 .ui.pointing.menu .active.item:after {
