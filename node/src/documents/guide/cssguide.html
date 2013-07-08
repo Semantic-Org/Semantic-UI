@@ -187,6 +187,27 @@ type   : 'UI Guide'
       color: #009FDA;
     }
     </div>
+    
+    <h4 class="ui header">Inheritance is Magical</h4>
+    <p>Many CSS properties can use the value 'inherit' to specify, quite unintuitively, to take on the value of parent element for values that do not normally inherit. For example, an element can use inherit to double whatever its parents padding size is, or to receive the same type of border as a parent without knowing what it is beforehand.</p>
+    <div class="code" data-type="css">
+    /* inheriting borders */
+    .ui.widget {
+      border: 2px solid rgba(0, 0, 0, 0.1);
+    }
+    // will recieve same border treatment as parent
+    .ui.widget .foo {
+      border: inherit;
+    }
+    /* inheriting positioning */
+    .ui.widget {
+      padding: 0.5em 1em;
+    }
+    // will use the same padding as parent
+    .ui.widget .foo {
+      padding: inherit;
+    }
+    </div>
 
     <h4 class="ui header"><em>Relatively</em> Relative</h4>
     <p>EMs are defined so that 1em is equal to the current font size inside of an element. Using EMs can allow you to size content inside an element in proportion to the overall size of the element. Be careful though because this will stack with nested elements.</p>
