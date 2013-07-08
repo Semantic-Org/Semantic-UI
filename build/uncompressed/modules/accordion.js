@@ -90,6 +90,14 @@ $.fn.accordion = function(parameters) {
             else {
               module.open(activeIndex);
             }
+          },
+
+          resetStyle: function() {
+            $(this)
+              .removeAttr('style')
+              .children()
+                .removeAttr('style')
+            ;
           }
 
         },
@@ -113,7 +121,7 @@ $.fn.accordion = function(parameters) {
                 .children()
                   .animate({
                     opacity: 0
-                  }, settings.speed)
+                  }, settings.speed, module.event.resetStyle)
                   .end()
                 .slideUp(settings.speed , settings.easing, function() {
                   $previousContent
@@ -161,7 +169,7 @@ $.fn.accordion = function(parameters) {
             .children()
               .animate({
                 opacity: 0
-              }, settings.speed)
+              }, settings.speed, module.event.resetStyle)
               .end()
             .slideUp(settings.speed, settings.easing, function(){
               $activeContent
@@ -329,7 +337,7 @@ $.fn.accordion.settings = {
 
   debug       : true,
   verbose     : true,
-  performance : true,
+  performance : false,
   
   exclusive   : true,
   collapsible : true,
