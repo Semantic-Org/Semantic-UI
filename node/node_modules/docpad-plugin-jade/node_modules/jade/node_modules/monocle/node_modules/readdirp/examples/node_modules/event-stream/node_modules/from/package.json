@@ -1,0 +1,33 @@
+{
+  "name": "from",
+  "version": "0.0.2",
+  "description": "Easy way to make a Readable Stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "asynct test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/from.git"
+  },
+  "keywords": [
+    "stream",
+    "streams",
+    "readable",
+    "easy"
+  ],
+  "devDependencies": {
+    "asynct": "1",
+    "stream-spec": "0",
+    "assertions": "~2.3.0"
+  },
+  "author": {
+    "name": "Dominic Tarr",
+    "email": "dominic.tarr@gmail.com",
+    "url": "dominictarr.com"
+  },
+  "license": "MIT",
+  "readme": "# from\n\nAn easy way to create a `readable Stream`.\n\n## License\nMIT / Apache2\n",
+  "_id": "from@0.0.2",
+  "_from": "from@~0"
+}

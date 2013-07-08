@@ -1,0 +1,238 @@
+vendors = moz webkit o ms official
+
+// stringify the given arg
+
+-string(arg)
+  type(arg) + ' ' + arg
+
+// require a color
+
+require-color(color)
+  unless color is a 'color'
+    error('RGB or HSL value expected, got a ' + -string(color))
+
+// require a unit
+
+require-unit(n)
+  unless n is a 'unit'
+    error('unit expected, got a ' + -string(n))
+
+// require a string
+
+require-string(str)
+  unless str is a 'string' or str is a 'ident'
+    error('string expected, got a ' + -string(str))
+
+// apply js Math function
+
+math(n, fn)
+  require-unit(n)
+  require-string(fn)
+  -math(n, fn)
+
+// adjust the given color's property by amount
+
+adjust(color, prop, amount)
+  require-color(color)
+  require-string(prop)
+  require-unit(amount)
+  -adjust(color, prop, amount)
+
+// Math functions
+
+abs(n) { math(n, 'abs') }
+sin(n) { math(n, 'sin') }
+cos(n) { math(n, 'cos') }
+min(a, b) { a < b ? a : b }
+max(a, b) { a > b ? a : b }
+PI = -math-prop('PI')
+
+// Rounding Math functions
+
+ceil(n, precision = 0)
+  multiplier = 10 ** precision
+  math(n * multiplier, 'ceil') / multiplier
+
+floor(n, precision = 0)
+  multiplier = 10 ** precision
+  math(n * multiplier, 'floor') / multiplier
+
+round(n, precision = 0)
+  multiplier = 10 ** precision
+  math(n * multiplier, 'round') / multiplier
+
+// return the sum of the given numbers
+
+sum(nums)
+  sum = 0
+  sum += n for n in nums
+
+// return the average of the given numbers
+
+avg(nums)
+  sum(nums) / length(nums)
+
+// return a unitless number, or pass through
+
+remove-unit(n)
+  if typeof(n) is "unit"
+    unit(n, "")
+  else
+    n
+
+// convert a percent to a decimal, or pass through
+
+percent-to-decimal(n)
+  if unit(n) is "%"
+    remove-unit(n) / 100
+  else
+    n
+
+// color components
+
+alpha(color) { component(hsl(color), 'alpha') }
+hue(color) { component(hsl(color), 'hue') }
+saturation(color) { component(hsl(color), 'saturation') }
+lightness(color) { component(hsl(color), 'lightness') }
+
+// check if n is an odd number
+
+odd(n)
+  1 == n % 2
+
+// check if n is an even number
+
+even(n)
+  0 == n % 2
+
+// check if color is light
+
+light(color)
+  lightness(color) >= 50%
+
+// check if color is dark
+
+dark(color)
+  lightness(color) < 50%
+
+// desaturate color by amount
+
+desaturate(color, amount)
+  adjust(color, 'saturation', - amount)
+
+// saturate color by amount
+
+saturate(color, amount)
+  adjust(color, 'saturation', amount)
+
+// darken by the given amount
+
+darken(color, amount)
+  adjust(color, 'lightness', - amount)
+
+// lighten by the given amount
+
+lighten(color, amount)
+  adjust(color, 'lightness', amount)
+
+// decerase opacity by amount
+
+fade-out(color, amount)
+  color - rgba(black, percent-to-decimal(amount))
+
+// increase opacity by amount
+
+fade-in(color, amount)
+  color + rgba(black, percent-to-decimal(amount))
+
+// spin hue by a given amount
+
+spin(color, amount)
+  color + unit(amount, deg)
+
+// mix two colors by a given amount
+
+mix(color1, color2, weight = 50%)
+  unless weight in 0..100
+    error("Weight must be between 0% and 100%")
+
+  if length(color1) == 2
+    weight = color1[0]
+    color1 = color1[1]
+
+  else if length(color2) == 2
+    weight = 100 - color2[0]
+    color2 = color2[1]
+
+  require-color(color1)
+  require-color(color2)
+
+  p = unit(weight / 100, '')
+  w = p * 2 - 1
+
+  a = alpha(color1) - alpha(color2)
+
+  w1 = (((w * a == -1) ? w : (w + a) / (1 + w * a)) + 1) / 2
+  w2 = 1 - w1
+
+  channels = (red(color1) red(color2)) (green(color1) green(color2)) (blue(color1) blue(color2))
+  rgb = ()
+
+  for pair in channels
+    push(rgb, floor(pair[0] * w1 + pair[1] * w2))
+
+  a1 = alpha(color1) * p
+  a2 = alpha(color1) * (1 - p)
+  alpha = a1 + a2
+
+  rgba(rgb[0], rgb[1], rgb[2], alpha)
+
+// invert colors, leave alpha intact
+
+invert(color)
+  r = 255 - red(color)
+  g = 255 - green(color)
+  b = 255 - blue(color)
+  rgba(r,g,b,alpha(color))
+
+// return the last value in the given expr
+
+last(expr)
+  expr[length(expr) - 1]
+
+// return keys in the given pairs
+
+keys(pairs)
+  ret = ()
+  for pair in pairs
+    push(ret, pair[0]);
+  ret
+
+// return values in the given pairs
+
+values(pairs)
+  ret = ()
+  for pair in pairs
+    push(ret, pair[1]);
+  ret
+
+// join values with the given delimiter
+
+join(delim, vals...)
+  buf = ''
+  vals = vals[0] if length(vals) == 1
+  for val, i in vals
+    buf += i ? delim + val : val
+
+// add a css rule to the containing block
+
+// - This definition allows add-property to be used as a mixin
+// - It has the same effect as interpolation but allows users
+//   to opt for a functional style
+
+add-property-function = add-property
+add-property(name, expr)
+  if mixin
+    {name} expr
+  else
+    add-property-function(name, expr)

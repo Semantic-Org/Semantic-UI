@@ -1,0 +1,36 @@
+{
+  "name": "promise",
+  "version": "2.0.0",
+  "description": "Bare bones Promises/A+ implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec --timeout 200 --slow 99999"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/then/promise.git"
+  },
+  "author": {
+    "name": "ForbesLindesay"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "is-promise": "~1"
+  },
+  "devDependencies": {
+    "promises-aplus-tests": "*",
+    "mocha-as-promised": "~1.2.1",
+    "better-assert": "~1.0.0"
+  },
+  "readme": "[![Build Status](https://travis-ci.org/then/promise.png)](https://travis-ci.org/then/promise)\r\n<a href=\"http://promises-aplus.github.com/promises-spec\"><img src=\"http://promises-aplus.github.com/promises-spec/assets/logo-small.png\" align=\"right\" /></a>\r\n# promise\r\n\r\n  This a bare bones [Promises/A+](http://promises-aplus.github.com/promises-spec/) implementation.\r\n\r\n  It is designed to get the basics spot on correct, so that you can build extended promise implementations on top of it.\r\n\r\n## Installation\r\n\r\n  Server:\r\n\r\n    $ npm install promise\r\n\r\n  Client:\r\n\r\n    $ component install then/promise\r\n\r\n## API\r\n\r\n  In the example below shows how you can load the promise library (in a way that works on both client and server).  It then demonstrates creating a promise from scratch.  You simply call `new Promise(fn)`.  There is a complete specification for what is returned by this method in [Promises/A+](http://promises-aplus.github.com/promises-spec/).\r\n\r\n```javascript\r\nvar Promise = require('promise');\r\n\r\nvar promise = new Promise(function (resolve, reject) {\r\n    get('http://www.google.com', function (err, res) {\r\n      if (err) reject(err);\r\n      else resolve(res);\r\n    });\r\n  });\r\n```\r\n\r\n## Extending Promises\r\n\r\n  There are three options for extending the promises created by this library.\r\n\r\n### Inheritance\r\n\r\n  You can use inheritance if you want to create your own complete promise library with this as your basic starting point, perfect if you have lots of cool features you want to add.  Here is an example of a promise library called `Awesome`, which is built on top of `Promise` correctly.\r\n\r\n```javascript\r\nvar Promise = require('promise');\r\nfunction Awesome(fn) {\r\n  if (!(this instanceof Awesome)) return new Awesome(fn);\r\n  Promise.call(this, fn);\r\n}\r\nAwesome.prototype = Object.create(Promise.prototype);\r\nAwesome.prototype.constructor = Awesome;\r\n\r\n//Awesome extension\r\nAwesome.prototype.spread = function (cb) {\r\n  return this.then(function (arr) {\r\n    return cb.apply(this, arr);\r\n  })\r\n};\r\n```\r\n\r\n  N.B. if you fail to set the prototype and constructor properly or fail to do Promise.call, things can fail in really subtle ways.\r\n\r\n### Wrap\r\n\r\n  This is the nuclear option, for when you want to start from scratch.  It ensures you won't be impacted by anyone who is extending the prototype (see below).\r\n\r\n```javascript\r\nfunction Uber(fn) {\r\n  if (!(this instanceof Uber)) return new Uber(fn);\r\n  var _prom = new Promise(fn);\r\n  this.then = _prom.then;\r\n}\r\n\r\nUber.prototype.spread = function (cb) {\r\n  return this.then(function (arr) {\r\n    return cb.apply(this, arr);\r\n  })\r\n};\r\n```\r\n\r\n### Extending the Prototype\r\n\r\n  In general, you should never extend the prototype of this promise implimenation because your extensions could easily conflict with someone elses extensions.  However, this organisation will host a library of extensions which do not conflict with each other, so you can safely enable any of those.  If you think of an extension that we don't provide and you want to write it, submit an issue on this repository and (if I agree) I'll set you up with a repository and give you permission to commit to it.\r\n\r\n## License\r\n\r\n  MIT\r\n",
+  "readmeFilename": "Readme.md",
+  "bugs": {
+    "url": "https://github.com/then/promise/issues"
+  },
+  "_id": "promise@2.0.0",
+  "dist": {
+    "shasum": "e6bdc40632c82d98a94499081b5f135f59b2d3cb"
+  },
+  "_from": "promise@~2.0",
+  "_resolved": "https://registry.npmjs.org/promise/-/promise-2.0.0.tgz"
+}

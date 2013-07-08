@@ -1,0 +1,16 @@
+{
+  "name": "jade",
+  "repo": "visionmedia/jade",
+  "description": "Jade template runtime",
+  "version": "0.31.2",
+  "keywords": [
+    "template"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "lib/runtime.js"
+  ],
+  "main": "lib/runtime.js"
+}
