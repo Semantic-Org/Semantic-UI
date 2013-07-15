@@ -116,10 +116,18 @@
               ;
             }
           },
+          
           hide: function() {
             $module
-              .fadeOut(settings.duration, settings.easing)
+              .fadeOut(settings.duration, settings.easing, this.onHide)
             ;
+          },
+
+          onHide: function() {
+            $module.remove();
+            if (settings.onHide) {
+              settings.onHide();
+            };
           },
 
           stick: function() {
@@ -144,7 +152,7 @@
             else {
               $module
                 .css({
-                  top      : yPosition
+                  top : yPosition
                 })
               ;
             }
@@ -152,15 +160,17 @@
           unStick: function() {
             $module
               .css({
-                top      : ''
+                top : ''
               })
             ;
           },
-          dismiss: function() {
+          dismiss: function(event) {
             if(settings.storageMethod) {
               module.storage.set(settings.storedKey, settings.storedValue);
             }
             module.hide();
+            event.stopImmediatePropagation();
+            event.preventDefault();
           },
 
           should: {
@@ -321,7 +331,9 @@
     },
 
     speed         : 500,
-    easing        : 'easeOutQuad'
+    easing        : 'easeOutQuad',
+
+    onHide: function() {}
 
   };
 
