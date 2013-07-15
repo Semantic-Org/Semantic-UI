@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var Stream = require('stream');
 var StringDecoder = require('string_decoder').StringDecoder;
+var Stream = require('stream');
 var zlib;
 
 /**
@@ -53,9 +53,9 @@ exports.type = function(str){
 
 exports.params = function(str){
   return str.split(/ *; */).reduce(function(obj, str){
-    var parts = str.split(/ *= */)
-      , key = parts.shift()
-      , val = parts.shift();
+    var parts = str.split(/ *= */);
+    var key = parts.shift();
+    var val = parts.shift();
 
     if (key && val) obj[key] = val;
     return obj;
@@ -91,9 +91,9 @@ exports.parseLinks = function(str){
 exports.unzip = function(req, res){
   if (!zlib) return;
 
-  var unzip = zlib.createUnzip()
-    , stream = new Stream
-    , decoder;
+  var unzip = zlib.createUnzip();
+  var stream = new Stream;
+  var decoder;
 
   // make node responseOnEnd() happy
   stream.req = req;

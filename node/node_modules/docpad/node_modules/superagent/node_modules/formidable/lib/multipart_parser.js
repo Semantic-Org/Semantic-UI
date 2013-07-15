@@ -13,13 +13,13 @@ var Buffer = require('buffer').Buffer,
       PART_DATA_START: s++,
       PART_DATA: s++,
       PART_END: s++,
-      END: s++,
+      END: s++
     },
 
     f = 1,
     F =
     { PART_BOUNDARY: f,
-      LAST_BOUNDARY: f *= 2,
+      LAST_BOUNDARY: f *= 2
     },
 
     LF = 10,
@@ -34,7 +34,7 @@ var Buffer = require('buffer').Buffer,
       return c | 0x20;
     };
 
-for (var s in S) {
+for (s in S) {
   exports[s] = S[s];
 }
 
@@ -143,9 +143,11 @@ MultipartParser.prototype.write = function(buffer) {
         }
 
         if (c != boundary[index+2]) {
-          return i;
+          index = -2;
         }
-        index++;
+        if (c == boundary[index+2]) {
+          index++;
+        }
         break;
       case S.HEADER_FIELD_START:
         state = S.HEADER_FIELD;
@@ -207,7 +209,7 @@ MultipartParser.prototype.write = function(buffer) {
         state = S.PART_DATA_START;
         break;
       case S.PART_DATA_START:
-        state = S.PART_DATA
+        state = S.PART_DATA;
         mark('partData');
       case S.PART_DATA:
         prevIndex = index;
@@ -302,7 +304,17 @@ MultipartParser.prototype.write = function(buffer) {
 };
 
 MultipartParser.prototype.end = function() {
-  if (this.state != S.END) {
+  var callback = function(self, name) {
+    var callbackSymbol = 'on'+name.substr(0, 1).toUpperCase()+name.substr(1);
+    if (callbackSymbol in self) {
+      self[callbackSymbol]();
+    }
+  };
+  if ((this.state == S.HEADER_FIELD_START && this.index == 0) ||
+      (this.state == S.PART_DATA && this.index == this.boundary.length)) {
+    callback(this, 'partEnd');
+    callback(this, 'end');
+  } else if (this.state != S.END) {
     return new Error('MultipartParser.end(): stream ended unexpectedly: ' + this.explain());
   }
 };

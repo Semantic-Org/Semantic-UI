@@ -62,8 +62,7 @@
             return false;
           }
           else {
-            if($.isPlainObject(settings.apiSettings) && settings.action === undefined && settings.url === undefined) {
-              module.debug('No API url found, using current url');
+            if(settings.auto) {
               settings.apiSettings = {
                 url: settings.path + '/{$tab}'
               };
@@ -594,6 +593,9 @@
       determineTitle: function(tabArray) {}
     },
     
+    // uses pjax style endpoints fetching content from same url with remote-content headers
+    auto            : false,
+
     history         : false,
     path            : false,
     

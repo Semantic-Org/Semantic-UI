@@ -152,7 +152,7 @@ app.handle = function(req, res, out) {
         res.statusCode = 404;
         res.setHeader('Content-Type', 'text/plain');
         if ('HEAD' == req.method) return res.end();
-        res.end('Cannot ' + req.method + ' ' + utils.escape(req.originalUrl));
+        res.end('Cannot ' + utils.escape(req.method) + ' ' + utils.escape(req.originalUrl));
       }
       return;
     }
@@ -178,7 +178,7 @@ app.handle = function(req, res, out) {
         slashAdded = true;
       }
 
-      debug('%s', layer.handle.name || 'anonymous');
+      debug('%s %s : %s', layer.handle.name || 'anonymous', layer.route, req.originalUrl);
       var arity = layer.handle.length;
       if (err) {
         if (arity === 4) {
@@ -202,7 +202,7 @@ app.handle = function(req, res, out) {
  * Listen for connections.
  *
  * This method takes the same arguments
- * as node's `http.Server#listen()`.  
+ * as node's `http.Server#listen()`.
  *
  * HTTP and HTTPS:
  *
@@ -214,9 +214,9 @@ app.handle = function(req, res, out) {
  *      var connect = require('connect')
  *        , http = require('http')
  *        , https = require('https');
- *      
+ *
  *      var app = connect();
- *      
+ *
  *      http.createServer(app).listen(80);
  *      https.createServer(options, app).listen(443);
  *

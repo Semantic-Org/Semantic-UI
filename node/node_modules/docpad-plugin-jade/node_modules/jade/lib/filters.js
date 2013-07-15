@@ -1,105 +1,29 @@
-
 /*!
  * Jade - filters
  * Copyright(c) 2010 TJ Holowaychuk <tj@vision-media.ca>
  * MIT Licensed
  */
 
-/**
- * Wrap text with CDATA block.
- */
+var transformers = require('transformers');
 
-exports.cdata = function(str){
-  return '<![CDATA[\\n' + str + '\\n]]>';
-};
-
-/**
- * Wrap text in script tags.
- */
-
-exports.js = function(str){
-  return '<script>' + str + '</script>';
-};
-
-/**
- * Wrap text in style tags.
- */
-
-exports.css = function(str){
-  return '<style>' + str + '</style>';
-};
-
-/**
- * Transform stylus to css, wrapped in style tags.
- */
-
-exports.stylus = function(str, options){
-  var ret;
-  str = str.replace(/\\n/g, '\n');
-  var stylus = require('stylus');
-  stylus(str, options).render(function(err, css){
-    if (err) throw err;
-    ret = css.replace(/\n/g, '\\n');
-  });
-  return '<style type="text/css">' + ret + '</style>';
-};
-
-/**
- * Transform less to css, wrapped in style tags.
- */
-
-exports.less = function(str){
-  var ret;
-  str = str.replace(/\\n/g, '\n');
-  require('less').render(str, function(err, css){
-    if (err) throw err;
-    ret = '<style type="text/css">' + css.replace(/\n/g, '\\n') + '</style>';
-  });
-  return ret;
-};
-
-/**
- * Transform markdown to html.
- */
-
-exports.markdown = function(str){
-  var md;
-
-  // support markdown / discount
-  try {
-    md = require('markdown');
-  } catch (err){
-    try {
-      md = require('discount');
-    } catch (err) {
-      try {
-        md = require('markdown-js');
-      } catch (err) {
-        try {
-          md = require('marked');
-        } catch (err) {
-          throw new
-            Error('Cannot find markdown library, install markdown, discount, or marked.');
-        }
-      }
+module.exports = filter;
+function filter(name, str, options) {
+  if (typeof filter[name] === 'function') {
+    var res = filter[name](str, options);
+  } else if (transformers[name]) {
+    var res = transformers[name].renderSync(str, options);
+    if (transformers[name].outputFormat === 'js') {
+      res = '<script type="text/javascript">\n' + res + '</script>';
+    } else if (transformers[name].outputFormat === 'css') {
+      res = '<style type="text/css">' + res + '</style>';
+    } else if (transformers[name].outputFormat === 'xml') {
+      res = res.replace(/'/g, '&#39;');
     }
+  } else {
+    throw new Error('unknown filter ":' + name + '"');
   }
-
-  str = str.replace(/\\n/g, '\n');
-  return md.parse(str).replace(/\n/g, '\\n').replace(/'/g,'&#39;');
+  return res;
+}
+filter.exists = function (name, str, options) {
+  return typeof filter[name] === 'function' || transformers[name];
 };
-
-/**
- * Transform coffeescript to javascript.
- */
-
-exports.coffeescript = function(str){
-  var js = require('coffee-script').compile(str).replace(/\\/g, '\\\\').replace(/\n/g, '\\n');
-  return '<script type="text/javascript">\\n' + js + '</script>';
-};
-
-// aliases
-
-exports.md = exports.markdown;
-exports.styl = exports.stylus;
-exports.coffee = exports.coffeescript;

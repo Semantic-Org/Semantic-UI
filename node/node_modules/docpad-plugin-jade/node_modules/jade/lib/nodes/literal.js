@@ -19,10 +19,7 @@ var Node = require('./node');
  */
 
 var Literal = module.exports = function Literal(str) {
-  this.str = str
-    .replace(/\\/g, "\\\\")
-    .replace(/\n|\r\n/g, "\\n")
-    .replace(/'/g, "\\'");
+  this.str = str;
 };
 
 /**
