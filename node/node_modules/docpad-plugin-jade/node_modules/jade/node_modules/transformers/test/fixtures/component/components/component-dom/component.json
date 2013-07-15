@@ -1,0 +1,27 @@
+{
+  "name": "dom",
+  "version": "0.1.0",
+  "description": "DOM traversal, manipulation and events aggregate library",
+  "keywords": [
+    "html",
+    "dom",
+    "ui",
+    "jquery"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {
+    "component/type": "*",
+    "component/event": "*",
+    "component/delegate": "*",
+    "component/indexof": "*",
+    "component/domify": "*",
+    "component/classes": "*"
+  },
+  "development": {
+    "component/assert": "*"
+  },
+  "license": "MIT",
+  "repo": "https://raw.github.com/component/dom"
+}

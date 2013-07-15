@@ -1,0 +1,41 @@
+{
+  "name": "duplexer",
+  "version": "0.0.2",
+  "description": "Creates a duplex stream",
+  "keywords": [],
+  "author": {
+    "name": "Raynos",
+    "email": "raynos2@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Raynos/duplexer.git"
+  },
+  "main": "index",
+  "homepage": "https://github.com/Raynos/duplexer",
+  "contributors": [
+    {
+      "name": "Jake Verbaten"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Raynos/duplexer/issues",
+    "email": "raynos2@gmail.com"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "through": "~0.1.4"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Raynos/duplexer/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {
+    "test": "make test"
+  },
+  "readme": "# duplexer [![build status][1]][2]\n\nCreates a duplex stream\n\nTaken from [event-stream][3]\n\n## duplex (writeStream, readStream)\n\nTakes a writable stream and a readable stream and makes them appear as a readable writable stream.\n\nIt is assumed that the two streams are connected to each other in some way.\n\n## Example\n\n    var grep = cp.exec('grep Stream')\n\n    duplex(grep.stdin, grep.stdout)\n\n## Installation\n\n`npm install duplexer`\n\n## Tests\n\n`make test`\n\n## Contributors\n\n - Dominictarr\n - Raynos\n\n## MIT Licenced\n\n  [1]: https://secure.travis-ci.org/Raynos/duplexer.png\n  [2]: http://travis-ci.org/Raynos/duplexer\n  [3]: https://github.com/dominictarr/event-stream#duplex-writestream-readstream",
+  "_id": "duplexer@0.0.2",
+  "_from": "duplexer@~0.0.2"
+}

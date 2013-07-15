@@ -1,0 +1,4 @@
+lib-cov/*
+*.swp
+*.swo
+node_modules

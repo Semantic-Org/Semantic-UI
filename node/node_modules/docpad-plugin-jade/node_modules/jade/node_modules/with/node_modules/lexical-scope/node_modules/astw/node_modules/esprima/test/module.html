@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Esprima: Module Loading Test</title>
+<link rel="stylesheet" type="text/css" href="../assets/style.css"/>
+<script src="../assets/require.js"></script>
+</head>
+<body>
+<div class="container">
+
+<div class="topbar">
+<ul class="nav">
+<li><a href="../index.html">&larr; Home</a></li>
+<li><a href="http://github.com/ariya/esprima">Code</a></li>
+<li><a href="../doc/index.html">Documentation</a></li>
+<li><a href="http://issues.esprima.org">Issues</a></li>
+</ul>
+</div>
+
+<h1>Module Loading <small>works also with web browsers</small></h1>
+
+<p>The following tests are to ensure that Esprima can be loaded using <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> (Asynchronous Module Definition) loader such as <a href="http://requirejs.org">RequireJS</a>.</p>
+<p id="status"></p>
+<div id="report"></div>
+<div class="footer"><strong>Esprima</strong> is created by
+<a href="http://ariya.ofilabs.com/about" target="_blank">Ariya Hidayat</a>. Follow <a href="http://twitter.com/ariyahidayat">@ariyahidayat</a> on Twitter.
+</div>
+</div>
+<script src="module.js"></script>
+<script>
+/*jslint browser:true*/
+window.onload = window.runTests;
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+    "name": "esprima",
+    "version": "1.0.2",
+    "main": "./esprima.js",
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/ariya/esprima.git"
+    },
+    "licenses": [{
+        "type": "BSD",
+        "url": "http://github.com/ariya/esprima/raw/master/LICENSE.BSD"
+    }]
+}

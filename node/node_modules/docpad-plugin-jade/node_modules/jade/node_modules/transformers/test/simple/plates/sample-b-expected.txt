@@ -1,0 +1,1 @@
+<div id="user"><strong id="name">bob</strong></div>

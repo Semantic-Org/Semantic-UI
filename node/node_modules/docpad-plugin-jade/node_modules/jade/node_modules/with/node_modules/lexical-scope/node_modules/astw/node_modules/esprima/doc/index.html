@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Esprima Documentation</title>
+<link rel="stylesheet" type="text/css" href="../assets/style.css"/>
+<link rel="stylesheet" type="text/css" href="../assets/prettify/prettify.css"/>
+<script type="text/javascript" src="../assets/prettify/prettify.js"></script>
+<style>
+pre.prettyprint {
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-size: 13px;
+    line-height: 19px;
+}
+
+table td {
+    text-align: left;
+}
+</style>
+</head>
+<body onload="prettyPrint()">
+
+<div class="container">
+
+<div class="topbar">
+<ul class="nav">
+<li><a href="../index.html">&larr; Home</a></li>
+<li><a href="http://github.com/ariya/esprima">Code</a></li>
+<li><a href="index.html">Documentation</a></li>
+<li><a href="http://issues.esprima.org">Issues</a></li>
+</ul>
+</div>
+
+<h1>Esprima Documentation</h1>
+
+<div class="main">
+
+<h2 id="usage">Basic Usage</h2>
+
+<p>Esprima runs on web browsers (IE 6+, Firefox 1+, Safari 3+, Chrome 1+, Konqueror 4.6+, Opera 8+) as well as
+<a href="http://www.mozilla.org/rhino">Rhino</a> and <a href="http://nodejs.org">Node.js</a>.</p>
+
+<h3>In a web browser</h3>
+
+<p>Just include the source file:</p>
+
+<pre class="prettyprint lang-html">
+&lt;script src=&quot;esparse.js&quot;&gt;&lt;/script&gt;
+</pre>
+
+<p>The module <code>esprima</code> will be available as part of the global window object:</p>
+
+<pre class="prettyprint lang-js">
+var syntax = esprima.parse('var answer = 42');
+</pre>
+
+<p>Since Esprima supports <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> (Asynchronous Module Definition), it can be loaded via a module loader such as <a href="http://requirejs.org">RequireJS</a>:</p>
+
+<pre class="prettyprint lang-js">
+require(['esprima'], function (parser) {
+    // Do something with parser, e.g.
+    var syntax = parser.parse('var answer = 42');
+    console.log(JSON.stringify(syntax, null, 4));
+});
+</pre>
+
+<p>Since Esprima is available as a <a href="http://twitter.github.com/bower/">Bower</a> component, it can be installed with:</p>
+
+<pre class="prettyprint lang-bsh">
+bower install esprima
+</pre>
+
+<p>Obviously, it can be used with <a href="http://yeoman.io/packagemanager.html">Yeoman</a> as well:</p>
+
+<pre class="prettyprint lang-bsh">
+yeoman install esprima
+</pre>
+
+<h3>With Node.js</h3>
+
+<p>Esprima is available as a Node.js <a href="https://npmjs.org/package/esprima">package</a>, install it using npm:</p>
+
+<pre class="prettyprint lang-bsh">
+npm install esprima
+</pre>
+
+<p>Load the module with <code>require</code> and use it:</p>
+
+<pre class="prettyprint lang-js">
+var esprima = require('esprima');
+console.log(JSON.stringify(esprima.parse('var answer = 42'), null, 4));
+</pre>
+
+<h3>With Rhino</h3>
+
+<p>Load the source file from another script:</p>
+
+<pre class="prettyprint lang-js">
+load('/path/to/esprima.js');
+</pre>
+
+<p>The module <code>esprima</code> will be available as part of the global object:</p>
+
+<pre class="prettyprint lang-js">
+var syntax = esprima.parse('42');
+print(JSON.stringify(syntax, null, 2));
+</pre>
+
+<h3>Parsing Interface</h3>
+
+<p>Basic usage:
+
+<pre class="prettyprint lang-js">
+esprima.parse(code, options);
+</pre>
+
+<p>The output of the parser is the syntax tree formatted in <a href="http://www.json.org">JSON</a>, see the following <a href="#ast">Syntax Tree Format</a> section.</p>
+
+<p>Available options so far (by default, every option <b>false</b>):</p>
+
+<table>
+    <tr>
+        <th>Option</th>
+        <th>When set to true</th>
+    </tr>
+    <tr>
+        <td>loc</td>
+        <td>Nodes have line and column-based location info</td>
+    </tr>
+    <tr>
+        <td>range</td>
+        <td>Nodes have an index-based location range (array)</td>
+    </tr>
+    <tr>
+        <td>raw</td>
+        <td>Literals have extra property which stores the verbatim source</td>
+    </tr>
+    <tr>
+        <td>tokens</td>
+        <td>An extra array containing all found tokens</td>
+    </tr>
+    <tr>
+        <td>comment</td>
+        <td>An extra array containing all line and block comments</td>
+    </tr>
+</table>
+
+
+<p>The easiest way to see the different output based on various option settings is to use the <a href="../demo/parse.html">online parser demo</a>.
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="nestedternary">Detect Nested Ternary Conditionals</h3>
+
+<p>The script <code>detectnestedternary.js</code> in the <code>examples/</code> subdirectory is using Esprima to look for a ternary conditional, i.e. <a href="http://en.wikipedia.org/wiki/%3F:">operator ?:</a>, which is immediately followed (in one of its code paths) by another ternary conditional. The script can be invoked from the command-line with Node.js:</p>
+
+<pre class="prettyprint lang-bsh">
+node detectnestedternary.js /some/path
+</pre>
+
+<p>An example code fragment which will be flagged by this script as having a nested ternary conditional:</p>
+
+<pre class="prettyprint lang-js">
+var str = (age < 1) ? "baby" :
+    (age < 5) ? "toddler" :
+    (age < 18) ? "child": "adult";
+</pre>
+
+<p>which will yield the following report:</p>
+
+<pre>
+  Line 1 : Nested ternary for "age &lt 1"
+  Line 2 : Nested ternary for "age &lt 5"
+</pre>
+
+<h3 id="booleantrap">Find Possible Boolean Traps</h3>
+
+<p>The script <code>findbooleantrap.js</code> in the <code>examples/</code> subdirectory is using Esprima to detect some possible cases of Boolean trap, i.e. the use of Boolean literal which may lead to ambiguities and lack of readability. The script can be invoked from command-line with Node.js:</p>
+
+<pre class="prettyprint lang-bsh">
+node findbooleantrap.js /some/path
+</pre>
+
+It will search for all files (recursively) in the given path, try to parse each file, and then look for signs of Boolean traps:
+
+<ul>
+<li>Literal used with a non-setter function (assumption: setter starts with the &quot;set&quot; prefix):</li>
+<pre class="prettyprint lang-js">this.refresh(true);</pre>
+<li>Literal used with a function whose name may have a double-negative interpretation:</li>
+<pre class="prettyprint lang-js">item.setHidden(false);</pre>
+<li>Two different literals in a single function call:</li>
+<pre class="prettyprint lang-js">element.stop(true, false);</pre>
+<li>Multiple literals in a single function invocation:</li>
+<pre class="prettyprint lang-js">event.initKeyEvent("keypress", true, true, null, null,
+    false, false, false, false, 9, 0);</pre>
+<li>Ambiguous Boolean literal as the last argument:</li>
+<pre class="prettyprint lang-js">return getSomething(obj, false);</pre>
+</ul>
+
+For some more info, read also the blog post on <a href="http://ariya.ofilabs.com/2011/08/hall-of-api-shame-boolean-trap.html">Boolean trap</a>.
+
+<h2 id="ast">Syntax Tree Format</h2>
+
+<p>The output of the parser is expected to be compatible with Mozilla SpiderMonkey <a href="https://developer.mozilla.org/en/SpiderMonkey/Parser_API">Parser API</a>.
+The best way to understand various different constructs is the online <a href="../demo/parse.html">parser demo</a> which shows the syntax tree (formatted with JSON.stringify) corresponding to the typed code.
+
+The simplest example is as follows. If the following code is executed:
+
+<pre class="prettyprint lang-js">
+esprima.parse('var answer = 42;');
+</pre>
+
+then the return value will be (JSON formatted):
+
+<pre class="prettyprint lang-js">
+{
+    type: 'Program',
+    body: [
+        {
+            type: 'VariableDeclaration',
+            declarations: [
+                {
+                    type: 'AssignmentExpression',
+                    operator: =,
+                    left: {
+                        type: 'Identifier',
+                        name: 'answer'
+                    },
+                    right: {
+                        type: 'Literal',
+                        value: 42
+                    }
+                }
+            ]
+        }
+    ]
+}
+</pre>
+
+<h2 id="contribution">Contribution Guide</h2>
+
+<h3>Guidelines</h3>
+
+<p>Contributors are mandated to follow the guides described in the following sections. Any contribution which do not conform to the guides may be rejected.</p>
+
+<h4>Laundry list</h4>
+
+<p>Before creating <a href="http://help.github.com/pull-requests/">pull requests</a>, make sure the following applies.</p>
+
+<p>There is a corresponding issue. If there is no issue yet, <a href="http://code.google.com/p/esprima/issues/entry">create one</a> in the issue tracker.</p>
+
+<p>The commit log links the corresponding issue (usually as the last line).</p>
+
+<p>No functional regression. Run all <a href="#unittests">unit tests</a>.</p>
+
+<p>No coverage regression. Run the <a href="#coverage">code coverage analysis</a>.</p>
+
+<p>Each commit must be granular. Big changes should be splitted into smaller commits.</p>
+
+<p>Write understandable code. No need to be too terse (or even obfuscated).</p>
+
+<p><a href="http://jslint.com">JSLint</a> does not complain.</p>
+
+<p>A new feature must be accompanied with unit tests. No compromise.</p>
+
+<p>A new feature should not cause performance loss. Verify with the <a href="#benchmark">benchmark tests</a>.</p>
+
+<p>Performance improvement should be backed up by actual conclusive speed-up in the benchmark suite.</p>
+
+<h4>Coding style</h4>
+
+<p>Indentation is 4 spaces.</p>
+
+<p>Open curly brace is at the end of the line.</p>
+
+<p>String literal uses single quote (') and not double quote (").</p>
+
+<h4>Commit message</h4>
+
+<p>Bad:</p>
+
+<pre>
+    Fix a problem with Firefox.
+</pre>
+
+<p>The above commit is too short and useless in the long term.</p>
+
+<p>Good:</p>
+
+<pre>
+    Add support for labeled statement.
+
+    It is covered in ECMAScript Language Specification Section 12.12.
+    This also fixes parsing MooTools and JSLint code.
+
+    Running the benchmarks suite show negligible performance loss.
+
+    http://code.google.com/p/esprima/issues/detail?id=10
+    http://code.google.com/p/esprima/issues/detail?id=15
+    http://code.google.com/p/esprima/issues/detail?id=16
+</pre>
+
+<p><strong>Important aspects</strong>:</p>
+
+<ul>
+<li>The first line is the short description, useful for per-line commit view and thus keep it under 80 characters.</li>
+<li>The next paragraphs should provide more explanation (if needed).</li>
+<li>Describe the testing situation (new unit/benchmark test, change in performance, etc).</li>
+<li>Put the link to the issues for cross-ref.</li>
+</ul>
+
+<h4>Baseline syntax tree as the expected result</h4>
+
+<p>The test suite contains a collection of a pair of code and its syntax tree. To generate the syntax tree suitably formatted for the test fixture, use the included helper script <code>tools/generate-test-fixture.js</code> (with Node.js), e.g.:
+
+<pre class="prettyprint lang-bsh">
+node tools/generate-test-fixture.js "var answer = 42"
+</pre>
+
+The syntax tree will be printed out to the console. This can be used in the test fixture.
+
+<h3 id="tests">Test Workflow</h3>
+
+<h4 id="unittests">Unit tests</h4>
+
+<p>Browser-based unit testing is available by opening <code>test/index.html</code> in the source tree. The online version is <a href="http://esprima.org/test">esprima.org/test</a>.</p>
+
+<p>Command-line testing using Node.js:</p>
+
+<pre class="prettyprint">npm test</pre>
+
+<h4 id="coverage">Code coverage test</h4>
+
+<p>Note: you need to use Node.js 0.6 or later version.</p>
+
+<p>Install node-cover:</p>
+
+<pre class="prettyprint lang-bsh">sudo npm install -g cover</pre>
+
+<p>Run it in Esprima source tree:</p>
+
+<pre class="prettyprint lang-bsh">cover run test/runner.js</pre>
+
+<p>Check the quick report:</p>
+
+<pre class="prettyprint lang-bsh">cover report</pre>
+
+<p>To get the detailed report:</p>
+
+<pre class="prettyprint lang-bsh">cover report html</pre>
+
+<p>and then open <code>cover_html/index.html</code> file and choose <code>esprima.js</code> from the list.</p>
+
+<h4 id="benchmark">Benchmark tests</h4>
+
+<p>Available by opening <code>test/benchmarks.html</code> in the source tree. The online version is <a href="http://esprima.org/test/benchmarks.html">esprima.org/test/benchmarks.html</a>.</p>
+
+<p>Note: Because the corpus is fetched via XML HTTP Request, the benchmarks test needs to be served via a web server and not local file.</p>
+
+<p>It is important to run this with various browsers to cover different JavaScript engines.</p>
+
+<p>Command-line benchmark using Node.js:</p>
+
+<pre class="prettyprint lang-bsh">node test/benchmark.js</pre>
+
+<p>Command-line benchmark using V8 shell:</p>
+
+<pre class="prettyprint lang-bsh">/path/to/v8/shell test/benchmark.js</pre>
+
+<p>The current corpus for the benchmarks:</p>
+
+<ul>
+    <li>jQuery (version 1.7.1 and 1.6.4)</li>
+    <li>jQuery Mobile (version 1.0)</li>
+    <li>Prototype (version 1.7.0.0 and 1.6.1)</li>
+    <li>Ext Core (version 3.1.0 and 3.0.0)</li>
+    <li>MooTools (version 1.4.1 and 1.3.2)</li>
+    <li>Backbone (version 0.5.3)</li>
+    <li>Underscore (version 1.2.3)</li>
+</ul>
+
+<h4>Speed comparison tests</h4>
+
+<p>Available by opening <code>test/compare.html</code>. The online version is <a href="http://esprima.org/test/compare.html">esprima.org/test/compare.html</a>.</p>
+
+<p>Note: Because the corpus is fetched via XML HTTP Request, the benchmarks test needs to be served via a web server and not local file.</p>
+
+<p><strong>Warning</strong>: Since each parser has a different format for the syntax tree, the speed is not fully comparable (the cost of constructing different result is not taken into account). These tests exist only to ensure that Esprima parser is not ridiculously slow, e.g. one magnitude slower compare to other parsers.</p>
+
+<p>The current corpus for the speed comparison tests:</p>
+
+<ul>
+    <li>jQuery version 1.7.1</li>
+    <li>Prototype version 1.7.0.0</li>
+    <li>MooTools version 1.4.1</li>
+    <li>Ext Core version 3.1.0</li>
+</ul>
+
+<h4>Manual tests</h4>
+
+<p><strong>Code parser</strong></p>
+
+<p>Available by opening <code>demo/parse.html</code>.
+
+<p>In this demo, whatever is typed in the editor will be parsed. If it is a valid code, the syntax tree will be shown formatted using JSON.stringify.</p>
+
+<p><strong>Operator precedence</strong></p>
+
+<p>Available by opening <code>demo/precedence.html</code>.
+
+<p>The demo compares two expression and decides whether they are semantically equivalent or not. If not, the expression will be rewritten, with extra parentheses, to following the intended semantic of the original.</p>
+
+<p><strong>Regular expression collector</strong></p>
+
+<p>Available by opening <code>demo/collector.html</code>.
+
+<p>The demo finds all the regular expressions in the given code, along with the location for each regular expression.</p>
+
+<p><strong>Function tracing</strong></p>
+
+<p>Available by opening <code>demo/functiontrace.html</code>.
+
+<p>The demo inserts a function call at the beginning of every function block to log the number of times the function is executed.</p>
+
+<h2 id="related">Related Projects</h2>
+
+<h3>Sister projects</h3>
+
+<p><a href="https://github.com/Constellation/escodegen">Escodegen</a> is a code generator which supports Esprima syntax tree. This is useful for source code transformation. The source can be parsed by Esprima and then regenerated using escodegen. Between the process, the syntax tree can be transformed.</p>
+
+<p><a href="https://github.com/ariya/esmorph">Esmorph</a> is a non-destructive source code morphing tool. It can tweak <em>portions</em> of the code without affecting the rest (hence the term non-destructive).</p>
+
+<h3>Similar parsers</h3>
+
+<p>Narcissus is a metacircular implementation of JavaScript. Obviously it has a parsing capability. Check more at the code repo: <a href="https://github.com/mozilla/narcissus">github.com/mozilla/narcissus</a>. Narcissus is likely the oldest JavaScript parser written in JavaScript.</p>
+
+<p>UglifyJS is a minifier and obfuscator which has a parser called parse-js. It is pretty popular and widely used. Read more at its project page: <a href="https://github.com/mishoo/UglifyJS">github.com/mishoo/UglifyJS</a>.</p>
+
+<p>ZeParser, see <a href="https://github.com/qfox/ZeParser">github.com/qfox/ZeParser</a>.</p>
+
+<h2 id="license">License</h2>
+
+<p>Copyright (C) 2012, 2011 Ariya Hidayat and other contributors.</p>
+
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ul>
+<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+</ul>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+</div>
+
+<div class="sidebar">
+    <p><b>Contents</b></p>
+    <ol>
+        <li><a href="#usage">Basic Usage</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#ast">Syntax Tree Format</a></li>
+        <li><a href="#contribution">Contribution Guide</a></li>
+        <li><a href="#related">Related Projects</a></li>
+        <li><a href="#license">License</a></li>
+    </ol>
+</div>
+
+</div>
+
+</body>
+</html>

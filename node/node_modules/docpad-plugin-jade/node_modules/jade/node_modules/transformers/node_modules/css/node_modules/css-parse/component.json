@@ -1,0 +1,8 @@
+{
+  "name": "css-parse",
+  "repo": "visionmedia/node-css-parse",
+  "version": "1.0.3",
+  "description": "CSS parser",
+  "keywords": ["css", "parser", "stylesheet"],
+  "scripts": ["index.js"]
+}
