@@ -1,0 +1,11 @@
++large
+  :font-size 15px
++striped
+  tr
+    :background #000
+    +large
+    &:odd
+      :background #fff
+table
+  +striped
+  :border none

@@ -1,0 +1,17 @@
+{
+  "name": "matches-selector",
+  "repo": "component/matches-selector",
+  "description": "Check if an element matches a given selector",
+  "version": "0.0.1",
+  "keywords": [
+    "match",
+    "element",
+    "selector"
+  ],
+  "development": {
+    "component/domify": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}

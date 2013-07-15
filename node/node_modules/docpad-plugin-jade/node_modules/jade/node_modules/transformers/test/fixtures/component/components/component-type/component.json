@@ -1,0 +1,15 @@
+{
+  "name": "type",
+  "description": "Cross-browser type assertions (less broken typeof)",
+  "version": "0.0.1",
+  "keywords": [
+    "typeof",
+    "type",
+    "utility"
+  ],
+  "dependencies": {},
+  "scripts": [
+    "index.js"
+  ],
+  "repo": "https://raw.github.com/component/type"
+}

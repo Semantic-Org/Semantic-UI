@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Esprima</title>
+<link rel="stylesheet" type="text/css" href="assets/style.css"/>
+</head>
+<body>
+<div class="container">
+
+<div class="topbar">
+<ul class="nav">
+<li><a href="index.html">&larr; Home</a></li>
+<li><a href="http://github.com/ariya/esprima">Code</a></li>
+<li><a href="doc/index.html">Documentation</a></li>
+<li><a href="http://issues.esprima.org">Issues</a></li>
+</ul>
+</div>
+
+<h1>Esprima <small>ECMAScript parsing infrastructure for multipurpose analysis</small></h1>
+
+<div class="main">
+<p><strong>Esprima</strong> is a high performance, standard-compliant
+<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript</a> parser
+written in ECMAScript (also popularly known as
+<a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>).</p>
+
+<p>Esprima runs on web browsers (IE 6+, Firefox 1+, Safari 3+, Chrome 1+, Konqueror 4.6+, Opera 8+) as well as
+<a href="http://www.mozilla.org/rhino">Rhino</a> and <a href="http://nodejs.org">Node.js</a>.</p>
+
+<h3>Features</h3>
+
+<ul>
+<li>Full support for <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript 5.1</a> (ECMA-262)</li>
+<li>Sensible <a href="doc/index.html#ast">syntax tree format</a>, compatible with Mozilla
+<a href="https://developer.mozilla.org/en/SpiderMonkey/Parser_API">Parser AST</a></li>
+<li>Heavily tested (&gt; 550 <a href="http://esprima.org/test/">unit tests</a> with solid 100% statement coverage)</li>
+<li>Optional tracking of syntax node location (index-based and line-column)</li>
+<li>Experimental support for ES6/Harmony (module, class, destructuring, ...)</li>
+</ul>
+
+<p>Esprima is blazing fast (see the <a href="http://esprima.org/test/benchmarks.html">benchmark suite</a>).
+It is up to 3x faster than UglifyJS v1 and it is still
+<a href="http://esprima.org/test/compare.html">competitive</a> with the new generation of fast parsers.</p>
+
+<h3>Applications</h3>
+
+Esprima serves as the basis for many popular JavaScript development tools:
+
+<ul>
+<li>Code coverage analysis: <a href="https://github.com/itay/node-cover">node-cover</a>, <a href="https://github.com/yahoo/Istanbul">Istanbul</a></li>
+<li>Documentation tool: <a href="https://github.com/thejohnfreeman/jfdoc">JFDoc</a>, <a href="https://github.com/senchalabs/jsduck">JSDuck</a></li>
+<li>Language extension: <a href="http://mbebenita.github.com/LLJS/">LLJS</a> (low-level JS), <a href="http://sweetjs.org/">Sweet.js</a> (macro)</li>
+<li>ES6/Harmony transpiler: <a href="https://github.com/matthewrobb/six">Six</a>, <a href="https://github.com/jdiamond/harmonizr">Harmonizr</a></li>
+<li>Eclipse Orion smart editing (<a href="https://github.com/aclement/esprima-outline">outline view</a>, <a href="http://contraptionsforprogramming.blogspot.com/2012/02/better-javascript-content-assist-in.html">content assist</a>)</li>
+<li>Source transformation: <a href="https://github.com/substack/node-falafel">node-falafel</a>, <a href="https://github.com/Constellation/esmangle">Esmangle</a>, <a href="https://github.com/Constellation/escodegen">escodegen</a></li>
+</ul>
+
+<p>Feedback is welcomed! Please join the discussion in the <a href="http://groups.google.com/group/esprima">mailing list</a>.</p>
+
+</div>
+
+<div class="sidebar">
+<h3>Semantic analysis</h3>
+<ul>
+    <li><a href="demo/parse.html">Code parser</a></li>
+    <li><a href="demo/validate.html">Syntax validator</a></li>
+    <li><a href="demo/precedence.html">Operator precedence</a></li>
+    <li><a href="demo/collector.html">Regex collector</a></li>
+    <li><a href="demo/functiontrace.html">Function tracing</a></li>
+    <li><a href="demo/highlight.html">Identifier highlight</a></li>
+</ul>
+<h3>Source transformation</h3>
+<ul>
+    <li><a href="demo/rewrite.html">Source rewrite</a></li>
+    <li><a href="demo/minify.html">Minify</a></li>
+</ul>
+<h3>Harness tests</h3>
+<ul>
+    <li><a href="test/index.html">Unit tests</a></li>
+    <li><a href="test/compat.html">Compatibility tests</a></li>
+    <li><a href="test/module.html">Module loading</a></li>
+    <li><a href="test/coverage.html">Coverage analysis</a></li>
+</ul>
+<h3>Need for speed</h3>
+<ul>
+    <li><a href="test/benchmarks.html">Benchmarks suite</a></li>
+    <li><a href="test/compare.html">Speed comparison</a></li>
+</ul>
+</div>
+
+<br clear="all"/>
+
+<div class="footer">
+<strong>Esprima</strong> is created and maintained by <a href="http://twitter.com/ariyahidayat">Ariya Hidayat</a>,
+with the help of <a href="https://github.com/ariya/esprima/contributors">many contributors</a>.<br/>
+Follow <a href="http://twitter.com/Esprima">@Esprima</a> on Twitter to get the development updates.
+</div>
+</div>
+<a href="http://github.com/ariya/esprima"><img style="position: absolute; top: 0; right: 0; border: 0;" src="assets/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

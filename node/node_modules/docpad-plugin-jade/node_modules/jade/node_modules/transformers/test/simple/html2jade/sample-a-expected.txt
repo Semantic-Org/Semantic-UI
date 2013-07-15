@@ -1,0 +1,7 @@
+!!! 5
+html
+  head
+    link(type='text/css', rel='stylesheet', href='/site.css')
+    title Hello
+  body
+    h1 Hello world!
