@@ -12,6 +12,7 @@ var fs = require('fs')
   , resolve = path.resolve
   , exists = fs.existsSync || path.existsSync
   , join = path.join
+  , monocle = require('monocle')()
   , mkdirp = require('mkdirp')
   , jade = require('../');
 
@@ -24,8 +25,8 @@ var options = {};
 program
   .version(jade.version)
   .usage('[options] [dir|file ...]')
-  .option('-o, --obj <str>', 'javascript options object')
-  .option('-O, --out <dir>', 'output the compiled html to <dir>')
+  .option('-O, --obj <str>', 'javascript options object')
+  .option('-o, --out <dir>', 'output the compiled html to <dir>')
   .option('-p, --path <path>', 'filename used to resolve includes')
   .option('-P, --pretty', 'compile pretty html output')
   .option('-c, --client', 'compile function for client-side runtime.js')
@@ -94,10 +95,11 @@ if (files.length) {
   console.log();
   files.forEach(renderFile);
   if (options.watch) {
-    files.forEach(function (file) {
-      fs.watchFile(file, {interval: 100}, function (curr, prev) {
-        if (curr.mtime > prev.mtime) renderFile(file);
-      });
+    monocle.watchFiles({
+      files: files,
+      listener: function(file) {
+        renderFile(file.absolutePath);
+      }
     });
   }
   process.on('exit', function () {
@@ -146,13 +148,21 @@ function renderFile(path) {
         var dir = resolve(dirname(path));
         mkdirp(dir, 0755, function(err){
           if (err) throw err;
-          var output = options.client
-            ? fn.toString()
-            : fn(options);
-          fs.writeFile(path, output, function(err){
-            if (err) throw err;
-            console.log('  \033[90mrendered \033[36m%s\033[0m', path);
-          });
+          try {
+            var output = options.client
+              ? fn.toString()
+              : fn(options);
+            fs.writeFile(path, output, function(err){
+              if (err) throw err;
+              console.log('  \033[90mrendered \033[36m%s\033[0m', path);
+            });
+          } catch (e) {
+            if (options.watch) {
+              console.error(e.stack || e.message || e);
+            } else {
+              throw e
+            }
+          }
         });
       });
     // Found directory

@@ -29,7 +29,9 @@ exports.brokenPause = parseInt(nodeVersion[0], 10) === 0
  */
 
 exports.hasBody = function(req) {
-  return 'transfer-encoding' in req.headers || 'content-length' in req.headers;
+  var encoding = 'transfer-encoding' in req.headers;
+  var length = 'content-length' in req.headers && req.headers['content-length'] !== '0';
+  return encoding || length;
 };
 
 /**
@@ -120,26 +122,6 @@ exports.escape = function(html){
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
-};
-
-
-/**
- * Return a unique identifier with the given `len`.
- *
- *     utils.uid(10);
- *     // => "FDaS435D2z"
- *
- * @param {Number} len
- * @return {String}
- * @api private
- */
-
-exports.uid = function(len) {
-  return crypto.randomBytes(Math.ceil(len * 3 / 4))
-    .toString('base64')
-    .slice(0, len)
-    .replace(/\//g, '-')
-    .replace(/\+/g, '_');
 };
 
 /**

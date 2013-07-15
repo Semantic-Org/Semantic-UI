@@ -383,19 +383,42 @@
   display: table-cell;
   -webkit-box-shadow: 
     -1px 0px 0px 0px rgba(0, 0, 0, 0.1),
-    -2px 0px 0px 0px rgba(255, 255, 255, 0.9)
+    -2px 0px 0px 0px rgba(255, 255, 255, 0.8)
   ;
   -moz-box-shadow: 
     -1px 0px 0px 0px rgba(0, 0, 0, 0.1),
-    -2px 0px 0px 0px rgba(255, 255, 255, 0.9)
+    -2px 0px 0px 0px rgba(255, 255, 255, 0.8)
   ;
   box-shadow: 
     -1px 0px 0px 0px rgba(0, 0, 0, 0.1),
-    -2px 0px 0px 0px rgba(255, 255, 255, 0.9)
+    -2px 0px 0px 0px rgba(255, 255, 255, 0.8)
   ;
 }
 .ui.divided.grid > .column:first-child,
 .ui.divided.grid > .row > .column:first-child {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Vertically Divided */
+.ui.vertically.divided.grid > .row {
+  -webkit-box-shadow: 
+    0px -1px 0px 0px rgba(0, 0, 0, 0.1),
+    0px -2px 0px 0px rgba(255, 255, 255, 0.8)
+  ;
+  -moz-box-shadow: 
+    0px -1px 0px 0px rgba(0, 0, 0, 0.1),
+    0px -2px 0px 0px rgba(255, 255, 255, 0.8)
+  ;
+  box-shadow: 
+    0px -1px 0px 0px rgba(0, 0, 0, 0.1),
+    0px -2px 0px 0px rgba(255, 255, 255, 0.8)
+  ;
+}
+.ui.vertically.divided.grid > .row > .column,
+.ui.vertically.divided.grid > .column,
+.ui.vertically.divided.grid > .row:first-child {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -434,6 +457,12 @@
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.ui.celled.repsonsive.grid {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

@@ -53,7 +53,7 @@ exports = module.exports = function(options){
     if (!utils.hasBody(req)) return next();
 
     // check Content-Type
-    if ('application/json' != utils.mime(req)) return next();
+    if (!exports.regexp.test(utils.mime(req))) return next();
 
     // flag as parsed
     req._body = true;
@@ -84,3 +84,6 @@ exports = module.exports = function(options){
     });
   };
 };
+
+exports.regexp = /^application\/([\w!#\$%&\*`\-\.\^~]*\+)?json$/i;
+

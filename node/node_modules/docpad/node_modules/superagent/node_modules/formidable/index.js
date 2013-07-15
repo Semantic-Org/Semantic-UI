@@ -1,1 +1,1 @@
-module.exports = require('./lib/formidable');
+module.exports = require('./lib');

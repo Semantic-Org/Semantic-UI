@@ -1,4 +1,3 @@
-
 /*!
  * Connect - session
  * Copyright(c) 2010 Sencha Inc.
@@ -17,6 +16,7 @@ var Session = require('./session/session')
   , Cookie = require('./session/cookie')
   , Store = require('./session/store')
   , utils = require('./../utils')
+  , uid = require('uid2')
   , parse = utils.parseUrl
   , crc32 = require('buffer-crc32');
 
@@ -201,7 +201,7 @@ function session(options){
 
   // generates the new session
   store.generate = function(req){
-    req.sessionID = utils.uid(24);
+    req.sessionID = uid(24);
     req.session = new Session(req);
     req.session.cookie = new Cookie(cookie);
   };
@@ -250,11 +250,10 @@ function session(options){
       var cookie = req.session.cookie
         , proto = (req.headers['x-forwarded-proto'] || '').split(',')[0].toLowerCase().trim()
         , tls = req.connection.encrypted || (trustProxy && 'https' == proto)
-        , secured = cookie.secure && tls
         , isNew = unsignedCookie != req.sessionID;
 
       // only send secure cookies via https
-      if (cookie.secure && !secured) return debug('not secured');
+      if (cookie.secure && !tls) return debug('not secured');
 
       // long expires, handle expiry server-side
       if (!isNew && cookie.hasLongExpires) return debug('already set cookie');

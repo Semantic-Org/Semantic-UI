@@ -39,14 +39,14 @@ pos-in-stops(i, stops)
   else if i
     unit(i / len * 100, '%')
   else
-    0%
+    0
 
 /*
  * Normalize color stops:
- * 
+ *
  *   - (color pos) -> (pos color)
  *   - (color) -> (implied-pos color)
- * 
+ *
  */
 
 normalize-stops(stops)
@@ -88,19 +88,19 @@ webkit-stop(color, pos)
  */
 
 std-stop(color, pos)
-  '%s %s' % (color pos) 
+  '%s %s' % (color pos)
 
 /*
  * Create a linear gradient with the given start position
  * and variable number of color stops.
- * 
+ *
  * Examples:
- * 
+ *
  *    background: linear-gradient(top, red, green, blue)
  *    background: linear-gradient(bottom, red, green 50%, blue)
  *    background: linear-gradient(bottom, red, 50% green, blue)
  *    background: linear-gradient(bottom, red, 50% green, 90% white, blue)
- * 
+ *
  */
 
 linear-gradient(start, stops...)
@@ -130,10 +130,10 @@ linear-gradient(start, stops...)
   stops = join-stops(stops, std-stop)
   for prefix in vendor-prefixes
     unless prefix == official
-      gradient = '-%s-linear-gradient(%s, %s)' % (prefix start stops)   
+      gradient = '-%s-linear-gradient(%s, %s)' % (prefix start stops)
       add-property(prop, replace(val, '__CALL__', gradient))
 
-  // standard 
+  // standard
   'linear-gradient(%s, %s)' % (start stops)
 
 /*

@@ -1,4 +1,4 @@
-v0.4.24 - December 6th, 2012
+v0.4.25 - December 17th, 2012
 =====================
 * Removed install.js. [shtylman]
 * Added browser field to package.json. [shtylman]

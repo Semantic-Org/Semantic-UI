@@ -237,13 +237,13 @@ exports.format('dev', function(tokens, req, res){
     ? ''
     : len = ' - ' + bytes(len);
 
-  return '\033[90m' + req.method
+  return '\x1b[90m' + req.method
     + ' ' + req.originalUrl + ' '
-    + '\033[' + color + 'm' + res.statusCode
-    + ' \033[90m'
+    + '\x1b[' + color + 'm' + res.statusCode
+    + ' \x1b[90m'
     + (new Date - req._startTime)
     + 'ms' + len
-    + '\033[0m';
+    + '\x1b[0m';
 });
 
 /**
