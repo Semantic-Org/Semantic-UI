@@ -36,7 +36,8 @@ module.exports = function(grunt) {
 
   config = {
 
-    package: grunt.file.readJSON('package.json'),
+    package : grunt.file.readJSON('package.json'),
+    server  : grunt.file.readJSON('server.json'),
 
     // watches for changes in a source folder
     watch: {
@@ -225,6 +226,20 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+
+    s3: {
+      options: '<%= server.cdn %>',
+      deploy: {
+        options: {
+        },
+        upload: [
+          {
+            src: '../docs',
+            dest: 'docs'
+          }
+        ]
+      }
     }
 
   };
@@ -233,6 +248,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-css');
+  grunt.loadNpmTasks('grunt-s3');
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -243,4 +259,5 @@ module.exports = function(grunt) {
   grunt.initConfig(config);
 
   grunt.registerTask('default', [ 'watch' ]);
+  grunt.registerTask('deploy', ['s3:deploy']);
 };
