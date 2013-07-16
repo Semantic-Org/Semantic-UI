@@ -4,7 +4,7 @@ task default: :test
 desc 'Use UglifyJS to compress Underscore.string'
 task :build do
   require 'uglifier'
-  source = File.read('lib/underscore.string.js')
+  source = File.read('lib/underscore.string.js', :encoding => 'utf-8')
   compressed = Uglifier.compile(source, copyright: false)
   File.open('dist/underscore.string.min.js', 'w'){ |f| f.write compressed }
   compression_rate = compressed.length.to_f/source.length

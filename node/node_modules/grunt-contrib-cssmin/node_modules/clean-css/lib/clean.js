@@ -80,10 +80,10 @@ var CleanCSS = {
       });
     };
 
+    removeComments();
+
     // replace all escaped line breaks
     replace(/\\(\r\n|\n)/mg, '');
-
-    removeComments();
 
     // inline all imports
     replace(function inlineImports() {

@@ -1,4 +1,3 @@
-
 /*!
  * Connect - cookieSession
  * Copyright(c) 2011 Sencha Inc.
@@ -92,11 +91,10 @@ module.exports = function cookieSession(options){
 
       // check security
       var proto = (req.headers['x-forwarded-proto'] || '').toLowerCase()
-        , tls = req.connection.encrypted || (trustProxy && 'https' == proto)
-        , secured = cookie.secure && tls;
+        , tls = req.connection.encrypted || (trustProxy && 'https' == proto.split(/\s*,\s*/)[0]);
 
       // only send secure cookies via https
-      if (cookie.secure && !secured) return debug('not secured');
+      if (cookie.secure && !tls) return debug('not secured');
 
       // serialize
       debug('serializing %j', req.session);

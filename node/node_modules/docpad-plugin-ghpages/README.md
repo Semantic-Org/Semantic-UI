@@ -10,12 +10,31 @@ Deploy to Github Pages easily via `docpad deploy-ghpages`
 ## Install
 
 ```
-npm install --save docpad-plugin-ghpages
+docpad install ghpages
 ```
 
 
 ## Usage
 Run `docpad deploy-ghpages` to deploy the contents of your out directory directly to your repo's `gh-pages` branch. No configuration or setup required.
+
+
+## Debugging
+Dpendending on circumstances, maybe the github pages plugin won't work and you'll see an error. We can debug this by running the deploy with the `-d` flag. That will tell us at which step the deploy failed.
+
+- If the deploy fails fetching the origin remote, it means that you do not have the remote "origin", you will need to add it, or update the `deployOrigin` setting to reflect your desired remote.
+
+- If the deploy fails on the push to github pages, you may need to specify your username and password within the remote. You can do this by running:
+
+	``` bash
+	node -e "console.log('https://'+encodeURI('USERNAME')+':'+encodeURI('PASSWORD')+'@github.com/REPO_OWNER/REPO_NAME.git')"
+	```
+
+	Replace the words in capitals with their actual values and press enter. This will then output the new remote URL, you then want to copy it and run `git remote rm origin` and `git remote add origin THE_NEW_URL` and try the deploy again.
+
+	On OSX you may be able to avoid this step by running `git config --global credential.helper osxkeychain` to tell git to save the passwords to the OSX keychain rather than asking for them every single time.
+
+- If you get EPERM or unlink errors, it means that DocPad does not have permission to clean up the git directory that it creates in the out folder. You must clean this up manually yourself by running `rm -Rf ./out/.git`
+
 
 
 ## History

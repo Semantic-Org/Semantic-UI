@@ -319,6 +319,7 @@ SendStream.prototype.pipe = function(res){
   fs.stat(path, function(err, stat){
     if (err) return self.onStatError(err);
     if (stat.isDirectory()) return self.redirect(self.path);
+    self.emit('file', path, stat);
     self.send(path, stat);
   });
 

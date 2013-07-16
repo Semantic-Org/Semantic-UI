@@ -228,6 +228,14 @@ program.choose(list, function(i){
 });
 ```
 
+## .outputHelp()
+
+  Output help information without exiting.
+
+## .help()
+
+  Output help information and exit immediately.
+
 ## Links
 
  - [API documentation](http://visionmedia.github.com/commander.js/)

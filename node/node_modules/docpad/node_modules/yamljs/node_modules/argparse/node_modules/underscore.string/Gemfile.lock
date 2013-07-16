@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     execjs (1.4.0)
       multi_json (~> 1.0)

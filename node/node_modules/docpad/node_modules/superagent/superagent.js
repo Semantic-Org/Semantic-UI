@@ -1002,7 +1002,7 @@ Request.prototype.auth = function(user, pass){
 
 Request.prototype.query = function(val){
   if ('string' != typeof val) val = serialize(val);
-  this._query.push(val);
+  if (val) this._query.push(val);
   return this;
 };
 

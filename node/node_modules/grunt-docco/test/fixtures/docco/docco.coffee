@@ -1,2 +1,0 @@
-# Comment
-function(){}

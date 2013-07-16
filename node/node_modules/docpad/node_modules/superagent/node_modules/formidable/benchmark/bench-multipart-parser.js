@@ -1,3 +1,4 @@
+var assert = require('assert');
 require('../test/common');
 var multipartParser = require('../lib/multipart_parser'),
     MultipartParser = multipartParser.MultipartParser,

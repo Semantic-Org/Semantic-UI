@@ -1,3 +1,8 @@
+1.0.11 / 2013-07-08
+==================
+
+* Fixed issue [#117](https://github.com/GoalSmashers/clean-css/issues/117) - line break escaping in comments.
+
 1.0.10 / 2013-06-13
 ==================
 

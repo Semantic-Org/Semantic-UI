@@ -249,14 +249,11 @@ a:hover {
 /* segment headers */
 #example > .content > .page > .segment,
 #example > .segment {
-  margin: 0px 0px 46px;
-  padding-top: 45px;
-  padding-bottom: 20px;
+  margin: 0px 0px 3em;
+  padding-top: 70px;
+  padding-bottom: 30px;
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
-}
-#example .segment h1.header {
-  margin-top: 35px;
 }
 #example .download.menu {
   margin-top: 15px;
@@ -428,7 +425,7 @@ a:hover {
 
 #example .sidebar.button {
   position: fixed;
-  top: 75px;
+  top: 63px;
   z-index: 500;
   width: 70px;
 }
@@ -642,14 +639,13 @@ a:hover {
   text-align: left;
 }
 #example div.code {
+  margin: -1em;
   font-size: 14px;
-  margin: 5px 0px 20px;
   padding: 5px 0px;
-  border: 1px solid #F0F0F0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
   background-color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.8);
+}
+#example .label + div.code {
+  margin-top: 1em;
 }
 #example div.code .ace_gutter {
   background-color: #FAFAFA;
@@ -676,6 +672,17 @@ a:hover {
   height: 100%;
   border-left: 1px solid #ECF5F3;
 } */
+
+#example .ui.label + .instructive.segment {
+  margin-top: 0em;
+}
+#example .instructive.segment em {
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.4);
+}
+#example .instructive.segment .title + em {
+  float: right;
+}
 
 
 #example div.code .ace_gutter,
@@ -720,7 +727,7 @@ a:hover {
   color: #00A59D;
 }
 #example div.code .ace_cursor {
-  border-left: 1px solid #AAAAAA;
+  border-left: none;
 }
 #example div.code .ace_paren {
   color: #CCCCCC;
@@ -754,8 +761,8 @@ a:hover {
 #example div.code:hover .ace_string {
   color: #00A59D;
 }
-#example div.code:hover .ace_cursor {
-  border-left: 1px solid #AAAAAA;
+#example div.code:hover .ace_cursor {/*
+  border-left: 1px solid #AAAAAA;*/
 }
 #example div.code:hover .ace_paren {
   color: #555555;

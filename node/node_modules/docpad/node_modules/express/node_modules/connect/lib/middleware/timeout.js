@@ -19,7 +19,7 @@ var debug = require('debug')('connect:timeout');
  *
  * The timeout error is passed to `next()` so that you may customize
  * the response behaviour. This error has the `.timeout` property as
- * well as `.status == 408`.
+ * well as `.status == 503`.
  *
  * @param {Number} ms
  * @return {Function}

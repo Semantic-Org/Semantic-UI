@@ -12,12 +12,12 @@ type   : 'Semantic'
       <h1 class="ui header">Semantic UI</h1>
       <h2 class="ui header">UI is the DNA of the web.</h2>
       <p>Semantic empowers designers and developers by creating a shared vocabulary for user interfaces.</p>
-        <a class="ui red huge labeled icon button" href="download.html" class="ui button"><i class="icon upload"></i> Download</a>
         <a class="ui black huge labeled sidebar icon button"><i class="icon list layout"></i> View UI</a>
+        <a class="ui red huge right labeled icon button" href="intro/getting-started.html" class="ui button">Get Started <i class="icon right arrow"></i> </a>
     </div>
   </div>
 </div>
-
+<!-- 
 <div class="solid">
   <div class="ui three column divided stackable responsive grid">
     <div class="column"> 
@@ -45,34 +45,35 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
+ -->
 <div class="stripe">
-    <div class="two column stackable responsive ui demo grid">
+    <div class="stackable responsive demo ui grid">
       <div class="equal row">
-        <div class="column">
-          <div class="large teal ui dividing header">
+        <div class="ten wide column">
+          <div class="large ui header">
             <i class="terminal icon"></i> Code
           </div>
         </div>
-        <div class="column">
-          <div class="large red ui dividing header">
+        <div class="six wide column">
+          <div class="large ui header">
             <i class="book icon"></i> View
           </div>
         </div>
       </div>
     <div class="equal row">
-      <div class="column">
+      <div class="ten wide column">
         <h3 class="ui header">Definitions</h3>
         <p>HTML elements are nouns.</p>
         <div class="code" data-type="html">
           <div class="ui button">Submit</div>
         </div>
       </div>
-      <div class="column">
+      <div class="six wide column">
         <div class="ui button">Submit</div>
       </div>
     </div>
     <div class="equal row">
-      <div class="column">
+      <div class="ten wide column">
         <h3 class="ui header">Variations</h3>
         <p>HTML elements can have variations which modify the way they look or behave.</p>
         <p>Variations are mutually exclusive and can be used freedly together in any combination</p>
@@ -86,7 +87,7 @@ type   : 'Semantic'
     </div>
         </div>
       </div>
-      <div class="column">
+      <div class="six wide column">
         <div class="ui large button">Add User</div> <br><br>
         <div class="ui icon button"><i class="add user icon"></i></div> <br><br>
         <div class="ui red button">Add User</div> <br><br>
@@ -97,7 +98,7 @@ type   : 'Semantic'
         </div>
     </div>
     <div class="equal row">
-      <div class="column">
+      <div class="ten wide column">
         <h3 class="ui header">Plurality</h3>
         <p>HTML elements can share qualities as a group to avoid having to define them redundantly.</p>
         <div class="code" data-type="html">
@@ -108,7 +109,7 @@ type   : 'Semantic'
     </div>
         </div>
       </div>
-      <div class="column">
+      <div class="six wide column">
         <div class="blue ui icon buttons">
           <div class="ui button"><i class="grid layout icon"></i></div>
           <div class="ui button"><i class="block layout icon"></i></div>
@@ -117,11 +118,10 @@ type   : 'Semantic'
       </div>
     </div>
     <div class="equal row">
-      <div class="column">
+      <div class="ten wide column">
         <h3 class="ui header">Behavior</h3>
-        <p>Elements may contain definitions of their behavior. An element's behavior is defined as a public API which other parts of your code can invoke.</p>
-        <div class="ui black label">HTML</div>
-        <div class="code" data-type="html">
+        <p>Some elements may define behavior as well as their look.</p>
+        <div class="code" data-type="html" data-label="true">
     <div class="ui pointing secondary menu">
       <div class="active red item" data-tab="first">First</div>
       <div class="blue item" data-tab="second">Second</div>
@@ -134,28 +134,27 @@ type   : 'Semantic'
     <div class="ui tab segment" data-tab="second">Second</div>
     <div class="ui tab segment" data-tab="third">Third</div>
         </div>
-        <div class="ui black label">Javascript</div>
-        <div class="code" data-type="javascript">
-    // navigation items should open tabs and preserve history
+        <p>These elements allow you to execute actions triggering their behavior</p>
+        <div class="code" data-type="javascript" data-label="true">
     $('.ui.navigation .item')
-      .tabNavigation({
+      .tab({
         history: true,
         path: '/'
       })
     ;
-    // we can also execute behavior specifically
+    // 
     $('.ui.navigation .oddball.item')
       .on('click', function() {
         $(this)
-          .tabNavigation('deactivate.all')
-          .tabNavigation('activate.tab', 'third')
-          .tabNavigation('activate.navigation', 'third')
+          .tab('deactivate all')
+          .tab('activate tab', 'third')
+          .tab('activate navigation', 'third')
         ;
       })
     ;
         </div>
       </div>
-      <div class="column">
+      <div class="six wide column">
         <div class="ui pointing menu">
           <a class="active red item" data-tab="first">First</a>
           <a class="blue item" data-tab="second">Second</a>

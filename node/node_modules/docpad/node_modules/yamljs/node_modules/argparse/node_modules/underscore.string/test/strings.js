@@ -5,6 +5,12 @@ $(document).ready(function() {
 
   module('String extensions');
 
+  test('Strings: naturalSort', function() {
+    var arr =  ['foo2', 'foo1', 'foo10', 'foo30', 'foo100', 'foo10bar'],
+      sorted = ['foo1', 'foo2', 'foo10', 'foo10bar', 'foo30', 'foo100'];
+    deepEqual(arr.sort(_.naturalCmp), sorted);
+  });
+
   test('Strings: trim', function() {
     equal(_.trim(123), '123', 'Non string');
     equal(_(' foo').trim(), 'foo');
@@ -234,6 +240,8 @@ $(document).ready(function() {
     equal(_(null).titleize(), '', 'Titleize null returns empty string');
     equal(_(undefined).titleize(), '', 'Titleize undefined returns empty string');
     equal(_('let\'s have some fun').titleize(), 'Let\'s Have Some Fun');
+    equal(_('a-dash-separated-string').titleize(), 'A-Dash-Separated-String');
+    equal(_('A-DASH-SEPARATED-STRING').titleize(), 'A-Dash-Separated-String');
     equal(_(123).titleize(), '123');
   });
 
@@ -285,6 +293,7 @@ $(document).ready(function() {
     equal(_('').camelize(), '');
     equal(_(null).camelize(), '');
     equal(_(undefined).camelize(), '');
+    equal(_("_som eWeird---name-").camelize(), 'SomEWeirdName');
   });
 
   test('String: join', function(){
@@ -596,7 +605,7 @@ $(document).ready(function() {
   test('Strings: slugify', function() {
     equal(_('Jack & Jill like numbers 1,2,3 and 4 and silly characters ?%.$!/').slugify(), 'jack-jill-like-numbers-123-and-4-and-silly-characters');
     equal(_('Un éléphant à l\'orée du bois').slugify(), 'un-elephant-a-loree-du-bois');
-    equal(_('I know latin characters: á í ó ú ç ã õ ñ ü').slugify(), 'i-know-latin-characters-a-i-o-u-c-a-o-n-u');
+    equal(_('I know latin characters: á í ó ú ç ã õ ñ ü ă ș ț').slugify(), 'i-know-latin-characters-a-i-o-u-c-a-o-n-u-a-s-t');
     equal(_('I am a word too, even though I am but a single letter: i!').slugify(), 'i-am-a-word-too-even-though-i-am-but-a-single-letter-i');
     equal(_('').slugify(), '');
     equal(_(null).slugify(), '');
@@ -607,11 +616,20 @@ $(document).ready(function() {
     equal(_.quote('foo'), '"foo"');
     equal(_.quote('"foo"'), '""foo""');
     equal(_.quote(1), '"1"');
+    equal(_.quote("foo", "'"), "'foo'");
+
     // alias
     equal(_.q('foo'), '"foo"');
     equal(_.q(''), '""');
     equal(_.q(null), '""');
     equal(_.q(undefined), '""');
+  });
+
+  test('Strings: unquote', function(){
+    equal(_.unquote('"foo"'), 'foo');
+    equal(_.unquote('""foo""'), '"foo"');
+    equal(_.unquote('"1"'), '1');
+    equal(_.unquote("'foo'", "'"), 'foo');
   });
 
   test('Strings: surround', function(){
@@ -636,6 +654,32 @@ $(document).ready(function() {
     equal(_.repeat('', 2), '');
     equal(_.repeat(null, 2), '');
     equal(_.repeat(undefined, 2), '');
+  });
+
+  test('String: toBoolean', function() {
+    strictEqual(_("false").toBoolean(), false);
+    strictEqual(_.toBoolean("false"), false);
+    strictEqual(_.toBoolean("False"), false);
+    strictEqual(_.toBoolean("Falsy",null,["false", "falsy"]), false);
+    strictEqual(_.toBoolean("true"), true);
+    strictEqual(_.toBoolean("the truth", "the truth", "this is falsy"), true);
+    strictEqual(_.toBoolean("this is falsy", "the truth", "this is falsy"), false);
+    strictEqual(_("true").toBoolean(), true);
+    strictEqual(_.toBoolean("trUe"), true);
+    strictEqual(_.toBoolean("trUe", /tru?/i), true);
+    strictEqual(_.toBoolean("something else"), undefined);
+    strictEqual(_.toBoolean(function(){}), true);
+    strictEqual(_.toBoolean(/regexp/), true);
+    strictEqual(_.toBoolean(""), undefined);
+    strictEqual(_.toBoolean(0), false);
+    strictEqual(_.toBoolean(1), true);
+    strictEqual(_.toBoolean("1"), true);
+    strictEqual(_.toBoolean("0"), false);
+    strictEqual(_.toBoolean(2), undefined);
+    strictEqual(_.toBoolean("foo true bar"), undefined);
+    strictEqual(_.toBoolean("foo true bar", /true/), true);
+    strictEqual(_.toBoolean("foo FALSE bar", null, /FALSE/), false);
+    strictEqual(_.toBoolean(" true  "), true);
   });
 
 });

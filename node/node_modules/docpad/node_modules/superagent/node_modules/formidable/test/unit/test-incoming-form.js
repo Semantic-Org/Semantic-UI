@@ -4,7 +4,7 @@ var assert       = common.assert;
 var IncomingForm = common.require('incoming_form').IncomingForm;
 var path         = require('path');
 
-var from;
+var form;
 test('IncomingForm', {
   before: function() {
     form = new IncomingForm();
