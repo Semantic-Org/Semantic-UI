@@ -1,0 +1,16 @@
+{
+  "node" : true,
+  "es5" : true,
+  "browser" : false,
+
+  "camelcase": true,
+  "curly": false,
+  "eqeqeq": false,
+  "latedef": true,
+  "noarg": true,
+  "plusplus": false,
+  "regexp": false,
+  "strict": false,
+  "trailing": true,
+  "unused": true
+}
