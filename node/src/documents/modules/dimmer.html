@@ -33,13 +33,28 @@ type   : 'UI Module'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Standard</a>
+      <a class="active item">Usage</a>
+      <a class="item">Standard</a>
       <a class="item">Behavior</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
-      <a class="item">Usage</a>
     </div>
   </div>
+  <h2 class="ui dividing header">Usage</h2>
+  
+  <h4 class="ui header">Initializing an popup</h4>
+  <div class="code">
+    // can be invoked on content that needs to be dimmed
+    $('.ui.dimmable')
+      .dimmer()
+    ;
+    
+    // can be invoked directly on dimmer
+    $('.ui.dimmer')
+      .dimmer()
+    ;
+  </div>
+  
   <h2 class="ui dividing header">Standard</h2>
 
   <div class="example">
@@ -181,21 +196,6 @@ type   : 'UI Module'
       <div class="ui show button"><i class="plus icon"></i></div>
       <div class="ui hide button"><i class="minus icon"></i></div>
     </div>
-  </div>
-  
-  <h2 class="ui dividing header">Usage</h2>
-  
-  <h4 class="ui header">Initializing an popup</h4>
-  <div class="code">
-    // can be invoked on content that needs to be dimmed
-    $('.ui.dimmable')
-      .dimmer()
-    ;
-    
-    // can be invoked directly on dimmer
-    $('.ui.dimmer')
-      .dimmer()
-    ;
   </div>
   
   <h3 class="ui header">Settings</h3>

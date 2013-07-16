@@ -103,7 +103,11 @@ Sender.prototype.frameAndSend = function(opcode, data, finalFragment, maskData, 
 
   if (!Buffer.isBuffer(data)) {
     canModifyData = true;
-    data = (data && typeof data.buffer !== 'undefined') ? getArrayBuffer(data.buffer) : new Buffer(data);
+    if (data && (typeof data.byteLength !== 'undefined' || typeof data.buffer !== 'undefined')) {
+      data = getArrayBuffer(data);
+    } else {
+      data = new Buffer(data);
+    }
   }
 
   var dataLength = data.length
@@ -201,8 +205,10 @@ function writeUInt32BE(value, offset) {
   this[offset+3] = value & 0xff;
 }
 
-function getArrayBuffer(array) {
-  var l = array.byteLength
+function getArrayBuffer(data) {
+  // data is either an ArrayBuffer or ArrayBufferView.
+  var array = data.buffer || data
+    , l = data.byteLength || data.length
     , buffer = new Buffer(l);
   for (var i = 0; i < l; ++i) {
     buffer[i] = array[i];

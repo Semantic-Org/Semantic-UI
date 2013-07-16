@@ -10,6 +10,7 @@
  */
 
 var zlib = require('zlib');
+var utils = require('../utils');
 
 /**
  * Supported content-encoding methods.
@@ -42,6 +43,13 @@ exports.filter = function(req, res){
  *       return /json|text|javascript/.test(res.getHeader('Content-Type'));
  *     };
  *
+ * Threshold:
+ *
+ *  Only compress the response if the byte size is at or above a threshold.
+ *  Always compress while streaming.
+ *
+ *   - `threshold` - string representation of size or bytes as an integer.
+ *
  * Options:
  *
  *  All remaining options are passed to the gzip/deflate
@@ -61,13 +69,23 @@ exports.filter = function(req, res){
 module.exports = function compress(options) {
   options = options || {};
   var names = Object.keys(exports.methods)
-    , filter = options.filter || exports.filter;
+    , filter = options.filter || exports.filter
+    , threshold;
+
+  if (false === options.threshold || 0 === options.threshold) {
+    threshold = 0
+  } else if ('string' === typeof options.threshold) {
+    threshold = utils.parseBytes(options.threshold)
+  } else {
+    threshold = options.threshold || 1024
+  }
 
   return function compress(req, res, next){
     var accept = req.headers['accept-encoding']
       , vary = res.getHeader('Vary')
       , write = res.write
       , end = res.end
+      , compress = true
       , stream
       , method;
 
@@ -93,13 +111,21 @@ module.exports = function compress(options) {
     };
 
     res.end = function(chunk, encoding){
-      if (chunk) this.write(chunk, encoding);
+      if (chunk) {
+        if (!this.headerSent && getSize(chunk) < threshold) compress = false;
+        this.write(chunk, encoding);
+      } else if (!this.headerSent) {
+        // response size === 0
+        compress = false;
+      }
       return stream
         ? stream.end()
         : end.call(res);
     };
 
     res.on('header', function(){
+      if (!compress) return;
+
       var encoding = res.getHeader('Content-Encoding') || 'identity';
 
       // already encoded
@@ -155,3 +181,9 @@ module.exports = function compress(options) {
     next();
   };
 };
+
+function getSize(chunk) {
+  return Buffer.isBuffer(chunk)
+    ? chunk.length
+    : Buffer.byteLength(chunk);
+}

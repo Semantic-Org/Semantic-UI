@@ -3,7 +3,7 @@
 //  Underscore.string is freely distributable under the terms of the MIT license.
 //  Documentation: https://github.com/epeli/underscore.string
 //  Some code is borrowed from MooTools and Alexandru Marasteanu.
-//  Version '2.3.1'
+//  Version '2.3.2'
 
 !function(root, String){
   'use strict';
@@ -36,6 +36,18 @@
     else
       return '[' + _s.escapeRegExp(characters) + ']';
   };
+
+  // Helper for toBoolean
+  function boolMatch(s, matchers) {
+    var i, matcher, down = s.toLowerCase();
+    matchers = [].concat(matchers);
+    for (i = 0; i < matchers.length; i += 1) {
+      matcher = matchers[i];
+      if (!matcher) continue;
+      if (matcher.test && matcher.test(s)) return true;
+      if (matcher.toLowerCase() === down) return true;
+    }
+  }
 
   var escapeChars = {
     lt: '<',
@@ -177,7 +189,7 @@
 
   var _s = {
 
-    VERSION: '2.3.1',
+    VERSION: '2.3.0',
 
     isBlank: function(str){
       if (str == null) str = '';
@@ -320,11 +332,12 @@
 
     titleize: function(str){
       if (str == null) return '';
-      return String(str).replace(/(?:^|\s)\S/g, function(c){ return c.toUpperCase(); });
+      str  = String(str).toLowerCase();
+      return str.replace(/(?:^|\s|-)\S/g, function(c){ return c.toUpperCase(); });
     },
 
     camelize: function(str){
-      return _s.trim(str).replace(/[-_\s]+(.)?/g, function(match, c){ return c.toUpperCase(); });
+      return _s.trim(str).replace(/[-_\s]+(.)?/g, function(match, c){ return c ? c.toUpperCase() : ""; });
     },
 
     underscored: function(str){
@@ -492,8 +505,8 @@
     },
 
     toSentence: function(array, separator, lastSeparator, serial) {
-      separator = separator || ', '
-      lastSeparator = lastSeparator || ' and '
+      separator = separator || ', ';
+      lastSeparator = lastSeparator || ' and ';
       var a = array.slice(), lastMember = a.pop();
 
       if (array.length > 2 && serial) lastSeparator = _s.rtrim(separator) + lastSeparator;
@@ -510,8 +523,8 @@
     slugify: function(str) {
       if (str == null) return '';
 
-      var from  = "ąàáäâãåæćęèéëêìíïîłńòóöôõøùúüûñçżź",
-          to    = "aaaaaaaaceeeeeiiiilnoooooouuuunczz",
+      var from  = "ąàáäâãåæăćęèéëêìíïîłńòóöôõøśșțùúüûñçżź",
+          to    = "aaaaaaaaaceeeeeiiiilnoooooosstuuuunczz",
           regex = new RegExp(defaultToWhiteSpace(from), 'g');
 
       str = String(str).toLowerCase().replace(regex, function(c){
@@ -526,8 +539,15 @@
       return [wrapper, str, wrapper].join('');
     },
 
-    quote: function(str) {
-      return _s.surround(str, '"');
+    quote: function(str, quoteChar) {
+      return _s.surround(str, quoteChar || '"');
+    },
+
+    unquote: function(str, quoteChar) {
+      quoteChar = quoteChar || '"';
+      if (str[0] === quoteChar && str[str.length-1] === quoteChar)
+        return str.slice(1,str.length-1);
+      else return str;
     },
 
     exports: function() {
@@ -554,6 +574,36 @@
       return repeat.join(separator);
     },
 
+    naturalCmp: function(str1, str2){
+      if (str1 == str2) return 0;
+      if (!str1) return -1;
+      if (!str2) return 1;
+
+      var cmpRegex = /(\.\d+)|(\d+)|(\D+)/g,
+        tokens1 = String(str1).toLowerCase().match(cmpRegex),
+        tokens2 = String(str2).toLowerCase().match(cmpRegex),
+        count = Math.min(tokens1.length, tokens2.length);
+
+      for(var i = 0; i < count; i++) {
+        var a = tokens1[i], b = tokens2[i];
+
+        if (a !== b){
+          var num1 = parseInt(a, 10);
+          if (!isNaN(num1)){
+            var num2 = parseInt(b, 10);
+            if (!isNaN(num2) && num1 - num2)
+              return num1 - num2;
+          }
+          return a < b ? -1 : 1;
+        }
+      }
+
+      if (tokens1.length === tokens2.length)
+        return tokens1.length - tokens2.length;
+
+      return str1 < str2 ? -1 : 1;
+    },
+
     levenshtein: function(str1, str2) {
       if (str1 == null && str2 == null) return 0;
       if (str1 == null) return String(str2).length;
@@ -578,6 +628,14 @@
         }
 
       return current.pop();
+    },
+
+    toBoolean: function(str, trueValues, falseValues) {
+      if (typeof str === "number") str = "" + str;
+      if (typeof str !== "string") return !!str;
+      str = _s.trim(str);
+      if (boolMatch(str, trueValues || ["true", "1"])) return true;
+      if (boolMatch(str, falseValues || ["false", "0"])) return false;
     }
   };
 
@@ -591,6 +649,7 @@
   _s.ljust    = _s.rpad;
   _s.contains = _s.include;
   _s.q        = _s.quote;
+  _s.toBool   = _s.toBoolean;
 
   // Exporting
 

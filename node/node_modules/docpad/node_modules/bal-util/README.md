@@ -32,16 +32,18 @@ We're in the process of abstracting the pieces of bal-util out into their own mo
 - [ambi](https://github.com/bevry/ambi) < `balUtilFlow.fireWithOptionalCallback`
 - [eachr](https://github.com/bevry/eachr) < `balUtilFlow.each`
 - [extendr](https://github.com/bevry/extendr) < `balUtilFlow.(extend|clone|etc)`
+- [extract-opts](https://github.com/bevry/extract-opts) < `balUtilFlow.extractOptsAndCallback`
 - [getsetdeep](https://github.com/bevry/getsetdeep) < `balUtilFlow.(get|set)Deep`
-- [safeCallback](https://github.com/bevry/safecallback) < `balUtilFlow.safeCallback`
+- [safecallback](https://github.com/bevry/safecallback) < `balUtilFlow.safeCallback`
 - [safefs](https://github.com/bevry/safefs) < `balUtilPaths.(openFile|closeFile|etc)`
+- [safeps](https://github.com/bevry/safeps) < `balUtilModules`
 - [TaskGroup](https://github.com/bevry/taskgroup) < `balUtilFlow.Group`
 - [typeChecker](https://github.com/bevry/typechecker) < `balUtilTypes`
 
 
 
 ## History
-You can discover the history inside the [History.md](https://github.com/balupton/bal-util/blob/master/History.md#files) file
+[You can discover the history inside the `History.md` file](https://github.com/balupton/bal-util/blob/master/History.md#files)
 
 
 

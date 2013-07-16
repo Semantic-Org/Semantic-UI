@@ -134,6 +134,7 @@ semantic.ready = function() {
           .each(function(){
             var $this = $(this).clone(false);
             if($this.not('br')) {
+              console.log(code);
               code += $this.removeAttr('style').get(0).outerHTML + "\n";
             }
           })
@@ -166,10 +167,21 @@ semantic.ready = function() {
     initializeCode: function() {
       var
         $code       = $(this),
+        $label      = $('<div>').addClass('ui label'),
         code        = $code.html(),
-        contentType = $code.data('type') || 'javascript',
+        contentType = $code.data('type')  || 'javascript',
+        title       = $code.data('title') || false,
+        label       = $code.data('label') || false,
+        displayType = {
+          html       : 'HTML',
+          javascript : 'Javascript',
+          css        : 'CSS',
+          text       : 'Command Line',
+          sh         : 'Command Line'
+        },
         whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
         padding     = 4,
+        label,
         editor,
         editorSession,
         codeHeight
@@ -179,6 +191,7 @@ semantic.ready = function() {
       code = $.trim(code.replace(whiteSpace, '\n'));
       $code.text(code);
 
+      // evaluate if specified
       if($code.hasClass('evaluated')) {
         eval(code);
       }
@@ -192,17 +205,34 @@ semantic.ready = function() {
       editor.setReadOnly(true);
       editor.renderer.setShowGutter(false);
       editor.setHighlightActiveLine(false);
-      editorSession.setUseWrapMode(true);
 
       editorSession.setMode('ace/mode/'+ contentType);
+      editorSession.setUseWrapMode(true);
       editorSession.setTabSize(2);
       editorSession.setUseSoftTabs(true);
 
-      codeHeight    = editor.session.getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
+      codeHeight = editor.session.getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
 
-      $(this).height(codeHeight + 'px');
+      $(this)
+        .height(codeHeight + 'px')
+        .wrap('<div class="ui instructive segment">')
+      ;
+      // add label
+      if(title) {
+        $label
+          .addClass('attached top')
+          .html('<span class="title">' + title + '</span>' + '<em>' + (displayType[contentType] || contentType) + '</em>')
+          .prependTo( $(this).parent() )
+        ;
+      }
+      else if(label) {
+        $label
+          .addClass('pointing below')
+          .html(displayType[contentType] || contentType)
+          .insertBefore ( $(this).parent() )
+        ;
+      }
       editor.resize();
-
     },
 
     movePeek: function() {

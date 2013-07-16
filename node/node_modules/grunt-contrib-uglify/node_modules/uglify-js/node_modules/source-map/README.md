@@ -38,7 +38,7 @@ Install Node and then run
 
 Next, run
 
-    $ node Makefile.dryice.js`
+    $ node Makefile.dryice.js
 
 This should create the following files:
 

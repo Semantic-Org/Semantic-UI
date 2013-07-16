@@ -115,7 +115,7 @@ else if (program.listen) {
   });
   wsConsole.on('line', function(data) {
     if (ws) {
-      ws.send(data, {mask: true});
+      ws.send(data, {mask: false});
       wsConsole.prompt();
     }
   });

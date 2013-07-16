@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.26
+
+* Fix SourceNode.fromStringWithSourceMap for empty maps. Fixes github issue 70.
+
 ## 0.1.25
 
 * Make compatible with browserify

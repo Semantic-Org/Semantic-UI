@@ -20,6 +20,10 @@ iconv-lite - pure javascript character encoding conversion
     // Convert from string to an encoded buffer.
     buf = iconv.encode("Sample input string", 'win1251');
 
+    // Check if encoding is supported
+    iconv.encodingExists("us-ascii")
+
+
 ## Supported encodings
 
 *   All node.js native encodings: 'utf8', 'ucs2', 'ascii', 'binary', 'base64'

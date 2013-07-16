@@ -10,7 +10,7 @@ var copy = require('dryice').copy;
 
 function removeAmdefine(src) {
   src = String(src).replace(
-    /if\s*\(typeof\s*define\s*!==\s*'function'\)\s*{\s*var\s*define\s*=\s*require\('amdefine'\)\(module\);\s*}\s*/g,
+    /if\s*\(typeof\s*define\s*!==\s*'function'\)\s*{\s*var\s*define\s*=\s*require\('amdefine'\)\(module,\s*require\);\s*}\s*/g,
     '');
   src = src.replace(
     /\b(define\(.*)('amdefine',?)/gm,

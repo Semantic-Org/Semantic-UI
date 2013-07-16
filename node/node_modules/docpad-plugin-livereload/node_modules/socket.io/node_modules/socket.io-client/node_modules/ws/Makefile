@@ -20,10 +20,10 @@ run-integrationtests:
 		$(TESTS)
 
 test:
-	@$(MAKE) NODE_PATH=lib TESTS="$(ALL_TESTS)" run-tests
+	@$(MAKE) NODE_TLS_REJECT_UNAUTHORIZED=0 NODE_PATH=lib TESTS="$(ALL_TESTS)" run-tests
 
 integrationtest:
-	@$(MAKE) NODE_PATH=lib TESTS="$(ALL_INTEGRATION)" run-integrationtests
+	@$(MAKE) NODE_TLS_REJECT_UNAUTHORIZED=0 NODE_PATH=lib TESTS="$(ALL_INTEGRATION)" run-integrationtests
 
 benchmark:
 	@node bench/sender.benchmark.js

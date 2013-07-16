@@ -53,6 +53,15 @@ _.mixin(_.str.exports());
 _.str.include('Underscore.string', 'string'); // => true
 ```
 
+**Or Integrate with Underscore.js without module loading**
+
+Run the following expression after Underscore.js and Underscore.string are loaded
+```javascript
+// _.str becomes a global variable if no module loading is detected
+// Mix in non-conflict functions to Underscore namespace
+_.mixin(_.str.exports());
+```
+
 ## String Functions ##
 
 For availability of functions in this way you need to mix in Underscore.string functions:
@@ -575,13 +584,23 @@ _.surround("foo", "ab")
 => 'abfooab';
 ```
 
-**quote** _.quote(string) or _.q(string)
+**quote** _.quote(string, quoteChar) or _.q(string, quoteChar)
 
-Quotes a string.
+Quotes a string. `quoteChar` defaults to `"`.
 
 ```javascript
-_.quote('foo')
+_.quote('foo', quoteChar)
 => '"foo"';
+```
+**unquote** _.unquote(string, quoteChar)
+
+Unquotes a string. `quoteChar` defaults to `"`.
+
+```javascript
+_.unquote('"foo"')
+=> 'foo';
+_.unquote("'foo'", "'")
+=> 'foo';
 ```
 
 
@@ -595,6 +614,37 @@ _.slugify("Un éléphant à l'orée du bois")
 ```
 
 ***Caution: this function is charset dependent***
+
+**naturalCmp** array.sort(_.naturalCmp)
+
+Naturally sort strings like humans would do.
+
+```javascript
+['foo20', 'foo5'].sort(_.naturalCmp)
+=> [ 'foo5', 'foo20' ]
+```
+
+**toBoolean** _.toBoolean(string) or _.toBool(string)
+
+Turn strings that can be commonly considered as booleas to real booleans. Such as "true", "false", "1" and "0". This function is case insensitive.
+
+```javascript
+_.toBoolean("true")
+=> true
+_.toBoolean("FALSE")
+=> false
+_.toBoolean("random")
+=> undefined
+```
+
+It can be customized by giving arrays of truth and falsy value matcher as parameters. Matchers can be also RegExp objects.
+
+```javascript
+_.toBoolean("truthy", ["truthy"], ["falsy"])
+=> true
+_.toBoolean("true only at start", [/^true/])
+=> true
+```
 
 ## Roadmap ##
 
@@ -630,12 +680,28 @@ _ = _.string
 
 ## Changelog ##
 
+### 2.3.3 ###
+
+* Add `toBoolean`
+* Add `unquote`
+* Add quote char option to `quote`
+* Support dash-separated words in `titleize`
+
+### 2.3.2 ###
+
+* Add `naturalCmp`
+* Bug fix to `camelize`
+* Add ă, ș, ț and ś to `slugify`
+* Doc updates
+* Add support for [component](http://component.io/)
+* [Full changelog](https://github.com/epeli/underscore.string/compare/v2.3.1...v2.3.2)
+
 ### 2.3.1 ###
 
-* Changed integration logic, now trying everything in order
-* Fixed classify method to chew some unexpected input
-* Fixed toNumber method failing to recognize '0.0' as a proper number
-
+* Bug fixes to `escapeHTML`, `classify`, `substr`
+* Faster `count`
+* Documentation fixes
+* [Full changelog](https://github.com/epeli/underscore.string/compare/v2.3.0...v2.3.1)
 
 ### 2.3.0 ###
 
@@ -645,6 +711,10 @@ _ = _.string
 * Changed default behavior of `words` method
 * Added `toSentenceSerial` method
 * Added `surround` and `quote` methods
+
+### 2.2.1 ###
+
+* Same as 2.2.0 (2.2.0rc on npm) to fix some npm drama
 
 ### 2.2.0 ###
 

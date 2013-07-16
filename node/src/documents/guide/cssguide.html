@@ -43,7 +43,7 @@ type   : 'UI Guide'
       font-weight: bold;
     }
     </div>
-    
+
     <h4 class="ui header">CSS Legibility</h4>
     <p>Adding extra formatting can help increase clarity in your code. We suggest separating css selectors on separate lines, adding a space after css properties with commas (like box-shadow) and placing a zero before any decimal value.</p>
    
@@ -265,6 +265,24 @@ type   : 'UI Guide'
 
 
   <h2 class="ui dividing header">Techniques</h2>
+
+    <h4 class="ui header">Conditional Content Formatting</h4>
+    <p>Sometimes content should be formatted differently depending on whether other content exists alongside it. A useful way to do that is use the next adjacent sibling selector '+'. The content that should have the conditional formatting should always appear second because there is no previous sibling selector in css.</p>
+   
+    <div class="code" data-type="css">
+    .ui.widget .image {
+      float: left;
+      width: 2em;
+    }
+    .ui.widget .content {
+      color: #000000;
+    }
+    // content is only floated if image exists
+    .ui.widget .image + .content {
+      margin-left: 3em;
+    }
+    </div>
+    
 
     <h4 class="ui header">Prevent Accidental Highlighting</h4>
     <p>Sometimes text can be accidentally highlighted when a user double clicks an element. No need to pull out javascript to solve this.</p>

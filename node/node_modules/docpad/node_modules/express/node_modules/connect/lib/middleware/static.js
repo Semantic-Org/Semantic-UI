@@ -51,7 +51,7 @@ exports = module.exports = function(root, options){
   // default redirect
   var redirect = false !== options.redirect;
 
-  return function static(req, res, next) {
+  return function staticMiddleware(req, res, next) {
     if ('GET' != req.method && 'HEAD' != req.method) return next();
     var path = parse(req).pathname;
     var pause = utils.pause(req);
@@ -64,7 +64,7 @@ exports = module.exports = function(root, options){
     function directory() {
       if (!redirect) return resume();
       var pathname = url.parse(req.originalUrl).pathname;
-      res.statusCode = 301;
+      res.statusCode = 303;
       res.setHeader('Location', pathname + '/');
       res.end('Redirecting to ' + utils.escape(pathname) + '/');
     }

@@ -4,7 +4,8 @@ if (global.GENTLY) require = GENTLY.hijack(require);
 // If I find time I'll rewrite this to be fully streaming as well
 var querystring = require('querystring');
 
-function QuerystringParser() {
+function QuerystringParser(maxKeys) {
+  this.maxKeys = maxKeys;
   this.buffer = '';
 };
 exports.QuerystringParser = QuerystringParser;
@@ -15,7 +16,7 @@ QuerystringParser.prototype.write = function(buffer) {
 };
 
 QuerystringParser.prototype.end = function() {
-  var fields = querystring.parse(this.buffer);
+  var fields = querystring.parse(this.buffer, '&', '=', { maxKeys: this.maxKeys });
   for (var field in fields) {
     this.onField(field, fields[field]);
   }
@@ -23,3 +24,4 @@ QuerystringParser.prototype.end = function() {
 
   this.onEnd();
 };
+

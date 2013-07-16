@@ -207,6 +207,25 @@ define(function (require, exports, module) {
     assert.equal(map.mappings, util.testMap.mappings);
   };
 
+  exports['test .fromStringWithSourceMap() empty map'] = function (assert, util) {
+    var node = SourceNode.fromStringWithSourceMap(
+                              util.testGeneratedCode,
+                              new SourceMapConsumer(util.emptyMap));
+    var result = node.toStringWithSourceMap({
+      file: 'min.js'
+    });
+    var map = result.map;
+    var code = result.code;
+
+    assert.equal(code, util.testGeneratedCode);
+    assert.ok(map instanceof SourceMapGenerator, 'map instanceof SourceMapGenerator');
+    map = map.toJSON();
+    assert.equal(map.version, util.emptyMap.version);
+    assert.equal(map.file, util.emptyMap.file);
+    assert.equal(map.mappings.length, util.emptyMap.mappings.length);
+    assert.equal(map.mappings, util.emptyMap.mappings);
+  };
+
   exports['test .fromStringWithSourceMap() complex version'] = function (assert, util) {
     var input = new SourceNode(null, null, null, [
       "(function() {\n",

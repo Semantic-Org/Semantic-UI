@@ -1,3 +1,4 @@
+var RE_SPACEDASH = /[- ]/g;
 // Module exports
 var iconv = module.exports = {
     toEncoding: function(str, encoding) {
@@ -5,6 +6,11 @@ var iconv = module.exports = {
     },
     fromEncoding: function(buf, encoding) {
         return iconv.getCodec(encoding).fromEncoding(buf);
+    },
+    encodingExists: function(enc) {
+        loadEncodings();
+        enc = enc.replace(RE_SPACEDASH, "").toLowerCase();
+        return (iconv.encodings[enc] !== undefined);
     },
     
     defaultCharUnicode: '�',
@@ -14,17 +20,12 @@ var iconv = module.exports = {
     
     // Get correct codec for given encoding.
     getCodec: function(encoding) {
-        if (!iconv.encodingsLoaded) {
-            applyEncodings(require('./encodings/singlebyte'));
-            applyEncodings(require('./encodings/gbk'));
-            applyEncodings(require('./encodings/big5'));
-            iconv.encodingsLoaded = true;
-        }
+        loadEncodings();
         var enc = encoding || "utf8";
         var codecOptions = undefined;
         while (1) {
             if (getType(enc) === "String")
-                enc = enc.replace(/[- ]/g, "").toLowerCase();
+                enc = enc.replace(RE_SPACEDASH, "").toLowerCase();
             var codec = iconv.encodings[enc];
             var type = getType(codec);
             if (type === "String") {
@@ -195,9 +196,17 @@ iconv.encode = iconv.toEncoding;
 iconv.decode = iconv.fromEncoding;
 
 // Load other encodings manually from files in /encodings dir.
-function applyEncodings(encodings) {
-    for (var key in encodings)
-        iconv.encodings[key] = encodings[key]
+function loadEncodings() {
+    if (!iconv.encodingsLoaded) {
+        [ require('./encodings/singlebyte'),
+          require('./encodings/gbk'),
+          require('./encodings/big5')
+        ].forEach(function(encodings) {
+            for (var key in encodings)
+                iconv.encodings[key] = encodings[key]
+        });
+        iconv.encodingsLoaded = true;
+    }
 }
 
 

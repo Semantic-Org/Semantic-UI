@@ -35,7 +35,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 if (typeof define !== 'function') {
-    var define = require('amdefine')(module);
+    var define = require('amdefine')(module, require);
 }
 define(function (require, exports, module) {
 
