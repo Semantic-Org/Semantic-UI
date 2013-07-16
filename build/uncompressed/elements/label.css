@@ -531,6 +531,9 @@ a.ui.teal.tag.label:hover:before {
   top: -1em;
   left: 100%;
   margin: 0em 0em 0em -1.5em !important;
+  -webkit-box-shadow: 0px -2px 0 0px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px -2px 0 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px -2px 0 0px rgba(0, 0, 0, 0.1) inset;
 }
 /*-------------------
         Sizes

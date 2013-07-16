@@ -30,7 +30,7 @@
       moduleSelector  = $module.selector || '',
 
       eventNamespace  = '.' + settings.namespace,
-      moduleNamespace = settings.namespace + '-module', 
+      moduleNamespace = settings.namespace + '-module',
       
       className       = settings.className,
       metadata        = settings.metadata,
@@ -62,7 +62,8 @@
             return false;
           }
           else {
-            if(settings.auto) {
+            if(!settings.apiSettings) {
+              module.debug('No API url found, using current url');
               settings.apiSettings = {
                 url: settings.path + '/{$tab}'
               };
@@ -70,8 +71,7 @@
             module.verbose('Address library found adding state change event');
             $.address
               .state(settings.path)
-              .unbind('change')
-              .bind('change', module.event.history.change)
+              .change(module.event.history.change)
             ;
           }
         }
@@ -160,14 +160,7 @@
 
       change: function(tabPath) {
         var
-          pushStateAvailable = (window.history && window.history.pushState),
-          shouldIgnoreLoad   = (pushStateAvailable && settings.ignoreFirstLoad && firstLoad),
-          remoteContent      = $.isPlainObject(settings.apiSettings),
-          // only get default path if not remote content
-          pathArray = (remoteContent && !shouldIgnoreLoad)
-            ? module.utils.pathToArray(tabPath)
-            : module.get.defaultPathArray(tabPath),
-          tabPath   = module.utils.arrayToPath(pathArray)
+          pathArray = module.get.defaultPathArray(tabPath)
         ;
         module.deactivate.all();
         $.each(pathArray, function(index, tab) {
@@ -177,6 +170,10 @@
 
             isTab              = module.is.tab(currentPath),
             isLastIndex        = (index + 1 == pathArray.length),
+
+            pushStateAvailable = (window.history && window.history.pushState),
+            shouldIgnoreLoad   = (pushStateAvailable && settings.ignoreFirstLoad && firstLoad),
+            remoteContent      = $.isPlainObject(settings.apiSettings),
             
             $tab               = module.get.tabElement(currentPath),
             nextPathArray,
@@ -198,9 +195,7 @@
               nextPathArray = pathArray.slice(0, index + 2);
               nextPath      = module.utils.arrayToPath(nextPathArray);
               isLastTab     = ( !module.is.tab(nextPath) );
-              if(isLastTab) {
-                module.verbose('Tab parameters found', nextPathArray);
-              }
+              module.verbose('Tab parameters found', nextPathArray);
             }
             if(isLastTab && remoteContent) {
               if(!shouldIgnoreLoad) {
@@ -213,15 +208,14 @@
                 module.cache.add(tabPath, $tab.html());
                 module.activate.all(currentPath);
                 $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
-                $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
               }
-              return false;
             }
             else {
               module.debug('Opened local tab', currentPath);
               module.activate.all(currentPath);
               $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
             }
+            return false;
           }
           else {
             module.error(errors.missingTab, tab);
@@ -251,7 +245,6 @@
                   module.debug('Content loaded in background', tabPath);
                 }
                 $.proxy(settings.onTabInit, $tab)(tabPath, parameterArray, historyEvent);
-                $.proxy(settings.onTabLoad, $tab)(tabPath, parameterArray, historyEvent);
               },
               urlData: { tab: fullTabPath }
             },
@@ -262,7 +255,7 @@
             module.debug('Showing existing content', fullTabPath);
             module.content.update(tabPath, cachedContent);
             module.activate.tab(tabPath);
-            $.proxy(settings.onTabLoad, $tab)(tabPath, parameterArray, historyEvent);
+            $.proxy(settings.onTabInit, $tab)(tabPath, parameterArray, historyEvent);
           }
           else if(existingRequest) {
             module.debug('Content is already loading', fullTabPath);
@@ -304,10 +297,10 @@
         },
         navigation: function(tabPath) {
           var
-            $navigation = module.get.navElement(tabPath)
+            $nav = module.get.navElement(tabPath)
           ;
-          module.verbose('Activating tab navigation for', $navigation, tabPath);
-          $navigation.addClass(className.active);
+          module.verbose('Activating tab navigation for', $nav);
+          $nav.addClass(className.active);
         }
       },
 
@@ -360,9 +353,6 @@
               return module.get.defaultPath(defaultTab);
             }
             module.error(errors.recursion);
-          }
-          else {
-            module.debug('No default tabs found for', tabPath);
           }
           recursionDepth = 0;
           return tabPath;
@@ -593,9 +583,6 @@
       determineTitle: function(tabArray) {}
     },
     
-    // uses pjax style endpoints fetching content from same url with remote-content headers
-    auto            : false,
-
     history         : false,
     path            : false,
     

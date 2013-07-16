@@ -301,21 +301,10 @@ $.fn.shape = function(parameters) {
             module.debug('Flipping over', $nextSide);
             if( !module.is.animating() ) {
               module.stage.behind();
-              module.animate(module.getTransform.over() );
+              module.animate(module.getTransform.behind() );
             }
             else {
               module.queue('flip.over');
-            }
-          },
-
-          back: function() {
-            module.debug('Flipping back', $nextSide);
-            if( !module.is.animating() ) {
-              module.stage.behind();
-              module.animate(module.getTransform.back() );
-            }
-            else {
-              module.queue('flip.back');
             }
           }
 
@@ -371,7 +360,7 @@ $.fn.shape = function(parameters) {
             };
           },
 
-          over: function() {
+          behind: function() {
             var
               translate = {
                 x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
@@ -379,17 +368,6 @@ $.fn.shape = function(parameters) {
             ;
             return {
               transform: 'translateX(' + translate.x + 'px) rotateY(180deg)'
-            };
-          },
-
-          back: function() {
-            var
-              translate = {
-                x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
-              }
-            ;
-            return {
-              transform: 'translateX(' + translate.x + 'px) rotateY(-180deg)'
             };
           }
 
