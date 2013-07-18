@@ -1,7 +1,0 @@
-{
-  "name": "myproject",
-  "version": "1.0.0",
-  "dependencies": {
-    "jquery-pjax": "1.0.0"
-  }
-}

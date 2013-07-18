@@ -1,6 +1,0 @@
-<h1>Heading 1</h1>
-<h2>Heading 2</h2>
-<ul>
-<li>bullet 1</li>
-<li>bullet 2</li>
-</ul>

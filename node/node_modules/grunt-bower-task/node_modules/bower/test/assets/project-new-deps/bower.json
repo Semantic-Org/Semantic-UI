@@ -1,8 +1,0 @@
-{
-  "name": "myproject",
-  "version": "1.0.0",
-  "dependencies": {
-    "package-bootstrap": "test/assets/package-bootstrap",
-    "jquery": "test/assets/package-jquery"
-  }
-}

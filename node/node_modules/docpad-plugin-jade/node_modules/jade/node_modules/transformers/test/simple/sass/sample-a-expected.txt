@@ -1,8 +1,0 @@
-table {
-  border: none;}
-table tr {
-  background: #fff;}
-table tr {
-  font-size: 15px;}
-table tr:odd {
-  background: #000;}

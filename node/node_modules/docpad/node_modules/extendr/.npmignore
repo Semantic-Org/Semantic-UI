@@ -1,8 +1,0 @@
-.travis*
-Cakefile
-Makefile
-History.md
-
-src/
-out/test/
-test/

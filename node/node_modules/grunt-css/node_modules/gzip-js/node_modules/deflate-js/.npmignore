@@ -1,6 +1,0 @@
-node_modules
-pakmanaged*
-checks.json
-test-outs
-*.pyc
-*.deflate
