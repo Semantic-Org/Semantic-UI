@@ -1,8 +1,0 @@
-{
-  "name": "foo",
-  "scripts": ["index.js"],
-  "styles": ["index.css", "second.css"],
-  "dependencies": {
-    "component/dom": "*"
-  }
-}

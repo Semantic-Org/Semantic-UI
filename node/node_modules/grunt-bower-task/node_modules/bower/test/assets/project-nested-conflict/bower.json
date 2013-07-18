@@ -1,8 +1,0 @@
-{
-  "name": "myproject",
-  "version": "1.0.0",
-  "dependencies": {
-    "package-deps-on-jquery-old": "test/assets/package-deps-on-jquery-old",
-    "jquery-pjax": "1.0.0"
-  }
-}

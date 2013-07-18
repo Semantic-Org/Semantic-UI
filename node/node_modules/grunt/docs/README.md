@@ -1,1 +1,0 @@
-Visit the [gruntjs.com](http://gruntjs.com/) website for all the things.

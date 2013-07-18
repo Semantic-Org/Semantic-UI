@@ -1,3 +1,0 @@
-<![CDATA[
-goodbye world
-]]>

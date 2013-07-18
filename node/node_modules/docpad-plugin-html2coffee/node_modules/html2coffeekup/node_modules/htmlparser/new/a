@@ -1,6 +1,0 @@
-[
-{"type":"tag","name":"script","name_raw":"script","raw":"script language='javascript'"},
-{"type":"attr","name":"langauge","name_raw":"language","value":"javascript"},
-{"type":"text","data":"\nvar foo = '<bar>xxx</bar>';\n"},
-{"type":"tag","name":"/script","name_raw":"/script","raw":"/script"}
-]

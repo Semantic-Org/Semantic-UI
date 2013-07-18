@@ -1,5 +1,0 @@
-{
-  "name": "lexical-scope-test",
-  "version": "0.0.0",
-  "browserify": { "transform": "brfs" }
-}

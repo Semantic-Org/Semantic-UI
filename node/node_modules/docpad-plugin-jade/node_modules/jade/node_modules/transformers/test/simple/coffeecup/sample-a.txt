@@ -1,3 +1,0 @@
-ul ->
-  li 'foo'
-  li 'bar'
