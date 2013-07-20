@@ -542,10 +542,12 @@ a:hover {
 }
 
 #example .another.example {
+  margin-top: 0em;
+  padding-top: 2em;
   border-top: none;
 }
 #example .another.example i.code {
-  top: 15px;
+  top: 0px;
 }
 #example .example > p {
   color: #888888;

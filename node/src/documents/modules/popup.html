@@ -1,0 +1,270 @@
+---
+layout : 'default'
+css    : 'popup'
+
+title  : 'Popup'
+type   : 'UI Module'
+---
+<script src="/javascript/popup.js"></script>
+
+<div class="segment">
+  <div class="container">
+    <h1 class="ui dividing header">Popup</h1>
+    <p>A popup displays additional information on top of a page element.</p>
+  </div>
+</div>
+<div class="main container">
+  
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Standard</a>
+      <a class="item">Usage</a>
+    </div>
+  </div>
+  
+  <h2 class="ui dividing header">Standard</h2>
+  <div class="example">
+    <h4 class="ui header">Popup</h4>
+    <p>A standard popup</p>
+    <i class="sketchy question icon link" data-content="Hello. This is a popup"></i>
+  </div>
+  
+  <h2 class="ui dividing header">Variations</h2>
+  
+  <div class="example">
+    <h4 class="ui header">Size</h4>
+    <p>A popup can be large or small</p>
+    <i class="sketchy question icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
+    <i class="sketchy question icon link" data-content="Hello. This is a large popup" data-variation="large"></i>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Inverted</h4>
+    <p>A popup can have its colors inverted</p>
+    <i class="sketchy question icon link" data-content="Hello. This is an inverted popup" data-variation="inverted"></i>
+  </div>
+
+
+  <h2 class="ui dividing header">Usage</h2>
+
+  <h4 class="ui header">Initializing an popup</h4>
+  <div class="code">
+    $('.ui.popup')
+      .popup()
+    ;
+  </div>
+  
+  <h4 class="ui header">Including metadata</h4>
+  <p>Frequently used metadata like, title, content, html, or arrowOffset or variation, can be included in html metadata<p>
+  <div class="ui info icon ignored message">
+    <i class="icon sketchy question circle"></i>
+    <div class="content">
+      <div class="header">Specifying Content</div>
+      <p>Popups can specify content in three ways:<p>
+      <ul class="list">
+        <li>Using html title attribute</li>
+        <li>Using data-content attribute</li>
+        <li>Using the content property in the initialization of the popup</li>
+      </ul>
+    </div>
+  </div>
+  <div class="code" data-type="html">
+    <i class="sketchy question icon link" data-content="Here is some popup content." data-position="top left" data-variation="black"></i>  
+  </div>
+  
+  <h2 class="ui dividing header">Examples</h2>
+  
+  <div class="example segment">
+    <h4 class="ui header">Positioning</h4>
+    <p>A popup can be positioned to any side of an element. If space is not available, it will automatically search for a similar alternative position to use.</p>
+      <i class="sketchy question icon link" data-content="Top Left" data-position="top left"></i>  
+      <i class="sketchy question icon link" data-content="Top Center" data-position="top center"></i>        
+      <i class="sketchy question icon link" data-content="Top Right" data-position="top right"></i>        
+      <i class="sketchy question icon link" data-content="Left Center" data-position="left center"></i>        
+      <i class="sketchy question icon link" data-content="Right Center" data-position="right center"></i>        
+      <i class="sketchy question icon link" data-content="Bottom Left" data-position="bottom left"></i>        
+      <i class="sketchy question icon link" data-content="Bottom Center " data-position="bottom center"></i>        
+      <i class="sketchy question icon link" data-content="Bottom Right" data-position="bottom right"></i>      
+  </div>
+  
+  <div class="example segment">
+    <h4 class="ui header">Title</h4>
+    <p>A popup can be formatted with a title</p>
+    <i class="sketchy question icon link" data-title="Dog Breeds" data-content="There are many types of dogs. We don't have time to list them all"></i>  
+  </div>
+  
+  <div class="example segment">
+    <h4 class="ui header">HTML</h4>
+    <p>A popup can be formatted with html</p>
+    <i class="sketchy question icon link" data-html="<strike>I rescind my comment about cats</strike>"></i>  
+  </div>
+
+  
+  <h3 class="ui header">Settings</h3>
+  <table class="ui red table segment">
+    <thead>
+      <th colspan="3">Content</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>content</td>
+        <td></td>
+        <td>Content to display</td>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td></td>
+        <td>Title to display alongside content</td>
+      </tr>
+      <tr>
+        <td>html</td>
+        <td></td>
+        <td>HTML content to display instead of preformatted title and content</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="ui green table segment">
+    <thead>
+      <th colspan="3">Popup Settings</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>inline</td>
+        <td>true</td>
+        <td>If a popup is inline it will be created next to current element, allowing for local css rules to apply. Otherwise popups will appended to body and removed after being hidden.</td>
+      </tr>
+      <tr>
+        <td>delay</td>
+        <td>0</td>
+        <td>Delay in milliseconds before showing a popup when using hover events.</td>
+      </tr>
+      <tr>
+        <td>variation</td>
+        <td></td>
+        <td>Popup variation to use, can use multiple variations with a space delimiter</td>
+      </tr>
+      <tr>
+        <td>on</td>
+        <td>hover</td>
+        <td>Event used to invoke popup</td>
+      </tr>
+      <tr>
+        <td>clickToClose</td>
+        <td>hover</td>
+        <td>Whether clicking anywhere outside a popup should close it.</td>
+      </tr>
+      <tr>
+        <td>position</td>
+        <td>top center</td>
+        <td>Position that the popup should appear</td>
+      </tr>
+      <tr>
+        <td>distanceAway</td>
+        <td>0</td>
+        <td>Distance away from element for the popup to appear.</td>
+      </tr>
+      <tr>
+        <td>arrowOffset</td>
+        <td>0</td>
+        <td>Offset to apply to arrow positioning of element</td>
+      </tr>
+      <tr>
+        <td>maxSearchDepth</td>
+        <td>10</td>
+        <td>Number of iterations before giving up search for popup position when a popup cannot fit on screen</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="ui blue table segment">
+    <thead>
+      <th colspan="3">Animation</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>animation</td>
+        <td>Pop</td>
+        <td>Animation to use, can be set to either pop or fade.</td>
+      </tr>
+      <tr>
+        <td>duration</td>
+        <td>250</td>
+        <td>Duration of popup animation.</td>
+      </tr>
+      <tr>
+        <td>easing</td>
+        <td>easeOutQuint</td>
+        <td>Easing equation for popup animation</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="ui teal table segment">
+    <thead>
+      <th colspan="3">Callbacks</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>onInit</td>
+        <td>None</td>
+        <td>Callback after a popup html is generated.</td>
+      </tr>
+      <tr>
+        <td>onShow</td>
+        <td>None</td>
+        <td>Callback after a popup section is shown.</td>
+      </tr>
+      <tr>
+        <td>onHide</td>
+        <td>None</td>
+        <td>Callback after a popup section is hidden.</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="ui blue table segment">
+    <thead>
+      <th colspan="3">UI Module Settings</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>moduleName</td>
+        <td>Popup</td>
+        <td>Name used in debug logs</td>
+      </tr>
+      <tr>
+        <td>debug</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>performance</td>
+        <td>False</td>
+        <td>Provides performance output to console</td>
+      </tr>
+      <tr>
+        <td>verbose</td>
+        <td>False</td>
+        <td>Provides ancillary debug output to console</td>
+      </tr>
+      <tr>
+        <td>namespace</td>
+        <td>popup</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>errors</td>
+        <td colspan="2">
+          <div class="code">
+    errors : {
+      method : 'The method you called is not defined.'
+    }
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+
+</html>
