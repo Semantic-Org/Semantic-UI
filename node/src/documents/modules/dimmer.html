@@ -34,7 +34,7 @@ type   : 'UI Module'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Usage</a>
-      <a class="item">Standard</a>
+      <a class="item">Types</a>
       <a class="item">Behavior</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
@@ -42,25 +42,25 @@ type   : 'UI Module'
   </div>
   <h2 class="ui dividing header">Usage</h2>
   
-  <h4 class="ui header">Initializing an popup</h4>
+  <h4 class="ui header">Initializing a dimmer</h4>
   <div class="code">
-    // can be invoked on content that needs to be dimmed
+    // if you initialize a dimmer on a dimmable section, a dimmer will automatically be created inside
     $('.ui.dimmable')
       .dimmer()
     ;
     
-    // can be invoked directly on dimmer
+    // if you initialize a dimmer directly, it will dim its current parent
     $('.ui.dimmer')
       .dimmer()
     ;
   </div>
   
-  <h2 class="ui dividing header">Standard</h2>
+  <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
     <h4 class="ui header">Dimmable</h4>
-    <p>A dimmable section can be dimmed</p>
-    <div class="ui ignored info message">A dimmer will automatically be inserted the first time you create a dimmer on a dimmable section</div>
+    <p>A dimmable is a section of content that can be dimmed</p>
+    <div class="ui ignored info message">A dimmer will automatically be inserted the first time you initialize a dimmer on a dimmable section</div>
     <div class="ui segment">
       <h4 class="ui header">
         <i class="icon photos"></i>Dog Photos
@@ -111,7 +111,7 @@ type   : 'UI Module'
   
   <div class="example">
     <h4 class="ui header">Stand-alone Dimmer</h4>
-    <p>A dimmer can exist on its own without defining content that is /p>
+    <p>A dimmer can exist on its own without defining content that it dims </p>
     <div class="ui segment">
       <h4 class="ui header">
         <i class="icon photos"></i>Dog Photos
