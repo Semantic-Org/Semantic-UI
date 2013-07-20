@@ -64,12 +64,10 @@
 
 .ui.grid > .row {
   display: block;
-  width: 100%;
-}
-
-.ui.grid > .row {
+  width: 100% !important;
   margin-top: 1.5%;
-  padding-top: 1.5%;
+  padding: 1.5% 0% 0%;
+  font-size: 0rem;
 }
 .ui.grid > .row:first-child {
   padding-top: 0rem;
@@ -158,7 +156,7 @@
 }
 @media only screen and (min-width : 2000px) {
   .ui.responsive.grid {
-    padding: 0% 25%;
+    padding: 0% 23%;
   }
   .ui.responsive.grid > .column,
   .ui.responsive.grid > .row > .column {
@@ -534,7 +532,7 @@
 
 
 /*-------------------
-       Folding
+       Stackable
 --------------------*/
 
 @media only screen and (max-width : 960px) {
