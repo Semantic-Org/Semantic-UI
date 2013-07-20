@@ -130,7 +130,7 @@ $.fn.popup = function(parameters) {
 
         // generates popup html from metadata
         create: function() {
-          module.debug('Creating pop-up content');
+          module.debug('Creating pop-up html');
           var
             html      = $module.data(metadata.html)      || settings.html,
             variation = $module.data(metadata.variation) || settings.variation,
@@ -245,14 +245,9 @@ $.fn.popup = function(parameters) {
           module.debug('Toggling pop-up');
           // refresh state of module
           module.refresh();
-          if($popup.size() === 0) {
-            module.verbose('Creating pop-up html');
-            module.create();
-          }
           if( !$module.hasClass(className.visible) ) {
-            if( module.position() ) {
-              module.show();
-            }
+            module.hideAll();
+            module.show();
           }
           else {
             module.hide();
@@ -387,13 +382,10 @@ $.fn.popup = function(parameters) {
 
         show: function() {
           module.debug('Showing pop-up');
-          $(selector.popup)
-            .filter(':visible')
-              .stop()
-              .fadeOut(200)
-              .prev($module)
-                .removeClass(className.visible)
-          ;
+          if($popup.size() === 0) {
+            module.create();
+          }
+          module.position();
           $module
             .addClass(className.visible)
           ;
@@ -401,12 +393,14 @@ $.fn.popup = function(parameters) {
             .removeClass(className.loading)
           ;
           if(settings.animation == 'pop' && $.fn.popIn !== undefined) {
+            console.log($popup);
             $popup
               .stop()
               .popIn(settings.duration, settings.easing)
             ;
           }
           else {
+            console.log($popup);
             $popup
               .stop()
               .fadeIn(settings.duration, settings.easing)
@@ -419,6 +413,16 @@ $.fn.popup = function(parameters) {
             ;
           }
           $.proxy(settings.onShow, $popup)();
+        },
+
+        hideAll: function() {
+          $(selector.popup)
+            .filter(':visible')
+              .stop()
+              .fadeOut(200)
+              .prev($module)
+                .removeClass(className.visible)
+          ;
         },
 
         hide: function() {
@@ -509,7 +513,6 @@ $.fn.popup = function(parameters) {
           }
         },
         error: function() {
-          console.log($module.next());
           module.error = Function.prototype.bind.call(console.warn, console, settings.moduleName + ':');
         },
         performance: {
@@ -616,9 +619,9 @@ $.fn.popup = function(parameters) {
 $.fn.popup.settings = {
 
   moduleName     : 'Popup',
-  debug          : false,
-  verbose        : false,
-  performance    : false,
+  debug          : true,
+  verbose        : true,
+  performance    : true,
   namespace      : 'popup',
 
   onInit         : function(){},

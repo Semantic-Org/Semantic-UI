@@ -21,13 +21,6 @@
   font-weight: bold;
   line-height: 1.33;
 }
-.ui.header:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
 .ui.header .ui.sub.header,
 .ui.header .sub.header {
   font-size: 1rem;

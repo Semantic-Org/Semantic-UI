@@ -52,11 +52,10 @@
 --------------------*/
 .ui.grid > .row {
   display: block;
-  width: 100%;
-}
-.ui.grid > .row {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  width: 100% !important;
+  margin-top: 1.5%;
+  padding: 1.5% 0% 0%;
+  font-size: 0rem;
 }
 .ui.grid > .row:first-child {
   padding-top: 0rem;
@@ -119,7 +118,7 @@
 }
 @media only screen and (min-width: 2000px) {
   .ui.responsive.grid {
-    padding: 0% 25%;
+    padding: 0% 23%;
   }
 }
 /*-------------------
@@ -320,19 +319,29 @@
 .ui.divided.grid,
 .ui.divided.grid > .row {
   display: table;
-  width: 100%;
-  margin-left: 0% !important;
-  margin-right: 0% !important;
 }
 .ui.divided.grid > .column,
 .ui.divided.grid > .row > .column {
   display: table-cell;
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.9);
-  -moz-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.9);
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.8);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.8);
 }
 .ui.divided.grid > .column:first-child,
 .ui.divided.grid > .row > .column:first-child {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* Vertically Divided */
+.ui.vertically.divided.grid > .row {
+  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.8);
+}
+.ui.vertically.divided.grid > .row > .column,
+.ui.vertically.divided.grid > .column,
+.ui.vertically.divided.grid > .row:first-child {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -368,6 +377,11 @@
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.celled.repsonsive.grid {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -433,7 +447,7 @@
   display: table-cell;
 }
 /*-------------------
-       Folding
+       Stackable
 --------------------*/
 @media only screen and (max-width: 960px) {
   .ui.stackable.grid {

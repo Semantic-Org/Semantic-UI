@@ -37,7 +37,7 @@ module.exports = function(grunt) {
   config = {
 
     package : grunt.file.readJSON('package.json'),
-    server  : grunt.file.readJSON('server.json'),
+    //server  : grunt.file.readJSON('server.json'),
 
     // watches for changes in a source folder
     watch: {
