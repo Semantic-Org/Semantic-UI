@@ -1,5 +1,5 @@
 /*  ******************************
-  Module - Simple Tab Navigation
+  Module - Tabs
   Author: Jack Lukic
   Notes: First Commit Aug 15, 2012
 
@@ -8,10 +8,10 @@
 
 ;(function ($, window, document, undefined) {
 
-  $.fn.tabNavigation = function(parameters) {
+  $.fn.tab = function(parameters) {
 
     var
-      settings        = $.extend(true, {}, $.fn.tabNavigation.settings, parameters),
+      settings        = $.extend(true, {}, $.fn.tab.settings, parameters),
       
       $module         = $(this),
       $tabs           = $(settings.context).find(settings.selector.tabs),
@@ -162,7 +162,7 @@
         var
           pushStateAvailable = (window.history && window.history.pushState),
           shouldIgnoreLoad   = (pushStateAvailable && settings.ignoreFirstLoad && firstLoad),
-          remoteContent      = $.isPlainObject(settings.apiSettings),
+          remoteContent      = (settings.auto || $.isPlainObject(settings.apiSettings) ),
           // only get default path if not remote content
           pathArray = (remoteContent && !shouldIgnoreLoad)
             ? module.utils.pathToArray(tabPath)
@@ -572,11 +572,11 @@
   };
 
   // shortcut for tabbed content with no defined navigation
-  $.tabNavigation = function(settings) {
-    $(window).tabNavigation(settings);
+  $.tab = function(settings) {
+    $(window).tab(settings);
   };
 
-  $.fn.tabNavigation.settings = {
+  $.fn.tab.settings = {
 
     moduleName      : 'Tab Module',
     verbose         : true,
