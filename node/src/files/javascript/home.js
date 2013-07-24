@@ -6,13 +6,11 @@ semantic.home.ready = function() {
   // selector cache
   var 
     $navigationItem = $('.demo .menu .item'),
-    $oddballItem    = $navigationItem.filter('.oddball'),
-    // alias
-    handler
+    $oddballItem    = $navigationItem.filter('.oddball')
   ;
 
   $navigationItem
-    .tabNavigation({
+    .tab({
       history: true,
       path: '/'
     })
@@ -20,9 +18,9 @@ semantic.home.ready = function() {
   $oddballItem
     .on('click', function() {
       $(this)
-        .tabNavigation('deactivate.all')
-        .tabNavigation('activate.tab', 'third')
-        .tabNavigation('activate.navigation', 'third')
+        .tab('deactivate.all')
+        .tab('activate.tab', 'third')
+        .tab('activate.navigation', 'third')
       ;
     })
   ;
