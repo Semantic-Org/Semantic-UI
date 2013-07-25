@@ -127,12 +127,10 @@
 .ui.menu .menu {
   margin: 0em;
 }
-.ui.menu .menu.left,
-.ui.menu .item.left {
+.ui.menu .menu.left {
   float: left;
 }
-.ui.menu .menu.right,
-.ui.menu .item.right {
+.ui.menu .menu.right {
   float: right;
 }
 /*--------------
@@ -164,6 +162,10 @@
 ---------------*/
 .ui.menu .text.item > *,
 .ui.menu .item > p:only-child {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
   line-height: 1.3;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -369,11 +371,14 @@
 .ui.vertical.menu .item:first-child:before {
   background-image: none;
 }
+.ui.vertical.menu .item:last-child::before {
+  display: block;
+}
 /*--- Dropdown ---*/
 .ui.vertical.menu .dropdown.item > i {
   float: right;
 }
-.ui.vertical.menu .dropdown.item .menu {
+.ui.vertical.menu .simple.dropdown.item .menu {
   top: 0% !important;
   left: 100%;
   margin: 0em;
@@ -699,7 +704,7 @@
   ;
 }
 .ui.text.menu > .item:before {
-  display: none;
+  display: none !important;
 }
 .ui.text.menu .header.item {
   background-color: transparent;

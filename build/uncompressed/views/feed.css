@@ -64,6 +64,7 @@
   display: table-cell;
   vertical-align: top;
   text-align: left;
+  word-wrap: break-word;
 }
 /* Date */
 .ui.feed .content .date {
