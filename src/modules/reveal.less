@@ -81,20 +81,22 @@
 
 .ui.slide.reveal {
   position: relative !important;
-  display: block !important;
+  display: block;
   overflow: hidden !important;
 
   white-space: nowrap;
 }
 
 .ui.slide.reveal > .content {
+  display: block;
+  float: left;
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 
   margin: 0em;
-  padding: 0em 1em;
   -webkit-transition:
     top 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s,
     left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s,
@@ -124,9 +126,7 @@
   position: relative !important;
 }
 .ui.slide.reveal > .hidden.content {
-  display: inline-block;
   position: absolute !important;
-  top: 0% !important;
   left: 100% !important;
   width: 100% !important;
 }

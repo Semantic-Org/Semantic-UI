@@ -813,7 +813,7 @@
   border-radius: 0.3125em;
 }
 .ui.secondary.menu > .item:before {
-  display: none;
+  display: none !important;
 }
 .ui.secondary.menu .link.item,
 .ui.secondary.menu a.item {
