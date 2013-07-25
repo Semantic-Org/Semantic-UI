@@ -56,7 +56,7 @@
   overflow: hidden !important;
   white-space: nowrap;
 }
-.ui.slide.reveal > * {
+.ui.slide.reveal > .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -246,7 +246,7 @@
 /*--------------
      Instant
 ---------------*/
-.ui.instant.reveal > * {
+.ui.instant.reveal > .content {
   -webkit-transition-delay: 0s !important;
   -moz-transition-delay: 0s !important;
   -o-transition-delay: 0s !important;

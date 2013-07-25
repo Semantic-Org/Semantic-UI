@@ -105,29 +105,36 @@
           },
 
           show: function() {
-            if($.fn.popIn !== undefined) {
+            if(settings.animation.show == 'fade') {
               $module
-                .popIn(settings.duration)
+                .fadeIn(settings.duration, settings.easing)
               ;
             }
             else {
               $module
-                .fadeIn(settings.duration, settings.easing)
+                .slideDown(settings.duration, settings.easing)
               ;
             }
           },
           
           hide: function() {
-            $module
-              .fadeOut(settings.duration, settings.easing, this.onHide)
-            ;
+            if(settings.animation.show == 'fade') {
+              $module
+                .fadeIn(settings.duration, settings.easing)
+              ;
+            }
+            else {
+              $module
+                .slideUp(settings.duration, settings.easing)
+              ;
+            }
           },
 
           onHide: function() {
             $module.remove();
             if (settings.onHide) {
               settings.onHide();
-            };
+            }
           },
 
           stick: function() {
@@ -296,6 +303,11 @@
 
     // set to zero to manually dismiss, otherwise hides on its own
     displayTime    : 0,
+
+    animation   : {
+      show: 'slide',
+      hide: 'slide'
+    },
 
     // method of stickyness
     position       : 'fixed',

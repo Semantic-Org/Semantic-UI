@@ -544,7 +544,6 @@
           });
         }
         if ( $.isFunction( found ) ) {
-          module.verbose('Executing invoked function', found);
           return found.apply(context, passedArguments);
         }
         return found || false;

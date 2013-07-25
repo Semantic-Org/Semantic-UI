@@ -37,11 +37,11 @@
     "npm": "1.1.x"
   },
   "dependencies": {
-    "docpad": "~6.45.0",
+    "docpad": "~6.46.3",
     "docpad-plugin-coffeescript": "~2.2.2",
     "docpad-plugin-eco": "~2.0.2",
     "docpad-plugin-marked": "~2.1.1",
-    "docpad-plugin-partials": "~2.6.3",
+    "docpad-plugin-partials": "~2.7.1",
     "docpad-plugin-stylus": "~2.3.1",
     "docpad-plugin-text": "~2.2.4",
     "grunt": "~0.4.0",
