@@ -11,10 +11,19 @@
 
 $.fn.search = function(source, parameters) {
   var
-    settings = $.extend(true, {}, $.fn.search.settings, parameters),
-    // make arguments available
+    $allModules     = $(this),
+    settings        = $.extend(true, {}, $.fn.search.settings, parameters),
+    
+    eventNamespace  = '.' + settings.namespace,
+    moduleNamespace = settings.namespace + '-module', 
+    moduleSelector  = $allModules.selector || '',
+    
+    time            = new Date().getTime(),
+    performance     = [],
+    
     query           = arguments[0],
-    passedArguments = [].slice.call(arguments, 1),
+    methodInvoked   = (typeof query == 'string'),
+    queryArguments  = [].slice.call(arguments, 1),
     invokedResponse
   ;
   $(this)
@@ -28,18 +37,16 @@ $.fn.search = function(source, parameters) {
         $category     = $module.find(settings.selector.category),
         
         element       = this,
-        selector      = $module.selector || '',
-        instance      = $module.data('module-' + settings.namespace),
-        methodInvoked = (instance !== undefined && typeof query == 'string'),
+        instance      = $module.data(moduleNamespace),
         
         className     = settings.className,
-        namespace     = settings.namespace,
         errors        = settings.errors,
         module
       ;
       module = {
 
         initialize: function() {
+          module.verbose('Initializing module');
           var
             prompt = $prompt[0],
             inputEvent   = (prompt.oninput !== undefined)
@@ -50,23 +57,33 @@ $.fn.search = function(source, parameters) {
           ;
           // attach events
           $prompt
-            .on('focus.' + namespace, module.event.focus)
-            .on('blur.' + namespace, module.event.blur)
-            .on('keydown.' + namespace, module.handleKeyboard)
+            .on('focus' + eventNamespace, module.event.focus)
+            .on('blur' + eventNamespace, module.event.blur)
+            .on('keydown' + eventNamespace, module.handleKeyboard)
           ;
           if(settings.automatic) {
             $prompt
-              .on(inputEvent + '.' + namespace, module.search.throttle)
+              .on(inputEvent + eventNamespace, module.search.throttle)
             ;
           }
           $searchButton
-            .on('click.' + namespace, module.search.query)
+            .on('click' + eventNamespace, module.search.query)
           ;
           $results
-            .on('click.' + namespace, settings.selector.result, module.results.select)
+            .on('click' + eventNamespace, settings.selector.result, module.results.select)
           ;
+          module.instantiate();
+        },
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
           $module
-            .data('module-' + namespace, module)
+            .data(moduleNamespace, module)
+          ;
+        },
+        destroy: function() {
+          module.verbose('Destroying instance');
+          $module
+            .removeData(moduleNamespace)
           ;
         },
         event: {
@@ -175,21 +192,18 @@ $.fn.search = function(source, parameters) {
               xhr = $module.data('xhr') || false
             ;
             if( xhr && xhr.state() != 'resolved') {
+              module.debug('Cancelling last search');
               xhr.abort();
             }
           },
-          throttle: function(event) {
+          throttle: function() {
             var
               searchTerm    = $prompt.val(),
-              numCharacters = searchTerm.length,
-              timer
+              numCharacters = searchTerm.length
             ;
-            clearTimeout($module.data('timer'));
+            clearTimeout(module.timer);
             if(numCharacters >= settings.minCharacters)  {
-              timer = setTimeout(module.search.query, settings.searchThrottle);
-              $module
-                .data('timer', timer)
-              ;
+              module.timer = setTimeout(module.search.query, settings.searchThrottle);
             }
             else {
               module.results.hide();
@@ -254,9 +268,6 @@ $.fn.search = function(source, parameters) {
           },
           remote: function(searchTerm) {
             var
-              xhr     = ($module.data('xhr') !== undefined)
-                ? $module.data('xhr')
-                : false,
               apiSettings = {
                 stateContext  : $module,
                 url           : source,
@@ -270,10 +281,8 @@ $.fn.search = function(source, parameters) {
               },
               searchHTML
             ;
-            // api attaches xhr event to context, use this to prevent overlapping queries
-            if( xhr && xhr.state() != 'resolved') {
-              xhr.abort();
-            }
+            module.search.cancel();
+            module.debug('Executing search');
             $.extend(true, apiSettings, settings.apiSettings);
             $.api(apiSettings);
           },
@@ -325,7 +334,7 @@ $.fn.search = function(source, parameters) {
             else {
               html = module.message(errors.noResults, 'empty');
             }
-            $.proxy(settings.onresults, $module)(response);
+            $.proxy(settings.onResults, $module)(response);
             return html;
           },
           add: function(html) {
@@ -383,50 +392,114 @@ $.fn.search = function(source, parameters) {
           }
         },
 
-        /* standard module */
         setting: function(name, value) {
-          if(value === undefined) {
+          module.debug('Changing setting', name, value);
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, settings, name);
+            }
+            else {
+              settings[name] = value;
+            }
+          }
+          else {
             return settings[name];
           }
-          settings[name] = value;
+        },
+        internal: function(name, value) {
+          module.debug('Changing internal', name, value);
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, module, name);
+            }
+            else {
+              module[name] = value;
+            }
+          }
+          else {
+            return module[name];
+          }
         },
         debug: function() {
-          var
-            output    = [],
-            message   = settings.moduleName + ': ' + arguments[0],
-            variables = [].slice.call( arguments, 1 ),
-            log       = console.info || console.log || function(){}
-          ;
-          log = Function.prototype.bind.call(log, console);
           if(settings.debug) {
-            output.push(message);
-            log.apply(console, output.concat(variables) );
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
-        // displays mesage visibly in search results
-        message: function(text, type) {
-          type = type || 'standard';
-          module.results.add( settings.templates.message(text, type) );
-          return settings.templates.message(text, type);
-        },
-        // update view with error message
-        error: function(errorMessage, escalate) {
-          // show user error message
-          escalate = (escalate !== undefined)
-            ? escalate
-            : true
-          ;
-          console.warn(settings.moduleName + ': ' + errorMessage);
-          if(escalate && errorMessage !== undefined) {
-            module.message(errorMessage, 'error');
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
           }
         },
-        invoke: function(query, context, passedArguments) {
+        error: function() {
+          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+        },
+        performance: {
+          log: function(message) {
+            var
+              currentTime,
+              executionTime,
+              previousTime
+            ;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime,
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Element'        : element,
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
+                'Execution Time' : executionTime
+              });
+            }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
+          },
+          display: function() {
+            var
+              title = settings.moduleName + ':',
+              totalTime = 0
+            ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
+            }
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
+          }
+        },
+        invoke: function(query, passedArguments, context) {
           var
             maxDepth,
             found
           ;
-          passedArguments = passedArguments || [].slice.call( arguments, 2 );
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
           if(typeof query == 'string' && instance !== undefined) {
             query    = query.split('.');
             maxDepth = query.length - 1;
@@ -446,50 +519,55 @@ $.fn.search = function(source, parameters) {
           if ( $.isFunction( found ) ) {
             return found.apply(context, passedArguments);
           }
-          // return retrieved variable or chain
-          return found;
+          return found || false;
         }
       };
-
-      // check for invoking internal method
       if(methodInvoked) {
-        invokedResponse = module.invoke(query, element, passedArguments);
+        if(instance === undefined) {
+          module.initialize();
+        }
+        invokedResponse = module.invoke(query);
       }
-      // otherwise initialize
       else {
+        if(instance !== undefined) {
+          module.destroy();
+        }
         module.initialize();
       }
+
     })
   ;
-  // chain or return queried method
-  return (invokedResponse !== undefined)
+  return (invokedResponse)
     ? invokedResponse
     : this
   ;
 };
 
 $.fn.search.settings = {
-
-  moduleName      : 'Search Module',
-  debug           : true,
-  namespace       : 'search',
-
+  
+  moduleName     : 'Search Module',
+  namespace      : 'search',
+  
+  debug          : true,
+  verbose        : true,
+  performance    : true,
+  
   // onSelect default action is defined in module
-  onSelect        : 'default',
-  onResultsAdd    : 'default',
-
-  onSearchQuery   : function(){},
-  onresults : function(response){},
-
-  onResultsOpen   : function(){},
-  onResultsClose  : function(){},
-
-  automatic       : 'true',
-  type            : 'simple',
-  minCharacters   : 3,
-  searchThrottle  : 300,
-  maxResults      : 7,
-  cache           : true,
+  onSelect       : 'default',
+  onResultsAdd   : 'default',
+  
+  onSearchQuery  : function(){},
+  onResults      : function(response){},
+  
+  onResultsOpen  : function(){},
+  onResultsClose : function(){},
+  
+  automatic      : 'true',
+  type           : 'simple',
+  minCharacters  : 3,
+  searchThrottle : 300,
+  maxResults     : 7,
+  cache          : true,
 
   searchFields    : [
     'title', 

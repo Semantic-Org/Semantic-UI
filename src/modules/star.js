@@ -157,7 +157,7 @@
 
   $.fn.starReview.settings = {
     
-    moduleName     : 'Star Module',
+    moduleName     : 'Star',
     namespace      : 'star',
     
     rateable       : true,

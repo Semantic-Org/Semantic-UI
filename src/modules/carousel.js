@@ -292,7 +292,7 @@ $.fn.carousel = function(parameters) {
 
 $.fn.carousel.settings = {
 
-  moduleName  : 'Carousel Module',
+  moduleName  : 'Carousel',
   namespace   : 'carousel',
 
   verbose     : true,

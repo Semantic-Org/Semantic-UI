@@ -223,10 +223,10 @@ $.fn.nag = function(parameters) {
               return true;
             }
             if(module.storage.get(settings.storedKey) != settings.storedValue) {
-              module.debug('Stored value is not set can show nag', module.storage.get(settings.storedKey));
+              module.debug('Stored value is not set, can show nag', module.storage.get(settings.storedKey));
               return true;
             }
-            module.debug('Stored value is set, cant show nag', module.storage.get(settings.storedKey));
+            module.debug('Stored value is set, cannot show nag', module.storage.get(settings.storedKey));
             return false;
           },
           stick: function() {
@@ -445,7 +445,7 @@ $.fn.nag = function(parameters) {
 
 $.fn.nag.settings = {
 
-  moduleName      : 'Nag Module',
+  moduleName      : 'Nag',
 
   verbose         : true,
   debug           : true,
