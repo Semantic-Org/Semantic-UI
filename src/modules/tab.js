@@ -34,7 +34,6 @@
       
       className       = settings.className,
       metadata        = settings.metadata,
-      namespace       = settings.namespace,
       errors          = settings.errors,
       
       instance        = $module.data(moduleNamespace),
@@ -78,7 +77,7 @@
         // attach events if navigation wasn't set to window
         if( !$.isWindow( element ) ) {
           $module
-            .on('click.' + eventNamespace, module.event.click)
+            .on('click' + eventNamespace, module.event.click)
           ;
         }
         $module
@@ -89,7 +88,7 @@
       destroy: function() {
         module.debug('Destroying tabs', $module);
         $module
-          .off('.' + namespace)
+          .off(eventNamespace)
         ;
       },
 
@@ -544,6 +543,7 @@
           });
         }
         if ( $.isFunction( found ) ) {
+          module.verbose('Executing invoked function', found);
           return found.apply(context, passedArguments);
         }
         return found || false;

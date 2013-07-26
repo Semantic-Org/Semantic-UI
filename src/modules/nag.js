@@ -8,345 +8,500 @@
 
 ;(function ($, window, document, undefined) {
 
-  $.fn.nag = function(parameters) {
-    var
-      settings = $.extend(true, {}, $.fn.nag.settings, parameters),
-      // hoist arguments
-      moduleArguments = arguments || false
-    ;
-    $(this)
-      .each(function() {
-        var
-          $module   = $(this),
-          $close    = $module.find(settings.selector.close),
+$.fn.nag = function(parameters) {
+  var
+    $allModules     = $(this),
+    settings        = $.extend(true, {}, $.fn.nag.settings, parameters),
+    
+    eventNamespace  = '.' + settings.namespace,
+    moduleNamespace = settings.namespace + '-module', 
+    moduleSelector  = $allModules.selector || '',
+    
+    time            = new Date().getTime(),
+    performance     = [],
+    
+    query           = arguments[0],
+    methodInvoked   = (typeof query == 'string'),
+    queryArguments  = [].slice.call(arguments, 1),
+    invokedResponse
+  ;
+  $(this)
+    .each(function() {
+      var
+        $module         = $(this),
+        
+        $close          = $module.find(settings.selector.close),
+        $context        = $(settings.context),
+        
+        
+        element         = this,
+        instance        = $module.data(moduleNamespace),
 
-          $context  = $(settings.context),
+        className       = settings.className,
+        errors          = settings.errors,
 
-          instance  = $module.data('module'),
-          className = settings.className,
+        moduleOffset,
+        moduleHeight,
 
-          moduleOffset,
-          moduleHeight,
+        contextWidth,
+        contextHeight,
+        contextOffset,
 
-          contextWidth,
-          contextHeight,
-          contextOffset,
+        yOffset,
+        yPosition,
 
-          yOffset,
-          yPosition,
+        timer,
+        module,
 
-          timer,
-          module,
+        requestAnimationFrame = window.requestAnimationFrame
+          || window.mozRequestAnimationFrame
+          || window.webkitRequestAnimationFrame
+          || window.msRequestAnimationFrame
+          || function(callback) { setTimeout(callback, 0); }
+      ;
+      module = {
 
-          requestAnimationFrame = window.requestAnimationFrame
-            || window.mozRequestAnimationFrame
-            || window.webkitRequestAnimationFrame
-            || window.msRequestAnimationFrame
-            || function(callback) { setTimeout(callback, 0); }
-        ;
-        module = {
+        initialize: function() {
+          module.verbose('Initializing element');
+          // calculate module offset once
+          moduleOffset  = $module.offset();
+          moduleHeight  = $module.outerHeight();
+          contextWidth  = $context.outerWidth();
+          contextHeight = $context.outerHeight();
+          contextOffset = $context.offset();
 
-          initialize: function() {
-            // calculate module offset once
-            moduleOffset  = $module.offset();
-            moduleHeight  = $module.outerHeight();
-            contextWidth  = $context.outerWidth();
-            contextHeight = $context.outerHeight();
-            contextOffset = $context.offset();
-
+          $module
+            .data(moduleNamespace, module)
+          ;
+          $close
+            .on('click' + eventNamespace, module.dismiss)
+          ;
+          // lets avoid javascript if we dont need to reposition
+          if(settings.context == window && settings.position == 'fixed') {
             $module
-              .data('module', module)
+              .addClass(className.fixed)
             ;
-            $close
-              .on('click', module.dismiss)
+          }
+          if(settings.sticky) {
+            module.verbose('Adding scroll events');
+            // retrigger on scroll for absolute
+            if(settings.position == 'absolute') {
+              $context
+                .on('scroll' + eventNamespace, module.event.scroll)
+                .on('resize' + eventNamespace, module.event.scroll)
+              ;
+            }
+            // fixed is always relative to window
+            else {
+              $(window)
+                .on('scroll' + eventNamespace, module.event.scroll)
+                .on('resize' + eventNamespace, module.event.scroll)
+              ;
+            }
+            // fire once to position on init
+            $.proxy(module.event.scroll, this)();
+          }
+
+          if(settings.displayTime > 0) {
+            setTimeout(module.hide, settings.displayTime);
+          }
+          if(module.should.show()) {
+            if( !$module.is(':visible') ) {
+              module.show();
+            }
+          }
+          else {
+            module.hide();
+          }
+        },
+
+        destroy: function() {
+          module.verbose('Destroying instance');
+          $module
+            .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+          if(settings.sticky) {
+            $context
+              .off(eventNamespace)
             ;
-            // lets avoid javascript if we dont need to reposition
-            if(settings.context == window && settings.position == 'fixed') {
-              $module
-                .addClass(className.fixed)
-              ;
-            }
-            if(settings.sticky) {
-              // retrigger on scroll for absolute
-              if(settings.position == 'absolute') {
-                $context
-                  .on('scroll resize', module.event.scroll)
-                ;
-              }
-              // fixed is always relative to window
-              else {
-                $(window)
-                  .on('scroll resize', module.event.scroll)
-                ;
-              }
-              // fire once to position on init
-              $.proxy(module.event.scroll, this)();
-            }
+          }
+        },
 
-            if(settings.displayTime > 0) {
-              setTimeout(module.hide, settings.displayTime);
-            }
-            if(module.should.show()) {
-              if( !$module.is(':visible') ) {
-                module.show();
-              }
-            }
-            else {
-              module.hide();
-            }
-          },
+        refresh: function() {
+          module.debug('Refreshing cached calculations');
+          moduleOffset  = $module.offset();
+          moduleHeight  = $module.outerHeight();
+          contextWidth  = $context.outerWidth();
+          contextHeight = $context.outerHeight();
+          contextOffset = $context.offset();
+        },
 
-          refresh: function() {
-            moduleOffset  = $module.offset();
-            moduleHeight  = $module.outerHeight();
-            contextWidth  = $context.outerWidth();
-            contextHeight = $context.outerHeight();
-            contextOffset = $context.offset();
-          },
+        show: function() {
+          module.debug('Showing nag', settings.animation.show);
+          if(settings.animation.show == 'fade') {
+            $module
+              .fadeIn(settings.duration, settings.easing)
+            ;
+          }
+          else {
+            $module
+              .slideDown(settings.duration, settings.easing)
+            ;
+          }
+        },
+        
+        hide: function() {
+          module.debug('Showing nag', settings.animation.hide);
+          if(settings.animation.show == 'fade') {
+            $module
+              .fadeIn(settings.duration, settings.easing)
+            ;
+          }
+          else {
+            $module
+              .slideUp(settings.duration, settings.easing)
+            ;
+          }
+        },
 
-          show: function() {
-            if(settings.animation.show == 'fade') {
-              $module
-                .fadeIn(settings.duration, settings.easing)
-              ;
-            }
-            else {
-              $module
-                .slideDown(settings.duration, settings.easing)
-              ;
-            }
-          },
-          
-          hide: function() {
-            if(settings.animation.show == 'fade') {
-              $module
-                .fadeIn(settings.duration, settings.easing)
-              ;
-            }
-            else {
-              $module
-                .slideUp(settings.duration, settings.easing)
-              ;
-            }
-          },
+        onHide: function() {
+          module.debug('Removing nag', settings.animation.hide);
+          $module.remove();
+          if (settings.onHide) {
+            settings.onHide();
+          }
+        },
 
-          onHide: function() {
-            $module.remove();
-            if (settings.onHide) {
-              settings.onHide();
-            }
-          },
+        stick: function() {
+          module.refresh();
 
-          stick: function() {
-            module.refresh();
-
-            if(settings.position == 'fixed') {
-              var
-                windowScroll = $(window).prop('pageYOffset') || $(window).scrollTop(),
-                fixedOffset = ( $module.hasClass(className.bottom) )
-                  ? contextOffset.top + (contextHeight - moduleHeight) - windowScroll
-                  : contextOffset.top - windowScroll
-              ;
-              $module
-                .css({
-                  position : 'fixed',
-                  top      : fixedOffset,
-                  left     : contextOffset.left,
-                  width    : contextWidth - settings.scrollBarWidth
-                })
-              ;
-            }
-            else {
-              $module
-                .css({
-                  top : yPosition
-                })
-              ;
-            }
-          },
-          unStick: function() {
+          if(settings.position == 'fixed') {
+            var
+              windowScroll = $(window).prop('pageYOffset') || $(window).scrollTop(),
+              fixedOffset = ( $module.hasClass(className.bottom) )
+                ? contextOffset.top + (contextHeight - moduleHeight) - windowScroll
+                : contextOffset.top - windowScroll
+            ;
             $module
               .css({
-                top : ''
+                position : 'fixed',
+                top      : fixedOffset,
+                left     : contextOffset.left,
+                width    : contextWidth - settings.scrollBarWidth
               })
             ;
-          },
-          dismiss: function(event) {
-            if(settings.storageMethod) {
-              module.storage.set(settings.storedKey, settings.storedValue);
-            }
-            module.hide();
-            event.stopImmediatePropagation();
-            event.preventDefault();
-          },
-
-          should: {
-            show: function() {
-              if( !settings.persist && module.storage.get(settings.storedKey) == settings.storedValue) {
-                return false;
-              }
-              return true;
-            },
-            stick: function() {
-              yOffset   = $context.prop('pageYOffset') || $context.scrollTop();
-              yPosition = ( $module.hasClass(className.bottom) )
-                ? (contextHeight - $module.outerHeight() ) + yOffset
-                : yOffset
-              ;
-              // absolute position calculated when y offset met
-              if(yPosition > moduleOffset.top) {
-                return true;
-              }
-              else if(settings.position == 'fixed') {
-                return true;
-              }
-              return false;
-            }
-          },
-
-          storage: {
-
-            set: function(key, value) {
-              if(settings.storageMethod == 'local' && window.store !== undefined) {
-                window.store.set(key, value);
-              }
-              // store by cookie
-              else if($.cookie !== undefined) {
-                $.cookie(key, value);
-              }
-              else {
-                module.error(settings.errors.noStorage);
-              }
-            },
-            get: function(key) {
-              if(settings.storageMethod == 'local' && window.store !== undefined) {
-                return window.store.get(key);
-              }
-              // get by cookie
-              else if($.cookie !== undefined) {
-                return $.cookie(key);
-              }
-              else {
-                module.error(settings.errors.noStorage);
-              }
-            }
-
-          },
-
-          event: {
-            scroll: function() {
-              if(timer !== undefined) {
-                clearTimeout(timer);
-              }
-              timer = setTimeout(function() {
-                if(module.should.stick() ) {
-                  requestAnimationFrame(module.stick);
-                }
-                else {
-                  module.unStick();
-                }
-              }, settings.lag);
-            }
-          },
-
-          error: function(error) {
-            console.log('Nag Module:' + error);
-          },
-
-          // allows for dot notation method calls
-          invoke: function(methodName, context, methodArguments) {
-            var
-              method
+          }
+          else {
+            $module
+              .css({
+                top : yPosition
+              })
             ;
-            methodArguments = methodArguments || Array.prototype.slice.call( arguments, 2 );
-            if(typeof methodName == 'string' && instance !== undefined) {
-              methodName = methodName.split('.');
-              $.each(methodName, function(index, name) {
-                if( $.isPlainObject( instance[name] ) ) {
-                  instance = instance[name];
-                  return true;
-                }
-                else if( $.isFunction( instance[name] ) ) {
-                  method = instance[name];
-                  return true;
-                }
-                module.error(settings.errors.method);
-                return false;
+          }
+        },
+        unStick: function() {
+          $module
+            .css({
+              top : ''
+            })
+          ;
+        },
+        dismiss: function(event) {
+          if(settings.storageMethod) {
+            module.storage.set(settings.storedKey, settings.storedValue);
+          }
+          module.hide();
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        },
+
+        should: {
+          show: function() {
+            if(settings.persist) {
+              module.debug('Persistent nag is set, can show nag');
+              return true;
+            }
+            if(module.storage.get(settings.storedKey) != settings.storedValue) {
+              module.debug('Stored value is not set can show nag', module.storage.get(settings.storedKey));
+              return true;
+            }
+            module.debug('Stored value is set, cant show nag', module.storage.get(settings.storedKey));
+            return false;
+          },
+          stick: function() {
+            yOffset   = $context.prop('pageYOffset') || $context.scrollTop();
+            yPosition = ( $module.hasClass(className.bottom) )
+              ? (contextHeight - $module.outerHeight() ) + yOffset
+              : yOffset
+            ;
+            // absolute position calculated when y offset met
+            if(yPosition > moduleOffset.top) {
+              return true;
+            }
+            else if(settings.position == 'fixed') {
+              return true;
+            }
+            return false;
+          }
+        },
+
+        storage: {
+
+          set: function(key, value) {
+            module.debug('Setting stored value', key, value, settings.storageMethod);
+            if(settings.storageMethod == 'local' && window.store !== undefined) {
+              window.store.set(key, value);
+            }
+            // store by cookie
+            else if($.cookie !== undefined) {
+              $.cookie(key, value);
+            }
+            else {
+              module.error(errors.noStorage);
+            }
+          },
+          get: function(key) {
+            module.debug('Getting stored value', key, settings.storageMethod);
+            if(settings.storageMethod == 'local' && window.store !== undefined) {
+              return window.store.get(key);
+            }
+            // get by cookie
+            else if($.cookie !== undefined) {
+              return $.cookie(key);
+            }
+            else {
+              module.error(errors.noStorage);
+            }
+          }
+
+        },
+
+        event: {
+          scroll: function() {
+            if(timer !== undefined) {
+              clearTimeout(timer);
+            }
+            timer = setTimeout(function() {
+              if(module.should.stick() ) {
+                requestAnimationFrame(module.stick);
+              }
+              else {
+                module.unStick();
+              }
+            }, settings.lag);
+          }
+        },
+        setting: function(name, value) {
+          module.debug('Changing setting', name, value);
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, settings, name);
+            }
+            else {
+              settings[name] = value;
+            }
+          }
+          else {
+            return settings[name];
+          }
+        },
+        internal: function(name, value) {
+          module.debug('Changing internal', name, value);
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, module, name);
+            }
+            else {
+              module[name] = value;
+            }
+          }
+          else {
+            return module[name];
+          }
+        },
+        debug: function() {
+          if(settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
+          }
+        },
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
+          }
+        },
+        error: function() {
+          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+        },
+        performance: {
+          log: function(message) {
+            var
+              currentTime,
+              executionTime,
+              previousTime
+            ;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime,
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Element'        : element,
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
+                'Execution Time' : executionTime
               });
             }
-            if ( $.isFunction( method ) ) {
-              return method.apply(context, methodArguments);
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
+          },
+          display: function() {
+            var
+              title = settings.moduleName + ':',
+              totalTime = 0
+            ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
             }
-            // return retrieved variable or chain
-            return method;
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
           }
-
-        };
-
-        if(instance !== undefined && moduleArguments) {
-          if(moduleArguments[0] == 'invoke') {
-            moduleArguments = Array.prototype.slice.call( moduleArguments, 1 );
+        },
+        invoke: function(query, passedArguments, context) {
+          var
+            maxDepth,
+            found
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && instance !== undefined) {
+            query    = query.split('.');
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+                return true;
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
+                return true;
+              }
+              module.error(errors.method);
+              return false;
+            });
           }
-          return module.invoke(moduleArguments[0], this, Array.prototype.slice.call( moduleArguments, 1 ) );
+          if ( $.isFunction( found ) ) {
+            return found.apply(context, passedArguments);
+          }
+          return found || false;
+        }
+      };
+      if(methodInvoked) {
+        if(instance === undefined) {
+          module.initialize();
+        }
+        invokedResponse = module.invoke(query);
+      }
+      else {
+        if(instance !== undefined) {
+          module.destroy();
         }
         module.initialize();
+      }
 
-      })
-    ;
-    return this;
-  };
+    })
+  ;
+  return (invokedResponse)
+    ? invokedResponse
+    : this
+  ;
+};
 
-  $.fn.nag.settings = {
+$.fn.nag.settings = {
 
-    // allows cookie to be overriden
-    persist        : false,
+  moduleName      : 'Nag Module',
 
-    // set to zero to manually dismiss, otherwise hides on its own
-    displayTime    : 0,
+  verbose         : true,
+  debug           : true,
+  performance     : true,
+  
+  namespace       : 'Nag',
 
-    animation   : {
-      show: 'slide',
-      hide: 'slide'
-    },
+  // allows cookie to be overriden
+  persist        : false,
 
-    // method of stickyness
-    position       : 'fixed',
-    scrollBarWidth : 18,
+  // set to zero to manually dismiss, otherwise hides on its own
+  displayTime    : 0,
 
-    // type of storage to use
-    storageMethod  : 'cookie',
+  animation   : {
+    show: 'slide',
+    hide: 'slide'
+  },
 
-    // value to store in dismissed localstorage/cookie
-    storedKey      : 'nag',
-    storedValue    : 'dismiss',
+  // method of stickyness
+  position       : 'fixed',
+  scrollBarWidth : 18,
 
-    // need to calculate stickyness on scroll
-    sticky         : false,
+  // type of storage to use
+  storageMethod  : 'cookie',
 
-    // how often to check scroll event
-    lag            : 0,
+  // value to store in dismissed localstorage/cookie
+  storedKey      : 'nag',
+  storedValue    : 'dismiss',
 
-    // context for scroll event
-    context        : window,
+  // need to calculate stickyness on scroll
+  sticky         : false,
 
-    errors: {
-      noStorage  : 'Neither $.cookie or store is defined. A storage solution is required for storing state'
-    },
+  // how often to check scroll event
+  lag            : 0,
 
-    className     : {
-      bottom      : 'bottom',
-      fixed       : 'fixed'
-    },
+  // context for scroll event
+  context        : window,
 
-    selector      : {
-      close: '.icon.close'
-    },
+  errors: {
+    noStorage  : 'Neither $.cookie or store is defined. A storage solution is required for storing state'
+  },
 
-    speed         : 500,
-    easing        : 'easeOutQuad',
+  className     : {
+    bottom      : 'bottom',
+    fixed       : 'fixed'
+  },
 
-    onHide: function() {}
+  selector      : {
+    close: '.icon.close'
+  },
 
-  };
+  speed         : 500,
+  easing        : 'easeOutQuad',
+
+  onHide: function() {}
+
+};
 
 })( jQuery, window , document );

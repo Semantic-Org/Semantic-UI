@@ -20,7 +20,6 @@ $.fn.dimmer = function(parameters) {
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
     moduleSelector  = $allModules.selector || '',
-    moduleCount     = $allModules.size(),
 
     time            = new Date().getTime(),
     performance     = [],
@@ -46,7 +45,7 @@ $.fn.dimmer = function(parameters) {
         animationEnd = 'animationend msAnimationEnd oAnimationEnd webkitAnimationEnd',
 
         element      = this,
-        instance     = $dimmer.data('module-' + namespace),
+        instance     = $dimmer.data(moduleNamespace),
         module
       ;
 
@@ -56,29 +55,29 @@ $.fn.dimmer = function(parameters) {
           if( module.is.dimmer() ) {
             $dimmer = $module;
             $module = $dimmer.parent();
-            module.debug('Module initialized as dimmer', $dimmer);
+            module.debug('Module initialized as dimmer');
           }
           else {
             if( module.has.dimmer() ) {
               $dimmer = $module.find(selector.dimmer);
-              module.debug('Module initialized with found dimmer', $dimmer);
+              module.debug('Module initialized with found dimmer');
             }
             else {
               $dimmer = settings.template.dimmer();
               $dimmer
                 .appendTo($module)
               ;
-              module.debug('Module initialized with created dimmer', $dimmer);
+              module.debug('Module initialized with created dimmer');
             }
             if(settings.on == 'hover') {
               $module
-                .on('mouseenter', module.show)
-                .on('mouseleave', module.hide)
+                .on('mouseenter' + eventNamespace, module.show)
+                .on('mouseleave' + eventNamespace, module.hide)
               ;
             }
             else if(settings.on == 'click') {
               $module
-                .on('click', module.toggle)
+                .on('click' + eventNamespace, module.toggle)
               ;
             }
           }
@@ -97,12 +96,12 @@ $.fn.dimmer = function(parameters) {
           module.verbose('Storing instance of module');
           instance = module;
           $dimmer
-            .data('module-' + namespace, instance)
+            .data(moduleNamespace, instance)
           ;
         },
 
         destroy: function() {
-          module.verbose('Destroying previous module for', $module);
+          module.verbose('Destroying previous module');
           $module
             .off(namespace)
           ;
@@ -336,7 +335,7 @@ $.fn.dimmer = function(parameters) {
               performance.push({
                 'Element'        : element,
                 'Name'           : message[0],
-                'Arguments'      : message[1] || '',
+                'Arguments'      : [].slice.call(message, 1) || '',
                 'Execution Time' : executionTime
               });
             }
@@ -394,7 +393,6 @@ $.fn.dimmer = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
@@ -408,7 +406,7 @@ $.fn.dimmer = function(parameters) {
         invokedResponse = module.invoke(query);
       }
       else {
-        if(instance === undefined) {
+        if(instance !== undefined) {
           module.destroy();
         }
         module.initialize();
