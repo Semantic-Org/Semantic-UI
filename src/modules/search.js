@@ -9,9 +9,9 @@
 
 ;(function ($, window, document, undefined) {
 
-$.fn.searchPrompt = function(source, parameters) {
+$.fn.search = function(source, parameters) {
   var
-    settings = $.extend(true, {}, $.fn.searchPrompt.settings, parameters),
+    settings = $.extend(true, {}, $.fn.search.settings, parameters),
     // make arguments available
     query           = arguments[0],
     passedArguments = [].slice.call(arguments, 1),
@@ -20,51 +20,49 @@ $.fn.searchPrompt = function(source, parameters) {
   $(this)
     .each(function() {
       var
-        $module        = $(this),
-        $searchPrompt  = $module.find(settings.selector.searchPrompt),
-        $searchButton  = $module.find(settings.selector.searchButton),
-        $searchResults = $module.find(settings.selector.searchResults),
-        $result        = $module.find(settings.selector.result),
-        $category      = $module.find(settings.selector.category),
-        $emptyResult   = $module.find(settings.selector.emptyResult),
-        $resultPage    = $module.find(settings.selector.resultPage),
-
-        element        = this,
-        selector       = $module.selector || '',
-        instance       = $module.data('module-' + settings.namespace),
-        methodInvoked  = (instance !== undefined && typeof query == 'string'),
-
-        className      = settings.className,
-        namespace      = settings.namespace,
-        errors         = settings.errors,
+        $module       = $(this),
+        $prompt       = $module.find(settings.selector.prompt),
+        $searchButton = $module.find(settings.selector.searchButton),
+        $results      = $module.find(settings.selector.results),
+        $result       = $module.find(settings.selector.result),
+        $category     = $module.find(settings.selector.category),
+        
+        element       = this,
+        selector      = $module.selector || '',
+        instance      = $module.data('module-' + settings.namespace),
+        methodInvoked = (instance !== undefined && typeof query == 'string'),
+        
+        className     = settings.className,
+        namespace     = settings.namespace,
+        errors        = settings.errors,
         module
       ;
       module = {
 
         initialize: function() {
           var
-            searchPrompt = $searchPrompt[0],
-            inputEvent   = (searchPrompt.oninput !== undefined)
+            prompt = $prompt[0],
+            inputEvent   = (prompt.oninput !== undefined)
               ? 'input'
-              : (searchPrompt.onpropertychange !== undefined)
+              : (prompt.onpropertychange !== undefined)
                 ? 'propertychange'
                 : 'keyup'
           ;
           // attach events
-          $searchPrompt
+          $prompt
             .on('focus.' + namespace, module.event.focus)
             .on('blur.' + namespace, module.event.blur)
             .on('keydown.' + namespace, module.handleKeyboard)
           ;
           if(settings.automatic) {
-            $searchPrompt
+            $prompt
               .on(inputEvent + '.' + namespace, module.search.throttle)
             ;
           }
           $searchButton
             .on('click.' + namespace, module.search.query)
           ;
-          $searchResults
+          $results
             .on('click.' + namespace, settings.selector.result, module.results.select)
           ;
           $module
@@ -106,12 +104,12 @@ $.fn.searchPrompt = function(source, parameters) {
           ;
           // search shortcuts
           if(keyCode == keys.escape) {
-            $searchPrompt
+            $prompt
               .trigger('blur')
             ;
           }
           // result shortcuts
-          if($searchResults.filter(':visible').size() > 0) {
+          if($results.filter(':visible').size() > 0) {
             if(keyCode == keys.enter) {
               if( $result.filter('.' + activeClass).exists() ) {
                 $.proxy(module.results.select, $result.filter('.' + activeClass) )();
@@ -161,7 +159,7 @@ $.fn.searchPrompt = function(source, parameters) {
               $searchButton
                 .addClass(className.down)
               ;
-              $searchPrompt
+              $prompt
                 .one('keyup', function(){
                   $searchButton
                     .removeClass(className.down)
@@ -182,7 +180,7 @@ $.fn.searchPrompt = function(source, parameters) {
           },
           throttle: function(event) {
             var
-              searchTerm    = $searchPrompt.val(),
+              searchTerm    = $prompt.val(),
               numCharacters = searchTerm.length,
               timer
             ;
@@ -199,7 +197,7 @@ $.fn.searchPrompt = function(source, parameters) {
           },
           query: function() {
             var
-              searchTerm = $searchPrompt.val(),
+              searchTerm = $prompt.val(),
               cachedHTML = module.search.cache.read(searchTerm)
             ;
             if(cachedHTML) {
@@ -219,7 +217,7 @@ $.fn.searchPrompt = function(source, parameters) {
           },
           local: function(searchTerm) {
             var
-              searchResults   = [],
+              results   = [],
               fullTextResults = [],
               searchFields    = $.isArray(settings.searchFields)
                 ? settings.searchFields
@@ -235,9 +233,9 @@ $.fn.searchPrompt = function(source, parameters) {
             // iterate through search fields in array order
             $.each(searchFields, function(index, field) {
               $.each(source, function(label, thing) {
-                if(typeof thing[field] == 'string' && ($.inArray(thing, searchResults) == -1) && ($.inArray(thing, fullTextResults) == -1) ) {
+                if(typeof thing[field] == 'string' && ($.inArray(thing, results) == -1) && ($.inArray(thing, fullTextResults) == -1) ) {
                   if( searchRegExp.test( thing[field] ) ) {
-                    searchResults.push(thing);
+                    results.push(thing);
                   }
                   else if( fullTextRegExp.test( thing[field] ) ) {
                     fullTextResults.push(thing);
@@ -246,7 +244,7 @@ $.fn.searchPrompt = function(source, parameters) {
               });
             });
             searchHTML = module.results.generate({
-              results: $.merge(searchResults, fullTextResults)
+              results: $.merge(results, fullTextResults)
             });
             $module
               .removeClass(className.loading)
@@ -327,37 +325,34 @@ $.fn.searchPrompt = function(source, parameters) {
             else {
               html = module.message(errors.noResults, 'empty');
             }
-            $.proxy(settings.onSearchResults, $module)(response);
+            $.proxy(settings.onresults, $module)(response);
             return html;
           },
           add: function(html) {
-            if(settings.onResultsAdd == 'default' || $.proxy(settings.onResultsAdd, $searchResults)(html) == 'default') {
-              $searchResults
+            if(settings.onResultsAdd == 'default' || $.proxy(settings.onResultsAdd, $results)(html) == 'default') {
+              $results
                 .html(html)
               ;
             }
             module.results.show();
           },
           show: function() {
-            if( ($searchResults.filter(':visible').size() === 0) && ($searchPrompt.filter(':focus').size() > 0) && $searchResults.html() !== '') {
-              $searchResults
+            if( ($results.filter(':visible').size() === 0) && ($prompt.filter(':focus').size() > 0) && $results.html() !== '') {
+              $results
                 .stop()
                 .fadeIn(200)
               ;
-              $.proxy(settings.onResultsOpen, $searchResults)();
+              $.proxy(settings.onResultsOpen, $results)();
             }
           },
           hide: function() {
-            if($searchResults.filter(':visible').size() > 0) {
-              $searchResults
+            if($results.filter(':visible').size() > 0) {
+              $results
                 .stop()
                 .fadeOut(200)
               ;
-              $.proxy(settings.onResultsClose, $searchResults)();
+              $.proxy(settings.onResultsClose, $results)();
             }
-          },
-          followLink: function() {
-
           },
           select: function(event) {
             module.debug('Search result selected');
@@ -369,14 +364,14 @@ $.fn.searchPrompt = function(source, parameters) {
             if(settings.onSelect == 'default' || $.proxy(settings.onSelect, this)(event) == 'default') {
               var
                 $link  = $result.find('a[href]').eq(0),
-                href   = $link.attr('href'),
-                target = $link.attr('target')
+                href   = $link.attr('href') || false,
+                target = $link.attr('target') || false
               ;
-              try {
-                module.results.hide();
-                $searchPrompt
-                  .val(title)
-                ;
+              module.results.hide();
+              $prompt
+                .val(title)
+              ;
+              if(href) {
                 if(target == '_blank' || event.ctrlKey) {
                   window.open(href);
                 }
@@ -384,7 +379,6 @@ $.fn.searchPrompt = function(source, parameters) {
                   window.location.href = (href);
                 }
               }
-              catch(error) {}
             }
           }
         },
@@ -474,186 +468,182 @@ $.fn.searchPrompt = function(source, parameters) {
   ;
 };
 
-  $.fn.searchPrompt.settings = {
+$.fn.search.settings = {
 
-    moduleName      : 'Search Module',
-    debug           : true,
-    namespace       : 'search',
+  moduleName      : 'Search Module',
+  debug           : true,
+  namespace       : 'search',
 
-    // onSelect default action is defined in module
-    onSelect        : 'default',
-    onResultsAdd    : 'default',
+  // onSelect default action is defined in module
+  onSelect        : 'default',
+  onResultsAdd    : 'default',
 
-    onSearchQuery   : function(){},
-    onSearchResults : function(response){},
+  onSearchQuery   : function(){},
+  onresults : function(response){},
 
-    onResultsOpen   : function(){},
-    onResultsClose  : function(){},
+  onResultsOpen   : function(){},
+  onResultsClose  : function(){},
 
-    automatic       : 'true',
-    type            : 'simple',
-    minCharacters   : 3,
-    searchThrottle  : 300,
-    maxResults      : 7,
-    cache           : true,
+  automatic       : 'true',
+  type            : 'simple',
+  minCharacters   : 3,
+  searchThrottle  : 300,
+  maxResults      : 7,
+  cache           : true,
 
-    searchFields    : [
-      'title', 
-      'description'
-    ],
+  searchFields    : [
+    'title', 
+    'description'
+  ],
 
-    // api config
-    apiSettings: {
+  // api config
+  apiSettings: {
 
-    },
+  },
 
-    className: {
-      active  : 'active',
-      down    : 'down',
-      focus   : 'focus',
-      empty   : 'empty',
-      loading : 'loading'
-    },
+  className: {
+    active  : 'active',
+    down    : 'down',
+    focus   : 'focus',
+    empty   : 'empty',
+    loading : 'loading'
+  },
 
-    errors : {
-      noResults   : 'Your search returned no results',
-      logging     : 'Error in debug logging, exiting.',
-      noTemplate  : 'A valid template name was not specified.',
-      serverError : 'There was an issue with querying the server.',
-      method      : 'The method you called is not defined.'
-    },
+  errors : {
+    noResults   : 'Your search returned no results',
+    logging     : 'Error in debug logging, exiting.',
+    noTemplate  : 'A valid template name was not specified.',
+    serverError : 'There was an issue with querying the server.',
+    method      : 'The method you called is not defined.'
+  },
 
-    selector : {
-      searchPrompt  : '.prompt',
-      searchButton  : '.search.button',
-      searchResults : '.results',
+  selector : {
+    prompt       : '.prompt',
+    searchButton : '.search.button',
+    results      : '.results',
+    category     : '.category',
+    result       : '.result'
+  },
 
-      category      : '.category',
-      result        : '.result',
-
-      emptyResult   : '.results .message',
-      resultPage    : '.results .page'
-    },
-
-    templates: {
-      message: function(message, type) {
-        var
-          html = ''
+  templates: {
+    message: function(message, type) {
+      var
+        html = ''
+      ;
+      if(message !== undefined && type !== undefined) {
+        html +=  ''
+          + '<div class="message ' + type +'">'
         ;
-        if(message !== undefined && type !== undefined) {
-          html +=  ''
-            + '<div class="message ' + type +'">'
+        // message type
+        if(type == 'empty') {
+          html += ''
+            + '<div class="header">No Results</div class="header">'
+            + '<div class="description">' + message + '</div class="description">'
           ;
-          // message type
-          if(type == 'empty') {
-            html += ''
-              + '<div class="header">No Results</div class="header">'
-              + '<div class="description">' + message + '</div class="description">'
-            ;
-          }
-          else {
-            html += ' <div class="description">' + message + '</div>';
-          }
-          html += '</div>';
         }
-        return html;
-      },
-      categories: function(response) {
-        var
-          html = ''
-        ;
-        if(response.results !== undefined) {
-          // each category
-          $.each(response.results, function(index, category) {
-            if(category.results !== undefined && category.results.length > 0) {
-              html  += ''
-                + '<div class="category">'
-                + '<div class="name">' + category.name + '</div>'
-              ;
-              // each item inside category
-              $.each(category.results, function(index, result) {
-                html  += '<div class="result">';
-                html  += '<a href="' + result.url + '"></a>';
-                if(result.image !== undefined) {
-                  html+= ''
-                    + '<div class="image">'
-                    + ' <img src="' + result.image + '">'
-                    + '</div>'
-                  ;
-                }
-                html += '<div class="info">';
-                if(result.price !== undefined) {
-                  html+= '<div class="price">' + result.price + '</div>';
-                }
-                if(result.title !== undefined) {
-                  html+= '<div class="title">' + result.title + '</div>';
-                }
-                if(result.description !== undefined) {
-                  html+= '<div class="description">' + result.description + '</div>';
-                }
-                html  += ''
-                  + '</div>'
+        else {
+          html += ' <div class="description">' + message + '</div>';
+        }
+        html += '</div>';
+      }
+      return html;
+    },
+    categories: function(response) {
+      var
+        html = ''
+      ;
+      if(response.results !== undefined) {
+        // each category
+        $.each(response.results, function(index, category) {
+          if(category.results !== undefined && category.results.length > 0) {
+            html  += ''
+              + '<div class="category">'
+              + '<div class="name">' + category.name + '</div>'
+            ;
+            // each item inside category
+            $.each(category.results, function(index, result) {
+              html  += '<div class="result">';
+              html  += '<a href="' + result.url + '"></a>';
+              if(result.image !== undefined) {
+                html+= ''
+                  + '<div class="image">'
+                  + ' <img src="' + result.image + '">'
                   + '</div>'
                 ;
-              });
+              }
+              html += '<div class="info">';
+              if(result.price !== undefined) {
+                html+= '<div class="price">' + result.price + '</div>';
+              }
+              if(result.title !== undefined) {
+                html+= '<div class="title">' + result.title + '</div>';
+              }
+              if(result.description !== undefined) {
+                html+= '<div class="description">' + result.description + '</div>';
+              }
               html  += ''
                 + '</div>'
-              ;
-            }
-          });
-          if(response.resultPage) {
-            html += ''
-            + '<a href="' + response.resultPage.url + '" class="all">'
-            +   response.resultPage.text
-            + '</a>';
-          }
-          return html;
-        }
-        return false;
-      },
-      simple: function(response) {
-        var
-          html = ''
-        ;
-        if(response.results !== undefined) {
-          
-          // each result
-          $.each(response.results, function(index, result) {
-            html  += '<a class="result" href="' + result.url + '">';
-            if(result.image !== undefined) {
-              html+= ''
-                + '<div class="image">'
-                + ' <img src="' + result.image + '">'
                 + '</div>'
               ;
-            }
-            html += '<div class="info">';
-            if(result.price !== undefined) {
-              html+= '<div class="price">' + result.price + '</div>';
-            }
-            if(result.title !== undefined) {
-              html+= '<div class="title">' + result.title + '</div>';
-            }
-            if(result.description !== undefined) {
-              html+= '<div class="description">' + result.description + '</div>';
-            }
+            });
             html  += ''
               + '</div>'
-              + '</a>'
             ;
-          });
-
-          if(response.resultPage) {
-            html += ''
-            + '<a href="' + response.resultPage.url + '" class="all">'
-            +   response.resultPage.text
-            + '</a>';
           }
-          return html;
+        });
+        if(response.resultPage) {
+          html += ''
+          + '<a href="' + response.resultPage.url + '" class="all">'
+          +   response.resultPage.text
+          + '</a>';
         }
-        return false;
+        return html;
       }
+      return false;
+    },
+    simple: function(response) {
+      var
+        html = ''
+      ;
+      if(response.results !== undefined) {
+        
+        // each result
+        $.each(response.results, function(index, result) {
+          html  += '<a class="result" href="' + result.url + '">';
+          if(result.image !== undefined) {
+            html+= ''
+              + '<div class="image">'
+              + ' <img src="' + result.image + '">'
+              + '</div>'
+            ;
+          }
+          html += '<div class="info">';
+          if(result.price !== undefined) {
+            html+= '<div class="price">' + result.price + '</div>';
+          }
+          if(result.title !== undefined) {
+            html+= '<div class="title">' + result.title + '</div>';
+          }
+          if(result.description !== undefined) {
+            html+= '<div class="description">' + result.description + '</div>';
+          }
+          html  += ''
+            + '</div>'
+            + '</a>'
+          ;
+        });
+
+        if(response.resultPage) {
+          html += ''
+          + '<a href="' + response.resultPage.url + '" class="all">'
+          +   response.resultPage.text
+          + '</a>';
+        }
+        return html;
+      }
+      return false;
     }
-  };
+  }
+};
 
 })( jQuery, window , document );
