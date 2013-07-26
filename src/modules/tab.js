@@ -577,7 +577,7 @@
 
   $.fn.tab.settings = {
 
-    moduleName      : 'Tab Module',
+    moduleName      : 'Tab',
     verbose         : true,
     debug           : true,
     performance     : true,
