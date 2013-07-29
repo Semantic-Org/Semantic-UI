@@ -401,7 +401,7 @@ $.fn.nag = function(parameters) {
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
           if(typeof query == 'string' && instance !== undefined) {
-            query    = query.split('.');
+            query    = query.split(/[\. ]/);
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {

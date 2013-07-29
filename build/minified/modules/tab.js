@@ -99,13 +99,11 @@
             tabPath = $(this).data(metadata.tab)
           ;
           if(tabPath !== undefined) {
-            if(tabPath !== activeTabPath) {
-              if(settings.history) {
-                $.address.value(tabPath);
-              }
-              else {
-                module.change(tabPath);
-              }
+            if(settings.history) {
+              $.address.value(tabPath);
+            }
+            else {
+              module.change(tabPath);
             }
           }
           else {
@@ -528,7 +526,7 @@
         passedArguments = passedArguments || queryArguments;
         context         = element         || context;
         if(typeof query == 'string' && instance !== undefined) {
-          query    = query.split('.');
+          query    = query.split(/[\. ]/);
           maxDepth = query.length - 1;
           $.each(query, function(depth, value) {
             if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {

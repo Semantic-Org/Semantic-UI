@@ -10,17 +10,14 @@ semantic.home.ready = function() {
   ;
 
   $navigationItem
-    .tab({
-      history: true,
-      path: '/'
-    })
+    .tab()
   ;
   $oddballItem
     .on('click', function() {
       $(this)
-        .tab('deactivate.all')
-        .tab('activate.tab', 'third')
-        .tab('activate.navigation', 'third')
+        .tab('deactivate all')
+        .tab('activate tab', 'third')
+        .tab('activate navigation', 'third')
       ;
     })
   ;
