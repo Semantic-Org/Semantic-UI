@@ -26,8 +26,7 @@ $.fn.accordion = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    invokedResponse,
-    allModules
+    invokedResponse
   ;
   $allModules
     .each(function() {
@@ -37,14 +36,11 @@ $.fn.accordion = function(parameters) {
         $icon     = $module.find(settings.selector.icon),
         $content  = $module.find(settings.selector.content),
 
-        selector      = $module.selector || '',
         element       = this,
-        instance      = $module.data('module-' + settings.namespace),
+        instance      = $module.data(moduleNamespace),
         
         className     = settings.className,
-        metadata      = settings.metadata,
         namespace     = settings.namespace,
-        animation     = settings.animation,
         
         errors        = settings.errors,
         module
@@ -56,17 +52,18 @@ $.fn.accordion = function(parameters) {
           module.debug('Initializing accordion with bound events', $module);
           // initializing
           $title
-            .on('click', module.event.click)
+            .on('click' + eventNamespace, module.event.click)
           ;
           $module
-            .data('module', module)
+            .data(moduleNamespace, module)
           ;
         },
 
         destroy: function() {
           module.debug('Destroying previous accordion for', $module);
           $module
-            .off(namespace)
+            .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
         },
 
@@ -247,7 +244,7 @@ $.fn.accordion = function(parameters) {
               performance.push({
                 'Element'        : element,
                 'Name'           : message[0],
-                'Arguments'      : message[1] || '',
+                'Arguments'      : [].slice.call(message, 1) || '',
                 'Execution Time' : executionTime
               });
             }
@@ -306,7 +303,6 @@ $.fn.accordion = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
@@ -337,7 +333,7 @@ $.fn.accordion.settings = {
 
   debug       : true,
   verbose     : true,
-  performance : false,
+  performance : true,
   
   exclusive   : true,
   collapsible : true,

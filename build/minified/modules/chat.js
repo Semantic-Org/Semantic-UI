@@ -495,7 +495,7 @@
 
   $.fn.chat.settings = {
 
-    moduleName      : 'Chat Module',
+    moduleName      : 'Chat',
     debug           : false,
     namespace       : 'chat',
 

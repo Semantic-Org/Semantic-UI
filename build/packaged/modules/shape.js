@@ -90,29 +90,35 @@ $.fn.shape = function(parameters) {
         animate: function(propertyObject, callback) {
           module.verbose('Animating box with properties', propertyObject);
           callback = callback || function(event) {
-            module.verbose('Executing animation callback', event);
-            event.stopPropagation();
+            module.verbose('Executing animation callback');
+            if(event !== undefined) {
+              event.stopPropagation();
+            }
             module.reset();
             module.set.active();
-            $.proxy(settings.onChange, $nextSide)();
           };
           if(settings.useCSS) {
-            module.verbose('Starting CSS animation');
-            $module
-              .addClass(className.animating)
-            ;
-            module.set.stageSize();
-            module.repaint();
-            $module
-              .addClass(className.css)
-            ;
-            $activeSide
-              .addClass(className.hidden)
-            ;
-            $sides
-              .css(propertyObject)
-              .one(module.get.transitionEvent(), callback)
-            ;
+            if(module.get.transitionEvent()) {
+              module.verbose('Starting CSS animation');
+              $module
+                .addClass(className.animating)
+              ;
+              module.set.stageSize();
+              module.repaint();
+              $module
+                .addClass(className.css)
+              ;
+              $activeSide
+                .addClass(className.hidden)
+              ;
+              $sides
+                .css(propertyObject)
+                .one(module.get.transitionEvent(), callback)
+              ;
+            }
+            else {
+              callback();
+            }
           }
           else {
             // not yet supported until .animate() is extended to allow RotateX/Y
@@ -151,17 +157,22 @@ $.fn.shape = function(parameters) {
           $module
             .removeClass(className.css)
             .removeClass(className.animating)
+            .attr('style', '')
             .removeAttr('style')
           ;
+          // removeAttr style does not consistently work in safari
           $sides
+            .attr('style', '')
             .removeAttr('style')
           ;
           $side
+            .attr('style', '')
             .removeAttr('style')
             .removeClass(className.hidden)
           ;
           $nextSide
             .removeClass(className.animating)
+            .attr('style', '')
             .removeAttr('style')
           ;
         },
@@ -247,6 +258,7 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.active)
             ;
+            $.proxy(settings.onChange, $nextSide)();
             module.set.defaultSide();
           }
         },
@@ -530,21 +542,6 @@ $.fn.shape = function(parameters) {
         setting: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
-              module.verbose('Modifying settings object', name, value);
-              $.extend(true, settings, name);
-            }
-            else {
-              module.verbose('Modifying setting', name, value);
-              settings[name] = value;
-            }
-          }
-          else {
-            return settings[name];
-          }
-        },
-        setting: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
               $.extend(true, settings, name);
             }
             else {
@@ -666,7 +663,6 @@ $.fn.shape = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
@@ -699,13 +695,13 @@ $.fn.shape.settings = {
   moduleName : 'Shape Module',
   
   // debug content outputted to console
-  debug      : false,
+  debug      : true,
   
   // verbose debug output
-  verbose    : false,
+  verbose    : true,
 
   // performance data output
-  performance: false,
+  performance: true,
 
   // event namespace
   namespace  : 'shape',

@@ -28,8 +28,7 @@ $.fn.dropdown = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    invokedResponse,
-    allModules
+    invokedResponse
   ;
 
   $allModules
@@ -43,9 +42,8 @@ $.fn.dropdown = function(parameters) {
         
         isTouchDevice = ('ontouchstart' in document.documentElement),
         
-        selector      = $module.selector || '',
         element       = this,
-        instance      = $module.data('module-' + settings.namespace),
+        instance      = $module.data(moduleNamespace),
         
         className     = settings.className,
         metadata      = settings.metadata,
@@ -59,7 +57,7 @@ $.fn.dropdown = function(parameters) {
       module      = {
 
         initialize: function() {
-          module.verbose('Initializing dropdown with bound events', $module);
+          module.debug('Initializing dropdown with bound events', $module);
           if(isTouchDevice) {
             $module
               .on('touchstart' + eventNamespace, module.event.test.toggle)
@@ -87,6 +85,11 @@ $.fn.dropdown = function(parameters) {
           $item
             .on(module.get.selectEvent() + eventNamespace, module.event.item.click)
           ;
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
           $module
             .data(moduleNamespace, module)
           ;
@@ -96,6 +99,7 @@ $.fn.dropdown = function(parameters) {
           module.verbose('Destroying previous module for', $module);
           $module
             .off(namespace)
+            .removeData(moduleNamespace)
           ;
         },
 
@@ -250,7 +254,6 @@ $.fn.dropdown = function(parameters) {
           },
           selected: function(value) {
             var
-              selectedValue = value || $input.val(),
               $selectedItem = module.get.item(value),
               selectedText
             ;
@@ -463,7 +466,7 @@ $.fn.dropdown = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
         },
         performance: {
           log: function(message) {
@@ -480,7 +483,7 @@ $.fn.dropdown = function(parameters) {
               performance.push({
                 'Element'        : element,
                 'Name'           : message[0],
-                'Arguments'      : message[1] || '',
+                'Arguments'      : [].slice.call(message, 1) || '',
                 'Execution Time' : executionTime
               });
             }
@@ -538,7 +541,6 @@ $.fn.dropdown = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;

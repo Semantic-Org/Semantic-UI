@@ -7,7 +7,11 @@ type   : 'UI Module'
 ---
 
 <script src="/javascript/dimmer.js"></script>
-<div class="ui page dimmer"></div>
+<div class="ui page dimmer">
+  <div class="content">
+    <div class="center">Hello</div>
+  </div>
+</div>
 
 <div class="segment">
   <div class="container">
@@ -105,7 +109,11 @@ type   : 'UI Module'
   <div class="example">
     <h4 class="ui header">Page Dimmer</h4>
     <p>A dimmer can be formatted to be fixed to the page</p>
-    <div class="ui page dimmer"></div>
+    <div class="ui page dimmer">
+      <div class="content">
+        <div class="center">Hello</div>
+      </div>
+    </div>
     <div class="ui ignored page button"><i class="plus icon"></i> Show</div>
   </div>
   
@@ -131,13 +139,13 @@ type   : 'UI Module'
   
   <div class="no example">
     <h4>Display</h4>
-    <p>A dimmer can show or hide itself, a can show or hide a dimmer</p>
+    <p>You can display a dimmer by either invoking dimmer show on a section or a dimmer itself. If you choose to dim a dimmable section, a dimmer will automatically be created.</p>
     <div class="ignore code">
     // these two are the same
     $('.ui.dimmable)
       .dimmer('show')
     ;
-    $('.ui.dimmer')
+    $('.ui.dimmable .dimmer')
       .dimmer('show')
     ;
     
@@ -145,7 +153,7 @@ type   : 'UI Module'
     $('.ui.dimmable)
       .dimmer('hide')
     ;
-    $('.ui.dimmer')
+    $('.ui.dimmable dimmer')
       .dimmer('hide')
     ;
     </div>

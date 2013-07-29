@@ -450,7 +450,7 @@ $.fn.dimmer.settings = {
   selector: {
     dimmable : '.ui.dimmable',
     dimmer   : '.ui.dimmer',
-    content  : '.ui.dimmer > .content'
+    content  : '.ui.dimmer > .content, .ui.dimmer > .content > .center'
   },
 
   template: {

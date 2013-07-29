@@ -19,8 +19,6 @@ $.fn.form = function(fields, parameters) {
     settings        = $.extend(true, {}, $.fn.form.settings, parameters),
     validation      = $.extend({}, $.fn.form.settings.defaults, fields),
 
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -45,6 +43,9 @@ $.fn.form = function(fields, parameters) {
         
         element    = this,
         instance   = $module.data('module-' + settings.namespace),
+        
+        eventNamespace  = '.' + settings.namespace,
+        moduleNamespace = 'module-' + settings.namespace,
         
         namespace  = settings.namespace,
         metadata   = settings.metadata,
@@ -71,15 +72,27 @@ $.fn.form = function(fields, parameters) {
           $submit
             .on('click' + eventNamespace, module.submit)
           ;
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
+          instance = module;
+          $module
+            .data(moduleNamespace, module)
+          ;
         },
 
         destroy: function() {
+          module.verbose('Destroying previous module', instance);
           $module
-            .off(namespace)
+            .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
         },
 
         refresh: function() {
+          module.verbose('Refreshing selector cache');
           $field = $module.find(settings.selector.field);
         },
 
@@ -331,6 +344,7 @@ $.fn.form = function(fields, parameters) {
         },
 
         setting: function(name, value) {
+          module.debug('Changing setting', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, settings, name);
@@ -344,6 +358,7 @@ $.fn.form = function(fields, parameters) {
           }
         },
         internal: function(name, value) {
+          module.debug('Changing internal', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, module, name);
@@ -391,44 +406,42 @@ $.fn.form = function(fields, parameters) {
               previousTime  = time || currentTime,
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
+              performance.push({
                 'Element'        : element,
-                'Name'           : message[0], 
-                'Arguments'      : message[1] || 'None',
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
                 'Execution Time' : executionTime
               });
-              clearTimeout(module.performance.timer);
-              module.performance.timer = setTimeout(module.performance.display, 100);
             }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
           },
           display: function() {
             var
-              title              = settings.moduleName,
-              caption            = settings.moduleName + ': ' + moduleSelector + '(' + $allModules.size() + ' elements)',
-              totalExecutionTime = 0
+              title = settings.moduleName + ':',
+              totalTime = 0
             ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
-              title += ' Performance (' + moduleSelector + ')';
+              title += ' \'' + moduleSelector + '\'';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
-                $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
-                });
                 console.table(performance);
               }
               else {
                 $.each(performance, function(index, data) {
-                  totalExecutionTime += data['Execution Time'];
                   console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
                 });
               }
-              console.log('Total Execution Time:', totalExecutionTime +'ms');
               console.groupEnd();
-              performance = [];
-              time        = false;
             }
+            performance = [];
           }
         },
         invoke: function(query, passedArguments, context) {
@@ -444,23 +457,22 @@ $.fn.form = function(fields, parameters) {
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
+                return true;
               }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
+                return true;
               }
-              else {
-                module.error(error.method);
-              }
+              module.error(errors.method);
+              return false;
             });
           }
           if ( $.isFunction( found ) ) {
-            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
         }
       };
-
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -473,6 +485,7 @@ $.fn.form = function(fields, parameters) {
         }
         module.initialize();
       }
+
     })
   ;
   return (invokedResponse)
@@ -485,10 +498,12 @@ $.fn.form.settings = {
 
   // module info
   moduleName        : 'Form',
+
   debug             : true,
   verbose           : true,
-  performance       : false,
-  namespace         : 'validate',
+  performance       : true,
+  
+  namespace         : 'form',
   
   keyboardShortcuts : true,
   on                : 'submit',

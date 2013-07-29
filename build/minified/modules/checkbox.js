@@ -18,8 +18,6 @@ $.fn.checkbox = function(parameters) {
 
     settings        = $.extend(true, {}, $.fn.checkbox.settings, parameters),
 
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -34,33 +32,35 @@ $.fn.checkbox = function(parameters) {
   $allModules
     .each(function() {
       var
-        $module       = $(this),
-        $label        = $(this).next(settings.selector.label).first(),
-        $input        = $(this).find(settings.selector.input),
+        $module         = $(this),
+        $label          = $(this).next(settings.selector.label).first(),
+        $input          = $(this).find(settings.selector.input),
+        
+        eventNamespace  = '.' + settings.namespace,
+        moduleNamespace = 'module-' + settings.namespace,
 
-        selector      = $module.selector || '',
-        element       = this,
-        instance      = $module.data('module-' + settings.namespace),
-
-        className     = settings.className,
-        namespace     = settings.namespace,
-        errors        = settings.errors,
+        selector        = $module.selector || '',
+        element         = this,
+        instance        = $module.data(moduleNamespace),
+        
+        className       = settings.className,
+        namespace       = settings.namespace,
+        errors          = settings.errors,
         module
       ;
 
       module      = {
 
         initialize: function() {
+          module.verbose('Initializing checkbox');
           if(settings.context && selector !== '') {
-            module.verbose('Initializing checkbox with delegated events', $module);
+            module.verbose('Adding delegated events');
             $(element, settings.context)
               .on(selector, 'click' + eventNamespace, module.toggle)
               .on(selector + ' + ' + settings.selector.label, 'click' + eventNamespace, module.toggle)
-              .data(moduleNamespace, module)
             ;
           }
           else {
-            module.verbose('Initializing checkbox with bound events', $module);
             $module
               .on('click' + eventNamespace, module.toggle)
               .data(moduleNamespace, module)
@@ -69,10 +69,19 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
             ;
           }
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
+          instance = module;
+          $module
+            .data(moduleNamespace, module)
+          ;
         },
 
         destroy: function() {
-          module.verbose('Destroying previous module for', $module);
+          module.verbose('Destroying previous module');
           $module
             .off(namespace)
           ;
@@ -80,9 +89,7 @@ $.fn.checkbox = function(parameters) {
 
         is: {
           radio: function() {
-            return $module
-              .hasClass(className.radio)
-            ;
+            return $module.hasClass(className.radio);
           }
         },
 
@@ -119,8 +126,8 @@ $.fn.checkbox = function(parameters) {
           $.proxy(settings.onDisable, $input.get())();
         },
 
-        toggle: function() {
-          module.verbose('Toggling checkbox state');
+        toggle: function(event) {
+          module.verbose('Determining new checkbox state', $(event.target));
           if($input.prop('checked') === undefined || !$input.prop('checked')) {
             module.enable();
           }
@@ -128,15 +135,12 @@ $.fn.checkbox = function(parameters) {
             module.disable();
           }
         },
-
         setting: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
-              module.verbose('Modifying settings object', name, value);
               $.extend(true, settings, name);
             }
             else {
-              module.verbose('Modifying setting', name, value);
               settings[name] = value;
             }
           }
@@ -147,11 +151,9 @@ $.fn.checkbox = function(parameters) {
         internal: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
-              module.verbose('Modifying internal property', name, value);
               $.extend(true, module, name);
             }
             else {
-              module.verbose('Changing internal method to', value);
               module[name] = value;
             }
           }
@@ -180,7 +182,7 @@ $.fn.checkbox = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.log, console, settings.moduleName + ':');
+          module.error = Function.prototype.bind.call(console.warn, console, settings.moduleName + ':');
         },
         performance: {
           log: function(message) {
@@ -197,7 +199,7 @@ $.fn.checkbox = function(parameters) {
               performance.push({
                 'Element'        : element,
                 'Name'           : message[0],
-                'Arguments'      : message[1] || '',
+                'Arguments'      : [].slice.call(message, 1) || '',
                 'Execution Time' : executionTime
               });
             }
@@ -245,18 +247,16 @@ $.fn.checkbox = function(parameters) {
             $.each(query, function(depth, value) {
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
-                return true;
               }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
-                return true;
               }
-              module.error(errors.method);
-              return false;
+              else {
+                module.error(errors.method);
+              }
             });
           }
           if ( $.isFunction( found ) ) {
-            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
@@ -277,6 +277,7 @@ $.fn.checkbox = function(parameters) {
       }
     })
   ;
+
   return (invokedResponse)
     ? invokedResponse
     : this

@@ -57,25 +57,31 @@
       $module = typeof this == 'object'
         ? $(context)
         : $context,
-
-      instance       = $module.data('module-' + settings.namespace),
-      element        = $module.get(),
-      query          = arguments[0],
-      methodInvoked  = (typeof query == 'string'),
-      queryArguments = [].slice.call(arguments, 1),
-      invokedResponse,
       
-      className      = settings.className,
-      metadata       = settings.metadata,
-      errors         = settings.errors,
-      module
+      element         = this,
+      time            = new Date().getTime(),
+      performance     = [],
+      moduleSelector  = $module.selector || '',
+
+      moduleNamespace = settings.namespace + '-module', 
+      
+      className       = settings.className,
+      metadata        = settings.metadata,
+      errors          = settings.errors,
+      
+      instance        = $module.data(moduleNamespace),
+      
+      query           = arguments[0],
+      methodInvoked   = (instance !== undefined && typeof query == 'string'),
+      queryArguments  = [].slice.call(arguments, 1),
+      
+      module,
+      invokedResponse
     ;
 
     module = {
       initialize: function() {
         var
-          exitConditions = false,
-
           runSettings,
 
           loadingTimer   = new Date().getTime(),
@@ -83,7 +89,6 @@
 
           promise,
           url,
-          urlVariables,
 
           formData       = {},
           data,
@@ -324,7 +329,6 @@
         },
         url: function(url, urlData) {
           var
-            missingTerm = false,
             urlVariables
           ;
           if(url) {
@@ -375,27 +379,104 @@
           .removeClass(className.loading)
         ;
       },
-      
-      /* standard module */
+
       setting: function(name, value) {
-        if(value === undefined) {
+        if(value !== undefined) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else {
+            settings[name] = value;
+          }
+        }
+        else {
           return settings[name];
         }
-        settings[name] = value;
       },
-      verbose: function() {
-        if(settings.verbose && settings.debug) {
-          module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+      internal: function(name, value) {
+        if(value !== undefined) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else {
+            module[name] = value;
+          }
+        }
+        else {
+          return module[name];
         }
       },
       debug: function() {
         if(settings.debug) {
-          module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+          if(settings.performance) {
+            module.performance.log(arguments);
+          }
+          else {
+            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+          }
+        }
+      },
+      verbose: function() {
+        if(settings.verbose && settings.debug) {
+          if(settings.performance) {
+            module.performance.log(arguments);
+          }
+          else {
+            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+          }
         }
       },
       error: function() {
-        if(console.log !== undefined) {
-          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+        module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+      },
+      performance: {
+        log: function(message) {
+          var
+            currentTime,
+            executionTime,
+            previousTime
+          ;
+          if(settings.performance) {
+            currentTime   = new Date().getTime();
+            previousTime  = time || currentTime,
+            executionTime = currentTime - previousTime;
+            time          = currentTime;
+            performance.push({
+              'Element'        : element,
+              'Name'           : message[0],
+              'Arguments'      : [].slice.call(message, 1) || '',
+              'Execution Time' : executionTime
+            });
+          }
+          clearTimeout(module.performance.timer);
+          module.performance.timer = setTimeout(module.performance.display, 100);
+        },
+        display: function() {
+          var
+            title = settings.moduleName + ':',
+            totalTime = 0
+          ;
+          time        = false;
+          $.each(performance, function(index, data) {
+            totalTime += data['Execution Time'];
+          });
+          title += ' ' + totalTime + 'ms';
+          if(moduleSelector) {
+            title += ' \'' + moduleSelector + '\'';
+          }
+          if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+            console.groupCollapsed(title);
+            if(console.table) {
+              console.table(performance);
+            }
+            else {
+              $.each(performance, function(index, data) {
+                console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+              });
+            }
+            console.groupEnd();
+          }
+          performance = [];
         }
       },
       invoke: function(query, passedArguments, context) {
@@ -411,18 +492,17 @@
           $.each(query, function(depth, value) {
             if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
               instance = instance[value];
-              return true;
             }
             else if( instance[value] !== undefined ) {
               found = instance[value];
-              return true;
             }
-            module.error(errors.method);
-            return false;
+            else {
+              module.error(errors.method);
+            }
           });
         }
         if ( $.isFunction( found ) ) {
-          instance.verbose('Executing invoked function', found);
+          module.verbose('Executing invoked function', found);
           return found.apply(context, passedArguments);
         }
         return found || false;
@@ -441,7 +521,8 @@
       }
       module.initialize();
     }
-    return (invokedResponse)
+
+    return (invokedResponse !== undefined)
       ? invokedResponse
       : this
     ;
@@ -454,7 +535,6 @@
         var
           // if only function passed it is success callback
           $module  = $(this),
-          element  = this,
           selector = $(this).selector || '',
 
           settings = ( $.isFunction(parameters) )
@@ -488,25 +568,25 @@
   };
 
   $.api.settings = {
-    moduleName : 'API Module',
-    namespace  : 'api',
+    moduleName  : 'API',
+    namespace   : 'api',
 
-    debug      : true,
-    verbose    : true,
+    debug       : true,
+    verbose     : true,
+    performance : true,
 
-    api        : {},
+    api         : {},
 
-    beforeSend : function(settings) { 
+    beforeSend  : function(settings) { 
       return settings; 
     },
-    beforeXHR  : function(xhr) {},
+    beforeXHR   : function(xhr) {},
+    success     : function(response) {},
+    complete    : function(response) {},
+    failure     : function(errorCode) {},
+    progress    : false,
 
-    success    : function(response) {},
-    complete   : function(response) {},
-    failure    : function(errorCode) {},
-    progress   : false,
-
-    errors     : {
+    errors      : {
       missingAction    : 'API action used but no url was defined',
       missingURL       : 'URL not specified for the API action',
       missingParameter : 'Missing an essential URL parameter: ',
