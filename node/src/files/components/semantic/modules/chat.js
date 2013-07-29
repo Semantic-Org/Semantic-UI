@@ -153,7 +153,7 @@
               if(settings.userCount) {
                 users = $module.data('users');
                 count = 0;
-                $.each(users, function(index){
+                $.each(users, function(index) {
                   count++;
                 });
                 $userCount
