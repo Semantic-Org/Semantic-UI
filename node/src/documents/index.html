@@ -118,7 +118,8 @@ type   : 'Semantic'
     <div class="equal row">
       <div class="ten wide column">
         <h3 class="ui header">Behavior</h3>
-        <p>Some elements may define behavior as well as their look.</p>
+        <p>Elements with behaviors give you an api of verbs and direct objects.</p>
+        <p>Trigger an action using simple sentences</p>
         <div class="code" data-type="html" data-label="true">
     <div class="ui pointing secondary menu">
       <div class="active red item" data-tab="first">First</div>
@@ -132,15 +133,10 @@ type   : 'Semantic'
     <div class="ui tab segment" data-tab="second">Second</div>
     <div class="ui tab segment" data-tab="third">Third</div>
         </div>
-        <p>These elements allow you to execute actions triggering their behavior</p>
         <div class="code" data-type="javascript" data-label="true">
     $('.ui.navigation .item')
-      .tab({
-        history: true,
-        path: '/'
-      })
+      .tab()
     ;
-    // 
     $('.ui.navigation .oddball.item')
       .on('click', function() {
         $(this)

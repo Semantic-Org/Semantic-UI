@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <% uiIntroduction    = @getCollection("documents").findAllLive({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
 <% uiGuide           = @getCollection("documents").findAllLive({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
 <% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
@@ -8,7 +7,6 @@
 <% uiModules         = @getCollection("documents").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
 <% uiBehavior        = @getCollection("documents").findAllLive({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
 <% uiSpecification   = @getCollection("documents").findAllLive({type: $in: ['UI Specification']},[{title: 1}]).toJSON() %>
-
 <% currentCollection = @getCollection("documents").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
 <% pageCount         = @pageCount(currentCollection) %>
 <% pageNumber        = @getPage(currentCollection, @document.id) %>
@@ -26,8 +24,8 @@
 
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
+ <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,300italic' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
     
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
@@ -86,8 +84,7 @@
 </head>
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon menu" id="menu">
-    <div class="item"><a href="/playground.html"><i class="inverted red circular lab icon"></i> <b>Playground</b></a></div>
-    <div class="item"><a href="/download.html"><i class="inverted circular upload icon"></i> <b>Download</b></a></div>
+    <div class="item"><a href="/download.html"><i class="inverted circular teal upload icon"></i> <b>Download</b></a></div>
     <div class="item">
       <b>Introduction</b>
       <div class="menu">
