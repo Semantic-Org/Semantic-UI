@@ -264,7 +264,6 @@ $.fn.carousel = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
@@ -293,7 +292,7 @@ $.fn.carousel = function(parameters) {
 
 $.fn.carousel.settings = {
 
-  moduleName  : 'Carousel Module',
+  moduleName  : 'Carousel',
   namespace   : 'carousel',
 
   verbose     : true,

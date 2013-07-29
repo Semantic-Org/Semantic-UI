@@ -121,10 +121,10 @@
 
           instance      = $modal.data('module-' + settings.namespace),
           methodInvoked = (typeof query == 'string'),
-          
+
           className    = settings.className,
           namespace    = settings.namespace,
-          
+
           module
         ;
 
@@ -154,6 +154,7 @@
               startPosition
             ;
             $modal
+              .removeClass('absolute fixed')
               .addClass(modalType)
             ;
             topCentering  = (cantFit)
@@ -341,16 +342,16 @@
     unDim           : function(){},
     hide            : function(){},
     show            : function(){},
-    
+
     context         : 'body',
     opacity         : 0.8,
-    
+
     closeSpacing    : 25,
     animationOffset : 15,
-    
+
     duration        : 400,
     easing          : 'easeOutExpo',
-    
+
     selector        : {
       dimmer      : '#dimmer',
       modal       : '.modal',

@@ -17,19 +17,10 @@ $.fn.popup = function(parameters) {
       ? $.extend(true, {}, $.fn.popup.settings, parameters)
       : $.fn.popup.settings,
 
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
     moduleSelector  = $allModules.selector || '',
-    moduleCount     = $allModules.size(),
 
     time            = new Date().getTime(),
     performance     = [],
-
-    selector    = settings.selector,
-    className   = settings.className,
-    error       = settings.error,
-    metadata    = settings.metadata,
-    namespace   = settings.namespace,
 
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
@@ -40,17 +31,27 @@ $.fn.popup = function(parameters) {
   $allModules
     .each(function() {
       var
-        $module       = $(this),
-        $window       = $(window),
-        $offsetParent = $module.offsetParent(),
-        $popup        = (settings.inline)
-          ? $module.next(selector.popup)
-          : $window.children(selector.popup).last(),
+        $module         = $(this),
 
-        searchDepth = 0,
+        $window         = $(window),
+        $offsetParent   = $module.offsetParent(),
+        $popup          = (settings.inline)
+          ? $module.next(settings.selector.popup)
+          : $window.children(settings.selector.popup).last(),
+        
+        searchDepth     = 0,
+        
+        eventNamespace  = '.' + settings.namespace,
+        moduleNamespace = settings.namespace + '-module', 
 
-        element     = this,
-        instance    = $module.data('module-' + settings.namespace),
+        selector        = settings.selector,
+        className       = settings.className,
+        error           = settings.error,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+        
+        element         = this,
+        instance        = $module.data(moduleNamespace),
         module
       ;
 
@@ -61,26 +62,26 @@ $.fn.popup = function(parameters) {
           module.debug('Initializing module', $module);
           if(settings.on == 'hover') {
             $module
-              .on('mouseenter.' + namespace, module.event.mouseenter)
-              .on('mouseleave.' + namespace, module.event.mouseleave)
+              .on('mouseenter' + eventNamespace, module.event.mouseenter)
+              .on('mouseleave' + eventNamespace, module.event.mouseleave)
             ;
           }
           else {
             $module
-              .on(settings.on + '.' + namespace, module.event[settings.on])
+              .on(settings.on + '' + eventNamespace, module.event[settings.on])
             ;
           }
           $window
-            .on('resize.' + namespace, module.event.resize)
+            .on('resize' + eventNamespace, module.event.resize)
           ;
           module.instantiate();
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of module');
+          module.verbose('Storing instance of module', module);
           instance = module;
           $module
-            .data('module-' + namespace, instance)
+            .data(moduleNamespace, instance)
           ;
         },
 
@@ -93,9 +94,10 @@ $.fn.popup = function(parameters) {
         },
 
         destroy: function() {
-          module.debug('Destroying existing popups');
+          module.debug('Destroying previous module');
           $module
-            .off('.' + namespace)
+            .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
         },
 
@@ -109,7 +111,7 @@ $.fn.popup = function(parameters) {
               }
             }, settings.delay);
           },
-          mouseleave:  function(event) {
+          mouseleave:  function() {
             clearTimeout(module.timer);
             if( $module.is(':visible') ) {
               module.hide();
@@ -150,11 +152,13 @@ $.fn.popup = function(parameters) {
               .html(html)
             ;
             if(settings.inline) {
+              module.verbose('Inserting popup element inline');
               $popup
                 .insertAfter($module)
               ;
             }
             else {
+              module.verbose('Appending popup element to body');
               $popup
                 .appendTo( $('body') )
               ;
@@ -167,6 +171,7 @@ $.fn.popup = function(parameters) {
         },
 
         remove: function() {
+          module.debug('Removing popup');
           $popup
             .remove()
           ;
@@ -393,14 +398,12 @@ $.fn.popup = function(parameters) {
             .removeClass(className.loading)
           ;
           if(settings.animation == 'pop' && $.fn.popIn !== undefined) {
-            console.log($popup);
             $popup
               .stop()
               .popIn(settings.duration, settings.easing)
             ;
           }
           else {
-            console.log($popup);
             $popup
               .stop()
               .fadeIn(settings.duration, settings.easing)
@@ -530,7 +533,7 @@ $.fn.popup = function(parameters) {
               performance.push({
                 'Element'        : element,
                 'Name'           : message[0],
-                'Arguments'      : message[1] || '',
+                'Arguments'      : [].slice.call(message, 1) || '',
                 'Execution Time' : executionTime
               });
             }
@@ -588,7 +591,6 @@ $.fn.popup = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            instance.verbose('Executing invoked function', found);
             return found.apply(context, passedArguments);
           }
           return found || false;
@@ -602,7 +604,7 @@ $.fn.popup = function(parameters) {
         invokedResponse = module.invoke(query);
       }
       else {
-        if(instance === undefined) {
+        if(instance !== undefined) {
           module.destroy();
         }
         module.initialize();
