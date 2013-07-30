@@ -1,0 +1,166 @@
+---
+layout : 'default'
+css    : 'index'
+title  : 'Introduction'
+type   : 'Semantic'
+---
+<script src="/javascript/home.js"></script>
+
+<div class="masthead segment">
+  <div class="ui responsive grid">
+    <div class="column">
+      <h1 class="ui header">Semantic UI</h1>
+      <h2 class="ui header">UI is the vocabulary of the web.</h2>
+      <p>Semantic empowers designers and developers by creating a shared language for user interfaces.</p>
+        <a class="ui black huge labeled sidebar icon button"><i class="icon list layout"></i> View UI</a>
+        <a class="ui red huge right labeled icon button" href="intro/getting-started.html" class="ui button">Get Started <i class="icon right arrow"></i> </a>
+    </div>
+  </div>
+</div>
+<div class="solid">
+  <div class="ui three column stackable responsive grid">
+    <div class="column"> 
+      <h1 class="ui header">
+        <i class="circular community icon"></i>
+        <div class="content">
+          Intuitive
+          <div class="sub header">Easy to learn</div>
+        </div>
+      </h1>
+      <p>Web development doesn't have to be hieroglyphics. Semantic lets you develop websites by describing what you want on a page.</p>
+    </div>
+    <div class="column"> 
+      <h1 class="ui header">
+        <i class="circular lightning icon"></i>
+        <div class="content">
+          Built Lean
+          <div class="sub header">Take only what you need.</div>
+        </div>
+      </h1>
+      <p>No need to buy into a framework, just use the bits you need. Need to redesign? Simply swap out your definition of what a menu is, or a button, no need to recode everything.</p>
+    </div>
+    <div class="column"> 
+      <h1 class="ui header">
+        <i class="circular settings icon"></i>
+        <div class="content">
+          Made to Grow
+          <div class="sub header">Define your own language.</div>
+        </div>
+      </h1>
+      <p>Semantic provides a rubric for developing re-usable UI that you can share with others, and re-use yourself between projects.</p>
+    </div>
+  </div>
+</div>
+<div class="stripe">
+    <div class="stackable responsive demo ui grid">
+      <div class="equal row">
+        <div class="sixteen wide column">
+          <p>
+        </div>
+      </div>
+    <div class="equal row">
+      <div class="ten wide column">
+        <h3 class="ui header">Definitions</h3>
+        <p>HTML elements are nouns.</p>
+        <div class="code" data-type="html">
+          <div class="ui button">Submit</div>
+        </div>
+      </div>
+      <div class="six wide column">
+        <div class="ui button">Submit</div>
+      </div>
+    </div>
+    <div class="equal row">
+      <div class="ten wide column">
+        <h3 class="ui header">Variations</h3>
+        <p>HTML elements can have variations which modify the way they look or behave.</p>
+        <p>Variations are mutually exclusive and can be used freedly together in any combination</p>
+        <div class="code" data-type="html">
+    <div class="ui large button">Add User</div>
+    <div class="ui icon button"><i class="add user icon"></i></div>
+    <div class="ui red button">Add User</div>
+    <div class="ui large red labeled icon button">
+      <i class="add user icon"></i> 
+      Add User
+    </div>
+        </div>
+      </div>
+      <div class="six wide column">
+        <div class="ui large button">Add User</div> <br><br>
+        <div class="ui icon button"><i class="add user icon"></i></div> <br><br>
+        <div class="ui red button">Add User</div> <br><br>
+        <div class="ui large red labeled icon button">
+          <i class="add user icon"></i> 
+          Add User
+        </div>
+        </div>
+    </div>
+    <div class="equal row">
+      <div class="ten wide column">
+        <h3 class="ui header">Plurality</h3>
+        <p>HTML elements can share qualities as a group to avoid having to define them redundantly.</p>
+        <div class="code" data-type="html">
+    <div class="blue ui icon buttons">
+      <div class="ui button"><i class="grid layout icon"></i></div>
+      <div class="ui button"><i class="block layout icon"></i></div>
+      <div class="ui button"><i class="list layout icon"></i></div>
+    </div>
+        </div>
+      </div>
+      <div class="six wide column">
+        <div class="blue ui icon buttons">
+          <div class="ui button"><i class="grid layout icon"></i></div>
+          <div class="ui button"><i class="block layout icon"></i></div>
+          <div class="ui button"><i class="list layout icon"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="equal row">
+      <div class="ten wide column">
+        <h3 class="ui header">Behavior</h3>
+        <p>Elements with behaviors give you an api of verbs and direct objects.</p>
+        <p>Trigger an action using simple sentences</p>
+        <div class="code" data-type="html" data-label="true">
+    <div class="ui pointing secondary menu">
+      <div class="active red item" data-tab="first">First</div>
+      <div class="blue item" data-tab="second">Second</div>
+      <div class="green item" data-tab="third">Third</div>
+      <div class="right menu">
+        <div class="oddball item">Open third</div>
+      </div>
+    </div>
+    <div class="ui active tab segment" data-tab="first">First</div>
+    <div class="ui tab segment" data-tab="second">Second</div>
+    <div class="ui tab segment" data-tab="third">Third</div>
+        </div>
+        <div class="code" data-type="javascript" data-label="true">
+    $('.ui.navigation .item')
+      .tab()
+    ;
+    $('.ui.navigation .oddball.item')
+      .on('click', function() {
+        $(this)
+          .tab('deactivate all')
+          .tab('activate tab', 'third')
+          .tab('activate navigation', 'third')
+        ;
+      })
+    ;
+        </div>
+      </div>
+      <div class="six wide column">
+        <div class="ui pointing menu">
+          <a class="active red item" data-tab="first">First</a>
+          <a class="blue item" data-tab="second">Second</a>
+          <a class="green item" data-tab="third">Third</a>
+          <div class="right menu">
+            <a class="oddball item">Open third</a>
+          </div>
+        </div>
+        <div class="ui active tab segment" data-tab="first">First</div>
+        <div class="ui tab segment" data-tab="second">Second</div>
+        <div class="ui tab segment" data-tab="third">Third</div>
+      </div>
+    </div>
+  </div>
+</div>
