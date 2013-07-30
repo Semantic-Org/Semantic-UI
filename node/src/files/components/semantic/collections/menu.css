@@ -820,6 +820,12 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+.ui.inverted.text.menu,
+.ui.inverted.text.menu .item,
+.ui.inverted.text.menu .item:hover,
+.ui.inverted.text.menu .item.active {
+  background-color: transparent;
+}
 /* colors */
 .ui.green.text.menu .active.item {
   color: #A1CF64;
