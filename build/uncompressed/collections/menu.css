@@ -491,17 +491,19 @@
   padding-right: 1.4em;
   color: #9DA6AB;
 }
+.ui.tabular.menu .item:before {
+  display: none;
+}
+/* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
   color: #5D6266;
 }
-.ui.tabular.menu .item:before {
-  display: none;
-}
+/* Active */
 .ui.tabular.menu .active.item {
   position: relative;
   top: 1px;
-  background-color: #F8F8F8;
+  background-color: #FFFFFF;
   color: #5D6266;
   border-left: 1px solid #DCDDDE;
   border-right: 1px solid #DCDDDE;

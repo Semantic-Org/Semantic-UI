@@ -566,9 +566,6 @@
   box-shadow: 0px 1px 0px 0px #FBFBFB;
   color: rgba(0, 0, 0, 0.8);
 }
-
-.ui.tiered.menu {
-}
 .ui.tiered.menu .sub.menu {
   background-color: rgba(0, 0, 0, 0.01);
   border-radius: 0em;
@@ -642,19 +639,22 @@
   padding-right: 1.4em;
   color: #9DA6AB;
 }
-.ui.tabular.menu .item:hover {
-  background-color: transparent;
-  color: #5D6266;
-}
 .ui.tabular.menu .item:before {
   display: none;
 }
 
+/* Hover */
+.ui.tabular.menu .item:hover {
+  background-color: transparent;
+  color: #5D6266;
+}
+
+/* Active */
 .ui.tabular.menu .active.item {
   position: relative;
   top: 1px;
 
-  background-color: #F8F8F8;
+  background-color: #FFFFFF;
   color: #5D6266;
 
   border-left: 1px solid #DCDDDE;
