@@ -1,43 +1,81 @@
-/*---------------
-    Video Embed
-----------------*/
-.video.module {
+/*
+ * # Semantic Video
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: July 30, 2013
+ */
+/*******************************
+            Video
+*******************************/
+.ui.video {
   position: relative;
-  background: #333333 url(../images/placeholder.png) no-repeat center center;
+  max-width: 100%;
 }
-.video.module .play {
+/*--------------
+     Content
+---------------*/
+/* Placeholder Image */
+.ui.video .placeholder {
+  background-color: #333333;
+}
+/* Play Icon Overlay */
+.ui.video .play {
   cursor: pointer;
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: 100;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
   filter: alpha(opacity=60);
   opacity: 0.6;
-  width: 100%;
-  height: 100%;
-  background: url(/images/modules/video-play.png) no-repeat center center;
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   -o-transition: opacity 0.3s;
   -ms-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
-.video.module .play:hover {
-  opacity: 1;
+.ui.video .play.icon:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 11;
+  font-size: 6rem;
+  margin: -3rem 0em 0em -3rem;
+  color: #FFFFFF;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
 }
-.video.module .placeholder {
+.ui.video .placeholder {
+  display: block;
   width: 100%;
   height: 100%;
 }
-.video.module .embed {
+/* IFrame Embed */
+.ui.video .embed {
   display: none;
 }
-/* Video Active */
-.video.module.active .play,
-.video.module.active .placeholder {
+/*******************************
+            States
+*******************************/
+/*--------------
+    Hover
+---------------*/
+.ui.video .play:hover {
+  opacity: 1;
+}
+/*--------------
+     Active
+---------------*/
+.ui.video.active .play,
+.ui.video.active .placeholder {
   display: none;
 }
-.video.module.active .embed {
+.ui.video.active .embed {
   display: block;
 }

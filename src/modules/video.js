@@ -11,381 +11,416 @@
 
 ;(function ($, window, document, undefined) {
 
-  $.fn.video = function(parameters) {
+$.fn.video = function(parameters) {
 
-    var
-      settings = $.extend(true, {}, $.fn.video.settings, parameters),
-      // make arguments available
-      moduleArguments = arguments || false,
-      invokedResponse
-    ;
+  var
+    $allModules     = $(this),
 
-    $(this)
-      .each(function() {
-        var
-          $module      = $(this),
-          $placeholder = $module.find(settings.selector.placeholder),
-          $playButton  = $module.find(settings.selector.playButton),
-          $embed       = $module.find(settings.selector.embed),
+    settings        = ( $.isPlainObject(parameters) )
+      ? $.extend(true, {}, $.fn.video.settings, parameters)
+      : $.fn.video.settings,
 
-          element       = this,
-          instance      = $module.data('module-' + settings.namespace),
-          methodInvoked = (typeof parameters == 'string'),
+    moduleSelector  = $allModules.selector || '',
 
-          namespace    = settings.namespace,
-          metadata     = settings.metadata,
-          className    = settings.className,
+    time            = new Date().getTime(),
+    performance     = [],
 
-          module
-        ;
+    query           = arguments[0],
+    methodInvoked   = (typeof query == 'string'),
+    queryArguments  = [].slice.call(arguments, 1),
 
-        module = {
+    invokedResponse
+  ;
 
-          initialize: function() {
-            module.debug('Initializing video');
-            $placeholder
-              .off('.video')
-              .on('click.' + namespace, module.play)
-            ;
-            $playButton
-              .off('.video')
-              .on('click.' + namespace, module.play)
-            ;
-            $module
-              .data('module-' + namespace, module)
-            ;
-          },
+  $(this)
+    .each(function() {
+      var
+        $module      = $(this),
+        $placeholder = $module.find(settings.selector.placeholder),
+        $playButton  = $module.find(settings.selector.playButton),
+        $embed       = $module.find(settings.selector.embed),
+        
+        eventNamespace  = '.' + settings.namespace,
+        moduleNamespace = settings.namespace + '-module', 
 
-          // sets new video
-          change: function(source, flv) {
-            module.debug('Changing video to ', flv);
-            $module
-              .data(metadata.source, source)
-              .data(metadata.flv, flv)
-            ;
-            settings.onChange();
-          },
+        selector        = settings.selector,
+        className       = settings.className,
+        error           = settings.error,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+        
+        element         = this,
+        instance        = $module.data(moduleNamespace),
+        module
+      ;
 
-          // clears video embed
-          reset: function() {
-            module.debug('Clearing video embed and showing placeholder');
-            $module
-              .removeClass(className.active)
-            ;
-            $embed
-              .html(' ')
-            ;
-            $placeholder
-              .show()
-            ;
-            settings.onReset();
-          },
+      module = {
 
-          // plays current video
-          play: function() {
-            module.debug('Playing video');
+        initialize: function() {
+          module.debug('Initializing video');
+          $placeholder
+            .on('click' + eventNamespace, module.play)
+          ;
+          $playButton
+            .on('click' + eventNamespace, module.play)
+          ;
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          instance = module;
+          $module
+            .data(moduleNamespace, module)
+          ;
+        },
+
+        destroy: function() {
+          module.verbose('Destroying previous instance of video');
+          $module
+            .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+        },
+
+        // sets new video
+        change: function(source, id, url) {
+          module.debug('Changing video to ', source, id, url);
+          $module
+            .data(metadata.source, source)
+            .data(metadata.id, id)
+            .data(metadata.url, url)
+          ;
+          settings.onChange();
+        },
+
+        // clears video embed
+        reset: function() {
+          module.debug('Clearing video embed and showing placeholder');
+          $module
+            .removeClass(className.active)
+          ;
+          $embed
+            .html(' ')
+          ;
+          $placeholder
+            .show()
+          ;
+          settings.onReset();
+        },
+
+        // plays current video
+        play: function() {
+          module.debug('Playing video');
+          var
+            source = $module.data(metadata.source) || false, 
+            url    = $module.data(metadata.url)    || false,
+            id     = $module.data(metadata.id)     || false
+          ;
+          $embed
+            .html( module.generate.html(source, id, url) )
+          ;
+          $module
+            .addClass(className.active)
+          ;
+          settings.onPlay();
+        },
+
+        generate: {
+          // generates iframe html
+          html: function(source, id, url) {
+            module.debug('Generating embed html');
             var
-              source = $module.data(metadata.source),
-              flv    = $module.data(metadata.flv)
+              width = (settings.width == 'auto')
+                ? $module.width()
+                : settings.width,
+              height = (settings.height == 'auto')
+                ? $module.height()
+                : settings.height,
+              html
             ;
-            $embed
-              .html( module.generate.html(source, flv) )
-            ;
-            $module
-              .addClass(className.active)
-            ;
-            settings.onPlay();
-          },
-
-          generate: {
-            // generates iframe html
-            html: function(source, flv) {
-              module.debug('Generating embed html');
-              var
-                width = (settings.width == 'auto')
-                  ? $module.width()
-                  : settings.width,
-                height = (settings.height == 'auto')
-                  ? $module.height()
-                  : settings.height,
-                html
-              ;
+            if(source && id) {
               if(source == 'vimeo') {
                 html = ''
-                  + '<iframe src="http://player.vimeo.com/video/' + flv + '?=' + module.generate.url(source) + '"'
+                  + '<iframe src="http://player.vimeo.com/video/' + id + '?=' + module.generate.url(source) + '"'
                   + ' width="' + width + '" height="' + height + '"'
                   + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
                 ;
               }
               else if(source == 'youtube') {
                 html = ''
-                  + '<iframe src="http://www.youtube.com/embed/' + flv + '?=' + module.generate.url(source) + '"'
+                  + '<iframe src="http://www.youtube.com/embed/' + id + '?=' + module.generate.url(source) + '"'
                   + ' width="' + width + '" height="' + height + '"'
                   + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
                 ;
               }
-              return html;
-            },
-
-            // generate url parameters
-            url: function(source) {
-              var
-                api      = (settings.api)
-                  ? 1
-                  : 0,
-                autoplay = (settings.autoplay)
-                  ? 1
-                  : 0,
-                hd       = (settings.hd)
-                  ? 1
-                  : 0,
-                showUI   = (settings.showUI)
-                  ? 1
-                  : 0,
-                // opposite used for some params
-                hideUI   = !(settings.showUI)
-                  ? 1
-                  : 0,
-                url = ''
+            }
+            else if(url) {
+              html = ''
+                + '<iframe src="' + url + '"'
+                + ' width="' + width + '" height="' + height + '"'
+                + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
               ;
-              if(source == 'vimeo') {
-                url = ''
-                  +      'api='      + api
-                  + '&amp;title='    + showUI
-                  + '&amp;byline='   + showUI
-                  + '&amp;portrait=' + showUI
-                  + '&amp;autoplay=' + autoplay
-                ;
-                if(settings.color) {
-                  url += '&amp;color=' + settings.color;
-                }
-              }
-              else if(source == 'youtube') {
-                url = ''
-                  +      'enablejsapi=' + api
-                  + '&amp;autoplay='    + autoplay
-                  + '&amp;autohide='    + hideUI
-                  + '&amp;hq='          + hd
-                  + '&amp;modestbranding=1'
-                ;
-                if(settings.color) {
-                  url += '&amp;color=' + settings.color;
-                }
-              }
-              return url;
             }
+            else {
+              module.error(error.noVideo);
+            }
+            return html;
           },
 
-          /* standard module */
-          debug: function(message, variableName) {
-            if(settings.debug) {
-              if(variableName !== undefined) {
-                console.info(settings.moduleName + ': ' + message, variableName);
-              }
-              else {
-                console.info(settings.moduleName + ': ' + message);
+          // generate url parameters
+          url: function(source) {
+            var
+              api      = (settings.api)
+                ? 1
+                : 0,
+              autoplay = (settings.autoplay)
+                ? 1
+                : 0,
+              hd       = (settings.hd)
+                ? 1
+                : 0,
+              showUI   = (settings.showUI)
+                ? 1
+                : 0,
+              // opposite used for some params
+              hideUI   = !(settings.showUI)
+                ? 1
+                : 0,
+              url = ''
+            ;
+            if(source == 'vimeo') {
+              url = ''
+                +      'api='      + api
+                + '&amp;title='    + showUI
+                + '&amp;byline='   + showUI
+                + '&amp;portrait=' + showUI
+                + '&amp;autoplay=' + autoplay
+              ;
+              if(settings.color) {
+                url += '&amp;color=' + settings.color;
               }
             }
-          },
-          error: function(errorMessage) {
-            console.warn(settings.moduleName + ': ' + errorMessage);
-          },
-          invoke: function(methodName, context, methodArguments) {
+            if(source == 'ustream') {
+              url = ''
+                + 'autoplay=' + autoplay
+              ;
+              if(settings.color) {
+                url += '&amp;color=' + settings.color;
+              }
+            }
+            else if(source == 'youtube') {
+              url = ''
+                +      'enablejsapi=' + api
+                + '&amp;autoplay='    + autoplay
+                + '&amp;autohide='    + hideUI
+                + '&amp;hq='          + hd
+                + '&amp;modestbranding=1'
+              ;
+              if(settings.color) {
+                url += '&amp;color=' + settings.color;
+              }
+            }
+            return url;
+          }
+        },
+
+        setting: function(name, value) {
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, settings, name);
+            }
+            else {
+              settings[name] = value;
+            }
+          }
+          else {
+            return settings[name];
+          }
+        },
+        internal: function(name, value) {
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, module, name);
+            }
+            else {
+              module[name] = value;
+            }
+          }
+          else {
+            return module[name];
+          }
+        },
+        debug: function() {
+          if(settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
+          }
+        },
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            }
+          }
+        },
+        error: function() {
+          module.error = Function.prototype.bind.call(console.warn, console, settings.moduleName + ':');
+        },
+        performance: {
+          log: function(message) {
             var
-              method
+              currentTime,
+              executionTime,
+              previousTime
             ;
-            methodArguments = methodArguments || Array.prototype.slice.call( arguments, 2 );
-            if(typeof methodName == 'string' && instance !== undefined) {
-              methodName = methodName.split('.');
-              $.each(methodName, function(index, name) {
-                if( $.isPlainObject( instance[name] ) ) {
-                  instance = instance[name];
-                  return true;
-                }
-                else if( $.isFunction( instance[name] ) ) {
-                  method = instance[name];
-                  return true;
-                }
-                module.error(settings.errors.method);
-                return false;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime,
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Element'        : element,
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
+                'Execution Time' : executionTime
               });
             }
-            if ( $.isFunction( method ) ) {
-              return method.apply(context, methodArguments);
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
+          },
+          display: function() {
+            var
+              title = settings.moduleName + ':',
+              totalTime = 0
+            ;
+            time        = false;
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
             }
-            // return retrieved variable or chain
-            return method;
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
           }
-        };
-        // check for invoking internal method
-        if(methodInvoked) {
-          invokedResponse = module.invoke(moduleArguments[0], this, Array.prototype.slice.call( moduleArguments, 1 ) );
+        },
+        invoke: function(query, passedArguments, context) {
+          var
+            maxDepth,
+            found
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && instance !== undefined) {
+            query    = query.split(/[\. ]/);
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
+              }
+              else {
+                module.error(error.method);
+              }
+            });
+          }
+          if ( $.isFunction( found ) ) {
+            return found.apply(context, passedArguments);
+          }
+          return found || false;
         }
-        // otherwise initialize
-        else {
-          if(instance) {
-            module.destroy();
-          }
+      };
+
+      if(methodInvoked) {
+        if(instance === undefined) {
           module.initialize();
         }
-
-      })
-    ;
-    // chain or return queried method
-    return (invokedResponse !== undefined)
-      ? invokedResponse
-      : this
-    ;
-  };
-
-
-  $.fn.videoPlaylist = function(video, parameters) {
-    var
-      $allModules = $(this),
-      $video      = $(video),
-      $iframe     = $video.find('.embed iframe'),
-
-      settings    = $.extend({}, $.fn.videoPlaylist.settings, parameters, true)
-    ;
-    $allModules
-      .each(function() {
-        var
-          $element    = $(this),
-
-          metadata    = settings.metadata,
-          namespace   = settings.namespace,
-          className   = settings.className,
-
-          module       = {
-            initialize: function() {
-              $element
-                .on('click.' + namespace , module.changeVideo)
-              ;
-            },
-            changeVideo: function() {
-              var
-                flv         = $element.data(metadata.flv)         || false,
-                source      = $element.data(metadata.source)      || false,
-                placeholder = $element.data(metadata.placeholder) || false
-              ;
-              if(flv && source) {
-                $video
-                  .data(metadata.source, source)
-                  .data(metadata.flv, flv)
-                ;
-                if(settings.showPlaceholder) {
-                  $video
-                    .removeClass(className.active)
-                    .find($.fn.video.selector.placeholder)
-                      .attr('src', placeholder)
-                  ;
-                }
-                else {
-                  try {
-                    $video
-                      .video('play')
-                    ;
-                  }
-                  catch(error) {
-                    console.warn('Video Playlist Module: ' + settings.error.init);
-                  }
-                }
-                $allModules
-                  .removeClass(className.active)
-                ;
-                $element
-                  .addClass(className.active)
-                ;
-              }
-            }
-          }
-        ;
-        module.initialize();
-      })
-    ;
-
-    if(settings.playFirst) {
-      $allModules
-        .eq(0)
-        .trigger('click')
-      ;
-      // we all like a good hack
-      if($iframe.size() > 0) {
-        $iframe
-          .attr('src', $iframe.attr('src').replace('autoplay=1', 'autoplay=0') )
-        ;
+        invokedResponse = module.invoke(query);
       }
+      else {
+        if(instance !== undefined) {
+          module.destroy();
+        }
+        module.initialize();
+      }
+    })
+  ;
 
-    }
+  return (invokedResponse)
+    ? invokedResponse
+    : this
+  ;
+};
 
-  };
+$.fn.video.settings = {
 
-  $.fn.video.settings = {
+  moduleName  : 'Video',
+  namespace   : 'video',
 
-    moduleName  : 'Video',
-    namespace   : 'video',
-    debug       : false,
-    
-    metadata    : {
-      source      : 'source',
-      flv         : 'flv'
-    },
-    
-    onPlay      : function(){},
-    onReset     : function(){},
-    onChange    : function(){},
-    
-    // callbacks not coded yet (needs to use jsapi)
-    play        : function() {},
-    pause       : function() {},
-    stop        : function() {},
-    
-    width       : 'auto',
-    height      : 'auto',
-    
-    autoplay    : false,
-    color       : '#442359',
-    hd          : true,
-    showUI      : false,
-    api         : true,
-    
-    errors      : {
-      method      : 'The method you called is not defined'
-    },
-    
-    className   : {
-      active      : 'active'
-    },
-    
-    selector    : {
-      embed       : '.embed',
-      placeholder : '.placeholder',
-      playButton  : '.play'
-    }
-  };
+  debug       : true,
+  verbose     : true,
+  performance : true,
+  
 
-  $.fn.videoPlaylist.settings = {
-    moduleName      : 'Video Playlist',
-    namespace       : 'videoPlaylist',
+  metadata    : {
+    source : 'source',
+    id     : 'id',
+    url    : 'url'
+  },
+  
+  onPlay   : function(){},
+  onReset  : function(){},
+  onChange : function(){},
+  
+  // callbacks not coded yet (needs to use jsapi)
+  onPause  : function() {},
+  onStop   : function() {},
+  
+  width    : 'auto',
+  height   : 'auto',
+  
+  autoplay : false,
+  color    : '#442359',
+  hd       : true,
+  showUI   : false,
+  api      : true,
+  
+  error      : {
+    noVideo     : 'No video specified',
+    method      : 'The method you called is not defined'
+  },
+  
+  className   : {
+    active      : 'active'
+  },
+  
+  selector    : {
+    embed       : '.embed',
+    placeholder : '.placeholder',
+    playButton  : '.play'
+  }
+};
 
-    source          : 'vimeo',
-    showPlaceholder : false,
-    playFirst       : true,
-
-    metadata: {
-      flv         : 'flv',
-      source      : 'source',
-      placeholder : 'placeholder'
-    },
-
-    errors: {
-      init   : 'The video player you specified was not yet initialized'
-    },
-
-    className : {
-      active  : 'active'
-    }
-
-  };
 
 })( jQuery, window , document );
