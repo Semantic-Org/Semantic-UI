@@ -127,9 +127,11 @@
 .ui.menu .menu {
   margin: 0em;
 }
+.ui.menu .item.left,
 .ui.menu .menu.left {
   float: left;
 }
+.ui.menu .item.right,
 .ui.menu .menu.right {
   float: right;
 }

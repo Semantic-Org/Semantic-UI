@@ -127,9 +127,11 @@
 .ui.menu .menu {
   margin: 0em;
 }
+.ui.menu .item.left,
 .ui.menu .menu.left {
   float: left;
 }
+.ui.menu .item.right,
 .ui.menu .menu.right {
   float: right;
 }
@@ -178,6 +180,10 @@
 /*--------------
   Form Content
 ---------------*/
+.ui.menu .input,
+.ui.menu .input input {
+  width: 100%;
+}
 .ui.menu input {
   margin: 0.25em 0em;
   padding-top: 0.55em;
@@ -460,6 +466,13 @@
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+/* Tiered pointing */
+.ui.pointing.tiered.menu > .menu > .item:after {
+  display: none;
+}
+.ui.pointing.tiered.menu > .sub.menu > .item:after {
+  display: block;
 }
 /*--------------
     Colors

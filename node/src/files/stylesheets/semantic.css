@@ -867,6 +867,8 @@ a:hover {
 #example .ui.type.items .image .grid .segment {
   min-height: 50px;
   text-align: center;
+  padding-left: 0em;
+  padding-right: 0em;
   -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
   -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
   box-shadow: 0px 0px 0px 1px #DDDDDD;
