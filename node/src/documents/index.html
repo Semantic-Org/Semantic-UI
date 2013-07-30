@@ -20,34 +20,71 @@ type   : 'Semantic'
 <div class="stripe">
   <div class="ui responsive grid">
     <div class="ui column">
-      <p>Semantic UI is a framework designed to simplify front end development by removing the arbitrary bits.</p>
+      <h3 class="ui header">Comparing UI Frameworks</h3>
       
-      <h3 class="ui header">Comparing frameworks</h3>
-      
-      <div class="ui bottom pointing label">Bootstrap</div>
-      <div class="code" data-type="html">
-        <div class="row">
-          <div class="col-lg-4">1</div>
-          <div class="col-lg-4">2</div>
-          <div class="col-lg-4">3</div>
+      <p>3 column grid</p>
+      <div class="ui three column grid">
+        <div class="column">
+          <div class="ui teal below pointing label">Semantic</div>
+          <div class="code" data-type="html">
+    <div class="ui three column grid">
+      <div class="column">1</div>
+      <div class="column">2</div>
+      <div class="column">3</div>
+    </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui below pointing label">Bootstrap</div>
+          <div class="code" data-type="html">
+    <div class="row">
+      <div class="col-lg-4">1</div>
+      <div class="col-lg-4">2</div>
+      <div class="col-lg-4">3</div>
+    </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui below pointing label">YUI</div>
+          <div class="code" data-type="html">
+    <div class="yui-3-g">
+      <div class="yui3-u-1-3">1</div>
+      <div class="yui3-u-1-3">2</div>
+      <div class="yui3-u-1-3">3</div>
+    </div>
+          </div>
         </div>
       </div>
-      
-      <div class="ui bottom pointing label">YUI</div>
-      <div class="code" data-type="html">
-        <div class="yui-3-g">
-          <div class="yui3-u-1-3">1</div>
-          <div class="yui3-u-1-3">2</div>
-          <div class="yui3-u-1-3">3</div>
-        </div>
+      <div class="ui divider"></div>
+      <p>Navigation Menu</p>
+      <div class="ui two column grid">
+        <div class="column">
+          <div class="ui teal below pointing label">Semantic</div>
+          <div class="code" data-type="html">
+    <div class="ui menu">
+      <div class="header item">Title</div>
+      <a class="active item">Home</a>
+      <a class="item">Link</a>
+      <a class="item">Link</a>
+      <div class="right floated text item">
+        Signed in as <a href="#">user</a>
       </div>
-      
-      <div class="ui bottom pointing label">Semantic</div>
-      <div class="code" data-type="html">
-        <div class="ui three column grid">
-          <div class="column">1</div>
-          <div class="column">2</div>
-          <div class="column">3</div>
+    </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui below pointing label">Bootstrap</div>
+          <div class="code" data-type="html">
+    <div class="navbar">
+      <a class="navbar-brand" href="#">Title</a>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <p class="navbar-text pull-right">Signed in as <a href="#" class="navbar-link">User</a></p>
+      </ul>
+    </div>
+          </div>
         </div>
       </div>
     </div>
