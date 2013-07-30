@@ -84,10 +84,9 @@
 </head>
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon menu" id="menu">
-    <div class="item"><a href="/download.html"><i class="inverted circular red docs icon"></i> <b>Download</b></a></div>
+    <div class="item"><a href="/download.html"><i class="inverted circular red upload icon"></i> <b>Download</b></a></div>
     <div class="item">
       <a href="/introduction.html">
-        <i class="inverted circular teal upload icon"></i>
         <b>Introduction</b>
       </a>
       <div class="menu">
