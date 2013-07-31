@@ -490,7 +490,7 @@ $.fn.form = function(fields, parameters) {
 
     })
   ;
-  module.performance.display();
+
   return (invokedResponse)
     ? invokedResponse
     : this

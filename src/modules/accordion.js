@@ -333,7 +333,6 @@ $.fn.accordion = function(parameters) {
       }
     })
   ;
-  module.performance.display();
   return (invokedResponse)
     ? invokedResponse
     : this

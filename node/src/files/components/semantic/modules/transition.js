@@ -12,13 +12,9 @@
 $.fn.transition = function(parameters) {
   var
     $allModules     = $(this),
+    moduleSelector  = $allModules.selector || '',
     
     settings        = $.extend(true, {}, $.fn.transition.settings, parameters),
-    
-    // define namespaces for modules
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
-    moduleSelector  = $allModules.selector || '',
     
     time            = new Date().getTime(),
     performance     = [],
@@ -26,6 +22,14 @@ $.fn.transition = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
+
+    error           = settings.error,
+    namespace       = settings.namespace,
+    
+    // define namespaces for modules
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = 'module-' + namespace,
+
     invokedResponse
   ;
 
@@ -218,7 +222,7 @@ $.fn.transition = function(parameters) {
             ;
             if(settings.performance) {
               currentTime   = new Date().getTime();
-              previousTime  = time || currentTime,
+              previousTime  = time || currentTime;
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
@@ -236,7 +240,8 @@ $.fn.transition = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });

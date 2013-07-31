@@ -548,7 +548,7 @@ $.fn.search = function(source, parameters) {
 
     })
   ;
-  module.performance.display();
+
   return (invokedResponse)
     ? invokedResponse
     : this

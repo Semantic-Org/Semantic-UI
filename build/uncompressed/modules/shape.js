@@ -13,12 +13,18 @@ $.fn.shape = function(parameters) {
   var
     $allModules     = $(this),
     
+    moduleSelector  = $allModules.selector || '',
     settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
     
+    // internal aliases
+    namespace     = settings.namespace,
+    selector      = settings.selector,
+    error         = settings.error,
+    className     = settings.className,
+
     // define namespaces for modules
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
-    moduleSelector  = $allModules.selector || '',
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = 'module-' + namespace,
     
     time            = new Date().getTime(),
     performance     = [],
@@ -34,8 +40,8 @@ $.fn.shape = function(parameters) {
       var
         // selector cache
         $module       = $(this),
-        $sides        = $module.find(settings.selector.sides),
-        $side         = $module.find(settings.selector.side),
+        $sides        = $module.find(selector.sides),
+        $side         = $module.find(selector.side),
         
         // private variables
         $activeSide,
@@ -44,12 +50,6 @@ $.fn.shape = function(parameters) {
         // standard module
         element       = this,
         instance      = $module.data(moduleNamespace),
-
-        // internal aliases
-        namespace     = settings.namespace,
-        error         = settings.error,
-        className     = settings.className,
-
         module
       ;
 
@@ -58,6 +58,10 @@ $.fn.shape = function(parameters) {
         initialize: function() {
           module.verbose('Initializing module for', element);
           module.set.defaultSide();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
           instance = module;
           $module
             .data(moduleNamespace, instance)
@@ -75,8 +79,8 @@ $.fn.shape = function(parameters) {
         refresh: function() {
           module.verbose('Refreshing selector cache for', element);
           $module = $(element);
-          $sides  = $(this).find(settings.selector.shape);
-          $side   = $(this).find(settings.selector.side);
+          $sides  = $(this).find(selector.shape);
+          $side   = $(this).find(selector.side);
         },
 
         repaint: function() {
@@ -178,14 +182,84 @@ $.fn.shape = function(parameters) {
         },
 
         is: {
-
           animating: function() {
             return $module.hasClass(className.animating);
           }
-
         },
 
         get: {
+
+          transform: {
+            up: function() {
+              var
+                translate = {
+                  y: -(($activeSide.outerHeight() - $nextSide.outerHeight()) / 2),
+                  z: -($activeSide.outerHeight() / 2)
+                }
+              ;
+              return {
+                transform: 'translateY(' + translate.y + 'px) translateZ('+ translate.z + 'px) rotateX(-90deg)'
+              };
+            },
+
+            down: function() {
+              var
+                translate = {
+                  y: -(($activeSide.outerHeight() - $nextSide.outerHeight()) / 2),
+                  z: -($activeSide.outerHeight() / 2)
+                }
+              ;
+              return {
+                transform: 'translateY(' + translate.y + 'px) translateZ('+ translate.z + 'px) rotateX(90deg)'
+              };
+            },
+
+            left: function() {
+              var
+                translate = {
+                  x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2),
+                  z : -($activeSide.outerWidth() / 2)
+                }
+              ;
+              return {
+                transform: 'translateX(' + translate.x + 'px) translateZ(' + translate.z + 'px) rotateY(90deg)'
+              };
+            },
+
+            right: function() {
+              var
+                translate = {
+                  x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2),
+                  z : -($activeSide.outerWidth() / 2)
+                }
+              ;
+              return {
+                transform: 'translateX(' + translate.x + 'px) translateZ(' + translate.z + 'px) rotateY(-90deg)'
+              };
+            },
+
+            over: function() {
+              var
+                translate = {
+                  x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
+                }
+              ;
+              return {
+                transform: 'translateX(' + translate.x + 'px) rotateY(180deg)'
+              };
+            },
+
+            back: function() {
+              var
+                translate = {
+                  x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
+                }
+              ;
+              return {
+                transform: 'translateX(' + translate.x + 'px) rotateY(-180deg)'
+              };
+            }
+          },
 
           transitionEvent: function() {
             var
@@ -206,9 +280,9 @@ $.fn.shape = function(parameters) {
           },
 
           nextSide: function() {
-            return ( $activeSide.next(settings.selector.side).size() > 0 )
-              ? $activeSide.next(settings.selector.side)
-              : $module.find(settings.selector.side).first()
+            return ( $activeSide.next(selector.side).size() > 0 )
+              ? $activeSide.next(selector.side)
+              : $module.find(selector.side).first()
             ;
           }
 
@@ -218,9 +292,9 @@ $.fn.shape = function(parameters) {
 
           defaultSide: function() {
             $activeSide = $module.find('.' + settings.className.active);
-            $nextSide   = ( $activeSide.next(settings.selector.side).size() > 0 )
-              ? $activeSide.next(settings.selector.side)
-              : $module.find(settings.selector.side).first()
+            $nextSide   = ( $activeSide.next(selector.side).size() > 0 )
+              ? $activeSide.next(selector.side)
+              : $module.find(selector.side).first()
             ;
             module.verbose('Active side set to', $activeSide);
             module.verbose('Next side set to', $nextSide);
@@ -269,10 +343,10 @@ $.fn.shape = function(parameters) {
             module.debug('Flipping up', $nextSide);
             if( !module.is.animating() ) {
               module.stage.above();
-              module.animate( module.getTransform.up() );
+              module.animate( module.get.transform.up() );
             }
             else {
-              module.queue('flip.up');
+              module.queue('flip up');
             }
           },
 
@@ -280,10 +354,10 @@ $.fn.shape = function(parameters) {
             module.debug('Flipping down', $nextSide);
             if( !module.is.animating() ) {
               module.stage.below();
-              module.animate( module.getTransform.down() );
+              module.animate( module.get.transform.down() );
             }
             else {
-              module.queue('flip.down');
+              module.queue('flip down');
             }
           },
 
@@ -291,10 +365,10 @@ $.fn.shape = function(parameters) {
             module.debug('Flipping left', $nextSide);
             if( !module.is.animating() ) {
               module.stage.left();
-              module.animate(module.getTransform.left() );
+              module.animate(module.get.transform.left() );
             }
             else {
-              module.queue('flip.left');
+              module.queue('flip left');
             }
           },
 
@@ -302,10 +376,10 @@ $.fn.shape = function(parameters) {
             module.debug('Flipping right', $nextSide);
             if( !module.is.animating() ) {
               module.stage.right();
-              module.animate(module.getTransform.right() );
+              module.animate(module.get.transform.right() );
             }
             else {
-              module.queue('flip.right');
+              module.queue('flip right');
             }
           },
 
@@ -313,10 +387,10 @@ $.fn.shape = function(parameters) {
             module.debug('Flipping over', $nextSide);
             if( !module.is.animating() ) {
               module.stage.behind();
-              module.animate(module.getTransform.over() );
+              module.animate(module.get.transform.over() );
             }
             else {
-              module.queue('flip.over');
+              module.queue('flip over');
             }
           },
 
@@ -324,85 +398,11 @@ $.fn.shape = function(parameters) {
             module.debug('Flipping back', $nextSide);
             if( !module.is.animating() ) {
               module.stage.behind();
-              module.animate(module.getTransform.back() );
+              module.animate(module.get.transform.back() );
             }
             else {
-              module.queue('flip.back');
+              module.queue('flip back');
             }
-          }
-
-        },
-
-        getTransform: {
-
-          up: function() {
-            var
-              translate = {
-                y: -(($activeSide.outerHeight() - $nextSide.outerHeight()) / 2),
-                z: -($activeSide.outerHeight() / 2)
-              }
-            ;
-            return {
-              transform: 'translateY(' + translate.y + 'px) translateZ('+ translate.z + 'px) rotateX(-90deg)'
-            };
-          },
-
-          down: function() {
-            var
-              translate = {
-                y: -(($activeSide.outerHeight() - $nextSide.outerHeight()) / 2),
-                z: -($activeSide.outerHeight() / 2)
-              }
-            ;
-            return {
-              transform: 'translateY(' + translate.y + 'px) translateZ('+ translate.z + 'px) rotateX(90deg)'
-            };
-          },
-
-          left: function() {
-            var
-              translate = {
-                x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2),
-                z : -($activeSide.outerWidth() / 2)
-              }
-            ;
-            return {
-              transform: 'translateX(' + translate.x + 'px) translateZ(' + translate.z + 'px) rotateY(90deg)'
-            };
-          },
-
-          right: function() {
-            var
-              translate = {
-                x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2),
-                z : -($activeSide.outerWidth() / 2)
-              }
-            ;
-            return {
-              transform: 'translateX(' + translate.x + 'px) translateZ(' + translate.z + 'px) rotateY(-90deg)'
-            };
-          },
-
-          over: function() {
-            var
-              translate = {
-                x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
-              }
-            ;
-            return {
-              transform: 'translateX(' + translate.x + 'px) rotateY(180deg)'
-            };
-          },
-
-          back: function() {
-            var
-              translate = {
-                x : -(($activeSide.outerWidth() - $nextSide.outerWidth()) / 2)
-              }
-            ;
-            return {
-              transform: 'translateX(' + translate.x + 'px) rotateY(-180deg)'
-            };
           }
 
         },
@@ -597,7 +597,7 @@ $.fn.shape = function(parameters) {
             ;
             if(settings.performance) {
               currentTime   = new Date().getTime();
-              previousTime  = time || currentTime,
+              previousTime  = time || currentTime;
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
@@ -615,7 +615,8 @@ $.fn.shape = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -683,6 +684,7 @@ $.fn.shape = function(parameters) {
       }
     })
   ;
+
   return (invokedResponse)
     ? invokedResponse
     : this

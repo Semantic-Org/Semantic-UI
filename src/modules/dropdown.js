@@ -562,7 +562,7 @@ $.fn.dropdown = function(parameters) {
       }
     })
   ;
-  module.performance.display();
+
   return (invokedResponse)
     ? invokedResponse
     : this

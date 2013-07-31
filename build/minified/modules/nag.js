@@ -13,8 +13,13 @@ $.fn.nag = function(parameters) {
     $allModules     = $(this),
     settings        = $.extend(true, {}, $.fn.nag.settings, parameters),
     
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = settings.namespace + '-module', 
+    className       = settings.className,
+    selector        = settings.selector,
+    error           = settings.errors,
+    namespace       = settings.namespace,
+    
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = namespace + '-module', 
     moduleSelector  = $allModules.selector || '',
     
     time            = new Date().getTime(),
@@ -30,15 +35,12 @@ $.fn.nag = function(parameters) {
       var
         $module         = $(this),
         
-        $close          = $module.find(settings.selector.close),
+        $close          = $module.find(selector.close),
         $context        = $(settings.context),
         
         
         element         = this,
         instance        = $module.data(moduleNamespace),
-
-        className       = settings.className,
-        errors          = settings.errors,
 
         moduleOffset,
         moduleHeight,
@@ -258,7 +260,7 @@ $.fn.nag = function(parameters) {
               $.cookie(key, value);
             }
             else {
-              module.error(errors.noStorage);
+              module.error(error.noStorage);
             }
           },
           get: function(key) {
@@ -271,7 +273,7 @@ $.fn.nag = function(parameters) {
               return $.cookie(key);
             }
             else {
-              module.error(errors.noStorage);
+              module.error(error.noStorage);
             }
           }
 
@@ -352,7 +354,7 @@ $.fn.nag = function(parameters) {
             ;
             if(settings.performance) {
               currentTime   = new Date().getTime();
-              previousTime  = time || currentTime,
+              previousTime  = time || currentTime;
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
@@ -370,7 +372,8 @@ $.fn.nag = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -412,7 +415,7 @@ $.fn.nag = function(parameters) {
                 found = instance[value];
                 return true;
               }
-              module.error(errors.method);
+              module.error(error.method);
               return false;
             });
           }
@@ -484,8 +487,9 @@ $.fn.nag.settings = {
   // context for scroll event
   context        : window,
 
-  errors: {
-    noStorage  : 'Neither $.cookie or store is defined. A storage solution is required for storing state'
+  error: {
+    noStorage  : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
+    method    : 'The method you called is not defined.'
   },
 
   className     : {

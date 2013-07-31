@@ -568,7 +568,6 @@
       module.initialize();
     }
 
-    module.performance.display();
     return (invokedResponse)
       ? invokedResponse
       : this
