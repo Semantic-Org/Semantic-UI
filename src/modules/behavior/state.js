@@ -2,7 +2,7 @@
   Module
   State
   Change text based on state context
-  Hover/Pressed/Active/Inactive
+  Hover/down/Active/Inactive
   Author: Jack Lukic
   Last revision: May 2012
 
@@ -52,15 +52,17 @@ $.fn.state = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = settings.namespace + '-module', 
-    
     // shortcuts
     errors        = settings.errors,
     metadata      = settings.metadata,
     className     = settings.className,
+    namespace     = settings.namespace,
     states        = settings.states,
     text          = settings.text,
+
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = namespace + '-module', 
+    
 
     invokedResponse
   ;
@@ -88,52 +90,51 @@ $.fn.state = function(parameters) {
           if(settings.context && moduleSelector !== '') {
             if( module.allows('hover') ) {
               $(element, settings.context)
-                .on(moduleSelector, 'mouseenter' + eventNamespace, module.hover.enable)
-                .on(moduleSelector, 'mouseleave' + eventNamespace, module.hover.disable)
+                .on(moduleSelector, 'mouseenter' + eventNamespace, module.enable.hover)
+                .on(moduleSelector, 'mouseleave' + eventNamespace, module.disable.hover)
               ;
             }
-            if( module.allows('pressed') ) {
+            if( module.allows('down') ) {
               $(element, settings.context)
-                .on(moduleSelector, 'mousedown' + eventNamespace, module.pressed.enable)
-                .on(moduleSelector, 'mouseup'   + eventNamespace, module.pressed.disable)
+                .on(moduleSelector, 'mousedown' + eventNamespace, module.enable.down)
+                .on(moduleSelector, 'mouseup'   + eventNamespace, module.disable.down)
               ;
             }
             if( module.allows('focus') ) {
               $(element, settings.context)
-                .on(moduleSelector, 'focus' + eventNamespace, module.focus.enable)
-                .on(moduleSelector, 'blur'  + eventNamespace, module.focus.disable)
+                .on(moduleSelector, 'focus' + eventNamespace, module.enable.focus)
+                .on(moduleSelector, 'blur'  + eventNamespace, module.disable.focus)
               ;
             }
             $(settings.context)
-              .on(moduleSelector, 'mouseenter' + eventNamespace, module.text.change)
-              .on(moduleSelector, 'mouseleave'  + eventNamespace, module.text.reset)
-              .on(moduleSelector, 'click'     + eventNamespace, module.toggle)
+              .on(moduleSelector, 'mouseenter' + eventNamespace, module.change.text)
+              .on(moduleSelector, 'mouseleave' + eventNamespace, module.reset.text)
+              .on(moduleSelector, 'click'      + eventNamespace, module.toggle.state)
             ;
-
           }
           else {
             if( module.allows('hover') ) {
               $module
-                .on('mouseenter' + eventNamespace, module.hover.enable)
-                .on('mouseleave' + eventNamespace, module.hover.disable)
+                .on('mouseenter' + eventNamespace, module.enable.hover)
+                .on('mouseleave' + eventNamespace, module.disable.hover)
               ;
             }
-            if( module.allows('pressed') ) {
+            if( module.allows('down') ) {
               $module
-                .on('mousedown' + eventNamespace, module.pressed.enable)
-                .on('mouseup'   + eventNamespace, module.pressed.disable)
+                .on('mousedown' + eventNamespace, module.enable.down)
+                .on('mouseup'   + eventNamespace, module.disable.down)
               ;
             }
             if( module.allows('focus') ) {
               $module
-                .on('focus' + eventNamespace, module.focus.enable)
-                .on('blur'  + eventNamespace, module.focus.disable)
+                .on('focus' + eventNamespace, module.enable.focus)
+                .on('blur'  + eventNamespace, module.disable.focus)
               ;
             }
             $module
-              .on('mouseenter' + eventNamespace, module.text.change)
-              .on('mouseleave'  + eventNamespace, module.text.reset)
-              .on('click'     + eventNamespace, module.toggle)
+              .on('mouseenter' + eventNamespace, module.change.text)
+              .on('mouseleave' + eventNamespace, module.reset.text)
+              .on('click'      + eventNamespace, module.toggle.state)
             ;
           }
           module.instantiate();
@@ -220,71 +221,69 @@ $.fn.state = function(parameters) {
           return states[state] || false;
         },
 
-        enable: function(state) {
-          if(module.allows(state)) {
-            $module.addClass( className[state] );
+        enable: { 
+          state: function(state) {
+            if(module.allows(state)) {
+              $module.addClass( className[state] );
+            }
+          },
+          // convenience
+          focus: function() {
+            $module.addClass(className.focus);
+          },
+          hover: function() {
+            $module.addClass(className.hover);
+          },
+          down: function() {
+            $module.addClass(className.down);
+          },
+        },
+
+        disable: { 
+          state: function(state) {
+            if(module.allows(state)) {
+              $module.removeClass( className[state] );
+            }
+          },
+          // convenience
+          focus: function() {
+            $module.removeClass(className.focus);
+          },
+          hover: function() {
+            $module.removeClass(className.hover);
+          },
+          down: function() {
+            $module.removeClass(className.down);
+          },
+        },
+
+        toggle: {
+          state: function() {
+            var
+              apiRequest = $module.data(metadata.promise)
+            ;
+            if( module.allows('active') && module.is.enabled() ) {
+              module.refresh();
+              if(apiRequest !== undefined) {
+                module.listenTo(apiRequest);
+              }
+              else {
+                module.change.state();
+              }
+            }
           }
         },
-        disable: function(state) {
-          if(module.allows(state)) {
-            $module.removeClass( className[state] );
-          }
-        },
+
         textFor: function(state) {
           return text[state] || false;
         },
 
-        focus : {
-          enable: function() {
-            $module.addClass(className.focus);
-          },
-          disable: function() {
-            $module.removeClass(className.focus);
-          }
-        },
-
-        hover : {
-          enable: function() {
-            $module.addClass(className.hover);
-          },
-          disable: function() {
-            $module.removeClass(className.hover);
-          }
-        },
-
-        pressed : {
-          enable: function() {
-            $module
-              .addClass(className.pressed)
-              .one('mouseleave', module.pressed.disable)
-            ;
-          },
-          disable: function() {
-            $module.removeClass(className.pressed);
-          }
-        },
-
-        // determines method for state activation
-        toggle: function() {
-          var
-            apiRequest = $module.data(metadata.promise)
-          ;
-          if( module.allows('active') && module.is.enabled() ) {
-            module.refresh();
-            if(apiRequest !== undefined) {
-              module.listenTo(apiRequest);
-            }
-            else {
-              module.change();
-            }
-          }
-        },
 
         listenTo: function(apiRequest) {
           module.debug('API request detected, waiting for state signal', apiRequest);
           if(apiRequest) {
             if(text.loading) {
-              module.text.update(text.loading);
+              module.update.text(text.loading);
             }
             $.when(apiRequest)
               .then(function() {
@@ -298,7 +297,7 @@ $.fn.state = function(parameters) {
                   settings.activateTest   = function(){ return false; };
                   settings.deactivateTest = function(){ return false; };
                 }
-                module.change();
+                module.change.state();
               })
             ;
           }
@@ -310,19 +309,48 @@ $.fn.state = function(parameters) {
         },
 
         // checks whether active/inactive state can be given
-        change: function() {
-          module.debug('Determining state change direction');
-          // inactive to active change
-          if( module.is.inactive() ) {
-            module.activate();
+        change: {
+
+          state: function() {
+            module.debug('Determining state change direction');
+            // inactive to active change
+            if( module.is.inactive() ) {
+              module.activate();
+            }
+            else {
+              module.deactivate();
+            }
+            if(settings.sync) {
+              module.sync();
+            }
+            $.proxy(settings.onChange, element)();
+          },
+
+          text: function() {
+            if( module.is.textEnabled() ) {
+              if( module.is.active() ) {
+                if(text.hover) {
+                  module.verbose('Changing text to hover text', text.hover);
+                  module.update.text(text.hover);
+                }
+                else if(text.disable) {
+                  module.verbose('Changing text to disable text', text.disable);
+                  module.update.text(text.disable);
+                }
+              }
+              else {
+                if(text.hover) {
+                  module.verbose('Changing text to hover text', text.disable);
+                  module.update.text(text.hover);
+                }
+                else if(text.enable){
+                  module.verbose('Changing text to enable text', text.enable);
+                  module.update.text(text.enable);
+                }
+              }
+            }
           }
-          else {
-            module.deactivate();
-          }
-          if(settings.sync) {
-            module.sync();
-          }
-          $.proxy(settings.onChange, element)();
+
         },
 
         activate: function() {
@@ -331,7 +359,7 @@ $.fn.state = function(parameters) {
             $module
               .addClass(className.active)
             ;
-            module.text.update(text.active);
+            module.update.text(text.active);
           }
           $.proxy(settings.onActivate, element)();
         },
@@ -342,7 +370,7 @@ $.fn.state = function(parameters) {
             $module
               .removeClass(className.active)
             ;
-            module.text.update(text.inactive);
+            module.update.text(text.inactive);
           }
           $.proxy(settings.onDeactivate, element)();
         },
@@ -362,56 +390,33 @@ $.fn.state = function(parameters) {
           }
         },
 
-        text: {
-
-          // finds text node to update
-          get: function() {
+        get: {
+          text: function() {
             return (settings.selector.text)
               ? $module.find(settings.selector.text).text()
               : $module.html()
             ;
-          },
+          }
+        },
 
-          flash: function(text, duration) {
+        flash: {
+          text: function(text, duration) {
             var
-              previousText = module.text.get()
+              previousText = module.get.text()
             ;
             module.debug('Flashing text message', text, duration);
             text     = text     || settings.text.flash;
             duration = duration || settings.flashDuration;
-            module.text.update(text);
+            module.update.text(text);
             setTimeout(function(){
-              module.text.update(previousText);
+              module.update.text(previousText);
             }, duration);
-          },
+          }
+        },
 
-          change: function() {
-            if( module.is.textEnabled() ) {
-              if( module.is.active() ) {
-                if(text.hover) {
-                  module.verbose('Changing text to hover text', text.hover);
-                  module.text.update(text.hover);
-                }
-                else if(text.disable) {
-                  module.verbose('Changing text to disable text', text.disable);
-                  module.text.update(text.disable);
-                }
-              }
-              else {
-                if(text.hover) {
-                  module.verbose('Changing text to hover text', text.disable);
-                  module.text.update(text.hover);
-                }
-                else if(text.enable){
-                  module.verbose('Changing text to enable text', text.enable);
-                  module.text.update(text.enable);
-                }
-              }
-            }
-          },
-
+        reset: {
           // on mouseout sets text to previous value
-          reset : function() {
+          text: function() {
             var
               activeText   = text.active   || $module.data(metadata.storedText),
               inactiveText = text.inactive || $module.data(metadata.storedText)
@@ -419,18 +424,20 @@ $.fn.state = function(parameters) {
             if( module.is.textEnabled() ) {
               if( module.is.active() && activeText) {
                 module.verbose('Resetting active text', activeText);
-                module.text.update(activeText);
+                module.update.text(activeText);
               }
               else if(inactiveText) {
                 module.verbose('Resetting inactive text', activeText);
-                module.text.update(inactiveText);
+                module.update.text(inactiveText);
               }
             }
-          },
+          }
+        },
 
-          update: function(text) {
+        update: {
+          text: function(text) {
             var
-              currentText = module.text.get()
+              currentText = module.get.text()
             ;
             if(text && text !== currentText) {
               module.debug('Updating text', text);
@@ -453,6 +460,7 @@ $.fn.state = function(parameters) {
             }
           }
         },
+
         setting: function(name, value) {
           module.debug('Changing setting', name, value);
           if(value !== undefined) {
@@ -531,7 +539,8 @@ $.fn.state = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -598,6 +607,7 @@ $.fn.state = function(parameters) {
 
     })
   ;
+  module.performance.display();
   return (invokedResponse)
     ? invokedResponse
     : this
@@ -662,7 +672,7 @@ $.fn.state.settings = {
   className: {
     focus   : 'focus',
     hover   : 'hover',
-    pressed : 'down',
+    down    : 'down',
     active  : 'active',
     loading : 'loading'
   },
@@ -676,14 +686,14 @@ $.fn.state.settings = {
     input: {
       hover   : true,
       focus   : true,
-      pressed : true,
+      down    : true,
       loading : false,
       active  : false
     },
     button: {
       hover   : true,
       focus   : false,
-      pressed : true,
+      down    : true,
       active  : false,
       loading : true
     }
@@ -692,7 +702,7 @@ $.fn.state.settings = {
   states     : {
     hover   : true,
     focus   : true,
-    pressed : true,
+    down    : true,
     loading : false,
     active  : false
   },

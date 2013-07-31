@@ -14,8 +14,14 @@ $.fn.search = function(source, parameters) {
     $allModules     = $(this),
     settings        = $.extend(true, {}, $.fn.search.settings, parameters),
     
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = settings.namespace + '-module', 
+    
+    className       = settings.className,
+    selector        = settings.selector,
+    errors          = settings.errors,
+    namespace       = settings.namespace,
+    
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = namespace + '-module', 
     moduleSelector  = $allModules.selector || '',
     
     time            = new Date().getTime(),
@@ -30,17 +36,15 @@ $.fn.search = function(source, parameters) {
     .each(function() {
       var
         $module       = $(this),
-        $prompt       = $module.find(settings.selector.prompt),
-        $searchButton = $module.find(settings.selector.searchButton),
-        $results      = $module.find(settings.selector.results),
-        $result       = $module.find(settings.selector.result),
-        $category     = $module.find(settings.selector.category),
+        $prompt       = $module.find(selector.prompt),
+        $searchButton = $module.find(selector.searchButton),
+        $results      = $module.find(selector.results),
+        $result       = $module.find(selector.result),
+        $category     = $module.find(selector.category),
         
         element       = this,
         instance      = $module.data(moduleNamespace),
-        
-        className     = settings.className,
-        errors        = settings.errors,
+
         module
       ;
       module = {
@@ -70,12 +74,13 @@ $.fn.search = function(source, parameters) {
             .on('click' + eventNamespace, module.search.query)
           ;
           $results
-            .on('click' + eventNamespace, settings.selector.result, module.results.select)
+            .on('click' + eventNamespace, selector.result, module.results.select)
           ;
           module.instantiate();
         },
         instantiate: function() {
           module.verbose('Storing instance of module', module);
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;
@@ -104,8 +109,8 @@ $.fn.search = function(source, parameters) {
         handleKeyboard: function(event) {
           var
             // force latest jq dom
-            $result       = $module.find(settings.selector.result),
-            $category     = $module.find(settings.selector.category),
+            $result       = $module.find(selector.result),
+            $category     = $module.find(selector.category),
             keyCode       = event.which,
             keys          = {
               backspace : 8,
@@ -121,6 +126,7 @@ $.fn.search = function(source, parameters) {
           ;
           // search shortcuts
           if(keyCode == keys.escape) {
+            module.verbose('Escape key pressed, blurring search field');
             $prompt
               .trigger('blur')
             ;
@@ -128,6 +134,7 @@ $.fn.search = function(source, parameters) {
           // result shortcuts
           if($results.filter(':visible').size() > 0) {
             if(keyCode == keys.enter) {
+              module.verbose('Enter key pressed, selecting active result');
               if( $result.filter('.' + activeClass).exists() ) {
                 $.proxy(module.results.select, $result.filter('.' + activeClass) )();
                 event.preventDefault();
@@ -135,6 +142,7 @@ $.fn.search = function(source, parameters) {
               }
             }
             else if(keyCode == keys.upArrow) {
+              module.verbose('Up key pressed, changing active result');
               newIndex = (currentIndex - 1 < 0)
                 ? currentIndex
                 : currentIndex - 1
@@ -152,6 +160,7 @@ $.fn.search = function(source, parameters) {
               event.preventDefault();
             }
             else if(keyCode == keys.downArrow) {
+              module.verbose('Down key pressed, changing active result');
               newIndex = (currentIndex + 1 >= resultSize)
                 ? currentIndex
                 : currentIndex + 1
@@ -172,6 +181,7 @@ $.fn.search = function(source, parameters) {
           else {
             // query shortcuts
             if(keyCode == keys.enter) {
+              module.verbose('Enter key pressed, executing query');
               module.search.query();
               $searchButton
                 .addClass(className.down)
@@ -470,7 +480,8 @@ $.fn.search = function(source, parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -537,6 +548,7 @@ $.fn.search = function(source, parameters) {
 
     })
   ;
+  module.performance.display();
   return (invokedResponse)
     ? invokedResponse
     : this

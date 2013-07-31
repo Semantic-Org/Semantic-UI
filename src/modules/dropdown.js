@@ -17,14 +17,21 @@ $.fn.dropdown = function(parameters) {
     settings        = ( $.isPlainObject(parameters) )
       ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
       : $.fn.dropdown.settings,
-
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
+        
+    className       = settings.className,
+    metadata        = settings.metadata,
+    namespace       = settings.namespace,
+    animation       = settings.animation,
+    selector        = settings.selector,
+    errors          = settings.errors,
+    
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
-
+    
     time            = new Date().getTime(),
     performance     = [],
-
+    
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -35,22 +42,15 @@ $.fn.dropdown = function(parameters) {
     .each(function() {
       var
         $module       = $(this),
-        $menu         = $(this).find(settings.selector.menu),
-        $item         = $(this).find(settings.selector.item),
-        $text         = $(this).find(settings.selector.text),
-        $input        = $(this).find(settings.selector.input),
+        $menu         = $(this).find(selector.menu),
+        $item         = $(this).find(selector.item),
+        $text         = $(this).find(selector.text),
+        $input        = $(this).find(selector.input),
         
         isTouchDevice = ('ontouchstart' in document.documentElement),
         
         element       = this,
         instance      = $module.data(moduleNamespace),
-        
-        className     = settings.className,
-        metadata      = settings.metadata,
-        namespace     = settings.namespace,
-        animation     = settings.animation,
-        
-        errors        = settings.errors,
         module
       ;
 
@@ -404,7 +404,7 @@ $.fn.dropdown = function(parameters) {
           module.verbose('Finding other dropdowns to hide');
           $allModules
             .not($module)
-              .has(settings.selector.menu + ':visible')
+              .has(selector.menu + ':visible')
               .dropdown('hide')
           ;
         },
@@ -495,7 +495,8 @@ $.fn.dropdown = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -561,6 +562,7 @@ $.fn.dropdown = function(parameters) {
       }
     })
   ;
+  module.performance.display();
   return (invokedResponse)
     ? invokedResponse
     : this

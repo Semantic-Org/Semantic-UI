@@ -322,7 +322,8 @@
       })
     ;
     // chain or return queried method
-    return (invokedResponse !== undefined)
+    module.performance.display();
+    return (invokedResponse)
       ? invokedResponse
       : this
     ;

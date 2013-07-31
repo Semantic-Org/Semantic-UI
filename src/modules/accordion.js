@@ -16,13 +16,18 @@ $.fn.accordion = function(parameters) {
       ? $.extend(true, {}, $.fn.accordion.settings, parameters)
       : $.fn.accordion.settings,
 
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
+    className       = settings.className,
+    namespace       = settings.namespace,
+    selector        = settings.selector,
+    error           = settings.errors,
+    
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
-
+    
     time            = new Date().getTime(),
     performance     = [],
-
+    
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -31,18 +36,13 @@ $.fn.accordion = function(parameters) {
   $allModules
     .each(function() {
       var
-        $module   = $(this),
-        $title    = $module.find(settings.selector.title),
-        $icon     = $module.find(settings.selector.icon),
-        $content  = $module.find(settings.selector.content),
-
-        element       = this,
-        instance      = $module.data(moduleNamespace),
+        $module  = $(this),
+        $title   = $module.find(selector.title),
+        $icon    = $module.find(selector.icon),
+        $content = $module.find(selector.content),
         
-        className     = settings.className,
-        namespace     = settings.namespace,
-        
-        errors        = settings.errors,
+        element  = this,
+        instance = $module.data(moduleNamespace),
         module
       ;
 
@@ -54,6 +54,10 @@ $.fn.accordion = function(parameters) {
           $title
             .on('click' + eventNamespace, module.event.click)
           ;
+          module.instantiate();
+        },
+
+        instantiate: function() {
           $module
             .data(moduleNamespace, module)
           ;
@@ -68,35 +72,41 @@ $.fn.accordion = function(parameters) {
         },
 
         event: {
-
           click: function() {
+            module.verbose('Title clicked', this);
             var
-              $activeTitle  = $(this),
-              activeIndex   = $title.index($activeTitle),
-              contentIsOpen = $activeTitle.hasClass(className.active)
+              $activeTitle = $(this),
+              index        = $title.index($activeTitle)
             ;
-            module.verbose('Accordion title clicked', $activeTitle);
-            if(contentIsOpen) {
-              if(settings.collapsible) {
-                module.close(activeIndex);
-              }
-              else {
-                module.debug('Cannot close accordion content collapsing is disabled');
-              }
-            }
-            else {
-              module.open(activeIndex);
-            }
+            module.toggle(index);
           },
-
           resetStyle: function() {
+            module.verbose('Resetting styles on element', this);
             $(this)
               .removeAttr('style')
               .children()
                 .removeAttr('style')
             ;
           }
+        },
 
+        toggle: function(index) {
+          module.debug('Toggling content content at index', index);
+          var
+            $activeTitle  = $title.eq(index),
+            contentIsOpen = $activeTitle.hasClass(className.active)
+          ;
+          if(contentIsOpen) {
+            if(settings.collapsible) {
+              module.close(index);
+            }
+            else {
+              module.debug('Cannot close accordion content collapsing is disabled');
+            }
+          }
+          else {
+            module.open(index);
+          }
         },
 
         open: function(index) {
@@ -256,7 +266,8 @@ $.fn.accordion = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -298,7 +309,7 @@ $.fn.accordion = function(parameters) {
                 found = instance[value];
                 return true;
               }
-              module.error(errors.method);
+              module.error(error.method);
               return false;
             });
           }
@@ -322,6 +333,7 @@ $.fn.accordion = function(parameters) {
       }
     })
   ;
+  module.performance.display();
   return (invokedResponse)
     ? invokedResponse
     : this
@@ -342,7 +354,7 @@ $.fn.accordion.settings = {
   onClose     : function(){},
   onChange    : function(){},
 
-  errors: {
+  error: {
     method    : 'The method you called is not defined'
   },
 
