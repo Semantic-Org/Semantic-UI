@@ -597,7 +597,7 @@ $.fn.shape = function(parameters) {
             ;
             if(settings.performance) {
               currentTime   = new Date().getTime();
-              previousTime  = time || currentTime,
+              previousTime  = time || currentTime;
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
