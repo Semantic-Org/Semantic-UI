@@ -31,11 +31,17 @@
   opacity: 0;
   line-height: 1;
 
-  -webkit-animation-fill-mode: forwards;
-  -moz-animation-fill-mode: forwards;
-  -o-animation-fill-mode: forwards;
-  -ms-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  -ms-animation-duration: 0.5s;
+  animation-duration: 0.5s;
 
   -webkit-transition:
     background-color 0.5s linear
@@ -213,10 +219,9 @@ body.ui.dimmable.dimmed > :not(.dimmer){
 .ui.dimmer.show {
   width: 100%;
   height: 100%;
-  
-  -webkit-animation: dimmer-show 0.5s;
-  -moz-animation: dimmer-show 0.5s;
-  animation: dimmer-show 0.5s;
+  -webkit-animation-name: dimmer-show;
+  -moz-animation-name: dimmer-show;
+  animation-name: dimmer-show;
 }
 
 @-webkit-keyframes dimmer-show {
@@ -245,9 +250,9 @@ body.ui.dimmable.dimmed > :not(.dimmer){
 }
 
 .ui.dimmer.hide {
-  -webkit-animation: dimmer-hide 0.5s;
-  -moz-animation: dimmer-hide 0.5s;
-  animation: dimmer-hide 0.5s;
+  -webkit-animation-name: dimmer-hide;
+  -moz-animation-name: dimmer-hide;
+  animation-name: dimmer-hide;
 }
 
 @-webkit-keyframes dimmer-hide {
