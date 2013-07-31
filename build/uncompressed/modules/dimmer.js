@@ -17,8 +17,13 @@ $.fn.dimmer = function(parameters) {
       ? $.extend(true, {}, $.fn.dimmer.settings, parameters)
       : $.fn.dimmer.settings,
 
-    eventNamespace  = '.' + settings.namespace,
-    moduleNamespace = 'module-' + settings.namespace,
+    selector        = settings.selector,
+    namespace       = settings.namespace,
+    className       = settings.className,
+    error           = settings.error,
+
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -28,10 +33,6 @@ $.fn.dimmer = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
-    selector        = settings.selector,
-    namespace       = settings.namespace,
-    className       = settings.className,
-    error           = settings.error,
 
     invokedResponse
   ;
@@ -41,8 +42,6 @@ $.fn.dimmer = function(parameters) {
       var
         $module      = $(this),
         $dimmer      = $module.children(selector.dimmer).first(),
-
-        animationEnd = 'animationend msAnimationEnd oAnimationEnd webkitAnimationEnd',
 
         element      = this,
         instance     = $dimmer.data(moduleNamespace),
@@ -111,7 +110,6 @@ $.fn.dimmer = function(parameters) {
 
           click: function(event) {
             module.verbose('Determining if event occured on dimmer', event);
-            console.log(event.target, selector.content, $(event.target).is(selector.content));
             if( $dimmer.find(event.target).size() === 0 || $(event.target).is(selector.content) ) {
               module.hide();
             }
@@ -125,7 +123,7 @@ $.fn.dimmer = function(parameters) {
             if(settings.animation.show == 'css') {
               module.verbose('Showing dimmer animation with css');
               $dimmer
-                .one(animationEnd, function() {
+                .one(module.get.animationEndEvent(), function() {
                   module.set.active();
                   $dimmer.removeClass(className.show);
                 })
@@ -153,7 +151,7 @@ $.fn.dimmer = function(parameters) {
             if(settings.animation.hide == 'css') {
               module.verbose('Hiding dimmer with css');
               $dimmer
-                .one(animationEnd, function(){
+                .one(module.get.animationEndEvent(), function(){
                   module.remove.active();
                   $dimmer.removeClass(className.hide);
                 })
@@ -174,6 +172,28 @@ $.fn.dimmer = function(parameters) {
               $.proxy(settings.animation.hide, $dimmer)();
             }
           }
+        },
+
+        get: {
+
+          animationEndEvent: function() {
+            var
+              element     = document.createElement('element'),
+              animations  = {
+                'animation'       : 'animationend',
+                'OAnimation'      : 'oAnimationEnd',
+                'MozAnimation'    : 'animationend',
+                'WebkitAnimation' : 'webkitAnimationEnd'
+              },
+              animation
+            ;
+            for(animation in animations){
+              if( element.style[animation] !== undefined ){
+                return animations[animation];
+              }
+            }
+          }
+
         },
 
         has: {
@@ -329,7 +349,7 @@ $.fn.dimmer = function(parameters) {
             ;
             if(settings.performance) {
               currentTime   = new Date().getTime();
-              previousTime  = time || currentTime,
+              previousTime  = time || currentTime;
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({
@@ -347,7 +367,8 @@ $.fn.dimmer = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -430,8 +451,8 @@ $.fn.dimmer.settings = {
   performance : true,
 
   animation   : {
-    show: 'fade',
-    hide: 'fade'
+    show: 'css',
+    hide: 'css'
   },
 
   on       : false,

@@ -18,8 +18,10 @@
       .each(function() {
         var
           $module         = $(this),
+
           $expandButton   = $module.find(settings.selector.expandButton),
           $userListButton = $module.find(settings.selector.userListButton),
+          
           $userList       = $module.find(settings.selector.userList),
           $room           = $module.find(settings.selector.room),
           $userCount      = $module.find(settings.selector.userCount),
@@ -37,6 +39,8 @@
 
           html            = '',
           users           = {},
+
+          channel,
           loggedInUser,
 
           message,
@@ -50,7 +54,6 @@
 
         module = {
 
-          channel: false,
           width: {
             log      : $log.width(),
             userList : $userList.outerWidth()
@@ -75,33 +78,18 @@
             pusher                       = new Pusher(key);
             Pusher.channel_auth_endpoint = settings.endpoint.authentication;
 
-            module.channel               = pusher.subscribe(channelName);
+            channel = pusher.subscribe(channelName);
 
-            module.channel.bind('pusher:subscription_succeeded', module.user.list.create);
-            module.channel.bind('pusher:subscription_error', module.error);
-            module.channel.bind('pusher:member_added', module.user.joined);
-            module.channel.bind('pusher:member_removed', module.user.left);
-            module.channel.bind('update_messages', module.message.receive);
+            channel.bind('pusher:subscription_succeeded', module.user.list.create);
+            channel.bind('pusher:subscription_error', module.error);
+            channel.bind('pusher:member_added', module.user.joined);
+            channel.bind('pusher:member_removed', module.user.left);
+            channel.bind('update_messages', module.message.receive);
 
             $.each(settings.customEvents, function(label, value) {
-              module.channel.bind(label, value);
+              channel.bind(label, value);
             });
-
-            // expandable with states
-            if( $.fn.hoverClass !== undefined && $.fn.downClass !== undefined ) {
-              $expandButton
-                .hoverClass()
-                .downClass()
-              ;
-              $userListButton
-                .hoverClass()
-                .downClass()
-              ;
-              $messageButton
-                .hoverClass()
-                .downClass()
-              ;
-            }
+            
             // bind module events
             $userListButton
               .on('click.' +  namespace, module.event.toggleUserList)
@@ -153,7 +141,7 @@
               if(settings.userCount) {
                 users = $module.data('users');
                 count = 0;
-                $.each(users, function(index) {
+                $.each(users, function() {
                   count++;
                 });
                 $userCount

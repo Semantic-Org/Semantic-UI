@@ -322,7 +322,7 @@
       })
     ;
     // chain or return queried method
-    module.performance.display();
+  
     return (invokedResponse)
       ? invokedResponse
       : this

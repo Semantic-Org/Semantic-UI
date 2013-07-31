@@ -322,7 +322,8 @@
       })
     ;
     // chain or return queried method
-    return (invokedResponse !== undefined)
+  
+    return (invokedResponse)
       ? invokedResponse
       : this
     ;

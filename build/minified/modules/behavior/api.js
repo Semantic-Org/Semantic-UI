@@ -61,8 +61,8 @@
       element         = this,
       time            = new Date().getTime(),
       performance     = [],
+      
       moduleSelector  = $module.selector || '',
-
       moduleNamespace = settings.namespace + '-module', 
       
       className       = settings.className,
@@ -438,7 +438,7 @@
           ;
           if(settings.performance) {
             currentTime   = new Date().getTime();
-            previousTime  = time || currentTime,
+            previousTime  = time || currentTime;
             executionTime = currentTime - previousTime;
             time          = currentTime;
             performance.push({
@@ -456,7 +456,8 @@
             title = settings.moduleName + ':',
             totalTime = 0
           ;
-          time        = false;
+          clearTimeout(module.performance.timer);
+          time = false;
           $.each(performance, function(index, data) {
             totalTime += data['Execution Time'];
           });
@@ -521,8 +522,8 @@
       }
       module.initialize();
     }
-
-    return (invokedResponse !== undefined)
+  
+    return (invokedResponse)
       ? invokedResponse
       : this
     ;

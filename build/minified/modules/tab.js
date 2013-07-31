@@ -15,6 +15,8 @@
       
       $module         = $(this),
       $tabs           = $(settings.context).find(settings.selector.tabs),
+
+      moduleSelector  = $module.selector || '',
       
       cache           = {},
       firstLoad       = true,
@@ -27,14 +29,13 @@
       element         = this,
       time            = new Date().getTime(),
       performance     = [],
-      moduleSelector  = $module.selector || '',
 
-      eventNamespace  = '.' + settings.namespace,
-      moduleNamespace = settings.namespace + '-module', 
-      
       className       = settings.className,
       metadata        = settings.metadata,
       errors          = settings.errors,
+
+      eventNamespace  = '.' + settings.namespace,
+      moduleNamespace = settings.namespace + '-module', 
       
       instance        = $module.data(moduleNamespace),
       
@@ -80,6 +81,11 @@
             .on('click' + eventNamespace, module.event.click)
           ;
         }
+        module.instantiate();
+      },
+
+      instantiate: function () {
+        module.verbose('Storing instance of module', module);
         $module
           .data(moduleNamespace, module)
         ;
@@ -477,7 +483,7 @@
           ;
           if(settings.performance) {
             currentTime   = new Date().getTime();
-            previousTime  = time || currentTime,
+            previousTime  = time || currentTime;
             executionTime = currentTime - previousTime;
             time          = currentTime;
             performance.push({
@@ -495,7 +501,8 @@
             title = settings.moduleName + ':',
             totalTime = 0
           ;
-          time        = false;
+          time = false;
+          clearTimeout(module.performance.timer);
           $.each(performance, function(index, data) {
             totalTime += data['Execution Time'];
           });
@@ -561,7 +568,7 @@
       module.initialize();
     }
 
-    return (invokedResponse !== undefined)
+    return (invokedResponse)
       ? invokedResponse
       : this
     ;
