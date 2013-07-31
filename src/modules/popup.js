@@ -545,7 +545,8 @@ $.fn.popup = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });

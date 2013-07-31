@@ -21,33 +21,33 @@ $.fn.video = function(parameters) {
       : $.fn.video.settings,
 
     moduleSelector  = $allModules.selector || '',
-
+    
     time            = new Date().getTime(),
     performance     = [],
-
+    
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-
+    
+    selector        = settings.selector,
+    className       = settings.className,
+    error           = settings.error,
+    metadata        = settings.metadata,
+    namespace       = settings.namespace,
+    
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = namespace + '-module', 
+    
     invokedResponse
   ;
 
-  $(this)
+  $allModules
     .each(function() {
       var
-        $module      = $(this),
-        $placeholder = $module.find(settings.selector.placeholder),
-        $playButton  = $module.find(settings.selector.playButton),
-        $embed       = $module.find(settings.selector.embed),
-        
-        eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = settings.namespace + '-module', 
-
-        selector        = settings.selector,
-        className       = settings.className,
-        error           = settings.error,
-        metadata        = settings.metadata,
-        namespace       = settings.namespace,
+        $module         = $(this),
+        $placeholder    = $module.find(selector.placeholder),
+        $playButton     = $module.find(selector.playButton),
+        $embed          = $module.find(selector.embed),
         
         element         = this,
         instance        = $module.data(moduleNamespace),
@@ -68,6 +68,7 @@ $.fn.video = function(parameters) {
         },
 
         instantiate: function() {
+          module.verbose('Storing instance of module', module);
           instance = module;
           $module
             .data(moduleNamespace, module)
@@ -300,7 +301,8 @@ $.fn.video = function(parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -366,7 +368,7 @@ $.fn.video = function(parameters) {
       }
     })
   ;
-
+  module.performance.display();
   return (invokedResponse)
     ? invokedResponse
     : this

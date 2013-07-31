@@ -18,12 +18,21 @@ $.fn.form = function(fields, parameters) {
     
     settings        = $.extend(true, {}, $.fn.form.settings, parameters),
     validation      = $.extend({}, $.fn.form.settings.defaults, fields),
-
+    
+    namespace       = settings.namespace,
+    metadata        = settings.metadata,
+    selector        = settings.selector,
+    className       = settings.className,
+    error           = settings.error,
+    
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = 'module-' + namespace,
+    
     moduleSelector  = $allModules.selector || '',
-
+    
     time            = new Date().getTime(),
     performance     = [],
-
+    
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -33,24 +42,16 @@ $.fn.form = function(fields, parameters) {
     .each(function() {
       var
         $module    = $(this),
-        $field     = $(this).find(settings.selector.field),
-        $group     = $(this).find(settings.selector.group),
-        $message   = $(this).find(settings.selector.message),
-        $prompt    = $(this).find(settings.selector.prompt),
-        $submit    = $(this).find(settings.selector.submit),
+        $field     = $(this).find(selector.field),
+        $group     = $(this).find(selector.group),
+        $message   = $(this).find(selector.message),
+        $prompt    = $(this).find(selector.prompt),
+        $submit    = $(this).find(selector.submit),
         
         formErrors = [],
         
         element    = this,
-        instance   = $module.data('module-' + settings.namespace),
-        
-        eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = 'module-' + settings.namespace,
-        
-        namespace  = settings.namespace,
-        metadata   = settings.metadata,
-        className  = settings.className,
-        error      = settings.error,
+        instance   = $module.data(moduleNamespace),
         module
       ;
 
@@ -93,7 +94,7 @@ $.fn.form = function(fields, parameters) {
 
         refresh: function() {
           module.verbose('Refreshing selector cache');
-          $field = $module.find(settings.selector.field);
+          $field = $module.find(selector.field);
         },
 
         submit: function() {
@@ -120,7 +121,7 @@ $.fn.form = function(fields, parameters) {
                   .blur()
                 ;
               }
-              if( key == keyCode.enter && $field.is(settings.selector.input) ) {
+              if( key == keyCode.enter && $field.is(selector.input) ) {
                 module.debug('Enter key pressed, submitting form');
                 $submit
                   .addClass(className.down)
@@ -204,7 +205,7 @@ $.fn.form = function(fields, parameters) {
             var
               $field       = module.get.field(field.identifier),
               $fieldGroup  = $field.closest($group),
-              $prompt      = $fieldGroup.find(settings.selector.prompt),
+              $prompt      = $fieldGroup.find(selector.prompt),
               promptExists = ($prompt.size() !== 0)
             ;
             module.verbose('Adding inline validation prompt');
@@ -242,7 +243,7 @@ $.fn.form = function(fields, parameters) {
             var
               $field      = module.get.field(field.identifier),
               $fieldGroup = $field.closest($group),
-              $prompt     = $fieldGroup.find(settings.selector.prompt)
+              $prompt     = $fieldGroup.find(selector.prompt)
             ;
             $fieldGroup
               .removeClass(className.error)
@@ -421,7 +422,8 @@ $.fn.form = function(fields, parameters) {
               title = settings.moduleName + ':',
               totalTime = 0
             ;
-            time        = false;
+            time = false;
+            clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
@@ -463,7 +465,7 @@ $.fn.form = function(fields, parameters) {
                 found = instance[value];
                 return true;
               }
-              module.error(errors.method);
+              module.error(error.method);
               return false;
             });
           }
@@ -488,6 +490,7 @@ $.fn.form = function(fields, parameters) {
 
     })
   ;
+  module.performance.display();
   return (invokedResponse)
     ? invokedResponse
     : this
