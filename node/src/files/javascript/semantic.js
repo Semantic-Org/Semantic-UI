@@ -134,7 +134,6 @@ semantic.ready = function() {
           .each(function(){
             var $this = $(this).clone(false);
             if($this.not('br')) {
-              console.log(code);
               code += $this.removeAttr('style').get(0).outerHTML + "\n";
             }
           })
@@ -281,7 +280,6 @@ semantic.ready = function() {
         $waypoint = $waypoints.eq( $group.index( $header ) ),
         offset    = $waypoint.offset().top - 80
       ;
-      console.log($waypoint, $header, $group);
       if(!$header.hasClass('active') ) {
         $menu
           .addClass('animating')
@@ -308,8 +306,6 @@ semantic.ready = function() {
               $header
                 .addClass('active')
               ;
-              console.log($header, $waypoint);
-              console.log($header.css('border-right-color'));
               $waypoint
                 .css('color', $header.css('border-right-color'))
               ;

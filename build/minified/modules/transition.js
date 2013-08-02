@@ -1,57 +1,78 @@
 /*  ******************************
-  Semantic Module: Shape
+  Semantic Module: Transition
   Author: Jack Lukic
   Notes: First Commit March 25, 2013
 
-  An experimental plugin for manipulating 3D transitions on a 2D plane
+  A module for controlling css animations
 
 ******************************  */
 
 ;(function ( $, window, document, undefined ) {
 
-$.fn.transition = function(parameters) {
+$.fn.transition = function() {
   var
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
     
-    settings        = $.extend(true, {}, $.fn.transition.settings, parameters),
-    
     time            = new Date().getTime(),
     performance     = [],
-
-    query           = arguments[0],
+    
+    moduleArguments = arguments,
+    query           = moduleArguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
-    error           = settings.error,
-    namespace       = settings.namespace,
-    
-    // define namespaces for modules
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-
     invokedResponse
   ;
-
   $allModules
     .each(function() {
       var
-        // selector cache
         $module  = $(this),
-        
-        // standard module
         element  = this,
-        instance = $module.data(moduleNamespace),
-        
-        // internal aliases
-        errors   = settings.error,
-        
+
+        // set at run time
+        settings,
+        instance,
+
+        error,
+        className,
+        metadata,
+
+        namespace,
+        moduleNamespace,
         module
       ;
 
       module = {
 
         initialize: function() {
+          // get settings
+          settings        = module.get.settings.apply(element, moduleArguments);
+          module.verbose('Converted arguments into settings object', settings);
+
+          // set shortcuts
+          error           = settings.error;
+          className       = settings.className;
+          namespace       = settings.namespace;
+          metadata        = settings.metadata;
+          moduleNamespace = 'module-' + namespace;
+
+          instance = $module.data(moduleNamespace);
+
+          if(instance === undefined) {
+            module.instantiate();
+          }
+          if(methodInvoked) {
+            invokedResponse = module.invoke(query);
+          }
+          // no internal method was found matching query or query not made
+          if(!methodInvoked || invokedResponse === false) {
+            module.animate();
+          }
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
           instance = module;
           $module
             .data(moduleNamespace, instance)
@@ -62,7 +83,6 @@ $.fn.transition = function(parameters) {
           module.verbose('Destroying previous module for', element);
           $module
             .removeData(moduleNamespace)
-            .off(eventNamespace)
           ;
         },
 
@@ -71,53 +91,94 @@ $.fn.transition = function(parameters) {
           fakeAssignment = element.offsetWidth;
         },
 
+        set: {
+
+          animating: function() {
+            $module.data(metadata.animating, true);
+          },
+
+          duration: function(duration) {
+            duration = duration || settings.duration;
+            module.verbose('Setting animation duration', duration);
+            $module
+              .css({
+                '-webkit-animation-duration': duration,
+                '-moz-animation-duration': duration,
+                '-ms-animation-duration': duration,
+                '-o-animation-duration': duration,
+                'animation-duration': duration
+              })
+            ;
+          }
+        },
+
+        remove: {
+
+          animating: function() {
+            $module.data(metadata.animating, false);
+          }
+
+        },
+
         get: {
 
-          settings: function(animation, duration, easing, complete) {
+          settings: function(animation, duration, complete) {
             // single settings object
-            if($.isObject(animation) === undefined) {
-              return animation;
+            if($.isPlainObject(animation) === undefined) {
+              return $.extend(true, {}, $.fn.transition.settings, animation);
+            }
+            // all arguments provided
+            else if(typeof complete == 'function') {
+              return $.extend(true, {}, $.fn.transition.settings, {
+                animation : animation,
+                complete  : complete,
+                duration  : duration
+              });
+            }
+            // only duration provided
+            else if(typeof duration == 'string') {
+              return $.extend(true, {}, $.fn.transition.settings, {
+                animation : animation,
+                duration  : duration
+              });
             }
             // duration is actually settings object
             else if(typeof duration == 'object') {
-              settings = $.extend({} , settings, duration);
-            }
-            // easing is actually complete callback
-            else if(typeof easing == 'function') {
-              settings = $.extend({} , settings, {
-                duration: duration,
-                complete: easing
+              return $.extend(true, {}, $.fn.transition.settings, duration, {
+                animation : animation
               });
             }
-            // easing is actually settings
-            else if(typeof easing == 'object') {
-              settings = $.extend(true, {} , settings, {duration: duration}, easing);
+            // duration is actually callback
+            else if(typeof duration == 'function') {
+              return $.extend(true, {}, $.fn.transition.settings, {
+                animation : animation,
+                complete  : duration
+              });
             }
-            //
+            // only animation provided
             else {
-              settings = $.extend({} , settings, {
-                duration : duration,
-                easing   : easing,
-                complete : complete
+              return $.extend(true, {}, $.fn.transition.settings, {
+                animation : animation
               });
             }
-            return settings;
+            return $.fn.transition.settings;
           },
 
           transitionEvent: function() {
             var
               element     = document.createElement('element'),
-              transitions = {
-                'transition'       :'transitionend',
-                'OTransition'      :'oTransitionEnd',
-                'MozTransition'    :'transitionend',
-                'WebkitTransition' :'webkitTransitionEnd'
+              animations  = {
+                'animation'       :'animationend',
+                'OAnimation'      :'oAnimationEnd',
+                'MozAnimation'    :'mozAnimationEnd',
+                'WebkitAnimation' :'webkitAnimationEnd'
               },
-              transition
+              animation
             ;
-            for(transition in transitions){
-              if( element.style[transition] !== undefined ){
-                return transitions[transition];
+            for(animation in animations){
+              if( element.style[animation] !== undefined ){
+                module.verbose('Determining animation end event', animations[animation]);
+                return animations[animation];
               }
             }
             return false;
@@ -126,42 +187,98 @@ $.fn.transition = function(parameters) {
         },
 
         can: {
-          transition: function(transition) {
+          animate: function(animation) {
             var
               $fake = $('<div />')
             ;
-            $fake.addClass(transition);
-            return $fake.css('transitionDuration') !== '0s';
+            animation = animation || settings.animation;
+            $fake
+              .addClass(className.transition)
+              .addClass(animation)
+            ;
+            return $fake.css('animationName') !== 'none';
           }
         },
 
         is: {
           animating: function() {
-            return module.animating;
+            return $module.data(metadata.animating) || false;
           }
         },
 
-        animate: function(settings) {
-          module.verbose('Converting arguments into settings object', arguments);
-          settings = module.get.settings(arguments);
+        hide: function() {
+          module.debug('Hiding element');
+          $module
+            .addClass(className.transition)
+            .addClass(className.hidden)
+          ;
+        },
+        show: function() {
+          module.debug('Showing element');
+          $module.removeClass(className.hidden);
+        },
 
-          module.animating = true;
-          if( !module.can.transition() ) {
-            module.error(errors.noAnimation);
+        start: function() {
+          module.verbose('Starting animation');
+          $module.removeClass(className.disabled);
+        },
+
+        stop: function() {
+          module.debug('Stopping animation');
+          $module.addClass(className.disabled);
+        },
+
+        toggle: function() {
+          module.debug('Toggling play status');
+          $module.toggleClass(className.disabled);
+        },
+
+        animate: function(animation) {
+          animation = animation || settings.animation;
+          if(!module.can.animate()) {
+            module.error(error.noAnimation, animation);
             return false;
           }
-          module.debug('Beginning animation');
-          $(this)
+          if(module.is.animating()) {
+            module.queue(animation);
+            return false;
+          }
+          module.set.animating();
+          module.set.duration();
+          module.debug('Beginning animation', settings.animation);
+          module.show();
+          module.originalClass = $module.attr('class');
+          $module
+            .addClass(className.transition)
+            .addClass(settings.animation)
             .one( module.get.transitionEvent(), function() {
-              module.reset(settings.transition);
+              // module.reset();
+              settings.complete();
             })
           ;
         },
 
-        reset: function (transition) {
-          $(this)
-            .removeClass(transition)
+        queue: function(animation) {
+          module.debug('Queueing animation of', animation);
+          $module
+            .one(module.get.transitionEvent(), function() {
+              module.debug('Executing queued animation', animation);
+              $module.transition.apply(element, moduleArguments);
+            })
           ;
+        },
+
+        reset: function () {
+          module.verbose('Resetting animation conditions');
+          $module
+            .removeAttr('style')
+            .attr('class', module.originalClass)
+          ;
+          if($module.hasClass(className.out)) {
+            module.hide();
+          }
+          module.remove.animating();
+          module.repaint();
         },
 
         setting: function(name, value) {
@@ -295,19 +412,7 @@ $.fn.transition = function(parameters) {
           return found || false;
         }
       };
-
-      if(methodInvoked) {
-        if(instance === undefined) {
-          module.initialize();
-        }
-        invokedResponse = module.invoke(query);
-      }
-      else {
-        if(instance !== undefined) {
-          module.destroy();
-        }
-        module.initialize();
-      }
+      module.initialize();
     })
   ;
   return (invokedResponse)
@@ -319,41 +424,42 @@ $.fn.transition = function(parameters) {
 $.fn.transition.settings = {
 
   // module info
-  moduleName : 'Shape Module',
+  moduleName   : 'Transition',
   
   // debug content outputted to console
-  debug      : false,
+  debug        : true,
   
   // verbose debug output
-  verbose    : false,
-
+  verbose      : true,
+  
   // performance data output
-  performance: false,
-
+  performance  : true,
+  
   // event namespace
-  namespace  : 'transition',
-
-  // callback occurs on side change
-  beforeChange : function() {},
-  onChange     : function() {},
-
-  // use css animation (currently only true is supported)
-  useCSS     : true,
-
+  namespace    : 'transition',
+  
+  // animation complete event
+  complete     : function() {},
+  
   // animation duration (useful only with future js animations)
-  duration   : 1000,
-  easing     : 'easeInOutQuad',
+  animation    : 'fade in',
+  duration     : '1s',
+
+  metadata     : {
+    animating : 'animating'
+  },
+  
+  className    : {
+    transition : 'ui transition',
+    out        : 'out',
+    hidden     : 'hidden',
+    disabled   : 'disabled'
+  },
 
   // possible errors
   error: {
     noAnimation : 'There is no css animation matching the one you specified.',
     method      : 'The method you called is not defined'
-  },
-
-  // selectors used
-  selector    : {
-    sides : '.sides',
-    side  : '.side'
   }
 
 };
