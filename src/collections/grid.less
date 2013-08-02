@@ -87,15 +87,6 @@
   margin: 0em;
 }
 
-/*-------------------
-    Grids in Grids
---------------------*/
-
-.ui.grid .column > .grid {
-  margin-left: -1.5%;
-  margin-right: -1.5%;
-}
-
 
 /*******************************
            Variations
@@ -316,44 +307,6 @@
 }
 
 
-/* Increase Gutters */
-/*
-.ui.two.column.grid,
-.ui.three.column.grid,
-.ui.four.column.grid {
-  margin-left: -3%;
-  margin-right: -3%;
-}
-.ui.two.column.grid > .row > .column,
-.ui.two.column.grid > .column,
-.ui.three.column.grid > .row > .column,
-.ui.three.column.grid > .column,
-.ui.four.column.grid > .row > .column,
-.ui.four.column.grid > .column {
-  padding-left: 3%;
-  padding-right: 3%;
-}
-
-.ui.five.column.grid,
-.ui.six.column.grid,
-.ui.seven.column.grid,
-.ui.eight.column.grid {
-  margin-left: -2%;
-  margin-right: -2%;
-}
-.ui.five.column.grid > .row > .column,
-.ui.five.column.grid > .column,
-.ui.six.column.grid > .row > .column,
-.ui.six.column.grid > .column,
-.ui.seven.column.grid > .row > .column,
-.ui.seven.column.grid > .column,
-.ui.eight.column.grid > .row > .column,
-.ui.eight.column.grid > .column {
-  padding-left: 2%;
-  padding-right: 2%;
-}
-*/
-
 /*----------------------
        "Floated"
 -----------------------*/
@@ -372,6 +325,9 @@
 .ui.divided.grid,
 .ui.divided.grid > .row {
   display: table;
+  width: 100%;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
 }
 .ui.divided.grid > .column,
 .ui.divided.grid > .row > .column {
