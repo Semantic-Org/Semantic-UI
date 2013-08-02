@@ -111,7 +111,7 @@
 ---------------*/
 /* Down */
 .ui.button:active,
-.ui.button.down {
+.ui.button.pressed {
   opacity: 1 !important;
   background-color: #D8D8D8;
   color: #777777;

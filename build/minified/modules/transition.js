@@ -252,7 +252,7 @@ $.fn.transition = function() {
             .addClass(className.transition)
             .addClass(settings.animation)
             .one( module.get.transitionEvent(), function() {
-              // module.reset();
+              module.reset();
               settings.complete();
             })
           ;
