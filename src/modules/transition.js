@@ -225,7 +225,6 @@ $.fn.transition = function() {
         show: function() {
           module.verbose('Showing element');
           $module
-            .removeClass(className.transition)
             .removeClass(className.hidden)
           ;
         },
