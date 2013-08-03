@@ -106,6 +106,13 @@ $.fn.transition = function() {
             $module.addClass(className.animating);
           },
 
+          direction: function() {
+            return $module.is(':visible') 
+              ? 'out'
+              : 'in'
+            ;
+          }
+
           loop: function() {
             $module
               .addClass(className.loop)
@@ -263,7 +270,9 @@ $.fn.transition = function() {
           module.set.duration();
           module.show();
           module.originalClass = $module.attr('class');
+          module.originalStyle = $module.attr('style');
           module.repaint();
+          module.set.direction();
           module.set.animating();
           $module
             .addClass(className.transition)
@@ -285,7 +294,7 @@ $.fn.transition = function() {
         reset: function() {
           module.verbose('Resetting original class', module.originalClass);
           $module
-            .removeAttr('style')
+            .attr('style', module.originalStyle)
             .attr('class', module.originalClass)
           ;
         },
@@ -469,7 +478,7 @@ $.fn.transition.settings = {
   complete     : function() {},
   
   // animation duration (useful only with future js animations)
-  animation    : 'fade in',
+  animation    : 'fade',
   duration     : '1s',
   
   className    : {

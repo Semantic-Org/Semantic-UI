@@ -30,23 +30,42 @@ type   : 'UI Module'
   
   <h2 class="ui dividing header">Introduction</h2>
 
-  <p>Transitions allows for use of CSS transitions with similar syntax to jQuery's 
-    <a href="http://api.jquery.com/animate/">animate</a>
-  </p>
+  <p>UI Transitions provide a wrapper for using css transitions in javascript without having to manually manage class names and state.</p>
   <h2 class="ui dividing header">Usage</h2>
-  
-  <h3 class="ui header">Initializing a transition</h3>
-  <div class="code">
-    $('.test.button')
+
+  <h3 class="ui header">Using transition</h3>
+  <p>Transitions use similar argument shorthand as <a href="http://api.jquery.com/animate/">animate</a>.</p>
+
+  <div class="code" data-demo="true" data-title="Arguments in transition">
+    $('.dog.image')
+      // default everything
+      .transition()
+      // ok ill specify an animation
+      .transition('fade in')
+      // no that was way too quick
+      .transition('fade out', '2s')
+      .transition('fade in', function() {
+        window.alert('Aha you sat through them all!');
+      })
+    ;
+  </div>
+
+  <p>A transition can be called multiple times to create an animation queue.</p>
+  <div class="code" data-demo="true" data-title="Queueing animations">
+    $('.dog.image')
       .transition('flip out y', '500ms')
       .transition('flip in y', '500ms', function() {
         console.log('done!');
       })
     ;
   </div>
-  <div class="ui large teal test button">
-    Hello
-  </div>
+  <img src="/images/demo/vector.png" class="ui medium dog image">
+
+  <h2 class="ui dividing header">Variations</h2>
+
+
+
+  <h2 class="ui dividing header">Behavior</h2>
 
 </div>
 </body>
