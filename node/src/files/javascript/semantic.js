@@ -166,10 +166,10 @@ semantic.ready = function() {
     initializeCode: function() {
       var
         $code       = $(this),
-        $label      = $('<div>').addClass('ui label'),
         code        = $code.html(),
         contentType = $code.data('type')  || 'javascript',
         title       = $code.data('title') || false,
+        demo        = $code.data('demo')  || false,
         label       = $code.data('label') || false,
         displayType = {
           html       : 'HTML',
@@ -179,6 +179,7 @@ semantic.ready = function() {
           sh         : 'Command Line'
         },
         whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
+        $label,
         padding     = 4,
         label,
         editor,
@@ -218,16 +219,26 @@ semantic.ready = function() {
       ;
       // add label
       if(title) {
-        $label
-          .addClass('attached top')
+        $('<div>')
+          .addClass('ui attached top label')
           .html('<span class="title">' + title + '</span>' + '<em>' + (displayType[contentType] || contentType) + '</em>')
           .prependTo( $(this).parent() )
         ;
       }
-      else if(label) {
-        $label
-          .addClass('pointing below')
+      if(label) {
+        $('<div>')
+          .addClass('ui pointing below label')
           .html(displayType[contentType] || contentType)
+          .insertBefore ( $(this).parent() )
+        ;
+      }
+      if(demo) {
+        $('<a>')
+          .addClass('ui pointing below black label')
+          .html('Run Code')
+          .on('click', function() {
+            eval(code);
+          })
           .insertBefore ( $(this).parent() )
         ;
       }
