@@ -103,7 +103,13 @@ $.fn.transition = function() {
         set: {
 
           animating: function() {
-            $module.data(metadata.animating, true);
+            $module.addClass(className.animating);
+          },
+
+          loop: function() {
+            $module
+              .addClass(className.loop)
+            ;
           },
 
           duration: function(duration) {
@@ -124,7 +130,7 @@ $.fn.transition = function() {
         remove: {
 
           animating: function() {
-            $module.data(metadata.animating, false);
+            $module.removeClass(className.animating);
           }
 
         },
@@ -211,7 +217,7 @@ $.fn.transition = function() {
 
         is: {
           animating: function() {
-            return $module.data(metadata.animating) || false;
+            return $module.hasClass(className.animating);
           }
         },
 
@@ -254,15 +260,17 @@ $.fn.transition = function() {
             module.queue(settings.animation);
             return false;
           }
-          module.set.animating();
           module.set.duration();
-          module.debug('Beginning animation', settings.animation);
+          module.show();
           module.originalClass = $module.attr('class');
+          module.repaint();
+          module.set.animating();
           $module
             .addClass(className.transition)
             .addClass(settings.animation)
             .one(transitionEnd, module.complete)
           ;
+          module.debug('Beginning animation', settings.animation, $module.attr('class'));
         },
 
         queue: function(animation) {
@@ -463,17 +471,15 @@ $.fn.transition.settings = {
   // animation duration (useful only with future js animations)
   animation    : 'fade in',
   duration     : '1s',
-
-  metadata     : {
-    animating : 'animating'
-  },
   
   className    : {
-    transition : 'ui transition',
-    inward     : 'in',
-    outward    : 'out',
+    animating  : 'animating',
+    disabled   : 'disabled',
     hidden     : 'hidden',
-    disabled   : 'disabled'
+    inward     : 'in',
+    looping    : 'looping',
+    outward    : 'out',
+    transition : 'ui transition'
   },
 
   // possible errors

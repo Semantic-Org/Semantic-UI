@@ -35,17 +35,30 @@
   -o-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+
 /*******************************
            States
 *******************************/
 
+/* Hidden */
 .ui.hidden.transition {
   display: none;
 }
+
+/* Visible */
 .ui.visible.transition {
   display: block;
 }
 
+/* Animating */
+.ui.animating.out {
+  opacity: 1;
+}
+.ui.animating.in {
+  opacity: 0;
+}
+
+/* Disabled */
 .ui.disabled.transition {
   -webkit-animation-play-state: paused;
   -moz-animation-play-state: paused;
@@ -54,10 +67,21 @@
   animation-play-state: paused;
 }
 
+/*******************************
+         Variations
+*******************************/
+
+.ui.looping.transition {
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
 
 
 /*******************************
-           Variations
+            Types
 *******************************/
 
 /*--------------
