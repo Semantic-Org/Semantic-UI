@@ -290,7 +290,7 @@ $.fn.card = function(parameters) {
         },
         error: function() {
           if(console.log !== undefined) {
-            module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+            module.error = Function.prototype.bind.call(console.warn, console, settings.moduleName + ':');
           }
         },
         performance: {
@@ -302,7 +302,7 @@ $.fn.card = function(parameters) {
             ;
             if(settings.performance) {
               currentTime   = new Date().getTime();
-              previousTime  = time || currentTime,
+              previousTime  = time || currentTime;
               executionTime = currentTime - previousTime;
               time          = currentTime;
               performance.push({

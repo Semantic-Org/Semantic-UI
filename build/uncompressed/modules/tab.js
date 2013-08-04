@@ -15,7 +15,7 @@
       
       $module         = $(this),
       $tabs           = $(settings.context).find(settings.selector.tabs),
-
+      
       moduleSelector  = $module.selector || '',
       
       cache           = {},
@@ -29,11 +29,11 @@
       element         = this,
       time            = new Date().getTime(),
       performance     = [],
-
+      
       className       = settings.className,
       metadata        = settings.metadata,
-      errors          = settings.errors,
-
+      error           = settings.error,
+      
       eventNamespace  = '.' + settings.namespace,
       moduleNamespace = settings.namespace + '-module', 
       
@@ -54,11 +54,11 @@
         // attach history events
         if(settings.history) {
           if( $.address === undefined ) {
-            module.error(errors.state);
+            module.error(error.state);
             return false;
           }
           else if(settings.path === false) {
-            module.error(errors.path);
+            module.error(error.path);
             return false;
           }
           else {
@@ -227,7 +227,7 @@
             }
           }
           else {
-            module.error(errors.missingTab, tab);
+            module.error(error.missingTab, tab);
             return false;
           }
         });
@@ -278,7 +278,7 @@
             $.api( $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings) );
           }
           else {
-            module.error(errors.api);
+            module.error(error.api);
           }
         },
 
@@ -362,7 +362,7 @@
               recursionDepth++;
               return module.get.defaultPath(defaultTab);
             }
-            module.error(errors.recursion);
+            module.error(error.recursion);
           }
           else {
             module.debug('No default tabs found for', tabPath);
@@ -458,6 +458,7 @@
           }
           else {
             module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.debug.apply(console, arguments);
           }
         }
       },
@@ -468,11 +469,13 @@
           }
           else {
             module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.verbose.apply(console, arguments);
           }
         }
       },
       error: function() {
         module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+        module.error.apply(console, arguments);
       },
       performance: {
         log: function(message) {
@@ -543,7 +546,7 @@
               found = instance[value];
             }
             else {
-              module.error(errors.method);
+              module.error(error.method);
             }
           });
         }
@@ -616,7 +619,7 @@
     // settings for api call
     apiSettings     : false,
 
-    errors: {
+    error: {
       api        : 'You attempted to load content without API module',
       noContent  : 'The tab you specified is missing a content url.',
       method     : 'The method you called is not defined',

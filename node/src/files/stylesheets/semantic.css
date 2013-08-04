@@ -987,6 +987,10 @@ body.progress .ui.progress .bar {
   display: none;
 }
 
+#example .fixed.segment {
+  position: fixed;
+}
+
 
 @media only screen and (max-width : 1725px) {
   #example .container {

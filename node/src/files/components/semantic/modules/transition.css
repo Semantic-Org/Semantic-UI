@@ -26,6 +26,11 @@
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   -ms-animation-fill-mode: both;
@@ -42,13 +47,6 @@
 /* Visible */
 .ui.visible.transition {
   display: block;
-}
-/* Animating */
-.ui.animating.out {
-  opacity: 1;
-}
-.ui.animating.in {
-  opacity: 0;
 }
 /* Disabled */
 .ui.disabled.transition {
@@ -104,6 +102,21 @@
   -moz-animation-name: pulse;
   -o-animation-name: pulse;
   animation-name: pulse;
+}
+/*--------------
+     Slide
+---------------*/
+.ui.slide.in.transition {
+  -webkit-animation-name: slideIn;
+  -moz-animation-name: slideIn;
+  -o-animation-name: slideIn;
+  animation-name: slideIn;
+}
+.ui.slide.out.transition {
+  -webkit-animation-name: slideOut;
+  -moz-animation-name: slideOut;
+  -o-animation-name: slideOut;
+  animation-name: slideOut;
 }
 /*--------------
       Flips
@@ -541,6 +554,70 @@
     opacity: 0;
   }
 }
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+  40% {
+    -webkit-transform: perspective(400px) rotateX(-10deg);
+  }
+  70% {
+    -webkit-transform: perspective(400px) rotateX(10deg);
+  }
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+@-moz-keyframes flipInX {
+  0% {
+    -moz-transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+  40% {
+    -moz-transform: perspective(400px) rotateX(-10deg);
+  }
+  70% {
+    -moz-transform: perspective(400px) rotateX(10deg);
+  }
+  100% {
+    -moz-transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+@-o-keyframes flipInX {
+  0% {
+    -o-transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+  40% {
+    -o-transform: perspective(400px) rotateX(-10deg);
+  }
+  70% {
+    -o-transform: perspective(400px) rotateX(10deg);
+  }
+  100% {
+    -o-transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes flipInX {
+  0% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotateX(-10deg);
+  }
+  70% {
+    transform: perspective(400px) rotateX(10deg);
+  }
+  100% {
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
 @-webkit-keyframes flipInY {
   0% {
     -webkit-transform: perspective(400px) rotateY(90deg);
@@ -645,6 +722,48 @@
     opacity: 0;
   }
 }
+/*--------------
+      Slides
+---------------*/
+@-moz-keyframes slideIn {
+  0% {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    height: 0;
+  }
+  100% {
+    overflow: hidden;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    height: inherit;
+  }
+}
+@-moz-keyframes slideOut {
+  0% {
+    overflow: hidden;
+    height: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+  }
+  100% {
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+  }
+}
+/*--------------
+      Fades
+---------------*/
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;

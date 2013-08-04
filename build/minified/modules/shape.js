@@ -572,6 +572,7 @@ $.fn.shape = function(parameters) {
             }
             else {
               module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.debug.apply(console, arguments);
             }
           }
         },
@@ -582,11 +583,13 @@ $.fn.shape = function(parameters) {
             }
             else {
               module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.verbose.apply(console, arguments);
             }
           }
         },
         error: function() {
           module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          module.error.apply(console, arguments);
         },
         performance: {
           log: function(message) {

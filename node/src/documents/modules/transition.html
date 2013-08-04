@@ -8,7 +8,6 @@ type   : 'UI Module'
 
 <script src="/components/semantic/modules/transition.js"></script>
 <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/transition.css">
-<link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/magic.transition.css">
 <script src="/javascript/transition.js"></script>
 
 <div class="segment">
@@ -27,45 +26,69 @@ type   : 'UI Module'
       <a class="item">Usage</a>
     </div>
   </div>
-  
-  <h2 class="ui dividing header">Introduction</h2>
+  <div class="ui grid">
+    <div class="ten wide column">
+      <h2 class="ui dividing header">Introduction</h2>
 
-  <p>UI Transitions provide a wrapper for using css transitions in javascript without having to manually manage class names and state.</p>
-  <h2 class="ui dividing header">Usage</h2>
+      <p>UI Transitions provide a wrapper for using css transitions in javascript providing cross-browser callbacks, advanced queuing, and feature detection.</p>
+      <p>Transitions are loosely coupled with other ui modules like accordions and dimmers to provide element transitions</p>
+      <p>Transitions are separated into three categories. <b>Inward transitions</b>, <b>outward transitions</b>, and <b>static transitions</b>. These three categories determine the visibility of the element after the animation completes.</p>
+      <h2 class="ui dividing header">Usage</h2>
 
-  <h3 class="ui header">Using transition</h3>
-  <p>Transitions use similar argument shorthand as <a href="http://api.jquery.com/animate/">animate</a>.</p>
+      <h3 class="ui header">Initializing</h3>
 
-  <div class="code" data-demo="true" data-title="Arguments in transition">
+      <p>If a transition is called without any arguments all default settings will be used.</p>
+
+      <div class="code" data-demo="true" data-title="Initializing a transition">
     $('.dog.image')
       // default everything
       .transition()
-      // ok ill specify an animation
-      .transition('fade in')
-      // no that was way too quick
-      .transition('fade out', '2s')
-      .transition('fade in', function() {
-        window.alert('Aha you sat through them all!');
-      })
     ;
-  </div>
+      </div>
 
-  <p>A transition can be called multiple times to create an animation queue.</p>
-  <div class="code" data-demo="true" data-title="Queueing animations">
+      <h3 class="ui header">Transition Direction</h3>
+
+      <p>If an animation direction is not specified it will automatically be determined based on the elements current visibility. For example, if the element is visible the animation "fade out" will be called, if the animation is not visible "fade in".</p>
+
+      <div class="code" data-demo="true" data-title="Initializing a transition">
     $('.dog.image')
-      .transition('flip out y', '500ms')
-      .transition('flip in y', '500ms', function() {
-        console.log('done!');
+      .transition('slide')
+    ;
+      </div>
+
+      <h3 class="ui header">Passing in settings</h3>
+      <p>Transitions use similar argument shorthand as <a href="http://api.jquery.com/animate/">animate</a>. You can specify callback functions, animation duration, and other settings using the same arguments. Durations can be specified as strings with css shorthand, or with numbers.</p>
+
+      <h3 class="ui header">Queuing animations</h3>
+
+      <p>Animations called in sequence will be queued. Any queued animation will automatically determine the transition direction if none is specified.</p>
+      <div class="code" data-demo="true" data-title="Queueing animations">
+    $('.dog.image')
+      .transition('flip y', '500ms')
+      .transition('flip x', 500, function() {
+        alert('done!');
       })
     ;
+      </div>
+
+      <h2 class="ui dividing header">Variations</h2>
+
+      <div class="example">
+        <h4 class="ui header">Flash</h4>
+        <p>An element can flash to draw attention to itself</p>
+        <div class="ui icon button">
+          <i class="icon cloud"></i>
+        </div>
+      </div>
+
+      <h2 class="ui dividing header">Behavior</h2>
+    </div>
+    <div class="five wide right floated column">
+      <div class="ui secondary fixed segment">
+        <img src="/images/demo/vector.png" class="ui dog image">
+      </div>
+    </div>
   </div>
-  <img src="/images/demo/vector.png" class="ui medium dog image">
-
-  <h2 class="ui dividing header">Variations</h2>
-
-
-
-  <h2 class="ui dividing header">Behavior</h2>
 
 </div>
 </body>
