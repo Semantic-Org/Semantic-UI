@@ -23,6 +23,18 @@ docpadConfig = {
   # Check Version
   # Whether or not to check for newer versions of DocPad
   checkVersion: true  # default
+  
+  documentsPaths: [  # default
+    'documents'
+  ]
+
+  # Files Paths
+  # An array of paths which contents will be treated as files
+  # If it is a relative path, it will have the resolved `srcPath` prepended to it
+  filesPaths: [  # default
+    'files'
+    'public'
+  ]
 
 	# =================================
 	# Template Data
@@ -105,6 +117,7 @@ docpadConfig = {
 		getPreparedKeywords: ->
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
+
 		getGruntedStyles: ->
 			_ = require 'underscore'
 			styles = []
