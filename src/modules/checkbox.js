@@ -83,7 +83,8 @@ $.fn.checkbox = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous module');
           $module
-            .off(namespace)
+            .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
         },
 
@@ -104,9 +105,6 @@ $.fn.checkbox = function(parameters) {
 
         enable: function() {
           module.debug('Enabling checkbox');
-          $module
-            .addClass(className.active)
-          ;
           $input
             .prop('checked', true)
           ;
@@ -116,9 +114,6 @@ $.fn.checkbox = function(parameters) {
 
         disable: function() {
           module.debug('Disabling checkbox');
-          $module
-            .removeClass(className.active)
-          ;
           $input
             .prop('checked', false)
           ;
@@ -312,7 +307,6 @@ $.fn.checkbox.settings = {
   },
 
   className : {
-    active : 'active',
     radio  : 'radio'
   }
 

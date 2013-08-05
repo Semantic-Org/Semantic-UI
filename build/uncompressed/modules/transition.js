@@ -111,7 +111,7 @@ $.fn.transition = function() {
               ? 'out'
               : 'in'
             ;
-          }
+          },
 
           loop: function() {
             $module
