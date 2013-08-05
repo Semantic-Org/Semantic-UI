@@ -106,6 +106,13 @@ $.fn.transition = function() {
             $module.addClass(className.animating);
           },
 
+          direction: function() {
+            return $module.is(':visible') 
+              ? 'out'
+              : 'in'
+            ;
+          },
+
           loop: function() {
             $module
               .addClass(className.loop)
@@ -265,6 +272,7 @@ $.fn.transition = function() {
           module.originalClass = $module.attr('class');
           module.originalStyle = $module.attr('style');
           module.repaint();
+          module.set.direction();
           module.set.animating();
           $module
             .addClass(className.transition)
