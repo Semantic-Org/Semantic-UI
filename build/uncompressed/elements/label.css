@@ -20,6 +20,7 @@
   padding: 0.5em 0.8em;
   color: rgba(0, 0, 0, 0.65);
   text-transform: uppercase;
+  font-weight: normal;
   -webkit-border-radius: 0.325em;
   -moz-border-radius: 0.325em;
   border-radius: 0.325em;

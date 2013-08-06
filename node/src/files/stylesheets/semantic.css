@@ -689,6 +689,7 @@ a:hover {
 
 #example div.code .ace_gutter,
 #example div.code .ace_scroller {
+  overflow: visible;
   margin: 14px 10px;
 }
 #example div.code .ace_scrollbar {
