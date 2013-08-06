@@ -87,12 +87,9 @@
 }
 
 /* block with paragraphs */
-.ui.message .header + p {
-  margin-top: 0em;
-}
 .ui.message p {
   opacity: 0.85;
-  margin: 1em 0em;
+  margin: 0.3em 0em;
 }
 .ui.message > :first-child {
   margin-top: 0em;
@@ -234,11 +231,11 @@
 }
 .ui.icon.message > .content {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 /*--------------
-     Inverted
+    Inverted
 ---------------*/
 
 .ui.inverted.message {
@@ -246,6 +243,25 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
+
+/*--------------
+    Floating
+---------------*/
+
+.ui.floating.message {
+  -webkit-box-shadow: 
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
+  ;
+  -moz-box-shadow: 
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
+  ;
+  box-shadow: 
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1), 
+    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
+  ;
+}
 
 
 /*--------------
