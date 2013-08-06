@@ -17,6 +17,11 @@
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
   -ms-animation-duration: 1s;
