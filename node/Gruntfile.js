@@ -1,6 +1,16 @@
 module.exports = function(grunt) {
   var
-    tasks = [
+    defaultTasks = [
+      // watch less folder
+      'watch' 
+    ],
+    watchTasks = [
+      // compiles less
+      'less:buildCSS',  
+      // copies files over to docs
+      'copy:libraryToDocs'
+    ],
+    buildTasks = [
       // clean build directory
       'clean:build',
 
@@ -13,8 +23,8 @@ module.exports = function(grunt) {
       // creates minified css of each file
       'cssmin:minifyCSS',
 
-      // creates release css 
-      'cssmin:buildReleaseCSS',
+      // creates custom license in header
+      'cssmin:addBanner',
 
       // creates minified js of each file
       'uglify:minifyJS',
@@ -25,7 +35,7 @@ module.exports = function(grunt) {
       // cleans docs folder
       'clean:docs',
 
-      // copies files over to docs
+      // copies spec files over to docs
       'copy:specToDocs',
 
       // copies files over to docs
@@ -46,7 +56,7 @@ module.exports = function(grunt) {
           '../src/**/*.less',
           '../src/**/*.js'
         ],
-        tasks : tasks
+        tasks : watchTasks
       }
     },
 
@@ -166,7 +176,7 @@ module.exports = function(grunt) {
         ext  : '.min.css'
       },
 
-      buildReleaseCSS: {
+      addBanner: {
         options : {
           banner : '' +
             '/*\n' +
@@ -227,7 +237,6 @@ module.exports = function(grunt) {
         }
       }
     },
-
     s3: {
       options: '<%= server.cdn %>',
       deploy: {
@@ -248,7 +257,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-css');
-  grunt.loadNpmTasks('grunt-s3');
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -258,6 +266,6 @@ module.exports = function(grunt) {
 
   grunt.initConfig(config);
 
-  grunt.registerTask('default', [ 'watch' ]);
-  grunt.registerTask('deploy', ['s3:deploy']);
+  grunt.registerTask('default', defaultTasks);
+  grunt.registerTask('build', buildTasks);
 };

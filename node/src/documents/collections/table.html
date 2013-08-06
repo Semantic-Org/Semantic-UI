@@ -28,8 +28,8 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Table</h4>
     <p>A standard table</p>
-    <div class="ui info message">
-      <p>This example uses a <a href="/elements/segment.html">ui segment</a> and to add padding and a background color. This is not required.</p>
+    <div class="ui ignorede info message">
+      <p>This example uses a <a href="/elements/segment.html">segment</a> to add padding and a background color.</p>
     </div>
     <table class="ui sortable table segment">
       <thead>
@@ -311,6 +311,36 @@ type   : 'UI Collection'
     </table>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Column Width</h4>
+    <p>A table can specify the width of individual columns independently.</p>
+    <div class="ui ignored info message">Tables use a 16 column grid. This should be the total width of all elements in a column</div>
+    <table class="ui five column table segment">
+      <thead>
+        <th class="ten wide">Name</th>
+        <th class="six wide">Status</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+      </tfoot>
+    </table>
+  </div>
+
 
   <div class="example">
     <h4 class="ui header">Collapsing</h4>
@@ -350,7 +380,38 @@ type   : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A tables colors can be inverted</p>
-    <table class="ui inverted segment table segment">
+    <table class="ui inverted table segment">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
+  <div class="another example">
+    <table class="ui inverted red table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
