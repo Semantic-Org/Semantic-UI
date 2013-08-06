@@ -263,6 +263,7 @@ $.fn.transition = function() {
             $module
               .removeClass(className.looping)
             ;
+            module.repaint();
           }
 
         },
