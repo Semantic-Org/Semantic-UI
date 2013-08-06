@@ -121,7 +121,7 @@
 /*--------------
       Flips
 ---------------*/
-.ui.flip.x.transition.in {
+.ui.horizontal.flip.transition.in {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipInX;
   -moz-backface-visibility: visible !important;
@@ -131,7 +131,7 @@
   backface-visibility: visible !important;
   animation-name: flipInX;
 }
-.ui.flip.x.transition.out {
+.ui.horizontal.flip.transition.out {
   -webkit-animation-name: flipOutX;
   -webkit-backface-visibility: visible !important;
   -moz-animation-name: flipOutX;
@@ -141,7 +141,7 @@
   animation-name: flipOutX;
   backface-visibility: visible !important;
 }
-.ui.flip.y.transition.in {
+.ui.vertical.flip.transition.in {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipInY;
   -moz-backface-visibility: visible !important;
@@ -151,7 +151,7 @@
   backface-visibility: visible !important;
   animation-name: flipInY;
 }
-.ui.flip.y.transition.out {
+.ui.vertical.flip.transition.out {
   -webkit-backface-visibility: visible !important;
   -webkit-animation-name: flipOutY;
   -moz-backface-visibility: visible !important;
@@ -727,11 +727,11 @@
 ---------------*/
 @-moz-keyframes slideIn {
   0% {
+    overflow: hidden;
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
-    overflow: hidden;
     height: 0;
   }
   100% {

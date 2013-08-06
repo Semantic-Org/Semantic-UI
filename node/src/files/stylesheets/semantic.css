@@ -987,6 +987,7 @@ body.progress .ui.progress .bar {
   display: none;
 }
 
+#example .fixed.column,
 #example .fixed.segment {
   position: fixed;
 }
