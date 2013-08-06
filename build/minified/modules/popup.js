@@ -386,7 +386,7 @@ $.fn.popup = function(parameters) {
         },
 
         show: function() {
-          module.debug('Showing pop-up');
+          module.debug('Showing pop-up', settings.transition);
           if($popup.size() === 0) {
             module.create();
           }
@@ -397,10 +397,9 @@ $.fn.popup = function(parameters) {
           $popup
             .removeClass(className.loading)
           ;
-          if(settings.animation == 'pop' && $.fn.popIn !== undefined) {
+          if(settings.transition && $.fn.transition !== undefined) {
             $popup
-              .stop()
-              .popIn(settings.duration, settings.easing)
+              .transition(settings.transition, settings.duration)
             ;
           }
           else {
@@ -421,10 +420,7 @@ $.fn.popup = function(parameters) {
         hideAll: function() {
           $(selector.popup)
             .filter(':visible')
-              .stop()
-              .fadeOut(200)
-              .prev($module)
-                .removeClass(className.visible)
+              .popup('hide')
           ;
         },
 
@@ -434,12 +430,9 @@ $.fn.popup = function(parameters) {
           ;
           if($popup.is(':visible') ) {
             module.debug('Hiding pop-up');
-            if(settings.animation == 'pop' && $.fn.popOut !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined) {
               $popup
-                .stop()
-                .popOut(settings.duration, settings.easing, function() {
-                  $popup.hide();
-                })
+                .transition(settings.transition, settings.duration)
               ;
             }
             else {
@@ -646,9 +639,9 @@ $.fn.popup.settings = {
   delay          : 150,
   inline         : true,
 
-  duration       : 250,
+  duration       : 150,
   easing         : 'easeOutQuint',
-  animation      : 'pop',
+  transition     : 'scale',
 
   distanceAway   : 0,
   arrowOffset    : 0,

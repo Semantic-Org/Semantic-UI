@@ -37,7 +37,7 @@
     "npm": "1.1.x"
   },
   "dependencies": {
-    "docpad": "~6.47.0",
+    "docpad": "~6.48.0",
     "docpad-plugin-coffeescript": "~2.2.2",
     "docpad-plugin-eco": "~2.0.2",
     "docpad-plugin-marked": "~2.1.1",
@@ -52,7 +52,7 @@
     "docpad-plugin-ghpages": "~2.3.0",
     "docpad-plugin-paged": "~2.2.2",
     "docpad-plugin-handlebars": "~2.2.2",
-    "docpad-plugin-livereload": "~2.5.0"
+    "docpad-plugin-livereload": "~2.5.1"
   },
   "devDependencies": {
     "grunt-contrib-watch": "~0.4.4",

@@ -58,13 +58,13 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/tab.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/checkbox.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dimmer.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/transition.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/overrides/fonts/sketchy.icons.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/sidr.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 
   <%- @getBlock('scripts').toHTML() %>
-
   <script src="/javascript/library/jquery.js"></script>
   <script src="/javascript/library/history.js"></script>
   <script src="/javascript/library/easing.js"></script>
@@ -78,6 +78,7 @@
   <script src="/components/semantic/modules/dimmer.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
   <script src="/components/semantic/modules/tab.js"></script>
+  <script src="/components/semantic/modules/transition.js"></script>
 
   <script src="/javascript/semantic.js"></script>
 

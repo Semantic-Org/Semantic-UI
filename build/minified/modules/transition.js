@@ -97,6 +97,63 @@ $.fn.transition = function() {
           ;
         },
 
+        animate: function(overrideSettings) {
+          settings = overrideSettings || settings;
+          if(module.is.animating()) {
+            module.queue(settings.animation);
+            return false;
+          }
+          module.save.conditions();
+          module.set.duration(settings.duration);
+          module.set.animating();
+          module.repaint();
+          $module
+            .addClass(className.transition)
+            .addClass(settings.animation)
+            .one(animationEnd, module.complete)
+          ;
+          if(!module.has.direction() && module.can.transition()) {
+            module.set.direction();
+          }
+          if(!module.can.animate()) {
+            module.restore.conditions();
+            module.error(error.noAnimation);
+            return false;
+          }
+          module.show();
+          module.debug('Beginning animation', settings.animation, $module.attr('class'));
+        },
+
+        queue: function(animation) {
+          module.debug('Queueing animation of', animation);
+          module.queuing = true;
+          $module
+            .one(animationEnd, function() {
+              module.queuing = false;
+              module.animate.apply(this, settings);
+            })
+          ;
+        },
+
+        complete: function () {
+          module.verbose('CSS animation complete', settings.animation);
+          if(!module.is.looping()) {
+            if($module.hasClass(className.outward) && !module.queuing) {
+              module.restore.conditions();
+              module.hide();
+            }
+            else if($module.hasClass(className.inward) && !module.queuing) {
+              module.restore.conditions();
+              module.show();
+            }
+            else {
+              module.restore.conditions();
+            }
+            module.remove.animating();
+          }
+          settings.complete();
+        },
+
         repaint: function(fakeAssignment) {
           module.verbose('Forcing repaint event');
           fakeAssignment = element.offsetWidth;
@@ -107,17 +164,6 @@ $.fn.transition = function() {
             animation = animation || settings.animation;
             if( $module.hasClass(className.inward) || $module.hasClass(className.outward) ) {
               return true;
-            }
-            else {
-              return false;
-              /*if(animationName != inwardAnimationName) {
-                module.debug('In/out animation exists for animation', animation);
-                return false;
-              }
-              else {
-                module.debug('No in/out animation found, assuming static animation', animation);
-                return true;
-              }*/
             }
           }
         },
@@ -130,14 +176,14 @@ $.fn.transition = function() {
 
           direction: function() {
             if($module.is(':visible')) {
-              module.debug('Automatically determining the direction of animation', 'Inward');
+              module.debug('Automatically determining the direction of animation', 'Outward');
               $module
                 .addClass(className.outward)
                 .removeClass(className.inward)
               ;
             }
             else {
-              module.debug('Automatically determining the direction of animation', 'Outward');
+              module.debug('Automatically determining the direction of animation', 'Inward');
               $module
                 .addClass(className.inward)
                 .removeClass(className.outward)
@@ -145,15 +191,16 @@ $.fn.transition = function() {
             }
           },
 
-          loop: function() {
+          looping: function() {
+            module.debug('Transition set to loop');
             $module
-              .addClass(className.loop)
+              .addClass(className.looping)
             ;
           },
 
           duration: function(duration) {
             duration = duration || settings.duration;
-            duration = (typeof duration == 'integer') 
+            duration = (typeof duration == 'number') 
               ? duration + 'ms'
               : duration
             ;
@@ -198,6 +245,9 @@ $.fn.transition = function() {
             else {
               $module.removeAttr('style');
             }
+            if(module.is.looping()) {
+              module.remove.looping();
+            }
             module.verbose('Restoring original attributes', module.cache);
           }
         },
@@ -206,6 +256,13 @@ $.fn.transition = function() {
 
           animating: function() {
             $module.removeClass(className.animating);
+          },
+
+          looping: function() {
+            module.debug('Transitions are no longer looping');
+            $module
+              .removeClass(className.looping)
+            ;
           }
 
         },
@@ -214,7 +271,7 @@ $.fn.transition = function() {
 
           settings: function(animation, duration, complete) {
             // single settings object
-            if($.isPlainObject(animation) === undefined) {
+            if($.isPlainObject(animation)) {
               return $.extend(true, {}, $.fn.transition.settings, animation);
             }
             // all arguments provided
@@ -226,7 +283,7 @@ $.fn.transition = function() {
               });
             }
             // only duration provided
-            else if(typeof duration == 'string') {
+            else if(typeof duration == 'string' || typeof duration == 'number') {
               return $.extend(true, {}, $.fn.transition.settings, {
                 animation : animation,
                 duration  : duration
@@ -267,7 +324,7 @@ $.fn.transition = function() {
             ;
             for(animation in animations){
               if( element.style[animation] !== undefined ){
-                module.verbose('Determining animation name', animations[animation]);
+                module.verbose('Determining animation vendor name property', animations[animation]);
                 return animations[animation];
               }
             }
@@ -287,7 +344,7 @@ $.fn.transition = function() {
             ;
             for(animation in animations){
               if( element.style[animation] !== undefined ){
-                module.verbose('Determining animation end event', animations[animation]);
+                module.verbose('Determining animation vendor end event', animations[animation]);
                 return animations[animation];
               }
             }
@@ -297,14 +354,40 @@ $.fn.transition = function() {
         },
 
         can: {
-          animate: function(animation) {
-            return $module.css(animationName) !== 'none';
+          animate: function() {
+            if($module.css(animationName) !== 'none') {
+              module.debug('CSS definition found'); 
+              return true;
+            }
+            else {
+              module.debug('Unable to find css definition');
+              return false;
+            }
+          },
+          transition: function() {
+            var
+              currentAnimation = $module.css(animationName),
+              inAnimation      = $module.addClass(className.inward).css(animationName)
+            ;
+            if(currentAnimation != inAnimation) {
+              module.debug('In/out transitions exist');
+              $module.removeClass(className.inward);
+              return true;
+            }
+            else {
+              module.debug('Static animation found');
+              $module.removeClass(className.inward);
+              return false;
+            }
           }
         },
 
         is: {
           animating: function() {
             return $module.hasClass(className.animating);
+          },
+          looping: function() {
+            return $module.hasClass(className.looping);
           },
           visible: function() {
             return $module.is(':visible');
@@ -314,6 +397,7 @@ $.fn.transition = function() {
         hide: function() {
           module.verbose('Hiding element');
           $module
+            .removeClass(className.visible)
             .addClass(className.transition)
             .addClass(className.hidden)
           ;
@@ -322,6 +406,8 @@ $.fn.transition = function() {
           module.verbose('Showing element');
           $module
             .removeClass(className.hidden)
+            .addClass(className.transition)
+            .addClass(className.visible)
           ;
         },
 
@@ -338,61 +424,6 @@ $.fn.transition = function() {
         toggle: function() {
           module.debug('Toggling play status');
           $module.toggleClass(className.disabled);
-        },
-
-        animate: function(overrideSettings) {
-          settings = overrideSettings || settings;
-          if(module.is.animating()) {
-            module.queue(settings.animation);
-            return false;
-          }
-          module.save.conditions();
-          module.set.duration();
-          module.set.animating();
-          module.repaint();
-          $module
-            .addClass(className.transition)
-            .addClass(settings.animation)
-            .one(animationEnd, module.complete)
-          ;
-          if(!module.has.direction()) {
-            module.set.direction();
-          }
-          if(!module.can.animate()) {
-            module.restore.conditions();
-            module.error(error.noAnimation);
-            return false;
-          }
-          module.show();
-          module.debug('Beginning animation', settings.animation, $module.attr('class'));
-        },
-
-        queue: function(animation) {
-          module.debug('Queueing animation of', animation);
-          module.queuing = true;
-          $module
-            .one(animationEnd, function() {
-              module.queuing = false;
-              module.animate.apply(this, settings);
-            })
-          ;
-        },
-
-        complete: function () {
-          module.verbose('CSS animation complete', settings.animation);
-          if($module.hasClass(className.outward) && !module.queuing) {
-            module.restore.conditions();
-            module.hide();
-          }
-          else if($module.hasClass(className.inward) && !module.queuing) {
-            module.restore.conditions();
-            module.show();
-          }
-          else {
-            module.restore.conditions();
-          }
-          module.remove.animating();
-          settings.complete();
         },
 
         setting: function(name, value) {
@@ -549,7 +580,7 @@ $.fn.transition.settings = {
   verbose      : true,
   
   // performance data output
-  performance  : false,
+  performance  : true,
   
   // event namespace
   namespace    : 'transition',
@@ -559,16 +590,17 @@ $.fn.transition.settings = {
   
   // animation duration (useful only with future js animations)
   animation    : 'fade',
-  duration     : '1s',
+  duration     : '700ms',
   
   className    : {
+    transition : 'ui transition',
     animating  : 'animating',
+    looping    : 'looping',
     disabled   : 'disabled',
     hidden     : 'hidden',
+    visible    : 'visible',
     inward     : 'in',
-    looping    : 'looping',
-    outward    : 'out',
-    transition : 'ui transition'
+    outward    : 'out'
   },
 
   // possible errors
