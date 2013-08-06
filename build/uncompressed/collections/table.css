@@ -17,9 +17,7 @@
   width: 100%;
   border-collapse: collapse;
 }
-.ui.table thead {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
+/* Table Content */
 .ui.table th,
 .ui.table tr,
 .ui.table td {
@@ -34,24 +32,42 @@
   -ms-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
+/* Headers */
+.ui.table thead {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
 .ui.table th {
   cursor: auto;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.03);
   text-align: left;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.8);
   padding: 0.5em 0.7em;
   vertical-align: middle;
 }
-.ui.table tfoot th {
-  font-weight: normal;
-  font-style: italic;
+.ui.table thead th:first-child {
+  border-radius: 5px 0px 0px 0px;
 }
+.ui.table thead th:last-child {
+  border-radius: 0px 5px 0px 0px;
+}
+.ui.table tfoot th:first-child {
+  border-radius: 0px 0px 0px 5px;
+}
+.ui.table tfoot th:last-child {
+  border-radius: 0px 0px 5px 0px;
+}
+/* Table Cells */
 .ui.table td {
   padding: 0.40em 0.7em;
   vertical-align: middle;
 }
+/* Footer */
 .ui.table tfoot {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+.ui.table tfoot th {
+  font-weight: normal;
+  font-style: italic;
 }
 /* Table Striping */
 .ui.table tbody tr:nth-child(2n) {
@@ -64,7 +80,7 @@
 .ui.table > .icon:only-child {
   margin: 0em;
 }
-/* table segment */
+/* Table Segment */
 .ui.table.segment:after {
   display: none;
 }
@@ -80,7 +96,7 @@
 /* Sortable */
 .ui.sortable.table thead th:hover {
   background-image: none;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.08);
   color: #333333;
 }
 .ui.sortable.table th.disabled:hover {
@@ -229,6 +245,71 @@
 .ui.sixteen.column.table td {
   width: 6.25%;
 }
+/* Column Width */
+.ui.table th.one.wide,
+.ui.table td.one.wide {
+  width: 6.25%;
+}
+.ui.table th.two.wide,
+.ui.table td.two.wide {
+  width: 12.5%;
+}
+.ui.table th.three.wide,
+.ui.table td.three.wide {
+  width: 18.75%;
+}
+.ui.table th.four.wide,
+.ui.table td.four.wide {
+  width: 25%;
+}
+.ui.table th.five.wide,
+.ui.table td.five.wide {
+  width: 31.25%;
+}
+.ui.table th.six.wide,
+.ui.table td.six.wide {
+  width: 37.5%;
+}
+.ui.table th.seven.wide,
+.ui.table td.seven.wide {
+  width: 43.75%;
+}
+.ui.table th.eight.wide,
+.ui.table td.eight.wide {
+  width: 50%;
+}
+.ui.table th.nine.wide,
+.ui.table td.nine.wide {
+  width: 56.25%;
+}
+.ui.table th.ten.wide,
+.ui.table td.ten.wide {
+  width: 62.5%;
+}
+.ui.table th.eleven.wide,
+.ui.table td.eleven.wide {
+  width: 68.75%;
+}
+.ui.table th.twelve.wide,
+.ui.table td.twelve.wide {
+  width: 75%;
+}
+.ui.table th.thirteen.wide,
+.ui.table td.thirteen.wide {
+  width: 81.25%;
+}
+.ui.table th.fourteen.wide,
+.ui.table td.fourteen.wide {
+  width: 87.5%;
+}
+.ui.table th.fifteen.wide,
+.ui.table td.fifteen.wide {
+  width: 93.75%;
+}
+.ui.table th.sixteen.wide,
+.ui.table td.sixteen.wide {
+  width: 100%;
+}
 /*--------------
      Celled
 ---------------*/
@@ -245,7 +326,12 @@
 .ui.celled.table tbody td {
   border: 1px solid #E0E0E0;
 }
-/* Sortable Table */
+.ui.celled.table.segment th {
+  border: none;
+}
+/*--------------
+    Sortable
+---------------*/
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
@@ -256,7 +342,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: rgba(0, 0, 0, 0.05);
 }
 .ui.sortable.table thead th:after {
   display: inline-block;
@@ -268,7 +353,6 @@
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
-  vertical-align: text-top;
 }
 .ui.sortable.table thead th.ascending:after {
   content: '\25b4';
@@ -279,10 +363,15 @@
 /*--------------
     Inverted
 ---------------*/
+/* Text Color */
+.ui.inverted.table td {
+  color: rgba(255, 255, 255, 0.9);
+}
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
   color: rgba(255, 255, 255, 0.9);
 }
+/* Stripes */
 .ui.inverted.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
 }
@@ -298,10 +387,9 @@
 .ui.basic.table th {
   background-color: transparent;
   padding: 0.5em;
-  font-weight: normal;
 }
 .ui.basic.table tbody tr {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 .ui.basic.table td {
   padding: 0.8em 0.5em;

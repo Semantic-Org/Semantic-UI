@@ -15,8 +15,7 @@
     "framework"
   ],
   "license" : [
-    "http://bartaz.mit-license.org/", 
-    "http://www.gnu.org/licenses/"
+    "http://bartaz.mit-license.org/"
   ],
 
   "main": [
