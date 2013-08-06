@@ -27,11 +27,18 @@
   -ms-animation-duration: 1s;
   -o-animation-duration: 1s;
   animation-duration: 1s;
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   -ms-animation-fill-mode: both;
   -o-animation-fill-mode: both;
   animation-fill-mode: both;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
 }
 /*******************************
        States
@@ -172,6 +179,71 @@
   -o-animation-name: scale;
   animation-name: scale;
 }
+/*--------------
+      Slide
+---------------*/
+.ui.slide.down.transition.in,
+.ui.slide.down.transition.out {
+  -webkit-animation-name: slide;
+  -moz-animation-name: slide;
+  -o-animation-name: slide;
+  animation-name: slide;
+  transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+}
+.ui.slide.up.transition.in,
+.ui.slide.up.transition.out {
+  -webkit-animation-name: slide;
+  -moz-animation-name: slide;
+  -o-animation-name: slide;
+  animation-name: slide;
+  transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+}
+.ui.slide.up.transition > *,
+.ui.slide.down.transition > * {
+  -webkit-animation-name: fade;
+  -moz-animation-name: fade;
+  -o-animation-name: fade;
+  animation-name: fade;
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -ms-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+@-moz-keyframes slide {
+  0% {
+    opacity: 0;
+    -moz-transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: scaleY(1);
+  }
+}
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+  }
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
 /*******************************
        Animations
 *******************************/
@@ -179,6 +251,17 @@
   Emphasis
 ---------------*/
 /* Flash */
+@-webkit-keyframes flash {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
 @-moz-keyframes flash {
   0%,
   50%,
