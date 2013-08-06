@@ -1,9 +1,7 @@
 /*  ******************************
-  Semantic Module: Checkbox
-  Author: Jack Lukic
-  Notes: First Commit MAy 25, 2013
-
-  Simple plug-in which maintains the state for ui dropdown
+   Semantic Module: Dropdown
+   Author: Jack Lukic
+   Notes: First Commit May 25, 2013
 
 ******************************  */
 

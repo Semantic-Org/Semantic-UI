@@ -7,6 +7,8 @@ module.exports = function(grunt) {
     watchTasks = [
       // compiles less
       'less:buildCSS',  
+      // copies assets and js over to build dir
+      'copy:toBuild',
       // copies files over to docs
       'copy:libraryToDocs'
     ],
