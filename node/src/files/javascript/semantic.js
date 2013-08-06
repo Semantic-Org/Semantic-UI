@@ -31,7 +31,7 @@ semantic.ready = function() {
     $menu         = $('.sidebar'),
     $sortTable    = $('.sortable.table'),
     $demo         = $('.demo'),
-    $waypoints    = $('.main.container').children('h2'),
+    $waypoints    = $('.main.container').find('h2').first().siblings('h2').andSelf(),
 
     $menuPopup    = $('.ui.main.menu .popup.item'),
 
@@ -277,7 +277,7 @@ semantic.ready = function() {
             width: '70px'
           }, 300)
         ;
-      }
+    }
 
     },
 
@@ -289,8 +289,9 @@ semantic.ready = function() {
         $group    = $menu.children(),
         $headers  = $group.add( $group.find('.menu .item') ),
         $waypoint = $waypoints.eq( $group.index( $header ) ),
-        offset    = $waypoint.offset().top - 80
+        offset
       ;
+      offset    = $waypoint.offset().top - 80;
       if(!$header.hasClass('active') ) {
         $menu
           .addClass('animating')

@@ -44,15 +44,31 @@
   -moz-border-radius: 0.2em 0.2em 0em 0em;
   border-radius: 0.2em 0.2em 0em 0em;
 }
-/* Default Interactions */
-.ui.popup .ui.button,
-.ui.popup form.ui input .ui.popup form.ui textarea {
-  width: 100%;
+.ui.popup:before {
+  position: absolute;
+  content: "";
+  width: 0.75em;
+  height: 0.75rem;
+  background-image: none;
+  background-color: #FFFFFF;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-box-shadow: 1px 1px 1px #DCDDDE;
+  -moz-box-shadow: 1px 1px 1px #DCDDDE;
+  box-shadow: 1px 1px 1px #DCDDDE;
 }
+.ui.popup .ui.button {
+  width: 100%;
+}
+/*******************************
+            Types
+*******************************/
 /*--------------
      Spacing
 ---------------*/
@@ -77,25 +93,6 @@
 /*--------------
      Pointer
 ---------------*/
-.ui.popup:before {
-  position: absolute;
-  content: "";
-  width: 0.75em;
-  height: 0.75rem;
-  background-image: none;
-  background-color: #FFFFFF;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
-  z-index: 2;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-shadow: 1px 1px 1px #DCDDDE;
-  -moz-box-shadow: 1px 1px 1px #DCDDDE;
-  box-shadow: 1px 1px 1px #DCDDDE;
-}
 /*--- Below ---*/
 .ui.bottom.center.popup:before {
   margin-left: -0.4em;
@@ -174,11 +171,11 @@
 /*******************************
             States
 *******************************/
-.ui.popup.loading {
+.ui.loading.popup {
   display: block;
   visibility: hidden;
 }
-.ui.popup.active {
+.ui.active.popup {
   display: block;
 }
 /*******************************
@@ -196,7 +193,7 @@
 /*--------------
      Colors
 ---------------*/
-/* Black  */
+/* Inverted colors  */
 .ui.inverted.popup {
   background-color: #333333;
   border: none;
