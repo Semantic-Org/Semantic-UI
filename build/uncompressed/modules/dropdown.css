@@ -22,13 +22,15 @@
   -ms-transition: border-radius 0.1s ease, width 0.2s ease;
   transition: border-radius 0.1s ease, width 0.2s ease;
 }
-.ui.dropdown .menu {
+.ui.dropdown > .menu {
   position: absolute;
   display: none;
   top: 100%;
+  margin: 0em;
   background-color: #FFFFFF;
   min-width: 100%;
   white-space: nowrap;
+  font-size: 0.875em;
   text-shadow: none;
   -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset;
@@ -203,6 +205,10 @@
   -webkit-border-radius: 0px 0px 0.325em 0.325em;
   border-radius: 0px 0px 0.325em 0.325em;
 }
+.ui.selection.dropdown .menu:after,
+.ui.selection.dropdown .menu:before {
+  display: none;
+}
 .ui.selection.dropdown .menu img {
   height: 2.5em;
   display: inline-block;
@@ -250,9 +256,11 @@
   border-radius: 0.325em;
 }
 .ui.pointing.dropdown .menu:after {
+  display: block;
   position: absolute;
   pointer-events: none;
   content: " ";
+  visibility: visible;
   width: 0.5em;
   height: 0.5em;
   -moz-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);

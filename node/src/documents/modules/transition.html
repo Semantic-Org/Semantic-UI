@@ -53,6 +53,14 @@ type   : 'UI Module'
     ;
       </div>
 
+      <h3 class="ui header">Static Animations</h3>
+      <p>Animations that do not have an in or out animation defined, will maintain their current visibility after running</p>
+      <div class="code" data-demo="true" data-title="Looping">
+      $('.dog.image')
+        .transition('pulse')
+      ;
+      </div>
+
       <h3 class="ui header">Transition Direction</h3>
 
       <p>If an animation direction is not specified it will automatically be determined based on the elements current visibility. For example, if the element is visible the animation "fade out" will be called, if the animation is not visible "fade in".</p>
@@ -85,19 +93,6 @@ type   : 'UI Module'
       .transition('horizontal flip', 500, function() {
         alert('done!');
       })
-    ;
-      </div>
-
-      <h3 class="ui header">Looping</h3>
-      <div class="code" data-demo="true" data-title="Looping">
-    $('.dog.image')
-      .transition('set looping')
-      .transition('pulse')
-    ;
-      </div>
-      <div class="code" data-demo="true" data-title="Stop Looping">
-    $('.dog.image')
-      .transition('remove looping')
     ;
       </div>
 
@@ -169,6 +164,16 @@ type   : 'UI Module'
         <div class="code" data-demo="true">
     $('.dog.image')
       .transition('scale')
+    ;
+        </div>
+      </div>
+
+      <div class="example">
+        <h4 class="ui header">Slide</h4>
+        <div class="code" data-demo="true">
+    $('.dog.image')
+      .transition('slide up')
+      .transition('slide down')
     ;
         </div>
       </div>

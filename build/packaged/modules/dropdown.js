@@ -21,7 +21,6 @@ $.fn.dropdown = function(parameters) {
     className       = settings.className,
     metadata        = settings.metadata,
     namespace       = settings.namespace,
-    animation       = settings.animation,
     selector        = settings.selector,
     errors          = settings.errors,
     
@@ -252,6 +251,9 @@ $.fn.dropdown = function(parameters) {
             module.debug('Adding selected value to hidden input', value, $input);
             $input.val(value);
           },
+          visible: function() {
+            $module.addClass(className.visible);
+          },
           selected: function(value) {
             var
               $selectedItem = module.get.item(value),
@@ -268,6 +270,12 @@ $.fn.dropdown = function(parameters) {
               ;
               module.set.text(selectedText);
             }
+          }
+        },
+
+        remove: {
+          visible: function() {
+            $module.removeClass(className.visible);
           }
         },
 
@@ -290,21 +298,17 @@ $.fn.dropdown = function(parameters) {
         },
 
         animate: {
-          show: function() {
+          show: function(callback) {
             module.verbose('Doing menu showing animation');
-            if(animation.show == 'none') {
-              $menu
-                .show()
-              ;
+            callback = callback || function(){};
+
+            if(settings.animation == 'none') {
+              callback();
             }
-            else if(animation.show == 'fade') {
-              $menu
-                .hide()
-                .clearQueue()
-                .fadeIn(150, module.event.resetStyle)
-              ;
+            else if($.fn.transition !== undefined) {
+              $menu.transition(settings.animation, settings.duration, callback);
             }
-            else if(animation.show == 'slide') {
+            else if(settings.animation == 'slide down') {
               $menu
                 .hide()
                 .clearQueue()
@@ -314,30 +318,39 @@ $.fn.dropdown = function(parameters) {
                   .delay(50)
                   .animate({
                     opacity : 1
-                  }, 200, 'easeOutQuad', module.event.resetStyle)
+                  }, settings.duration, 'easeOutQuad', module.event.resetStyle)
                   .end()
-                .slideDown(100, 'easeOutQuad', module.event.resetStyle)
+                .slideDown(100, 'easeOutQuad', function() {
+                  $.proxy(module.event.resetStyle, this)();
+                  callback();
+                })
+              ;
+            }
+            else if(settings.animation == 'fade') {
+              $menu
+                .hide()
+                .clearQueue()
+                .fadeIn(settings.duration, function() {
+                  $.proxy(module.event.resetStyle, this)();
+                  callback();
+                })
               ;
             }
             else {
               module.error(errors.animation);
             }
           },
-          hide: function() {
+          hide: function(callback) {
             module.verbose('Doing menu hiding animation');
-            if(animation.hide == 'none') {
-              $menu
-                .hide()
-              ;
+            callback = callback || function(){};
+
+            if(settings.animation == 'none') {
+              callback();
             }
-            else if(animation.hide == 'fade') {
-              $menu
-                .show()
-                .clearQueue()
-                .fadeOut(150, module.event.resetStyle)
-              ;
+            else if($.fn.transition !== undefined) {
+              $menu.transition(settings.animation, settings.duration, callback);
             }
-            else if(animation.hide == 'slide') {
+            else if(settings.animation == 'slide down') {
               $menu
                 .show()
                 .clearQueue()
@@ -349,7 +362,20 @@ $.fn.dropdown = function(parameters) {
                   }, 100, 'easeOutQuad', module.event.resetStyle)
                   .end()
                 .delay(50)
-                .slideUp(100, 'easeOutQuad', module.event.resetStyle)
+                .slideUp(100, 'easeOutQuad', function() {
+                  $.proxy(module.event.resetStyle, this)();
+                  callback();
+                })
+              ;
+            }
+            else if(settings.animation == 'fade') {
+              $menu
+                .show()
+                .clearQueue()
+                .fadeOut(150, function() {
+                  $.proxy(module.event.resetStyle, this)();
+                  callback();
+                })
               ;
             }
             else {
@@ -362,28 +388,22 @@ $.fn.dropdown = function(parameters) {
           module.debug('Checking if dropdown can show');
           if( !module.is.visible() ) {
             module.hideOthers();
-            $module
-              .addClass(className.visible)
-            ;
-            module.animate.show();
+            module.animate.show(module.set.visible);
             if( module.can.click() ) {
               module.intent.bind();
             }
-            $.proxy(settings.onShow, $module.get() )();
+            $.proxy(settings.onShow, element)();
           }
         },
 
         hide: function() {
           if( !module.is.hidden() ) {
             module.debug('Hiding dropdown');
-            $module
-              .removeClass(className.visible)
-            ;
             if( module.can.click() ) {
               module.intent.unbind();
             }
-            module.animate.hide();
-            $.proxy(settings.onHide, $module.get() )();
+            module.animate.hide(module.remove.visible);
+            $.proxy(settings.onHide, element)();
           }
         },
 
@@ -589,10 +609,8 @@ $.fn.dropdown.settings = {
     hide: 300
   },
   
-  animation   : {
-    show: 'slide',
-    hide: 'slide'
-  },
+  animation : 'slide down',
+  duration  : 250,
   
   onChange : function(){},
   onShow   : function(){},
