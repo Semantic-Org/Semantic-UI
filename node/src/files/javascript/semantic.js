@@ -167,10 +167,11 @@ semantic.ready = function() {
       var
         $code       = $(this),
         code        = $code.html(),
-        contentType = $code.data('type')  || 'javascript',
-        title       = $code.data('title') || false,
-        demo        = $code.data('demo')  || false,
-        label       = $code.data('label') || false,
+        contentType = $code.data('type')    || 'javascript',
+        title       = $code.data('title')   || false,
+        demo        = $code.data('demo')    || false,
+        preview     = $code.data('preview') || false,
+        label       = $code.data('label')   || false,
         displayType = {
           html       : 'HTML',
           javascript : 'Javascript',
@@ -240,6 +241,12 @@ semantic.ready = function() {
             eval(code);
           })
           .insertBefore ( $(this).parent() )
+        ;
+      }
+      // add preview if specified
+      if(preview) {
+        $(code)
+          .insertAfter( $(this).parent() )
         ;
       }
       editor.resize();

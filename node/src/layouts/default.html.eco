@@ -209,12 +209,10 @@
       </div>
     </div>
   </div>
-    <% if @document.title isnt 'Introduction': %>
     <div class="ui black huge sidebar right attached button">
       <i class="icon list layout"></i>
       <span class="text">Menu</span>
     </div>
-    <% end %>
   <%- @content %>
 </body>
 

@@ -126,10 +126,10 @@ $.fn.transition = function() {
 
         queue: function(animation) {
           module.debug('Queueing animation of', animation);
-          module.queuing = true;
+          instance.queuing = true;
           $module
             .one(animationEnd, function() {
-              module.queuing = false;
+              instance.queuing = false;
               module.animate.apply(this, settings);
             })
           ;
@@ -138,11 +138,11 @@ $.fn.transition = function() {
         complete: function () {
           module.verbose('CSS animation complete', settings.animation);
           if(!module.is.looping()) {
-            if($module.hasClass(className.outward) && !module.queuing) {
+            if($module.hasClass(className.outward) && !instance.queuing) {
               module.restore.conditions();
               module.hide();
             }
-            else if($module.hasClass(className.inward) && !module.queuing) {
+            else if($module.hasClass(className.inward) && !instance.queuing) {
               module.restore.conditions();
               module.show();
             }

@@ -8,37 +8,39 @@ type   : 'Semantic'
 <script src="/javascript/intro.js"></script>
 <div class="segment">
   <div class="container">
-    <h1 class="ui header">Introduction</h1>
+    <h1 class="ui header">Introduction
+      <div class="ui label">Draft</div> 
+      <div class="ui red label">Incomplete</div>
+    </h1>
   </div>
 </div>
 <div class="main container">
-
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Philosophy</a>
       <a class="item">Getting Started</a>
     </div>
   </div>
-  <h2 class="ui header">Philosophy</h2>
+  <h2 class="ui dividing header">Philosophy</h2>
   <p> Writing front end code shouldn't require learning the naming or programming conventions of a particular developer. Semantic is a methodology for coding front end designed to make adopting and sharing code with others easier.</p>
   <p>Semantic is tag ambivalent. That means you can use it with div, article, section, span, whichever you please. However, some elements still have special meeting like anchor and table tags.</p>
   
-  <h2 class="ui header">Getting Started</h2>
+  <h2 class="ui dividing header">Getting Started</h2>
   
   <p>UI definitions in Semantic are namespaced with the class name <b>ui</b>. This is to help differentiate between parts of an element, and the element itself. For example a menu may have menu items inside of it. These items are contained as part of the menu definition.</p>
   
   <div class="code" data-type="html" data-label="true">
     <div class="ui menu">
-      <div class="item">Home</div>
-      <div class="item">Inbox</div>
+      <a class="item">Home</a>
+      <a class="item">Inbox</a>
     </div>
   </div>
   <div class="ui menu">
-    <div class="item">Home</div>
-    <div class="item">Inbox</div>
+    <a class="item">Home</a>
+    <a class="item">Inbox</a>
   </div>
   <div class="ui divider"></div>
-  
+
   <h3 class="ui header">Combining elements</h3>
   <p>All UI definitions in semantic are stand-alone, and do not require other components to function. However, components can choose to have optional couplings with other components.</p>
   
@@ -60,65 +62,29 @@ type   : 'Semantic'
       <div class="ui label">22</div>
     </div>
   </div>
+
+  <h2 class="ui dividing header">Language Matters</h2>
+
+  <p>Class names in semantic always use single english words. If a class name is an adjective it is either a <b>type</b> of element or <b>variation</b> of an element. This helps prevent naming conflicts between elements (nouns) and changes to an element (adjectives)</p>
+
+  <h3 class="ui header">Defining behavior simply</h3>
+
+  <p>Modules define a public API using simple phrases involving a verb and an object the verb is acting on. This means that if you are using another developer's code, you only need to learn it's public api without having to learn the nasty tricks used to make it work.</p>
+
+  <div class="code" data-demo="true" data-title="Language in Javascript">
+    $('.dog.image')
+      .transition('horizontal flip out')
+      .transition('scale in', '500ms')
+    ;
+  </div>
+  <img src="/images/demo/vector.png" class="ui medium dog image">
+
+
   <div class="ui divider"></div>
-  <h3 class="ui header">Altering Designs</h3>
-  <p>Class names in semantic always use single english words. If a class name is an adjective it is either a <b>type</b> of element or <b>variation</b> of an element. 
-  
-  <h4 class="ui header">Types</h4>
-  
-  <p>A <b>type</b> is a mutually exclusive change to an element. It may require slightly different html structures or expect different content.</p>
-  
-  <div class="code" data-type="html" data-label="true">
-    <div class="ui tiered menu">
-      <div class="menu">
-        <div class="active item">
-          <i class="home icon"></i>
-          Home
-        </div>
-        <div class="item">
-          <i class="mail icon"></i> 
-          Mail
-          <div class="ui label">22</div>
-        </div>
-      </div>
-      <div class="sub menu">
-        <div class="active item">Activity</div>
-        <div class="item">Profile</div>
-      </div>
-    </div>
-  </div>
-  <div class="ui tiered menu">
-    <div class="menu">
-      <div class="active item">
-        <i class="home icon"></i>
-        Home
-      </div>
-      <div class="item">
-        <i class="mail icon"></i> 
-        Mail
-        <div class="ui label">22</div>
-      </div>
-    </div>
-    <div class="sub menu">
-      <div class="active item">Activity</div>
-      <div class="item">Profile</div>
-    </div>
-  </div>
-  
-  <h4 class="ui header">Variation</h4>
-   
-  <p>A <b>variation</b> alters the design of an element but is not mutually exclusive. Variations can be stacked together, or be used along with altering an element's type.</p>
-  
-  
-  <h2 class="ui header">Types of UI</h2>
-  
-  <p>Semantic has five different definition types. These are useful patterns for describing re-usable parts of a website.</p>
-  <ul class="ui list">
-    <li><b>Element</b> - a basic building block of a website, exists alone or in homogenous groups</li>
-    <li><b>Collection</b> - a heterogeneous group of several elements which are usually found together</li>
-    <li><b>View</b> - a way to present common website content</li>
-    <li><b>Module</b> - an element that also includes behavior as part of its definition</li>
-    <li><b>Behavior</b> - a set of behaviors not specfically tied to a design</li>
-  </ul>
+
+  <a class="ui large right labeled teal icon button" href="/introduction/definitions.html">
+    Next: UI Definitions
+    <i class="right arrow icon"></i>
+  </a>
   
 </div>
