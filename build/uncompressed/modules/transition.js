@@ -99,6 +99,7 @@ $.fn.transition = function() {
 
         animate: function(overrideSettings) {
           settings = overrideSettings || settings;
+          module.debug('Preparing animation', settings.animation);
           if(module.is.animating()) {
             module.queue(settings.animation);
             return false;
@@ -121,7 +122,7 @@ $.fn.transition = function() {
             return false;
           }
           module.show();
-          module.debug('Beginning animation', settings.animation, $module.attr('class'));
+          module.debug('Starting tween', settings.animation, $module.attr('class'));
         },
 
         queue: function(animation) {
@@ -151,7 +152,7 @@ $.fn.transition = function() {
             }
             module.remove.animating();
           }
-          settings.complete();
+          $.proxy(settings.complete, this)();
         },
 
         repaint: function(fakeAssignment) {

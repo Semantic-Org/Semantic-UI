@@ -1,6 +1,20 @@
+/*
+ * # Semantic Modal
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: Aug 05, 2013
+ */
+
+
 /*******************************
-          Modal Styles
+              Modal
 *******************************/
+
 .ui.modal {
   display: none;
   position: absolute;
@@ -8,7 +22,6 @@
 
   top: 50%;
   left: 50%;
-
   margin-left: -400px;
   width: 800px;
 
@@ -21,23 +34,25 @@
   border-radius: 5px;
 }
 
-.ui.page.modal {
-  position: fixed;
-}
-
+/*******************************
+            Content
+*******************************/
 
 /*--------------
-  Close Button
+     Close 
 ---------------*/
 
 .ui.modal > .close {
   cursor: pointer;
   position: absolute;
+
+  opacity: 0.8;
+  
   font-size: 1.25em;
-  color: #FFFFFF;
   top: -1.75em;
   right: -1.75em;
-  opacity: 0.8;
+   
+  color: #FFFFFF;
 }
 .ui.modal > .close:hover {
   opacity: 1;
@@ -62,6 +77,10 @@
   color: #FFFFFF;
 }
 
+/*--------------
+     Content
+---------------*/
+
 .ui.modal > .content {
   position: relative;
   overflow: hidden;
@@ -72,48 +91,23 @@
   -moz-border-radius: 0px 0px 0.325em 0.325em;
   border-radius: 0px 0px 0.325em 0.325em;
 }
-
-.ui.modal > .content .left {
+.ui.modal > .content > .left {
   float: left;
   width: 50%;
 }
-.ui.modal > .content .right {
+.ui.modal > .content > .right {
   float: right;
   width: 50%;
 }
 
-.ui.modal.fixed {
-  position: fixed;
+/*******************************
+             Types
+*******************************/
+
+
+/* A modal that cannot fit on the page */
+.ui.modal.scrolling {
+  position: absolute;
+  margin-top: 100px;
 }
 
-/* Static In-Page Modal */
-.ui.modal.static {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  top: 0px;
-  left: 0px;
-
-  border: 1px solid #CCCCCC;
-
-  width: auto;
-  height: auto;
-  margin: 0px auto;
-
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-
-  color: #555555;
-  z-index: 2;
-  
-  -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-}
-.ui.modal.static > .header,
-.ui.modal.static > .content {
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}

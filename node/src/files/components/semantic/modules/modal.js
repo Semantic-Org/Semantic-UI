@@ -10,354 +10,401 @@
 
 ;(function ( $, window, document, undefined ) {
 
-  $.dimScreen = function(parameters) {
-    var
-      // if parameter is string it is callback function
-      settings       = (typeof parameters == 'function')
-        ? $.extend({}, $.fn.modal.settings, { dim: parameters })
-        : $.extend({}, $.fn.modal.settings, parameters),
+$.fn.modal = function(parameters) {
+  var
+    $allModals     = $(this),
+    $document      = $(document),
 
-      $context       = $(settings.context),
-      $dimmer        = $context.children(settings.selector.dimmer),
-      dimmerExists   = ($dimmer.size() > 0),
-      currentOpacity = $dimmer.css('opacity')
-    ;
-    if(!dimmerExists) {
-      $dimmer = $('<div/>')
-        .attr('id','dimmer')
-        .html('<div class="content"></div>')
+    settings        = ( $.isPlainObject(parameters) )
+      ? $.extend(true, {}, $.fn.modal.settings, parameters)
+      : $.fn.modal.settings,
+
+    selector       = settings.selector,
+    className      = settings.className,
+    namespace      = settings.namespace,
+    error          = settings.error,
+    
+    eventNamespace = '.' + namespace,
+    moduleNamespace = 'module-' + namespace,
+    moduleSelector = $allModals.selector || '',
+    
+    time           = new Date().getTime(),
+    performance    = [],
+    
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
+
+    invokedResponse
+  ;
+
+  $allModals
+    .each(function() {
+      var
+        $modal       = $(this),
+        $context     = $(settings.context),
+        $otherModals = $allModals.not($modal),
+        $closeButton = $modal.find(selector.closeButton),
+        
+        element      = this,
+        instance     = $modal.data(moduleNamespace),
+        modal
       ;
-      $context
-        .append($dimmer)
-      ;
-    }
-    if(currentOpacity != settings.opacity) {
-      $dimmer
-        .one('click', function() {
-          settings.unDim();
-          $.unDimScreen();
-        })
-      ;
-      if(settings.duration === 0) {
-        $dimmer
-          .css({
-            visibility : 'visible'
-          })
-          .find('.content')
-            .css({
-              opacity    : settings.opacity,
-              visibility : 'visible'
+
+      modal  = {
+
+        initialize: function() {
+          modal.verbose('Initializing modal');
+          $closeButton
+            .on('click', modal.event.close)
+          ;
+          $context
+            .dimmer({
+              duration: settings.duration,
+              onShow: function() {
+                modal.add.keyboardShortcuts();
+                $.proxy(settings.onShow, this)();
+              },
+              onHide: function() {
+                if($modal.is(':visible')) {
+                  modal.hide();
+                  $.proxy(settings.onHide, this)();
+                }
+                modal.remove.keyboardShortcuts();
+              }
             })
-        ;
-        settings.dim();
-      }
-      else {
-        $dimmer
-          .css({
-            visibility : 'visible'
-          })
-          .find('.content')
-            .css({
-              opacity    : 0,
-              visibility : 'visible'
-            })
-            .fadeTo(settings.duration, settings.opacity, settings.dim)
-        ;
-      }
-    }
-    return this;
-  };
-  $.unDimScreen = function(parameters) {
-    var
-      settings     = (typeof parameters == 'function')
-        ? $.extend({}, $.fn.modal.settings, { unDim: parameters })
-        : $.extend({}, $.fn.modal.settings, parameters),
+          ;
+          modal.cache.sizes();
+          modal.instantiate();
+        },
 
-      $context     = $(settings.context),
-      $dimmer      = $context.children(settings.selector.dimmer),
-      dimmerExists = ($dimmer.size() > 0)
-    ;
-    if(dimmerExists) {
-      // callback before unDim
-      settings.unDim();
-      if(settings.duration === 0) {
-        $dimmer
-          .css({
-            visibility: 'hidden'
-          })
-          .remove()
-        ;
-      }
-      else {
-        $dimmer
-          .find('.content')
-            .fadeTo(settings.duration, 0, function(){
-              $dimmer.remove();
-            })
-        ;
-      }
-    }
-    return this;
-  };
+        instantiate: function() {
+          modal.verbose('Storing instance of modal');
+          instance = modal;
+          $modal
+            .data(moduleNamespace, instance)
+          ;
+        },
 
-  $.fn.modal = function(parameters) {
-    var
-      settings        = $.extend(true, {}, $.fn.modal.settings, parameters),
-      // make arguments available
-      query           = arguments[0],
-      passedArguments = [].slice.call(arguments, 1),
-      invokedResponse
-    ;
+        destroy: function() {
+          modal.verbose('Destroying previous modal');
+          $modal
+            .off(eventNamespace)
+          ;
+        },
 
-    $(this)
-      .each(function() {
-        var
-          $modal       = $(this),
-
-          $closeButton = $modal.find(settings.selector.closeButton),
-          $dimmer      = $(settings.context).find(settings.selector.dimmer),
-          $modals      = $(settings.context).children(settings.selector.modal),
-          $otherModals = $modals.not($modal),
-
-          instance      = $modal.data('module-' + settings.namespace),
-          methodInvoked = (typeof query == 'string'),
-
-          className    = settings.className,
-          namespace    = settings.namespace,
-
-          module
-        ;
-
-        module  = {
-
-          initialize: function() {
-            // attach events
-            $modal
-              .on('modalShow.' + namespace, module.show)
-              .on('modalHide.' + namespace, module.hide)
-              .data('module-' + namespace, module)
-            ;
+        event: {
+          close: function() {
+            modal.verbose('Close button pressed');
+            $context.dimmer('hide');
           },
-
-          show: function() {
+          keyboard: function(event) {
             var
-              modalHeight   = $modal.outerHeight(),
-              windowHeight  = $(window).height(),
+              keyCode   = event.which,
+              escapeKey = 27
+            ;
+            if(keyCode == escapeKey) {
+              modal.debug('Escape key pressed hiding modal');
+              $context.dimmer('hide');
+              event.preventDefault();
+            }
+          },
+          resize: function() {
+            modal.cache.sizes();
+            if( $modal.is(':visible') ) {
+              modal.set.type();
+              modal.set.position(); 
+            }
+          }
+        },
 
-              cantFit       = (modalHeight > windowHeight),
-              modalType = (cantFit)
-                ? 'absolute'
-                : 'fixed',
-              topCentering,
-              offsetTop,
-              finalPosition,
-              startPosition
-            ;
+        show: function() {
+          modal.set.type();
+          modal.set.position();
+          modal.hideOthers();
+          if(settings.transition && $.fn.transition !== undefined) {
             $modal
-              .removeClass('absolute fixed')
-              .addClass(modalType)
+              .transition(settings.transition + ' in', settings.duration)
             ;
-            topCentering  = (cantFit)
-              ? '0'
-              : '50%'
-            ;
-            offsetTop     = (cantFit)
-              ? (windowHeight / 8)
-              : -( (modalHeight  - settings.closeSpacing) / 2)
-            ;
-            finalPosition = ($modal.css('position') == 'absolute')
-              ? offsetTop + $(window).prop('pageYOffset')
-              : offsetTop
-            ;
-            startPosition = finalPosition + settings.animationOffset;
-            // set top margin as offset
+          }
+          else {
             $modal
-              .css({
-                top: topCentering,
-                marginTop : finalPosition + 'px'
-              })
+              .fadeIn(settings.duration, settings.easing)
             ;
-            if(settings.transition && $.fn.transition !== undefined) {
+          }
+          $context.dimmer('show');
+        },
+
+        hide: function() {
+          // remove keyboard detection
+          $document
+            .off('keyup.' + namespace)
+          ;
+          if(settings.transition && $.fn.transition !== undefined) {
+            $modal
+              .transition(settings.transition + ' out', settings.duration, settings.unDim)
+            ;
+          }
+          else {
+            $modal
+              .fadeOut(settings.duration, settings.easing, settings.unDim)
+            ;
+          }
+        },
+
+        hideOthers: function() {
+          $otherModals
+            .filter(':visible')
+            .modal('hide')
+          ;
+        },
+
+        add: {
+          keyboardShortcuts: function() {
+            modal.verbose('Adding keyboard shortcuts');
+            $document
+              .on('keyup' + eventNamespace, modal.event.keyboard)
+            ;
+          }
+        },
+
+        remove: {
+          keyboardShortcuts: function() {
+            modal.verbose('Removing keyboard shortcuts');
+            $document
+              .off('keyup' + eventNamespace)
+            ;
+          }
+        },
+
+        cache: {
+          sizes: function() {
+            modal.cache = {
+              height        : $modal.outerHeight() + settings.offset,
+              contextHeight : (settings.context == 'body')
+                ? $(window).height()
+                : $context.height()
+            };
+            modal.debug('Caching modal and container sizes', modal.cache);
+          }
+        },
+
+        can: {
+          fit: function() {
+            return (modal.cache.height < modal.cache.contextHeight);
+          }
+        },
+
+        set: {
+          type: function() {
+            if(modal.can.fit()) {
+              modal.verbose('Modal fits on screen');
+              $modal.removeClass(className.scrolling);
+            }
+            else {
+              modal.verbose('Modal cannot fit on screen setting to scrolling');
+              $modal.addClass(className.scrolling);
+            }
+          },
+          position: function() {
+            modal.verbose('Centering modal on page');
+            if(modal.can.fit()) {
               $modal
-                .transition(settings.transition, settings.duration)
+                .css({
+                  marginTop: -(modal.cache.height / 2)
+                })
               ;
             }
             else {
               $modal
-                .fadeIn(settings.duration, settings.easing)
+                .css({
+                  top: $context.prop('scrollTop')
+                })
               ;
             }
-            if( $otherModals.is(':visible') ) {
-              $otherModals
-                .filter(':visible')
-                  .hide()
-              ;
-            }
-            $.dimScreen({
-              context  : settings.context,
-              duration : 400,
-              dim      : function() {
-                $(document)
-                  .on('keyup.' + namespace, function(event) {
-                    var
-                      keyCode   = event.which,
-                      escapeKey = 27
-                    ;
-                    switch(keyCode) {
-                      case escapeKey:
-                        $modal.modal('hide');
-                        event.preventDefault();
-                        break;
-                    }
-                  })
-                ;
-                $closeButton
-                  .one('click', function() {
-                    $modal.modal('hide');
-                  })
-                ;
-                settings.dim();
-              },
-              unDim: function() {
-                $modal.modal('hide');
-                $closeButton.unbind('click');
-              }
-            });
-          },
+          }
+        },
 
-          hide: function() {
-            // remove keyboard detection
-            $(document)
-              .off('keyup.' + namespace)
-            ;
-            $.unDimScreen({
-              duration: 4000,
-              unDim: function() {
-                if(settings.transition && $.fn.transition !== undefined) {
-                  $modal
-                    .transition(settings.transition, settings.duration, settings.unDim)
-                  ;
-                }
-                else {
-                  $modal
-                    .fadeOut(settings.duration, settings.easing, settings.unDim)
-                  ;
-                }
-              }
-            });
-          },
-          /* standard module */
-          setting: function(name, value) {
-            if(value === undefined) {
-              return settings[name];
+        setting: function(name, value) {
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, settings, name);
             }
-            settings[name] = value;
-          },
-          debug: function() {
-            var
-              output    = [],
-              message   = settings.moduleName + ': ' + arguments[0],
-              variables = [].slice.call( arguments, 1 ),
-              log       = console.info || console.log || function(){}
-            ;
-            if(settings.debug) {
-              output.push(message);
-              log.apply(console, output.concat(variables) );
+            else {
+              settings[name] = value;
             }
-          },
-          error: function() {
-            var
-              output       = [],
-              errorMessage = settings.moduleName + ': ' + arguments[0],
-              variables    = [].slice.call( arguments, 1 ),
-              log          = console.warn || console.log || function(){}
-            ;
-            if(settings.debug) {
-              output.push(errorMessage);
-              output.concat(variables);
-              log.apply(console, output.concat(variables) );
+          }
+          else {
+            return settings[name];
+          }
+        },
+        internal: function(name, value) {
+          if(value !== undefined) {
+            if( $.isPlainObject(name) ) {
+              $.extend(true, modal, name);
             }
-          },
-          invoke: function(query, context, passedArguments) {
+            else {
+              modal[name] = value;
+            }
+          }
+          else {
+            return modal[name];
+          }
+        },
+        debug: function() {
+          if(settings.debug) {
+            if(settings.performance) {
+              modal.performance.log(arguments);
+            }
+            else {
+              modal.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              modal.debug.apply(console, arguments);
+            }
+          }
+        },
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              modal.performance.log(arguments);
+            }
+            else {
+              modal.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              modal.verbose.apply(console, arguments);
+            }
+          }
+        },
+        error: function() {
+          modal.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          modal.error.apply(console, arguments);
+        },
+        performance: {
+          log: function(message) {
             var
-              maxDepth,
-              found
+              currentTime,
+              executionTime,
+              previousTime
             ;
-            passedArguments = passedArguments || [].slice.call( arguments, 2 );
-            if(typeof query == 'string' && instance !== undefined) {
-              query    = query.split(/[\. ]/);
-              maxDepth = query.length - 1;
-              $.each(query, function(depth, value) {
-                if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                  instance = instance[value];
-                  return true;
-                }
-                else if( instance[value] !== undefined ) {
-                  found = instance[value];
-                  return true;
-                }
-                module.error(settings.errors.method);
-                return false;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime;
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Element'        : element,
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
+                'Execution Time' : executionTime
               });
             }
-            if ( $.isFunction( found ) ) {
-              return found.apply(context, passedArguments);
+            clearTimeout(modal.performance.timer);
+            modal.performance.timer = setTimeout(modal.performance.display, 100);
+          },
+          display: function() {
+            var
+              title = settings.moduleName + ':',
+              totalTime = 0
+            ;
+            time = false;
+            clearTimeout(modal.performance.timer);
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
             }
-            // return retrieved variable or chain
-            return found;
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
           }
-        };
+        },
+        invoke: function(query, passedArguments, context) {
+          var
+            maxDepth,
+            found
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && instance !== undefined) {
+            query    = query.split(/[\. ]/);
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
+              }
+              else {
+                modal.error(error.method);
+              }
+            });
+          }
+          if ( $.isFunction( found ) ) {
+            return found.apply(context, passedArguments);
+          }
+          return found || false;
+        }
+      };
 
-        // check for invoking internal method
-        if(methodInvoked) {
-          invokedResponse = module.invoke(query, this, passedArguments);
+      if(methodInvoked) {
+        if(instance === undefined) {
+          modal.initialize();
         }
-        // otherwise initialize
-        else {
-          module.initialize();
+        invokedResponse = modal.invoke(query);
+      }
+      else {
+        if(instance !== undefined) {
+          modal.destroy();
         }
-      })
-    ;
-    // chain or return queried method
+        modal.initialize();
+      }
+    })
+  ;
+};
+
+$.fn.modal.settings = {
+
+  moduleName  : 'Modal',
+  namespace   : 'modal',
   
-    return (invokedResponse)
-      ? invokedResponse
-      : this
-    ;
-  };
+  verbose     : true,
+  debug       : true,
+  performance : true,
 
-  $.fn.modal.settings = {
+  selector   : {
+    closeButton : '.close'
+  },
 
-    moduleName      : 'Modal',
-    debug           : false,
-    namespace       : 'modal',
+  error : {
+    method : 'The method you called is not defined.'
+  },
 
-    errors: {
-      method     : 'The method you called is not defined'
-    },
+  className : {
+    scrolling : 'scrolling'
+  },
 
-    dim             : function(){},
-    unDim           : function(){},
-    hide            : function(){},
-    show            : function(){},
+  onShow     : function(){},
+  onHide     : function(){},
 
-    transition      : 'scale',
+  transition : 'scale',
 
-    context         : 'body',
-    opacity         : 0.8,
+  context    : 'body',
+  offset     : -25,
 
-    closeSpacing    : 25,
-    animationOffset : 15,
-
-    duration        : 400,
-    easing          : 'easeOutExpo',
-
-    selector        : {
-      dimmer      : '#dimmer',
-      modal       : '.modal',
-      closeButton : '.close'
-    }
-  };
+  duration   : 400,
+  easing     : 'easeOutExpo'
+};
 
 
 })( jQuery, window , document );
