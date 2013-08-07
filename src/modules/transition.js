@@ -113,6 +113,7 @@ $.fn.transition = function() {
             .one(animationEnd, module.complete)
           ;
           if(!module.has.direction() && module.can.transition()) {
+            console.log($module.attr('class'));
             module.set.direction();
           }
           if(!module.can.animate()) {
