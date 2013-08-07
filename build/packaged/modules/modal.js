@@ -171,29 +171,20 @@
             ;
             startPosition = finalPosition + settings.animationOffset;
             // set top margin as offset
-            if($.fn.popIn !== undefined) {
+            $modal
+              .css({
+                top: topCentering,
+                marginTop : finalPosition + 'px'
+              })
+            ;
+            if(settings.transition && $.fn.transition !== undefined) {
               $modal
-                .css({
-                  display   : 'block',
-                  opacity   : 0,
-                  top: topCentering,
-                  marginTop : finalPosition + 'px'
-                })
-                .popIn()
+                .transition(settings.transition, settings.duration)
               ;
             }
             else {
               $modal
-                .css({
-                  display   : 'block',
-                  opacity   : 0,
-                  top: topCentering,
-                  marginTop : startPosition + 'px'
-                })
-                .animate({
-                  opacity   : 1,
-                  marginTop : finalPosition + 'px'
-                }, (settings.duration + 300), settings.easing)
+                .fadeIn(settings.duration, settings.easing)
               ;
             }
             if( $otherModals.is(':visible') ) {
@@ -204,7 +195,7 @@
             }
             $.dimScreen({
               context  : settings.context,
-              duration : 0,
+              duration : 400,
               dim      : function() {
                 $(document)
                   .on('keyup.' + namespace, function(event) {
@@ -240,12 +231,18 @@
               .off('keyup.' + namespace)
             ;
             $.unDimScreen({
-              duration: 0,
+              duration: 4000,
               unDim: function() {
-                $modal
-                  .popOut(200)
-                ;
-                settings.unDim();
+                if(settings.transition && $.fn.transition !== undefined) {
+                  $modal
+                    .transition(settings.transition, settings.duration, settings.unDim)
+                  ;
+                }
+                else {
+                  $modal
+                    .fadeOut(settings.duration, settings.easing, settings.unDim)
+                  ;
+                }
               }
             });
           },
@@ -343,6 +340,8 @@
     unDim           : function(){},
     hide            : function(){},
     show            : function(){},
+
+    transition      : 'scale',
 
     context         : 'body',
     opacity         : 0.8,
