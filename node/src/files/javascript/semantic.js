@@ -34,6 +34,7 @@ semantic.ready = function() {
     $waypoints    = $('.main.container').find('h2').first().siblings('h2').andSelf(),
 
     $menuPopup    = $('.ui.main.menu .popup.item'),
+    $menuDropdown = $('.ui.main.menu .dropdown'),
 
     $example      = $('.example'),
     $shownExample = $example.filter('.shown'),
@@ -446,6 +447,13 @@ semantic.ready = function() {
       className: {
         popup: 'ui popup'
       }
+    })
+  ;
+
+  $menuDropdown
+    .dropdown({
+      on     : 'hover',
+      action : 'none'
     })
   ;
 

@@ -76,6 +76,7 @@
   <script src="/components/semantic/modules/behavior/state.js"></script>
   <script src="/components/semantic/modules/checkbox.js"></script>
   <script src="/components/semantic/modules/dimmer.js"></script>
+  <script src="/components/semantic/modules/dropdown.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
   <script src="/components/semantic/modules/tab.js"></script>
   <script src="/components/semantic/modules/transition.js"></script>
@@ -167,8 +168,8 @@
         <i class="left arrow icon"></i>
         <% end %>
       </div>
-      <div class="section ui simple dropdown item">
-        <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
+      <div class="section ui dropdown item">
+        <a class="count"><%= "#{pageNumber} of #{pageCount}" %></a>
         <div class="menu">
           <% for element, index in currentCollection: %>
             <div class="<%= if element.id is @document.id then 'active ' %>item">
