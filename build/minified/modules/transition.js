@@ -314,7 +314,7 @@ $.fn.transition = function() {
 
           animationName: function() {
             var
-              element     = document.createElement('element'),
+              element     = document.createElement('div'),
               animations  = {
                 'animation'       :'animationName',
                 'OAnimation'      :'oAnimationName',
@@ -334,7 +334,7 @@ $.fn.transition = function() {
 
           animationEvent: function() {
             var
-              element     = document.createElement('element'),
+              element     = document.createElement('div'),
               animations  = {
                 'animation'       :'animationend',
                 'OAnimation'      :'oAnimationEnd',
@@ -367,17 +367,18 @@ $.fn.transition = function() {
           },
           transition: function() {
             var
-              currentAnimation = $module.css(animationName),
-              inAnimation      = $module.addClass(className.inward).css(animationName)
+              $clone           = $('<div>').addClass( $module.attr('class') ).appendTo($('body')),
+              currentAnimation = $clone.css(animationName),
+              inAnimation      = $clone.addClass(className.inward).css(animationName)
             ;
             if(currentAnimation != inAnimation) {
               module.debug('In/out transitions exist');
-              $module.removeClass(className.inward);
+              $clone.remove();
               return true;
             }
             else {
               module.debug('Static animation found');
-              $module.removeClass(className.inward);
+              $clone.remove();
               return false;
             }
           }
@@ -597,6 +598,7 @@ $.fn.transition.settings = {
     transition : 'ui transition',
     animating  : 'animating',
     looping    : 'looping',
+    loading    : 'loading',
     disabled   : 'disabled',
     hidden     : 'hidden',
     visible    : 'visible',
