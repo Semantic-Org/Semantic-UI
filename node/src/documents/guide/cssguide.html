@@ -283,6 +283,15 @@ type   : 'UI Guide'
     }
     </div>
     
+    <h4 class="ui header">CSS :not is Awesome</h4>
+    <p>Inheritance can be hell sometimes. Consider changing the opacity of an element. There is no way to "cancel out" of that opacity change on content inside. Sometimes the only way to avoid creating inheritance problems is to specify what elements should not receive a set of rules. Consider blurring content while a dimmer is present. Blurring should only apply to elements that are not inside the dimmer, but there is no way to know what the content is beforehand.</p>
+    <div class="code" data-type="css">
+    /* blur everything but the dimmer */
+    body.dimmed > :not(.dimmer){
+      -webkit-filter: ~"blur(15px) grayscale(0.7)";
+      -moz-filter: ~"blur(15px) grayscale(0.7)";
+    }
+    </div>
 
     <h4 class="ui header">Prevent Accidental Highlighting</h4>
     <p>Sometimes text can be accidentally highlighted when a user double clicks an element. No need to pull out javascript to solve this.</p>

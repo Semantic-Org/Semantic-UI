@@ -113,7 +113,6 @@ $.fn.transition = function() {
             .one(animationEnd, module.complete)
           ;
           if(!module.has.direction() && module.can.transition()) {
-            console.log($module.attr('class'));
             module.set.direction();
           }
           if(!module.can.animate()) {
@@ -139,11 +138,11 @@ $.fn.transition = function() {
         complete: function () {
           module.verbose('CSS animation complete', settings.animation);
           if(!module.is.looping()) {
-            if($module.hasClass(className.outward) && !instance.queuing) {
+            if($module.hasClass(className.outward)) {
               module.restore.conditions();
               module.hide();
             }
-            else if($module.hasClass(className.inward) && !instance.queuing) {
+            else if($module.hasClass(className.inward)) {
               module.restore.conditions();
               module.show();
             }
