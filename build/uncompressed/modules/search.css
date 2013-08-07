@@ -179,6 +179,7 @@
 .ui.search.loading .input .icon {
   background: url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
+.ui.search.loading .input .icon:before,
 .ui.search.loading .input .icon:after {
   display: none;
 }

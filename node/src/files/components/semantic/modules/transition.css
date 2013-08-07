@@ -158,10 +158,10 @@
   animation-name: fadeUp;
 }
 .ui.fade.up.transition.out {
-  -webkit-animation-name: fadeDown;
-  -moz-animation-name: fadeDown;
-  -o-animation-name: fadeDown;
-  animation-name: fadeDown;
+  -webkit-animation-name: fadeUp;
+  -moz-animation-name: fadeUp;
+  -o-animation-name: fadeUp;
+  animation-name: fadeUp;
 }
 .ui.fade.down.transition.in {
   -webkit-animation-name: fadeDown;
@@ -170,10 +170,10 @@
   animation-name: fadeDown;
 }
 .ui.fade.down.transition.out {
-  -webkit-animation-name: fadeUp;
-  -moz-animation-name: fadeUp;
-  -o-animation-name: fadeUp;
-  animation-name: fadeUp;
+  -webkit-animation-name: fadeDown;
+  -moz-animation-name: fadeDown;
+  -o-animation-name: fadeDown;
+  animation-name: fadeDown;
 }
 /*--------------
       Scale
