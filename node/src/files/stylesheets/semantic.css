@@ -265,8 +265,12 @@ a:hover {
   z-index: 999;
 }
 #example .main.menu .count {
-  font-family: "Hevletica Neue", Arial, sans-serif;
-  font-size: 0.8em;
+/*   font-family: "Hevletica Neue", Arial, sans-serif;
+font-size: 0.8em; */
+  color: rgba(255, 255, 255, 0.6);
+}
+#example .main.menu .count:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* lists */

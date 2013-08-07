@@ -58,6 +58,7 @@ $.fn.shape = function(parameters) {
         initialize: function() {
           module.verbose('Initializing module for', element);
           module.set.defaultSide();
+          module.instantiate();
         },
 
         instantiate: function() {
