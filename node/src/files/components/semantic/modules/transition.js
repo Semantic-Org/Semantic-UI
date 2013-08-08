@@ -565,7 +565,7 @@ $.fn.transition = function() {
       module.initialize();
     })
   ;
-  return (invokedResponse)
+  return (invokedResponse !== undefined)
     ? invokedResponse
     : this
   ;

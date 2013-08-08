@@ -494,7 +494,7 @@ $.fn.form = function(fields, parameters) {
     })
   ;
 
-  return (invokedResponse)
+  return (invokedResponse !== undefined)
     ? invokedResponse
     : this
   ;

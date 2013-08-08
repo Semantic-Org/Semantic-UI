@@ -543,7 +543,8 @@ $.fn.dropdown = function(parameters) {
         invoke: function(query, passedArguments, context) {
           var
             maxDepth,
-            found
+            found,
+            response
           ;
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
@@ -563,7 +564,19 @@ $.fn.dropdown = function(parameters) {
             });
           }
           if ( $.isFunction( found ) ) {
-            return found.apply(context, passedArguments);
+            response = found.apply(context, passedArguments);
+          }
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(invokedResponse)) {
+            invokedResponse.push(response);
+          }
+          else if(typeof invokedResponse == 'string') {
+            invokedResponse = [invokedResponse, response];
+          }
+          else if(response !== undefined) {
+            invokedResponse = response;
           }
           return found || false;
         }
@@ -573,7 +586,7 @@ $.fn.dropdown = function(parameters) {
         if(instance === undefined) {
           module.initialize();
         }
-        invokedResponse = module.invoke(query);
+        module.invoke(query);
       }
       else {
         if(instance !== undefined) {
@@ -584,7 +597,7 @@ $.fn.dropdown = function(parameters) {
     })
   ;
 
-  return (invokedResponse)
+  return (invokedResponse !== undefined)
     ? invokedResponse
     : this
   ;
