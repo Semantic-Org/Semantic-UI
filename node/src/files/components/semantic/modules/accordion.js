@@ -336,7 +336,7 @@ $.fn.accordion = function(parameters) {
       }
     })
   ;
-  return (invokedResponse)
+  return (invokedResponse !== undefined)
     ? invokedResponse
     : this
   ;
