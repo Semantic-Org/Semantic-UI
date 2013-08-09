@@ -177,5 +177,5 @@ Here is part of Semantic's definition of a button
 
 #### I want to contribute to the spec
 
-Semantic is very new standard, and we need a community to become truly useful. We're working currently to determine the best ways to engage the community for contribution. If you'd like to participate feel free to reach out by e-mail [semantic@quirky.com](mailto:semantic@quirky.com)
+Semantic is very new standard, and we need a community to become truly useful. We're working currently to determine the best ways to engage the community for contribution. If you'd like to participate feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
