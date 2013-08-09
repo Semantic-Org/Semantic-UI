@@ -20,12 +20,13 @@ $.fn.dropdown = function(parameters) {
     metadata        = settings.metadata,
     namespace       = settings.namespace,
     selector        = settings.selector,
-    errors          = settings.errors,
+    error           = settings.error,
     
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
     
+    isTouchDevice   = ('ontouchstart' in document.documentElement),
     time            = new Date().getTime(),
     performance     = [],
     
@@ -43,8 +44,6 @@ $.fn.dropdown = function(parameters) {
         $item         = $(this).find(selector.item),
         $text         = $(this).find(selector.text),
         $input        = $(this).find(selector.input),
-        
-        isTouchDevice = ('ontouchstart' in document.documentElement),
         
         element       = this,
         instance      = $module.data(moduleNamespace),
@@ -187,7 +186,7 @@ $.fn.dropdown = function(parameters) {
               settings.action(text, value);
             }
             else {
-              module.error(errors.action);
+              module.error(error.action);
             }
           },
 
@@ -335,7 +334,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
-              module.error(errors.animation);
+              module.error(error.animation);
             }
           },
           hide: function(callback) {
@@ -377,7 +376,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
-              module.error(errors.animation);
+              module.error(error.animation);
             }
           }
         },
@@ -552,14 +551,27 @@ $.fn.dropdown = function(parameters) {
             query    = query.split(/[\. ]/);
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
               }
+              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+                instance = instance[camelCaseValue];
+              }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
+                return false;
+              }
+              else if( instance[camelCaseValue] !== undefined ) {
+                found = instance[camelCaseValue];
+                return false;
               }
               else {
-                module.error(errors.method);
+                module.error(error.method);
+                return false;
               }
             });
           }
@@ -578,7 +590,7 @@ $.fn.dropdown = function(parameters) {
           else if(response !== undefined) {
             invokedResponse = response;
           }
-          return found || false;
+          return found;
         }
       };
 
@@ -627,7 +639,7 @@ $.fn.dropdown.settings = {
   onShow   : function(){},
   onHide   : function(){},
   
-  errors   : {
+  error   : {
     action    : 'You called a dropdown action that was not defined',
     method    : 'The method you called is not defined.',
     animation : 'The requested animation was not found'

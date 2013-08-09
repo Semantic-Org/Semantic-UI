@@ -45,7 +45,7 @@
           colors    = settings.colors,
           paths     = settings.paths,
           namespace = settings.namespace,
-          errors    = settings.errors,
+          error     = settings.error,
 
           // boilerplate
           instance   = $module.data('module-' + namespace),
@@ -58,7 +58,7 @@
             module.debug('Checking pre-conditions');
 
             if( !$.isPlainObject(colors) || $.isEmptyObject(colors) ) {
-              module.error(errors.undefinedColors);
+              module.error(error.undefinedColors);
               return false;
             }
             return true;
@@ -80,7 +80,7 @@
             width     = settings.width        || $module.width();
             height    = settings.height       || $module.height();
             if(width === 0 || height === 0) {
-              module.error(errors.undefinedSize);
+              module.error(error.undefinedSize);
             }
           },
 
@@ -116,7 +116,7 @@
             color: function(colorName, color) {
               module.debug('Changing color', colorName);
               if(colors[colorName] === undefined) {
-                module.error(errors.missingColor);
+                module.error(error.missingColor);
                 return false;
               }
               colors[colorName] = color;
@@ -151,7 +151,7 @@
             },
             merge: function() {
               if( !$.isFunction(mainContext.blendOnto) ) {
-                module.error(errors.missingPlugin);
+                module.error(error.missingPlugin);
                 return;
               }
               mainContext.putImageData( imageContext.getImageData(0, 0, width, height), 0, 0);
@@ -172,7 +172,7 @@
                 };
               }
               else {
-                module.error(errors.noImage);
+                module.error(error.noImage);
                 callback();
               }
             },
@@ -216,7 +216,7 @@
                   method = instance[name];
                   return true;
                 }
-                module.error(settings.errors.method);
+                module.error(settings.error.method);
                 return false;
               });
             }
@@ -258,7 +258,7 @@
       name  : 'name'
     },
 
-    errors: {
+    error: {
       noImage         : 'No tracing image specified',
       undefinedColors : 'No default colors specified.',
       missingColor    : 'Attempted to change color that does not exist',

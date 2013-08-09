@@ -67,7 +67,7 @@
       
       className       = settings.className,
       metadata        = settings.metadata,
-      errors          = settings.errors,
+      error           = settings.error,
       
       instance        = $module.data(moduleNamespace),
       
@@ -94,9 +94,7 @@
           data,
 
           ajaxSettings   = {},
-          xhr,
-
-          errors = settings.errors
+          xhr
         ;
 
         // serialize parent form if requested!
@@ -111,7 +109,7 @@
 
         // check for exit conditions
         if(runSettings !== undefined && !runSettings) {
-          module.error(errors.beforeSend);
+          module.error(error.beforeSend);
           module.reset();
           return;
         }
@@ -121,7 +119,7 @@
 
         // exit conditions reached from missing url parameters
         if( !url ) {
-          module.error(errors.missingURL);
+          module.error(error.missingURL);
           module.reset();
           return;
         }
@@ -158,8 +156,8 @@
             })
             .fail(function(xhr, status, httpMessage) {
               var
-                errorMessage = (settings.errors[status] !== undefined)
-                  ? settings.errors[status]
+                errorMessage = (settings.error[status] !== undefined)
+                  ? settings.error[status]
                   : httpMessage,
                 response
               ;
@@ -170,7 +168,7 @@
                   
                   // if http status code returned and json returned error, look for it
                   if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
-                    module.error(errors.statusMessage + httpMessage);
+                    module.error(error.statusMessage + httpMessage);
                   }
                   else {
                     if(status == 'error' && settings.dataType == 'json') {
@@ -181,7 +179,7 @@
                         }
                       }
                       catch(error) {
-                        module.error(errors.JSONParse);
+                        module.error(error.JSONParse);
                       }
                     }
                   }
@@ -317,7 +315,7 @@
               url = settings.api[action];
             }
             else {
-              module.error(errors.missingAction);
+              module.error(error.missingAction);
             }
           }
           // override with url if specified
@@ -354,7 +352,7 @@
                 }
                 // undefined condition
                 else if(termValue === undefined || !termValue) {
-                  module.error(errors.missingParameter + term);
+                  module.error(error.missingParameter + term);
                   url = false;
                   return false;
                 }
@@ -486,7 +484,8 @@
       invoke: function(query, passedArguments, context) {
         var
           maxDepth,
-          found
+          found,
+          response
         ;
         passedArguments = passedArguments || queryArguments;
         context         = element         || context;
@@ -494,22 +493,46 @@
           query    = query.split(/[\. ]/);
           maxDepth = query.length - 1;
           $.each(query, function(depth, value) {
+            var camelCaseValue = (depth != maxDepth)
+              ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+              : query
+            ;
             if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
               instance = instance[value];
             }
+            else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              instance = instance[camelCaseValue];
+            }
             else if( instance[value] !== undefined ) {
               found = instance[value];
+              return false;
+            }
+            else if( instance[camelCaseValue] !== undefined ) {
+              found = instance[camelCaseValue];
+              return false;
             }
             else {
-              module.error(errors.method);
+              module.error(error.method);
+              return false;
             }
           });
         }
         if ( $.isFunction( found ) ) {
-          module.verbose('Executing invoked function', found);
-          return found.apply(context, passedArguments);
+          response = found.apply(context, passedArguments);
         }
-        return found || false;
+        else if(found !== undefined) {
+          response = found;
+        }
+        if($.isArray(invokedResponse)) {
+          invokedResponse.push(response);
+        }
+        else if(typeof invokedResponse == 'string') {
+          invokedResponse = [invokedResponse, response];
+        }
+        else if(response !== undefined) {
+          invokedResponse = response;
+        }
+        return found;
       }
     };
 
@@ -590,7 +613,7 @@
     failure     : function(errorCode) {},
     progress    : false,
 
-    errors      : {
+    error : {
       missingAction    : 'API action used but no url was defined',
       missingURL       : 'URL not specified for the API action',
       missingParameter : 'Missing an essential URL parameter: ',

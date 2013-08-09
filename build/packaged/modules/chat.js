@@ -10,7 +10,13 @@
 
   $.fn.chat = function(key, channelName, parameters) {
     var
-      settings = $.extend(true, {}, $.fn.chat.settings, parameters),
+      settings  = $.extend(true, {}, $.fn.chat.settings, parameters),
+      
+      className = settings.className,
+      namespace = settings.namespace,
+      selector  = settings.selector,
+      error     = settings.error,
+
       // hoist arguments
       moduleArguments = arguments || false
     ;
@@ -19,23 +25,20 @@
         var
           $module         = $(this),
 
-          $expandButton   = $module.find(settings.selector.expandButton),
-          $userListButton = $module.find(settings.selector.userListButton),
+          $expandButton   = $module.find(selector.expandButton),
+          $userListButton = $module.find(selector.userListButton),
           
-          $userList       = $module.find(settings.selector.userList),
-          $room           = $module.find(settings.selector.room),
-          $userCount      = $module.find(settings.selector.userCount),
+          $userList       = $module.find(selector.userList),
+          $room           = $module.find(selector.room),
+          $userCount      = $module.find(selector.userCount),
 
-          $log            = $module.find(settings.selector.log),
-          $message        = $module.find(settings.selector.message),
+          $log            = $module.find(selector.log),
+          $message        = $module.find(selector.message),
 
-          $messageInput   = $module.find(settings.selector.messageInput),
-          $messageButton  = $module.find(settings.selector.messageButton),
+          $messageInput   = $module.find(selector.messageInput),
+          $messageButton  = $module.find(selector.messageButton),
 
           instance        = $module.data('module'),
-
-          className       = settings.className,
-          namespace       = settings.namespace,
 
           html            = '',
           users           = {},
@@ -63,14 +66,14 @@
 
             // check error conditions
             if(Pusher === undefined) {
-              module.error(settings.errors.pusher);
+              module.error(error.pusher);
             }
             if(key === undefined || channelName === undefined) {
-              module.error(settings.errors.key);
+              module.error(error.key);
               return false;
             }
             else if( !(settings.endpoint.message || settings.endpoint.authentication) ) {
-              module.error(settings.errors.endpoint);
+              module.error(error.endpoint);
               return false;
             }
 
@@ -454,7 +457,7 @@
                   method = instance[name];
                   return true;
                 }
-                module.error(settings.errors.method);
+                module.error(error.method);
                 return false;
               });
             }
