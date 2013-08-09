@@ -77,7 +77,7 @@ $.fn.transition = function() {
             invokedResponse = module.invoke(query);
           }
           // no internal method was found matching query or query not made
-          if(!methodInvoked || invokedResponse === false) {
+          if(!methodInvoked || invokedResponse === undefined) {
             module.animate();
           }
         },
@@ -563,7 +563,6 @@ $.fn.transition = function() {
                 return false;
               }
               else {
-                module.error(error.method);
                 return false;
               }
             });
