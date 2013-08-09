@@ -14,18 +14,25 @@
 
 $.fn.checkbox = function(parameters) {
   var
-    $allModules     = $(this),
+    $allModules    = $(this),
+    
+    settings       = $.extend(true, {}, $.fn.checkbox.settings, parameters),
+    
+    className      = settings.className,
+    namespace      = settings.namespace,
+    error          = settings.error,
 
-    settings        = $.extend(true, {}, $.fn.checkbox.settings, parameters),
-
-    moduleSelector  = $allModules.selector || '',
-
-    time            = new Date().getTime(),
-    performance     = [],
-
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
+    eventNamespace  = '.' + namespace,
+    moduleNamespace = 'module-' + namespace,
+    
+    moduleSelector = $allModules.selector || '',
+    
+    time           = new Date().getTime(),
+    performance    = [],
+    
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
     invokedResponse
   ;
 
@@ -35,17 +42,11 @@ $.fn.checkbox = function(parameters) {
         $module         = $(this),
         $label          = $(this).next(settings.selector.label).first(),
         $input          = $(this).find(settings.selector.input),
-        
-        eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = 'module-' + settings.namespace,
 
         selector        = $module.selector || '',
-        element         = this,
         instance        = $module.data(moduleNamespace),
         
-        className       = settings.className,
-        namespace       = settings.namespace,
-        errors          = settings.errors,
+        element         = this,
         module
       ;
 
@@ -236,7 +237,8 @@ $.fn.checkbox = function(parameters) {
         invoke: function(query, passedArguments, context) {
           var
             maxDepth,
-            found
+            found,
+            response
           ;
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
@@ -244,21 +246,46 @@ $.fn.checkbox = function(parameters) {
             query    = query.split(/[\. ]/);
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
               }
+              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+                instance = instance[camelCaseValue];
+              }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
+                return false;
+              }
+              else if( instance[camelCaseValue] !== undefined ) {
+                found = instance[camelCaseValue];
+                return false;
               }
               else {
-                module.error(errors.method);
+                module.error(error.method);
+                return false;
               }
             });
           }
           if ( $.isFunction( found ) ) {
-            return found.apply(context, passedArguments);
+            response = found.apply(context, passedArguments);
           }
-          return found || false;
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(invokedResponse)) {
+            invokedResponse.push(response);
+          }
+          else if(typeof invokedResponse == 'string') {
+            invokedResponse = [invokedResponse, response];
+          }
+          else if(response !== undefined) {
+            invokedResponse = response;
+          }
+          return found;
         }
       };
 
@@ -300,7 +327,7 @@ $.fn.checkbox.settings = {
   onEnable    : function(){},
   onDisable   : function(){},
 
-  errors     : {
+  error     : {
     method   : 'The method you called is not defined.'
   },
 

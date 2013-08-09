@@ -568,7 +568,8 @@ $.fn.popup = function(parameters) {
         invoke: function(query, passedArguments, context) {
           var
             maxDepth,
-            found
+            found,
+            response
           ;
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
@@ -576,21 +577,46 @@ $.fn.popup = function(parameters) {
             query    = query.split(/[\. ]/);
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
               }
+              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+                instance = instance[camelCaseValue];
+              }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
+                return false;
+              }
+              else if( instance[camelCaseValue] !== undefined ) {
+                found = instance[camelCaseValue];
+                return false;
               }
               else {
                 module.error(error.method);
+                return false;
               }
             });
           }
           if ( $.isFunction( found ) ) {
-            return found.apply(context, passedArguments);
+            response = found.apply(context, passedArguments);
           }
-          return found || false;
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(invokedResponse)) {
+            invokedResponse.push(response);
+          }
+          else if(typeof invokedResponse == 'string') {
+            invokedResponse = [invokedResponse, response];
+          }
+          else if(response !== undefined) {
+            invokedResponse = response;
+          }
+          return found;
         }
       };
 
