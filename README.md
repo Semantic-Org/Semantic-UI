@@ -1,3 +1,9 @@
+# Pre-Release
+
+This is a pre-release version of Semantic, many features may be broken or missing. Build tools are not yet available, and APIs may be updated regularly. 
+
+**Please use at your own discretion.**
+
 # Semantic
 
 Semantic is a set of specifications for sharing UI elements between developers. Semantic is also a UI library to make front end development simpler and easier to learn.
