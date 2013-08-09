@@ -83,7 +83,7 @@ $.fn.sidebar = function(parameters) {
             }
             else {
               module.error(error.notFound);
-            }
+            } 
           }
 
         },
