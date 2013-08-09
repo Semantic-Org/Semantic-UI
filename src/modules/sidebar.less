@@ -1,0 +1,124 @@
+/*******************************
+  Semantic Module: Sidebar
+  Author: Jack Lukic
+  Notes: First Commit March 25, 2013
+  Sidebar Menu System
+*******************************/
+
+/*******************************
+            Sidebar
+*******************************/
+
+.ui.sidebar {
+  position: fixed;
+
+  -webkit-transform: translateX(-275px);
+  -moz-transform: translateX(-275px);
+  -o-transform: translateX(-275px);
+  -ms-transform: translateX(-275px);
+  transform: translateX(-275px);
+
+  width: 275px;
+  height: 100%;
+
+  -ms-overflow-y: auto;
+  overflow-y: auto;
+  top: 0px;
+  left: 0px;
+  z-index: 900;
+
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -moz-transition: -moz-transform 0.5s ease;
+  transition: transform 0.5s ease;
+}
+
+
+/*******************************
+            Types
+*******************************/
+
+.ui.right.sidebar {
+  left: auto;
+  right: 0px;
+  -webkit-transform: translateX(275px);
+  -moz-transform: translateX(275px);
+  -o-transform: translateX(275px);
+  -ms-transform: translateX(275px);
+  transform: translateX(275px);
+}
+
+.ui.top.sidebar {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  -webkit-transform: translateY(-40px);
+  -moz-transform: translateY(-40px);
+  -o-transform: translateY(-40px);
+  -ms-transform: translateY(-40px);
+  transform: translateY(-40px);
+}
+
+.ui.bottom.sidebar {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  top: auto;
+  bottom: 0px;
+  -webkit-transform: translateY(40px);
+  -moz-transform: translateY(40px);
+  -o-transform: translateY(40px);
+  -ms-transform: translateY(40px);
+  transform: translateY(40px);
+}
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.active.sidebar {
+  -webkit-transform: translateX(0deg);
+  -moz-transform: translateX(0deg);
+  -o-transform: translateX(0deg);
+  -ms-transform: translateX(0deg);
+  transform: translateX(0deg);
+}
+
+.ui.active.top.sidebar,
+.ui.active.bottom.sidebar {
+  -webkit-transform: translateY(0deg);
+  -moz-transform: translateY(0deg);
+  -o-transform: translateY(0deg);
+  -ms-transform: translateY(0deg);
+  transform: translateY(0deg);
+}
+
+
+
+/*******************************
+           Variations
+*******************************/
+
+.ui.floating.sidebar {
+  -webkit-box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ui.right.floating.sidebar {
+  -webkit-box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ui.top.floating.sidebar {
+  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ui.bottom.floating.sidebar {
+  -webkit-box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
+}
