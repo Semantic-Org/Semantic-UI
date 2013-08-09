@@ -74,7 +74,7 @@ $.fn.transition = function() {
             module.instantiate();
           }
           if(methodInvoked) {
-            invokedResponse = module.invoke(query);
+            module.invoke(query);
           }
           // no internal method was found matching query or query not made
           if(!methodInvoked || invokedResponse === undefined) {
