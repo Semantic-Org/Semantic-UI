@@ -133,8 +133,8 @@
      Active
 ---------------*/
 
-.ui.buttons .button.active,
-.ui.button.active {
+.ui.buttons .active.button,
+.ui.active.button {
   opacity: 1 !important;
   background-color: #E6E6E6;
 
@@ -154,10 +154,10 @@
     0em 0.125em 0.125em 0em rgba(0, 0, 0, 0.1) inset
   ;
 }
-.ui.buttons .button.active,
-.ui.buttons .button.active a,
-.ui.button.active,
-.ui.button.active a {
+.ui.buttons .active.button,
+.ui.buttons .active.button a,
+.ui.active.button,
+.ui.active.button a {
   color: #666666;
 }
 
@@ -196,9 +196,9 @@
      Error
 ---------------*/
 
-.ui.button.error,
-.ui.button.error.hover,
-.ui.button.error.down {
+.ui.error.button,
+.ui.error.button.hover,
+.ui.error.button.down {
   cursor: default;
   
   position: relative !important;
@@ -212,11 +212,11 @@
   -ms-transition: all 0s linear;
   transition: all 0s linear;
 }
-.ui.button.error .icon {
+.ui.error.button .icon {
   opacity: 1;
   color: #FFFFFF;
 }
-.ui.button.error:after {
+.ui.error.button:after {
   position: absolute;
   left: 50%;
   content: "Error";
@@ -229,7 +229,7 @@
   -o-animation: button-text 0.5s;
   animation: button-text 0.5s;
 }
-.ui.button.error .icon:before {
+.ui.error.button .icon:before {
   font-family: 'Icons';
   content: '\26a0';
 }
@@ -238,22 +238,22 @@
      Success
 ---------------*/
 
-.ui.button.success,
-.ui.button.success.hover,
-.ui.button.success.down {
+.ui.success.button,
+.ui.success.button.hover,
+.ui.success.button.down {
   position: relative !important;
   background-color: #5BBD72 !important;
   color: transparent !important;
 }
-.ui.button.success .icon {
+.ui.success.button .icon {
   opacity: 1;
   color: #FFFFFF;
 }
-.ui.button.success .icon:before {
+.ui.success.button .icon:before {
   font-family: 'Icons';
   content: '\2611';
 }
-.ui.button.success:after {
+.ui.success.button:after {
   position: absolute;
   left: 50%;
   content: "Success";
@@ -304,8 +304,8 @@
     Loading
 ---------------*/
 
-.ui.button.loading,
-.ui.button.loading.hover {
+.ui.loading.button,
+.ui.loading.button.hover {
   position: relative;
   cursor: default;
 
@@ -324,7 +324,7 @@
   -ms-transition: all 0s linear;
   transition: all 0s linear;
 }
-.ui.button.loading:after {
+.ui.loading.button:after {
   position: absolute;
   top: 0em;
   left: 0em;
@@ -334,7 +334,7 @@
   background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
 
-.ui.labeled.icon.button.loading .icon {
+.ui.labeled.icon.loading.button .icon {
   background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -345,9 +345,9 @@
       Disabled
 --------------------*/
 
-.ui.button.disabled,
-.ui.button.disabled.hover,
-.ui.button.disabled.down {
+.ui.disabled.button,
+.ui.disabled.button.hover,
+.ui.disabled.button.down {
   cursor: default;
   color: #DDDDDD;
   background-color: rgba(50, 50, 50, 0.05) !important;
@@ -367,137 +367,137 @@
 
 
 /*--- Black ---*/
-.ui.buttons.black .button,
-.ui.button.black {
+.ui.black.buttons .button,
+.ui.black.button {
   background-color: #5C6166;
   color: #FFFFFF;
 }
-.ui.buttons.black .button.hover,
-.ui.buttons.black .button:hover,
-.ui.button.black.hover,
-.ui.button.black:hover {
+.ui.black.buttons .button.hover,
+.ui.black.buttons .button:hover,
+.ui.black.button.hover,
+.ui.black.button:hover {
   background-color: #4C4C4C;
   color: #FFFFFF;
 }
-.ui.buttons.black .button.down,
-.ui.buttons.black .button:active,
-.ui.button.black.down,
-.ui.button.black:active {
+.ui.black.buttons .button.down,
+.ui.black.buttons .button:active,
+.ui.black.button.down,
+.ui.black.button:active {
   background-color: #333333;
   color: #FFFFFF;
 }
 
 /*--- Green ---*/
-.ui.buttons.green .button,
-.ui.button.green {
+.ui.green.buttons .button,
+.ui.green.button {
   background-color: #5BBD72;
   color: #FFFFFF;
 }
-.ui.buttons.green .button.hover,
-.ui.buttons.green .button:hover,
-.ui.button.green.hover,
-.ui.button.green:hover,
-.ui.buttons.green .button.active,
-.ui.button.green.active {
+.ui.green.buttons .button.hover,
+.ui.green.buttons .button:hover,
+.ui.green.button.hover,
+.ui.green.button:hover,
+.ui.green.buttons .active.button,
+.ui.green.button.active {
   background-color: #58cb73;
   color: #FFFFFF;
 }
-.ui.buttons.green .button.down,
-.ui.buttons.green .button:active,
-.ui.button.green.down,
-.ui.button.green:active {
+.ui.green.buttons .button.down,
+.ui.green.buttons .button:active,
+.ui.green.button.down,
+.ui.green.button:active {
   background-color: #4CB164;
   color: #FFFFFF;
 }
 
 /*--- Red ---*/
-.ui.buttons.red .button,
-.ui.button.red {
+.ui.red.buttons .button,
+.ui.red.button {
   background-color: #D95C5C;
   color: #FFFFFF;
 }
-.ui.buttons.red .button.hover,
-.ui.buttons.red .button:hover,
-.ui.button.red.hover,
-.ui.button.red:hover,
-.ui.buttons.red .button.active,
-.ui.button.red.active {
+.ui.red.buttons .button.hover,
+.ui.red.buttons .button:hover,
+.ui.red.button.hover,
+.ui.red.button:hover,
+.ui.red.buttons .active.button,
+.ui.red.button.active {
   background-color: #E75859;
   color: #FFFFFF;
 }
-.ui.buttons.red .button.down,
-.ui.buttons.red .button:active,
-.ui.button.red.down,
-.ui.button.red:active {
+.ui.red.buttons .button.down,
+.ui.red.buttons .button:active,
+.ui.red.button.down,
+.ui.red.button:active {
   background-color: #D24B4C;
   color: #FFFFFF;
 }
 
 /*--- Blue ---*/
-.ui.buttons.blue .button,
-.ui.button.blue {
+.ui.blue.buttons .button,
+.ui.blue.button {
   background-color: #6ECFF5;
   color: #FFFFFF;
 }
-.ui.buttons.blue .button.hover,
-.ui.buttons.blue .button:hover,
-.ui.button.blue.hover,
-.ui.button.blue:hover,
-.ui.buttons.blue .button.active,
-.ui.button.blue.active {
+.ui.blue.buttons .button.hover,
+.ui.blue.buttons .button:hover,
+.ui.blue.button.hover,
+.ui.blue.button:hover,
+.ui.blue.buttons .active.button,
+.ui.blue.button.active {
   background-color: #1AB8F3;
   color: #FFFFFF;
 }
-.ui.buttons.blue .button.down,
-.ui.buttons.blue .button:active,
-.ui.button.blue.down,
-.ui.button.blue:active {
+.ui.blue.buttons .button.down,
+.ui.blue.buttons .button:active,
+.ui.blue.button.down,
+.ui.blue.button:active {
   background-color: #0AA5DF;
   color: #FFFFFF;
 }
 
 /*--- Purple ---*/
-.ui.buttons.purple .button,
-.ui.button.purple {
+.ui.purple.buttons .button,
+.ui.purple.button {
   background-color: #564F8A;
   color: #FFFFFF;
 }
-.ui.buttons.purple .button.hover,
-.ui.buttons.purple .button:hover,
-.ui.button.purple.hover,
-.ui.button.purple:hover,
-.ui.buttons.purple .button.active,
-.ui.button.purple.active {
+.ui.purple.buttons .button.hover,
+.ui.purple.buttons .button:hover,
+.ui.purple.button.hover,
+.ui.purple.button:hover,
+.ui.purple.buttons .active.button,
+.ui.purple.button.active {
   background-color: #3E3773;
   color: #FFFFFF;
 }
-.ui.buttons.purple .button.down,
-.ui.buttons.purple .button:active,
-.ui.button.purple.down,
-.ui.button.purple:active {
+.ui.purple.buttons .button.down,
+.ui.purple.buttons .button:active,
+.ui.purple.button.down,
+.ui.purple.button:active {
   background-color: #2E2860;
   color: #FFFFFF;
 }
 
 /*--- Teal ---*/
-.ui.buttons.teal .button,
-.ui.button.teal {
+.ui.teal.buttons .button,
+.ui.teal.button {
   background-color: #00B5AD;
   color: #FFFFFF;
 }
-.ui.buttons.teal .button.hover,
-.ui.buttons.teal .button:hover,
-.ui.button.teal.hover,
-.ui.button.teal:hover,
-.ui.buttons.teal .button.active,
-.ui.button.teal.active {
+.ui.teal.buttons .button.hover,
+.ui.teal.buttons .button:hover,
+.ui.teal.button.hover,
+.ui.teal.button:hover,
+.ui.teal.buttons .active.button,
+.ui.teal.button.active {
   background-color: #009A93;
   color: #FFFFFF;
 }
-.ui.buttons.teal .button.down,
-.ui.buttons.teal .button:active,
-.ui.button.teal.down,
-.ui.button.teal:active {
+.ui.teal.buttons .button.down,
+.ui.teal.buttons .button:active,
+.ui.teal.button.down,
+.ui.teal.button:active {
   background-color: #00847E;
   color: #FFFFFF;
 }
@@ -506,24 +506,24 @@
     Positive
 ----------------*/
 
-.ui.buttons.positive .button,
-.ui.button.positive {
+.ui.positive.buttons .button,
+.ui.positive.button {
   background-color: #5BBD72 !important;
   color: #FFFFFF;
 }
-.ui.buttons.positive .button.hover,
-.ui.buttons.positive .button:hover,
-.ui.button.positive.hover,
-.ui.button.positive:hover,
-.ui.buttons.positive .button.active,
-.ui.button.positive.active {
+.ui.positive.buttons .button.hover,
+.ui.positive.buttons .button:hover,
+.ui.positive.button.hover,
+.ui.positive.button:hover,
+.ui.positive.buttons .active.button,
+.ui.positive.button.active {
   background-color: #58CB73 !important;
   color: #FFFFFF;
 }
-.ui.buttons.positive .button.down,
-.ui.buttons.positive .button:active,
-.ui.button.positive.down,
-.ui.button.positive:active {
+.ui.positive.buttons .button.down,
+.ui.positive.buttons .button:active,
+.ui.positive.button.down,
+.ui.positive.button:active {
   background-color: #4CB164 !important;
   color: #FFFFFF;
 }
@@ -532,24 +532,24 @@
 /*---------------
      Negative
 ----------------*/
-.ui.buttons.negative .button,
-.ui.button.negative {
+.ui.negative.buttons .button,
+.ui.negative.button {
   background-color: #D95C5C !important;
   color: #FFFFFF;
 }
-.ui.buttons.negative .button.hover,
-.ui.buttons.negative .button:hover,
-.ui.button.negative.hover,
-.ui.button.negative:hover,
-.ui.buttons.negative .button.active,
-.ui.button.negative.active {
+.ui.negative.buttons .button.hover,
+.ui.negative.buttons .button:hover,
+.ui.negative.button.hover,
+.ui.negative.button:hover,
+.ui.negative.buttons .active.button,
+.ui.negative.button.active {
   background-color: #E75859 !important;
   color: #FFFFFF;
 }
-.ui.buttons.negative .button.down,
-.ui.buttons.negative .button:active,
-.ui.button.negative.down,
-.ui.button.negative:active {
+.ui.negative.buttons .button.down,
+.ui.negative.buttons .button:active,
+.ui.negative.button.down,
+.ui.negative.button:active {
   background-color: #D24B4C !important;
   color: #FFFFFF;
 }
@@ -601,28 +601,28 @@
 }
 
 /* loading */
-.ui.huge.button.loading:after {
+.ui.huge.loading.button:after {
   background-image: url(../images/loader-small.gif);
 }
-.ui.massive.buttons .button.loading:after,
-.ui.gigantic.buttons .button.loading:after,
-.ui.massive.button.loading:after,
-.ui.gigantic.button.loading:after {
+.ui.massive.buttons .loading.button:after,
+.ui.gigantic.buttons .loading.button:after,
+.ui.massive.loading.button:after,
+.ui.gigantic.loading.button:after {
   background-image: url(../images/loader-medium.gif);
 }
 
-.ui.huge.button.loading:after,
-.ui.huge.button.loading.active:after {
+.ui.huge.loading.button:after,
+.ui.huge.loading.button.active:after {
   background-image: url(../images/loader-small.gif);
 }
-.ui.massive.buttons .button.loading:after,
-.ui.gigantic.buttons .button.loading:after,
-.ui.massive.button.loading:after,
-.ui.gigantic.button.loading:after,
-.ui.massive.buttons .button.loading.active:after,
-.ui.gigantic.buttons .button.loading.active:after,
-.ui.massive.button.loading.active:after,
-.ui.gigantic.button.loading.active:after {
+.ui.massive.buttons .loading.button:after,
+.ui.gigantic.buttons .loading.button:after,
+.ui.massive.loading.button:after,
+.ui.gigantic.loading.button:after,
+.ui.massive.buttons .loading.button.active:after,
+.ui.gigantic.buttons .loading.button.active:after,
+.ui.massive.loading.button.active:after,
+.ui.gigantic.loading.button.active:after {
   background-image: url(../images/loader-medium.gif);
 }
 
@@ -764,13 +764,13 @@
 ---------------*/
 
 /* Toggle (Modifies active state to give affordances) */
-.ui.toggle.buttons .button.active,
+.ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
   
   color: #FFFFFF;
 }
-.ui.buttons.toggle .ui.button.active.hover,
+.ui.buttons.toggle .ui.active.button.hover,
 .ui.buttons .ui.button.toggle.active.hover,
 .ui.button.toggle.active.hover {
   color: #FFFFFF;
@@ -791,24 +791,24 @@
      Attached
 ---------------*/
 
-.ui.button.attached {
+.ui.attached.button {
   display: block;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
 }
-.ui.button.attached.top {
+.ui.attached.top.button {
 
   -webkit-border-radius: 0.2em 0.2em 0em 0em;
   -moz-border-radius: 0.2em 0.2em 0em 0em;
   border-radius: 0.2em 0.2em 0em 0em;
 }
-.ui.button.attached.bottom {
+.ui.attached.bottom.button {
   -webkit-border-radius: 0em 0em 0.2em 0.2em;
   -moz-border-radius: 0em 0em 0.2em 0.2em;
   border-radius: 0em 0em 0.2em 0.2em;
 }
-.ui.button.attached.left {
+.ui.attached.left.button {
   display: inline-block;
   border-left: none;
 
@@ -819,7 +819,7 @@
   -moz-border-radius: 0.2em 0em 0em 0.2em;
   border-radius: 0.2em 0em 0em 0.2em;
 }
-.ui.button.attached.right {
+.ui.attached.right.button {
   display: inline-block;
 
   padding-left: 0.75em;
@@ -1099,34 +1099,34 @@
 }
 
 /* Vertical  Style */
-.ui.buttons.vertical {
+.ui.vertical.buttons {
   display: inline-block;
 }
-.ui.buttons.vertical .button {
+.ui.vertical.buttons .button {
   display: block;
   float: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   border-left: none;
   box-shadow: none;
 }
-.ui.buttons.vertical .button:first-child,
-.ui.buttons.vertical .mini.button:first-child,
-.ui.buttons.vertical .tiny.button:first-child,
-.ui.buttons.vertical .small.button:first-child,
-.ui.buttons.vertical .massive.button:first-child,
-.ui.buttons.vertical .huge.button:first-child {
+.ui.vertical.buttons .button:first-child,
+.ui.vertical.buttons .mini.button:first-child,
+.ui.vertical.buttons .tiny.button:first-child,
+.ui.vertical.buttons .small.button:first-child,
+.ui.vertical.buttons .massive.button:first-child,
+.ui.vertical.buttons .huge.button:first-child {
   margin-top: 0px;
   -moz-border-radius: 0.2em 0.2em 0px 0px;
   -webkit-border-radius: 0.2em 0.2em 0px 0px;
   border-radius: 0.2em 0.2em 0px 0px;
 }
-.ui.buttons.vertical .button:last-child,
-.ui.buttons.vertical .mini.button:last-child,
-.ui.buttons.vertical .tiny.button:last-child,
-.ui.buttons.vertical .small.button:last-child,
-.ui.buttons.vertical .massive.button:last-child,
-.ui.buttons.vertical .huge.button:last-child,
-.ui.buttons.vertical .gigantic.button:last-child {
+.ui.vertical.buttons .button:last-child,
+.ui.vertical.buttons .mini.button:last-child,
+.ui.vertical.buttons .tiny.button:last-child,
+.ui.vertical.buttons .small.button:last-child,
+.ui.vertical.buttons .massive.button:last-child,
+.ui.vertical.buttons .huge.button:last-child,
+.ui.vertical.buttons .gigantic.button:last-child {
   -moz-border-radius: 0px 0px 0.2em 0.2em;
   -webkit-border-radius: 0px 0px 0.2em 0.2em;
   border-radius: 0px 0px 0.2em 0.2em;
