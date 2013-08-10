@@ -136,18 +136,22 @@
             States
 *******************************/
 
-.ui.dropdown.visible {
+/* Dropdown Visible */
+.ui.visible.dropdown {
   border-bottom-left-radius: 0em !important;
   border-bottom-right-radius: 0em !important;
 }
-.ui.dropdown.visible .menu {
+.ui.visible.dropdown .menu {
   display: block;
 }
 
+/* Menu Item Hover */
 .ui.dropdown .menu .item:hover {
   background-color: rgba(0, 0, 0, 0.02);
   z-index: 12;
 }
+
+/* Menu Item Active */
 .ui.dropdown .menu .active.item {
   background-color: rgba(0, 0, 0, 0.04);
   border-left: none;
@@ -192,13 +196,13 @@
   transition: opacity 0.2s ease-out;
 }
 
-.ui.simple.dropdown.visible,
+.ui.simple.active.dropdown,
 .ui.simple.dropdown:hover {
   border-bottom-left-radius: 0em !important;
   border-bottom-right-radius: 0em !important;
 }
 
-.ui.simple.dropdown.visible .menu,
+.ui.simple.active.dropdown .menu,
 .ui.simple.dropdown:hover .menu {
   overflow: visible;
   width: auto;
@@ -296,15 +300,15 @@
 }
 
 /* Visible */
-.ui.selection.dropdown.visible {
+.ui.selection.active.dropdown {
   -webkit-border-radius: 0.3125em 0.3125em 0em 0em !important;
   -moz-border-radius: 0.3125em 0.3125em 0em 0em !important;
   border-radius: 0.3125em 0.3125em 0em 0em !important;
 }
-.ui.selection.dropdown.visible > .dropdown.icon {
+.ui.selection.active.dropdown > .dropdown.icon {
   opacity: 1;
 }
-.ui.selection.dropdown.visible .menu {
+.ui.selection.active.dropdown .menu {
   -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
   -moz-box-shadow: 0px 1px 0px 1px #D3D3D3;
   box-shadow: 0px 1px 0px 1px #D3D3D3;
@@ -378,7 +382,7 @@
 }
 .ui.top.left.pointing.dropdown .menu:after {
   top: -0.25em;
-  left: 1em;
+  left: 1.25em;
   right: auto;
   margin: 0em;
   -webkit-transform: rotate(45deg);
@@ -395,7 +399,7 @@
 .ui.top.right.pointing.dropdown .menu:after {
   top: -0.25em;
   left: auto;
-  right: 1em;
+  right: 1.25em;
   margin: 0em;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
@@ -411,7 +415,7 @@
 .ui.left.pointing.dropdown .menu:after {
   top: 1em;
   left: -0.25em;
-  margin: -0.1em 0em 0em 0em;
+  margin: 0em 0em 0em 0em;
 
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
@@ -428,17 +432,9 @@
   top: 1em;
   left: auto;
   right: -0.25em;
-  margin: -0.1em 0em 0em 0em;
+  margin: 0em 0em 0em 0em;
 
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   transform: rotate(135deg);
-}
-
-/* States */
-.ui.pointing.dropdown.visible,
-.ui.pointing.dropdown.visible .menu {
-  -moz-border-radius: 0.325em !important;
-  -webkit-border-radius: 0.325em !important;
-  border-radius: 0.325em !important;
 }

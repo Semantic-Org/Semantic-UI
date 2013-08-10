@@ -8,7 +8,7 @@ semantic.dropdown.ready = function() {
     $examples      = $('.example'),
     $hoverDropdown = $examples.filter('.hover').find('.ui.dropdown'),
     $formDropdown  = $examples.filter('.form').find('.ui.dropdown'),
-    $dropdown      = $examples.filter('.dropdown').find('.ui.dropdown'),
+    $dropdown      = $examples.filter('.dropdown').find('.ui.dropdown:not(.simple)'),
     // alias
     handler
   ;

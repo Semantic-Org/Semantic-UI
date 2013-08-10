@@ -20,13 +20,12 @@ $.fn.dropdown = function(parameters) {
     metadata        = settings.metadata,
     namespace       = settings.namespace,
     selector        = settings.selector,
-    error           = settings.error,
+    errors          = settings.errors,
     
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
     
-    isTouchDevice   = ('ontouchstart' in document.documentElement),
     time            = new Date().getTime(),
     performance     = [],
     
@@ -45,6 +44,8 @@ $.fn.dropdown = function(parameters) {
         $text         = $(this).find(selector.text),
         $input        = $(this).find(selector.input),
         
+        isTouchDevice = ('ontouchstart' in document.documentElement),
+        
         element       = this,
         instance      = $module.data(moduleNamespace),
         module
@@ -53,7 +54,7 @@ $.fn.dropdown = function(parameters) {
       module      = {
 
         initialize: function() {
-          module.debug('Initializing dropdown with bound events', $module);
+          module.debug('Initializing dropdown', $module);
           if(isTouchDevice) {
             $module
               .on('touchstart' + eventNamespace, module.event.test.toggle)
@@ -93,8 +94,11 @@ $.fn.dropdown = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module for', $module);
+          $item
+            .off(eventNamespace)
+          ;
           $module
-            .off(namespace)
+            .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
         },
@@ -186,7 +190,7 @@ $.fn.dropdown = function(parameters) {
               settings.action(text, value);
             }
             else {
-              module.error(error.action);
+              module.error(errors.action);
             }
           },
 
@@ -334,7 +338,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
-              module.error(error.animation);
+              module.error(errors.animation);
             }
           },
           hide: function(callback) {
@@ -376,7 +380,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
-              module.error(error.animation);
+              module.error(errors.animation);
             }
           }
         },
@@ -542,8 +546,7 @@ $.fn.dropdown = function(parameters) {
         invoke: function(query, passedArguments, context) {
           var
             maxDepth,
-            found,
-            response
+            found
           ;
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
@@ -551,46 +554,21 @@ $.fn.dropdown = function(parameters) {
             query    = query.split(/[\. ]/);
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
-              var camelCaseValue = (depth != maxDepth)
-                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
-                : query
-              ;
               if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
                 instance = instance[value];
               }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
-                instance = instance[camelCaseValue];
-              }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
-                return false;
-              }
-              else if( instance[camelCaseValue] !== undefined ) {
-                found = instance[camelCaseValue];
-                return false;
               }
               else {
-                module.error(error.method);
-                return false;
+                module.error(errors.method);
               }
             });
           }
           if ( $.isFunction( found ) ) {
-            response = found.apply(context, passedArguments);
+            return found.apply(context, passedArguments);
           }
-          else if(found !== undefined) {
-            response = found;
-          }
-          if($.isArray(invokedResponse)) {
-            invokedResponse.push(response);
-          }
-          else if(typeof invokedResponse == 'string') {
-            invokedResponse = [invokedResponse, response];
-          }
-          else if(response !== undefined) {
-            invokedResponse = response;
-          }
-          return found;
+          return found || false;
         }
       };
 
@@ -598,7 +576,7 @@ $.fn.dropdown = function(parameters) {
         if(instance === undefined) {
           module.initialize();
         }
-        module.invoke(query);
+        invokedResponse = module.invoke(query);
       }
       else {
         if(instance !== undefined) {
@@ -609,7 +587,7 @@ $.fn.dropdown = function(parameters) {
     })
   ;
 
-  return (invokedResponse !== undefined)
+  return (invokedResponse)
     ? invokedResponse
     : this
   ;
@@ -639,7 +617,7 @@ $.fn.dropdown.settings = {
   onShow   : function(){},
   onHide   : function(){},
   
-  error   : {
+  errors   : {
     action    : 'You called a dropdown action that was not defined',
     method    : 'The method you called is not defined.',
     animation : 'The requested animation was not found'

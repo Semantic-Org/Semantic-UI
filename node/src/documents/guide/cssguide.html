@@ -340,6 +340,38 @@ type   : 'UI Guide'
     }
     </div>
 
+    <h4 class="ui header">Centering Content with Transform</h4>
+    <p>Using percentages in CSS will give you a ratio based on the size of the parent element. For exaple setting content to be left 50% will set content to start at exactly halfway across its parent.</p>Sometimes you want content to positioned relative to its own size. Inside calls to transform, percentages are based on the current element size so this can be done.</p>
+    <div class="code" data-type="css">
+
+    /* doesnt work */
+    .ui.modal {
+      width: 800px;
+      height: 500px;
+      left: 50%;
+      top: 50%;
+      margin: -50% 0px 0px -50%x;
+    }
+
+    /* works with measurements */
+    .ui.modal {
+      width: 800px;
+      height: 500px;
+      left: 50%;
+      top: 50%;
+      margin: -250px 0px 0px -400px;
+    }
+
+    /* with transform no measurements needed */
+    .ui.modal {
+      position: absolute;
+      width: 800px;
+      top: 50%;
+      left: 50%;
+      transform: transformX(-50%) transformY(-50%);
+    }
+    </div>
+
     <h4 class="ui header">Consider alternatives to floats</h4>
     <p>CSS floats can create issues with the containing element not receiving the size of its children. Using overflow:hidden to clear floats means that no peice of an element can be shown outside the bounding box of the element, which limits the possibilities in an element. Clearfixes can use up one of two available pseudo class which can often be useful for styling elements.</p>
     <p>Consider using another means of putting content side by side like inline-block or table-cell. These provide more freedom than floated block elements, and can add additional benefits.</p>
