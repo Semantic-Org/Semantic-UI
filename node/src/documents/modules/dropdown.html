@@ -43,15 +43,35 @@ type   : 'UI Module'
   </div>
 
   <div class="dropdown example">
+  <h4 class="ui header">Icon Menu Dropdown</h4>
+
+  <div class="dropdown example">
     <h4 class="ui header">Button Dropdown</h4>
-    <p>A button can be formatted to open a dropdown</p>
-    <div class="ui red labeled icon dropdown button">
-      <i class="down settings icon"></i> 
-      <span class="text">Settings</span>
-      <div class="menu">
-        <div class="item"><i class="edit icon"></i>Edit</div>
-        <div class="item"><i class="delete icon"></i>Remove</div>
-        <div class="item"><i class="hide icon"></i>Hide</div>
+    <p>An icon toolbar can be formatted as a dropdown</p>
+    <div class="ui red icon buttons">
+      <div class="ui top left pointing dropdown button">
+        <i class="user icon"></i> 
+        <div class="menu">
+          <div class="item"><i class="edit icon"></i>Edit User</div>
+          <div class="item"><i class="delete icon"></i>Remove User</div>
+          <div class="item"><i class="hide icon"></i>Make Invisible</div>
+        </div>
+      </div>
+      <div class="ui top left pointing dropdown button">
+        <i class="community icon"></i> 
+        <div class="menu">
+          <div class="item"><i class="edit icon"></i>Edit Group</div>
+          <div class="item"><i class="delete icon"></i>Remove Group</div>
+          <div class="item"><i class="hide icon"></i>Hide from Group</div>
+        </div>
+      </div>
+      <div class="ui top right pointing dropdown button">
+        <i class="settings icon"></i> 
+        <div class="menu">
+          <div class="item"><i class="edit icon"></i>Edit</div>
+          <div class="item"><i class="delete icon"></i>Remove</div>
+          <div class="item"><i class="hide icon"></i>Hide</div>
+        </div>
       </div>
     </div>
   </div>
@@ -141,7 +161,8 @@ type   : 'UI Module'
       <div class="header item">All Sections</div>
       <div class="ui item">
         <div class="ui fluid selection dropdown">
-          More <i class="dropdown icon"></i>
+          <div class="text">More</div>
+          <i class="dropdown icon"></i>
           <div class="menu">
             <div class="item">Choice 1</div>
             <div class="item">Choice 2</div>

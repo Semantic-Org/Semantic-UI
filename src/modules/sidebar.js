@@ -60,7 +60,7 @@ $.fn.sidebar = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous module for', $module);
           $module
-            .off(namespace)
+            .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
         },
