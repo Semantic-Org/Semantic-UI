@@ -7,21 +7,29 @@ type   : 'UI Collection'
 ---
 
 <div class="segment">
-  <div class="ui main responsive grid">
-    <div class="column">
-      <h1 class="ui dividing header">Grid</h1>
-      <p>A grid is a structure used to harmonize negative space in a layout.</p>
-    </div>
+  <div class="container">
+    <h1 class="ui dividing header">
+      Grid
+    </h1>
+    <p>A grid is a structure used to harmonize negative space in a layout.</p>
   </div>
 </div>
-<div class="main responsive ui grid">
-<div class="column">
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Standard</a>
+      <a class="item">Elements</a>
+      <a class="item">Types</a>
+      <a class="item">Variations</a>
+    </div>
+  </div>
   
-  <h2 class="ui dividing header">Types</h2>
+  <h2 class="ui dividing header">Standard</h2>
   
   <div class="highlighted example">
     <h4 class="ui header">Grid</h4>
-    <p>A grid is made up of columns of content.</p>
+    <p>A grid is made up of columns of content with gutters to provide negative space between columns.</p>
     
     <div class="ui ignore green message"><i class="icon heart"></i>All grid systems must assume an arbitrary amount of column rows. Semantic by default assumes <b>16 columns</b></div>
     <div class="ui grid">
@@ -44,132 +52,11 @@ type   : 'UI Collection'
     </div>
   </div>
   
-
-  <div class="highlighted example">
-    <h4 class="ui header">Page Grid</h4>
-    <p>A page grid is a grid that exists on the top level of a website and includes gutters to the left and right.</p>
-    
-    <div class="ui ignore warning message"><i class="icon info circle"></i>
-    It is important to note, that padding is applied directly to columns, which means other ui elements should not be used in combination with column, but directly as children.</div>
-    
-    <div class="ui two column page grid">
-      <div class="column">
-        <div class="ui labeled vertical fluid inverted icon menu">
-          <a class="item">
-            <i class="icon mail"></i>
-            Mail
-          </a>
-          <a class="item">
-            <i class="icon lab"></i>
-            Lab
-          </a>
-          <a class="item">
-            <i class="icon star"></i>
-            Favorites
-          </a>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <b>Inbox</b>
-          <p>Welcome to your inbox. Would you like to see more information?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="example">
-    <h4 class="ui header">Divided Grid</h4>
-    <p>A grid can show a division between its columns</p>
-    <div class="ui six divided column grid">
-      <div class="row">
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Celled Grid</h4>
-    <p>A grid can have rows divided into cells</p>
-    <div class="ui celled grid">
-      <div class="row">
-        <div class="two wide column" style="">
-          <p>Lorem ipsum do</p>
-        </div>
-        <div class="three wide column" style="">
-          <p>Lorem ipsum dolor </p>
-        </div>
-        <div class="seven wide column">
-          <p>Lorem ipsum dolor sitos. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="five wide column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        
-        <div class="three wide column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        
-        <div class="two wide column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="two wide column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <h2 class="ui dividing header">Elements</h2>
   
   <div class="highlighted example">
     <h4 class="ui header">Rows</h4>
-    <p>A row is used to create vertical padding between groups of columns on a page. If no rows are specified columns will sit vertically flushed against the edge of a grid, but will still have vertical and horizontal gutters on the first and last column.</p>
+    <p>A row is used to create vertical padding between groups of columns on a page. If no rows are specified columns will sit flush vertically.</p>
     <p>
     <div class="ui grid">
       <div class="row">
@@ -360,6 +247,128 @@ type   : 'UI Collection'
       <div class="column">
         <div class="ui segment">
           4
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
+
+
+  <div class="highlighted example">
+    <h4 class="ui header">Page Grid</h4>
+    <p>A page grid is a grid that exists on the top level of a website and includes gutters to the left and right.</p>
+    
+    <div class="ui ignore warning message"><i class="icon info circle"></i>
+    It is important to note, that padding is applied directly to columns, which means other ui elements should not be used in combination with column, but directly as children.</div>
+    
+    <div class="ui two column page grid">
+      <div class="column">
+        <div class="ui labeled vertical fluid inverted icon menu">
+          <a class="item">
+            <i class="icon mail"></i>
+            Mail
+          </a>
+          <a class="item">
+            <i class="icon lab"></i>
+            Lab
+          </a>
+          <a class="item">
+            <i class="icon star"></i>
+            Favorites
+          </a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <b>Inbox</b>
+          <p>Welcome to your inbox. Would you like to see more information?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="example">
+    <h4 class="ui header">Divided Grid</h4>
+    <p>A grid can have dividers between columns</p>
+    <div class="ui six divided column grid">
+      <div class="row">
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Celled Grid</h4>
+    <p>A grid can have rows divided into cells</p>
+    <div class="ui celled grid">
+      <div class="row">
+        <div class="two wide column" style="">
+          <p>Lorem ipsum do</p>
+        </div>
+        <div class="three wide column" style="">
+          <p>Lorem ipsum dolor </p>
+        </div>
+        <div class="seven wide column">
+          <p>Lorem ipsum dolor sitos. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="five wide column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        
+        <div class="three wide column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        
+        <div class="two wide column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+        <div class="two wide column">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
         </div>
       </div>
     </div>
@@ -819,5 +828,4 @@ type   : 'UI Collection'
     </div>
   </div>
     
-</div>
 </div>
