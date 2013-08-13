@@ -378,6 +378,12 @@ a:hover {
 #example .stripe {
   padding: 50px 0px;
 }
+#example .stripe .column .divider {
+  margin-bottom: 2em;
+}
+#example .stripe .column .label {
+  margin-bottom: 1em;
+}
 
 #example .solid {
   background-color: #FFFFFF;
