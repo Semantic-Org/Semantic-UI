@@ -1,0 +1,218 @@
+/*
+ * # Semantic List - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 26 2013
+ */
+/*******************************
+            List
+*******************************/
+ul.ui.list,
+.ui.list {
+  margin: 1em 0em;
+}
+ul.ui.list:first-child,
+.ui.list:first-child {
+  margin-top: 1em;
+}
+ul.ui.list:last-child,
+.ui.list:last-child {
+  margin-bottom: 0em;
+}
+ul.ui.list,
+li:first-child,
+.ui.list .item:first-child {
+  border-top: none;
+}
+/*******************************
+            Content
+*******************************/
+/* List Item */
+ul.ui.list li,
+.ui.list .item {
+  display: list-item;
+  list-style-type: none;
+  list-style-position: inside;
+  padding: 0.3em 0em;
+  line-height: 1.2;
+}
+/* Icon */
+.ui.list .icon {
+  margin: 0em 0.5em 0em 0em;
+}
+/* Link */
+ul.ui.list a,
+.ui.list a {
+  cursor: pointer;
+}
+.ui.list a .icon {
+  color: rgba(0, 0, 0, 0.6);
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+/* Header */
+.ui.list .header {
+  font-weight: bold;
+}
+/*******************************
+            Types
+*******************************/
+/*******************************
+             States
+*******************************/
+/*-------------------
+        Hover
+--------------------*/
+.ui.list a:hover .icon {
+  color: rgba(0, 0, 0, 0.8);
+}
+/*******************************
+           Variations
+*******************************/
+/*-------------------
+      Bulleted
+--------------------*/
+ul.ui.bulleted.list,
+.ui.bulleted.list {
+  margin-left: 1.5em;
+}
+ul.ui.bulleted.list li,
+.ui.bulleted.list .item {
+  position: relative;
+}
+ul.ui.bulleted.list li:before,
+.ui.bulleted.list .item:before {
+  position: absolute;
+  top: 0.4em;
+  left: -1.5em;
+  content: '\25CF';
+  font-size: 0.8em;
+  line-height: 1.2rem;
+  vertical-align: top;
+  color: rgba(0, 0, 0, 0.6);
+}
+/*-------------------
+       Ordered
+--------------------*/
+ol.ui.list,
+ul.ui.ordered.list,
+.ui.ordered.list {
+  counter-reset: ordered;
+  margin-left: 2em;
+}
+ol.ui.list li,
+ul.ui.ordered.list li,
+.ui.ordered.list .item {
+  counter-increment: ordered;
+  position: relative;
+}
+ol.ui.list li:before,
+ul.ui.ordered.list li:before,
+.ui.ordered.list .item:before {
+  position: absolute;
+  top: 0.4em;
+  left: -2em;
+  content: counter(ordered);
+  width: 0.8em;
+  margin-right: 0.5rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding-right: 0.5em;
+  text-align: right;
+  line-height: 1.2rem;
+  vertical-align: top;
+  opacity: 0.8;
+}
+/*-------------------
+       Divided
+--------------------*/
+ul.ui.divided.list li,
+.ui.divided.list .item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+ul.ui.divided.list,
+li:first-child,
+.ui.divided.list .item:first-child {
+  border-top: none;
+}
+/* Divided bulleted */
+ul.ui.divided.bulleted.list,
+.ui.divided.bulleted.list {
+  margin-left: 0em;
+}
+ul.ui.divided.bulleted.list li,
+.ui.divided.bulleted.list .item {
+  padding-left: 1.5em;
+}
+ul.ui.divided.bulleted.list li:before,
+.ui.divided.bulleted.list .item:before {
+  left: 0em;
+}
+/* Divided ordered */
+ol.ui.divided.list,
+ul.ui.divided.ordered.list,
+.ui.divided.ordered.list {
+  margin-left: 0em;
+}
+ol.ui.divided.list li,
+ul.ui.divided.ordered.list li,
+.ui.divided.ordered.list .item {
+  padding-left: 2em;
+}
+ol.ui.divided.list li:before,
+ul.ui.divided.ordered.list li:before,
+.ui.divided.ordered.list .item:before {
+  left: 0em;
+}
+/*-------------------
+        Celled
+--------------------*/
+ul.ui.celled.list li,
+.ui.celled.list .item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+ul.ui.celled.list,
+li:last-child,
+.ui.celled.list .item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* Celled Bulleted */
+ul.ui.celled.bulleted.list,
+.ui.celled.bulleted.list {
+  margin-left: 0em;
+}
+ul.ui.celled.bulleted.list li,
+.ui.celled.bulleted.list .item {
+  padding-left: 1.5em;
+}
+ul.ui.celled.bulleted.list li:before,
+.ui.celled.bulleted.list .item:before {
+  left: 0em;
+}
+/* Celled Ordered */
+ol.ui.celled.list,
+ul.ui.celled.ordered.list,
+.ui.celled.ordered.list {
+  margin-left: 0em;
+}
+ol.ui.celled.list li,
+ul.ui.celled.ordered.list li,
+.ui.celled.ordered.list .item {
+  padding-left: 2em;
+}
+ol.ui.celled.list li:before,
+ul.ui.celled.ordered.list li:before,
+.ui.celled.ordered.list .item:before {
+  left: 0em;
+}

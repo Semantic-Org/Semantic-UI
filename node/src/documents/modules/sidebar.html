@@ -1,6 +1,6 @@
 ---
 layout : 'default'
-css    : 'sidebar'
+css    : 'side'
 
 title  : 'Sidebar'
 type   : 'UI Module'
@@ -10,7 +10,7 @@ type   : 'UI Module'
 
 <div class="segment">
   <div class="container">
-    <h1 class="ui dividing header">Sidebar</h1>
+    <h1 class="ui dividing header">Sidebar <div class="ui red label">Incomplete</div></h1>
     <p>A sidebar is a menu hidden beside page content</p>
   </div>
 </div>
@@ -25,180 +25,14 @@ type   : 'UI Module'
       <a class="item">Settings</a>
     </div>
   </div>
-  <div class="ui grid">
-    <div class="ten wide column">
-
-      <h2 class="ui header">Initializing</h2>
-      <p>Sidebars are initialized by calling sidebar on an element with class ui sidebar</p>
-      <div class="code" data-demo="true" data-title="Initializing a sidebar">
-      $('.ui.sidebar')
-        .sidebar()
-      ;
-      </div>
-
-      <h3>Controlling a sidebar</h3>
-      <p>It may also be useful to set a dedicated button as controlling a sidebar. You can do this by calling a separate method</p>
-      <div class="code" data-demo="true" data-title="Initializing a sidebar">
-      $('.sidebar')
-        .sidebar('attach events', '.toggle.button')
-      ;
-      </div>
-
-      <h3>Altering a sidebar width</h3>
-
-      <p>Altering the size of sidebar can be done by modifying sidebar.css</p>
-      <h2 class="ui dividing header">Usage</h2>
-
-
-      <p>If a sidebar is called without any arguments all default settings will be used.</p>
-
-
-      <h3 class="ui header">Visibility</h3>
-      <p>After the animation queue finishes for an element, its final visibility state is determined. If an animation is an outward sidebar, the final visibility status will be hidden. If an animation is inward the element will be visible after the animatino finishes.</p>
-      <div class="code" data-demo="true" data-title="Disapearing element">
-    $('.dog.image')
-      .sidebar('scale')
-    ;
-      </div>
-
-      <h3 class="ui header">Static Animations</h3>
-      <p>Animations that do not have an in or out animation defined, will maintain their current visibility after running</p>
-      <div class="code" data-demo="true" data-title="Looping">
-      $('.dog.image')
-        .sidebar('pulse')
-      ;
-      </div>
-
-      <h3 class="ui header">Sidebar Direction</h3>
-
-      <p>If an animation direction is not specified it will automatically be determined based on the elements current visibility. For example, if the element is visible the animation "fade out" will be called, if the animation is not visible "fade in".</p>
-
-      <div class="code" data-demo="true" data-title="Automatically choosing direction">
-    $('.dog.image')
-      // fade up out is used if available
-      .sidebar('fade up')
-      // this is now fade up in
-      .sidebar('fade up')
-    ;
-      </div>
-      <div class="code" data-demo="true" data-title="Specifying a direction">
-    $('.dog.image')
-      // if a direction if specified it will be obeyed
-      .sidebar('horizontal flip in')
-      .sidebar('vertical flip in')
-    ;
-      </div>
-
-      <h3 class="ui header">Passing in settings</h3>
-      <p>Sidebars use similar argument shorthand as <a href="http://api.jquery.com/animate/">animate</a>. You can specify callback functions, animation duration, and other settings using the same arguments. Durations can be specified as strings with css shorthand, or with numbers.</p>
-
-      <h3 class="ui header">Queuing animations</h3>
-
-      <p>Animations called in sequence will be queued. Any queued animation will automatically determine the sidebar direction if none is specified.</p>
-      <div class="code" data-demo="true" data-title="Queueing animations">
-    $('.dog.image')
-      .sidebar('horizontal flip', '500ms')
-      .sidebar('horizontal flip', 500, function() {
-        alert('done!');
-      })
-    ;
-      </div>
-
-      <h2 class="ui dividing header">Types</h2>
-
-      <h3>Emphasis</h3>
-      <div class="example">
-        <h4 class="ui header">Flash</h4>
-        <p>An element can flash to draw attention to itself</p>
-        <div class="code" data-demo="true">
-    $('.dog.image')
-      .sidebar('flash')
-    ;
-        </div>
-      </div>
-      <div class="example">
-        <h4 class="ui header">Shake</h4>
-        <p>An element can shake to draw attention to its position</p>
-        <div class="code" data-demo="true">
-    $('.dog.image')
-      .sidebar('shake')
-    ;
-        </div>
-      </div>
-      <div class="example">
-        <h4 class="ui header">Tada</h4>
-        <p>An element can give user positive feedback for an action</p>
-        <div class="code" data-demo="true">
-    $('.dog.image')
-      .sidebar('tada')
-    ;
-        </div>
-      </div>
-      <div class="example">
-        <h4 class="ui header">Bounce</h4>
-        <p>An element can bounce to politely remind you of itself</p>
-        <div class="code" data-demo="true">
-    $('.dog.image')
-      .sidebar('bounce')
-    ;
-        </div>
-      </div>
-
-      <h3>Appearance</h3>
-      <div class="example">
-        <h4 class="ui header">Flip</h4>
-        <p>An element can flip into or out of view vertically or horizontally</p>
-        <div class="code" data-demo="true">
-    $('.dog.image')
-      .sidebar('horizontal flip')
-      .sidebar('vertical flip')
-    ;
-        </div>
-      </div>
-      <div class="example">
-        <h4 class="ui header">Fade</h4>
-        <p>An element can fade into or out of view descending and ascending</p>
-        <div class="code" data-demo="true">
-    $('.dog.image')
-      .sidebar('fade')
-      .sidebar('fade up')
-      .sidebar('fade down')
-    ;
-        </div>
-      </div>
-      <div class="example">
-        <h4 class="ui header">Scale</h4>
-        <p>An element can scale into or out of view</p>
-        <div class="code" data-demo="true">
-    $('.dog.image')
-      .sidebar('scale')
-    ;
-        </div>
-      </div>
-
-      <div class="example">
-        <h4 class="ui header">Slide</h4>
-        <div class="code" data-demo="true">
-    $('.dog.image')
-      .sidebar('slide up')
-      .sidebar('slide down')
-    ;
-        </div>
-      </div>
-
-      <h2 class="ui dividing header">Behavior</h2>
-
-
-      
-
-      <h2 class="ui dividing header">Settings</h2>
-    </div>
-    <div class="five wide right floated fixed column">
-      <img src="/images/demo/vector.png" class="ui dog image">
-    </div>
+  <h2 class="ui header">Initializing</h2>
+  <p>Sidebars are initialized by calling sidebar on an element with class ui sidebar</p>
+  <div class="code" data-demo="true" data-title="Initializing a sidebar">
+  $('.ui.sidebar')
+    .sidebar()
+  ;
   </div>
 
 </div>
 </body>
-
 </html>

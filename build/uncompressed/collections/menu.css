@@ -390,7 +390,7 @@
   margin: 0em;
 }
 .ui.vertical.menu .dropdown.item .menu .item {
-  font-size: 0.875em;
+  font-size: 1em;
   padding: 0.75em 1em;
 }
 .ui.vertical.menu .dropdown.item .menu .item .icon {
