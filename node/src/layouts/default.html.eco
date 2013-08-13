@@ -34,6 +34,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/image.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/list.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/loader.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/segment.css">
