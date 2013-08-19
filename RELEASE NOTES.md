@@ -1,3 +1,4 @@
-* RELEASE NOTES
+RELEASE NOTES
+--------------
 
-** Release notes will be maintained after first public release
+Release notes will be maintained after first public release
