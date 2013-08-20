@@ -6,7 +6,27 @@ title  : 'Sidebar'
 type   : 'UI Module'
 ---
 
-<script src="/components/semantic/modules/sidebar.js"></script>
+<div class="ui red vertical demo sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="heart icon"></i>
+    Current Section
+  </a>
+  <a class="item">
+    <i class="facebook icon"></i>
+    Like us on Facebook
+  </a>
+  <div class="item">
+    <b>More</b>
+    <div class="menu">
+      <a class="item">About</a>
+      <a class="item">Contact Us</a>
+    </div>
+  </div>
+</div>
 
 <div class="segment">
   <div class="container">
@@ -15,7 +35,7 @@ type   : 'UI Module'
   </div>
 </div>
 <div class="main container">
-  
+
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Initializing</a>
@@ -26,11 +46,70 @@ type   : 'UI Module'
     </div>
   </div>
   <h2 class="ui header">Initializing</h2>
-  <p>Sidebars are initialized by calling sidebar on an element with class ui sidebar</p>
-  <div class="code" data-demo="true" data-title="Initializing a sidebar">
-  $('.ui.sidebar')
-    .sidebar()
-  ;
+  <p>Any content can be used as a sidebar by adding the class <code>ui sidebar</code> and initializing the menu in javascript.</p>
+  <div class="code" data-label="true" data-type="html">
+    <div class="ui sidebar">
+      Any content in the world
+    </div>
+  </div>
+  <div class="code" data-label="true" data-type="javascript">
+    $('.ui.sidebar')
+      .sidebar()
+    ;
+  </div>
+
+  <h2 class="ui header">Usage</h2>
+
+  <div class="instructive example">
+    <h4 class="ui header">Showing a sidebar</h4>
+    <p>A sidebar can be shown, hidden, or toggled. In the following examples sidebar is used in conjunction with <a href="/collections/menu.html">ui menu</a> to display a vertical menu as a sidebar.</p>
+    <div class="code" data-type="html" data-title="Example HTML">
+    <div class="ui red vertical demo sidebar menu">
+      <a class="item">
+        <i class="home icon"></i>
+        Home
+      </a>
+      <a class="item">
+        <i class="heart icon"></i>
+        Current Section
+      </a>
+      <a class="item">
+        <i class="facebook icon"></i>
+        Like us on Facebook
+      </a>
+      <div class="item">
+        <b>More</b>
+        <div class="menu">
+          <a class="item">About</a>
+          <a class="item">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="code" data-demo="true" data-type="javascript">
+    $('.ui.demo.sidebar')
+      .sidebar('toggle')
+    ;
+    </div>
+  </div>
+  <div class="instructive example">
+    <h4 class="ui header">Triggering show/hide with other content</h4>
+    <p>For convenience calling attach events will allow you to bind events. By default this will toggle the sidebar in and out of view on click</p>
+    <div class="code" data-demo="true">
+    $('.ui.demo.sidebar')
+      .sidebar('attach events', '.trigger.button')
+    ;
+    </div>
+  </div>
+  <div class="instructive example">
+
+    <h4 class="ui header">Triggering custom action with other content</h4>
+    <p>You can also however specify what action should occur when the element is clicked</p>
+    <div class="code" data-demo="true">
+    $('.ui.demo.sidebar')
+      .sidebar('attach events', '.trigger.button', 'show')
+    ;
+    </div>
   </div>
 
 </div>

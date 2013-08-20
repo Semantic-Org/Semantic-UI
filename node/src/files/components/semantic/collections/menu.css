@@ -355,7 +355,7 @@
 .ui.vertical.menu > .item:last-child {
   border-radius: 0px 0px 0.1875em 0.1875em;
 }
-.ui.vertical.menu .item > .icon {
+.ui.vertical.menu:not(.icon) .item > .icon {
   float: right;
   width: 1.22em;
   margin: 0em 0em 0em 0.5em;

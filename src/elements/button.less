@@ -200,7 +200,7 @@
 .ui.error.button.hover,
 .ui.error.button.down {
   cursor: default;
-  
+
   position: relative !important;
   background-color: #D95C5C !important;
   color: transparent !important;
@@ -313,7 +313,7 @@
   color: transparent !important;
   text-shadow: none !important;
   background-image: none !important;
-  
+
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
@@ -655,7 +655,7 @@
 /*--- Tertiary ---*/
 .ui.buttons.tertiary .button,
 .ui.tertiary.button {
-  border-left: none !important;
+  border: 1px solid #E0E0E0;
   background-color: transparent;
   background-image: none;
   color: #999999;
@@ -664,9 +664,17 @@
   text-shadow: none;
   box-shadow: none;
 }
-.ui.buttons.tertiary .button {
-  border-left: none;
+.ui.buttons.tertiary {
+  border: 1px solid #E0E0E0;
 }
+.ui.buttons.tertiary .button {
+  border: none !important;
+  border-left: 1px solid #E0E0E0 !important;
+}
+.ui.buttons.tertiary .button:first-child {
+  border-left: none !important;
+}
+
 .ui.button.tertiary.active {
   opacity: 0.9 !important;
 }
@@ -678,6 +686,18 @@
 .ui.button.tertiary:active {
   opacity: 1 !important;
 }
+
+.ui.inverted.tertiary.buttons .button,
+.ui.inverted.tertiary.button {
+  color: #FFFFFF;
+  opacity: 0.9 !important;
+}
+.ui.inverted.tertiary.buttons .button:hover,
+.ui.inverted.tertiary.button:hover {
+  color: #FFFFFF;
+  opacity: 1 !important;
+}
+
 /*--------------
    Labeled Icon
 ---------------*/
@@ -694,7 +714,7 @@
   position: absolute;
   top: 0em;
   left: 0em;
- 
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -767,7 +787,7 @@
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-  
+  background-color: #5BBD72;
   color: #FFFFFF;
 }
 .ui.buttons.toggle .ui.active.button.hover,
@@ -1071,7 +1091,7 @@
 *******************************/
 
 .ui.buttons {
-
+  display: inline-block;
 }
 .ui.buttons:after {
   content: ".";
