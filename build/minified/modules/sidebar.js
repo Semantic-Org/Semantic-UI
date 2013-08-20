@@ -10,22 +10,23 @@
 $.fn.sidebar = function(parameters) {
   var
     $allModules     = $(this),
-    
+
     settings        = ( $.isPlainObject(parameters) )
       ? $.extend(true, {}, $.fn.sidebar.settings, parameters)
       : $.fn.sidebar.settings,
-        
+
+    selector        = settings.selector,
     className       = settings.className,
     namespace       = settings.namespace,
     error           = settings.error,
-    
+
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -35,11 +36,14 @@ $.fn.sidebar = function(parameters) {
   $allModules
     .each(function() {
       var
-        $body         = $('body'),
-        $module       = $(this),
+        $module  = $(this),
 
-        element       = this,
-        instance      = $module.data(moduleNamespace),
+        $body    = $('body'),
+        $head    = $('head'),
+        $style   = $('style[title=' + namespace + ']'),
+
+        element  = this,
+        instance = $module.data(moduleNamespace),
         module
       ;
 
@@ -52,6 +56,7 @@ $.fn.sidebar = function(parameters) {
 
         instantiate: function() {
           module.verbose('Storing instance of module', module);
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;
@@ -65,10 +70,15 @@ $.fn.sidebar = function(parameters) {
           ;
         },
 
+        refresh: function() {
+          module.verbose('Refreshing selector cache');
+          $style  = $('style[title=' + namespace + ']');
+        },
+
         attach: {
 
           events: function(selector, event) {
-            var 
+            var
               $toggle = $(selector)
             ;
             event = $.isFunction(module[event])
@@ -83,52 +93,143 @@ $.fn.sidebar = function(parameters) {
             }
             else {
               module.error(error.notFound);
-            } 
+            }
           }
 
         },
 
         show: function() {
+          module.debug('Showing sidebar');
           if(module.is.closed()) {
-            module.debug('Showing sidebar');
-            $body
-              .animate(module.get.bodyCSS(), settings.duration, settings.onShow)
-            ;
-            $module
-              .addClass(className.open)
-            ;
+            module.set.active();
+            if(!settings.overlay) {
+              module.add.bodyCSS();
+              module.set.pushed();
+            }
+          }
+          else {
+            module.debug('Sidebar is already visible');
           }
         },
 
         hide: function() {
           if(module.is.open()) {
-            $module
-              .removeClass(className.open)
-            ;
+            module.remove.active();
+            if(!settings.overlay) {
+              module.remove.bodyCSS();
+              module.remove.pushed();
+            }
           }
         },
 
         toggle: function() {
-          if(module.is.open()) {
-            module.close();
+          if(module.is.closed()) {
+            module.show();
           }
           else {
-            module.open();
+            module.hide();
+          }
+        },
+
+        add: {
+          bodyCSS: function() {
+            var
+              style      = '',
+              moduleSize = 0,
+              direction  = module.get.direction()
+            ;
+            if(module.is.vertical()) {
+              moduleSize = $module.outerHeight();
+              style = ''
+                + '<style type="text/css" title="' + namespace + '">'
+                + 'body.pushed {'
+                + '  padding-top: ' + moduleSize + ' !important;'
+                + '}'
+                + '</style>'
+              ;
+            }
+            else {
+              moduleSize = $module.outerWidth();
+              style = ''
+                + '<style type="text/css" title="' + namespace + '">'
+                + 'body.pushed {'
+                + '  padding-' + direction + ': ' + moduleSize + 'px !important;'
+                + '}'
+                + '</style>'
+              ;
+            }
+            $head.append(style);
+            module.refresh();
+            module.debug('Adding body css to head', $style);
+            $style[0].disabled = false;
+          }
+        },
+
+        remove: {
+          bodyCSS: function() {
+            module.debug('Removing body css styles', $style);
+            $style.remove();
+          },
+          active: function() {
+            $module.removeClass(className.active);
+          },
+          pushed: function() {
+            $body.removeClass(className.pushed);
+          }
+        },
+
+        set: {
+          active: function() {
+            $module.addClass(className.active);
+          },
+          pushed: function() {
+            $body.addClass(className.pushed);
           }
         },
 
         get: {
-          bodyCSS: function() {
-
+          direction: function() {
+            if($module.hasClass('top')) {
+              return 'top';
+            }
+            else if($module.hasClass('right')) {
+              return 'right';
+            }
+            else if($module.hasClass('bottom')) {
+              return 'bottom';
+            }
+            else {
+              return 'left';
+            }
+          },
+          transitionEvent: function() {
+            var
+              element     = document.createElement('element'),
+              transitions = {
+                'transition'       :'transitionend',
+                'OTransition'      :'oTransitionEnd',
+                'MozTransition'    :'transitionend',
+                'WebkitTransition' :'webkitTransitionEnd'
+              },
+              transition
+            ;
+            for(transition in transitions){
+              if( element.style[transition] !== undefined ){
+                return transitions[transition];
+              }
+            }
           }
         },
 
         is: {
           open: function() {
-            return $module.is(':visible');
+            return $module.is(':animated') || $module.hasClass(className.active);
           },
           closed: function() {
-            return $module.is(':not(:visible)');
+            return !module.is.open();
+          },
+          vertical: function() {
+            return $module.hasClass(className.top);
           }
         },
 
@@ -289,7 +390,6 @@ $.fn.sidebar = function(parameters) {
           return found;
         }
       };
-
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -312,25 +412,29 @@ $.fn.sidebar = function(parameters) {
 };
 
 $.fn.sidebar.settings = {
-  
+
   moduleName  : 'Sidebar',
   namespace   : 'sidebar',
-  
+
   verbose     : true,
   debug       : true,
   performance : true,
-  
+
+  overlay     : false,
+
   side        : 'left',
   duration    : 500,
-  
+
   onChange    : function(){},
   onShow      : function(){},
   onHide      : function(){},
 
   className: {
-    open: 'active'
+    active : 'active',
+    pushed : 'pushed',
+    top    : 'top'
   },
-  
+
   error   : {
     method   : 'The method you called is not defined.',
     notFound : 'There were no elements that matched the specified selector'

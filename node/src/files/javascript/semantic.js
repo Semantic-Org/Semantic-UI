@@ -28,7 +28,7 @@ semantic.ready = function() {
   var
     $ui           = $('.ui').not('.hover, .down'),
     $swap         = $('.theme.menu .item'),
-    $menu         = $('.sidebar'),
+    $menu         = $('#menu'),
     $sortTable    = $('.sortable.table'),
     $demo         = $('.demo'),
     $waypoints    = $('.main.container').find('h2').first().siblings('h2').andSelf(),
@@ -458,13 +458,7 @@ semantic.ready = function() {
   ;
 
   $menu
-    .sidr({
-      name: 'menu'
-    })
-    .filter('.button')
-      .on('click', handler.movePeek)
-      .on('mouseenter', handler.menu.mouseenter)
-      .on('mouseleave', handler.menu.mouseleave)
+    .sidebar('attach events', '.launch.button, .launch.item')
   ;
 
   $waypoints

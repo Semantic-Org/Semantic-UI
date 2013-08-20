@@ -11,7 +11,7 @@ type   : 'UI Guide'
   </div>
 </div>
 <div class="main container">
-  
+
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Style Guide</a>
@@ -20,9 +20,9 @@ type   : 'UI Guide'
     </div>
   </div>
 
-  
+
   <h2 class="ui dividing header">Style Guide</h2>
-  
+
     <h4 class="ui header">Don't Hyphenate</h4>
     <p>All elements are designed to include their own namespace. As long as rules descend from their parent element there is no possibility of rule collision.</p>
     <p>Hyphenated class names often describe the intersection of separate concepts, and can be better written to represent each concept separately.</p>
@@ -46,7 +46,7 @@ type   : 'UI Guide'
 
     <h4 class="ui header">CSS Legibility</h4>
     <p>Adding extra formatting can help increase clarity in your code. We suggest separating css selectors on separate lines, adding a space after css properties with commas (like box-shadow) and placing a zero before any decimal value.</p>
-   
+
     <div class="code" data-type="css">
     /* not so easy to read */
     .ui.widgets .widget, ui.widget, .ui.widget.type, ui.widgets .widget.type {
@@ -56,7 +56,7 @@ type   : 'UI Guide'
     .ui.widget {
       color:rgba(0,0,0,.3);
     }
-    
+
     /* easier to read */
     .ui.widgets .widget,
     .ui.widget,
@@ -69,12 +69,12 @@ type   : 'UI Guide'
       color: rgba(0, 0, 0, 0.3);
     }
     </div>
-  
-  
+
+
     <h4 class="ui header">Keep Things Ordered</h4>
     <p>Although css rule order may be considered a chore, grouping related rules together can help keep css code organized.</p>
     <p>An easy way to do this is to consider ordering rules from the outside in. First describing positioning rules, then border rules, margin, sizing, padding, font-size, line height and ending with vendor prefixed attributes.</p>
-   
+
     <div class="code" data-type="css">
     /* not so easy to read */
     .ui.widgets .widget, ui.widget, .ui.widget.type, ui.widgets .widget.type {
@@ -87,29 +87,29 @@ type   : 'UI Guide'
     .ui.widget.type {
       color: #FFFFFF;
     }
-      
+
     /* i have some extra time so lets group these rules */
     .ui.widget {
       position: relative;
       top: 0em;
       left: 0em;
-      
+
       margin: 1em;
       border: 1px solid rgba(0, 0, 0, 0.1);
       width: 100px;
       height: 100px;
       padding: 1em;
-      
+
       font-size: 1.2em;
       color: rgba(0, 0, 0, 0.8);
       line-height: 1.2em;
-      
+
       -webkit-border-radius: 0.3em;
       -moz-border-radius: 0.3em;
       border-radius: 0.3em;
     }
     </div>
-  
+
   <h4 class="ui header">No wrappers, no excess markup</h4>
   <p>UI elements should be designed to include the minimum footprint of an element. If extra styling is needed, consider using pseudo selectors :after and :before. This allows for the creation of two extra divs inside each div context which can almost always be enough to accomodate extra styling.</p>
   <p>If there is no other option than wrapping content in a containing HTML element, consider using a name that describes the content instead of the word wrapper or container.</p>
@@ -117,17 +117,17 @@ type   : 'UI Guide'
     /* not tops */
     .ui.message .wrapper .title,
     .ui.message .wrapper .description {
-      
+
     }
     /* better */
     .ui.message .content .title,
     .ui.message .content .description {
-      
+
     }
     </div>
 
     <h4 class="ui header">Margins</h4>
-    <p>Adding default margins to your content allow for it to have vertical rhythm in a page, but be careful about forcing margin in all circumstances. Here's a useful way to make sure content inside container elements doesn't receieve unnecessary padding.</p> 
+    <p>Adding default margins to your content allow for it to have vertical rhythm in a page, but be careful about forcing margin in all circumstances. Here's a useful way to make sure content inside container elements doesn't receieve unnecessary padding.</p>
     <div class="code" data-type="css">
     .ui.thingy {
       margin: 1em 0em;
@@ -146,11 +146,11 @@ type   : 'UI Guide'
     <div class="code" data-type="css">
     /* confusing word order */
     .ui.red.button.pointing {
-      
+
     }
     /* much more semantic */
     .red.pointing.ui.button {
-      
+
     }
     </div>
 
@@ -171,7 +171,7 @@ type   : 'UI Guide'
 
     <h4 class="ui header">Unit Consistency</h4>
     <p>CSS provides a broad selection of measurements for values. It is helpful to keep unit definitions consistent across a single property definition. Including consistent units for 0 values also allows for quicker tweaking and shows greater precision in a property definition.</p>
-   
+
     <div class="code" data-type="css">
     /* not tops */
     .ui.widget {
@@ -187,7 +187,7 @@ type   : 'UI Guide'
       color: #009FDA;
     }
     </div>
-    
+
     <h4 class="ui header">Inheritance is Magical</h4>
     <p>Many CSS properties can use the value 'inherit' to specify, quite unintuitively, to take on the value of parent element for values that do not normally inherit. For example, an element can use inherit to double whatever its parents padding size is, or to receive the same type of border as a parent without knowing what it is beforehand.</p>
     <div class="code" data-type="css">
@@ -241,7 +241,7 @@ type   : 'UI Guide'
       font-size: 0.9em;
     }
     </div>
-  
+
     <h4 class="ui header"><em>Absolutely</em> Relative</h4>
     <p>Relative EMs (rems) are calculated relative to the font size of the entire page. This is needed to explain how content should be sized related to the overall size of elements on the page, and will not increase geometrically when nested like EMs.</p>
     <div class="code" data-type="css">
@@ -268,7 +268,7 @@ type   : 'UI Guide'
 
     <h4 class="ui header">Conditional Content Formatting</h4>
     <p>Sometimes content should be formatted differently depending on whether other content exists alongside it. A useful way to do that is use the next adjacent sibling selector '+'. The content that should have the conditional formatting should always appear second because there is no previous sibling selector in css.</p>
-   
+
     <div class="code" data-type="css">
     .ui.widget .image {
       float: left;
@@ -282,14 +282,32 @@ type   : 'UI Guide'
       margin-left: 3em;
     }
     </div>
-    
+
+    <h4 class="ui header">Fixing Whitespace with Inline Block</h4>
+    <p>In HTML usually whitespace doesn't change a page's layouts. However, when using inline block any whitespace will create unwanted space between consecutive inline-block elements. The simple and effective fix is to make sure font-size on the parent element is 0, making all whitespace 0 pixels. Then you can reset font-size on the child element to body font size or 1 relative em.</p>
+    <div class="code" data-type="css">
+    /* remove whitespace */
+    .ui.group {
+      font-size: 0em;
+    }
+    .ui.group .item {
+      display: inline-block;
+      font-size: 1rem;
+    }
+    </div>
+
     <h4 class="ui header">CSS :not is Awesome</h4>
-    <p>Inheritance can be hell sometimes. Consider changing the opacity of an element. There is no way to "cancel out" of that opacity change on content inside. Sometimes the only way to avoid creating inheritance problems is to specify what elements should not receive a set of rules. Consider blurring content while a dimmer is present. Blurring should only apply to elements that are not inside the dimmer, but there is no way to know what the content is beforehand.</p>
+    <p>Inheritance can be hell sometimes. Consider changing the opacity of an element. There is no way to "cancel out" of that opacity change on content inside.</p>
+    <p>Sometimes the only way to avoid creating inheritance problems is to specify what elements should not receive a set of rules. Consider blurring content while a dimmer is present. Blurring should only apply to elements that are not inside the dimmer, but there is no way to know what the content is beforehand.</p>
     <div class="code" data-type="css">
     /* blur everything but the dimmer */
-    body.dimmed > :not(.dimmer){
-      -webkit-filter: ~"blur(15px) grayscale(0.7)";
-      -moz-filter: ~"blur(15px) grayscale(0.7)";
+    body.dimmed :not(.dimmer){
+      -webkit-filter: blur(15px) grayscale(0.7);
+      -moz-filter: blur(15px) grayscale(0.7);
+    }
+    body.dimmed .dimmer * {
+      -webkit-filter: none;
+      -moz-filter: none;
     }
     </div>
 
@@ -415,26 +433,26 @@ type   : 'UI Guide'
       background-color: #0000FF;
     }
     .ui.thingy:hover {
-      background-image: 
+      background-image:
         -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)))
       ;
       background-image: -webkit-linear-gradient(
-        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.1) 0%,
         rgba(0, 0, 0, 0.05) 100%)
       ;
       background-image: -moz-linear-gradient(
-        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.1) 0%,
         rgba(0, 0, 0, 0.05) 100%)
       ;
       background-image: -o-linear-gradient(
-        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.1) 0%,
         rgba(0, 0, 0, 0.05) 100%)
       ;
       background-image: linear-gradient(
-        rgba(0, 0, 0, 0.1) 0%, 
+        rgba(0, 0, 0, 0.1) 0%,
         rgba(0, 0, 0, 0.05) 100%)
       ;
     }
     </div>
-  
+
 </div>

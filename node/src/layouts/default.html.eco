@@ -26,7 +26,7 @@
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,300italic' rel='stylesheet' type='text/css'>
 
-    
+
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">
@@ -39,22 +39,23 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/segment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/step.css">
-    
+
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/breadcrumb.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/form.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/grid.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/menu.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/message.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/table.css">
-    
+
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/comment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/feed.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/item.css">
-    
+
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/carousel.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/reveal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/sidebar.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/tab.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/checkbox.css">
@@ -78,6 +79,7 @@
   <script src="/components/semantic/modules/checkbox.js"></script>
   <script src="/components/semantic/modules/dimmer.js"></script>
   <script src="/components/semantic/modules/dropdown.js"></script>
+  <script src="/components/semantic/modules/sidebar.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
   <script src="/components/semantic/modules/tab.js"></script>
   <script src="/components/semantic/modules/transition.js"></script>
@@ -86,7 +88,7 @@
 
 </head>
 <body id="example" class="<%= @document.css %>">
-  <div class="ui large vertical inverted labeled icon menu" id="menu">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
     <div class="item"><a href="/download.html"><i class="inverted circular red upload icon"></i> <b>Download</b></a></div>
     <div class="item">
       <a href="/introduction.html">
@@ -158,7 +160,7 @@
 
   <div class="ui fixed transparent inverted main menu">
     <div class="container">
-      <a class="sidebar item"><i class="icon list layout"></i> Content</a>
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
       <div class="title item">
         <b><%= @document.type %>:</b> <%= @document.title %>
       </div>
@@ -211,7 +213,7 @@
       </div>
     </div>
   </div>
-    <div class="ui black huge sidebar right attached button">
+    <div class="ui black huge launch right attached button">
       <i class="icon list layout"></i>
       <span class="text">Menu</span>
     </div>
