@@ -1,5 +1,5 @@
 /*
- * # Semantic Table - Flat
+ * # Semantic Table
  * http://github.com/quirkyinc/semantic
  *
  *
@@ -175,7 +175,7 @@
   color: #7D6C00;
 }
 /*--------------
-     Active 
+     Active
 ---------------*/
 .ui.table tr.active td,
 .ui.table tr td.active {
@@ -185,7 +185,7 @@
 
 }
 /*--------------
-     Disabled 
+     Disabled
 ---------------*/
 .ui.table tr.disabled td,
 .ui.table tr td.disabled,
@@ -373,6 +373,15 @@
 /* Stripes */
 .ui.inverted.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
+}
+/*--------------
+   Definition
+---------------*/
+.ui.definition.table tr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ui.definition.table td:first-child {
+  font-weight: bold;
 }
 /*--------------
    Collapsing

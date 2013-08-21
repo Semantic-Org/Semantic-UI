@@ -14,11 +14,221 @@ type   : 'UI Guide'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
+      <a class="item">Techniques</a>
       <a class="active item">Style Guide</a>
       <a class="item">Units</a>
-      <a class="item">Techniques</a>
     </div>
   </div>
+
+
+
+  <h2 class="ui dividing header">Techniques</h2>
+
+    <h4 class="ui header">Conditional Content Formatting</h4>
+    <p>Sometimes content should be formatted differently depending on whether other content exists alongside it. A useful way to do that is use the next adjacent sibling selector '+'. The content that should have the conditional formatting should always appear second because there is no previous sibling selector in css.</p>
+
+    <div class="code" data-type="css">
+    .ui.widget .image {
+      float: left;
+      width: 2em;
+    }
+    .ui.widget .content {
+      color: #000000;
+    }
+    // content is only floated if image exists
+    .ui.widget .image + .content {
+      margin-left: 3em;
+    }
+    </div>
+
+    <h4 class="ui header">Fixing Whitespace with Inline Block</h4>
+    <p>In HTML usually whitespace doesn't change a page's layouts. However, when using inline block any whitespace will create unwanted space between consecutive inline-block elements. The simple and effective fix is to make sure font-size on the parent element is 0, making all whitespace 0 pixels. Then you can reset font-size on the child element to body font size or 1 relative em.</p>
+    <div class="code" data-type="css">
+    /* remove whitespace */
+    .ui.group {
+      font-size: 0em;
+    }
+    .ui.group .item {
+      display: inline-block;
+      font-size: 1rem;
+    }
+    </div>
+
+    <h4 class="ui header">CSS :not is Awesome</h4>
+    <p>Inheritance can be hell sometimes. Consider changing the opacity of an element. There is no way to "cancel out" of that opacity change on content inside.</p>
+    <p>Sometimes the only way to avoid creating inheritance problems is to specify what elements should not receive a set of rules. Consider blurring content while a dimmer is present. Blurring should only apply to elements that are not inside the dimmer, but there is no way to know what the content is beforehand.</p>
+    <div class="code" data-type="css">
+    /* blur everything but the dimmer */
+    body.dimmed :not(.dimmer){
+      -webkit-filter: blur(15px) grayscale(0.7);
+      -moz-filter: blur(15px) grayscale(0.7);
+    }
+    body.dimmed .dimmer * {
+      -webkit-filter: none;
+      -moz-filter: none;
+    }
+    </div>
+
+    <h4 class="ui header">Prevent Accidental Highlighting</h4>
+    <p>Sometimes text can be accidentally highlighted when a user double clicks an element. No need to pull out javascript to solve this.</p>
+    <div class="code" data-type="css">
+    .ui.thingy {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    </div>
+
+    <h4 class="ui header">Joining borders</h4>
+    <p>Sometimes bordered content must sit next to other bordered content. If each element uses border the borders will double. Consider using either outline or a box shadow to accomplish the same effect but without overlapping borders.</p>
+    <div class="code" data-type="css">
+    /* this might not go so well */
+    .ui.thingy {
+      border: 1px solid #DDDDDD;
+    }
+    /* rgba is great, but keep in mind the overlapping borders will be added together to create a darker shade */
+    .ui.thingy {
+      outline: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    /* classic but works */
+    .ui.thingy {
+      outline: 1px solid #DDDDDD;
+    }
+    /* this works too */
+    .ui.thingy {
+      -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
+      -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
+      box-shadow: 0px 0px 0px 1px #DDDDDD;
+    }
+    </div>
+
+    <h4 class="ui header">Using transparency</h4>
+    <p>RGBA colors in css allow you to specify colors with a transparency channel. This is very useful.</p>
+    <p>Consider for example, defining the text states of an element. If the elements color changes, the text might appear more complementary as a shade of black with a portion of the original color. This can be done easily with rgba</p>
+    <div class="code" data-type="css">
+    .ui.thingy {
+      background-color: #FAFAFA;
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .red.ui.thingy {
+      background-color: #FF0000;
+    }
+    </div>
+
+    <h4 class="ui header">Nothing is always Fixed</h4>
+    <p>CSS fixed allows you to have content stick to an offset position in a page regardless of the scroll position of the page. Fixed menus will use the page as the offset parent, in all circumstances except when css transform is used on a parent element. <b>This will change the offset context to the transformed element instead of the page</b>.
+    <p>This behavior may seem unexpected, but using this quirk can allow you to have fixed position content relative to any element in a page.</p>
+    <div class="code" data-type="css">
+    .ui.content {
+      transform: rotateZ(0deg);
+      overflow: scroll;
+    }
+    // fixed will stay in its current offset relative to the parent container
+    .ui.content .fixed.thingy {
+      position: fixed;
+      top: 0px;
+      width: 100%;
+    }
+    </div>
+
+    <h4 class="ui header">Centering Content with Transform</h4>
+    <p>Using percentages in CSS will give you a ratio based on the size of the parent element. For exaple setting content to be left 50% will set content to start at exactly halfway across its parent.</p>Sometimes you want content to positioned relative to its own size. Inside calls to transform, percentages are based on the current element size so this can be done.</p>
+    <div class="code" data-type="css">
+
+    /* doesnt work */
+    .ui.modal {
+      width: 800px;
+      height: 500px;
+      left: 50%;
+      top: 50%;
+      margin: -50% 0px 0px -50%x;
+    }
+
+    /* works with measurements */
+    .ui.modal {
+      width: 800px;
+      height: 500px;
+      left: 50%;
+      top: 50%;
+      margin: -250px 0px 0px -400px;
+    }
+
+    /* with transform no measurements needed */
+    .ui.modal {
+      position: absolute;
+      width: 800px;
+      top: 50%;
+      left: 50%;
+      transform: transformX(-50%) transformY(-50%);
+    }
+    </div>
+
+    <h4 class="ui header">Consider alternatives to floats</h4>
+    <p>CSS floats can create issues with the containing element not receiving the size of its children. Using overflow:hidden to clear floats means that no peice of an element can be shown outside the bounding box of the element, which limits the possibilities in an element. Clearfixes can use up one of two available pseudo class which can often be useful for styling elements.</p>
+    <p>Consider using another means of putting content side by side like inline-block or table-cell. These provide more freedom than floated block elements, and can add additional benefits.</p>
+    <p>To avoid issues with inline-block causing spacing between elements, specify no font size on the group and 1rem on the floated content</p>
+    <div class="code" data-type="css">
+    /* not the best */
+    .ui.thingy {
+      display: block;
+      overflow: hidden;
+    }
+    .ui.thingy .part {
+      display: block;
+      float: left;
+    }
+
+    /* these do the same thing */
+    .ui.thingy {
+      display: block;
+      font-size: 0rem;
+    }
+    .ui.thingy .part {
+      display: inline-block;
+      font-size: 1rem;
+    }
+    </div>
+
+
+    <h4 class="ui header">Onion Skinning</h4>
+    <p>One technique that is useful for allowing for multiple color variations of an element, without having to completely reskin each variation and shade is to use background-image gradients to define shading and state, and background-color to define the color of an element. If done well you can add a variety of colors with very little code.</p>
+    <div class="code" data-type="css">
+    .ui.thingy {
+      background-color: #FAFAFA;
+    }
+    .ui.red.thingy {
+      background-color: #FF0000;
+    }
+    .ui.green.thingy {
+      background-color: #00FF00;
+    }
+    .ui.blue.thingy {
+      background-color: #0000FF;
+    }
+    .ui.thingy:hover {
+      background-image:
+        -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)))
+      ;
+      background-image: -webkit-linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.05) 100%)
+      ;
+      background-image: -moz-linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.05) 100%)
+      ;
+      background-image: -o-linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.05) 100%)
+      ;
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.05) 100%)
+      ;
+    }
+    </div>
+
 
 
   <h2 class="ui dividing header">Style Guide</h2>
@@ -262,197 +472,4 @@ type   : 'UI Guide'
       font-size: 0.8em;
     }
     </div>
-
-
-  <h2 class="ui dividing header">Techniques</h2>
-
-    <h4 class="ui header">Conditional Content Formatting</h4>
-    <p>Sometimes content should be formatted differently depending on whether other content exists alongside it. A useful way to do that is use the next adjacent sibling selector '+'. The content that should have the conditional formatting should always appear second because there is no previous sibling selector in css.</p>
-
-    <div class="code" data-type="css">
-    .ui.widget .image {
-      float: left;
-      width: 2em;
-    }
-    .ui.widget .content {
-      color: #000000;
-    }
-    // content is only floated if image exists
-    .ui.widget .image + .content {
-      margin-left: 3em;
-    }
-    </div>
-
-    <h4 class="ui header">Fixing Whitespace with Inline Block</h4>
-    <p>In HTML usually whitespace doesn't change a page's layouts. However, when using inline block any whitespace will create unwanted space between consecutive inline-block elements. The simple and effective fix is to make sure font-size on the parent element is 0, making all whitespace 0 pixels. Then you can reset font-size on the child element to body font size or 1 relative em.</p>
-    <div class="code" data-type="css">
-    /* remove whitespace */
-    .ui.group {
-      font-size: 0em;
-    }
-    .ui.group .item {
-      display: inline-block;
-      font-size: 1rem;
-    }
-    </div>
-
-    <h4 class="ui header">CSS :not is Awesome</h4>
-    <p>Inheritance can be hell sometimes. Consider changing the opacity of an element. There is no way to "cancel out" of that opacity change on content inside.</p>
-    <p>Sometimes the only way to avoid creating inheritance problems is to specify what elements should not receive a set of rules. Consider blurring content while a dimmer is present. Blurring should only apply to elements that are not inside the dimmer, but there is no way to know what the content is beforehand.</p>
-    <div class="code" data-type="css">
-    /* blur everything but the dimmer */
-    body.dimmed :not(.dimmer){
-      -webkit-filter: blur(15px) grayscale(0.7);
-      -moz-filter: blur(15px) grayscale(0.7);
-    }
-    body.dimmed .dimmer * {
-      -webkit-filter: none;
-      -moz-filter: none;
-    }
-    </div>
-
-    <h4 class="ui header">Prevent Accidental Highlighting</h4>
-    <p>Sometimes text can be accidentally highlighted when a user double clicks an element. No need to pull out javascript to solve this.</p>
-    <div class="code" data-type="css">
-    .ui.thingy {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    </div>
-
-    <h4 class="ui header">Joining borders</h4>
-    <p>Sometimes bordered content must sit next to other bordered content. If each element uses border the borders will double. Consider using either outline or a box shadow to accomplish the same effect but without overlapping borders.</p>
-    <div class="code" data-type="css">
-    /* this might not go so well */
-    .ui.thingy {
-      border: 1px solid #DDDDDD;
-    }
-    /* rgba is great, but keep in mind the overlapping borders will be added together to create a darker shade */
-    .ui.thingy {
-      outline: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    /* classic but works */
-    .ui.thingy {
-      outline: 1px solid #DDDDDD;
-    }
-    /* this works too */
-    .ui.thingy {
-      -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
-      -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
-      box-shadow: 0px 0px 0px 1px #DDDDDD;
-    }
-    </div>
-
-    <h4 class="ui header">Using transparency</h4>
-    <p>RGBA colors in css allow you to specify colors with a transparency channel. This is very useful.</p>
-    <p>Consider for example, defining the text states of an element. If the elements color changes, the text might appear more complementary as a shade of black with a portion of the original color. This can be done easily with rgba</p>
-    <div class="code" data-type="css">
-    .ui.thingy {
-      background-color: #FAFAFA;
-      color: rgba(0, 0, 0, 0.7);
-    }
-    .red.ui.thingy {
-      background-color: #FF0000;
-    }
-    </div>
-
-    <h4 class="ui header">Centering Content with Transform</h4>
-    <p>Using percentages in CSS will give you a ratio based on the size of the parent element. For exaple setting content to be left 50% will set content to start at exactly halfway across its parent.</p>Sometimes you want content to positioned relative to its own size. Inside calls to transform, percentages are based on the current element size so this can be done.</p>
-    <div class="code" data-type="css">
-
-    /* doesnt work */
-    .ui.modal {
-      width: 800px;
-      height: 500px;
-      left: 50%;
-      top: 50%;
-      margin: -50% 0px 0px -50%x;
-    }
-
-    /* works with measurements */
-    .ui.modal {
-      width: 800px;
-      height: 500px;
-      left: 50%;
-      top: 50%;
-      margin: -250px 0px 0px -400px;
-    }
-
-    /* with transform no measurements needed */
-    .ui.modal {
-      position: absolute;
-      width: 800px;
-      top: 50%;
-      left: 50%;
-      transform: transformX(-50%) transformY(-50%);
-    }
-    </div>
-
-    <h4 class="ui header">Consider alternatives to floats</h4>
-    <p>CSS floats can create issues with the containing element not receiving the size of its children. Using overflow:hidden to clear floats means that no peice of an element can be shown outside the bounding box of the element, which limits the possibilities in an element. Clearfixes can use up one of two available pseudo class which can often be useful for styling elements.</p>
-    <p>Consider using another means of putting content side by side like inline-block or table-cell. These provide more freedom than floated block elements, and can add additional benefits.</p>
-    <p>To avoid issues with inline-block causing spacing between elements, specify no font size on the group and 1rem on the floated content</p>
-    <div class="code" data-type="css">
-    /* not the best */
-    .ui.thingy {
-      display: block;
-      overflow: hidden;
-    }
-    .ui.thingy .part {
-      display: block;
-      float: left;
-    }
-
-    /* these do the same thing */
-    .ui.thingy {
-      display: block;
-      font-size: 0rem;
-    }
-    .ui.thingy .part {
-      display: inline-block;
-      font-size: 1rem;
-    }
-    </div>
-
-
-    <h4 class="ui header">Onion Skinning</h4>
-    <p>One technique that is useful for allowing for multiple color variations of an element, without having to completely reskin each variation and shade is to use background-image gradients to define shading and state, and background-color to define the color of an element. If done well you can add a variety of colors with very little code.</p>
-    <div class="code" data-type="css">
-    .ui.thingy {
-      background-color: #FAFAFA;
-    }
-    .ui.red.thingy {
-      background-color: #FF0000;
-    }
-    .ui.green.thingy {
-      background-color: #00FF00;
-    }
-    .ui.blue.thingy {
-      background-color: #0000FF;
-    }
-    .ui.thingy:hover {
-      background-image:
-        -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)))
-      ;
-      background-image: -webkit-linear-gradient(
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0.05) 100%)
-      ;
-      background-image: -moz-linear-gradient(
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0.05) 100%)
-      ;
-      background-image: -o-linear-gradient(
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0.05) 100%)
-      ;
-      background-image: linear-gradient(
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0.05) 100%)
-      ;
-    }
-    </div>
-
 </div>
