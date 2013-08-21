@@ -135,20 +135,38 @@ $.fn.sidebar = function(parameters) {
         add: {
           bodyCSS: function() {
             var
-              style      = '',
-              direction  = module.get.direction(),
-              moduleSize = (module.is.vertical())
+              style     = '',
+              direction = module.get.direction(),
+              distance  = (module.is.vertical())
                 ? $module.outerHeight()
                 : $module.outerWidth()
             ;
             if(direction !== className.bottom) {
               style = ''
                 + '<style type="text/css" title="' + namespace + '">'
-                + 'body.pushed {'
-                + '  padding-' + direction + ': ' + moduleSize + 'px !important;'
+                + 'html {'
+                + '  background-color: #3E3E3E'
                 + '}'
-                + '</style>'
+                + 'body {'
+                + ' box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);'
+                + '}'
               ;
+              if(settings.useTransform) {
+                style += ''
+                  + 'body.pushed {'
+                  + module.get.transform(direction, distance)
+                  + '}'
+                  + '</style>'
+                ;
+              }
+              else {
+                style += ''
+                  + 'body.pushed {'
+                  + '  margin-' + direction + ': ' + distance + 'px !important;'
+                  + '}'
+                  + '</style>'
+                ;
+              }
             }
             $head.append(style);
             module.refresh();
@@ -200,6 +218,49 @@ $.fn.sidebar = function(parameters) {
             }
             else {
               return className.left;
+            }
+          },
+          transform: function(direction, distance) {
+            if(direction && distance) {
+              if(direction == className.left) {
+                return ''
+                  + module.get.transformProperty() + ': translate3d(' + distance + 'px, 0px, 0px);'
+                  + 'margin-right: ' + distance + 'px !important;'
+                ;
+              }
+              if(direction == className.right) {
+                return ''
+                  + module.get.transformProperty() + ': translate3d(-' + distance + 'px, 0px, 0px);'
+                  + 'margin-left: ' + distance + 'px !important;'
+                ;
+              }
+              if(direction == className.top) {
+                return ''
+                  + module.get.transformProperty() + ': translate3d(0px, ' + distance + 'px, 0px);'
+                ;
+              }
+              if(direction == className.bottom) {
+                return ''
+                  + module.get.transformProperty() + ': translate3d(0px, -' + distance + 'px, 0px);'
+                ;
+              }
+            }
+          },
+          transformProperty: function() {
+            var
+              element    = document.createElement('element'),
+              properties = {
+                'transform'       :'transform',
+                'msTransform'     :'-ms-transform',
+                'MozTransform'    :'-moz-transform',
+                'WebkitTransform' :'-webkit-transform'
+              },
+              property
+            ;
+            for(property in properties){
+              if( element.style[property] !== undefined ){
+                return properties[property];
+              }
             }
           },
           transitionEvent: function() {
@@ -413,21 +474,23 @@ $.fn.sidebar = function(parameters) {
 
 $.fn.sidebar.settings = {
 
-  moduleName  : 'Sidebar',
-  namespace   : 'sidebar',
+  moduleName   : 'Sidebar',
+  namespace    : 'sidebar',
 
-  verbose     : true,
-  debug       : true,
-  performance : true,
+  useTransform : true,
 
-  overlay     : false,
+  verbose      : true,
+  debug        : true,
+  performance  : true,
 
-  side        : 'left',
-  duration    : 500,
+  overlay      : false,
 
-  onChange    : function(){},
-  onShow      : function(){},
-  onHide      : function(){},
+  side         : 'left',
+  duration     : 500,
+
+  onChange     : function(){},
+  onShow       : function(){},
+  onHide       : function(){},
 
   className: {
     active : 'active',
