@@ -187,10 +187,14 @@ pre {
   background-color: #F0F0F0;
 }
 code {
-  position: relative;
   background-color: #F0F0F0;
-  border: 1px solid #DDDDDD;
-  padding: 3px 5px;
+  border: 1px solid #E0E0E0;
+  display: inline-block;
+  font-family: Courier New;
+  font-size: 14px;
+  margin: -0.125em 0.5em;
+  padding: 0.25em 0.5em;
+  vertical-align: top;
 }
 pre code {
   border: none;
@@ -211,9 +215,6 @@ p:first-child {
 p:last-child {
   margin-bottom: 0em;
 }
-p > a {
-  /* font-weight: bold; */
-}
 /* links */
 a {
   color: #009FDA;
@@ -221,16 +222,6 @@ a {
 }
 a:hover {
   color: #00BAFF;
-}
-
-#example #menu {
-  display: none;
-  width: 275px;
-
-  border-radius: 0px;
-  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
-
-  border-right: none;
 }
 #example #menu .item {
   -webkit-border-radius: 0px;
@@ -262,11 +253,11 @@ a:hover {
 
 #example .main.menu {
   min-width: 370px;
-  z-index: 999;
+  z-index: 900;
 }
 #example .main.menu .count {
   font-family: "Hevletica Neue", Arial, sans-serif;
-  font-size: 0.8em; 
+  font-size: 0.8em;
   padding-top: 0.9em;
 }
 
@@ -296,7 +287,7 @@ a:hover {
 
 
 /*--------------
-    Playground 
+    Playground
 ---------------*/
 
 #example.playground {
@@ -304,12 +295,12 @@ a:hover {
 }
 #example.playground > .title.grid {
   padding-top: 60px;
-  
+
 }
 
 
 /*--------------
-    Masthead 
+    Masthead
 ---------------*/
 #example .error.masthead {
   position: absolute;
@@ -378,8 +369,8 @@ a:hover {
 #example .stripe {
   padding: 50px 0px;
 }
-#example .stripe .column .divider {
-  margin-bottom: 2em;
+#example .stripe .column h2 {
+  margin-bottom: 1.5em;
 }
 #example .stripe .column .label {
   margin-bottom: 1em;
@@ -430,13 +421,13 @@ a:hover {
   font-family: 'Neutraface';
 }
 
-#example .sidebar.button {
+#example .launch.button {
   position: fixed;
   top: 63px;
   z-index: 500;
   width: 70px;
 }
-#example .sidebar.button .text {
+#example .launch.button .text {
   display: inline-block;
   display: none;
 }
@@ -461,6 +452,11 @@ a:hover {
   left: -230px;
   width: 180px;
 
+  -webkit-transition: padding 0.3s ease-out;
+  -moz-transition: padding 0.3s ease-out;
+  -o-transition: padding 0.3s ease-out;
+  -ms-transition: padding 0.3s ease-out;
+  transition: padding 0.3s ease-out;
 }
 
 #example .main.ui.grid {
@@ -492,23 +488,23 @@ a:hover {
   text-align: center;
   color: #888888;
 
-  -webkit-transition: 
+  -webkit-transition:
     margin-left 0.3s ease-out,
     opacity 0.3s ease-out
   ;
-  -moz-transition: 
+  -moz-transition:
     margin-left 0.3s ease-out,
     opacity 0.3s ease-out
   ;
-  -o-transition: 
+  -o-transition:
     margin-left 0.3s ease-out,
     opacity 0.3s ease-out
   ;
-  -ms-transition: 
+  -ms-transition:
     margin-left 0.3s ease-out,
     opacity 0.3s ease-out
   ;
-  transition: 
+  transition:
     margin-left 0.3s ease-out,
     opacity 0.3s ease-out
   ;
@@ -520,19 +516,19 @@ a:hover {
   margin: 0em auto 0.25em;
   font-size: 2em;
 
-  -webkit-transition: 
+  -webkit-transition:
     all 0.2s ease-out
   ;
-  -moz-transition: 
+  -moz-transition:
     all 0.2s ease-out
   ;
-  -o-transition: 
+  -o-transition:
     all 0.2s ease-out
   ;
-  -ms-transition: 
+  -ms-transition:
     all 0.2s ease-out
   ;
-  transition: 
+  transition:
     all 0.2s ease-out
   ;
 }
@@ -583,26 +579,6 @@ a:hover {
 #example .peek > .menu {
   margin-left: 0px;
   width: 180px;
-  -webkit-transition: 
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-  -moz-transition: 
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-  -o-transition: 
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-  -ms-transition: 
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
-  transition: 
-    margin-left 0.3s ease-out,
-    opacity 0.3s ease-out
-  ;
 }
 /* #example .peek > .menu.animating > .active {
   background-color: transparent;
@@ -616,6 +592,26 @@ a:hover {
 
 #example .sticky-wrapper.stuck {
   height: 0px !important;
+  -webkit-transition:
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+  -moz-transition:
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+  -o-transition:
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+  -ms-transition:
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
+  transition:
+    margin-left 0.3s ease-out,
+    opacity 0.3s ease-out
+  ;
 }
 #example .sticky-wrapper.stuck .peek {
   position: fixed;
@@ -623,8 +619,8 @@ a:hover {
   left: 50%;
   margin-left: -685px;
 }
-#example .sticky-wrapper.stuck .peek.pushed > .menu {
-  margin-left: 275px;
+#example.pushed .sticky-wrapper.stuck .peek {
+  padding-left: 132.5px;
 }
 
 #example .settings.table {
@@ -706,19 +702,19 @@ a:hover {
 
 #example div.code .ace_line,
 #example div.code .ace_line span {
-  -webkit-transition: 
+  -webkit-transition:
     color 1s ease-out
   ;
-  -moz-transition: 
+  -moz-transition:
     color 1s ease-out
   ;
-  -o-transition: 
+  -o-transition:
     color 1s ease-out
   ;
-  -ms-transition: 
+  -ms-transition:
     color 1s ease-out
   ;
-  transition: 
+  transition:
     color 1s ease-out
   ;
 }
@@ -991,7 +987,7 @@ body.progress .ui.progress .bar {
   max-width: 800px;
 }
 
-#example .fixed .sidebar {
+#example .fixed .launch {
   display: none;
 }
 
@@ -1047,7 +1043,7 @@ body.progress .ui.progress .bar {
     width: auto;
     margin: 0px auto;
   }
-  #example .fixed .sidebar {
+  #example .fixed .launch {
     display: inline-block;
   }
   #example .sticky-wrapper {
@@ -1057,7 +1053,7 @@ body.progress .ui.progress .bar {
     width: auto;
     margin: 0% 30px 0px;
   }
-  #example .right.attached.sidebar {
+  #example .right.attached.launch {
     display: none;
   }
 }

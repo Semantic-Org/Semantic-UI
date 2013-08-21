@@ -14,30 +14,33 @@ type   : 'UI Module'
   </div>
 </div>
 <div class="main container">
-  
+
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Types</a>
+      <a class="item">Variations</a>
       <a class="item">Usage</a>
+      <a class="item">Examples</a>
+      <a class="item">Settings</a>
     </div>
   </div>
-  
+
   <h2 class="ui dividing header">Types</h2>
   <div class="example">
     <h4 class="ui header">Popup</h4>
     <p>A standard popup</p>
     <i class="sketchy question icon link" data-content="Hello, I am a pop-up."></i>
   </div>
-  
+
   <h2 class="ui dividing header">Variations</h2>
-  
+
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A popup can be large or small</p>
     <i class="sketchy question icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
     <i class="sketchy question icon link" data-content="Hello. This is a large popup" data-variation="large"></i>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A popup can have its colors inverted</p>
@@ -53,7 +56,7 @@ type   : 'UI Module'
       .popup()
     ;
   </div>
-  
+
   <h4 class="ui header">Including metadata</h4>
   <p>Frequently used metadata like, title, content, html, or arrowOffset or variation, can be included in html metadata<p>
   <div class="ui info icon ignored message">
@@ -69,61 +72,58 @@ type   : 'UI Module'
     </div>
   </div>
   <div class="code" data-type="html">
-    <i class="sketchy question icon link" data-content="Here is some popup content." data-position="top left" data-variation="black"></i>  
+    <i class="sketchy question icon link" data-content="Here is some popup content." data-position="top left" data-variation="black"></i>
   </div>
-  
+
   <h2 class="ui dividing header">Examples</h2>
-  
+
   <div class="example segment">
     <h4 class="ui header">Positioning</h4>
     <p>A popup can be positioned to any side of an element. If space is not available, it will automatically search for a similar alternative position to use.</p>
-      <i class="sketchy question icon link" data-content="Top Left" data-position="top left"></i>  
-      <i class="sketchy question icon link" data-content="Top Center" data-position="top center"></i>        
-      <i class="sketchy question icon link" data-content="Top Right" data-position="top right"></i>        
-      <i class="sketchy question icon link" data-content="Left Center" data-position="left center"></i>        
-      <i class="sketchy question icon link" data-content="Right Center" data-position="right center"></i>        
-      <i class="sketchy question icon link" data-content="Bottom Left" data-position="bottom left"></i>        
-      <i class="sketchy question icon link" data-content="Bottom Center " data-position="bottom center"></i>        
-      <i class="sketchy question icon link" data-content="Bottom Right" data-position="bottom right"></i>      
+      <i class="sketchy question icon link" data-content="Top Left" data-position="top left"></i>
+      <i class="sketchy question icon link" data-content="Top Center" data-position="top center"></i>
+      <i class="sketchy question icon link" data-content="Top Right" data-position="top right"></i>
+      <i class="sketchy question icon link" data-content="Left Center" data-position="left center"></i>
+      <i class="sketchy question icon link" data-content="Right Center" data-position="right center"></i>
+      <i class="sketchy question icon link" data-content="Bottom Left" data-position="bottom left"></i>
+      <i class="sketchy question icon link" data-content="Bottom Center " data-position="bottom center"></i>
+      <i class="sketchy question icon link" data-content="Bottom Right" data-position="bottom right"></i>
   </div>
-  
+
   <div class="example segment">
     <h4 class="ui header">Title</h4>
     <p>A popup can be formatted with a title</p>
-    <i class="sketchy question icon link" data-title="Dog Breeds" data-content="There are many types of dogs. We don't have time to list them all"></i>  
+    <i class="sketchy question icon link" data-title="Dog Breeds" data-content="There are many types of dogs. We don't have time to list them all"></i>
   </div>
-  
+
   <div class="example segment">
     <h4 class="ui header">HTML</h4>
     <p>A popup can be formatted with html</p>
-    <i class="sketchy question icon link" data-html="<strike>I rescind my comment about cats</strike>"></i>  
+    <i class="sketchy question icon link" data-html="<strike>I rescind my comment about cats</strike>"></i>
   </div>
 
-  
-  <h3 class="ui header">Settings</h3>
-  <table class="ui red table segment">
+
+  <h2 class="ui header">Settings</h2>
+  <table class="ui red celled table segment">
     <thead>
       <th colspan="3">Content</th>
     </thead>
     <tbody>
       <tr>
-        <td>content</td>
-        <td></td>
+        <td colspan="2">content</td>
         <td>Content to display</td>
       </tr>
       <tr>
-        <td>title</td>
-        <td></td>
+        <td colspan="2">title</td>
         <td>Title to display alongside content</td>
       </tr>
       <tr>
-        <td>html</td>
-        <td></td>
+        <td colspan="2">html</td>
         <td>HTML content to display instead of preformatted title and content</td>
       </tr>
     </tbody>
   </table>
-  <table class="ui green table segment">
+  <table class="ui green celled table segment">
     <thead>
       <th colspan="3">Popup Settings</th>
     </thead>
@@ -175,16 +175,16 @@ type   : 'UI Module'
       </tr>
     </tbody>
   </table>
-  
-  <table class="ui blue table segment">
+
+  <table class="ui blue celled table segment">
     <thead>
       <th colspan="3">Animation</th>
     </thead>
     <tbody>
       <tr>
-        <td>animation</td>
-        <td>Pop</td>
-        <td>Animation to use, can be set to either pop or fade.</td>
+        <td>transition</td>
+        <td>scale</td>
+        <td>transition to use if transition module is included</td>
       </tr>
       <tr>
         <td>duration</td>
@@ -198,8 +198,8 @@ type   : 'UI Module'
       </tr>
     </tbody>
   </table>
-  
-  <table class="ui teal table segment">
+
+  <table class="ui teal celled table segment">
     <thead>
       <th colspan="3">Callbacks</th>
     </thead>
@@ -221,8 +221,8 @@ type   : 'UI Module'
       </tr>
     </tbody>
   </table>
-  
-  <table class="ui blue table segment">
+
+  <table class="ui blue celled table segment">
     <thead>
       <th colspan="3">UI Module Settings</th>
     </thead>
