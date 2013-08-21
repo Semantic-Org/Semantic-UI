@@ -136,29 +136,18 @@ $.fn.sidebar = function(parameters) {
           bodyCSS: function() {
             var
               style      = '',
-              moduleSize = 0,
-              direction  = module.get.direction()
+              direction  = module.get.direction(),
+              moduleSize = (module.is.vertical())
+                ? $module.outerHeight()
+                : $module.outerWidth()
             ;
-            if(module.is.vertical()) {
-              moduleSize = $module.outerHeight();
-              style = ''
-                + '<style type="text/css" title="' + namespace + '">'
-                + 'body.pushed {'
-                + '  padding-top: ' + moduleSize + ' !important;'
-                + '}'
-                + '</style>'
-              ;
-            }
-            else {
-              moduleSize = $module.outerWidth();
-              style = ''
-                + '<style type="text/css" title="' + namespace + '">'
-                + 'body.pushed {'
-                + '  padding-' + direction + ': ' + moduleSize + 'px !important;'
-                + '}'
-                + '</style>'
-              ;
-            }
+            style = ''
+              + '<style type="text/css" title="' + namespace + '">'
+              + 'body.pushed {'
+              + '  padding-' + direction + ': ' + moduleSize + 'px !important;'
+              + '}'
+              + '</style>'
+            ;
             $head.append(style);
             module.refresh();
             module.debug('Adding body css to head', $style);
@@ -175,7 +164,11 @@ $.fn.sidebar = function(parameters) {
             $module.removeClass(className.active);
           },
           pushed: function() {
-            $body.removeClass(className.pushed);
+            module.verbose('Removing body push state', module.get.direction());
+            $body
+              .removeClass(className[ module.get.direction() ])
+              .removeClass(className.pushed)
+            ;
           }
         },
 
@@ -184,7 +177,11 @@ $.fn.sidebar = function(parameters) {
             $module.addClass(className.active);
           },
           pushed: function() {
-            $body.addClass(className.pushed);
+            module.verbose('Adding body push state', module.get.direction());
+            $body
+              .addClass(className[ module.get.direction() ])
+              .addClass(className.pushed)
+            ;
           }
         },
 
@@ -433,7 +430,10 @@ $.fn.sidebar.settings = {
   className: {
     active : 'active',
     pushed : 'pushed',
-    top    : 'top'
+    top    : 'top',
+    left   : 'left',
+    right  : 'right',
+    bottom : 'bottom'
   },
 
   error   : {
