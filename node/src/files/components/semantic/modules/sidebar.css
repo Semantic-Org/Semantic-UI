@@ -77,20 +77,26 @@ body {
   -ms-transform: translateX(0%);
   transform: translateX(0%);
 }
-.ui.active.top.sidebar,
-.ui.active.bottom.sidebar {
-  -webkit-transform: translateY(0%);
-  -moz-transform: translateY(0%);
-  -o-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%);
-}
 .ui.active.right.sidebar {
   -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
   -o-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
+}
+.ui.active.top.sidebar {
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+.ui.active.bottom.sidebar {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 /*******************************
            Variations

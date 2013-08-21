@@ -2,8 +2,9 @@
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 
- 	outPath: '../docs'
- 	
+ 	outPath: '../docs',
+ 	renderPasses: 1,
+
  	enabledPlugins:
 	 	handlebars: false
 	 	html2coffee: false
@@ -23,7 +24,7 @@ docpadConfig = {
   # Check Version
   # Whether or not to check for newer versions of DocPad
   checkVersion: true  # default
-  
+
   documentsPaths: [  # default
     'documents'
   ]

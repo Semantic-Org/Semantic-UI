@@ -141,13 +141,15 @@ $.fn.sidebar = function(parameters) {
                 ? $module.outerHeight()
                 : $module.outerWidth()
             ;
-            style = ''
-              + '<style type="text/css" title="' + namespace + '">'
-              + 'body.pushed {'
-              + '  padding-' + direction + ': ' + moduleSize + 'px !important;'
-              + '}'
-              + '</style>'
-            ;
+            if(direction !== className.bottom) {
+              style = ''
+                + '<style type="text/css" title="' + namespace + '">'
+                + 'body.pushed {'
+                + '  padding-' + direction + ': ' + moduleSize + 'px !important;'
+                + '}'
+                + '</style>'
+              ;
+            }
             $head.append(style);
             module.refresh();
             module.debug('Adding body css to head', $style);
@@ -187,17 +189,17 @@ $.fn.sidebar = function(parameters) {
 
         get: {
           direction: function() {
-            if($module.hasClass('top')) {
-              return 'top';
+            if($module.hasClass(className.top)) {
+              return className.top;
             }
-            else if($module.hasClass('right')) {
-              return 'right';
+            else if($module.hasClass(className.right)) {
+              return className.right;
             }
-            else if($module.hasClass('bottom')) {
-              return 'bottom';
+            else if($module.hasClass(className.bottom)) {
+              return className.bottom;
             }
             else {
-              return 'left';
+              return className.left;
             }
           },
           transitionEvent: function() {
