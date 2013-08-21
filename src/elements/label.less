@@ -19,7 +19,10 @@
   vertical-align: middle;
 
   margin: -0.5em 0.25em 0em;
+
   background-color: #E8E8E8;
+  border-color: #E8E8E8;
+
   padding: 0.5em 0.8em;
   color: rgba(0, 0, 0, 0.65);
 
@@ -97,6 +100,7 @@ a.ui.label {
 a.ui.labels .label:hover,
 a.ui.label:hover {
   background-color: #E0E0E0;
+  border-color: #E0E0E0;
   color: rgba(0, 0, 0, 0.7);
 }
 .ui.labels a.label:hover:before,
@@ -185,6 +189,36 @@ a.ui.label:hover:before {
   -webkit-border-radius: 100px 100px 100px 100px;
   border-radius: 100px 100px 100px 100px;
 }
+/*-------------------
+       Ribbon
+--------------------*/
+
+.ui.ribbon.label {
+  position: relative;
+  left: -2rem;
+  padding-left: 2rem;
+  -webkit-border-radius: 0px 4px 4px 0px;
+  -moz-border-radius: 0px 4px 4px 0px;
+  border-radius: 0px 4px 4px 0px;
+}
+
+.ui.ribbon.label:after {
+  position: absolute;
+  content: "";
+
+  top: 100%;
+  left: 0%;
+
+  border-top: 0em solid transparent;
+  border-right-width: 1em;
+  border-right-color: inherit;
+  border-right-style: solid;
+  border-bottom: 1em solid transparent;
+  border-left: 0em solid transparent;
+
+  width: 0em;
+  height: 0em;
+}
 
 /*-------------------
        Attached
@@ -199,7 +233,7 @@ a.ui.label:hover:before {
   left: 0em;
   -webkit-border-radius: 4px 4px 0em 0em;
   -moz-border-radius: 4px 4px 0em 0em;
-  border-radius: 4px 4px 0em 0em;  
+  border-radius: 4px 4px 0em 0em;
 }
 .ui.bottom.attached.label {
   top: auto;
@@ -207,7 +241,7 @@ a.ui.label:hover:before {
 
   -webkit-border-radius: 0em 0em 4px 4px;
   -moz-border-radius: 0em 0em 4px 4px;
-  border-radius: 0em 0em 4px 4px;  
+  border-radius: 0em 0em 4px 4px;
 }
 
 .ui.top.left.attached.label {
@@ -216,7 +250,7 @@ a.ui.label:hover:before {
 
   -webkit-border-radius: 4px 0em 4px 0em;
   -moz-border-radius: 4px 0em 4px 0em;
-  border-radius: 4px 0em 4px 0em;  
+  border-radius: 4px 0em 4px 0em;
 }
 
 .ui.top.right.attached.label {
@@ -283,9 +317,12 @@ a.ui.label:hover:before {
   width: 0em;
   height: 0em;
 
-  border-color: transparent #E8E8E8 transparent transparent;
-  border-style: solid;
-  border-width: 0em 2.75em 2.75em 0em;
+  border-top: 0em solid transparent;
+  border-right: 2.75em solid transparent;
+  border-bottom: 2.75em solid transparent;
+  border-left: 0em solid transparent;
+
+  border-right-color: inherit;
 
   -webkit-transition: border-color 0.2s ease;
   -moz-transition: border-color 0.2s ease;
@@ -320,8 +357,12 @@ a.ui.label:hover:before {
   left: 0em;
 }
 .ui.left.corner.label:after {
-  border-width: 2.75em 2.75em 0em 0em;
-  border-color: #E8E8E8 transparent transparent;
+  border-top: 2.75em solid transparent;
+  border-right: 2.75em solid transparent;
+  border-bottom: 0em solid transparent;
+  border-left: 0em solid transparent;
+
+  border-top-color: inherit;
 }
 .ui.left.corner.label .text {
   -webkit-transform: rotate(-45deg);
@@ -332,19 +373,10 @@ a.ui.label:hover:before {
 }
 
 
-
 /* Hover */
 .ui.corner.label:hover {
   background-color: transparent;
 }
-a.ui.corner.label:hover::after {
-  border-right-color: #E0E0E0;
-}
-a.ui.left.corner.label:hover::after {
-  border-right-color: transparent;
-  border-top-color: #E0E0E0;
-}
-
 
 
 /*-------------------
@@ -377,6 +409,7 @@ a.ui.left.corner.label:hover::after {
 .ui.black.labels .label,
 .ui.black.label {
   background-color: #5C6166 !important;
+  border-color: #5C6166 !important;
   color: #FFFFFF !important;
 }
 .ui.labels .black.label:before,
@@ -388,6 +421,7 @@ a.ui.left.corner.label:hover::after {
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
   background-color: #888888 !important;
+  border-color: #888888 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
@@ -395,10 +429,18 @@ a.ui.black.label:hover:before {
   background-color: #888888 !important;
 }
 
+/* Corner */
+.ui.black.corner.label,
+.ui.black.corner.label:hover {
+  background-color: transparent !important;
+}
+
+
 /*--- Green ---*/
 .ui.green.labels .label,
 .ui.green.label {
   background-color: #A1CF64 !important;
+  border-color: #A1CF64 !important;
   color: #FFFFFF !important;
 }
 .ui.labels .green.label:before,
@@ -411,6 +453,7 @@ a.ui.black.label:hover:before {
 a.ui.green.labels .label:hover,
 a.ui.green.label:hover {
   background-color: #89B84C !important;
+  border-color: #89B84C !important;
 }
 .ui.labels a.green.label:hover:before,
 .ui.green.labels a.label:hover:before,
@@ -418,11 +461,18 @@ a.ui.green.label:hover:before {
   background-color: #89B84C !important;
 }
 
+/* Corner */
+.ui.green.corner.label,
+.ui.green.corner.label:hover {
+  background-color: transparent !important;
+}
+
 
 /*--- Red ---*/
 .ui.red.labels .label,
 .ui.red.label {
   background-color: #EF4D6D !important;
+  border-color: #EF4D6D !important;
   color: #FFFFFF !important;
 }
 .ui.labels .red.label:before,
@@ -431,14 +481,16 @@ a.ui.green.label:hover:before {
   background-color: #EF4D6D !important;
 }
 /* Corner */
-.ui.red.corner.label {
-  background-color: transparent;
+.ui.red.corner.label,
+.ui.red.corner.label:hover {
+  background-color: transparent !important;
 }
 
 /* Hover */
 a.ui.red.labels .label:hover,
 a.ui.red.label:hover{
   background-color: #DE3859 !important;
+  border-color: #DE3859 !important;
   color: #FFFFFF !important;
 }
 .ui.labels a.red.label:hover:before,
@@ -452,6 +504,7 @@ a.ui.red.label:hover:before {
 .ui.blue.labels .label,
 .ui.blue.label {
   background-color: #6ECFF5 !important;
+  border-color: #6ECFF5 !important;
   color: #FFFFFF !important;
 }
 .ui.labels .blue.label:before,
@@ -459,12 +512,12 @@ a.ui.red.label:hover:before {
 .ui.blue.label:before {
   background-color: #6ECFF5 !important;
 }
-
 /* Hover */
 a.ui.blue.labels .label:hover,
 .ui.blue.labels a.label:hover,
 a.ui.blue.label:hover {
   background-color: #1AB8F3 !important;
+  border-color: #1AB8F3 !important;
   color: #FFFFFF !important;
 }
 .ui.labels a.blue.label:hover:before,
@@ -472,11 +525,17 @@ a.ui.blue.label:hover {
 a.ui.blue.label:hover:before {
   background-color: #1AB8F3 !important;
 }
+/* Corner */
+.ui.blue.corner.label,
+.ui.blue.corner.label:hover {
+  background-color: transparent !important;
+}
 
 /*--- Purple ---*/
 .ui.purple.labels .label,
 .ui.purple.label {
   background-color: #564F8A !important;
+  border-color: #564F8A !important;
   color: #FFFFFF !important;
 }
 .ui.labels .purple.label:before,
@@ -484,12 +543,12 @@ a.ui.blue.label:hover:before {
 .ui.purple.label:before {
   background-color: #564F8A !important;
 }
-
 /* Hover */
 a.ui.purple.labels .label:hover,
 .ui.purple.labels a.label:hover,
 a.ui.purple.label:hover {
   background-color: #3E3773 !important;
+  border-color: #3E3773 !important;
   color: #FFFFFF !important;
 }
 .ui.labels a.purple.label:hover:before,
@@ -497,11 +556,18 @@ a.ui.purple.label:hover {
 a.ui.purple.label:hover:before {
   background-color: #3E3773 !important;
 }
+/* Corner */
+.ui.purple.corner.label,
+.ui.purple.corner.label:hover {
+  background-color: transparent !important;
+}
+
 
 /*--- Pink ---*/
 .ui.teal.labels .label,
 .ui.teal.label {
   background-color: #00B5AD !important;
+  border-color: #00B5AD !important;
   color: #FFFFFF !important;
 }
 .ui.labels .teal.label:before,
@@ -514,12 +580,18 @@ a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
   background-color: #009A93 !important;
+  border-color: #009A93 !important;
   color: #FFFFFF !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
   background-color: #009A93 !important;
+}
+/* Corner */
+.ui.teal.corner.label,
+.ui.teal.corner.label:hover {
+  background-color: transparent !important;
 }
 
 /*-------------------
@@ -535,7 +607,7 @@ a.ui.teal.label:hover:before {
 
   line-height: 1em;
   text-align: center;
-  
+
   -webkit-border-radius: 500em;
   -moz-border-radius: 500em;
   border-radius: 500em;

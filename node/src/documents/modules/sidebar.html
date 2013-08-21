@@ -11,7 +11,7 @@ type   : 'UI Module'
     <i class="home icon"></i>
     Home
   </a>
-  <a class="item">
+  <a class="active item">
     <i class="heart icon"></i>
     Current Section
   </a>
@@ -47,6 +47,14 @@ type   : 'UI Module'
   </div>
   <h2 class="ui header">Initializing</h2>
   <p>Any content can be used as a sidebar by adding the class <code>ui sidebar</code> and initializing the menu in javascript.</p>
+  <div class="ignored warning message">
+    <div class="header">Fixed Position Snafoos</div>
+    Fixed position content may have issues changing it's position when a sidebar appears. There are two solutions
+    <ul class="list">
+      <li>Specify your fixed content without using the css left property
+      <li>Apply styles on the fixed element to adjust its position when the sidebar appears. You can do this by descending from the body tag which receives the class <code>pushed</code> when the view is moved.</li>
+    </ul>
+  </div>
   <div class="code" data-label="true" data-type="html">
     <div class="ui sidebar">
       Any content in the world
@@ -60,7 +68,7 @@ type   : 'UI Module'
 
   <h2 class="ui header">Usage</h2>
 
-  <div class="instructive example">
+  <div class="no example">
     <h4 class="ui header">Showing a sidebar</h4>
     <p>A sidebar can be shown, hidden, or toggled. In the following examples sidebar is used in conjunction with <a href="/collections/menu.html">ui menu</a> to display a vertical menu as a sidebar.</p>
     <div class="code" data-type="html" data-title="Example HTML">
@@ -69,7 +77,7 @@ type   : 'UI Module'
         <i class="home icon"></i>
         Home
       </a>
-      <a class="item">
+      <a class="active item">
         <i class="heart icon"></i>
         Current Section
       </a>
@@ -92,16 +100,23 @@ type   : 'UI Module'
     ;
     </div>
   </div>
-  <div class="instructive example">
+  <div class="no example">
     <h4 class="ui header">Triggering show/hide with other content</h4>
     <p>For convenience calling attach events will allow you to bind events. By default this will toggle the sidebar in and out of view on click</p>
     <div class="code" data-demo="true">
     $('.ui.demo.sidebar')
       .sidebar('attach events', '.trigger.button')
     ;
+    $('.trigger.button')
+      .removeClass('disabled')
+    ;
+    </div>
+    <div class="ui disabled teal trigger button">
+      <i class="left arrow icon"></i>
+      Trigger Sidebar
     </div>
   </div>
-  <div class="instructive example">
+  <div class="no example">
 
     <h4 class="ui header">Triggering custom action with other content</h4>
     <p>You can also however specify what action should occur when the element is clicked</p>

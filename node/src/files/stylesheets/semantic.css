@@ -254,6 +254,17 @@ a:hover {
 #example .main.menu {
   min-width: 370px;
   z-index: 900;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-transition: margin 0.3s ease-out;
+  -moz-transition: margin 0.3s ease-out;
+  -o-transition: margin 0.3s ease-out;
+  -ms-transition: margin 0.3s ease-out;
+  transition: margin 0.3s ease-out;
 }
 #example .main.menu .count {
   font-family: "Hevletica Neue", Arial, sans-serif;
@@ -1020,6 +1031,9 @@ body.progress .ui.progress .bar {
     margin-left: 0px;
     left: 95px;
   }
+  #example.pushed .sticky-wrapper.stuck .peek {
+    padding-left: 275px;
+  }
 }
 
 @media only screen and (max-width : 600px) {
@@ -1064,6 +1078,9 @@ body.progress .ui.progress .bar {
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: -780px;
+  }
+  #example.pushed .main.menu {
+    margin-left: -132px;
   }
 }
 

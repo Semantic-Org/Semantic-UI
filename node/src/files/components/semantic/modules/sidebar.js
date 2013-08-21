@@ -88,6 +88,7 @@ $.fn.sidebar = function(parameters) {
             if($toggle.size() > 0) {
               module.debug('Attaching sidebar events to element', selector, event);
               $toggle
+                .off(eventNamespace)
                 .on('click' + eventNamespace, event)
               ;
             }
