@@ -20,6 +20,8 @@
 
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+
+  line-height: 1;
   height: 0em;
 
   -webkit-box-sizing: border-box;
@@ -33,8 +35,6 @@
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-
 
 .ui.vertical.divider,
 .ui.horizontal.divider {
@@ -55,10 +55,10 @@
 
 
 /*--------------
-    Vertical 
+    Vertical
 ---------------*/
 
-.vertical.ui.divider {    
+.ui.vertical.divider {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -68,18 +68,18 @@
 
   width: 6%;
   height: 50%;
-  
+
   line-height: 0;
   padding: 0em;
 }
 
-.vertical.ui.divider:before,
-.vertical.ui.divider:after {    
+.ui.vertical.divider:before,
+.ui.vertical.divider:after {
   position: absolute;
   left: 50%;
   content: " ";
   z-index: 3;
-  
+
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(255, 255, 255, 0.8);
 
@@ -87,20 +87,20 @@
   height: 80%;
 }
 
-.vertical.ui.divider:before {
+.ui.vertical.divider:before {
   top: -100%;
 }
 
-.vertical.ui.divider:after {
+.ui.vertical.divider:after {
   top: auto;
   bottom: 0px;
 }
 
 /*--------------
-    Horizontal 
+    Horizontal
 ---------------*/
 
-.horizontal.ui.divider {    
+.ui.horizontal.divider {
   position: relative;
   top: 0%;
   left: 0%;
@@ -113,8 +113,8 @@
   line-height: 1;
 }
 
-.horizontal.ui.divider:before,
-.horizontal.ui.divider:after {    
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
   position: absolute;
   top: 50%;
   content: " ";
@@ -123,19 +123,35 @@
   width: 45%;
   top: 50%;
   height: 0%;
-  
+
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-.horizontal.ui.divider:before {
+.ui.horizontal.divider:before {
   left: 0%;
 }
-.horizontal.ui.divider:after {
+.ui.horizontal.divider:after {
   left: auto;
   right: 0%;
 }
 
+/*--------------
+    Icon
+---------------*/
+
+.ui.horizontal.icon.divider:before,
+.ui.horizontal.icon.divider:after {
+  width: 48%;
+}
+.ui.icon.divider {
+  height: auto;
+}
+.ui.icon.divider > .icon {
+  margin: 0em;
+  font-size: 1rem;
+  vertical-align: middle;
+}
 
 
 /*******************************
@@ -144,13 +160,13 @@
 
 
 /*--------------
-    Inverted 
+    Inverted
 ---------------*/
 
 .ui.divider.inverted {
   color: rgba(255, 255, 255, 1);
 }
-.ui.vertical.inverted.divider, 
+.ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
   color: rgba(255, 255, 255, 0.9);
 }
@@ -165,7 +181,7 @@
 }
 
 /*--------------
-    Fitted 
+    Fitted
 ---------------*/
 
 .ui.fitted.divider {
@@ -173,7 +189,7 @@
 }
 
 /*--------------
-    Clearing 
+    Clearing
 ---------------*/
 
 .ui.clearing.divider {

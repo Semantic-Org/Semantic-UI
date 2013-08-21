@@ -12,7 +12,7 @@ type   : 'UI Element'
   </div>
 </div>
 <div class="main container">
-  
+
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Types</a>
@@ -20,7 +20,7 @@ type   : 'UI Element'
       <a class="item">Groups</a>
     </div>
   </div>
-  
+
   <h2 class="ui dividing header">Types</h2>
   <div class="example">
     <h4 class="ui header">Label</h4>
@@ -29,15 +29,15 @@ type   : 'UI Element'
       <i class="icon location"></i> 23
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Linkable Label</h4>
     <p>If an html link tag is used, a label will be formatted as a link</p>
     <a class="ui label">
       Fun
     </a>
-  </div>  
-  
+  </div>
+
   <div class="example">
     <h4 class="ui header">Label with detail</h4>
     <p>A tag can optionally display a detail</p>
@@ -61,28 +61,43 @@ type   : 'UI Element'
     <p>A label can position itself in the corner of an element</p>
     <div class="yellow ui message">A corner label must be positioned inside a container with position: relative to display properly</div>
     <div class="ui segment">
-      <div class="ui right corner label">
+      <div class="ui right red corner label">
         <i class="heart icon"></i>
       </div>
-      <div class="ui left corner label">
+      <div class="ui left green corner label">
         <div class="text">New</div>
       </div>
       This is a normal text segment
     </div>
     <div class="ui segment">
-      <a class="ui left corner label">
+      <a class="ui left red corner label">
         <i class="heart icon"></i>
       </a>
-      <a class="ui right corner label">
+      <a class="ui right green corner label">
         <div class="text">New</div>
       </a>
       These corner labels are formatted as links
     </div>
   </div>
-  
+
+  <div class="example">
+    <h4 class="ui header">Ribbon Label</h4>
+    <p>A label can appear as a ribbon attached tp a cpmtemt segment</p>
+    <div class="ui three column grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui raised segment">
+            <div class="ui ribbon label">Here's an example title</div>
+            <p>This is some pretend content</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="example">
     <h4 class="ui header">Attached Label</h4>
-    <p>A label attached to a content segment</p>
+    <p>A label can attach to a content segment</p>
     <div class="ui three column grid">
       <div class="row">
         <div class="column">
@@ -126,7 +141,7 @@ type   : 'UI Element'
       </div>
     </div>
   </div>
-  
+
   <h2 class="ui dividing header">Variations</h2>
   <div class="example">
     <h4 class="ui header">Colors</h4>
@@ -150,7 +165,7 @@ type   : 'UI Element'
       Exciting
     </a>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Circular</h4>
     <p>A label can be circular</p>
@@ -173,7 +188,7 @@ type   : 'UI Element'
       1
     </a>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Floating</h4>
     <p>A label can float above another element</p>
@@ -188,9 +203,9 @@ type   : 'UI Element'
       </a>
     </div>
   </div>
-  
-  
-  
+
+
+
   <div class="example">
     <h4 class="ui header">Pointing</h4>
     <p>A label can point to content next to it</p>
@@ -236,9 +251,9 @@ type   : 'UI Element'
       Fun
     </div>
   </div>
-  
+
   <h2 class="ui dividing header">Groups</h2>
-  
+
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>Labels can share sizes together</p>
@@ -301,5 +316,5 @@ type   : 'UI Element'
       </a>
     </div>
   </div>
-  
+
 </div>

@@ -42,7 +42,7 @@ $.fn.state = function(parameters) {
   var
     $allModules     = $(this),
     settings        = $.extend(true, {}, $.fn.state.settings, parameters),
-    
+
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -61,8 +61,8 @@ $.fn.state = function(parameters) {
     text          = settings.text,
 
     eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module', 
-    
+    moduleNamespace = namespace + '-module',
+
 
     invokedResponse
   ;
@@ -70,7 +70,7 @@ $.fn.state = function(parameters) {
     .each(function() {
       var
         $module       = $(this),
-        
+
         element       = this,
         instance      = $module.data(moduleNamespace),
 
@@ -221,7 +221,7 @@ $.fn.state = function(parameters) {
           return states[state] || false;
         },
 
-        enable: { 
+        enable: {
           state: function(state) {
             if(module.allows(state)) {
               $module.addClass( className[state] );
@@ -239,7 +239,7 @@ $.fn.state = function(parameters) {
           },
         },
 
-        disable: { 
+        disable: {
           state: function(state) {
             if(module.allows(state)) {
               $module.removeClass( className[state] );
@@ -673,7 +673,7 @@ $.fn.state.settings = {
 
   // activate / deactivate changes all elements instantiated at same time
   sync          : false,
-  
+
   // default flash text duration, used for temporarily changing text of an element
   flashDuration : 3000,
 
@@ -684,7 +684,7 @@ $.fn.state.settings = {
   },
 
   context    : false,
-  
+
   // error
   error: {
     method : 'The method you called is not defined.'
@@ -722,7 +722,7 @@ $.fn.state.settings = {
       hover   : true,
       focus   : false,
       down    : true,
-      active  : false,
+      active  : true,
       loading : true
     }
   },

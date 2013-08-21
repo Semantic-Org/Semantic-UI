@@ -4,6 +4,6 @@
     "version": 0.1
   },
   "dependencies": {
-    "docpad": "~6.49.0"
+    "docpad": "~6.50.0"
   }
 }
