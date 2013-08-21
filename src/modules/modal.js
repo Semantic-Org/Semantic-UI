@@ -23,14 +23,14 @@ $.fn.modal = function(parameters) {
     className      = settings.className,
     namespace      = settings.namespace,
     error          = settings.error,
-    
+
     eventNamespace = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
     moduleSelector = $allModals.selector || '',
-    
+
     time           = new Date().getTime(),
     performance    = [],
-    
+
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
@@ -45,7 +45,7 @@ $.fn.modal = function(parameters) {
         $context     = $(settings.context),
         $otherModals = $allModals.not($modal),
         $closeButton = $modal.find(selector.closeButton),
-        
+
         element      = this,
         instance     = $modal.data(moduleNamespace),
         modal
@@ -113,7 +113,7 @@ $.fn.modal = function(parameters) {
             modal.cache.sizes();
             if( $modal.is(':visible') ) {
               modal.set.type();
-              modal.set.position(); 
+              modal.set.position();
             }
           }
         },
@@ -359,7 +359,7 @@ $.fn.modal = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                modal.error(error.method);
                 return false;
               }
             });
@@ -408,7 +408,7 @@ $.fn.modal.settings = {
 
   moduleName  : 'Modal',
   namespace   : 'modal',
-  
+
   verbose     : true,
   debug       : true,
   performance : true,

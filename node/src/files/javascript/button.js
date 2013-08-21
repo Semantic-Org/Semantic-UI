@@ -4,7 +4,7 @@ semantic.button = {};
 semantic.button.ready = function() {
 
   // selector cache
-  var 
+  var
     $buttons = $('.ui.buttons .button'),
     $toggle  = $('.ui.toggle.button'),
     $button  = $('.ui.button').not($buttons).not($toggle),
@@ -28,13 +28,9 @@ semantic.button.ready = function() {
 
   $toggle
     .state({
-      states: {
-        active: true
-      },
       text: {
         inactive : 'Vote',
-        active   : 'Voted',
-        disable  : 'Undo'
+        active   : 'Voted'
       }
     })
   ;
@@ -46,7 +42,7 @@ semantic.button.ready = function() {
       }
     })
   ;
-  
+
 };
 
 

@@ -269,6 +269,34 @@
 /*******************************
            Variations
 *******************************/
+/*-------------------
+       Social
+--------------------*/
+/* Facebook */
+.ui.facebook.button {
+  background-color: #3B579D;
+  color: #FFFFFF;
+}
+.ui.facebook.button:hover {
+  background-color: #3A59A9;
+}
+.ui.facebook.button:active {
+  background-color: #334F95;
+}
+/* Twitter */
+.ui.twitter.button {
+  background-color: #00ACED;
+  color: #FFFFFF;
+}
+.ui.twitter.button:hover {
+  background-color: #00B9FF;
+}
+.ui.twitter.button:active {
+  background-color: #009EDA;
+}
+/*-------------------
+       Colors
+--------------------*/
 /*--- Black ---*/
 .ui.black.buttons .button,
 .ui.black.button {
@@ -538,14 +566,15 @@
 /*--- Tertiary ---*/
 .ui.buttons.tertiary .button,
 .ui.tertiary.button {
-  border: 1px solid #E0E0E0;
   background-color: transparent;
   background-image: none;
   color: #999999;
   font-weight: normal;
   text-transform: none;
   text-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.buttons.tertiary {
   border: 1px solid #E0E0E0;
@@ -553,6 +582,9 @@
 .ui.buttons.tertiary .button {
   border: none !important;
   border-left: 1px solid #E0E0E0 !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 .ui.buttons.tertiary .button:first-child {
   border-left: none !important;
