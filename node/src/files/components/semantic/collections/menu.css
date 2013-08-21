@@ -185,9 +185,12 @@
   width: 100%;
 }
 .ui.menu input {
-  margin: 0.25em 0em;
-  padding-top: 0.55em;
-  padding-bottom: 0.55em;
+  margin: -0.5em 0em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.ui.vertical.menu input {
+  margin: 0em;
 }
 /*--------------
      Header
@@ -390,7 +393,7 @@
   margin: 0em;
 }
 .ui.vertical.menu .dropdown.item .menu .item {
-  font-size: 1em;
+  font-size: 0.875rem;
   padding: 0.75em 1em;
 }
 .ui.vertical.menu .dropdown.item .menu .item .icon {
