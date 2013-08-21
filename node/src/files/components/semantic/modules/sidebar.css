@@ -48,8 +48,8 @@ body {
   transform: translateX(0%);
 }
 .ui.top.sidebar {
-  width: 100%;
-  height: 40px;
+  width: 100% !important;
+  height: 40px !important;
   overflow: hidden;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
@@ -58,8 +58,8 @@ body {
   transform: translateY(-100%);
 }
 .ui.bottom.sidebar {
-  width: 100%;
-  height: 40px;
+  width: 100% !important;
+  height: 40px !important;
   top: 100%;
   -webkit-transform: translateY(0%);
   -moz-transform: translateY(0%);
