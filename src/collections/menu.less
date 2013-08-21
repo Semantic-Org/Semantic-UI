@@ -634,10 +634,9 @@
 }
 .ui.tabular.menu .item {
   background-color: transparent;
-  font-weight: bold;
   padding-left: 1.4em;
   padding-right: 1.4em;
-  color: #9DA6AB;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.tabular.menu .item:before {
   display: none;
@@ -646,7 +645,7 @@
 /* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
-  color: #5D6266;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Active */
@@ -655,7 +654,7 @@
   top: 1px;
 
   background-color: #FFFFFF;
-  color: #5D6266;
+  color: rgba(0, 0, 0, 0.8);
 
   border-left: 1px solid #DCDDDE;
   border-right: 1px solid #DCDDDE;
@@ -732,29 +731,46 @@
 }
 
 .ui.secondary.menu .header.item {
-  background-color: transparent;
   border-right: 0.1em solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
 }
 
+/* hover */
+.ui.secondary.menu .link.item:hover,
+.ui.secondary.menu a.item:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
 /* active */
 .ui.secondary.menu > .active.item {
   border-top: none;
-  padding-top: 0.5em;
   background-color: rgba(0, 0, 0, 0.08);
-  color: rgba(0, 0, 0, 0.8);
+  padding-top: 0.5em;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.secondary.vertical.menu > .active.item {
   -webkit-border-radius: 0.3125em;
   -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
 }
-.ui.secondary.inverted.menu > .active.item {
-  background-color: rgba(255, 255, 255, 0.2);
+
+/* inverted */
+.ui.secondary.inverted.menu .link.item,
+.ui.secondary.inverted.menu a.item {
+  color: rgba(255, 255, 255, 0.5);
 }
+.ui.secondary.inverted.menu .link.item:hover,
+.ui.secondary.inverted.menu a.item:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.ui.secondary.inverted.menu > .active.item {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
 
 /* disable variations */
 .ui.secondary.item.menu > .item {
