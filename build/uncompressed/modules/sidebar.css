@@ -8,11 +8,17 @@
             Sidebar
 *******************************/
 body {
-  -webkit-transition: padding 0.3s ease;
-  -moz-transition: padding 0.3s ease;
-  -o-transition: padding 0.3s ease;
-  -ms-transition: padding 0.3s ease;
-  transition: padding 0.3s ease;
+  -webkit-transition: margin 0.3s ease, -webkit-transform 0.3s ease;
+  -moz-transition: margin 0.3s ease, -moz-transform 0.3s ease;
+  -o-transition: margin 0.3s ease,
+    transform 0.3s ease
+  ;
+  -ms-transition: margin 0.3s ease,
+    transform 0.3s ease
+  ;
+  transition: margin 0.3s ease,
+    transform 0.3s ease
+  ;
 }
 .ui.sidebar {
   position: fixed;
