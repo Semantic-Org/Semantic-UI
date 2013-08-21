@@ -24,8 +24,8 @@
 
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,300italic' rel='stylesheet' type='text/css'>
-
+ <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,300italic' rel='stylesheet' type='text/css'>
+ -->
 
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">

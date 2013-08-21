@@ -30,7 +30,7 @@ type   : 'UI Module'
 
 <div class="segment">
   <div class="container">
-    <h1 class="ui dividing header">Sidebar <div class="ui red label">Incomplete</div></h1>
+    <h1 class="ui dividing header">Sidebar</h1>
     <p>A sidebar is a menu hidden beside page content</p>
   </div>
 </div>
@@ -40,12 +40,12 @@ type   : 'UI Module'
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Initializing</a>
       <a class="item">Usage</a>
-      <a class="item">Types</a>
+      <a class="item">Variations</a>
       <a class="item">Behavior</a>
       <a class="item">Settings</a>
     </div>
   </div>
-  <h2 class="ui header">Initializing</h2>
+  <h2 class="ui dividing header">Initializing</h2>
   <p>Any content can be used as a sidebar by adding the class <code>ui sidebar</code> and initializing the menu in javascript.</p>
   <div class="ignored warning message">
     <div class="header">Fixed Position Snafoos</div>
@@ -66,7 +66,7 @@ type   : 'UI Module'
     ;
   </div>
 
-  <h2 class="ui header">Usage</h2>
+  <h2 class="ui dividing header">Usage</h2>
 
   <div class="no example">
     <h4 class="ui header">Showing a sidebar</h4>
@@ -105,24 +105,55 @@ type   : 'UI Module'
     <p>For convenience calling attach events will allow you to bind events. By default this will toggle the sidebar in and out of view on click</p>
     <div class="code" data-demo="true">
     $('.ui.demo.sidebar')
-      .sidebar('attach events', '.trigger.button')
+      .sidebar('attach events', '.toggle.button')
     ;
-    $('.trigger.button')
+    $('.toggle.button')
       .removeClass('disabled')
     ;
     </div>
-    <div class="ui disabled teal trigger button">
+    <div class="ui disabled teal toggle button">
       <i class="left arrow icon"></i>
       Trigger Sidebar
     </div>
   </div>
-  <div class="no example">
 
+  <div class="no example">
     <h4 class="ui header">Triggering custom action with other content</h4>
     <p>You can also however specify what action should occur when the element is clicked</p>
     <div class="code" data-demo="true">
     $('.ui.demo.sidebar')
-      .sidebar('attach events', '.trigger.button', 'show')
+      .sidebar('attach events', '.open.button')
+    ;
+    $('.open.button')
+      .removeClass('disabled')
+    ;
+    </div>
+    <div class="ui disabled teal open button">
+      <i class="left arrow icon"></i>
+      Trigger Sidebar
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="no example">
+    <h4 class="ui header">Floating</h4>
+    <p>A sidebar can appear floating above content</p>
+    <div class="code" data-demo="true">
+    $('.ui.demo.sidebar')
+      .addClass('floating')
+      .sidebar('toggle')
+    ;
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4 class="ui header">Overlay</h4>
+    <p>A sidebar can overlay page content instead of pushing it to the side</p>
+    <div class="code" data-demo="true">
+    $('.ui.demo.sidebar')
+      .sidebar('setting', 'overlay', true)
+      .sidebar('toggle')
     ;
     </div>
   </div>
