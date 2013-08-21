@@ -34,15 +34,10 @@
   box-shadow: 0px 1px 1px #DCDDDE;
 }
 .ui.popup .header {
-  margin: -0.8em -1.2em 0.8em;
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 0.8em 1.2em;
-  line-height: 1;
+  padding: 0em 0em 0.5em;
+  font-size: 1.125em;
+  line-height: 1.2;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
-  -webkit-border-radius: 0.2em 0.2em 0em 0em;
-  -moz-border-radius: 0.2em 0.2em 0em 0em;
-  border-radius: 0.2em 0.2em 0em 0em;
 }
 .ui.popup:before {
   position: absolute;

@@ -15,6 +15,7 @@
 ul.ui.list,
 .ui.list {
   margin: 1em 0em;
+  padding: 0em;
 }
 ul.ui.list:first-child,
 .ui.list:first-child {
@@ -24,8 +25,7 @@ ul.ui.list:last-child,
 .ui.list:last-child {
   margin-bottom: 0em;
 }
-ul.ui.list,
-li:first-child,
+ul.ui.list li:first-child,
 .ui.list .item:first-child {
   border-top: none;
 }
@@ -65,6 +65,24 @@ ul.ui.list a,
 /*******************************
             Types
 *******************************/
+/*-------------------
+      Horizontal
+--------------------*/
+ul.ui.horizontal.list,
+.ui.horizontal.list {
+  display: inline-block;
+  font-size: 0em;
+}
+ul.ui.horizontal.list li,
+.ui.horizontal.list .item {
+  display: inline-block;
+  margin-left: 1em;
+  font-size: 1rem;
+}
+ul.ui.horizontal.list li:first-child,
+.ui.horizontal.list .item:first-child {
+  margin-left: 0em;
+}
 /*******************************
              States
 *******************************/
@@ -82,7 +100,7 @@ ul.ui.list a,
 --------------------*/
 ul.ui.bulleted.list,
 .ui.bulleted.list {
-  margin-left: 1.5em;
+  margin-left: 1em;
 }
 ul.ui.bulleted.list li,
 .ui.bulleted.list .item {
@@ -91,13 +109,31 @@ ul.ui.bulleted.list li,
 ul.ui.bulleted.list li:before,
 .ui.bulleted.list .item:before {
   position: absolute;
-  top: 0.4em;
-  left: -1.5em;
-  content: '\25CF';
-  font-size: 0.8em;
+  left: -1em;
+  content: '·';
   line-height: 1.2rem;
   vertical-align: top;
-  color: rgba(0, 0, 0, 0.6);
+}
+/* Horizontal Bulleted */
+ul.ui.horizontal.bulleted.list,
+.ui.horizontal.bulleted.list {
+  margin-left: 0em;
+}
+ul.ui.horizontal.bulleted.list li,
+.ui.horizontal.bulleted.list .item {
+  margin-left: 1.5em;
+}
+ul.ui.horizontal.bulleted.list li:before,
+.ui.horizontal.bulleted.list .item:before {
+  left: -0.9em;
+}
+ul.ui.horizontal.bulleted.list li:first-child,
+.ui.horizontal.bulleted.list .item:first-child {
+  margin-left: 0em;
+}
+ul.ui.horizontal.bulleted.list li:first-child::before,
+.ui.horizontal.bulleted.list .item:first-child::before {
+  display: none;
 }
 /*-------------------
        Ordered
@@ -123,12 +159,23 @@ ul.ui.ordered.list li:before,
   content: counter(ordered);
   width: 0.8em;
   margin-right: 0.5rem;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
   padding-right: 0.5em;
   text-align: right;
   line-height: 1.2rem;
   vertical-align: top;
   opacity: 0.8;
+}
+/* Horizontal Ordered */
+ol.ui.horizontal.list,
+ul.ui.ordered.horizontal.list,
+.ui.ordered.horizontal.list {
+  margin-left: 0em;
+}
+ol.ui.horizontal.list li:before,
+ul.ui.ordered.horizontal.list li:before,
+.ui.ordered.horizontal.list .item:before {
+  position: static;
+  margin: 0em;
 }
 /*-------------------
        Divided
@@ -139,8 +186,7 @@ ul.ui.divided.list li,
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-ul.ui.divided.list,
-li:first-child,
+ul.ui.divided.list li:first-child,
 .ui.divided.list .item:first-child {
   border-top: none;
 }
@@ -173,6 +219,25 @@ ul.ui.divided.ordered.list li:before,
 .ui.divided.ordered.list .item:before {
   left: 0em;
 }
+/* Divided horizontal */
+ul.ui.divided.horizontal.list,
+.ui.divided.horizontal.list {
+  margin-left: 0em;
+}
+ul.ui.divided.horizontal.list li,
+.ui.divided.horizontal.list .item {
+  border-top: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  line-height: 0.6;
+}
+ul.ui.horizontal.divided.list li:first-child,
+.ui.horizontal.divided.list .item:first-child {
+  border-left: none;
+  padding-left: 0em;
+}
 /*-------------------
         Celled
 --------------------*/
@@ -182,8 +247,7 @@ ul.ui.celled.list li,
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-ul.ui.celled.list,
-li:last-child,
+ul.ui.celled.list li:last-child,
 .ui.celled.list .item:last-child {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -215,4 +279,23 @@ ol.ui.celled.list li:before,
 ul.ui.celled.ordered.list li:before,
 .ui.celled.ordered.list .item:before {
   left: 0em;
+}
+/* Celled Horizontal */
+ul.ui.horizontal.celled.list,
+.ui.horizontal.celled.list {
+  margin-left: 0em;
+}
+ul.ui.horizontal.celled.list li,
+.ui.horizontal.celled.list .item {
+  border-top: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  line-height: 0.6;
+}
+ul.ui.horizontal.celled.list li:last-child,
+.ui.horizontal.celled.list .item:last-child {
+  border-bottom: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }

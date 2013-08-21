@@ -112,7 +112,7 @@ $.fn.dropdown = function(parameters) {
           test: {
             toggle: function(event) {
               module.intent.test(event, module.toggle);
-              event.stopPropagation();
+              event.stopImmediatePropagation();
             },
             hide: function(event) {
               module.intent.test(event, module.hide);
@@ -252,10 +252,13 @@ $.fn.dropdown = function(parameters) {
             module.debug('Adding selected value to hidden input', value, $input);
             $input.val(value);
           },
+          active: function() {
+            $module.addClass(className.active);
+          },
           visible: function() {
             $module.addClass(className.visible);
           },
-          selected: function(value) {
+        selected: function(value) {
             var
               $selectedItem = module.get.item(value),
               selectedText
@@ -275,6 +278,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         remove: {
+          active: function() {
+            $module.removeClass(className.active);
+          },
           visible: function() {
             $module.removeClass(className.visible);
           }
@@ -389,6 +395,7 @@ $.fn.dropdown = function(parameters) {
           module.debug('Checking if dropdown can show');
           if( !module.is.visible() ) {
             module.hideOthers();
+            module.set.active();
             module.animate.show(module.set.visible);
             if( module.can.click() ) {
               module.intent.bind();
@@ -403,6 +410,7 @@ $.fn.dropdown = function(parameters) {
             if( module.can.click() ) {
               module.intent.unbind();
             }
+            module.remove.active();
             module.animate.hide(module.remove.visible);
             $.proxy(settings.onHide, element)();
           }
@@ -602,6 +610,7 @@ $.fn.dropdown.settings = {
   debug       : true,
   performance : true,
   
+  activate    : false,
   on          : 'click',
   action      : 'hide',
 

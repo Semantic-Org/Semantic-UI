@@ -538,7 +538,7 @@
 /*--- Tertiary ---*/
 .ui.buttons.tertiary .button,
 .ui.tertiary.button {
-  border-left: none !important;
+  border: 1px solid #E0E0E0;
   background-color: transparent;
   background-image: none;
   color: #999999;
@@ -547,8 +547,15 @@
   text-shadow: none;
   box-shadow: none;
 }
+.ui.buttons.tertiary {
+  border: 1px solid #E0E0E0;
+}
 .ui.buttons.tertiary .button {
-  border-left: none;
+  border: none !important;
+  border-left: 1px solid #E0E0E0 !important;
+}
+.ui.buttons.tertiary .button:first-child {
+  border-left: none !important;
 }
 .ui.button.tertiary.active {
   opacity: 0.9 !important;
@@ -559,6 +566,16 @@
 }
 .ui.button.tertiary.down,
 .ui.button.tertiary:active {
+  opacity: 1 !important;
+}
+.ui.inverted.tertiary.buttons .button,
+.ui.inverted.tertiary.button {
+  color: #FFFFFF;
+  opacity: 0.9 !important;
+}
+.ui.inverted.tertiary.buttons .button:hover,
+.ui.inverted.tertiary.button:hover {
+  color: #FFFFFF;
   opacity: 1 !important;
 }
 /*--------------
@@ -637,6 +654,7 @@
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
+  background-color: #5BBD72;
   color: #FFFFFF;
 }
 .ui.buttons.toggle .ui.active.button.hover,
@@ -903,6 +921,9 @@
 /*******************************
             Groups
 *******************************/
+.ui.buttons {
+  display: inline-block;
+}
 .ui.buttons:after {
   content: ".";
   display: block;

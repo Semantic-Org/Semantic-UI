@@ -19,7 +19,9 @@ semantic.dropdown.ready = function() {
   };
 
   $dropdown
-    .dropdown()
+    .dropdown({
+      activate: true
+    })
   ;
   $formDropdown
     .dropdown({

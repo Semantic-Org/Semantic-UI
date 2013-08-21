@@ -9,27 +9,40 @@
             Sidebar
 *******************************/
 
+body {
+  -webkit-transition: padding 0.3s ease-out;
+  -moz-transition: padding 0.3s ease-out;
+  -o-transition: padding 0.3s ease-out;
+  -ms-transition: padding 0.3s ease-out;
+  transition: padding 0.3s ease-out;
+}
+
 .ui.sidebar {
   position: fixed;
 
-  -webkit-transform: translateX(-275px);
-  -moz-transform: translateX(-275px);
-  -o-transform: translateX(-275px);
-  -ms-transform: translateX(-275px);
-  transform: translateX(-275px);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
 
-  width: 275px;
-  height: 100%;
+  margin: 0 !important;
+  width: 275px !important;
+  height: 100% !important;
+
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
 
   -ms-overflow-y: auto;
   overflow-y: auto;
   top: 0px;
   left: 0px;
-  z-index: 900;
+  z-index: 999;
 
-  -webkit-transition: -webkit-transform 0.5s ease;
-  -moz-transition: -moz-transform 0.5s ease;
-  transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 
@@ -38,37 +51,35 @@
 *******************************/
 
 .ui.right.sidebar {
-  left: auto;
-  right: 0px;
-  -webkit-transform: translateX(275px);
-  -moz-transform: translateX(275px);
-  -o-transform: translateX(275px);
-  -ms-transform: translateX(275px);
-  transform: translateX(275px);
+  left: 100%;
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -o-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 .ui.top.sidebar {
   width: 100%;
   height: 40px;
   overflow: hidden;
-  -webkit-transform: translateY(-40px);
-  -moz-transform: translateY(-40px);
-  -o-transform: translateY(-40px);
-  -ms-transform: translateY(-40px);
-  transform: translateY(-40px);
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 
 .ui.bottom.sidebar {
   width: 100%;
   height: 40px;
-  overflow: hidden;
-  top: auto;
-  bottom: 0px;
-  -webkit-transform: translateY(40px);
-  -moz-transform: translateY(40px);
-  -o-transform: translateY(40px);
-  -ms-transform: translateY(40px);
-  transform: translateY(40px);
+  top: 100%;
+
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
 }
 
 
@@ -77,21 +88,30 @@
 *******************************/
 
 .ui.active.sidebar {
-  -webkit-transform: translateX(0deg);
-  -moz-transform: translateX(0deg);
-  -o-transform: translateX(0deg);
-  -ms-transform: translateX(0deg);
-  transform: translateX(0deg);
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -o-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 .ui.active.top.sidebar,
 .ui.active.bottom.sidebar {
-  -webkit-transform: translateY(0deg);
-  -moz-transform: translateY(0deg);
-  -o-transform: translateY(0deg);
-  -ms-transform: translateY(0deg);
-  transform: translateY(0deg);
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
 }
+
+.ui.active.right.sidebar {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
 
 
 
