@@ -460,7 +460,6 @@ semantic.ready = function() {
   $menu
     .sidebar('attach events', '.launch.button, .launch.item')
   ;
-
   $waypoints
     .waypoint({
       continuous : false,
@@ -504,6 +503,7 @@ semantic.ready = function() {
       stuckClass : 'stuck'
     })
   ;
+
   $peekItem
     .on('click', handler.peek)
   ;
