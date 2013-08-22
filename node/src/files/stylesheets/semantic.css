@@ -192,7 +192,7 @@ code {
   display: inline-block;
   font-family: Courier New;
   font-size: 14px;
-  margin: -0.125em 0.5em;
+  margin: -0.25em 0.25em;
   padding: 0.25em 0.5em;
   vertical-align: top;
 }
@@ -1042,6 +1042,7 @@ body.progress .ui.progress .bar {
     margin-left: -275px;
   }
   #example.left.pushed .sticky-wrapper.stuck .peek {
+    margin-left: 0px;
     padding-left: 275px;
   }
 }
