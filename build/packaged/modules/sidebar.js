@@ -102,11 +102,10 @@ $.fn.sidebar = function(parameters) {
         show: function() {
           module.debug('Showing sidebar');
           if(module.is.closed()) {
-            module.set.active();
             if(!settings.overlay) {
-              module.add.bodyCSS();
-              module.set.pushed();
+              module.pushPage();
             }
+            module.set.active();
           }
           else {
             module.debug('Sidebar is already visible');
@@ -115,11 +114,11 @@ $.fn.sidebar = function(parameters) {
 
         hide: function() {
           if(module.is.open()) {
-            module.remove.active();
             if(!settings.overlay) {
-              module.remove.bodyCSS();
+              module.pullPage();
               module.remove.pushed();
             }
+            module.remove.active();
           }
         },
 
@@ -132,52 +131,72 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
+        pushPage: function() {
+          var
+            direction = module.get.direction(),
+            distance  = (module.is.vertical())
+              ? $module.outerHeight()
+              : $module.outerWidth()
+          ;
+          if(settings.useCSS) {
+            module.debug('Using CSS to animate body');
+            module.add.bodyCSS(direction, distance);
+            module.set.pushed();
+          }
+          else {
+            module.animatePage(direction, distance, module.set.pushed);
+          }
+        },
+
+        pullPage: function() {
+          var
+            direction = module.get.direction()
+          ;
+          if(settings.useCSS) {
+            module.debug('Resetting body position css');
+            module.remove.bodyCSS();
+          }
+          else {
+            module.debug('Resetting body position using javascript');
+            module.animatePage(direction, 0);
+          }
+          module.remove.pushed();
+        },
+
+        animatePage: function(direction, distance) {
+          var
+            animateSettings = {}
+          ;
+          animateSettings['padding-' + direction] = distance;
+          module.debug('Using javascript to animate body', animateSettings);
+          $body
+            .animate(animateSettings, settings.duration, module.set.pushed)
+          ;
+        },
+
         add: {
-          bodyCSS: function() {
+          bodyCSS: function(direction, distance) {
             var
-              style     = '',
-              direction = module.get.direction(),
-              distance  = (module.is.vertical())
-                ? $module.outerHeight()
-                : $module.outerWidth()
+              style
             ;
             if(direction !== className.bottom) {
               style = ''
-                + '<style type="text/css" title="' + namespace + '">'
-                + 'html {'
-                + '  background-color: #3E3E3E'
+                + '<style title="' + namespace + '">'
+                + 'body.pushed {'
+                + '  margin-' + direction + ': ' + distance + 'px !important;'
                 + '}'
-                + 'body {'
-                + ' box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);'
-                + '}'
+                + '</style>'
               ;
-              if(settings.useTransform) {
-                style += ''
-                  + 'body.pushed {'
-                  + module.get.transform(direction, distance)
-                  + '}'
-                  + '</style>'
-                ;
-              }
-              else {
-                style += ''
-                  + 'body.pushed {'
-                  + '  margin-' + direction + ': ' + distance + 'px !important;'
-                  + '}'
-                  + '</style>'
-                ;
-              }
             }
             $head.append(style);
-            module.refresh();
             module.debug('Adding body css to head', $style);
-            $style[0].disabled = false;
           }
         },
 
         remove: {
           bodyCSS: function() {
             module.debug('Removing body css styles', $style);
+            module.refresh();
             $style.remove();
           },
           active: function() {
@@ -218,49 +237,6 @@ $.fn.sidebar = function(parameters) {
             }
             else {
               return className.left;
-            }
-          },
-          transform: function(direction, distance) {
-            if(direction && distance) {
-              if(direction == className.left) {
-                return ''
-                  + module.get.transformProperty() + ': translate3d(' + distance + 'px, 0px, 0px);'
-                  + 'margin-right: ' + distance + 'px !important;'
-                ;
-              }
-              if(direction == className.right) {
-                return ''
-                  + module.get.transformProperty() + ': translate3d(-' + distance + 'px, 0px, 0px);'
-                  + 'margin-left: ' + distance + 'px !important;'
-                ;
-              }
-              if(direction == className.top) {
-                return ''
-                  + module.get.transformProperty() + ': translate3d(0px, ' + distance + 'px, 0px);'
-                ;
-              }
-              if(direction == className.bottom) {
-                return ''
-                  + module.get.transformProperty() + ': translate3d(0px, -' + distance + 'px, 0px);'
-                ;
-              }
-            }
-          },
-          transformProperty: function() {
-            var
-              element    = document.createElement('element'),
-              properties = {
-                'transform'       :'transform',
-                'msTransform'     :'-ms-transform',
-                'MozTransform'    :'-moz-transform',
-                'WebkitTransform' :'-webkit-transform'
-              },
-              property
-            ;
-            for(property in properties){
-              if( element.style[property] !== undefined ){
-                return properties[property];
-              }
             }
           },
           transitionEvent: function() {
@@ -477,16 +453,15 @@ $.fn.sidebar.settings = {
   moduleName   : 'Sidebar',
   namespace    : 'sidebar',
 
-  useTransform : true,
-
   verbose      : true,
   debug        : true,
   performance  : true,
 
+  useCSS       : true,
   overlay      : false,
+  duration     : 300,
 
   side         : 'left',
-  duration     : 500,
 
   onChange     : function(){},
   onShow       : function(){},
