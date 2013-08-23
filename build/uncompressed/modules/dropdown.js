@@ -11,24 +11,24 @@ $.fn.dropdown = function(parameters) {
   var
     $allModules     = $(this),
     $document       = $(document),
-    
+
     settings        = ( $.isPlainObject(parameters) )
       ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
       : $.fn.dropdown.settings,
-        
+
     className       = settings.className,
     metadata        = settings.metadata,
     namespace       = settings.namespace,
     selector        = settings.selector,
     errors          = settings.errors,
-    
+
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -43,9 +43,9 @@ $.fn.dropdown = function(parameters) {
         $item         = $(this).find(selector.item),
         $text         = $(this).find(selector.text),
         $input        = $(this).find(selector.input),
-        
+
         isTouchDevice = ('ontouchstart' in document.documentElement),
-        
+
         element       = this,
         instance      = $module.data(moduleNamespace),
         module
@@ -227,7 +227,7 @@ $.fn.dropdown = function(parameters) {
             return $input.val();
           },
           item: function(value) {
-            var 
+            var
               $selectedItem
             ;
             value = value || $input.val();
@@ -269,7 +269,7 @@ $.fn.dropdown = function(parameters) {
               $item
                 .removeClass(className.active)
               ;
-              $selectedItem 
+              $selectedItem
                 .addClass(className.active)
               ;
               module.set.text(selectedText);
@@ -306,16 +306,16 @@ $.fn.dropdown = function(parameters) {
 
         animate: {
           show: function(callback) {
-            module.verbose('Doing menu showing animation');
+            module.verbose('Transitioning menu into view');
             callback = callback || function(){};
 
-            if(settings.animation == 'none') {
+            if(settings.transition == 'none') {
               callback();
             }
             else if($.fn.transition !== undefined) {
-              $menu.transition(settings.animation, settings.duration, callback);
+              $menu.transition(settings.transition, settings.duration, callback);
             }
-            else if(settings.animation == 'slide down') {
+            else if(settings.transition == 'slide down') {
               $menu
                 .hide()
                 .clearQueue()
@@ -333,7 +333,7 @@ $.fn.dropdown = function(parameters) {
                 })
               ;
             }
-            else if(settings.animation == 'fade') {
+            else if(settings.transition == 'fade') {
               $menu
                 .hide()
                 .clearQueue()
@@ -344,20 +344,20 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
-              module.error(errors.animation);
+              module.error(errors.transition);
             }
           },
           hide: function(callback) {
-            module.verbose('Doing menu hiding animation');
+            module.verbose('Doing menu hiding transition');
             callback = callback || function(){};
 
-            if(settings.animation == 'none') {
+            if(settings.transition == 'none') {
               callback();
             }
             else if($.fn.transition !== undefined) {
-              $menu.transition(settings.animation, settings.duration, callback);
+              $menu.transition(settings.transition, settings.duration, callback);
             }
-            else if(settings.animation == 'slide down') {
+            else if(settings.transition == 'slide down') {
               $menu
                 .show()
                 .clearQueue()
@@ -375,7 +375,7 @@ $.fn.dropdown = function(parameters) {
                 })
               ;
             }
-            else if(settings.animation == 'fade') {
+            else if(settings.transition == 'fade') {
               $menu
                 .show()
                 .clearQueue()
@@ -386,7 +386,7 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             else {
-              module.error(errors.animation);
+              module.error(errors.transition);
             }
           }
         },
@@ -605,12 +605,11 @@ $.fn.dropdown.settings = {
 
   moduleName  : 'Dropdown',
   namespace   : 'dropdown',
-  
+
   verbose     : true,
   debug       : true,
   performance : true,
-  
-  activate    : false,
+
   on          : 'click',
   action      : 'hide',
 
@@ -618,18 +617,18 @@ $.fn.dropdown.settings = {
     show: 50,
     hide: 300
   },
-  
-  animation : 'slide down',
+
+  transition : 'scale',
   duration  : 250,
-  
+
   onChange : function(){},
   onShow   : function(){},
   onHide   : function(){},
-  
+
   errors   : {
     action    : 'You called a dropdown action that was not defined',
     method    : 'The method you called is not defined.',
-    animation : 'The requested animation was not found'
+    transition : 'The requested transition was not found'
   },
 
   metadata: {

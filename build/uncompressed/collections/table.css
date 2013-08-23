@@ -109,10 +109,16 @@
 /*--------------
     Positive
 ---------------*/
+.ui.table tr.positive,
+.ui.table td.positive {
+  -webkit-box-shadow: 2px 0px 0px #119000 inset;
+  -moz-box-shadow: 2px 0px 0px #119000 inset;
+  box-shadow: 2px 0px 0px #119000 inset;
+}
 .ui.table tr.positive td,
 .ui.table td.positive {
   background-color: #F2F8F0 !important;
-  color: #119000;
+  color: #119000 !important;
 }
 .ui.celled.table tr.positive:hover td,
 .ui.celled.table tr:hover td.positive,
@@ -120,15 +126,21 @@
 .ui.table td:hover.positive,
 .ui.table th:hover.positive {
   background-color: #ECF5E9 !important;
-  color: #119000;
+  color: #119000 !important;
 }
 /*--------------
      Negative
 ---------------*/
+.ui.table tr.negative,
+.ui.table td.negative {
+  -webkit-box-shadow: 2px 0px 0px #CD2929 inset;
+  -moz-box-shadow: 2px 0px 0px #CD2929 inset;
+  box-shadow: 2px 0px 0px #CD2929 inset;
+}
 .ui.table tr.negative td,
 .ui.table td.negative {
   background-color: #F9F4F4;
-  color: #CD2929;
+  color: #CD2929 !important;
 }
 .ui.celled.table tr.negative:hover td,
 .ui.celled.table tr:hover td.negative,
@@ -136,16 +148,22 @@
 .ui.table td:hover.negative,
 .ui.table th:hover.negative {
   background-color: #F2E8E8 !important;
-  color: #CD2929;
+  color: #CD2929 !important;
 }
 /*--------------
       Error
 ---------------*/
+.ui.table tr.error,
+.ui.table td.error {
+  -webkit-box-shadow: 2px 0px 0px #CD2929 inset;
+  -moz-box-shadow: 2px 0px 0px #CD2929 inset;
+  box-shadow: 2px 0px 0px #CD2929 inset;
+}
 .ui.table tr.error td,
 .ui.table td.error,
 .ui.table th.error {
   background-color: #F9F4F4 !important;
-  color: #CD2929;
+  color: #CD2929 !important;
 }
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error,
@@ -153,18 +171,22 @@
 .ui.table td:hover.error,
 .ui.table th:hover.error {
   background-color: #F2E8E8 !important;
-  color: #CD2929;
+  color: #CD2929 !important;
 }
 /*--------------
      Warning
 ---------------*/
+.ui.table tr.warning,
+.ui.table td.warning {
+  -webkit-box-shadow: 2px 0px 0px #7D6C00 inset;
+  -moz-box-shadow: 2px 0px 0px #7D6C00 inset;
+  box-shadow: 2px 0px 0px #7D6C00 inset;
+}
 .ui.table tr.warning td,
 .ui.table td.warning,
 .ui.table th.warning {
   background-color: #FBF6E9;
-  /* border-color: #CBB105 !important; */
-
-  color: #7D6C00;
+  color: #7D6C00 !important;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning,
@@ -172,14 +194,20 @@
 .ui.table td:hover.warning,
 .ui.table th:hover.warning {
   background-color: #F3EDDC !important;
-  color: #7D6C00;
+  color: #7D6C00 !important;
 }
 /*--------------
      Active
 ---------------*/
+.ui.table tr.active,
+.ui.table td.active {
+  -webkit-box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  -moz-box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+}
 .ui.table tr.active td,
 .ui.table tr td.active {
-  background-color: #F0F0F0 !important;
+  background-color: #E0E0E0 !important;
   color: rgba(50, 50, 50, 0.9);
   /* border-color: rgba(0, 0, 0, 0.15) !important; */
 

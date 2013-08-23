@@ -36,6 +36,8 @@ semantic.ready = function() {
     $menuPopup    = $('.ui.main.menu .popup.item'),
     $menuDropdown = $('.ui.main.menu .dropdown'),
 
+    $helpPopup    = $('.header .help.icon'),
+
     $example      = $('.example'),
     $shownExample = $example.filter('.shown'),
 
@@ -421,6 +423,10 @@ semantic.ready = function() {
 
   $shownExample
     .each(handler.createCode)
+  ;
+
+  $helpPopup
+    .popup()
   ;
 
   $swap
