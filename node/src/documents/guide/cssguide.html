@@ -14,8 +14,8 @@ type   : 'UI Guide'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="item">Techniques</a>
-      <a class="active item">Style Guide</a>
+      <a class="active item">Techniques</a>
+      <a class="item">Style Guide</a>
       <a class="item">Units</a>
     </div>
   </div>
@@ -35,9 +35,26 @@ type   : 'UI Guide'
     .ui.widget .content {
       color: #000000;
     }
-    // content is only floated if image exists
+    /* content is only floated if image exists */
     .ui.widget .image + .content {
       margin-left: 3em;
+    }
+    </div>
+
+    <h4 class="ui header">Not Sure the Size? Table It</h4>
+    <p>If content needs to fill a specified size exactly, but may be made up of parts with arbitary size, it can be useful to use display table and table-cell. This will make sure the parent width is always obeyed regardles of alterations to an element's width.</p>
+    <p>Keep in mind any table-cell element must have a parent with <code>display:table</code> to appear formatted correctly.</p>
+
+    <div class="code" data-type="css">
+    .ui.input {
+      display: table;
+    }
+    /* these two elements will always fill the input exactly regardless of the text content of the button */
+    .ui.input input {
+      display: table-cell;
+    }
+    .ui.input .button {
+      display: table-cell;
     }
     </div>
 
@@ -79,6 +96,24 @@ type   : 'UI Guide'
       user-select: none;
     }
     </div>
+
+    <h4 class="ui header">Shading Borders</h4>
+    <p>When you have colored content that needs a border to match its current color, try using a 1 pixel inset box shadow with an RGBA value.</p>
+
+    <div class="code" data-type="css">
+
+    /* this border will be grey */
+    .ui.thingy {
+      -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+      -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+      box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+    }
+    /* this border will be red tinted */
+    .ui.red.thingy {
+      background-color: #FFF8F8;
+    }
+    </div>
+
 
     <h4 class="ui header">Joining borders</h4>
     <p>Sometimes bordered content must sit next to other bordered content. If each element uses border the borders will double. Consider using either outline or a box shadow to accomplish the same effect but without overlapping borders.</p>
@@ -124,7 +159,7 @@ type   : 'UI Guide'
       transform: rotateZ(0deg);
       overflow: scroll;
     }
-    // fixed will stay in its current offset relative to the parent container
+    /* fixed will stay in its current offset relative to the parent container */
     .ui.content .fixed.thingy {
       position: fixed;
       top: 0px;
@@ -133,7 +168,8 @@ type   : 'UI Guide'
     </div>
 
     <h4 class="ui header">Centering Content with Transform</h4>
-    <p>Using percentages in CSS will give you a ratio based on the size of the parent element. For exaple setting content to be left 50% will set content to start at exactly halfway across its parent.</p>Sometimes you want content to positioned relative to its own size. Inside calls to transform, percentages are based on the current element size so this can be done.</p>
+    <p>Using percentages in CSS will give you a ratio based on the size of the parent element. For example, setting content to be left 50% will set content to start at exactly halfway across its parent.</p>
+    <p>If you want content to positioned relative to its own size use transform. Percentages specified inside a transform are unique in that they are based on the current element size not its parent.</p>
     <div class="code" data-type="css">
 
     /* doesnt work */
@@ -405,7 +441,7 @@ type   : 'UI Guide'
     .ui.widget {
       border: 2px solid rgba(0, 0, 0, 0.1);
     }
-    // will recieve same border treatment as parent
+    /* will recieve same border treatment as parent */
     .ui.widget .foo {
       border: inherit;
     }
@@ -413,7 +449,7 @@ type   : 'UI Guide'
     .ui.widget {
       padding: 0.5em 1em;
     }
-    // will use the same padding as parent
+    /* will use the same padding as parent */
     .ui.widget .foo {
       padding: inherit;
     }
