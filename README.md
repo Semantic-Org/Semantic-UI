@@ -18,11 +18,11 @@ You can use our build tool to select only the components you want
 
     http://semantic-ui.com/download
 
-Or download the entire library and build out the code yourself using [Grunt](http://gruntjs.com/) or another package management system.
+Or download the entire library
 
     git clone git@github.com:quirkyinc/semantic.git
 
-If you prefer to download the whole kit and kaboodle you can grab that as well.
+If you prefer to download the whole kit and kaboodle as a single javascript include you can grab that as well.
 
     http://semantic-ui.com/ui/semantic.min.css
     http://semantic-ui.com/ui/semantic.min.js
