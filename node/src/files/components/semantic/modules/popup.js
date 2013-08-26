@@ -38,18 +38,18 @@ $.fn.popup = function(parameters) {
         $popup          = (settings.inline)
           ? $module.next(settings.selector.popup)
           : $window.children(settings.selector.popup).last(),
-        
+
         searchDepth     = 0,
-        
+
         eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = settings.namespace + '-module', 
+        moduleNamespace = settings.namespace + '-module',
 
         selector        = settings.selector,
         className       = settings.className,
         error           = settings.error,
         metadata        = settings.metadata,
         namespace       = settings.namespace,
-        
+
         element         = this,
         instance        = $module.data(moduleNamespace),
         module
@@ -399,7 +399,7 @@ $.fn.popup = function(parameters) {
           ;
           if(settings.transition && $.fn.transition !== undefined) {
             $popup
-              .transition(settings.transition, settings.duration)
+              .transition(settings.transition + ' in', settings.duration)
             ;
           }
           else {
@@ -432,7 +432,7 @@ $.fn.popup = function(parameters) {
             module.debug('Hiding pop-up');
             if(settings.transition && $.fn.transition !== undefined) {
               $popup
-                .transition(settings.transition, settings.duration)
+                .transition(settings.transition + ' out', settings.duration)
               ;
             }
             else {

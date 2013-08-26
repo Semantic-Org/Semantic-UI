@@ -606,11 +606,11 @@ a.ui.teal.label:hover:before {
         Sizes
 --------------------*/
 .ui.label {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 0.7rem;
+  font-size: 0.8125rem;
 }
 .ui.large.labels .label,
 .ui.large.label {

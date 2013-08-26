@@ -274,11 +274,6 @@ $.fn.state = function(parameters) {
           }
         },
 
-        textFor: function(state) {
-          return text[state] || false;
-        },
-
-
         listenTo: function(apiRequest) {
           module.debug('API request detected, waiting for state signal', apiRequest);
           if(apiRequest) {
@@ -396,6 +391,9 @@ $.fn.state = function(parameters) {
               ? $module.find(settings.selector.text).text()
               : $module.html()
             ;
+          },
+          textFor: function(state) {
+            return text[state] || false;
           }
         },
 

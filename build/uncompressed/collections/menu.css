@@ -19,6 +19,7 @@
   margin: 1rem 0rem;
   background-color: #FFFFFF;
   font-size: 0px;
+  font-weight: normal;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -112,7 +113,7 @@
 .ui.menu .item {
   position: relative;
   display: inline-block;
-  padding: 0.75em 0.95em;
+  padding: 0.83em 0.95em;
   border-top: 0em solid rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -moz-user-select: -moz-none;
@@ -121,8 +122,8 @@
 }
 .ui.menu .item > a {
   display: block;
-  margin: -0.75em -0.95em;
-  padding: 0.75em 0.95em;
+  margin: -0.83em -0.95em;
+  padding: 0.83em 0.95em;
 }
 .ui.menu .menu {
   margin: 0em;
@@ -156,9 +157,6 @@
   right: auto;
   left: 0px;
 }
-.ui.menu .item:last-child::before {
-  display: none;
-}
 /*--------------
   Text Content
 ---------------*/
@@ -178,19 +176,27 @@
   margin: 0px;
 }
 /*--------------
-  Form Content
+     Inputs
 ---------------*/
 .ui.menu .input,
 .ui.menu .input input {
   width: 100%;
 }
+.ui.menu .input .icon {
+  padding-top: 0em;
+}
 .ui.menu input {
-  margin: -0.5em 0em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  margin: -0.55em 0em;
+  padding-top: 0.45em;
+  padding-bottom: 0.45em;
 }
 .ui.vertical.menu input {
   margin: 0em;
+  padding-top: 0.63em;
+  padding-bottom: 0.63em;
+}
+.ui.vertical.menu .input .icon {
+  padding-top: 0.63em;
 }
 /*--------------
      Header
@@ -206,7 +212,11 @@
     Dropdowns
 ---------------*/
 .ui.menu .dropdown.item .menu .item {
+  width: 100%;
   color: rgba(0, 0, 0, 0.75);
+}
+.ui.menu .dropdown.item .menu .active.item {
+  border-color: transparent !important;
 }
 .ui.menu .ui.dropdown .menu .item:before {
   display: none;
@@ -216,11 +226,11 @@
 ---------------*/
 .ui.menu .item > .label,
 .ui.menu .item > a > .label {
-  font-size: 0.875em;
-  margin: -0.3em 0em -0.3em 0.3em;
+  background-color: #959595;
+  color: #FFFFFF;
+  margin: -0.3em 0em -0.3em 0.5em;
   padding: 0.3em 0.8em;
   vertical-align: baseline;
-  text-transform: none;
 }
 .ui.menu .item > .floating.label,
 .ui.menu .item > a > .floating.label {
@@ -250,8 +260,12 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.02);
 }
+.ui.menu .ui.dropdown.active,
 .ui.menu .ui.dropdown.hover,
 .ui.menu .ui.dropdown:hover {
+  border-top: none;
+  padding-top: 0.83em;
+  background-color: rgba(0, 0, 0, 0.02);
   -webkit-border-bottom-right-radius: 0em;
   -moz-border-bottom-right-radius: 0em;
   border-bottom-right-radius: 0em;
@@ -275,14 +289,14 @@
      Active
 ---------------*/
 .ui.menu .active.item {
-  padding-top: 0.55em;
+  padding-top: 0.63em;
   border-top: 0.2em solid rgba(50, 50, 50, 0.8);
   color: rgba(0, 0, 0, 0.95);
   background-color: rgba(0, 0, 0, 0.01);
 }
 .ui.vertical.menu .active.item {
   border-left: 0.2em solid rgba(50, 50, 50, 0.8);
-  padding-top: 0.75em;
+  padding-top: 0.83em;
   padding-left: 0.76em;
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
@@ -321,7 +335,7 @@
 .ui.menu .item.disabled.hover {
   cursor: default;
   color: rgba(0, 0, 0, 0.2);
-  background-color: transparent;
+  background-color: transparent !important;
 }
 /*--------------------
      Loading
@@ -348,6 +362,7 @@
 ---------------*/
 .ui.vertical.menu .item {
   display: block;
+  height: auto !important;
   border-top: none;
   border-left: 0em solid rgba(0, 0, 0, 0);
   border-right: none;
@@ -358,10 +373,19 @@
 .ui.vertical.menu > .item:last-child {
   border-radius: 0px 0px 0.1875em 0.1875em;
 }
-.ui.vertical.menu:not(.icon) .item > .icon {
+.ui.vertical.menu .item > .label {
+  float: right;
+  min-width: 2.5;
+  text-align: center;
+}
+.ui.vertical.menu .item > .icon:not(.input) {
   float: right;
   width: 1.22em;
   margin: 0em 0em 0em 0.5em;
+}
+.ui.vertical.menu .item > .label + .icon {
+  float: none;
+  margin: 0em 0.25em 0em 0em;
 }
 /*--- Border ---*/
 .ui.vertical.menu .item:before {
@@ -380,9 +404,6 @@
 .ui.vertical.menu .item:first-child:before {
   background-image: none;
 }
-.ui.vertical.menu .item:last-child::before {
-  display: block;
-}
 /*--- Dropdown ---*/
 .ui.vertical.menu .dropdown.item > i {
   float: right;
@@ -394,7 +415,7 @@
 }
 .ui.vertical.menu .dropdown.item .menu .item {
   font-size: 0.875rem;
-  padding: 0.75em 1em;
+  padding: 0.83em 1em;
 }
 .ui.vertical.menu .dropdown.item .menu .item .icon {
   margin-right: 0em;
@@ -442,7 +463,7 @@
   background-image: none;
 }
 .ui.tiered.menu .sub.menu .active.item {
-  padding-top: 0.75em;
+  padding-top: 0.83em;
   background-color: transparent;
   border-radius: 0 0 0 0;
   border-top: medium none;
@@ -510,7 +531,7 @@
   border-left: 1px solid #DCDDDE;
   border-right: 1px solid #DCDDDE;
   border-top: 1px solid #DCDDDE;
-  padding-top: 0.75em;
+  padding-top: 0.83em;
   -webkit-border-radius: 5px 5px 0 0;
   -moz-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
@@ -524,7 +545,7 @@
 }
 .ui.pagination.menu .item {
   min-width: 2.7em;
-  min-height: 2.57em;
+  min-height: 2.66em;
   text-align: center;
 }
 .ui.pagination.menu.floated {
@@ -533,7 +554,7 @@
 /* active */
 .ui.pagination.menu .active.item {
   border-top: none;
-  padding-top: 0.75em;
+  padding-top: 0.83em;
   background-color: rgba(0, 0, 0, 0.05);
 }
 /*--------------
@@ -553,7 +574,7 @@
   -moz-box-shadow: none;
   box-shadow: none;
   border: none;
-  min-height: 0em !important;
+  height: auto !important;
   margin: 0em 0.25em;
   padding: 0.5em 1em;
   -webkit-border-radius: 0.3125em;
@@ -753,7 +774,7 @@
   opacity: 0.6;
   margin: 0em 1em;
   padding: 0em;
-  min-height: 0em !important;
+  height: auto !important;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
@@ -808,7 +829,7 @@
 }
 .ui.vertical.text.menu .item > .icon {
   float: none;
-  margin: 0em 0.75em 0em 0em;
+  margin: 0em 0.83em 0em 0em;
 }
 .ui.vertical.text.menu .header.item {
   margin: 0.8em 0em;
@@ -870,7 +891,7 @@
 .ui.vertical.icon.menu {
   width: auto;
   display: inline-block;
-  min-height: 0em;
+  height: auto;
 }
 .ui.icon.menu .item {
   text-align: center;
@@ -1137,8 +1158,11 @@
   margin: 0em;
   vertical-align: middle;
 }
-.ui.vertical.compact.menu {
+.ui.compact.vertical.menu {
   width: auto !important;
+}
+.ui.compact.vertical.menu .item:last-child::before {
+  display: block;
 }
 /*-------------------
         Fluid
@@ -1323,19 +1347,15 @@
 /*--------------
      Sizes
 ---------------*/
-.ui.vertical.menu .item {
-  min-height: 0em !important;
-}
 .ui.small.menu .item {
   font-size: 0.875rem;
-  min-height: 2.25rem;
 }
 .ui.small.vertical.menu {
   width: 13rem;
 }
 .ui.menu .item {
   font-size: 1rem;
-  min-height: 2.5em;
+  height: 2.66em;
 }
 .ui.vertical.menu {
   width: 15rem;

@@ -12,17 +12,32 @@ type   : 'UI Module'
   <div class="container">
     <h1 class="ui dividing header">Dropdown</h1>
     <p>A dropdown is a hidden list of selections that a user can choose to have appear.</p>
+    <div class="ui teal download buttons">
+      <a class="ui button">Download</a>
+      <div class="ui teal top right pointing dropdown icon button">
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item">Download ZIP</a>
+          <a class="item">(Optional) Transition ZIP</a>
+          <a class="item">View Source</a>
+        </div>
+      </div>
+    </div>
+    <div class="ui right floated overview toggle button">
+      Definition View
+    </div>
   </div>
 </div>
 <div class="main container">
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Types</a>
+      <a class="active item">Usage</a>
+      <a class="item">Types</a>
+      <a class="item">Examples</a>
       <a class="item">Variations</a>
       <a class="item">States</a>
       <a class="item">Behavior</a>
-      <a class="item">Usage</a>
       <a class="item">Settings</a>
     </div>
   </div>
@@ -35,38 +50,87 @@ type   : 'UI Module'
       .dropdown()
     ;
   </div>
-  <div class="code" data-type="html">
-    <div class="ui dropdown">
-      <div class="text">Select</div>
-      <i class="icon dropdown"></i>
-      <div class="menu">
-        <div class="item" data-value="beef">Beef</div>
-        <div class="item" data-value="chicke">Chicken</div>
-        <div class="item" data-value="pork">Pork</div>
-      </div>
-    </div>
-  </div>
 
 
   <h2 class="ui dividing header">Types</h2>
 
-  <div class="visible hover example">
+  <div class="visible form example">
     <h4 class="ui header">Dropdown</h4>
-    <p>The markup for a dropdown</p>
+    <p>A basic dropdown has no special formatting of its own</p>
     <div class="ui dropdown">
       <div class="text">Select</div>
       <i class="icon dropdown"></i>
       <div class="menu">
-        <div class="item"><i class="edit icon"></i>Edit</div>
-        <div class="item"><i class="delete icon"></i>Remove</div>
-        <div class="item"><i class="hide icon"></i>Hide</div>
+        <div class="item">Edit</div>
+        <div class="item">Remove</div>
+        <div class="item">Hide</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form example">
+    <h4 class="ui header">Inline</h4>
+    <p>A dropdown can be formatted to appear inline in other content</p>
+    <div>Show me posts trending
+      <div class="ui inline dropdown">
+        <div class="text">today</div>
+        <i class="icon dropdown"></i>
+        <div class="menu">
+          <div class="active item" data-text="today">Today</div>
+          <div class="item" data-text="this week">This Week</div>
+          <div class="item" data-text="this month">This Month</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form example">
+    <h4 class="ui header">Selection</h4>
+    <p>A dropdown can be formatted to allow selection of a menu choice.</p>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <i class="icon dropdown"></i>
+      <div class="default text">Gender</div>
+      <div class="menu">
+        <div class="item" data-value="male">Male</div>
+        <div class="item" data-value="female">Female</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Examples</h2>
+
+  <div class="form example">
+    <h4 class="ui header">Multiple Levels</h4>
+    <p>A dropdown menu can also contain sub menus inside of it</p>
+    My language is <div class="ui inline dropdown">
+      <input type="hidden" name="gender">
+      <div class="text">English</div>
+      <i class="icon dropdown"></i>
+      <div class="menu">
+        <div class="item">
+          Europea
+          <div class="menu">
+            <div class="active item">English</div>
+            <div class="item">French</div>
+            <div class="item">German</div>
+          </div>
+        </div>
+        <div class="item">
+          America
+          <div class="menu">
+            <div class="item">Portuguese</div>
+            <div class="item">Spanish</div>
+            <div class="item">French</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="dropdown example">
-  <h4 class="ui header">Toolbar Dropdown</h4>
-    <p>A toolbar can be formatted to show additional content as a dropdown</p>
+  <h4 class="ui header">Button Group</h4>
+    <p>A <a href="/element/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
     <div class="ui red icon buttons">
       <div class="ui top left pointing dropdown button">
         <i class="user icon"></i>
@@ -97,8 +161,8 @@ type   : 'UI Module'
 
 
   <div class="dropdown example">
-    <h4 class="ui header">Combo Dropdown</h4>
-    <p>A button group can be formatted with a dropdown</p>
+    <h4 class="ui header">Combo Button</h4>
+    <p>A <a href="/element/button.html">button</a> can be formatted with a dropdown</p>
     <div class="ui teal buttons">
       <div class="ui button">Update Post</div>
       <div class="ui teal dropdown icon button">
@@ -113,8 +177,8 @@ type   : 'UI Module'
   </div>
 
   <div class="hover example">
-    <h4 class="ui header">Menu Dropdown</h4>
-    <p>A menu element can contain a dropdown</p>
+    <h4 class="ui header">Menu</h4>
+    <p>A <a href="/collection/menu.html">menu</a> element can contain a dropdown</p>
       <div class="ui compact tiered purple inverted menu">
         <div class="menu">
           <a class="active item">
@@ -123,7 +187,14 @@ type   : 'UI Module'
           <a class="ui dropdown item">
             <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
             <div class="menu">
-              <div class="item"><i class="mail icon"></i>Inbox</div>
+              <div class="item">
+                <i class="mail icon"></i>Categories
+                <div class="menu">
+                  <div class="item">Unread</div>
+                  <div class="item">Promotions</div>
+                  <div class="item">Updates</div>
+                </div>
+              </div>
               <div class="item"><i class="book icon"></i>Archive</div>
             </div>
           </a>
@@ -133,16 +204,15 @@ type   : 'UI Module'
         </div>
         <div class="sub menu">
           <div class="active item">Activity Feed</div>
-          <div class="item">Profile</div>
-          <div class="item">Events</div>
+          <a class="item">Profile</a>
+          <a class="item">Events</a>
         </div>
       </div>
   </div>
 
-
   <div class="form example">
-    <h4 class="ui header">Select</h4>
-    <p>A dropdown can be formatted to allow selection inside a form</p>
+    <h4 class="ui header">Form</h4>
+    <p>A dropdown can be formatted to allow selection inside a <a href="/collection/form.html">form</a></p>
     <div class="ui form segment">
       <p>Let's go ahead and get you signed up.</p>
       <div class="two fields">
@@ -170,6 +240,23 @@ type   : 'UI Module'
     </div>
   </div>
 
+  <div class="transition example">
+    <h4 class="ui header">Transitions</h4>
+    <p>A dropdown can have different <a href="/modules/transition.html">transitions</a>.</p>
+    <div class="ui teal buttons">
+      <div class="ui button">Toggle</div>
+      <div class="ui teal floating dropdown icon button">
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="horizontal flip">Horizontal Flip</div>
+          <div class="item" data-value="fade up">Fade Up</div>
+          <div class="item" data-value="scale">Scale</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <h2 class="ui dividing header">Variations</h2>
 
   <div class="form example">
@@ -193,21 +280,6 @@ type   : 'UI Module'
     </div>
   </div>
 
-  <div class="form example">
-    <h4 class="ui header">Inline</h4>
-    <p>A dropdown can be formatted to appear inline in other content</p>
-    Show me posts trending
-    <div class="ui inline dropdown">
-      <div class="text">today</div>
-      <i class="icon dropdown"></i>
-      <div class="menu">
-        <div class="active item" data-text="today">Today</div>
-        <div class="item" data-text="this week">This Week</div>
-        <div class="item" data-text="this month">This Month</div>
-      </div>
-    </div>
-  </div>
-
   <div class="dropdown example">
     <h4 class="ui header">Floating</h4>
     <p>A dropdown menu can appear to be floating below an element.</p>
@@ -225,33 +297,39 @@ type   : 'UI Module'
   </div>
 
   <div class="hover example">
-  <h4 class="ui header">Pointing Dropdown</h4>
+  <h4 class="ui header">Pointing</h4>
   <p>A dropdown menu can be formatted to point to its content</p>
-    <div class="ui compact tiered purple inverted menu">
+    <div class="ui compact menu">
       <div class="menu">
         <a class="active item">
           <i class="icon home"></i> Home
         </a>
-        <a class="ui pointing dropdown item">
+        <div class="ui pointing dropdown link item">
           <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item"><i class="mail icon"></i>Inbox</div>
-            <div class="item"><i class="book icon"></i>Archive</div>
+            <a class="item"><i class="mail icon"></i>Inbox</a>
+            <a class="item"><i class="book icon"></i>Archive</a>
           </div>
-        </a>
+        </div>
         <a class="item">
           <i class="icon community"></i> Browse
         </a>
-      </div>
-      <div class="sub menu">
-        <div class="active item">Activity Feed</div>
-        <div class="item">Profile</div>
-        <div class="item">Events</div>
+        <a class="item">
+          <i class="icon book"></i> Help
+        </a>
       </div>
     </div>
   </div>
   <div class="another dropdown example">
-    <p>Top Right Pointing</p>
+    <div class="ui blue labeled icon top left pointing dropdown button">
+      <i class="settings icon"></i>
+      <span class="text">Settings</span>
+      <div class="menu">
+        <div class="item"><i class="edit icon"></i>Edit</div>
+        <div class="item"><i class="delete icon"></i>Remove</div>
+        <div class="item"><i class="hide icon"></i>Hide</div>
+      </div>
+    </div>
     <div class="ui red labeled icon top right pointing dropdown button">
       <i class="settings icon"></i>
       <span class="text">Settings</span>
@@ -263,31 +341,15 @@ type   : 'UI Module'
     </div>
   </div>
   <div class="another dropdown example">
-    <p>Top Left Pointing</p>
-    <div class="ui blue labeled icon top left pointing dropdown button">
-      <i class="settings icon"></i>
-      <span class="text">Settings</span>
-      <div class="menu">
-        <div class="item"><i class="edit icon"></i>Edit</div>
-        <div class="item"><i class="delete icon"></i>Remove</div>
-        <div class="item"><i class="hide icon"></i>Hide</div>
-      </div>
-    </div>
-  </div>
-  <div class="another dropdown example">
-    <p>Left Pointing</p>
-    <div class="ui green left pointing dropdown icon button">
-      <i class="settings icon"></i>
-      <div class="menu">
-        <div class="item"><i class="edit icon"></i>Edit</div>
-        <div class="item"><i class="delete icon"></i>Remove</div>
-        <div class="item"><i class="hide icon"></i>Hide</div>
-      </div>
-    </div>
-  </div>
-  <div class="another dropdown example">
-    <p>Right Pointing</p>
     <div class="ui teal right pointing dropdown icon button">
+      <i class="settings icon"></i>
+      <div class="menu">
+        <div class="item"><i class="edit icon"></i>Edit</div>
+        <div class="item"><i class="delete icon"></i>Remove</div>
+        <div class="item"><i class="hide icon"></i>Hide</div>
+      </div>
+    </div>
+    <div class="ui green left pointing dropdown icon button">
       <i class="settings icon"></i>
       <div class="menu">
         <div class="item"><i class="edit icon"></i>Edit</div>
@@ -346,79 +408,26 @@ type   : 'UI Module'
   <h2 class="ui dividing header">Behavior</h2>
 
   <div class="no example">
-    <h4>Trigger event</h4>
-    <p>A dropdown can trigger based on a variety of user events</p>
-    <div class="ignore code">
-    // changes dropdown visibility on hover
-    $('.ui.dropdown')
-      .dropdown({
-        on: 'hover'
-      })
-    ;
-    // changes dropdown visibility on click
-    $('.ui.dropdown')
-      .dropdown({
-        on: 'click'
-      })
-    ;
-    </div>
-  </div>
-  <div class="no example">
-    <h4>Dropdown Action</h4>
-    <p>A dropdown can trigger different behaviors on selection</p>
-    <div class="ignore code">
-    // just hides content
-    $('.ui.dropdown')
-      .dropdown({
-        action: 'hide'
-      })
-    ;
-    // changes text of matching text selector
-    $('.ui.dropdown')
-      .dropdown({
-        action: 'changeText'
-      })
-    ;
-    // changes text of matching text selector and hidden input field
-    $('.ui.dropdown')
-      .dropdown({
-        action: 'form'
-      })
-    ;
-    // triggers custom action
-    $('.ui.dropdown')
-      .dropdown({
-        action: function() {
-          // custom action
-        }
-      })
-    ;
-    // triggers a default action and a custom action
-    $('.ui.dropdown')
-      .dropdown({
-        action: 'hide',
-        onChange: function() {
-          // do something
-        }
-      })
-    ;
-    </div>
-  </div>
-  <div class="no example">
-    <h4>Display state</h4>
-    <p>A dropdown can show or hide itself</p>
+    <h4 class="ui header">Show</h4>
+    <p>A dropdown can show its menu</p>
     <div class="ignore code">
     $('.ui.dropdown')
       .dropdown('show')
     ;
+    </div>
+  </div>
+  <div class="no example">
+    <h4 class="ui header">Hide</h4>
+    <p>A dropdown can hide its menu</p>
+    <div class="ignore code">
     $('.ui.dropdown')
-      .dropdown('hide')
+      .dropdown('show')
     ;
     </div>
   </div>
   <div class="no example">
-    <h4>Toggle</h4>
-    <p>A dropdown can toggle between states</p>
+    <h4 class="ui header">Toggle</h4>
+    <p>A dropdown can toggle between menu visibility</p>
     <div class="ignore code">
     $('.ui.dropdown')
       .dropdown('toggle')
@@ -426,26 +435,17 @@ type   : 'UI Module'
     </div>
   </div>
 
-  <div class="transition example">
-    <h4 class="ui header">Transitions</h4>
-    <p>A dropdown can have different <a href="/modules/transition.html">transitions</a>.</p>
-    <div class="ui teal buttons">
-      <div class="ui button">Toggle</div>
-      <div class="ui teal floating dropdown icon button">
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item" data-value="horizontal flip">Horizontal Flip</div>
-          <div class="item" data-value="fade up">Fade Up</div>
-          <div class="item" data-value="scale">Scale</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <h2 class="ui dividing header">Settings</h2>
 
-  <h2 class="ui header">Settings</h2>
-  <table class="ui red table segment">
+  <div class="no example">
+
+  <h4 class="ui header">Dropdown Settings</h4>
+  <p>Dropdown settings modify the dropdown's behavior</p>
+  <table class="ui celled definition table segment">
     <thead>
-      <th colspan="3">Dropdown Settings</th>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
     </thead>
     <tbody>
       <tr>
@@ -454,9 +454,16 @@ type   : 'UI Module'
         <td>Event used to trigger dropdown</td>
       </tr>
       <tr>
-        <td>gracePeriod</td>
-        <td>300</td>
-        <td>Time in milliseconds to allow a user to move cursor back into dropdown before hiding when on event is set to hover</td>
+        <td>delay</td>
+        <td>
+        <div class="code">
+    delay: {
+      show: 50,
+      hide: 300
+    }
+        </div>
+        </td>
+        <td>Time in milliseconds to debounce show or hide behavior</td>
       </tr>
       <tr>
         <td>transition</td>
@@ -468,41 +475,138 @@ type   : 'UI Module'
       <tr>
         <td>action</td>
         <td>hide</td>
-        <td>Sets a default action to occur. Possible values are 'nothing', 'form', 'changeText', 'hide'</td>
+        <td>Sets a default action to occur.
+        <div class="ui vertical bulleted list">
+          <div class="item">
+            <div class="header">nothing</div>
+            <div class="description">no action occurs</div>
+          </div>
+          <div class="item">
+            <div class="header">hide</div>
+            <div class="description">Dropdown menu is hidden</div>
+          </div>
+          <div class="item">
+            <div class="header">changeText</div>
+            <div class="description">dropdown menu is hidden and text field is changed</div>
+          </div>
+          <div class="item">
+            <div class="header">updateForm</div>
+            <div class="description">dropdown menu is hidden text field is changed and hidden input value is changed</div>
+          </div>
+          <div class="item">
+            <div class="header">function(){}</div>
+            <div class="description">custom function is executed</div>
+          </div>
+        </div>
       </tr>
     </tbody>
   </table>
 
-  <table class="ui teal table segment">
+  <div class="ui horizontal section icon divider"><i class="icon setting"></i></div>
+  <h4 class="ui header">Callbacks</h4>
+  <p>Callback settings specify a function to occur after a specific behavior.</p>
+
+  <table class="ui celled definition table segment">
     <thead>
-      <th colspan="3">Callbacks</th>
+      <th>Setting</th>
+      <th>Context</th>
+      <th>Description</th>
     </thead>
     <tbody>
       <tr>
-        <td>onChange</td>
-        <td>None</td>
-        <td>Callback after a dropdown is either disabled or enabled, receieves name and value of selection.</td>
+        <td>onChange(value, text)</td>
+        <td>Dropdown</td>
+        <td>Is called after a dropdown item is selected. Receieves the name and value of selection.</td>
       </tr>
       <tr>
         <td>onShow</td>
-        <td>None</td>
-        <td>Callback after a dropdown is shown.</td>
+        <td>Dropdown</td>
+        <td>Is called after a dropdown is shown.</td>
       </tr>
       <tr>
         <td>onHide</td>
-        <td>None</td>
-        <td>Callback after a dropdown is hidden.</td>
+        <td>Dropdown</td>
+        <td>Is called after a dropdown is hidden.</td>
       </tr>
     </tbody>
   </table>
 
-  <table class="ui blue table segment">
+  </div>
+
+  <div class="no example">
+
+  <div class="ui horizontal section icon divider"><i class="icon setting"></i></div>
+  <h4 class="ui header">DOM Settings</h4>
+  <p>DOM settings specify how this module should interface with the DOM</p>
+  <table class="ui celled definition table segment">
     <thead>
-      <th colspan="3">General Settings</th>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
     </thead>
     <tbody>
       <tr>
-        <td>moduleName</td>
+        <td>namespace</td>
+        <td>dropdown</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>selector</td>
+        <td colspan="2">
+          <div class="code">
+    selector : {
+      menu  : '.menu',
+      item  : '.menu > .item',
+      text  : '> .text',
+      input : '> input[type="hidden"]'
+    },
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>metadata</td>
+        <td colspan="2">
+          <div class="code">
+    metadata: {
+      text  : 'text',
+      value : 'value'
+    },
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td colspan="2">
+          <div class="code">
+    className : {
+      active      : 'active',
+      placeholder : 'default',
+      disabled    : 'disabled',
+      visible     : 'visible'
+    }
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+
+  <div class="no example">
+
+  <div class="ui horizontal section icon divider"><i class="icon setting"></i></div>
+  <h4 class="ui header">Debug Settings</h4>
+  <p>Debug settings controls debug output to the console</p>
+  <table class="ui celled definition table segment">
+    <thead>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>name</td>
         <td>Dropdown</td>
         <td>Name used in debug logs</td>
       </tr>
@@ -513,32 +617,30 @@ type   : 'UI Module'
       </tr>
       <tr>
         <td>performance</td>
-        <td>False</td>
+        <td>True</td>
         <td>Provides standard debug output to console</td>
       </tr>
       <tr>
         <td>verbose</td>
-        <td>False</td>
+        <td>True</td>
         <td>Provides ancillary debug output to console</td>
       </tr>
       <tr>
-        <td>namespace</td>
-        <td>dropdown</td>
-        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
-      </tr>
-      <tr>
-        <td>errors</td>
+        <td>error</td>
         <td colspan="2">
           <div class="code">
-    errors   : {
-      action   : 'You called a dropdown action that was not defined',
-      method   : 'The method you called is not defined.'
+    error   : {
+      action    : 'You called a dropdown action that was not defined',
+      method    : 'The method you called is not defined.',
+      transition : 'The requested transition was not found'
     }
           </div>
         </td>
       </tr>
     </tbody>
   </table>
+
+  </div>
 
 </div>
 </body>

@@ -19,7 +19,7 @@ ul.ui.list,
 }
 ul.ui.list:first-child,
 .ui.list:first-child {
-  margin-top: 1em;
+  margin-top: 0em;
 }
 ul.ui.list:last-child,
 .ui.list:last-child {

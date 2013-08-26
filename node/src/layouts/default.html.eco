@@ -171,8 +171,8 @@
         <i class="left arrow icon"></i>
         <% end %>
       </div>
-      <div class="section ui dropdown item">
-        <a class="count"><%= "#{pageNumber} of #{pageCount}" %></a>
+      <div class="section ui dropdown link item">
+        <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
         <div class="menu">
           <% for element, index in currentCollection: %>
             <div class="<%= if element.id is @document.id then 'active ' %>item">
@@ -190,11 +190,14 @@
       </div>
       <div class="right menu">
         <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'Quirky Element' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+        <a class="popup overview icon item" title="Toggle Overview">
+          <i class="list layout icon"></i>
+        </a>
         <a class="popup designer icon item" title="Designer Mode">
-          <i class="icon paint"></i>
+          <i class="paint icon"></i>
         </a>
         <a class="popup developer icon item" title="Developer Mode">
-          <i class="icon terminal"></i>
+          <i class="terminal icon"></i>
         </a>
         <% end %>
         <a class="popup icon item" title="View project on Github" href="https://github.com/quirkyinc/semantic">

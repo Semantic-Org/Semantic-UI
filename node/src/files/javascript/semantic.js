@@ -26,31 +26,34 @@ semantic.ready = function() {
 
   // selector cache
   var
-    $ui           = $('.ui').not('.hover, .down'),
-    $swap         = $('.theme.menu .item'),
-    $menu         = $('#menu'),
-    $sortTable    = $('.sortable.table'),
-    $demo         = $('.demo'),
-    $waypoints    = $('.main.container').find('h2').first().siblings('h2').andSelf(),
+    $ui               = $('.ui').not('.hover, .down'),
+    $swap             = $('.theme.menu .item'),
+    $menu             = $('#menu'),
+    $sortTable        = $('.sortable.table'),
+    $demo             = $('.demo'),
+    $waypoints        = $('.main.container').find('h2').first().siblings('h2').andSelf(),
 
-    $menuPopup    = $('.ui.main.menu .popup.item'),
-    $menuDropdown = $('.ui.main.menu .dropdown'),
+    $menuPopup        = $('.ui.main.menu .popup.item'),
+    $menuDropdown     = $('.ui.main.menu .dropdown'),
 
-    $helpPopup    = $('.header .help.icon'),
+    $downloadDropdown = $('.download.buttons .dropdown'),
 
-    $example      = $('.example'),
-    $shownExample = $example.filter('.shown'),
+    $helpPopup        = $('.header .help.icon'),
 
-    $developer    = $('.developer.item'),
-    $designer     = $('.designer.item'),
+    $example          = $('.example'),
+    $shownExample     = $example.filter('.shown'),
 
-    $increaseFont = $('.font .increase'),
-    $decreaseFont = $('.font .decrease'),
+    $developer        = $('.developer.item'),
+    $overview         = $('.overview.item, .overview.button'),
+    $designer         = $('.designer.item'),
 
-    $peek         = $('.peek'),
-    $peekItem     = $peek.children('.menu').children('a.item'),
-    $peekSubItem  = $peek.find('.item .menu .item'),
-    $code         = $('div.code'),
+    $increaseFont     = $('.font .increase'),
+    $decreaseFont     = $('.font .decrease'),
+
+    $peek             = $('.peek'),
+    $peekItem         = $peek.children('.menu').children('a.item'),
+    $peekSubItem      = $peek.find('.item .menu .item'),
+    $code             = $('div.code'),
 
     // alias
     handler
@@ -91,8 +94,32 @@ semantic.ready = function() {
         ;
       }
     },
-
+    overviewMode: function() {
+      var
+        $button  = $(this),
+        $body    = $('body'),
+        $example = $('.example'),
+        $headers = $('.example .ui.header:first-of-type').add('.example p:first-of-type')
+      ;
+      $body.toggleClass('overview');
+      $button.toggleClass('active');
+      if($body.hasClass('overview')) {
+        $developer.addClass('disabled').popup('destroy');
+        $designer.addClass('disabled').popup('destroy');
+        $example.children().not($headers).hide();
+        $example.filter('.another').hide();
+      }
+      else {
+        $developer.removeClass('disabled').popup();
+        $designer.removeClass('disabled').popup();
+        $example.children().not($headers).show();
+        $example.filter('.another').show();
+      }
+    },
     developerMode: function() {
+      var
+        $example = $('.example').not('.no')
+      ;
       $developer.addClass('active');
       $designer.removeClass('active');
       $example
@@ -102,6 +129,9 @@ semantic.ready = function() {
       ;
     },
     designerMode: function() {
+      var
+        $example = $('.example').not('.no')
+      ;
       $designer.addClass('active');
       $developer.removeClass('active');
       $example
@@ -114,10 +144,10 @@ semantic.ready = function() {
     createCode: function(type) {
       var
         $example   = $(this).closest('.example'),
-        $header    = $example.children('.ui.header:first-of-type, p:first-of-type'),
-        $demo      = $example.children().not($header).not('i.code:first-child, .code, .language.label, .annotated, br, .ignore, .ignored'),
-        $annotated = $example.find('.annotated'),
-        $code      = $annotated.find('.code'),
+        $header    = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
+        $demo      = $example.children().not($header).not('i.code:first-child, .code, .language.label, .annotation, br, .ignore, .ignored'),
+        $annotation = $example.find('.annotation'),
+        $code      = $annotation.find('.code'),
         whiteSpace = new RegExp('\\n\\s{4}', 'g'),
         code       = ''
       ;
@@ -126,9 +156,9 @@ semantic.ready = function() {
       //   $demo = $example.children().eq(3).children();
       // }
       // add source if doesnt exist and initialize
-      if($annotated.size() === 0) {
-        $annotated = $('<div/>')
-          .addClass('annotated')
+      if($annotation.size() === 0) {
+        $annotation = $('<div/>')
+          .addClass('annotation')
           .appendTo($example)
         ;
       }
@@ -146,17 +176,17 @@ semantic.ready = function() {
           .data('type', 'html')
           .addClass('code')
           .html(code)
-            .appendTo($annotated)
+            .appendTo($annotation)
         ;
         $.proxy(handler.initializeCode, $code)();
       }
       if( ($demo.first().is(':visible') || type == 'developer') && type != 'designer' ) {
         $demo.hide();
         $header.show();
-        $annotated.fadeIn(500);
+        $annotation.fadeIn(500);
       }
       else {
-        $annotated.hide();
+        $annotation.hide();
         if($demo.size() > 1) {
           $demo.show();
         }
@@ -185,7 +215,6 @@ semantic.ready = function() {
         whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
         $label,
         padding     = 4,
-        label,
         editor,
         editorSession,
         codeHeight
@@ -193,7 +222,12 @@ semantic.ready = function() {
 
       // trim whitespace
       code = $.trim(code.replace(whiteSpace, '\n'));
-      $code.text(code);
+      if(contentType == 'html') {
+        $code.text(code);
+      }
+      else {
+        $code.html(code);
+      }
 
       // evaluate if specified
       if($code.hasClass('evaluated')) {
@@ -236,6 +270,7 @@ semantic.ready = function() {
           .insertBefore ( $(this).parent() )
         ;
       }
+      // add run code button
       if(demo) {
         $('<a>')
           .addClass('ui pointing below black label')
@@ -402,6 +437,13 @@ semantic.ready = function() {
     }
   };
 
+  $downloadDropdown
+    .dropdown({
+      on         : 'click',
+      transition : 'scale'
+    })
+  ;
+
   // attach events
   if($.fn.tablesort !== undefined) {
     $sortTable
@@ -446,10 +488,14 @@ semantic.ready = function() {
   $designer
     .on('click', handler.designerMode)
   ;
+  $overview
+    .on('click', handler.overviewMode)
+  ;
 
   $menuPopup
     .popup({
-      position: 'bottom center',
+      transition : 'fade up',
+      position   : 'bottom center',
       className: {
         popup: 'ui popup'
       }
@@ -458,8 +504,8 @@ semantic.ready = function() {
 
   $menuDropdown
     .dropdown({
-      on     : 'hover',
-      action : 'none'
+      on         : 'hover',
+      action     : 'none'
     })
   ;
 

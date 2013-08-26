@@ -10,11 +10,11 @@ type   : 'UI Module'
 <div class="segment">
   <div class="container">
     <h1 class="ui dividing header">Checkbox</h1>
-    <p>A checkbox is a <a href="/module.html">ui module</a> which indicates a user's selection of a choice.</p>
+    <p>A checkbox visually indicates whether an option has been selected.</p>
   </div>
 </div>
 <div class="main container">
-  
+
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Types</a>
@@ -24,13 +24,13 @@ type   : 'UI Module'
       <a class="item">Usage</a>
     </div>
   </div>
-  
+
   <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
     <h4 class="ui header">Check Box</h4>
     <p>A standard checkbox</p>
-    
+
     <div class="ui language label">Javascript</div>
     <div class="code">
     $('.ui.checkbox')
@@ -38,35 +38,31 @@ type   : 'UI Module'
     ;
     </div>
     <div class="ui language label">HTML</div>
-    <div class="ui form">
-      <div class="inline field">
-        <div class="ui checkbox">
-          <input type="checkbox" />
-          <div class="box"></div>
-        </div>
-        <label>I would like a dog.</label>
-      </div>
+    <div class="code" data-type="html" data-preview="true">
+    <div class="ui checkbox">
+      <input type="checkbox">
+      <div class="box"></div>
     </div>
-    
+    <label>Poodle</label>
+    </div>
+
   </div>
 
   <div class="static example">
     <h4 class="ui header">Static Check Box</h4>
     <p>A checkbox can function without javascript</p>
     <div class="ui language label">HTML Only</div>
-    <div class="ui form">
-      <div class="inline field">
-        <div class="ui checkbox">
-          <input type="checkbox" id="unique-id" />
-          <label class="box" for="unique-id"></label>
-        </div>
-        <label for="unique-id"> I would like a dog but i am lazy.</label>
-      </div>
+    <div class="code" data-type="html" data-preview="true">
+    <div class="ui checkbox">
+      <input type="checkbox" id="unique-id" />
+      <label class="box" for="unique-id"></label>
+    </div>
+    <label for="unique-id">Poodle</label>
     </div>
   </div>
-  
+
   <h2 class="ui dividing header">Variations</h2>
-  
+
   <div class="example">
     <h4 class="ui header">Radio Box</h4>
     <p>A checkbox can be formatted as a radio element. This means it is an exclusive option.</p>
@@ -77,53 +73,52 @@ type   : 'UI Module'
             <input type="radio" name="fruit" />
             <label></label>
           </div>
-          <label> Apples</label> 
+          <label> Apples</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
             <label></label>
           </div>
-          <label> Oranges</label> 
+          <label> Oranges</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
             <label></label>
           </div>
-          <label> Pears</label> 
+          <label> Pears</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
             <label></label>
           </div>
-          <label> Grapefruit</label> 
+          <label> Grapefruit</label>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A checkbox can be a different size.</p>
-    <h4 class="ui red block header">
+    <h4 class="ui dividing block header">
       <div class="ui large checkbox">
         <input type="checkbox" />
         <label></label>
       </div>
       Add a pro membership
     </h4>
-    <br><br>
-    <h3 class="ui blue block header">
-      <div class="ui huge checkbox">
-        <input type="checkbox" />
-        <label></label>
-      </div>
-      Signup for our mailing list
-    </h3>
   </div>
-  
+  <div class="another example">
+    <div class="ui huge checkbox">
+      <input type="checkbox" />
+      <label></label>
+    </div>
+    <label>Signup for our mailing list</label>
+  </div>
+
   <h2 class="ui dividing header">Behavior</h2>
 
   <div class="example">
@@ -242,7 +237,7 @@ type   : 'UI Module'
       .checkbox()
     ;
   </div>
-  
+
   <h3 class="ui header">Settings</h3>
   <table class="ui red table segment">
     <thead>
@@ -261,7 +256,7 @@ type   : 'UI Module'
       </tr>
     </tbody>
   </table>
-  
+
   <table class="ui teal table segment">
     <thead>
       <th colspan="3">Callbacks</th>
@@ -284,7 +279,7 @@ type   : 'UI Module'
       </tr>
     </tbody>
   </table>
-  
+
   <table class="ui blue table segment">
     <thead>
       <th colspan="3">UI Module Settings</th>

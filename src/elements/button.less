@@ -114,6 +114,35 @@
   padding: 0.8em 1.5em;
 }
 
+/*-------------------
+       Social
+--------------------*/
+
+
+/* Facebook */
+.ui.facebook.button {
+  background-color: #3B579D;
+  color: #FFFFFF;
+}
+.ui.facebook.button:hover {
+  background-color: #3A59A9;
+}
+.ui.facebook.button:active {
+  background-color: #334F95;
+}
+
+/* Twitter */
+.ui.twitter.button {
+  background-color: #00ACED;
+  color: #FFFFFF;
+}
+.ui.twitter.button:hover {
+  background-color: #00B9FF;
+}
+.ui.twitter.button:active {
+  background-color: #009EDA;
+}
+
 /*--------------
      Icon
 ---------------*/
@@ -383,36 +412,21 @@
            Variations
 *******************************/
 
-
-
 /*-------------------
-       Social
+       Floated
 --------------------*/
 
-
-/* Facebook */
-.ui.facebook.button {
-  background-color: #3B579D;
-  color: #FFFFFF;
+.ui.left.floated.buttons,
+.ui.left.floated.button {
+  float: left;
+  margin-right: 0.25em;
 }
-.ui.facebook.button:hover {
-  background-color: #3A59A9;
-}
-.ui.facebook.button:active {
-  background-color: #334F95;
+.ui.right.floated.buttons,
+.ui.right.floated.button {
+  float: right;
+  margin-left: 0.25em;
 }
 
-/* Twitter */
-.ui.twitter.button {
-  background-color: #00ACED;
-  color: #FFFFFF;
-}
-.ui.twitter.button:hover {
-  background-color: #00B9FF;
-}
-.ui.twitter.button:active {
-  background-color: #009EDA;
-}
 
 /*-------------------
        Colors
@@ -1144,14 +1158,13 @@
   height: 8.3333%;
 }
 
-
-
 /*******************************
             Groups
 *******************************/
 
 .ui.buttons {
   display: inline-block;
+  vertical-align: middle;
 }
 .ui.buttons:after {
   content: ".";
@@ -1159,6 +1172,9 @@
   height: 0;
   clear: both;
   visibility: hidden;
+}
+.ui.buttons .button:first-child {
+  border-left: none;
 }
 
 .ui.buttons .button {
