@@ -13,27 +13,33 @@
             List
 *******************************/
 ul.ui.list,
+ol.ui.list,
 .ui.list {
+  list-style-type: none;
   margin: 1em 0em;
   padding: 0em;
 }
+ul.ui.list ul,
+ol.ui.list ol,
+.ui.list .list {
+  padding: 0.5em 0em 0.5em 1.2em;
+}
 ul.ui.list:first-child,
+ol.ui.list:first-child,
 .ui.list:first-child {
   margin-top: 0em;
 }
 ul.ui.list:last-child,
+ol.ui.list:last-child,
 .ui.list:last-child {
   margin-bottom: 0em;
-}
-ul.ui.list li:first-child,
-.ui.list .item:first-child {
-  border-top: none;
 }
 /*******************************
             Content
 *******************************/
 /* List Item */
 ul.ui.list li,
+ol.ui.list li,
 .ui.list .item {
   display: list-item;
   list-style-type: none;
@@ -42,11 +48,26 @@ ul.ui.list li,
   line-height: 1.2;
 }
 /* Icon */
-.ui.list .icon {
-  margin: 0em 0.5em 0em 0em;
+.ui.list .item > .icon {
+  margin-right: 0.5em;
+}
+/* Image */
+.ui.list .item > img {
+  display: inline-block;
+  width: 2em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+}
+/* Content */
+.ui.list .item > .content {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
 }
 /* Link */
-ul.ui.list a,
 .ui.list a {
   cursor: pointer;
 }
@@ -68,18 +89,15 @@ ul.ui.list a,
 /*-------------------
       Horizontal
 --------------------*/
-ul.ui.horizontal.list,
 .ui.horizontal.list {
   display: inline-block;
   font-size: 0em;
 }
-ul.ui.horizontal.list li,
 .ui.horizontal.list .item {
   display: inline-block;
   margin-left: 1em;
   font-size: 1rem;
 }
-ul.ui.horizontal.list li:first-child,
 .ui.horizontal.list .item:first-child {
   margin-left: 0em;
 }
@@ -95,6 +113,32 @@ ul.ui.horizontal.list li:first-child,
 /*******************************
            Variations
 *******************************/
+/*-------------------
+      Selection
+--------------------*/
+.ui.selection.list .item {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
+  padding: 0.5em;
+  -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  -moz-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  -o-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  -ms-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+  transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+}
+.ui.selection.list .item:hover {
+  padding-left: 1em;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: rgba(0, 0, 0, 0.7);
+}
+.ui.selection.list .item:active {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.7);
+}
+.ui.selection.list .item.active {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.7);
+}
 /*-------------------
       Bulleted
 --------------------*/
@@ -139,92 +183,99 @@ ul.ui.horizontal.bulleted.list li:first-child::before,
        Ordered
 --------------------*/
 ol.ui.list,
-ul.ui.ordered.list,
 .ui.ordered.list {
   counter-reset: ordered;
   margin-left: 2em;
+  list-style-type: none;
 }
 ol.ui.list li,
-ul.ui.ordered.list li,
 .ui.ordered.list .item {
-  counter-increment: ordered;
+  list-style-type: none;
   position: relative;
 }
 ol.ui.list li:before,
-ul.ui.ordered.list li:before,
 .ui.ordered.list .item:before {
   position: absolute;
-  top: 0.4em;
   left: -2em;
-  content: counter(ordered);
-  width: 0.8em;
-  margin-right: 0.5rem;
-  padding-right: 0.5em;
+  counter-increment: ordered;
+  content: counters(ordered, ".");
   text-align: right;
-  line-height: 1.2rem;
   vertical-align: top;
-  opacity: 0.8;
+  opacity: 0.75;
+}
+ol.ui.list ol,
+.ui.ordered.list .list {
+  counter-reset: ordered;
+  padding-left: 2em;
+}
+ol.ui.list ol ol li:before,
+.ui.ordered.list .list .list .item:before {
+  left: -2.5em;
 }
 /* Horizontal Ordered */
 ol.ui.horizontal.list,
-ul.ui.ordered.horizontal.list,
 .ui.ordered.horizontal.list {
   margin-left: 0em;
 }
 ol.ui.horizontal.list li:before,
-ul.ui.ordered.horizontal.list li:before,
 .ui.ordered.horizontal.list .item:before {
   position: static;
-  margin: 0em;
+  margin: 0em 0.5em 0em 0em;
 }
 /*-------------------
        Divided
 --------------------*/
-ul.ui.divided.list li,
-.ui.divided.list .item {
+.ui.divided.list > .item,
+.ui.divided.list > .list {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-ul.ui.divided.list li:first-child,
+.ui.divided.list .item .menu .item {
+  border-width: 0px;
+}
 .ui.divided.list .item:first-child {
-  border-top: none;
+  border-top-width: 0px;
+}
+/* Sub Menu */
+.ui.divided.list .list {
+  margin-left: -1.2em;
+  margin-right: -1.2em;
+}
+.ui.divided.list .list .item {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.ui.divided.list .list .item:first-child {
+  border-top-width: 1px;
 }
 /* Divided bulleted */
-ul.ui.divided.bulleted.list,
 .ui.divided.bulleted.list {
   margin-left: 0em;
 }
-ul.ui.divided.bulleted.list li,
 .ui.divided.bulleted.list .item {
   padding-left: 1.5em;
 }
-ul.ui.divided.bulleted.list li:before,
 .ui.divided.bulleted.list .item:before {
   left: 0em;
 }
 /* Divided ordered */
-ol.ui.divided.list,
-ul.ui.divided.ordered.list,
 .ui.divided.ordered.list {
   margin-left: 0em;
 }
-ol.ui.divided.list li,
-ul.ui.divided.ordered.list li,
-.ui.divided.ordered.list .item {
+.ui.divided.ordered.list > .item {
   padding-left: 2em;
 }
-ol.ui.divided.list li:before,
-ul.ui.divided.ordered.list li:before,
-.ui.divided.ordered.list .item:before {
+.ui.divided.ordered.list > .item:before {
   left: 0em;
 }
+.ui.divided.ordered.list .item .list {
+  margin-left: -2em;
+}
 /* Divided horizontal */
-ul.ui.divided.horizontal.list,
 .ui.divided.horizontal.list {
   margin-left: 0em;
 }
-ul.ui.divided.horizontal.list li,
 .ui.divided.horizontal.list .item {
   border-top: none;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -233,7 +284,6 @@ ul.ui.divided.horizontal.list li,
   padding-right: 0.75em;
   line-height: 0.6;
 }
-ul.ui.horizontal.divided.list li:first-child,
 .ui.horizontal.divided.list .item:first-child {
   border-left: none;
   padding-left: 0em;
@@ -241,51 +291,53 @@ ul.ui.horizontal.divided.list li:first-child,
 /*-------------------
         Celled
 --------------------*/
-ul.ui.celled.list li,
-.ui.celled.list .item {
+.ui.celled.list > .item,
+.ui.celled.list > .list {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
-ul.ui.celled.list li:last-child,
-.ui.celled.list .item:last-child {
+.ui.celled.list > .item:last-child {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+/* Sub Menu */
+.ui.celled.list .item .list {
+  margin-left: -1.2em;
+  margin-right: -1.2em;
+}
+.ui.celled.list .item .list .item {
+  border-width: 0px;
+}
+.ui.celled.list .list .item:first-child {
+  border-top-width: 0px;
+}
 /* Celled Bulleted */
-ul.ui.celled.bulleted.list,
 .ui.celled.bulleted.list {
   margin-left: 0em;
 }
-ul.ui.celled.bulleted.list li,
-.ui.celled.bulleted.list .item {
+.ui.celled.bulleted.list > .item {
   padding-left: 1.5em;
 }
-ul.ui.celled.bulleted.list li:before,
-.ui.celled.bulleted.list .item:before {
+.ui.celled.bulleted.list > .item:before {
   left: 0em;
 }
 /* Celled Ordered */
-ol.ui.celled.list,
-ul.ui.celled.ordered.list,
 .ui.celled.ordered.list {
   margin-left: 0em;
 }
-ol.ui.celled.list li,
-ul.ui.celled.ordered.list li,
 .ui.celled.ordered.list .item {
   padding-left: 2em;
 }
-ol.ui.celled.list li:before,
-ul.ui.celled.ordered.list li:before,
 .ui.celled.ordered.list .item:before {
   left: 0em;
 }
+.ui.celled.ordered.list .item .list {
+  margin-left: -2em;
+}
 /* Celled Horizontal */
-ul.ui.horizontal.celled.list,
 .ui.horizontal.celled.list {
   margin-left: 0em;
 }
-ul.ui.horizontal.celled.list li,
 .ui.horizontal.celled.list .item {
   border-top: none;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -294,8 +346,31 @@ ul.ui.horizontal.celled.list li,
   padding-right: 0.75em;
   line-height: 0.6;
 }
-ul.ui.horizontal.celled.list li:last-child,
 .ui.horizontal.celled.list .item:last-child {
   border-bottom: none;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+/*-------------------
+      Sizes
+--------------------*/
+.ui.mini.list .item {
+  font-size: 0.8125rem;
+}
+.ui.tiny.list .item {
+  font-size: 0.875rem;
+}
+.ui.small.list .item {
+  font-size: 0.875rem;
+}
+.ui.large.list .item {
+  font-size: 1.125rem;
+}
+.ui.big.list .item {
+  font-size: 1.25rem;
+}
+.ui.huge.list .item {
+  font-size: 1.375rem;
+}
+.ui.massive.list .item {
+  font-size: 1.5rem;
 }

@@ -272,18 +272,6 @@ a:hover {
 }
 
 /* lists */
-#example ol {
-  list-style-position: inside;
-  margin: 10px 0px 40px;
-  padding: 0px;
-}
-#example ol li {
-  list-style-type: decimal;
-  margin: 0px 0px 10px;
-}
-#example ol li a {
-  font-weight: bold;
-}
 #example .features {
   list-style-position: inside;
   margin: 10px 0px 0px;
