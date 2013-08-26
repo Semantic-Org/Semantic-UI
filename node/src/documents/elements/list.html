@@ -24,49 +24,112 @@ type       : 'UI Collection'
     </div>
   </div>
 
-  <h2 class="ui dividing header">Standard</h2>
+  <h2 class="ui dividing header">Types</h2>
   <div class="example">
     <h4 class="ui header">List</h4>
     <p>A standard list</p>
-    <div class="ui list">
+    <div class="ui celled selection list">
+      <div class="item">
+        <img src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+        <div class="list">
+          <div class="item">
+            <img src="/images/demo/avatar3.jpg">
+            <div class="content">
+              <div class="header">Paulo</div>
+              He's also a dog
+            </div>
+          </div>
+          <div class="item">
+            <img src="/images/demo/avatar3.jpg">
+            <div class="content">
+              <div class="header">Paulo</div>
+              He's also a dog
+            </div>
+          </div>
+          <div class="item">
+            <img src="/images/demo/avatar3.jpg">
+            <div class="content">
+              <div class="header">Paulo</div>
+              He's also a dog
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Bulleted</h4>
+    <p>A list can mark items with a bullet</p>
+    <div class="ui bulleted list">
       <div class="item">New York City</div>
       <div class="item">Chicago</div>
       <div class="item">Los Angeles</div>
       <div class="item">San Francisco</div>
+      <div class="item">Others
+        <div class="list">
+          <div class="item">Paris</div>
+          <div class="item">Havana</div>
+          <div class="item">Lisbon</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="another example">
-    <div class="ignored ui info message">For convenience, a list can also use ul and li tags to specify lists and list items.</div>
+    <div class="ignored ui info message">For convenience, a simple bulleted list can also use <code>ul</code> tag.</div>
     <ul class="ui list">
       <li>New York City</li>
       <li>Chicago</li>
       <li>Los Angeles</li>
-      <li>San Francisco</li>
     </ul>
   </div>
 
   <div class="example">
-    <h4 class="ui header">Horizontal List</h4>
-    <p>A list can be formatted horizontally</p>
-    <div class="ui horizontal list">
-      <div class="item">
-        Apples
-      </div>
-      <div class="item">
-        Pears
-      </div>
-      <div class="item">
-        Oranges
-      </div>
-      <div class="item">
-        Soursop
+    <h4 class="ui header">Ordered</h4>
+    <p>A list can be ordered numerically</p>
+    <div class="ui ordered list">
+      <div class="item">Getting Started</div>
+      <div class="item">Introduction</div>
+      <div class="item">Languages
+        <div class="list">
+          <div class="item">HTML</div>
+          <div class="item">Javascript</div>
+          <div class="item">CSS</div>
+        </div>
       </div>
     </div>
   </div>
+  <div class="another example">
+    <div class="ignored ui info message">For convenience, a simple ordered list can also use the <code>ol</code> tag</div>
+    <ol class="ui list">
+      <li>New York City</li>
+      <li>Virginia Beach</li>
+      <li>Others</li>
+        <ol class="list">
+          <li>Paris</li>
+          <li>Havana</li>
+          <li>Lisbon</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
 
   <div class="example">
-    <h4 class="ui header">Icon List</h4>
-    <p>A list can be formatted so that each item has an icon</p>
+    <h4 class="ui header">Icon</h4>
+    <p>A list item can have an icon</p>
     <div class="ui list">
       <a class="item">
         <i class="right doc icon"></i>
@@ -87,8 +150,6 @@ type       : 'UI Collection'
     </div>
   </div>
 
-  <h2 class="ui dividing header">Content</h2>
-
   <div class="example">
     <h4 class="ui header">Link</h4>
     <p>A list can contain items that link</p>
@@ -103,7 +164,7 @@ type       : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Header</h4>
     <p>A list item can contain a header</p>
-    <div class="ui ordered list">
+    <div class="ui list">
       <div class="item">
         <div class="header">New York City</div>
         A lovely city
@@ -128,10 +189,37 @@ type       : 'UI Collection'
 
   <h2 class="ui dividing header">Variations</h2>
 
+
   <div class="example">
-    <h4 class="ui header">Bulleted</h4>
-    <p>A list can mark items with a bullet</p>
-    <div class="ui bulleted list">
+    <h4 class="ui header">Horizontal List</h4>
+    <p>A list can be formatted horizontally</p>
+    <div class="ui horizontal list">
+      <div class="item">
+        <img src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui ordered horizontal list">
       <div class="item">New York City</div>
       <div class="item">Chicago</div>
       <div class="item">Los Angeles</div>
@@ -156,28 +244,30 @@ type       : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Ordered</h4>
-    <p>A list can be ordered numerically</p>
-    <div class="ui ordered list">
-      <div class="item">New York City</div>
-      <div class="item">Chicago</div>
-      <div class="item">Los Angeles</div>
-      <div class="item">San Francisco</div>
-      <div class="item">Detroit</div>
-      <div class="item">Richmond</div>
-      <div class="item">Nashville</div>
-      <div class="item">St Louis</div>
-      <div class="item">Kansas City</div>
-      <div class="item">Oakland</div>
-      <div class="item">Virginia Beach</div>
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui ordered horizontal list">
-      <div class="item">New York City</div>
-      <div class="item">Chicago</div>
-      <div class="item">Los Angeles</div>
-      <div class="item">San Francisco</div>
+    <h4 class="ui header">Selection</h4>
+    <p>A selection list formats list items as possible choices</p>
+    <div class="ui selection list">
+      <div class="item">
+        <img src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
     </div>
   </div>
 
@@ -189,6 +279,11 @@ type       : 'UI Collection'
       <div class="item">Chicago</div>
       <div class="item">Los Angeles</div>
       <div class="item">San Francisco</div>
+      <div class="list">
+        <div class="item">Paris</div>
+        <div class="item">Havana</div>
+        <div class="item">Lisbon</div>
+      </div>
     </div>
   </div>
   <div class="another example">
@@ -207,10 +302,55 @@ type       : 'UI Collection'
       <div class="item">Chicago</div>
       <div class="item">Los Angeles</div>
       <div class="item">San Francisco</div>
+      <div class="list">
+        <div class="item">Paris</div>
+        <div class="item">Havana</div>
+        <div class="item">Lisbon</div>
+      </div>
     </div>
   </div>
   <div class="another example">
     <div class="ui celled horizontal list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Sizes</h4>
+    <p>A list can vary in size</p>
+    <div class="ui mini   list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+    <div class="ui tiny list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+    <div class="ui small list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+    <div class="ui large list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+    <div class="ui big list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+    <div class="ui huge list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+    <div class="ui massive list">
       <div class="item">About Us</div>
       <div class="item">Contact</div>
       <div class="item">Support</div>
