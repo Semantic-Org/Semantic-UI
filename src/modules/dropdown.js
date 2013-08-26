@@ -1,5 +1,5 @@
 /*  ******************************
-   Semantic Module: Dropdown
+   Semantic dropdown: Dropdown
    Author: Jack Lukic
    Notes: First Commit May 25, 2013
 
@@ -9,97 +9,100 @@
 
 $.fn.dropdown = function(parameters) {
   var
-    $allModules     = $(this),
-    $document       = $(document),
+    $allDropdowns = $(this),
+    $document     = $(document),
 
     settings        = ( $.isPlainObject(parameters) )
       ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
       : $.fn.dropdown.settings,
 
-    className       = settings.className,
-    metadata        = settings.metadata,
-    namespace       = settings.namespace,
-    selector        = settings.selector,
-    errors          = settings.errors,
+    className         = settings.className,
+    metadata          = settings.metadata,
+    namespace         = settings.namespace,
+    selector          = settings.selector,
+    error             = settings.error,
 
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-    moduleSelector  = $allModules.selector || '',
+    eventNamespace    = '.' + namespace,
+    dropdownNamespace = 'dropdown-' + namespace,
+    dropdownSelector  = $allDropdowns.selector || '',
 
-    time            = new Date().getTime(),
-    performance     = [],
+    time              = new Date().getTime(),
+    performance       = [],
 
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
+    query             = arguments[0],
+    methodInvoked     = (typeof query == 'string'),
+    queryArguments    = [].slice.call(arguments, 1),
     invokedResponse
   ;
 
-  $allModules
+  $allDropdowns
     .each(function() {
       var
-        $module       = $(this),
-        $menu         = $(this).find(selector.menu),
-        $item         = $(this).find(selector.item),
-        $text         = $(this).find(selector.text),
-        $input        = $(this).find(selector.input),
+        $dropdown     = $(this),
+        $item         = $dropdown.find(selector.item),
+        $text         = $dropdown.find(selector.text),
+        $input        = $dropdown.find(selector.input),
+
+        $menu         = $dropdown.children(selector.menu),
 
         isTouchDevice = ('ontouchstart' in document.documentElement),
 
         element       = this,
-        instance      = $module.data(moduleNamespace),
-        module
+        instance      = $dropdown.data(dropdownNamespace),
+        dropdown
       ;
 
-      module      = {
+      dropdown      = {
 
         initialize: function() {
-          module.debug('Initializing dropdown', $module);
+          dropdown.debug('Initializing dropdown', settings);
           if(isTouchDevice) {
-            $module
-              .on('touchstart' + eventNamespace, module.event.test.toggle)
+            $dropdown
+              .on('touchstart' + eventNamespace, dropdown.event.test.toggle)
             ;
           }
           else if(settings.on == 'click') {
-            $module
-              .on('click' + eventNamespace, module.event.test.toggle)
+            $dropdown
+              .on('click' + eventNamespace, dropdown.event.test.toggle)
             ;
           }
           else if(settings.on == 'hover') {
-            $module
-              .on('mouseenter' + eventNamespace, module.delay.show)
-              .on('mouseleave' + eventNamespace, module.delay.hide)
+            $dropdown
+              .on('mouseenter' + eventNamespace, dropdown.delay.show)
+              .on('mouseleave' + eventNamespace, dropdown.delay.hide)
             ;
           }
           else {
-            $module
-              .on(settings.on + eventNamespace, module.toggle)
+            $dropdown
+              .on(settings.on + eventNamespace, dropdown.toggle)
             ;
           }
           if(settings.action == 'form') {
-            module.set.selected();
+            dropdown.set.selected();
           }
           $item
-            .on(module.get.selectEvent() + eventNamespace, module.event.item.click)
+            .on('mouseenter' + eventNamespace, dropdown.event.item.mouseenter)
+            .on('mouseleave' + eventNamespace, dropdown.event.item.mouseleave)
+            .on(dropdown.get.selectEvent() + eventNamespace, dropdown.event.item.click)
           ;
-          module.instantiate();
+          dropdown.instantiate();
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of module', module);
-          $module
-            .data(moduleNamespace, module)
+          dropdown.verbose('Storing instance of dropdown', dropdown);
+          $dropdown
+            .data(dropdownNamespace, dropdown)
           ;
         },
 
         destroy: function() {
-          module.verbose('Destroying previous module for', $module);
+          dropdown.verbose('Destroying previous dropdown for', $dropdown);
           $item
             .off(eventNamespace)
           ;
-          $module
+          $dropdown
             .off(eventNamespace)
-            .removeData(moduleNamespace)
+            .removeData(dropdownNamespace)
           ;
         },
 
@@ -111,16 +114,45 @@ $.fn.dropdown = function(parameters) {
 
           test: {
             toggle: function(event) {
-              module.intent.test(event, module.toggle);
+              dropdown.determine.intent(event, dropdown.toggle);
               event.stopImmediatePropagation();
             },
             hide: function(event) {
-              module.intent.test(event, module.hide);
+              dropdown.determine.intent(event, dropdown.hide);
               event.stopPropagation();
             }
           },
 
           item: {
+
+            mouseenter: function(event) {
+              var
+                $currentMenu = $(this).find(selector.menu),
+                $otherMenus  = $(this).siblings(selector.item).children(selector.menu)
+              ;
+              console.log($currentMenu);
+              if( $currentMenu.size() > 0 ) {
+                clearTimeout(dropdown.itemTimer);
+                dropdown.itemTimer = setTimeout(function() {
+                  dropdown.animate.hide(false, $otherMenus);
+                  dropdown.verbose('Showing sub-menu', $currentMenu);
+                  dropdown.animate.show(false,  $currentMenu);
+                }, settings.delay.show * 2);
+              }
+            },
+
+            mouseleave: function(event) {
+              var
+                $currentMenu = $(this).find(selector.menu)
+              ;
+              if($currentMenu.size() > 0) {
+                clearTimeout(dropdown.itemTimer);
+                dropdown.itemTimer = setTimeout(function() {
+                  dropdown.verbose('Hiding sub-menu', $currentMenu);
+                  dropdown.animate.hide(false,  $currentMenu);
+                }, settings.delay.hide);
+              }
+            },
 
             click: function (event) {
               var
@@ -128,15 +160,15 @@ $.fn.dropdown = function(parameters) {
                 text    = $choice.data(metadata.text)  || $choice.text(),
                 value   = $choice.data(metadata.value) || text
               ;
-              module.verbose('Adding active state to selected item');
+              dropdown.verbose('Adding active state to selected item');
               $item
                 .removeClass(className.active)
               ;
               $choice
                 .addClass(className.active)
               ;
-              module.action.determine(text, value);
-              $.proxy(settings.onChange, $module.get())(value, text);
+              dropdown.determine.selectAction(text, value);
+              $.proxy(settings.onChange, element)(value, text);
               event.stopPropagation();
             }
 
@@ -148,69 +180,63 @@ $.fn.dropdown = function(parameters) {
 
         },
 
-        intent: {
-
-          test: function(event, callback) {
-            module.debug('Determining whether event occurred in dropdown', event.target);
-            callback = callback || function(){};
-            if( $(event.target).closest($menu).size() === 0 ) {
-              module.verbose('Triggering event', callback);
-              callback();
-            }
-            else {
-              module.verbose('Event occurred in dropdown, canceling callback');
-            }
-          },
-
-          bind: function() {
-            module.verbose('Binding hide intent event to document');
-            $document
-              .on(module.get.selectEvent(), module.event.test.hide)
-            ;
-          },
-
-          unbind: function() {
-            module.verbose('Removing hide intent event from document');
-            $document
-              .off(module.get.selectEvent())
-            ;
-          }
-
-        },
-
-        action: {
-
-          determine: function(text, value) {
-            if( $.isFunction( module.action[settings.action] ) ) {
-              module.verbose('Triggering preset action', settings.action);
-              module.action[ settings.action ](text, value);
+        determine: {
+          selectAction: function(text, value) {
+            dropdown.verbose('Determining action', settings.action);
+            if( $.isFunction( dropdown[settings.action] ) ) {
+              dropdown.verbose('Triggering preset action', settings.action);
+              dropdown[ settings.action ](text, value);
             }
             else if( $.isFunction(settings.action) ) {
-              module.verbose('Triggering user action', settings.action);
+              dropdown.verbose('Triggering user action', settings.action);
               settings.action(text, value);
             }
             else {
-              module.error(errors.action);
+              dropdown.error(error.action);
             }
           },
-
-          none: function() {},
-
-          hide: function() {
-            module.hide();
-          },
-
-          changeText: function(text, value) {
-            module.set.text(text);
-            module.hide();
-          },
-
-          form: function(text, value) {
-            module.set.text(text);
-            module.set.value(value);
-            module.hide();
+          intent: function(event, callback) {
+            dropdown.debug('Determining whether event occurred in dropdown', event.target);
+            callback = callback || function(){};
+            if( $(event.target).closest($menu).size() === 0 ) {
+              dropdown.verbose('Triggering event', callback);
+              callback();
+            }
+            else {
+              dropdown.verbose('Event occurred in dropdown, canceling callback');
+            }
           }
+        },
 
+        bind: {
+          intent: function() {
+            dropdown.verbose('Binding hide intent event to document');
+            $document
+              .on(dropdown.get.selectEvent(), dropdown.event.test.hide)
+            ;
+          }
+        },
+
+        unbind: {
+          intent: function() {
+            dropdown.verbose('Removing hide intent event from document');
+            $document
+              .off(dropdown.get.selectEvent())
+            ;
+          }
+        },
+
+        nothing: function() {},
+
+        changeText: function(text, value) {
+          dropdown.set.text(text);
+          dropdown.hide();
+        },
+
+        updateForm: function(text, value) {
+          dropdown.set.text(text);
+          dropdown.set.value(value);
+          dropdown.hide();
         },
 
         get: {
@@ -244,27 +270,27 @@ $.fn.dropdown = function(parameters) {
 
         set: {
           text: function(text) {
-            module.debug('Changing text', text, $text);
+            dropdown.debug('Changing text', text, $text);
             $text.removeClass(className.placeholder);
             $text.text(text);
           },
           value: function(value) {
-            module.debug('Adding selected value to hidden input', value, $input);
+            dropdown.debug('Adding selected value to hidden input', value, $input);
             $input.val(value);
           },
           active: function() {
-            $module.addClass(className.active);
+            $dropdown.addClass(className.active);
           },
           visible: function() {
-            $module.addClass(className.visible);
+            $dropdown.addClass(className.visible);
           },
-        selected: function(value) {
+          selected: function(value) {
             var
-              $selectedItem = module.get.item(value),
+              $selectedItem = dropdown.get.item(value),
               selectedText
             ;
             if($selectedItem) {
-              module.debug('Setting selected menu item to', $selectedItem);
+              dropdown.debug('Setting selected menu item to', $selectedItem);
               selectedText = $selectedItem.data(metadata.text) || $selectedItem.text();
               $item
                 .removeClass(className.active)
@@ -272,26 +298,32 @@ $.fn.dropdown = function(parameters) {
               $selectedItem
                 .addClass(className.active)
               ;
-              module.set.text(selectedText);
+              dropdown.set.text(selectedText);
             }
           }
         },
 
         remove: {
           active: function() {
-            $module.removeClass(className.active);
+            $dropdown.removeClass(className.active);
           },
           visible: function() {
-            $module.removeClass(className.visible);
+            $dropdown.removeClass(className.visible);
           }
         },
 
         is: {
-          visible: function() {
-            return $menu.is(':visible');
+          visible: function($subMenu) {
+            return ($subMenu)
+              ? $subMenu.is(':visible')
+              : $menu.is(':visible')
+            ;
           },
-          hidden: function() {
-            return $menu.is(':not(:visible)');
+          hidden: function($subMenu) {
+            return ($subMenu)
+              ? $subMenu.is(':not(:visible)')
+              : $menu.is(':not(:visible)')
+            ;
           }
         },
 
@@ -300,151 +332,159 @@ $.fn.dropdown = function(parameters) {
             return (isTouchDevice || settings.on == 'click');
           },
           show: function() {
-            return !$module.hasClass(className.disabled);
+            return !$dropdown.hasClass(className.disabled);
           }
         },
 
         animate: {
-          show: function(callback) {
-            module.verbose('Transitioning menu into view');
+          show: function(callback, $subMenu) {
+            var
+              $currentMenu = $subMenu || $menu
+            ;
             callback = callback || function(){};
-
-            if(settings.transition == 'none') {
-              callback();
-            }
-            else if($.fn.transition !== undefined) {
-              $menu.transition(settings.transition, settings.duration, callback);
-            }
-            else if(settings.transition == 'slide down') {
-              $menu
-                .hide()
-                .clearQueue()
-                .children()
+            if( dropdown.is.hidden($currentMenu) ) {
+              dropdown.verbose('Doing menu show animation', $currentMenu);
+              if(settings.transition == 'none') {
+                callback();
+              }
+              else if($.fn.transition !== undefined) {
+                $currentMenu.transition(settings.transition + ' in', settings.duration, callback);
+              }
+              else if(settings.transition == 'slide down') {
+                $currentMenu
+                  .hide()
                   .clearQueue()
-                  .css('opacity', 0)
-                  .delay(50)
-                  .animate({
-                    opacity : 1
-                  }, settings.duration, 'easeOutQuad', module.event.resetStyle)
-                  .end()
-                .slideDown(100, 'easeOutQuad', function() {
-                  $.proxy(module.event.resetStyle, this)();
-                  callback();
-                })
-              ;
-            }
-            else if(settings.transition == 'fade') {
-              $menu
-                .hide()
-                .clearQueue()
-                .fadeIn(settings.duration, function() {
-                  $.proxy(module.event.resetStyle, this)();
-                  callback();
-                })
-              ;
-            }
-            else {
-              module.error(errors.transition);
+                  .children()
+                    .clearQueue()
+                    .css('opacity', 0)
+                    .delay(50)
+                    .animate({
+                      opacity : 1
+                    }, settings.duration, 'easeOutQuad', dropdown.event.resetStyle)
+                    .end()
+                  .slideDown(100, 'easeOutQuad', function() {
+                    $.proxy(dropdown.event.resetStyle, this)();
+                    callback();
+                  })
+                ;
+              }
+              else if(settings.transition == 'fade') {
+                $currentMenu
+                  .hide()
+                  .clearQueue()
+                  .fadeIn(settings.duration, function() {
+                    $.proxy(dropdown.event.resetStyle, this)();
+                    callback();
+                  })
+                ;
+              }
+              else {
+                dropdown.error(error.transition);
+              }
             }
           },
-          hide: function(callback) {
-            module.verbose('Doing menu hiding transition');
+          hide: function(callback, $subMenu) {
+            var
+              $currentMenu = $subMenu || $menu
+            ;
             callback = callback || function(){};
-
-            if(settings.transition == 'none') {
-              callback();
-            }
-            else if($.fn.transition !== undefined) {
-              $menu.transition(settings.transition, settings.duration, callback);
-            }
-            else if(settings.transition == 'slide down') {
-              $menu
-                .show()
-                .clearQueue()
-                .children()
+            if(dropdown.is.visible($currentMenu) ) {
+              dropdown.verbose('Doing menu hide animation', $currentMenu);
+              if($.fn.transition !== undefined) {
+                $currentMenu.transition(settings.transition + ' out', settings.duration, callback);
+              }
+              else if(settings.transition == 'none') {
+                callback();
+              }
+              else if(settings.transition == 'slide down') {
+                $currentMenu
+                  .show()
                   .clearQueue()
-                  .css('opacity', 1)
-                  .animate({
-                    opacity : 0
-                  }, 100, 'easeOutQuad', module.event.resetStyle)
-                  .end()
-                .delay(50)
-                .slideUp(100, 'easeOutQuad', function() {
-                  $.proxy(module.event.resetStyle, this)();
-                  callback();
-                })
-              ;
-            }
-            else if(settings.transition == 'fade') {
-              $menu
-                .show()
-                .clearQueue()
-                .fadeOut(150, function() {
-                  $.proxy(module.event.resetStyle, this)();
-                  callback();
-                })
-              ;
-            }
-            else {
-              module.error(errors.transition);
+                  .children()
+                    .clearQueue()
+                    .css('opacity', 1)
+                    .animate({
+                      opacity : 0
+                    }, 100, 'easeOutQuad', dropdown.event.resetStyle)
+                    .end()
+                  .delay(50)
+                  .slideUp(100, 'easeOutQuad', function() {
+                    $.proxy(dropdown.event.resetStyle, this)();
+                    callback();
+                  })
+                ;
+              }
+              else if(settings.transition == 'fade') {
+                $currentMenu
+                  .show()
+                  .clearQueue()
+                  .fadeOut(150, function() {
+                    $.proxy(dropdown.event.resetStyle, this)();
+                    callback();
+                  })
+                ;
+              }
+              else {
+                dropdown.error(error.transition);
+              }
             }
           }
         },
 
         show: function() {
-          module.debug('Checking if dropdown can show');
-          if( !module.is.visible() ) {
-            module.hideOthers();
-            module.set.active();
-            module.animate.show(module.set.visible);
-            if( module.can.click() ) {
-              module.intent.bind();
+          dropdown.debug('Checking if dropdown can show');
+          if( !dropdown.is.visible() ) {
+            dropdown.hideOthers();
+            dropdown.set.active();
+            dropdown.animate.show(dropdown.set.visible);
+            if( dropdown.can.click() ) {
+              dropdown.bind.intent();
             }
             $.proxy(settings.onShow, element)();
           }
         },
 
         hide: function() {
-          if( !module.is.hidden() ) {
-            module.debug('Hiding dropdown');
-            if( module.can.click() ) {
-              module.intent.unbind();
+          if( !dropdown.is.hidden() ) {
+            dropdown.debug('Hiding dropdown');
+            if( dropdown.can.click() ) {
+              dropdown.unbind.intent();
             }
-            module.remove.active();
-            module.animate.hide(module.remove.visible);
+            dropdown.remove.active();
+            dropdown.animate.hide(dropdown.remove.visible);
             $.proxy(settings.onHide, element)();
           }
         },
 
         delay: {
           show: function() {
-            module.verbose('Delaying show event to ensure user intent');
-            clearTimeout(module.graceTimer);
-            module.graceTimer = setTimeout(module.show, settings.delay.show);
+            dropdown.verbose('Delaying show event to ensure user intent');
+            clearTimeout(dropdown.timer);
+            dropdown.timer = setTimeout(dropdown.show, settings.delay.show);
           },
           hide: function() {
-            module.verbose('Delaying hide event to ensure user intent');
-            clearTimeout(module.graceTimer);
-            module.graceTimer = setTimeout(module.hide, settings.delay.hide);
+            dropdown.verbose('Delaying hide event to ensure user intent');
+            clearTimeout(dropdown.timer);
+            dropdown.timer = setTimeout(dropdown.hide, settings.delay.hide);
           }
         },
 
         hideOthers: function() {
-          module.verbose('Finding other dropdowns to hide');
-          $allModules
-            .not($module)
+          dropdown.verbose('Finding other dropdowns to hide');
+          $allDropdowns
+            .not($dropdown)
               .has(selector.menu + ':visible')
               .dropdown('hide')
           ;
         },
 
         toggle: function() {
-          module.verbose('Toggling menu visibility');
-          if( module.is.hidden() ) {
-            module.show();
+          dropdown.verbose('Toggling menu visibility');
+          if( dropdown.is.hidden() ) {
+            dropdown.show();
           }
           else {
-            module.hide();
+            dropdown.hide();
           }
         },
 
@@ -464,41 +504,41 @@ $.fn.dropdown = function(parameters) {
         internal: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
-              $.extend(true, module, name);
+              $.extend(true, dropdown, name);
             }
             else {
-              module[name] = value;
+              dropdown[name] = value;
             }
           }
           else {
-            return module[name];
+            return dropdown[name];
           }
         },
         debug: function() {
           if(settings.debug) {
             if(settings.performance) {
-              module.performance.log(arguments);
+              dropdown.performance.log(arguments);
             }
             else {
-              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
-              module.debug.apply(console, arguments);
+              dropdown.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              dropdown.debug.apply(console, arguments);
             }
           }
         },
         verbose: function() {
           if(settings.verbose && settings.debug) {
             if(settings.performance) {
-              module.performance.log(arguments);
+              dropdown.performance.log(arguments);
             }
             else {
-              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
-              module.verbose.apply(console, arguments);
+              dropdown.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              dropdown.verbose.apply(console, arguments);
             }
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
-          module.error.apply(console, arguments);
+          dropdown.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+          dropdown.error.apply(console, arguments);
         },
         performance: {
           log: function(message) {
@@ -519,23 +559,24 @@ $.fn.dropdown = function(parameters) {
                 'Execution Time' : executionTime
               });
             }
-            clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            clearTimeout(dropdown.performance.timer);
+            dropdown.performance.timer = setTimeout(dropdown.performance.display, 100);
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
-            clearTimeout(module.performance.timer);
+            clearTimeout(dropdown.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
             });
             title += ' ' + totalTime + 'ms';
-            if(moduleSelector) {
-              title += ' \'' + moduleSelector + '\'';
+            if(dropdownSelector) {
+              title += ' \'' + dropdownSelector + '\'';
             }
+            title += ' ' + '(' + $allDropdowns.size() + ')';
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -569,7 +610,7 @@ $.fn.dropdown = function(parameters) {
                 found = instance[value];
               }
               else {
-                module.error(errors.method);
+                dropdown.error(error.method);
               }
             });
           }
@@ -582,15 +623,15 @@ $.fn.dropdown = function(parameters) {
 
       if(methodInvoked) {
         if(instance === undefined) {
-          module.initialize();
+          dropdown.initialize();
         }
-        invokedResponse = module.invoke(query);
+        invokedResponse = dropdown.invoke(query);
       }
       else {
         if(instance !== undefined) {
-          module.destroy();
+          dropdown.destroy();
         }
-        module.initialize();
+        dropdown.initialize();
       }
     })
   ;
@@ -603,7 +644,7 @@ $.fn.dropdown = function(parameters) {
 
 $.fn.dropdown.settings = {
 
-  moduleName  : 'Dropdown',
+  name        : 'Dropdown',
   namespace   : 'dropdown',
 
   verbose     : true,
@@ -614,18 +655,18 @@ $.fn.dropdown.settings = {
   action      : 'hide',
 
   delay: {
-    show: 50,
+    show: 200,
     hide: 300
   },
 
-  transition : 'scale',
-  duration  : 250,
+  transition : 'slide down',
+  duration   : 250,
 
   onChange : function(){},
   onShow   : function(){},
   onHide   : function(){},
 
-  errors   : {
+  error   : {
     action    : 'You called a dropdown action that was not defined',
     method    : 'The method you called is not defined.',
     transition : 'The requested transition was not found'

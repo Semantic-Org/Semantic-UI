@@ -240,15 +240,15 @@ a:hover {
 /* segment headers */
 #example > .content > .page > .segment,
 #example > .segment {
-  margin: 0px 0px 3em;
+  margin: 0px 0px 0px;
   padding-top: 70px;
   padding-bottom: 30px;
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
 #example .download.menu {
-  margin-top: 15px;
-  float: right;
+  margin-top: 0em;
+  margin-bottom: 3rem;
 }
 
 #example .main.menu {
@@ -267,9 +267,8 @@ a:hover {
   transition: margin 0.3s ease;
 }
 #example .main.menu .count {
-  font-family: "Hevletica Neue", Arial, sans-serif;
-  font-size: 0.8em;
-  padding-top: 0.9em;
+/*  font-size: 0.875em;
+  vertical-align: middle;*/
 }
 
 /* lists */
@@ -482,15 +481,8 @@ a:hover {
 #example .icon.example {
   border-top: none;
 }
-#example .icon.example h3,
-#example .icon.example h4 {
-  margin: 0.5em 0em 2em;
-}
-#example .icon.example i.code {
-  top: 30px;
-}
-
 #example .icon.example .grid {
+  margin-top: 1.5rem;
   text-align: left;
 }
 #example .icon.example .grid .column {
@@ -600,6 +592,31 @@ a:hover {
   background-color: #FFFFFF;
 } */
 
+/* overview mode */
+
+#example.overview h2.ui.header {
+  margin-bottom: 0em;
+}
+#example.overview .example {
+  margin: 0em;
+  overflow: hidden;
+  padding: 0.5em 0em;
+}
+#example.overview .example .ui.header,
+#example.overview .example p {
+  float: right;
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+#example.overview .example p {
+  float: left;
+  font-size: 1rem;
+  padding: 0em 0em 0em 0.3em;
+  width: auto;
+}
+
 
 #example .sticky-wrapper.stuck {
   height: 0px !important;
@@ -650,6 +667,10 @@ a:hover {
   width: 100px;
 }
 
+#example .existing.annotation {
+  display: none;
+}
+
 /* example code reskin */
 #example div.code.hide {
   display: none;
@@ -664,7 +685,7 @@ a:hover {
   margin: -1em;
   font-size: 14px;
   padding: 5px 0px;
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 #example .label + div.code {
   margin-top: 1em;
@@ -695,6 +716,21 @@ a:hover {
   border-left: 1px solid #ECF5F3;
 } */
 
+#example table .instructive.segment {
+  background-color: transparent;
+  border: 0px;
+  box-shadow: none;
+  padding: 0em;
+  margin: -0.4em -0.7em;
+}
+#example table .instructive.segment .code {
+  margin: 0em;
+}
+#example table .instructive.segment div.code div.code .ace_identifier,
+#example table .instructive.segment div.code .ace_line {
+  color: #555555;
+}
+
 #example .ui.label + .instructive.segment {
   margin-top: 0em;
 }
@@ -709,12 +745,13 @@ a:hover {
 
 #example div.code .ace_gutter,
 #example div.code .ace_scroller {
+  background-color: transparent;
   overflow: visible;
   margin: 14px 10px;
 }
 #example div.code .ace_scrollbar {
   overflow: hidden;
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 
 #example div.code .ace_line,
@@ -798,7 +835,6 @@ a:hover {
 }
 #example div.code:hover .ace_scrollbar {
   overflow: hidden;
-  background-color: #FFFFFF;
 }
 #example div.code:hover .ace_punctuation {
   color: #555555;

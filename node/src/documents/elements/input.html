@@ -1,26 +1,31 @@
 ---
-layout : 'default'
-css    : 'input'
-title  : 'Input'
-type   : 'UI Element'
+layout      : 'default'
+css         : 'input'
+title       : 'Input'
+description : 'Inputs allow a user to enter information'
+type        : 'UI Element'
 ---
 <div class="segment">
   <div class="container">
-    <div class="ui small download menu">
-      <div class="simple ui dropdown item">
-        <i class="icon setting"></i> Download <i class="icon dropdown"></i>
-        <div class="menu">
-          <a class="item">Uncompressed</a>
-          <a class="item">Minified</a>
-          <a class="item">LESS</a>
-        </div>
-      </div>
-      <a class="item"><i class="icon edit"></i> Authoring Guide</a>
-    </div>
     <h1 class="ui dividing header">
       Input
     </h1>
     <p>Inputs allow a user to enter information</p>
+  </div>
+</div>
+<div class="ui small four item download menu">
+  <div class="container">
+    <div class="top pointing ui dropdown link item">
+      Download
+      <div class="menu">
+        <a class="item">Uncompressed</a>
+        <a class="item">Minified</a>
+        <a class="item">LESS</a>
+      </div>
+    </div>
+    <a class="item">View Source</a>
+    <a class="item">Developer Guide</a>
+    <a class="item">Help</a>
   </div>
 </div>
 <div class="main container">
@@ -38,7 +43,7 @@ type   : 'UI Element'
     <h4 class="ui header">Input</h4>
     <p>A standard input</p>
     <div class="ui input">
-      <input type="text">
+      <input type="text" placeholder="Search...">
     </div>
   </div>
 
@@ -48,14 +53,23 @@ type   : 'UI Element'
     <h4 class="ui header">Focus</h4>
     <p>An input field can show a user is currently interacting with it</p>
     <div class="ui input focus">
-      <input type="text">
+      <input type="text" placeholder="Search...">
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Loading</h4>
+    <p>An icon input field can show that it is currently loading data</p>
+    <div class="ui icon input loading">
+      <input type="text" placeholder="Search...">
+      <i class="icon"></i>
     </div>
   </div>
 
   <div class="example">
     <h4 class="ui header">Error</h4>
     <p>An input field can show the data contains errors</p>
-    <div class="ui input error">
+    <div class="ui input error" placeholder="Search...">
       <input type="text">
     </div>
   </div>

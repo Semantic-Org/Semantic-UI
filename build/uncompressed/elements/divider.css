@@ -35,7 +35,7 @@
   height: 0em;
   margin: 0em;
   background-color: transparent;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
@@ -146,4 +146,11 @@
 ---------------*/
 .ui.clearing.divider {
   clear: both;
+}
+/*--------------
+    Section
+---------------*/
+.ui.section.divider {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }

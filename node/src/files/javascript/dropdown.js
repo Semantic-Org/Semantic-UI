@@ -42,7 +42,7 @@ semantic.dropdown.ready = function() {
   ;
   $formDropdown
     .dropdown({
-      action: 'form'
+      action: 'updateForm'
     })
   ;
   $hoverDropdown

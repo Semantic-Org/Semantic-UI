@@ -67,6 +67,7 @@
 .ui.checkbox + label {
   cursor: pointer;
   opacity: 0.85;
+  vertical-align: middle;
 }
 .ui.checkbox + label:hover {
   opacity: 1;

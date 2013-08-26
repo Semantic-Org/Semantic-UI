@@ -34,14 +34,16 @@ type   : 'UI Collection'
       </a>
       <a class="item">
         <i class="mail icon"></i> Messages
-        <span class="ui label">22</span>
       </a>
       <a class="item">
         <i class="community icon"></i> Browse
       </a>
       <div class="right menu">
         <div class="borderless item">
-          <div class="ui input"><input type="text" placeholder="Search..."></div>
+          <div class="ui icon input">
+            <input type="text" placeholder="Search...">
+            <i class="search icon"></i>
+          </div>
         </div>
         <div class="ui simple dropdown item">
           Language <i class="dropdown icon"></i>
@@ -62,32 +64,23 @@ type   : 'UI Collection'
     <div class="ui ignore warning message"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
 
     <div class="ui vertical menu">
+      <div class="header item">Mail</div>
       <a class="active item">
-        <i class="users icon"></i>
-        Feed
+        <div class="ui teal label">1</div>
+        Inbox
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        <div class="ui label">51</div>
+        Spam
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <div class="ui label">1</div>
+        Updates
       </a>
       <div class="item">
-        <div class="ui input"><input type="text" placeholder="Search..."></div>
-      </div>
-      <div class="ui simple dropdown item">
-        More <i class="icon right triangle"></i>
-        <div class="menu">
-          <a class="item"><i class="edit icon"></i> Edit Profile</a>
-          <div class="ui simple dropdown item">
-            <i class="right triangle icon"></i> Choose Language
-            <div class="menu">
-              <div class="item">English</div>
-              <div class="item">Russian</div>
-              <div class="item">Spanish</div>
-            </div>
-          </div>
-          <a class="item"><i class="settings icon"></i> Account Settings</a>
+        <div class="ui icon input">
+          <input type="text" placeholder="Search mail...">
+          <i class="search icon"></i>
         </div>
       </div>
     </div>
@@ -150,8 +143,11 @@ type   : 'UI Collection'
           <i class="mail icon"></i> Messages
         </a>
         <div class="right menu">
-          <div class="item">
-            <div class="ui input"><input type="text" placeholder="Search..."></div>
+          <div class="borderless item">
+            <div class="ui icon input">
+              <input type="text" placeholder="Search...">
+              <i class="search icon"></i>
+            </div>
           </div>
           <div class="ui simple dropdown item">
             More <i class="icon dropdown"></i>
@@ -302,28 +298,30 @@ type   : 'UI Collection'
     <h4 class="ui header">Text</h4>
     <p>A menu can display simple text links</p>
     <div class="ui text menu">
+      <div class="header item">Sort By</div>
       <a class="active item">
-        <i class="home icon"></i> Home
+        <i class="home icon"></i> Closest
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        <i class="mail icon"></i> Most Comments
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="community icon"></i> Most Popular
       </a>
     </div>
   </div>
   <div class="another example">
     <p>A vertical text menu</p>
     <div class="ui vertical text menu">
+      <div class="header item">Sort By</div>
       <a class="active item">
-        <i class="home icon"></i> Home
+        <i class="home icon"></i> Closest
       </a>
       <a class="item">
-        <i class="mail icon"></i> Messages
+        <i class="mail icon"></i> Most Comments
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="community icon"></i> Most Popular
       </a>
     </div>
   </div>
@@ -388,7 +386,10 @@ type   : 'UI Collection'
       <p><i class="icon heart"></i> Single paragraphs are automatically formatted as text. You can also specify an item as textual by adding the classname <b>text</b></p>
     </div>
     <div class="ui vertical menu">
-      <div class="header item">Current Offer <span class="ui teal label">Exclusive</span></div>
+      <div class="header item">
+        Promotion
+        <span class="ui teal label">New</span>
+      </div>
       <div class="item">
         <p><a>Join now</a> and save $10 on a pro membership! </p>
       </div>

@@ -15,21 +15,21 @@
 $.fn.checkbox = function(parameters) {
   var
     $allModules    = $(this),
-    
+
     settings       = $.extend(true, {}, $.fn.checkbox.settings, parameters),
-    
+
     className      = settings.className,
     namespace      = settings.namespace,
     error          = settings.error,
 
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
-    
+
     moduleSelector = $allModules.selector || '',
-    
+
     time           = new Date().getTime(),
     performance    = [],
-    
+
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
@@ -45,7 +45,7 @@ $.fn.checkbox = function(parameters) {
 
         selector        = $module.selector || '',
         instance        = $module.data(moduleNamespace),
-        
+
         element         = this,
         module
       ;
@@ -53,7 +53,7 @@ $.fn.checkbox = function(parameters) {
       module      = {
 
         initialize: function() {
-          module.verbose('Initializing checkbox');
+          module.verbose('Initializing checkbox', settings);
           if(settings.context && selector !== '') {
             module.verbose('Adding delegated events');
             $(element, settings.context)
@@ -123,7 +123,7 @@ $.fn.checkbox = function(parameters) {
         },
 
         toggle: function(event) {
-          module.verbose('Determining new checkbox state', $(event.target));
+          module.verbose('Determining new checkbox state');
           if($input.prop('checked') === undefined || !$input.prop('checked')) {
             module.enable();
           }

@@ -43,7 +43,7 @@
   ;
 }
 
-.ui.dropdown > .menu {
+.ui.dropdown .menu {
   position: absolute;
   display: none;
   top: 100%;
@@ -71,9 +71,13 @@
   transition: opacity 0.2s ease;
   z-index: 11;
 }
+
+/* Dropdown Icon */
 .ui.dropdown > .dropdown.icon {
   width: auto;
 }
+
+/* Dropdown Text */
 .ui.dropdown > .text {
   cursor: pointer;
   display: inline-block;
@@ -93,6 +97,13 @@
 .ui > .ui.dropdown:last-child .menu {
   left: auto;
   right: 0px;
+}
+
+/* Sub Menu Position */
+.ui.dropdown .menu .menu {
+  top: 0% !important;
+  left: 100% !important;
+  margin: 0em !important;
 }
 
 .ui.dropdown .menu .item {
@@ -133,7 +144,7 @@
   border-bottom-left-radius: 0em !important;
   border-bottom-right-radius: 0em !important;
 }
-.ui.visible.dropdown .menu {
+.ui.visible.dropdown > .menu {
   display: block;
 }
 
@@ -161,7 +172,6 @@
 }
 
 
-
 /*******************************
            Variations
 *******************************/
@@ -181,6 +191,8 @@
   top: -9999px !important;
   position: absolute;
   opacity: 0;
+  width: 0;
+  height: 0;
   -webkit-transition: opacity 0.2s ease-out;
   -moz-transition: opacity 0.2s ease-out;
   -o-transition: opacity 0.2s ease-out;
@@ -194,12 +206,21 @@
   border-bottom-right-radius: 0em !important;
 }
 
-.ui.simple.active.dropdown .menu,
-.ui.simple.dropdown:hover .menu {
+.ui.simple.active.dropdown > .menu,
+.ui.simple.dropdown:hover > .menu {
   overflow: visible;
   width: auto;
   height: auto;
   top: 100% !important;
+  opacity: 1;
+}
+.ui.simple.dropdown > .menu .item:active > .menu,
+.ui.simple.dropdown:hover > .menu .item:hover > .menu {
+  overflow: visible;
+  width: auto;
+  height: auto;
+  top: 0% !important;
+  left: 100% !important;
   opacity: 1;
 }
 .ui.simple.disabled.dropdown:hover .menu {
@@ -294,6 +315,10 @@
 
 /* Visible */
 .ui.selection.active.dropdown {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+
   -webkit-border-radius: 0.3125em 0.3125em 0em 0em !important;
   -moz-border-radius: 0.3125em 0.3125em 0em 0em !important;
   border-radius: 0.3125em 0.3125em 0em 0em !important;

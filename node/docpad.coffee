@@ -13,14 +13,6 @@ docpadConfig = {
 	 	paged: false
 	 	livereload: false
 
-	plugins:
-    handlebars:
-        helpers:
-            # Expose docpads 'getBlock' function to handlebars
-            getBlock: (type, additional...) ->
-                additional.pop() # remove the hash object
-                @getBlock(type).add(additional).toHTML()
-
   # Check Version
   # Whether or not to check for newer versions of DocPad
   checkVersion: true  # default
@@ -119,58 +111,13 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
-		getGruntedStyles: ->
-			_ = require 'underscore'
-			styles = []
-			gruntConfig = require('./grunt-config.json')
-			_.each gruntConfig, (value, key) ->
-				styles = styles.concat _.flatten _.pluck value, 'dest'
-			styles = _.filter styles, (value) ->
-				return value.indexOf('.min.css') > -1
-			_.map styles, (value) ->
-				return value.replace 'out', ''
-
-		getGruntedScripts: ->
-			_ = require 'underscore'
-			scripts = []
-			gruntConfig = require('./grunt-config.json')
-			_.each gruntConfig, (value, key) ->
-				scripts = scripts.concat _.flatten _.pluck value, 'dest'
-			scripts = _.filter scripts, (value) ->
-				return value.indexOf('.min.js') > -1
-			_.map scripts, (value) ->
-				return value.replace 'out', ''
-
 
 	# =================================
 	# DocPad Events
 
 	# Here we can define handlers for events that DocPad fires
 	# You can find a full listing of events on the DocPad Wiki
-	events:
-
-		# Server Extend
-		# Used to add our own custom routes to the server before the docpad routes are added
-		serverExtend: (opts) ->
-			# Extract the server from the options
-			{server} = opts
-			docpad = @docpad
-
-			# As we are now running in an event,
-			# ensure we are using the latest copy of the docpad configuraiton
-			# and fetch our urls from it
-			latestConfig = docpad.getConfig()
-			oldUrls = latestConfig.templateData.site.oldUrls or []
-			newUrl = latestConfig.templateData.site.url
-
-			# Redirect any requests accessing one of our sites oldUrls to the new site url
-			server.use (req,res,next) ->
-				if req.headers.host in oldUrls
-					res.redirect(newUrl+req.url, 301)
-				else
-					next()
-
-
+	# events:
 
 
 }

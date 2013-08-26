@@ -27,7 +27,7 @@
 .ui.input input {
   width: 100%;
   font-family: "Helvetica Neue", "Helvetica", Arial;
-  
+
   margin: 0em;
   padding: 0.85em 1.2em;
   font-size: 0.875em;
@@ -42,27 +42,27 @@
   -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
 
-  -webkit-transition: 
+  -webkit-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
   ;
-  -moz-transition: 
+  -moz-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
   ;
-  -o-transition: 
+  -o-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
   ;
-  -ms-transition: 
+  -ms-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
   ;
-  transition: 
+  transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
@@ -102,6 +102,18 @@
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
   background-color: #FAFAFA;
+}
+
+/*--------------------
+        Loading
+---------------------*/
+
+.ui.loading.input .icon {
+  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
+}
+.ui.loading.input .icon:before,
+.ui.loading.input .icon:after {
+  display: none;
 }
 
 /*--------------------
@@ -173,7 +185,7 @@
   right: 1px;
 
   margin: 0em;
-  
+
   width: 2.5em;
   height: 2.5em;
   padding-top: 0.75em;
@@ -208,6 +220,7 @@
   padding-right: 1.2em !important;
 }
 
+/* Focus */
 .ui.icon.input input:focus ~ .icon {
   opacity: 1;
 }
@@ -230,6 +243,13 @@
   padding-right: 2.5em !important;
 }
 
+/* Spacing with corner label */
+.ui.labeled.icon.input:not(.left) input {
+  padding-right: 3.25em !important;
+}
+.ui.labeled.icon.input:not(.left) .icon {
+  margin-right: 0.75em;
+}
 
 
 /*--------------------
