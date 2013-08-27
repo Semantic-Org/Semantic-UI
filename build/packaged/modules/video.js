@@ -21,23 +21,23 @@ $.fn.video = function(parameters) {
       : $.fn.video.settings,
 
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    
+
     selector        = settings.selector,
     className       = settings.className,
     error           = settings.error,
     metadata        = settings.metadata,
     namespace       = settings.namespace,
-    
+
     eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module', 
-    
+    moduleNamespace = namespace + '-module',
+
     invokedResponse
   ;
 
@@ -48,7 +48,7 @@ $.fn.video = function(parameters) {
         $placeholder    = $module.find(selector.placeholder),
         $playButton     = $module.find(selector.playButton),
         $embed          = $module.find(selector.embed),
-        
+
         element         = this,
         instance        = $module.data(moduleNamespace),
         module
@@ -113,7 +113,7 @@ $.fn.video = function(parameters) {
         play: function() {
           module.debug('Playing video');
           var
-            source = $module.data(metadata.source) || false, 
+            source = $module.data(metadata.source) || false,
             url    = $module.data(metadata.url)    || false,
             id     = $module.data(metadata.id)     || false
           ;
@@ -301,7 +301,7 @@ $.fn.video = function(parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -312,6 +312,9 @@ $.fn.video = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -405,46 +408,46 @@ $.fn.video = function(parameters) {
 
 $.fn.video.settings = {
 
-  moduleName  : 'Video',
+  name  : 'Video',
   namespace   : 'video',
 
   debug       : true,
   verbose     : true,
   performance : true,
-  
+
 
   metadata    : {
     source : 'source',
     id     : 'id',
     url    : 'url'
   },
-  
+
   onPlay   : function(){},
   onReset  : function(){},
   onChange : function(){},
-  
+
   // callbacks not coded yet (needs to use jsapi)
   onPause  : function() {},
   onStop   : function() {},
-  
+
   width    : 'auto',
   height   : 'auto',
-  
+
   autoplay : false,
   color    : '#442359',
   hd       : true,
   showUI   : false,
   api      : true,
-  
+
   error      : {
     noVideo     : 'No video specified',
     method      : 'The method you called is not defined'
   },
-  
+
   className   : {
     active      : 'active'
   },
-  
+
   selector    : {
     embed       : '.embed',
     placeholder : '.placeholder',

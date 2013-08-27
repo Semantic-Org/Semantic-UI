@@ -11,7 +11,7 @@
   $.fn.chat = function(key, channelName, parameters) {
     var
       settings  = $.extend(true, {}, $.fn.chat.settings, parameters),
-      
+
       className = settings.className,
       namespace = settings.namespace,
       selector  = settings.selector,
@@ -27,7 +27,7 @@
 
           $expandButton   = $module.find(selector.expandButton),
           $userListButton = $module.find(selector.userListButton),
-          
+
           $userList       = $module.find(selector.userList),
           $room           = $module.find(selector.room),
           $userCount      = $module.find(selector.userCount),
@@ -92,7 +92,7 @@
             $.each(settings.customEvents, function(label, value) {
               channel.bind(label, value);
             });
-            
+
             // bind module events
             $userListButton
               .on('click.' +  namespace, module.event.toggleUserList)
@@ -486,7 +486,7 @@
 
   $.fn.chat.settings = {
 
-    moduleName      : 'Chat',
+    name      : 'Chat',
     debug           : false,
     namespace       : 'chat',
 

@@ -3,7 +3,7 @@
   Author: Jack Lukic
   Notes: First Commit May 28, 2013
 
-  A carousel alternates between 
+  A carousel alternates between
   several pieces of content in sequence.
 
 ******************************  */
@@ -13,7 +13,7 @@
 $.fn.carousel = function(parameters) {
   var
     $allModules     = $(this),
-    
+
     settings        = $.extend(true, {}, $.fn.carousel.settings, parameters),
 
     eventNamespace  = '.' + settings.namespace,
@@ -39,11 +39,11 @@ $.fn.carousel = function(parameters) {
         $content    = $(settings.selector.content),
         $navigation = $(settings.selector.navigation),
         $navItem    = $(settings.selector.navItem),
-        
+
         selector    = $module.selector || '',
         element     = this,
         instance    = $module.data('module-' + settings.namespace),
-        
+
         className   = settings.className,
         namespace   = settings.namespace,
         errors      = settings.errors,
@@ -72,7 +72,7 @@ $.fn.carousel = function(parameters) {
             .off(eventNamespace)
           ;
         },
-        
+
         left: function() {
           var
             $activeContent = $content.filter('.' + className.active),
@@ -203,9 +203,9 @@ $.fn.carousel = function(parameters) {
               previousTime  = time || currentTime;
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
+              performance.push({
                 'Element'        : element,
-                'Name'           : message[0], 
+                'Name'           : message[0],
                 'Arguments'      : message[1] || 'None',
                 'Execution Time' : executionTime
               });
@@ -295,13 +295,13 @@ $.fn.carousel = function(parameters) {
 
 $.fn.carousel.settings = {
 
-  moduleName  : 'Carousel',
+  name  : 'Carousel',
   namespace   : 'carousel',
 
   verbose     : true,
   debug       : true,
   performance : true,
-  
+
   // delegated event context
   duration: 5000,
 

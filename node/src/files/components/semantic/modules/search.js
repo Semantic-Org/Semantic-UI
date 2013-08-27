@@ -13,20 +13,20 @@ $.fn.search = function(source, parameters) {
   var
     $allModules     = $(this),
     settings        = $.extend(true, {}, $.fn.search.settings, parameters),
-    
-    
+
+
     className       = settings.className,
     selector        = settings.selector,
     error           = settings.error,
     namespace       = settings.namespace,
-    
+
     eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module', 
+    moduleNamespace = namespace + '-module',
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -41,7 +41,7 @@ $.fn.search = function(source, parameters) {
         $results      = $module.find(selector.results),
         $result       = $module.find(selector.result),
         $category     = $module.find(selector.category),
-        
+
         element       = this,
         instance      = $module.data(moduleNamespace),
 
@@ -480,7 +480,7 @@ $.fn.search = function(source, parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -491,6 +491,9 @@ $.fn.search = function(source, parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -584,24 +587,24 @@ $.fn.search = function(source, parameters) {
 };
 
 $.fn.search.settings = {
-  
-  moduleName     : 'Search Module',
+
+  name     : 'Search Module',
   namespace      : 'search',
-  
+
   debug          : true,
   verbose        : true,
   performance    : true,
-  
+
   // onSelect default action is defined in module
   onSelect       : 'default',
   onResultsAdd   : 'default',
-  
+
   onSearchQuery  : function(){},
   onResults      : function(response){},
-  
+
   onResultsOpen  : function(){},
   onResultsClose : function(){},
-  
+
   automatic      : 'true',
   type           : 'simple',
   minCharacters  : 3,
@@ -610,7 +613,7 @@ $.fn.search.settings = {
   cache          : true,
 
   searchFields    : [
-    'title', 
+    'title',
     'description'
   ],
 
@@ -724,7 +727,7 @@ $.fn.search.settings = {
         html = ''
       ;
       if(response.results !== undefined) {
-        
+
         // each result
         $.each(response.results, function(index, result) {
           html  += '<a class="result" href="' + result.url + '">';

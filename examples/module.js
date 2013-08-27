@@ -3,16 +3,16 @@
 $.fn.example = function(parameters) {
   var
     $allModules     = $(this),
-    
+
     settings        = $.extend(true, {}, $.fn.example.settings, parameters),
-    
+
     eventNamespace  = '.' + settings.namespace,
     moduleNamespace = 'module-' + settings.namespace,
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -153,8 +153,8 @@ $.fn.example = function(parameters) {
               previousTime  = time || currentTime,
               executionTime = currentTime - previousTime;
               time          = currentTime;
-              performance.push({ 
-                'Name'           : message, 
+              performance.push({
+                'Name'           : message,
                 'Execution Time' : executionTime
               });
               clearTimeout(module.performance.timer);
@@ -247,7 +247,7 @@ $.fn.example = function(parameters) {
 
 $.fn.example.settings = {
 
-  moduleName  : 'Example Module',
+  name  : 'Example Module',
   debug       : true,
   verbose     : false,
   performance : false,

@@ -12,20 +12,20 @@ $.fn.starReview = function(parameters) {
   var
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
-    
+
     settings        = $.extend(true, {}, $.fn.starReview.settings, parameters),
-    
+
     namespace       = settings.namespace,
     className       = settings.className,
     selector        = settings.selector,
     error           = settings.error,
-    
+
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -36,7 +36,7 @@ $.fn.starReview = function(parameters) {
       var
         $module  = $(this),
         $star    = $module.find(selector.star),
-        
+
         element  = this,
         instance = $module.data(moduleNamespace),
         module
@@ -201,7 +201,7 @@ $.fn.starReview = function(parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -212,6 +212,9 @@ $.fn.starReview = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -305,17 +308,17 @@ $.fn.starReview = function(parameters) {
 };
 
 $.fn.starReview.settings = {
-  
-  moduleName     : 'Star',
+
+  name     : 'Star',
   namespace      : 'star',
-  
+
   rateable       : true,
   onRate         : function(){},
 
   error: {
     method     : 'The method you called is not defined'
   },
-  
+
   className : {
     initialize : 'initialize',
     loading    : 'loading',

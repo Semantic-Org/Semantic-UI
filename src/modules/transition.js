@@ -13,10 +13,10 @@ $.fn.transition = function() {
   var
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     moduleArguments = arguments,
     query           = moduleArguments[0],
     queryArguments  = [].slice.call(arguments, 1),
@@ -57,17 +57,17 @@ $.fn.transition = function() {
           // get settings
           settings        = module.get.settings.apply(element, moduleArguments);
           module.verbose('Converted arguments into settings object', settings);
-          
+
           // set shortcuts
           error           = settings.error;
           className       = settings.className;
           namespace       = settings.namespace;
           metadata        = settings.metadata;
           moduleNamespace = 'module-' + namespace;
-          
+
           animationEnd    = module.get.animationEvent();
           animationName   = module.get.animationName();
-          
+
           instance        = $module.data(moduleNamespace);
 
           if(instance === undefined) {
@@ -201,7 +201,7 @@ $.fn.transition = function() {
 
           duration: function(duration) {
             duration = duration || settings.duration;
-            duration = (typeof duration == 'number') 
+            duration = (typeof duration == 'number')
               ? duration + 'ms'
               : duration
             ;
@@ -358,7 +358,7 @@ $.fn.transition = function() {
         can: {
           animate: function() {
             if($module.css(animationName) !== 'none') {
-              module.debug('CSS definition found'); 
+              module.debug('CSS definition found');
               return true;
             }
             else {
@@ -461,7 +461,7 @@ $.fn.transition = function() {
               module.performance.log(arguments);
             }
             else {
-              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
               module.debug.apply(console, arguments);
             }
           }
@@ -472,13 +472,13 @@ $.fn.transition = function() {
               module.performance.log(arguments);
             }
             else {
-              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
               module.verbose.apply(console, arguments);
             }
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
           module.error.apply(console, arguments);
         },
         performance: {
@@ -505,7 +505,7 @@ $.fn.transition = function() {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -516,6 +516,9 @@ $.fn.transition = function() {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -597,27 +600,27 @@ $.fn.transition = function() {
 $.fn.transition.settings = {
 
   // module info
-  moduleName   : 'Transition',
-  
+  name   : 'Transition',
+
   // debug content outputted to console
   debug        : true,
-  
+
   // verbose debug output
   verbose      : true,
-  
+
   // performance data output
   performance  : true,
-  
+
   // event namespace
   namespace    : 'transition',
-  
+
   // animation complete event
   complete     : function() {},
-  
+
   // animation duration (useful only with future js animations)
   animation    : 'fade',
   duration     : '700ms',
-  
+
   className    : {
     transition : 'ui transition',
     animating  : 'animating',

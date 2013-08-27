@@ -53,7 +53,8 @@ semantic.ready = function() {
     $peek             = $('.peek'),
     $peekItem         = $peek.children('.menu').children('a.item'),
     $peekSubItem      = $peek.find('.item .menu .item'),
-    $code             = $('div.code'),
+    $code             = $('div.code').not('.existing'),
+    $existingCode     = $('.existing.code'),
 
     // alias
     handler
@@ -143,24 +144,24 @@ semantic.ready = function() {
 
     createCode: function(type) {
       var
-        $example   = $(this).closest('.example'),
-        $header    = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
-        $demo      = $example.children().not($header).not('i.code:first-child, .code, .language.label, .annotation, br, .ignore, .ignored'),
+        $example    = $(this).closest('.example'),
+        $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
+        $demo       = $example.children().not($header).not('i.code:first-child, .code, .language.label, .annotation, br, .ignore, .ignored'),
         $annotation = $example.find('.annotation'),
-        $code      = $annotation.find('.code'),
-        whiteSpace = new RegExp('\\n\\s{4}', 'g'),
+        $code       = $annotation.find('.code'),
+        whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
         code       = ''
       ;
-      // if ui has wrapper use that
-      // if($demo.filter('.ui').size() === 0) {
-      //   $demo = $example.children().eq(3).children();
-      // }
-      // add source if doesnt exist and initialize
       if($annotation.size() === 0) {
         $annotation = $('<div/>')
           .addClass('annotation')
           .appendTo($example)
         ;
+      }
+      if( $code.hasClass('existing') ) {
+        $annotation.show();
+        $code.removeClass('existing');
+        $.proxy(handler.initializeCode, $code)();
       }
       if( $code.size() === 0) {
         $demo
@@ -171,7 +172,7 @@ semantic.ready = function() {
             }
           })
         ;
-        // code  = $.trim(code.replace(whiteSpace, '\n'));
+        //code  = $.trim(code.replace(whiteSpace, '\n'));
         $code = $('<div/>')
           .data('type', 'html')
           .addClass('code')
@@ -196,16 +197,28 @@ semantic.ready = function() {
       }
     },
 
+    createAnnotation: function() {
+      if(!$(this).data('type')) {
+        $(this).data('type', 'html');
+      }
+      $(this)
+        .wrap('<div class="annotation">')
+        .parent()
+        .hide()
+      ;
+    },
+
     initializeCode: function() {
       var
-        $code       = $(this),
-        code        = $code.html(),
-        contentType = $code.data('type')    || 'javascript',
-        title       = $code.data('title')   || false,
-        demo        = $code.data('demo')    || false,
-        preview     = $code.data('preview') || false,
-        label       = $code.data('label')   || false,
-        displayType = {
+        $code        = $(this),
+        code         = $code.html(),
+        existingCode = $code.hasClass('existing'),
+        contentType  = $code.data('type')    || 'javascript',
+        title        = $code.data('title')   || false,
+        demo         = $code.data('demo')    || false,
+        preview      = $code.data('preview') || false,
+        label        = $code.data('label')   || false,
+        displayType  = {
           html       : 'HTML',
           javascript : 'Javascript',
           css        : 'CSS',
@@ -222,6 +235,7 @@ semantic.ready = function() {
 
       // trim whitespace
       code = $.trim(code.replace(whiteSpace, '\n'));
+
       if(contentType == 'html') {
         $code.text(code);
       }
@@ -243,14 +257,12 @@ semantic.ready = function() {
       editor.setReadOnly(true);
       editor.renderer.setShowGutter(false);
       editor.setHighlightActiveLine(false);
-
       editorSession.setMode('ace/mode/'+ contentType);
       editorSession.setUseWrapMode(true);
       editorSession.setTabSize(2);
       editorSession.setUseSoftTabs(true);
 
       codeHeight = editor.session.getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
-
       $(this)
         .height(codeHeight + 'px')
         .wrap('<div class="ui instructive segment">')
@@ -454,6 +466,9 @@ semantic.ready = function() {
   if(window.ace !== undefined) {
     $code
       .each(handler.initializeCode)
+    ;
+    $existingCode
+      .each(handler.createAnnotation)
     ;
   }
 

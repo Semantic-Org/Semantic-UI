@@ -11,7 +11,7 @@
 $.fn.accordion = function(parameters) {
   var
     $allModules     = $(this),
-    
+
     settings        = ( $.isPlainObject(parameters) )
       ? $.extend(true, {}, $.fn.accordion.settings, parameters)
       : $.fn.accordion.settings,
@@ -20,14 +20,14 @@ $.fn.accordion = function(parameters) {
     namespace       = settings.namespace,
     selector        = settings.selector,
     error           = settings.error,
-    
+
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -40,7 +40,7 @@ $.fn.accordion = function(parameters) {
         $title   = $module.find(selector.title),
         $icon    = $module.find(selector.icon),
         $content = $module.find(selector.content),
-        
+
         element  = this,
         instance = $module.data(moduleNamespace),
         module
@@ -266,7 +266,7 @@ $.fn.accordion = function(parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -277,6 +277,9 @@ $.fn.accordion = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -368,15 +371,15 @@ $.fn.accordion = function(parameters) {
 };
 
 $.fn.accordion.settings = {
-  moduleName  : 'Accordion',
+  name  : 'Accordion',
 
   debug       : true,
   verbose     : true,
   performance : true,
-  
+
   exclusive   : true,
   collapsible : true,
-  
+
   onOpen      : function(){},
   onClose     : function(){},
   onChange    : function(){},

@@ -21,18 +21,18 @@ $.fn.dimmer = function(parameters) {
     namespace       = settings.namespace,
     className       = settings.className,
     error           = settings.error,
-    
+
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    clickEvent      = ('ontouchstart' in document.documentElement) 
+    clickEvent      = ('ontouchstart' in document.documentElement)
       ? 'touchstart'
       : 'click',
 
@@ -381,7 +381,7 @@ $.fn.dimmer = function(parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -392,6 +392,9 @@ $.fn.dimmer = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -486,19 +489,19 @@ $.fn.dimmer = function(parameters) {
 
 $.fn.dimmer.settings = {
 
-  moduleName  : 'Dimmer',
+  name  : 'Dimmer',
   namespace   : 'dimmer',
-  
+
   verbose     : true,
   debug       : true,
   performance : true,
-  
+
   transition  : 'css',
-  
+
   on          : false,
   closable    : true,
   duration    : 500,
-  
+
   onChange    : function(){},
   onShow      : function(){},
   onHide      : function(){},

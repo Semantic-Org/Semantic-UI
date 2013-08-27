@@ -32,7 +32,7 @@
 }
 .ui.header .content {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
 }
 .ui.header .icon {
   margin-right: 0.5em;

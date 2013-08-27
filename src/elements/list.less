@@ -24,7 +24,7 @@ ol.ui.list,
 ul.ui.list ul,
 ol.ui.list ol,
 .ui.list .list {
-  padding: 0.5em 0em 0.5em 1.2em;
+  padding: 0.5em 0em 0.5em 0.5em;
 }
 
 ul.ui.list:first-child,
@@ -58,7 +58,10 @@ ol.ui.list li,
 
 /* Icon */
 .ui.list .item > .icon {
-  margin-right: 0.5em;
+  margin: 0em 0.5em 0em 0em;
+}
+.ui.list .item > .icon + .content {
+  margin-left: 0.75em;
 }
 
 /* Image */
@@ -98,6 +101,17 @@ ol.ui.list li,
 .ui.list .header {
   font-weight: bold;
 }
+.ui.list .description {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Floated Content */
+.ui.list .item > .left.floated {
+  float: left;
+}
+.ui.list .item > .right.floated {
+  float: right;
+}
 
 
 
@@ -122,8 +136,6 @@ ol.ui.list li,
 .ui.horizontal.list .item:first-child {
   margin-left: 0em;
 }
-
-
 
 /*******************************
              States
@@ -179,10 +191,16 @@ ol.ui.list li,
   ;
 }
 .ui.selection.list .item:hover {
-  padding-left: 1em;
   background-color: rgba(0, 0, 0, 0.02);
   color: rgba(0, 0, 0, 0.7);
 }
+.ui.selection.list:not(.horizontal, .ordered) .item:hover {
+  padding-left: 1em;
+}
+.ui.selection.list:not(.horizontal, .ordered) .item:hover .item:hover {
+  padding-left: 0.5em;
+}
+
 .ui.selection.list .item:active {
   background-color: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.7);
@@ -198,15 +216,15 @@ ol.ui.list li,
       Bulleted
 --------------------*/
 
-ul.ui.bulleted.list,
+ul.ui.list,
 .ui.bulleted.list {
   margin-left: 1em;
 }
-ul.ui.bulleted.list li,
+ul.ui.list li,
 .ui.bulleted.list .item {
   position: relative;
 }
-ul.ui.bulleted.list li:before,
+ul.ui.list li:before,
 .ui.bulleted.list .item:before {
   position: absolute;
   left: -1em;
@@ -214,6 +232,11 @@ ul.ui.bulleted.list li:before,
 
   line-height: 1.2rem;
   vertical-align: top;
+}
+
+ul.ui.list ul,
+.ui.bulleted.list .list {
+  padding-left: 1.2em;
 }
 
 /* Horizontal Bulleted */
@@ -308,8 +331,8 @@ ol.ui.horizontal.list li:before,
 
 /* Sub Menu */
 .ui.divided.list .list {
-  margin-left: -1.2em;
-  margin-right: -1.2em;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
 }
 .ui.divided.list .list .item {
   padding-left: 1em;
@@ -327,7 +350,7 @@ ol.ui.horizontal.list li:before,
   padding-left: 1.5em;
 }
 .ui.divided.bulleted.list .item:before {
-  left: 0em;
+  left: 0.5em;
 }
 
 /* Divided ordered */
@@ -336,12 +359,14 @@ ol.ui.horizontal.list li:before,
 }
 .ui.divided.ordered.list > .item {
   padding-left: 2em;
+  padding-right: 2em;
 }
 .ui.divided.ordered.list > .item:before {
-  left: 0em;
+  left: 0.5em;
 }
 .ui.divided.ordered.list .item .list {
   margin-left: -2em;
+  margin-right: -2em;
 }
 
 
@@ -382,8 +407,8 @@ ol.ui.horizontal.list li:before,
 
 /* Sub Menu */
 .ui.celled.list .item .list {
-  margin-left: -1.2em;
-  margin-right: -1.2em;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
 }
 .ui.celled.list .item .list .item {
   border-width: 0px;
@@ -400,7 +425,7 @@ ol.ui.horizontal.list li:before,
   padding-left: 1.5em;
 }
 .ui.celled.bulleted.list > .item:before {
-  left: 0em;
+  left: 0.5em;
 }
 
 /* Celled Ordered */
@@ -409,12 +434,14 @@ ol.ui.horizontal.list li:before,
 }
 .ui.celled.ordered.list .item {
   padding-left: 2em;
+  padding-right: 2em;
 }
 .ui.celled.ordered.list .item:before {
-  left: 0em;
+  left: 0.5em;
 }
 .ui.celled.ordered.list .item .list {
   margin-left: -2em;
+  margin-right: -2em;
 }
 
 /* Celled Horizontal */

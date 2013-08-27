@@ -12,37 +12,37 @@
 
     var
       settings        = $.extend(true, {}, $.fn.tab.settings, parameters),
-      
+
       $module         = $(this),
       $tabs           = $(settings.context).find(settings.selector.tabs),
-      
+
       moduleSelector  = $module.selector || '',
-      
+
       cache           = {},
       firstLoad       = true,
       recursionDepth  = 0,
-      
+
       activeTabPath,
       parameterArray,
       historyEvent,
-      
+
       element         = this,
       time            = new Date().getTime(),
       performance     = [],
-      
+
       className       = settings.className,
       metadata        = settings.metadata,
       error           = settings.error,
-      
+
       eventNamespace  = '.' + settings.namespace,
-      moduleNamespace = settings.namespace + '-module', 
-      
+      moduleNamespace = settings.namespace + '-module',
+
       instance        = $module.data(moduleNamespace),
-      
+
       query           = arguments[0],
       methodInvoked   = (instance !== undefined && typeof query == 'string'),
       queryArguments  = [].slice.call(arguments, 1),
-      
+
       module,
       invokedResponse
     ;
@@ -180,11 +180,11 @@
 
             isTab              = module.is.tab(currentPath),
             isLastIndex        = (index + 1 == pathArray.length),
-            
+
             $tab               = module.get.tabElement(currentPath),
             nextPathArray,
             nextPath,
-            isLastTab   
+            isLastTab
           ;
           module.verbose('Looking for tab', tab);
           if(isTab) {
@@ -234,7 +234,7 @@
       },
 
       content: {
-        
+
         fetch: function(tabPath, fullTabPath) {
           var
             $tab             = module.get.tabElement(tabPath),
@@ -457,7 +457,7 @@
             module.performance.log(arguments);
           }
           else {
-            module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
             module.debug.apply(console, arguments);
           }
         }
@@ -468,13 +468,13 @@
             module.performance.log(arguments);
           }
           else {
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+            module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
             module.verbose.apply(console, arguments);
           }
         }
       },
       error: function() {
-        module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+        module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
         module.error.apply(console, arguments);
       },
       performance: {
@@ -501,7 +501,7 @@
         },
         display: function() {
           var
-            title = settings.moduleName + ':',
+            title = settings.name + ':',
             totalTime = 0
           ;
           time = false;
@@ -610,29 +610,29 @@
 
   $.fn.tab.settings = {
 
-    moduleName      : 'Tab',
-    verbose         : true,
-    debug           : true,
-    performance     : true,
-    namespace       : 'tab',
+    name        : 'Tab',
+    verbose     : true,
+    debug       : true,
+    performance : true,
+    namespace   : 'tab',
 
     // only called first time a tab's content is loaded (when remote source)
-    onTabInit       : function(tabPath, parameterArray, historyEvent) {},
+    onTabInit   : function(tabPath, parameterArray, historyEvent) {},
     // called on every load
-    onTabLoad       : function(tabPath, parameterArray, historyEvent) {},
+    onTabLoad   : function(tabPath, parameterArray, historyEvent) {},
 
-    templates: {
+    templates   : {
       determineTitle: function(tabArray) {}
     },
-    
+
     // uses pjax style endpoints fetching content from same url with remote-content headers
     auto            : false,
 
     history         : false,
     path            : false,
-    
+
     context         : 'body',
-    
+
     // max depth a tab can be nested
     maxDepth        : 25,
     // dont load content on first load

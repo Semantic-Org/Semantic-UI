@@ -207,7 +207,7 @@ $.fn.checkbox = function(parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -218,6 +218,9 @@ $.fn.checkbox = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -312,7 +315,7 @@ $.fn.checkbox = function(parameters) {
 
 $.fn.checkbox.settings = {
 
-  moduleName  : 'Checkbox',
+  name  : 'Checkbox',
   namespace   : 'checkbox',
 
   verbose     : true,

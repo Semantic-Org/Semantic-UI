@@ -367,8 +367,10 @@ a:hover {
 #example .stripe {
   padding: 50px 0px;
 }
-#example .stripe .column h2 {
-  margin-bottom: 1.5em;
+
+#example .dark.stripe {
+  background-color: #333333;
+  color: #FFFFFF;
 }
 #example .stripe .column .label {
   margin-bottom: 1em;
@@ -656,7 +658,7 @@ a:hover {
 }
 
 #example .existing.annotation {
-  display: none;
+  /*display: none;*/
 }
 
 /* example code reskin */
