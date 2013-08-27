@@ -12,19 +12,19 @@ $.fn.nag = function(parameters) {
   var
     $allModules     = $(this),
     settings        = $.extend(true, {}, $.fn.nag.settings, parameters),
-    
+
     className       = settings.className,
     selector        = settings.selector,
     error           = settings.error,
     namespace       = settings.namespace,
-    
+
     eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module', 
+    moduleNamespace = namespace + '-module',
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -34,11 +34,11 @@ $.fn.nag = function(parameters) {
     .each(function() {
       var
         $module         = $(this),
-        
+
         $close          = $module.find(selector.close),
         $context        = $(settings.context),
-        
-        
+
+
         element         = this,
         instance        = $module.data(moduleNamespace),
 
@@ -152,7 +152,7 @@ $.fn.nag = function(parameters) {
             ;
           }
         },
-        
+
         hide: function() {
           module.debug('Showing nag', settings.animation.hide);
           if(settings.animation.show == 'fade') {
@@ -372,7 +372,7 @@ $.fn.nag = function(parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -383,6 +383,9 @@ $.fn.nag = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -476,12 +479,12 @@ $.fn.nag = function(parameters) {
 
 $.fn.nag.settings = {
 
-  moduleName      : 'Nag',
+  name      : 'Nag',
 
   verbose         : true,
   debug           : true,
   performance     : true,
-  
+
   namespace       : 'Nag',
 
   // allows cookie to be overriden

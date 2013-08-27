@@ -57,24 +57,24 @@
       $module = typeof this == 'object'
         ? $(context)
         : $context,
-      
+
       element         = this,
       time            = new Date().getTime(),
       performance     = [],
-      
+
       moduleSelector  = $module.selector || '',
-      moduleNamespace = settings.namespace + '-module', 
-      
+      moduleNamespace = settings.namespace + '-module',
+
       className       = settings.className,
       metadata        = settings.metadata,
       error           = settings.error,
-      
+
       instance        = $module.data(moduleNamespace),
-      
+
       query           = arguments[0],
       methodInvoked   = (instance !== undefined && typeof query == 'string'),
       queryArguments  = [].slice.call(arguments, 1),
-      
+
       module,
       invokedResponse
     ;
@@ -165,7 +165,7 @@
               if(xhr !== undefined) {
                 // readyState 4 = done, anything less is not really sent
                 if(xhr.readyState !== undefined && xhr.readyState == 4) {
-                  
+
                   // if http status code returned and json returned error, look for it
                   if( xhr.status != 200 && httpMessage !== undefined && httpMessage !== '') {
                     module.error(error.statusMessage + httpMessage);
@@ -226,7 +226,7 @@
           module.verbose('Adding progress events');
           $.extend(true, ajaxSettings, {
             xhr: function() {
-              var 
+              var
                 xhr = new window.XMLHttpRequest()
               ;
               xhr.upload.addEventListener('progress', function(event) {
@@ -548,7 +548,7 @@
       }
       module.initialize();
     }
-  
+
     return (invokedResponse !== undefined)
       ? invokedResponse
       : this
@@ -595,7 +595,7 @@
   };
 
   $.api.settings = {
-    moduleName  : 'API',
+    name  : 'API',
     namespace   : 'api',
 
     debug       : true,
@@ -604,8 +604,8 @@
 
     api         : {},
 
-    beforeSend  : function(settings) { 
-      return settings; 
+    beforeSend  : function(settings) {
+      return settings;
     },
     beforeXHR   : function(xhr) {},
     success     : function(response) {},
@@ -617,7 +617,7 @@
       missingAction    : 'API action used but no url was defined',
       missingURL       : 'URL not specified for the API action',
       missingParameter : 'Missing an essential URL parameter: ',
-      
+
       timeout          : 'Your request timed out',
       error            : 'There was an error with your request',
       parseError       : 'There was an error parsing your request',

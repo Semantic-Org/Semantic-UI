@@ -406,7 +406,7 @@ $.fn.modal = function(parameters) {
 
 $.fn.modal.settings = {
 
-  moduleName  : 'Modal',
+  name  : 'Modal',
   namespace   : 'modal',
 
   verbose     : true,

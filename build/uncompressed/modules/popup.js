@@ -538,7 +538,7 @@ $.fn.popup = function(parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -549,6 +549,11 @@ $.fn.popup = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
+            }
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -643,7 +648,7 @@ $.fn.popup = function(parameters) {
 
 $.fn.popup.settings = {
 
-  moduleName     : 'Popup',
+  name     : 'Popup',
   debug          : true,
   verbose        : true,
   performance    : true,

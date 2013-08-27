@@ -242,7 +242,7 @@
   };
 
   $.fn.colorize.settings = {
-    moduleName     : 'Image Colorizer',
+    name     : 'Image Colorizer',
     debug          : true,
     namespace      : 'colorize',
 

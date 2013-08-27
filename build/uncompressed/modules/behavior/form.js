@@ -15,24 +15,24 @@
 $.fn.form = function(fields, parameters) {
   var
     $allModules     = $(this),
-    
+
     settings        = $.extend(true, {}, $.fn.form.settings, parameters),
     validation      = $.extend({}, $.fn.form.settings.defaults, fields),
-    
+
     namespace       = settings.namespace,
     metadata        = settings.metadata,
     selector        = settings.selector,
     className       = settings.className,
     error           = settings.error,
-    
+
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
-    
+
     moduleSelector  = $allModules.selector || '',
-    
+
     time            = new Date().getTime(),
     performance     = [],
-    
+
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
@@ -47,9 +47,9 @@ $.fn.form = function(fields, parameters) {
         $message   = $(this).find(selector.message),
         $prompt    = $(this).find(selector.prompt),
         $submit    = $(this).find(selector.submit),
-        
+
         formErrors = [],
-        
+
         element    = this,
         instance   = $module.data(moduleNamespace),
         module
@@ -170,7 +170,7 @@ $.fn.form = function(fields, parameters) {
             return $('<input/>');
           },
           validation: function($field) {
-            var 
+            var
               rules
             ;
             $.each(validation, function(fieldName, field) {
@@ -335,7 +335,7 @@ $.fn.form = function(fields, parameters) {
             }
             // normal notation
             else {
-              isValid = (type == 'checked') 
+              isValid = (type == 'checked')
                 ? $field.filter(':checked').size() > 0
                 : settings.rules[type](value)
               ;
@@ -422,7 +422,7 @@ $.fn.form = function(fields, parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -433,6 +433,9 @@ $.fn.form = function(fields, parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -528,20 +531,20 @@ $.fn.form = function(fields, parameters) {
 $.fn.form.settings = {
 
   // module info
-  moduleName        : 'Form',
+  name        : 'Form',
 
   debug             : true,
   verbose           : true,
   performance       : true,
-  
+
   namespace         : 'form',
-  
+
   keyboardShortcuts : true,
   on                : 'submit',
   animateSpeed      : 150,
   inlineError       : false,
-  
-  
+
+
   onValid           : function() {},
   onInvalid         : function() {},
   onSuccess         : function() { return true; },
@@ -572,11 +575,11 @@ $.fn.form.settings = {
     method   : 'The method you called is not defined.'
   },
 
-  
+
 
   templates: {
     error: function(errors) {
-      var 
+      var
         html = '<ul class="list">'
       ;
       $.each(errors, function(index, value) {
@@ -598,7 +601,7 @@ $.fn.form.settings = {
       return !(value === undefined || '' === value);
     },
     email: function(value){
-      var 
+      var
         emailRegExp = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
       ;
       return emailRegExp.test(value);
@@ -642,7 +645,7 @@ $.fn.form.settings = {
       ;
     },
     url: function(value) {
-      var 
+      var
         urlRegExp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
       ;
       return urlRegExp.test(value);

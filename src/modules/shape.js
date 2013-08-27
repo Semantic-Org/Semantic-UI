@@ -12,10 +12,10 @@
 $.fn.shape = function(parameters) {
   var
     $allModules     = $(this),
-    
+
     moduleSelector  = $allModules.selector || '',
     settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
-    
+
     // internal aliases
     namespace     = settings.namespace,
     selector      = settings.selector,
@@ -25,7 +25,7 @@ $.fn.shape = function(parameters) {
     // define namespaces for modules
     eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
-    
+
     time            = new Date().getTime(),
     performance     = [],
 
@@ -42,11 +42,11 @@ $.fn.shape = function(parameters) {
         $module       = $(this),
         $sides        = $module.find(selector.sides),
         $side         = $module.find(selector.side),
-        
+
         // private variables
         $activeSide,
         $nextSide,
-        
+
         // standard module
         element       = this,
         instance      = $module.data(moduleNamespace),
@@ -86,7 +86,7 @@ $.fn.shape = function(parameters) {
 
         repaint: function() {
           module.verbose('Forcing repaint event');
-          var 
+          var
             shape          = $sides.get(0) || document.createElement('div'),
             fakeAssignment = shape.offsetWidth
           ;
@@ -616,7 +616,7 @@ $.fn.shape = function(parameters) {
           },
           display: function() {
             var
-              title = settings.moduleName + ':',
+              title = settings.name + ':',
               totalTime = 0
             ;
             time = false;
@@ -627,6 +627,9 @@ $.fn.shape = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
+            }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -723,10 +726,10 @@ $.fn.shape.settings = {
 
   // module info
   moduleName : 'Shape Module',
-  
+
   // debug content outputted to console
   debug      : true,
-  
+
   // verbose debug output
   verbose    : true,
 

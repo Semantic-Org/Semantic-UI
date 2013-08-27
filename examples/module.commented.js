@@ -240,10 +240,10 @@ $.fn.example = function(parameters) {
             if(settings.performance) {
               currentTime   = new Date().getTime();
               previousTime  = time || currentTime,
-              executionTime = currentTime - previousTime;
+              executionTime = currentTime - previousTime,
               time          = currentTime;
-              performance.push({ 
-                'Name'           : message, 
+              performance.push({
+                'Name'           : message,
                 'Execution Time' : executionTime
               });
               clearTimeout(module.performance.timer);
@@ -352,7 +352,7 @@ $.fn.example.settings = {
 
   // ### Required
   // Used in debug statements to refer to the module itself
-  moduleName  : 'Example Module',
+  name  : 'Example Module',
   // Whether debug content should be outputted to console
   debug       : true,
   // Whether extra debug content should be outputted
@@ -369,7 +369,7 @@ $.fn.example.settings = {
   },
   // Error messages returned by the module
   error: {
-    noText : 'The text you tried to display has not been defined.',    
+    noText : 'The text you tried to display has not been defined.',
     method : 'The method you called is not defined.'
   },
   // Class names which your module refers to

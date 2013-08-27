@@ -635,7 +635,7 @@ i.icon.disabled {
            Variations
 *******************************/
 /*-------------------
-         Link 
+         Link
 --------------------*/
 i.link.icon {
   cursor: pointer;
@@ -650,7 +650,7 @@ i.link.icon {
   opacity: 1 !important;
 }
 /*-------------------
-      Circular 
+      Circular
 --------------------*/
 i.circular.icon {
   -webkit-border-radius: 500px;
@@ -673,7 +673,7 @@ i.circular.inverted.icon {
   box-shadow: none;
 }
 /*-------------------
-        Square 
+        Square
 --------------------*/
 i.square.icon {
   width: 2em;
@@ -694,7 +694,7 @@ i.square.inverted.icon {
   box-shadow: none;
 }
 /*-------------------
-      Inverted 
+      Inverted
 --------------------*/
 i.inverted.icon {
   background-color: #222222;
@@ -749,7 +749,7 @@ i.inverted.teal.icon {
   color: #FFFFFF !important;
 }
 /*-------------------
-        Sizes 
+        Sizes
 --------------------*/
 i.small.icon {
   font-size: 0.875em;
@@ -758,17 +758,17 @@ i.icon {
   font-size: 1em;
 }
 i.large.icon {
-  font-size: 3em;
+  font-size: 2em;
   margin-right: 0.5em;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 6em;
+  font-size: 4em;
   margin-right: 0.75em;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 12em;
+  font-size: 8em;
   margin-right: 1em;
   vertical-align: middle;
 }
