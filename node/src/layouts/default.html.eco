@@ -50,6 +50,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/comment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/feed.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/item.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/statistic.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/carousel.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
@@ -190,8 +191,8 @@
       </div>
       <div class="right menu">
         <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'Quirky Element' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
-        <a class="popup overview icon item" title="Toggle Overview">
-          <i class="list layout icon"></i>
+        <a class="popup overview icon item" title="Toggle Definition">
+          <i class="book icon"></i>
         </a>
         <a class="popup designer icon item" title="Designer Mode">
           <i class="paint icon"></i>

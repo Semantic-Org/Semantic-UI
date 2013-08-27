@@ -4,6 +4,10 @@ css    : 'index'
 title  : 'Getting Started'
 type   : 'Semantic'
 ---
+<% uiElements    = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+<% uiCollections = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiViews       = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
+<% uiModules     = @getCollection("documents").findAllLive({type: $in: ['UI Module', 'UI Behavior']},[{title: 1}]).toJSON() %>
 <script src="/javascript/home.js"></script>
 
 <div class="masthead segment">
@@ -21,24 +25,18 @@ type   : 'Semantic'
   <div class="ui responsive grid">
     <div class="ui column">
       <h2 class="ui center aligned icon header">
-        <i class="circular code icon"></i>
+        <i class="circular emphasized code icon"></i>
         <div class="content">
-          Decodifying code
-          <div class="sub header">Design once, then code using your site's UI vocabulary</div>
+          Lose the Hieroglyphics
+          <div class="sub header">Semantic is structured around convention to make development more intuitive.
+          </div>
         </div>
       </h2>
       <div class="ui horizontal section divider">
         <i class="circular heart icon"></i>
       </div>
-      <div class="ui two column grid">
-      <div class="one column row">
-        <div class="column">
-          <p>Create your site's UI once using either our framework or your own components designed using the Semantic spec.</p>
-          <p>Then create new pages using the visual language you defined.</p>
-        </div>
-      </div>
-      <div class="row">
-        <p>3 column grid</p>
+      <div class="ui grid">
+      <div class="two column row">
         <div class="column">
           <a class="ui teal label" href="/collections/grid.html">Semantic</a>
           <div class="code" data-type="html">
@@ -50,7 +48,7 @@ type   : 'Semantic'
           </div>
         </div>
         <div class="column">
-          <div class="ui label">Bootstrap</div>
+          <div class="ui black label">Bootstrap</div>
           <div class="code" data-type="html">
     <div class="row">
       <div class="col-lg-4">1</div>
@@ -60,8 +58,7 @@ type   : 'Semantic'
           </div>
         </div>
       </div>
-      <div class="row">
-        <p>Navigation Menu</p>
+      <div class="two column row">
         <div class="column">
           <a class="ui teal label" href="/collections/menu.html">Semantic</a>
           <div class="code" data-type="html">
@@ -77,7 +74,7 @@ type   : 'Semantic'
           </div>
         </div>
         <div class="column">
-          <div class="ui label">Bootstrap</div>
+          <div class="ui black label">Bootstrap</div>
           <div class="code" data-type="html">
     <div class="navbar">
       <a class="navbar-brand" href="#">Title</a>
@@ -91,8 +88,7 @@ type   : 'Semantic'
           </div>
         </div>
       </div>
-      <div class="row">
-        <p>Buttons</p>
+      <div class="two column row">
         <div class="column">
           <a class="ui teal label" href="/elements/button.html">Semantic</a>
           <div class="code" data-type="html">
@@ -103,7 +99,7 @@ type   : 'Semantic'
           </div>
         </div>
         <div class="column">
-          <div class="ui label">Bootstrap</div>
+          <div class="ui black label">Bootstrap</div>
           <div class="code" data-type="html">
     <button type="button" class="btn btn-primary btn-lg">
       <span class="glyphicon glyphicon-heart"></span>
@@ -120,8 +116,8 @@ type   : 'Semantic'
   <div class="ui responsive grid">
     <div class="column">
       <h2 class="ui huge inverted center aligned icon header">
-        <i class="circular comment icon"></i>
-        <div class="content">Speaks Your Language<div class="sub header">Semantic gives you a variety of UI components with real-time debug output, letting your code tell you what its doing.</div>
+        <i class="circular emphasized inverted teal comment icon"></i>
+        <div class="content">Have a conversation with your components<div class="sub header">Semantic gives you a variety of UI components with real-time debug output, letting your code tell you what its doing.</div>
         </div>
       </h2>
       <div class="ui inverted horizontal section divider">
@@ -130,12 +126,12 @@ type   : 'Semantic'
       <div class="ui grid" data-demo="true">
         <div class="two column row">
           <div class="column">
-          <p>Open up your web console. Semantic provides tracing for javascript behavior so your components can tell you what they're doing as they do it.</p>
+          <div class="ui teal header">Open up your web console.</div>
+          Semantic provides tracing for javascript behavior so your components can tell you what they're doing as they do it.</p>
           <div class="code" data-type="javascript" data-demo="true">
     $('.dog.image')
-      .transition('scale in', '1s')
-      .transition('horizontal flip out', '500ms')
-      .transition('vertical flip', '500ms')
+      .transition('scale in')
+      .transition('tada', '800ms')
     ;
           </div>
           </div>
@@ -147,11 +143,50 @@ type   : 'Semantic'
     </div>
   </div>
 </div>
-<div class="stripe" >
+<div class="stripe" style="display:none">
+  <h2 class="ui center aligned icon header">
+    <i class="circular emphasized lab icon"></i>
+    <div class="content">
+      Alter Designs Effortlessly
+      <div class="sub header">Redesign without lifting a finger
+      </div>
+    </div>
+  </h2>
+<div class="ui responsive grid">
+  <div class="column">
+    <h3 class="ui header">Let's create some tabs</h3>
+    <div class="code" data-preview="true" data-type="html">
+    <div class="ui menu">
+      <div class="header item">Site.com</div>
+      <a class="item">Browse</a>
+      <a class="active item">Search</a>
+      <a class="item">Help</a>
+    </div>
+    <div class="ui segment">
+      <p>Tab content</p>
+    </div>
+    </div>
+    <div class="ui divider"></div>
+    <h3 class="ui header">Hmm maybe it should point to the content below it</h3>
+    <div class="code" data-preview="true" data-type="html">
+    <div class="ui pointing menu">
+      <div class="header item">Site.com</div>
+      <a class="item">Home</a>
+      <a class="active item">About</a>
+      <a class="item">Contact</a>
+    </div>
+    <div class="ui segment">
+      <p>Tab content</p>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="final stripe" >
   <div class="ui responsive grid">
     <div class="column">
       <h2 class="ui center aligned icon header">
-        <i class="circular users icon"></i>
+        <i class="circular emphasized users icon"></i>
         <div class="content">Growing Everyday
           <div class="sub header">New UI components are written everyday. Check our roadmap to see what's in the works.</div>
         </div>
@@ -160,41 +195,69 @@ type   : 'Semantic'
         <i class="circular heart icon"></i>
       </div>
       <div class="ui grid" data-demo="true">
-        <div class="four column row">
+        <div class="four column center aligned row">
           <div class="column">
-            <div class="ui raised segment">
+            <div class="ui stacked segment">
               <div class="ui statistic">
-                <div class="number">31</div>
+                <div class="number"><%= uiElements.length %></div>
                 <div class="description">UI Elements</div>
               </div>
+              <div class="ui divided selection list">
+                <% for element in uiElements: %>
+                  <a class="item" href="<%= element.url %>"><%= element.title %></a>
+                <% end %>
+              </div>
             </div>
           </div>
           <div class="column">
-            <div class="ui raised segment">
+            <div class="ui stacked segment">
               <div class="ui statistic">
-                <div class="number">21</div>
+                <div class="number"><%= uiCollections.length %></div>
                 <div class="description">UI Collections</div>
               </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="ui raised segment">
-              <div class="ui statistic">
-                <div class="number">11</div>
-                <div class="description">UI Views</div>
+              <div class="ui divided selection list">
+                <% for element in uiCollections: %>
+                  <a class="item" href="<%= element.url %>"><%= element.title %></a>
+                <% end %>
               </div>
             </div>
           </div>
           <div class="column">
-            <div class="ui raised segment">
+            <div class="ui stacked segment">
               <div class="ui statistic">
-                <div class="number">10</div>
+                <div class="number"><%= uiViews.length %></div>
+                <div class="description">UI Views</div>
+              </div>
+              <div class="ui divided selection list">
+                <% for element in uiViews: %>
+                  <a class="item" href="<%= element.url %>"><%= element.title %></a>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui stacked segment">
+              <div class="ui statistic">
+                <div class="number"><%= uiModules.length %></div>
                 <div class="description">UI Modules</div>
+              </div>
+              <div class="ui divided selection list">
+                <% for element in uiModules: %>
+                  <a class="item" href="<%= element.url %>"><%= element.title %></a>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
+</div>
+<div class="ui divider"></div>
+<div class="ui bulleted horizontal link list">
+  <a class="item">Github</a>
+  <a class="item">Contributors</a>
+  <a class="item">Quirky.com</a>
+  <div class="item">jack lukic 2013</div>
 </div>

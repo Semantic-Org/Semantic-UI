@@ -109,6 +109,7 @@ $.fn.dimmer = function(parameters) {
             module.verbose('Determining if event occured on dimmer', event);
             if( $dimmer.find(event.target).size() === 0 || $(event.target).is(selector.content) ) {
               module.hide();
+              event.stopImmediatePropagation();
             }
           }
 
@@ -127,14 +128,11 @@ $.fn.dimmer = function(parameters) {
         animate: {
           show: function() {
             module.set.dimmed();
-            if(settings.transition == 'css') {
-              module.verbose('Showing dimmer animation with css');
+            if($.fn.transition !== undefined) {
               $dimmer
-                .one(module.get.animationEndEvent(), function() {
+                .transition(settings.transition + ' in', function() {
                   module.set.active();
-                  $dimmer.removeClass(className.show);
                 })
-                .addClass(className.show)
               ;
             }
             else {
@@ -155,14 +153,12 @@ $.fn.dimmer = function(parameters) {
           },
           hide: function() {
             module.remove.dimmed();
-            if(settings.transition == 'css') {
+            if($.fn.transition !== undefined) {
               module.verbose('Hiding dimmer with css');
               $dimmer
-                .one(module.get.animationEndEvent(), function(){
+                .transition(settings.transition + ' out', settings.duration, function() {
                   module.remove.active();
-                  $dimmer.removeClass(className.hide);
                 })
-                .addClass(className.hide)
               ;
             }
             else {
@@ -178,28 +174,6 @@ $.fn.dimmer = function(parameters) {
           }
         },
 
-        get: {
-
-          animationEndEvent: function() {
-            var
-              element     = document.createElement('element'),
-              animations  = {
-                'animation'       : 'animationend',
-                'OAnimation'      : 'oAnimationEnd',
-                'MozAnimation'    : 'animationend',
-                'WebkitAnimation' : 'webkitAnimationEnd'
-              },
-              animation
-            ;
-            for(animation in animations){
-              if( element.style[animation] !== undefined ){
-                return animations[animation];
-              }
-            }
-          }
-
-        },
-
         has: {
           dimmer: function() {
             return ( $module.children(selector.dimmer).size() > 0 );
@@ -207,6 +181,9 @@ $.fn.dimmer = function(parameters) {
         },
 
         is: {
+          active: function() {
+            return $dimmer.hasClass(className.active);
+          },
           animating: function() {
             return ( $dimmer.hasClass(className.show) || $dimmer.hasClass(className.hide) || $dimmer.is(':animated') );
           },
@@ -227,9 +204,6 @@ $.fn.dimmer = function(parameters) {
           },
           pageDimmer: function() {
             return $dimmer.hasClass(className.pageDimmer);
-          },
-          active: function() {
-            return $dimmer.hasClass(className.active);
           }
         },
 
@@ -241,7 +215,10 @@ $.fn.dimmer = function(parameters) {
 
         set: {
           active: function() {
-            $dimmer.addClass(className.active);
+            $dimmer
+              .removeClass(className.transition)
+              .addClass(className.active)
+            ;
           },
           dimmable: function() {
             $module
@@ -261,7 +238,10 @@ $.fn.dimmer = function(parameters) {
 
         remove: {
           active: function() {
-            $dimmer.removeClass(className.active);
+            $dimmer
+              .removeClass(className.transition)
+              .removeClass(className.active)
+            ;
           },
           dimmed: function() {
             $module.removeClass(className.dimmed);
@@ -297,7 +277,7 @@ $.fn.dimmer = function(parameters) {
 
         toggle: function() {
           module.verbose('Toggling dimmer visibility', $dimmer);
-          if( module.is.hidden() ) {
+          if( !module.is.active() ) {
             module.show();
           }
           else {
@@ -489,14 +469,14 @@ $.fn.dimmer = function(parameters) {
 
 $.fn.dimmer.settings = {
 
-  name  : 'Dimmer',
+  name        : 'Dimmer',
   namespace   : 'dimmer',
 
   verbose     : true,
   debug       : true,
   performance : true,
 
-  transition  : 'css',
+  transition  : 'fade',
 
   on          : false,
   closable    : true,
@@ -523,14 +503,15 @@ $.fn.dimmer.settings = {
   },
 
   className : {
-    active    : 'active',
-    animating : 'animating',
-    dimmable  : 'ui dimmable',
-    dimmed    : 'dimmed',
-    disabled  : 'disabled',
-    pageDimmer: 'page',
-    hide      : 'hide',
-    show      : 'show'
+    active     : 'active',
+    animating  : 'animating',
+    dimmable   : 'ui dimmable',
+    dimmed     : 'dimmed',
+    disabled   : 'disabled',
+    pageDimmer : 'page',
+    hide       : 'hide',
+    show       : 'show',
+    transition : 'transition hidden visible'
   }
 
 };

@@ -19,18 +19,18 @@ type       : 'UI Element'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Types</a>
+      <a class="item">Groups</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
-      <a class="item">Groups</a>
     </div>
   </div>
   <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
-    <h4 class="ui header">Basic:</h4>
+    <h4 class="ui header">Button</h4>
     <p>A standard button</p>
     <div class="ui button">
-      <i class="icon add user"></i>
+      <i class="add user icon"></i>
       Follow
     </div>
   </div>
@@ -39,7 +39,7 @@ type       : 'UI Element'
     <h4 class="ui header">Icon</h4>
     <p>A button can have only an icon</p>
     <div class="ui icon button">
-      <i class="icon cloud"></i>
+      <i class="cloud icon"></i>
     </div>
   </div>
 
@@ -47,8 +47,47 @@ type       : 'UI Element'
     <h4 class="ui header">Labeled Icon</h4>
     <p>A button can have an icon and a label</p>
     <div class="ui labeled icon button">
-      <i class="icon pause"></i>
+      <i class="pause icon"></i>
       Pause
+    </div>
+    <div class="ui right labeled icon button">
+      <i class="right arrow icon"></i>
+      Next
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Social</h4>
+    <p>A button can be formatted to link to a social website</p>
+    <div class="ui facebook button">
+      <i class="facebook icon"></i>
+      Log-in with Facebook
+    </div>
+    <div class="ui twitter button">
+      <i class="twitter icon"></i>
+      Sign-up with Twitter
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Groups</h2>
+
+  <div class="example">
+    <h4 class="ui header">Buttons</h4>
+    <p>Can exist together as groups</p>
+    <div class="ui buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Conditionals</h4>
+    <p>Groups can be separated by conditionals</p>
+    <div class="ui buttons">
+      <div class="ui button">Cancel</div>
+      <div class="or"></div>
+      <div class="ui positive button">Save</div>
     </div>
   </div>
 
@@ -56,43 +95,43 @@ type       : 'UI Element'
 
   <div class="example">
     <h4 class="ui header">Hover</h4>
-    <p>Changes when a user moves their cursor over it</p>
+    <p>A button can change to show a user has hovered their mouse</p>
     <div class="ui hover button">
-      <i class="icon add user"></i>
+      <i class="add user icon"></i>
       Follow
     </div>
   </div>
 
   <div class="example">
     <h4 class="ui header">Down</h4>
-    <p>Changes when pressed using touch or mouse events</p>
+    <p>A button can change when pressed using touch or mouse events</p>
     <div class="ui down button">
-      <i class="icon add user"></i>
+      <i class="add user icon"></i>
       Follow
     </div>
   </div>
 
   <div class="example">
     <h4 class="ui header">Active</h4>
-    <p>Changes to show it is currently the selected user action</p>
+    <p>A button can show it is currently the active user selection</p>
     <div class="ui active button">
-      <i class="icon add user"></i>
+      <i class="add user icon"></i>
       Follow
     </div>
   </div>
 
   <div class="example">
     <h4 class="ui header">Disabled</h4>
-    <p>Changes to show it is currently unable to be interacted with</p>
+    <p>A button can show it is currently unable to be interacted with</p>
     <div class="ui disabled button">
-      <i class="icon add user"></i>
+      <i class="add user icon"></i>
       Followed
     </div>
   </div>
 
   <div class="example">
     <h4 class="ui header">Loading</h4>
-    <p>Can show a loading indicator:</p>
+    <p>A button can show a loading indicator</p>
     <div class="ui loading button">Loading Button</div>
   </div>
 
@@ -100,7 +139,7 @@ type       : 'UI Element'
     <h4 class="ui header">Success</h4>
     <p>Can alert to a succesful action:</p>
     <div class="ui success button">
-      <i class="icon add user"></i>
+      <i class="add user icon"></i>
       Follo
       w User
     </div>
@@ -109,36 +148,12 @@ type       : 'UI Element'
     <h4 class="ui header">Error</h4>
     <p>Can alert user of an error:</p>
     <div class="ui error button">
-      <i class="icon add user"></i>
+      <i class="add user icon"></i>
       Follow User
     </div>
   </div> -->
 
   <h2 class="ui dividing header">Variations</h2>
-
-  <div class="example">
-    <h4 class="ui header">Ordinality</h4>
-    <p>A button can be formatted to appear more or less noticable</p>
-    <div class="ui secondary button">
-      <i class="icon user"></i>
-      Add Friend
-    </div>
-    <div class="ui secondary teal button">
-      <i class="icon desk globe"></i>
-      Change Language
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui tertiary button">
-      <i class="icon user"></i>
-      Add Friend
-    </div>
-    <div class="ui tertiary teal button">
-      <i class="icon desk globe"></i>
-      Change Language
-    </div>
-  </div>
-
 
   <div class="example">
     <h4 class="ui header">Sizes</h4>
@@ -170,15 +185,15 @@ type       : 'UI Element'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Social</h4>
-    <p>A button can be formatted to link to a social website</p>
-    <div class="ui facebook button">
-      <i class="facebook icon"></i>
-      Log-in with Facebook
+    <h4 class="ui header">Basic</h4>
+    <p>A basic button removes all unnecessary formatting</p>
+    <div class="ui basic button">
+      <i class="icon user"></i>
+      Add Friend
     </div>
-    <div class="ui twitter button">
-      <i class="twitter icon"></i>
-      Sign-up with Twitter
+    <div class="ui basic teal button">
+      <i class="icon desk globe"></i>
+      Change Language
     </div>
   </div>
 
@@ -238,31 +253,8 @@ type       : 'UI Element'
   </div>
 
 
-  <h2 class="ui dividing header">Groups</h2>
+  <h3 class="ui dividing header">Group Variations</h3>
 
-  <h3 class="ui header">Types</h3>
-
-  <div class="example">
-    <h4 class="ui header">Buttons</h4>
-    <p>Can exist together as groups</p>
-    <div class="ui buttons">
-      <div class="ui button">One</div>
-      <div class="ui button">Two</div>
-      <div class="ui button">Three</div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Conditionals</h4>
-    <p>Groups can be separated by conditionals</p>
-    <div class="ui buttons">
-      <div class="ui button">Cancel</div>
-      <div class="or"></div>
-      <div class="ui positive button">Save</div>
-    </div>
-  </div>
-
-  <h3 class="ui header">Plural Variations</h3>
   <p>Singular variations can be applied to groups to infer all elements share the same quality</p>
 
 
@@ -282,11 +274,11 @@ type       : 'UI Element'
     <p>Groups can be formatted as icons</p>
     <div class="ui icon buttons">
       <div class="ui button">
-        <i class="icon pause"></i></div>
+        <i class="pause icon"></i></div>
       <div class="ui button">
-        <i class="icon play"></i></div>
+        <i class="play icon"></i></div>
       <div class="ui button">
-        <i class="icon shuffle"></i></div>
+        <i class="shuffle icon"></i></div>
     </div>
   </div>
 
@@ -295,15 +287,15 @@ type       : 'UI Element'
     <p>Groups can be formatted as labeled icons</p>
     <div class="ui vertical labeled icon buttons">
       <div class="ui button">
-        <i class="icon pause"></i>
+        <i class="pause icon"></i>
         Pause
       </div>
       <div class="ui button">
-        <i class="icon play"></i>
+        <i class="play icon"></i>
         Play
       </div>
       <div class="ui button">
-        <i class="icon shuffle"></i>
+        <i class="shuffle icon"></i>
         Shuffle
       </div>
     </div>
@@ -334,16 +326,8 @@ type       : 'UI Element'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Ordinality</h4>
-    <p>A button can be formatted to appear more or less noticable</p>
-    <div class="ui teal secondary buttons">
-      <div class="ui button">One</div>
-      <div class="ui button">Two</div>
-      <div class="ui button">Three</div>
-    </div>
-  </div>
-
-  <div class="another example">
+    <h4 class="ui header">Basic</h4>
+    <p>A button group can be formatted to remove extra formatting</p>
     <div class="ui red tertiary buttons">
       <div class="ui button">One</div>
       <div class="ui button">Two</div>

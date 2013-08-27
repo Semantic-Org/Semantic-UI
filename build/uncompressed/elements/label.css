@@ -382,14 +382,14 @@ a.ui.green.label:hover:before {
 /*--- Red ---*/
 .ui.red.labels .label,
 .ui.red.label {
-  background-color: #EF4D6D !important;
-  border-color: #EF4D6D !important;
+  background-color: #D95C5C !important;
+  border-color: #D95C5C !important;
   color: #FFFFFF !important;
 }
 .ui.labels .red.label:before,
 .ui.red.labels .label:before,
 .ui.red.label:before {
-  background-color: #EF4D6D !important;
+  background-color: #D95C5C !important;
 }
 /* Corner */
 .ui.red.corner.label,

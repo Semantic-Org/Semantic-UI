@@ -224,7 +224,7 @@
   border-top: 0.2em solid #A1CF64;
 }
 .ui.red.segment {
-  border-top: 0.2em solid #EF4D6D;
+  border-top: 0.2em solid #D95C5C;
 }
 .ui.purple.segment {
   border-top: 0.2em solid #564F8A;
@@ -248,7 +248,7 @@
   color: #FFFFFF !important;
 }
 .ui.inverted.red.segment {
-  background-color: #EF4D6D !important;
+  background-color: #D95C5C !important;
   color: #FFFFFF !important;
 }
 .ui.inverted.purple.segment {
@@ -303,7 +303,7 @@
   color: #555555;
 }
 .ui.secondary.segment {
-  background-color: #F5F5F5;
+  background-color: #FAF9FA;
   color: #777777;
 }
 .ui.tertiary.segment {

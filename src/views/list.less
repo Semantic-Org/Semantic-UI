@@ -82,14 +82,19 @@ ol.ui.list li,
   vertical-align: middle;
   line-height: 1.2;
 }
-.ui.list a,
-.ui.list .link.item {
+
+/* Link */
+.ui.list a {
   cursor: pointer;
 }
-
-/* Link Icon */
 .ui.list a .icon {
   color: rgba(0, 0, 0, 0.6);
+
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 /* Header */
@@ -119,7 +124,7 @@ ol.ui.list li,
 --------------------*/
 
 .ui.horizontal.list {
-  display: block;
+  display: inline-block;
   font-size: 0em;
 }
 .ui.horizontal.list .item {
@@ -130,26 +135,6 @@ ol.ui.list li,
 
 .ui.horizontal.list .item:first-child {
   margin-left: 0em;
-}
-
-/*-------------------
-         Link
---------------------*/
-
-.ui.link.list {
-
-}
-.ui.link.list .item {
-  -webkit-transition: color 0.2s ease;
-  -moz-transition: color 0.2s ease;
-  -o-transition: color 0.2s ease;
-  -ms-transition: color 0.2s ease;
-  transition: color 0.2s ease;
-  color: rgba(0, 0, 0, 0.4);
-}
-.ui.link.list .link.item:hover,
-.ui.link.list a:hover {
-  color: rgba(0, 0, 0, 0.8);
 }
 
 /*******************************
@@ -402,6 +387,8 @@ ol.ui.horizontal.list li:before,
   border-left: none;
   padding-left: 0em;
 }
+
+
 
 
 /*-------------------

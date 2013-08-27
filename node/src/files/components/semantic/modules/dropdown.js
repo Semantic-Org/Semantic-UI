@@ -161,15 +161,17 @@ $.fn.dropdown = function(parameters) {
                 value   = $choice.data(metadata.value) || text
               ;
               dropdown.verbose('Adding active state to selected item');
-              $item
-                .removeClass(className.active)
-              ;
-              $choice
-                .addClass(className.active)
-              ;
-              dropdown.determine.selectAction(text, value);
-              $.proxy(settings.onChange, element)(value, text);
-              event.stopPropagation();
+              if( $item.find(selector.menu).size() === 0 ) {
+                $item
+                  .removeClass(className.active)
+                ;
+                $choice
+                  .addClass(className.active)
+                ;
+                dropdown.determine.selectAction(text, value);
+                $.proxy(settings.onChange, element)(value, text);
+                event.stopPropagation();
+              }
             }
 
           },

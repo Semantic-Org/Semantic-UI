@@ -19,6 +19,8 @@
   position: absolute;
   top: 0em !important;
   left: 0em !important;
+  width: 0%;
+  height: 0%;
   text-align: center;
   vertical-align: middle;
   background-color: rgba(0, 0, 0, 0.85);
@@ -50,7 +52,7 @@
   z-index: 1000;
 }
 .ui.dimmable.dimmed > :not(.dimmer) {
-  /*  
+  /*
   -webkit-transition:
     filter 0.5s ease
   ;
@@ -101,9 +103,6 @@
 .ui.dimmable.dimmed > :not(.dimmer) {
   -webkit-filter: blur(5px) grayscale(0.7);
   -moz-filter: blur(5px) grayscale(0.7);
-}
-body.dimmable.dimmed {
-  overflow: hidden;
 }
 .ui.dimmable.dimmed > .ui.dimmer,
 .ui.dimmer.active {
@@ -170,88 +169,4 @@ body.ui.dimmable.dimmed > :not(.dimmer) {
 }
 .ui.dimmable.dimmed > .ui.simple.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0.85);
-}
-/*******************************
-           Animations
-*******************************/
-.ui.dimmer.show {
-  width: 100%;
-  height: 100%;
-  -webkit-animation-name: dimmer-show;
-  -moz-animation-name: dimmer-show;
-  animation-name: dimmer-show;
-}
-@-webkit-keyframes dimmer-show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes dimmer-show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes dimmer-show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.ui.dimmer.hide {
-  -webkit-animation-name: dimmer-hide;
-  -moz-animation-name: dimmer-hide;
-  animation-name: dimmer-hide;
-}
-@-webkit-keyframes dimmer-hide {
-  0% {
-    opacity: 1;
-  }
-  99% {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    height: 0em;
-    width: 0em;
-  }
-}
-@-moz-keyframes dimmer-hide {
-  0% {
-    opacity: 1;
-  }
-  99% {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    height: 0em;
-    width: 0em;
-  }
-}
-@keyframes dimmer-hide {
-  0% {
-    opacity: 1;
-  }
-  99% {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    height: 0em;
-    width: 0em;
-  }
 }
