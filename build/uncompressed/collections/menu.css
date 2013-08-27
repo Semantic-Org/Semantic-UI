@@ -640,6 +640,13 @@
 .ui.secondary.pointing.menu {
   border-bottom: 3px solid rgba(0, 0, 0, 0.1);
 }
+.ui.secondary.pointing.menu .header.item {
+  border-right-width: 0px;
+  font-weight: bold;
+}
+.ui.secondary.pointing.menu .text.item {
+  border-color: transparent !important;
+}
 .ui.secondary.pointing.menu > .item {
   margin: 0em 0em -3px;
   padding: 0.6em 0.95em;
@@ -871,7 +878,7 @@
   color: #A1CF64;
 }
 .ui.red.text.menu .active.item {
-  color: #EF4D6D;
+  color: #D95C5C;
 }
 .ui.blue.text.menu .active.item {
   color: #6ECFF5;
@@ -942,7 +949,7 @@
 }
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
-  border-color: #EF4D6D !important;
+  border-color: #D95C5C !important;
 }
 .ui.menu .blue.active.item,
 .ui.blue.menu .active.item {
@@ -1088,7 +1095,7 @@
   background-color: #A1CF64;
 }
 .ui.inverted.red.menu {
-  background-color: #EF4D6D;
+  background-color: #D95C5C;
 }
 .ui.inverted.red.pointing.menu .active.item:after {
   background-color: #F16883;
@@ -1170,7 +1177,7 @@
 --------------------*/
 .ui.menu.fluid,
 .ui.vertical.menu.fluid {
-  display: block !important;
+  display: block;
   width: 100%;
 }
 /*-------------------

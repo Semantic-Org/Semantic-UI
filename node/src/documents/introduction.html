@@ -9,8 +9,6 @@ type   : 'Semantic'
 <div class="segment">
   <div class="container">
     <h1 class="ui header">Introduction
-      <div class="ui label">Draft</div> 
-      <div class="ui red label">Incomplete</div>
     </h1>
   </div>
 </div>
@@ -23,68 +21,26 @@ type   : 'Semantic'
   </div>
   <h2 class="ui dividing header">Philosophy</h2>
   <p> Writing front end code shouldn't require learning the naming or programming conventions of a particular developer. Semantic is a methodology for coding front end designed to make adopting and sharing code with others easier.</p>
-  <p>Semantic is tag ambivalent. That means you can use it with div, article, section, span, whichever you please. However, some elements still have special meeting like anchor and table tags.</p>
-  
-  <h2 class="ui dividing header">Getting Started</h2>
-  
-  <p>UI definitions in Semantic are namespaced with the class name <b>ui</b>. This is to help differentiate between parts of an element, and the element itself. For example a menu may have menu items inside of it. These items are contained as part of the menu definition.</p>
-  
-  <div class="code" data-type="html" data-label="true">
-    <div class="ui menu">
-      <a class="item">Home</a>
-      <a class="item">Inbox</a>
-    </div>
-  </div>
-  <div class="ui menu">
-    <a class="item">Home</a>
-    <a class="item">Inbox</a>
-  </div>
-  <div class="ui divider"></div>
 
-  <h3 class="ui header">Combining elements</h3>
-  <p>All UI definitions in semantic are stand-alone, and do not require other components to function. However, components can choose to have optional couplings with other components.</p>
-  
-  <p>For example you might want to include a badge inside a menu. A label inside of a menu will automatically function as a badge.</p>
-  
-  <div class="code" data-type="html" data-label="true">
-    <div class="ui menu">
-      <div class="item">Home</div>
-      <div class="item">
-        Inbox 
-        <div class="ui label">22</div>
-      </div>
-    </div>
-  </div>
-  <div class="ui menu">
-    <div class="item">Home</div>
-    <div class="item">
-      Inbox 
-      <div class="ui label">22</div>
-    </div>
-  </div>
+  <h2 class="ui dividing header">What's Different</h2>
 
-  <h2 class="ui dividing header">Language Matters</h2>
+    <div class="ui header">Tag ambivalent.</div>
+    <p>UI definitions are, for the most part, tag ambivalent. That means you can use div, article, section, span, whatever tag you please. Special tags like a, table, td still carry special meaning however.</p>
 
-  <p>Class names in semantic always use single english words. If a class name is an adjective it is either a <b>type</b> of element or <b>variation</b> of an element. This helps prevent naming conflicts between elements (nouns) and changes to an element (adjectives)</p>
+    <div class="ui header">UI definitions are portable and self-contained.</div>
+    <p>Although ui elements may reference other elements, ui definitions, in general, are stand-alone. That means choosing to use semantic doesn't mean adopting an entire framework, or rewriting your codebase. Pick and choose what you want.</p>
 
-  <h3 class="ui header">Defining behavior simply</h3>
+    <div class="ui header">UI definitions are themeable</div>
+    <p>Describing your site's content using a common language allows other developers to create UI definitions to match a shared vocabulary. Instead of retooling your website's html, simply download a different element theme.</p>
 
-  <p>Modules define a public API using simple phrases involving a verb and an object the verb is acting on. This means that if you are using another developer's code, you only need to learn it's public api without having to learn the nasty tricks used to make it work.</p>
+    <div class="ui header">Only the important stuff</div>
+    <p>Instead of giving every possible variation, or behavior under the sun, element definitions are designed to be a starting off point. No oversized downloads, just the stuff to get you started on your new project. We know your itching to code your own features anyway.</p>
 
-  <div class="code" data-demo="true" data-title="Language in Javascript">
-    $('.dog.image')
-      .transition('horizontal flip out')
-      .transition('scale in', '500ms')
-    ;
-  </div>
-  <img src="/images/demo/vector.png" class="ui medium dog image">
+  <div class="ui horizontal divider"><i class="circular heart icon"></i></div>
 
-
-  <div class="ui divider"></div>
-
-  <a class="ui large right labeled teal icon button" href="/introduction/definitions.html">
-    Next: UI Definitions
+  <a class="ui huge right labeled teal icon button" href="/introduction/getting-started.html">
+    Next: Getting Started
     <i class="right arrow icon"></i>
   </a>
-  
+
 </div>

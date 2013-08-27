@@ -192,7 +192,7 @@ code {
   display: inline-block;
   font-family: Courier New;
   font-size: 14px;
-  margin: -0.25em 0.25em;
+  margin: -0.25em 0.25em !important;
   padding: 0.25em 0.5em;
   vertical-align: top;
 }
@@ -202,7 +202,7 @@ pre code {
 }
 table pre,
 table code {
-  margin: 0px;
+  margin: 0px !important;
   padding: 0px;
   background-color: transparent;
 }
@@ -370,7 +370,10 @@ a:hover {
 
 #example .dark.stripe {
   background-color: #333333;
+  background: url(/images/dark-bg.png) repeat;
   color: #FFFFFF;
+}
+#example .final.stripe {
 }
 #example .stripe .column .label {
   margin-bottom: 1em;
@@ -716,7 +719,7 @@ a:hover {
 #example table .instructive.segment .code {
   margin: 0em;
 }
-#example table .instructive.segment div.code div.code .ace_identifier,
+#example table .instructive.segment div.code .ace_identifier,
 #example table .instructive.segment div.code .ace_line {
   color: #555555;
 }
@@ -1162,4 +1165,9 @@ body.progress .ui.progress .bar {
     font-size: 3em;
   }
 
+}
+@media only screen and (max-width : 1500px) {
+  #example.index .icon.header .icon {
+    font-size: 3em;
+  }
 }

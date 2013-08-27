@@ -1,0 +1,77 @@
+  ---
+layout : 'default'
+css    : 'guide'
+
+title  : 'Getting Started'
+type   : 'UI Introduction'
+---
+<script src="/javascript/intro.js"></script>
+<div class="segment">
+  <div class="container">
+    <h1 class="ui header">Introduction
+    </h1>
+  </div>
+</div>
+<div class="main container">
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Philosophy</a>
+      <a class="item">Getting Started</a>
+    </div>
+  </div>
+  <h2 class="ui dividing header">Philosophy</h2>
+  <p> Writing front end code shouldn't require learning the naming or programming conventions of a particular developer. Semantic is a methodology for coding front end designed to make adopting and sharing code with others easier.</p>
+
+
+  <h2 class="ui dividing header">Getting Started</h2>
+
+  <p>UI definitions in Semantic are given the class name <code>ui</code>. This is to help tell the difference between ui elements and parts of an element. For example a menu may have menu items inside of it. These items are contained as part of the menu definition but do not receive the class name <code>ui</code>.</p>
+
+  <div class="code" data-type="html" data-label="true" data-preview="true">
+    <div class="ui compact menu">
+      <a class="item">Home</a>
+      <a class="item">Inbox</a>
+    </div>
+  </div>
+  <div class="ui divider"></div>
+
+  <h3 class="ui header">Combining elements</h3>
+  <p>All UI definitions in semantic are stand-alone, and do not require other components to function. However, components can choose to have optional couplings with other components.</p>
+
+  <p>For example you might want to include a badge inside a menu. A label inside of a menu will automatically function as a badge.</p>
+
+  <div class="code" data-type="html" data-label="true" data-preview="true">
+    <div class="ui compact menu">
+      <div class="item">Home</div>
+      <div class="item">
+        Inbox
+        <div class="ui label">22</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Language Matters</h2>
+
+  <p>Class names in semantic always use single english words. If a class name is an adjective it is either a <b>type</b> of element or <b>variation</b> of an element. This helps prevent naming conflicts between elements (nouns) and changes to an element (adjectives)</p>
+
+  <h3 class="ui header">Defining behavior simply</h3>
+
+  <p>Modules define a public API using simple phrases involving a verb and an object the verb is acting on. This means that if you are using another developer's code, you only need to learn it's public api without having to learn the nasty tricks used to make it work.</p>
+
+  <div class="code" data-demo="true" data-title="Language in Javascript">
+    $('.dog.image')
+      .transition('horizontal flip out')
+      .transition('scale in', '500ms')
+    ;
+  </div>
+  <img src="/images/demo/vector.png" class="ui medium dog image">
+
+
+  <div class="ui divider"></div>
+
+  <a class="ui large right labeled teal icon button" href="/introduction/definitions.html">
+    Next: UI Definitions
+    <i class="right arrow icon"></i>
+  </a>
+
+</div>

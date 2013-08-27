@@ -37,8 +37,6 @@
   font-style: normal;
   text-align: center;
 
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;
   border-radius: 0.2em;
@@ -66,34 +64,44 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   -webkit-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    text-shadow 0.25s ease,
+    box-shadow 0.25s ease
   ;
   -moz-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    text-shadow 0.25s ease,
+    box-shadow 0.25s ease
   ;
   -o-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    text-shadow 0.25s ease,
+    box-shadow 0.25s ease
   ;
   -ms-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    text-shadow 0.25s ease,
+    box-shadow 0.25s ease
   ;
   transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    text-shadow 0.25s ease,
+    box-shadow 0.25s ease
   ;
 }
 
@@ -178,6 +186,38 @@
 
 
 /*--------------
+      Hover
+---------------*/
+
+.ui.button:hover {
+  opacity: 1 !important;
+  background-color: #A4A4A4;
+
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+}
+.ui.button:hover .icon,
+.ui.button.hover .icon {
+  opacity: 0.85;
+}
+
+/*--------------
+      Down
+---------------*/
+
+.ui.button:active {
+  opacity: 1 !important;
+  background-color: #8C8C8C;
+
+  color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+
+  -webkit-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
+  -moz-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
+}
+
+/*--------------
      Active
 ---------------*/
 
@@ -192,62 +232,25 @@
   background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
   background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
 
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+
   -webkit-box-shadow:
-    0px 0px 0.2em 0px rgba(0, 0, 0, 0.15) inset
+    0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
   ;
   -moz-box-shadow:
-    0px 0px 0.2em 0px rgba(0, 0, 0, 0.15) inset
+    0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
   ;
   box-shadow:
-    0px 0px 0.2em 0px rgba(0, 0, 0, 0.15) inset
+    0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
   ;
 }
-.ui.buttons .active.button,
-.ui.buttons .active.button a,
-.ui.active.button,
-.ui.active.button a {
-  color: #FFFFFF;
-}
-
-/*--------------
-      Hover
----------------*/
-
-.ui.button:hover,
-.ui.button.hover {
-  opacity: 1 !important;
-  background-color: #A4A4A4;
-  color: #FFFFFF;
-}
-.ui.button:hover .icon,
-.ui.button.hover .icon {
-  opacity: 0.85;
-}
-
-/*--------------
-  Down (:active)
----------------*/
-
-/* Down */
-.ui.button:active,
-.ui.button.down {
-  opacity: 1 !important;
-  background-color: #8C8C8C;
-  color: #FFFFFF;
-
-  -webkit-box-shadow: 0em 0.125em 0.125em 1px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: 0em 0.125em 0.125em 1px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 0em 0.125em 0.125em 1px rgba(0, 0, 0, 0.2) inset;
-}
-
 
 /*--------------
      Error
 ---------------*/
 
-.ui.error.button,
-.ui.error.button.hover,
-.ui.error.button.down {
+.ui.error.button {
   cursor: default;
 
   position: relative !important;
@@ -287,9 +290,7 @@
      Success
 ---------------*/
 
-.ui.success.button,
-.ui.success.button.hover,
-.ui.success.button.down {
+.ui.success.button {
   position: relative !important;
   background-color: #5BBD72 !important;
   color: transparent !important;
@@ -353,8 +354,7 @@
     Loading
 ---------------*/
 
-.ui.loading.button,
-.ui.loading.button.hover {
+.ui.loading.button {
   position: relative;
   cursor: default;
 
@@ -394,9 +394,7 @@
       Disabled
 --------------------*/
 
-.ui.disabled.button,
-.ui.disabled.button.hover,
-.ui.disabled.button.down {
+.ui.disabled.button {
   cursor: default;
   color: #DDDDDD !important;
   background-color: rgba(50, 50, 50, 0.05) !important;
@@ -439,137 +437,119 @@
 /*--- Black ---*/
 .ui.black.buttons .button,
 .ui.black.button {
-  background-color: #5C6166;
-  color: #FFFFFF;
+  background-color: #5C6166 !important;
+  color: #FFFFFF !important;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.ui.black.buttons .button.hover,
 .ui.black.buttons .button:hover,
-.ui.black.button.hover,
 .ui.black.button:hover {
-  background-color: #4C4C4C;
-  color: #FFFFFF;
+  background-color: #4C4C4C !important;
+  color: #FFFFFF !important;
 }
-.ui.black.buttons .button.down,
 .ui.black.buttons .button:active,
-.ui.black.button.down,
 .ui.black.button:active {
-  background-color: #333333;
-  color: #FFFFFF;
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
 }
 
 /*--- Green ---*/
 .ui.green.buttons .button,
 .ui.green.button {
-  background-color: #5BBD72;
-  color: #FFFFFF;
+  background-color: #5BBD72 !important;
+  color: #FFFFFF !important;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.ui.green.buttons .button.hover,
 .ui.green.buttons .button:hover,
-.ui.green.button.hover,
 .ui.green.button:hover,
 .ui.green.buttons .active.button,
 .ui.green.button.active {
-  background-color: #58cb73;
-  color: #FFFFFF;
+  background-color: #58cb73 !important;
+  color: #FFFFFF !important;
 }
-.ui.green.buttons .button.down,
 .ui.green.buttons .button:active,
-.ui.green.button.down,
 .ui.green.button:active {
-  background-color: #4CB164;
-  color: #FFFFFF;
+  background-color: #4CB164 !important;
+  color: #FFFFFF !important;
 }
 
 /*--- Red ---*/
 .ui.red.buttons .button,
 .ui.red.button {
-  background-color: #D95C5C;
-  color: #FFFFFF;
+  background-color: #D95C5C !important;
+  color: #FFFFFF !important;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.ui.red.buttons .button.hover,
 .ui.red.buttons .button:hover,
-.ui.red.button.hover,
 .ui.red.button:hover,
 .ui.red.buttons .active.button,
 .ui.red.button.active {
-  background-color: #E75859;
-  color: #FFFFFF;
+  background-color: #E75859 !important;
+  color: #FFFFFF !important;
 }
-.ui.red.buttons .button.down,
 .ui.red.buttons .button:active,
-.ui.red.button.down,
 .ui.red.button:active {
-  background-color: #D24B4C;
-  color: #FFFFFF;
+  background-color: #D24B4C !important;
+  color: #FFFFFF !important;
 }
 
 /*--- Blue ---*/
 .ui.blue.buttons .button,
 .ui.blue.button {
-  background-color: #6ECFF5;
-  color: #FFFFFF;
+  background-color: #6ECFF5 !important;
+  color: #FFFFFF !important;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.ui.blue.buttons .button.hover,
 .ui.blue.buttons .button:hover,
-.ui.blue.button.hover,
 .ui.blue.button:hover,
 .ui.blue.buttons .active.button,
 .ui.blue.button.active {
-  background-color: #1AB8F3;
-  color: #FFFFFF;
+  background-color: #1AB8F3 !important;
+  color: #FFFFFF !important;
 }
-.ui.blue.buttons .button.down,
 .ui.blue.buttons .button:active,
-.ui.blue.button.down,
 .ui.blue.button:active {
-  background-color: #0AA5DF;
-  color: #FFFFFF;
+  background-color: #0AA5DF !important;
+  color: #FFFFFF !important;
 }
 
 /*--- Purple ---*/
 .ui.purple.buttons .button,
 .ui.purple.button {
-  background-color: #564F8A;
-  color: #FFFFFF;
+  background-color: #564F8A !important;
+  color: #FFFFFF !important;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.ui.purple.buttons .button.hover,
 .ui.purple.buttons .button:hover,
-.ui.purple.button.hover,
 .ui.purple.button:hover,
 .ui.purple.buttons .active.button,
 .ui.purple.button.active {
-  background-color: #3E3773;
-  color: #FFFFFF;
+  background-color: #3E3773 !important;
+  color: #FFFFFF !important;
 }
-.ui.purple.buttons .button.down,
 .ui.purple.buttons .button:active,
-.ui.purple.button.down,
 .ui.purple.button:active {
-  background-color: #2E2860;
-  color: #FFFFFF;
+  background-color: #2E2860 !important;
+  color: #FFFFFF !important;
 }
 
 /*--- Teal ---*/
 .ui.teal.buttons .button,
 .ui.teal.button {
-  background-color: #00B5AD;
-  color: #FFFFFF;
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.ui.teal.buttons .button.hover,
 .ui.teal.buttons .button:hover,
-.ui.teal.button.hover,
 .ui.teal.button:hover,
 .ui.teal.buttons .active.button,
 .ui.teal.button.active {
-  background-color: #009A93;
-  color: #FFFFFF;
+  background-color: #009A93 !important;
+  color: #FFFFFF !important;
 }
-.ui.teal.buttons .button.down,
 .ui.teal.buttons .button:active,
-.ui.teal.button.down,
 .ui.teal.button:active {
-  background-color: #00847E;
-  color: #FFFFFF;
+  background-color: #00847E !important;
+  color: #FFFFFF !important;
 }
 
 /*---------------
@@ -580,19 +560,16 @@
 .ui.positive.button {
   background-color: #5BBD72 !important;
   color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.ui.positive.buttons .button.hover,
 .ui.positive.buttons .button:hover,
-.ui.positive.button.hover,
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
   background-color: #58CB73 !important;
   color: #FFFFFF;
 }
-.ui.positive.buttons .button.down,
 .ui.positive.buttons .button:active,
-.ui.positive.button.down,
 .ui.positive.button:active {
   background-color: #4CB164 !important;
   color: #FFFFFF;
@@ -606,19 +583,16 @@
 .ui.negative.button {
   background-color: #D95C5C !important;
   color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.ui.negative.buttons .button.hover,
 .ui.negative.buttons .button:hover,
-.ui.negative.button.hover,
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
   background-color: #E75859 !important;
   color: #FFFFFF;
 }
-.ui.negative.buttons .button.down,
 .ui.negative.buttons .button:active,
-.ui.negative.button.down,
 .ui.negative.button:active {
   background-color: #D24B4C !important;
   color: #FFFFFF;
@@ -711,20 +685,13 @@
 }
 
 
+
 /*-------------------
-      Ordinality
+        Basic
 --------------------*/
 
-.ui.buttons.secondary .button,
-.ui.secondary.button {
-  font-weight: normal;
-  text-transform: none;
-  opacity: 1;
-}
-
-/*--- Tertiary ---*/
-.ui.buttons.tertiary .button,
-.ui.tertiary.button {
+.ui.basic.buttons .button,
+.ui.basic.button {
   background-color: transparent;
   background-image: none;
   color: #999999;
@@ -736,43 +703,57 @@
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
-.ui.buttons.tertiary {
-  border: 1px solid #E0E0E0;
+.ui.basic.buttons {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
 }
-.ui.buttons.tertiary .button {
+.ui.basic.buttons .button {
   border: none !important;
-  border-left: 1px solid #E0E0E0 !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.1) !important;
 
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.ui.buttons.tertiary .button:first-child {
+.ui.basic.buttons .button:first-child {
   border-left: none !important;
 }
 
-.ui.button.tertiary.active {
-  opacity: 0.9 !important;
+.ui.basic.buttons .button:hover,
+.ui.basic.button:hover {
+  color: #7F7F7F;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
 }
-.ui.button.tertiary.hover,
-.ui.button.tertiary:hover {
-  opacity: 0.8 !important;
+.ui.basic.buttons .button:active,
+.ui.basic.button:active {
+  background-color: rgba(0, 0, 0, 0.02);
+  color: #7F7F7F;
+
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
-.ui.button.tertiary.down,
-.ui.button.tertiary:active {
-  opacity: 1 !important;
+.ui.basic.buttons .button.active,
+.ui.basic.button.active {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #7F7F7F;
+
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.ui.basic.buttons .button.active:hover,
+.ui.basic.button.active:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.ui.inverted.tertiary.buttons .button,
-.ui.inverted.tertiary.button {
-  color: #FFFFFF;
-  opacity: 0.9 !important;
-}
-.ui.inverted.tertiary.buttons .button:hover,
-.ui.inverted.tertiary.button:hover {
-  color: #FFFFFF;
-  opacity: 1 !important;
-}
 
 /*--------------
    Labeled Icon
@@ -852,6 +833,14 @@
 .ui.right.labeled.icon.button .icon {
   left: auto;
   right: 0em;
+
+  -webkit-border-radius: 0em 0.2em 0.2em 0em;
+  -moz-border-radius: 0em 0.2em 0.2em 0em;
+  border-radius: 0em 0.2em 0.2em 0em;
+
+  -webkit-box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  -moz-box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 }
 
 
@@ -863,13 +852,12 @@
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-  background-color: #5BBD72;
-  color: #FFFFFF;
+  background-color: #5BBD72 !important;
+  color: #FFFFFF !important;
 }
-.ui.buttons.toggle .ui.active.button.hover,
-.ui.buttons .ui.button.toggle.active.hover,
-.ui.button.toggle.active.hover {
-  color: #FFFFFF;
+.ui.button.toggle.active:hover {
+  background-color: #58CB73 !important;
+  color: #FFFFFF !important;
 }
 
 /*--------------

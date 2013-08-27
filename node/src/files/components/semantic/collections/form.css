@@ -170,7 +170,7 @@
 /* On Field(s) */
 .ui.form .fields.error .field label,
 .ui.form .field.error label {
-  color: #EF4D6D;
+  color: #D95C5C;
 }
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input[type="text"],
@@ -183,13 +183,13 @@
   background-color: #FFFAFA;
   border-color: #E7BEBE;
   border-left: none;
-  color: #EF4D6D;
+  color: #D95C5C;
   padding-left: 1.2em;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #EF4D6D inset;
-  -moz-box-shadow: 0.3em 0em 0em 0em #EF4D6D inset;
-  box-shadow: 0.3em 0em 0em 0em #EF4D6D inset;
+  -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+  box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,

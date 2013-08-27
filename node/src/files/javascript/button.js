@@ -35,14 +35,6 @@ semantic.button.ready = function() {
     })
   ;
 
-  $button
-    .state({
-      states: {
-        active: true
-      }
-    })
-  ;
-
 };
 
 
