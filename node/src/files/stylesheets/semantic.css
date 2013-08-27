@@ -240,7 +240,7 @@ a:hover {
 /* segment headers */
 #example > .content > .page > .segment,
 #example > .segment {
-  margin: 0px 0px 0px;
+  margin: 0px 0px 3em;
   padding-top: 70px;
   padding-bottom: 30px;
   background-color: #FFFFFF;
