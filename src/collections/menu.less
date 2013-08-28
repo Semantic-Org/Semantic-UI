@@ -1126,15 +1126,16 @@
   display: inline-block;
   height: auto;
 }
-.ui.icon.menu .item {
+.ui.icon.menu > .item {
+  height: auto;
   text-align: center;
   color: rgba(60, 60, 60, 0.7);
 }
-.ui.icon.menu .item .icon {
+.ui.icon.menu > .item > .icon {
   display: block;
-  float: none;
+  float: none !important;
   opacity: 1;
-  margin: 0em auto;
+  margin: 0em auto !important;
 }
 .ui.icon.menu .icon:before {
   opacity: 1;
@@ -1143,6 +1144,10 @@
 /* Item Icon Only */
 .ui.menu .icon.item .icon {
   margin: 0em;
+}
+
+.ui.vertical.icon.menu {
+  float: none;
 }
 
 /*--- inverted ---*/
@@ -1160,10 +1165,10 @@
 .ui.labeled.icon.menu {
   text-align: center;
 }
-.ui.labeled.icon.menu .icon {
+.ui.labeled.icon.menu > .item > .icon {
   display: block;
-  font-size: 1.5em;
-  margin: 0em auto 0.3em;
+  font-size: 1.5em !important;
+  margin: 0em auto 0.3em !important;
 }
 
 
@@ -1354,6 +1359,31 @@
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
   background-color: #3B3B3B;
+}
+
+
+/*--------------
+    Selection
+---------------*/
+
+.ui.selection.menu > .item {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.selection.menu > .item:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+.ui.selection.menu > .item.active {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.ui.inverted.selection.menu > .item {
+  color: rgba(255, 255, 255, 0.4);
+}
+.ui.inverted.selection.menu > .item:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+.ui.inverted.selection.menu > .item.active {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 
