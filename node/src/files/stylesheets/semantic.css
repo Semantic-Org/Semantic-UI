@@ -107,7 +107,7 @@ body {
 }
 
 body#example {
-  font-family: "Neutraface", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
   padding: 0px;
@@ -119,28 +119,16 @@ body > .content  {
 background: #FCFCFC url(../images/bg.jpg) repeat;
 }
 
+
 /*
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.ui {
-  font-family: "Neutraface", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size-adjust: 0.5;
-}
-
 p,
 ul,
 .ui.grid,
 li {
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size-adjust: none;
-}
+}*/
 
-*/
 
 ul.list {
   list-style-type: disc;

@@ -67,7 +67,8 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/sidr.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 
-  <%- @getBlock('scripts').toHTML() %>
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
   <script src="/javascript/library/jquery.js"></script>
   <script src="/javascript/library/history.js"></script>
   <script src="/javascript/library/easing.js"></script>
