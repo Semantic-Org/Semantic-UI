@@ -13,6 +13,7 @@
              Image
 *******************************/
 .ui.image {
+  position: relative;
   display: inline-block;
   vertical-align: middle;
   max-width: 100%;

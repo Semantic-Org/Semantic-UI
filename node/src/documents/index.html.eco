@@ -24,7 +24,7 @@ type   : 'Semantic'
 <div class="stripe">
   <div class="ui responsive grid">
     <div class="ui column">
-      <h2 class="ui center aligned icon header">
+      <h2 class="ui header">
         <i class="circular emphasized code icon"></i>
         <div class="content">
           Lose the Hieroglyphics

@@ -56,16 +56,16 @@ $.fn.dimmer = function(parameters) {
           if( module.is.dimmer() ) {
             $dimmer = $module;
             $module = $dimmer.parent();
-            module.debug('Module initialized as dimmer');
+            module.debug('Module initialized as dimmer', settings);
           }
           else {
             if( module.has.dimmer() ) {
               $dimmer = $module.children(selector.dimmer).first();
-              module.debug('Module initialized with found dimmer');
+              module.debug('Module initialized with found dimmer', settings);
             }
             else {
               module.create();
-              module.debug('Module initialized with created dimmer');
+              module.debug('Module initialized with created dimmer', settings);
             }
             if(settings.on == 'hover') {
               $module
@@ -126,12 +126,14 @@ $.fn.dimmer = function(parameters) {
         },
 
         animate: {
-          show: function() {
+          show: function(callback) {
+            callback = callback || function(){};
             module.set.dimmed();
             if($.fn.transition !== undefined) {
               $dimmer
-                .transition(settings.transition + ' in', function() {
+                .transition(settings.transition + ' in', settings.duration, function() {
                   module.set.active();
+                  callback();
                 })
               ;
             }
@@ -147,17 +149,20 @@ $.fn.dimmer = function(parameters) {
                 .fadeTo(settings.duration, 1, function() {
                   $dimmer.removeAttr('style');
                   module.set.active();
+                  callback();
                 })
               ;
             }
           },
-          hide: function() {
+          hide: function(callback) {
+            callback = callback || function(){};
             module.remove.dimmed();
             if($.fn.transition !== undefined) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition(settings.transition + ' out', settings.duration, function() {
                   module.remove.active();
+                  callback();
                 })
               ;
             }
@@ -168,6 +173,7 @@ $.fn.dimmer = function(parameters) {
                 .fadeOut(settings.duration, function() {
                   $dimmer.removeAttr('style');
                   module.remove.active();
+                  callback();
                 })
               ;
             }
@@ -251,10 +257,10 @@ $.fn.dimmer = function(parameters) {
           }
         },
 
-        show: function() {
+        show: function(callback) {
           module.debug('Showing dimmer', $dimmer);
           if( (!module.is.active() || module.is.animating() ) && module.is.enabled() ) {
-            module.animate.show();
+            module.animate.show(callback);
             $.proxy(settings.onShow, element)();
             $.proxy(settings.onChange, element)();
           }
@@ -263,10 +269,10 @@ $.fn.dimmer = function(parameters) {
           }
         },
 
-        hide: function() {
+        hide: function(callback) {
           if( module.is.active() || module.is.animating() ) {
             module.debug('Hiding dimmer', $dimmer);
-            module.animate.hide();
+            module.animate.hide(callback);
             $.proxy(settings.onHide, element)();
             $.proxy(settings.onChange, element)();
           }

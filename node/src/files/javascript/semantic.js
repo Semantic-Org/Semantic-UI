@@ -47,6 +47,8 @@ semantic.ready = function() {
     $overview         = $('.overview.item, .overview.button'),
     $designer         = $('.designer.item'),
 
+    $sidebarButton    = $('.attached.launch.button'),
+
     $increaseFont     = $('.font .increase'),
     $decreaseFont     = $('.font .decrease'),
 
@@ -522,6 +524,11 @@ semantic.ready = function() {
       on         : 'hover',
       action     : 'none'
     })
+  ;
+
+  $sidebarButton
+    .on('mouseenter', handler.menu.mouseenter)
+    .on('mouseleave', handler.menu.mouseleave)
   ;
 
   $menu

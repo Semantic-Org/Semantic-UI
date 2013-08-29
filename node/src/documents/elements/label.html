@@ -15,31 +15,23 @@ type   : 'UI Element'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Types</a>
+      <a class="active item">Content</a>
+      <a class="item">Types</a>
       <a class="item">Variations</a>
       <a class="item">Groups</a>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Types</h2>
+  <h2 class="ui dividing header">Content</h2>
   <div class="example">
     <h4 class="ui header">Label</h4>
     <p>A basic label</p>
     <div class="ui label">
-      <i class="icon location"></i> 23
+      <i class="location icon"></i> 23
     </div>
   </div>
-
   <div class="example">
-    <h4 class="ui header">Linkable Label</h4>
-    <p>If an html link tag is used, a label will be formatted as a link</p>
-    <a class="ui label">
-      Fun
-    </a>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Label with detail</h4>
+    <h4 class="ui header">Detail</h4>
     <p>A tag can optionally display a detail</p>
     <div class="ui label">
       Dogs
@@ -48,41 +40,63 @@ type   : 'UI Element'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Removable label</h4>
-    <p>A tag can also be removable</p>
+    <h4 class="ui header">Removable</h4>
+    <p>A tag can optionally be removable</p>
     <div class="ui label">
       Witty
-      <i class="icon close"></i>
+      <i class="delete icon"></i>
     </div>
   </div>
 
+  <h2 class="ui dividing header">Types</h2>
+
   <div class="example">
-    <h4 class="ui header">Corner Label</h4>
+    <h4 class="ui header">Image</h4>
+    <p>A tag can optionally display a detail</p>
+    <a class="ui image label">
+      <img src="/images/demo/photo2.jpg">
+      dog@doggington.com
+      <i class="delete icon"></i>
+    </a>
+    <a class="ui image label">
+      <img src="/images/demo/avatar2.jpg">
+      james@thepooch.com
+      <i class="delete icon"></i>
+    </a>
+    <a class="ui image label">
+      <img src="/images/demo/avatar3.jpg">
+      kelly@bellyscratcher.com
+      <i class="delete icon"></i>
+    </a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Corner</h4>
     <p>A label can position itself in the corner of an element</p>
     <div class="yellow ui message">A corner label must be positioned inside a container with position: relative to display properly</div>
     <div class="ui segment">
       <div class="ui right red corner label">
         <i class="heart icon"></i>
       </div>
-      <div class="ui left green corner label">
+      <div class="ui left corner label">
         <div class="text">New</div>
       </div>
       This is a normal text segment
     </div>
-    <div class="ui segment">
-      <a class="ui left red corner label">
-        <i class="heart icon"></i>
-      </a>
-      <a class="ui right green corner label">
+    <div class="ui image">
+      <a class="ui left corner label">
         <div class="text">New</div>
       </a>
-      These corner labels are formatted as links
+      <a class="ui right red corner label">
+        <i class="heart icon"></i>
+      </a>
+      <img src="/images/demo/stickfigure.jpg">
     </div>
   </div>
 
   <div class="example">
-    <h4 class="ui header">Ribbon Label</h4>
-    <p>A label can appear as a ribbon attaching itself to a content segment.</p>
+    <h4 class="ui header">Ribbon</h4>
+    <p>A label can appear as a ribbon attaching itself to an element.</p>
     <div class="ui two column grid">
       <div class="row">
         <div class="column">
@@ -99,7 +113,7 @@ type   : 'UI Element'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Attached Label</h4>
+    <h4 class="ui header">Attached</h4>
     <p>A label can attach to a content segment</p>
     <div class="ui three column grid">
       <div class="row">
@@ -178,6 +192,29 @@ type   : 'UI Element'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Horizontal</h4>
+    <p>A horizontal label is formatted to label content along-side it horizontally</p>
+    <div class="ui selection list">
+      <a class="item">
+        <div class="ui red horizontal label">Fruit</div>
+        Kumquats
+      </a>
+      <a class="item">
+        <div class="ui purple horizontal label">Candy</div>
+        Ice Cream
+      </a>
+      <a class="item">
+        <div class="ui red horizontal label">Fruit</div>
+        Orange
+      </a>
+      <a class="item">
+        <div class="ui horizontal label">Dog</div>
+        Poodle
+      </a>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Circular</h4>
     <p>A label can be circular</p>
     <a class="ui black circular label">
@@ -198,6 +235,14 @@ type   : 'UI Element'
     <a class="ui teal circular label">
       1
     </a>
+  </div>
+  <div class="another example">
+    <div class="ui black circular label"></div>
+    <div class="ui green circular label"></div>
+    <div class="ui red circular label"></div>
+    <div class="ui blue circular label"></div>
+    <div class="ui purple circular label"></div>
+    <div class="ui teal circular label"></div>
   </div>
 
   <div class="example">
