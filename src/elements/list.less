@@ -294,10 +294,15 @@ ol.ui.list li,
 ol.ui.list li:before,
 .ui.ordered.list .item:before {
   position: absolute;
+  top: 50%;
   left: -2em;
 
   counter-increment: ordered;
   content: counters(ordered, ".");
+
+  margin-top: -0.5em;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6);
 
   text-align: right;
   vertical-align: top;

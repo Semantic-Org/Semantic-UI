@@ -15,7 +15,7 @@
 .ui.label {
   display: inline-block;
   vertical-align: middle;
-  margin: -0.5em 0.25em 0em;
+  margin: -0.25em 0.25em 0em;
   background-color: #E8E8E8;
   border-color: #E8E8E8;
   padding: 0.5em 0.8em;
@@ -40,19 +40,29 @@
   transition: background 0.1s linear
   ;
 }
+.ui.label:first-child {
+  margin-left: 0em;
+}
+.ui.label:last-child {
+  margin-right: 0em;
+}
+/* Link */
 a.ui.label {
   cursor: pointer;
 }
-.ui.label.disabled {
-  opacity: 0.5;
-}
+/* Detail */
 .ui.label .detail {
   display: inline-block;
   margin-left: 0.5em;
   font-weight: bold;
   opacity: 0.8;
 }
-.ui.label .icon.close {
+/* Icon */
+.ui.label .icon {
+  width: auto;
+}
+/* Removable label */
+.ui.label .delete.icon {
   cursor: pointer;
   margin: 0em 0em 0em 0.5em;
   opacity: 0.7;
@@ -67,9 +77,43 @@ a.ui.label {
   transition: background 0.1s linear
   ;
 }
+.ui.label .delete.icon:hover {
+  opacity: 0.99;
+}
+/*******************************
+             Types
+*******************************/
+.ui.image.label {
+  width: auto !important;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  line-height: 1.5em;
+  vertical-align: baseline;
+  text-transform: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.ui.image.label img {
+  display: inline-block;
+  height: 2.5em;
+  margin: -0.4em 0.8em -0.4em -0.8em;
+  vertical-align: top;
+  -moz-border-radius: 0.325em 0em 0em 0.325em;
+  -webkit-border-radius: 0.325em 0em 0em 0.325em;
+  border-radius: 0.325em 0em 0em 0.325em;
+}
 /*******************************
              States
 *******************************/
+/*-------------------
+       Disabled
+--------------------*/
+.ui.label.disabled {
+  opacity: 0.5;
+}
 /*-------------------
         Hover
 --------------------*/
@@ -83,9 +127,6 @@ a.ui.label:hover {
 a.ui.label:hover:before {
   background-color: #E0E0E0;
   color: rgba(0, 0, 0, 0.7);
-}
-.ui.label .icon.close:hover {
-  opacity: 0.99;
 }
 /*******************************
            Variations
@@ -499,15 +540,26 @@ a.ui.teal.label:hover:before {
   background-color: transparent !important;
 }
 /*-------------------
+     Horizontal
+--------------------*/
+.ui.horizontal.labels .label,
+.ui.horizontal.label {
+  margin: -0.125em 0.5em -0.125em 0em;
+  padding: 0.35em 1em;
+  min-width: 6em;
+  text-align: center;
+}
+/*-------------------
        Circular
 --------------------*/
 .ui.circular.labels .label,
 .ui.circular.label {
-  margin-top: -1em;
-  height: 2em;
+  min-height: 1em;
+  max-height: 2em;
   padding: 0.5em !important;
   line-height: 1em;
   text-align: center;
+  vertical-align: baseline;
   -webkit-border-radius: 500em;
   -moz-border-radius: 500em;
   border-radius: 500em;

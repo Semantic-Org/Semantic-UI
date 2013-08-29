@@ -130,7 +130,6 @@ $.fn.dropdown = function(parameters) {
                 $currentMenu = $(this).find(selector.menu),
                 $otherMenus  = $(this).siblings(selector.item).children(selector.menu)
               ;
-              console.log($currentMenu);
               if( $currentMenu.size() > 0 ) {
                 clearTimeout(dropdown.itemTimer);
                 dropdown.itemTimer = setTimeout(function() {

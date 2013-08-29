@@ -103,11 +103,11 @@ h3::selection {
 
 html,
 body {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 body#example {
-  font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
   padding: 0px;
@@ -218,10 +218,6 @@ a:hover {
 }
 #example #menu .item .item {
   font-size: 0.875rem;
-}
-
-#example .sidr .ui.menu {
-  margin: 0px 0px 30px;
 }
 
 
@@ -580,6 +576,7 @@ a:hover {
 }
 #example.overview .example {
   margin: 0em;
+  min-height: 0px !important;
   overflow: hidden;
   padding: 0.5em 0em;
 }

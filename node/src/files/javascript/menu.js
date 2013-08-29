@@ -4,8 +4,9 @@ semantic.menu = {};
 semantic.menu.ready = function() {
 
   // selector cache
-  var 
+  var
     $menuItem = $('.menu a.item, .menu .link.item'),
+    $dropdown = $('.main.container .menu .dropdown'),
     // alias
     handler = {
 
@@ -24,10 +25,16 @@ semantic.menu.ready = function() {
     }
   ;
 
+  $dropdown
+    .dropdown({
+      on: 'hover'
+    })
+  ;
+
   $menuItem
     .on('click', handler.activate)
   ;
-  
+
 };
 
 

@@ -24,8 +24,6 @@
 
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
- <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,300italic' rel='stylesheet' type='text/css'>
- -->
 
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
@@ -53,6 +51,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/statistic.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/carousel.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/modal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/reveal.css">
@@ -67,7 +66,8 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/sidr.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 
-  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+ <!--  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Droid+Sans|Raleway:700,600,400' rel='stylesheet' type='text/css'> -->
 
   <script src="/javascript/library/jquery.js"></script>
   <script src="/javascript/library/history.js"></script>
@@ -81,6 +81,7 @@
   <script src="/components/semantic/modules/checkbox.js"></script>
   <script src="/components/semantic/modules/dimmer.js"></script>
   <script src="/components/semantic/modules/dropdown.js"></script>
+  <script src="/components/semantic/modules/modal.js"></script>
   <script src="/components/semantic/modules/sidebar.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
   <script src="/components/semantic/modules/tab.js"></script>
@@ -91,7 +92,9 @@
 </head>
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
-    <div class="item"><a href="/download.html"><i class="inverted circular red upload icon"></i> <b>Download</b></a></div>
+    <a class="item" href="/download.html">
+      <i class="inverted circular red upload icon"></i> <b>Download</b>
+    </a>
     <div class="item">
       <a href="/introduction.html">
         <b>Introduction</b>

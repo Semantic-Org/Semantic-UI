@@ -17,17 +17,18 @@
 
 .ui.modal {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 1001;
 
   top: 50%;
   left: 50%;
-  margin-left: -400px;
-  width: 800px;
+  text-align: left;
 
-  -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+  width: 800px;
+  margin-left: -400px;
+
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -39,7 +40,7 @@
 *******************************/
 
 /*--------------
-     Close 
+     Close
 ---------------*/
 
 .ui.modal > .close {
@@ -47,11 +48,11 @@
   position: absolute;
 
   opacity: 0.8;
-  
+
   font-size: 1.25em;
   top: -1.75em;
   right: -1.75em;
-   
+
   color: #FFFFFF;
 }
 .ui.modal > .close:hover {
@@ -63,18 +64,17 @@
 ---------------*/
 
 .ui.modal > .header {
-  background-color: #442359;
-  padding: 1em 2em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  margin: 0em;
+  padding: 1.5rem 2rem;
+
+  font-size: 1.6em;
+  font-weight: bold;
 
   -webkit-border-radius: 0.325em 0.325em 0px 0px;
   -moz-border-radius: 0.325em 0.325em 0px 0px;
   border-radius: 0.325em 0.325em 0px 0px;
-}
-.ui.modal > .header h2 {
-  margin: 0px;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #FFFFFF;
 }
 
 /*--------------
@@ -82,28 +82,43 @@
 ---------------*/
 
 .ui.modal > .content {
+  display: table;
   position: relative;
-  overflow: hidden;
   padding: 2em;
-  background-color: #FAFAFA;
-
-  -webkit-border-radius: 0px 0px 0.325em 0.325em;
-  -moz-border-radius: 0px 0px 0.325em 0.325em;
-  border-radius: 0px 0px 0.325em 0.325em;
+  background-color: #F4F4F4;
 }
 .ui.modal > .content > .left {
-  float: left;
-  width: 50%;
+  display: table-cell;
+  padding-right: 5%;
 }
 .ui.modal > .content > .right {
-  float: right;
-  width: 50%;
+  display: table-cell;
+  padding-left: 5%;
+  vertical-align: middle;
+
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
+
+/*--------------
+     Actions
+---------------*/
+
+.ui.modal .actions {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+  background-color: #FFFFFF;
+  padding: 1rem 2rem;
+  text-align: right;
+}
+.ui.modal .actions > .button {
+  margin-left: 0.75em;
+}
+
+
 
 /*******************************
              Types
 *******************************/
-
 
 /* A modal that cannot fit on the page */
 .ui.modal.scrolling {
@@ -111,3 +126,10 @@
   margin-top: 100px;
 }
 
+/*******************************
+              States
+*******************************/
+
+.ui.active.modal {
+  display: block;
+}

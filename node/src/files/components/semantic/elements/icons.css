@@ -555,7 +555,6 @@ i.dropdown.icon {
 i.icon.star {
   width: auto;
   margin: 0em;
-  vertical-align: middle;
 }
 /* left side icons */
 i.icon.left,
@@ -660,8 +659,9 @@ i.circular.icon {
   -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  width: 2em;
-  height: 2em;
+  line-height: 1 !important;
+  width: 2em !important;
+  height: 2em !important;
 }
 i.circular.icon:before {
   vertical-align: middle;
