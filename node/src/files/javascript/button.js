@@ -7,6 +7,7 @@ semantic.button.ready = function() {
   var
     $buttons = $('.ui.buttons .button'),
     $toggle  = $('.ui.toggle.button'),
+    $follow  = $('.follow.example .button'),
     $button  = $('.ui.button').not($buttons).not($toggle),
     // alias
     handler = {
@@ -24,6 +25,15 @@ semantic.button.ready = function() {
 
   $buttons
     .on('click', handler.activate)
+  ;
+
+  $follow
+    .state({
+      text: {
+        inactive : 'Follow',
+        active   : 'Following'
+      }
+    })
   ;
 
   $toggle

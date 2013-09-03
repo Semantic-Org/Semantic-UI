@@ -14,18 +14,24 @@ type   : 'Semantic'
 </div>
 <div class="main container">
   <h2 class="ui dividing header">Types of Collections</h2>
-  
+
   <div class="ui type two items">
     <div class="item">
       <div class="image">
         <div class="ui fluid form">
           <div class="field">
             <label>Name</label>
-            <input class="ui input" placeholder="Name">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" placeholder="Name">
+            </div>
           </div>
           <div class="field">
             <label>E-mail</label>
-            <input class="ui input" placeholder="E-mail">
+            <div class="ui left icon input">
+              <i class="email icon"></i>
+              <input type="text" placeholder="E-mail">
+            </div>
           </div>
         </div>
       </div>
@@ -49,8 +55,18 @@ type   : 'Semantic'
     </div>
     <div class="item">
       <div class="image">
-        <div class="ui inverted three item menu">
-          <a class="item">Friends</a>
+        <div class="ui tabular three item menu">
+          <a class="active item">Friends</a>
+          <a class="item">Messages</a>
+          <a class="item">Profile</a>
+        </div>
+        <div class="ui secondary pointing three item menu">
+          <a class="active item">Friends</a>
+          <a class="item">Messages</a>
+          <a class="item">Profile</a>
+        </div>
+        <div class="ui three item menu">
+          <a class="active item">Friends</a>
           <a class="item">Messages</a>
           <a class="item">Profile</a>
         </div>
@@ -62,15 +78,22 @@ type   : 'Semantic'
     </div>
     <div class="item">
       <div class="image">
-        <table class="ui table">
+        <table class="ui celled definition table segment">
           <thead>
-            <th>Name</th>
+            <tr><th>Name</th>
             <th>Status</th>
-          </thead>
+          </tr></thead>
           <tbody>
-            <tr>
+            <tr class="positive">
               <td>John</td>
-              <td class="positive"><i class="icon check"></i> Approved</td>
+              <td> Approved</td>
+            </tr><tr>
+              <td>John</td>
+              <td> Unconfirmed</td>
+            </tr>
+            <tr class="negative">
+              <td>Sally</td>
+              <td> Denied</td>
             </tr>
           </tbody>
         </table>
@@ -82,9 +105,10 @@ type   : 'Semantic'
     </div>
     <div class="item">
       <div class="image">
-        <div class="ui warning message">
-          <div class="header">Alert</div>
-          <p>You forgot your name!</p>
+        <div class="ui error icon message">
+          <i class="heart icon"></i>
+          <div class="header">Hey, you forgot something</div>
+          <p>Do be do be do.</p>
         </div>
       </div>
       <div class="content">
@@ -92,7 +116,7 @@ type   : 'Semantic'
         <p class="description">Messages alert a user to something important.</p>
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>

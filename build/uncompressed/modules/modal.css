@@ -82,7 +82,6 @@
 ---------------*/
 .ui.modal .actions {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #FFFFFF;
   padding: 1rem 2rem;
   text-align: right;
 }
@@ -91,6 +90,17 @@
 }
 /*******************************
              Types
+*******************************/
+.ui.basic.modal {
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+}
+.ui.basic.modal .content {
+  background-color: transparent;
+}
+/*******************************
+            Variations
 *******************************/
 /* A modal that cannot fit on the page */
 .ui.modal.scrolling {

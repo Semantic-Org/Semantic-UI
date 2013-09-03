@@ -69,6 +69,11 @@ type   : 'UI Module'
   <h2 class="ui dividing header">Usage</h2>
 
   <h3 class="ui header">Initializing a modal</h3>
+  <p>A modal can be included anywhere on the page. On initialization a modal's current size will be cached, and the element will be detached from the dom and moved inside a dimmer.</p>
+  <div class="ui info message">
+    <div class="header">Why move?</div>
+    <p>Moving a modal to inside the dimmer allows for 3D animations without having the 3D perspective settings alter the rest of the page content. Additionally, content outside the dimmer can be blurred or altered without affecting the modal's content.</p>
+  </div>
   <div class="code" data-type="javascript">
     $('.ui.modal')
       .modal()
@@ -99,7 +104,7 @@ type   : 'UI Module'
 
   <div class="no example">
     <h4 class="ui header">Show</h4>
-    <p>A modal can show its menu</p>
+    <p>A modal can show itself</p>
     <div class="code" data-demo="true">
     $('.test.modal')
       .modal('show')
@@ -108,7 +113,7 @@ type   : 'UI Module'
   </div>
   <div class="no example">
     <h4 class="ui header">Hide</h4>
-    <p>A modal can hide its menu</p>
+    <p>A modal can hide itself</p>
     <div class="code" data-demo="true">
     $('.test.modal')
       .modal('hide')
@@ -160,7 +165,7 @@ type   : 'UI Module'
         <td>
         body
         </td>
-        <td>Selector or jquery object specifying the are to dim</td>
+        <td>Selector or jquery object specifying the area to dim</td>
       </tr>
       <tr>
         <td>closable</td>

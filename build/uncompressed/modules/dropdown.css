@@ -117,6 +117,9 @@
 .ui.dropdown .menu .active.item {
   background-color: rgba(0, 0, 0, 0.04);
   border-left: none;
+  -webkit-box-shadow: none;
+  -moz-shadow: none;
+  box-shadow: none;
   z-index: 12;
 }
 /* Default Text */
