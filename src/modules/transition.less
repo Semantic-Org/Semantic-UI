@@ -68,6 +68,7 @@
 /* Visible */
 .ui.visible.transition {
   display: block;
+  visibility: visible;
 }
 
 
@@ -89,7 +90,7 @@
 }
 
 /*******************************
-     Variations
+          Variations
 *******************************/
 
 .ui.looping.transition {
@@ -102,11 +103,11 @@
 
 
 /*******************************
-      Types
+             Types
 *******************************/
 
 /*--------------
-  Emphasis
+    Emphasis
 ---------------*/
 
 .ui.flash.transition {
@@ -458,9 +459,10 @@
     -o-transform: scale(1) rotate(0);
   }
 }
+
 @keyframes tada {
   0% {
-  transform: scale(1);
+    transform: scale(1);
   }
   10%, 20% {
     transform: scale(0.9) rotate(-3deg);
@@ -479,47 +481,64 @@
 @-webkit-keyframes pulse {
   0% {
     -webkit-transform: scale(1);
+    opacity: 1;
   }
   50% {
-    -webkit-transform: scale(1.1);
+    -webkit-transform: scale(0.9);
+    opacity: 0.7;
   }
   100% {
     -webkit-transform: scale(1);
+    opacity: 1;
   }
 }
-@-moz-keyframes pulse {
-  0% {
-    -moz-transform: scale(1);
-  }
-  50% {
-    -moz-transform: scale(1.1);
-  }
-  100% {
-    -moz-transform: scale(1);
-  }
-}
+
 @-o-keyframes pulse {
   0% {
     -o-transform: scale(1);
+    opacity: 1;
   }
   50% {
-    -o-transform: scale(1.1);
+    -o-transform: scale(0.9);
+    opacity: 0.7;
   }
   100% {
     -o-transform: scale(1);
+    opacity: 1;
   }
 }
+
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    -moz-transform: scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    -moz-transform: scale(1);
+    opacity: 1;
+  }
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
+    opacity: 1;
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(0.9);
+    opacity: 0.7;
   }
   100% {
     transform: scale(1);
+    opacity: 1;
   }
+
 }
+
 
 /*--------------
      Flips

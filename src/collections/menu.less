@@ -57,8 +57,7 @@
 .ui.menu > .item:last-child {
   border-radius: 0px 0.1875em 0.1875em 0px;
 }
-.ui.menu .item,
-.ui.menu .item > a {
+.ui.menu .item {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -69,6 +68,7 @@
   vertical-align: middle;
 
   line-height: 1;
+  text-decoration: none;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -111,13 +111,9 @@
 .ui.menu .item > a {
   color: rgba(0, 0, 0, 0.75);
 }
-.ui.menu .item > a:hover {
-  background-color: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.8);
-}
 .ui.menu .item .item,
 .ui.menu .item .item > a {
-  color: rgba(30, 30, 30, 0.8);
+  color: rgba(30, 30, 30, 0.7);
 }
 .ui.menu .item .item .item,
 .ui.menu .item .item .item > a {
@@ -163,12 +159,6 @@
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
   user-select: none;
-}
-
-.ui.menu .item > a {
-  display: block;
-  margin: -0.83em -0.95em;
-  padding: 0.83em 0.95em;
 }
 
 .ui.menu .menu {
@@ -312,16 +302,14 @@
      Labels
 ---------------*/
 
-.ui.menu .item > .label,
-.ui.menu .item > a > .label {
+.ui.menu .item > .label {
   background-color: #9DA6AB;
   color: #FFFFFF;
   margin: -0.15em 0em -0.15em 0.5em;
   padding: 0.3em 0.8em;
   vertical-align: baseline;
 }
-.ui.menu .item > .floating.label,
-.ui.menu .item > a > .floating.label {
+.ui.menu .item > .floating.label {
   padding: 0.3em 0.8em;
 }
 
@@ -376,7 +364,6 @@
 .ui.menu .item.down,
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
-.ui.menu .item > a:active,
 .ui.menu .ui.dropdown .menu .item.down,
 .ui.menu .ui.dropdown .menu .item:active {
   background-color: rgba(0, 0, 0, 0.05);
@@ -421,7 +408,6 @@
 }
 
 
-
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
 }
@@ -430,7 +416,9 @@
 }
 .ui.vertical.menu .item .menu .active.item {
   background-color: rgba(0, 0, 0, 0.03);
-  border-left: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 /*--------------
@@ -497,7 +485,6 @@
 .ui.vertical.menu .item > .icon:not(.input) {
   float: right;
   width: 1.22em;
-  line-height: 1.22;
   margin: 0em 0em 0em 0.5em;
 }
 .ui.vertical.menu .item > .label + .icon {
@@ -576,10 +563,6 @@
 }
 .ui.vertical.menu .item > .menu > .item:before {
   display: none;
-}
-.ui.vertical.menu .item > .menu > .item > a {
-  margin: -0.5rem -1.5rem;
-  padding: 0.5rem 1.5rem;
 }
 
 
@@ -734,6 +717,9 @@
   border-top: none;
   padding-top: 0.83em;
   background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 /*--------------
@@ -1060,9 +1046,6 @@
   text-transform: uppercase;
   font-weight: bold;
 }
-.ui.text.menu .header.item > a {
-  background-color: transparent;
-}
 
 /*--- fluid text ---*/
 .ui.text.item.menu .item {
@@ -1250,13 +1233,6 @@
 .ui.inverted.menu .item .item > a {
   color: rgba(255, 255, 255, 0.8);
 }
-.ui.inverted.menu .item .item > a:hover {
-  background-color: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.9);
-}
-.ui.inverted.menu .item > p:only-child {
-  color: rgba(255, 255, 255, 0.75);
-}
 .ui.inverted.menu .dropdown.item .menu .item,
 .ui.inverted.menu .dropdown.item .menu .item a {
   color: rgba(0, 0, 0, 0.75) !important;
@@ -1347,7 +1323,6 @@
 /*--- Down ---*/
 .ui.inverted.menu .item.down,
 .ui.inverted.menu a.item:active,
-.ui.inverted.menu .item > a:active,
 .ui.inverted.menu .item.down,
 .ui.inverted.menu .dropdown.item:active,
 .ui.inverted.menu .link.item:active,
@@ -1476,11 +1451,8 @@
 ---------------*/
 
 .ui.fitted.menu .item,
-.ui.fitted.menu .item > a,
 .ui.fitted.menu .item .menu .item,
-.ui.fitted.menu .item .menu .item > a,
-.ui.menu .fitted.item,
-.ui.menu .fitted.item > a {
+.ui.menu .fitted.item {
   padding-top: 0em;
   padding-bottom: 0em;
 }
@@ -1490,11 +1462,8 @@
 ---------------*/
 
 .ui.tight.menu .item,
-.ui.tight.menu .item > a,
 .ui.tight.menu .item .menu .item,
-.ui.tight.menu .item .menu .item > a,
-.ui.menu .tight.item,
-.ui.menu .tight.item > a {
+.ui.menu .tight.item {
   padding: 0em;
 }
 
@@ -1504,11 +1473,8 @@
 ---------------*/
 
 .ui.borderless.menu .item:before,
-.ui.borderless.menu .item > a:before,
 .ui.borderless.menu .item .menu .item:before,
-.ui.borderless.menu .item .menu .item > a:before,
-.ui.menu .borderless.item:before,
-.ui.menu .borderless.item > a:before {
+.ui.menu .borderless.item:before {
   background-image: none;
 }
 

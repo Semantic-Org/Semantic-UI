@@ -73,6 +73,10 @@
   top: 0% !important;
   left: 100% !important;
   margin: 0em !important;
+  border-radius: 0 0.325em 0.325em 0em !important;
+}
+.ui.dropdown .menu .menu:after {
+  display: none;
 }
 .ui.dropdown .menu .item {
   cursor: pointer;

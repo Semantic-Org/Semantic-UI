@@ -20,7 +20,7 @@ $.fn.transition = function() {
     moduleArguments = arguments,
     query           = moduleArguments[0],
     queryArguments  = [].slice.call(arguments, 1),
-    methodInvoked   = (typeof query == 'string'),
+    methodInvoked   = (typeof query === 'string'),
 
     requestAnimationFrame = window.requestAnimationFrame
       || window.mozRequestAnimationFrame
@@ -74,10 +74,10 @@ $.fn.transition = function() {
             module.instantiate();
           }
           if(methodInvoked) {
-            module.invoke(query);
+            methodInvoked = module.invoke(query);
           }
           // no internal method was found matching query or query not made
-          if(!methodInvoked || invokedResponse === undefined) {
+          if(methodInvoked === false) {
             module.animate();
           }
         },
@@ -585,7 +585,7 @@ $.fn.transition = function() {
           else if(response !== undefined) {
             invokedResponse = response;
           }
-          return found;
+          return found || false;
         }
       };
       module.initialize();

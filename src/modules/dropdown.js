@@ -159,8 +159,8 @@ $.fn.dropdown = function(parameters) {
                 text    = $choice.data(metadata.text)  || $choice.text(),
                 value   = $choice.data(metadata.value) || text
               ;
-              dropdown.verbose('Adding active state to selected item');
-              if( $item.find(selector.menu).size() === 0 ) {
+              if( $choice.find(selector.menu).size() === 0 ) {
+                dropdown.verbose('Adding active state to selected item');
                 $item
                   .removeClass(className.active)
                 ;

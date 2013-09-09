@@ -81,12 +81,14 @@ img.ui.image {
 .ui.floated.image,
 .ui.floated.images {
   float: left;
-  margin-right: 0.5em;
+  margin-right: 1em;
+  margin-bottom: 1em;
 }
 .ui.right.floated.images,
 .ui.right.floated.image {
   float: right;
-  margin-left: 0.5em;
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 /*--------------
      Sizes
