@@ -27,19 +27,19 @@ type   : 'UI Module'
     </div>
   </div>
 </div>
-<div class="ui right sidebar vertical menu">
+<div class="ui right sidebar inverted red vertical menu">
   <div class="header item">Right Sidebar menu</div>
   <a class="item">One</a>
   <a class="item">Two</a>
   <a class="item">Three</a>
 </div>
-<div class="ui top sidebar menu">
+<div class="ui top inverted teal sidebar menu">
   <div class="header item">Top Sidebar menu</div>
   <a class="item">One</a>
   <a class="item">Two</a>
   <a class="item">Three</a>
 </div>
-<div class="ui bottom sidebar menu">
+<div class="ui bottom inverted sidebar menu">
   <div class="header item">Bottom Sidebar menu</div>
   <a class="item">One</a>
   <a class="item">Two</a>
@@ -141,7 +141,7 @@ type   : 'UI Module'
     <p>You can also however specify what action should occur when the element is clicked</p>
     <div class="code" data-demo="true">
     $('.demo.sidebar')
-      .sidebar('attach events', '.open.button', 'open')
+      .sidebar('attach events', '.open.button', 'show')
     ;
     $('.open.button')
       .removeClass('disabled')
@@ -190,15 +190,15 @@ type   : 'UI Module'
       .removeClass('disabled')
     ;
     </div>
-    <div class="ui icon buttons">
+    <div class="ui buttons">
       <div class="ui disabled direction button" data-direction="top">
-        <i class="up arrow icon"></i>
+        Top
       </div>
       <div class="ui disabled direction button" data-direction="right">
-        <i class="right arrow icon"></i>
+        Right
       </div>
       <div class="ui disabled direction button" data-direction="bottom">
-        <i class="down arrow icon"></i>
+        Bottom
       </div>
     </div>
   </div>
@@ -219,7 +219,7 @@ type   : 'UI Module'
 
   All the following behaviors can be called using the syntax <code>$('.foo').sidebar('behavior name')</code>
 
-  <table class="ui definition table segment">
+  <table class="ui definition celled table segment">
     <tr>
       <td>attach events</td>
       <td>Attaches sidebar action to given selector</td>
