@@ -104,6 +104,10 @@
   top: 0% !important;
   left: 100% !important;
   margin: 0em !important;
+  border-radius: 0 0.325em 0.325em 0em !important;
+}
+.ui.dropdown .menu .menu:after {
+  display: none;
 }
 
 .ui.dropdown .menu .item {
@@ -156,6 +160,7 @@
 
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
+  box-shadow: none;
   background-color: rgba(0, 0, 0, 0.04);
   border-left: none;
 

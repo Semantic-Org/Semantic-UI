@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<head>
 <% uiIntroduction    = @getCollection("documents").findAllLive({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
 <% uiGuide           = @getCollection("documents").findAllLive({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
 <% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
@@ -11,8 +12,6 @@
 <% pageCount         = @pageCount(currentCollection) %>
 <% pageNumber        = @getPage(currentCollection, @document.id) %>
 <% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
-<head>
-
   <!-- Standard Meta -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -28,7 +27,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/divider.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/header.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/icons.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/icon.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/image.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/label.css">

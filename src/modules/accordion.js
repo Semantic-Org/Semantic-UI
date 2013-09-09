@@ -66,8 +66,10 @@ $.fn.accordion = function(parameters) {
         destroy: function() {
           module.debug('Destroying previous accordion for', $module);
           $module
-            .off(eventNamespace)
             .removeData(moduleNamespace)
+          ;
+          $title
+            .off(eventNamespace)
           ;
         },
 
@@ -93,8 +95,9 @@ $.fn.accordion = function(parameters) {
         toggle: function(index) {
           module.debug('Toggling content content at index', index);
           var
-            $activeTitle  = $title.eq(index),
-            contentIsOpen = $activeTitle.hasClass(className.active)
+            $activeTitle   = $title.eq(index),
+            $activeContent = $activeTitle.next($content),
+            contentIsOpen  = $activeContent.is(':visible')
           ;
           if(contentIsOpen) {
             if(settings.collapsible) {
@@ -371,7 +374,8 @@ $.fn.accordion = function(parameters) {
 };
 
 $.fn.accordion.settings = {
-  name  : 'Accordion',
+  name        : 'Accordion',
+  namespace   : 'accordion',
 
   debug       : true,
   verbose     : true,

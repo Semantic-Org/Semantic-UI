@@ -75,14 +75,39 @@ type   : 'UI Module'
 
       <h3 class="ui header">Static Animations</h3>
       <p>Animations that do not have an in or out animation defined, will maintain their current visibility after running</p>
-      <div class="code" data-demo="true" data-title="Looping">
+      <div class="code" data-demo="true" data-title="Static transitions">
       $('.dog.image')
         .transition('pulse')
       ;
       </div>
 
+      <h3 class="ui header">Looping</h3>
+      <p>Animation loops can be controlled by setting looping. Callbacks will occur after each loop cycle</p>
+      <div class="code" data-demo="true" data-title="Starting looping">
+      $('.dog.image')
+        .transition('set looping')
+        .transition('bounce', '2000ms')
+      ;
+      </div>
+      <div class="code" data-demo="true" data-title="Ending looping">
+      $('.dog.image')
+        .transition('remove looping')
+      ;
+      </div>
+
       <h3 class="ui header">Passing in settings</h3>
       <p>Transitions use similar argument shorthand as <a href="http://api.jquery.com/animate/">animate</a>. You can specify callback functions, animation duration, and other settings using the same arguments. Durations can be specified as strings with css shorthand, or with numbers.</p>
+      <div class="code" data-demo="true" data-title="Settings objects">
+      $('.dog.image')
+        .transition({
+          animation : 'scale',
+          duration  : '2s',
+          complete  : function() {
+            alert('done');
+          }
+        })
+      ;
+      </div>
 
       <h3 class="ui header">Queuing animations</h3>
 
@@ -114,6 +139,15 @@ type   : 'UI Module'
         <div class="code" data-demo="true">
     $('.dog.image')
       .transition('shake')
+    ;
+        </div>
+      </div>
+      <div class="example">
+        <h4 class="ui header">Pulse</h4>
+        <p>An element can pulse to draw attention to its visibility</p>
+        <div class="code" data-demo="true">
+    $('.dog.image')
+      .transition('pulse')
     ;
         </div>
       </div>

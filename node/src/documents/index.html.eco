@@ -35,7 +35,7 @@ type   : 'Semantic'
       <div class="ui horizontal section divider">
         <i class="circular heart icon"></i>
       </div>
-      <div class="ui grid">
+      <div class="ui stackable grid">
       <div class="two column row">
         <div class="column">
           <a class="ui teal label" href="/collections/grid.html">Semantic</a>
@@ -123,7 +123,7 @@ type   : 'Semantic'
       <div class="ui inverted horizontal section divider">
         <i class="circular heart icon"></i>
       </div>
-      <div class="ui grid" data-demo="true">
+      <div class="ui stackable grid" data-demo="true">
         <div class="two column row">
           <div class="column">
           <div class="ui teal header">Open up your web console.</div>

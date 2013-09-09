@@ -76,6 +76,89 @@ semantic.ready = function() {
       ;
     },
 
+    getSpecification: function(callback) {
+      var
+        url = $(this).data('url') || false
+      ;
+      callback = callback || function(){};
+      if(url) {
+        $.ajax({
+          method: 'get',
+          url: url,
+          type: 'json',
+          complete: callback
+        });
+      }
+    },
+
+    create: {
+      tick: function() {
+
+      },
+      examples: function(json) {
+        var
+          types      = json['Types'],
+          text       = json['Text'],
+          states     = json['States'],
+          variations = json['Variations'],
+
+          $element,
+          html
+        ;
+        $.each(types, function(name, type){
+          html += '<h2 class="ui dividing header">' + name + '</h2';
+          if($.isPlainObject(type)) {
+            $.each(type, function(name, subType) {
+              $element = $.zc(subType);
+              $element = handler.create.text($element, text);
+              html += '<h3 class="ui header">' + name + '</h3';
+              html += handler.create.variations($element, variations);
+            });
+          }
+          else {
+            $element = $.zc(type);
+            $element = handler.create.text($element);
+            html += handler.create.variations($element, variations);
+          }
+        });
+        // Each TYPE
+        //   show type name
+        //   html = koan (html)
+        //   each text
+        //     find label
+        //     if(obj)
+        //       replace random text
+        //     else
+        //       replace text
+        //   end
+        //   Each variation
+        //     (if obj)
+        //       each
+        //         add class
+        //     (else)
+        //       add class
+        //     label = property
+        //     class = class
+        //     show html
+        //   end
+        // end
+      },
+      element: function(koan, type, text, variation) {
+
+      },
+      variations: function($element, variations) {
+        $.each(variations, function(name, variation){
+
+        });
+      },
+      text: function($element, text) {
+        $.each(text, function(selector, text) {
+          $element.find(selector).text(text);
+        });
+        return $element;
+      }
+    },
+
     font: {
 
       increase: function() {
