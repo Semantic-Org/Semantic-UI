@@ -12,7 +12,7 @@ type   : 'UI Collection'
     <h1 class="ui dividing header">Form</h1>
     <p>A form is a collection of user input elements</p>
     <div class="warning ui message">
-      <b>Looking for form validation?</b> 
+      <b>Looking for form validation?</b>
       Form input can be validated using the <a href="/modules/form.html">form behavior definition</a>
     </div>
   </div>
@@ -27,10 +27,10 @@ type   : 'UI Collection'
     </div>
   </div>
   <h2 class="ui dividing header">Types</h2>
-    
+
   <div class="example">
     <h4 class="ui header">Form:</h4>
-    <p> 
+    <p>
       Forms always include fields, and fields always contain form elements. Fields themselves may also include:
         <a href="/elements/input.html">ui inputs</a>, standard form fields, <a href="/elements/labels.html">ui labels</a>, textareas, as well as:
         <a href="/modules/checkbox.html">checkboxes</a>, and <a href="/elements/message.html">message blocks</a>.
@@ -79,7 +79,7 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Text Area</h4>
     <p>A textarea uses the default form element</p>
@@ -90,7 +90,7 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Checkbox</h4>
     <p><a href="modules/checkbox.html">UI Checkboxes</a> are styled forms of standard form checkboxes.</p>
@@ -100,18 +100,25 @@ type   : 'UI Collection'
           <input type="checkbox" id="uniqueid" />
           <label for="uniqueid"></label>
         </div>
-        <label>Static Checkbox</label>
+        <label>Checkbox</label>
       </div>
       <div class="inline field">
-        <div class="ui checkbox">
+        <div class="ui slider checkbox">
           <input type="checkbox"/>
           <label></label>
         </div>
-        <label>JS Checkbox</label>
+        <label>Slider</label>
+      </div>
+      <div class="inline field">
+        <div class="ui toggle checkbox">
+          <input type="checkbox"/>
+          <label></label>
+        </div>
+        <label>Toggle</label>
       </div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Radio Box</h4>
     <p>Radio boxes are styled forms of standard form radio controls.</p>
@@ -155,7 +162,7 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Text Block</h4>
     <p>Text blocks have special meaning inside a form tag. Any info, error, or warning message blocks found inside a form are hidden by default.</p>
@@ -173,11 +180,11 @@ type   : 'UI Collection'
   <h2 class="ui dividing header">States</h2>
 
   <h3 class="ui header">Form</h3>
-  
+
   <div class="example">
     <h4 class="ui header">Loading</h4>
     <p>If a form is in loading state, it will automatically show a loading indicator:</p>
-    
+
     <div class="ui loading form segment">
       <div class="two fields">
         <div class="field">
@@ -207,7 +214,7 @@ type   : 'UI Collection'
       <div class="ui blue submit button">Submit</div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Error</h4>
     <p>If a form is in an error state, it will automatically show any error message blocks:</p>
@@ -244,11 +251,11 @@ type   : 'UI Collection'
       <div class="ui blue submit button">Submit</div>
     </div>
   </div>
-    
+
   <div class="example">
     <h4 class="ui header">Warning</h4>
     <p>If a form is in warning state, it will automatically show any warning message block:</p>
-    
+
     <div class="ui warning form segment">
       <div class="ui warning message">
         <div class="header">Could you check something!</div>
@@ -287,13 +294,13 @@ type   : 'UI Collection'
       <div class="ui blue submit button">Submit</div>
     </div>
   </div>
-  
+
   <h3 class="ui header">Form Fields</h3>
-  
+
   <div class="example">
     <h4 class="ui header">Error</h4>
     <p>Individual fields may contain an error state</p>
-    
+
     <div class="ui form segment">
       <div class="two fields">
         <div class="field error">
@@ -307,11 +314,11 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Disabled</h4>
     <p>Individual fields may be disabled or read only</p>
-    
+
     <div class="ui form segment">
       <div class="two fields">
         <div class="field">
@@ -327,7 +334,7 @@ type   : 'UI Collection'
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
-  
+
   <h3 class="ui header">Forms</h3>
 
   <div class="example">
@@ -347,7 +354,7 @@ type   : 'UI Collection'
       <div class="ui blue submit button">Submit</div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A form can also be small or large</p>
@@ -379,11 +386,11 @@ type   : 'UI Collection'
       <div class="ui blue submit button">Submit</div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A form on a dark background may have to invert its color scheme</p>
-    
+
     <div style="background-color: #333333; padding: 15px;">
       <div class="ui inverted form">
         <div class="ui info message">
@@ -407,10 +414,10 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  
-  
+
+
   <h3 class="ui header">Fields</h3>
-  
+
   <div class="example">
     <h4 class="ui header">Inline</h4>
     <p>A field can have its label next to instead of above it.</p>
@@ -421,7 +428,7 @@ type   : 'UI Collection'
         </div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Date</h4>
     <p>A field can let users know they are for dates</p>
@@ -432,10 +439,10 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  
-  
+
+
   <h2 class="ui dividing header">Groups</h2>
-  
+
   <div class="example">
     <h4 class="ui header">Fields</h4>
     <p>Fields can exist together side by side</p>
@@ -456,7 +463,7 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Grouped Fields</h4>
     <p>Fields can be grouped to show related choices</p>
@@ -467,28 +474,28 @@ type   : 'UI Collection'
             <input type="radio" name="fruit" />
             <label></label>
           </div>
-          <label> Apples</label> 
+          <label> Apples</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
             <label></label>
           </div>
-          <label> Oranges</label> 
+          <label> Oranges</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
             <label></label>
           </div>
-          <label> Pears</label> 
+          <label> Pears</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
             <label></label>
           </div>
-          <label> Grapefruit</label> 
+          <label> Grapefruit</label>
         </div>
       </div>
     </div>
@@ -512,5 +519,5 @@ type   : 'UI Collection'
       </div>
     </div>
   </div>
-  
+
 </div>

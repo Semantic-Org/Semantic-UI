@@ -8,15 +8,16 @@
 
 ;(function ($, window, document, undefined) {
 
-$.fn.starReview = function(parameters) {
+$.fn.rating = function(parameters) {
   var
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
 
-    settings        = $.extend(true, {}, $.fn.starReview.settings, parameters),
+    settings        = $.extend(true, {}, $.fn.rating.settings, parameters),
 
     namespace       = settings.namespace,
     className       = settings.className,
+    metadata        = settings.metadata,
     selector        = settings.selector,
     error           = settings.error,
 
@@ -35,7 +36,7 @@ $.fn.starReview = function(parameters) {
     .each(function() {
       var
         $module  = $(this),
-        $star    = $module.find(selector.star),
+        $icon    = $module.find(selector.icon),
 
         element  = this,
         instance = $module.data(moduleNamespace),
@@ -45,84 +46,98 @@ $.fn.starReview = function(parameters) {
       module = {
 
         initialize: function() {
-          if(settings.rateable) {
-            // expandable with states
-            if($.fn.state !== undefined) {
-              $module
-                .state()
-              ;
-              $star
-                .state()
-              ;
-            }
-            $star
+          module.verbose('Initializing rating module');
+          if(settings.interactive) {
+            $icon
               .bind('mouseenter' + eventNamespace, module.event.mouseenter)
               .bind('mouseleave' + eventNamespace, module.event.mouseleave)
               .bind('click' + eventNamespace, module.event.click)
             ;
           }
+          if(settings.initialRating) {
+            module.debug('Setting initial rating');
+            module.setRating(settings.initialRating);
+          }
+          if( $module.data(metadata.rating) ) {
+            module.debug('Rating found in metadata');
+            module.setRating( $module.data(metadata.rating) );
+          }
           $module
-            .addClass(className.initialize)
+            .addClass(className.active)
           ;
           module.instantiate();
         },
 
         instantiate: function() {
+          module.verbose('Instantiating module', settings);
           $module
             .data(moduleNamespace, module)
           ;
         },
 
+        destroy: function() {
+          $module
+            .removeData(moduleNamespace)
+          ;
+          $icon
+            .off(eventNamespace)
+          ;
+        },
+
         setRating: function(rating) {
           var
-            $activeStar = $star.eq(rating - 1)
+            $activeIcon = $icon.eq(rating - 1)
           ;
+          module.verbose('Setting current rating to', rating);
           $module
             .removeClass(className.hover)
           ;
-          $star
+          $icon
             .removeClass(className.hover)
           ;
-          $activeStar
+          $activeIcon
             .nextAll()
               .removeClass(className.active)
           ;
-          $activeStar
+          $activeIcon
             .addClass(className.active)
               .prevAll()
               .addClass(className.active)
           ;
-          $.proxy(settings.onRate, $module)();
+          $.proxy(settings.onRate, element)();
         },
 
         event: {
           mouseenter: function() {
             var
-              $activeStar = $(this)
+              $activeIcon = $(this)
             ;
-            $activeStar
+            $activeIcon
               .nextAll()
                 .removeClass(className.hover)
             ;
             $module
               .addClass(className.hover)
             ;
-            $activeStar
+            $activeIcon
               .addClass(className.hover)
                 .prevAll()
                 .addClass(className.hover)
             ;
           },
           mouseleave: function() {
-            $star
+            $module
+              .removeClass(className.hover)
+            ;
+            $icon
               .removeClass(className.hover)
             ;
           },
           click: function() {
             var
-              $activeStar = $(this)
+              $activeIcon = $(this)
             ;
-            module.setRating( $star.index($activeStar) + 1);
+            module.setRating( $icon.index($activeIcon) + 1);
           }
         },
         setting: function(name, value) {
@@ -307,28 +322,35 @@ $.fn.starReview = function(parameters) {
   ;
 };
 
-$.fn.starReview.settings = {
+$.fn.rating.settings = {
 
-  name     : 'Star',
-  namespace      : 'star',
+  name          : 'Rating',
+  namespace     : 'rating',
 
-  rateable       : true,
-  onRate         : function(){},
+  verbose     : true,
+  debug       : true,
+  performance : true,
 
-  error: {
-    method     : 'The method you called is not defined'
+  initialRating : 0,
+  interactive   : true,
+  onRate        : function(){},
+
+  error       : {
+    method : 'The method you called is not defined'
+  },
+
+  metadata: {
+    rating: 'rating'
   },
 
   className : {
-    initialize : 'initialize',
-    loading    : 'loading',
-    active     : 'active',
-    hover      : 'hover',
-    down       : 'down'
+    active  : 'active',
+    hover   : 'hover',
+    loading : 'loading'
   },
 
   selector  : {
-    star : 'i'
+    icon : '.icon'
   }
 
 };

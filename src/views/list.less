@@ -25,7 +25,7 @@ ul.ui.list ul,
 ol.ui.list ol,
 .ui.list .list {
   margin: 0em;
-  padding: 0.5em 0em 0.5em 0.5em;
+  padding: 0.5em 0em 0.5em 1em;
 }
 
 ul.ui.list:first-child,
@@ -229,7 +229,7 @@ ul.ui.list li:before,
 .ui.bulleted.list .item:before {
   position: absolute;
   left: -1em;
-  content: '·';
+  content: '•';
 
   line-height: 1.2rem;
   vertical-align: top;
@@ -293,11 +293,11 @@ ol.ui.list li:before,
 ol.ui.list ol,
 .ui.ordered.list .list {
   counter-reset: ordered;
-  padding-left: 2em;
+  padding-left: 3em;
 }
 
-ol.ui.list ol ol li:before,
-.ui.ordered.list .list .list .item:before {
+ol.ui.list ol li:before,
+.ui.ordered.list .list .item:before {
   left: -2.5em;
 }
 

@@ -125,9 +125,54 @@
 }
 
 /*-------------------
-       Social
+       Primary
 --------------------*/
 
+.ui.primary.buttons .button,
+.ui.primary.button {
+  background-color: #D95C5C;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.primary.buttons .button:hover,
+.ui.primary.button:hover,
+.ui.primary.buttons .active.button,
+.ui.primary.button.active {
+  background-color: #E75859;
+  color: #FFFFFF;
+}
+.ui.primary.buttons .button:active,
+.ui.primary.button:active {
+  background-color: #D24B4C;
+  color: #FFFFFF;
+}
+
+/*-------------------
+      Secondary
+--------------------*/
+
+.ui.secondary.buttons .button,
+.ui.secondary.button {
+  background-color: #00B5AD;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.secondary.buttons .button:hover,
+.ui.secondary.button:hover,
+.ui.secondary.buttons .active.button,
+.ui.secondary.button.active {
+  background-color: #009A93;
+  color: #FFFFFF;
+}
+.ui.secondary.buttons .button:active,
+.ui.secondary.button:active {
+  background-color: #00847E;
+  color: #FFFFFF;
+}
+
+/*-------------------
+       Social
+--------------------*/
 
 /* Facebook */
 .ui.facebook.button {
@@ -187,38 +232,6 @@
 
 
 /*--------------
-      Hover
----------------*/
-
-.ui.button:hover {
-  opacity: 1 !important;
-  background-color: #A4A4A4;
-
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-  color: #FFFFFF;
-}
-.ui.button:hover .icon,
-.ui.button.hover .icon {
-  opacity: 0.85;
-}
-
-/*--------------
-      Down
----------------*/
-
-.ui.button:active {
-  opacity: 1 !important;
-  background-color: #8C8C8C;
-
-  color: #FFFFFF;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-
-  -webkit-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
-  box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
-}
-
-/*--------------
      Active
 ---------------*/
 
@@ -245,6 +258,41 @@
   box-shadow:
     0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
   ;
+}
+
+
+/*--------------
+      Hover
+---------------*/
+
+.ui.button:hover,
+.ui.active.button:hover {
+  opacity: 1 !important;
+  background-color: #A4A4A4;
+
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+}
+.ui.button:hover .icon,
+.ui.button.hover .icon {
+  opacity: 0.85;
+}
+
+/*--------------
+      Down
+---------------*/
+
+.ui.button:active,
+.ui.active.button:active {
+  opacity: 1 !important;
+  background-color: #8C8C8C;
+
+  color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+
+  -webkit-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
+  -moz-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
 }
 
 /*--------------
@@ -524,7 +572,7 @@
   color: #999999 !important;
   font-weight: normal;
   text-transform: none;
-  text-shadow: none;
+  text-shadow: none !important;
 
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
@@ -538,17 +586,6 @@
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;
   border-radius: 0.2em;
-}
-.ui.basic.buttons .button {
-  border: none !important;
-  border-left: 1px solid rgba(0, 0, 0, 0.1) !important;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.ui.basic.buttons .button:first-child {
-  border-left: none !important;
 }
 
 .ui.basic.buttons .button:hover,
@@ -572,14 +609,35 @@
   background-color: rgba(0, 0, 0, 0.05);
   color: #7F7F7F;
 
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px #BDBDBD inset;
+  -moz-box-shadow: 0px 0px 0px 1px #BDBDBD inset;
+  box-shadow: 0px 0px 0px 1px #BDBDBD inset;
 }
 .ui.basic.buttons .button.active:hover,
 .ui.basic.button.active:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+/* Basic Group */
+.ui.basic.buttons .button {
+  border: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.buttons .button:hover,
+.ui.basic.buttons .button:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.buttons .button.active {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+
 
 
 /*--------------
@@ -1035,6 +1093,26 @@
 .ui.red.buttons .button:active,
 .ui.red.button:active {
   background-color: #D24B4C;
+  color: #FFFFFF;
+}
+
+/*--- Orange ---*/
+.ui.orange.buttons .button,
+.ui.orange.button {
+  background-color: #E96633;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.orange.buttons .button:hover,
+.ui.orange.button:hover,
+.ui.orange.buttons .active.button,
+.ui.orange.button.active {
+  background-color: #FF7038;
+  color: #FFFFFF;
+}
+.ui.orange.buttons .button:active,
+.ui.orange.button:active {
+  background-color: #DA683B;
   color: #FFFFFF;
 }
 

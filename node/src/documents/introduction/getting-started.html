@@ -38,11 +38,11 @@ type   : 'UI Introduction'
 
   <div class="code" data-type="html" data-label="true" data-preview="true">
     <div class="ui compact menu">
-      <div class="item">Home</div>
-      <div class="item">
+      <a class="item">Home</a>
+      <a class="item">
         Inbox
         <div class="ui label">22</div>
-      </div>
+      </a>
     </div>
   </div>
 
@@ -52,7 +52,7 @@ type   : 'UI Introduction'
 
   <h3 class="ui header">Defining behavior simply</h3>
 
-  <p>Modules define a public API using simple phrases involving a verb and an object the verb is acting on. This means that if you are using another developer's code, you only need to learn it's public api without having to learn the nasty tricks used to make it work.</p>
+  <p>Modules define a public API using simple phrases involving a verb and an object the verb is acting on. When methods are invoked internally those phrases are matched to internal methods.</p>
 
   <div class="code" data-demo="true" data-title="Language in Javascript">
     $('.dog.image')

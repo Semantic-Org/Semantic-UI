@@ -20,6 +20,7 @@
 }
 
 .ui.dimmer {
+  display: none;
   position: absolute;
   top: 0em !important;
   left: 0em !important;
@@ -76,7 +77,7 @@
 }
 
 /*
-.ui.dimmable.dimmed > :not(.dimmer) {
+.ui.dimmed.dimmable > :not(.dimmer) {
   -webkit-transition:
     filter 0.5s ease
   ;
@@ -131,13 +132,14 @@
             States
 *******************************/
 
-.ui.dimmable.dimmed > :not(.dimmer) {
+.ui.dimmed.dimmable > :not(.dimmer) {
   -webkit-filter: ~"blur(5px) grayscale(0.7)";
   -moz-filter: ~"blur(5px) grayscale(0.7)";
 }
 
-.ui.dimmable.dimmed > .ui.dimmer,
-.ui.dimmer.active {
+.ui.dimmed.dimmable > .ui.dimmer,
+.ui.active.dimmer {
+  display: block;
   width: 100%;
   height: 100%;
   opacity: 1;
@@ -171,7 +173,7 @@
   transform-origin: top center;
 }
 /*
-body.ui.dimmable.dimmed > :not(.dimmer){
+body.ui.dimmed.dimmable > :not(.dimmer){
   -webkit-filter: ~"blur(15px) grayscale(0.7)";
   -moz-filter: ~"blur(15px) grayscale(0.7)";
 }
@@ -211,7 +213,7 @@ body.ui.dimmable.dimmed > :not(.dimmer){
   z-index: -100;
   background-color: rgba(0, 0, 0, 0);
 }
-.ui.dimmable.dimmed > .ui.simple.dimmer {
+.ui.dimmed.dimmable > .ui.simple.dimmer {
   overflow: visible;
   opacity: 1;
   width: 100%;
@@ -223,6 +225,6 @@ body.ui.dimmable.dimmed > :not(.dimmer){
 .ui.simple.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0);
 }
-.ui.dimmable.dimmed > .ui.simple.inverted.dimmer {
+.ui.dimmed.dimmable > .ui.simple.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0.85)
 }

@@ -13,8 +13,13 @@
             Reveal
 *******************************/
 .ui.reveal {
+  display: inline-block;
   position: relative !important;
   z-index: 2 !important;
+  font-size: 0em !important;
+}
+.ui.reveal > .content {
+  font-size: 1em !important;
 }
 .ui.reveal > .visible.content {
   -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
@@ -26,8 +31,6 @@
   position: absolute !important;
   top: 0em !important;
   left: 0em !important;
-  width: 100% !important;
-  height: 100% !important;
   z-index: 4 !important;
   -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
   -moz-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;

@@ -1,5 +1,5 @@
 /*******************************
-           Glue Code
+        Highlighted Colors
 *******************************/
 
 ::-webkit-selection {
@@ -34,27 +34,8 @@ h3::selection {
   background-color: #CCE2FF;
 }
 
-/* Non Web Font (For Demo)
+/* No license
 
-@font-face {
-  font-family: 'Neutraface';
-  src:
-    url("../fonts/neutraface-book.otf") format('opentype')
-  ;
-  font-weight: normal;
-  font-style: normal;
-  font-size-adjust: 0.448;
-}
-@font-face {
-  font-family: 'Neutraface';
-  src:
-    url("../fonts/neutraface-bold.otf") format('opentype')
-  ;
-  font-weight: bold;
-  font-style: normal;
-  font-size-adjust: 0.448;
-}
-*/
 
 @font-face {
   font-family: 'Neutraface';
@@ -94,6 +75,7 @@ h3::selection {
   font-stretch: normal;
 }
 
+*/
 
 
 
@@ -107,7 +89,7 @@ body {
 }
 
 body#example {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
   padding: 0px;
@@ -119,6 +101,13 @@ body > .content  {
 background: #FCFCFC url(../images/bg.jpg) repeat;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
 
 /*
 p,
@@ -180,9 +169,8 @@ code {
   display: inline-block;
   font-family: Courier New;
   font-size: 14px;
-  margin: -0.25em 0.25em !important;
-  padding: 0.25em 0.5em;
-  vertical-align: top;
+  padding: 0.125em 0.25em;
+  vertical-align: middle;
 }
 pre code {
   border: none;
@@ -292,7 +280,7 @@ a:hover {
 }
 #example .masthead {
   text-align: center;
-  background-color: #00B5AD;
+  background: #00B5AD url(/images/tile-bg.png) repeat-x fixed 50% 0%;
   padding: 75px 0px 50px;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;

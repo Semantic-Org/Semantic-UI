@@ -19,9 +19,9 @@
   font-weight: normal;
 }
 .ui.search input {
-  -webkit-border-radius: 500em;
-  -moz-border-radius: 500em;
-  border-radius: 500em;
+  -webkit-border-radius: 500rem;
+  -moz-border-radius: 500rem;
+  border-radius: 500rem;
 }
 /*--------------
      Button

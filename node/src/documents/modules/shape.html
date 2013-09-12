@@ -17,7 +17,7 @@ type   : 'UI Module'
   </div>
 </div>
 <div class="main container">
-  
+
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Types</a>
@@ -25,17 +25,17 @@ type   : 'UI Module'
       <a class="item">Getting Started</a>
     </div>
   </div>
-  
-  
-  
+
+
+
   <h2 class="ui dividing header">Types</h2>
-  
+
   <div class="ui info message">The module uses 3D transformations which are currently only supported in modern versions of Chrome, Safari, and Firefox.</div>
 
   <div class="shown example">
     <h4 class="ui header">Shape</h4>
     <p>A shape has multiple sides of arbitrary content. Only one is visible</p>
-    
+
     <div class="ui shape">
       <div class="sides">
         <div class="active side">This side is visible.</div>
@@ -44,10 +44,27 @@ type   : 'UI Module'
       </div>
     </div>
   </div>
-  
+
 
   <h2 class="ui dividing header">Examples</h2>
-  
+
+  <div class="ui clearing divider"></div>
+
+  <h3 class="ui header">Interactive</h3>
+  <div class="demo square ui shape">
+    <div class="sides">
+      <div class="active jira side">
+        <img src="/images/shape/jira.png">
+      </div>
+      <div class="heroku side">
+        <img src="/images/shape/heroku.png">
+      </div>
+      <div class="quirky side">
+        <img src="/images/shape/quirky.png">
+      </div>
+    </div>
+  </div>
+
   <h3 class="ui header">Automatic</h3>
   <div class="dog two ui shape">
     <div class="sides">
@@ -102,7 +119,7 @@ type   : 'UI Module'
       </div>
     </div>
   </div>
-  
+
   <div class="dog one ui shape">
     <div class="sides">
       <div class="active side">
@@ -156,7 +173,7 @@ type   : 'UI Module'
       </div>
     </div>
   </div>
-  
+
   <div class="dog three ui shape">
     <div class="sides">
       <div class="active side">
@@ -211,22 +228,6 @@ type   : 'UI Module'
     </div>
   </div>
 
-  <div class="ui clearing divider"></div>
-  
-  <h3 class="ui header">Interactive</h3>
-  <div class="demo square ui shape">
-    <div class="sides">
-      <div class="active jira side">
-        <img src="/images/shape/jira.png">
-      </div>
-      <div class="heroku side">
-        <img src="/images/shape/heroku.png">
-      </div>
-      <div class="quirky side">
-        <img src="/images/shape/quirky.png">
-      </div>
-    </div>
-  </div>
 
   <h3 class="ui header">Shape</h3>
   <div class="ui shape buttons">
@@ -258,7 +259,7 @@ type   : 'UI Module'
 
   <p>To manually set the next side to appear use a selector or jQuery object</p>
   <div class="code">$('.shape')
-  .shape('set nextSide', '.second')
+  .shape('set next side', '.second')
   .shape('flip up')
 ;</div>
 
@@ -268,7 +269,7 @@ type   : 'UI Module'
 ;</div>
 
   <h3 class="ui header">Defaults</h3>
-  <table class="ui settings table">
+  <table class="ui celled definition table">
       <thead>
         <th colspan="3">Shape Settings</th>
       </thead>
@@ -311,7 +312,7 @@ type   : 'UI Module'
         <td>Object containing class names used by module.</td>
       </tr>
     </table>
-    <table class="ui settings table">
+    <table class="ui celled definition table">
       <thead>
         <th colspan="3">Callbacks</th>
       </thead>
@@ -326,7 +327,7 @@ type   : 'UI Module'
         <td>Callback after side is changed. This context is new side.</td>
       </tr>
     </table>
-    <table class="ui settings table">
+    <table class="ui celled definition table">
       <thead>
         <th colspan="3">UI Module Settings</th>
       </thead>
