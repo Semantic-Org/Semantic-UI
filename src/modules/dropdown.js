@@ -23,7 +23,7 @@ $.fn.dropdown = function(parameters) {
     error             = settings.error,
 
     eventNamespace    = '.' + namespace,
-    dropdownNamespace = 'dropdown-' + namespace,
+    dropdownNamespace = 'module-' + namespace,
     dropdownSelector  = $allDropdowns.selector || '',
 
     time              = new Date().getTime(),
