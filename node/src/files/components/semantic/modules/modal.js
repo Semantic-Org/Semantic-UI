@@ -56,10 +56,13 @@ $.fn.modal = function(parameters) {
       modal  = {
 
         initialize: function() {
-          modal.verbose('Initializing modal');
+          modal.verbose('Attaching events');
           $closeButton
             .on('click', modal.event.close)
           ;
+          modal.cache.sizes();
+
+          modal.verbose('Creating dimmer');
           $context
             .dimmer({
               closable: settings.closable,
@@ -81,12 +84,11 @@ $.fn.modal = function(parameters) {
           $dimmer = $context.children(selector.dimmer);
           if( $modal.parent()[0] !== $dimmer[0] ) {
             modal.debug('Moving element inside dimmer', $context);
-            $modal
+            $modal = $modal
               .detach()
               .appendTo($dimmer)
             ;
           }
-          modal.cache.sizes();
           modal.instantiate();
         },
 
@@ -140,6 +142,7 @@ $.fn.modal = function(parameters) {
         },
 
         show: function() {
+          modal.debug('Showing modal');
           modal.set.type();
           modal.set.position();
           modal.hideAll();
@@ -153,10 +156,12 @@ $.fn.modal = function(parameters) {
               .fadeIn(settings.duration, settings.easing, modal.set.active)
             ;
           }
+          modal.debug('Triggering dimmer');
           $context.dimmer('show');
         },
 
         hide: function() {
+          modal.debug('Hiding modal');
           // remove keyboard detection
           $document
             .off('keyup.' + namespace)
@@ -209,6 +214,7 @@ $.fn.modal = function(parameters) {
                 ? $(window).height()
                 : $context.height()
             };
+            console.log($modal);
             modal.debug('Caching modal and container sizes', modal.cache);
           }
         },
@@ -240,7 +246,7 @@ $.fn.modal = function(parameters) {
             }
           },
           position: function() {
-            modal.verbose('Centering modal on page');
+            modal.verbose('Centering modal on page', modal.cache.height / 2);
             if(modal.can.fit()) {
               $modal
                 .css({
