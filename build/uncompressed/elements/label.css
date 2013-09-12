@@ -559,10 +559,9 @@ a.ui.teal.label:hover:before {
   padding: 0.5em !important;
   line-height: 1em;
   text-align: center;
-  vertical-align: baseline;
-  -webkit-border-radius: 500em;
-  -moz-border-radius: 500em;
-  border-radius: 500em;
+  -webkit-border-radius: 500rem;
+  -moz-border-radius: 500rem;
+  border-radius: 500rem;
 }
 /*-------------------
        Pointing

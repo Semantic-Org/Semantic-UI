@@ -8,12 +8,12 @@
 
 ;(function ($, window, document, undefined) {
 
-$.fn.starReview = function(parameters) {
+$.fn.rating = function(parameters) {
   var
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
 
-    settings        = $.extend(true, {}, $.fn.starReview.settings, parameters),
+    settings        = $.extend(true, {}, $.fn.rating.settings, parameters),
 
     namespace       = settings.namespace,
     className       = settings.className,
@@ -35,7 +35,7 @@ $.fn.starReview = function(parameters) {
     .each(function() {
       var
         $module  = $(this),
-        $star    = $module.find(selector.star),
+        $icon    = $module.find(selector.icon),
 
         element  = this,
         instance = $module.data(moduleNamespace),
@@ -46,23 +46,14 @@ $.fn.starReview = function(parameters) {
 
         initialize: function() {
           if(settings.rateable) {
-            // expandable with states
-            if($.fn.state !== undefined) {
-              $module
-                .state()
-              ;
-              $star
-                .state()
-              ;
-            }
-            $star
+            $icon
               .bind('mouseenter' + eventNamespace, module.event.mouseenter)
               .bind('mouseleave' + eventNamespace, module.event.mouseleave)
               .bind('click' + eventNamespace, module.event.click)
             ;
           }
           $module
-            .addClass(className.initialize)
+            .addClass(className.active)
           ;
           module.instantiate();
         },
@@ -73,21 +64,30 @@ $.fn.starReview = function(parameters) {
           ;
         },
 
+        destroy: function() {
+          $module
+            .removeData(moduleNamespace)
+          ;
+          $icon
+            .off(eventNamespace)
+          ;
+        },
+
         setRating: function(rating) {
           var
-            $activeStar = $star.eq(rating - 1)
+            $activeIcon = $icon.eq(rating - 1)
           ;
           $module
             .removeClass(className.hover)
           ;
-          $star
+          $icon
             .removeClass(className.hover)
           ;
-          $activeStar
+          $activeIcon
             .nextAll()
               .removeClass(className.active)
           ;
-          $activeStar
+          $activeIcon
             .addClass(className.active)
               .prevAll()
               .addClass(className.active)
@@ -98,31 +98,31 @@ $.fn.starReview = function(parameters) {
         event: {
           mouseenter: function() {
             var
-              $activeStar = $(this)
+              $activeIcon = $(this)
             ;
-            $activeStar
+            $activeIcon
               .nextAll()
                 .removeClass(className.hover)
             ;
             $module
               .addClass(className.hover)
             ;
-            $activeStar
+            $activeIcon
               .addClass(className.hover)
                 .prevAll()
                 .addClass(className.hover)
             ;
           },
           mouseleave: function() {
-            $star
+            $icon
               .removeClass(className.hover)
             ;
           },
           click: function() {
             var
-              $activeStar = $(this)
+              $activeIcon = $(this)
             ;
-            module.setRating( $star.index($activeStar) + 1);
+            module.setRating( $icon.index($activeIcon) + 1);
           }
         },
         setting: function(name, value) {
@@ -307,28 +307,26 @@ $.fn.starReview = function(parameters) {
   ;
 };
 
-$.fn.starReview.settings = {
+$.fn.rating.settings = {
 
-  name     : 'Star',
-  namespace      : 'star',
+  name      : 'Star',
+  namespace : 'icon',
 
-  rateable       : true,
-  onRate         : function(){},
+  rateable  : true,
+  onRate    : function(){},
 
   error: {
     method     : 'The method you called is not defined'
   },
 
   className : {
-    initialize : 'initialize',
-    loading    : 'loading',
     active     : 'active',
     hover      : 'hover',
-    down       : 'down'
+    loading    : 'loading'
   },
 
   selector  : {
-    star : 'i'
+    icon : '.icon'
   }
 
 };

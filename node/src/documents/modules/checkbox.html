@@ -17,15 +17,15 @@ type   : 'UI Module'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Types</a>
+      <a class="active item">Usage</a>
+      <a class="item">Types</a>
       <a class="item">Variations</a>
       <a class="item">Behavior</a>
       <a class="item">Examples</a>
-      <a class="item">Usage</a>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Types</h2>
+  <h2 class="ui dividing header">Usage</h2>
 
   <div class="example">
     <h4 class="ui header">Check Box</h4>
@@ -46,22 +46,45 @@ type   : 'UI Module'
     <label>Poodle</label>
     </div>
 
+    <div class="static example">
+      <h4 class="ui header">Static Check Box</h4>
+      <p>A checkbox can also be used without using javascript by creating the check box as a label with a for tag matching the <code>id</code> attribute of the input field.</p>
+      <div class="ui language label">HTML Only</div>
+      <div class="code" data-type="html" data-preview="true">
+      <div class="ui checkbox">
+        <input type="checkbox" id="unique-id" />
+        <label class="box" for="unique-id"></label>
+      </div>
+      <label for="unique-id">Poodle</label>
+      </div>
+    </div>
+
   </div>
 
-  <div class="static example">
-    <h4 class="ui header">Static Check Box</h4>
-    <p>A checkbox can function without javascript</p>
-    <div class="ui language label">HTML Only</div>
-    <div class="code" data-type="html" data-preview="true">
-    <div class="ui checkbox">
-      <input type="checkbox" id="unique-id" />
-      <label class="box" for="unique-id"></label>
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Slider</h4>
+    <p>A checkbox can be formatted to show user selection as a slider</p>
+    <div class="ui slider checkbox">
+      <input type="checkbox" name="walk" />
+      <label></label>
     </div>
-    <label for="unique-id">Poodle</label>
-    </div>
+    <label> Allow others to see when your dog is on a walk</label>
   </div>
 
-  <h2 class="ui dividing header">Variations</h2>
+  <div class="example">
+    <h4 class="ui header">Toggle</h4>
+    <p>A checkbox can be formatted to show user selection as a toggle</p>
+    <div class="ui toggle checkbox">
+      <input type="checkbox" name="pet" />
+      <label></label>
+    </div>
+    <label> Allow other people to pet my dog</label>
+  </div>
+
+
 
   <div class="example">
     <h4 class="ui header">Radio Box</h4>
@@ -100,16 +123,16 @@ type   : 'UI Module'
     </div>
   </div>
 
+  <h2 class="ui dividing header">Variations</h2>
+
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A checkbox can be a different size.</p>
-    <h4 class="ui dividing block header">
-      <div class="ui large checkbox">
-        <input type="checkbox" />
-        <label></label>
-      </div>
-      <label>Add a pro membership</label>
-    </h4>
+    <div class="ui large checkbox">
+      <input type="checkbox" />
+      <label></label>
+    </div>
+    <label>Add a pro membership</label>
   </div>
   <div class="another example">
     <div class="ui huge checkbox">
@@ -185,61 +208,50 @@ type   : 'UI Module'
       <div class="ui toggle button">Toggle</div>
     </div>
     <br><br>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" checked="checked" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" checked="checked" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" checked="checked" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" checked="checked" />
       <div class="box"></div>
     </div>
-    <div class="ui checkbox">
+    <div class="ui slider checkbox">
       <input type="checkbox" />
       <div class="box"></div>
     </div>
-  </div>
-
-
-  <h2 class="ui dividing header">Usage</h2>
-
-  <h3>Initializing</h3>
-  <h3 class="ui header">Initializing a check box</h3>
-  <div class="code">
-    $('.ui.checkbox')
-      .checkbox()
-    ;
   </div>
 
   <h3 class="ui header">Settings</h3>
-  <table class="ui red table segment">
+  <table class="ui red celled definition table segment">
     <thead>
       <th colspan="3">Checkbox Settings</th>
     </thead>
@@ -257,7 +269,7 @@ type   : 'UI Module'
     </tbody>
   </table>
 
-  <table class="ui teal table segment">
+  <table class="ui teal celled definition table segment">
     <thead>
       <th colspan="3">Callbacks</th>
     </thead>
@@ -280,43 +292,40 @@ type   : 'UI Module'
     </tbody>
   </table>
 
-  <table class="ui blue table segment">
+  <h4 class="ui header">DOM Settings</h4>
+  <p>DOM settings specify how this module should interface with the DOM</p>
+  <table class="ui celled definition table segment">
     <thead>
-      <th colspan="3">UI Module Settings</th>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
     </thead>
     <tbody>
-      <tr>
-        <td>moduleName</td>
-        <td>Checkbox</td>
-        <td>Name used in debug logs</td>
-      </tr>
-      <tr>
-        <td>debug</td>
-        <td>True</td>
-        <td>Provides standard debug output to console</td>
-      </tr>
-      <tr>
-        <td>performance</td>
-        <td>False</td>
-        <td>Provides standard debug output to console</td>
-      </tr>
-      <tr>
-        <td>verbose</td>
-        <td>False</td>
-        <td>Provides ancillary debug output to console</td>
-      </tr>
       <tr>
         <td>namespace</td>
         <td>checkbox</td>
         <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
       </tr>
       <tr>
-        <td>errors</td>
+        <td>selector</td>
         <td colspan="2">
           <div class="code">
-    errors : {
-      method : 'The method you called is not defined.'
+    selector : {
+      input  : 'input',
+      label  : 'label'
     }
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td colspan="2">
+          <div class="code">
+
+    className : {
+      radio  : 'radio'
+    }
+
           </div>
         </td>
       </tr>

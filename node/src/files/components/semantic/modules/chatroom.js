@@ -8,9 +8,9 @@
 
 ;(function ($, window, document, undefined) {
 
-  $.fn.chat = function(key, channelName, parameters) {
+  $.fn.chatroom = function(parameters) {
     var
-      settings  = $.extend(true, {}, $.fn.chat.settings, parameters),
+      settings  = $.extend(true, {}, $.fn.chatroom.settings, parameters),
 
       className = settings.className,
       namespace = settings.namespace,
@@ -68,7 +68,7 @@
             if(Pusher === undefined) {
               module.error(error.pusher);
             }
-            if(key === undefined || channelName === undefined) {
+            if(settings.key === undefined || settings.channelName === undefined) {
               module.error(error.key);
               return false;
             }
@@ -78,10 +78,10 @@
             }
 
             // define pusher
-            pusher                       = new Pusher(key);
+            pusher                       = new Pusher(settings.key);
             Pusher.channel_auth_endpoint = settings.endpoint.authentication;
 
-            channel = pusher.subscribe(channelName);
+            channel = pusher.subscribe(settings.channelName);
 
             channel.bind('pusher:subscription_succeeded', module.user.list.create);
             channel.bind('pusher:subscription_error', module.error);
@@ -291,7 +291,7 @@
                   url    : settings.endpoint.message,
                   method : 'POST',
                   data   : {
-                    'chat_message': {
+                    'message': {
                       content   : message,
                       timestamp : new Date().getTime()
                     }
@@ -484,11 +484,13 @@
     return this;
   };
 
-  $.fn.chat.settings = {
+  $.fn.chatroom.settings = {
 
-    name      : 'Chat',
+    name            : 'Chat',
     debug           : false,
     namespace       : 'chat',
+
+    channel         : 'present-chat',
 
     onJoin          : function(){},
     onMessage       : function(){},
@@ -499,7 +501,6 @@
 
     partingMessages : false,
     userCount       : true,
-
     randomColor     : true,
 
     speed           : 300,
@@ -529,11 +530,11 @@
     },
 
     selector    : {
-      userCount    : '.actions .message',
-      userListButton : '.actions .button.user-list',
-      expandButton   : '.actions .button.expand',
+      userCount      : '.actions .message',
+      userListButton : '.actions .list.button',
+      expandButton   : '.actions .expand.button',
       room           : '.room',
-      userList       : '.room .user-list',
+      userList       : '.room .list',
       log            : '.room .log',
       message        : '.room .log .message',
       author         : '.room log .message .author',

@@ -21,7 +21,6 @@
   font-weight: bold;
   line-height: 1.33;
 }
-.ui.header .ui.sub.header,
 .ui.header .sub.header {
   font-size: 1rem;
   font-weight: normal;
@@ -215,6 +214,9 @@ h5.ui.header {
 .ui.dividing.header {
   padding-bottom: 0.2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ui.dividing.header .sub.header {
+  padding-bottom: 0.5em;
 }
 .ui.dividing.header .icon {
   margin-bottom: 0.2em;

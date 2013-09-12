@@ -1,15 +1,14 @@
 /*******************************
            Star Rating
 *******************************/
-.star.module {
+.ui.rating.module {
   min-width: 88px;
   height: 42px;
   unicode-bidi: bidi-override;
   direction: rtl;
   font-size: 26px;
 }
-.star.module i,
-.ui.star {
+.ui.rating.module .icon {
   cursor: default;
   float: left;
   padding: 2px 1px;
@@ -19,8 +18,7 @@
   color: transparent;
 }
 /* Non Selected Star */
-.star.module i:after,
-.ui.star:after {
+.ui.rating.module .icon:after {
   content: "\2605";
   color: #8C8C8C;
   -webkit-transition: all 0.25s;
@@ -29,24 +27,23 @@
   -ms-transition: all 0.25s;
   transition: all 0.25s;
 }
-/*--------------
-     States
----------------*/
-/* Initialized is now clickable */
-.star.module.initialize,
-.star.module.initialize i {
+/*******************************
+             States
+*******************************/
+/* Icons are clickable */
+.ui.active.rating.module .icon {
   cursor: pointer;
 }
 /* Current Star Rating */
-.star.module i.active:after {
+.ui.rating.module .active.icon:after {
   color: #FFCB08;
 }
-.star.module.hover i.active:after {
+/* Hover */
+.ui.rating.module.hover .active.icon:after {
   opacity: 0.5;
 }
-/* Hover */
-.star.module i.hover:after,
-.star.module i.hover.active:after {
+.ui.rating.module .icon.hover:after,
+.ui.rating.module .icon.hover.active:after {
   opacity: 1;
   color: #FFB70A;
   text-shadow: 0px 0px 7px #FFCB08;

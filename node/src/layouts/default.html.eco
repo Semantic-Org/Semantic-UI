@@ -31,7 +31,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/image.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/label.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/list.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/loader.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/elements/segment.css">
@@ -45,6 +44,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/collections/table.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/comment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/list.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/feed.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/item.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/views/statistic.css">
@@ -54,6 +54,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/reveal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/rating.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/sidebar.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/shape.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/tab.css">
@@ -62,17 +63,16 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/components/semantic/modules/transition.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/overrides/fonts/sketchy.icons.css">
-  <link rel="stylesheet" type="text/css" href="/stylesheets/library/sidr.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
-
- <!--  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Droid+Sans|Raleway:700,600,400' rel='stylesheet' type='text/css'> -->
+<!--
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+ -->
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
 
   <script src="/javascript/library/jquery.js"></script>
   <script src="/javascript/library/history.js"></script>
   <script src="/javascript/library/easing.js"></script>
   <script src="/javascript/library/ace/ace.js"></script>
-  <script src="/javascript/library/sidr.js"></script>
   <script src="/javascript/library/waypoints.js"></script>
 
   <script src="/components/semantic/modules/behavior/api.js"></script>
@@ -81,8 +81,9 @@
   <script src="/components/semantic/modules/dimmer.js"></script>
   <script src="/components/semantic/modules/dropdown.js"></script>
   <script src="/components/semantic/modules/modal.js"></script>
-  <script src="/components/semantic/modules/sidebar.js"></script>
   <script src="/components/semantic/modules/popup.js"></script>
+  <script src="/components/semantic/modules/rating.js"></script>
+  <script src="/components/semantic/modules/sidebar.js"></script>
   <script src="/components/semantic/modules/tab.js"></script>
   <script src="/components/semantic/modules/transition.js"></script>
 

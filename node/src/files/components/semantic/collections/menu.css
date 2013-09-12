@@ -202,9 +202,9 @@
 /*--------------
     Dropdowns
 ---------------*/
-.ui.menu .dropdown.item .menu {
+/*.ui.menu .dropdown.item .menu {
   margin: 1px 0px 0px 0px;
-}
+}*/
 .ui.menu .simple.dropdown.item .menu {
   margin: 0px !important;
 }
