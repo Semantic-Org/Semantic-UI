@@ -320,42 +320,42 @@ a:hover {
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -100%;
+   background-position: -50% -100%;
  }
 }
 
-@-webkit-keyframes "masthead" {
+@-webkit-keyframes masthead {
  0% {
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -100%;
+   background-position: -50% -100%;
  }
 }
 
-@-ms-keyframes "masthead" {
+@-ms-keyframes masthead {
  0% {
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -100%;
+   background-position: -50% -100%;
  }
 }
 
-@-o-keyframes "masthead" {
+@-o-keyframes masthead {
  0% {
    background-position: 0% 0%;
  }
  100% {
-   background-position: 0% -100%;
+   background-position: -50% -100%;
  }
 }
-@keyframes "masthead" {
+@keyframes masthead {
  0% {
     background-position: 0% 0%;
  }
  100% {
-    background-position: 0% -100%;
+    background-position: -50% -100%;
  }
 
 }
