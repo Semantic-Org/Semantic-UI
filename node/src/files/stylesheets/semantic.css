@@ -224,6 +224,7 @@ a:hover {
 }
 
 #example .main.menu {
+  top: 0px;
   min-width: 370px;
   z-index: 900;
 
@@ -280,12 +281,85 @@ a:hover {
 }
 #example .masthead {
   text-align: center;
-  background: #00B5AD url(/images/tile-bg.png) repeat-x fixed 50% 0%;
-  padding: 75px 0px 50px;
+  background: #00B5AD url(/images/tile-bg.png) repeat fixed 0% 0%;
+  margin-top: 40px;
+  padding: 50px 0px;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
   border-bottom: none;
+
+  -webkit-animation-name: masthead;
+  -moz-animation-name: masthead;
+  -o-animation-name: masthead;
+  animation-name: masthead;
+
+  -webkit-animation-duration: 30s;
+  -moz-animation-duration: 30s;
+  -ms-animation-duration: 30s;
+  -o-animation-duration: 30s;
+  animation-duration: 30s;
+
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
+
+@-moz-keyframes masthead {
+ 0% {
+   background-position: 0% 0%;
+ }
+ 100% {
+   background-position: 0% -100%;
+ }
+}
+
+@-webkit-keyframes "masthead" {
+ 0% {
+   background-position: 0% 0%;
+ }
+ 100% {
+   background-position: 0% -100%;
+ }
+}
+
+@-ms-keyframes "masthead" {
+ 0% {
+   background-position: 0% 0%;
+ }
+ 100% {
+   background-position: 0% -100%;
+ }
+}
+
+@-o-keyframes "masthead" {
+ 0% {
+   background-position: 0% 0%;
+ }
+ 100% {
+   background-position: 0% -100%;
+ }
+}
+@keyframes "masthead" {
+ 0% {
+    background-position: 0% 0%;
+ }
+ 100% {
+    background-position: 0% -100%;
+ }
+
+}
+
 #example .masthead .labeled.button {
   position: relative;
   left: 0px;
@@ -297,7 +371,7 @@ a:hover {
   font-size: 5em;
   color: #FFFFFF;
   line-height: 1.2;
-  margin: 0em;
+  margin: -20px 0px 0px;
   padding-bottom: 0px;
 }
 #example .masthead strike {
@@ -395,12 +469,14 @@ a:hover {
 #example .page .of {
   font-family: 'Neutraface';
 }
-
 #example .launch.button {
   position: fixed;
   top: 63px;
   z-index: 500;
   width: 70px;
+}
+#example.index .attached.launch.button {
+  top: 96px;
 }
 #example .launch.button .text {
   display: inline-block;

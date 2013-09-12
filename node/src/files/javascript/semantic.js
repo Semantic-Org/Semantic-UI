@@ -594,7 +594,6 @@ semantic.ready = function() {
 
   $menuPopup
     .popup({
-      transition : 'fade up',
       position   : 'bottom center',
       className: {
         popup: 'ui popup'
