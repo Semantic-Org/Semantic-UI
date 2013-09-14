@@ -28,7 +28,7 @@ type   : 'Semantic'
         <i class="circular emphasized code icon"></i>
         <div class="content">
           Lose the Hieroglyphics
-          <div class="sub header">Semantic is structured around convention to make development more intuitive.
+          <div class="sub header">Semantic is structured around natural language conventions to make development more intuitive.
           </div>
         </div>
       </h2>

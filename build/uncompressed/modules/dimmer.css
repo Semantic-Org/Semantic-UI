@@ -100,10 +100,12 @@
 /*******************************
             States
 *******************************/
+/*
 .ui.dimmed.dimmable > :not(.dimmer) {
-  -webkit-filter: blur(5px) grayscale(0.7);
-  -moz-filter: blur(5px) grayscale(0.7);
+  -webkit-filter: ~"blur(5px) grayscale(0.7)";
+  -moz-filter: ~"blur(5px) grayscale(0.7)";
 }
+*/
 .ui.dimmed.dimmable > .ui.dimmer,
 .ui.active.dimmer {
   display: block;
