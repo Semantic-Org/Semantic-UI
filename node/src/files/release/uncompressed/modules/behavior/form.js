@@ -658,6 +658,9 @@ $.fn.form.settings = {
     not: function(value, notValue) {
       return (value != notValue);
     },
+    contains: function(value, text) {
+      return (value.search(text) !== -1);
+    },
     is: function(value, text) {
       return (value == text);
     },

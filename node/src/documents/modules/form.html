@@ -168,7 +168,7 @@ type   : 'UI Behavior'
               prompt: 'You must have a dog to add'
             },
             {
-              type: 'is[fluffy]',
+              type: 'contains[fluffy]',
               prompt: 'I only want you to add fluffy dogs!'
             },
             {
@@ -281,8 +281,8 @@ type   : 'UI Behavior'
   <h3 class="ui header">
     Validation Rules
     <div class="sub header">Validation rules are a set of conditions required to validate a field</div>
-    <div class="ui info segment">Validation rules are found in <code>settings.rules</code></div>
   </h3>
+  <div class="ui info message">Validation rules are found in <code>settings.rules</code></div>
   <table class="ui teal celled definition table segment">
     <thead>
       <th class="four wide">Name</th>
@@ -375,7 +375,7 @@ type   : 'UI Behavior'
     Templates
     <div class="sub header">Templates are used to construct elements</div>
   </h3>
-  <div class="ui info segment">Templates are found in <code>settings.template</code></div>
+  <div class="ui info message">Templates are found in <code>settings.template</code></div>
   <table class="ui  celled definition table segment">
     <thead>
       <th class="four wide">Template</th>
