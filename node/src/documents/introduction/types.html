@@ -8,8 +8,8 @@ type   : 'UI Introduction'
 <script src="/javascript/intro.js"></script>
 <div class="segment">
   <div class="container">
-    <h1 class="ui header">Element Types  
-      <div class="ui label">Draft</div> 
+    <h1 class="ui header">Element Types
+      <div class="ui label">Draft</div>
       <div class="ui red label">Incomplete</div>
     </h1>
     <p>Types are exclusive versions of an element that very from its prototype or standard definition</p>
@@ -29,7 +29,7 @@ type   : 'UI Introduction'
   <h3 class="ui header">Content</h3>
   <p>An icon menu might expect you to include glyphs instead of text to be formatted correctly</p>
 
-  <div class="code" data-type="html" data-label="true">
+  <div class="code" data-type="html" data-label="true" data-preview="true">
     <div class="ui icon menu">
       <a class="item">
         <i class="mail icon"></i>
@@ -42,55 +42,27 @@ type   : 'UI Introduction'
       </a>
     </div>
   </div>
-  <div class="ui icon menu">
-    <a class="item">
-      <i class="mail icon"></i>
-    </a>
-    <a class="item">
-      <i class="lab icon"></i>
-    </a>
-    <a class="item">
-      <i class="star icon"></i>
-    </a>
-  </div>
 
   <h3 class="ui header">HTML Differences</h3>
   <p>Types may also require different html. For example, a tiered menu needs html specified for a sub menu to display itself correctly</p>
-  
-  <div class="code" data-type="html" data-label="true">
+
+  <div class="code" data-type="html" data-label="true" data-preview="true">
     <div class="ui tiered menu">
       <div class="menu">
         <div class="active item">
           <i class="home icon"></i>
           Home
         </div>
-        <div class="item">
-          <i class="mail icon"></i> 
+        <a class="item">
+          <i class="mail icon"></i>
           Mail
-          <div class="ui label">22</div>
-        </div>
+          <span class="ui label">22</span>
+        </a>
       </div>
       <div class="sub menu">
         <div class="active item">Activity</div>
-        <div class="item">Profile</div>
+        <a class="item">Profile</a>
       </div>
-    </div>
-  </div>
-  <div class="ui tiered menu">
-    <div class="menu">
-      <div class="active item">
-        <i class="home icon"></i>
-        Home
-      </div>
-      <div class="item">
-        <i class="mail icon"></i> 
-        Mail
-        <div class="ui label">22</div>
-      </div>
-    </div>
-    <div class="sub menu">
-      <div class="active item">Activity</div>
-      <div class="item">Profile</div>
     </div>
   </div>
   <div class="ui divider"></div>
@@ -98,5 +70,5 @@ type   : 'UI Introduction'
     Next: UI Variations
     <i class="right arrow icon"></i>
   </a>
-  
+
 </div>

@@ -6,7 +6,7 @@ semantic.button.ready = function() {
   // selector cache
   var
     $buttons = $('.ui.buttons .button'),
-    $toggle  = $('.ui.toggle.button'),
+    $toggle  = $('.main .ui.toggle.button'),
     $follow  = $('.follow.example .button'),
     $button  = $('.ui.button').not($buttons).not($toggle),
     // alias
