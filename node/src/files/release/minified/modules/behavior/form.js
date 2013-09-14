@@ -68,10 +68,13 @@ $.fn.form = function(fields, parameters) {
             .on('submit' + eventNamespace, module.validate.form)
           ;
           $field
-            .on('blur' + eventNamespace, module.event.field.change)
+            .on('blur' + eventNamespace, module.event.field.blur)
           ;
           $submit
             .on('click' + eventNamespace, module.submit)
+          ;
+          $field
+            .on(module.get.changeEvent() + eventNamespace, module.event.field.change)
           ;
           module.instantiate();
         },
@@ -138,6 +141,19 @@ $.fn.form = function(fields, parameters) {
               $submit.removeClass(className.down);
               module.submit();
             },
+            blur: function() {
+              var
+                $field      = $(this),
+                $fieldGroup = $field.closest($group)
+              ;
+              if( $fieldGroup.hasClass(className.error) ) {
+                module.debug('Revalidating field', $field,  module.get.validation($field));
+                module.validate.field( module.get.validation($field) );
+              }
+              else if(settings.on == 'blur' || settings.on == 'change') {
+                module.validate.field( module.get.validation($field) );
+              }
+            },
             change: function() {
               var
                 $field      = $(this),
@@ -156,6 +172,14 @@ $.fn.form = function(fields, parameters) {
         },
 
         get: {
+          changeEvent: function() {
+            return (document.createElement('input').oninput !== undefined)
+              ? 'input'
+              : (document.createElement('input').onpropertychange !== undefined)
+                ? 'propertychange'
+                : 'keyup'
+            ;
+          },
           field: function(identifier) {
             module.verbose('Finding field with identifier', identifier);
             if( $field.filter('#' + identifier).size() > 0 ) {
@@ -212,7 +236,7 @@ $.fn.form = function(fields, parameters) {
             $fieldGroup
               .addClass(className.error)
             ;
-            if(settings.inlineError) {
+            if(settings.inline) {
               if(!promptExists) {
                 $prompt = settings.templates.prompt(errors);
                 $prompt
@@ -254,7 +278,7 @@ $.fn.form = function(fields, parameters) {
             $fieldGroup
               .removeClass(className.error)
             ;
-            if(settings.inlineError && $prompt.is(':visible')) {
+            if(settings.inline && $prompt.is(':visible')) {
               module.verbose('Removing prompt for field', field);
               if(settings.transition && $.fn.transition !== undefined) {
                 $prompt.transition(settings.transition + ' out', settings.duration, function() {
@@ -296,7 +320,7 @@ $.fn.form = function(fields, parameters) {
             else {
               module.debug('Form has errors');
               $module.addClass(className.error);
-              if(!settings.inlineError) {
+              if(!settings.inline) {
                 module.add.errors(formErrors);
               }
               return $.proxy(settings.onFailure, this)(formErrors);
@@ -558,7 +582,7 @@ $.fn.form.settings = {
 
   keyboardShortcuts : true,
   on                : 'submit',
-  inlineError       : false,
+  inline            : false,
 
   transition        : 'scale',
   duration          : 150,

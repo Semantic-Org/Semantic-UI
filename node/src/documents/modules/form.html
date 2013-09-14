@@ -29,7 +29,9 @@ type   : 'UI Behavior'
   <div class="example">
     <h3 class="ui header">Basic Validation</h3>
     <p>Form validation requires passing in a validation object with the rules required to validate your form.</p>
-    <!-- <div class="ui green message">If no validation object is specified then the form will validate against the default validation set up for the plugin. See <em>default validation</em> below.</div> -->
+    <div class="ui info message">
+      <i class="help icon"></i>A validation object includes a list of form elements, and rules to validate each against. Fields are matched by either the id tag, name tag, or data-validate metadata matching the identifier provided in the settings object. To pass parameters to a rule, use bracket notation
+    </div>
     <div class="ignore code">
     $('.ui.form')
       .form({
@@ -155,9 +157,6 @@ type   : 'UI Behavior'
   <div class="dog example">
     <h3 class="ui header">Custom Validation</h3>
     <p>Custom form validation requires passing in a validation object with the rules required to validate your form.</p>
-    <div class="ui info message">
-      <i class="help icon"></i>A validation object includes a list of form elements, and rules to validate each against. Fields are matched by either the id tag, name tag, or data-validate metadata matching the identifier provided in the settings object. To pass parameters to a rule, use bracket notation
-    </div>
     <div class="ignore code">
     $('.ui.form')
       .form({
@@ -193,8 +192,17 @@ type   : 'UI Behavior'
   </div>
 
   <div class="inline example">
-    <h3 class="ui header">Inline Validation</h3>
-    <p>Validation messages can also appear inline. UI Forms automatically format <a href="/elements/label.html">labels</a> with the className prompt. These validation prompts are also set to appear on input change instead of form submission.</p>
+    <h3 class="ui header">Inline Validation and Validation On</h3>
+    <p>Validation messages can also appear inline. UI Forms automatically format <a href="/elements/label.html">labels</a> with the class name <code>prompt</code>. These validation prompts are also set to appear on input change instead of form submission.</p>
+    <p>This example also uses a different validation event. Each element will be validated on input blur instead of the default form submit.</p>
+    <div class="code" data-type="javascript">
+      $('.ui.dropdown')
+        .form({
+          inline : true,
+          on     : 'blur'
+        })
+      ;
+    </div>
     <div class="ui form segment">
       <p>Let's go ahead and get you signed up.</p>
       <div class="two fields">
@@ -247,13 +255,13 @@ type   : 'UI Behavior'
       </tr>
       <tr>
         <td>on</td>
-        <td>click</td>
-        <td>Event used to trigger validation. Can be either submit or change</td>
+        <td>submit</td>
+        <td>Event used to trigger validation. Can be either submit, blur or change.</td>
       </tr>
       <tr>
-        <td>inlineError</td>
+        <td>inline</td>
         <td>false</td>
-        <td>Adds prompt text from template on validation error</td>
+        <td>Adds inline error on field validation error</td>
       </tr>
       <tr>
         <td>transition</td>
@@ -273,6 +281,7 @@ type   : 'UI Behavior'
   <h3 class="ui header">
     Validation Rules
     <div class="sub header">Validation rules are a set of conditions required to validate a field</div>
+    <div class="ui info segment">Validation rules are found in <code>settings.rules</code></div>
   </h3>
   <table class="ui teal celled definition table segment">
     <thead>
@@ -366,6 +375,7 @@ type   : 'UI Behavior'
     Templates
     <div class="sub header">Templates are used to construct elements</div>
   </h3>
+  <div class="ui info segment">Templates are found in <code>settings.template</code></div>
   <table class="ui  celled definition table segment">
     <thead>
       <th class="four wide">Template</th>

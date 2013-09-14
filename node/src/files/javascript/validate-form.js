@@ -103,8 +103,8 @@ semantic.validateForm.ready = function() {
 
   $inlineForm
     .form({}, {
-      on: 'change',
-      inlineError: true
+      inline : true,
+      on: 'blur'
     })
   ;
 
