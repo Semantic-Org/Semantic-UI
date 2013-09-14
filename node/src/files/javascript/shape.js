@@ -4,7 +4,7 @@ semantic.shape = {};
 semantic.shape.ready = function() {
 
   // selector cache
-  var 
+  var
     $demo            = $('.demo'),
     $dogDemo         = $('.dog.shape'),
     $directionButton = $('.direction .button'),
@@ -47,7 +47,7 @@ semantic.shape.ready = function() {
       $shape
         .addClass('active')
       ;
-      $otherShapes  
+      $otherShapes
         .removeClass('active')
         .each(handler.removeShape)
       ;
@@ -74,20 +74,7 @@ semantic.shape.ready = function() {
   $dogDemo
     .shape()
   ;
-  setInterval(function() {
-    $dogDemo
-      .filter('.one')
-        .shape('flip.over')
-        .end()
-      .filter('.two')
-        .shape('flip.left')
-        .end()
-      .filter('.three')
-        .shape('flip.right')
-        .end()
-    ;
-  }, 4000);
-  
+
 };
 
 

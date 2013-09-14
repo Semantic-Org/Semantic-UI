@@ -64,9 +64,26 @@ type   : 'UI Module'
       </div>
     </div>
   </div>
+  <h3 class="ui header">Shape</h3>
+  <div class="ui shape buttons">
+    <div class="active ui button" data-shape="square">Square</div>
+    <div class="ui button" data-shape="rectangle">Rectangle</div>
+    <div class="ui button" data-shape="irregular">Irregular</div>
+  </div>
 
-  <h3 class="ui header">Automatic</h3>
-  <div class="dog two ui shape">
+  <h3 class="ui header">Flip</h3>
+  <div class="ui direction buttons">
+    <div class="ui button" data-animation="flip" data-direction="left">Left</div>
+    <div class="ui button" data-animation="flip" data-direction="right">Right</div>
+    <div class="ui button" data-animation="flip" data-direction="up">Up</div>
+    <div class="ui button" data-animation="flip" data-direction="down">Down</div>
+    <div class="ui button" data-animation="flip" data-direction="over">Over</div>
+    <div class="ui button" data-animation="flip" data-direction="back">Back</div>
+  </div>
+
+
+  <h3 class="ui header">Shape with Content</h3>
+  <div class="dog ui shape">
     <div class="sides">
       <div class="active side">
         <div class="ui items">
@@ -120,7 +137,7 @@ type   : 'UI Module'
     </div>
   </div>
 
-  <div class="dog one ui shape">
+  <div class="dog ui shape">
     <div class="sides">
       <div class="active side">
         <div class="ui items">
@@ -173,77 +190,16 @@ type   : 'UI Module'
       </div>
     </div>
   </div>
-
-  <div class="dog three ui shape">
-    <div class="sides">
-      <div class="active side">
-        <div class="ui items">
-          <div class="item">
-            <div class="image">
-              <a class="ui like corner label">
-                <i class="like icon"></i>
-              </a>
-              <img src="/images/demo/item1.jpg">
-            </div>
-            <div class="content">
-              <div class="name">Cute Dog</div>
-              <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="side">
-        <div class="ui items">
-          <div class="item">
-            <div class="image">
-              <a class="ui like corner label">
-                <i class="like icon"></i>
-              </a>
-              <img src="/images/demo/item3.jpg">
-            </div>
-            <div class="content">
-              <div class="name">Silly Dog</div>
-              <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="side">
-        <div class="ui items">
-          <div class="item">
-            <div class="image">
-              <a class="ui like corner label">
-                <i class="like icon"></i>
-              </a>
-              <img src="/images/demo/item2.jpg">
-            </div>
-            <div class="content">
-              <div class="meta">5 days ago</div>
-              <div class="name">Faithful Dog</div>
-              <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="ui clearing divider"></div>
+    <div class="code" data-demo="true">
+    $('.dog.shape')
+      .eq(0)
+        .shape('flip over')
+        .end()
+      .eq(1)
+        .shape('flip left')
+    ;
     </div>
-  </div>
-
-
-  <h3 class="ui header">Shape</h3>
-  <div class="ui shape buttons">
-    <div class="active ui button" data-shape="square">Square</div>
-    <div class="ui button" data-shape="rectangle">Rectangle</div>
-    <div class="ui button" data-shape="irregular">Irregular</div>
-  </div>
-
-  <h3 class="ui header">Flip</h3>
-  <div class="ui direction buttons">
-    <div class="ui button" data-animation="flip" data-direction="left">Left</div>
-    <div class="ui button" data-animation="flip" data-direction="right">Right</div>
-    <div class="ui button" data-animation="flip" data-direction="up">Up</div>
-    <div class="ui button" data-animation="flip" data-direction="down">Down</div>
-    <div class="ui button" data-animation="flip" data-direction="over">Over</div>
-  </div>
 
   <h2 class="ui dividing header">Getting Started</h2>
 
