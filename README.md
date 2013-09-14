@@ -26,7 +26,7 @@ To download the entire library
 
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
-    http://semantic-ui.com/semantic.zip
+    http://semantic-ui.com/release/semantic.zip
 
 ## The Specification
 
