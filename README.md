@@ -1,6 +1,8 @@
-# Pre-Release
+# Pre-Release (Not ready for usage)
 
-This is a pre-release version of Semantic, many features may be broken or missing. Build tools are not yet available, and APIs may be updated regularly. 
+This is a pre-release version of Semantic, many features may be broken or missing. 
+
+Documentation is very loose, build tools are not yet available, and APIs may be updated regularly. 
 
 **Please use at your own discretion.**
 
