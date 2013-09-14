@@ -433,6 +433,11 @@ a:hover {
   margin: 1em 0em 1.5em;
   padding: 0px;
 }
+#example .footer.link.list {
+  display: block;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
 
 /*--------------
