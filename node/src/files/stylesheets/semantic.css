@@ -280,24 +280,41 @@ a:hover {
   width: 100%;
 }
 #example .masthead {
+  position: relative;
+  overflow: hidden;
+  background-color: #00B5AD;
   text-align: center;
-  background: #00B5AD url(/images/tile-bg.png) repeat fixed 0% 0%;
   margin-top: 38px;
   padding: 50px 0px;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
   border-bottom: none;
+}
+#example .masthead:before {
+  background: #00B5AD url(/images/tile-bg.png) repeat fixed 0% 0%;
+  position: absolute;
+  z-index: 1;
+  width: 500%;
+  height: 500%;
+  top: 0px;
+  left: 0px;
+  content: '';
+
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 
   -webkit-animation-name: masthead;
   -moz-animation-name: masthead;
   -o-animation-name: masthead;
   animation-name: masthead;
 
-  -webkit-animation-duration: 30s;
-  -moz-animation-duration: 30s;
-  -ms-animation-duration: 30s;
-  -o-animation-duration: 30s;
-  animation-duration: 30s;
+  -webkit-animation-duration: 80s;
+  -moz-animation-duration: 80s;
+  -ms-animation-duration: 80s;
+  -o-animation-duration: 80s;
+  animation-duration: 80s;
 
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
@@ -314,51 +331,75 @@ a:hover {
   -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
+@keyframes masthead {
+ 0% {
+    background-position: 0% 0%;
+ }
+ 50% {
+    background-position: -50% -100%;
+ }
+ 100% {
+    background-position: -100% -200%;
+ }
+
+}
 
 @-moz-keyframes masthead {
  0% {
    background-position: 0% 0%;
  }
- 100% {
+ 50% {
    background-position: -50% -100%;
  }
+ 100% {
+   background-position: -100% -200%;
+ }
+
 }
 
 @-webkit-keyframes masthead {
  0% {
    background-position: 0% 0%;
  }
- 100% {
+ 50% {
    background-position: -50% -100%;
  }
+ 100% {
+   background-position: -100% -200%;
+ }
+
 }
 
 @-ms-keyframes masthead {
  0% {
    background-position: 0% 0%;
  }
- 100% {
+ 50% {
    background-position: -50% -100%;
  }
+ 100% {
+   background-position: -100% -200%;
+ }
+
 }
 
 @-o-keyframes masthead {
  0% {
    background-position: 0% 0%;
  }
- 100% {
+ 50% {
    background-position: -50% -100%;
  }
-}
-@keyframes masthead {
- 0% {
-    background-position: 0% 0%;
- }
  100% {
-    background-position: -50% -100%;
+   background-position: -100% -200%;
  }
 
 }
+#example .masthead .grid {
+  position: relative;
+  z-index: 2;
+}
+
 
 #example .masthead .labeled.button {
   position: relative;

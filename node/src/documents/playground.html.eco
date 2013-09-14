@@ -11,8 +11,8 @@ type   : 'Library'
 <% uiViews           = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
 <script src="/javascript/library/zencoding.js"></script>
 <script src="/javascript/library/handlebars.js"></script>
-<script src="/components/semantic/modules/dropdown.js"></script>
-<script src="/components/semantic/modules/behavior/api.js"></script>
+<script src="/release/uncompressed/modules/dropdown.js"></script>
+<script src="/release/uncompressed/modules/behavior/api.js"></script>
 <script src="/javascript/playground.js"></script>
 
 <div class="ui page grid center aligned title">
@@ -32,7 +32,7 @@ type   : 'Library'
             <label>Elements</label>
             <div class="ui fluid dropdown selection">
               <input type="hidden" name="element">
-              <i class="icon dropdown"></i> 
+              <i class="icon dropdown"></i>
               <div class="text">Button</div>
               <div class="menu">
                 <% for element in uiElements: %>
@@ -47,7 +47,7 @@ type   : 'Library'
             <label>Collections</label>
             <div class="ui fluid dropdown selection">
               <input type="hidden" name="collection">
-              <i class="icon dropdown"></i> 
+              <i class="icon dropdown"></i>
               <div class="text">---</div>
               <div class="menu">
                 <% for element in uiCollections: %>
@@ -62,7 +62,7 @@ type   : 'Library'
             <label>Modules</label>
             <div class="ui fluid dropdown selection">
               <input type="hidden" name="module">
-              <i class="icon dropdown"></i> 
+              <i class="icon dropdown"></i>
               <div class="text">---</div>
               <div class="menu">
                 <% for element in uiModules: %>
@@ -77,7 +77,7 @@ type   : 'Library'
             <label>Views</label>
             <div class="ui fluid dropdown selection">
               <input type="hidden" name="view">
-              <i class="icon dropdown"></i> 
+              <i class="icon dropdown"></i>
               <div class="text">---</div>
               <div class="menu">
                 <% for element in uiViews: %>
@@ -167,7 +167,7 @@ type   : 'Library'
   <label>{{name}}</label>
   <div class="ui fluid dropdown {{value}} selection">
     <input type="hidden" name="{{name}}" value="none">
-    <i class="icon dropdown"></i> 
+    <i class="icon dropdown"></i>
     <div class="text">Standard</div>
     <div class="menu">
       <div class="item" data-value="none">---</div>

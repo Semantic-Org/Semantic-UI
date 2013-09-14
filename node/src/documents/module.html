@@ -8,27 +8,22 @@ type   : 'Semantic'
 
 <div class="segment">
   <div class="container">
-    <h1 class="ui dividing header">UI Modules</h1>
+    <h1 class="ui dividing header">UI Modules <span class="ui red label">Incomplete</span></h1>
     <p>UI modules are interface elements whose behavior is an essential part of their definition.</p>
   </div>
 </div>
 <div class="main container">
-    
+
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Types</a>
-      <a class="item">Usage</a>
+      <a class="active item">Settings</a>
     </div>
   </div>
-  
-  <h2 class="ui dividing header">Types</h2>
-  
-  <h2 class="ui dividing header">Usage</h3>
-  
+
 
   <h2 class="ui dividing header">Settings</h2>
   <p>Settings in UI widgets are any part of a widget definition which is mutable. Most UI widgets have a set of common settings which are useful across all plugins.
-  
+
   <h3 class="ui header">Common Settings</h3>
     <table class="ui celled table segment">
       <thead>
@@ -70,14 +65,14 @@ type   : 'Semantic'
       </tr>
     </tbody>
   </table>
-  
-  <h3 class="ui header">Changing Settings</h3> 
-  <ol>
+
+  <h3 class="ui header">Changing Settings</h3>
+  <ol class="ui list">
     <li>A settings object can be passed in when initializing the plugin
-      <br> 
+      <br>
     <div class="code">
     $('.foo')
-      .module({ 
+      .module({
         moduleName: 'Godzilla',
         verbose: true
       })
@@ -87,7 +82,7 @@ type   : 'Semantic'
     <li>Default settings for the module can be overridden by modifying $.fn.module.settings.
       <br><div class="code">$.fn.module.settings.moduleName = 'Godzilla';</div>
     </li>
-    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair. 
+    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair.
       <br>
     <div class="code">
     $('.foo')
@@ -100,11 +95,11 @@ type   : 'Semantic'
     </li>
   </ol>
   <h3 class="ui header">Reading Settings</h3>
-  <p>Settings can also be read programmatically: 
+  <p>Settings can also be read programmatically:
   <div class="code">
     $('.foo').module('setting', 'moduleName');
     // outputs godzilla
-  </div>  
+  </div>
 </div>
 </body>
 
