@@ -143,7 +143,7 @@ a.ui.label {
 *******************************/
 
 /*-------------------
-       Disabled
+      Disabled
 --------------------*/
 
 .ui.label.disabled {
@@ -166,6 +166,25 @@ a.ui.label:hover:before {
   background-color: #E0E0E0;
   color: rgba(0, 0, 0, 0.7);
 }
+
+/*-------------------
+      Visible
+--------------------*/
+
+.ui.labels.visible .label,
+.ui.label.visible {
+  display: inline-block !important;
+}
+
+/*-------------------
+      Hidden
+--------------------*/
+
+.ui.labels.hidden .label,
+.ui.label.hidden {
+  display: none !important;
+}
+
 
 
 /*******************************

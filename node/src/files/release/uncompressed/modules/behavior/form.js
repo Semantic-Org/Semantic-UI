@@ -208,7 +208,7 @@ $.fn.form = function(fields, parameters) {
               $prompt      = $fieldGroup.find(selector.prompt),
               promptExists = ($prompt.size() !== 0)
             ;
-            module.verbose('Adding inline validation prompt');
+            module.verbose('Adding inline error', field);
             $fieldGroup
               .addClass(className.error)
             ;
@@ -217,16 +217,22 @@ $.fn.form = function(fields, parameters) {
                 $prompt = settings.templates.prompt(errors);
                 $prompt
                   .appendTo($fieldGroup)
-                  .hide()
                 ;
               }
               $prompt
                 .html(errors[0])
               ;
-              if($prompt.is(':not(:visible)')) {
-                $prompt
-                  .fadeIn(settings.animateSpeed)
-                ;
+              if(!promptExists) {
+                if(settings.transition && $.fn.transition !== undefined) {
+                  module.verbose('Displaying error with css transition', settings.transition);
+                  $prompt.transition(settings.transition + ' in', settings.duration);
+                }
+                else {
+                  module.verbose('Displaying error with fallback javascript animation');
+                  $prompt
+                    .fadeIn(settings.duration)
+                  ;
+                }
               }
             }
           },
@@ -248,8 +254,20 @@ $.fn.form = function(fields, parameters) {
             $fieldGroup
               .removeClass(className.error)
             ;
-            if(settings.inlineError) {
-              $prompt.hide();
+            if(settings.inlineError && $prompt.is(':visible')) {
+              module.verbose('Removing prompt for field', field);
+              if(settings.transition && $.fn.transition !== undefined) {
+                $prompt.transition(settings.transition + ' out', settings.duration, function() {
+                  $prompt.remove();
+                });
+              }
+              else {
+                $prompt
+                  .fadeOut(settings.duration, function(){
+                    $prompt.remove();
+                  })
+                ;
+              }
             }
           }
         },
@@ -530,19 +548,20 @@ $.fn.form = function(fields, parameters) {
 
 $.fn.form.settings = {
 
-  // module info
-  name        : 'Form',
+  name              : 'Form',
+  namespace         : 'form',
 
   debug             : true,
   verbose           : true,
   performance       : true,
 
-  namespace         : 'form',
 
   keyboardShortcuts : true,
   on                : 'submit',
-  animateSpeed      : 150,
   inlineError       : false,
+
+  transition        : 'fade',
+  duration          : 150,
 
 
   onValid           : function() {},
@@ -555,19 +574,19 @@ $.fn.form.settings = {
   },
 
   selector : {
-    message   : '.error.message',
-    field     : 'input, textarea, select',
-    group     : '.field',
-    input     : 'input',
-    prompt    : '.prompt',
-    submit    : '.submit'
+    message : '.error.message',
+    field   : 'input, textarea, select',
+    group   : '.field',
+    input   : 'input',
+    prompt  : '.prompt',
+    submit  : '.submit'
   },
 
   className : {
-    error  : 'error',
-    success: 'success',
-    down   : 'down',
-    label  : 'ui label prompt'
+    error   : 'error',
+    success : 'success',
+    down    : 'down',
+    label   : 'ui label prompt'
   },
 
   // errors
@@ -624,20 +643,20 @@ $.fn.form.settings = {
         : false
       ;
     },
-    match: function(value, matchingField) {
+    match: function(value, fieldIdentifier) {
       // use either id or name of field
       var
         $form = $(this),
         matchingValue
       ;
-      if($form.find('#' + matchingField).size() > 0) {
-        matchingValue = $form.find('#' + matchingField).val();
+      if($form.find('#' + fieldIdentifier).size() > 0) {
+        matchingValue = $form.find('#' + fieldIdentifier).val();
       }
-      else if($form.find('[name=' + matchingField +']').size() > 0) {
-        matchingValue = $form.find('[name=' + matchingField + ']').val();
+      else if($form.find('[name=' + fieldIdentifier +']').size() > 0) {
+        matchingValue = $form.find('[name=' + fieldIdentifier + ']').val();
       }
-      else if( $form.find('[data-validate="'+ matchingField +'"]').size() > 0 ) {
-        matchingValue = $form.find('[data-validate="'+ matchingField +'"]').val();
+      else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').size() > 0 ) {
+        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
       }
       return (matchingValue !== undefined)
         ? ( value.toString() == matchingValue.toString() )

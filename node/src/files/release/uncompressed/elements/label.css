@@ -109,7 +109,7 @@ a.ui.label {
              States
 *******************************/
 /*-------------------
-       Disabled
+      Disabled
 --------------------*/
 .ui.label.disabled {
   opacity: 0.5;
@@ -127,6 +127,20 @@ a.ui.label:hover {
 a.ui.label:hover:before {
   background-color: #E0E0E0;
   color: rgba(0, 0, 0, 0.7);
+}
+/*-------------------
+      Visible
+--------------------*/
+.ui.labels.visible .label,
+.ui.label.visible {
+  display: inline-block !important;
+}
+/*-------------------
+      Hidden
+--------------------*/
+.ui.labels.hidden .label,
+.ui.label.hidden {
+  display: none !important;
 }
 /*******************************
            Variations
