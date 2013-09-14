@@ -1,6 +1,6 @@
 ---
 layout : 'default'
-css    : 'element'
+css    : 'progress'
 
 title  : 'UI Elements'
 type   : 'Semantic'
@@ -16,17 +16,16 @@ type   : 'Semantic'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Definition</a>
-      <a class="item">Types</a>
+      <a class="active item">Types</a>
     </div>
   </div>
+<!--
   <h2 class="ui dividing header">Definition</h2>
   <p>UI Elements are the smallest useful unit for describing page content, and do not contain other elements inside themselves.</p>
 
   <h3 class="ui header">Plurality</h3>
   <p>Element usually exist by themselves, but they my also be grouped together with other elements of their kind. This forms a plural definition of an element.</p>
   <p>The look and feel of the plural may change to show a relationship, and plural definitions can often share many of the same variations as singular definitions.</p>
-
   <div class="ui segment">
     <h4 class="ui header">Groups</h4>
     <p>The plural of button is "buttons" a button wrapped inside "buttons" will automatically apply styling appropriate for a group. Many button variations can be used on plural definitions just like they would be used in singular.</p>
@@ -44,7 +43,7 @@ type   : 'Semantic'
     </div>
     </div>
   </div>
-
+ -->
   <h2 class="ui dividing header">Types</h2>
 
   <div class="ui two type items">
@@ -68,13 +67,22 @@ type   : 'Semantic'
     </div>
     <div class="item">
       <div class="image">
+        <div class="ui horizontal divider"><i class="github icon"></i></div>
+      </div>
+      <div class="content">
+        <a href="elements/divider.html" class="name">Divider</a>
+        <p>A divider visually segments content into separate groups</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
         <h2 class="ui blue block header">
           Section 2
           <div class="sub header">The second section of the website</div>
         </h2>
       </div>
       <div class="content">
-        <a href="elements/label.html" class="name">Header</a>
+        <a href="elements/header.html" class="name">Header</a>
         <p>Headers provide a short summary of content</p>
       </div>
     </div>
@@ -98,6 +106,20 @@ type   : 'Semantic'
       <div class="content">
         <a href="elements/segment.html" class="name">Segment</a>
         <p>A segment is used to create a grouping of related content.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <div class="ui left floated circular image">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="ui right floated circular image">
+          <img src="/images/demo/avatar2.jpg">
+        </div>
+      </div>
+      <div class="content">
+      <a href="elements/image.html" class="name">Image</a>
+      <p>An image is a graphic representation of something</p>
       </div>
     </div>
     <div class="item">
@@ -206,6 +228,12 @@ type   : 'Semantic'
     </div>
     <div class="item">
       <div class="image">
+        <div class="ui red label">Dog</div>
+        <div class="ui teal corner label">
+          <div class="text">New</div>
+        </div>
+        <br><br>
+        <div class="ui blue ribbon label">HTML</div>
       </div>
       <div class="content">
         <a href="elements/label.html" class="name">Label</a>

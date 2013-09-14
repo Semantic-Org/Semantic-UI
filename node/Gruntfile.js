@@ -2,11 +2,11 @@ module.exports = function(grunt) {
   var
     defaultTasks = [
       // watch less folder
-      'watch' 
+      'watch'
     ],
     watchTasks = [
       // compiles less
-      'less:buildCSS',  
+      'less:buildCSS',
       // copies assets and js over to build dir
       'copy:toBuild',
       // copies files over to docs
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         src: '*'
       },
       docs : {
-        cwd: 'src/files/components/semantic/',
+        cwd: 'src/files/release/uncompressed/',
         src: '*'
       }
     },
@@ -132,7 +132,6 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : '../src/',
             src    : [
-              '**/*.js',
               'images/*',
               'fonts/*'
             ],
@@ -144,11 +143,11 @@ module.exports = function(grunt) {
         files: [
           {
             expand : true,
-            cwd    : '../build/uncompressed',
+            cwd    : '../build/',
             src    : [
               '**'
             ],
-            dest   : 'src/files/components/semantic/'
+            dest   : 'src/files/release/'
           }
         ]
       },
@@ -195,7 +194,7 @@ module.exports = function(grunt) {
             '*/\n'
         },
         files: {
-          '../build/packaged/semantic.min.css': [
+          '../build/packaged/css/semantic.min.css': [
             '../build/uncompressed/**/*.css'
           ]
         }
@@ -233,7 +232,7 @@ module.exports = function(grunt) {
             '*/\n'
         },
         files: {
-          '../build/packaged/semantic.min.js': [
+          '../build/packaged/javascript/semantic.min.js': [
             '../build/uncompressed/**/*.js'
           ]
         }
