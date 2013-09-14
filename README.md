@@ -1,8 +1,8 @@
 # Pre-Release (Not ready for usage)
 
-This is a pre-release version of Semantic, many features may be broken or missing. 
+This is a pre-release version of Semantic, many features may be broken or missing. Development on semantic was being done in stealth, but after hackernews/reddit coverage, will continue on more transparently on the march to a version one.point.oh, huzzah!
 
-Documentation is very loose, build tools are not yet available, and APIs may be updated regularly. 
+Documentation is very loose, build tools are not yet available, and APIs may be updated regularly. So be warned!
 
 **Please use at your own discretion.**
 
