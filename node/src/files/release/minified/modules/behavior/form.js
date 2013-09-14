@@ -560,7 +560,7 @@ $.fn.form.settings = {
   on                : 'submit',
   inlineError       : false,
 
-  transition        : 'fade',
+  transition        : 'scale',
   duration          : 150,
 
 
