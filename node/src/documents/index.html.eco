@@ -17,7 +17,7 @@ type   : 'Semantic'
       <h2 class="ui header">UI is the vocabulary of the web.</h2>
       <p>Semantic empowers designers and developers by creating a language for sharing UI.</p>
         <a class="ui black large labeled launch icon button"><i class="icon list layout"></i> View UI</a>
-        <a class="ui red large labeled icon button" href="semantic.zip" class="ui button"><i class="upload icon"></i> Download</a>
+        <a class="ui red large labeled icon button" href="release/semantic.zip" class="ui button"><i class="upload icon"></i> Download</a>
     </div>
   </div>
 </div>

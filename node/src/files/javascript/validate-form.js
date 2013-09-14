@@ -119,7 +119,7 @@ semantic.validateForm.ready = function() {
             prompt: 'You must have a dog to add'
           },
           {
-            type: 'is[fluffy dog]',
+            type: 'is[fluffy]',
             prompt: 'I only want you to add fluffy dogs!'
           },
           {

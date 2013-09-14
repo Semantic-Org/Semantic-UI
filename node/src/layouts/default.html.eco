@@ -101,7 +101,7 @@
 </head>
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
-    <a class="item" href="/semantic.zip">
+    <a class="item" href="/release/semantic.zip">
       <i class="inverted circular red upload icon"></i> <b>Download</b>
     </a>
     <div class="item">

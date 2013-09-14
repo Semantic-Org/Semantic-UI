@@ -18,6 +18,7 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-docco": "~0.2.0",
     "grunt-bower-task": "~0.3.1",
-    "grunt-css": "~0.5.4"
+    "grunt-css": "~0.5.4",
+    "grunt-contrib-compress": "~0.5.2"
   }
 }
