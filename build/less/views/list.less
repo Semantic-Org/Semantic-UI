@@ -1,0 +1,491 @@
+/*
+ * # Semantic List - Flat
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 26 2013
+ */
+
+/*******************************
+            List
+*******************************/
+
+ul.ui.list,
+ol.ui.list,
+.ui.list {
+  list-style-type: none;
+  margin: 1em 0em;
+  padding: 0em;
+}
+ul.ui.list ul,
+ol.ui.list ol,
+.ui.list .list {
+  margin: 0em;
+  padding: 0.5em 0em 0.5em 1em;
+}
+
+ul.ui.list:first-child,
+ol.ui.list:first-child,
+.ui.list:first-child {
+  margin-top: 0em;
+}
+
+ul.ui.list:last-child,
+ol.ui.list:last-child,
+.ui.list:last-child {
+  margin-bottom: 0em;
+}
+
+
+/*******************************
+            Content
+*******************************/
+
+/* List Item */
+ul.ui.list li,
+ol.ui.list li,
+.ui.list .item {
+  display: list-item;
+  list-style-type: none;
+  list-style-position: inside;
+
+  padding: 0.3em 0em;
+  line-height: 1.2;
+}
+
+/* Icon */
+.ui.list .item > .icon {
+  margin: 0em 0.5em 0em 0em;
+}
+.ui.list .item > .icon + .content {
+  margin-left: 0.75em;
+}
+
+/* Image */
+.ui.list .item > img {
+  display: inline-block;
+  width: 2em;
+  margin-right: 0.5em;
+
+  vertical-align: middle;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+}
+
+/* Content */
+.ui.list .item > .content {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+/* Link */
+.ui.list a {
+  cursor: pointer;
+}
+.ui.list a .icon {
+  color: rgba(0, 0, 0, 0.6);
+
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+/* Header */
+.ui.list .header {
+  font-weight: bold;
+}
+.ui.list .description {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Floated Content */
+.ui.list .item > .left.floated {
+  float: left;
+}
+.ui.list .item > .right.floated {
+  float: right;
+}
+
+
+
+/*******************************
+            Types
+*******************************/
+
+/*-------------------
+      Horizontal
+--------------------*/
+
+.ui.horizontal.list {
+  display: inline-block;
+  font-size: 0em;
+}
+.ui.horizontal.list .item {
+  display: inline-block;
+  margin-left: 1em;
+  font-size: 1rem;
+}
+
+.ui.horizontal.list .item:first-child {
+  margin-left: 0em;
+}
+
+/*******************************
+             States
+*******************************/
+
+/*-------------------
+        Hover
+--------------------*/
+
+.ui.list a:hover .icon {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/*******************************
+           Variations
+*******************************/
+
+/*-------------------
+      Selection
+--------------------*/
+
+.ui.selection.list .item {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
+  padding: 0.5em;
+
+  -webkit-transition:
+    0.2s color ease,
+    0.2s padding-left ease,
+    0.2s background-color ease
+  ;
+  -moz-transition:
+    0.2s color ease,
+    0.2s padding-left ease,
+    0.2s background-color ease
+  ;
+  -o-transition:
+    0.2s color ease,
+    0.2s padding-left ease,
+    0.2s background-color ease
+  ;
+  -ms-transition:
+    0.2s color ease,
+    0.2s padding-left ease,
+    0.2s background-color ease
+  ;
+  transition:
+    0.2s color ease,
+    0.2s padding-left ease,
+    0.2s background-color ease
+  ;
+}
+.ui.selection.list .item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  color: rgba(0, 0, 0, 0.7);
+}
+.ui.selection.list:not(.horizontal, .ordered) .item:hover {
+  padding-left: 1em;
+}
+.ui.selection.list:not(.horizontal, .ordered) .item:hover .item:hover {
+  padding-left: 0.5em;
+}
+
+.ui.selection.list .item:active {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.7);
+}
+.ui.selection.list .item.active {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+/*-------------------
+      Bulleted
+--------------------*/
+
+ul.ui.list,
+.ui.bulleted.list {
+  margin-left: 1em;
+}
+ul.ui.list li,
+.ui.bulleted.list .item {
+  position: relative;
+}
+ul.ui.list li:before,
+.ui.bulleted.list .item:before {
+  position: absolute;
+  left: -1em;
+  content: '•';
+
+  line-height: 1.2rem;
+  vertical-align: top;
+}
+
+ul.ui.list ul,
+.ui.bulleted.list .list {
+  padding-left: 1.2em;
+}
+
+/* Horizontal Bulleted */
+ul.ui.horizontal.bulleted.list,
+.ui.horizontal.bulleted.list {
+  margin-left: 0em;
+}
+ul.ui.horizontal.bulleted.list li,
+.ui.horizontal.bulleted.list .item {
+  margin-left: 1.5em;
+}
+ul.ui.horizontal.bulleted.list li:before,
+.ui.horizontal.bulleted.list .item:before {
+  left: -0.9em;
+}
+ul.ui.horizontal.bulleted.list li:first-child,
+.ui.horizontal.bulleted.list .item:first-child {
+  margin-left: 0em;
+}
+ul.ui.horizontal.bulleted.list li:first-child::before,
+.ui.horizontal.bulleted.list .item:first-child::before {
+  display: none;
+}
+
+/*-------------------
+       Ordered
+--------------------*/
+
+ol.ui.list,
+.ui.ordered.list {
+  counter-reset: ordered;
+  margin-left: 2em;
+  list-style-type: none;
+}
+ol.ui.list li,
+.ui.ordered.list .item {
+  list-style-type: none;
+  position: relative;
+}
+ol.ui.list li:before,
+.ui.ordered.list .item:before {
+  position: absolute;
+  left: -2em;
+
+  counter-increment: ordered;
+  content: counters(ordered, ".");
+
+  text-align: right;
+  vertical-align: top;
+  opacity: 0.75;
+}
+
+ol.ui.list ol,
+.ui.ordered.list .list {
+  counter-reset: ordered;
+  padding-left: 3em;
+}
+
+ol.ui.list ol li:before,
+.ui.ordered.list .list .item:before {
+  left: -2.5em;
+}
+
+/* Horizontal Ordered */
+ol.ui.horizontal.list,
+.ui.ordered.horizontal.list {
+  margin-left: 0em;
+}
+ol.ui.horizontal.list li:before,
+.ui.ordered.horizontal.list .item:before {
+  position: static;
+  margin: 0em 0.5em 0em 0em;
+}
+
+
+/*-------------------
+       Divided
+--------------------*/
+
+.ui.divided.list > .item,
+.ui.divided.list > .list {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.ui.divided.list .item .menu .item {
+  border-width: 0px;
+}
+.ui.divided.list .item:first-child {
+  border-top-width: 0px;
+}
+
+/* Sub Menu */
+.ui.divided.list .list {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.divided.list .list .item {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.ui.divided.list .list .item:first-child {
+  border-top-width: 1px;
+}
+
+/* Divided bulleted */
+.ui.divided.bulleted.list {
+  margin-left: 0em;
+}
+.ui.divided.bulleted.list .item {
+  padding-left: 1.5em;
+}
+.ui.divided.bulleted.list .item:before {
+  left: 0.5em;
+}
+
+/* Divided ordered */
+.ui.divided.ordered.list {
+  margin-left: 0em;
+}
+.ui.divided.ordered.list > .item {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.ui.divided.ordered.list > .item:before {
+  left: 0.5em;
+}
+.ui.divided.ordered.list .item .list {
+  margin-left: -2em;
+  margin-right: -2em;
+}
+
+
+/* Divided horizontal */
+.ui.divided.horizontal.list {
+  margin-left: 0em;
+}
+.ui.divided.horizontal.list .item {
+  border-top: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+
+  line-height: 0.6;
+}
+.ui.horizontal.divided.list .item:first-child {
+  border-left: none;
+  padding-left: 0em;
+}
+
+
+
+
+/*-------------------
+        Celled
+--------------------*/
+
+.ui.celled.list > .item,
+.ui.celled.list > .list {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.ui.celled.list > .item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Sub Menu */
+.ui.celled.list .item .list {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.celled.list .item .list .item {
+  border-width: 0px;
+}
+.ui.celled.list .list .item:first-child {
+  border-top-width: 0px;
+}
+
+/* Celled Bulleted */
+.ui.celled.bulleted.list {
+  margin-left: 0em;
+}
+.ui.celled.bulleted.list > .item {
+  padding-left: 1.5em;
+}
+.ui.celled.bulleted.list > .item:before {
+  left: 0.5em;
+}
+
+/* Celled Ordered */
+.ui.celled.ordered.list {
+  margin-left: 0em;
+}
+.ui.celled.ordered.list .item {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.ui.celled.ordered.list .item:before {
+  left: 0.5em;
+}
+.ui.celled.ordered.list .item .list {
+  margin-left: -2em;
+  margin-right: -2em;
+}
+
+/* Celled Horizontal */
+.ui.horizontal.celled.list {
+  margin-left: 0em;
+}
+.ui.horizontal.celled.list .item {
+  border-top: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+
+  line-height: 0.6;
+}
+.ui.horizontal.celled.list .item:last-child {
+  border-bottom: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/*-------------------
+      Sizes
+--------------------*/
+
+.ui.mini.list .item {
+  font-size: 0.8125rem;
+}
+.ui.tiny.list .item {
+  font-size: 0.875rem;
+}
+.ui.small.list .item {
+  font-size: 0.875rem;
+}
+.ui.large.list .item {
+  font-size: 1.125rem;
+}
+.ui.big.list .item {
+  font-size: 1.25rem;
+}
+.ui.huge.list .item {
+  font-size: 1.375rem;
+}
+.ui.massive.list .item {
+  font-size: 1.5rem;
+}
