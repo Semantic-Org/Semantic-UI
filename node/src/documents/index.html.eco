@@ -255,9 +255,8 @@ type   : 'Semantic'
   </div>
 </div>
 <div class="ui divider"></div>
-<div class="ui bulleted horizontal link list">
-  <a class="item">Github</a>
-  <a class="item">Contributors</a>
-  <a class="item">Quirky.com</a>
+<div class="ui divided horizontal footer link list">
+  <a href="https://github.com/jlukic/Semantic-UI" class="item">Github</a>
+  <a href="http://www.quirky.com" class="item">Quirky.com</a>
   <div class="item">jack lukic 2013</div>
 </div>

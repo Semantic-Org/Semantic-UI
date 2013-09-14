@@ -121,7 +121,7 @@ $.fn.form = function(fields, parameters) {
                   .blur()
                 ;
               }
-              if( key == keyCode.enter && $field.is(selector.input) ) {
+              if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) ) {
                 module.debug('Enter key pressed, submitting form');
                 $submit
                   .addClass(className.down)
