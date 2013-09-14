@@ -16,11 +16,11 @@ Semantic is a set of specifications for sharing UI elements between developers. 
 
 The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need.
 
-Build tools are not yet available but stay tuned! ~~You can use our build tool to select only the components you want~~
+*Build tools are not yet available but stay tuned!* 
 
-    http://semantic-ui.com/download
+~~You can use our build tool to select only the components you want~~
 
-Or download the entire library
+To download the entire library
 
     git clone git@github.com:quirkyinc/semantic.git
 
