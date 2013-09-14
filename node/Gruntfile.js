@@ -34,6 +34,9 @@ module.exports = function(grunt) {
       // creates release js of all together
       'uglify:buildReleaseJS',
 
+      // creates release zip
+      'compress:everything',
+
       // cleans docs folder
       'clean:docs',
 
@@ -105,6 +108,23 @@ module.exports = function(grunt) {
       }
     },
 
+    compress: {
+      options: {
+        archive: 'src/files/release/semantic.zip'
+      },
+      everything: {
+        files: [
+          {
+            expand : true,
+            cwd    : '../build/',
+            src    : [
+              '**'
+            ]
+          }
+        ]
+      }
+    },
+
     copy: {
       toBuild: {
         files: [
@@ -117,6 +137,14 @@ module.exports = function(grunt) {
               'fonts/*'
             ],
             dest : '../build/uncompressed'
+          },
+          {
+            expand : true,
+            cwd    : '../src/',
+            src    : [
+              '**/*'
+            ],
+            dest : '../build/less'
           },
           {
             expand : true,
@@ -255,15 +283,16 @@ module.exports = function(grunt) {
   };
 
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-docco');
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-css');
-
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-css');
+  grunt.loadNpmTasks('grunt-docco');
 
   grunt.initConfig(config);
 

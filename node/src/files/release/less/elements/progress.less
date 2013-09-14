@@ -1,0 +1,353 @@
+/*
+ * # Semantic Progress Bar
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: Nay 14, 2013
+ */
+
+
+/*******************************
+         Progress Bar
+*******************************/
+
+.ui.progress {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  width: 100%;
+  height: 35px;
+
+  background-color: #FAFAFA;
+  padding: 5px;
+
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui.progress .bar {
+  display: inline-block;
+  height: 100%;
+
+  background-color: #CCCCCC;
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+
+  -webkit-transition:
+    width 1s ease-in-out,
+    background-color 1s ease-out
+  ;
+  -moz-transition:
+    width 1s ease-in-out,
+    background-color 1s ease-out
+  ;
+  -ms-transition:
+    width 1s ease-in-out,
+    background-color 1s ease-out
+  ;
+  -o-transition:
+    width 1s ease-in-out,
+    background-color 1s ease-out
+  ;
+  transition:
+    width 1s ease-in-out,
+    background-color 1s ease-out
+  ;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------
+  Successful
+---------------*/
+
+.ui.successful.progress .bar {
+  background-color: #73E064 !important;
+}
+.ui.successful.progress .bar,
+.ui.successful.progress .bar::after {
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  animation: none !important;
+}
+
+/*--------------
+     Failed
+---------------*/
+
+.ui.failed.progress .bar {
+  background-color: #DF9BA4 !important;
+}
+.ui.failed.progress .bar,
+.ui.failed.progress .bar::after {
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  animation: none !important;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.active.progress .bar {
+  position: relative;
+}
+.ui.active.progress .bar::after {
+  content: '';
+  opacity: 0;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: #FFFFFF;
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+
+  -webkit-animation: progress-active 2s ease-out infinite;
+  -moz-animation: progress-active 2s ease-out infinite;
+  animation: progress-active 2s ease-out infinite;
+}
+
+@-webkit-keyframes progress-active {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    width: 95%;
+  }
+}
+@-moz-keyframes progress-active {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+@keyframes progress-active {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+/*--------------
+    Disabled
+---------------*/
+
+.ui.disabled.progress {
+  opacity: 0.35;
+}
+.ui.disabled.progress .bar,
+.ui.disabled.progress .bar::after {
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  animation: none !important;
+}
+
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+    Attached
+---------------*/
+
+/* bottom attached */
+.ui.progress.attached {
+  position: relative;
+  border: none;
+}
+.ui.progress.attached,
+.ui.progress.attached .bar {
+  display: block;
+  height: 3px;
+  padding: 0px;
+  overflow: hidden;
+  -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
+  -moz-border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em 0.3125em 0.3125em;
+}
+.ui.progress.attached .bar {
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+}
+
+/* top attached */
+.ui.progress.top.attached,
+.ui.progress.top.attached .bar {
+  top: -2px;
+  -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
+  -moz-border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;
+}
+.ui.progress.top.attached .bar {
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+}
+
+
+/*--------------
+     Colors
+---------------*/
+
+.ui.blue.progress .bar {
+  background-color: #6ECFF5;
+}
+.ui.black.progress .bar {
+  background-color: #5C6166;
+}
+.ui.green.progress .bar {
+  background-color: #A1CF64;
+}
+.ui.red.progress .bar {
+  background-color: #EF4D6D;
+}
+.ui.purple.progress .bar {
+  background-color: #564F8A;
+}
+.ui.teal.progress .bar {
+  background-color: #00B5AD;
+}
+
+
+/*--------------
+    Striped
+---------------*/
+
+.ui.progress.striped .bar {
+  -webkit-background-size: 30px 30px;
+  -moz-background-size: 30px 30px;
+  background-size: 30px 30px;
+  background-image:
+    -webkit-gradient(linear, left top, right bottom,
+      color-stop(.25, rgba(255, 255, 255, .15)), color-stop(.25, transparent),
+      color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .15)),
+      color-stop(.75, rgba(255, 255, 255, .15)), color-stop(.75, transparent),
+      to(transparent)
+    )
+  ;
+  background-image:
+    -webkit-linear-gradient(
+      135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+      transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+      transparent 75%, transparent
+    )
+  ;
+  background-image:
+    -moz-linear-gradient(
+      135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+      transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+      transparent 75%, transparent
+    )
+  ;
+  background-image:
+    -ms-linear-gradient(
+      135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+      transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+      transparent 75%, transparent
+    )
+  ;
+  background-image:
+    -o-linear-gradient(
+      135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+      transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+      transparent 75%, transparent
+    )
+  ;
+  background-image:
+    linear-gradient(
+      135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+      transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+      transparent 75%, transparent
+    )
+  ;
+}
+
+.ui.progress.active.striped .bar:after {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  -o-animation: none;
+  animation: none;
+}
+.ui.progress.active.striped .bar {
+  -webkit-animation: progress-striped 3s linear infinite;
+  -moz-animation: progress-striped 3s linear infinite;
+  animation: progress-striped 3s linear infinite;
+}
+
+@-webkit-keyframes progress-striped {
+  0% {
+    background-position: 0px 0;
+  }
+  100% {
+    background-position: 60px 0;
+  }
+}
+@-moz-keyframes progress-striped {
+  0% {
+    background-position: 0px 0;
+  }
+  100% {
+    background-position: 60px 0;
+  }
+}
+@keyframes progress-striped {
+  0% {
+    background-position: 0px 0;
+  }
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.small.progress .bar {
+  height: 14px;
+}

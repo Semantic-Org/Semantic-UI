@@ -1,0 +1,536 @@
+/*
+ * # Semantic Form
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 22 2013
+ */
+
+
+/*******************************
+           Standard
+*******************************/
+
+/*--------------------
+        Form
+---------------------*/
+
+.ui.form {
+  position: relative;
+  max-width: 100%;
+}
+.ui.form :first-child {
+  margin-top: 0em;
+}
+.ui.form :last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------------
+        Content
+---------------------*/
+
+.ui.form > p {
+  margin: 1em 0;
+}
+
+/*--------------------
+        Field
+---------------------*/
+
+.ui.form .field {
+  clear: both;
+  margin: 0em 0em 1em;
+}
+
+/*--------------------
+        Labels
+---------------------*/
+
+.ui.form .field > label {
+  margin: 0em 0em 0.3em;
+  display: block;
+
+  color: #555555;
+  font-size: 0.875em;
+}
+
+/*--------------------
+    Standard Inputs
+---------------------*/
+
+
+.ui.form textarea,
+.ui.form input[type="text"],
+.ui.form input[type="date"],
+.ui.form input[type="password"],
+.ui.form .ui.input {
+  width: 100%;
+}
+
+.ui.form textarea,
+.ui.form input[type="text"],
+.ui.form input[type="date"],
+.ui.form input[type="password"] {
+
+  margin: 0em;
+  padding: 0.85em 1.2em;
+  font-size: 0.875em;
+
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+
+
+  color: rgba(0, 0, 0, 0.7);
+
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+
+  -webkit-transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  -moz-transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  -o-transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  -ms-transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+
+  -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  -moz-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui.textarea,
+.ui.form textarea {
+  line-height: 1.33;
+  min-height: 8em;
+  height: 12em;
+  max-height: 24em;
+  resize: vertical;
+}
+.ui.form select {
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+.ui.form textarea,
+.ui.form input[type="checkbox"] {
+  vertical-align: top;
+}
+
+/*--------------------
+       Dividers
+---------------------*/
+
+.ui.form .divider {
+  clear: both;
+  margin: 1em 0em;
+}
+
+
+/*--------------------
+   Types of Messages
+---------------------*/
+
+.ui.form .info.message,
+.ui.form .warning.message,
+.ui.form .error.message {
+  display: none;
+}
+
+/* Assumptions */
+.ui.form .message:first-child {
+  margin-top: 0px;
+}
+
+/*--------------------
+   Validation Prompt
+---------------------*/
+
+.ui.form .field .prompt.label {
+  white-space: nowrap;
+}
+.ui.form .inline.field .prompt {
+  margin-top: 0em;
+  margin-left: 1em;
+}
+.ui.form .inline.field .prompt:before {
+  margin-top: -0.3em;
+  bottom: auto;
+  right: auto;
+  top: 50%;
+  left: 0em;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------------
+        Focus
+---------------------*/
+
+.ui.form input[type="text"]:focus,
+.ui.form input[type="password"]:focus,
+.ui.form textarea:focus {
+  color: rgba(0, 0, 0, 0.85);
+  border-color: rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+
+  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+}
+
+/*--------------------
+        Error
+---------------------*/
+
+/* On Form */
+.ui.form.warning .warning.message {
+  display: block;
+}
+
+/*--------------------
+        Warning
+---------------------*/
+
+/* On Form */
+.ui.form.error .error.message {
+  display: block;
+}
+
+/* On Field(s) */
+.ui.form .fields.error .field label,
+.ui.form .field.error label {
+  color: #D95C5C;
+}
+.ui.form .fields.error .field textarea,
+.ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="date"],
+.ui.form .fields.error .field input[type="password"],
+.ui.form .field.error textarea,
+.ui.form .field.error input[type="text"],
+.ui.form .field.error input[type="date"],
+.ui.form .field.error input[type="password"] {
+  background-color: #FFFAFA;
+  border-color: #E7BEBE;
+  border-left: none;
+
+  color: #D95C5C;
+  padding-left: 1.2em;
+
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+
+  -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+  box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+
+}
+.ui.form .field.error textarea:focus,
+.ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="password"]:focus {
+  border-color: rgba(255, 80, 80, 1);
+  color: rgba(255, 80, 80, 1);
+
+  -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  -moz-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+}
+
+/*--------------------
+  Empty (Placeholder)
+---------------------*/
+
+/* browsers require these rules separate */
+.ui.form ::-webkit-input-placeholder {
+  color: #E0E0E0;
+}
+.ui.form ::-moz-placeholder {
+  color: #E0E0E0;
+}
+.ui.form :focus::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+.ui.form :focus::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+/* Error Placeholder */
+.ui.form .error ::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.form .error ::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.form .error :focus::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+.ui.form .error :focus::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+
+/*--------------------
+       Disabled
+---------------------*/
+
+.ui.form .field :disabled,
+.ui.form .field.disabled {
+  opacity: 0.5;
+}
+.ui.form .field.disabled label {
+  opacity: 0.5;
+}
+.ui.form .field.disabled :disabled {
+  opacity: 1;
+}
+
+
+/*--------------------
+     Loading State
+---------------------*/
+
+/* On Form */
+.ui.form.loading {
+  position: relative;
+}
+.ui.form.loading:after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  content: '';
+
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
+  visibility: visible;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------------
+      Fluid Width
+---------------------*/
+
+.ui.form.fluid {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/*--------------------------
+  Input w/ attached Button
+---------------------------*/
+
+.ui.form input.attached {
+  width: auto;
+}
+
+/*--------------------
+      Date Input
+---------------------*/
+
+.ui.form .date.field > label {
+  position: relative;
+}
+.ui.form .date.field > label:after {
+  position: absolute;
+  top: 1.4em;
+  right: 0.5em;
+
+  font-family: 'Icons';
+  content: '📅'; /* '\1f4c5' */
+  font-size: 1.5em;
+  font-weight: normal;
+  color: #CCCCCC;
+}
+
+
+/*--------------------
+    Inverted Colors
+---------------------*/
+.ui.inverted.form label {
+  color: #FFFFFF;
+}
+.ui.inverted.form .field.error textarea,
+.ui.inverted.form .field.error input[type="text"] {
+  background-color: #FFCCCC;
+}
+
+/*--------------------
+     Field Groups
+---------------------*/
+
+/* Grouped Vertically */
+.ui.form .grouped.fields {
+  margin: 0em 0em 1em;
+}
+.ui.form .grouped.fields .field {
+  display: block;
+  float: none;
+  margin: 0.5em 0em;
+  padding: 0em;
+}
+
+
+/*--------------------
+          Fields
+---------------------*/
+
+/* Split fields */
+.ui.form .fields {
+  clear: both;
+}
+.ui.form .fields:after {
+  content: ' ';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.ui.form .fields .field {
+  clear: none;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ui.form .fields .field:first-child {
+  border-left: none;
+  box-shadow: none;
+}
+
+/* Other Combinations */
+.ui.form .two.fields .field {
+  width: 50%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.ui.form .three.fields .field {
+  width: 33.333%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.ui.form .four.fields .field {
+  width: 25%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.ui.form .five.fields .field {
+  width: 20%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+/* override sides, ie8 no last-child */
+.ui.form .fields .field:first-child {
+  padding-left: 0%;
+}
+.ui.form .fields .field:last-child {
+  padding-right: 0%;
+}
+
+
+/*--------------------
+    Inline Fields
+---------------------*/
+
+.ui.form .inline.fields .field {
+  min-height: 1.3em;
+  margin-right: 0.5em;
+}
+.ui.form .inline.fields .field > label,
+.ui.form .inline.fields .field > p,
+.ui.form .inline.fields .field > input,
+.ui.form .inline.fields .field > select,
+.ui.form .inline.field > label,
+.ui.form .inline.field > p,
+.ui.form .inline.field > input,
+.ui.form .inline.field > select {
+
+  display: inline-block;
+  width: auto;
+
+  margin-top: 0em;
+  margin-bottom: 0em;
+
+  vertical-align: middle;
+  font-size: 1em;
+}
+.ui.form .inline.fields .field > input,
+.ui.form .inline.field > input {
+  font-size: 0.875em;
+}
+
+.ui.form .inline.fields .field > :first-child,
+.ui.form .inline.field > :first-child {
+  margin: 0em 0.5em 0em 0em;
+}
+.ui.form .inline.fields .field > :only-child,
+.ui.form .inline.field > :only-child {
+  margin: 0em;
+}
+
+
+/*--------------------
+        Sizes
+---------------------*/
+
+/* Standard */
+.ui.small.form {
+  font-size: 0.875em;
+}
+.ui.small.form textarea,
+.ui.small.form input[type="text"],
+.ui.small.form input[type="password"],
+.ui.small.form label {
+  font-size: 1em;
+}
+
+/* Large */
+.ui.large.form {
+  font-size: 1.125em;
+}
+
