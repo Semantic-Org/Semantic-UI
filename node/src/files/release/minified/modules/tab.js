@@ -109,7 +109,7 @@
               $.address.value(tabPath);
             }
             else {
-              module.change(tabPath);
+              module.changeTab(tabPath);
             }
           }
           else {
@@ -125,7 +125,7 @@
             module.debug('History change event', tabPath, event);
             historyEvent = event;
             if(tabPath !== undefined) {
-              module.change(tabPath);
+              module.changeTab(tabPath);
             }
             if(pageTitle) {
               $.address.title(pageTitle);
@@ -137,7 +137,7 @@
       refresh: function() {
         if(activeTabPath) {
           module.debug('Refreshing tab', activeTabPath);
-          module.change(activeTabPath);
+          module.changeTab(activeTabPath);
         }
       },
 
@@ -161,22 +161,22 @@
         }
       },
 
-      change: function(tabPath) {
+      changeTab: function(tabPath) {
         var
           pushStateAvailable = (window.history && window.history.pushState),
           shouldIgnoreLoad   = (pushStateAvailable && settings.ignoreFirstLoad && firstLoad),
           remoteContent      = (settings.auto || $.isPlainObject(settings.apiSettings) ),
           // only get default path if not remote content
           pathArray = (remoteContent && !shouldIgnoreLoad)
-            ? module.utils.pathToArray(tabPath)
+            ? module.utilities.pathToArray(tabPath)
             : module.get.defaultPathArray(tabPath),
-          tabPath   = module.utils.arrayToPath(pathArray)
+          tabPath   = module.utilities.arrayToPath(pathArray)
         ;
         module.deactivate.all();
         $.each(pathArray, function(index, tab) {
           var
             currentPathArray   = pathArray.slice(0, index + 1),
-            currentPath        = module.utils.arrayToPath(currentPathArray),
+            currentPath        = module.utilities.arrayToPath(currentPathArray),
 
             isTab              = module.is.tab(currentPath),
             isLastIndex        = (index + 1 == pathArray.length),
@@ -192,14 +192,14 @@
 
             // scope up
             activeTabPath = currentPath;
-            parameterArray = module.utils.filterArray(pathArray, currentPathArray);
+            parameterArray = module.utilities.filterArray(pathArray, currentPathArray);
 
             if(isLastIndex) {
               isLastTab = true;
             }
             else {
               nextPathArray = pathArray.slice(0, index + 2);
-              nextPath      = module.utils.arrayToPath(nextPathArray);
+              nextPath      = module.utilities.arrayToPath(nextPathArray);
               isLastTab     = ( !module.is.tab(nextPath) );
               if(isLastTab) {
                 module.verbose('Tab parameters found', nextPathArray);
@@ -349,7 +349,7 @@
         },
         // adds default tabs to tab path
         defaultPathArray: function(tabPath) {
-          return module.utils.pathToArray( module.get.defaultPath(tabPath) );
+          return module.utilities.pathToArray( module.get.defaultPath(tabPath) );
         },
         defaultPath: function(tabPath) {
           var
@@ -382,8 +382,8 @@
             lastTab
           ;
           tabPath        = tabPath || activeTabPath;
-          tabPathArray   = module.utils.pathToArray(tabPath);
-          lastTab        = module.utils.last(tabPathArray);
+          tabPathArray   = module.utilities.pathToArray(tabPath);
+          lastTab        = module.utilities.last(tabPathArray);
           $fullPathTab   = $tabs.filter('[data-' + metadata.tab + '="' + lastTab + '"]');
           $simplePathTab = $tabs.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
           return ($fullPathTab.size() > 0)
@@ -396,7 +396,7 @@
         }
       },
 
-      utils: {
+      utilities: {
         filterArray: function(keepArray, removeArray) {
           return $.grep(keepArray, function(keepValue) {
             return ( $.inArray(keepValue, removeArray) == -1);
