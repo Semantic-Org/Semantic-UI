@@ -1,6 +1,8 @@
-# Pre-Release
+# Pre-Release (Not ready for usage)
 
-This is a pre-release version of Semantic, many features may be broken or missing. Build tools are not yet available, and APIs may be updated regularly. 
+This is a pre-release version of Semantic, many features may be broken or missing. Development on semantic was being done in stealth, but after hackernews/reddit coverage, will continue on more transparently on the march to a version one.point.oh, huzzah!
+
+Documentation is very loose, build tools are not yet available, and APIs may be updated regularly. So be warned!
 
 **Please use at your own discretion.**
 
@@ -14,18 +16,17 @@ Semantic is a set of specifications for sharing UI elements between developers. 
 
 The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need.
 
-You can use our build tool to select only the components you want
+*Build tools are not yet available but stay tuned!* 
 
-    http://semantic-ui.com/download
+~~You can use our build tool to select only the components you want~~
 
-Or download the entire library
+To download the entire library
 
     git clone git@github.com:quirkyinc/semantic.git
 
-If you prefer to download the whole kit and kaboodle as a single javascript include you can grab that as well.
+If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
-    http://semantic-ui.com/ui/semantic.min.css
-    http://semantic-ui.com/ui/semantic.min.js
+    http://semantic-ui.com/semantic.zip
 
 ## The Specification
 
