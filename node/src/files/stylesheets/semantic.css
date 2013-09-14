@@ -207,7 +207,9 @@ a:hover {
 #example #menu .item .item {
   font-size: 0.875rem;
 }
-
+#example .segment > .dimmer {
+  z-index: 800;
+}
 
 /* segment headers */
 #example > .content > .page > .segment,
