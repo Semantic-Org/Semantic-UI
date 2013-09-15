@@ -396,7 +396,7 @@
   background-image: linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
 }
 .ui.vertical.menu .item:first-child:before {
-  background-image: none;
+  background-image: none !important;
 }
 /*--- Dropdown ---*/
 .ui.vertical.menu .dropdown.item > i {
@@ -1182,7 +1182,7 @@
 .ui.menu.fluid,
 .ui.vertical.menu.fluid {
   display: block;
-  width: 100%;
+  width: 100% !important;
 }
 /*-------------------
       Evenly Sized
