@@ -1,0 +1,27 @@
+{
+  "name": "semantic",
+  "version": "0.0.2",
+  "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
+  "homepage": "https://github.com/quirkyinc/semantic",
+  "author": {
+    "name": "Jack Lukic",
+    "web": "http://www.semantic-ui.com"
+  },
+  "keywords": [
+    "semantic",
+    "ui",
+    "css3",
+    "framework"
+  ],
+  "license": [
+    "http://bartaz.mit-license.org/"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-less": "~0.7.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-contrib-uglify": "~0.2.4"
+  }
+}
