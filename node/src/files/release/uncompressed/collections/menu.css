@@ -509,6 +509,9 @@
 }
 .ui.tabular.menu .item {
   background-color: transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent;
   padding-left: 1.4em;
   padding-right: 1.4em;
   color: rgba(0, 0, 0, 0.6);
@@ -527,9 +530,7 @@
   top: 1px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
-  border-left: 1px solid #DCDDDE;
-  border-right: 1px solid #DCDDDE;
-  border-top: 1px solid #DCDDDE;
+  border-color: #DCDDDE;
   padding-top: 0.83em;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
