@@ -19,7 +19,7 @@
   ],
 
   "main": [
-    "./build/*",
+    "./build/*"
   ],
   "ignore": [
     "node",
