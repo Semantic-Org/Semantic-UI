@@ -273,6 +273,11 @@ a:hover {
   padding-top: 60px;
 
 }
+#example .ui.items .menu .item {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
 
 
 /*--------------
