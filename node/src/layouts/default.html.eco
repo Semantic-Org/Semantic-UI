@@ -131,7 +131,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/view.html"><b>Views</b></a>
+      <b>Views</b>
       <div class="menu">
         <% for element in uiViews: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -139,7 +139,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/module.html"><b>Modules</b></a>
+      <b>Modules</b>
       <div class="menu">
         <% for element in uiModules: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -147,7 +147,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/module.html"><b>Behavior</b></a>
+      <b>Behavior</b>
       <div class="menu">
         <% for element in uiBehavior: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>

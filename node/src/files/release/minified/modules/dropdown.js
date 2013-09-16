@@ -316,14 +316,14 @@ $.fn.dropdown = function(parameters) {
         is: {
           visible: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':visible')
-              : $menu.is(':visible')
+              ? $subMenu.is(':animated, :visible')
+              : $menu.is(':animated, :visible')
             ;
           },
           hidden: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':not(:visible)')
-              : $menu.is(':not(:visible)')
+              ? $subMenu.is(':not(:animated, :visible)')
+              : $menu.is(':not(:animated, :visible)')
             ;
           }
         },
@@ -434,7 +434,7 @@ $.fn.dropdown = function(parameters) {
 
         show: function() {
           dropdown.debug('Checking if dropdown can show');
-          if( !dropdown.is.visible() ) {
+          if( dropdown.is.hidden() ) {
             dropdown.hideOthers();
             dropdown.set.active();
             dropdown.animate.show(dropdown.set.visible);
@@ -446,7 +446,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         hide: function() {
-          if( !dropdown.is.hidden() ) {
+          if( dropdown.is.visible() ) {
             dropdown.debug('Hiding dropdown');
             if( dropdown.can.click() ) {
               dropdown.unbind.intent();

@@ -13,7 +13,7 @@ type   : 'Semantic'
 <div class="masthead segment">
   <div class="ui responsive grid">
     <div class="column">
-      <h1 class="ui header">Semantic UI</h1>
+      <h1 class="ui header">Semantic UI <span class="ui black label">Pre-release</span></h1>
       <h2 class="ui header">UI is the vocabulary of the web.</h2>
       <p>Semantic empowers designers and developers by creating a language for sharing UI.</p>
         <a class="ui black large labeled launch icon button"><i class="icon list layout"></i> View UI</a>
