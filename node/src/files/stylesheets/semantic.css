@@ -241,6 +241,9 @@ a:hover {
   -ms-transition: margin 0.3s ease;
   transition: margin 0.3s ease;
 }
+#example .main.menu iframe {
+  margin: 10px 0px 0px 0px;
+}
 #example .main.menu .count {
 /*  font-size: 0.875em;
   vertical-align: middle;*/
