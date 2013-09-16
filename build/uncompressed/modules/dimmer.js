@@ -191,7 +191,7 @@ $.fn.dimmer = function(parameters) {
             return $dimmer.hasClass(className.active);
           },
           animating: function() {
-            return ( $dimmer.hasClass(className.show) || $dimmer.hasClass(className.hide) || $dimmer.is(':animated') );
+            return ( $dimmer.is(':animated') || $dimmer.hasClass(className.transition) );
           },
           dimmer: function() {
             return $module.is(selector.dimmer);
@@ -259,7 +259,7 @@ $.fn.dimmer = function(parameters) {
 
         show: function(callback) {
           module.debug('Showing dimmer', $dimmer);
-          if( (!module.is.active() || module.is.animating() ) && module.is.enabled() ) {
+          if( !(module.is.active() || module.is.animating() ) && module.is.enabled() ) {
             module.animate.show(callback);
             $.proxy(settings.onShow, element)();
             $.proxy(settings.onChange, element)();
@@ -270,7 +270,7 @@ $.fn.dimmer = function(parameters) {
         },
 
         hide: function(callback) {
-          if( module.is.active() || module.is.animating() ) {
+          if( module.is.active() && !module.is.animating() ) {
             module.debug('Hiding dimmer', $dimmer);
             module.animate.hide(callback);
             $.proxy(settings.onHide, element)();
@@ -510,14 +510,13 @@ $.fn.dimmer.settings = {
 
   className : {
     active     : 'active',
-    animating  : 'animating',
     dimmable   : 'ui dimmable',
     dimmed     : 'dimmed',
     disabled   : 'disabled',
     pageDimmer : 'page',
     hide       : 'hide',
     show       : 'show',
-    transition : 'transition hidden visible'
+    transition : 'transition'
   }
 
 };
