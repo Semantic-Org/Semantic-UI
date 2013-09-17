@@ -168,7 +168,7 @@ type   : 'UI Module'
       <tr>
         <td>inline</td>
         <td>true</td>
-        <td>If a popup is inline it will be created next to current element, allowing for local css rules to apply. Otherwise popups will appended to body and removed after being hidden.</td>
+        <td>If a popup is inline it will be created next to current element, allowing for local css rules to apply. It will not be removed from the DOM after being hidden. Otherwise popups will appended to body and removed after being hidden.</td>
       </tr>
       <tr>
         <td>delay</td>
@@ -187,7 +187,7 @@ type   : 'UI Module'
       </tr>
       <tr>
         <td>clickToClose</td>
-        <td>hover</td>
+        <td>true</td>
         <td>Whether clicking anywhere outside a popup should close it.</td>
       </tr>
       <tr>
