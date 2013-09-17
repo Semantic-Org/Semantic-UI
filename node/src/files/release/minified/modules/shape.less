@@ -1,0 +1,115 @@
+/*
+ * # Semantic Button
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+
+
+/*******************************
+              Shape
+*******************************/
+
+.ui.shape {
+  position: relative;
+
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  -ms-perspective: 2000px;
+  perspective: 2000px;
+}
+
+.ui.shape .sides {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.ui.shape .side {
+  opacity: 1;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.ui.shape .side {
+  display: none;
+}
+
+
+
+/*******************************
+             States
+*******************************/
+
+
+/*--------------
+    Animating
+---------------*/
+
+.ui.shape.animating .sides {
+  position: absolute;
+}
+.ui.shape .animating.side {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+}
+.ui.shape .hidden.side {
+  opacity: 0.4;
+}
+
+
+/*--------------
+      CSS
+---------------*/
+
+.ui.shape.css {
+  -webkit-transition:
+    all 0.6s ease-in-out;
+  ;
+  -moz-transition:
+    all 0.6s ease-in-out;
+  ;
+  -o-transition:
+    all 0.6s ease-in-out;
+  ;
+  -ms-transition:
+    all 0.6s ease-in-out;
+  ;
+  transition:
+    all 0.6s ease-in-out;
+  ;
+}
+.ui.shape.css .sides {
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+.ui.shape.css .side {
+  -webkit-transition: opacity 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out;
+  -o-transition: opacity 0.6s ease-in-out;
+  -ms-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.shape .active.side {
+  display: block;
+}

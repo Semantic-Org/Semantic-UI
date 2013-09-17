@@ -1,7 +1,6 @@
 /*  ******************************
   Search Prompt
   Author: Jack Lukic
-  Notes: First Commit July 19, 2012
 
   Designed to be used as an autocomplete
   or to deliver quick inline search results
