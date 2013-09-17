@@ -24,10 +24,12 @@
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
+  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/icon.css">
+
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/divider.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/header.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/icon.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/awesome.icon.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/image.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/label.css">
@@ -62,7 +64,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/dimmer.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/transition.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/overrides/fonts/sketchy.icons.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 <!--
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
