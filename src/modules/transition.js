@@ -101,7 +101,7 @@ $.fn.transition = function() {
           settings = overrideSettings || settings;
           module.debug('Preparing animation', settings.animation);
           if(module.is.animating()) {
-            if(settins.queue) {
+            if(settings.queue) {
               module.queue(settings.animation);
             }
             return false;
