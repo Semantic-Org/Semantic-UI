@@ -174,7 +174,19 @@ Here is part of Semantic's definition of a button
 
 ## Usage
 
-### Specification
+### Developers
+
+Prereqs Node, Grunt(``npm install -g grunt-cli``) and DocPad (``npm install -g docpad``)
+
+Inside ``node/`` use the command ``docpad run`` to start your server
+
+You can then access the docs locally at ``localhost:9778``
+
+To have DocPad watch for changes while working on a component simply run the command
+``grunt``
+
+To build the release packages for Semantic
+``grunt build``
 
 #### I want to contribute to the spec
 
