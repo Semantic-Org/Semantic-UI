@@ -1,0 +1,59 @@
+/*
+ * # Semantic Button
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+
+
+/*******************************
+           UI Tabs 
+*******************************/
+
+.ui.tab {
+  display: none;
+}
+.ui.tab.active,
+.ui.tab.open {
+  display: block;
+}
+
+/*******************************
+             States
+*******************************/
+
+
+/*--------------------
+       Loading
+---------------------*/
+
+.ui.tab.loading {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  min-height: 250px;
+  text-indent: -10000px;
+}
+.ui.tab.loading * {
+  position: relative !important;
+  left: -10000px !important;
+}
+.ui.tab.loading:after {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  content: 'Loading...';
+  margin-left: -32px;
+  text-indent: 5px;
+  color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  padding-top: 75px;
+  background: url(../images/loader-large.gif) no-repeat 0px 0px;
+  visibility: visible;
+}
