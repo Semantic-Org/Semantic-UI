@@ -1,0 +1,151 @@
+/*******************************
+           Star Rating
+*******************************/
+
+.ui.rating {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0em 0.5em;
+}
+.ui.rating:first-child {
+  margin-left: 0em;
+}
+.ui.rating:last-child {
+  margin-right: 0em;
+}
+
+.ui.rating:after {
+  display: block;
+  content: '';
+  visibility: hidden;
+  clear: both;
+  height: 0;
+}
+
+/* Icon */
+.ui.rating .icon {
+  cursor: default;
+  float: left;
+
+  margin: 0em;
+
+  width: 1em;
+  height: auto;
+  padding: 0em;
+  font-weight: normal;
+  font-style: normal;
+}
+.ui.rating .icon:after {
+  content: "\2605";
+  color: rgba(0, 0, 0, 0.15);
+
+  -webkit-transition:
+    color 0.3s ease,
+    opacity 0.3s ease
+  ;
+  -moz-transition:
+    color 0.3s ease,
+    opacity 0.3s ease
+  ;
+  -ms-transition:
+    color 0.3s ease,
+    opacity 0.3s ease
+  ;
+  -o-transition:
+    color 0.3s ease,
+    opacity 0.3s ease
+  ;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease
+  ;
+}
+
+/*******************************
+             Types
+*******************************/
+
+/*-------------------
+        Star
+--------------------*/
+
+.ui.star.rating .icon:after {
+  content: '\e800';
+  font-family: 'Icons';
+}
+
+.ui.star.rating .active.icon:after {
+  content: '\e801';
+  font-family: 'Icons';
+}
+
+
+/*-------------------
+        Heart
+--------------------*/
+
+.ui.heart.rating .icon:after {
+  content: '\2661';
+  font-family: 'Icons';
+}
+
+.ui.heart.rating .active.icon:after {
+  content: '\2665';
+  font-family: 'Icons';
+  color: #EF404A;
+}
+.ui.heart.rating .hover.icon:after,
+.ui.heart.rating .active.hover.icon:after {
+  color: #FF2733;
+}
+
+
+/*******************************
+             States
+*******************************/
+
+/*-------------------
+        Active
+--------------------*/
+
+/* active rating */
+.ui.active.rating .icon {
+  cursor: pointer;
+}
+
+/* active icons */
+.ui.rating .active.icon:after {
+  color: #FFCB08;
+}
+
+
+/*-------------------
+        Hover
+--------------------*/
+
+/* rating */
+.ui.rating.hover .active.icon:after {
+  opacity: 0.5;
+}
+
+/* icon */
+.ui.rating .icon.hover:after,
+.ui.rating .icon.hover.active:after {
+  opacity: 1;
+  color: #FFB70A;
+}
+
+
+/*******************************
+          Variations
+*******************************/
+
+.ui.small.rating {
+  font-size: 1rem;
+}
+.ui.rating {
+  font-size: 1.5rem;
+}
+.ui.large.rating {
+  font-size: 2rem;
+}
