@@ -7,8 +7,10 @@ module.exports = function(grunt) {
     watchTasks = [
       // compiles less
       'less:buildCSS',
+
       // copies assets and js over to build dir
       'copy:toBuild',
+
       // copies files over to docs
       'copy:libraryToDocs'
     ],
@@ -16,17 +18,14 @@ module.exports = function(grunt) {
       // clean build directory
       'clean:build',
 
+      // cleans docs folder
+      'clean:docs',
+
       // compiles less
       'less:buildCSS',
 
       // copies assets and js over to build dir
       'copy:toBuild',
-
-      // creates minified css of each file
-      'cssmin:minifyCSS',
-
-      // creates custom license in header
-      'cssmin:addBanner',
 
       // creates minified js of each file
       'uglify:minifyJS',
@@ -34,11 +33,14 @@ module.exports = function(grunt) {
       // creates release js of all together
       'uglify:buildReleaseJS',
 
-      // creates release zip
-      'compress:everything',
+      // creates minified css of each file
+      'cssmin:minifyCSS',
 
-      // cleans docs folder
-      'clean:docs',
+      // creates custom license in header
+      'cssmin:addBanner',
+
+     // creates release zip
+      'compress:everything',
 
       // copies spec files over to docs
       'copy:specToDocs',
@@ -51,7 +53,7 @@ module.exports = function(grunt) {
 
   config = {
 
-    package : grunt.file.readJSON('package.json'),
+    package : grunt.file.readJSON('../package.json'),
     //server  : grunt.file.readJSON('server.json'),
 
     // watches for changes in a source folder
@@ -71,7 +73,7 @@ module.exports = function(grunt) {
         src: '*'
       },
       docs : {
-        cwd: 'src/files/release/uncompressed/',
+        cwd: 'src/files/release/',
         src: '*'
       }
     },
@@ -95,9 +97,6 @@ module.exports = function(grunt) {
         optimization : 2
       },
       buildCSS: {
-        options : {
-          paths : ['../build']
-        },
         expand : true,
         cwd    : '../src',
         src    : [
