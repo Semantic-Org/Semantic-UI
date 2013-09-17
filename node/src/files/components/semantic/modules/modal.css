@@ -1,0 +1,118 @@
+/*
+ * # Semantic Modal
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: Aug 05, 2013
+ */
+/*******************************
+              Modal
+*******************************/
+.ui.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  text-align: left;
+  width: 800px;
+  margin-left: -400px;
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+/*******************************
+            Content
+*******************************/
+/*--------------
+     Close
+---------------*/
+.ui.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0.8;
+  font-size: 1.25em;
+  top: -1.75em;
+  right: -1.75em;
+  color: #FFFFFF;
+}
+.ui.modal > .close:hover {
+  opacity: 1;
+}
+/*--------------
+     Header
+---------------*/
+.ui.modal > .header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0em;
+  padding: 1.5rem 2rem;
+  font-size: 1.6em;
+  font-weight: bold;
+  -webkit-border-radius: 0.325em 0.325em 0px 0px;
+  -moz-border-radius: 0.325em 0.325em 0px 0px;
+  border-radius: 0.325em 0.325em 0px 0px;
+}
+/*--------------
+     Content
+---------------*/
+.ui.modal > .content {
+  display: table;
+  position: relative;
+  padding: 2em;
+  background-color: #F4F4F4;
+}
+.ui.modal > .content > .left {
+  display: table-cell;
+  padding-right: 5%;
+}
+.ui.modal > .content > .right {
+  display: table-cell;
+  padding-left: 5%;
+  vertical-align: middle;
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.modal > .content p {
+  line-height: 1.6;
+}
+/*--------------
+     Actions
+---------------*/
+.ui.modal .actions {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  text-align: right;
+}
+.ui.modal .actions > .button {
+  margin-left: 0.75em;
+}
+/*******************************
+             Types
+*******************************/
+.ui.basic.modal {
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+}
+.ui.basic.modal .content {
+  background-color: transparent;
+}
+/*******************************
+            Variations
+*******************************/
+/* A modal that cannot fit on the page */
+.ui.modal.scrolling {
+  position: absolute;
+  margin-top: 100px;
+}
+/*******************************
+              States
+*******************************/
+.ui.active.modal {
+  display: block;
+}

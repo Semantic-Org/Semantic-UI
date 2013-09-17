@@ -18,14 +18,17 @@ module.exports = function(grunt) {
       // clean build directory
       'clean:build',
 
-      // cleans docs folder
-      'clean:docs',
-
       // compiles less
       'less:buildCSS',
 
       // copies assets and js over to build dir
       'copy:toBuild',
+
+      // creates minified css of each file
+      'cssmin:minifyCSS',
+
+      // creates custom license in header
+      'cssmin:addBanner',
 
       // creates minified js of each file
       'uglify:minifyJS',
@@ -39,8 +42,11 @@ module.exports = function(grunt) {
       // creates custom license in header
       'cssmin:addBanner',
 
-     // creates release zip
+      // creates release zip
       'compress:everything',
+
+      // cleans docs folder
+      'clean:docs',
 
       // copies spec files over to docs
       'copy:specToDocs',
@@ -53,7 +59,7 @@ module.exports = function(grunt) {
 
   config = {
 
-    package : grunt.file.readJSON('../package.json'),
+    package : grunt.file.readJSON('package.json'),
     //server  : grunt.file.readJSON('server.json'),
 
     // watches for changes in a source folder
@@ -97,6 +103,9 @@ module.exports = function(grunt) {
         optimization : 2
       },
       buildCSS: {
+        options : {
+          paths : ['../build']
+        },
         expand : true,
         cwd    : '../src',
         src    : [
@@ -159,6 +168,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : '../src/',
             src    : [
+              '**/*.js',
               'images/*',
               'fonts/*'
             ],
@@ -283,18 +293,19 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-
+  grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-css');
-  grunt.loadNpmTasks('grunt-docco');
+
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.initConfig(config);
 
   grunt.registerTask('default', defaultTasks);
   grunt.registerTask('build', buildTasks);
+
 };
