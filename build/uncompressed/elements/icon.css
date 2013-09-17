@@ -221,10 +221,6 @@ i.icon.block:before {
 }
 /* '\1f6ab' */
 i.icon.book:before {
-  content: '📖';
-}
-/* '\1f4d6' */
-i.icon.book:before {
   content: '\f4d6';
 }
 i.icon.bookmark:before {
