@@ -128,6 +128,21 @@ ol.ui.list li,
            Variations
 *******************************/
 /*-------------------
+       Link
+--------------------*/
+.ui.link.list a {
+  color: rgba(0, 0, 0, 0.5);
+}
+.ui.link.list a:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+.ui.link.list a:active {
+  color: rgba(0, 0, 0, 0.9);
+}
+.ui.link.list .active {
+  color: rgba(0, 0, 0, 0.7);
+}
+/*-------------------
       Selection
 --------------------*/
 .ui.selection.list .item {
