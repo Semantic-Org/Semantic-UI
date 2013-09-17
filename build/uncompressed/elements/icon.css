@@ -224,6 +224,9 @@ i.icon.book:before {
   content: '📖';
 }
 /* '\1f4d6' */
+i.icon.book:before {
+  content: '\f4d6';
+}
 i.icon.bookmark:before {
   content: '🔖';
 }
