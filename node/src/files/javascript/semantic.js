@@ -184,21 +184,24 @@ semantic.ready = function() {
       var
         $button  = $(this),
         $body    = $('body'),
-        $example = $('.example'),
-        $headers = $('.example .ui.header:first-of-type').add('.example p:first-of-type')
+        $example = $('.example')
       ;
       $body.toggleClass('overview');
       $button.toggleClass('active');
       if($body.hasClass('overview')) {
         $developer.addClass('disabled').popup('destroy');
         $designer.addClass('disabled').popup('destroy');
-        $example.children().not($headers).hide();
+        $example.each(function() {
+          $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').hide();
+        });
         $example.filter('.another').hide();
       }
       else {
         $developer.removeClass('disabled').popup();
         $designer.removeClass('disabled').popup();
-        $example.children().not($headers).show();
+        $example.each(function() {
+          $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').show();
+        });
         $example.filter('.another').show();
       }
     },
