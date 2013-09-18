@@ -221,7 +221,7 @@ i.icon.block:before {
 }
 /* '\1f6ab' */
 i.icon.book:before {
-  content: '\f4d6';
+  content: '📖';
 }
 i.icon.bookmark:before {
   content: '🔖';
