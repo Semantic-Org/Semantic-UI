@@ -4,9 +4,9 @@
     "version": 0.1
   },
   "dependencies": {
-    "docpad": "~6.52.2",
+    "docpad": "~6.53.0",
     "docpad-plugin-eco": "~2.0.2",
-    "docpad-plugin-ghpages": "~2.3.0"
+    "docpad-plugin-ghpages": "~2.4.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
