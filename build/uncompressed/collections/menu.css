@@ -475,7 +475,7 @@
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.7) !important;
 }
 .ui.tiered.menu .sub.menu .active.item:after {
   display: none;
@@ -483,9 +483,6 @@
 /* Inverted */
 .ui.inverted.tiered.menu > .menu > .item {
   color: rgba(255, 255, 255, 0.5);
-}
-.ui.inverted.tiered.menu .active.item:after {
-  display: none;
 }
 .ui.inverted.tiered.menu .sub.menu {
   background-color: rgba(0, 0, 0, 0.2);
@@ -497,9 +494,12 @@
 .ui.inverted.tiered.menu > .menu > .item.hover {
   color: rgba(255, 255, 255, 0.9);
 }
+.ui.inverted.tiered.menu .active.item:after {
+  display: none;
+}
 .ui.inverted.tiered.menu > .sub.menu > .active.item,
 .ui.inverted.tiered.menu > .menu > .active.item {
-  color: #ffffff;
+  color: #ffffff !important;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
