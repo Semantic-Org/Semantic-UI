@@ -24,7 +24,7 @@ type   : 'UI Guide'
 
   <h2 class="ui dividing header">Techniques</h2>
 
-    <h3 class="ui header">Conditional Content Formatting</h4>
+    <h3 class="ui header">Conditional Content Formatting</h3>
     <p>Sometimes content should be formatted differently depending on whether other content exists alongside it. A useful way to do that is use the next adjacent sibling selector '+'. The content that should have the conditional formatting should always appear second because there is no previous sibling selector in css.</p>
 
     <div class="code" data-type="css">
@@ -41,7 +41,22 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Not Sure the Size? Table It</h4>
+    <h3 class="ui header">Box Shadow Inheritance</h3>
+    <p>Unfortunately box shadow must be defined as a single rule, without the ability, like border, to be broken up into separate parts for positioning, color and distance. There is however one trick to allowing for a single box shadow definition to appear as multiple colors. Box shadow inherits its color from the color attribute if no color is specified.</p>
+    <div class="code" data-type="css">
+    .ui.widget {
+      -webkit-box-shadow: 0em 0.2em 0em inset;
+      -moz-box-shadow: 0em 0.2em 0em inset;
+      box-shadow: 0em 0.2em 0em inset;
+    }
+    /* This will also have a red box shadow */
+    .ui.red.widget {
+      color: #FF0000;
+    }
+    </div>
+
+
+    <h3 class="ui header">Not Sure the Size? Table It</h3>
     <p>If content needs to fill a specified size exactly, but may be made up of parts with arbitary size, it can be useful to use display table and table-cell. This will make sure the parent width is always obeyed regardles of alterations to an element's width.</p>
     <p>Keep in mind any table-cell element must have a parent with <code>display:table</code> to appear formatted correctly.</p>
 
@@ -58,7 +73,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Fixing Whitespace with Inline Block</h4>
+    <h3 class="ui header">Fixing Whitespace with Inline Block</h3>
     <p>In HTML usually whitespace doesn't change a page's layouts. However, when using inline block any whitespace will create unwanted space between consecutive inline-block elements. The simple and effective fix is to make sure font-size on the parent element is 0, making all whitespace 0 pixels. Then you can reset font-size on the child element to body font size or 1 relative em.</p>
     <div class="code" data-type="css">
     /* remove whitespace */
@@ -71,7 +86,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">CSS :not is Awesome</h4>
+    <h3 class="ui header">CSS :not is Awesome</h3>
     <p>Inheritance can be hell sometimes. Consider changing the opacity of an element. There is no way to "cancel out" of that opacity change on content inside.</p>
     <p>Sometimes the only way to avoid creating inheritance problems is to specify what elements should not receive a set of rules. Consider blurring content while a dimmer is present. Blurring should only apply to elements that are not inside the dimmer, but there is no way to know what the content is beforehand.</p>
     <div class="code" data-type="css">
@@ -86,7 +101,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Prevent Accidental Highlighting</h4>
+    <h3 class="ui header">Prevent Accidental Highlighting</h3>
     <p>Sometimes text can be accidentally highlighted when a user double clicks an element. No need to pull out javascript to solve this.</p>
     <div class="code" data-type="css">
     .ui.thingy {
@@ -97,7 +112,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Multiple Highlight Colors</h4>
+    <h3 class="ui header">Multiple Highlight Colors</h3>
     <p>It's fairly commonly known that you can set text selection colors in css for a page, but its less commonly known that you can use multiple highlight colors in a single page.</p>
     <div class="code" data-type="css">
     /* text selected turns highlighted yellow */
@@ -129,7 +144,7 @@ type   : 'UI Guide'
     </div>
 
 
-    <h3 class="ui header">Shading Borders</h4>
+    <h3 class="ui header">Shading Borders</h3>
     <p>When you have colored content that needs a border to match its current color, try using a 1 pixel inset box shadow with an RGBA value.</p>
 
     <div class="code" data-type="css">
@@ -147,7 +162,7 @@ type   : 'UI Guide'
     </div>
 
 
-    <h3 class="ui header">Joining borders</h4>
+    <h3 class="ui header">Joining borders</h3>
     <p>Sometimes bordered content must sit next to other bordered content. If each element uses border the borders will double. Consider using either outline or a box shadow to accomplish the same effect but without overlapping borders.</p>
     <div class="code" data-type="css">
     /* this might not go so well */
@@ -170,7 +185,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Using transparency</h4>
+    <h3 class="ui header">Using transparency</h3>
     <p>RGBA colors in css allow you to specify colors with a transparency channel. This is very useful.</p>
     <p>Consider for example, defining the text states of an element. If the elements color changes, the text might appear more complementary as a shade of black with a portion of the original color. This can be done easily with rgba</p>
     <div class="code" data-type="css">
@@ -183,7 +198,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Nothing is always Fixed</h4>
+    <h3 class="ui header">Nothing is always Fixed</h3>
     <p>CSS fixed allows you to have content stick to an offset position in a page regardless of the scroll position of the page. Fixed menus will use the page as the offset parent, in all circumstances except when css transform is used on a parent element. <b>This will change the offset context to the transformed element instead of the page</b>.
     <p>This behavior may seem unexpected, but using this quirk can allow you to have fixed position content relative to any element in a page.</p>
     <div class="code" data-type="css">
@@ -199,7 +214,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Centering Content with Transform</h4>
+    <h3 class="ui header">Centering Content with Transform</h3>
     <p>Using percentages in CSS will give you a ratio based on the size of the parent element. For example, setting content to be left 50% will set content to start at exactly halfway across its parent.</p>
     <p>If you want content to positioned relative to its own size use transform. Percentages specified inside a transform are unique in that they are based on the current element size not its parent.</p>
     <div class="code" data-type="css">
@@ -232,7 +247,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Consider alternatives to floats</h4>
+    <h3 class="ui header">Consider alternatives to floats</h3>
     <p>CSS floats can create issues with the containing element not receiving the size of its children. Using overflow:hidden to clear floats means that no peice of an element can be shown outside the bounding box of the element, which limits the possibilities in an element. Clearfixes can use up one of two available pseudo class which can often be useful for styling elements.</p>
     <p>Consider using another means of putting content side by side like inline-block or table-cell. These provide more freedom than floated block elements, and can add additional benefits.</p>
     <p>To avoid issues with inline-block causing spacing between elements, specify no font size on the group and 1rem on the floated content</p>
@@ -259,7 +274,7 @@ type   : 'UI Guide'
     </div>
 
 
-    <h3 class="ui header">Onion Skinning</h4>
+    <h3 class="ui header">Onion Skinning</h3>
     <p>One technique that is useful for allowing for multiple color variations of an element, without having to completely reskin each variation and shade is to use background-image gradients to define shading and state, and background-color to define the color of an element. If done well you can add a variety of colors with very little code.</p>
     <div class="code" data-type="css">
     .ui.thingy {
@@ -301,7 +316,7 @@ type   : 'UI Guide'
 
   <h2 class="ui dividing header">Style Guide</h2>
 
-    <h3 class="ui header">Don't Hyphenate</h4>
+    <h3 class="ui header">Don't Hyphenate</h3>
     <p>All elements are designed to include their own namespace. As long as rules descend from their parent element there is no possibility of rule collision.</p>
     <p>Hyphenated class names often describe the intersection of separate concepts, and can be better written to represent each concept separately.</p>
     <div class="code" data-type="css">
@@ -322,7 +337,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">CSS Legibility</h4>
+    <h3 class="ui header">CSS Legibility</h3>
     <p>Adding extra formatting can help increase clarity in your code. We suggest separating css selectors on separate lines, adding a space after css properties with commas (like box-shadow) and placing a zero before any decimal value.</p>
 
     <div class="code" data-type="css">
@@ -349,7 +364,7 @@ type   : 'UI Guide'
     </div>
 
 
-    <h3 class="ui header">Keep Things Ordered</h4>
+    <h3 class="ui header">Keep Things Ordered</h3>
     <p>Although css rule order may be considered a chore, grouping related rules together can help keep css code organized.</p>
     <p>An easy way to do this is to consider ordering rules from the outside in. First describing positioning rules, then border rules, margin, sizing, padding, font-size, line height and ending with vendor prefixed attributes.</p>
 
@@ -388,7 +403,7 @@ type   : 'UI Guide'
     }
     </div>
 
-  <h3 class="ui header">Avoid non-semantic tags, make wrappers groups</h4>
+  <h3 class="ui header">Avoid non-semantic tags, make wrappers groups</h3>
   <p>UI elements should be designed to include the minimum footprint of an element. If extra styling is needed, consider using pseudo selectors :after and :before. This allows for the creation of two extra divs inside each div context which can almost always be enough to accomodate extra styling.</p>
   <p>If there is no other option than wrapping content in a containing HTML element, consider using a singular/plural relationship by having the wrapper describe its contents instead of an arbitrary class name like <code>wrapper</code></p>
     <div class="code" data-type="css">
@@ -404,7 +419,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Margins</h4>
+    <h3 class="ui header">Margins</h3>
     <p>Adding default margins to your content allow for it to have vertical rhythm in a page, but be careful about forcing margin in all circumstances. Here's a useful way to make sure content inside container elements doesn't receieve unnecessary padding.</p>
     <div class="code" data-type="css">
     .ui.thingy {
@@ -419,7 +434,7 @@ type   : 'UI Guide'
     </div>
 
 
-    <h3 class="ui header">Grammatical order</h4>
+    <h3 class="ui header">Grammatical order</h3>
     <p>Consider using similar class syntax as if you were actually describing the element in English. Although this is by no means required it may help provide clarity in some circumstances.</p>
     <div class="code" data-type="css">
     /* confusing word order */
@@ -432,7 +447,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Use Border Box</h4>
+    <h3 class="ui header">Use Border Box</h3>
     <p>Border box fixes the box model, and allows padding to be included as part of width and height definitions. Using it opens up another world of possibilities for sizing content to fit fluidly</p>
     <div class="code" data-type="css">
     .two.ui.thingies .ui.thingy {
@@ -447,7 +462,7 @@ type   : 'UI Guide'
 
   <h2 class="ui dividing header">Units and Measurements</h2>
 
-    <h3 class="ui header">Unit Consistency</h4>
+    <h3 class="ui header">Unit Consistency</h3>
     <p>CSS provides a broad selection of measurements for values. It is helpful to keep unit definitions consistent across a single property definition. Including consistent units for 0 values also allows for quicker tweaking and shows greater precision in a property definition.</p>
 
     <div class="code" data-type="css">
@@ -466,7 +481,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header">Inheritance is Magical</h4>
+    <h3 class="ui header">Inheritance is Magical</h3>
     <p>Many CSS properties can use the value 'inherit' to specify, quite unintuitively, to take on the value of parent element for values that do not normally inherit. For example, an element can use inherit to double whatever its parents padding size is, or to receive the same type of border as a parent without knowing what it is beforehand.</p>
     <div class="code" data-type="css">
     /* inheriting borders */
@@ -487,7 +502,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header"><em>Relatively</em> Relative</h4>
+    <h3 class="ui header"><em>Relatively</em> Relative</h3>
     <p>EMs are defined so that 1em is equal to the current font size inside of an element. Using EMs can allow you to size content inside an element in proportion to the overall size of the element. Be careful though because this will stack with nested elements.</p>
     <div class="code" data-type="css">
     .ui.thingy {
@@ -508,7 +523,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header"><em>Recursively</em> Relative</h4>
+    <h3 class="ui header"><em>Recursively</em> Relative</h3>
     <p>Using EMs multiplicative nature can be used to your advantage. Instead of defining multiple tiers of a menu system, consider using ems to reduce each tier's sizing. As you continue to nest menu elements each nested menu will computer its values with smaller proportions.</p>
     <div class="code" data-type="css">
     .ui.menu {
@@ -520,7 +535,7 @@ type   : 'UI Guide'
     }
     </div>
 
-    <h3 class="ui header"><em>Absolutely</em> Relative</h4>
+    <h3 class="ui header"><em>Absolutely</em> Relative</h3>
     <p>Relative EMs (rems) are calculated relative to the font size of the entire page. This is needed to explain how content should be sized related to the overall size of elements on the page, and will not increase geometrically when nested like EMs.</p>
     <div class="code" data-type="css">
     /* i am a weird page with very tiny fonts */
