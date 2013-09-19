@@ -515,16 +515,6 @@ a:hover {
 #example .page {
   /* font-family: "Arial, Helvetica, sans-serif"; */
 }
-#example .page .of {
-  font-family: 'Neutraface';
-  font-size: 12px;
-  color: #AAAAAA;
-  padding: 0px 5px;
-}
-#example .page .menu,
-#example .page .of {
-  font-family: 'Neutraface';
-}
 #example .launch.button {
   position: fixed;
   top: 63px;
