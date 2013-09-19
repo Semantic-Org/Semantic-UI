@@ -1,6 +1,6 @@
 {
 
-  // Package Name (SubType Type)
+  // Package Name (Name Type)
   "Name"         : "Semantic Button",
 
   // Version #
@@ -15,7 +15,7 @@
   // ID of UI components that must be included
   "Dependencies" : [],
 
-  // list of required components in "id name" format
+  // list of required components in "name type" format
   "Coupling"     : ["semantic icon",  "semantic loader"],
 
   // List of mutually exclusive types with their koan generators <https://github.com/zodoz/jquery-ZenCoding>

@@ -243,24 +243,32 @@
      Inputs
 ---------------*/
 
-.ui.menu .input,
-.ui.menu .input input {
+.ui.menu .item > .input,
+.ui.menu .item > .input input {
   width: 100%;
 }
 .ui.menu .input .icon {
   padding-top: 0em;
+  top: -0.05em;
+  height: auto;
 }
-.ui.menu input {
-  margin: -0.55em 0em;
+.ui.menu .item > .input input,
+.ui.menu .item > input {
+  position: relative;
+  top: -0.6em;
+  margin: 0em;
   padding-top: 0.45em;
   padding-bottom: 0.45em;
 }
-.ui.vertical.menu input {
+.ui.vertical.menu .item > .input input,
+.ui.vertical.menu .item > input {
+  top: 0em;
   margin: 0em;
   padding-top: 0.63em;
   padding-bottom: 0.63em;
 }
-.ui.vertical.menu .input .icon {
+.ui.vertical.menu  .item > .input .icon {
+  top: 0px;
   padding-top: 0.63em;
 }
 
@@ -778,11 +786,11 @@
 .ui.secondary.menu a.item {
   opacity: 0.8;
 
-  -webkit-transition: opacity 0.2s ease;
-  -moz-transition: opacity 0.2s ease;
-  -o-transition: opacity 0.2s ease;
-  -ms-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
 }
 
 .ui.secondary.menu .header.item {

@@ -136,6 +136,7 @@
      Slider
 ---------------*/
 .ui.slider.checkbox {
+  cursor: pointer;
   width: 3em;
   height: 2em;
 }
@@ -202,6 +203,7 @@
      Toggle
 ---------------*/
 .ui.toggle.checkbox {
+  cursor: pointer;
   width: 3em;
   height: 2em;
 }
