@@ -9,20 +9,27 @@
  *
  * Released: April 17 2013
  */
+
+
 /*******************************
             Standard
 *******************************/
+
 /*--------------
       Menu
 ---------------*/
+
 .ui.menu {
   margin: 1rem 0rem;
   background-color: #FFFFFF;
+
   font-size: 0px;
   font-weight: normal;
+
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+
   -webkit-border-radius: 0.1875rem;
   -moz-border-radius: 0.1875rem;
   border-radius: 0.1875rem;
@@ -33,6 +40,8 @@
 .ui.menu:last-child {
   margin-bottom: 0rem;
 }
+
+
 .ui.menu:after {
   content: ".";
   display: block;
@@ -40,6 +49,8 @@
   clear: both;
   visibility: hidden;
 }
+
+
 .ui.menu > .item:first-child {
   border-radius: 0.1875em 0px 0px 0.1875em;
 }
@@ -51,23 +62,50 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
   vertical-align: middle;
+
   line-height: 1;
   text-decoration: none;
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  -moz-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  -o-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  -ms-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+  -webkit-transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease
+  ;
+  -moz-transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease
+  ;
+  -o-transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease
+  ;
+  -ms-transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease
+  ;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease
+  ;
 }
+
 /*--------------
     Colors
 ---------------*/
+
 /* Text Color */
 .ui.menu .item,
 .ui.menu .item > a {
@@ -99,26 +137,34 @@
 .ui.menu .active.item,
 .ui.menu .active.item a {
   color: rgba(0, 0, 0, 0.85);
+
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
 }
+
 /*--------------
       Items
 ---------------*/
+
 .ui.menu .item {
   position: relative;
   display: inline-block;
+
   padding: 0.83em 0.95em;
+
   border-top: 0em solid rgba(0, 0, 0, 0);
+
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
   user-select: none;
 }
+
 .ui.menu .menu {
   margin: 0em;
 }
+
 .ui.menu .item.left,
 .ui.menu .menu.left {
   float: left;
@@ -127,9 +173,12 @@
 .ui.menu .menu.right {
   float: right;
 }
+
+
 /*--------------
     Borders
 ---------------*/
+
 .ui.menu .item:before {
   position: absolute;
   content: '';
@@ -137,26 +186,49 @@
   right: 0px;
   width: 1px;
   height: 100%;
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: -webkit-linear-gradient(top,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.05) 100%)
+  ;
+  background-image: -moz-linear-gradient(top,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.05) 100%)
+  ;
+  background-image: -o-linear-gradient(top,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.05) 100%)
+  ;
+  background-image: -ms-linear-gradient(top,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.05) 100%)
+  ;
+  background-image: linear-gradient(top,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.05) 100%)
+  ;
 }
 .ui.menu .menu.right .item:before,
 .ui.menu .item.right:before {
   right: auto;
   left: 0px;
 }
+
 /*--------------
   Text Content
 ---------------*/
+
 .ui.menu .text.item > *,
 .ui.menu .item > p:only-child {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
+
   line-height: 1.3;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -166,9 +238,11 @@
 .ui.menu .item > p:last-child {
   margin-bottom: 0px;
 }
+
 /*--------------
      Inputs
 ---------------*/
+
 .ui.menu .input,
 .ui.menu .input input {
   width: 100%;
@@ -189,9 +263,11 @@
 .ui.vertical.menu .input .icon {
   padding-top: 0.63em;
 }
+
 /*--------------
      Header
 ---------------*/
+
 .ui.menu .header.item {
   background-color: rgba(0, 0, 0, 0.04);
   margin: 0em;
@@ -199,6 +275,8 @@
 .ui.vertical.menu .header.item {
   font-weight: bold;
 }
+
+
 /*--------------
     Dropdowns
 ---------------*/
@@ -218,9 +296,12 @@
 .ui.menu .ui.dropdown .menu .item:before {
   display: none;
 }
+
+
 /*--------------
      Labels
 ---------------*/
+
 .ui.menu .item > .label {
   background-color: rgba(0, 0, 0, 0.35);
   color: #FFFFFF;
@@ -231,20 +312,25 @@
 .ui.menu .item > .floating.label {
   padding: 0.3em 0.8em;
 }
+
 /*--------------
       Images
 ---------------*/
+
 .ui.menu .item > img:only-child {
   display: block;
   max-width: 100%;
   margin: 0em auto;
 }
+
 /*******************************
              States
 *******************************/
+
 /*--------------
       Hover
 ---------------*/
+
 .ui.link.menu .item:hover,
 .ui.menu .item.hover,
 .ui.menu .link.item:hover,
@@ -256,18 +342,24 @@
 }
 .ui.menu .ui.dropdown.active {
   background-color: rgba(0, 0, 0, 0.02);
+
   -webkit-box-shadow: none;
   box-shadow: none;
+
   -webkit-border-bottom-right-radius: 0em;
   -moz-border-bottom-right-radius: 0em;
   border-bottom-right-radius: 0em;
+
   -webkit-border-bottom-left-radius: 0em;
   -moz-border-bottom-left-radius: 0em;
   border-bottom-left-radius: 0em;
 }
+
+
 /*--------------
       Down
 ---------------*/
+
 .ui.link.menu .item:active,
 .ui.menu .item.down,
 .ui.menu .link.item:active,
@@ -275,13 +367,17 @@
 .ui.menu .ui.dropdown .menu .item.down,
 .ui.menu .ui.dropdown .menu .item:active {
   background-color: rgba(0, 0, 0, 0.05);
+
 }
+
 /*--------------
      Active
 ---------------*/
-.ui.menu .active.item {
+
+.ui.menu .active.item  {
   background-color: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.95);
+
   -webkit-box-shadow: 0em 0.2em 0em inset;
   -moz-box-shadow: 0em 0.2em 0em inset;
   box-shadow: 0em 0.2em 0em inset;
@@ -290,6 +386,7 @@
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
+
   -moz-box-shadow: 0.2em 0em 0em inset;
   -webkit-box-shadow: 0.2em 0em 0em inset;
   box-shadow: 0.2em 0em 0em inset;
@@ -309,6 +406,8 @@
   -moz-border-radius: 0em 0.1875em 0.1875em 0em;
   border-radius: 0em 0.1875em 0.1875em 0em;
 }
+
+
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
 }
@@ -321,9 +420,11 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 /*--------------
      Disabled
 ---------------*/
+
 .ui.menu .item.disabled,
 .ui.menu .item.disabled:hover,
 .ui.menu .item.disabled.hover {
@@ -331,9 +432,12 @@
   color: rgba(0, 0, 0, 0.2);
   background-color: transparent !important;
 }
+
+
 /*--------------------
      Loading
 ---------------------*/
+
 /* On Form */
 .ui.menu.loading {
   position: relative;
@@ -343,17 +447,22 @@
   top: 0%;
   left: 0%;
   content: '';
+
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
   visibility: visible;
 }
+
+
 /*******************************
              Types
 *******************************/
+
 /*--------------
     Vertical
 ---------------*/
+
 .ui.vertical.menu .item {
   display: block;
   height: auto !important;
@@ -367,6 +476,7 @@
 .ui.vertical.menu > .item:last-child {
   border-radius: 0px 0px 0.1875em 0.1875em;
 }
+
 .ui.vertical.menu .item > .label {
   float: right;
   min-width: 2.5;
@@ -381,6 +491,7 @@
   float: none;
   margin: 0em 0.25em 0em 0em;
 }
+
 /*--- Border ---*/
 .ui.vertical.menu .item:before {
   position: absolute;
@@ -389,15 +500,37 @@
   left: 0px;
   width: 100%;
   height: 1px;
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: -webkit-linear-gradient(left,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.1) 1.5em,
+    rgba(0, 0, 0, 0.03) 100%)
+  ;
+  background-image: -moz-linear-gradient(left,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.1) 1.5em,
+    rgba(0, 0, 0, 0.03) 100%)
+  ;
+  background-image: -o-linear-gradient(left,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.1) 1.5em,
+    rgba(0, 0, 0, 0.03) 100%)
+  ;
+  background-image: -ms-linear-gradient(left,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.1) 1.5em,
+    rgba(0, 0, 0, 0.03) 100%)
+  ;
+  background-image: linear-gradient(left,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.1) 1.5em,
+    rgba(0, 0, 0, 0.03) 100%)
+  ;
 }
+
 .ui.vertical.menu .item:first-child:before {
   background-image: none !important;
 }
+
 /*--- Dropdown ---*/
 .ui.vertical.menu .dropdown.item > i {
   float: right;
@@ -419,6 +552,7 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 /*--- Sub Menu ---*/
 .ui.vertical.menu .item > .menu {
   margin: 0.5em -0.95em 0em;
@@ -430,9 +564,12 @@
 .ui.vertical.menu .item > .menu > .item:before {
   display: none;
 }
+
+
 /*--------------
      Tiered
 ---------------*/
+
 .ui.tiered.menu > .sub.menu > .item {
   color: rgba(0, 0, 0, 0.4);
 }
@@ -448,6 +585,7 @@
   content: '';
   top: 100%;
   left: 0px;
+
   width: 100%;
   height: 1px;
   background-color: #FBFBFB;
@@ -456,9 +594,11 @@
   background-color: rgba(0, 0, 0, 0.01);
   border-radius: 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+
   color: #FFFFFF;
 }
 .ui.tiered.menu .sub.menu .item {
@@ -472,14 +612,17 @@
   background-color: transparent;
   border-radius: 0 0 0 0;
   border-top: medium none;
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+
   color: rgba(0, 0, 0, 0.7) !important;
 }
 .ui.tiered.menu .sub.menu .active.item:after {
   display: none;
 }
+
 /* Inverted */
 .ui.inverted.tiered.menu > .menu > .item {
   color: rgba(255, 255, 255, 0.5);
@@ -490,6 +633,7 @@
 .ui.inverted.tiered.menu .sub.menu .item {
   color: rgba(255, 255, 255, 0.6);
 }
+
 .ui.inverted.tiered.menu > .menu > .item:hover,
 .ui.inverted.tiered.menu > .menu > .item.hover {
   color: rgba(255, 255, 255, 0.9);
@@ -499,11 +643,12 @@
 }
 .ui.inverted.tiered.menu > .sub.menu > .active.item,
 .ui.inverted.tiered.menu > .menu > .active.item {
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 1) !important;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 /* Tiered pointing */
 .ui.pointing.tiered.menu > .menu > .item:after {
   display: none;
@@ -511,21 +656,27 @@
 .ui.pointing.tiered.menu > .sub.menu > .item:after {
   display: block;
 }
+
+
 /*--------------
      Tabular
 ---------------*/
+
 .ui.tabular.menu {
   background-color: transparent;
   border-bottom: 1px solid #DCDDDE;
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.tabular.menu .item {
   background-color: transparent;
+
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   border-top: 1px solid transparent;
+
   padding-left: 1.4em;
   padding-right: 1.4em;
   color: rgba(0, 0, 0, 0.6);
@@ -533,33 +684,43 @@
 .ui.tabular.menu .item:before {
   display: none;
 }
+
 /* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.8);
 }
+
 /* Active */
 .ui.tabular.menu .active.item {
   position: relative;
   top: 1px;
+
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
+
   border-color: #DCDDDE;
+
   padding-top: 0.83em;
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+
   -webkit-border-radius: 5px 5px 0 0;
   -moz-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
 }
+
 /*--------------
    Pagination
 ---------------*/
+
 .ui.pagination.menu {
   margin: 0em;
   display: inline-block;
 }
+
 .ui.pagination.menu .item {
   min-width: 2.7em;
   min-height: 2.66em;
@@ -568,6 +729,7 @@
 .ui.pagination.menu.floated {
   display: block;
 }
+
 /* active */
 .ui.pagination.menu .active.item {
   border-top: none;
@@ -577,14 +739,18 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 /*--------------
    Secondary
 ---------------*/
+
 .ui.secondary.menu {
   background-color: transparent;
+
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -593,10 +759,13 @@
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+
   border: none;
   height: auto !important;
+
   margin: 0em 0.25em;
   padding: 0.5em 1em;
+
   -webkit-border-radius: 0.3125em;
   -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
@@ -604,31 +773,38 @@
 .ui.secondary.menu > .item:before {
   display: none !important;
 }
+
 .ui.secondary.menu .link.item,
 .ui.secondary.menu a.item {
   opacity: 0.8;
+
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
   -ms-transition: none;
   transition: none;
 }
+
 .ui.secondary.menu .header.item {
   border-right: 0.1em solid rgba(0, 0, 0, 0.1);
   background-color: transparent;
+
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
 }
+
 /* hover */
 .ui.secondary.menu .link.item:hover,
 .ui.secondary.menu a.item:hover {
   opacity: 1;
 }
+
 /* active */
 .ui.secondary.menu > .active.item {
   background-color: rgba(0, 0, 0, 0.08);
   opacity: 1;
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -638,6 +814,7 @@
   -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
 }
+
 /* inverted */
 .ui.secondary.inverted.menu .link.item,
 .ui.secondary.inverted.menu a.item {
@@ -650,6 +827,8 @@
 .ui.secondary.inverted.menu > .active.item {
   background-color: rgba(255, 255, 255, 0.9);
 }
+
+
 /* disable variations */
 .ui.secondary.item.menu > .item {
   margin: 0em;
@@ -659,63 +838,83 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 /*---------------------
    Secondary Pointing
 -----------------------*/
+
 .ui.secondary.pointing.menu {
   border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+
 }
+
 .ui.secondary.pointing.menu .header.item {
   border-right-width: 0px;
   font-weight: bold;
 }
+
 .ui.secondary.pointing.menu .text.item {
   box-shadow: none !important;
 }
+
 .ui.secondary.pointing.menu > .item {
   margin: 0em 0em -3px;
   padding: 0.6em 0.95em;
+
   border-bottom: 3px solid rgba(0, 0, 0, 0);
+
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
-  -webkit-transition: color 0.2s
+
+  -webkit-transition:
+    color 0.2s
   ;
-  -moz-transition: color 0.2s
+  -moz-transition:
+    color 0.2s
   ;
-  -o-transition: color 0.2s
+  -o-transition:
+    color 0.2s
   ;
-  -ms-transition: color 0.2s
+  -ms-transition:
+    color 0.2s
   ;
-  transition: color 0.2s
+  transition:
+    color 0.2s
   ;
 }
 .ui.secondary.pointing.menu > .item:after {
   display: none;
 }
+
 /* Hover */
 .ui.secondary.pointing.menu > .item.hover,
 .ui.secondary.pointing.menu > .item:hover {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
+
 /* Down */
 .ui.secondary.pointing.menu > .item:active,
 .ui.secondary.pointing.menu > .item.down {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.2);
 }
+
 /* Active */
 .ui.secondary.pointing.menu > .item.active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.4);
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 /*---------------------
    Secondary Vertical
 -----------------------*/
+
 .ui.secondary.vertical.pointing.menu {
   border: none;
   border-right: 3px solid rgba(0, 0, 0, 0.1);
@@ -724,6 +923,7 @@
   border: none;
   margin: 0em 0em 0.3em;
   padding: 0.6em 0.8em;
+
   -webkit-border-radius: 0.1875em;
   -moz-border-radius: 0.1875em;
   border-radius: 0.1875em;
@@ -747,85 +947,108 @@
   background-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
+
 /* Down */
 .ui.secondary.vertical.pointing.menu > .item:active,
 .ui.secondary.vertical.pointing.menu > .item.down {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.2);
 }
+
 /* Active */
 .ui.secondary.vertical.pointing.menu > .item.active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.4);
   color: rgba(0, 0, 0, 0.85);
 }
+
 /*--------------
     Inverted
 ---------------*/
+
 .ui.secondary.inverted.menu {
   background-color: transparent;
 }
+
 .ui.secondary.inverted.pointing.menu {
   border-bottom: 3px solid rgba(255, 255, 255, 0.1);
 }
 .ui.secondary.inverted.pointing.menu > .item {
   color: rgba(255, 255, 255, 0.7);
 }
+
 /* Hover */
 .ui.secondary.inverted.pointing.menu > .item.hover,
 .ui.secondary.inverted.pointing.menu > .item:hover {
   color: rgba(255, 255, 255, 0.85);
 }
+
 /* Down */
 .ui.secondary.inverted.pointing.menu > .item:active,
 .ui.secondary.inverted.pointing.menu > .item.down {
   border-color: rgba(255, 255, 255, 0.4) !important;
 }
+
 /* Active */
 .ui.secondary.inverted.pointing.menu > .item.active {
   border-color: rgba(255, 255, 255, 0.8) !important;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 1);
 }
+
 /*---------------------
    Inverted Vertical
 ----------------------*/
+
 .ui.secondary.inverted.vertical.pointing.menu {
   border-right: 3px solid rgba(255, 255, 255, 0.1);
   border-bottom: none;
 }
+
 /*--------------
     Text Menu
 ---------------*/
+
 .ui.text.menu {
   background-color: transparent;
+
   margin: 1rem -1rem;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.text.menu > .item {
   opacity: 0.8;
+
   margin: 0em 1em;
   padding: 0em;
   height: auto !important;
+
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
+
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: opacity 0.2s ease
+
+  -webkit-transition:
+    opacity 0.2s ease
   ;
-  -moz-transition: opacity 0.2s ease
+  -moz-transition:
+    opacity 0.2s ease
   ;
-  -o-transition: opacity 0.2s ease
+  -o-transition:
+    opacity 0.2s ease
   ;
-  -ms-transition: opacity 0.2s ease
+  -ms-transition:
+    opacity 0.2s ease
   ;
-  transition: opacity 0.2s ease
+  transition:
+    opacity 0.2s ease
   ;
 }
 .ui.text.menu > .item:before {
@@ -833,6 +1056,7 @@
 }
 .ui.text.menu .header.item {
   background-color: transparent;
+
   opacity: 1;
   color: rgba(50, 50, 50, 0.8);
   font-size: 0.875rem;
@@ -840,10 +1064,12 @@
   text-transform: uppercase;
   font-weight: bold;
 }
+
 /*--- fluid text ---*/
 .ui.text.item.menu .item {
   margin: 0em;
 }
+
 /*--- vertical text ---*/
 .ui.vertical.text.menu {
   margin: 1rem 0em;
@@ -866,12 +1092,14 @@
 .ui.vertical.text.menu .header.item {
   margin: 0.8em 0em;
 }
+
 /*--- hover ---*/
 .ui.text.menu .item.hover,
 .ui.text.menu .item:hover {
   opacity: 1;
   background-color: transparent;
 }
+
 /*--- active ---*/
 .ui.text.menu .active.item {
   background-color: transparent;
@@ -883,6 +1111,7 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 /* disable variations */
 .ui.text.pointing.menu .active.item:after {
   -webkit-box-shadow: none;
@@ -894,15 +1123,18 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 .ui.inverted.text.menu,
 .ui.inverted.text.menu .item,
 .ui.inverted.text.menu .item:hover,
 .ui.inverted.text.menu .item.active {
   background-color: transparent;
 }
+
 /*--------------
     Icon Only
 ---------------*/
+
 .ui.icon.menu,
 .ui.vertical.icon.menu {
   width: auto;
@@ -923,23 +1155,28 @@
 .ui.icon.menu .icon:before {
   opacity: 1;
 }
+
 /* Item Icon Only */
 .ui.menu .icon.item .icon {
   margin: 0em;
 }
+
 .ui.vertical.icon.menu {
   float: none;
 }
+
 /*--- inverted ---*/
 .ui.inverted.icon.menu .item {
   color: rgba(255, 255, 255, 0.8);
 }
 .ui.inverted.icon.menu .icon {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 1);
 }
+
 /*--------------
    Labeled Icon
 ---------------*/
+
 .ui.labeled.icon.menu {
   text-align: center;
 }
@@ -948,12 +1185,17 @@
   font-size: 1.5em !important;
   margin: 0em auto 0.3em !important;
 }
+
+
+
 /*******************************
            Variations
 *******************************/
+
 /*--------------
     Colors
 ---------------*/
+
 /*--- Light Colors  ---*/
 .ui.menu .green.active.item,
 .ui.green.menu .active.item {
@@ -985,20 +1227,25 @@
   border-color: #00B5AD !important;
   color: #00B5AD !important;
 }
+
+
 /*--------------
     Inverted
 ---------------*/
+
 .ui.inverted.menu {
   background-color: #333333;
   box-shadow: none;
 }
 .ui.inverted.menu .header.item {
   margin: 0em;
+
   background-color: rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 .ui.inverted.menu .item,
 .ui.inverted.menu .item > a {
   color: #FFFFFF;
@@ -1016,21 +1263,65 @@
 .ui.inverted.menu .item.disabled.hover {
   color: rgba(255, 255, 255, 0.2);
 }
+
+
+
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: linear-gradient(top, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -webkit-linear-gradient(top,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -moz-linear-gradient(top,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -o-linear-gradient(top,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -ms-linear-gradient(top,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: linear-gradient(top,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
 }
 .ui.vertical.inverted.menu .item:before {
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -webkit-linear-gradient(left,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -moz-linear-gradient(left,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -o-linear-gradient(left,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: -ms-linear-gradient(left,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
+  background-image: linear-gradient(left,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.03) 100%)
+  ;
 }
+
 /*--- Hover ---*/
 .ui.link.inverted.menu .item:hover,
 .ui.inverted.menu .item.hover,
@@ -1047,8 +1338,9 @@
 .ui.inverted.menu .item .menu a.item.hover,
 .ui.inverted.menu .item .menu .link.item:hover,
 .ui.inverted.menu .item .menu .link.item.hover {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 1);
 }
+
 /*--- Down ---*/
 .ui.inverted.menu .item.down,
 .ui.inverted.menu a.item:active,
@@ -1058,6 +1350,7 @@
 .ui.inverted.menu a.item:active {
   background-color: rgba(255, 255, 255, 0.15);
 }
+
 /*--- Active ---*/
 .ui.inverted.menu .active.item {
   box-shadow: none !important;
@@ -1065,12 +1358,13 @@
 }
 .ui.inverted.menu .active.item,
 .ui.inverted.menu .active.item a {
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 1) !important;
 }
 .ui.inverted.vertical.menu .item .menu .active.item {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: rgba(255, 255, 255, 1);
 }
+
 /*--- Pointers ---*/
 .ui.inverted.pointing.menu .active.item:after {
   background-color: #505050;
@@ -1079,9 +1373,12 @@
 .ui.inverted.pointing.menu .active.item:hover:after {
   background-color: #3B3B3B;
 }
+
+
 /*--------------
     Selection
 ---------------*/
+
 .ui.selection.menu > .item {
   color: rgba(0, 0, 0, 0.4);
 }
@@ -1091,6 +1388,7 @@
 .ui.selection.menu > .item.active {
   color: rgba(0, 0, 0, 0.85);
 }
+
 .ui.inverted.selection.menu > .item {
   color: rgba(255, 255, 255, 0.4);
 }
@@ -1100,9 +1398,12 @@
 .ui.inverted.selection.menu > .item.active {
   color: #FFFFFF;
 }
+
+
 /*--------------
      Floated
 ---------------*/
+
 .ui.floated.menu {
   float: left;
   margin: 0rem 0.5rem 0rem 0rem;
@@ -1111,13 +1412,17 @@
   float: right;
   margin: 0rem 0rem 0rem 0.5rem;
 }
+
+
 /*--------------
  Inverted Colors
 ---------------*/
+
 /*--- Light Colors  ---*/
 .ui.grey.menu {
   background-color: #F0F0F0;
 }
+
 /*--- Inverted Colors  ---*/
 .ui.inverted.green.menu {
   background-color: #A1CF64;
@@ -1125,64 +1430,79 @@
 .ui.inverted.green.pointing.menu .active.item:after {
   background-color: #A1CF64;
 }
+
 .ui.inverted.red.menu {
   background-color: #D95C5C;
 }
 .ui.inverted.red.pointing.menu .active.item:after {
   background-color: #F16883;
 }
+
 .ui.inverted.blue.menu {
   background-color: #6ECFF5;
 }
 .ui.inverted.blue.pointing.menu .active.item:after {
   background-color: #6ECFF5;
 }
+
 .ui.inverted.purple.menu {
   background-color: #564F8A;
 }
 .ui.inverted.purple.pointing.menu .active.item:after {
   background-color: #564F8A;
 }
+
 .ui.inverted.orange.menu {
   background-color: #F05940;
 }
 .ui.inverted.orange.pointing.menu .active.item:after {
   background-color: #F05940;
 }
+
 .ui.inverted.teal.menu {
   background-color: #00B5AD;
 }
 .ui.inverted.teal.pointing.menu .active.item:after {
   background-color: #00B5AD;
 }
+
+
 /*--------------
      Fitted
 ---------------*/
+
 .ui.fitted.menu .item,
 .ui.fitted.menu .item .menu .item,
 .ui.menu .fitted.item {
   padding-top: 0em;
   padding-bottom: 0em;
 }
+
 /*--------------
      Tight
 ---------------*/
+
 .ui.tight.menu .item,
 .ui.tight.menu .item .menu .item,
 .ui.menu .tight.item {
   padding: 0em;
 }
+
+
 /*--------------
    Borderless
 ---------------*/
+
 .ui.borderless.menu .item:before,
 .ui.borderless.menu .item .menu .item:before,
 .ui.menu .borderless.item:before {
   background-image: none;
 }
+
 /*-------------------
        Compact
 --------------------*/
+
 .ui.compact.menu {
   display: inline-block;
   margin: 0em;
@@ -1194,17 +1514,22 @@
 .ui.compact.vertical.menu .item:last-child::before {
   display: block;
 }
+
 /*-------------------
         Fluid
 --------------------*/
+
 .ui.menu.fluid,
 .ui.vertical.menu.fluid {
   display: block;
   width: 100% !important;
 }
+
+
 /*-------------------
       Evenly Sized
 --------------------*/
+
 .ui.item.menu,
 .ui.item.menu .item {
   width: 100%;
@@ -1212,6 +1537,7 @@
   padding-right: 0px !important;
   text-align: center;
 }
+
 .ui.menu.two.item .item {
   width: 50%;
 }
@@ -1245,12 +1571,15 @@
 .ui.menu.twelve.item .item {
   width: 8.333%;
 }
+
 /*--------------
      Fixed
 ---------------*/
+
 .ui.menu.fixed {
   position: fixed;
   z-index: 10;
+
   margin: 0em;
   border: none;
   width: 100%;
@@ -1262,6 +1591,7 @@
   -moz-border-radius: 0px !important;
   border-radius: 0px !important;
 }
+
 .ui.menu.fixed.top {
   top: 0px;
   left: 0px;
@@ -1290,40 +1620,54 @@
   width: auto;
   height: 100%;
 }
+
 /*-------------------
        Pointing
 --------------------*/
+
 .ui.pointing.menu .active.item:after {
   position: absolute;
   bottom: -0.35em;
   left: 50%;
   content: "";
+
   margin-left: -0.3em;
   width: 0.6em;
   height: 0.6em;
+
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+
   background-image: none;
+
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
   z-index: 2;
-  -webkit-transition: background 0.2s ease
+
+  -webkit-transition:
+    background 0.2s ease
   ;
-  -moz-transition: background 0.2s ease
+  -moz-transition:
+    background 0.2s ease
   ;
-  -o-transition: background 0.2s ease
+  -o-transition:
+    background 0.2s ease
   ;
-  -ms-transition: background 0.2s ease
+  -ms-transition:
+    background 0.2s ease
   ;
-  transition: background 0.2s ease
+  transition:
+    background 0.2s ease
   ;
 }
+
 /* Don't double up pointers */
 .ui.pointing.menu .active.item .menu .active.item:after {
   display: none;
 }
+
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
@@ -1331,10 +1675,12 @@
   right: -0.4em;
   bottom: auto;
   left: auto;
+
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 /* Colors */
 .ui.pointing.menu .active.item:after {
   background-color: #FCFCFC;
@@ -1343,23 +1689,28 @@
 .ui.pointing.menu .active.item:hover:after {
   background-color: #FAFAFA;
 }
+
 .ui.vertical.pointing.menu .menu .active.item:after {
   background-color: #F4F4F4;
 }
+
 .ui.pointing.menu .active.item.down:after,
 .ui.pointing.menu .active.item:active:after {
   background-color: #F0F0F0;
 }
+
+
 /*--------------
     Attached
 ---------------*/
+
 .ui.menu.attached {
   margin: 0rem;
+
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
   /* avoid rgba multiplying */
-
   -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
   -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
   box-shadow: 0px 0px 0px 1px #DDDDDD;
@@ -1374,15 +1725,18 @@
   -webkit-border-radius: 0px 0px 0.1875em 0.1875em;
   border-radius: 0px 0px 0.1875em 0.1875em;
 }
+
 /*--------------
      Sizes
 ---------------*/
+
 .ui.small.menu .item {
   font-size: 0.875rem;
 }
 .ui.small.vertical.menu {
   width: 13rem;
 }
+
 .ui.menu .item {
   font-size: 1rem;
   height: 2.66em;
@@ -1390,6 +1744,8 @@
 .ui.vertical.menu {
   width: 15rem;
 }
+
+
 .ui.large.menu .item {
   font-size: 1.125rem;
 }
