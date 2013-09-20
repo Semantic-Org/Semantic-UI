@@ -67,11 +67,11 @@
 /*--------------------
         Loading
 ---------------------*/
-.ui.loading.input .icon {
+.ui.loading.input > .icon {
   background: url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
-.ui.loading.input .icon:before,
-.ui.loading.input .icon:after {
+.ui.loading.input > .icon:before,
+.ui.loading.input > .icon:after {
   display: none;
 }
 /*--------------------
