@@ -758,6 +758,9 @@ a:hover {
 #example .existing.annotation {
   /*display: none;*/
 }
+#example .segment p:first-of-type {
+  margin-top: 0em;
+}
 
 /* example code reskin */
 #example div.code.hide {
