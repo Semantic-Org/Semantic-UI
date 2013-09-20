@@ -177,10 +177,10 @@
   padding-right: 2.5em !important;
 }
 /* Spacing with corner label */
-.ui.labeled.icon.input:not(.left) input {
+.ui.labeled.icon.input:not(.left) > input {
   padding-right: 3.25em !important;
 }
-.ui.labeled.icon.input:not(.left) .icon {
+.ui.labeled.icon.input:not(.left) > .icon {
   margin-right: 0.75em;
 }
 /*--------------------
