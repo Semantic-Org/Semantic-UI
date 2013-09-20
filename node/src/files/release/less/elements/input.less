@@ -181,20 +181,20 @@
 .ui.icon.input > .icon {
   position: absolute;
   opacity: 0.5;
-  top: 1px;
-  right: 1px;
+  top: 0px;
+  right: 0px;
 
   margin: 0em;
 
-  width: 2.5em;
-  height: 2.5em;
+  width: 2.6em;
+  height: 2.6em;
   padding-top: 0.75em;
 
   text-align: center;
 
-  -webkit-border-radius: 0.2em 0em 0em 0.2em;
-  -moz-border-radius: 0.2em 0em 0em 0.2em;
-  border-radius: 0.2em 0em 0em 0.2em;
+  -webkit-border-radius: 0em 0.2em 0.2em 0em;
+  -moz-border-radius: 0em 0.2em 0.2em 0em;
+  border-radius: 0em 0.2em 0.2em 0em;
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -210,18 +210,31 @@
 .ui.icon.input input {
   padding-right: 3em !important;
 }
+.ui.icon.input > .circular.icon {
+  top: 0.35em;
+  right: 0.5em;
+}
 
-.ui.left.icon.input .icon {
+/* Left Side */
+.ui.left.icon.input > .icon {
   right: auto;
   left: 1px;
+
+  -webkit-border-radius: 0.2em 0em 0em 0.2em;
+  -moz-border-radius: 0.2em 0em 0em 0.2em;
+  border-radius: 0.2em 0em 0em 0.2em;
 }
-.ui.left.icon.input input {
+.ui.left.icon.input > .circular.icon {
+  right: auto;
+  left: 0.5em;
+}
+.ui.left.icon.input > input {
   padding-left: 3em !important;
   padding-right: 1.2em !important;
 }
 
 /* Focus */
-.ui.icon.input input:focus ~ .icon {
+.ui.icon.input > input:focus ~ .icon {
   opacity: 1;
 }
 
