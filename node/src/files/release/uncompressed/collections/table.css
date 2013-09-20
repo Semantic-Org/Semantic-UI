@@ -347,14 +347,19 @@
 .ui.celled.table tfoot tr {
   border: none;
 }
-.ui.celled.table th {
-  border: 1px solid #E0E0E0;
-}
+.ui.celled.table th,
 .ui.celled.table tbody td {
-  border: 1px solid #E0E0E0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
+/* Coupling with segment */
 .ui.celled.table.segment th {
   border: none;
+}
+.ui.celled.table.segment tbody td:first-child {
+  border-left: none;
+}
+.ui.celled.table.segment tbody td:last-child {
+  border-right: none;
 }
 /*--------------
     Sortable
