@@ -31,7 +31,7 @@ If you prefer to download the whole kit as a zip, it is so conveniently packaged
 
 The aim of the specification is to develop conventions around structuring and naming code for interface elements. 
 
-By defining a vocabulary the development community can exchange javascript and css definitions of UI in a similar language, making new code easier to grock, and reducing the complexity of starting a new project, or changing a sites design.
+By defining a vocabulary the development community can exchange javascript and css definitions of UI in a similar language, making new code easier to grok, and reducing the complexity of starting a new project, or changing a sites design.
 
 ## Types of UI
 
