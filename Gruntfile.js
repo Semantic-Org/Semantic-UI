@@ -71,20 +71,23 @@ module.exports = function (grunt) {
         },
 
 
-        /*compress: {
+        compress: {
             options: {
-                archive: 'src/files/release/semantic.zip'
+                archive: 'build/semantic-ui.zip'
             },
-            everything: {
+            minified: {
                 files: [{
                     expand: true,
-                    cwd: '../build/',
+                    cwd: 'build/',
                     src: [
-                        '**'
+                        '*.min.js',
+                        '*.min.css',
+                        'font/*',
+                        'img/*'
                     ]
                 }]
             }
-        },*/
+        },
 
         copy: {
             fonts: {
@@ -157,6 +160,6 @@ module.exports = function (grunt) {
     grunt.registerTask('build-fonts', ['copy:fonts']);
     grunt.registerTask('build', ['clean', 'build-css', 'build-js', 'build-images', 'build-fonts']);
 
-    grunt.registerTask('default', ['build']);
+    grunt.registerTask('default', ['build', 'compress']);
 
 };
