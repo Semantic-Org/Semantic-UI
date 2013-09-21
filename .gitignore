@@ -1,3 +1,5 @@
 docs/
 node/server.json
+node_modules
 node/node_modules
+.DS_STORE
