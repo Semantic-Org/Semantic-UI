@@ -1,0 +1,253 @@
+---
+layout      : 'default'
+css         : 'side'
+
+title       : 'Sidebar'
+description : 'A sidebar is a menu hidden beside page content'
+type        : 'UI Module'
+---
+
+<div class="ui red vertical demo sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="active item">
+    <i class="heart icon"></i>
+    Current Section
+  </a>
+  <a class="item">
+    <i class="facebook icon"></i>
+    Like us on Facebook
+  </a>
+  <div class="item">
+    <b>More</b>
+    <div class="menu">
+      <a class="item">About</a>
+      <a class="item">Contact Us</a>
+    </div>
+  </div>
+</div>
+<div class="ui right sidebar inverted red vertical menu">
+  <div class="header item">Right Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+<div class="ui top inverted teal sidebar menu">
+  <div class="header item">Top Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+<div class="ui bottom inverted sidebar menu">
+  <div class="header item">Bottom Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Initializing</a>
+      <a class="item">Usage</a>
+      <a class="item">Variations</a>
+      <a class="item">Behavior</a>
+      <a class="item">Settings</a>
+    </div>
+  </div>
+  <h2 class="ui dividing header">Initializing</h2>
+  <p>Any content can be used as a sidebar by adding the class <code>ui sidebar</code> and initializing the menu in javascript.</p>
+  <div class="ui ignored warning message">
+    <div class="header">Fixed Position Snafoos</div>
+    Fixed position content may have issues changing it's position when a sidebar appears. There are two solutions
+    <ul class="list">
+      <li>Specify your fixed content without using the css left property
+      <li>Apply styles on the fixed element to adjust its position when the sidebar appears. You can do this by descending from the body tag which receives the class <code>(direction) pushed</code> when the view is moved.</li>
+    </ul>
+  </div>
+  <div class="code" data-label="true" data-type="html">
+    <div class="ui sidebar">
+      Any content in the world
+    </div>
+  </div>
+  <div class="code" data-label="true" data-type="javascript">
+    $('.ui.sidebar')
+      .sidebar()
+    ;
+  </div>
+
+  <h2 class="ui dividing header">Usage</h2>
+
+  <div class="no example">
+    <h4 class="ui header">Showing a sidebar</h4>
+    <p>A sidebar can be shown, hidden, or toggled. In the following examples sidebar is used in conjunction with <a href="/collections/menu.html">ui menu</a> to display a vertical menu as a sidebar.</p>
+    <div class="code" data-type="html" data-title="Example HTML">
+    <div class="ui red vertical demo sidebar menu">
+      <a class="item">
+        <i class="home icon"></i>
+        Home
+      </a>
+      <a class="active item">
+        <i class="heart icon"></i>
+        Current Section
+      </a>
+      <a class="item">
+        <i class="facebook icon"></i>
+        Like us on Facebook
+      </a>
+      <div class="item">
+        <b>More</b>
+        <div class="menu">
+          <a class="item">About</a>
+          <a class="item">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="code" data-demo="true" data-type="javascript">
+    $('.demo.sidebar')
+      .sidebar('toggle')
+    ;
+    </div>
+  </div>
+  <div class="no example">
+    <h4 class="ui header">Triggering show/hide with other content</h4>
+    <p>For convenience calling attach events will allow you to bind events. By default this will toggle the sidebar in and out of view on click</p>
+    <div class="code" data-demo="true">
+    $('.demo.sidebar')
+      .sidebar('attach events', '.toggle.button')
+    ;
+    $('.toggle.button')
+      .removeClass('disabled')
+    ;
+    </div>
+    <div class="ui disabled teal toggle button">
+      <i class="left arrow icon"></i>
+      Trigger Sidebar
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4 class="ui header">Triggering custom action with other content</h4>
+    <p>You can also however specify what action should occur when the element is clicked</p>
+    <div class="code" data-demo="true">
+    $('.demo.sidebar')
+      .sidebar('attach events', '.open.button', 'show')
+    ;
+    $('.open.button')
+      .removeClass('disabled')
+    ;
+    </div>
+    <div class="ui disabled teal open button">
+      <i class="left arrow icon"></i>
+      Open Sidebar
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="no example">
+    <h4 class="ui header">Floating</h4>
+    <p>A sidebar can appear floating above content</p>
+    <div class="code" data-demo="true">
+    $('.demo.sidebar')
+      .addClass('floating')
+      .sidebar('toggle')
+    ;
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4 class="ui header">Direction</h4>
+    <p>A sidebar can appear on any side of content</p>
+    <div class="code" data-type="html">
+    <!-- Assumes left if none specified -->
+    <div class="ui sidebar"></div>
+    <div class="ui top sidebar"></div>
+    <div class="ui right sidebar"></div>
+    <div class="ui bottom sidebar"></div>
+    </div>
+
+    <div class="code" data-demo="true">
+    $('.direction.button')
+      .on('click', function() {
+        $('.sidebar')
+          .filter('.' + $(this).data('direction') )
+          .sidebar('toggle')
+        ;
+      })
+    ;
+    $('.direction.button')
+      .removeClass('disabled')
+    ;
+    </div>
+    <div class="ui buttons">
+      <div class="ui disabled direction button" data-direction="top">
+        Top
+      </div>
+      <div class="ui disabled direction button" data-direction="right">
+        Right
+      </div>
+      <div class="ui disabled direction button" data-direction="bottom">
+        Bottom
+      </div>
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4 class="ui header">Overlay</h4>
+    <p>A sidebar can overlay page content instead of pushing it to the side</p>
+    <div class="code" data-demo="true">
+    $('.demo.sidebar')
+      .sidebar('setting', 'overlay', true)
+      .sidebar('toggle')
+      .sidebar('setting', 'overlay', false)
+    ;
+    </div>
+  </div>
+
+  <h2 class="ui header">Behavior</h2>
+
+  All the following behaviors can be called using the syntax <code>$('.foo').sidebar('behavior name')</code>
+
+  <table class="ui definition celled table segment">
+    <tr>
+      <td>attach events</td>
+      <td>Attaches sidebar action to given selector</td>
+    </tr>
+    <tr>
+      <td>show</td>
+      <td>Shows specified selector</td>
+    </tr>
+    <tr>
+      <td>hide</td>
+      <td>Hides specified selector</td>
+    </tr>
+    <tr>
+      <td>toggle</td>
+      <td>Toggles visibility of sidebar</td>
+    </tr>
+    <tr>
+      <td>push page</td>
+      <td>Pushes page content to be visible alongside sidebar</td>
+    </tr>
+    <tr>
+      <td>pull page</td>
+      <td>Returns page content to original position</td>
+    </tr>
+    <tr>
+      <td>add body css</td>
+      <td>Adds stylesheet to page head to trigger sidebar animations</td>
+    </tr>
+
+
+  </table>
+
+</div>
+</body>
+</html>

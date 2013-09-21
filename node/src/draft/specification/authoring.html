@@ -5,11 +5,9 @@ css    : 'guide'
 title  : 'Authoring UI'
 type   : 'UI Specification'
 ---
-<div class="segment">
-  <div class="container">
-    <h1 class="ui header">Writing a Component</h1>
-  </div>
-</div>
+
+<%- @partial('header') %>
+
 <div class="main container">
 
 
@@ -40,7 +38,7 @@ After creating a spec file you can use semantic to generate ui components. Simpl
 
 This will create a stub css (and possibly js) file in ui/element with your definition. This will also create a stub html file in docs/, this is the visual representation of your element definition, and will appear unformatted until you begin to create your css.
 
-As you edit each css definition to create the look and feel of your element, you can refresh this page to verify each element appears properly. After you finish writing your UI component, if you would like to register your package to be used by others. No need to package anything up, simply type 
+As you edit each css definition to create the look and feel of your element, you can refresh this page to verify each element appears properly. After you finish writing your UI component, if you would like to register your package to be used by others. No need to package anything up, simply type
 
 semantic register awesome button
 
@@ -48,5 +46,5 @@ Assuming your package name is not taken, your buttons will now be available on s
 
 
 
-  
+
 </div>
