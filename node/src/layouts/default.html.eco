@@ -50,7 +50,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/item.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/statistic.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/carousel.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/modal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/popup.css">
@@ -106,8 +105,7 @@
       <i class="inverted circular red upload icon"></i> <b>Download</b>
     </a>
     <div class="item">
-        <b>Project</b>
-      </a>
+      <b>Project</b>
       <div class="menu">
         <% for element in uiProject: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -213,7 +211,7 @@
           <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic-ui&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
         </div>
-        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'Quirky Element' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
 <!--         <a class="popup overview icon item" title="Toggle Definition">
           <i class="book icon"></i>
         </a> -->

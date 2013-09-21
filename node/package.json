@@ -6,7 +6,8 @@
   "dependencies": {
     "docpad": "~6.53.0",
     "docpad-plugin-eco": "~2.0.2",
-    "docpad-plugin-ghpages": "~2.4.0"
+    "docpad-plugin-ghpages": "~2.4.0",
+    "docpad-plugin-partials": "~2.8.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

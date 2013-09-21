@@ -1,9 +1,10 @@
 ---
-layout : 'default'
-css    : 'chatroom'
+layout      : 'default'
+css         : 'chatroom'
 
-title  : 'Chatroom'
-type   : 'UI Module'
+title       : 'Chatroom'
+description : 'A chatroom allows users to communicate with each other in real time.'
+type        : 'UI Module'
 ---
 
 <link rel="stylesheet" type="text/css" href="/release/uncompressed/modules/chatroom.css">
@@ -11,16 +12,8 @@ type   : 'UI Module'
 <script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
 <script src="/release/uncompressed/modules/chatroom.js"></script>
 
-<div class="segment">
-  <div class="container">
-    <h1 class="ui dividing header">Chatroom <span class="ui red label">Incomplete</span></h1>
-    <p>A chatroom allows users to communicate with each other in real time.</p>
-    <div class="ui basic labeled icon toggle overview button">
-      Definition
-      <i class="book icon"></i>
-    </div>
-  </div>
-</div>
+<%- @partial('header') %>
+
 <div class="main container">
 
   <div class="peek">
