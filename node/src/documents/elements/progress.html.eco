@@ -113,5 +113,10 @@ type        : 'UI Element'
       <div class="bar"></div>
     </div>
   </div>
+  <div class="another example">
+    <div class="ui active striped progress">
+      <div class="bar" style="width: 30%;"></div>
+    </div>
+  </div>
 
 </div>
