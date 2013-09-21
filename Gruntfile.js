@@ -59,18 +59,9 @@ module.exports = function (grunt) {
             docs: ["node/src/files/release/*"]
         },
 
-        docco: {
-            generate: {
-                expand: true,
-                cwd: '../spec',
-                src: ['**/*.commented.js'],
-                options: {
-                    output: 'src/files/generated/'
-                }
-            }
-        },
-
-
+        /*
+         * Compress minified files and assets into a zip archive
+         */
         compress: {
             options: {
                 archive: 'build/semantic-ui.zip'
@@ -89,22 +80,29 @@ module.exports = function (grunt) {
             }
         },
 
+
+        /*
+         * Copy font and image folders to build destination
+         */
         copy: {
             fonts: {
-                    expand: true,
-                    cwd: 'src/',
-                    src: ['font/*'],
-                    dest: 'build/'
+                expand: true,
+                cwd: 'src/',
+                src: ['font/*'],
+                dest: 'build/'
             },
             images: {
-                    expand: true,
-                    cwd: 'src/',
-                    src: ['img/*'],
-                    dest: 'build/'
+                expand: true,
+                cwd: 'src/',
+                src: ['img/*'],
+                dest: 'build/'
             }
         },
 
 
+        /*
+         * Concatenate JS files into one and add a banner add the top
+         */
         concat: {
             js: {
                 options: {
@@ -117,13 +115,16 @@ module.exports = function (grunt) {
             }
         },
 
+        /*
+         * Minify JS
+         */
         uglify: {
             options: {
-              mangle: true
+                mangle: true
             },
             js: {
                 files: {
-                  "build/semantic-ui.min.js": "build/semantic-ui.js"
+                    "build/semantic-ui.min.js": "build/semantic-ui.js"
                 }
             },
         },
