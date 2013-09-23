@@ -123,4 +123,49 @@ type        : 'UI Element'
     </div>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Size</h4>
+    <p>An input can vary in size</p>
+    <div class="ui mini icon input">
+      <input type="text" placeholder="Search mini...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui tiny icon input">
+      <input type="text" placeholder="Search tiny...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small icon input">
+      <input type="text" placeholder="Search small...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui large icon input">
+      <input type="text" placeholder="Search large...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui big icon input">
+      <input type="text" placeholder="Search big...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui huge icon input">
+      <input type="text" placeholder="Search huge...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui massive icon input">
+      <input type="text" placeholder="Search massive...">
+      <i class="search icon"></i>
+    </div>
+  </div>
+
 </div>
