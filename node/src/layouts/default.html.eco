@@ -25,12 +25,12 @@
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/basic.icon.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/icon.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/button.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/divider.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/header.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/awesome.icon.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/image.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/label.css">
@@ -103,7 +103,7 @@
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
     <a class="item" href="/build/semantic.zip">
-      <i class="inverted circular red upload icon"></i> <b>Download</b>
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
     </a>
     <div class="item">
       <b>Project</b>
@@ -208,7 +208,7 @@
       <div class="disabled item"><i class="right arrow icon"></i></div>
       <% end %>
       <div class="right menu">
-        <div class="fitted borderless item">
+        <div class="vertically fitted borderless item">
           <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic-ui&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
         </div>

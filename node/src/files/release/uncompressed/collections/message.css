@@ -1,6 +1,6 @@
 /*
- * # Semantic Text Block - Flat
- * http://github.com/quirkyinc/semantic
+ * # Semantic Message
+ * http://github.com/jlukic/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -10,7 +10,7 @@
  * Released: April 29 2013
  */
 /*******************************
-           Text Block
+            Message
 *******************************/
 .ui.message {
   position: relative;
@@ -34,10 +34,10 @@
   -moz-border-radius: 0.325em 0.325em 0.325em 0.325em;
   border-radius: 0.325em 0.325em 0.325em 0.325em;
 }
-.ui.segment:first-child {
+.ui.message:first-child {
   margin-top: 0em;
 }
-.ui.segment:last-child {
+.ui.message:last-child {
   margin-bottom: 0em;
 }
 /*--------------
@@ -52,7 +52,10 @@
 /* block with paragraphs */
 .ui.message p {
   opacity: 0.85;
-  margin: 0.3em 0em;
+  margin: 1em 0em;
+}
+.ui.message .header + p {
+  margin-top: 0.3em;
 }
 .ui.message > :first-child {
   margin-top: 0em;
@@ -223,7 +226,7 @@
   color: #FFFFFF;
 }
 /*--------------
-     Sizes 
+     Sizes
 ---------------*/
 .ui.small.message {
   font-size: 0.875em;

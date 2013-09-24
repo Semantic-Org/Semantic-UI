@@ -545,6 +545,10 @@ a:hover {
   transition: padding 0.3s ease;
 }
 
+#example .ui.tab.segment {
+  padding: 1.5em 2em;
+}
+
 #example .main.ui.grid {
   position: relative;
 }
@@ -554,12 +558,12 @@ a:hover {
 #example .example .language.label {
   margin: 1em 0em 0.75em;
 }
-#example .icon.example {
-  border-top: none;
-}
 #example .icon.example .grid {
   margin-top: 1.5rem;
   text-align: left;
+}
+#example .icon.example .grid .code {
+  position: static;
 }
 #example .icon.example .grid .column {
   opacity: 0.8;
@@ -1116,12 +1120,16 @@ body.progress .ui.progress .bar {
   }
 }
 
+
 #example.feed .example .segment {
   max-width: 800px;
 }
 
 #example .fixed .launch {
   display: none;
+}
+#example .designer .icon {
+  font-family: 'Basic Icons';
 }
 
 #example .fixed.column,

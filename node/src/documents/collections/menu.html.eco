@@ -756,14 +756,13 @@ type        : 'UI Collection'
   <div class="example">
     <p>A vertical menu can point to content adjacent to itself to show ownership</p>
     <div class="ui pointing vertical menu">
-      <div class="item">
+      <a class="item">
         Site Title
+      </a>
+      <div class="item">
       </div>
       <div class="item">
-        <a>Current section</a>
-      </div>
-      <div class="item">
-        <a>Grouped Section</a>
+        <b>Grouped Section</b>
         <div class="menu">
           <a class="item">Subsection 1</a>
           <a class="active item">Subsection 1</a>
@@ -785,23 +784,13 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Attached</h4>
     <p>A menu may be attached to other content segments</p>
-    <div class="ui top attached pointing menu">
-      <div class="item">
-        Site Title
-      </div>
-      <div class="active item">
-        Current section
-      </div>
-      <div class="right menu">
-        <div class="ui dropdown item">
-          Dropdown <i class="icon dropdown"></i>
-          <div class="menu">
-            <div class="item">Choice 1</div>
-            <div class="item">Choice 2</div>
-            <div class="item">Choice 3</div>
-          </div>
-        </div>
-      </div>
+    <div class="ui top attached tabular menu">
+      <a class="active item">
+        Tab 1
+      </a>
+      <a class="item">
+        Tab 2
+      </a>
     </div>
     <div class="ui bottom attached segment">
       There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
@@ -812,30 +801,29 @@ type        : 'UI Collection'
     <h4 class="ui header">Horizontal Sizes</h4>
     <p>A horizontal menu can vary in size</p>
     <div class="ui large menu">
-      <div class="item">
-        Site Title
-      </div>
-      <div class="active item">
-        Current section
-      </div>
-      <div class="item">
-        <a>Another section</a>
-      </div>
-    </div>
-    <br><br>
-    <div class="ui small menu">
-      <div class="item">
-        Site Title
-      </div>
-      <div class="active item">
-        Current section
-      </div>
-      <div class="ui dropdown item">
-        Dropdown <i class="icon dropdown"></i>
-        <div class="menu">
-          <div class="item">Choice 1</div>
-          <div class="item">Choice 2</div>
-          <div class="item">Choice 3</div>
+      <a class="active item">
+        <i class="home icon"></i> Home
+      </a>
+      <a class="item">
+        <i class="mail icon"></i> Messages
+      </a>
+      <a class="item">
+        <i class="community icon"></i> Browse
+      </a>
+      <div class="right menu">
+        <div class="borderless item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search...">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+        <div class="ui dropdown item">
+          Language <i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item">English</a>
+            <a class="item">Russian</a>
+            <a class="item">Spanish</a>
+          </div>
         </div>
       </div>
     </div>
@@ -843,51 +831,44 @@ type        : 'UI Collection'
   <div class="example">
     <p>A vertical menu can also vary in size</p>
     <div class="ui large vertical menu">
+      <a class="active item">
+        <div class="ui teal label">1</div>
+        Inbox
+      </a>
+      <a class="item">
+        <div class="ui label">51</div>
+        Spam
+      </a>
+      <a class="item">
+        <div class="ui label">1</div>
+        Updates
+      </a>
       <div class="item">
-        Site Title
-      </div>
-      <div class="active item">
-        Current section
-      </div>
-      <div class="item">
-        <a>Grouped Section</a>
-        <div class="menu">
-          <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
-        </div>
-      </div>
-      <div class="ui dropdown item">
-        Dropdown <i class="icon right triangle"></i>
-        <div class="menu">
-          <div class="item">Choice 1</div>
-          <div class="item">Choice 2</div>
-          <div class="item">Choice 3</div>
+        <div class="ui icon input">
+          <input type="text" placeholder="Search mail...">
+          <i class="search icon"></i>
         </div>
       </div>
     </div>
-    <br><br>
+  </div>
+  <div class="another example">
     <div class="ui small vertical menu">
+      <a class="active item">
+        <div class="ui small teal label">1</div>
+        Inbox
+      </a>
+      <a class="item">
+        <div class="ui small label">51</div>
+        Spam
+      </a>
+      <a class="item">
+        <div class="ui small label">1</div>
+        Updates
+      </a>
       <div class="item">
-        Site Title
-      </div>
-      <div class="active item">
-        Current section
-      </div>
-      <div class="item">
-        <a>Grouped Section</a>
-        <div class="menu">
-          <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
-          <a class="item">Subsection 1</a>
-        </div>
-      </div>
-      <div class="ui dropdown item">
-        Dropdown <i class="icon right triangle"></i>
-        <div class="menu">
-          <div class="item">Choice 1</div>
-          <div class="item">Choice 2</div>
-          <div class="item">Choice 3</div>
+        <div class="ui icon input">
+          <input type="text" placeholder="Search mail...">
+          <i class="search icon"></i>
         </div>
       </div>
     </div>
@@ -897,13 +878,16 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Fitted</h4>
-    <p>A menu item or menu might be fitted to remove element padding</p>
+    <p>A menu item or menu can remove element padding, vertically or horizontally</p>
     <div class="ui menu">
       <div class="fitted item">
-        No vertical padding
+        No padding whatsoever
       </div>
-      <div class="tight item">
-        No padding at all
+      <div class="horizontally fitted item">
+        No horizontal padding
+      </div>
+      <div class="vertically fitted item">
+        No vertical padding
       </div>
     </div>
   </div>
@@ -911,20 +895,20 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Borderless</h4>
-    <p>A menu item or menu might might have no dividers</p>
-    <div class="ui borderless menu">
-      <div class="item">
+    <p>A menu item or menu can have no borders</p>
+    <div class="ui borderless pagination menu">
+      <a class="item">
         <i class="icon left arrow"></i> Previous
-      </div>
-      <div class="item">1</div>
-      <div class="item">2</div>
-      <div class="item">3</div>
-      <div class="item">4</div>
-      <div class="item">5</div>
-      <div class="item">6</div>
-      <div class="item">
+      </a>
+      <a class="item">1</a>
+      <a class="item">2</a>
+      <a class="item">3</a>
+      <a class="item">4</a>
+      <a class="item">5</a>
+      <a class="item">6</a>
+      <a class="item">
         Next <i class="icon right arrow"></i>
-      </div>
+      </a>
     </div>
   </div>
 

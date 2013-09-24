@@ -189,15 +189,15 @@
           debug: function(message, variableName) {
             if(settings.debug) {
               if(variableName !== undefined) {
-                console.info(settings.moduleName + ': ' + message, variableName);
+                console.info(settings.name + ': ' + message, variableName);
               }
               else {
-                console.info(settings.moduleName + ': ' + message);
+                console.info(settings.name + ': ' + message);
               }
             }
           },
           error: function(errorMessage) {
-            console.warn(settings.moduleName + ': ' + errorMessage);
+            console.warn(settings.name + ': ' + errorMessage);
           },
           invoke: function(methodName, context, methodArguments) {
             var
@@ -242,16 +242,16 @@
   };
 
   $.fn.colorize.settings = {
-    name     : 'Image Colorizer',
-    debug          : true,
-    namespace      : 'colorize',
+    name      : 'Image Colorizer',
+    debug     : true,
+    namespace : 'colorize',
 
-    onDraw: function(overlayContext, imageName, colorName, color) {},
+    onDraw    : function(overlayContext, imageName, colorName, color) {},
 
     // whether to block execution while updating canvas
-    async: true,
+    async     : true,
     // object containing names and default values of color regions
-    colors: {},
+    colors    : {},
 
     metadata: {
       image : 'image',
