@@ -99,7 +99,7 @@ type        : 'UI Element'
     <h4 class="ui header">Down</h4>
     <p>A button can change when pressed using touch or mouse events</p>
     <div class="ui down button">
-      <i class="add user icon"></i>
+      <i class="user icon"></i>
       Follow
     </div>
   </div>
@@ -108,7 +108,7 @@ type        : 'UI Element'
     <h4 class="ui header">Active</h4>
     <p>A button can show it is currently the active user selection</p>
     <div class="ui active button">
-      <i class="add user icon"></i>
+      <i class="user icon"></i>
       Follow
     </div>
   </div>
@@ -117,7 +117,7 @@ type        : 'UI Element'
     <h4 class="ui header">Disabled</h4>
     <p>A button can show it is currently unable to be interacted with</p>
     <div class="ui disabled button">
-      <i class="add user icon"></i>
+      <i class="user icon"></i>
       Followed
     </div>
   </div>
@@ -178,7 +178,7 @@ type        : 'UI Element'
       Add Friend
     </div>
     <div class="ui basic button">
-      <i class="icon desk globe"></i>
+      <i class="icon globe"></i>
       Change Language
     </div>
   </div>
