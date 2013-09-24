@@ -169,24 +169,32 @@
 /*--------------
      Inputs
 ---------------*/
-.ui.menu .input,
-.ui.menu .input input {
+.ui.menu .item > .input,
+.ui.menu .item > .input input {
   width: 100%;
 }
 .ui.menu .input .icon {
   padding-top: 0em;
+  top: -0.05em;
+  height: auto;
 }
-.ui.menu input {
-  margin: -0.55em 0em;
+.ui.menu .item > .input input,
+.ui.menu .item > input {
+  position: relative;
+  top: -0.6em;
+  margin: 0em;
   padding-top: 0.45em;
   padding-bottom: 0.45em;
 }
-.ui.vertical.menu input {
+.ui.vertical.menu .item > .input input,
+.ui.vertical.menu .item > input {
+  top: 0em;
   margin: 0em;
   padding-top: 0.63em;
   padding-bottom: 0.63em;
 }
-.ui.vertical.menu .input .icon {
+.ui.vertical.menu .item > .input .icon {
+  top: 0px;
   padding-top: 0.63em;
 }
 /*--------------
@@ -441,8 +449,16 @@
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.tiered.menu .item.active {
-  box-shadow: 0px 1px 0px 0px #FBFBFB;
   color: rgba(0, 0, 0, 0.8);
+}
+.ui.tiered.menu > .menu .item.active:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: #FBFBFB;
 }
 .ui.tiered.menu .sub.menu {
   background-color: rgba(0, 0, 0, 0.01);
@@ -467,7 +483,10 @@
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+.ui.tiered.menu .sub.menu .active.item:after {
+  display: none;
 }
 /* Inverted */
 .ui.inverted.tiered.menu > .menu > .item {
@@ -483,9 +502,12 @@
 .ui.inverted.tiered.menu > .menu > .item.hover {
   color: rgba(255, 255, 255, 0.9);
 }
+.ui.inverted.tiered.menu .active.item:after {
+  display: none;
+}
 .ui.inverted.tiered.menu > .sub.menu > .active.item,
 .ui.inverted.tiered.menu > .menu > .active.item {
-  color: #ffffff;
+  color: #ffffff !important;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -593,11 +615,11 @@
 .ui.secondary.menu .link.item,
 .ui.secondary.menu a.item {
   opacity: 0.8;
-  -webkit-transition: opacity 0.2s ease;
-  -moz-transition: opacity 0.2s ease;
-  -o-transition: opacity 0.2s ease;
-  -ms-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
 }
 .ui.secondary.menu .header.item {
   border-right: 0.1em solid rgba(0, 0, 0, 0.1);
@@ -865,6 +887,9 @@
   border: none;
   opacity: 1;
   font-weight: bold;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 /* disable variations */
 .ui.text.pointing.menu .active.item:after {

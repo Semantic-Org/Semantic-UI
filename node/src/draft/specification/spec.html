@@ -5,16 +5,11 @@ css    : 'guide'
 title  : 'Spec Files'
 type   : 'UI Specification'
 ---
-<div class="segment">
-  <div class="container">
-    <h1 class="ui header">Spec Files</h1>
-    <div class="ui large red message">
-      This is a starting draft, check back later.
-    </div>
-  </div>
-</div>
+
+<%- @partial('header') %>
+
 <div class="main container">
-  
+
   <h2>Introduction</h2>
 
   <p>Semantic defines an exchange format for user interface. Writing your interface components to match the specifications allows others to easily use your interface components in their project.</p>
@@ -47,7 +42,7 @@ type   : 'UI Specification'
         "Icon"         : ".ui.icon.button > i.icon",
       }
 
-      // States are ways which elements show an innate change in its quality. 
+      // States are ways which elements show an innate change in its quality.
       "States": {
         "Active"   : "active",
         "Loading"  : "loading",
@@ -55,7 +50,7 @@ type   : 'UI Specification'
       },
 
 
-      // Variations are individual classnames which your element may receive to alter its look. Variations should, for the most part, be able to be used together to create more complex styles of an element. 
+      // Variations are individual classnames which your element may receive to alter its look. Variations should, for the most part, be able to be used together to create more complex styles of an element.
       "Variations": {
         // If a set of variations are options of a single type (for example sizing may contain, small, medium, etc) then this can be defined as an array.
         "Size": [
@@ -134,5 +129,5 @@ type   : 'UI Specification'
     }
   </div>
 
-  
+
 </div>

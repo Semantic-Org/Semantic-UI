@@ -646,7 +646,7 @@ $.fn.state = function(parameters) {
 $.fn.state.settings = {
 
   // module info
-  moduleName : 'State',
+  name : 'State',
 
   // debug output
   debug      : true,

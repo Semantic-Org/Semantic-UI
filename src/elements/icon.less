@@ -119,7 +119,7 @@ i.icon.trophy:before { content: '🏉'; } /* '\1f3c9' */
 i.icon.barcode:before { content: '\e792'; } /* '' */
 i.icon.cart:before { content: '\e813'; } /* '' */
 i.icon.block:before { content: '🚫'; } /* '\1f6ab' */
-i.icon.book:before { content: '\f4d6'; }
+i.icon.book:before { content: '📖'; }
 i.icon.bookmark:before { content: '🔖'; } /* '\1f516' */
 i.icon.calendar:before { content: '📅'; } /* '\1f4c5' */
 i.icon.cancel:before { content: '\2716'; } /* '✖' */
@@ -300,11 +300,11 @@ i.link.icon {
 --------------------*/
 
 i.circular.icon {
-  -webkit-border-radius: 500px;
-  -moz-border-radius: 500px;
-  border-radius: 500px;
+  -webkit-border-radius: 500px !important;
+  -moz-border-radius: 500px !important;
+  border-radius: 500px !important;
 
-  padding: 0.5em 0.35em !important;
+  padding: 0.5em 0em !important;
 
   -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
@@ -313,9 +313,6 @@ i.circular.icon {
   line-height: 1 !important;
   width: 2em !important;
   height: 2em !important;
-}
-i.circular.icon:before {
-  vertical-align: middle;
 }
 i.circular.inverted.icon {
   border: none;

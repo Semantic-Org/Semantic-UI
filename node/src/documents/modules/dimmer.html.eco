@@ -1,0 +1,287 @@
+---
+layout      : 'default'
+css         : ''
+
+title       : 'Dimmer'
+description : "Dimmers hide distractions to focus user's attention on particular content"
+type        : 'UI Module'
+---
+
+<script src="/javascript/dimmer.js"></script>
+<div class="ui page dimmer">
+  <div class="content">
+    <div class="center">
+      <h2 class="ui inverted icon header">
+        <i class="icon circular inverted emphasized green mail"></i>
+        You're all signed up for the weekly dog tips newsletter!
+        <div class="sub header">Your first edition will be sent on January 22</div>
+      </h2>
+    </div>
+  </div>
+</div>
+
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Usage</a>
+      <a class="item">Types</a>
+      <a class="item">States</a>
+      <a class="item">Variations</a>
+      <a class="item">Behavior</a>
+    </div>
+  </div>
+  <h2 class="ui dividing header">Usage</h2>
+
+  <h4 class="ui header">Dimming a section</h4>
+  <p>Any element can be dimmed using a dimmer.</p>
+  <div class="ignored ui info message">If a dimmer does not exist inside the element it will be created on first use.</div>
+  <div class="code" data-demo="true">
+    $('.segment:first')
+      .dimmer('toggle')
+    ;
+  </div>
+  <div class="ui divider"></div>
+  <h4 class="ui header">Showing a specific dimmer</h4>
+  <p>If a dimmer is already included on the page, instead of calling dimmer on the section you would like to dim, you can can invoke behaviors directly on the dimmer.</p>
+  <div class="code" data-demo="true">
+    // If a dimmer exists on a page, you can make it appear by calling it directly
+    $('.page.dimmer:first')
+      .dimmer('toggle')
+    ;
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Content Dimmer</h4>
+    <p>A dimmer can display content</p>
+    <div class="ui ignored info message">Content must be included inside <code>.content .center</code> to display centered correctly in the modal.</div>
+    <div class="ui segment">
+      <h4 class="ui dividing header">
+        <i class="icon photos"></i>Dog Photos
+      </h4>
+      <img src="/images/demo/item1.jpg">
+      <img src="/images/demo/item2.jpg">
+      <div class="ui dimmer">
+        <div class="content">
+          <div class="center">
+            <h2 class="ui inverted icon header">
+              <i class="icon circular inverted emphasized red heart"></i>
+              Your poodle photo uploaded successfully!
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui icon buttons">
+      <div class="ui show button"><i class="plus icon"></i></div>
+      <div class="ui hide button"><i class="minus icon"></i></div>
+    </div>
+    <div class="existing code">
+      <div class="ui dimmer">
+        <div class="content">
+          <div class="center">
+            <h2 class="ui inverted icon header">
+              <i class="icon circular inverted emphasized red heart"></i>
+              Your poodle photo uploaded successfully!
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Page Dimmer</h4>
+    <p>A dimmer can be formatted to be fixed to the page</p>
+    <div class="existing code">
+    <div class="ui page dimmer">
+      <div class="content">
+        <div class="center">Hello</div>
+      </div>
+    </div>
+    </div>
+    <div class="ui page button"><i class="plus icon"></i> Show</div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Dimmer</h4>
+    <p>A dimmer can exist on its own without defining content that it dims </p>
+    <div class="ui segment">
+      <h4 class="ui header">
+        <i class="icon photos"></i>Dog Photos
+      </h4>
+      <img src="/images/demo/item1.jpg">
+      <img src="/images/demo/item2.jpg">
+      <div class="ui dimmer"></div>
+    </div>
+    <div class="ignored ui icon buttons">
+      <div class="ui show button"><i class="plus icon"></i></div>
+      <div class="ui hide button"><i class="minus icon"></i></div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Active</h4>
+    <p>An active dimmer will dim its parent container</p>
+    <div class="ui segment">
+      <div class="ui active dimmer"></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A disabled dimmer cannot be activated</p>
+    <div class="ui segment">
+      <div class="ui disabled dimmer"></div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <h3>Dimmer</h3>
+  <div class="example">
+    <h4 class="ui header">Simple Dimmer</h4>
+    <p>A dimmer can be controlled without javascript</p>
+    <div class="ignored ui info message">Having any parent element receive the class <code>ui dimmable dimmed</code> will trigger the dimmer to display.</div>
+    <div class="ui dimmable dimmed segment">
+      <div class="ui simple dimmer"></div>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Inverted Dimmer</h4>
+    <p>A dimmer can be formatted to have its colors inverted</p>
+    <div class="ui segment">
+      <div class="ui inverted dimmer"></div>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+    <div class="ignore ui icon buttons">
+      <div class="ui show button"><i class="plus icon"></i></div>
+      <div class="ui hide button"><i class="minus icon"></i></div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Behavior</h2>
+
+
+  <div class="no example">
+    <h4>Display</h4>
+    <p>You can display a dimmer by either invoking dimmer show on a section or a dimmer itself. If you choose to dim a dimmable section, a dimmer will automatically be created.</p>
+    <div class="ignore code">
+    // these two are the same
+    $('.ui.dimmable)
+      .dimmer('show')
+    ;
+    $('.ui.dimmable .dimmer')
+      .dimmer('show')
+    ;
+
+    // these two as well
+    $('.ui.dimmable)
+      .dimmer('hide')
+    ;
+    $('.ui.dimmable dimmer')
+      .dimmer('hide')
+    ;
+    </div>
+  </div>
+
+  <h3 class="ui header">Settings</h3>
+  <table class="ui green table segment">
+    <thead>
+      <th colspan="3">Popup Settings</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>closable</td>
+        <td>true</td>
+        <td>Whether clicking on the dimmer should close it automatically</td>
+      </tr>
+      <tr>
+        <td>duration</td>
+        <td>500</td>
+        <td>Duration of dimming animation.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="ui teal table segment">
+    <thead>
+      <th colspan="3">Callbacks</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>onInit</td>
+        <td>None</td>
+        <td>Callback after a dimmer html is generated.</td>
+      </tr>
+      <tr>
+        <td>onShow</td>
+        <td>None</td>
+        <td>Callback after a dimmer section is shown.</td>
+      </tr>
+      <tr>
+        <td>onHide</td>
+        <td>None</td>
+        <td>Callback after a dimmer section is hidden.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="ui blue table segment">
+    <thead>
+      <th colspan="3">UI Module Settings</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>Dimmer</td>
+        <td>Name used in debug logs</td>
+      </tr>
+      <tr>
+        <td>debug</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>performance</td>
+        <td>False</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>verbose</td>
+        <td>False</td>
+        <td>Provides ancillary debug output to console</td>
+      </tr>
+      <tr>
+        <td>namespace</td>
+        <td>dimmer</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>errors</td>
+        <td colspan="2">
+          <div class="code">
+    errors : {
+      method : 'The method you called is not defined.'
+    }
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+
+</html>

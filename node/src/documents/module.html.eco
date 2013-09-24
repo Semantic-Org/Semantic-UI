@@ -1,0 +1,106 @@
+---
+layout      : 'default'
+css         : 'module'
+
+title       : 'UI Modules'
+description : 'Modules are interface elements whose behavior is an essential part of their definition'
+type        : 'Semantic'
+---
+
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Settings</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Settings</h2>
+  <p>Settings in UI widgets are any part of a widget definition which is mutable. Most UI widgets have a set of common settings which are useful across all plugins.
+
+  <h3 class="ui header">Common Settings</h3>
+    <table class="ui celled table segment">
+      <thead>
+        <th>Name</th>
+        <th>Usage</th>
+      </thead>
+      <tr>
+        <td>name</td>
+        <td>Name used in debug logs to differentiate this widget from other debug statements.</td>
+      </tr>
+      <tr>
+        <td>debug</td>
+        <td>Provides standard debug output to console.</td>
+      </tr>
+      <tr>
+        <td>performance</td>
+        <td>Provides performance logging to console of internal method calls.</td>
+      </tr>
+      <tr>
+        <td>verbose</td>
+        <td>Provides extra debug output to console</td>
+      </tr>
+      <tr>
+        <td>namespace</td>
+        <td>Namespace used for DOM event and metadata namespacing. Allows module's destroy method to not affect other modules.</td>
+      </tr>
+      <tr>
+        <td>metadata</td>
+        <td>An object containing any metadata attributes used.</td>
+      </tr>
+      <tr>
+        <td>selectors</td>
+        <td>An object containing all selectors used in the module, these are usually children of the module.</td>
+      </tr>
+      <tr>
+        <td>classNames</td>
+        <td>An object containing all classnames used in the module.</td>
+      </tr>
+      <tr>
+        <td>errors</td>
+        <td colspan="2">A javascript array of error statements used in the plugin. These may sometimes appear to the user, but most often appear in debug statements.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="ui header">Changing Settings</h3>
+  <ol class="ui list">
+    <li>A settings object can be passed in when initializing the plugin
+      <br>
+    <div class="code">
+    $('.foo')
+      .module({
+        moduleName: 'Godzilla',
+        verbose: true
+      })
+    ;
+    </div>
+    </li>
+    <li>Default settings for the module can be overridden by modifying $.fn.module.settings.
+      <br><div class="code">$.fn.module.settings.moduleName = 'Godzilla';</div>
+    </li>
+    <li>Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair.
+      <br>
+    <div class="code">
+    $('.foo')
+      // lets initialize that!
+      .module()
+      // oh wait forgot something
+      .module('setting', 'moduleName', 'Godzilla')
+    ;
+    </div>
+    </li>
+  </ol>
+  <h3 class="ui header">Reading Settings</h3>
+  <p>Settings can also be read programmatically:
+  <div class="code">
+    $('.foo').module('setting', 'moduleName');
+    // outputs godzilla
+  </div>
+</div>
+</body>
+
+</html>

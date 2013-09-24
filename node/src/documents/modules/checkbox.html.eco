@@ -1,0 +1,335 @@
+---
+layout      : 'default'
+css         : 'checkbox'
+
+title       : 'Checkbox'
+description : "A checkbox visually indicates the status of a user's selection"
+type        : 'UI Module'
+---
+<script src="/javascript/checkbox.js"></script>
+
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Usage</a>
+      <a class="item">Types</a>
+      <a class="item">Variations</a>
+      <a class="item">Behavior</a>
+      <a class="item">Examples</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Usage</h2>
+
+  <div class="example">
+    <h4 class="ui header">Check Box</h4>
+    <p>A standard checkbox</p>
+
+    <div class="ui language label">Javascript</div>
+    <div class="code">
+    $('.ui.checkbox')
+      .checkbox()
+    ;
+    </div>
+    <div class="ui language label">HTML</div>
+    <div class="code" data-type="html" data-preview="true">
+    <div class="ui checkbox">
+      <input type="checkbox">
+      <div class="box"></div>
+    </div>
+    <label>Poodle</label>
+    </div>
+
+    <div class="static example">
+      <h4 class="ui header">Static Check Box</h4>
+      <p>A checkbox can also be used without using javascript by creating the check box as a label with a for tag matching the <code>id</code> attribute of the input field.</p>
+      <div class="ui language label">HTML Only</div>
+      <div class="code" data-type="html" data-preview="true">
+      <div class="ui checkbox">
+        <input type="checkbox" id="unique-id" />
+        <label class="box" for="unique-id"></label>
+      </div>
+      <label for="unique-id">Poodle</label>
+      </div>
+    </div>
+
+  </div>
+
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Slider</h4>
+    <p>A checkbox can be formatted to show user selection as a slider</p>
+    <div class="ui slider checkbox">
+      <input type="checkbox" name="walk" />
+      <label></label>
+    </div>
+    <label> Allow others to see when your dog is on a walk</label>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Toggle</h4>
+    <p>A checkbox can be formatted to show user selection as a toggle</p>
+    <div class="ui toggle checkbox">
+      <input type="checkbox" name="pet" />
+      <label></label>
+    </div>
+    <label> Allow other people to pet my dog</label>
+  </div>
+
+
+
+  <div class="example">
+    <h4 class="ui header">Radio Box</h4>
+    <p>A checkbox can be formatted as a radio element. This means it is an exclusive option.</p>
+    <div class="ui form">
+      <div class="grouped inline fields">
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Apples</label>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Oranges</label>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Pears</label>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label></label>
+          </div>
+          <label> Grapefruit</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Size</h4>
+    <p>A checkbox can be a different size.</p>
+    <div class="ui large checkbox">
+      <input type="checkbox" />
+      <label></label>
+    </div>
+    <label>Add a pro membership</label>
+  </div>
+  <div class="another example">
+    <div class="ui huge checkbox">
+      <input type="checkbox" />
+      <label></label>
+    </div>
+    <label>Signup for our mailing list</label>
+  </div>
+
+  <h2 class="ui dividing header">Behavior</h2>
+
+  <div class="example">
+    <p>A checkbox can change to show a user has selected it</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('enable')
+    ;
+    </div>
+  </div>
+  <div class="example">
+    <p>A checkbox can change to show a user has not selected it</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('disable')
+    ;
+    </div>
+  </div>
+  <div class="example">
+    <p>A checkbox can toggle between states</p>
+    <div class="ignore code">
+    $('.ui.checkbox')
+      .checkbox('toggle')
+    ;
+    </div>
+  </div>
+
+  <h2>Examples</h2>
+
+  <div class="example">
+    <p>Example of using checkbox states to alter multiple checkboxes</p>
+    <div class="evaluated code">
+    $('.enable.button')
+      .on('click', function() {
+        $(this)
+          .parent()
+          .nextAll('.checkbox')
+            .checkbox('enable')
+        ;
+      })
+    ;
+    $('.disable.button')
+      .on('click', function() {
+        $(this)
+          .parent()
+          .nextAll('.checkbox')
+            .checkbox('disable')
+        ;
+      })
+    ;
+    $('.toggle.button')
+      .on('click', function() {
+        $(this)
+          .parent()
+          .nextAll('.checkbox')
+            .checkbox('toggle')
+        ;
+      })
+    ;
+    </div>
+    <div class="ui buttons">
+      <div class="ui enable button">Enable</div>
+      <div class="ui disable button">Disable</div>
+      <div class="ui toggle button">Toggle</div>
+    </div>
+    <br><br>
+    <div class="ui slider checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" checked="checked" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" checked="checked" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" checked="checked" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" checked="checked" />
+      <div class="box"></div>
+    </div>
+    <div class="ui slider checkbox">
+      <input type="checkbox" />
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <h3 class="ui header">Settings</h3>
+  <table class="ui red celled definition table segment">
+    <thead>
+      <th colspan="3">Checkbox Settings</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>required</td>
+        <td>auto</td>
+        <td>Setting to true/false will determine whether an input will allow no selection. Auto will set disallow this behavior only for radio boxes</td>
+      </tr>
+      <tr>
+        <td>context</td>
+        <td>false</td>
+        <td>A selector or jQuery object to use as a delegated event context</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="ui teal celled definition table segment">
+    <thead>
+      <th colspan="3">Callbacks</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>onChange</td>
+        <td>None</td>
+        <td>Callback after a checkbox is either disabled or enabled.</td>
+      </tr>
+      <tr>
+        <td>onEnable</td>
+        <td>None</td>
+        <td>Callback after a checkbox is enabled.</td>
+      </tr>
+      <tr>
+        <td>onDisable</td>
+        <td>None</td>
+        <td>Callback after a checkbox is disabled.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 class="ui header">DOM Settings</h4>
+  <p>DOM settings specify how this module should interface with the DOM</p>
+  <table class="ui celled definition table segment">
+    <thead>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>namespace</td>
+        <td>checkbox</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>selector</td>
+        <td colspan="2">
+          <div class="code">
+    selector : {
+      input  : 'input',
+      label  : 'label'
+    }
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td colspan="2">
+          <div class="code">
+
+    className : {
+      radio  : 'radio'
+    }
+
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+
+</html>
