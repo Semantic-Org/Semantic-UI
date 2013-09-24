@@ -83,8 +83,6 @@
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   height: auto;
-  word-wrap: break-word;
-  white-space: normal;
   font-size: 0.875em;
   display: block;
   color: rgba(0, 0, 0, 0.75);
@@ -198,6 +196,8 @@
 .ui.selection.dropdown {
   cursor: pointer;
   display: inline-block;
+  word-wrap: break-word;
+  white-space: normal;
   background-color: #FFFFFF;
   padding: 0.5em 1em;
   line-height: 1.33;

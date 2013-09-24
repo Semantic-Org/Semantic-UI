@@ -25,44 +25,44 @@
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/icon.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/icon.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/button.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/divider.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/header.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/awesome.icon.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/image.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/input.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/label.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/loader.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/progress.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/segment.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/step.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/button.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/divider.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/header.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/awesome.icon.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/image.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/input.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/loader.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/progress.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/segment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/step.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/breadcrumb.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/form.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/grid.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/menu.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/message.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/table.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/breadcrumb.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/form.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/grid.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/menu.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/message.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/table.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/comment.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/list.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/feed.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/item.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/statistic.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/comment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/list.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/feed.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/item.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/statistic.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/modal.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/dropdown.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/popup.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/reveal.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/rating.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/sidebar.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/shape.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/tab.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/checkbox.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/dimmer.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/transition.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/modal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dropdown.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/popup.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/reveal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/rating.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/sidebar.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/shape.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/tab.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/checkbox.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dimmer.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/transition.css">
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 <!--
@@ -76,17 +76,17 @@
   <script src="/javascript/library/ace/ace.js"></script>
   <script src="/javascript/library/waypoints.js"></script>
 
-  <script src="/release/uncompressed/modules/behavior/api.js"></script>
-  <script src="/release/uncompressed/modules/behavior/state.js"></script>
-  <script src="/release/uncompressed/modules/checkbox.js"></script>
-  <script src="/release/uncompressed/modules/dimmer.js"></script>
-  <script src="/release/uncompressed/modules/dropdown.js"></script>
-  <script src="/release/uncompressed/modules/modal.js"></script>
-  <script src="/release/uncompressed/modules/popup.js"></script>
-  <script src="/release/uncompressed/modules/rating.js"></script>
-  <script src="/release/uncompressed/modules/sidebar.js"></script>
-  <script src="/release/uncompressed/modules/tab.js"></script>
-  <script src="/release/uncompressed/modules/transition.js"></script>
+  <script src="/build/uncompressed/modules/behavior/api.js"></script>
+  <script src="/build/uncompressed/modules/behavior/state.js"></script>
+  <script src="/build/uncompressed/modules/checkbox.js"></script>
+  <script src="/build/uncompressed/modules/dimmer.js"></script>
+  <script src="/build/uncompressed/modules/dropdown.js"></script>
+  <script src="/build/uncompressed/modules/modal.js"></script>
+  <script src="/build/uncompressed/modules/popup.js"></script>
+  <script src="/build/uncompressed/modules/rating.js"></script>
+  <script src="/build/uncompressed/modules/sidebar.js"></script>
+  <script src="/build/uncompressed/modules/tab.js"></script>
+  <script src="/build/uncompressed/modules/transition.js"></script>
 
   <script src="/javascript/semantic.js"></script>
   <script>
@@ -102,7 +102,7 @@
 </head>
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
-    <a class="item" href="/release/semantic.zip">
+    <a class="item" href="/build/semantic.zip">
       <i class="inverted circular red upload icon"></i> <b>Download</b>
     </a>
     <div class="item">
