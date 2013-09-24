@@ -7,13 +7,16 @@ module.exports = function(grunt) {
     ],
 
     watchTasks = [
+      // clean build directory
+      'clean:build',
+
       // compiles less
       'less:buildCSS',
 
       // copies assets and js over to build dir
-      'copy:toBuild',
+      'copy:srcToBuild',
 
-      // copies files over to docs
+      // copies semantic over to docs
       'copy:buildToDocs',
 
       // copies examples over to docs
@@ -28,7 +31,7 @@ module.exports = function(grunt) {
       'less:buildCSS',
 
       // copies assets and js over to build dir
-      'copy:toBuild',
+      'copy:srcToBuild',
 
       // creates minified css of each file
       'cssmin:minifyCSS',
@@ -125,7 +128,7 @@ module.exports = function(grunt) {
 
     copy: {
 
-      toBuild: {
+      srcToBuild: {
 
         files: [
           // exact copy for less
@@ -232,12 +235,12 @@ module.exports = function(grunt) {
       }
     },
 
+
     compress: {
-      // copies entire build to release zip
+      options: {
+        archive: 'src/files/build/semantic.zip'
+      },
       everything: {
-        options: {
-          archive: '../build/semantic.zip'
-        },
         files: [
           {
             expand : true,
