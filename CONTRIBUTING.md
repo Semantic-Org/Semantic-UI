@@ -12,18 +12,6 @@ If you are looking to be added to contributor board on Semantic and are active i
 
 One of the easiest ways to support Semantic UI is to get the word out
 
-  <script id='fbrob7c'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=jlukic&button=compact&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI';f.title='Flattr';f.height=31;f.width=110;f.style.marginRight=10;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbrob7c');</script>
-
-<iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=watch&count=true&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
-<iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=follow&count=true&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-<iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=fork&count=true&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
-
-[](https://twitter.com/intent/tweet?button_hashtag=semanticui)
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
 ## Making Semantic Better
 
 ### Bugs & Issues
@@ -36,9 +24,9 @@ When submiting a bug report, please include a set of steps to reproduce the issu
 
 Contributors should read over the coding guidelines for the project. Most importantly, the guide for language, as it is one of the most important parts about Semantic UI.
 
-  [Language](/guide/styleguide.html)
-  [CSS](/guide/cssguide.html)
-  [Javascript](/guide/javascript.html)
+[Language](http://semantic-ui.com/project/guide/styleguide.html)
+[CSS](http://semantic-ui.com/project/guide/cssguide.html)
+[Javascript](http://semantic-ui.com/project/guide/javascript.html)
 
 ### Pull Requests
 
@@ -55,10 +43,8 @@ If you have suggestions for components missing from Semantic which you'd like to
 
 #### Visit UI Development Boards
 
-  <div class="ui buttons">
-    [Public](https://trello.com/b/Q8uTLy2T)
-    [Contributor](https://trello.com/b/yVsh5Rds)
-  </div>
+[Public](https://trello.com/b/Q8uTLy2T) |
+[Contributor](https://trello.com/b/yVsh5Rds)
 
 ## Specification Development
 
@@ -68,10 +54,8 @@ These features are very important for the healthy growth of the Semantic ecosyst
 
 #### Visit Community Development Boards
 
-  <div class="ui buttons">
-    [Public](https://trello.com/b/FZvMsVIM)
-    [Contributor](https://trello.com/b/eOoZwNBQ)
-  </div>
+[Public](https://trello.com/b/FZvMsVIM) |
+[Contributor](https://trello.com/b/eOoZwNBQ)
 
 ---
 
@@ -94,27 +78,26 @@ Make sure npm does not require sudo to operate, this might cause permissions iss
 
 ### 2) Install Dependencies
 
-  <div class="code" data-title="Installing DocPad" data-type="terminal">
-    npm install -g docpad
-  </div>
+```bash
+npm install -g docpad
+```
 
-  <div class="code" data-title="Installing Grunt" data-type="terminal">
-    npm install -g grunt-cli
-  </div>
+```bash
+npm install -g grunt-cli
+```
 
 ### 3) Fork Semantic
 
-<iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=fork&count=true&size=large"
-  allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+[Fork](https://github.com/jlukic/Semantic-UI/fork)
 
 ### 4) Start Your Server
 
 It's important to note that all server code exists inside of `/node` in the project. So all commands should be run relative to that directory.
 
-  <div class="code" data-title="Starting server locally" data-type="terminal">
-    cd node
-    docpad run
-  </div>
+```bash
+cd node
+docpad run
+```
 
 Docpad should now run an instance of semantic-ui.com locally you can access at `http://localhost:9778`
 
@@ -149,7 +132,5 @@ We are working to create development kits for writing and distributing third par
 For more information on the development of the UI specification for third party components, please visit our community discussion boards on Trello
 
 #### Development Boards
-  <div class="ui buttons">
-    [Public](https://trello.com/b/FZvMsVIM)
-    [Contributor](https://trello.com/b/eOoZwNBQ">Contributor)
-  </div>
+[Public](https://trello.com/b/FZvMsVIM) |
+[Contributor](https://trello.com/b/eOoZwNBQ)
