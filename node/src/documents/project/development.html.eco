@@ -1,0 +1,102 @@
+  ---
+layout      : 'default'
+css         : 'build'
+
+title       : 'Development'
+description : 'A guide to developing locally'
+type        : 'Semantic Project'
+---
+<script src="/javascript/intro.js"></script>
+
+<%- @partial('header') %>
+<div class="main container">
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Running Locally</a>
+      <a class="item">Fixing Bugs</a>
+      <a class="item">The Future</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Running Locally</h2>
+
+  <p>It may be useful to run the development docs locally when working on a forked version of semantic, as the docs themselves help in testing out changes to ui components.</p>
+
+  <h3 class="ui header">1) Install Node</h3>
+  <p>Semantic docs are written in DocPad which requires NodeJS. </p>
+
+  <div class="ui warning message">Make sure npm does not require sudo to operate, this might cause permissions issues.</div>
+
+  <ul class="ui list">
+    <li><a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">Node JS via Package Manager</a></li>
+    <li><a href="https://gist.github.com/isaacs/579814">Installing Node JS without sudo</a></li>
+  </ul>
+
+  <h3 class="ui header">2) Install Dependencies</h3>
+
+  <div class="code" data-title="Installing DocPad" data-type="terminal">
+    npm install -g docpad
+  </div>
+
+  <div class="code" data-title="Installing Grunt" data-type="terminal">
+    npm install -g grunt-cli
+  </div>
+
+  <h3 class="ui header">3) Fork Semantic</h3>
+
+  <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=fork&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+
+  <h3 class="ui header">4) Start Your Server</h3>
+
+  <p>It's important to note that all server code exists inside of <code>/node</code> in the project. So all commands should be run relative to that directory.</p>
+
+  <div class="code" data-title="Starting server locally" data-type="terminal">
+    cd node
+    docpad run
+  </div>
+
+  <p>Docpad should now run an instance of semantic-ui.com locally you can access at <code>http://localhost:9778</code></p>
+
+  <h2 class="ui dividing header">Fixing Bugs</h2>
+
+  <h3 class="ui header">Watch Script</h3>
+
+  <p>If you are working on fixing a UI component that is part of Semantic, your best bet is to work actively on the file in <code>/src/{type}/{elementname}/</code> while running a watch script from grunt. This will rebuild the docs after you make changes, so you can see if you have corrected the issue you are fixing.</p>
+
+  <p>To see exactly what this is doing you can check out our <a href="https://github.com/jlukic/Semantic-UI/blob/master/node/Gruntfile.js">commented gruntfile</a></p>
+
+  <div class="code" data-title="Watching Changes" data-type="terminal">
+    grunt
+  </div>
+
+  <p>The watch task is the default grunt task for Semantic, so you can start it quite simply.</p>
+
+  <h3 class="ui header">Packaging Elements</h3>
+  <p>For convenience there is also a separate grunt command for building minified, packaged, and compressed versions of the library.</p>
+
+  <div class="code" data-title="Building Release Files" data-type="terminal">
+    grunt build
+  </div>
+
+  <h2 class="ui dividing header">The Future</h2>
+
+  <h3 class="ui header">UI Dev Kits</h3>
+  <p>We are working to create development kits for writing and distributing third party UI definitions. These, are planned to land after our 1.0 release and allow other developers to contribute ui components or reskins of existing components.</p>
+
+  <p>For more information on the development of the UI specification for third party components, please visit our community discussion boards on Trello</p>
+
+  <h4 class="ui header">Development Boards</h4>
+  <div class="ui buttons">
+    <a class="ui button" href="https://trello.com/b/FZvMsVIM">Public</a>
+    <a class="ui button" href="https://trello.com/b/eOoZwNBQ">Contributor</a>
+  </div>
+
+  <h3 class="ui header"></h3>
+
+  <div class="ui divider"></div>
+  <a class="ui large right labeled teal icon button" href="/introduction.html">
+    Next: Library Introduction
+    <i class="right arrow icon"></i>
+  </a>
+</div>

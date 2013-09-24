@@ -1,14 +1,13 @@
-# Pre-Release (Not ready for usage)
-
-This is a pre-release version of Semantic, many features may be broken or missing. Development on semantic was being done in stealth, but after hackernews/reddit coverage, will continue on more transparently on the march to a version one.point.oh, huzzah!
-
-Documentation is very loose, build tools are not yet available, and APIs may be updated regularly. So be warned!
-
-**Please use at your own discretion.**
-
-## Semantic
+# Semantic
 
 Semantic is a set of specifications for sharing UI elements between developers. Semantic is also a UI library to make front end development simpler and easier to learn.
+
+## Development Status
+
+Semantic is pre-release. Build tools are not yet available, and APIs may be updated regularly prior to 1.0, so be warned!
+
+Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out.
+
 
 ## The Library
 
@@ -16,7 +15,7 @@ Semantic is a set of specifications for sharing UI elements between developers. 
 
 The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need.
 
-*Build tools are not yet available but stay tuned!* 
+*Build tools are not yet available but stay tuned!*
 
 ~~You can use our build tool to select only the components you want~~
 
@@ -30,13 +29,13 @@ If you prefer to download the whole kit as a zip, it is so conveniently packaged
 
 ## The Specification
 
-The aim of the specification is to develop conventions around structuring and naming code for interface elements. 
+The aim of the specification is to develop conventions around structuring and naming code for interface elements.
 
-By defining a vocabulary the development community can exchange javascript and css definitions of UI in a similar language, making new code easier to grock, and reducing the complexity of starting a new project, or changing a sites design.
+By defining a vocabulary the development community can exchange javascript and css definitions of UI in a similar language, making new code easier to grok, and reducing the complexity of starting a new project, or changing a sites design.
 
 ## Types of UI
 
-UI components are split into four categories, ranging from smallest to largest in scope: 
+UI components are split into four categories, ranging from smallest to largest in scope:
 * UI Elements
 * UI Collections
 * UI Modules
@@ -45,7 +44,7 @@ UI components are split into four categories, ranging from smallest to largest i
 ### UI Elements
 UI Elements are interface elements which do not contain other elements inside themselves. This can be thought of as similar in definition as an "element" in chemistry.
 
-UI elements can have plural definitions when they are known to exist together frequently. 
+UI elements can have plural definitions when they are known to exist together frequently.
 
 In this case each button will be large because we understand it is a part of the large button group
 ``` html
@@ -67,12 +66,12 @@ UI Collections are groups of heteregeneous UI elements which are usually found t
 
 UI collections have a definition of elements that exist, or could exist inside of them. They do not usually require all elements to be found, but they describe a list of the "usual suspects". Unlike elements, collections are not typically useful to define in plural.
 
-Examples of UI collections: 
+Examples of UI collections:
 * Forms
 * Tables
 * Grids (Layout)
 * Menus
- 
+
 
 ### UI Modules
 
@@ -152,7 +151,7 @@ Here is part of Semantic's definition of a button
 <div class="ui active button">
 ```
 
-**Variations**: A button may sometimes look different than its prototype. 
+**Variations**: A button may sometimes look different than its prototype.
 ```html
 <div class="ui large blue icon button">
   <i class="ui icon heart"></i>

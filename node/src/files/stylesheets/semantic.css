@@ -34,51 +34,6 @@ h3::selection {
   background-color: #CCE2FF;
 }
 
-/* No license
-
-
-@font-face {
-  font-family: 'Neutraface';
-  src:
-    url('../fonts/neutraface-book.eot');
-  src:
-    url('../fonts/neutraface-book.eot?#iefix') format('embeddedopentype'),
-    url('../fonts/neutraface-book.woff') format('woff')
-  ;
-  font-style: normal;
-  font-weight: normal;
-  font-stretch: normal;
-}
-@font-face {
-  font-family: 'Neutraface';
-  src:
-    url('../fonts/neutraface-bold.eot');
-  src:
-    url('../fonts/neutraface-bold.eot?#iefix') format('embeddedopentype'),
-    url('../fonts/neutraface-bold.woff') format('woff')
-  ;
-  font-style: normal;
-  font-weight: bold;
-  font-stretch: normal;
-}
-
-@font-face {
-  font-family: 'Neutraface';
-  src:
-    url('../fonts/neutraface-italic.eot');
-  src:
-    url('../fonts/neutraface-italic.eot?#iefix') format('embeddedopentype'),
-    url('../fonts/neutraface-italic.woff') format("woff")
-  ;
-  font-style: italic;
-  font-weight: normal;
-  font-stretch: normal;
-}
-
-*/
-
-
-
 /*******************************
              Global
 *******************************/
@@ -133,30 +88,6 @@ h1 {
   padding: 50px 0px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* h1 {
-  margin: 0px auto;
-  font-size: 38px;
-}
-h1:first-child {
-  margin-top: 0px;
-  padding-top: 0px;
-}
-h2 {
-  font-size: 28px;
-  margin: 35px 0px 30px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #DDDDDD;
-}
-h3 {
-  font-size: 24px;
-  margin: 40px 0px 15px;
-}
-h4 {
-  margin: 30px 0px 3px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #555555;
-} */
 h4 + p {
   margin: 0px 0px 20px;
 }
@@ -227,7 +158,7 @@ a:hover {
 
 #example .main.menu {
   top: 0px;
-  min-width: 370px;
+  min-width: 380px;
   z-index: 900;
 
   -webkit-box-sizing: border-box;
@@ -259,6 +190,11 @@ a:hover {
   list-style-type: disc;
   margin: 0px 0px 10px;
   font-weight: bold;
+}
+
+#example .advertisement {
+  float: right;
+  margin-left: 2em;
 }
 
 
@@ -413,6 +349,57 @@ a:hover {
   position: relative;
   z-index: 2;
 }
+#example .masthead .column {
+  display: table;
+}
+#example .introduction {
+  display: table-cell;
+  vertical-align: top;
+  width: 100%;
+}
+#example .advertisement {
+  float: none;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 2em;
+}
+#example #carbonads-container {
+  float: right;
+}
+#example .advertisement .carbonad {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+#example .advertisement .carbonad-text {
+  height: auto;
+  font-size: 12px;
+  line-height: 1.3;
+}
+#example .carbonad-tag {
+  text-align: left;
+}
+#example .inverted.advertisement .carbonad {
+  background-color: rgba(0, 31, 30, 0.5);
+  border: none;
+  overflow: hidden;
+  height: auto;
+  padding: 6px 8px 15px;
+}
+#example .inverted.advertisement .carbonad-text {
+  color: rgba(255, 255, 255, 0.6);
+}
+#example .inverted.advertisement .carbonad-tag {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+#example .inverted.advertisement .carbonad-tag a {
+  color: rgba(255, 255, 255, 0.8);
+}
+#example .inverted.advertisement .carbonad-tag a:hover {
+  color: #FFFFFF;
+}
 
 
 #example .masthead .labeled.button {
@@ -479,8 +466,6 @@ a:hover {
   background: url(/images/dark-bg.png) repeat;
   color: #FFFFFF;
 }
-#example .final.stripe {
-}
 #example .stripe .column .label {
   margin-bottom: 1em;
 }
@@ -518,16 +503,6 @@ a:hover {
 }
 #example .page {
   /* font-family: "Arial, Helvetica, sans-serif"; */
-}
-#example .page .of {
-  font-family: 'Neutraface';
-  font-size: 12px;
-  color: #AAAAAA;
-  padding: 0px 5px;
-}
-#example .page .menu,
-#example .page .of {
-  font-family: 'Neutraface';
 }
 #example .launch.button {
   position: fixed;
@@ -771,6 +746,9 @@ a:hover {
 
 #example .existing.annotation {
   /*display: none;*/
+}
+#example .segment p:first-of-type {
+  margin-top: 0em;
 }
 
 /* example code reskin */
@@ -1186,6 +1164,9 @@ body.progress .ui.progress .bar {
 }
 
 @media only screen and (max-width : 600px) {
+  #example .main.menu .borderless.item {
+    display: none;
+  }
   #example .fixed .right.menu {
     display: inline-block;
     float: none;
@@ -1202,9 +1183,15 @@ body.progress .ui.progress .bar {
   #example .fixed .title b {
     display: none;
   }
+  #example .stripe .header .code.icon {
+    display: none;
+  }
   #example .fixed .container {
     width: auto;
     margin: 0px auto;
+  }
+  #example .attached.launch.button {
+    display: none;
   }
   #example .fixed .launch {
     display: inline-block;
@@ -1216,6 +1203,7 @@ body.progress .ui.progress .bar {
     width: auto;
     margin: 0% 30px 0px;
   }
+  #example
   #example .right.attached.launch {
     display: none;
   }
@@ -1273,6 +1261,35 @@ body.progress .ui.progress .bar {
   #example.index .icon.header .icon {
     font-size: 3em;
   }
+  #example .introduction {
+    display: block;
+  }
+  #example .advertisement {
+    display: block;
+    margin: 1em 0em;
+    padding: 0em;
+  }
+  #example .inverted.advertisement .carbonad {
+    height: 109px;
+  }
+  #example .inverted.advertisement .carbonad-img {
+    margin-top: 0px;
+  }
+  #example #carbonads-container {
+    float: none;
+  }
+  #example .carbonad {
+    width: auto;
+  }
+  #example .carbonad-text,
+  #example .carbonad-tag {
+    float: none;
+    display: block;
+    text-align: left;
+    margin-left: 160px;
+    width: 170px;
+  }
+
 
 }
 @media only screen and (max-width : 1500px) {

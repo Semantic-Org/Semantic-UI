@@ -98,7 +98,7 @@ a.ui.label {
 }
 .ui.image.label img {
   display: inline-block;
-  height: 2.5em;
+  height: 2.25em;
   margin: -0.4em 0.8em -0.4em -0.8em;
   vertical-align: top;
   -moz-border-radius: 0.325em 0em 0em 0.325em;
