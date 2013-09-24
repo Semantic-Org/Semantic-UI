@@ -190,7 +190,7 @@
       <% if pageNumber > 1 and currentCollection[pageNumber - 2]?: %>
       <a class="icon item" href="<%= currentCollection[pageNumber - 2].url %>"><i class="left arrow icon"></i></a>
       <% else: %>
-      <div class="disabled item"><i class="left arrow icon"></i></div>
+      <div class="disabled icon item"><i class="left arrow icon"></i></div>
       <% end %>
       <div class="section ui dropdown link item">
         <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
@@ -205,7 +205,7 @@
       <% if pageNumber isnt pageCount and currentCollection[pageNumber]?: %>
       <a class="icon item" href="<%= currentCollection[pageNumber].url %>"><i class="right arrow icon"></i></a>
       <% else: %>
-      <div class="disabled item"><i class="right arrow icon"></i></div>
+      <div class="disabled icon item"><i class="right arrow icon"></i></div>
       <% end %>
       <div class="right menu">
         <div class="vertically fitted borderless item">
