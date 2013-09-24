@@ -1,0 +1,97 @@
+/*
+ * # Semantic Accordion
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+/*******************************
+            Button
+*******************************/
+.ui.accordion {
+  width: 600px;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 1rem;
+  border-radius: 0.3125em;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.accordion .title {
+  cursor: pointer;
+  margin: 0em;
+  padding: 0.75em 1em;
+  color: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  -ms-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+.ui.accordion .title:first-child {
+  border-top: none;
+}
+/* Content */
+.ui.accordion .content {
+  display: none;
+  margin: 0em;
+  padding: 1.3em 1em;
+}
+/*--------------
+ Loose Coupling
+---------------*/
+.ui.basic.accordion.menu {
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.basic.accordion.menu .title,
+.ui.basic.accordion.menu .content {
+  padding: 0em;
+}
+/*******************************
+            States
+*******************************/
+/*--------------
+      Hover
+---------------*/
+.ui.accordion .title:hover,
+.ui.accordion .title.active {
+  color: rgba(0, 0, 0, 0.8);
+}
+/*--------------
+      Active
+---------------*/
+.ui.accordion .title.active {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.accordion .content.active {
+  display: block;
+}
+/*******************************
+            Variations
+*******************************/
+.ui.basic.accordion {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.accordion .title {
+  background-color: transparent;
+  border-top: none;
+}
+.ui.basic.accordion .title,
+.ui.basic.accordion .content {
+  padding-left: 0em;
+  padding-right: 0em;
+}
