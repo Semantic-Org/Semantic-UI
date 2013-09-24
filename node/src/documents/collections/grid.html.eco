@@ -285,7 +285,7 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Divided Grid</h4>
     <p>A grid can have dividers between columns</p>
-    <div class="ui six divided column grid">
+    <div class="ui six column divided grid">
       <div class="row">
         <div class="column">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>

@@ -132,12 +132,6 @@ type        : 'UI Element'
     </div>
   </div>
   <div class="another example">
-    <div class="ui tiny icon input">
-      <input type="text" placeholder="Search tiny...">
-      <i class="search icon"></i>
-    </div>
-  </div>
-  <div class="another example">
     <div class="ui small icon input">
       <input type="text" placeholder="Search small...">
       <i class="search icon"></i>
