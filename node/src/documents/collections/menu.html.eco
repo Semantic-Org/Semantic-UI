@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'menu'
 
 title       : 'Menu'
-description : 'A menu is a collection of elements showing several actions which a user can take'
+description : 'A menu is a collection of elements showing related user actions'
 type        : 'UI Collection'
 ---
 <script src="/javascript/menu.js"></script>
@@ -389,8 +389,8 @@ type        : 'UI Collection'
       <div class="text item">
         <a>Join now</a> and save $10 on a pro membership!
       </div>
-      <div class="text item">
-        <a>Join now</a> and save $10 on a pro membership!
+      <div class="item">
+        <p><a>Join tomorrow</a> and save $5 on pro.</p>
       </div>
     </div>
   </div>
