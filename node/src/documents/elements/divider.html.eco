@@ -35,7 +35,7 @@ type        : 'UI Element'
           <div class="field">
             <label>Username</label>
             <div class="ui labeled icon input">
-              <input type="password" placeholder="Username">
+              <input type="text" placeholder="Username">
               <i class="user icon"></i>
               <div class="ui corner label">
                 <i class="asterisk icon"></i>

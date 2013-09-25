@@ -307,8 +307,8 @@ a.ui.label:hover:before {
   width: 0em;
   height: 0em;
   border-top: 0em solid transparent;
-  border-right: 3.5em solid transparent;
-  border-bottom: 3.5em solid transparent;
+  border-right: 3.25em solid transparent;
+  border-bottom: 3.25em solid transparent;
   border-left: 0em solid transparent;
   border-right-color: inherit;
   -webkit-transition: border-color 0.2s ease;
@@ -318,8 +318,7 @@ a.ui.label:hover:before {
   transition: border-color 0.2s ease;
 }
 .ui.corner.label .icon {
-  margin: 0.65em 0em 0em 0.35em;
-  vertical-align: top;
+  margin: 0.5em 0em 0em 0.6em;
 }
 .ui.corner.label .text {
   display: inline-block;
@@ -341,8 +340,8 @@ a.ui.label:hover:before {
   left: 0em;
 }
 .ui.left.corner.label:after {
-  border-top: 3.5em solid transparent;
-  border-right: 3.5em solid transparent;
+  border-top: 3.25em solid transparent;
+  border-right: 3.25em solid transparent;
   border-bottom: 0em solid transparent;
   border-left: 0em solid transparent;
   border-top-color: inherit;
