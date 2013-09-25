@@ -1,13 +1,12 @@
 /*
- * # Semantic Loader
- * http://github.com/quirkyinc/semantic
+ * # Semantic - Loader
+ * http://github.com/jlukic/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- * Released: April 17 2013
  */
 
 
@@ -22,53 +21,59 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -16px 0px 0px -16px;
+  margin: 0px;
   z-index: 1000;
+
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .ui.dimmer .loader {
   display: block;
 }
 
+/*******************************
+             Types
+*******************************/
+
 /*-------------------
         Text
 --------------------*/
 
-/* Text Styles */
-.ui.loader.text {
+.ui.text.loader {
   width: auto !important;
   height: auto !important;
   text-align: center;
   font-style: normal;
+}
 
-  margin-top: -28px;
-  min-width: 32px;
-  padding-top: 40px;
-  font-size: 0.875em;
-}
-.ui.loader.text.mini {
-  margin-top: -16px;
+.ui.mini.text.loader {
   min-width: 16px;
-  padding-top: 20px;
+  padding-top: 2em;
   font-size: 0.875em;
 }
-.ui.loader.text.small {
-  margin-top: -23px;
+.ui.small.text.loader {
   min-width: 24px;
-  padding-top: 32px;
+  padding-top: 2.5em;
   font-size: 0.875em;
 }
-.ui.loader.text.large {
-  margin-top: -46px;
-  min-width: 64px;
-  padding-top: 80px;
+.ui.text.loader {
+  min-width: 32px;
   font-size: 1em;
+  padding-top: 3em;
+}
+.ui.large.text.loader {
+  min-width: 64px;
+  padding-top: 5em;
+  font-size: 1.2em;
 }
 
 /*******************************
             States
 *******************************/
-
 
 .ui.loader.active,
 .ui.loader.visible {
@@ -84,7 +89,6 @@
 /*******************************
             Variations
 *******************************/
-
 
 /*-------------------
        Inverted
@@ -127,21 +131,19 @@
 --------------------*/
 
 /* Tiny Size */
-.ui.inverted.dimmer .ui.loader.mini,
-.ui.loader.mini {
+.ui.inverted.dimmer .ui.mini.loader,
+.ui.mini.loader {
   width: 16px;
   height: 16px;
   background-image: url(../images/loader-mini.gif);
-  margin: -8px 0px 0px -8px;
 }
 
 /* Small Size */
-.ui.inverted.dimmer .ui.loader.small,
-.ui.loader.small {
+.ui.inverted.dimmer .ui.small.loader,
+.ui.small.loader {
   width: 24px;
   height: 24px;
   background-image: url(../images/loader-small.gif);
-  margin: -12px 0px 0px -12px;
 }
 
 .ui.inverted.dimmer .ui.loader,
@@ -158,7 +160,6 @@
   width: 64px;
   height: 64px;
   background-image: url(../images/loader-large.gif);
-  margin: -32px 0px 0px -32px;
 }
 
 
@@ -170,6 +171,12 @@
   position: static;
   vertical-align: middle;
   margin: 0em;
+
+  -webkit-transform: none;
+  -moz-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
 .ui.inline.loader.active,

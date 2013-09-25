@@ -1,9 +1,13 @@
-/*  ******************************
-   Semantic Module: Dropdown
-   Author: Jack Lukic
-   Notes: First Commit May 25, 2013
-
-******************************  */
+/*
+ * # Semantic - Dropdown
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 
@@ -302,7 +306,7 @@ $.fn.sidebar = function(parameters) {
               module.performance.log(arguments);
             }
             else {
-              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
               module.debug.apply(console, arguments);
             }
           }
@@ -313,13 +317,13 @@ $.fn.sidebar = function(parameters) {
               module.performance.log(arguments);
             }
             else {
-              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
               module.verbose.apply(console, arguments);
             }
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
           module.error.apply(console, arguments);
         },
         performance: {
@@ -453,18 +457,18 @@ $.fn.sidebar = function(parameters) {
 
 $.fn.sidebar.settings = {
 
-  name   : 'Sidebar',
-  namespace    : 'sidebar',
+  name        : 'Sidebar',
+  namespace   : 'sidebar',
 
-  verbose      : true,
-  debug        : true,
-  performance  : true,
+  verbose     : true,
+  debug       : true,
+  performance : true,
 
-  useCSS       : true,
-  overlay      : false,
-  duration     : 300,
+  useCSS      : true,
+  overlay     : false,
+  duration    : 300,
 
-  side         : 'left',
+  side        : 'left',
 
   onChange     : function(){},
   onShow       : function(){},

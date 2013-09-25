@@ -1,11 +1,13 @@
-/*  ******************************
-  Semantic Module: Shape
-  Author: Jack Lukic
-  Notes: First Commit March 25, 2013
-
-  An experimental plugin for manipulating 3D shapes on a 2D plane
-
-******************************  */
+/*
+ * # Semantic - Shape
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 
@@ -572,7 +574,7 @@ $.fn.shape = function(parameters) {
               module.performance.log(arguments);
             }
             else {
-              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
               module.debug.apply(console, arguments);
             }
           }
@@ -583,13 +585,13 @@ $.fn.shape = function(parameters) {
               module.performance.log(arguments);
             }
             else {
-              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
               module.verbose.apply(console, arguments);
             }
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
           module.error.apply(console, arguments);
         },
         performance: {
@@ -725,7 +727,7 @@ $.fn.shape = function(parameters) {
 $.fn.shape.settings = {
 
   // module info
-  moduleName : 'Shape Module',
+  name : 'Shape',
 
   // debug content outputted to console
   debug      : true,

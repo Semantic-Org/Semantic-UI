@@ -24,7 +24,7 @@ type        : 'UI Element'
     <h4 class="ui header">Label</h4>
     <p>A basic label</p>
     <div class="ui label">
-      <i class="location icon"></i> 23
+      <i class="mail icon"></i> 23
     </div>
   </div>
   <div class="example">
@@ -191,7 +191,7 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Horizontal</h4>
     <p>A horizontal label is formatted to label content along-side it horizontally</p>
-    <div class="ui selection list">
+    <div class="ui divided selection list">
       <a class="item">
         <div class="ui red horizontal label">Fruit</div>
         Kumquats

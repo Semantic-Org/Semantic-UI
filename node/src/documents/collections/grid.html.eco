@@ -400,8 +400,8 @@ type        : 'UI Collection'
   <h3 class="ui header">Grid</h3>
 
   <div class="example">
-    <h4 class="ui header">Responsive Grid</h4>
-    <p>A grid can be responsive to a browsers width. This means the gutters to left and right of grid columns will alter in size as a browser's resolution increases.</p>
+    <h4 class="ui header">Responsive to Size</h4>
+    <p>A grid can change its size to be responsive to a browser's width. This means the gutters to left and right of grid columns will alter in size as a browser's resolution increases.</p>
 
     <div class="ui text message info ignore">
       <i class="icon heart"></i> Semantic UI's responsive grid by default will change the page gutters to increase at 250pixel intervals.
@@ -434,7 +434,7 @@ type        : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Only (Device)</h4>
+    <h4 class="ui header">Responsive to Device</h4>
     <p>A grid can have its columns, or rows only show for either a computer, tablet, or mobile.</p>
     <div class="ui text message info ignore">
       <i class="icon heart"></i> Breakpoints are 768 for mobile, 768-998 for tablet and 998 for pc</i>
@@ -517,12 +517,26 @@ type        : 'UI Collection'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Changing grid column count</h4>
+    <h4 class="ui header">Specifying Column Count Per Row</h4>
     <p>A grid can have a different number of columns per row</p>
-    <div class="ui three column grid">
+    <div class="ui two column grid">
       <div class="column">
         <div class="ui fluid form segment">
-          <p>Let's go ahead and get you signed up.</p>
+          <h3 class="ui header">Log-in</h3>
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password">
+          </div>
+          <div class="ui blue submit button">Login</div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid form segment">
+          <h3 class="ui header">Register</h3>
           <div class="two fields">
             <div class="field">
               <label>First Name</label>
@@ -551,31 +565,16 @@ type        : 'UI Collection'
           <div class="ui blue submit button">Submit</div>
         </div>
       </div>
-      <div class="column">
-        <div class="ui vertical fluid menu">
-          <div class="header item">
-            Dogs
-          </div>
-          <div class="item">
-            Poodle
-          </div>
-          <div class="item">
-            Cockerspaniel
-          </div>
-          <div class="header item">
-            Cats
-          </div>
-          <div class="item">
-            Abysinnian
-          </div>
-          <div class="item">
-            Sphynx
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Relaxed</h4>
+    <p>A grid can increase its gutters to allow for more negative space</p>
+    <div class="ui two column relaxed grid">
       <div class="column">
         <div class="ui fluid form segment">
-          <p>Log in to your account</p>
+          <h3 class="ui header">Log-in</h3>
           <div class="field">
             <label>Username</label>
             <input placeholder="Username" type="text">
@@ -585,6 +584,37 @@ type        : 'UI Collection'
             <input type="password">
           </div>
           <div class="ui blue submit button">Login</div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid form segment">
+          <h3 class="ui header">Register</h3>
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              <input placeholder="First Name" type="text">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input placeholder="Last Name" type="text">
+            </div>
+          </div>
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password">
+          </div>
+          <div class="inline field">
+            <div class="ui checkbox">
+              <input type="checkbox" id="terms" />
+              <label for="terms"></label>
+            </div>
+            <label>I agree to the terms and conditions</label>
+          </div>
+          <div class="ui blue submit button">Submit</div>
         </div>
       </div>
     </div>
@@ -802,8 +832,8 @@ type        : 'UI Collection'
   <h3 class="ui header">Columns</h3>
 
   <div class="example">
-    <h4 class="ui header">Row Alignment (Floating)</h4>
-    <p>A column can be "floated", to either the left or right of its row.</p>
+    <h4 class="ui header">Floating</h4>
+    <p>A column can be "floated" to either the left or right of its row.</p>
     <div class="ui grid">
       <div class="left floated four wide column">
         <div class="ui vertical fluid menu">

@@ -89,7 +89,7 @@ type        : 'UI View'
               <div class="field">
                 <textarea></textarea>
               </div>
-              <div class="ui small fluid blue labeled submit icon button">
+              <div class="ui fluid blue labeled submit icon button">
                 <i class="icon edit"></i> Add Reply
               </div>
             </form>

@@ -227,7 +227,7 @@ a:hover {
 }
 #example .error.masthead .container {
   position: relative;
-  z-index: 10;
+  z-index: 100;
 }
 #example .masthead {
   position: relative;
@@ -545,6 +545,10 @@ a:hover {
   transition: padding 0.3s ease;
 }
 
+#example .ui.tab.segment {
+  padding: 1.5em 2em;
+}
+
 #example .main.ui.grid {
   position: relative;
 }
@@ -554,12 +558,12 @@ a:hover {
 #example .example .language.label {
   margin: 1em 0em 0.75em;
 }
-#example .icon.example {
-  border-top: none;
-}
 #example .icon.example .grid {
   margin-top: 1.5rem;
   text-align: left;
+}
+#example .icon.example .grid .code {
+  position: static;
 }
 #example .icon.example .grid .column {
   opacity: 0.8;
@@ -747,9 +751,9 @@ a:hover {
 #example .existing.annotation {
   /*display: none;*/
 }
-#example .segment p:first-of-type {
+/*#example .segment p:first-of-type {
   margin-top: 0em;
-}
+}*/
 
 /* example code reskin */
 #example div.code.hide {
@@ -971,6 +975,11 @@ a:hover {
   -ms-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
+
+#example .example > i.code:before {
+  font-family: 'Basic Icons';
+  content: '\e714';
+}
 #example .example:hover i.code {
   opacity: 0.7;
 }
@@ -1116,6 +1125,7 @@ body.progress .ui.progress .bar {
   }
 }
 
+
 #example.feed .example .segment {
   max-width: 800px;
 }
@@ -1123,6 +1133,10 @@ body.progress .ui.progress .bar {
 #example .fixed .launch {
   display: none;
 }
+#example .designer .icon {
+  font-family: 'Basic Icons';
+}
+
 
 #example .fixed.column,
 #example .fixed.segment {

@@ -55,7 +55,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Icon Message</h4>
     <p>A message can contain an icon.</p>
     <div class="ui icon message">
-      <i class="icon cloud"></i>
+      <i class="inbox icon"></i>
       <div class="content">
         <div class="header">
           Have you heard about our mailing list?
@@ -69,7 +69,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Dismissable Block</h4>
     <p>A message that the user can choose to hide</p>
     <div class="ui message">
-      <i class="icon close"></i>
+      <i class="close icon"></i>
       <div class="header">
         Welcome back!
       </div>
@@ -172,7 +172,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Warning</h4>
     <p>A message may be formatted to display warning messages.</p>
     <div class="ui warning message">
-      <i class="icon close"></i>
+      <i class="close icon"></i>
       <div class="header">
         You must register before you can do that!
       </div>
@@ -184,7 +184,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Info</h4>
     <p>A message may be formatted to display information.</p>
     <div class="ui info message">
-      <i class="icon close"></i>
+      <i class="close icon"></i>
       <div class="header">
         Was this what you wanted?
       </div>
@@ -199,7 +199,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Success</h4>
     <p>A message may be formatted to display a success message.</p>
     <div class="ui success message">
-      <i class="icon close"></i>
+      <i class="close icon"></i>
       <div class="header">
         Congratulations, you are now a member!
       </div>
@@ -210,7 +210,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Error</h4>
     <p>A message may be formatted to display errors.</p>
     <div class="ui error message">
-      <i class="icon close"></i>
+      <i class="close icon"></i>
       <div class="header">
         Was this what you wanted?
       </div>

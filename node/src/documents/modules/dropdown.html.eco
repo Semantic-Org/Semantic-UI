@@ -34,14 +34,14 @@ type        : 'UI Module'
     ;
   </div>
   <div class="code" data-type="html">
-  <div class="ui dropdown">
-    <div class="text">Select</div>
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <div class="item" data-value="option1">Option 1</div>
-      <div class="item" data-value="option2">Option 2</div>
+    <div class="ui dropdown">
+      <div class="text">Select</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item" data-value="option1">Option 1</div>
+        <div class="item" data-value="option2">Option 2</div>
+      </div>
     </div>
-  </div>
   </div>
 
 
@@ -323,7 +323,7 @@ type        : 'UI Module'
           <div class="menu">
             <div class="item" data-value="male">Male</div>
             <div class="item" data-value="female">Female</div>
-          </div>
+          </div>m
         </div>
       </div>
     </div>
@@ -371,10 +371,10 @@ type        : 'UI Module'
   <h2 class="ui dividing header">States</h2>
 
   <div class="example">
-    <h4 class="ui header">Visible</h4>
-    <p>A visible dropdown menu has its menu open</p>
+    <h4 class="ui header">Active</h4>
+    <p>An active dropdown menu has its menu open</p>
     <div class="ui compact menu">
-      <div class="ui simple visible dropdown item">
+      <div class="ui simple active dropdown item">
         Dropdown <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Choice 1</div>

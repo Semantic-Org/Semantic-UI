@@ -498,7 +498,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Inline</h4>
     <p>Multiple fields may be inline in a row</p>
     <div class="ui form">
-      <div class="ui inline fields">
+      <div class="inline fields">
         <div class="field">
           <label>Phone Number</label>
           <input type="text" placeholder="(xxx)">

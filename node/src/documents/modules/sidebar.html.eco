@@ -65,8 +65,8 @@ type        : 'UI Module'
   <div class="ui ignored warning message">
     <div class="header">Fixed Position Snafoos</div>
     Fixed position content may have issues changing it's position when a sidebar appears. There are two solutions
-    <ul class="list">
-      <li>Specify your fixed content without using the css left property
+    <ul class="ui list">
+      <li>Specify your fixed content without using the css left or top properties.</li>
       <li>Apply styles on the fixed element to adjust its position when the sidebar appears. You can do this by descending from the body tag which receives the class <code>(direction) pushed</code> when the view is moved.</li>
     </ul>
   </div>
@@ -211,30 +211,42 @@ type        : 'UI Module'
     </div>
   </div>
 
-  <h2 class="ui header">Behavior</h2>
+  <h2 class="ui dividing header">Behavior</h2>
 
-  All the following behaviors can be called using the syntax <code>$('.foo').sidebar('behavior name')</code>
+  All the following behaviors can be called using the syntax <code>$('.foo').sidebar('behavior name', argumentOne, argumentTwo)</code>
 
   <table class="ui definition celled table segment">
     <tr>
-      <td>attach events</td>
-      <td>Attaches sidebar action to given selector</td>
+      <td>attach events(selector, event)</td>
+      <td>Attaches sidebar action to given selector. Default event if none specified is toggle</td>
     </tr>
     <tr>
       <td>show</td>
-      <td>Shows specified selector</td>
+      <td>Shows sidebar</td>
     </tr>
     <tr>
       <td>hide</td>
-      <td>Hides specified selector</td>
+      <td>Hides sidebar</td>
     </tr>
     <tr>
       <td>toggle</td>
       <td>Toggles visibility of sidebar</td>
     </tr>
     <tr>
+      <td>is open</td>
+      <td>Returns whether sidebar is open</td>
+    </tr>
+    <tr>
+      <td>is closed</td>
+      <td>Returns whether sidebar is closed</td>
+    </tr>
+    <tr>
       <td>push page</td>
       <td>Pushes page content to be visible alongside sidebar</td>
+    </tr>
+    <tr>
+      <td>get direction</td>
+      <td>Returns direction of current sidebar</td>
     </tr>
     <tr>
       <td>pull page</td>
@@ -244,8 +256,128 @@ type        : 'UI Module'
       <td>add body css</td>
       <td>Adds stylesheet to page head to trigger sidebar animations</td>
     </tr>
+    <tr>
+      <td>remove body css</td>
+      <td>Removes any inline stylesheets for sidebar animation</td>
+    </tr>
+    <tr>
+      <td>get transition event</td>
+      <td>Returns vendor prefixed transition end event</td>
+    </tr>
+  </table>
 
+  <h2 class="ui dividing header">Settings</h2>
 
+  <h3 class="ui header">
+    Transition Settings
+    <div class="sub header">Form settings modify the transition behavior</div>
+  </h3>
+  <table class="ui red celled definition table segment">
+    <thead>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>overlay</td>
+        <td>false</td>
+        <td>Whether sidebar should overlay page instead of pushing page to the side</td>
+      </tr>
+      <tr>
+        <td>useCSS</td>
+        <td>true</td>
+        <td>Whether to use css animations or fallback javascript animations</td>
+      </tr>
+      <tr>
+        <td>duration</td>
+        <td>300</td>
+        <td>Duration of side bar animation</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="ui header">
+    DOM Settings
+    <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+  </h3>
+  <table class="ui celled purple definition table segment">
+    <thead>
+      <th>Setting</th>
+      <th class="six wide">Default</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>namespace</td>
+        <td>sidebar</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>
+          <div class="code">
+    className: {
+      active : 'active',
+      pushed : 'pushed',
+      top    : 'top',
+      left   : 'left',
+      right  : 'right',
+      bottom : 'bottom'
+    }
+          </div>
+        </td>
+        <td>Class names used to attach style to state</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+  <h3 class="ui header">
+    Debug Settings
+    <div class="sub header">Debug settings controls debug output to the console</div>
+  </h3>
+
+  <table class="ui blue celled definition table segment">
+    <thead>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>name</td>
+        <td>Sidebar</td>
+        <td>Name used in debug logs</td>
+      </tr>
+      <tr>
+        <td>debug</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>performance</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+      </tr>
+      <tr>
+        <td>verbose</td>
+        <td>True</td>
+        <td>Provides ancillary debug output to console</td>
+      </tr>
+      <tr>
+        <td>errors</td>
+        <td colspan="2">
+          <div class="code">
+    error   : {
+      method   : 'The method you called is not defined.',
+      notFound : 'There were no elements that matched the specified selector'
+    }
+          </div>
+        </td>
+      </tr>
+    </tbody>
   </table>
 
 </div>

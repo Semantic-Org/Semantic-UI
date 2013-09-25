@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 <% uiIntroduction    = @getCollection("documents").findAllLive({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
-<% uiProject           = @getCollection("documents").findAllLive({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
+<% uiProject         = @getCollection("documents").findAllLive({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
 <% uiGuide           = @getCollection("documents").findAllLive({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
 <% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
 <% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
@@ -25,44 +25,45 @@
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/button.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/divider.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/header.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/icon.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/image.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/input.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/label.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/loader.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/progress.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/segment.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/elements/step.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/basic.icon.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/icon.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/breadcrumb.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/form.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/grid.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/menu.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/message.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/collections/table.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/button.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/divider.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/header.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/image.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/input.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/loader.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/progress.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/segment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/step.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/comment.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/list.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/feed.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/item.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/views/statistic.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/breadcrumb.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/form.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/grid.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/menu.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/message.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/table.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/modal.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/dropdown.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/popup.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/reveal.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/rating.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/sidebar.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/shape.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/tab.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/checkbox.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/dimmer.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/transition.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/comment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/list.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/feed.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/item.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/statistic.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/overrides/fonts/sketchy.icons.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/modal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dropdown.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/popup.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/reveal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/rating.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/sidebar.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/shape.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/tab.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/checkbox.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dimmer.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/transition.css">
+
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 <!--
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -75,17 +76,17 @@
   <script src="/javascript/library/ace/ace.js"></script>
   <script src="/javascript/library/waypoints.js"></script>
 
-  <script src="/release/uncompressed/modules/behavior/api.js"></script>
-  <script src="/release/uncompressed/modules/behavior/state.js"></script>
-  <script src="/release/uncompressed/modules/checkbox.js"></script>
-  <script src="/release/uncompressed/modules/dimmer.js"></script>
-  <script src="/release/uncompressed/modules/dropdown.js"></script>
-  <script src="/release/uncompressed/modules/modal.js"></script>
-  <script src="/release/uncompressed/modules/popup.js"></script>
-  <script src="/release/uncompressed/modules/rating.js"></script>
-  <script src="/release/uncompressed/modules/sidebar.js"></script>
-  <script src="/release/uncompressed/modules/tab.js"></script>
-  <script src="/release/uncompressed/modules/transition.js"></script>
+  <script src="/build/uncompressed/modules/behavior/api.js"></script>
+  <script src="/build/uncompressed/modules/behavior/state.js"></script>
+  <script src="/build/uncompressed/modules/checkbox.js"></script>
+  <script src="/build/uncompressed/modules/dimmer.js"></script>
+  <script src="/build/uncompressed/modules/dropdown.js"></script>
+  <script src="/build/uncompressed/modules/modal.js"></script>
+  <script src="/build/uncompressed/modules/popup.js"></script>
+  <script src="/build/uncompressed/modules/rating.js"></script>
+  <script src="/build/uncompressed/modules/sidebar.js"></script>
+  <script src="/build/uncompressed/modules/tab.js"></script>
+  <script src="/build/uncompressed/modules/transition.js"></script>
 
   <script src="/javascript/semantic.js"></script>
   <script>
@@ -101,8 +102,8 @@
 </head>
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
-    <a class="item" href="/release/semantic.zip">
-      <i class="inverted circular red upload icon"></i> <b>Download</b>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
     </a>
     <div class="item">
       <b>Project</b>
@@ -189,7 +190,7 @@
       <% if pageNumber > 1 and currentCollection[pageNumber - 2]?: %>
       <a class="icon item" href="<%= currentCollection[pageNumber - 2].url %>"><i class="left arrow icon"></i></a>
       <% else: %>
-      <div class="disabled item"><i class="left arrow icon"></i></div>
+      <div class="disabled icon item"><i class="left arrow icon"></i></div>
       <% end %>
       <div class="section ui dropdown link item">
         <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
@@ -204,10 +205,10 @@
       <% if pageNumber isnt pageCount and currentCollection[pageNumber]?: %>
       <a class="icon item" href="<%= currentCollection[pageNumber].url %>"><i class="right arrow icon"></i></a>
       <% else: %>
-      <div class="disabled item"><i class="right arrow icon"></i></div>
+      <div class="disabled icon item"><i class="right arrow icon"></i></div>
       <% end %>
       <div class="right menu">
-        <div class="fitted borderless item">
+        <div class="vertically fitted borderless item">
           <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic-ui&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
         </div>

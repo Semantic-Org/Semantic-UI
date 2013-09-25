@@ -6,10 +6,10 @@ title       : 'Accordion'
 description : 'An accordion displays a single piece of content, while allowing the option of displaying other related content'
 type        : 'UI Module'
 ---
-<link rel="stylesheet" type="text/css" class="ui" href="/release/uncompressed/modules/accordion.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/accordion.css">
 
 <script src="/javascript/accordion.js"></script>
-<script src="/release/uncompressed/modules/accordion.js"></script>
+<script src="/build/uncompressed/modules/accordion.js"></script>
 
 <%- @partial('header') %>
 

@@ -1,10 +1,13 @@
-/*  ******************************
-  Nag
-  Author: Jack Lukic
-  Notes: First Commit July 19, 2012
-
-  Simple fixed position nag
-******************************  */
+/*
+ * # Semantic - Nag
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ($, window, document, undefined) {
 
@@ -328,7 +331,7 @@ $.fn.nag = function(parameters) {
               module.performance.log(arguments);
             }
             else {
-              module.debug = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
               module.debug.apply(console, arguments);
             }
           }
@@ -339,13 +342,13 @@ $.fn.nag = function(parameters) {
               module.performance.log(arguments);
             }
             else {
-              module.verbose = Function.prototype.bind.call(console.info, console, settings.moduleName + ':');
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
               module.verbose.apply(console, arguments);
             }
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.moduleName + ':');
+          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
           module.error.apply(console, arguments);
         },
         performance: {
@@ -479,19 +482,19 @@ $.fn.nag = function(parameters) {
 
 $.fn.nag.settings = {
 
-  name      : 'Nag',
+  name        : 'Nag',
 
-  verbose         : true,
-  debug           : true,
-  performance     : true,
+  verbose     : true,
+  debug       : true,
+  performance : true,
 
-  namespace       : 'Nag',
+  namespace   : 'Nag',
 
   // allows cookie to be overriden
-  persist        : false,
+  persist     : false,
 
   // set to zero to manually dismiss, otherwise hides on its own
-  displayTime    : 0,
+  displayTime : 0,
 
   animation   : {
     show: 'slide',
