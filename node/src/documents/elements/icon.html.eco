@@ -56,8 +56,8 @@ type        : 'UI Element'
         <div class="column"><i class="dashboard icon"></i>Dashboard</div>
         <div class="column"><i class="desktop icon"></i>Desktop</div>
         <div class="column"><i class="empty calendar icon"></i>Empty Calendar</div>
-        <div class="column"><i class="external link icon"></i>External Link</div>
-        <div class="column"><i class="external link sign icon"></i>External Link Sign</div>
+        <div class="column"><i class="external url icon"></i>External URL</div>
+        <div class="column"><i class="external url sign icon"></i>External URL Sign</div>
         <div class="column"><i class="file icon"></i>File</div>
         <div class="column"><i class="file outline icon"></i>File Outline</div>
         <div class="column"><i class="folder icon"></i>Folder</div>
@@ -96,6 +96,7 @@ type        : 'UI Element'
         <div class="column"><i class="text file outline icon"></i>Text File Outline</div>
         <div class="column"><i class="time icon"></i>Time</div>
         <div class="column"><i class="trash icon"></i>Trash</div>
+        <div class="column"><i class="url icon"></i>URL</div>
         <div class="column"><i class="user icon"></i>User</div>
         <div class="column"><i class="users icon"></i>Users</div>
       </div>
@@ -114,8 +115,8 @@ type        : 'UI Element'
     <i class="dashboard icon"></i>
     <i class="desktop icon"></i>
     <i class="empty calendar icon"></i>
-    <i class="external link icon"></i>
-    <i class="external link sign icon"></i>
+    <i class="external url icon"></i>
+    <i class="external url sign icon"></i>
     <i class="file icon"></i>
     <i class="file outline icon"></i>
     <i class="folder icon"></i>
@@ -154,6 +155,7 @@ type        : 'UI Element'
     <i class="text file outline icon"></i>
     <i class="time icon"></i>
     <i class="trash icon"></i>
+    <i class="url icon"></i>
     <i class="user icon"></i>
     <i class="users icon"></i>
       </div>
@@ -189,7 +191,6 @@ type        : 'UI Element'
         <div class="column"><i class="level down icon"></i>Level Down</div>
         <div class="column"><i class="level up icon"></i>Level Up</div>
         <div class="column"><i class="lightbulb icon"></i>Lightbulb</div>
-        <div class="column"><i class="link icon"></i>Link</div>
         <div class="column"><i class="off icon"></i>Off</div>
         <div class="column"><i class="refresh icon"></i>Refresh</div>
         <div class="column"><i class="remove circle icon"></i>Remove Circle</div>
@@ -212,53 +213,52 @@ type        : 'UI Element'
         <div class="column"><i class="upload icon"></i>Upload</div>
       </div>
       <div class="existing code">
-        <i class="add icon"></i>
-        <i class="add sign box icon"></i>
-        <i class="add sign icon"></i>
-        <i class="adjust icon"></i>
-        <i class="bookmark empty icon"></i>
-        <i class="bookmark icon"></i>
-        <i class="cloud download icon"></i>
-        <i class="cloud upload icon"></i>
-        <i class="collapse icon"></i>
-        <i class="crop icon"></i>
-        <i class="download disk icon"></i>
-        <i class="download icon"></i>
-        <i class="edit icon"></i>
-        <i class="edit sign icon"></i>
-        <i class="empty flag icon"></i>
-        <i class="exchange icon"></i>
-        <i class="expand icon"></i>
-        <i class="filter icon"></i>
-        <i class="flag icon"></i>
-        <i class="fork code icon"></i>
-        <i class="forward mail icon"></i>
-        <i class="fullscreen icon"></i>
-        <i class="hide icon"></i>
-        <i class="level down icon"></i>
-        <i class="level up icon"></i>
-        <i class="lightbulb icon"></i>
-        <i class="link icon"></i>
-        <i class="off icon"></i>
-        <i class="refresh icon"></i>
-        <i class="remove circle icon"></i>
-        <i class="remove icon"></i>
-        <i class="remove sign icon"></i>
-        <i class="reorder icon"></i>
-        <i class="reply all mail icon"></i>
-        <i class="reply mail icon"></i>
-        <i class="retweet icon"></i>
-        <i class="save icon"></i>
-        <i class="screenshot icon"></i>
-        <i class="search icon"></i>
-        <i class="share icon"></i>
-        <i class="share sign icon"></i>
-        <i class="sign in icon"></i>
-        <i class="sign out icon"></i>
-        <i class="tint icon"></i>
-        <i class="unhide icon"></i>
-        <i class="upload disk icon"></i>
-        <i class="upload icon"></i>
+    <i class="add icon"></i>
+    <i class="add sign box icon"></i>
+    <i class="add sign icon"></i>
+    <i class="adjust icon"></i>
+    <i class="bookmark empty icon"></i>
+    <i class="bookmark icon"></i>
+    <i class="cloud download icon"></i>
+    <i class="cloud upload icon"></i>
+    <i class="collapse icon"></i>
+    <i class="crop icon"></i>
+    <i class="download disk icon"></i>
+    <i class="download icon"></i>
+    <i class="edit icon"></i>
+    <i class="edit sign icon"></i>
+    <i class="empty flag icon"></i>
+    <i class="exchange icon"></i>
+    <i class="expand icon"></i>
+    <i class="filter icon"></i>
+    <i class="flag icon"></i>
+    <i class="fork code icon"></i>
+    <i class="forward mail icon"></i>
+    <i class="fullscreen icon"></i>
+    <i class="hide icon"></i>
+    <i class="level down icon"></i>
+    <i class="level up icon"></i>
+    <i class="lightbulb icon"></i>
+    <i class="off icon"></i>
+    <i class="refresh icon"></i>
+    <i class="remove circle icon"></i>
+    <i class="remove icon"></i>
+    <i class="remove sign icon"></i>
+    <i class="reorder icon"></i>
+    <i class="reply all mail icon"></i>
+    <i class="reply mail icon"></i>
+    <i class="retweet icon"></i>
+    <i class="save icon"></i>
+    <i class="screenshot icon"></i>
+    <i class="search icon"></i>
+    <i class="share icon"></i>
+    <i class="share sign icon"></i>
+    <i class="sign in icon"></i>
+    <i class="sign out icon"></i>
+    <i class="tint icon"></i>
+    <i class="unhide icon"></i>
+    <i class="upload disk icon"></i>
+    <i class="upload icon"></i>
       </div>
     </div>
 
