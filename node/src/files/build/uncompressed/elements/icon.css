@@ -804,7 +804,7 @@ i.icon.quote.left:before {
 i.icon.quote.right:before {
   content: "\f10e";
 }
-i.icon.random:before {
+i.icon.shuffle:before {
   content: "\f074";
 }
 i.icon.refresh:before {

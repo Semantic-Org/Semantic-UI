@@ -976,7 +976,7 @@ a:hover {
   transition: opacity 0.3s ease-out;
 }
 
-#example .example i.code:before {
+#example .example > i.code:before {
   font-family: 'Basic Icons';
   content: '\e714';
 }
