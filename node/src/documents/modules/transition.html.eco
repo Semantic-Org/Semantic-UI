@@ -413,8 +413,6 @@ type        : 'UI Module'
           </tr>
         </tbody>
       </table>
-
-
     </div>
     <div class="five wide right floated fixed column">
       <img src="/images/demo/vector.png" class="ui dog image">

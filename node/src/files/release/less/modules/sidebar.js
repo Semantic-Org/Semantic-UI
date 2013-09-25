@@ -453,24 +453,25 @@ $.fn.sidebar = function(parameters) {
 
 $.fn.sidebar.settings = {
 
-  name   : 'Sidebar',
-  namespace    : 'sidebar',
+  name        : 'Sidebar',
+  namespace   : 'sidebar',
 
-  verbose      : true,
-  debug        : true,
-  performance  : true,
+  verbose     : true,
+  debug       : true,
+  performance : true,
 
-  useCSS       : true,
-  overlay      : false,
-  duration     : 300,
+  useCSS      : true,
+  overlay     : false,
+  duration    : 300,
 
-  side         : 'left',
+  side        : 'left',
 
-  onChange     : function(){},
-  onShow       : function(){},
-  onHide       : function(){},
+  /* callbacks not currently implemented */
+  onChange    : function(){},
+  onShow      : function(){},
+  onHide      : function(){},
 
-  className: {
+  className   : {
     active : 'active',
     pushed : 'pushed',
     top    : 'top',
