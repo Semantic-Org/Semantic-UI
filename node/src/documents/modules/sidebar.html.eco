@@ -65,8 +65,8 @@ type        : 'UI Module'
   <div class="ui ignored warning message">
     <div class="header">Fixed Position Snafoos</div>
     Fixed position content may have issues changing it's position when a sidebar appears. There are two solutions
-    <ul class="list">
-      <li>Specify your fixed content without using the css left property
+    <ul class="ui list">
+      <li>Specify your fixed content without using the css left or top properties.</li>
       <li>Apply styles on the fixed element to adjust its position when the sidebar appears. You can do this by descending from the body tag which receives the class <code>(direction) pushed</code> when the view is moved.</li>
     </ul>
   </div>
@@ -211,7 +211,7 @@ type        : 'UI Module'
     </div>
   </div>
 
-  <h2 class="ui header">Behavior</h2>
+  <h2 class="ui dividing header">Behavior</h2>
 
   All the following behaviors can be called using the syntax <code>$('.foo').sidebar('behavior name')</code>
 
