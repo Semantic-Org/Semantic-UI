@@ -29,7 +29,7 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Vertical Divider</h4>
     <p>A divider can segment content vertically</p>
-    <div class="ui two column middle aligned grid basic segment">
+    <div class="ui two column middle aligned relaxed grid basic segment">
       <div class="column">
         <div class="ui form segment">
           <div class="field">
@@ -60,7 +60,7 @@ type        : 'UI Element'
       </div>
       <div class="center aligned column">
         <div class="huge green ui labeled icon button">
-          <i class="icon add user"></i>
+          <i class="signup icon"></i>
           Sign Up
         </div>
       </div>
@@ -71,10 +71,10 @@ type        : 'UI Element'
     <h4 class="ui header">Horizontal Divider</h4>
     <p>A divider can segment content horizontally</p>
     <h3 class="ui header">Retrieve Order</h3>
-    <div class="ui form secondary segment">
+    <div class="ui tertiary form segment">
       <div class="field">
         <label>Lookup Order</label>
-        <div class="ui left left labeled icon input">
+        <div class="ui left labeled icon input">
           <i class="search icon"></i>
           <input type="text" placeholder="Order #">
         </div>
@@ -84,9 +84,9 @@ type        : 'UI Element'
     <div class="ui horizontal divider">
       Or
     </div>
-    <div class="teal ui right left labeled icon button">
+    <div class="ui teal labeled icon button">
       Create New Order
-      <i class="right arrow icon"></i>
+      <i class="add icon"></i>
     </div>
   </div>
 

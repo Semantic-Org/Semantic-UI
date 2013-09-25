@@ -91,6 +91,12 @@
   opacity: 0.85;
   margin: 1em 0em;
 }
+.ui.message p:first-child {
+  margin-top: 0em;
+}
+.ui.message p:last-child {
+  margin-bottom: 0em;
+}
 .ui.message .header + p {
   margin-top: 0.3em;
 }
@@ -129,7 +135,7 @@
 }
 
 /* dismissable block */
-.ui.message > .icon.close {
+.ui.message > .close.icon {
   cursor: pointer;
   position: absolute;
   top: 1em;
@@ -152,7 +158,7 @@
     opacity 0.1s linear
   ;
 }
-.ui.message > .icon.close:hover {
+.ui.message > .close.icon:hover {
   opacity: 1;
 }
 
@@ -228,12 +234,14 @@
   display: table-cell;
   vertical-align: middle;
   font-size: 3.8em;
-  padding-right: 0.4em;
   opacity: 0.2;
+}
+.ui.icon.message > .icon + .content {
+  padding-left: 1em;
 }
 .ui.icon.message > .content {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 /*--------------

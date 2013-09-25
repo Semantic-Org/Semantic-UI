@@ -124,6 +124,15 @@ type        : 'UI Element'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Fluid</h4>
+    <p>An input can take the size of its container</p>
+    <div class="ui fluid input">
+      <input type="text" placeholder="Search a very wide input...">
+      <div class="ui icon button"><i class="search icon"></i></div>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Size</h4>
     <p>An input can vary in size</p>
     <div class="ui mini icon input">

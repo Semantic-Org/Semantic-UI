@@ -53,7 +53,7 @@ type        : 'UI Collection'
       </tbody>
       <tfoot>
         <th colspan="3">
-          <div class="ui small blue labeled icon button"><i class="user icon"></i> Add User</div>
+          <div class="ui blue labeled icon button"><i class="user icon"></i> Add User</div>
         </th>
       </tfoot>
     </table>

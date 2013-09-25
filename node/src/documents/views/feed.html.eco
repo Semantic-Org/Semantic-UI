@@ -42,7 +42,7 @@ type        : 'UI View'
       </div>
       <div class="event">
         <div class="label">
-          <i class="icon circular idea"></i>
+          <i class="circular pencil icon"></i>
         </div>
         <div class="content">
           <div class="date">
@@ -58,7 +58,7 @@ type        : 'UI View'
       </div>
       <div class="event">
         <div class="label">
-          <i class="icon circular photos"></i>
+          <i class="circular photo icon"></i>
         </div>
         <div class="content">
           <div class="date">
@@ -95,7 +95,7 @@ type        : 'UI View'
       </div>
       <div class="event">
         <div class="label">
-          <i class="icon circular idea"></i>
+          <i class="circular pencil icon"></i>
         </div>
         <div class="content">
           <div class="summary">
@@ -191,7 +191,7 @@ type        : 'UI View'
           </div>
           <div class="event">
             <div class="label">
-              <i class="icon circular idea"></i>
+              <i class="circular pencil icon"></i>
             </div>
             <div class="content">
               <div class="date">
@@ -207,7 +207,7 @@ type        : 'UI View'
           </div>
           <div class="event">
             <div class="label">
-              <i class="icon circular photos"></i>
+              <i class="circular photo icon"></i>
             </div>
             <div class="content">
               <div class="date">

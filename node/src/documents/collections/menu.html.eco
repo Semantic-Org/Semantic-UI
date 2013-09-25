@@ -34,7 +34,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
       <div class="right menu">
         <div class="borderless item">
@@ -209,7 +209,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
   </div>
@@ -224,7 +224,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
       <div class="ui dropdown item">
         More <i class="icon right triangle"></i>
@@ -248,7 +248,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br><br>
@@ -260,7 +260,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
   </div>
@@ -273,7 +273,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br><br>
@@ -285,7 +285,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
   </div>
@@ -302,7 +302,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Most Comments
       </a>
       <a class="item">
-        <i class="community icon"></i> Most Popular
+        <i class="user icon"></i> Most Popular
       </a>
     </div>
   </div>
@@ -317,7 +317,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Most Comments
       </a>
       <a class="item">
-        <i class="community icon"></i> Most Popular
+        <i class="user icon"></i> Most Popular
       </a>
     </div>
   </div>
@@ -329,7 +329,7 @@ type        : 'UI Collection'
     <p>A menu may have a header to help label sections of a menu.</p>
     <div class="ui vertical menu">
       <div class="header item">
-        <i class="community icon"></i>
+        <i class="user icon"></i>
         Communities
       </div>
       <div class="item">
@@ -383,11 +383,14 @@ type        : 'UI Collection'
     </div>
     <div class="ui vertical menu">
       <div class="header item">
-        Promotion
+        Promotions
         <span class="ui teal label">New</span>
       </div>
-      <div class="item">
-        <p><a>Join now</a> and save $10 on a pro membership! </p>
+      <div class="text item">
+        <a>Join now</a> and save $10 on a pro membership!
+      </div>
+      <div class="text item">
+        <a>Join now</a> and save $10 on a pro membership!
       </div>
     </div>
   </div>
@@ -506,7 +509,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
   </div>
@@ -521,7 +524,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Red
       </a>
       <a class="blue item">
-        <i class="community icon"></i> Blue
+        <i class="user icon"></i> Blue
       </a>
       <a class="orange item">
         <i class="home icon"></i> Orange
@@ -530,7 +533,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Purple
       </a>
       <a class="teal item">
-        <i class="community icon"></i> Teal
+        <i class="user icon"></i> Teal
       </a>
     </div>
     <br>
@@ -542,7 +545,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -554,7 +557,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -566,7 +569,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -578,7 +581,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -590,7 +593,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
   </div>
@@ -604,7 +607,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -616,7 +619,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -628,7 +631,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -640,7 +643,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -652,7 +655,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
     <br>
@@ -664,7 +667,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
     </div>
   </div>
@@ -760,8 +763,6 @@ type        : 'UI Collection'
         Site Title
       </a>
       <div class="item">
-      </div>
-      <div class="item">
         <b>Grouped Section</b>
         <div class="menu">
           <a class="item">Subsection 1</a>
@@ -808,7 +809,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <a class="item">
-        <i class="community icon"></i> Browse
+        <i class="user icon"></i> Friends
       </a>
       <div class="right menu">
         <div class="borderless item">

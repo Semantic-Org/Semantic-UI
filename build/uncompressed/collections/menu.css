@@ -412,9 +412,12 @@
   left: 100%;
   margin: 0px 0px 0px 1px;
 }
+.ui.vertical.menu .dropdown.item.active {
+  border-top-right-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
 .ui.vertical.menu .dropdown.item .menu .item {
-  font-size: 0.875rem;
-  padding: 0.83em 1em;
+  font-size: 1rem;
 }
 .ui.vertical.menu .dropdown.item .menu .item .icon {
   margin-right: 0em;

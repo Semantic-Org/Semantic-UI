@@ -743,7 +743,7 @@ i.icon.phone.sign:before {
 i.icon.phone:before {
   content: "\f095";
 }
-i.icon.picture:before {
+i.icon.photo:before {
   content: "\f03e";
 }
 i.icon.pin:before {
@@ -792,10 +792,10 @@ i.icon.puzzle.piece:before {
 i.icon.qr.code:before {
   content: "\f029";
 }
-i.icon.question.mark:before {
+i.icon.question:before {
   content: "\f128";
 }
-i.icon.question:before {
+i.icon.help:before {
   content: "\f059";
 }
 i.icon.quote.left:before {
@@ -1151,6 +1151,12 @@ i.icon.close:before {
 }
 i.icon.delete:before {
   content: "\f00d";
+}
+i.icon.like:before {
+  content: "\f004";
+}
+i.icon.signup:before {
+  content: "\f044";
 }
 /*--------------
    Spacing Fix
