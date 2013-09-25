@@ -1,10 +1,13 @@
-/*  ******************************
-  Accordion
-  Author: Jack Lukic
-  Notes: First Commit July 19, 2012
-
-  Simple accordion design
-******************************  */
+/*
+ * # Semantic - Accordion
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ($, window, document, undefined) {
 

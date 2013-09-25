@@ -1,7 +1,6 @@
 /*  ******************************
-  Module - Video Component
+  Module - Video
   Author: Jack Lukic
-  Notes: First Commit June 30, 2012
 
   This is a video playlist and video embed plugin which helps
   provide helpers for adding embed code for vimeo and youtube and

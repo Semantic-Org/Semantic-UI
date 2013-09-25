@@ -1,14 +1,13 @@
-/*  ******************************
-  Form Validation Components
-  Author: Jack Lukic
-  Notes: First Commit April 08, 2012
-
-  Refactored May 28, 2013
-
-  Allows you to validate forms based on a form validation object
-  Form validation objects are bound by either data-validate="" metadata, or form id or name tags
-
-******************************  */
+/*
+ * # Semantic - Form Validation
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 

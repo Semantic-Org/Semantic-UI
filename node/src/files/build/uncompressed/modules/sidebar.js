@@ -1,9 +1,13 @@
-/*  ******************************
-   Semantic Module: Dropdown
-   Author: Jack Lukic
-   Notes: First Commit May 25, 2013
-
-******************************  */
+/*
+ * # Semantic - Dropdown
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 

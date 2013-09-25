@@ -1,11 +1,13 @@
-/*  ******************************
-  Semantic Module: Popup
-  Author: Jack Lukic
-  Notes: May 30, 2013
-
-  Simple plug-in to display popups
-
-******************************  */
+/*
+ * # Semantic - Popup
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ($, window, document, undefined) {
 

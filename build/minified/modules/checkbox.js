@@ -1,14 +1,13 @@
-/*  ******************************
-  Semantic Module: Checkbox
-  Author: Jack Lukic
-  Notes: First Commit March 25, 2013
-
-  Simple plug-in which maintains the state for ui checkbox
-  This can be done without javascript, only in instances
-  where each checkbox is assigned a unique ID. This provides a separate
-  programmatic option when that is not possible.
-
-******************************  */
+/*
+ * # Semantic - Checkbox
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 

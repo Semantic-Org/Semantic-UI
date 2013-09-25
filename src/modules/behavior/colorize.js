@@ -1,14 +1,13 @@
-/*  ******************************
-  Colorizer
-  Author: Jack Lukic
-  Notes: First Commit June 06, 2012
-
-  Tooltip Wrapper for loading
-  colorizes of ideations, concepts and users
-
-  Will eventually rewrite to use own tooltip lib
-
-******************************  */
+/*
+ * # Semantic - Colorize
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 

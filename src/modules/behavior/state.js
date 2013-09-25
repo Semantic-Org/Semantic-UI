@@ -1,40 +1,13 @@
-/*  ******************************
-  Module
-  State
-  Change text based on state context
-  Hover/down/Active/Inactive
-  Author: Jack Lukic
-  Last revision: May 2012
-
-  State text module is used to apply text to a given node
-  depending on the elements "state"
-
-  State is either defined as "active" or "inactive" depending
-  on the returned value of a test function
-
-  Usage:
-
-  $button
-    .state({
-      states: {
-        active: true
-      },
-      text: {
-        inactive: 'Follow',
-        active  : 'Following',
-        enable  : 'Add',
-        disable : 'Remove'
-      }
-    })
-  ;
-
-  "Follow", turns to "Add" on hover, then "Following" on active
-  and finally "Remove" on active hover
-
-  This plugin works in correlation to API module and will, by default,
-  use deffered object accept/reject to determine state.
-
-******************************  */
+/*
+ * # Semantic - State
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 
