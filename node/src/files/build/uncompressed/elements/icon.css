@@ -397,10 +397,10 @@ i.icon.exclamation:before {
 i.icon.expand:before {
   content: "\f116";
 }
-i.icon.external.link.sign:before {
+i.icon.external.url.sign:before {
   content: "\f14c";
 }
-i.icon.external.link:before {
+i.icon.external.url:before {
   content: "\f08e";
 }
 i.icon.facebook.sign:before {
@@ -625,7 +625,7 @@ i.icon.level.up:before {
 i.icon.lightbulb:before {
   content: "\f0eb";
 }
-i.icon.link:before {
+i.icon.url:before {
   content: "\f0c1";
 }
 i.icon.linkedin.sign:before {
