@@ -16,7 +16,8 @@ type        : 'UI Behavior'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="item">Usage</a>
+      <a class="active item">Usage</a>
+      <a class="item">Behavior</a>
       <a class="item">Settings</a>
     </div>
   </div>
@@ -230,6 +231,41 @@ type        : 'UI Behavior'
       <div class="ui blue submit button">Submit</div>
     </div>
   </div>
+
+  <h2 class="ui dividing header">Behavior</h2>
+
+  All the following behaviors can be called using the syntax <code>$('.foo').form('behavior name', argumentOne, argumentTwo)</code>
+
+  <table class="ui definition celled table segment">
+    <tr>
+      <td>submit</td>
+      <td>Submits selected form</td>
+    </tr>
+    <tr>
+      <td>validate form</td>
+      <td>Validates form and calls onSuccess or onFailure</td>
+    </tr>
+    <tr>
+      <td>get change event</td>
+      <td>gets browser property change event</td>
+    </tr>
+    <tr>
+      <td>get field(id)</td>
+      <td>Returns element with maching name, id, or data-validate metadata to ID</td>
+    </tr>
+    <tr>
+      <td>get validation(element)</td>
+      <td>Returns validation rules for a given field</td>
+    </tr>
+    <tr>
+      <td>has field(identifier)</td>
+      <td>Returns whether a field exists</td>
+    </tr>
+    <tr>
+      <td>add errors(errors)</td>
+      <td>Adds errors to form, given an array errors</td>
+    </tr>
+  </table>
 
   <h2 class="ui dividing header">Settings</h2>
 

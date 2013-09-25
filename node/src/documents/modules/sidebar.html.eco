@@ -244,8 +244,6 @@ type        : 'UI Module'
       <td>add body css</td>
       <td>Adds stylesheet to page head to trigger sidebar animations</td>
     </tr>
-
-
   </table>
 
 </div>
