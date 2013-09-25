@@ -253,7 +253,7 @@ type        : 'UI Behavior'
       <tr>
         <td>on</td>
         <td>submit</td>
-        <td>Event used to trigger validation. Can be either submit, blur or change.</td>
+        <td>Event used to trigger validation. Can be either <b>submit</b>, <b>blur</b> or <b>change</b>.</td>
       </tr>
       <tr>
         <td>inline</td>
@@ -265,7 +265,7 @@ type        : 'UI Behavior'
         <td>
           scale
         </td>
-        <td>Named transition to use when animating menu in and out. Fade and slide down are available without including <a href="/modules/transition.html">ui transitions</a></td>
+        <td>Named transition to use when animating validation errors. Fade and slide down are available without including <a href="/modules/transition.html">ui transitions</a></td>
       </tr>
       <tr>
         <td>duration</td>
@@ -275,11 +275,13 @@ type        : 'UI Behavior'
     </tbody>
   </table>
 
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
   <h3 class="ui header">
     Validation Rules
     <div class="sub header">Validation rules are a set of conditions required to validate a field</div>
   </h3>
-  <div class="ui info message">Validation rules are found in <code>settings.rules</code></div>
+  <div class="ui info message">Validation rules are found in <code>settings.rules</code>, to add new global validation rules, modify <code>$.fn.form.settings.rules</code> to include your function.</div>
   <table class="ui teal celled definition table segment">
     <thead>
       <th class="four wide">Name</th>
@@ -335,13 +337,14 @@ type        : 'UI Behavior'
     </tbody>
   </table>
 
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
 
   <h3 class="ui header">
     Callbacks
     <div class="sub header">Callback settings specify a function to occur after a specific behavior.</div>
   </h3>
 
-  <table class="ui celled definition table segment">
+  <table class="ui celled green definition table segment">
     <thead>
       <th class="four wide">Setting</th>
       <th>Context</th>
@@ -371,14 +374,14 @@ type        : 'UI Behavior'
     </tbody>
   </table>
 
-  <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
 
   <h3 class="ui header">
     Templates
     <div class="sub header">Templates are used to construct elements</div>
   </h3>
-  <div class="ui info message">Templates are found in <code>settings.template</code></div>
-  <table class="ui  celled definition table segment">
+  <div class="ui info message">Templates are found in <code>settings.template</code>, to modify templates across all forms, modify <code>$.fn.form.settings.templates</code> to include your function. They must return html.</div>
+  <table class="ui celled blue definition table segment">
     <thead>
       <th class="four wide">Template</th>
       <th>Arguments</th>
@@ -398,13 +401,13 @@ type        : 'UI Behavior'
     </tbody>
   </table>
 
-
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
 
   <h3 class="ui header">
     DOM Settings
     <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
   </h3>
-  <table class="ui celled definition table segment">
+  <table class="ui celled purple definition table segment">
     <thead>
       <th>Setting</th>
       <th class="six wide">Default</th>
@@ -463,6 +466,7 @@ type        : 'UI Behavior'
     </tbody>
   </table>
 
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
 
   <h3 class="ui header">
     Debug Settings
