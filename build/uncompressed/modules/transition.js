@@ -1,11 +1,13 @@
-/*  ******************************
-  Semantic Module: Transition
-  Author: Jack Lukic
-  Notes: First Commit March 25, 2013
-
-  A module for controlling css animations
-
-******************************  */
+/*
+ * # Semantic - Transition
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 
@@ -619,7 +621,7 @@ $.fn.transition.settings = {
   // animation complete event
   complete     : function() {},
 
-  // animation duration (useful only with future js animations)
+  // animation duration
   animation    : 'fade',
   duration     : '700ms',
 

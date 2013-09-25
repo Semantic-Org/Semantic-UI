@@ -1,10 +1,13 @@
-/*  ******************************
-  Module - Tabs
-  Author: Jack Lukic
-  Notes: First Commit Aug 15, 2012
+/*
+ * # Semantic - Tab
+ * http://github.com/jlukic/semantic-ui/
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
-  History based tab navigation
-******************************  */
 
 ;(function ($, window, document, undefined) {
 

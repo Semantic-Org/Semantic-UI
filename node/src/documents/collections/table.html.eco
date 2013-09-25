@@ -25,7 +25,7 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Table</h4>
     <p>A standard table</p>
-    <div class="ui ignorede info message">
+    <div class="ui ignored info message">
       <p>This example uses a <a href="/elements/segment.html">segment</a> to add padding and a background color.</p>
     </div>
     <table class="ui sortable table segment">
@@ -53,7 +53,7 @@ type        : 'UI Collection'
       </tbody>
       <tfoot>
         <th colspan="3">
-          <div class="ui small blue labeled icon button"><i class="icon add user"></i> Add User</div>
+          <div class="ui blue labeled icon button"><i class="user icon"></i> Add User</div>
         </th>
       </tfoot>
     </table>
@@ -78,7 +78,7 @@ type        : 'UI Collection'
         </tr>
         <tr class="positive">
           <td>Jimmy</td>
-          <td><i class="icon sketchy checkmark"></i> Approved</td>
+          <td><i class="icon checkmark"></i> Approved</td>
           <td>None</td>
         </tr>
         <tr>
@@ -98,7 +98,7 @@ type        : 'UI Collection'
   <h3 class="ui header">Cells</h3>
   <div class="example">
     <h4 class="ui header">Error</h4>
-    <p>A cell or row may alert the user to an error or a negative value:</p>
+    <p>A cell or row may attention the user to an error or a negative value:</p>
     <table class="ui table segment">
       <thead>
         <th>Name</th>
@@ -119,7 +119,7 @@ type        : 'UI Collection'
         <tr>
           <td>Jamie</td>
           <td>Approved</td>
-          <td class="error"><i class="sketchy alert icon"></i> Classified</td>
+          <td class="error"><i class="attention icon"></i> Classified</td>
         </tr>
         <tr>
           <td>Jill</td>
@@ -147,13 +147,13 @@ type        : 'UI Collection'
         </tr>
         <tr class="warning">
           <td>Jimmy</td>
-          <td><i class="sketchy alert icon"></i> Requires Action</td>
+          <td><i class="attention icon"></i> Requires Action</td>
           <td>None</td>
         </tr>
         <tr>
           <td>Jamie</td>
           <td>Unknown</td>
-          <td class="warning"><i class="sketchy alert icon"></i> Hostile</td>
+          <td class="warning"><i class="attention icon"></i> Hostile</td>
         </tr>
         <tr>
           <td>Jill</td>

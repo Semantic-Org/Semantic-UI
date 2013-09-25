@@ -1,12 +1,13 @@
-/*  ******************************
-  Modal
-  Author: Jack Lukic
-  Notes: First Commit May 14, 2012
-
-  Manages modal state and
-  stage dimming
-
-******************************  */
+/*
+ * # Semantic - Modal
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 

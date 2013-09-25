@@ -1,19 +1,28 @@
 module.exports = function(grunt) {
+
   var
     defaultTasks = [
       // watch less folder
       'watch'
     ],
+
     watchTasks = [
+      // clean build directory
+      'clean:build',
+
       // compiles less
       'less:buildCSS',
 
       // copies assets and js over to build dir
-      'copy:toBuild',
+      'copy:srcToBuild',
 
-      // copies files over to docs
-      'copy:libraryToDocs'
+      // copies semantic over to docs
+      'copy:buildToDocs',
+
+      // copies examples over to docs
+      'copy:examplesToDocs'
     ],
+
     buildTasks = [
       // clean build directory
       'clean:build',
@@ -22,7 +31,7 @@ module.exports = function(grunt) {
       'less:buildCSS',
 
       // copies assets and js over to build dir
-      'copy:toBuild',
+      'copy:srcToBuild',
 
       // creates minified css of each file
       'cssmin:minifyCSS',
@@ -51,8 +60,11 @@ module.exports = function(grunt) {
       // copies spec files over to docs
       'copy:specToDocs',
 
+      // copies examples over to docs
+      'copy:examplesToDocs',
+
       // copies files over to docs
-      'copy:libraryToDocs'
+      'copy:buildToDocs'
     ],
     config
   ;
@@ -60,12 +72,16 @@ module.exports = function(grunt) {
   config = {
 
     package : grunt.file.readJSON('package.json'),
-    //server  : grunt.file.readJSON('server.json'),
+
+    /*******************************
+                 Watch
+    *******************************/
 
     // watches for changes in a source folder
     watch: {
       scripts: {
         files: [
+          '../examples/**/*',
           '../src/**/*.less',
           '../src/**/*.js'
         ],
@@ -73,27 +89,18 @@ module.exports = function(grunt) {
       }
     },
 
+    /*******************************
+                Build
+    *******************************/
+
     clean: {
       build : {
         cwd: '../build',
         src: '*'
       },
       docs : {
-        cwd: 'src/files/release/',
+        cwd: 'src/files/build/',
         src: '*'
-      }
-    },
-
-    docco: {
-      generate: {
-        expand : true,
-        cwd    : '../spec',
-        src    : [
-          '**/*.commented.js'
-        ],
-        options: {
-          output: 'src/files/generated/'
-        }
       }
     },
 
@@ -111,14 +118,127 @@ module.exports = function(grunt) {
         src    : [
           '**/*.less'
         ],
-        dest : '../build/uncompressed',
-        ext  : '.css'
+        dest : '../build/uncompressed/',
+        // this allows multiple dot names to be preserved
+        rename: function(folder, filename) {
+          return folder + filename.substring(0, filename.lastIndexOf('.') ) + '.css';
+        }
       }
     },
 
+    copy: {
+
+      srcToBuild: {
+
+        files: [
+          // exact copy for less
+          {
+            expand : true,
+            cwd    : '../src/',
+            src    : [
+              '**/*'
+            ],
+            dest : '../build/less'
+          },
+          // copy everything but less files for uncompressed release
+          {
+            expand : true,
+            cwd    : '../src/',
+            src    : [
+              '**/*.js',
+              'images/*',
+              'fonts/*'
+            ],
+            dest : '../build/uncompressed'
+          },
+          // copy everything but less for minified release
+          {
+            expand : true,
+            cwd    : '../src/',
+            src    : [
+              '**/*.js',
+              'images/*',
+              'fonts/*'
+            ],
+            dest : '../build/minified'
+          },
+
+          // copy assets only for packaged version
+          {
+            expand : true,
+            cwd    : '../src/',
+            src    : [
+              'images/*',
+              'fonts/*'
+            ],
+            dest : '../build/packaged'
+          }
+        ]
+      },
+
+      // make library available in docs
+      buildToDocs: {
+        files: [
+          {
+            expand : true,
+            cwd    : '../build/',
+            src    : [
+              '**'
+            ],
+            dest   : 'src/files/build/'
+          }
+        ]
+      },
+
+      // copy spec files to docs
+      specToDocs: {
+        files: [
+          {
+            expand : true,
+            cwd    : '../spec',
+            src    : [
+              '**'
+            ],
+            dest   : 'src/files/spec/'
+          }
+        ]
+      },
+
+      // copy spec files to docs
+      examplesToDocs: {
+        files: [
+          {
+            expand : true,
+            cwd    : '../examples',
+            src    : [
+              '**'
+            ],
+            dest   : 'src/files/examples/'
+          }
+        ]
+      }
+
+    },
+
+    // generate documented source code
+    docco: {
+      generate: {
+        expand : true,
+        cwd    : '../spec',
+        src    : [
+          '**/*.commented.js'
+        ],
+        options: {
+          css: '',
+          output: 'src/files/generated/'
+        }
+      }
+    },
+
+
     compress: {
       options: {
-        archive: 'src/files/release/semantic.zip'
+        archive: 'src/files/build/semantic.zip'
       },
       everything: {
         files: [
@@ -133,76 +253,9 @@ module.exports = function(grunt) {
       }
     },
 
-    copy: {
-      toBuild: {
-        files: [
-          {
-            expand : true,
-            cwd    : '../src/',
-            src    : [
-              '**/*.js',
-              'images/*',
-              'fonts/*'
-            ],
-            dest : '../build/uncompressed'
-          },
-          {
-            expand : true,
-            cwd    : '../src/',
-            src    : [
-              '**/*'
-            ],
-            dest : '../build/less'
-          },
-          {
-            expand : true,
-            cwd    : '../src/',
-            src    : [
-              '**/*.js',
-              'images/*',
-              'fonts/*'
-            ],
-            dest : '../build/minified'
-          },
-          {
-            expand : true,
-            cwd    : '../src/',
-            src    : [
-              'images/*',
-              'fonts/*'
-            ],
-            dest : '../build/packaged'
-          }
-        ]
-      },
-      libraryToDocs: {
-        files: [
-          {
-            expand : true,
-            cwd    : '../build/',
-            src    : [
-              '**'
-            ],
-            dest   : 'src/files/release/'
-          }
-        ]
-      },
-      specToDocs: {
-        files: [
-          {
-            expand : true,
-            cwd    : '../spec',
-            src    : [
-              '**'
-            ],
-            dest   : 'src/files/spec/'
-          }
-        ]
-      }
-    },
-
     cssmin: {
 
+      // copy minified css to minified release
       minifyCSS: {
         expand : true,
         cwd    : '../build/uncompressed',
@@ -213,13 +266,14 @@ module.exports = function(grunt) {
         ext  : '.min.css'
       },
 
+      // add comment banner to css release
       addBanner: {
         options : {
           banner : '' +
             '/*\n' +
             '* # <%= package.semantic.name %>\n' +
             '* Version: <%= package.semantic.version %>\n' +
-            '* http://github.com/quirkyinc/semantic\n' +
+            '* http://github.com/jlukic/semantic-ui\n' +
             '*\n' +
             '*\n' +
             '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
@@ -246,7 +300,20 @@ module.exports = function(grunt) {
           '**/*.js'
         ],
         dest : '../build/minified',
-        ext  : '.min.js'
+        ext  : '.min.js',
+        banner   : '' +
+          '/*' +
+          '* # <%= package.semantic.name %>\n' +
+          '* Version: <%= package.semantic.version %>\n' +
+          '* http://github.com/jlukic/semantic-ui\n' +
+          '*\n' +
+          '*\n' +
+          '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
+          '* Released under the MIT license\n' +
+          '* http://opensource.org/licenses/MIT\n' +
+          '*\n' +
+          '* Release Date: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
+          '*/\n'
       },
 
       buildReleaseJS: {
@@ -257,14 +324,14 @@ module.exports = function(grunt) {
             '/*' +
             '* # <%= package.semantic.name %>\n' +
             '* Version: <%= package.semantic.version %>\n' +
-            '* http://github.com/quirkyinc/semantic\n' +
+            '* http://github.com/jlukic/semantic-ui\n' +
             '*\n' +
             '*\n' +
             '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
             '* Released under the MIT license\n' +
             '* http://opensource.org/licenses/MIT\n' +
             '*\n' +
-            '* Released: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
+            '* Release Date: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
             '*/\n'
         },
         files: {
@@ -273,38 +340,24 @@ module.exports = function(grunt) {
           ]
         }
       }
-    },
-    s3: {
-      options: '<%= server.cdn %>',
-      deploy: {
-        options: {
-        },
-        upload: [
-          {
-            src: '../docs',
-            dest: 'docs'
-          }
-        ]
-      }
     }
 
   };
 
+
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-docco');
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-css');
-
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-docco');
 
   grunt.initConfig(config);
 
   grunt.registerTask('default', defaultTasks);
+
   grunt.registerTask('build', buildTasks);
 
 };

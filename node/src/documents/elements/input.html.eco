@@ -113,13 +113,22 @@ type        : 'UI Element'
   <div class="another example">
     <div class="ui action input">
       <input type="text" placeholder="Username">
-      <div class="ui teal button"><i class="add user icon"></i> Add users</div>
+      <div class="ui teal button"><i class="user icon"></i> Add users</div>
     </div>
   </div>
   <div class="another example">
     <div class="ui action input">
       <input type="text" placeholder="Search...">
       <div class="ui icon button"><i class="search icon"></i></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Fluid</h4>
+    <p>An input can take the size of its container</p>
+    <div class="ui fluid icon input">
+      <input type="text" placeholder="Search a very wide input...">
+      <i class="search icon"></i>
     </div>
   </div>
 

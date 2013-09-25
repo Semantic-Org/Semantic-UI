@@ -1,15 +1,13 @@
 /*
- * # Semantic Menu
- * http://github.com/quirkyinc/semantic
+ * # Semantic - Menu
+ * http://github.com/jlukic/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- * Released: April 17 2013
  */
-
 
 /*******************************
             Standard
@@ -249,13 +247,12 @@
 }
 .ui.menu .input .icon {
   padding-top: 0em;
-  top: -0.05em;
   height: auto;
 }
 .ui.menu .item > .input input,
 .ui.menu .item > input {
   position: relative;
-  top: -0.6em;
+  top: -0.45em;
   margin: 0em;
   padding-top: 0.45em;
   padding-bottom: 0.45em;
@@ -369,10 +366,8 @@
 ---------------*/
 
 .ui.link.menu .item:active,
-.ui.menu .item.down,
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
-.ui.menu .ui.dropdown .menu .item.down,
 .ui.menu .ui.dropdown .menu .item:active {
   background-color: rgba(0, 0, 0, 0.05);
 
@@ -548,9 +543,12 @@
   left: 100%;
   margin: 0px 0px 0px 1px;
 }
+.ui.vertical.menu .dropdown.item.active {
+  border-top-right-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
 .ui.vertical.menu .dropdown.item .menu .item {
-  font-size: 0.875rem;
-  padding: 0.83em 1em;
+  font-size: 1rem;
 }
 .ui.vertical.menu .dropdown.item .menu .item .icon {
   margin-right: 0em;
@@ -674,9 +672,9 @@
   background-color: transparent;
   border-bottom: 1px solid #DCDDDE;
 
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
 }
 .ui.tabular.menu .item {
   background-color: transparent;
@@ -719,6 +717,16 @@
   -moz-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
 }
+
+/* Coupling with segment for attachment */
+.ui.attached.tabular.menu {
+  position: relative;
+  z-index: 2;
+}
+.ui.tabular.menu ~ .bottom.attached.segment {
+  margin: 1px 0px 0px 1px;
+}
+
 
 /*--------------
    Pagination
@@ -903,8 +911,7 @@
 }
 
 /* Down */
-.ui.secondary.pointing.menu > .item:active,
-.ui.secondary.pointing.menu > .item.down {
+.ui.secondary.pointing.menu > .item:active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.2);
 }
@@ -957,8 +964,7 @@
 }
 
 /* Down */
-.ui.secondary.vertical.pointing.menu > .item:active,
-.ui.secondary.vertical.pointing.menu > .item.down {
+.ui.secondary.vertical.pointing.menu > .item:active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.2);
 }
@@ -992,8 +998,7 @@
 }
 
 /* Down */
-.ui.secondary.inverted.pointing.menu > .item:active,
-.ui.secondary.inverted.pointing.menu > .item.down {
+.ui.secondary.inverted.pointing.menu > .item:active {
   border-color: rgba(255, 255, 255, 0.4) !important;
 }
 
@@ -1350,9 +1355,7 @@
 }
 
 /*--- Down ---*/
-.ui.inverted.menu .item.down,
 .ui.inverted.menu a.item:active,
-.ui.inverted.menu .item.down,
 .ui.inverted.menu .dropdown.item:active,
 .ui.inverted.menu .link.item:active,
 .ui.inverted.menu a.item:active {
@@ -1482,20 +1485,20 @@
 .ui.fitted.menu .item,
 .ui.fitted.menu .item .menu .item,
 .ui.menu .fitted.item {
-  padding-top: 0em;
-  padding-bottom: 0em;
-}
-
-/*--------------
-     Tight
----------------*/
-
-.ui.tight.menu .item,
-.ui.tight.menu .item .menu .item,
-.ui.menu .tight.item {
   padding: 0em;
 }
-
+.ui.horizontally.fitted.menu .item,
+.ui.horizontally.fitted.menu .item .menu .item,
+.ui.menu .horizontally.fitted.item {
+  padding-top: 0.83em;
+  padding-bottom: 0.83em;
+}
+.ui.vertically.fitted.menu .item,
+.ui.vertically.fitted.menu .item .menu .item,
+.ui.menu .vertically.fitted.item {
+  padding-left: 0.95em;
+  padding-right: 0.95em;
+}
 
 /*--------------
    Borderless
@@ -1702,8 +1705,7 @@
   background-color: #F4F4F4;
 }
 
-.ui.pointing.menu .active.item.down:after,
-.ui.pointing.menu .active.item:active:after {
+.ui.pointing.menu a.active.item:active:after {
   background-color: #F0F0F0;
 }
 

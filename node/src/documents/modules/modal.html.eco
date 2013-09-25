@@ -31,7 +31,7 @@ type        : 'UI Module'
       <div class="ui black button">Cancel</div>
       <div class="ui green labeled black icon button">
         Add Photo
-        <i class="sketchy checkmark icon"></i>
+        <i class="checkmark icon"></i>
       </div>
     </div>
   </div>
