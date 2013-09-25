@@ -45,6 +45,7 @@ body {
 
 #feed .left.column {
   background-color: #333333;
+  min-width: 260px;
 }
 #feed .left.column > .menu {
   height: 100%;
@@ -77,17 +78,14 @@ body {
 *******************************/
 
 
-@media only screen and (max-width : 800px) {
-  #feed .left.column {
-    min-width: 200px;
-  }
+@media only screen and (max-width : 1000px) {
   #feed .inbox .date {
     float: none;
-    margin-top: 0.5em;
+    margin-bottom: 0.5em;
   }
 }
 
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width : 1250px) {
   #feed .left.column > .menu .item {
     font-size: 1rem;
   }
