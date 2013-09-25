@@ -42,6 +42,7 @@ type        : 'UI Element'
       <h4 class="ui header">Content</h4>
       <p>Icons can represent types of web content</p>
       <div class="ui eight column grid">
+        <div class="column"><i class="archive icon"></i>Archive</div>
         <div class="column"><i class="attachment icon"></i>Attachment</div>
         <div class="column"><i class="browser icon"></i>Browser</div>
         <div class="column"><i class="bug icon"></i>Bug</div>
@@ -63,12 +64,12 @@ type        : 'UI Element'
         <div class="column"><i class="folder open icon"></i>Open Folder</div>
         <div class="column"><i class="folder open outline icon"></i>Open Folder Outline</div>
         <div class="column"><i class="folder outline icon"></i>Folder Outline</div>
+        <div class="column"><i class="help icon"></i>Help</div>
         <div class="column"><i class="home icon"></i>Home</div>
         <div class="column"><i class="inbox icon"></i>Inbox</div>
         <div class="column"><i class="info icon"></i>Info</div>
         <div class="column"><i class="info letter icon"></i>Info Letter</div>
         <div class="column"><i class="legal icon"></i>Legal</div>
-        <div class="column"><i class="loading icon"></i>Spinner</div>
         <div class="column"><i class="location arrow icon"></i>Location</div>
         <div class="column"><i class="map marker icon"></i>Map Marker</div>
         <div class="column"><i class="mobile icon"></i>Mobile</div>
@@ -76,10 +77,9 @@ type        : 'UI Element'
         <div class="column"><i class="outline chat icon"></i>Chat Outline</div>
         <div class="column"><i class="outline comment icon"></i>Comment Outline</div>
         <div class="column"><i class="payment icon"></i>Payment</div>
-        <div class="column"><i class="picture icon"></i>Picture</div>
+        <div class="column"><i class="photo icon"></i>Photo</div>
         <div class="column"><i class="qr code icon"></i>QR Code</div>
         <div class="column"><i class="question icon"></i>Question</div>
-        <div class="column"><i class="question mark icon"></i>Question Mark</div>
         <div class="column"><i class="rss icon"></i>RSS</div>
         <div class="column"><i class="rss sign icon"></i>RSS Sign</div>
         <div class="column"><i class="setting icon"></i>Setting</div>
@@ -98,7 +98,6 @@ type        : 'UI Element'
         <div class="column"><i class="trash icon"></i>Trash</div>
         <div class="column"><i class="user icon"></i>User</div>
         <div class="column"><i class="users icon"></i>Users</div>
-        <div class="column"><i class="archive icon"></i>Archive</div>
       </div>
       <div class="existing code">
     <i class="archive icon"></i>
@@ -123,12 +122,12 @@ type        : 'UI Element'
     <i class="folder open icon"></i>
     <i class="folder open outline icon"></i>
     <i class="folder outline icon"></i>
+    <i class="help icon"></i>
     <i class="home icon"></i>
     <i class="inbox icon"></i>
     <i class="info icon"></i>
     <i class="info letter icon"></i>
     <i class="legal icon"></i>
-    <i class="loading icon"></i>
     <i class="location arrow icon"></i>
     <i class="map marker icon"></i>
     <i class="mobile icon"></i>
@@ -136,10 +135,9 @@ type        : 'UI Element'
     <i class="outline chat icon"></i>
     <i class="outline comment icon"></i>
     <i class="payment icon"></i>
-    <i class="picture icon"></i>
+    <i class="photo icon"></i>
     <i class="qr code icon"></i>
     <i class="question icon"></i>
-    <i class="question letter icon"></i>
     <i class="rss icon"></i>
     <i class="rss sign icon"></i>
     <i class="setting icon"></i>
@@ -201,7 +199,6 @@ type        : 'UI Element'
         <div class="column"><i class="save icon"></i>Save</div>
         <div class="column"><i class="screenshot icon"></i>Screenshot</div>
         <div class="column"><i class="search icon"></i>Search</div>
-        <div class="column"><i class="share alternate icon"></i>Share Alternate</div>
         <div class="column"><i class="share icon"></i>Share</div>
         <div class="column"><i class="share sign icon"></i>Share Sign</div>
         <div class="column"><i class="sign in icon"></i>Sign in</div>
@@ -212,6 +209,50 @@ type        : 'UI Element'
         <div class="column"><i class="upload icon"></i>Upload</div>
       </div>
       <div class="existing code">
+        <i class="adjust icon"></i>
+        <i class="bookmark empty icon"></i>
+        <i class="bookmark icon"></i>
+        <i class="cloud download icon"></i>
+        <i class="cloud upload icon"></i>
+        <i class="collapse icon"></i>
+        <i class="crop icon"></i>
+        <i class="download disk icon"></i>
+        <i class="download icon"></i>
+        <i class="edit icon"></i>
+        <i class="edit sign icon"></i>
+        <i class="empty flag icon"></i>
+        <i class="exchange icon"></i>
+        <i class="expand icon"></i>
+        <i class="filter icon"></i>
+        <i class="flag icon"></i>
+        <i class="fork code icon"></i>
+        <i class="forward mail icon"></i>
+        <i class="fullscreen icon"></i>
+        <i class="hide icon"></i>
+        <i class="level down icon"></i>
+        <i class="level up icon"></i>
+        <i class="lightbulb icon"></i>
+        <i class="link icon"></i>
+        <i class="off icon"></i>
+        <i class="refresh icon"></i>
+        <i class="remove circle icon"></i>
+        <i class="remove icon"></i>
+        <i class="remove sign icon"></i>
+        <i class="reorder icon"></i>
+        <i class="reply all mail icon"></i>
+        <i class="reply mail icon"></i>
+        <i class="retweet icon"></i>
+        <i class="save icon"></i>
+        <i class="screenshot icon"></i>
+        <i class="search icon"></i>
+        <i class="share icon"></i>
+        <i class="share sign icon"></i>
+        <i class="sign in icon"></i>
+        <i class="sign out icon"></i>
+        <i class="tint icon"></i>
+        <i class="unhide icon"></i>
+        <i class="upload disk icon"></i>
+        <i class="upload icon"></i>
       </div>
     </div>
 
@@ -523,6 +564,7 @@ type        : 'UI Element'
         <div class="column"><i class="frown icon"></i>Frown</div>
         <div class="column"><i class="heart empty icon"></i>Heart Empty</div>
         <div class="column"><i class="heart icon"></i>Heart</div>
+        <div class="column"><i class="loading icon"></i>Loading</div>
         <div class="column"><i class="lock icon"></i>Lock</div>
         <div class="column"><i class="meh icon"></i>Meh</div>
         <div class="column"><i class="ok circle icon"></i>OK Circle</div>
@@ -551,6 +593,7 @@ type        : 'UI Element'
     <i class="frown icon"></i>
     <i class="heart empty icon"></i>
     <i class="heart icon"></i>
+    <i class="loading icon"></i>
     <i class="lock icon"></i>
     <i class="meh icon"></i>
     <i class="ok circle icon"></i>
@@ -805,16 +848,14 @@ type        : 'UI Element'
   <div class="ui bottom attached tab segment" data-tab="basic">
 
     <h3 class="ui header">Custom Icon Set</h3>
+    <div class="ui ignored info message">
+      <p>This icon set was built using a custom combination of fonts using the amazing web tool <a href="http://fontello.com/">Fontello</a>, to only include the most frequently used icons for websites. The filesize for the basic icon set is <b>about 50% smaller</b> than the standard icon set.</p>
+      </div>
+      <div class="ui ignored warning message">
+      <p>To use multiple icon sets together you must modify each icon stylesheet to use a sub class like <code>i.basic.icon</code>. This page uses this technique to allow for both fonts to display correctly.</p>
+    </div>
 
     <div class="icon example">
-
-      <div class="ui ignored info message">
-        <p>This icon set was built using a custom combination of fonts using the amazing web tool <a href="http://fontello.com/">Fontello</a>, to only include the most frequently used icons for websites. The filesize for the basic icon set is <b>about 50% smaller</b> than the standard icon set.</p>
-        </div>
-        <div class="ui ignored warning message">
-        <p>To use multiple icon sets together you must modify each icon stylesheet to use a sub class like <code>i.basic.icon</code>. This page uses this technique to allow for both fonts to display correctly.</p>
-      </div>
-
       <h4 class="ui header">Content</h4>
       <p>Icons can represent typical web content</p>
       <div class="ui eight column grid">

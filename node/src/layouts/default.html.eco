@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 <% uiIntroduction    = @getCollection("documents").findAllLive({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
-<% uiProject           = @getCollection("documents").findAllLive({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
+<% uiProject         = @getCollection("documents").findAllLive({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
 <% uiGuide           = @getCollection("documents").findAllLive({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
 <% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
 <% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
