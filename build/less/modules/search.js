@@ -1,10 +1,13 @@
-/*  ******************************
-  Search Prompt
-  Author: Jack Lukic
-
-  Designed to be used as an autocomplete
-  or to deliver quick inline search results
-******************************  */
+/*
+ * # Semantic - Search
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ($, window, document, undefined) {
 

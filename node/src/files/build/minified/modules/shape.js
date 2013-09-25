@@ -1,11 +1,13 @@
-/*  ******************************
-  Semantic Module: Shape
-  Author: Jack Lukic
-  Notes: First Commit March 25, 2013
-
-  An experimental plugin for manipulating 3D shapes on a 2D plane
-
-******************************  */
+/*
+ * # Semantic - Shape
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ( $, window, document, undefined ) {
 
