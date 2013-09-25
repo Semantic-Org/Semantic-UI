@@ -8,7 +8,7 @@ type        : 'UI Module'
 ---
 
 <link rel="stylesheet" type="text/css" href="/stylesheets/shape.css">
-<script src="/release/uncompressed/modules/shape.js"></script>
+<script src="/build/uncompressed/modules/shape.js"></script>
 <script src="/javascript/shape.js"></script>
 
 <%- @partial('header') %>

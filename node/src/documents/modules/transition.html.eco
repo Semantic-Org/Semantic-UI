@@ -7,8 +7,6 @@ description : 'A transition is an animation usually used to move content in or o
 type        : 'UI Module'
 ---
 
-<script src="/release/uncompressed/modules/transition.js"></script>
-
 <%- @partial('header') %>
 
 <div class="main container">
