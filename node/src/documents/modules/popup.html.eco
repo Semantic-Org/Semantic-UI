@@ -57,7 +57,7 @@ type        : 'UI Module'
   <h4 class="ui header">Including metadata</h4>
   <p>Frequently used metadata like, title, content, html, or arrowOffset or variation, can be included in html metadata<p>
   <div class="ui info icon ignored message">
-    <i class="icon help circle"></i>
+    <i class="info icon"></i>
     <div class="content">
       <div class="header">Specifying Content</div>
       <p>Popups can specify content in three ways:<p>
