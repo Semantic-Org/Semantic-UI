@@ -766,19 +766,18 @@ i.icon.play.sign:before {
 i.icon.play:before {
   content: "\f04b";
 }
-i.icon.plus.sign.alternate:before {
+i.icon.add.sign.box:before {
   content: "\f0fe";
 }
-i.icon.plus.sign:before {
+i.icon.add.sign:before {
   content: "\f055";
 }
-i.icon.plus:before {
+i.icon.add:before {
   content: "\f067";
 }
 i.icon.pound:before {
   content: "\f154";
 }
-i.icon.power.off:before,
 i.icon.off:before {
   content: "\f011";
 }
@@ -848,11 +847,9 @@ i.icon.road:before {
 i.icon.rocket:before {
   content: "\f135";
 }
-i.icon.rotate.left:before,
 i.icon.undo:before {
   content: "\f0e2";
 }
-i.icon.rotate.right:before,
 i.icon.repeat:before {
   content: "\f01e";
 }

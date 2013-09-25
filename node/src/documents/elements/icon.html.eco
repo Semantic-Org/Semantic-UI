@@ -163,6 +163,9 @@ type        : 'UI Element'
       <h4 class="ui header">User Actions</h4>
       <p>Icons can represent a possible user action</p>
       <div class="ui eight column grid">
+        <div class="column"><i class="add icon"></i>Add</div>
+        <div class="column"><i class="add sign icon"></i>Add Sign</div>
+        <div class="column"><i class="add sign box icon"></i>Add Sign Box</div>
         <div class="column"><i class="adjust icon"></i>Adjust</div>
         <div class="column"><i class="bookmark empty icon"></i>Empty Bookmark</div>
         <div class="column"><i class="bookmark icon"></i>Bookmark</div>
@@ -209,6 +212,9 @@ type        : 'UI Element'
         <div class="column"><i class="upload icon"></i>Upload</div>
       </div>
       <div class="existing code">
+        <i class="add icon"></i>
+        <i class="add sign box icon"></i>
+        <i class="add sign icon"></i>
         <i class="adjust icon"></i>
         <i class="bookmark empty icon"></i>
         <i class="bookmark icon"></i>
@@ -663,9 +669,6 @@ type        : 'UI Element'
         <div class="column"><i class="minus icon"></i>Minus</div>
         <div class="column"><i class="minus sign alternate icon"></i>Minus Sign Alternate</div>
         <div class="column"><i class="minus sign icon"></i>Minus sign</div>
-        <div class="column"><i class="plus icon"></i>Plus</div>
-        <div class="column"><i class="plus sign alternate icon"></i>Plus Sign Alternate</div>
-        <div class="column"><i class="plus sign icon"></i>Plus Sign</div>
         <div class="column"><i class="sign icon"></i>Sign</div>
       </div>
       <div class="existing code">
@@ -715,9 +718,6 @@ type        : 'UI Element'
     <i class="minus icon"></i>
     <i class="minus sign alternate icon"></i>
     <i class="minus sign icon"></i>
-    <i class="plus icon"></i>
-    <i class="plus sign alternate icon"></i>
-    <i class="plus sign icon"></i>
     <i class="sign icon"></i>
       </div>
     </div>
