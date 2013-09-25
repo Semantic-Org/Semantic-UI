@@ -1,8 +1,6 @@
 RELEASE NOTES
 --------------
 
-Full Release notes will be maintained after first public release
-
 Version 0.1 - Sep 25, 2013
 
 New
@@ -16,3 +14,6 @@ Fixes
 -Adds horizontally padded, vertically padded menu item variations to allow menu items to remove padding
 -Added fixes to tabular menu especially with attached content
 -UI Loaders now positioned automatically in all circumstances, even with long text
+
+Updates
+-Updated documentation for sidebar, transition, and form validation
