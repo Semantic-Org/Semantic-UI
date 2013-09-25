@@ -26,7 +26,7 @@ type        : 'UI Module'
   <div class="example">
     <h4 class="ui header">Popup</h4>
     <p>A standard popup</p>
-    <i class="circular help icon link" data-content="Hello, I am a pop-up."></i>
+    <i class="large help icon link" data-content="Hello, I am a pop-up."></i>
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
@@ -34,14 +34,14 @@ type        : 'UI Module'
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A popup can be large or small</p>
-    <i class="circular help icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
-    <i class="circular help icon link" data-content="Hello. This is a large popup" data-variation="large"></i>
+    <i class="help icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
+    <i class="help icon link" data-content="Hello. This is a large popup" data-variation="large"></i>
   </div>
 
   <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A popup can have its colors inverted</p>
-    <i class="circular help icon link" data-content="Hello. This is an inverted popup" data-variation="inverted"></i>
+    <i class="help icon link" data-content="Hello. This is an inverted popup" data-variation="inverted"></i>
   </div>
 
 
@@ -57,7 +57,7 @@ type        : 'UI Module'
   <h4 class="ui header">Including metadata</h4>
   <p>Frequently used metadata like, title, content, html, or arrowOffset or variation, can be included in html metadata<p>
   <div class="ui info icon ignored message">
-    <i class="icon circular help circle"></i>
+    <i class="icon help circle"></i>
     <div class="content">
       <div class="header">Specifying Content</div>
       <p>Popups can specify content in three ways:<p>
@@ -69,7 +69,7 @@ type        : 'UI Module'
     </div>
   </div>
   <div class="code" data-type="html">
-    <i class="circular help icon link" data-content="Here is some popup content." data-position="top left" data-variation="black"></i>
+    <i class="help icon link" data-content="Here is some popup content." data-position="top left" data-variation="black"></i>
   </div>
 
   <h2 class="ui dividing header">Examples</h2>
@@ -77,32 +77,32 @@ type        : 'UI Module'
   <div class="example segment">
     <h4 class="ui header">Positioning</h4>
     <p>A popup can be positioned to any side of an element. If space is not available, it will automatically search for a similar alternative position to use.</p>
-      <i class="circular help icon link" data-content="Top Left" data-position="top left"></i>
-      <i class="circular help icon link" data-content="Top Center" data-position="top center"></i>
-      <i class="circular help icon link" data-content="Top Right" data-position="top right"></i>
-      <i class="circular help icon link" data-content="Left Center" data-position="left center"></i>
-      <i class="circular help icon link" data-content="Right Center" data-position="right center"></i>
-      <i class="circular help icon link" data-content="Bottom Left" data-position="bottom left"></i>
-      <i class="circular help icon link" data-content="Bottom Center" data-position="bottom center"></i>
-      <i class="circular help icon link" data-content="Bottom Right" data-position="bottom right"></i>
+      <i class="help icon link" data-content="Top Left" data-position="top left"></i>
+      <i class="help icon link" data-content="Top Center" data-position="top center"></i>
+      <i class="help icon link" data-content="Top Right" data-position="top right"></i>
+      <i class="help icon link" data-content="Left Center" data-position="left center"></i>
+      <i class="help icon link" data-content="Right Center" data-position="right center"></i>
+      <i class="help icon link" data-content="Bottom Left" data-position="bottom left"></i>
+      <i class="help icon link" data-content="Bottom Center" data-position="bottom center"></i>
+      <i class="help icon link" data-content="Bottom Right" data-position="bottom right"></i>
   </div>
 
   <div class="example segment">
     <h4 class="ui header">Title</h4>
     <p>A popup can be formatted with a title</p>
-    <i class="circular help icon link" data-title="Dog Breeds" data-content="There are many types of dogs. We don't have time to list them all"></i>
+    <i class="help icon link" data-title="Dog Breeds" data-content="There are many types of dogs. We don't have time to list them all"></i>
   </div>
 
   <div class="example segment">
     <h4 class="ui header">HTML</h4>
     <p>A popup can be formatted with html</p>
-    <i class="circular help icon link" data-html="<strike>I rescind my comment about cats</strike>"></i>
+    <i class="help icon link" data-html="<strike>I rescind my comment about cats</strike>"></i>
   </div>
 
   <div class="no example">
     <h4 class="ui header">Transitions</h4>
     <p>A popup can have different <a href="/modules/transition.html">transitions</a>. Any transition with both an in and out animation can be specified. The following are just a few examples.</p>
-    <i class="circular help icon fade link" data-content="This is a different transition"></i>
+    <i class="help icon fade link" data-content="This is a different transition"></i>
     <br><br>
     <div class="code" data-demo="true" data-title="Fade">
     $('.fade.icon')
@@ -112,7 +112,7 @@ type        : 'UI Module'
     </div>
   </div>
   <div class="no example">
-    <i class="circular help icon slide link" data-content="This is a different transition"></i>
+    <i class="help icon slide link" data-content="This is a different transition"></i>
     <br><br>
     <div class="code" data-demo="true" data-title="Slide Up">
     $('.slide.icon')
@@ -122,7 +122,7 @@ type        : 'UI Module'
     </div>
   </div>
   <div class="no example">
-    <i class="circular help icon flip link" data-content="This is a different transition"></i>
+    <i class="help icon flip link" data-content="This is a different transition"></i>
     <br><br>
     <div class="code" data-demo="true" data-title="Vertical Flip">
     $('.flip.icon')
