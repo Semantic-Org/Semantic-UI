@@ -212,7 +212,209 @@ type        : 'UI Module'
 
       <h2 class="ui dividing header">Behavior</h2>
 
+      All the following behaviors can be called using the syntax <code>$('.foo').transition('behavior name', argumentOne, argumentTwo)</code>
+
+      <table class="ui definition celled table segment">
+        <tr>
+          <td>repaint</td>
+          <td>Triggers reflow on element</td>
+        </tr>
+        <tr>
+          <td>looping</td>
+          <td>Enables animation looping</td>
+        </tr>
+        <tr>
+          <td>remove looping</td>
+          <td>Removes looping state from element</td>
+        </tr>
+        <tr>
+          <td>stop</td>
+          <td>Stops current transition</td>
+        </tr>
+        <tr>
+          <td>start</td>
+          <td>Restarts a stopped transition</td>
+        </tr>
+        <tr>
+          <td>toggle</td>
+          <td>Toggles current transition on/off</td>
+        </tr>
+        <tr>
+          <td>duration(duration)</td>
+          <td>Modifies element animation duration</td>
+        </tr>
+        <tr>
+          <td>save conditions</td>
+          <td>Saves all class names and styles to cache to be retrieved after animation</td>
+        </tr>
+        <tr>
+          <td>restore conditions</td>
+          <td>Adds back cached names and styles to element</td>
+        </tr>
+        <tr>
+          <td>get animation name</td>
+          <td>Returns vendor prefixed animation property for animationname</td>
+        </tr>
+        <tr>
+          <td>get animation event</td>
+          <td>Returns vendor prefixed animation property for animationend</td>
+        </tr>
+        <tr>
+          <td>is animating</td>
+          <td>Returns whether transition is currently occurring</td>
+        </tr>
+        <tr>
+          <td>is looping</td>
+          <td>Returns whether animation looping is set</td>
+        </tr>
+        <tr>
+          <td>is visible</td>
+          <td>Returns whether element is visible</td>
+        </tr>
+      </table>
+
       <h2 class="ui dividing header">Settings</h2>
+
+      <h3 class="ui header">
+        Transition Settings
+        <div class="sub header">Form settings modify the transition behavior</div>
+      </h3>
+      <table class="ui red celled definition table segment">
+        <thead>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>animation</td>
+            <td>fade</td>
+            <td>Named animation event to used. Must be defined in css.</td>
+          </tr>
+          <tr>
+            <td>duration</td>
+            <td>700ms</td>
+            <td>Duration of the css transition animation</td>
+          </tr>
+          <tr>
+            <td>queue</td>
+            <td>true</td>
+            <td>Whether to automatically queue animation if another is occurring</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+      <h3 class="ui header">
+        Callbacks
+        <div class="sub header">Callback settings specify a function to occur after a specific behavior.</div>
+      </h3>
+
+      <table class="ui celled green definition table segment">
+        <thead>
+          <th class="four wide">Setting</th>
+          <th>Context</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>complete</td>
+            <td>transitioned element</td>
+            <td>Callback on each transition complete</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+      <h3 class="ui header">
+        DOM Settings
+        <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+      </h3>
+      <table class="ui celled purple definition table segment">
+        <thead>
+          <th>Setting</th>
+          <th class="six wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>namespace</td>
+            <td>transition</td>
+            <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+          </tr>
+          <tr>
+            <td>className</td>
+            <td>
+              <div class="code">
+    className    : {
+      animating  : 'animating',
+      disabled   : 'disabled',
+      hidden     : 'hidden',
+      inward     : 'in',
+      loading    : 'loading',
+      looping    : 'looping',
+      outward    : 'out',
+      transition : 'ui transition',
+      visible    : 'visible'
+    }
+              </div>
+            </td>
+            <td>Class names used to attach style to state</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+      <h3 class="ui header">
+        Debug Settings
+        <div class="sub header">Debug settings controls debug output to the console</div>
+      </h3>
+
+      <table class="ui blue celled definition table segment">
+        <thead>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td>Transition</td>
+            <td>Name used in debug logs</td>
+          </tr>
+          <tr>
+            <td>debug</td>
+            <td>True</td>
+            <td>Provides standard debug output to console</td>
+          </tr>
+          <tr>
+            <td>performance</td>
+            <td>True</td>
+            <td>Provides standard debug output to console</td>
+          </tr>
+          <tr>
+            <td>verbose</td>
+            <td>True</td>
+            <td>Provides ancillary debug output to console</td>
+          </tr>
+          <tr>
+            <td>errors</td>
+            <td colspan="2">
+              <div class="code">
+    errors   : {
+      noAnimation : 'There is no css animation matching the one you specified.',
+      method      : 'The method you called is not defined'
+    }
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
     </div>
     <div class="five wide right floated fixed column">
       <img src="/images/demo/vector.png" class="ui dog image">
