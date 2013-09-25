@@ -11,8 +11,8 @@ type   : 'Library'
 <% uiViews           = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
 <script src="/javascript/library/zencoding.js"></script>
 <script src="/javascript/library/handlebars.js"></script>
-<script src="/release/uncompressed/modules/dropdown.js"></script>
-<script src="/release/uncompressed/modules/behavior/api.js"></script>
+<script src="/build/uncompressed/modules/dropdown.js"></script>
+<script src="/build/uncompressed/modules/behavior/api.js"></script>
 <script src="/javascript/playground.js"></script>
 
 <div class="ui page grid center aligned title">

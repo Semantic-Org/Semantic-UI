@@ -18,7 +18,7 @@ type   : 'Semantic'
         <h2 class="ui header">UI is the vocabulary of the web.</h2>
         <p>Semantic empowers designers and developers by creating a language for sharing UI.</p>
         <a class="ui black large labeled launch icon button"><i class="icon list layout"></i> View UI</a>
-        <a class="ui red large labeled icon button" href="release/semantic.zip" class="ui button"><i class="awesome download cloud icon"></i> Download</a>
+        <a class="ui red large labeled icon button" href="build/semantic.zip" class="ui button"><i class="awesome download cloud icon"></i> Download</a>
       </div>
       <div class="inverted advertisement">
         <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
