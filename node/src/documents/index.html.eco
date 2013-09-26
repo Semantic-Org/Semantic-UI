@@ -4,10 +4,10 @@ css    : 'index'
 title  : 'Getting Started'
 type   : 'Semantic'
 ---
-<% uiElements    = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
-<% uiCollections = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
-<% uiViews       = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
-<% uiModules     = @getCollection("documents").findAllLive({type: $in: ['UI Module', 'UI Behavior']},[{title: 1}]).toJSON() %>
+<% uiElements    = @getCollection("uiElements").toJSON() %>
+<% uiCollections = @getCollection("uiCollections").toJSON() %>
+<% uiViews       = @getCollection("uiViews").toJSON() %>
+<% uiModules     = @getCollection("uiModules").toJSON() %>
 <script src="/javascript/home.js"></script>
 
 <div class="masthead segment">
