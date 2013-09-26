@@ -89,7 +89,7 @@ type        : 'UI Module'
               <a class="ui like corner label">
                 <i class="like icon"></i>
               </a>
-              <img src="/images/demo/item1.jpg">
+              <img src="/images/demo/highres2.jpg">
             </div>
             <div class="content">
               <div class="name">Cute Dog</div>
@@ -105,7 +105,7 @@ type        : 'UI Module'
               <a class="ui like corner label">
                 <i class="like icon"></i>
               </a>
-              <img src="/images/demo/item3.jpg">
+              <img src="/images/demo/highres5.jpg">
             </div>
             <div class="content">
               <div class="name">Silly Dog</div>
@@ -121,7 +121,7 @@ type        : 'UI Module'
               <a class="ui like corner label">
                 <i class="like icon"></i>
               </a>
-              <img src="/images/demo/item2.jpg">
+              <img src="/images/demo/highres4.jpg">
             </div>
             <div class="content">
               <div class="meta">5 days ago</div>
@@ -143,7 +143,7 @@ type        : 'UI Module'
               <a class="ui like corner label">
                 <i class="like icon"></i>
               </a>
-              <img src="/images/demo/item4.jpg">
+              <img src="/images/demo/highres.jpg">
             </div>
             <div class="content">
               <div class="name">Cute Dog</div>
@@ -159,7 +159,7 @@ type        : 'UI Module'
               <a class="ui like corner label">
                 <i class="like icon"></i>
               </a>
-              <img src="/images/demo/item2.jpg">
+              <img src="/images/demo/highres4.jpg">
             </div>
             <div class="content">
               <div class="name">Silly Dog</div>
@@ -175,7 +175,7 @@ type        : 'UI Module'
               <a class="ui like corner label">
                 <i class="like icon"></i>
               </a>
-              <img src="/images/demo/item5.jpg">
+              <img src="/images/demo/highres6.jpg">
             </div>
             <div class="content">
               <div class="meta">5 days ago</div>
