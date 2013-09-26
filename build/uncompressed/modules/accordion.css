@@ -48,18 +48,10 @@
   display: inline-block;
   float: none;
   margin: 0em 0.5em 0em 0em;
-  -webkit-transition: transform 0.2s ease,
-    opacity 0.2s ease
-  ;
-  -moz-transition: transform 0.2s ease,
-    opacity 0.2s ease
-  ;
-  -o-transition: transform 0.2s ease,
-    opacity 0.2s ease
-  ;
-  -ms-transition: transform 0.2s ease,
-    opacity 0.2s ease
-  ;
+  -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease, opacity 0.2s ease;
+  -o-transition: -o-transform 0.2s ease, opacity 0.2s ease;
+  -ms-transition: -ms-transform 0.2s ease, opacity 0.2s ease;
   transition: transform 0.2s ease,
     opacity 0.2s ease
   ;
