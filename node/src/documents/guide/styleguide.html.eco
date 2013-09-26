@@ -114,15 +114,6 @@ type        : 'UI Guide'
     .ui.thingy .header {
 
     }
-
-    /* wow this guy is going to have to do a lot of typing... */
-    .ui.table .cell {
-
-    }
-    /* this seems like a reasonable assumption, html is a bit strict about these things */
-    .ui.table td {
-
-    }
     </div>
 
     <div class="code" data-type="css">
