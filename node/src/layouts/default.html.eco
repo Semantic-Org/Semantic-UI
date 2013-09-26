@@ -228,7 +228,7 @@
           <i class="terminal icon"></i>
         </a>
         <% end %>
-        <a class="popup icon item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
+        <a class="popup icon github item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
           <i class="icon github"></i>
         </a>
         <!--
