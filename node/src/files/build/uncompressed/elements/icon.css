@@ -55,6 +55,15 @@ i.icon {
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
+i.icon.add.sign.box:before {
+  content: "\f0fe";
+}
+i.icon.add.sign:before {
+  content: "\f055";
+}
+i.icon.add:before {
+  content: "\f067";
+}
 i.icon.adjust:before {
   content: "\f042";
 }
@@ -100,23 +109,38 @@ i.icon.apple:before {
 i.icon.archive:before {
   content: "\f187";
 }
-i.icon.down:before {
-  content: "\f063";
+i.icon.arrow.down:before {
+  content: "\f078";
 }
-i.icon.left:before {
-  content: "\f060";
+i.icon.arrow.left:before {
+  content: "\f053";
 }
-i.icon.right:before {
-  content: "\f061";
+i.icon.arrow.right:before {
+  content: "\f054";
 }
-i.icon.up:before {
-  content: "\f062";
+i.icon.arrow.sign.down:before {
+  content: "\f13a";
+}
+i.icon.arrow.sign.left:before {
+  content: "\f137";
+}
+i.icon.arrow.sign.right:before {
+  content: "\f138";
+}
+i.icon.arrow.sign.up:before {
+  content: "\f139";
+}
+i.icon.arrow.up:before {
+  content: "\f077";
 }
 i.icon.asterisk:before {
   content: "\f069";
 }
 i.icon.attachment:before {
   content: "\f0c6";
+}
+i.icon.attention:before {
+  content: "\f06a";
 }
 i.icon.backward:before {
   content: "\f04a";
@@ -220,41 +244,32 @@ i.icon.cart:before {
 i.icon.certificate:before {
   content: "\f0a3";
 }
+i.icon.chat.outline:before {
+  content: "\f0e6";
+}
+i.icon.chat:before {
+  content: "\f086";
+}
 i.icon.checkbox.empty:before {
   content: "\f096";
 }
 i.icon.checkbox.minus:before {
   content: "\f147";
 }
-i.icon.checkmark.sign:before {
-  content: "\f14a";
-}
 i.icon.checked.checkbox:before {
   content: "\f046";
 }
-i.icon.arrow.down:before {
-  content: "\f078";
+i.icon.checkmark.sign:before {
+  content: "\f14a";
 }
-i.icon.arrow.left:before {
-  content: "\f053";
+i.icon.checkmark:before {
+  content: "\f00c";
 }
-i.icon.arrow.right:before {
-  content: "\f054";
+i.icon.circle.blank:before {
+  content: "\f10c";
 }
-i.icon.arrow.up:before {
-  content: "\f077";
-}
-i.icon.arrow.sign.down:before {
-  content: "\f13a";
-}
-i.icon.arrow.sign.left:before {
-  content: "\f137";
-}
-i.icon.arrow.sign.right:before {
-  content: "\f138";
-}
-i.icon.arrow.sign.up:before {
-  content: "\f139";
+i.icon.circle.down:before {
+  content: "\f0ab";
 }
 i.icon.circle.left:before {
   content: "\f0a8";
@@ -264,12 +279,6 @@ i.icon.circle.right:before {
 }
 i.icon.circle.up:before {
   content: "\f0aa";
-}
-i.icon.circle.blank:before {
-  content: "\f10c";
-}
-i.icon.circle.down:before {
-  content: "\f0ab";
 }
 i.icon.circle:before {
   content: "\f111";
@@ -301,9 +310,6 @@ i.icon.comment.outline:before {
 i.icon.comment:before {
   content: "\f075";
 }
-i.icon.compass:before {
-  content: "\f14e";
-}
 i.icon.copy:before {
   content: "\f0c5";
 }
@@ -322,12 +328,6 @@ i.icon.dashboard:before {
 i.icon.desktop:before {
   content: "\f108";
 }
-i.icon.chat.outline:before {
-  content: "\f0e6";
-}
-i.icon.chat:before {
-  content: "\f086";
-}
 i.icon.doctor:before {
   content: "\f0f0";
 }
@@ -345,6 +345,9 @@ i.icon.double.angle.right:before {
 }
 i.icon.double.angle.up:before {
   content: "\f102";
+}
+i.icon.down:before {
+  content: "\f063";
 }
 i.icon.download.disk:before {
   content: "\f019";
@@ -373,12 +376,6 @@ i.icon.ellipsis.horizontal:before {
 i.icon.ellipsis.vertical:before {
   content: "\f142";
 }
-i.icon.envelope.outline:before {
-  content: "\f003";
-}
-i.icon.envelope:before {
-  content: "\f0e0";
-}
 i.icon.eraser:before {
   content: "\f12d";
 }
@@ -387,9 +384,6 @@ i.icon.euro:before {
 }
 i.icon.exchange:before {
   content: "\f0ec";
-}
-i.icon.attention:before {
-  content: "\f06a";
 }
 i.icon.exclamation:before {
   content: "\f12a";
@@ -436,9 +430,6 @@ i.icon.file.text:before {
 i.icon.file:before {
   content: "\f15b";
 }
-i.icon.film:before {
-  content: "\f008";
-}
 i.icon.filter:before {
   content: "\f0b0";
 }
@@ -460,17 +451,17 @@ i.icon.flag:before {
 i.icon.flickr:before {
   content: "\f16e";
 }
-i.icon.folder.outline:before {
-  content: "\f114";
-}
-i.icon.folder:before {
-  content: "\f07b";
-}
 i.icon.folder.open.outline:before {
   content: "\f115";
 }
 i.icon.folder.open:before {
   content: "\f07c";
+}
+i.icon.folder.outline:before {
+  content: "\f114";
+}
+i.icon.folder:before {
+  content: "\f07b";
 }
 i.icon.font:before {
   content: "\f031";
@@ -550,6 +541,9 @@ i.icon.heart.empty:before {
 i.icon.heart:before {
   content: "\f004";
 }
+i.icon.help:before {
+  content: "\f059";
+}
 i.icon.hide:before {
   content: "\f070";
 }
@@ -610,6 +604,9 @@ i.icon.layout.list:before {
 i.icon.leaf:before {
   content: "\f06c";
 }
+i.icon.left:before {
+  content: "\f060";
+}
 i.icon.legal:before {
   content: "\f0e3";
 }
@@ -624,9 +621,6 @@ i.icon.level.up:before {
 }
 i.icon.lightbulb:before {
   content: "\f0eb";
-}
-i.icon.url:before {
-  content: "\f0c1";
 }
 i.icon.linkedin.sign:before {
   content: "\f08c";
@@ -645,6 +639,9 @@ i.icon.list.unordered:before {
 }
 i.icon.list:before {
   content: "\f03a";
+}
+i.icon.loading:before {
+  content: "\f110";
 }
 i.icon.location:before {
   content: "\f124";
@@ -670,14 +667,23 @@ i.icon.magic:before {
 i.icon.magnet:before {
   content: "\f076";
 }
+i.icon.mail.outline:before {
+  content: "\f003";
+}
 i.icon.mail.reply:before {
   content: "\f112";
+}
+i.icon.mail:before {
+  content: "\f0e0";
 }
 i.icon.male:before {
   content: "\f183";
 }
 i.icon.map.marker:before {
   content: "\f041";
+}
+i.icon.map:before {
+  content: "\f14e";
 }
 i.icon.maxcdn:before {
   content: "\f136";
@@ -715,14 +721,14 @@ i.icon.music:before {
 i.icon.mute:before {
   content: "\f131";
 }
+i.icon.off:before {
+  content: "\f011";
+}
 i.icon.ok.circle:before {
   content: "\f05d";
 }
 i.icon.ok.sign:before {
   content: "\f058";
-}
-i.icon.checkmark:before {
-  content: "\f00c";
 }
 i.icon.paste:before {
   content: "\f0ea";
@@ -766,20 +772,8 @@ i.icon.play.sign:before {
 i.icon.play:before {
   content: "\f04b";
 }
-i.icon.add.sign.box:before {
-  content: "\f0fe";
-}
-i.icon.add.sign:before {
-  content: "\f055";
-}
-i.icon.add:before {
-  content: "\f067";
-}
 i.icon.pound:before {
   content: "\f154";
-}
-i.icon.off:before {
-  content: "\f011";
 }
 i.icon.print:before {
   content: "\f02f";
@@ -793,17 +787,11 @@ i.icon.qr.code:before {
 i.icon.question:before {
   content: "\f128";
 }
-i.icon.help:before {
-  content: "\f059";
-}
 i.icon.quote.left:before {
   content: "\f10d";
 }
 i.icon.quote.right:before {
   content: "\f10e";
-}
-i.icon.shuffle:before {
-  content: "\f074";
 }
 i.icon.refresh:before {
   content: "\f021";
@@ -823,6 +811,9 @@ i.icon.renren:before {
 i.icon.reorder:before {
   content: "\f0c9";
 }
+i.icon.repeat:before {
+  content: "\f01e";
+}
 i.icon.reply.all.mail:before {
   content: "\f122";
 }
@@ -841,17 +832,14 @@ i.icon.resize.vertical:before {
 i.icon.retweet:before {
   content: "\f079";
 }
+i.icon.right:before {
+  content: "\f061";
+}
 i.icon.road:before {
   content: "\f018";
 }
 i.icon.rocket:before {
   content: "\f135";
-}
-i.icon.undo:before {
-  content: "\f0e2";
-}
-i.icon.repeat:before {
-  content: "\f01e";
 }
 i.icon.rss.sign:before {
   content: "\f143";
@@ -885,6 +873,9 @@ i.icon.share:before {
 }
 i.icon.shield:before {
   content: "\f132";
+}
+i.icon.shuffle:before {
+  content: "\f074";
 }
 i.icon.sign.in:before {
   content: "\f090";
@@ -933,9 +924,6 @@ i.icon.sort.order:before {
 }
 i.icon.sort:before {
   content: "\f0dc";
-}
-i.icon.loading:before {
-  content: "\f110";
 }
 i.icon.stackexchange:before {
   content: "\f16c";
@@ -1055,6 +1043,9 @@ i.icon.umbrella:before {
 i.icon.underline:before {
   content: "\f0cd";
 }
+i.icon.undo:before {
+  content: "\f0e2";
+}
 i.icon.unhide:before {
   content: "\f06e";
 }
@@ -1070,17 +1061,26 @@ i.icon.unlock:before {
 i.icon.unmute:before {
   content: "\f130";
 }
+i.icon.up:before {
+  content: "\f062";
+}
 i.icon.upload.disk:before {
   content: "\f093";
 }
 i.icon.upload:before {
   content: "\f01b";
 }
+i.icon.url:before {
+  content: "\f0c1";
+}
 i.icon.user:before {
   content: "\f007";
 }
 i.icon.users:before {
   content: "\f0c0";
+}
+i.icon.video:before {
+  content: "\f008";
 }
 i.icon.vk:before {
   content: "\f189";

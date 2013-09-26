@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'steps'
 title       : 'Step'
-description : 'Steps show the current activity in a series of steps.'
+description : 'Steps show the current activity in a series of consecutive activities.'
 type        : 'UI Element'
 ---
 
