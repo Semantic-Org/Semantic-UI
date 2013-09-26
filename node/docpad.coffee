@@ -2,32 +2,7 @@
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 
- 	outPath: '../docs',
- 	renderPasses: 1,
-
- 	enabledPlugins:
-	 	handlebars: false
-	 	html2coffee: false
-	 	jade: false
-	 	marked: false
-	 	paged: false
-	 	livereload: false
-
-  # Check Version
-  # Whether or not to check for newer versions of DocPad
-  checkVersion: true  # default
-
-  documentsPaths: [  # default
-    'documents'
-  ]
-
-  # Files Paths
-  # An array of paths which contents will be treated as files
-  # If it is a relative path, it will have the resolved `srcPath` prepended to it
-  filesPaths: [  # default
-    'files'
-    'public'
-  ]
+	outPath: '../docs'
 
 	# =================================
 	# Template Data
@@ -111,6 +86,22 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
+
+	# =================================
+	# Custom Collections
+
+	collections:
+		uiElements: ->
+			@getCollection("documents").findAllLive({type: $in: ['UI Element']}, [{title: 1}])
+
+		uiCollections: ->
+			@getCollection("documents").findAllLive({type: $in: ['UI Collection']}, [{title: 1}])
+
+		uiViews: ->
+			@getCollection("documents").findAllLive({type: $in: ['UI View']}, [{title: 1}])
+
+		uiModules: ->
+			@getCollection("documents").findAllLive({type: $in: ['UI Module', 'UI Behavior']}, [{title: 1}])
 
 	# =================================
 	# DocPad Events
