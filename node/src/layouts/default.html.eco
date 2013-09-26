@@ -53,6 +53,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/statistic.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/modal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/accordion.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/reveal.css">
@@ -78,6 +79,7 @@
 
   <script src="/build/uncompressed/modules/behavior/api.js"></script>
   <script src="/build/uncompressed/modules/behavior/state.js"></script>
+  <script src="/build/uncompressed/modules/accordion.js"></script>
   <script src="/build/uncompressed/modules/checkbox.js"></script>
   <script src="/build/uncompressed/modules/dimmer.js"></script>
   <script src="/build/uncompressed/modules/dropdown.js"></script>
