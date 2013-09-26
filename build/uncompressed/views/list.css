@@ -52,8 +52,8 @@ ol.ui.list li,
 .ui.list .item > .icon {
   margin: 0em 0.5em 0em 0em;
 }
-.ui.list .item > .icon + .content {
-  margin-left: 0.75em;
+.ui.horizontal.list .item > .icon {
+  margin: 0em 0.25em 0em 0em;
 }
 /* Image */
 .ui.list .item > img {
@@ -391,6 +391,25 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .item:last-child {
   border-bottom: none;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+/*-------------------
+       Relaxed
+--------------------*/
+.ui.relaxed.list:not(.horizontal) .item {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.ui.horizontal.relaxed.list .item {
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+}
+.ui.very.relaxed.list:not(.horizontal) .item {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+.ui.horizontal.very.relaxed.list .item {
+  padding-left: 2em;
+  padding-right: 2em;
 }
 /*-------------------
       Sizes

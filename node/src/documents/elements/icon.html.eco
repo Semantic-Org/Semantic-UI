@@ -71,6 +71,9 @@ type        : 'UI Element'
         <div class="column"><i class="info letter icon"></i>Info Letter</div>
         <div class="column"><i class="legal icon"></i>Legal</div>
         <div class="column"><i class="location arrow icon"></i>Location</div>
+        <div class="column"><i class="mail icon"></i>Mail</div>
+        <div class="column"><i class="mail outline icon"></i>Mail Outline</div>
+        <div class="column"><i class="map icon"></i>Map</div>
         <div class="column"><i class="map marker icon"></i>Map Marker</div>
         <div class="column"><i class="mobile icon"></i>Mobile</div>
         <div class="column"><i class="music icon"></i>Music</div>
@@ -99,6 +102,7 @@ type        : 'UI Element'
         <div class="column"><i class="url icon"></i>URL</div>
         <div class="column"><i class="user icon"></i>User</div>
         <div class="column"><i class="users icon"></i>Users</div>
+        <div class="column"><i class="video icon"></i>Video</div>
       </div>
       <div class="existing code">
     <i class="archive icon"></i>
@@ -130,6 +134,9 @@ type        : 'UI Element'
     <i class="info letter icon"></i>
     <i class="legal icon"></i>
     <i class="location arrow icon"></i>
+    <i class="mail icon"></i>
+    <i class="mail outline icon"></i>
+    <i class="map icon"></i>
     <i class="map marker icon"></i>
     <i class="mobile icon"></i>
     <i class="music icon"></i>
@@ -158,6 +165,7 @@ type        : 'UI Element'
     <i class="url icon"></i>
     <i class="user icon"></i>
     <i class="users icon"></i>
+    <i class="video icon"></i>
       </div>
     </div>
 
@@ -190,7 +198,6 @@ type        : 'UI Element'
         <div class="column"><i class="hide icon"></i>Hide</div>
         <div class="column"><i class="level down icon"></i>Level Down</div>
         <div class="column"><i class="level up icon"></i>Level Up</div>
-        <div class="column"><i class="lightbulb icon"></i>Lightbulb</div>
         <div class="column"><i class="off icon"></i>Off</div>
         <div class="column"><i class="refresh icon"></i>Refresh</div>
         <div class="column"><i class="remove circle icon"></i>Remove Circle</div>
@@ -238,7 +245,6 @@ type        : 'UI Element'
     <i class="hide icon"></i>
     <i class="level down icon"></i>
     <i class="level up icon"></i>
-    <i class="lightbulb icon"></i>
     <i class="off icon"></i>
     <i class="refresh icon"></i>
     <i class="remove circle icon"></i>
@@ -440,14 +446,10 @@ type        : 'UI Element'
         <div class="column"><i class="camera icon"></i>Camera</div>
         <div class="column"><i class="camera retro icon"></i>Camera retro</div>
         <div class="column"><i class="coffee icon"></i>Coffee</div>
-        <div class="column"><i class="compass icon"></i>Compass</div>
         <div class="column"><i class="doctor icon"></i>Doctor</div>
-        <div class="column"><i class="envelope icon"></i>Envelope</div>
-        <div class="column"><i class="envelope outline icon"></i>Envelope Outline</div>
         <div class="column"><i class="eraser icon"></i>Eraser</div>
         <div class="column"><i class="female icon"></i>Female</div>
         <div class="column"><i class="fighter jet icon"></i>Fighter Jet</div>
-        <div class="column"><i class="film icon"></i>Film</div>
         <div class="column"><i class="fire extinguisher icon"></i>Fire Extinguisher</div>
         <div class="column"><i class="fire icon"></i>Fire</div>
         <div class="column"><i class="flag checkered icon"></i>Checkered Flag</div>
@@ -464,6 +466,7 @@ type        : 'UI Element'
         <div class="column"><i class="laptop icon"></i>Laptop</div>
         <div class="column"><i class="leaf icon"></i>Leaf</div>
         <div class="column"><i class="lemon icon"></i>Lemon</div>
+        <div class="column"><i class="lightbulb icon"></i>Lightbulb</div>
         <div class="column"><i class="magic icon"></i>Magic</div>
         <div class="column"><i class="magnet icon"></i>Magnet</div>
         <div class="column"><i class="male icon"></i>Male</div>
@@ -473,7 +476,7 @@ type        : 'UI Element'
         <div class="column"><i class="pencil icon"></i>Pencil</div>
         <div class="column"><i class="phone icon"></i>Phone</div>
         <div class="column"><i class="phone sign icon"></i>Phone Sign</div>
-        <div class="column"><i class="pin icon"></i>Pushpin</div>
+        <div class="column"><i class="pin icon"></i>Pin</div>
         <div class="column"><i class="plane icon"></i>Plane</div>
         <div class="column"><i class="puzzle piece icon"></i>Puzzle Piece</div>
         <div class="column"><i class="road icon"></i>Road</div>
@@ -504,14 +507,10 @@ type        : 'UI Element'
     <i class="camera icon"></i>
     <i class="camera retro icon"></i>
     <i class="coffee icon"></i>
-    <i class="compass icon"></i>
     <i class="doctor icon"></i>
-    <i class="envelope icon"></i>
-    <i class="envelope outline icon"></i>
     <i class="eraser icon"></i>
     <i class="female icon"></i>
     <i class="fighter jet icon"></i>
-    <i class="film icon"></i>
     <i class="fire extinguisher icon"></i>
     <i class="fire icon"></i>
     <i class="flag checkered icon"></i>
@@ -528,6 +527,7 @@ type        : 'UI Element'
     <i class="laptop icon"></i>
     <i class="leaf icon"></i>
     <i class="lemon icon"></i>
+    <i class="lightbulb icon"></i>
     <i class="magic icon"></i>
     <i class="magnet icon"></i>
     <i class="male icon"></i>

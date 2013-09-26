@@ -1,6 +1,15 @@
 RELEASE NOTES
 --------------
 
+
+Version 0.11 - Sep 26, 2013
+
+-Added relaxed and very relaxed list type with increased padding
+
+
+Updates
+-Updated list docs
+
 Version 0.1 - Sep 25, 2013
 
 New
