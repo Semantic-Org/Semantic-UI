@@ -6,15 +6,6 @@ title       : 'Language'
 description : 'Suggestions for language usage when developing user interfaces'
 type        : 'UI Guide'
 ---
-<div class="segment">
-  <div class="container">
-    <h1 class="ui header">UI Language</h1>
-    <div class="ui large red message">
-      This is a starting draft, check back later.
-    </div>
-  </div>
-</div>
-
 <%- @partial('header') %>
 <div class="main container">
 
