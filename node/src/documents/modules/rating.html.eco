@@ -63,6 +63,7 @@ type        : 'UI Module'
   <div class="example">
     <h4 class="ui header">Star</h4>
     <p>A rating can use a set of star icons</p>
+    <div class="ui info message">Star and heart rating types require the inclusion of semantic <a href="/elements/icon.html">ui icons</a></div>
     <div class="ui star rating">
       <i class="icon"></i>
       <i class="icon"></i>
@@ -127,7 +128,7 @@ type        : 'UI Module'
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A rating can vary in size</p>
-    <div class="ui small rating">
+    <div class="ui mini star rating">
       <i class="icon"></i>
       <i class="icon"></i>
       <i class="icon"></i>
@@ -136,7 +137,16 @@ type        : 'UI Module'
     </div>
   </div>
   <div class="another example">
-    <div class="ui large rating">
+    <div class="ui small star rating">
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui large star rating">
       <i class="icon"></i>
       <i class="icon"></i>
       <i class="icon"></i>

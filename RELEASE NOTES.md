@@ -6,6 +6,14 @@ Version 0.11 Sep 26, 2013
 New
 -Adds dropdown icon sexiness to accordions, now with rotating pointing arrows
 
+Fixes
+-Rating icon missing font content with icon font update
+-Padding on side of rating
+
+Updates
+-Accordion settings documentation
+-Rating settings documentation
+
 Version 0.1 - Sep 25, 2013
 
 New
