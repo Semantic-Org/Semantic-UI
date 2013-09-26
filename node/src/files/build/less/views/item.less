@@ -422,11 +422,12 @@
       Responsive
 --------------------*/
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width : 768px) {
   .ui.stackable.items {
     display: block !important;
   }
-  .ui.stackable.items .item {
+  .ui.stackable.items > .item,
+  .ui.stackable.items > .row > .item {
     margin: 0em 2em 1em !important;
     display: block !important;
     height: auto !important;

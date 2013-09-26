@@ -1155,9 +1155,6 @@ i.icon.signup:before {
   content: "\f044";
 }
 i.icon.dropdown:before {
-  content: "\f0da";
-}
-i.icon.open.dropdown:before {
   content: "\f0d7";
 }
 /*--------------

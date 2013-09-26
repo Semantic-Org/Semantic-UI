@@ -69,6 +69,9 @@
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
+.ui.accordion .title .dropdown.icon:before {
+  content: '\f0da';
+}
 /*--------------
  Loose Coupling
 ---------------*/

@@ -12,7 +12,7 @@ type        : 'Semantic'
 <div class="main container">
   <h2 class="ui dividing header">Types of Collections</h2>
 
-  <div class="ui type two items">
+  <div class="ui type two stackable items">
     <div class="item">
       <div class="image">
         <div class="ui breadcrumb">
