@@ -226,16 +226,16 @@ i.icon.camera.retro:before {
 i.icon.camera:before {
   content: "\f030";
 }
-i.icon.caret.down:before {
+i.icon.triangle.down:before {
   content: "\f0d7";
 }
-i.icon.caret.left:before {
+i.icon.triangle.left:before {
   content: "\f0d9";
 }
-i.icon.caret.right:before {
+i.icon.triangle.right:before {
   content: "\f0da";
 }
-i.icon.caret.up:before {
+i.icon.triangle.up:before {
   content: "\f0d8";
 }
 i.icon.cart:before {
@@ -1153,6 +1153,12 @@ i.icon.like:before {
 }
 i.icon.signup:before {
   content: "\f044";
+}
+i.icon.dropdown:before {
+  content: "\f0da";
+}
+i.icon.open.dropdown:before {
+  content: "\f0d7";
 }
 /*--------------
    Spacing Fix

@@ -636,10 +636,10 @@ type        : 'UI Element'
         <div class="column"><i class="right icon"></i>Right</div>
         <div class="column"><i class="up icon"></i>Up</div>
         <div class="column"><i class="asterisk icon"></i>Asterisk</div>
-        <div class="column"><i class="caret down icon"></i>Caret Down</div>
-        <div class="column"><i class="caret left icon"></i>Caret Left</div>
-        <div class="column"><i class="caret right icon"></i>Caret Right</div>
-        <div class="column"><i class="caret up icon"></i>Caret Up</div>
+        <div class="column"><i class="triangle down icon"></i>Triangle Down</div>
+        <div class="column"><i class="triangle left icon"></i>Triangle Left</div>
+        <div class="column"><i class="triangle right icon"></i>Triangle Right</div>
+        <div class="column"><i class="triangle up icon"></i>Triangle Up</div>
         <div class="column"><i class="arrow down icon"></i>Down Arrow</div>
         <div class="column"><i class="arrow left icon"></i>Left Arrow</div>
         <div class="column"><i class="arrow right icon"></i>Right Arrow</div>
@@ -684,10 +684,10 @@ type        : 'UI Element'
     <i class="arrow right icon"></i>
     <i class="arrow up icon"></i>
     <i class="asterisk icon"></i>
-    <i class="caret down icon"></i>
-    <i class="caret left icon"></i>
-    <i class="caret right icon"></i>
-    <i class="caret up icon"></i>
+    <i class="triangle down icon"></i>
+    <i class="triangle left icon"></i>
+    <i class="triangle right icon"></i>
+    <i class="triangle up icon"></i>
     <i class="arrow down icon"></i>
     <i class="arrow left icon"></i>
     <i class="arrow right icon"></i>
