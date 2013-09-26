@@ -130,11 +130,16 @@ a {
 a:hover {
   color: #00BAFF;
 }
+
 #example #menu .item {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+#example #menu .hide.item {
+  display: none;
+}
+
 #example #menu .item .item {
   font-size: 0.875rem;
 }
@@ -179,7 +184,6 @@ a:hover {
 /*  font-size: 0.875em;
   vertical-align: middle;*/
 }
-
 /* lists */
 #example .features {
   list-style-position: inside;
@@ -196,6 +200,7 @@ a:hover {
   float: right;
   margin-left: 2em;
 }
+
 
 
 /*--------------
@@ -1290,6 +1295,9 @@ body.progress .ui.progress .bar {
     display: block;
     margin: 1em 0em;
     padding: 0em;
+  }
+  #example #menu .hide.item {
+    display: block;
   }
   #example .inverted.advertisement .carbonad {
     height: 109px;
