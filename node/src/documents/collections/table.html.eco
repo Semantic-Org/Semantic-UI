@@ -63,7 +63,7 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Positive / Negative</h4>
-    <p>A cell or row may let a user know whether a value is good or bad:</p>
+    <p>A cell or row may let a user know whether a value is good or bad</p>
     <table class="ui table segment">
       <thead>
         <th>Name</th>
@@ -98,7 +98,7 @@ type        : 'UI Collection'
   <h3 class="ui header">Cells</h3>
   <div class="example">
     <h4 class="ui header">Error</h4>
-    <p>A cell or row may attention the user to an error or a negative value:</p>
+    <p>A cell or row may attention the user to an error or a negative value</p>
     <table class="ui table segment">
       <thead>
         <th>Name</th>
@@ -132,7 +132,7 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Warning</h4>
-    <p>A cell or row may warn a user:</p>
+    <p>A cell or row may warn a user</p>
     <table class="ui table segment">
       <thead>
         <th>Name</th>
@@ -166,7 +166,7 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Active</h4>
-    <p>A cell or row can be active:</p>
+    <p>A cell or row can be active or selected by a user</p>
     <table class="ui table segment">
       <thead>
         <th>Name</th>
@@ -199,7 +199,7 @@ type        : 'UI Collection'
   </div>
   <div class="example">
     <h4 class="ui header">Disabled</h4>
-    <p>A cell can be disabled:</p>
+    <p>A cell can be disabled</p>
     <table class="ui table segment">
       <thead>
         <th>Name</th>

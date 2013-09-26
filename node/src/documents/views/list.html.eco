@@ -14,7 +14,6 @@ type        : 'UI View'
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Types</a>
       <a class="item">Content</a>
-      <a class="item">States</a>
       <a class="item">Variations</a>
     </div>
   </div>
@@ -273,10 +272,6 @@ type        : 'UI View'
     </div>
   </div>
 
-
-  <h2 class="ui dividing header">States</h2>
-
-
   <h2 class="ui dividing header">Variations</h2>
 
 
@@ -356,6 +351,109 @@ type        : 'UI View'
         <div class="content">
           <div class="header">Paulo</div>
           He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Relaxed</h4>
+    <p>A list can relax its padding to provide more negative space</p>
+    <div class="ui relaxed divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui very relaxed divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui relaxed horizontal divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui very relaxed horizontal divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
         </div>
       </div>
     </div>

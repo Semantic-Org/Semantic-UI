@@ -404,8 +404,8 @@ ol.ui.horizontal.list li:before,
   padding-right: 1.25em;
 }
 .ui.very.relaxed.list:not(.horizontal) .item {
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 .ui.horizontal.very.relaxed.list .item {
   padding-left: 2em;
@@ -415,13 +415,16 @@ ol.ui.horizontal.list li:before,
       Sizes
 --------------------*/
 .ui.mini.list .item {
-  font-size: 0.8125rem;
+  font-size: 0.7rem;
 }
 .ui.tiny.list .item {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
 }
 .ui.small.list .item {
   font-size: 0.875rem;
+}
+.ui.list .item {
+  font-size: 1em;
 }
 .ui.large.list .item {
   font-size: 1.125rem;

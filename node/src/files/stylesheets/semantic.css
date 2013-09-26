@@ -215,6 +215,14 @@ a:hover {
   box-shadow: none;
 }
 
+/*--------------
+    Items
+---------------*/
+
+#example.item .text.example .item {
+  min-height: 150px;
+}
+
 
 /*--------------
     Masthead
