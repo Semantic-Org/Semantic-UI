@@ -163,7 +163,7 @@ a:hover {
 
 #example .main.menu {
   top: 0px;
-  min-width: 380px;
+  min-width: 320px;
   z-index: 900;
 
   -webkit-box-sizing: border-box;
@@ -1165,38 +1165,23 @@ body.progress .ui.progress .bar {
   transform-style: preserve-3d;
 }
 
-
-@media only screen and (max-width : 1725px) {
-  #example .container {
-    width: auto;
-    margin-right: 100px;
-    margin-left: 325px;
+@media only screen and (max-width : 450px) {
+  #example .main.menu .icon.item {
+    display: none;
   }
-  #example.index .container {
-    margin-left: 8em;
-    margin-right: 8em;
+  #example .main.menu .github.item {
+    display: block;
   }
-  #example .sticky-wrapper.stuck .peek {
-    margin-left: 0px;
-    left: 95px;
+  #example .carbonad {
+    height: 135px;
   }
-  #example.left.pushed .sticky-wrapper .peek {
-    padding-left: 275px;
-    margin-left: -275px;
-  }
-  #example.left.pushed .sticky-wrapper.stuck .peek {
-    margin-left: 0px;
-    padding-left: 275px;
+  #example .carbonad .carbonad-text {
+    width: 90px;
   }
 }
-
 @media only screen and (max-width : 600px) {
   #example .main.menu .borderless.item {
     display: none;
-  }
-  #example .fixed .right.menu {
-    display: inline-block;
-    float: none;
   }
   #example .fixed .developer,
   #example .fixed .designer,
@@ -1205,60 +1190,6 @@ body.progress .ui.progress .bar {
     display: none;
   }
 }
-@media only screen and (max-width : 1050px) {
-  #example .fixed .section,
-  #example .fixed .title b {
-    display: none;
-  }
-  #example .stripe .header .code.icon {
-    display: none;
-  }
-  #example .fixed .container {
-    width: auto;
-    margin: 0px auto;
-  }
-  #example .attached.launch.button {
-    display: none;
-  }
-  #example .fixed .launch {
-    display: inline-block;
-  }
-  #example .sticky-wrapper {
-    display: none;
-  }
-  #example .container {
-    width: auto;
-    margin: 0% 30px 0px;
-  }
-  #example
-  #example .right.attached.launch {
-    display: none;
-  }
-}
-
-@media only screen and (min-width : 1725px) {
-  #example .container {
-    width: 1100px;
-  }
-  #example .sticky-wrapper.stuck .peek {
-    margin-left: -780px;
-  }
-  #example.left.pushed .main.menu {
-    margin-left: -132px;
-  }
-}
-
-
-@media only screen and (min-width : 2300px) {
-  #example .container {
-    width: 1320px;
-  }
-  #example .sticky-wrapper.stuck .peek {
-    margin-left: -890px;
-  }
-}
-
-
 @media only screen and (max-width : 780px) {
   #example.index .masthead {
     text-align: center;
@@ -1299,6 +1230,9 @@ body.progress .ui.progress .bar {
   #example #menu .hide.item {
     display: block;
   }
+  #example #menu .item > .icon {
+    font-size: 1em !important;
+  }
   #example .inverted.advertisement .carbonad {
     height: 109px;
   }
@@ -1319,8 +1253,62 @@ body.progress .ui.progress .bar {
     margin-left: 160px;
     width: 170px;
   }
-
-
+}
+@media only screen and (max-width : 1050px) {
+  #example .fixed .section,
+  #example .fixed .title b {
+    display: none;
+  }
+  #example .stripe .header .code.icon {
+    display: none;
+  }
+  #example .fixed .container {
+    width: auto;
+    margin: 0px auto;
+  }
+  #example .attached.launch.button {
+    display: none;
+  }
+  #example .fixed .launch {
+    display: inline-block;
+  }
+  #example .sticky-wrapper {
+    display: none;
+  }
+  #example .container {
+    width: auto;
+    margin: 0% 30px 0px;
+  }
+  #example
+  #example .right.attached.launch {
+    display: none;
+  }
+}
+@media only screen and (min-width : 1725px) {
+  #example.index .container {
+    margin-left: 8em;
+    margin-right: 8em;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: 0px;
+    left: 95px;
+  }
+  #example.left.pushed .sticky-wrapper .peek {
+    padding-left: 275px;
+    margin-left: -275px;
+  }
+  #example.left.pushed .sticky-wrapper.stuck .peek {
+    margin-left: 0px;
+    padding-left: 275px;
+  }
+}
+@media only screen and (min-width : 2300px) {
+  #example .container {
+    width: 1320px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: -890px;
+  }
 }
 @media only screen and (max-width : 1500px) {
   #example.index .icon.header .icon {
