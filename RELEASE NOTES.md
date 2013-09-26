@@ -1,6 +1,11 @@
 RELEASE NOTES
 --------------
 
+Version 0.11 Sep 26, 2013
+
+New
+-Adds dropdown icon sexiness to accordions, now with rotating pointing arrows
+
 Version 0.1 - Sep 25, 2013
 
 New
