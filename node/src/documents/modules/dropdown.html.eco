@@ -114,7 +114,7 @@ type        : 'UI Module'
     <div class="ui compact menu">
       <div class="menu">
         <a class="active item">
-          <i class="icon home"></i> Home
+          <i class="home icon"></i> Home
         </a>
         <div class="ui pointing dropdown link item">
           <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
@@ -124,10 +124,10 @@ type        : 'UI Module'
           </div>
         </div>
         <a class="item">
-          <i class="icon community"></i> Browse
+          <i class="user icon"></i> Browse
         </a>
         <a class="item">
-          <i class="icon book"></i> Help
+          <i class="book icon"></i> Help
         </a>
       </div>
     </div>
@@ -288,7 +288,7 @@ type        : 'UI Module'
             </div>
           </a>
           <a class="item">
-            <i class="icon community"></i> Browse
+            <i class="user icon"></i> Browse
           </a>
         </div>
         <div class="sub menu">
