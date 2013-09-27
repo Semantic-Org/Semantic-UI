@@ -81,7 +81,6 @@ Examples of UI modules:
 * Popups
 * Modals
 * Chatrooms
-* Calendar Pickers
 
 ### UI Views
 UI Views are common ways to structure types of content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.
