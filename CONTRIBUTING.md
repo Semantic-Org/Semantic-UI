@@ -26,7 +26,7 @@ Contributors should read over the coding guidelines for the project. Most import
 
 [Language](http://semantic-ui.com/project/guide/styleguide.html)
 [CSS](http://semantic-ui.com/project/guide/cssguide.html)
-[Javascript](http://semantic-ui.com/project/guide/javascriptguide.html)
+[Javascript](http://semantic-ui.com/project/guide/javascript.html)
 
 ### Pull Requests
 
