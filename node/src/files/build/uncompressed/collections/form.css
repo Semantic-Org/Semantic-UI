@@ -78,6 +78,9 @@
   -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
   -moz-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
   box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  -webkit-appearance: none;
+  /* Fix issue related to iOS : http://goo.gl/mubQm3 */
+
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -151,6 +154,9 @@
   -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  -webkit-appearance: none;
+  /* Fix issue related to iOS : http://goo.gl/mubQm3 */
+
 }
 /*--------------------
         Error
@@ -198,6 +204,9 @@
   -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
   -moz-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
   box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  -webkit-appearance: none;
+  /* Fix issue related to iOS : http://goo.gl/mubQm3 */
+
 }
 /*--------------------
   Empty (Placeholder)
