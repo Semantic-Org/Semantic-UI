@@ -57,7 +57,7 @@ type        : 'Semantic Project'
   <p>Contributors should read over the coding guidelines for the project. Most importantly, the guide for language, as it is one of the most important parts about Semantic UI.</p>
   <a class="ui secondary button" href="/guide/styleguide.html">Language</a>
   <a class="ui button" href="/guide/cssguide.html">CSS</a>
-  <a class="ui button" href="/guide/javascript.html">Javascript</a>
+  <a class="ui button" href="/guide/javascriptguide.html">Javascript</a>
 
   <h3 class="ui dividing header">Pull Requests</h3>
 
