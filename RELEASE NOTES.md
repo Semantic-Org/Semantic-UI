@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.2.2 - Sep 28, 2013
+
+**Updates**
+- Fixes invoke returning found function instead of results of found function in dropdown, modal
+
 ### Version 0.2.1 - Sep 28, 2013
 
 **Updates**

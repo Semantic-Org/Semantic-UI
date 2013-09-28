@@ -157,6 +157,9 @@ $.fn.modal = function(parameters) {
           module.set.dimmerSettings();
           $context.dimmer('show');
         },
+        hideDimmer: function() {
+          $context.dimmer('hide');
+        },
 
         hide: function() {
           module.debug('Hiding modal');
@@ -438,7 +441,7 @@ $.fn.modal = function(parameters) {
         if(instance === undefined) {
           module.initialize();
         }
-        invokedResponse = module.invoke(query);
+        module.invoke(query);
       }
       else {
         if(instance !== undefined) {

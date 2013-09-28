@@ -316,7 +316,6 @@ $.fn.dimmer = function(parameters) {
         },
 
         setting: function(name, value) {
-          module.debug('Changing setting', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, settings, name);

@@ -14,6 +14,17 @@ semantic.modal.ready = function() {
 
   };
 
+    $('.selection')
+      .dropdown({
+        onChange: function(value) {
+          $('.test.modal')
+            .modal('setting', 'transition', value)
+            .modal('show')
+          ;
+        }
+      })
+    ;
+
 
 };
 

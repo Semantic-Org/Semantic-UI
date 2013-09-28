@@ -161,7 +161,7 @@ $.fn.dropdown = function(parameters) {
               var
                 $choice = $(this),
                 text    = $choice.data(metadata.text)  || $choice.text(),
-                value   = $choice.data(metadata.value) || text
+                value   = $choice.data(metadata.value) || text.toLowerCase()
               ;
               if( $choice.find(selector.menu).size() === 0 ) {
                 module.verbose('Adding active state to selected item');
@@ -358,7 +358,7 @@ $.fn.dropdown = function(parameters) {
                   duration  : settings.duration,
                   complete  : callback,
                   queue     : false
-                })
+                });
               }
               else if(settings.transition == 'slide down') {
                 $currentMenu
@@ -406,7 +406,7 @@ $.fn.dropdown = function(parameters) {
                   duration  : settings.duration,
                   complete  : callback,
                   queue     : false
-                })
+                });
               }
               else if(settings.transition == 'none') {
                 callback();
@@ -639,7 +639,7 @@ $.fn.dropdown = function(parameters) {
         if(instance === undefined) {
           module.initialize();
         }
-        invokedResponse = module.invoke(query);
+        module.invoke(query);
       }
       else {
         if(instance !== undefined) {
