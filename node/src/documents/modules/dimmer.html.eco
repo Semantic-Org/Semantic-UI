@@ -61,7 +61,7 @@ type        : 'UI Module'
     <div class="ui ignored info message">Content must be included inside <code>.content .center</code> to display centered correctly in the modal.</div>
     <div class="ui segment">
       <h4 class="ui dividing header">
-        <i class="icon photos"></i>Dog Photos
+        <i class="photo icon"></i>Dog Photos
       </h4>
       <img src="/images/demo/item1.jpg">
       <img src="/images/demo/item2.jpg">
@@ -105,23 +105,6 @@ type        : 'UI Module'
     </div>
     </div>
     <div class="ui page button"><i class="plus icon"></i> Show</div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Dimmer</h4>
-    <p>A dimmer can exist on its own without defining content that it dims </p>
-    <div class="ui segment">
-      <h4 class="ui header">
-        <i class="icon photos"></i>Dog Photos
-      </h4>
-      <img src="/images/demo/item1.jpg">
-      <img src="/images/demo/item2.jpg">
-      <div class="ui dimmer"></div>
-    </div>
-    <div class="ignored ui icon buttons">
-      <div class="ui show button"><i class="plus icon"></i></div>
-      <div class="ui hide button"><i class="minus icon"></i></div>
-    </div>
   </div>
 
 

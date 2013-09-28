@@ -48,7 +48,6 @@
      Header
 ---------------*/
 .ui.modal > .header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
@@ -78,8 +77,11 @@
 .ui.modal > .content > .right {
   display: table-cell;
   padding-left: 5%;
-  vertical-align: middle;
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  vertical-align: top;
+}
+.ui.modal > .content > .left > .icon {
+  font-size: 8em;
+  margin: 0em;
 }
 .ui.modal > .content p {
   line-height: 1.6;
@@ -88,7 +90,6 @@
      Actions
 ---------------*/
 .ui.modal .actions {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
   text-align: right;
 }
