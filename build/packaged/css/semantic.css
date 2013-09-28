@@ -6563,14 +6563,17 @@ i.icon.close:before {
 i.icon.delete:before {
   content: "\f00d";
 }
+i.icon.dropdown:before {
+  content: "\f0d7";
+}
 i.icon.like:before {
   content: "\f004";
 }
+i.icon.plus:before {
+  content: "\f067";
+}
 i.icon.signup:before {
   content: "\f044";
-}
-i.icon.dropdown:before {
-  content: "\f0d7";
 }
 /*--------------
    Spacing Fix
@@ -9780,14 +9783,18 @@ a.ui.teal.label:hover:before {
 ---------------*/
 .ui.page.dimmer {
   position: fixed;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-perspective: 2000px;
   -moz-perspective: 2000px;
   perspective: 2000px;
-  -webkit-transform-origin: top center;
-  -moz-transform-origin: top center;
-  -o-transform-origin: top center;
-  -ms-transform-origin: top center;
-  transform-origin: top center;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
 }
 /*
 body.ui.dimmed.dimmable > :not(.dimmer){
@@ -10307,7 +10314,6 @@ body.ui.dimmed.dimmable > :not(.dimmer){
      Header
 ---------------*/
 .ui.modal > .header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
@@ -10337,8 +10343,11 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.modal > .content > .right {
   display: table-cell;
   padding-left: 5%;
-  vertical-align: middle;
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  vertical-align: top;
+}
+.ui.modal > .content > .left > .icon {
+  font-size: 8em;
+  margin: 0em;
 }
 .ui.modal > .content p {
   line-height: 1.6;
@@ -10347,7 +10356,6 @@ body.ui.dimmed.dimmable > :not(.dimmer){
      Actions
 ---------------*/
 .ui.modal .actions {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
   text-align: right;
 }
