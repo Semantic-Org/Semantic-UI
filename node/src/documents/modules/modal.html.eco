@@ -13,25 +13,27 @@ type        : 'UI Module'
 <div class="main container">
 
   <div class="ui basic modal">
-    <i class="close icon"></i>
     <div class="header">
-      Profile Picture
+      Change Your Homepage
     </div>
     <div class="content">
       <div class="left">
-        <img class="ui medium image" src="/images/demo/avatar2.jpg">
+        <i class="home icon"></i>
       </div>
       <div class="right">
-        <div class="ui header">Are you sure you want to upload that?</div>
-        <p>I mean it's not really the best profile photo.</p>
-        <p>It's resampled to like two times the size it's suppose to be. Our image detection software also says it might even be inappropriate.</p>
+        <p>Are you sure you want to change your homepage to <b>Poodle.com</b>?</p>
       </div>
     </div>
     <div class="actions">
-      <div class="ui black button">Cancel</div>
-      <div class="ui green labeled black icon button">
-        Add Photo
-        <i class="checkmark icon"></i>
+      <div class="two huge fluid ui buttons">
+        <div class="ui red labeled icon button">
+          <i class="remove icon"></i>
+          No
+        </div>
+        <div class="ui green right labeled icon button">
+          Yes
+          <i class="checkmark icon"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -52,8 +54,10 @@ type        : 'UI Module'
       </div>
     </div>
     <div class="actions">
-      <div class="ui black button">Cancel</div>
-      <div class="ui green labeled black icon button">
+      <div class="ui black button">
+        Cancel
+      </div>
+      <div class="ui green right labeled icon button">
         Add Photo
         <i class="checkmark icon"></i>
       </div>
@@ -76,7 +80,7 @@ type        : 'UI Module'
   <p>A modal can be included anywhere on the page. On initialization a modal's current size will be cached, and the element will be detached from the dom and moved inside a dimmer.</p>
   <div class="ui info message">
     <div class="header">Why move?</div>
-    <p>Moving a modal to inside the dimmer allows for 3D animations without having the 3D perspective settings alter the rest of the page content. Additionally, content outside the dimmer can be blurred or altered without affecting the modal's content.</p>
+    <p>Moving a modal to inside the page dimmer allows for 3D animations without having the 3D perspective settings alter the rest of the page content. Additionally, content outside the dimmer can be blurred or altered without affecting the modal's content.</p>
   </div>
   <div class="code" data-type="javascript">
     $('.ui.modal')
@@ -141,6 +145,9 @@ type        : 'UI Module'
     <p>A modal can reduce its complexity</p>
     <div class="code" data-demo="true">
     $('.basic.modal')
+      .modal({
+        closable: false
+      })
       .modal('show')
     ;
     </div>
@@ -171,7 +178,7 @@ type        : 'UI Module'
     <tbody>
       <tr>
         <td>offset</td>
-        <td>-25</td>
+        <td>0</td>
         <td>A vertical offset to allow for content outside of modal, for example a close button, to be centered.</td>
       </tr>
       <tr>

@@ -1,6 +1,20 @@
 ## RELEASE NOTES
 
-### Version 0.2 - Sep 28, 2013
+### Version 0.2.1 - Sep 28, 2013
+
+**Updates**
+
+- Modals can now have an icon in its left content that will be automatically formatted
+- Preserve 3D animations are now on by default for dimmers
+
+** Fixes **
+
+- Transition now forces browser repaint after animation
+- Refactored modal and dimmer components
+- Modal will now resize when browser window resizes if vertical height changes
+- Fixes issues with dimmer settings sticking between separate modals with the same dimmer.
+
+### Version 0.2.0 - Sep 28, 2013
 
 **New**
 
@@ -13,7 +27,7 @@
 - Swaps modal and dropdown to use same variable naming pattern as rest of modules
 - Removed selector count from performance logs
 
-### Version 0.1 - Sep 25, 2013
+### Version 0.1.0 - Sep 25, 2013
 
 **New**
 
