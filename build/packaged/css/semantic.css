@@ -63,6 +63,7 @@
 .ui.huge.breadcrumb {
   font-size: 1.3em;
 }
+
 /*
  * # Semantic - Form
  * http://github.com/jlukic/semantic-ui/
@@ -323,7 +324,7 @@
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url('../build/uncompressed/images/loader-large.gif') no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
   visibility: visible;
 }
 /*******************************
@@ -492,6 +493,7 @@
 .ui.large.form {
   font-size: 1.125em;
 }
+
 /*
  * # Semantic - Grid
  * http://github.com/jlukic/semantic-ui/
@@ -1060,6 +1062,7 @@
     display: none;
   }
 }
+
 /*
  * # Semantic - Menu
  * http://github.com/jlukic/semantic-ui/
@@ -1411,7 +1414,7 @@
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url('../build/uncompressed/images/loader-large.gif') no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
   visibility: visible;
 }
 /*******************************
@@ -2473,6 +2476,7 @@
 .ui.large.vertical.menu {
   width: 18rem;
 }
+
 /*
  * # Semantic - Message
  * http://github.com/jlukic/semantic-ui/
@@ -2725,6 +2729,7 @@
 .ui.massive.message {
   font-size: 2em;
 }
+
 /*
  * # Semantic - Table
  * http://github.com/jlukic/semantic-ui/
@@ -3186,6 +3191,7 @@
 .ui.large.table {
   font-size: 1.1em;
 }
+
 /*
  * # Semantic - Icon (Basic)
  * http://github.com/jlukic/semantic-ui/
@@ -3201,8 +3207,8 @@
 *******************************/
 @font-face {
   font-family: 'Basic Icons';
-  src: url('../build/uncompressed/fonts/basic.icons.eot');
-  src: url('../build/uncompressed/fonts/basic.icons.eot?#iefix') format('embedded-opentype'), url('../build/uncompressed/fonts/basic.icons.woff') format('woff'), url('../build/uncompressed/fonts/basic.icons.ttf') format('truetype'), url('../build/uncompressed/fonts/basic.icons.svg#icons') format('svg');
+  src: url(../fonts/basic.icons.eot);
+  src: url(../fonts/basic.icons.eot?#iefix) format('embedded-opentype'), url(../fonts/basic.icons.woff) format('woff'), url(../fonts/basic.icons.ttf) format('truetype'), url(../fonts/basic.icons.svg#icons) format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -3989,6 +3995,7 @@ i.massive.icon {
   margin-right: 1em;
   vertical-align: middle;
 }
+
 /*
  * # Semantic - Button
  * http://github.com/jlukic/semantic-ui/
@@ -4208,7 +4215,7 @@ i.massive.icon {
   width: 100%;
   height: 100%;
   content: '';
-  background: transparent url('../build/uncompressed/images/loader-mini.gif') no-repeat 50% 50%;
+  background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
 .ui.labeled.icon.loading.button .icon {
   background-color: transparent;
@@ -4293,17 +4300,17 @@ i.massive.icon {
 }
 /* loading */
 .ui.huge.loading.button:after {
-  background-image: url('../build/uncompressed/images/loader-small.gif');
+  background-image: url(../images/loader-small.gif);
 }
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
 .ui.massive.loading.button:after,
 .ui.gigantic.loading.button:after {
-  background-image: url('../build/uncompressed/images/loader-medium.gif');
+  background-image: url(../images/loader-medium.gif);
 }
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
-  background-image: url('../build/uncompressed/images/loader-small.gif');
+  background-image: url(../images/loader-small.gif);
 }
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
@@ -4313,7 +4320,7 @@ i.massive.icon {
 .ui.gigantic.buttons .loading.button.active:after,
 .ui.massive.loading.button.active:after,
 .ui.gigantic.loading.button.active:after {
-  background-image: url('../build/uncompressed/images/loader-medium.gif');
+  background-image: url(../images/loader-medium.gif);
 }
 /*--------------
     Icon Only
@@ -4973,6 +4980,7 @@ i.massive.icon {
   -webkit-border-radius: 0px 0px 0.2em 0.2em;
   border-radius: 0px 0px 0.2em 0.2em;
 }
+
 /*
  * # Semantic - Divider
  * http://github.com/jlukic/semantic-ui/
@@ -5127,6 +5135,7 @@ i.massive.icon {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
 /*
  * # Semantic - Header
  * http://github.com/jlukic/semantic-ui/
@@ -5403,6 +5412,7 @@ h5.ui.header {
   margin-right: auto;
   display: block;
 }
+
 /*
  * # Semantic - Icon
  * http://github.com/jlukic/semantic-ui/
@@ -5431,8 +5441,8 @@ h5.ui.header {
 *******************************/
 @font-face {
   font-family: 'Icons';
-  src: url('../build/uncompressed/fonts/icons.eot');
-  src: url('../build/uncompressed/fonts/icons.eot?#iefix') format('embedded-opentype'), url('../build/uncompressed/fonts/icons.woff') format('woff'), url('../build/uncompressed/fonts/icons.ttf') format('truetype'), url('../build/uncompressed/fonts/icons.svg#icons') format('svg');
+  src: url(../fonts/icons.eot);
+  src: url(../fonts/icons.eot?#iefix) format('embedded-opentype'), url(../fonts/icons.woff) format('woff'), url(../fonts/icons.ttf) format('truetype'), url(../fonts/icons.svg#icons) format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -6846,6 +6856,7 @@ i.massive.icon {
   margin-right: 1em;
   vertical-align: middle;
 }
+
 /*
  * # Semantic - Image
  * http://github.com/jlukic/semantic-ui/
@@ -6988,6 +6999,7 @@ img.ui.image {
   display: inline-block;
   margin: 0em 0.25em 0.5em;
 }
+
 /*
  * # Semantic - Input
  * http://github.com/jlukic/semantic-ui/
@@ -7057,7 +7069,7 @@ img.ui.image {
         Loading
 ---------------------*/
 .ui.loading.input > .icon {
-  background: url('../build/uncompressed/images/loader-mini.gif') no-repeat 50% 50%;
+  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
 .ui.loading.input > .icon:before,
 .ui.loading.input > .icon:after {
@@ -7247,6 +7259,7 @@ img.ui.image {
 .ui.massive.input {
   font-size: 1.5rem;
 }
+
 /*
  * # Semantic - Label
  * http://github.com/jlukic/semantic-ui/
@@ -7937,6 +7950,7 @@ a.ui.teal.label:hover:before {
 .ui.huge.label {
   font-size: 1rem;
 }
+
 /*
  * # Semantic - Loader
  * http://github.com/jlukic/semantic-ui/
@@ -8026,22 +8040,22 @@ a.ui.teal.label:hover:before {
 /* Tiny Size */
 .ui.dimmer .mini.ui.loader,
 .ui.inverted .mini.ui.loader {
-  background-image: url('../build/uncompressed/images/loader-mini-inverted.gif');
+  background-image: url(../images/loader-mini-inverted.gif);
 }
 /* Small Size */
 .ui.dimmer .small.ui.loader,
 .ui.inverted .small.ui.loader {
-  background-image: url('../build/uncompressed/images/loader-small-inverted.gif');
+  background-image: url(../images/loader-small-inverted.gif);
 }
 /* Standard Size */
 .ui.dimmer .ui.loader,
 .ui.inverted.loader {
-  background-image: url('../build/uncompressed/images/loader-medium-inverted.gif');
+  background-image: url(../images/loader-medium-inverted.gif);
 }
 /* Large Size */
 .ui.dimmer .large.ui.loader,
 .ui.inverted .large.ui.loader {
-  background-image: url('../build/uncompressed/images/loader-large-inverted.gif');
+  background-image: url(../images/loader-large-inverted.gif);
 }
 /*-------------------
         Sizes
@@ -8051,20 +8065,20 @@ a.ui.teal.label:hover:before {
 .ui.mini.loader {
   width: 16px;
   height: 16px;
-  background-image: url('../build/uncompressed/images/loader-mini.gif');
+  background-image: url(../images/loader-mini.gif);
 }
 /* Small Size */
 .ui.inverted.dimmer .ui.small.loader,
 .ui.small.loader {
   width: 24px;
   height: 24px;
-  background-image: url('../build/uncompressed/images/loader-small.gif');
+  background-image: url(../images/loader-small.gif);
 }
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
   width: 32px;
   height: 32px;
-  background: url('../build/uncompressed/images/loader-medium.gif') no-repeat;
+  background: url(../images/loader-medium.gif) no-repeat;
   background-position: 48% 0px;
 }
 /* Large Size */
@@ -8072,7 +8086,7 @@ a.ui.teal.label:hover:before {
 .ui.loader.large {
   width: 64px;
   height: 64px;
-  background-image: url('../build/uncompressed/images/loader-large.gif');
+  background-image: url(../images/loader-large.gif);
 }
 /*-------------------
        Inline
@@ -8091,6 +8105,7 @@ a.ui.teal.label:hover:before {
 .ui.inline.loader.visible {
   display: inline-block;
 }
+
 /*
  * # Semantic - Progress Bar
  * http://github.com/jlukic/semantic-ui/
@@ -8347,6 +8362,7 @@ a.ui.teal.label:hover:before {
 .ui.small.progress .bar {
   height: 14px;
 }
+
 /*
  * # Semantic - Segment
  * http://github.com/jlukic/semantic-ui/
@@ -8708,6 +8724,7 @@ a.ui.teal.label:hover:before {
   -webkit-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;
 }
+
 /*
  * # Semantic - Steps
  * http://github.com/jlukic/semantic-ui/
@@ -8947,6 +8964,7 @@ a.ui.teal.label:hover:before {
 .ui.large.steps .step {
   font-size: 1.25rem;
 }
+
 /*
  * # Semantic - Accordion
  * http://github.com/jlukic/semantic-ui/
@@ -9071,6 +9089,7 @@ a.ui.teal.label:hover:before {
   padding-left: 0em;
   padding-right: 0em;
 }
+
 /*
  * # Semantic - Chat Room
  * http://github.com/jlukic/semantic-ui/
@@ -9323,6 +9342,7 @@ a.ui.teal.label:hover:before {
 .ui.chatroom .talk {
   height: 40px;
 }
+
 /*
  * # Semantic - Checkbox
  * http://github.com/jlukic/semantic-ui/
@@ -9633,6 +9653,7 @@ a.ui.teal.label:hover:before {
 .ui.huge.checkbox label {
   font-size: 1.5em;
 }
+
 /*
  * # Semantic - Dimmer
  * http://github.com/jlukic/semantic-ui/
@@ -9817,6 +9838,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.dimmed.dimmable > .ui.simple.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0.85);
 }
+
 /*
  * # Semantic - Dropdown
  * http://github.com/jlukic/semantic-ui/
@@ -10234,6 +10256,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   -moz-transform: rotate(135deg);
   transform: rotate(135deg);
 }
+
 /*
  * # Semantic - Modal
  * http://github.com/jlukic/semantic-ui/
@@ -10356,6 +10379,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.active.modal {
   display: block;
 }
+
 /*
  * # Semantic - Nag
  * http://github.com/jlukic/semantic-ui/
@@ -10485,6 +10509,7 @@ a.ui.nag {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+
 /*
  * # Semantic - Popup
  * http://github.com/jlukic/semantic-ui/
@@ -10693,6 +10718,7 @@ a.ui.nag {
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
 /*
  * # Semantic - Rating
  * http://github.com/jlukic/semantic-ui/
@@ -10837,6 +10863,7 @@ a.ui.nag {
 .ui.large.rating {
   font-size: 2rem;
 }
+
 /*
  * # Semantic - Reveal
  * http://github.com/jlukic/semantic-ui/
@@ -11119,6 +11146,7 @@ a.ui.nag {
   -ms-transition-delay: 0s !important;
   transition-delay: 0s !important;
 }
+
 /*
  * # Semantic - Search
  * http://github.com/jlukic/semantic-ui/
@@ -11297,7 +11325,7 @@ a.ui.nag {
      Loading
 ---------------*/
 .ui.search.loading .input .icon {
-  background: url('../build/uncompressed/images/loader-mini.gif') no-repeat 50% 50%;
+  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
 }
 .ui.search.loading .input .icon:before,
 .ui.search.loading .input .icon:after {
@@ -11340,6 +11368,7 @@ a.ui.nag {
 .ui.search .large.results .info .description {
   font-size: 11px;
 }
+
 /*
  * # Semantic - Shape
  * http://github.com/jlukic/semantic-ui/
@@ -11426,6 +11455,7 @@ a.ui.nag {
 .ui.shape .active.side {
   display: block;
 }
+
 /*
  * # Semantic - Sidebar
  * http://github.com/jlukic/semantic-ui/
@@ -11530,6 +11560,7 @@ body {
   -moz-box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
 }
+
 /*
  * # Semantic - Tab
  * http://github.com/jlukic/semantic-ui/
@@ -11581,9 +11612,10 @@ body {
   width: 100%;
   height: 100%;
   padding-top: 75px;
-  background: url('../build/uncompressed/images/loader-large.gif') no-repeat 0px 0px;
+  background: url(../images/loader-large.gif) no-repeat 0px 0px;
   visibility: visible;
 }
+
 /*******************************
   Semantic - Transition
   Author: Jack Lukic
@@ -12450,6 +12482,7 @@ body {
     transform: scale(1);
   }
 }
+
 /*
  * # Semantic - Video
  * http://github.com/jlukic/semantic-ui/
@@ -12530,6 +12563,7 @@ body {
 .ui.video.active .embed {
   display: block;
 }
+
 /*
  * # Semantic Comment View
  * http://github.com/jlukic/semantic-ui/
@@ -12708,6 +12742,7 @@ body {
 .ui.small.comments {
   font-size: 0.875em;
 }
+
 /*
  * # Activity Feed View
  * http://github.com/jlukic/semantic-ui/
@@ -12835,6 +12870,7 @@ body {
 .ui.small.feed .content .extra.text {
   padding: 0.25em 0.5em;
 }
+
 /*
  * # Semantic Item View
  * http://github.com/jlukic/semantic-ui/
@@ -13407,6 +13443,7 @@ body {
 .ui.twelve.items > .item:nth-child(12n+1) {
   clear: left;
 }
+
 /*
  * # Semantic List - Flat
  * http://github.com/jlukic/semantic-ui/
@@ -13847,6 +13884,7 @@ ol.ui.horizontal.list li:before,
 .ui.massive.list .item {
   font-size: 1.5rem;
 }
+
 /*
  * # Statistic
  *
