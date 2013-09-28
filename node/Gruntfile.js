@@ -258,10 +258,14 @@ module.exports = function(grunt) {
     concat: {
       options: {
       },
-      all: {
+      css_uncompressed: {
         src: ["../build/uncompressed/**/*.css"],
         dest: "../build/packaged/css/semantic.css"
       },
+      js_uncompressed: {
+        src: ["../build/uncompressed/**/*.js"],
+        dest: "../build/packaged/javascript/semantic.js"
+      },      
     },
     
     cssmin: {
