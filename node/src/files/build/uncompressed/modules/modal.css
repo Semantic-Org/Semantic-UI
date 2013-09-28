@@ -73,11 +73,13 @@
 .ui.modal > .content > .left {
   display: table-cell;
   padding-right: 5%;
+  min-width: 25%;
 }
 .ui.modal > .content > .right {
   display: table-cell;
   padding-left: 5%;
   vertical-align: top;
+  min-width: 25%;
 }
 .ui.modal > .content > .left > .icon {
   font-size: 8em;
@@ -171,7 +173,7 @@
 /* A modal that cannot fit on the page */
 .ui.modal.scrolling {
   position: absolute;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 /*******************************
               States
