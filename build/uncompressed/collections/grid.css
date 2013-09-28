@@ -88,12 +88,12 @@
   margin-right: 0% !important;
   min-width: 320px;
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 998px) {
   .ui.responsive.grid {
-    padding: 0% 5.55%;
+    padding: 0% 4%;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 998px) {
   .ui.responsive.grid {
     padding: 0% 8%;
   }
