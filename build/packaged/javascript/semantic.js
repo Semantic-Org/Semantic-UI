@@ -5177,6 +5177,7 @@ $.fn.modal = function(parameters) {
         $context     = $(settings.context),
         $otherModals = $allModules.not($module),
         $close       = $module.find(selector.close),
+        $dimmer,
 
         element      = this,
         instance     = $module.data(moduleNamespace),
@@ -5187,9 +5188,13 @@ $.fn.modal = function(parameters) {
 
         initialize: function() {
           module.verbose('Initializing dimmer', $context);
-          $context
+
+          $dimmer = $context
             .dimmer('add content', $module)
+            .dimmer('get dimmer')
           ;
+
+          console.log($dimmer);
 
           module.verbose('Attaching close events', $close);
           $close
@@ -5220,6 +5225,7 @@ $.fn.modal = function(parameters) {
         },
 
         refresh: function() {
+          module.remove.scrolling();
           module.cacheSizes();
           module.set.type();
           module.set.position();
@@ -5264,12 +5270,14 @@ $.fn.modal = function(parameters) {
         show: function() {
           module.showDimmer();
           module.cacheSizes();
-          module.set.type();
           module.set.position();
           module.hideAll();
           if(settings.transition && $.fn.transition !== undefined) {
             $module
-              .transition(settings.transition + ' in', settings.duration, module.set.active)
+              .transition(settings.transition + ' in', settings.duration, function() {
+                module.set.active();
+                module.set.type();
+              })
             ;
           }
           else {
@@ -5336,6 +5344,10 @@ $.fn.modal = function(parameters) {
             $document
               .off('keyup' + eventNamespace)
             ;
+          },
+          scrolling: function() {
+            $dimmer.removeClass(className.scrolling);
+            $module.removeClass(className.scrolling);
           }
         },
 
@@ -5379,14 +5391,19 @@ $.fn.modal = function(parameters) {
               .dimmer('initialize')
             ;
           },
+          scrolling: function() {
+            console.log($dimmer, 'set scrolling');
+            $dimmer.addClass(className.scrolling);
+            $module.addClass(className.scrolling);
+          },
           type: function() {
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
-              $module.removeClass(className.scrolling);
+              module.remove.scrolling();
             }
             else {
               module.verbose('Modal cannot fit on screen setting to scrolling');
-              $module.addClass(className.scrolling);
+              module.set.scrolling();
             }
           },
           position: function() {
@@ -5394,6 +5411,7 @@ $.fn.modal = function(parameters) {
             if(module.can.fit()) {
               $module
                 .css({
+                  top: '50%',
                   marginTop: -(module.cache.height / 2)
                 })
               ;
@@ -5401,7 +5419,8 @@ $.fn.modal = function(parameters) {
             else {
               $module
                 .css({
-                  top: $context.prop('scrollTop')
+                  marginTop : '1em',
+                  top       : $document.scrollTop()
                 })
               ;
             }
@@ -5595,13 +5614,12 @@ $.fn.modal.settings = {
   debug       : true,
   performance : true,
 
-  offset      : 0,
-  transition  : 'scale',
-  duration    : 500,
-  easing      : 'easeOutExpo',
-
   closable    : true,
   context     : 'body',
+  duration    : 500,
+  easing      : 'easeOutExpo',
+  offset      : 0,
+  transition  : 'scale',
 
   onShow      : function(){},
   onHide      : function(){},

@@ -6922,6 +6922,16 @@ img.ui.image {
   border-radius: 500rem;
 }
 /*--------------
+     Fluid
+---------------*/
+.ui.fluid.images,
+.ui.fluid.image,
+.ui.fluid.images img,
+.ui.fluid.image img {
+  display: block;
+  width: 100%;
+}
+/*--------------
      Avatar
 ---------------*/
 .ui.avatar.images .image,
@@ -9796,6 +9806,9 @@ a.ui.teal.label:hover:before {
   -ms-transform-origin: center center;
   transform-origin: center center;
 }
+.ui.scrolling.page.dimmer {
+  position: absolute;
+}
 /*
 body.ui.dimmed.dimmable > :not(.dimmer){
   -webkit-filter: ~"blur(15px) grayscale(0.7)";
@@ -10339,11 +10352,13 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.modal > .content > .left {
   display: table-cell;
   padding-right: 5%;
+  min-width: 25%;
 }
 .ui.modal > .content > .right {
   display: table-cell;
   padding-left: 5%;
   vertical-align: top;
+  min-width: 25%;
 }
 .ui.modal > .content > .left > .icon {
   font-size: 8em;
@@ -10437,7 +10452,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 /* A modal that cannot fit on the page */
 .ui.modal.scrolling {
   position: absolute;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 /*******************************
               States

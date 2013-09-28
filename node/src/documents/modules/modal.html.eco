@@ -25,7 +25,7 @@ type        : 'UI Module'
       </div>
     </div>
     <div class="actions">
-      <div class="two huge fluid ui buttons">
+      <div class="two fluid ui buttons">
         <div class="ui red labeled icon button">
           <i class="remove icon"></i>
           No

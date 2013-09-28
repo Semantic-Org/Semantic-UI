@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.2.3 - Sep 28, 2013
+
+**Updates**
+
+- Fixes issues with modal not swapping to absoultely positioned from fixed when content cannot fit in viewport
+
 ### Version 0.2.2 - Sep 28, 2013
 
 **Updates**
