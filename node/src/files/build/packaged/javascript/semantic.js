@@ -3325,7 +3325,7 @@ $.fn.chatroom = function(parameters) {
       if(instance === undefined) {
         module.initialize();
       }
-      invokedResponse = module.invoke(query);
+      module.invoke(query);
     }
     else {
       if(instance !== undefined) {
@@ -4185,7 +4185,6 @@ $.fn.dimmer = function(parameters) {
         },
 
         setting: function(name, value) {
-          module.debug('Changing setting', name, value);
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
               $.extend(true, settings, name);
@@ -4581,7 +4580,7 @@ $.fn.dropdown = function(parameters) {
               var
                 $choice = $(this),
                 text    = $choice.data(metadata.text)  || $choice.text(),
-                value   = $choice.data(metadata.value) || text
+                value   = $choice.data(metadata.value) || text.toLowerCase()
               ;
               if( $choice.find(selector.menu).size() === 0 ) {
                 module.verbose('Adding active state to selected item');
@@ -4778,7 +4777,7 @@ $.fn.dropdown = function(parameters) {
                   duration  : settings.duration,
                   complete  : callback,
                   queue     : false
-                })
+                });
               }
               else if(settings.transition == 'slide down') {
                 $currentMenu
@@ -4826,7 +4825,7 @@ $.fn.dropdown = function(parameters) {
                   duration  : settings.duration,
                   complete  : callback,
                   queue     : false
-                })
+                });
               }
               else if(settings.transition == 'none') {
                 callback();
@@ -5059,7 +5058,7 @@ $.fn.dropdown = function(parameters) {
         if(instance === undefined) {
           module.initialize();
         }
-        invokedResponse = module.invoke(query);
+        module.invoke(query);
       }
       else {
         if(instance !== undefined) {
@@ -5286,6 +5285,9 @@ $.fn.modal = function(parameters) {
           module.debug('Showing modal');
           module.set.dimmerSettings();
           $context.dimmer('show');
+        },
+        hideDimmer: function() {
+          $context.dimmer('hide');
         },
 
         hide: function() {
@@ -5568,7 +5570,7 @@ $.fn.modal = function(parameters) {
         if(instance === undefined) {
           module.initialize();
         }
-        invokedResponse = module.invoke(query);
+        module.invoke(query);
       }
       else {
         if(instance !== undefined) {
