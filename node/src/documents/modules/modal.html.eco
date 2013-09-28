@@ -45,7 +45,7 @@ type        : 'UI Module'
     </div>
     <div class="content">
       <div class="left">
-        <img class="ui medium image" src="/images/demo/avatar2.jpg">
+        <img class="ui fluid image" src="/images/demo/avatar2.jpg">
       </div>
       <div class="right">
         <div class="ui header">Are you sure you want to upload that?</div>
