@@ -39,6 +39,8 @@ module.exports = function(grunt) {
       // creates custom license in header
       'cssmin:addBanner',
 
+      'concat_css',
+
       // creates minified js of each file
       'uglify:minifyJS',
 
@@ -252,7 +254,17 @@ module.exports = function(grunt) {
         ]
       }
     },
-
+    
+    concat_css: {
+      options: {
+        // Task-specific options go here.
+      },
+      all: {
+        src: ["../build/uncompressed/**/*.css"],
+        dest: "../build/packaged/css/semantic.css"
+      },
+    },
+    
     cssmin: {
 
       // copy minified css to minified release
@@ -353,6 +365,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-docco');
+  grunt.loadNpmTasks('grunt-concat-css');
 
   grunt.initConfig(config);
 
