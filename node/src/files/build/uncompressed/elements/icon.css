@@ -1197,7 +1197,7 @@ i.icon.loading {
   -o-animation: icon-loading 2s linear infinite;
   animation: icon-loading 2s linear infinite;
 }
-@keyframes "icon-loading" {
+@keyframes icon-loading {
   from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -1223,7 +1223,7 @@ i.icon.loading {
     transform: rotate(360deg);
   }
 }
-@-webkit-keyframes "icon-loading" {
+@-webkit-keyframes icon-loading {
   from {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -1233,7 +1233,7 @@ i.icon.loading {
     transform: rotate(360deg);
   }
 }
-@-ms-keyframes "icon-loading" {
+@-ms-keyframes icon-loading {
   from {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -1243,7 +1243,7 @@ i.icon.loading {
     transform: rotate(360deg);
   }
 }
-@-o-keyframes "icon-loading" {
+@-o-keyframes icon-loading {
   from {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
