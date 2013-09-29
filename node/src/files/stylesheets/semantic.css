@@ -49,7 +49,6 @@ body#example {
   margin: 0px;
   padding: 0px;
   color: #555555;
-  text-rendering: optimizeLegibility;
   min-width: 320px;
 }
 body > .content  {
