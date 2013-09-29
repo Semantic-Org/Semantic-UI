@@ -222,7 +222,7 @@
           <i class="book icon"></i>
         </a> -->
         <a class="popup designer icon item" title="Designer Mode">
-          <i class="paint icon"></i>
+          <i class="basic paint icon"></i>
         </a>
         <a class="popup developer icon item" title="Developer Mode">
           <i class="terminal icon"></i>
