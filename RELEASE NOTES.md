@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+### Version 0.2.4- Sep 28, 2013
+
+**Updates**
+
+- Fixes issue with display on Chromebook Pixel and some devices
+- Fixes issues with concatenated version receiving conflicted icon definitions causing icons to not function
+
 ### Version 0.2.3 - Sep 28, 2013
 
 **Updates**
