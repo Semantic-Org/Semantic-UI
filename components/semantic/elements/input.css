@@ -1,0 +1,213 @@
+/*
+ * # Semantic Input
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: May 29 2013
+ */
+/*******************************
+           Standard
+*******************************/
+/*--------------------
+        Inputs
+---------------------*/
+.ui.input {
+  display: inline-block;
+  position: relative;
+}
+.ui.input input {
+  width: 100%;
+  font-family: "Helvetica Neue", "Helvetica", Arial;
+  margin: 0em;
+  padding: 0.85em 1.2em;
+  font-size: 0.875em;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+  -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -moz-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -o-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -ms-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*--------------------
+      Placeholder
+---------------------*/
+/* browsers require these rules separate */
+.ui.input::-web inputkit-input-placeholder {
+  color: #E0E0E0;
+}
+.ui.input::-moz input-placeholder {
+  color: #E0E0E0;
+}
+/*******************************
+            States
+*******************************/
+/*--------------------
+        Active
+---------------------*/
+.ui.input input:active,
+.ui.input.down input {
+  border-color: rgba(0, 0, 0, 0.3);
+  background-color: #FAFAFA;
+}
+/*--------------------
+        Loading
+---------------------*/
+.ui.loading.input .icon {
+  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
+}
+.ui.loading.input .icon:before,
+.ui.loading.input .icon:after {
+  display: none;
+}
+/*--------------------
+        Focus
+---------------------*/
+.ui.input.focus input,
+.ui.input input:focus {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.input.focus input input::-webkit-input-placeholder,
+.ui.input input:focus input::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+.ui.input.focus input input::-moz-placeholder,
+.ui.input input:focus input::-moz-placeholder {
+  color: #AAAAAA;
+}
+/*--------------------
+        Error
+---------------------*/
+.ui.input.error input {
+  background-color: #FFFAFA;
+  border-color: #E7BEBE;
+  color: #D95C5C;
+}
+/* Error Placeholder */
+.ui.input.error input ::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.input.error input ::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.input.error input :focus::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+.ui.input.error input :focus::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+/*******************************
+           Variations
+*******************************/
+/*--------------------
+      Transparent
+---------------------*/
+.ui.transparent.input input {
+  border: none;
+  background-color: transparent;
+}
+/*--------------------
+         Icon
+---------------------*/
+.ui.icon.input > .icon {
+  position: absolute;
+  opacity: 0.5;
+  top: 1px;
+  right: 1px;
+  margin: 0em;
+  width: 2.5em;
+  height: 2.5em;
+  padding-top: 0.75em;
+  text-align: center;
+  -webkit-border-radius: 0.2em 0em 0em 0.2em;
+  -moz-border-radius: 0.2em 0em 0em 0.2em;
+  border-radius: 0.2em 0em 0em 0.2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+.ui.icon.input input {
+  padding-right: 3em !important;
+}
+.ui.left.icon.input .icon {
+  right: auto;
+  left: 1px;
+}
+.ui.left.icon.input input {
+  padding-left: 3em !important;
+  padding-right: 1.2em !important;
+}
+/* Focus */
+.ui.icon.input input:focus ~ .icon {
+  opacity: 1;
+}
+/*--------------------
+        Labeled
+---------------------*/
+.ui.labeled.input .corner.label {
+  top: 1px;
+  right: 1px;
+  font-size: 0.7em;
+  -webkit-border-top-right-radius: 0.3125em;
+  -moz-border-top-right-radius: 0.3125em;
+  border-top-right-radius: 0.3125em;
+}
+.ui.labeled.input input {
+  padding-right: 2.5em !important;
+}
+/* Spacing with corner label */
+.ui.labeled.icon.input:not(.left) input {
+  padding-right: 3.25em !important;
+}
+.ui.labeled.icon.input:not(.left) .icon {
+  margin-right: 0.75em;
+}
+/*--------------------
+        Action
+---------------------*/
+.ui.action.input {
+  display: table;
+}
+.ui.action.input > input {
+  display: table-cell;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-right: none;
+}
+.ui.action.input > .button {
+  display: table-cell;
+  opacity: 0.9;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  white-space: nowrap;
+}
+.ui.action.input > input:focus ~ .button {
+  opacity: 1;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
+}

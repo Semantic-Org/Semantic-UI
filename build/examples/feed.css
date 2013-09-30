@@ -1,0 +1,91 @@
+/*******************************
+            Global
+*******************************/
+
+html,
+body {
+  font-size: 15px;
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background: #FFFFFF;
+  margin: 0px;
+  padding: 0px;
+  color: #555555;
+  text-rendering: optimizeLegibility;
+  min-width: 320px;
+}
+
+.ui.header {
+  font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+/*******************************
+            Global
+*******************************/
+
+
+/*-------------------
+        Grid
+--------------------*/
+
+#feed .grid {
+  height: 100%;
+}
+#feed > .grid > .column {
+  height: 100%;
+}
+
+/*-------------------
+        Menu
+--------------------*/
+
+#feed .left.column {
+  background-color: #333333;
+  min-width: 260px;
+}
+#feed .left.column > .menu {
+  height: 100%;
+}
+
+
+/*-------------------
+       Inbox
+--------------------*/
+
+#feed .inbox {
+  background-color: #FFFFFF;
+}
+#feed .inbox .item {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+#feed .middle.column {
+  padding: 1em 2em;
+}
+
+#feed .right.column {
+  padding: 1em 2em;
+  background-color: #FFFFFF;
+}
+
+
+/*******************************
+          Responsive
+*******************************/
+
+
+@media only screen and (max-width : 1000px) {
+  #feed .inbox .date {
+    float: none;
+    margin-bottom: 0.5em;
+  }
+}
+
+@media only screen and (max-width : 1250px) {
+  #feed .left.column > .menu .item {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,124 @@
+/*
+ * # Semantic - Accordion
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Button
+*******************************/
+.ui.accordion {
+  width: 600px;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 1rem;
+  border-radius: 0.3125em;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.accordion .title {
+  cursor: pointer;
+  margin: 0em;
+  padding: 0.75em 1em;
+  color: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  -ms-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+.ui.accordion .title:first-child {
+  border-top: none;
+}
+/* Content */
+.ui.accordion .content {
+  display: none;
+  margin: 0em;
+  padding: 1.3em 1em;
+}
+/* Arrow */
+.ui.accordion .title .dropdown.icon {
+  display: inline-block;
+  float: none;
+  margin: 0em 0.5em 0em 0em;
+  -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease, opacity 0.2s ease;
+  -o-transition: -o-transform 0.2s ease, opacity 0.2s ease;
+  -ms-transition: -ms-transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease,
+    opacity 0.2s ease
+  ;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.ui.accordion .title .dropdown.icon:before {
+  content: '\f0da';
+}
+/*--------------
+ Loose Coupling
+---------------*/
+.ui.basic.accordion.menu {
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.basic.accordion.menu .title,
+.ui.basic.accordion.menu .content {
+  padding: 0em;
+}
+/*******************************
+            States
+*******************************/
+/*--------------
+      Hover
+---------------*/
+.ui.accordion .title:hover,
+.ui.accordion .active.title {
+  color: rgba(0, 0, 0, 0.8);
+}
+/*--------------
+     Active
+---------------*/
+.ui.accordion .active.title {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.accordion .active.title .dropdown.icon {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.ui.accordion .active.content {
+  display: block;
+}
+/*******************************
+            Variations
+*******************************/
+.ui.basic.accordion {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.accordion .title {
+  background-color: transparent;
+  border-top: none;
+}
+.ui.basic.accordion .title,
+.ui.basic.accordion .content {
+  padding-left: 0em;
+  padding-right: 0em;
+}
