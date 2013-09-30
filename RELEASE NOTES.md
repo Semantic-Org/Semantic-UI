@@ -3,8 +3,9 @@
 ### Version 0.2.5- Sep 28, 2013
 
 **Fixes**
-
+- Fixes checkbox  selector issue with multiple inputs inside a checkbox
 - Modal no longer uses inline css to center when in fixed position mode
+- Fixes dropdown to now set active item to whatever hidden input field is when using action updateForm
 
 ### Version 0.2.4- Sep 28, 2013
 
