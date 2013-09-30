@@ -248,13 +248,13 @@ type        : 'UI Collection'
 
   <h2 class="ui dividing header">Types</h2>
 
-
-  <div class="highlighted example">
+  <div class="example">
     <h4 class="ui header">Page Grid</h4>
-    <p>A page grid is a grid that exists on the top level of a website and includes gutters to the left and right.</p>
+    <p>A page grid exists on the top level of a web site. It can change its left and right gutter size to be responsive to a browser's width. This means the gutters to left and right of grid columns will alter in size as a browser's resolution increases.</p>
 
-    <div class="ui ignore warning message"><i class="icon info circle"></i>
-    It is important to note, that padding is applied directly to columns, which means other ui elements should not be used in combination with column, but directly as children.</div>
+    <div class="ui text message info ignore">
+      <i class="icon heart"></i> Semantic UI's page grid by default will change the page gutters to increase at 250pixel intervals.
+    </div>
 
     <div class="ui two column page grid">
       <div class="column">
@@ -398,123 +398,6 @@ type        : 'UI Collection'
   <h2 class="ui dividing header">Variations</h2>
 
   <h3 class="ui header">Grid</h3>
-
-  <div class="example">
-    <h4 class="ui header">Responsive to Size</h4>
-    <p>A grid can change its size to be responsive to a browser's width. This means the gutters to left and right of grid columns will alter in size as a browser's resolution increases.</p>
-
-    <div class="ui text message info ignore">
-      <i class="icon heart"></i> Semantic UI's responsive grid by default will change the page gutters to increase at 250pixel intervals.
-    </div>
-
-    <div class="ui two column responsive grid">
-      <div class="column">
-        <div class="ui labeled vertical fluid inverted icon menu">
-          <a class="item">
-            <i class="icon mail"></i>
-            Mail
-          </a>
-          <a class="item">
-            <i class="icon lab"></i>
-            Lab
-          </a>
-          <a class="item">
-            <i class="icon star"></i>
-            Favorites
-          </a>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <b>Inbox</b>
-          <p>Welcome to your inbox. Would you like to see more information?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Responsive to Device</h4>
-    <p>A grid can have its columns, or rows only show for either a computer, tablet, or mobile.</p>
-    <div class="ui text message info ignore">
-      <i class="icon heart"></i> Breakpoints are 768 for mobile, 768-998 for tablet and 998 for pc</i>
-    </div>
-    <div class="ui grid">
-      <div class="two column mobile only row">
-        <div class="column">
-          <div class="ui segment">
-            Mobile
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            Mobile
-          </div>
-        </div>
-      </div>
-      <div class="three column row">
-        <div class="computer only column">
-          <div class="ui segment">
-            Computer
-          </div>
-        </div>
-        <div class="tablet mobile only column">
-          <div class="ui segment">
-            Tablet and Mobile
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            All Sizes
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            All Sizes
-          </div>
-        </div>
-      </div>
-      <div class="four column computer only row">
-        <div class="column">
-          <div class="ui segment">
-            Computer
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            Computer
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            Computer
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            Computer
-          </div>
-        </div>
-      </div>
-      <div class="three column tablet only row">
-        <div class="column">
-          <div class="ui segment">
-            Tablet
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            Tablet
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui segment">
-            Tablet
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="example">
     <h4 class="ui header">Specifying Column Count Per Row</h4>
@@ -716,6 +599,89 @@ type        : 'UI Collection'
   </div>
 
   <h3 class="ui header">Rows</h3>
+
+  <div class="example">
+    <h4 class="ui header">Responsive to Device</h4>
+    <p>A grid can have its columns, or rows only show content for computer, tablet, or mobile.</p>
+    <div class="ui text message info ignore">
+      <i class="icon heart"></i> Breakpoints are 768 for mobile, 768-998 for tablet and 998 for pc</i>
+    </div>
+    <div class="ui grid">
+      <div class="two column mobile only row">
+        <div class="column">
+          <div class="ui segment">
+            Mobile
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Mobile
+          </div>
+        </div>
+      </div>
+      <div class="three column row">
+        <div class="computer only column">
+          <div class="ui segment">
+            Computer
+          </div>
+        </div>
+        <div class="tablet mobile only column">
+          <div class="ui segment">
+            Tablet and Mobile
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            All Sizes
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            All Sizes
+          </div>
+        </div>
+      </div>
+      <div class="four column computer only row">
+        <div class="column">
+          <div class="ui segment">
+            Computer
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Computer
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Computer
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Computer
+          </div>
+        </div>
+      </div>
+      <div class="three column tablet only row">
+        <div class="column">
+          <div class="ui segment">
+            Tablet
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Tablet
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Tablet
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Equal Height</h4>
