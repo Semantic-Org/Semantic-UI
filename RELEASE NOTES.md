@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.2.5- Sep 28, 2013
+### Version 0.2.5- Sep 30, 2013
 
 **Fixes**
 - Fixes checkbox  selector issue with multiple inputs inside a checkbox
