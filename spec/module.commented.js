@@ -340,6 +340,9 @@ $.fn.example = function(parameters) {
           else if(found !== undefined) {
             response = found;
           }
+          // ### Invocation response
+          // If a user passes in multiple elements invoke will be called for each element and the value will be returned in an array
+          // For example ``$('.things').example('has text')`` with two elements might return ``[true, false]`` and for one element ``true``
           if($.isArray(invokedResponse)) {
             invokedResponse.push(response);
           }
