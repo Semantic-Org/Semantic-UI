@@ -5194,8 +5194,6 @@ $.fn.modal = function(parameters) {
             .dimmer('get dimmer')
           ;
 
-          console.log($dimmer);
-
           module.verbose('Attaching close events', $close);
           $close
             .on('click' + eventNamespace, module.event.close)
@@ -5205,7 +5203,6 @@ $.fn.modal = function(parameters) {
               module.event.debounce(module.refresh, 50);
             })
           ;
-
           module.instantiate();
         },
 
@@ -5392,7 +5389,6 @@ $.fn.modal = function(parameters) {
             ;
           },
           scrolling: function() {
-            console.log($dimmer, 'set scrolling');
             $dimmer.addClass(className.scrolling);
             $module.addClass(className.scrolling);
           },
