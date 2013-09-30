@@ -81,7 +81,7 @@ $.fn.dropdown = function(parameters) {
               .on(settings.on + eventNamespace, module.toggle)
             ;
           }
-          if(settings.action == 'form') {
+          if(settings.action == 'updateForm') {
             module.set.selected();
           }
           $item
