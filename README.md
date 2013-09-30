@@ -10,6 +10,7 @@ Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=ope
 
 If you need to create a test case, you can [fork this jsfiddle](http://jsfiddle.net/jlukic/Vbr9d/1/) to get you started.
 
+If you want to keep track of development, please [join our google group](https://groups.google.com/forum/?hl=en#!forum/semantic-ui)
 
 ## The Library
 
