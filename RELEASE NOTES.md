@@ -1,11 +1,11 @@
 ## RELEASE NOTES
 
-### Version 0.3.1- Sep 28, 2013
+### Version 0.3.1- Sep 30, 2013
 
 **Fixes**
 - Fixes Page Grid still receiving negative margin
 
-### Version 0.3.0- Sep 28, 2013
+### Version 0.3.0- Sep 30, 2013
 
 **Fixes**
 - Responsive Grid is now called "Page Grid". Responsive grids are now deprecated. This reduces confusion.
