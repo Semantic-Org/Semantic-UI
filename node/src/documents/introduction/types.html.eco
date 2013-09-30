@@ -1,7 +1,6 @@
   ---
 layout      : 'default'
 css         : 'types'
-status      : 'draft'
 
 title       : 'Types'
 description : 'A type is an mutually exclusive change to an element'

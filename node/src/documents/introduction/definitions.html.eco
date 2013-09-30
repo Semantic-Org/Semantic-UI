@@ -123,13 +123,12 @@ type        : 'UI Introduction'
   <ul class="ui list">
     <li>Popups</li>
     <li>Modals</li>
-    <li>Chatrooms</li>
-    <li>Calendar Pickers</li>
+    <li>Chat Rooms</li>
   </ul>
 
   <h2 class="ui dividing header">UI Views</h2>
 
-  <p>UI Views are common ways to structure types of content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.</p>
+  <p>UI Views are common ways to present content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.</p>
 
   <h3 class="ui header">Examples of UI views:</h3>
   <ul class="ui list">
