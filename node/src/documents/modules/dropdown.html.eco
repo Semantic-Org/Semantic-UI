@@ -415,7 +415,7 @@ type        : 'UI Module'
     <p>A dropdown can hide its menu</p>
     <div class="ignore code">
     $('.ui.dropdown')
-      .dropdown('show')
+      .dropdown('hide')
     ;
     </div>
   </div>
