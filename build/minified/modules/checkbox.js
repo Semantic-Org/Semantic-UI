@@ -334,7 +334,7 @@ $.fn.checkbox.settings = {
   },
 
   selector : {
-    input  : 'input',
+    input  : 'input[type=checkbox]',
     label  : 'label'
   },
 
