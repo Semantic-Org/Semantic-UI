@@ -45,6 +45,7 @@ $.fn.modal = function(parameters) {
         $context     = $(settings.context),
         $otherModals = $allModals.not($modal),
         $closeButton = $modal.find(selector.closeButton),
+        $activeElement = $(document.activeElement),
 
         $dimmer,
 
@@ -143,6 +144,7 @@ $.fn.modal = function(parameters) {
 
         show: function() {
           modal.debug('Showing modal');
+          $activeElement.blur();
           modal.set.type();
           modal.set.position();
           modal.hideAll();
