@@ -4750,6 +4750,15 @@ i.massive.basic.icon {
 /*-------------------
        Colors
 --------------------*/
+/*--- White ---*/
+.ui.white.buttons .button,
+.ui.white.button {
+  background-color: #FFFFFF;
+}
+.ui.white.buttons .button:hover,
+.ui.white.button:hover {
+  background-color: #A4A4A4;
+}
 /*--- Black ---*/
 .ui.black.buttons .button,
 .ui.black.button {
@@ -9381,7 +9390,7 @@ a.ui.teal.label:hover:before {
   vertical-align: middle;
 }
 .ui.checkbox input {
-  visibility: hidden;
+  opacity: 0;
   outline: none;
 }
 /*--- Box ---*/

@@ -5411,7 +5411,7 @@ $.fn.modal = function(parameters) {
             if(module.can.fit()) {
               $module
                 .css({
-                  top: '50%',
+                  top: '',
                   marginTop: -(module.cache.height / 2)
                 })
               ;
