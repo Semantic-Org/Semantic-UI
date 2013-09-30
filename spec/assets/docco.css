@@ -1,29 +1,9 @@
-/*--------------------- Typography ----------------------------*/
-
-@font-face {
-  font-family: 'Neutraface';
-  src:
-    url("../fonts/neutraface-book.otf") format('opentype')
-  ;
-  font-weight: normal;
-  font-style: normal;
-  font-size-adjust: 0.448;
-}
-@font-face {
-  font-family: 'Neutraface';
-  src:
-    url("../fonts/neutraface-bold.otf") format('opentype')
-  ;
-  font-weight: bold;
-  font-style: normal;
-  font-size-adjust: 0.448;
-}
-
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700);
 
 /*--------------------- Layout ----------------------------*/
 html { height: 100%; }
 body {
-  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   line-height: 18px;
   color: #30404f;
@@ -46,7 +26,7 @@ p, ul, ol {
 
 h1, h2, h3, h4, h5, h6 {
   color: #112233;
-  font-family: "Neutraface", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   line-height: 1em;
   text-transform: none;
   margin: 30px 0 15px 0;
