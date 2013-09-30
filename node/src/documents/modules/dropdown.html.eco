@@ -445,7 +445,7 @@ type        : 'UI Module'
       <tr>
         <td>on</td>
         <td>click</td>
-        <td>Event used to trigger dropdown</td>
+        <td>Event used to trigger dropdown (Hover, Click)</td>
       </tr>
       <tr>
         <td>delay</td>
@@ -457,7 +457,7 @@ type        : 'UI Module'
     }
         </div>
         </td>
-        <td>Time in milliseconds to debounce show or hide behavior</td>
+        <td>Time in milliseconds to debounce show or hide behavior when <code>on: hover</code> is used.</td>
       </tr>
       <tr>
         <td>transition</td>
