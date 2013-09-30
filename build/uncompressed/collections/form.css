@@ -78,6 +78,7 @@
   -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
   -moz-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
   box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -148,6 +149,7 @@
   border-color: rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  -webkit-appearance: none;
   -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
@@ -195,6 +197,7 @@
 .ui.form .field.error input[type="password"]:focus {
   border-color: #ff5050;
   color: #ff5050;
+  -webkit-appearance: none;
   -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
   -moz-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
   box-shadow: 0.3em 0em 0em 0em #FF5050 inset;

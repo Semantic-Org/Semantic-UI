@@ -6,15 +6,6 @@ title       : 'Language'
 description : 'Suggestions for language usage when developing user interfaces'
 type        : 'UI Guide'
 ---
-<div class="segment">
-  <div class="container">
-    <h1 class="ui header">UI Language</h1>
-    <div class="ui large red message">
-      This is a starting draft, check back later.
-    </div>
-  </div>
-</div>
-
 <%- @partial('header') %>
 <div class="main container">
 
@@ -121,15 +112,6 @@ type        : 'UI Guide'
 
     /* yay the developer can choose what type of heading tag to use */
     .ui.thingy .header {
-
-    }
-
-    /* wow this guy is going to have to do a lot of typing... */
-    .ui.table .cell {
-
-    }
-    /* this seems like a reasonable assumption, html is a bit strict about these things */
-    .ui.table td {
 
     }
     </div>

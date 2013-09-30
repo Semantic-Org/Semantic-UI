@@ -1,12 +1,17 @@
 {
   "name"        : "semantic",
-  "version"     : "0.0.2",
+  "version"     : "0.1.0",
   "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
-
-  "homepage"    : "https://github.com/quirkyinc/semantic",
+  "homepage"    : "http://www.semantic-ui.com",
+  "main": [
+    "./build/*"
+  ],
   "author": {
     "name" : "Jack Lukic",
-    "web"  : "http://www.semantic-ui.com"
+    "web"  : "http://www.jacklukic.com"
+  },
+  "dependencies": {
+    "jquery"      : ">=1.8"
   },
   "keywords": [
     "semantic",
@@ -17,16 +22,9 @@
   "license" : [
     "http://semantic-ui.mit-license.org/"
   ],
-
-  "main": [
-    "./build/*"
-  ],
   "ignore": [
     "node",
     "source",
     "docs"
-  ],
-  "dependencies": {
-    "jquery"      : ">=1.8"
-  }
+  ]
 }

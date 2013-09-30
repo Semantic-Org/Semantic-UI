@@ -574,7 +574,7 @@ $.fn.chatroom = function(parameters) {
       if(instance === undefined) {
         module.initialize();
       }
-      invokedResponse = module.invoke(query);
+      module.invoke(query);
     }
     else {
       if(instance !== undefined) {

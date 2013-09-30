@@ -6,12 +6,6 @@ title       : 'CSS'
 description : 'Suggestions for CSS development practices'
 type        : 'UI Guide'
 ---
-<div class="segment">
-  <div class="container">
-    <h1 class="ui header">CSS Guide</h1>
-  </div>
-</div>
-
 <%- @partial('header') %>
 <div class="main container">
 

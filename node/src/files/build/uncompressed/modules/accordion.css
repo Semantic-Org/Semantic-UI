@@ -43,6 +43,27 @@
   margin: 0em;
   padding: 1.3em 1em;
 }
+/* Arrow */
+.ui.accordion .title .dropdown.icon {
+  display: inline-block;
+  float: none;
+  margin: 0em 0.5em 0em 0em;
+  -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease, opacity 0.2s ease;
+  -o-transition: -o-transform 0.2s ease, opacity 0.2s ease;
+  -ms-transition: -ms-transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease,
+    opacity 0.2s ease
+  ;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.ui.accordion .title .dropdown.icon:before {
+  content: '\f0da';
+}
 /*--------------
  Loose Coupling
 ---------------*/
@@ -63,17 +84,24 @@
       Hover
 ---------------*/
 .ui.accordion .title:hover,
-.ui.accordion .title.active {
+.ui.accordion .active.title {
   color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
-      Active
+     Active
 ---------------*/
-.ui.accordion .title.active {
+.ui.accordion .active.title {
   background-color: rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.8);
 }
-.ui.accordion .content.active {
+.ui.accordion .active.title .dropdown.icon {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.ui.accordion .active.content {
   display: block;
 }
 /*******************************

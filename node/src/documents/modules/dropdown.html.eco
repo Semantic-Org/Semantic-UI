@@ -114,7 +114,7 @@ type        : 'UI Module'
     <div class="ui compact menu">
       <div class="menu">
         <a class="active item">
-          <i class="icon home"></i> Home
+          <i class="home icon"></i> Home
         </a>
         <div class="ui pointing dropdown link item">
           <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
@@ -124,10 +124,10 @@ type        : 'UI Module'
           </div>
         </div>
         <a class="item">
-          <i class="icon community"></i> Browse
+          <i class="user icon"></i> Browse
         </a>
         <a class="item">
-          <i class="icon book"></i> Help
+          <i class="question icon"></i> Help
         </a>
       </div>
     </div>
@@ -230,7 +230,7 @@ type        : 'UI Module'
         </div>
       </div>
       <div class="ui top left pointing dropdown button">
-        <i class="community icon"></i>
+        <i class="users icon"></i>
         <div class="menu">
           <div class="item"><i class="edit icon"></i>Edit Group</div>
           <div class="item"><i class="delete icon"></i>Remove Group</div>
@@ -288,7 +288,7 @@ type        : 'UI Module'
             </div>
           </a>
           <a class="item">
-            <i class="icon community"></i> Browse
+            <i class="user icon"></i> Browse
           </a>
         </div>
         <div class="sub menu">
@@ -415,7 +415,7 @@ type        : 'UI Module'
     <p>A dropdown can hide its menu</p>
     <div class="ignore code">
     $('.ui.dropdown')
-      .dropdown('show')
+      .dropdown('hide')
     ;
     </div>
   </div>
@@ -445,7 +445,7 @@ type        : 'UI Module'
       <tr>
         <td>on</td>
         <td>click</td>
-        <td>Event used to trigger dropdown</td>
+        <td>Event used to trigger dropdown (Hover, Click)</td>
       </tr>
       <tr>
         <td>delay</td>
@@ -457,7 +457,7 @@ type        : 'UI Module'
     }
         </div>
         </td>
-        <td>Time in milliseconds to debounce show or hide behavior</td>
+        <td>Time in milliseconds to debounce show or hide behavior when <code>on: hover</code> is used.</td>
       </tr>
       <tr>
         <td>transition</td>

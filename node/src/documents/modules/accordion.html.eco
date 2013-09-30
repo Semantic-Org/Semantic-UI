@@ -6,10 +6,7 @@ title       : 'Accordion'
 description : 'An accordion displays a single piece of content, while allowing the option of displaying other related content'
 type        : 'UI Module'
 ---
-<link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/accordion.css">
-
 <script src="/javascript/accordion.js"></script>
-<script src="/build/uncompressed/modules/accordion.js"></script>
 
 <%- @partial('header') %>
 
@@ -21,6 +18,8 @@ type        : 'UI Module'
       <a class="item">Examples</a>
       <a class="item">Variations</a>
       <a class="item">Usage</a>
+      <a class="item">Behavior</a>
+      <a class="item">Settings</a>
     </div>
   </div>
 
@@ -29,22 +28,31 @@ type        : 'UI Module'
     <h4 class="ui header">Accordion</h4>
     <p>A standard accordion</p>
     <div class="ui accordion">
-      <div class="active title">What is a dog?</div>
+      <div class="active title">
+        <i class="dropdown icon"></i>
+        What is a dog?
+      </div>
       <div class="active content">
         <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
       </div>
-      <div class="title">What kinds of dogs are there?</div>
+      <div class="title">
+        <i class="dropdown icon"></i>
+        What kinds of dogs are there?
+      </div>
       <div class="content">
         <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
       </div>
-      <div class="title">How do you acquire a dog?</div>
+      <div class="title">
+        <i class="dropdown icon"></i>
+        How do you acquire a dog?
+      </div>
       <div class="content">
         <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
         <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
       </div>
     </div>
-
   </div>
+
   <h2 class="ui dividing header">Examples</h2>
 
   <div class="example">
@@ -62,8 +70,8 @@ type        : 'UI Module'
         </div>
       </div>
       <div class="title">
-        Optional Details
         <i class="icon dropdown"></i>
+        Optional Details
       </div>
       <div class="content">
         <div class="field">
@@ -78,9 +86,9 @@ type        : 'UI Module'
     <p>An accordion can be used to create content drawers inside a menu</p>
     <div class="ui basic vertical accordion menu">
       <div class="item">
-        <a class="title">
-          Size
+        <a class="active title">
           <i class="dropdown icon"></i>
+          Size
         </a>
         <div class="active content menu">
           <div class="ui form item">
@@ -118,9 +126,9 @@ type        : 'UI Module'
         </div>
       </div>
       <div class="item">
-        <a class="title">
-          Colors
+        <a class="active title">
           <i class="dropdown icon"></i>
+          Colors
         </a>
         <div class="active content menu">
           <div class="ui form item">
@@ -166,22 +174,22 @@ type        : 'UI Module'
     <p>A basic accordion does not add any extra formatting</p>
     <div class="ui basic accordion">
       <div class="active title">
-        What is a dog?
         <i class="dropdown icon"></i>
+        What is a dog?
       </div>
       <div class="active content">
         <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
       </div>
       <div class="title">
-        What kinds of dogs are there?
         <i class="dropdown icon"></i>
+        What kinds of dogs are there?
       </div>
       <div class="content">
         <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
       </div>
       <div class="title">
-        How do you acquire a dog?
         <i class="dropdown icon"></i>
+        How do you acquire a dog?
       </div>
       <div class="content">
         <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
@@ -199,11 +207,36 @@ type        : 'UI Module'
     ;
   </div>
 
+  <h2 class="ui dividing header">Behavior</h2>
 
-  <h3 class="ui header">Settings</h3>
-  <table class="ui red table segment">
+  All the following behaviors can be called using the syntax <code>$('.foo').accordion('behavior name', argumentOne, argumentTwo)</code>
+
+  <table class="ui definition celled table segment">
+    <tr>
+      <td>open (index)</td>
+      <td>Opens accordion content at index</td>
+    </tr>
+    <tr>
+      <td>close (index)</td>
+      <td>Closes accordion content at index</td>
+    </tr>
+    <tr>
+      <td>toggle (index)</td>
+      <td>Closes accordion content at index</td>
+    </tr>
+  </table>
+
+  <h2 class="ui dividing header">Settings</h3>
+
+  <h3 class="ui header">
+    Accordion Settings
+    <div class="sub header">Accordion settings modify its behavior</div>
+  </h3>
+  <table class="ui red celled definition table segment">
     <thead>
-      <th colspan="3">Accordion Settings</th>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
     </thead>
     <tbody>
       <tr>
@@ -216,39 +249,110 @@ type        : 'UI Module'
         <td>true</td>
         <td>Set to false to require an accordion to always have a section open</td>
       </tr>
+      <tr>
+        <td>duration</td>
+        <td>500</td>
+        <td>Duration in ms of opening animation</td>
+      </tr>
+      <tr>
+        <td>easing</td>
+        <td>linear</td>
+        <td>Easing equation used for accordion (additional options require <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jQuery easing</a>)</td>
+      </tr>
     </tbody>
   </table>
 
-  <table class="ui teal table segment">
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+  <h3 class="ui header">
+    Callbacks
+    <div class="sub header">Callback settings specify a function to occur after a specific behavior.</div>
+  </h3>
+
+  <table class="ui celled green definition table segment">
     <thead>
-      <th colspan="3">Callbacks</th>
+      <th class="four wide">Setting</th>
+      <th>Context</th>
+      <th>Description</th>
     </thead>
     <tbody>
       <tr>
         <td>onOpen</td>
-        <td>None</td>
-        <td>Callback after a accordion section is opened.</td>
+        <td>active content</td>
+        <td>Callback on element open</td>
       </tr>
       <tr>
         <td>onClose</td>
-        <td>None</td>
-        <td>Callback after a accordion section is closed.</td>
+        <td>active content</td>
+        <td>Callback on element close</td>
       </tr>
       <tr>
         <td>onChange</td>
-        <td>None</td>
-        <td>Callback after a accordion section is changed.</td>
+        <td>active content</td>
+        <td>Callback on element open or close</td>
       </tr>
     </tbody>
   </table>
 
-  <table class="ui blue table segment">
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+  <h3 class="ui header">
+    DOM Settings
+    <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+  </h3>
+  <table class="ui celled purple definition table segment">
     <thead>
-      <th colspan="3">UI Module Settings</th>
+      <th>Setting</th>
+      <th class="six wide">Default</th>
+      <th>Description</th>
     </thead>
     <tbody>
       <tr>
-        <td>moduleName</td>
+        <td>namespace</td>
+        <td>accordion</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+      </tr>
+      <tr>
+        <td>selector</td>
+        <td>
+          <div class="code" data-type="css">{
+      title   : '.title',
+      content : '.content'
+    }
+          </div>
+        </td>
+        <td>Object containing selectors used by module.</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>
+          <div class="code">
+    className : {
+      active : 'active'
+    },
+          </div>
+        </td>
+        <td>Class names used to attach style to state</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+  <h3 class="ui header">
+    Debug Settings
+    <div class="sub header">Debug settings controls debug output to the console</div>
+  </h3>
+
+  <table class="ui blue celled definition table segment">
+    <thead>
+      <th>Setting</th>
+      <th class="four wide">Default</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>name</td>
         <td>Accordion</td>
         <td>Name used in debug logs</td>
       </tr>
@@ -259,25 +363,21 @@ type        : 'UI Module'
       </tr>
       <tr>
         <td>performance</td>
-        <td>False</td>
+        <td>True</td>
         <td>Provides standard debug output to console</td>
       </tr>
       <tr>
         <td>verbose</td>
-        <td>False</td>
+        <td>True</td>
         <td>Provides ancillary debug output to console</td>
-      </tr>
-      <tr>
-        <td>namespace</td>
-        <td>accordion</td>
-        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
       </tr>
       <tr>
         <td>errors</td>
         <td colspan="2">
           <div class="code">
-    errors : {
-      method : 'The method you called is not defined.'
+    error   : {
+      method   : 'The method you called is not defined.',
+      notFound : 'There were no elements that matched the specified selector'
     }
           </div>
         </td>

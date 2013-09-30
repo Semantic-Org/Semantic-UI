@@ -195,7 +195,7 @@ type        : 'UI Behavior'
     <p>This example also uses a different validation event. Each element will be validated on input blur instead of the default form submit.</p>
     <div class="code" data-type="javascript">
       $('.ui.dropdown')
-        .form({
+        .form(validationRules, {
           inline : true,
           on     : 'blur'
         })

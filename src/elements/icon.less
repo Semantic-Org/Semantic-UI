@@ -128,10 +128,10 @@ i.icon.calendar.empty:before { content: "\f133"; }
 i.icon.calendar:before { content: "\f073"; }
 i.icon.camera.retro:before { content: "\f083"; }
 i.icon.camera:before { content: "\f030"; }
-i.icon.caret.down:before { content: "\f0d7"; }
-i.icon.caret.left:before { content: "\f0d9"; }
-i.icon.caret.right:before { content: "\f0da"; }
-i.icon.caret.up:before { content: "\f0d8"; }
+i.icon.triangle.down:before { content: "\f0d7"; }
+i.icon.triangle.left:before { content: "\f0d9"; }
+i.icon.triangle.right:before { content: "\f0da"; }
+i.icon.triangle.up:before { content: "\f0d8"; }
 i.icon.cart:before { content: "\f07a"; }
 i.icon.certificate:before { content: "\f0a3"; }
 i.icon.chat.outline:before { content: "\f0e6"; }
@@ -441,7 +441,9 @@ i.icon.zoom.out:before { content: "\f010"; }
 i.icon.check:before { content: "\f00c"; }
 i.icon.close:before { content: "\f00d"; }
 i.icon.delete:before { content: "\f00d"; }
+i.icon.dropdown:before { content: "\f0d7"; }
 i.icon.like:before { content: "\f004"; }
+i.icon.plus:before { content: "\f067"; }
 i.icon.signup:before { content: "\f044"; }
 
 
@@ -493,7 +495,7 @@ i.icon.loading {
   -o-animation: icon-loading 2s linear infinite;
   animation: icon-loading 2s linear infinite;
 }
-@keyframes "icon-loading" {
+@keyframes icon-loading {
  from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -519,7 +521,7 @@ i.icon.loading {
    transform: rotate(360deg);
  }
 }
-@-webkit-keyframes "icon-loading" {
+@-webkit-keyframes icon-loading {
  from {
    -webkit-transform: rotate(0deg);
    transform: rotate(0deg);
@@ -529,7 +531,7 @@ i.icon.loading {
    transform: rotate(360deg);
  }
 }
-@-ms-keyframes "icon-loading" {
+@-ms-keyframes icon-loading {
  from {
    -ms-transform: rotate(0deg);
    transform: rotate(0deg);
@@ -539,7 +541,7 @@ i.icon.loading {
    transform: rotate(360deg);
  }
 }
-@-o-keyframes "icon-loading" {
+@-o-keyframes icon-loading {
  from {
    -o-transform: rotate(0deg);
    transform: rotate(0deg);

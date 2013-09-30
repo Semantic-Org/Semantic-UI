@@ -41,7 +41,6 @@ $.fn.accordion = function(parameters) {
       var
         $module  = $(this),
         $title   = $module.find(selector.title),
-        $icon    = $module.find(selector.icon),
         $content = $module.find(selector.content),
 
         element  = this,
@@ -134,9 +133,9 @@ $.fn.accordion = function(parameters) {
                 .children()
                   .animate({
                     opacity: 0
-                  }, settings.speed, module.event.resetStyle)
+                  }, settings.duration, module.event.resetStyle)
                   .end()
-                .slideUp(settings.speed , settings.easing, function() {
+                .slideUp(settings.duration , settings.easing, function() {
                   $previousContent
                     .removeClass(className.active)
                     .removeAttr('style')
@@ -154,7 +153,7 @@ $.fn.accordion = function(parameters) {
               .children()
                 .removeAttr('style')
                 .end()
-              .slideDown(settings.speed, settings.easing, function() {
+              .slideDown(settings.duration, settings.easing, function() {
                 $activeContent
                   .addClass(className.active)
                   .removeAttr('style')
@@ -182,9 +181,9 @@ $.fn.accordion = function(parameters) {
             .children()
               .animate({
                 opacity: 0
-              }, settings.speed, module.event.resetStyle)
+              }, settings.duration, module.event.resetStyle)
               .end()
-            .slideUp(settings.speed, settings.easing, function(){
+            .slideUp(settings.duration, settings.easing, function(){
               $activeContent
                 .removeAttr('style')
               ;
@@ -387,6 +386,9 @@ $.fn.accordion.settings = {
   exclusive   : true,
   collapsible : true,
 
+  duration    : 300,
+  easing      : 'linear',
+
   onOpen      : function(){},
   onClose     : function(){},
   onChange    : function(){},
@@ -396,18 +398,14 @@ $.fn.accordion.settings = {
   },
 
   className   : {
-    active    : 'active',
-    hover     : 'hover'
+    active : 'active'
   },
 
   selector    : {
-    title     : '.title',
-    icon      : '.icon',
-    content   : '.content'
+    title   : '.title',
+    content : '.content'
   },
 
-  speed       : 500,
-  easing      : 'easeInOutQuint'
 
 };
 

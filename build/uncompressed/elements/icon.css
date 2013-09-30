@@ -226,16 +226,16 @@ i.icon.camera.retro:before {
 i.icon.camera:before {
   content: "\f030";
 }
-i.icon.caret.down:before {
+i.icon.triangle.down:before {
   content: "\f0d7";
 }
-i.icon.caret.left:before {
+i.icon.triangle.left:before {
   content: "\f0d9";
 }
-i.icon.caret.right:before {
+i.icon.triangle.right:before {
   content: "\f0da";
 }
-i.icon.caret.up:before {
+i.icon.triangle.up:before {
   content: "\f0d8";
 }
 i.icon.cart:before {
@@ -1148,8 +1148,14 @@ i.icon.close:before {
 i.icon.delete:before {
   content: "\f00d";
 }
+i.icon.dropdown:before {
+  content: "\f0d7";
+}
 i.icon.like:before {
   content: "\f004";
+}
+i.icon.plus:before {
+  content: "\f067";
 }
 i.icon.signup:before {
   content: "\f044";
@@ -1194,7 +1200,7 @@ i.icon.loading {
   -o-animation: icon-loading 2s linear infinite;
   animation: icon-loading 2s linear infinite;
 }
-@keyframes "icon-loading" {
+@keyframes icon-loading {
   from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -1220,7 +1226,7 @@ i.icon.loading {
     transform: rotate(360deg);
   }
 }
-@-webkit-keyframes "icon-loading" {
+@-webkit-keyframes icon-loading {
   from {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -1230,7 +1236,7 @@ i.icon.loading {
     transform: rotate(360deg);
   }
 }
-@-ms-keyframes "icon-loading" {
+@-ms-keyframes icon-loading {
   from {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -1240,7 +1246,7 @@ i.icon.loading {
     transform: rotate(360deg);
   }
 }
-@-o-keyframes "icon-loading" {
+@-o-keyframes icon-loading {
   from {
     -o-transform: rotate(0deg);
     transform: rotate(0deg);

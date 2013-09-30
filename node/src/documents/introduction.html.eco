@@ -14,7 +14,6 @@ type        : 'Semantic'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Philosophy</a>
-      <a class="item">Getting Started</a>
     </div>
   </div>
 
@@ -27,7 +26,7 @@ type        : 'Semantic'
     <p>Interface definitions in Semantic are tag ambivalent. That means you can use div, article, section, span without affecting the display of the element. Special tags like a, table, td still carry special meaning in certain circumstances however.</p>
 
     <h3 class="ui header">Powerful tools for expressing groups and collections.</h3>
-    <p>It's much easier to say in English, there are three tall men then "There is a tall man, a tall man and a tall man".</p>
+    <p>In English it's much easier to say "There are three tall men" than "There is a tall man, a tall man and a tall man".</p>
     <p>In Semantic element definitions can be expressed in groups have shared attributes like size, color, type avoiding repetitive declarations.</p>
 
     <h3 class="ui header">Portable and self-contained.</h3>

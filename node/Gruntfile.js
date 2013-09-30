@@ -39,6 +39,12 @@ module.exports = function(grunt) {
       // creates custom license in header
       'cssmin:addBanner',
 
+      // create concatenated css release
+      'concat:concatenateCSS',
+
+      // create concatenated js release
+      'concat:concatenateJS',
+
       // creates minified js of each file
       'uglify:minifyJS',
 
@@ -50,6 +56,9 @@ module.exports = function(grunt) {
 
       // creates custom license in header
       'cssmin:addBanner',
+
+      // generate code docs
+      'docco:generate',
 
       // creates release zip
       'compress:everything',
@@ -101,6 +110,24 @@ module.exports = function(grunt) {
       docs : {
         cwd: 'src/files/build/',
         src: '*'
+      }
+    },
+
+    docco: {
+      generate: {
+        options: {
+          css    : '../spec/assets/docco.css',
+          output : '../spec/docs/'
+        },
+        files: [
+          {
+            expand : true,
+            cwd    : '../spec/',
+            src    : [
+              '**.commented.js'
+            ]
+          }
+        ]
       }
     },
 
@@ -220,21 +247,6 @@ module.exports = function(grunt) {
 
     },
 
-    // generate documented source code
-    docco: {
-      generate: {
-        expand : true,
-        cwd    : '../spec',
-        src    : [
-          '**/*.commented.js'
-        ],
-        options: {
-          css: '',
-          output: 'src/files/generated/'
-        }
-      }
-    },
-
 
     compress: {
       options: {
@@ -251,6 +263,19 @@ module.exports = function(grunt) {
           }
         ]
       }
+    },
+
+    concat: {
+      options: {
+      },
+      concatenateCSS: {
+        src: ["../build/uncompressed/**/*.css"],
+        dest: "../build/packaged/css/semantic.css"
+      },
+      concatenateJS: {
+        src: ["../build/uncompressed/**/*.js"],
+        dest: "../build/packaged/javascript/semantic.js"
+      },
     },
 
     cssmin: {
@@ -352,7 +377,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-docco');
+  grunt.loadNpmTasks('grunt-docco-multi');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.initConfig(config);
 

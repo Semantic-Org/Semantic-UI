@@ -24,9 +24,9 @@ When submiting a bug report, please include a set of steps to reproduce the issu
 
 Contributors should read over the coding guidelines for the project. Most importantly, the guide for language, as it is one of the most important parts about Semantic UI.
 
-[Language](http://semantic-ui.com/project/guide/styleguide.html)
-[CSS](http://semantic-ui.com/project/guide/cssguide.html)
-[Javascript](http://semantic-ui.com/project/guide/javascript.html)
+[Language](http://semantic-ui.com/guide/styleguide.html)
+[CSS](http://semantic-ui.com/guide/cssguide.html)
+[Javascript](http://semantic-ui.com/guide/javascriptguide.html)
 
 ### Pull Requests
 

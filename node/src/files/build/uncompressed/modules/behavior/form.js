@@ -376,10 +376,7 @@ $.fn.form = function(fields, parameters) {
             }
             // normal notation
             else {
-              isValid = (type == 'checked')
-                ? $field.filter(':checked').size() > 0
-                : settings.rules[type](value)
-              ;
+              isValid = $.proxy(settings.rules[type], $field)(value);
             }
             return isValid;
           }
@@ -639,6 +636,9 @@ $.fn.form.settings = {
   },
 
   rules: {
+    checked: function() {
+      return ($(this).filter(':checked').size() > 0);
+    },
     empty: function(value) {
       return !(value === undefined || '' === value);
     },
