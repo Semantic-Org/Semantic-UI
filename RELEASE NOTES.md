@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.3.1- Sep 28, 2013
+
+**Fixes**
+- Fixes Page Grid still receiving negative margin
+
 ### Version 0.3.0- Sep 28, 2013
 
 **Fixes**
