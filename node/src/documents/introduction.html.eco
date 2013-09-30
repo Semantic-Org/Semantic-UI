@@ -14,7 +14,6 @@ type        : 'Semantic'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Philosophy</a>
-      <a class="item">Getting Started</a>
     </div>
   </div>
 
