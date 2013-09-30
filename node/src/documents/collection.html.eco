@@ -62,7 +62,7 @@ type        : 'Semantic'
     </div>
     <div class="item">
       <div class="image">
-        <div class="ui three column aligned responsive grid">
+        <div class="ui three column aligned page grid">
           <div class="column"><div class="ui segment">1</div></div>
           <div class="column"><div class="ui segment">2</div></div>
           <div class="column"><div class="ui segment">3</div></div>

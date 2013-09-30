@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.3.0- Sep 28, 2013
+
+**Fixes**
+- Responsive Grid is now called "Page Grid". Responsive grids are now deprecated. This reduces confusion.
+- Negative margins are now automatically removed from grids that are descendents of body tag.
+
 ### Version 0.2.5- Sep 28, 2013
 
 **Fixes**
