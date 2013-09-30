@@ -1,13 +1,24 @@
 ## RELEASE NOTES
 
-### Version 0.2.5- Sep 30, 2013
+### Version 0.3.0 - Sep 30, 2013
+
+**Additions**
+- Adds new UI module tab with documentation.
+
+**Updates**
+- Adds new methods to rating, 'get rating', 'clear rating', adds new setting 'clearable'
+- Adds rating as first callback parameter on 'onRate'
+
+**Fixes**
+
+### Version 0.2.5 - Sep 30, 2013
 
 **Fixes**
 - Fixes checkbox  selector issue with multiple inputs inside a checkbox
 - Modal no longer uses inline css to center when in fixed position mode
 - Fixes dropdown to now set active item to whatever hidden input field is when using action updateForm
 
-### Version 0.2.4- Sep 28, 2013
+### Version 0.2.4 - Sep 28, 2013
 
 **Updates**
 

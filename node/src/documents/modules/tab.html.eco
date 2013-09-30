@@ -15,81 +15,202 @@ type        : 'UI Module'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="item">Usage</a>
       <a class="item">Examples</a>
+      <a class="item">Coupling</a>
       <a class="item">Behavior</a>
       <a class="item">Settings</a>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Usage</h2>
+  <h2 class="ui dividing header">Examples</h2>
 
-  <h4 class="ui header">Opening tabs with menus</h4>
-  <p>Tabs are usually used in concert with an element that activates the tab.</p>
-  <p>When using tabs, unlike other UI components, the menu or activating element is initialized instead of the tab.</p>
+  <div class="first no example">
 
-  <div class="ignored ui info message">
-    Tabs are connected to their activators with a metadata attribute <code>data-tab</code>. This should be added to both the activating element and the tab itself.
-  </div>
-  <div class="code" data-type="javascript" data-demo="true">
-    $('.demo.menu .item')
-      .tab()
-    ;
-  </div>
-  <div class="code" data-type="html" data-label="true" data-preview="true">
-    <div class="ui pointing secondary demo menu">
-      <a class="active item" data-tab="1">First</a>
-      <a class="item" data-tab="2">Second</a>
-      <a class="item" data-tab="3">Third</a>
-    </div>
-    <div class="ui active tab segment" data-tab="first">
-      First Tab
-    </div>
-    <div class="ui tab segment" data-tab="second">
-      Second Tab
-    </div>
-    <div class="ui tab segment" data-tab="third">
-      Third Tab
-    </div>
-  </div>
+    <h4 class="ui header">Opening tabs with menus</h4>
+    <p>Tabs are usually used in concert with an element that activates the tab. When using tabs, unlike other UI components, the menu or activating element is initialized instead of the tab.</p>
+    <p>Tabs are connected to their activators with a metadata attribute <code>data-tab</code>. This should be added to both the activating element and the tab itself.</p>
 
-  <h4 class="ui header">Managing Back/Forward Buttons with Tabs</h4>
-  <p>Tabs can attach to a history change event to allow for tabs to maintain history events. Tabs use Asual's <a href="https://github.com/asual/jquery-address">Address library</a> to provide cross-browser push state support. This makes sure in browser that don't support push state, <code>hashchange</code> is used with in page anchors to provide history functionality.</p>
-  <div class="ignored ui warning message">
-    <div class="header">Use proper path</div>
-    Make sure when you use history to specify the proper path. This is required for determining the stem url from the part of the url maintaining in page history. Using the incorrect path will cause the module to work incorrectly, producing unexpected results.
-  </div>
-  <div class="ignored ui warning message">
-    <div class="header">Route your URLs</div>
-    Be sure to set up routes on your server for any url used with history. If you use history to change the url to a location that does not exist, it will 404 on the next refresh. For example this documentation will 404 on refresh because Github Pages are only set up to server static site content.
-  </div>
-  <div class="code" data-type="javascript" data-demo="true">
-    $('.history.menu .item')
+    <div class="ignored ui info message">
+      <h4 class="ui header">Default tabs</h4>
+      <p>After any tab is opened it will look for a default tab to open inside of the current tab. This is the first tab that begins with the same stem url as the parent tab. For example a tab with the path <code>data-tab="home"</code> might open a tab automatically <code>data-tab="/home/inbox"</code>.</p>
+      <p>This will happen recursively for every tab open, allowing as many levels of tabs as you like</p>
+    </div>
+
+    <div class="code" data-type="javascript">
+    $('.first.example .menu .item')
       .tab({
-        history : true,
-        path    : '/modules/tab.html'
+        context: '.first.example'
       })
     ;
-  </div>
-  <div class="code" data-type="html" data-label="true" data-preview="true">
-    <div class="ui pointing secondary history menu">
+    </div>
+    <div class="code" data-type="html" data-label="true">
+    <div class="ui pointing secondary menu">
       <a class="active item" data-tab="first">First</a>
       <a class="item" data-tab="second">Second</a>
       <a class="item" data-tab="third">Third</a>
     </div>
     <div class="ui active tab segment" data-tab="first">
-      First Tab
+      <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="first/a">1A</a>
+        <a class="item" data-tab="first/b">1B</a>
+        <a class="item" data-tab="first/c">1C</a>
+      </div>
+      <div class="ui bottom attached active tab segment" data-tab="first/a">1A</div>
+      <div class="ui bottom attached tab segment" data-tab="first/b">1B</div>
+      <div class="ui bottom attached tab segment" data-tab="first/c">1C</div>
+    </div>
+    <div class="ui tab segment" data-tab="second">...</div>
+    <div class="ui tab segment" data-tab="third">...</div>
+    </div>
+
+    <div class="ui pointing secondary menu">
+      <a class="active item" data-tab="first">First</a>
+      <a class="item" data-tab="second">Second</a>
+      <a class="item" data-tab="third">Third</a>
+    </div>
+    <div class="ui active tab segment" data-tab="first">
+      <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="first/a">1A</a>
+        <a class="item" data-tab="first/b">1B</a>
+        <a class="item" data-tab="first/c">1C</a>
+      </div>
+      <div class="ui bottom attached active tab segment" data-tab="first/a">1A</div>
+      <div class="ui bottom attached tab segment" data-tab="first/b">1B</div>
+      <div class="ui bottom attached tab segment" data-tab="first/c">1C</div>
     </div>
     <div class="ui tab segment" data-tab="second">
-      Second Tab
+      <div class="ui top attached tabular menu">
+        <a class="item" data-tab="second/a">2A</a>
+        <a class="item" data-tab="second/b">2B</a>
+        <a class="item" data-tab="second/c">2C</a>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="second/a">2A</div>
+      <div class="ui bottom attached tab segment" data-tab="second/b">2B</div>
+      <div class="ui bottom attached tab segment" data-tab="second/c">2C</div>
     </div>
     <div class="ui tab segment" data-tab="third">
-      Third Tab
+      <div class="ui top attached tabular menu">
+        <a class="item" data-tab="third/a">3A</a>
+        <a class="item" data-tab="third/b">3B</a>
+        <a class="item" data-tab="third/c">3C</a>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="third/a">3A</div>
+      <div class="ui bottom attached tab segment" data-tab="third/b">3B</div>
+      <div class="ui bottom attached tab segment" data-tab="third/c">3C</div>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Examples</h2>
+  <h2 class="ui dividing header">Optional Coupling</h2>
 
+  <div class="history no example">
+    <h4 class="ui header">Managing History with Tabs</h4>
+    <p>Tabs can attach to a history change event to allow for tabs to maintain history events. Tabs use Asual's <a href="https://github.com/asual/jquery-address">Address library</a> to provide cross-browser push state support. This makes sure in browser that don't support push state, <code>hashchange</code> is used with in page anchors to provide history functionality.</p>
+    <div class="ignored ui warning message">
+      <h4 class="header">Setup Paths</h4>
+      Make sure when you use history to specify the path. This is required for determining the stem url from the part of the url maintaining in page history. The path is the URL without any tabs open. This cannot usually be set automatically because on future page refreshes the URL may include an internal link. Using the incorrect path will cause the module to work incorrectly, producing unexpected results.
+    </div>
+    <div class="ignored ui red message">
+      <h4 class="header">Route your URLs</h4>
+      Be sure to set up routes on your server for any url used with history. If you use history to change the url to a location that does not exist, it will 404 on the next refresh. The docs for example, are static github hosted pages, so will 404 if the page url changes
+    </div>
+    <div class="code" data-type="javascript">
+      $('.history.example .menu .item')
+        .tab({
+          context : '.history.example',
+          history : true,
+          path    : '/modules/tab.html'
+        })
+      ;
+    </div>
+    <div class="ui pointing secondary menu">
+      <a class="active item" data-tab="first">First</a>
+      <a class="item" data-tab="second">Second</a>
+      <a class="item" data-tab="third">Third</a>
+    </div>
+    <div class="ui active tab segment" data-tab="first">
+      <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="first/a">1A</a>
+        <a class="item" data-tab="first/b">1B</a>
+        <a class="item" data-tab="first/c">1C</a>
+      </div>
+      <div class="ui bottom attached active tab segment" data-tab="first/a">1A</div>
+      <div class="ui bottom attached tab segment" data-tab="first/b">1B</div>
+      <div class="ui bottom attached tab segment" data-tab="first/c">1C</div>
+    </div>
+    <div class="ui tab segment" data-tab="second">
+      <div class="ui top attached tabular menu">
+        <a class="item" data-tab="second/a">2A</a>
+        <a class="item" data-tab="second/b">2B</a>
+        <a class="item" data-tab="second/c">2C</a>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="second/a">2A</div>
+      <div class="ui bottom attached tab segment" data-tab="second/b">2B</div>
+      <div class="ui bottom attached tab segment" data-tab="second/c">2C</div>
+    </div>
+    <div class="ui tab segment" data-tab="third">
+      <div class="ui top attached tabular menu">
+        <a class="item" data-tab="third/a">3A</a>
+        <a class="item" data-tab="third/b">3B</a>
+        <a class="item" data-tab="third/c">3C</a>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="third/a">3A</div>
+      <div class="ui bottom attached tab segment" data-tab="third/b">3B</div>
+      <div class="ui bottom attached tab segment" data-tab="third/c">3C</div>
+    </div>
+  </div>
+
+  <div class="dynamic no example">
+    <h4 class="header">Retreiving Dynamic Tab Content</h4>
+    <p>The easiest way to setup dynamic content is to use the parameter <code>auto</code>, this will automatically retrieve content at a remote url matching the url set in the browser. The URL will receive an addition HTTP Header <code>'X-Remote': true</code>. You can use this on your server's back-end to determine whether a request is an AJAX request from a tab</p>
+    <p>This uses a similar technique to <a href="https://github.com/defunkt/jquery-pjax">pJax</a> or Rail's <a href="https://github.com/rails/turbolinks/">turbolinks</a>.</p>
+
+    <div class="ignored ui info message">There are a variety of settings for configuring dynamic content behavior. Visit the tab settings section for more information</div>
+
+    <div class="code" data-type="javascript">
+    $('.dynamic.example .menu .item')
+      .tab({
+        context : '.dynamic.example',
+        auto    : true,
+        path    : '/modules/tab.html'
+      })
+    ;
+    </div>
+    <div class="ui pointing secondary menu">
+      <a class="active item" data-tab="first">First</a>
+      <a class="item" data-tab="second">Second</a>
+      <a class="item" data-tab="third">Third</a>
+    </div>
+    <div class="ui active tab segment" data-tab="first">
+      <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="first/a">1A</a>
+        <a class="item" data-tab="first/b">1B</a>
+        <a class="item" data-tab="first/c">1C</a>
+      </div>
+      <div class="ui bottom attached active tab segment" data-tab="first/a"></div>
+      <div class="ui bottom attached tab segment" data-tab="first/b"></div>
+      <div class="ui bottom attached tab segment" data-tab="first/c"></div>
+    </div>
+    <div class="ui tab segment" data-tab="second">
+      <div class="ui top attached tabular menu">
+        <a class="item" data-tab="second/a">2A</a>
+        <a class="item" data-tab="second/b">2B</a>
+        <a class="item" data-tab="second/c">2C</a>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="second/a"></div>
+      <div class="ui bottom attached tab segment" data-tab="second/b"></div>
+      <div class="ui bottom attached tab segment" data-tab="second/c"></div>
+    </div>
+    <div class="ui tab segment" data-tab="third">
+      <div class="ui top attached tabular menu">
+        <a class="item" data-tab="third/a">3A</a>
+        <a class="item" data-tab="third/b">3B</a>
+        <a class="item" data-tab="third/c">3C</a>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="third/a"></div>
+      <div class="ui bottom attached tab segment" data-tab="third/b"></div>
+      <div class="ui bottom attached tab segment" data-tab="third/c"></div>
+    </div>
+  </div>
 
   <h2 class="ui dividing header">Behavior</h2>
 

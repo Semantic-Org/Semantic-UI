@@ -122,6 +122,22 @@ type        : 'UI Module'
     </div>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Clearing Ratings</h4>
+    <p>When clearable is set to <code>true</code> you can clear the rating by clicking on the current start rating.</p>
+    <div class="code" data-type="javascript" data-demo="true">
+    $('.demo.rating')
+      .rating('setting', 'clearable', true)
+    ;
+    </div>
+    <div class="ui heart demo rating" data-rating="3">
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+    </div>
+  </div>
 
   <h2 class="ui dividing header">Variations</h2>
 
@@ -166,6 +182,26 @@ type        : 'UI Module'
     </div>
   </div>
 
+  <div class="no example">
+    <h4 class="ui header">Get Rating</h4>
+    <p>A rating can be retrieved</p>
+    <div class="ignore code">
+    $('.ui.rating')
+      .rating('set rating', 3)
+    ;
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4 class="ui header">Clear Rating</h4>
+    <p>A rating can be cleared</p>
+    <div class="ignore code">
+    $('.ui.rating')
+      .rating('clear rating')
+    ;
+    </div>
+  </div>
+
   <h2 class="ui dividing header">Settings</h2>
 
   <div class="no example">
@@ -183,6 +219,11 @@ type        : 'UI Module'
         <td>initialRating</td>
         <td>0</td>
         <td>A number representing the default rating to apply</td>
+      </tr>
+      <tr>
+        <td>clearable</td>
+        <td>false</td>
+        <td>If enabled clicking on the current star rating will clear the rating</td>
       </tr>
       <tr>
         <td>interactive</td>

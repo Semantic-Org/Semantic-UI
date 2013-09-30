@@ -5,7 +5,6 @@ semantic.dropdown.ready = function() {
 
   // selector cache
   var
-    $examples         = $('.example'),
     // alias
     handler
   ;
@@ -15,10 +14,26 @@ semantic.dropdown.ready = function() {
 
   };
 
-  $('.demo.menu')
-    .first()
-      .find('.item')
-      .tab()
+  $('.first.example .menu .item')
+    .tab({
+      context: '.first.example'
+    })
+  ;
+
+  $('.history.example .menu .item')
+    .tab({
+      context : '.history.example',
+      history : true,
+      path    : '/modules/tab.html'
+    })
+  ;
+
+  $('.dynamic.example .menu .item')
+    .tab({
+      context : '.dynamic.example',
+      auto    : true,
+      path    : '/modules/tab.html'
+    })
   ;
 
 };
