@@ -54,6 +54,15 @@
 
       initialize: function() {
         module.debug('Initializing Tabs', $module);
+
+        // set up automatic routing
+        if(settings.auto) {
+          module.verbose('Setting up automatic tab retrieval from server');
+          settings.apiSettings = {
+            url: settings.path + '/{$tab}'
+          };
+        }
+
         // attach history events
         if(settings.history) {
           if( $.address === undefined ) {
@@ -65,11 +74,6 @@
             return false;
           }
           else {
-            if(settings.auto) {
-              settings.apiSettings = {
-                url: settings.path + '/{$tab}'
-              };
-            }
             module.verbose('Address library found adding state change event');
             $.address
               .state(settings.path)
@@ -78,9 +82,10 @@
             ;
           }
         }
+
         // attach events if navigation wasn't set to window
         if( !$.isWindow( element ) ) {
-          module.debug('Attaching events to tab activator', $module);
+          module.debug('Attaching tab activation events to element', $module);
           $module
             .on('click' + eventNamespace, module.event.click)
           ;
@@ -103,7 +108,7 @@
       },
 
       event: {
-        click: function() {
+        click: function(event) {
           module.debug('Navigation clicked');
           var
             tabPath = $(this).data(metadata.tab)
@@ -115,6 +120,7 @@
             else {
               module.changeTab(tabPath);
             }
+            event.preventDefault();
           }
           else {
             module.debug('No tab specified');
@@ -262,6 +268,7 @@
             },
             request         = $tab.data(metadata.promise) || false,
             existingRequest = ( request && request.state() === 'pending' ),
+            requestSettings,
             cachedContent
           ;
 
@@ -281,8 +288,10 @@
             ;
           }
           else if($.api !== undefined) {
-            module.debug('Retrieving remote content', fullTabPath);
-            $.api( $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings) );
+            console.log(settings.apiSettings);
+            requestSettings = $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings);
+            module.debug('Retrieving remote content', fullTabPath, requestSettings);
+            $.api( requestSettings );
           }
           else {
             module.error(error.api);
@@ -372,7 +381,7 @@
             module.error(error.recursion);
           }
           else {
-            module.debug('No default tabs found for', tabPath);
+            module.debug('No default tabs found for', tabPath, $tabs);
           }
           recursionDepth = 0;
           return tabPath;
@@ -642,7 +651,7 @@
     // max depth a tab can be nested
     maxDepth        : 25,
     // dont load content on first load
-    ignoreFirstLoad : true,
+    ignoreFirstLoad : false,
     // load tab content new every tab click
     alwaysRefresh   : false,
     // cache the content requests to pull locally
