@@ -80,6 +80,7 @@
         }
         // attach events if navigation wasn't set to window
         if( !$.isWindow( element ) ) {
+          module.debug('Attaching events to tab activator', $module);
           $module
             .on('click' + eventNamespace, module.event.click)
           ;
@@ -172,9 +173,9 @@
           // only get default path if not remote content
           pathArray = (remoteContent && !shouldIgnoreLoad)
             ? module.utilities.pathToArray(tabPath)
-            : module.get.defaultPathArray(tabPath),
-          tabPath   = module.utilities.arrayToPath(pathArray)
+            : module.get.defaultPathArray(tabPath)
         ;
+        tabPath = module.utilities.arrayToPath(pathArray);
         module.deactivate.all();
         $.each(pathArray, function(index, tab) {
           var
@@ -241,8 +242,6 @@
         fetch: function(tabPath, fullTabPath) {
           var
             $tab             = module.get.tabElement(tabPath),
-            fullTabPath      = fullTabPath || tabPath,
-            cachedContent    = module.cache.read(fullTabPath),
             apiSettings      = {
               dataType     : 'html',
               stateContext : $tab,
@@ -262,8 +261,13 @@
               urlData: { tab: fullTabPath }
             },
             request         = $tab.data(metadata.promise) || false,
-            existingRequest = ( request && request.state() === 'pending' )
+            existingRequest = ( request && request.state() === 'pending' ),
+            cachedContent
           ;
+
+          fullTabPath   = fullTabPath || tabPath;
+          cachedContent = module.cache.read(fullTabPath);
+
           if(settings.cache && cachedContent) {
             module.debug('Showing existing content', fullTabPath);
             module.content.update(tabPath, cachedContent);
@@ -630,7 +634,6 @@
 
     // uses pjax style endpoints fetching content from same url with remote-content headers
     auto            : false,
-
     history         : false,
     path            : false,
 
@@ -649,12 +652,12 @@
 
     error: {
       api        : 'You attempted to load content without API module',
-      noContent  : 'The tab you specified is missing a content url.',
       method     : 'The method you called is not defined',
-      state      : 'The state library has not been initialized',
       missingTab : 'Tab cannot be found',
+      noContent  : 'The tab you specified is missing a content url.',
       path       : 'History enabled, but no path was specified',
-      recursion  : 'Max recursive depth reached'
+      recursion  : 'Max recursive depth reached',
+      state      : 'The state library has not been initialized'
     },
 
     metadata : {
@@ -669,7 +672,7 @@
     },
 
     selector    : {
-      tabs : '.tab'
+      tabs : '.ui.tab'
     }
 
   };
