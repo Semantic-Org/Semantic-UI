@@ -21,6 +21,7 @@
     "grunt-bower-task": "~0.3.1",
     "grunt-css": "~0.5.4",
     "grunt-contrib-compress": "~0.5.2",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-docco-multi": "0.0.2"
   }
 }

@@ -497,15 +497,10 @@ a:hover {
 #example .solid .column p {
   color: rgba(0, 0, 0, 0.5);
 }
-
-#example .stripe {
-  color: #7E7E7E;
-}
 #example .stripe .message {
   margin: 0em;
   padding: 0em;
   background-color: transparent;
-  color: #7E7E7E;
 }
 
 

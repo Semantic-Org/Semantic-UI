@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.2.5- Sep 28, 2013
+
+**Fixes**
+
+- Modal no longer uses inline css to center when in fixed position mode
+
 ### Version 0.2.4- Sep 28, 2013
 
 **Updates**
