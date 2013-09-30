@@ -8,7 +8,6 @@ type        : 'UI Element'
 
 <%- @partial('header') %>
 <script src="/javascript/icon.js"></script>
-  <link rel="stylesheet" type="text/css" class="ui" href="/overrides/elements/basic.icon.css">
 
 <div class="main container">
 
@@ -636,10 +635,10 @@ type        : 'UI Element'
         <div class="column"><i class="right icon"></i>Right</div>
         <div class="column"><i class="up icon"></i>Up</div>
         <div class="column"><i class="asterisk icon"></i>Asterisk</div>
-        <div class="column"><i class="caret down icon"></i>Caret Down</div>
-        <div class="column"><i class="caret left icon"></i>Caret Left</div>
-        <div class="column"><i class="caret right icon"></i>Caret Right</div>
-        <div class="column"><i class="caret up icon"></i>Caret Up</div>
+        <div class="column"><i class="triangle down icon"></i>Triangle Down</div>
+        <div class="column"><i class="triangle left icon"></i>Triangle Left</div>
+        <div class="column"><i class="triangle right icon"></i>Triangle Right</div>
+        <div class="column"><i class="triangle up icon"></i>Triangle Up</div>
         <div class="column"><i class="arrow down icon"></i>Down Arrow</div>
         <div class="column"><i class="arrow left icon"></i>Left Arrow</div>
         <div class="column"><i class="arrow right icon"></i>Right Arrow</div>
@@ -684,10 +683,10 @@ type        : 'UI Element'
     <i class="arrow right icon"></i>
     <i class="arrow up icon"></i>
     <i class="asterisk icon"></i>
-    <i class="caret down icon"></i>
-    <i class="caret left icon"></i>
-    <i class="caret right icon"></i>
-    <i class="caret up icon"></i>
+    <i class="triangle down icon"></i>
+    <i class="triangle left icon"></i>
+    <i class="triangle right icon"></i>
+    <i class="triangle up icon"></i>
     <i class="arrow down icon"></i>
     <i class="arrow left icon"></i>
     <i class="arrow right icon"></i>
@@ -852,7 +851,7 @@ type        : 'UI Element'
       <p>This icon set was built using a custom combination of fonts using the amazing web tool <a href="http://fontello.com/">Fontello</a>, to only include the most frequently used icons for websites. The filesize for the basic icon set is <b>about 50% smaller</b> than the standard icon set.</p>
       </div>
       <div class="ui ignored warning message">
-      <p>To use multiple icon sets together you must modify each icon stylesheet to use a sub class like <code>i.basic.icon</code>. This page uses this technique to allow for both fonts to display correctly.</p>
+      <p>Basic.icons uses a sub-class <code>i.basic.icon</code> so they can be used on the same page as other icon sets. If this is your only icon set, you can safely remove the prefix.</p>
     </div>
 
     <div class="icon example">

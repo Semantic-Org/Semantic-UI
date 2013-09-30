@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <head>
-<% uiIntroduction    = @getCollection("documents").findAllLive({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
-<% uiProject         = @getCollection("documents").findAllLive({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
-<% uiGuide           = @getCollection("documents").findAllLive({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
-<% uiElements        = @getCollection("documents").findAllLive({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
-<% uiCollections     = @getCollection("documents").findAllLive({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
-<% uiViews           = @getCollection("documents").findAllLive({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
-<% uiModules         = @getCollection("documents").findAllLive({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
-<% uiBehavior        = @getCollection("documents").findAllLive({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
-<% uiSpecification   = @getCollection("documents").findAllLive({type: $in: ['UI Specification']},[{title: 1}]).toJSON() %>
-<% currentCollection = @getCollection("documents").findAllLive({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
+<% uiIntroduction    = @getCollection("documents").findAll({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
+<% uiProject         = @getCollection("documents").findAll({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
+<% uiGuide           = @getCollection("documents").findAll({type: $in: ['UI Guide']},[{title: 1}]).toJSON() %>
+<% uiElements        = @getCollection("documents").findAll({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+<% uiCollections     = @getCollection("documents").findAll({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiViews           = @getCollection("documents").findAll({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
+<% uiModules         = @getCollection("documents").findAll({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+<% uiBehavior        = @getCollection("documents").findAll({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
+<% uiSpecification   = @getCollection("documents").findAll({type: $in: ['UI Specification']},[{title: 1}]).toJSON() %>
+<% currentCollection = @getCollection("documents").findAll({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
 <% pageCount         = @pageCount(currentCollection) %>
 <% pageNumber        = @getPage(currentCollection, @document.id) %>
 <% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
@@ -53,6 +53,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/statistic.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/modal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/accordion.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/popup.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/reveal.css">
@@ -78,6 +79,7 @@
 
   <script src="/build/uncompressed/modules/behavior/api.js"></script>
   <script src="/build/uncompressed/modules/behavior/state.js"></script>
+  <script src="/build/uncompressed/modules/accordion.js"></script>
   <script src="/build/uncompressed/modules/checkbox.js"></script>
   <script src="/build/uncompressed/modules/dimmer.js"></script>
   <script src="/build/uncompressed/modules/dropdown.js"></script>
@@ -102,6 +104,9 @@
 </head>
 <body id="example" class="<%= @document.css %>">
   <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
     <a class="item" href="/build/semantic.zip">
       <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
     </a>
@@ -217,13 +222,13 @@
           <i class="book icon"></i>
         </a> -->
         <a class="popup designer icon item" title="Designer Mode">
-          <i class="paint icon"></i>
+          <i class="basic paint icon"></i>
         </a>
         <a class="popup developer icon item" title="Developer Mode">
           <i class="terminal icon"></i>
         </a>
         <% end %>
-        <a class="popup icon item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
+        <a class="popup icon github item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
           <i class="icon github"></i>
         </a>
         <!--

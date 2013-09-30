@@ -408,6 +408,7 @@ $.fn.transition = function() {
             .addClass(className.transition)
             .addClass(className.hidden)
           ;
+          module.repaint();
         },
         show: function() {
           module.verbose('Showing element');
@@ -416,6 +417,7 @@ $.fn.transition = function() {
             .addClass(className.transition)
             .addClass(className.visible)
           ;
+          module.repaint();
         },
 
         start: function() {

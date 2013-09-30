@@ -49,11 +49,10 @@ body#example {
   margin: 0px;
   padding: 0px;
   color: #555555;
-  text-rendering: optimizeLegibility;
   min-width: 320px;
 }
 body > .content  {
-background: #FCFCFC url(../images/bg.jpg) repeat;
+  background: #FCFCFC url(../images/bg.jpg) repeat;
 }
 
 h1,
@@ -130,11 +129,16 @@ a {
 a:hover {
   color: #00BAFF;
 }
+
 #example #menu .item {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+#example #menu .hide.item {
+  display: none;
+}
+
 #example #menu .item .item {
   font-size: 0.875rem;
 }
@@ -158,7 +162,7 @@ a:hover {
 
 #example .main.menu {
   top: 0px;
-  min-width: 380px;
+  min-width: 320px;
   z-index: 900;
 
   -webkit-box-sizing: border-box;
@@ -179,7 +183,6 @@ a:hover {
 /*  font-size: 0.875em;
   vertical-align: middle;*/
 }
-
 /* lists */
 #example .features {
   list-style-position: inside;
@@ -196,6 +199,7 @@ a:hover {
   float: right;
   margin-left: 2em;
 }
+
 
 
 /*--------------
@@ -493,15 +497,10 @@ a:hover {
 #example .solid .column p {
   color: rgba(0, 0, 0, 0.5);
 }
-
-#example .stripe {
-  color: #7E7E7E;
-}
 #example .stripe .message {
   margin: 0em;
   padding: 0em;
   background-color: transparent;
-  color: #7E7E7E;
 }
 
 
@@ -545,12 +544,12 @@ a:hover {
   top: 0px;
   left: -230px;
   width: 180px;
-
+/*
   -webkit-transition: padding 0.3s ease;
   -moz-transition: padding 0.3s ease;
   -o-transition: padding 0.3s ease;
   -ms-transition: padding 0.3s ease;
-  transition: padding 0.3s ease;
+  transition: padding 0.3s ease;*/
 }
 
 #example .ui.tab.segment {
@@ -1160,7 +1159,6 @@ body.progress .ui.progress .bar {
   transform-style: preserve-3d;
 }
 
-
 @media only screen and (max-width : 1725px) {
   #example .container {
     width: auto;
@@ -1184,22 +1182,12 @@ body.progress .ui.progress .bar {
     padding-left: 275px;
   }
 }
-
-@media only screen and (max-width : 600px) {
-  #example .main.menu .borderless.item {
-    display: none;
-  }
-  #example .fixed .right.menu {
-    display: inline-block;
-    float: none;
-  }
-  #example .fixed .developer,
-  #example .fixed .designer,
-  #example .fixed .previous,
-  #example .fixed .next {
-    display: none;
+@media only screen and (max-width : 1500px) {
+  #example.index .icon.header .icon {
+    font-size: 3em;
   }
 }
+
 @media only screen and (max-width : 1050px) {
   #example .fixed .section,
   #example .fixed .title b {
@@ -1230,30 +1218,6 @@ body.progress .ui.progress .bar {
     display: none;
   }
 }
-
-@media only screen and (min-width : 1725px) {
-  #example .container {
-    width: 1100px;
-  }
-  #example .sticky-wrapper.stuck .peek {
-    margin-left: -780px;
-  }
-  #example.left.pushed .main.menu {
-    margin-left: -132px;
-  }
-}
-
-
-@media only screen and (min-width : 2300px) {
-  #example .container {
-    width: 1320px;
-  }
-  #example .sticky-wrapper.stuck .peek {
-    margin-left: -890px;
-  }
-}
-
-
 @media only screen and (max-width : 780px) {
   #example.index .masthead {
     text-align: center;
@@ -1291,6 +1255,12 @@ body.progress .ui.progress .bar {
     margin: 1em 0em;
     padding: 0em;
   }
+  #example #menu .hide.item {
+    display: block;
+  }
+  #example #menu .item > .icon {
+    font-size: 1em !important;
+  }
   #example .inverted.advertisement .carbonad {
     height: 109px;
   }
@@ -1311,11 +1281,85 @@ body.progress .ui.progress .bar {
     margin-left: 160px;
     width: 170px;
   }
-
-
 }
-@media only screen and (max-width : 1500px) {
-  #example.index .icon.header .icon {
-    font-size: 3em;
+@media only screen and (max-width : 600px) {
+  #example .main.menu .borderless.item {
+    display: none;
+  }
+  #example .fixed .developer,
+  #example .fixed .designer,
+  #example .fixed .previous,
+  #example .fixed .next {
+    display: none;
+  }
+}
+@media only screen and (max-width : 450px) {
+  #example .main.menu .icon.item {
+    display: none;
+  }
+  #example .main.menu .github.item {
+    display: block;
+  }
+  #example .carbonad {
+    height: 135px;
+  }
+  #example .carbonad .carbonad-text {
+    width: 90px;
+  }
+}
+
+
+
+@media only screen and (min-width : 1725px) {
+  #example .container {
+    width: 1100px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: -780px;
+  }
+  #example.left.pushed .main.menu {
+    margin-left: -132px;
+  }
+}
+
+@media only screen and (min-width : 2300px) {
+  #example .container {
+    width: 1320px;
+  }
+  #example .sticky-wrapper.stuck .peek {
+    margin-left: -890px;
+  }
+}
+
+
+
+@media only screen and (max-width : 998px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 4%;
+  }
+}
+@media only screen and (min-width : 998px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 8%;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 13%;
+  }
+}
+@media only screen and (min-width : 1750px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 18%;
+  }
+}
+@media only screen and (min-width : 2000px) {
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 23%;
   }
 }

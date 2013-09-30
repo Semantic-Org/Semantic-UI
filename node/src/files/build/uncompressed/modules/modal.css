@@ -9,7 +9,7 @@
  *
  */
 /*******************************
-              Modal
+             Modal
 *******************************/
 .ui.modal {
   display: none;
@@ -18,8 +18,8 @@
   top: 50%;
   left: 50%;
   text-align: left;
-  width: 800px;
-  margin-left: -400px;
+  width: 90%;
+  margin-left: -45%;
   background-color: #FFFFFF;
   border: 1px solid #DDDDDD;
   -webkit-border-radius: 5px;
@@ -48,7 +48,6 @@
      Header
 ---------------*/
 .ui.modal > .header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
@@ -74,12 +73,17 @@
 .ui.modal > .content > .left {
   display: table-cell;
   padding-right: 5%;
+  min-width: 25%;
 }
 .ui.modal > .content > .right {
   display: table-cell;
   padding-left: 5%;
-  vertical-align: middle;
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  vertical-align: top;
+  min-width: 25%;
+}
+.ui.modal > .content > .left > .icon {
+  font-size: 8em;
+  margin: 0em;
 }
 .ui.modal > .content p {
   line-height: 1.6;
@@ -88,12 +92,65 @@
      Actions
 ---------------*/
 .ui.modal .actions {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
   text-align: right;
 }
 .ui.modal .actions > .button {
   margin-left: 0.75em;
+}
+/*-------------------
+       Sizing
+--------------------*/
+/* Mobile Only */
+@media only screen and (max-width: 768px) {
+  .ui.modal .content .left {
+    display: block;
+    padding: 0em 0em 0em 1em;
+  }
+  .ui.modal .content .right {
+    display: block;
+    padding: 1em 0em 0em 0em;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+/* Tablet and Mobile */
+@media only screen and (max-width: 998px) {
+  .ui.modal {
+    width: 92%;
+    margin-left: -46%;
+  }
+  .ui.modal > .close {
+    color: rgba(0, 0, 0, 0.8);
+    top: 1.5rem;
+    right: 1rem;
+  }
+}
+/* Computer / Responsive */
+@media only screen and (min-width: 998px) {
+  .ui.modal {
+    width: 74%;
+    margin-left: -37%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .ui.modal {
+    width: 64%;
+    margin-left: -32%;
+  }
+}
+@media only screen and (min-width: 1750px) {
+  .ui.modal {
+    width: 54%;
+    margin-left: -27%;
+  }
+}
+@media only screen and (min-width: 2000px) {
+  .ui.modal {
+    width: 44%;
+    margin-left: -22%;
+  }
 }
 /*******************************
              Types
@@ -102,6 +159,10 @@
   background-color: transparent;
   border: none;
   color: #FFFFFF;
+}
+.ui.basic.modal > .close {
+  top: 1.5rem;
+  right: 1rem;
 }
 .ui.basic.modal .content {
   background-color: transparent;
@@ -112,7 +173,7 @@
 /* A modal that cannot fit on the page */
 .ui.modal.scrolling {
   position: absolute;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 /*******************************
               States

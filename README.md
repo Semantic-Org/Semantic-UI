@@ -6,8 +6,11 @@ Semantic is a set of specifications for sharing UI elements between developers. 
 
 Semantic is pre-release. Build tools are not yet available, and APIs may be updated regularly prior to 1.0, so be warned!
 
-Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out.
+Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
 
+If you need to create a test case, you can [fork this jsfiddle](http://jsfiddle.net/jlukic/Vbr9d/1/) to get you started.
+
+If you want to keep track of development, please [join our google group](https://groups.google.com/forum/?hl=en#!forum/semantic-ui)
 
 ## The Library
 
@@ -81,7 +84,6 @@ Examples of UI modules:
 * Popups
 * Modals
 * Chatrooms
-* Calendar Pickers
 
 ### UI Views
 UI Views are common ways to structure types of content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.

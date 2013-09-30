@@ -29,6 +29,7 @@ semantic.ready = function() {
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
     $menu             = $('#menu'),
+    $hideMenu         = $('#menu .hide.item'),
     $sortTable        = $('.sortable.table'),
     $demo             = $('.demo'),
     $waypoints        = $('.main.container').find('h2').first().siblings('h2').andSelf(),
@@ -61,6 +62,9 @@ semantic.ready = function() {
     // alias
     handler
   ;
+
+  $.fn.accordion.settings.duration = 500;
+  $.fn.accordion.settings.easing   = 'easeInOutQuint';
 
   // event handlers
   handler = {
@@ -615,9 +619,9 @@ semantic.ready = function() {
     .on('mouseenter', handler.menu.mouseenter)
     .on('mouseleave', handler.menu.mouseleave)
   ;
-
   $menu
     .sidebar('attach events', '.launch.button, .launch.item')
+    .sidebar('attach events', $hideMenu, 'hide')
   ;
   $waypoints
     .waypoint({
