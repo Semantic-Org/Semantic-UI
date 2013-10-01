@@ -44,7 +44,7 @@
 - Modals can now have an icon in its left content that will be automatically formatted
 - Preserve 3D animations are now on by default for dimmers
 
-** Fixes **
+**Fixes**
 
 - Transition now forces browser repaint after animation
 - Refactored modal and dimmer components
