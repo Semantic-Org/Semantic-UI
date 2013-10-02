@@ -91,12 +91,12 @@
   font-family: 'Icons';
 }
 .ui.heart.rating .active.icon {
-  color: #EF404A;
+  color: !important;
 }
 /* Hovered */
 .ui.heart.rating .hover.icon,
 .ui.heart.rating .active.hover.icon {
-  color: #FF2733;
+  color: !important;
 }
 /*******************************
              States
@@ -110,7 +110,7 @@
 }
 /* active icons */
 .ui.rating .active.icon {
-  color: #FFCB08;
+  color: #FFCB08 !important;
 }
 /*-------------------
         Hover
@@ -123,7 +123,7 @@
 .ui.rating .icon.hover,
 .ui.rating .icon.hover.active {
   opacity: 1;
-  color: #FFB70A;
+  color: #FFB70A !important;
 }
 /*******************************
           Variations
