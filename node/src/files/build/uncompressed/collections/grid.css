@@ -78,8 +78,7 @@
 --------------------*/
 .ui.page.grid {
   margin: 0%;
-  padding-left: 0%;
-  padding-right: 0%;
+  padding: 0% 2%;
 }
 /*-------------------
       Responsive

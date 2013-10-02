@@ -172,12 +172,12 @@
 .ui.menu .item > .input input {
   width: 100%;
 }
-.ui.menu .input .icon {
+.ui.menu .ui.input > .icon {
   padding-top: 0em;
   height: auto;
 }
 .ui.menu .item > .input input,
-.ui.menu .item > input {
+.ui.menu .item > input[type="text"] {
   position: relative;
   top: -0.45em;
   margin: 0em;
@@ -185,13 +185,13 @@
   padding-bottom: 0.45em;
 }
 .ui.vertical.menu .item > .input input,
-.ui.vertical.menu .item > input {
+.ui.vertical.menu .item > input[type="text"] {
   top: 0em;
   margin: 0em;
   padding-top: 0.63em;
   padding-bottom: 0.63em;
 }
-.ui.vertical.menu .item > .input .icon {
+.ui.vertical.menu .ui.input > .icon {
   top: 0px;
   padding-top: 0.63em;
 }
@@ -574,6 +574,7 @@
 .ui.pagination.menu {
   margin: 0em;
   display: inline-block;
+  vertical-align: middle;
 }
 .ui.pagination.menu .item {
   min-width: 2.7em;
@@ -587,7 +588,7 @@
 .ui.pagination.menu .active.item {
   border-top: none;
   padding-top: 0.83em;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
