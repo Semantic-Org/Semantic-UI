@@ -48,6 +48,8 @@ $.fn.modal = function(parameters) {
         $context     = $(settings.context),
         $otherModals = $allModules.not($module),
         $close       = $module.find(selector.close),
+
+        $focusedElement,
         $dimmer,
 
         element      = this,
@@ -99,6 +101,26 @@ $.fn.modal = function(parameters) {
           module.set.position();
         },
 
+        attachEvents: function(selector, event) {
+          var
+            $toggle = $(selector)
+          ;
+          event = $.isFunction(module[event])
+            ? module[event]
+            : module.toggle
+          ;
+          if($toggle.size() > 0) {
+            module.debug('Attaching modal events to element', selector, event);
+            $toggle
+              .off(eventNamespace)
+              .on('click' + eventNamespace, event)
+            ;
+          }
+          else {
+            module.error(error.notFound);
+          }
+        },
+
         event: {
           close: function() {
             module.verbose('Close button pressed');
@@ -144,13 +166,18 @@ $.fn.modal = function(parameters) {
             $module
               .transition(settings.transition + ' in', settings.duration, function() {
                 module.set.active();
+                module.save.focus();
                 module.set.type();
               })
             ;
           }
           else {
             $module
-              .fadeIn(settings.duration, settings.easing, module.set.active)
+              .fadeIn(settings.duration, settings.easing, function() {
+                module.set.active();
+                module.save.focus();
+                module.set.type();
+              })
             ;
           }
           module.debug('Triggering dimmer');
@@ -176,12 +203,16 @@ $.fn.modal = function(parameters) {
             $module
               .transition(settings.transition + ' out', settings.duration, function() {
                 module.remove.active();
+                module.restore.focus();
               })
             ;
           }
           else {
             $module
-              .fadeOut(settings.duration, settings.easing, module.remove.active)
+              .fadeOut(settings.duration, settings.easing, function() {
+                module.remove.active();
+                module.restore.focus();
+              })
             ;
           }
           $.proxy(settings.onHide, element)();
@@ -200,6 +231,18 @@ $.fn.modal = function(parameters) {
             $document
               .on('keyup' + eventNamespace, module.event.keyboard)
             ;
+          }
+        },
+
+        save: {
+          focus: function() {
+            $focusedElement = $(document.activeElement).blur();
+          }
+        },
+
+        restore: {
+          focus: function() {
+          $focusedElement.focus();
           }
         },
 

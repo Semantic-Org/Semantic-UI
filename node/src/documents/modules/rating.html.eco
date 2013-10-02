@@ -7,8 +7,6 @@ description : 'A rating lets a user assess and view the desirability of content'
 type        : 'UI Module'
 ---
 
-<script src="/javascript/rating.js"></script>
-
 <%- @partial('header') %>
 
 <div class="main container">
@@ -29,7 +27,7 @@ type        : 'UI Module'
   <div class="ui warning message">
     To use any variations besides the basic rating <a href="/elements/icon.html">ui icons</a> must be included to provide the additional icons required.
   </div>
-  <div class="code" data-type="javascript">
+  <div class="evaluated code" data-type="javascript">
     $('.ui.rating')
       .rating()
     ;
@@ -122,13 +120,52 @@ type        : 'UI Module'
     </div>
   </div>
 
+  <div class="toggle no example">
+    <h4 class="ui header">Read-Only Ratings</h4>
+    <p>You can disable or enable interactive rating</p>
+    <div class="code" data-type="javascript" data-demo="true">
+    $('.toggle.example .rating')
+      .rating('disable')
+    ;
+    </div>
+    <div class="code" data-type="javascript" data-demo="true">
+    $('.toggle.example .rating')
+      .rating('enable')
+    ;
+    </div>
+    <div class="ui heart demo rating" data-rating="3">
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+    </div>
+  </div>
+
+  <div class="clearing no example">
+    <h4 class="ui header">Clearing Ratings</h4>
+    <p>When clearable is set to <code>true</code> you can clear the rating by clicking on the current start rating.</p>
+    <div class="evaluated code" data-type="javascript">
+    $('.clearing.example .rating')
+      .rating('setting', 'clearable', true)
+    ;
+    </div>
+    <div class="ui heart demo rating" data-rating="3">
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+    </div>
+  </div>
 
   <h2 class="ui dividing header">Variations</h2>
 
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A rating can vary in size</p>
-    <div class="ui mini star rating">
+  <div class="another example">
+    <div class="ui small star rating">
       <i class="icon"></i>
       <i class="icon"></i>
       <i class="icon"></i>
@@ -137,7 +174,7 @@ type        : 'UI Module'
     </div>
   </div>
   <div class="another example">
-    <div class="ui small star rating">
+    <div class="ui star rating">
       <i class="icon"></i>
       <i class="icon"></i>
       <i class="icon"></i>
@@ -154,6 +191,15 @@ type        : 'UI Module'
       <i class="icon"></i>
     </div>
   </div>
+  <div class="another example">
+    <div class="ui huge star rating">
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+      <i class="icon"></i>
+    </div>
+  </div>
 
   <h2 class="ui dividing header">Behavior</h2>
   <div class="no example">
@@ -162,6 +208,47 @@ type        : 'UI Module'
     <div class="ignore code">
     $('.ui.rating')
       .rating('set rating', 3)
+    ;
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4 class="ui header">Get Rating</h4>
+    <p>A rating can be retrieved</p>
+    <div class="ignore code">
+    $('.ui.rating')
+      .rating('set rating', 3)
+    ;
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4 class="ui header">Enable</h4>
+    <p>Enables interactive rating</p>
+    <div class="ignore code">
+    $('.ui.rating')
+      .rating('enable')
+    ;
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4 class="ui header">Disable</h4>
+    <p>Disables interactive rating</p>
+    <div class="ignore code">
+    $('.ui.rating')
+      .rating('disable')
+    ;
+    </div>
+  </div>
+
+
+  <div class="no example">
+    <h4 class="ui header">Clear Rating</h4>
+    <p>A rating can be cleared</p>
+    <div class="ignore code">
+    $('.ui.rating')
+      .rating('clear rating')
     ;
     </div>
   </div>
@@ -183,6 +270,11 @@ type        : 'UI Module'
         <td>initialRating</td>
         <td>0</td>
         <td>A number representing the default rating to apply</td>
+      </tr>
+      <tr>
+        <td>clearable</td>
+        <td>false</td>
+        <td>If enabled clicking on the current star rating will clear the rating</td>
       </tr>
       <tr>
         <td>interactive</td>

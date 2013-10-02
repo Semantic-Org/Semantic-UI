@@ -578,6 +578,8 @@ body > .ui.grid {
 -------------------------*/
 .ui.page.grid {
   min-width: 320px;
+  margin-left: 0%;
+  margin-right: 0%;
 }
 @media only screen and (max-width: 998px) {
   .ui.page.grid {
@@ -1232,12 +1234,12 @@ body > .ui.grid {
 .ui.menu .item > .input input {
   width: 100%;
 }
-.ui.menu .input .icon {
+.ui.menu .ui.input > .icon {
   padding-top: 0em;
   height: auto;
 }
 .ui.menu .item > .input input,
-.ui.menu .item > input {
+.ui.menu .item > input[type="text"] {
   position: relative;
   top: -0.45em;
   margin: 0em;
@@ -1245,13 +1247,13 @@ body > .ui.grid {
   padding-bottom: 0.45em;
 }
 .ui.vertical.menu .item > .input input,
-.ui.vertical.menu .item > input {
+.ui.vertical.menu .item > input[type="text"] {
   top: 0em;
   margin: 0em;
   padding-top: 0.63em;
   padding-bottom: 0.63em;
 }
-.ui.vertical.menu .item > .input .icon {
+.ui.vertical.menu .ui.input > .icon {
   top: 0px;
   padding-top: 0.63em;
 }
@@ -1634,6 +1636,7 @@ body > .ui.grid {
 .ui.pagination.menu {
   margin: 0em;
   display: inline-block;
+  vertical-align: middle;
 }
 .ui.pagination.menu .item {
   min-width: 2.7em;
@@ -1647,7 +1650,7 @@ body > .ui.grid {
 .ui.pagination.menu .active.item {
   border-top: none;
   padding-top: 0.83em;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -6567,9 +6570,6 @@ i.icon.close:before {
 i.icon.delete:before {
   content: "\f00d";
 }
-i.icon.dropdown:before {
-  content: "\f0d7";
-}
 i.icon.like:before {
   content: "\f004";
 }
@@ -6582,10 +6582,6 @@ i.icon.signup:before {
 /*--------------
    Spacing Fix
 ---------------*/
-/* dropdown arrows are to the right */
-i.dropdown.icon {
-  margin: 0em 0em 0em 0.5em;
-}
 /* stars are usually consecutive */
 i.icon.star {
   width: auto;
@@ -9886,6 +9882,12 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   -ms-transition: border-radius 0.1s ease, width 0.2s ease;
   transition: border-radius 0.1s ease, width 0.2s ease;
 }
+/*******************************
+            Content
+*******************************/
+/*--------------
+     Menu
+---------------*/
 .ui.dropdown .menu {
   position: absolute;
   display: none;
@@ -9909,11 +9911,27 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   transition: opacity 0.2s ease;
   z-index: 11;
 }
-/* Dropdown Icon */
+/*--------------
+      Icon
+---------------*/
 .ui.dropdown > .dropdown.icon {
   width: auto;
+  margin: 0em 0em 0em 0.5em;
 }
-/* Dropdown Text */
+.ui.dropdown > .dropdown.icon:before {
+  content: "\f0d7";
+}
+.ui.dropdown .menu .item .dropdown.icon {
+  width: auto;
+  float: right;
+  margin: 0em 0em 0em 0.5em;
+}
+.ui.dropdown .menu .item .dropdown.icon:before {
+  content: "\f0da";
+}
+/*--------------
+      Text
+---------------*/
 .ui.dropdown > .text {
   cursor: pointer;
   display: inline-block;
@@ -9927,12 +9945,9 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.dropdown .menu {
   left: 0px;
 }
-.ui.menu .dropdown:last-child .menu,
-.ui > .ui.dropdown:last-child .menu {
-  left: auto;
-  right: 0px;
-}
-/* Sub Menu Position */
+/*--------------
+    Sub Menu
+---------------*/
 .ui.dropdown .menu .menu {
   top: 0% !important;
   left: 100% !important;
@@ -9965,6 +9980,15 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 }
 .ui.dropdown .menu .item:first-child {
   border-top: none;
+}
+/*******************************
+            Coupling
+*******************************/
+/* Opposite on last menu on right */
+.ui.menu .right.menu .dropdown:last-child .menu,
+.ui.button > .ui.dropdown:last-child .menu {
+  left: auto;
+  right: 0px;
 }
 /*******************************
             States
@@ -10819,13 +10843,14 @@ a.ui.nag {
 *******************************/
 .ui.rating {
   display: inline-block;
-  vertical-align: middle;
+  font-size: 0em;
+  vertical-align: baseline;
   margin: 0em 0.5em 0em 0em;
 }
 .ui.rating:last-child {
   margin-right: 0em;
 }
-.ui.rating:after {
+.ui.rating:before {
   display: block;
   content: '';
   visibility: hidden;
@@ -10835,17 +10860,16 @@ a.ui.nag {
 /* Icon */
 .ui.rating .icon {
   cursor: default;
-  float: left;
   margin: 0em;
   width: 1em;
   height: auto;
   padding: 0em;
+  color: rgba(0, 0, 0, 0.15);
   font-weight: normal;
   font-style: normal;
 }
-.ui.rating .icon:after {
+.ui.rating .icon:before {
   content: "\2605";
-  color: rgba(0, 0, 0, 0.15);
   -webkit-transition: color 0.3s ease,
     opacity 0.3s ease
   ;
@@ -10869,17 +10893,15 @@ a.ui.nag {
         Star
 --------------------*/
 .ui.star.rating .icon {
-  width: 1em;
-  margin-right: 0.1em;
+  width: 1.2em;
 }
-.ui.star.rating .icon:last-child {
-  margin: 0em;
-}
-.ui.star.rating .icon:after {
+/* Star */
+.ui.star.rating .icon:before {
   content: '\f006';
   font-family: 'Icons';
 }
-.ui.star.rating .active.icon:after {
+/* Active Star */
+.ui.star.rating .active.icon:before {
   content: '\f005';
   font-family: 'Icons';
 }
@@ -10887,23 +10909,23 @@ a.ui.nag {
         Heart
 --------------------*/
 .ui.heart.rating .icon {
-  width: 1em;
-  margin-right: 0.1em;
+  width: 1.2em;
 }
-.ui.heart.rating .icon:last-child {
-  margin: 0em;
-}
-.ui.heart.rating .icon:after {
+.ui.heart.rating .icon:before {
   content: '\f08a';
   font-family: 'Icons';
 }
-.ui.heart.rating .active.icon:after {
+/* Active */
+.ui.heart.rating .active.icon:before {
   content: '\f004';
   font-family: 'Icons';
+}
+.ui.heart.rating .active.icon {
   color: #EF404A;
 }
-.ui.heart.rating .hover.icon:after,
-.ui.heart.rating .active.hover.icon:after {
+/* Hovered */
+.ui.heart.rating .hover.icon,
+.ui.heart.rating .active.hover.icon {
   color: #FF2733;
 }
 /*******************************
@@ -10917,36 +10939,38 @@ a.ui.nag {
   cursor: pointer;
 }
 /* active icons */
-.ui.rating .active.icon:after {
+.ui.rating .active.icon {
   color: #FFCB08;
 }
 /*-------------------
         Hover
 --------------------*/
 /* rating */
-.ui.rating.hover .active.icon:after {
+.ui.rating.hover .active.icon {
   opacity: 0.5;
 }
 /* icon */
-.ui.rating .icon.hover:after,
-.ui.rating .icon.hover.active:after {
+.ui.rating .icon.hover,
+.ui.rating .icon.hover.active {
   opacity: 1;
   color: #FFB70A;
 }
 /*******************************
           Variations
 *******************************/
-.ui.mini.rating {
+.ui.small.rating .icon {
+  font-size: 0.75rem;
+}
+.ui.rating .icon {
   font-size: 1rem;
 }
-.ui.small.rating {
-  font-size: 1.25rem;
-}
-.ui.rating {
+.ui.large.rating .icon {
   font-size: 1.5rem;
+  vertical-align: middle;
 }
-.ui.large.rating {
+.ui.huge.rating .icon {
   font-size: 2rem;
+  vertical-align: middle;
 }
 
 /*
@@ -13579,6 +13603,13 @@ ol.ui.list li,
   padding: 0.3em 0em;
   line-height: 1.2;
 }
+.ui.list .item:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 /* Icon */
 .ui.list .item > .icon {
   margin: 0em 0.5em 0em 0em;
@@ -13623,9 +13654,11 @@ ol.ui.list li,
 }
 /* Floated Content */
 .ui.list .item > .left.floated {
+  margin-right: 1em;
   float: left;
 }
 .ui.list .item > .right.floated {
+  margin-left: 1em;
   float: right;
 }
 /*******************************
