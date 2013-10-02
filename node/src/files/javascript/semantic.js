@@ -234,27 +234,16 @@ semantic.ready = function() {
       ;
     },
 
-    createCode: function(type) {
+    generateCode: function() {
       var
         $example    = $(this).closest('.example'),
-        $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
-        $demo       = $example.children().not($header).not('i.code:first-child, .code, .language.label, .annotation, br, .ignore, .ignored'),
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
+        $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
+        $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
-        code       = ''
+        code        = ''
       ;
-      if($annotation.size() === 0) {
-        $annotation = $('<div/>')
-          .addClass('annotation')
-          .appendTo($example)
-        ;
-      }
-      if( $code.hasClass('existing') ) {
-        $annotation.show();
-        $code.removeClass('existing');
-        $.proxy(handler.initializeCode, $code)();
-      }
       if( $code.size() === 0) {
         $demo
           .each(function(){
@@ -264,15 +253,44 @@ semantic.ready = function() {
             }
           })
         ;
-        //code  = $.trim(code.replace(whiteSpace, '\n'));
+      }
+      $example.data('code', code);
+      return code;
+    },
+    createCode: function(type) {
+      var
+        $example    = $(this).closest('.example'),
+        $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
+        $annotation = $example.find('.annotation'),
+        $code       = $annotation.find('.code'),
+        $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        code        = $example.data('code') || $.proxy(handler.generateCode, this)()
+      ;
+
+      if( $code.hasClass('existing') ) {
+        $annotation.show();
+        $code.removeClass('existing');
+        $.proxy(handler.initializeCode, $code)();
+      }
+
+      if($annotation.size() === 0) {
+        $annotation = $('<div/>')
+          .addClass('annotation')
+          .appendTo($example)
+        ;
+      }
+
+      if( $example.find('.ace_editor').size() === 0) {
         $code = $('<div/>')
           .data('type', 'html')
           .addClass('code')
           .html(code)
+          .hide()
             .appendTo($annotation)
         ;
         $.proxy(handler.initializeCode, $code)();
       }
+
       if( ($demo.first().is(':visible') || type == 'developer') && type != 'designer' ) {
         $demo.hide();
         $header.show();
@@ -300,9 +318,29 @@ semantic.ready = function() {
       ;
     },
 
+    resizeCode: function() {
+      $('.ace_editor')
+        .each(function() {
+          var
+            $code = $(this),
+            padding     = 20,
+            editor,
+            editorSession,
+            codeHeight
+          ;
+          $code.css('height', 'auto');
+          editor        = ace.edit($code[0]);
+          editorSession = editor.getSession();
+          codeHeight = editorSession.getScreenLength() * editor.renderer.lineHeight + padding;
+          $code.css('height', codeHeight);
+          editor.resize();
+        })
+      ;
+    },
+
     initializeCode: function() {
       var
-        $code        = $(this),
+        $code        = $(this).show(),
         code         = $code.html(),
         existingCode = $code.hasClass('existing'),
         contentType  = $code.data('type')    || 'javascript',
@@ -319,7 +357,7 @@ semantic.ready = function() {
         },
         whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
         $label,
-        padding     = 4,
+        padding     = 20,
         editor,
         editorSession,
         codeHeight
@@ -354,7 +392,7 @@ semantic.ready = function() {
       editorSession.setTabSize(2);
       editorSession.setUseSoftTabs(true);
 
-      codeHeight = editor.session.getScreenLength() * (editor.renderer.lineHeight)  + editor.renderer.scrollBar.getWidth() + padding;
+      codeHeight = editorSession.getScreenLength() * editor.renderer.lineHeight + padding;
       $(this)
         .height(codeHeight + 'px')
         .wrap('<div class="ui instructive segment">')
@@ -541,6 +579,13 @@ semantic.ready = function() {
     }
   };
 
+  $(window)
+    .on('resize', function() {
+      clearTimeout(handler.timer);
+      handler.timer = setTimeout(handler.resizeCode, 100);
+    })
+  ;
+
   $downloadDropdown
     .dropdown({
       on         : 'click',
@@ -565,7 +610,9 @@ semantic.ready = function() {
   }
 
   handler.createIcon();
+
   $example
+    .one('mousemove', handler.generateCode)
     .find('i.code')
       .on('click', handler.createCode)
   ;

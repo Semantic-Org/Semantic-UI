@@ -111,7 +111,7 @@ type        : 'UI Module'
 
   <h2 class="ui dividing header">Types</h2>
 
-  <div class="example">
+  <div class="no example">
     <h4 class="ui header">Standard</h4>
     <p>A standard modal</p>
     <div class="code" data-demo="true">
@@ -121,7 +121,7 @@ type        : 'UI Module'
     </div>
   </div>
 
-  <div class="example">
+  <div class="no example">
     <h4 class="ui header">Basic</h4>
     <p>A modal can reduce its complexity</p>
     <div class="code" data-demo="true">
