@@ -187,6 +187,17 @@ type        : 'UI Module'
   <h2 class="ui dividing header">Behavior</h2>
 
   <div class="no example">
+    <h4 class="ui header">Attach events</h4>
+    <p>A modal can attach events to another element</p>
+    <div class="code" data-demo="true">
+    $('.test.modal')
+      .modal('attach events', '.test.button', 'show')
+    ;
+    </div>
+    <div class="ui primary test button">Launch modal</div>
+  </div>
+
+  <div class="no example">
     <h4 class="ui header">Show</h4>
     <p>A modal can show itself</p>
     <div class="code" data-demo="true">
