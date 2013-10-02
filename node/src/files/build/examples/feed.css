@@ -57,6 +57,9 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+#feed .inbox.tab .item .rating {
+  margin-top: 0.2rem;
+}
 #feed .inbox.tab .item .description {
   margin-left: 2em;
 }
