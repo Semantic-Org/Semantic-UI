@@ -57,6 +57,15 @@ ol.ui.list li,
   line-height: 1.2;
 }
 
+.ui.list .item:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+
 /* Icon */
 .ui.list .item > .icon {
   margin: 0em 0.5em 0em 0em;
