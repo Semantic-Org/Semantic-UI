@@ -107,7 +107,7 @@ $.fn.modal = function(parameters) {
           ;
           event = $.isFunction(module[event])
             ? module[event]
-            : module.toggle
+            : module.show
           ;
           if($toggle.size() > 0) {
             module.debug('Attaching modal events to element', selector, event);
