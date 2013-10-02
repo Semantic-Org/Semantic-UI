@@ -1148,9 +1148,6 @@ i.icon.close:before {
 i.icon.delete:before {
   content: "\f00d";
 }
-i.icon.dropdown:before {
-  content: "\f0d7";
-}
 i.icon.like:before {
   content: "\f004";
 }
@@ -1163,10 +1160,6 @@ i.icon.signup:before {
 /*--------------
    Spacing Fix
 ---------------*/
-/* dropdown arrows are to the right */
-i.dropdown.icon {
-  margin: 0em 0em 0em 0.5em;
-}
 /* stars are usually consecutive */
 i.icon.star {
   width: auto;

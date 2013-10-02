@@ -3,18 +3,23 @@
 ### Version 0.3.2- Oct 2, 2013
 
 **Updates**
+- Dropdown now formats top and right arrow icons automatically with icon coupling with sub menus
 - Updates feed example with more feature examples
 - Adds more sizes to ratings
 - Makes active pagination item style more clear
+- Adds attach events method to modal for attaching modal events to other elements
 - Adds input focus/blur to modal, see Issue #124
 - Adds new methods to rating: 'get rating', 'clear rating', 'disable', 'enable', adds new setting 'clearable'
 
 **Fixes**
+- Fixes position of menu dropdowns in some cases
+- Updates modal to refocus elements after close
 - Right floated list content now receives left margin
 - List items display issues with icons + content
 - Fixes rating line height issue
 - Fixes rating not being sent as first callback parameter on 'onRate'
 - Lists items now auto clear floats
+- Fixes icon input inside a menu placement issues
 
 ### Version 0.3.1- Sep 30, 2013
 

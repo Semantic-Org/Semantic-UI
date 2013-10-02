@@ -49,14 +49,15 @@ $.fn.rating = function(parameters) {
       module = {
 
         initialize: function() {
-          module.verbose('Initializing rating module');
+          module.verbose('Initializing rating module', settings);
+
           if(settings.interactive) {
-            $icon
-              .bind('mouseenter' + eventNamespace, module.event.mouseenter)
-              .bind('mouseleave' + eventNamespace, module.event.mouseleave)
-              .bind('click' + eventNamespace, module.event.click)
-            ;
+            module.enable();
           }
+          else {
+            module.disable();
+          }
+
           if(settings.initialRating) {
             module.debug('Setting initial rating');
             module.setRating(settings.initialRating);
@@ -65,9 +66,6 @@ $.fn.rating = function(parameters) {
             module.debug('Rating found in metadata');
             module.setRating( $module.data(metadata.rating) );
           }
-          $module
-            .addClass(className.active)
-          ;
           module.instantiate();
         },
 
@@ -139,6 +137,28 @@ $.fn.rating = function(parameters) {
           ;
           module.verbose('Current rating retrieved', currentRating);
           return currentRating;
+        },
+
+        enable: function() {
+          module.debug('Setting rating to interactive mode');
+          $icon
+            .on('mouseenter' + eventNamespace, module.event.mouseenter)
+            .on('mouseleave' + eventNamespace, module.event.mouseleave)
+            .on('click' + eventNamespace, module.event.click)
+          ;
+          $module
+            .addClass(className.active)
+          ;
+        },
+
+        disable: function() {
+          module.debug('Setting rating to read-only mode');
+          $icon
+            .off(eventNamespace)
+          ;
+          $module
+            .removeClass(className.active)
+          ;
         },
 
         setRating: function(rating) {

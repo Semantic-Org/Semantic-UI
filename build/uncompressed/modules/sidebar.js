@@ -79,29 +79,26 @@ $.fn.sidebar = function(parameters) {
           $style  = $('style[title=' + namespace + ']');
         },
 
-        attach: {
-
-          events: function(selector, event) {
-            var
-              $toggle = $(selector)
+        attachEvents: function(selector, event) {
+          var
+            $toggle = $(selector)
+          ;
+          event = $.isFunction(module[event])
+            ? module[event]
+            : module.toggle
+          ;
+          if($toggle.size() > 0) {
+            module.debug('Attaching sidebar events to element', selector, event);
+            $toggle
+              .off(eventNamespace)
+              .on('click' + eventNamespace, event)
             ;
-            event = $.isFunction(module[event])
-              ? module[event]
-              : module.toggle
-            ;
-            if($toggle.size() > 0) {
-              module.debug('Attaching sidebar events to element', selector, event);
-              $toggle
-                .off(eventNamespace)
-                .on('click' + eventNamespace, event)
-              ;
-            }
-            else {
-              module.error(error.notFound);
-            }
           }
-
+          else {
+            module.error(error.notFound);
+          }
         },
+
 
         show: function() {
           module.debug('Showing sidebar');

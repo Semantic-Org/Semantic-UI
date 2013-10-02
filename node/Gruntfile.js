@@ -13,6 +13,12 @@ module.exports = function(grunt) {
       // compiles less
       'less:buildCSS',
 
+      // create concatenated css release
+      'concat:concatenateCSS',
+
+      // create concatenated js release
+      'concat:concatenateJS',
+
       // copies assets and js over to build dir
       'copy:srcToBuild',
 
@@ -90,7 +96,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: [
-          '../examples/**/*',
+          '../build/examples/**/*',
           '../src/**/*.less',
           '../src/**/*.js'
         ],

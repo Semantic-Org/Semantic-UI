@@ -9,83 +9,55 @@
   <title>Feed Example - Semantic</title>
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/button.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/divider.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/header.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/icon.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/image.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/input.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/label.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/loader.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/progress.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/elements/segment.css">
-
-  <link rel="stylesheet" type="text/css" href="../uncompressed/collections/breadcrumb.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/collections/form.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/collections/grid.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/collections/menu.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/collections/message.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/collections/table.css">
-
-  <link rel="stylesheet" type="text/css" href="../uncompressed/views/list.css">
-
-  <link rel="stylesheet" type="text/css" href="../uncompressed/modules/modal.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/modules/dropdown.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/modules/popup.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/modules/sidebar.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/modules/tab.css">
-  <link rel="stylesheet" type="text/css" href="../uncompressed/modules/checkbox.css">
-
-
+  <link rel="stylesheet" type="text/css" href="../packaged/css/semantic.css">
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.js"></script>
-  <script src="../uncompressed/modules/behavior/state.js"></script>
-  <script src="../uncompressed/modules/checkbox.js"></script>
-  <script src="../uncompressed/modules/dimmer.js"></script>
-  <script src="../uncompressed/modules/dropdown.js"></script>
-  <script src="../uncompressed/modules/modal.js"></script>
-  <script src="../uncompressed/modules/popup.js"></script>
-  <script src="../uncompressed/modules/rating.js"></script>
-  <script src="../uncompressed/modules/sidebar.js"></script>
-  <script src="../uncompressed/modules/tab.js"></script>
-  <script src="../uncompressed/modules/transition.js"></script>
+  <script src="../packaged/javascript/semantic.js"></script>
 
   <link rel="stylesheet" type="text/css" href="feed.css">
   <script src="feed.js"></script>
-
 </head>
 <body id="feed">
-  <div class="ui celled grid">
-    <div class="three wide left column">
-      <div class="ui large fluid inverted vertical menu">
-        <a class="active item">
-          Dogs Weekly <span class="ui label">213</span>
+  <div class="ui large inverted vertical sidebar menu">
+    <a class="active item">
+      Dogs Weekly <span class="ui label">213</span>
+    </a>
+    <a class="item">
+      Joystiq <span class="ui label">113</span>
+    </a>
+    <div class="item">
+      <b>Archived Feeds</b>
+      <div class="menu">
+        <a class="item">
+          Engadget <span class="ui label">11</span>
         </a>
         <a class="item">
-          Joystiq <span class="ui label">113</span>
-        </a>
-        <div class="item">
-          <b>Archived Feeds</b>
-          <div class="menu">
-            <a class="item">
-              Engadget <span class="ui label">11</span>
-            </a>
-            <a class="item">
-              NY Times Tech Blog <span class="ui label">21</span>
-            </a>
-          </div>
-        </div>
-        <a class="item">
-          <i class="bookmark icon"></i> Favorites
-        </a>
-        <a class="item">
-          <i class="add icon"></i> New Feed
+          NY Times Tech Blog <span class="ui label">21</span>
         </a>
       </div>
     </div>
-    <div class="six wide middle column">
+    <a class="item">
+      <i class="bookmark icon"></i> Favorites
+    </a>
+    <div class="ui dropdown item">
+      <i class="add icon"></i> New
+      <div class="menu">
+        <a class="item"><i class="rss icon"></i> Feed</a>
+        <a class="item"><i class="tag icon"></i> Tag</a>
+        <a class="item"><i class="folder icon"></i> Group</a>
+      </div>
+    </div>
+  </div>
+  <div class="ui celled grid">
+    <div class="seven wide middle column">
+      <h2 class="ui header">
+        <i class="inbox icon"></i>
+        <div class="ui right floated black launch button">
+          <i class="list layout icon"></i> Menu
+        </div>
+        Inbox
+      </h2>
       <div class="ui tabular filter menu">
         <a class="active item" data-tab="unread">Unread</a>
         <a class="item" data-tab="saved">Saved</a>
@@ -93,63 +65,77 @@
       </div>
       <div class="ui divided inbox selection list active tab" data-tab="unread">
         <a class="active item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 14, 2013</div>
-          <i class="empty star link icon"></i>
-          Weekly Webcomic Wrapup fought the law, and the law won
+          <div class="description">Weekly Webcomic Wrapup fought the law, and the law won</div>
         </a>
         <a class="item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 14, 2013</div>
-          <i class="empty star link icon"></i>
-          Scientists discover new breed of dog
+          <div class="description">Scientists discover new breed of dog</div>
         </a>
         <a class="item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 10, 2013</div>
-          <i class="teal emphasized star link icon"></i>
-          Dogs start colony in Antarctica
+          <div class="description">Dogs colony in Antarctica</div>
         </a>
         <a class="item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 09, 2013</div>
-          <i class="empty star link icon"></i>
-          Famous dog whisperer Chakotay dies today at 104
+          <div class="description">Famous dog whisperer Chakotay dies today at 104</div>
         </a>
         <a class="item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 07, 2013</div>
-          <i class="empty star link icon"></i>
-          Top 10 Things to Know about Labradoodles
+          <div class="description">Top 10 Things to Know about Labradoodles</div>
         </a>
         <a class="item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 05, 2013</div>
-          <i class="empty star link icon"></i>
-          Study shows children enjoy the company of animals
+          <div class="description">Study shows children enjoy the company of animals</div>
         </a>
       </div>
       <div class="ui divided inbox selection list tab" data-tab="saved">
         <a class="item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 14, 2013</div>
-          <i class="teal emphasized star link icon"></i>
-          Your favorite saved article
+          <div class="description">Your favorite saved article</div>
         </a>
         <a class="item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 14, 2013</div>
-          <i class="teal emphasized star link icon"></i>
-          Your favorite saved article
+          <div class="description">Your favorite saved article</div>
         </a>
         <a class="item">
+          <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 14, 2013</div>
-          <i class="teal emphasized star link icon"></i>
-          Your favorite saved article
+          <div class="description">Your favorite saved article</div>
         </a>
       </div>
       <div class="ui divided inbox selection list tab" data-tab="all">
         <a class="item">
+          <div class="left floated ui star rating"><i class="link icon"></i></div>
           <div class="right floated date">Sep 14, 2013</div>
-          <i class="star link icon"></i>
-          There turns out there is only one article under all.
+          <div class="description">There turns out there is only one article under all.</div>
         </a>
       </div>
+
+      <div class="ui divider"></div>
+
+      <div class="page">Showing <b>6</b> of 213</div>
+      <div class="ui pagination menu">
+        <a class="icon item"><i class="icon left arrow"></i></a>
+        <a class="active item">1</a>
+        <div class="disabled item">...</div>
+        <a class="item">10</a>
+        <a class="item">11</a>
+        <a class="item">12</a>
+        <a class="icon item"><i class="icon right arrow"></i></a>
+      </div>
     </div>
-    <div class="seven wide right column">
+    <div class="nine wide right column">
       <h1 class="ui header">Weekly Webcomic Wrapup fought the law, and the law won</h1>
+      Tags: <a class="ui label">Unread</a> <a class="ui label">Comics</a>
       <p>So there's this video game coming out Tuesday called Grand Theft Auto 5. Don't know if you've heard of it. Anyways, it's all about crime and gangs and some roughneck ne'er-do-wells, so I thought this would be the perfect time to talk about times when we've been... well, less than perfect.</p>
       <p>When I was a young'un, I was a frequent visitor to the local swimming pool. I was also a frequent lover of AirHeads candy, which the pool happened to sell. Waiting, watching, stalking the counter like a big cat in the savannah, I waited for the perfect opportunity to strike. While the lifeguards were busy, I snuck through the gate, reached up and took both cherry and "mystery white" AirHeads. I quickly ran out to the sidewalk and reveled in my sweet, delicious victory... for all of ten seconds, before I felt guilty enough to sneak back in and return the .20 worth of candy I had stolen.</p>
       <p>While you confess your crimes - hopefully minor, and nothing you can be persecuted for - take a moment to enjoy this week's webcomics, and vote for your favorite after the jump.</p>
