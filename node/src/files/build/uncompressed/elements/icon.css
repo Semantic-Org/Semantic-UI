@@ -1424,16 +1424,13 @@ i.icon {
 }
 i.large.icon {
   font-size: 2em;
-  margin-right: 0.5em;
   vertical-align: middle;
 }
 i.huge.icon {
   font-size: 4em;
-  margin-right: 0.75em;
   vertical-align: middle;
 }
 i.massive.icon {
   font-size: 8em;
-  margin-right: 1em;
   vertical-align: middle;
 }
