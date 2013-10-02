@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 0.3.3- Oct 2, 2013
+
+**Updates**
+- Headers and lists with icons now do not break with multiline content
+- Examples resize with browser width
+- Updates ACE editor library
+- Code samples now do not change after interacting with examples
+
 ### Version 0.3.2- Oct 2, 2013
 
 **Updates**

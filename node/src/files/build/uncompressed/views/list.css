@@ -57,10 +57,16 @@ ol.ui.list li,
 }
 /* Icon */
 .ui.list .item > .icon {
-  margin: 0em 0.5em 0em 0em;
+  display: table-cell;
+  margin: 0em;
+  padding: 0em 0.5em 0em 0em;
+  vertical-align: middle;
+}
+.ui.list .item > .icon:only-child {
+  display: inline-block;
 }
 .ui.horizontal.list .item > .icon {
-  margin: 0em 0.25em 0em 0em;
+  padding: 0em 0.25em 0em 0em;
 }
 /* Image */
 .ui.list .item > img {
@@ -77,6 +83,11 @@ ol.ui.list li,
   display: inline-block;
   vertical-align: middle;
   line-height: 1.2;
+}
+.ui.list .item > .icon + .content {
+  display: table-cell;
+  vertical-align: top;
+  padding-left: 0.5em;
 }
 /* Link */
 .ui.list a {

@@ -925,7 +925,7 @@ a:hover {
   color: #555555;
 }
 #example div.code:hover .ace_scrollbar {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 #example div.code:hover .ace_punctuation {
   color: #555555;
