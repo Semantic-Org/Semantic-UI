@@ -15,6 +15,8 @@
 
 .ui.rating {
   display: inline-block;
+
+  font-size: 0em;
   vertical-align: baseline;
   margin: 0em 0.5em 0em 0em;
 }
@@ -78,11 +80,7 @@
 --------------------*/
 
 .ui.star.rating .icon {
-  width: 1em;
-  margin-right: 0.1em;
-}
-.ui.star.rating .icon:last-child {
-  margin: 0em;
+  width: 1.2em;
 }
 
 /* Star */
@@ -103,11 +101,7 @@
 --------------------*/
 
 .ui.heart.rating .icon {
-  width: 1em;
-  margin-right: 0.1em;
-}
-.ui.heart.rating .icon:last-child {
-  margin: 0em;
+  width: 1.2em;
 }
 .ui.heart.rating .icon:before {
   content: '\f08a';
@@ -169,21 +163,21 @@
           Variations
 *******************************/
 
-.ui.small.rating {
-  font-size: 0.75em;
+.ui.small.rating .icon {
+  font-size: 0.75rem;
 }
-.ui.rating {
-  font-size: 1em;
+.ui.rating .icon {
+  font-size: 1rem;
 }
-.ui.large.rating {
-  font-size: 1.5em;
+.ui.large.rating .icon {
+  font-size: 1.5rem;
   vertical-align: middle;
 }
-.ui.huge.rating {
-  font-size: 2em;
+.ui.huge.rating .icon {
+  font-size: 2rem;
   vertical-align: middle;
 }
-.ui.massive.rating {
-  font-size: 3em;
+.ui.massive.rating .icon {
+  font-size: 3rem;
   vertical-align: middle;
 }
