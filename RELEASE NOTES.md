@@ -1,24 +1,40 @@
 ## RELEASE NOTES
 
-### Version 0.3.0 - Sep 30, 2013
-
-**Additions**
-- Adds new UI module tab with documentation.
+### Version 0.3.2- Oct 2, 2013
 
 **Updates**
-- Adds new methods to rating, 'get rating', 'clear rating', adds new setting 'clearable'
-- Adds rating as first callback parameter on 'onRate'
+- Updates feed example with more feature examples
+- Adds more sizes to ratings
+- Makes active pagination item style more clear
+- Adds input focus/blur to modal, see Issue #124
+- Adds new methods to rating: 'get rating', 'clear rating', 'disable', 'enable', adds new setting 'clearable'
 
 **Fixes**
+- Right floated list content now receives left margin
+- List items display issues with icons + content
+- Fixes rating line height issue
+- Fixes rating not being sent as first callback parameter on 'onRate'
+- Lists items now auto clear floats
 
-### Version 0.2.5 - Sep 30, 2013
+### Version 0.3.1- Sep 30, 2013
+
+**Fixes**
+- Fixes Page Grid still receiving negative margin
+
+### Version 0.3.0- Sep 30, 2013
+
+**Fixes**
+- Responsive Grid is now called "Page Grid". Responsive grids are now deprecated. This reduces confusion.
+- Negative margins are now automatically removed from grids that are descendents of body tag.
+
+### Version 0.2.5- Sep 28, 2013
 
 **Fixes**
 - Fixes checkbox  selector issue with multiple inputs inside a checkbox
 - Modal no longer uses inline css to center when in fixed position mode
 - Fixes dropdown to now set active item to whatever hidden input field is when using action updateForm
 
-### Version 0.2.4 - Sep 28, 2013
+### Version 0.2.4- Sep 28, 2013
 
 **Updates**
 
