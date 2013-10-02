@@ -41,6 +41,15 @@
   ;
 }
 
+
+/*******************************
+            Content
+*******************************/
+
+/*--------------
+     Menu
+---------------*/
+
 .ui.dropdown .menu {
   position: absolute;
   display: none;
@@ -70,12 +79,33 @@
   z-index: 11;
 }
 
-/* Dropdown Icon */
+/*--------------
+      Icon
+---------------*/
+
 .ui.dropdown > .dropdown.icon {
   width: auto;
+  margin: 0em 0em 0em 0.5em;
 }
 
-/* Dropdown Text */
+.ui.dropdown > .dropdown.icon:before {
+  content: "\f0d7";
+}
+
+.ui.dropdown .menu .item .dropdown.icon {
+  width: auto;
+  float: right;
+  margin: 0em 0em 0em 0.5em;
+}
+.ui.dropdown .menu .item .dropdown.icon:before {
+  content: "\f0da";
+}
+
+
+/*--------------
+      Text
+---------------*/
+
 .ui.dropdown > .text {
   cursor: pointer;
   display: inline-block;
@@ -91,13 +121,12 @@
 .ui.dropdown .menu {
   left: 0px;
 }
-.ui.menu .dropdown:last-child .menu,
-.ui > .ui.dropdown:last-child .menu {
-  left: auto;
-  right: 0px;
-}
 
-/* Sub Menu Position */
+
+/*--------------
+    Sub Menu
+---------------*/
+
 .ui.dropdown .menu .menu {
   top: 0% !important;
   left: 100% !important;
@@ -135,6 +164,17 @@
 
 .ui.dropdown .menu .item:first-child {
   border-top: none;
+}
+
+/*******************************
+            Coupling
+*******************************/
+
+/* Opposite on last menu on right */
+.ui.menu .right.menu .dropdown:last-child .menu,
+.ui.button > .ui.dropdown:last-child .menu {
+  left: auto;
+  right: 0px;
 }
 
 
