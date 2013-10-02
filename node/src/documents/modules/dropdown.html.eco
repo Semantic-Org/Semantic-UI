@@ -198,6 +198,7 @@ type        : 'UI Module'
       <i class="dropdown icon"></i>
       <div class="menu">
         <div class="item">
+          <i class="dropdown icon"></i>
           Dogs
           <div class="menu">
             <div class="active item">Shiba Inu</div>
@@ -206,6 +207,7 @@ type        : 'UI Module'
           </div>
         </div>
         <div class="item">
+          <i class="dropdown icon"></i>
           Cats
           <div class="menu">
             <div class="item">Aegean</div>
@@ -323,7 +325,7 @@ type        : 'UI Module'
           <div class="menu">
             <div class="item" data-value="male">Male</div>
             <div class="item" data-value="female">Female</div>
-          </div>m
+          </div>
         </div>
       </div>
     </div>
