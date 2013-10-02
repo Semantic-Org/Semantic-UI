@@ -14,11 +14,7 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <div class="introduction">
-<<<<<<< HEAD
-        <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.3.1</a></h1>
-=======
         <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.3.2</a></h1>
->>>>>>> 8cb6cb16d45d08fcf5dc1cf71ea949de3f10fd99
         <h2 class="ui header">UI is the vocabulary of the web.</h2>
         <p>Semantic empowers designers and developers by creating a language for sharing UI.</p>
         <a class="ui black large labeled launch icon button"><i class="icon list layout"></i> View UI</a>
