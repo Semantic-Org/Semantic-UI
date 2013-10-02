@@ -28,12 +28,20 @@
   line-height: 1.2;
   color: rgba(0, 0, 0, 0.5);
 }
+.ui.header .icon {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 1rem;
+}
+.ui.header .icon:only-child {
+  display: inline-block;
+}
 .ui.header .content {
   display: inline-block;
   vertical-align: top;
 }
-.ui.header .icon {
-  margin-right: 0.5em;
+.ui.header .icon + .content {
+  display: table-cell;
 }
 /* Positioning */
 .ui.header:first-child {
@@ -87,6 +95,35 @@ h5.ui.header {
 }
 .ui.tiny.header {
   font-size: 1em;
+}
+/*******************************
+            Types
+*******************************/
+/*-------------------
+        Icon
+--------------------*/
+.ui.icon.header {
+  display: inline-block;
+  text-align: center;
+}
+.ui.icon.header .icon {
+  float: none;
+  display: block;
+  font-size: 3em;
+  margin: 0em auto 0.2em;
+  padding: 0em;
+}
+.ui.icon.header .circular.icon,
+.ui.icon.header .square.icon {
+  font-size: 2em;
+}
+.ui.block.icon.header .icon {
+  margin-bottom: 0em;
+}
+.ui.icon.header.aligned {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 /*******************************
             States
@@ -248,29 +285,4 @@ h5.ui.header {
   -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
   -moz-border-radius: 0em 0em 0.3125em 0.3125em;
   border-radius: 0em 0em 0.3125em 0.3125em;
-}
-/*-------------------
-        Icon
---------------------*/
-.ui.icon.header {
-  display: inline-block;
-  text-align: center;
-}
-.ui.icon.header .icon {
-  float: none;
-  display: block;
-  font-size: 3em;
-  margin: 0em auto 0.2em;
-}
-.ui.icon.header .circular.icon,
-.ui.icon.header .square.icon {
-  font-size: 2em;
-}
-.ui.block.icon.header .icon {
-  margin-bottom: 0em;
-}
-.ui.icon.header.aligned {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
