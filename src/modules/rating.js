@@ -49,14 +49,15 @@ $.fn.rating = function(parameters) {
       module = {
 
         initialize: function() {
-          module.verbose('Initializing rating module');
+          module.verbose('Initializing rating module', settings);
+
           if(settings.interactive) {
-            $icon
-              .bind('mouseenter' + eventNamespace, module.event.mouseenter)
-              .bind('mouseleave' + eventNamespace, module.event.mouseleave)
-              .bind('click' + eventNamespace, module.event.click)
-            ;
+            module.enable();
           }
+          else {
+            module.disable();
+          }
+
           if(settings.initialRating) {
             module.debug('Setting initial rating');
             module.setRating(settings.initialRating);
@@ -65,9 +66,6 @@ $.fn.rating = function(parameters) {
             module.debug('Rating found in metadata');
             module.setRating( $module.data(metadata.rating) );
           }
-          $module
-            .addClass(className.active)
-          ;
           module.instantiate();
         },
 
@@ -85,29 +83,6 @@ $.fn.rating = function(parameters) {
           $icon
             .off(eventNamespace)
           ;
-        },
-
-        setRating: function(rating) {
-          var
-            $activeIcon = $icon.eq(rating - 1)
-          ;
-          module.verbose('Setting current rating to', rating);
-          $module
-            .removeClass(className.hover)
-          ;
-          $icon
-            .removeClass(className.hover)
-          ;
-          $activeIcon
-            .nextAll()
-              .removeClass(className.active)
-          ;
-          $activeIcon
-            .addClass(className.active)
-              .prevAll()
-              .addClass(className.active)
-          ;
-          $.proxy(settings.onRate, element)();
         },
 
         event: {
@@ -138,11 +113,79 @@ $.fn.rating = function(parameters) {
           },
           click: function() {
             var
-              $activeIcon = $(this)
+              $activeIcon   = $(this),
+              currentRating = module.getRating(),
+              rating        = $icon.index($activeIcon) + 1
             ;
-            module.setRating( $icon.index($activeIcon) + 1);
+            if(settings.clearable && currentRating == rating) {
+              module.clearRating();
+            }
+            else {
+              module.setRating( rating );
+            }
           }
         },
+
+        clearRating: function() {
+          module.debug('Clearing current rating');
+          module.setRating(0);
+        },
+
+        getRating: function() {
+          var
+            currentRating = $icon.filter('.' + className.active).size()
+          ;
+          module.verbose('Current rating retrieved', currentRating);
+          return currentRating;
+        },
+
+        enable: function() {
+          module.debug('Setting rating to interactive mode');
+          $icon
+            .on('mouseenter' + eventNamespace, module.event.mouseenter)
+            .on('mouseleave' + eventNamespace, module.event.mouseleave)
+            .on('click' + eventNamespace, module.event.click)
+          ;
+          $module
+            .addClass(className.active)
+          ;
+        },
+
+        disable: function() {
+          module.debug('Setting rating to read-only mode');
+          $icon
+            .off(eventNamespace)
+          ;
+          $module
+            .removeClass(className.active)
+          ;
+        },
+
+        setRating: function(rating) {
+          var
+            ratingIndex = (rating - 1 >= 0)
+              ? (rating - 1)
+              : 0,
+            $activeIcon = $icon.eq(ratingIndex)
+          ;
+          $module
+            .removeClass(className.hover)
+          ;
+          $icon
+            .removeClass(className.hover)
+            .removeClass(className.active)
+          ;
+          if(rating > 0) {
+            module.verbose('Setting current rating to', rating);
+            $activeIcon
+              .addClass(className.active)
+                .prevAll()
+                .addClass(className.active)
+            ;
+          }
+          $.proxy(settings.onRate, element)(rating);
+        },
+
         setting: function(name, value) {
           if(value !== undefined) {
             if( $.isPlainObject(name) ) {
@@ -230,9 +273,6 @@ $.fn.rating = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
-            }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
@@ -336,7 +376,9 @@ $.fn.rating.settings = {
 
   initialRating : 0,
   interactive   : true,
-  onRate        : function(){},
+  clearable     : false,
+
+  onRate        : function(rating){},
 
   error       : {
     method : 'The method you called is not defined'

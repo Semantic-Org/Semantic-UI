@@ -15,14 +15,16 @@
 
 .ui.rating {
   display: inline-block;
-  vertical-align: middle;
+
+  font-size: 0em;
+  vertical-align: baseline;
   margin: 0em 0.5em 0em 0em;
 }
 .ui.rating:last-child {
   margin-right: 0em;
 }
 
-.ui.rating:after {
+.ui.rating:before {
   display: block;
   content: '';
   visibility: hidden;
@@ -33,19 +35,19 @@
 /* Icon */
 .ui.rating .icon {
   cursor: default;
-  float: left;
 
   margin: 0em;
 
   width: 1em;
   height: auto;
   padding: 0em;
+
+  color: rgba(0, 0, 0, 0.15);
   font-weight: normal;
   font-style: normal;
 }
-.ui.rating .icon:after {
+.ui.rating .icon:before {
   content: "\2605";
-  color: rgba(0, 0, 0, 0.15);
 
   -webkit-transition:
     color 0.3s ease,
@@ -78,18 +80,17 @@
 --------------------*/
 
 .ui.star.rating .icon {
-  width: 1em;
-  margin-right: 0.1em;
+  width: 1.2em;
 }
-.ui.star.rating .icon:last-child {
-  margin: 0em;
-}
-.ui.star.rating .icon:after {
+
+/* Star */
+.ui.star.rating .icon:before {
   content: '\f006';
   font-family: 'Icons';
 }
 
-.ui.star.rating .active.icon:after {
+/* Active Star */
+.ui.star.rating .active.icon:before {
   content: '\f005';
   font-family: 'Icons';
 }
@@ -100,27 +101,27 @@
 --------------------*/
 
 .ui.heart.rating .icon {
-  width: 1em;
-  margin-right: 0.1em;
+  width: 1.2em;
 }
-.ui.heart.rating .icon:last-child {
-  margin: 0em;
-}
-.ui.heart.rating .icon:after {
+.ui.heart.rating .icon:before {
   content: '\f08a';
   font-family: 'Icons';
 }
 
-.ui.heart.rating .active.icon:after {
+/* Active */
+.ui.heart.rating .active.icon:before {
   content: '\f004';
   font-family: 'Icons';
+}
+.ui.heart.rating .active.icon {
   color: #EF404A;
 }
-.ui.heart.rating .hover.icon:after,
-.ui.heart.rating .active.hover.icon:after {
+
+/* Hovered */
+.ui.heart.rating .hover.icon,
+.ui.heart.rating .active.hover.icon {
   color: #FF2733;
 }
-
 
 /*******************************
              States
@@ -136,7 +137,7 @@
 }
 
 /* active icons */
-.ui.rating .active.icon:after {
+.ui.rating .active.icon {
   color: #FFCB08;
 }
 
@@ -146,13 +147,13 @@
 --------------------*/
 
 /* rating */
-.ui.rating.hover .active.icon:after {
+.ui.rating.hover .active.icon {
   opacity: 0.5;
 }
 
 /* icon */
-.ui.rating .icon.hover:after,
-.ui.rating .icon.hover.active:after {
+.ui.rating .icon.hover,
+.ui.rating .icon.hover.active {
   opacity: 1;
   color: #FFB70A;
 }
@@ -162,15 +163,17 @@
           Variations
 *******************************/
 
-.ui.mini.rating {
+.ui.small.rating .icon {
+  font-size: 0.75rem;
+}
+.ui.rating .icon {
   font-size: 1rem;
 }
-.ui.small.rating {
-  font-size: 1.25rem;
-}
-.ui.rating {
+.ui.large.rating .icon {
   font-size: 1.5rem;
+  vertical-align: middle;
 }
-.ui.large.rating {
+.ui.huge.rating .icon {
   font-size: 2rem;
+  vertical-align: middle;
 }

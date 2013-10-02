@@ -54,6 +54,15 @@
 
       initialize: function() {
         module.debug('Initializing Tabs', $module);
+
+        // set up automatic routing
+        if(settings.auto) {
+          module.verbose('Setting up automatic tab retrieval from server');
+          settings.apiSettings = {
+            url: settings.path + '/{$tab}'
+          };
+        }
+
         // attach history events
         if(settings.history) {
           if( $.address === undefined ) {
@@ -65,11 +74,6 @@
             return false;
           }
           else {
-            if(settings.auto) {
-              settings.apiSettings = {
-                url: settings.path + '/{$tab}'
-              };
-            }
             module.verbose('Address library found adding state change event');
             $.address
               .state(settings.path)
@@ -78,8 +82,10 @@
             ;
           }
         }
+
         // attach events if navigation wasn't set to window
         if( !$.isWindow( element ) ) {
+          module.debug('Attaching tab activation events to element', $module);
           $module
             .on('click' + eventNamespace, module.event.click)
           ;
@@ -102,7 +108,7 @@
       },
 
       event: {
-        click: function() {
+        click: function(event) {
           module.debug('Navigation clicked');
           var
             tabPath = $(this).data(metadata.tab)
@@ -114,6 +120,7 @@
             else {
               module.changeTab(tabPath);
             }
+            event.preventDefault();
           }
           else {
             module.debug('No tab specified');
@@ -172,9 +179,9 @@
           // only get default path if not remote content
           pathArray = (remoteContent && !shouldIgnoreLoad)
             ? module.utilities.pathToArray(tabPath)
-            : module.get.defaultPathArray(tabPath),
-          tabPath   = module.utilities.arrayToPath(pathArray)
+            : module.get.defaultPathArray(tabPath)
         ;
+        tabPath = module.utilities.arrayToPath(pathArray);
         module.deactivate.all();
         $.each(pathArray, function(index, tab) {
           var
@@ -241,8 +248,6 @@
         fetch: function(tabPath, fullTabPath) {
           var
             $tab             = module.get.tabElement(tabPath),
-            fullTabPath      = fullTabPath || tabPath,
-            cachedContent    = module.cache.read(fullTabPath),
             apiSettings      = {
               dataType     : 'html',
               stateContext : $tab,
@@ -262,8 +267,14 @@
               urlData: { tab: fullTabPath }
             },
             request         = $tab.data(metadata.promise) || false,
-            existingRequest = ( request && request.state() === 'pending' )
+            existingRequest = ( request && request.state() === 'pending' ),
+            requestSettings,
+            cachedContent
           ;
+
+          fullTabPath   = fullTabPath || tabPath;
+          cachedContent = module.cache.read(fullTabPath);
+
           if(settings.cache && cachedContent) {
             module.debug('Showing existing content', fullTabPath);
             module.content.update(tabPath, cachedContent);
@@ -277,8 +288,10 @@
             ;
           }
           else if($.api !== undefined) {
-            module.debug('Retrieving remote content', fullTabPath);
-            $.api( $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings) );
+            console.log(settings.apiSettings);
+            requestSettings = $.extend(true, { headers: { 'X-Remote': true } }, settings.apiSettings, apiSettings);
+            module.debug('Retrieving remote content', fullTabPath, requestSettings);
+            $.api( requestSettings );
           }
           else {
             module.error(error.api);
@@ -368,7 +381,7 @@
             module.error(error.recursion);
           }
           else {
-            module.debug('No default tabs found for', tabPath);
+            module.debug('No default tabs found for', tabPath, $tabs);
           }
           recursionDepth = 0;
           return tabPath;
@@ -630,7 +643,6 @@
 
     // uses pjax style endpoints fetching content from same url with remote-content headers
     auto            : false,
-
     history         : false,
     path            : false,
 
@@ -639,7 +651,7 @@
     // max depth a tab can be nested
     maxDepth        : 25,
     // dont load content on first load
-    ignoreFirstLoad : true,
+    ignoreFirstLoad : false,
     // load tab content new every tab click
     alwaysRefresh   : false,
     // cache the content requests to pull locally
@@ -649,12 +661,12 @@
 
     error: {
       api        : 'You attempted to load content without API module',
-      noContent  : 'The tab you specified is missing a content url.',
       method     : 'The method you called is not defined',
-      state      : 'The state library has not been initialized',
       missingTab : 'Tab cannot be found',
+      noContent  : 'The tab you specified is missing a content url.',
       path       : 'History enabled, but no path was specified',
-      recursion  : 'Max recursive depth reached'
+      recursion  : 'Max recursive depth reached',
+      state      : 'The state library has not been initialized'
     },
 
     metadata : {
@@ -669,7 +681,7 @@
     },
 
     selector    : {
-      tabs : '.tab'
+      tabs : '.ui.tab'
     }
 
   };
