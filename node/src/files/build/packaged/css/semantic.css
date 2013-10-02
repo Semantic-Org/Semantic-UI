@@ -1235,14 +1235,13 @@ body > .ui.grid {
   width: 100%;
 }
 .ui.menu .ui.input > .icon {
-  padding-top: 0em;
+  padding-top: 0.1em;
   height: auto;
 }
 .ui.menu .item > .input input,
 .ui.menu .item > input[type="text"] {
   position: relative;
-  top: -0.45em;
-  margin: 0em;
+  margin: -0.45em 0em;
   padding-top: 0.45em;
   padding-bottom: 0.45em;
 }
@@ -1515,10 +1514,11 @@ body > .ui.grid {
 .ui.tiered.menu > .menu .item.active:after {
   position: absolute;
   content: '';
+  margin-top: -1px;
   top: 100%;
   left: 0px;
   width: 100%;
-  height: 1px;
+  height: 2px;
   background-color: #FBFBFB;
 }
 .ui.tiered.menu .sub.menu {
@@ -1640,7 +1640,7 @@ body > .ui.grid {
 }
 .ui.pagination.menu .item {
   min-width: 2.7em;
-  min-height: 2.66em;
+  min-height: 2.7em;
   text-align: center;
 }
 .ui.pagination.menu.floated {
@@ -2460,7 +2460,6 @@ body > .ui.grid {
 }
 .ui.menu .item {
   font-size: 1rem;
-  height: 2.66em;
 }
 .ui.vertical.menu {
   width: 15rem;
@@ -6858,17 +6857,14 @@ i.icon {
 }
 i.large.icon {
   font-size: 2em;
-  margin-right: 0.5em;
   vertical-align: middle;
 }
 i.huge.icon {
   font-size: 4em;
-  margin-right: 0.75em;
   vertical-align: middle;
 }
 i.massive.icon {
   font-size: 8em;
-  margin-right: 1em;
   vertical-align: middle;
 }
 
