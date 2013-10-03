@@ -3,8 +3,9 @@
 ### Version 0.3.3- Oct 2, 2013
 
 **Fixes**
-- Fixes modal not working due to destroy teardown in dimmer
-- Fixes selector for checkbox to fix radio boxes
+- Fixes modal not working due to destroy teardown in dimmer #153
+- Fixes selector for checkbox to fix radio boxes #154
+- Fixes issue with popup display in some edge cases #128
 
 **Updates**
 - Headers and lists with icons now do not break with multiline content
