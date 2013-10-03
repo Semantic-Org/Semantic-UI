@@ -31,7 +31,7 @@
 .ui.header .icon {
   display: table-cell;
   vertical-align: middle;
-  padding-right: 1rem;
+  padding-right: 0.5em;
 }
 .ui.header .icon:only-child {
   display: inline-block;
@@ -41,6 +41,7 @@
   vertical-align: top;
 }
 .ui.header .icon + .content {
+  padding-left: 0.5em;
   display: table-cell;
 }
 /* Positioning */
