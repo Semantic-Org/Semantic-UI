@@ -115,7 +115,6 @@ $.fn.dimmer = function(parameters) {
           ;
           $dimmer
             .off(eventNamespace)
-            .remove()
           ;
         },
 
