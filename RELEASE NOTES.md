@@ -1,11 +1,17 @@
 ## RELEASE NOTES
 
-### Version 0.3.3- Oct 2, 2013
+### Version 0.3.4 - Oct 2, 2013
 
 **Fixes**
-- Fixes modal not working due to destroy teardown in dimmer #153
-- Fixes selector for checkbox to fix radio boxes #154
-- Fixes issue with popup display in some edge cases #128
+- Transitions now work in Safari versinos that do not support animation-direction
+- Fixes accordion in safari styles getting stuck
+
+### Version 0.3.3 - Oct 2, 2013
+
+**Fixes**
+- Fixes modal not working due to destroy teardown in dimmer Issue #153
+- Fixes selector for checkbox to fix radio boxes Issue #154
+- Fixes issue with popup display in some edge cases Issue #128
 
 **Updates**
 - Headers and lists with icons now do not break with multiline content
@@ -13,7 +19,7 @@
 - Updates ACE editor library
 - Code samples now do not change after interacting with examples
 
-### Version 0.3.2- Oct 2, 2013
+### Version 0.3.2 - Oct 2, 2013
 
 **Updates**
 - Dropdown now formats top and right arrow icons automatically with icon coupling with sub menus
@@ -34,25 +40,25 @@
 - Lists items now auto clear floats
 - Fixes icon input inside a menu placement issues
 
-### Version 0.3.1- Sep 30, 2013
+### Version 0.3.1 - Sep 30, 2013
 
 **Fixes**
 - Fixes Page Grid still receiving negative margin
 
-### Version 0.3.0- Sep 30, 2013
+### Version 0.3.0 - Sep 30, 2013
 
 **Fixes**
 - Responsive Grid is now called "Page Grid". Responsive grids are now deprecated. This reduces confusion.
 - Negative margins are now automatically removed from grids that are descendents of body tag.
 
-### Version 0.2.5- Sep 28, 2013
+### Version 0.2.5 - Sep 28, 2013
 
 **Fixes**
 - Fixes checkbox  selector issue with multiple inputs inside a checkbox
 - Modal no longer uses inline css to center when in fixed position mode
 - Fixes dropdown to now set active item to whatever hidden input field is when using action updateForm
 
-### Version 0.2.4- Sep 28, 2013
+### Version 0.2.4 - Sep 28, 2013
 
 **Updates**
 

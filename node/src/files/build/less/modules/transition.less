@@ -70,15 +70,6 @@
   visibility: visible;
 }
 
-
-/* Direction */
-.ui.out.transition {
-  -webkit-animation-direction: reverse;
-  -moz-animation-direction: reverse;
-  -o-animation-direction: reverse;
-  animation-direction: reverse;
-}
-
 /* Disabled */
 .ui.disabled.transition {
   -webkit-animation-play-state: paused;
@@ -156,6 +147,12 @@
   -o-animation-name: horizontalFlip;
   animation-name: horizontalFlip;
 }
+.ui.horizontal.flip.transition.out {
+  -webkit-animation-name: horizontalFlipOut;
+  -moz-animation-name: horizontalFlipOut;
+  -o-animation-name: horizontalFlipOut;
+  animation-name: horizontalFlipOut;
+}
 .ui.vertical.flip.transition.in,
 .ui.vertical.flip.transition.out {
   -webkit-animation-name: verticalFlip;
@@ -163,17 +160,28 @@
   -o-animation-name: verticalFlip;
   animation-name: verticalFlip;
 }
+.ui.vertical.flip.transition.out {
+  -webkit-animation-name: verticalFlipOut;
+  -moz-animation-name: verticalFlipOut;
+  -o-animation-name: verticalFlipOut;
+  animation-name: verticalFlipOut;
+}
 
 /*--------------
       Fades
 ---------------*/
 
-.ui.fade.transition.in,
-.ui.fade.transition.out {
+.ui.fade.transition.in {
   -webkit-animation-name: fade;
   -moz-animation-name: fade;
   -o-animation-name: fade;
   animation-name: fade;
+}
+.ui.fade.transition.out {
+  -webkit-animation-name: fadeOut;
+  -moz-animation-name: fadeOut;
+  -o-animation-name: fadeOut;
+  animation-name: fadeOut;
 }
 
 .ui.fade.up.transition.in {
@@ -183,10 +191,10 @@
   animation-name: fadeUp;
 }
 .ui.fade.up.transition.out {
-  -webkit-animation-name: fade;
-  -moz-animation-name: fade;
-  -o-animation-name: fade;
-  animation-name: fade;
+  -webkit-animation-name: fadeUpOut;
+  -moz-animation-name: fadeUpOut;
+  -o-animation-name: fadeUpOut;
+  animation-name: fadeUpOut;
 }
 
 .ui.fade.down.transition.in {
@@ -196,31 +204,36 @@
   animation-name: fadeDown;
 }
 .ui.fade.down.transition.out {
-  -webkit-animation-name: fade;
-  -moz-animation-name: fade;
-  -o-animation-name: fade;
-  animation-name: fade;
+  -webkit-animation-name: fadeDownOut;
+  -moz-animation-name: fadeDownOut;
+  -o-animation-name: fadeDownOut;
+  animation-name: fadeDownOut;
 }
 
 /*--------------
       Scale
 ---------------*/
 
-.ui.scale.transition.in,
-.ui.scale.transition.out {
+.ui.scale.transition.in {
   -webkit-animation-name: scale;
   -moz-animation-name: scale;
   -o-animation-name: scale;
   animation-name: scale;
 }
+.ui.scale.transition.out {
+  -webkit-animation-name: scaleOut;
+  -moz-animation-name: scaleOut;
+  -o-animation-name: scaleOut;
+  animation-name: scaleOut;
+}
+
 
 
 /*--------------
       Slide
 ---------------*/
 
-.ui.slide.down.transition.in,
-.ui.slide.down.transition.out {
+.ui.slide.down.transition.in {
   -webkit-animation-name: slide;
   -moz-animation-name: slide;
   -o-animation-name: slide;
@@ -229,8 +242,17 @@
   -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
 }
-.ui.slide.up.transition.in,
-.ui.slide.up.transition.out {
+.ui.slide.down.transition.out {
+  -webkit-animation-name: slideOut;
+  -moz-animation-name: slideOut;
+  -o-animation-name: slideOut;
+  animation-name: slideOut;
+  transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+}
+
+.ui.slide.up.transition.in {
   -webkit-animation-name: slide;
   -moz-animation-name: slide;
   -o-animation-name: slide;
@@ -239,6 +261,16 @@
   -ms-transform-origin: 50% 100%;
   -webkit-transform-origin: 50% 100%;
 }
+.ui.slide.up.transition.out {
+  -webkit-animation-name: slideOut;
+  -moz-animation-name: slideOut;
+  -o-animation-name: slideOut;
+  animation-name: slideOut;
+  transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+}
+
 
 @-moz-keyframes slide {
   0% {
@@ -271,6 +303,36 @@
   }
 }
 
+@-moz-keyframes slideOut {
+  0% {
+    opacity: 1;
+    -moz-transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: scaleY(0);
+  }
+}
+@-webkit-keyframes slideOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+  }
+}
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
 
 /*******************************
        Animations
@@ -667,6 +729,46 @@
     opacity: 1;
   }
 }
+@-webkit-keyframes verticalFlipOut {
+  0% {
+    -webkit-transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotateX(-90deg);
+    opacity: 0;
+  }
+}
+@-moz-keyframes verticalFlipOut {
+  0% {
+    -moz-transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    -moz-transform: rotateX(-90deg);
+    opacity: 0;
+  }
+}
+@-o-keyframes verticalFlipOut {
+  0% {
+    -o-transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    -o-transform: rotateX(-90deg);
+    opacity: 0;
+  }
+}
+@keyframes verticalFlipOut {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+}
 
 /*--------------
      Fades
@@ -703,6 +805,39 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -745,6 +880,47 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadeUpOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+}
+@-moz-keyframes fadeUpOut {
+  0% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+  }
+}
+@-o-keyframes fadeUpOut {
+  0% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+  }
+}
+@keyframes fadeUpOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
   }
 }
 
@@ -791,6 +967,47 @@
 }
 
 
+@-webkit-keyframes fadeDownOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+  }
+}
+@-moz-keyframes fadeDownOut {
+  0% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(-20px);
+  }
+}
+@-o-keyframes fadeDownOut {
+  0% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    -o-transform: translateY(-20px);
+  }
+}
+@keyframes fadeDownOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
 /*--------------
       Scale
 ---------------*/
@@ -834,5 +1051,46 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scaleOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+  }
+}
+@-moz-keyframes scaleOut {
+  0% {
+    opacity: 1;
+    -moz-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -moz-transform: scale(0.7);
+  }
+}
+@-o-keyframes scaleOut {
+  0% {
+    opacity: 1;
+    -o-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -o-transform: scale(0.7);
+  }
+}
+@keyframes scaleOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
   }
 }
