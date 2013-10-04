@@ -334,7 +334,7 @@ $.fn.checkbox.settings = {
   },
 
   selector : {
-    input  : 'input[type=checkbox]',
+    input  : 'input[type=checkbox], input[type=radio]',
     label  : 'label'
   },
 
