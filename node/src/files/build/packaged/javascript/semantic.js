@@ -5428,7 +5428,7 @@ $.fn.modal = function(parameters) {
             module.debug('Setting dimmer settings', settings.closable);
             $context
               .dimmer('setting', 'closable', settings.closable)
-              .dimmer('setting', 'duration', settings.duration)
+              .dimmer('setting', 'duration', settings.duration * 0.75)
               .dimmer('setting', 'onShow' , module.add.keyboardShortcuts)
               .dimmer('setting', 'onHide', function() {
                 module.hide();
@@ -5662,7 +5662,7 @@ $.fn.modal.settings = {
 
   closable    : true,
   context     : 'body',
-  duration    : 500,
+  duration    : 600,
   easing      : 'easeOutExpo',
   offset      : 0,
   transition  : 'scale',
