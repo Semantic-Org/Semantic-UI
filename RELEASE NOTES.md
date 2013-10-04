@@ -9,7 +9,7 @@
 ### Version 0.3.4 - Oct 2, 2013
 
 **Fixes**
-- Transitions now work in Safari versinos that do not support animation-direction
+- Transitions now work in Safari versions that do not support animation-direction
 - Fixes accordion in safari styles getting stuck
 - Centering of content in icon header
 
