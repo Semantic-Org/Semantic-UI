@@ -104,7 +104,7 @@ $.fn.checkbox = function(parameters) {
         },
 
         enable: function() {
-          module.debug('Enabling checkbox');
+          module.debug('Enabling checkbox', $input);
           $input
             .prop('checked', true)
           ;
@@ -217,9 +217,6 @@ $.fn.checkbox = function(parameters) {
             title += ' ' + totalTime + 'ms';
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
-            }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
             }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
