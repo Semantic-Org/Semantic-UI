@@ -424,7 +424,22 @@ type        : 'UI Collection'
         </div>
     </div>
   </div>
-
+  
+  <div class="example">
+    <h4 class="ui header">Select</h4>
+    <p>Select fields are supported</p>
+    <div class="ui form">
+      <div class="select field">
+      	<label class="select optional">Selection</label>
+      	<select>
+      		<option selected="selected" value="option1">option 1</option>
+            <option value="option2">option 2</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  
   <div class="example">
     <h4 class="ui header">Date</h4>
     <p>A field can let users know they are for dates</p>
