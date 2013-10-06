@@ -37,7 +37,7 @@ type        : 'UI Collection'
         <i class="user icon"></i> Friends
       </a>
       <div class="right menu">
-        <div class="borderless item">
+        <div class="borderless vertically fitted item">
           <div class="ui icon input">
             <input type="text" placeholder="Search...">
             <i class="search link icon"></i>
@@ -140,7 +140,7 @@ type        : 'UI Collection'
           <i class="mail icon"></i> Messages
         </a>
         <div class="right menu">
-          <div class="borderless item">
+          <div class="borderless vertically fitted item">
             <div class="ui icon input">
               <input type="text" placeholder="Search...">
               <i class="search icon"></i>
@@ -812,7 +812,7 @@ type        : 'UI Collection'
         <i class="user icon"></i> Friends
       </a>
       <div class="right menu">
-        <div class="borderless item">
+        <div class="borderless vertically fitted item">
           <div class="ui icon input">
             <input type="text" placeholder="Search...">
             <i class="search link icon"></i>
@@ -825,6 +825,25 @@ type        : 'UI Collection'
             <a class="item">Russian</a>
             <a class="item">Spanish</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small menu">
+      <a class="active item">
+        Inbox
+      </a>
+      <a class="item">
+        Spam
+      </a>
+      <a class="item">
+        Updates
+      </a>
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search mail...">
+          <i class="search icon"></i>
         </div>
       </div>
     </div>

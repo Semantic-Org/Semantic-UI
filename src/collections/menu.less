@@ -246,14 +246,13 @@
   width: 100%;
 }
 .ui.menu .ui.input > .icon {
-  padding-top: 0em;
+  padding-top: 0.1em;
   height: auto;
 }
 .ui.menu .item > .input input,
 .ui.menu .item > input[type="text"] {
   position: relative;
-  top: -0.45em;
-  margin: 0em;
+  margin: -0.45em 0em;
   padding-top: 0.45em;
   padding-bottom: 0.45em;
 }
@@ -589,11 +588,12 @@
 .ui.tiered.menu > .menu .item.active:after {
   position: absolute;
   content: '';
+  margin-top: -1px;
   top: 100%;
   left: 0px;
 
   width: 100%;
-  height: 1px;
+  height: 2px;
   background-color: #FBFBFB;
 }
 .ui.tiered.menu .sub.menu {
@@ -740,7 +740,7 @@
 
 .ui.pagination.menu .item {
   min-width: 2.7em;
-  min-height: 2.66em;
+  min-height: 2.7em;
   text-align: center;
 }
 .ui.pagination.menu.floated {
@@ -1750,7 +1750,6 @@
 
 .ui.menu .item {
   font-size: 1rem;
-  height: 2.66em;
 }
 .ui.vertical.menu {
   width: 15rem;

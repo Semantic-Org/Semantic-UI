@@ -87,8 +87,10 @@ $.fn.accordion = function(parameters) {
           resetStyle: function() {
             module.verbose('Resetting styles on element', this);
             $(this)
+              .attr('style', '')
               .removeAttr('style')
               .children()
+                .attr('style', '')
                 .removeAttr('style')
             ;
           }
@@ -138,8 +140,10 @@ $.fn.accordion = function(parameters) {
                 .slideUp(settings.duration , settings.easing, function() {
                   $previousContent
                     .removeClass(className.active)
+                    .attr('style', '')
                     .removeAttr('style')
                     .children()
+                      .attr('style', '')
                       .removeAttr('style')
                   ;
                 })
@@ -151,11 +155,13 @@ $.fn.accordion = function(parameters) {
             $activeContent
               .stop()
               .children()
+                .attr('style', '')
                 .removeAttr('style')
                 .end()
               .slideDown(settings.duration, settings.easing, function() {
                 $activeContent
                   .addClass(className.active)
+                  .attr('style', '')
                   .removeAttr('style')
                 ;
                 $.proxy(settings.onOpen, $activeContent)();
@@ -185,6 +191,7 @@ $.fn.accordion = function(parameters) {
               .end()
             .slideUp(settings.duration, settings.easing, function(){
               $activeContent
+                .attr('style', '')
                 .removeAttr('style')
               ;
               $.proxy(settings.onClose, $activeContent)();
@@ -3855,7 +3862,7 @@ $.fn.checkbox.settings = {
   },
 
   selector : {
-    input  : 'input[type=checkbox]',
+    input  : 'input[type=checkbox], input[type=radio]',
     label  : 'label'
   },
 
@@ -5421,7 +5428,7 @@ $.fn.modal = function(parameters) {
             module.debug('Setting dimmer settings', settings.closable);
             $context
               .dimmer('setting', 'closable', settings.closable)
-              .dimmer('setting', 'duration', settings.duration)
+              .dimmer('setting', 'duration', settings.duration * 0.75)
               .dimmer('setting', 'onShow' , module.add.keyboardShortcuts)
               .dimmer('setting', 'onHide', function() {
                 module.hide();
@@ -5655,7 +5662,7 @@ $.fn.modal.settings = {
 
   closable    : true,
   context     : 'body',
-  duration    : 500,
+  duration    : 600,
   easing      : 'easeOutExpo',
   offset      : 0,
   transition  : 'scale',
@@ -6478,7 +6485,9 @@ $.fn.popup = function(parameters) {
           // refresh state of module
           module.refresh();
           if( !$module.hasClass(className.visible) ) {
-            module.hideAll();
+            if(settings.on == 'click') {
+              module.hideAll();
+            }
             module.show();
           }
           else {

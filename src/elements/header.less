@@ -37,7 +37,7 @@
 .ui.header .icon {
   display: table-cell;
   vertical-align: middle;
-  padding-right: 1rem;
+  padding-right: 0.5em;
 }
 .ui.header .icon:only-child {
   display: inline-block;
@@ -48,6 +48,7 @@
   vertical-align: top;
 }
 .ui.header .icon + .content {
+  padding-left: 0.5em;
   display: table-cell;
 }
 
@@ -130,6 +131,9 @@ h5.ui.header {
   font-size: 3em;
   margin: 0em auto 0.2em;
   padding: 0em;
+}
+.ui.icon.header .content {
+  display: block;
 }
 .ui.icon.header .circular.icon,
 .ui.icon.header .square.icon {

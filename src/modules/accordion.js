@@ -87,8 +87,10 @@ $.fn.accordion = function(parameters) {
           resetStyle: function() {
             module.verbose('Resetting styles on element', this);
             $(this)
+              .attr('style', '')
               .removeAttr('style')
               .children()
+                .attr('style', '')
                 .removeAttr('style')
             ;
           }
@@ -138,8 +140,10 @@ $.fn.accordion = function(parameters) {
                 .slideUp(settings.duration , settings.easing, function() {
                   $previousContent
                     .removeClass(className.active)
+                    .attr('style', '')
                     .removeAttr('style')
                     .children()
+                      .attr('style', '')
                       .removeAttr('style')
                   ;
                 })
@@ -151,11 +155,13 @@ $.fn.accordion = function(parameters) {
             $activeContent
               .stop()
               .children()
+                .attr('style', '')
                 .removeAttr('style')
                 .end()
               .slideDown(settings.duration, settings.easing, function() {
                 $activeContent
                   .addClass(className.active)
+                  .attr('style', '')
                   .removeAttr('style')
                 ;
                 $.proxy(settings.onOpen, $activeContent)();
@@ -185,6 +191,7 @@ $.fn.accordion = function(parameters) {
               .end()
             .slideUp(settings.duration, settings.easing, function(){
               $activeContent
+                .attr('style', '')
                 .removeAttr('style')
               ;
               $.proxy(settings.onClose, $activeContent)();
