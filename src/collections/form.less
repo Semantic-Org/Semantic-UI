@@ -64,19 +64,25 @@
 
 
 .ui.form textarea,
+.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="password"],
+.ui.form input[type="number"],
+.ui.form input[type="tel"],
 .ui.form .ui.input {
   width: 100%;
 }
 
 .ui.form textarea,
+.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
-.ui.form input[type="password"] {
+.ui.form input[type="password"],
+.ui.form input[type="number"],
+.ui.form input[type="tel"]{
 
   margin: 0em;
   padding: 0.85em 1.2em;
@@ -140,9 +146,26 @@
   max-height: 24em;
   resize: vertical;
 }
+
 .ui.form select {
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
+
+.ui.form .select.field > label {
+  position: relative;
+}
+
+.ui.form .select.field > label:after {
+  position: absolute;
+  top: 2.5em;
+  right: 1.5em;
+  font-family: 'Icons';
+  content: "\f0d7";
+  font-style: normal;
+  line-height: 1;
+  font-weight: normal;
+}
+
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
   vertical-align: top;
@@ -206,7 +229,10 @@
 .ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="password"]:focus,
-.ui.form textarea:focus {
+.ui.form input[type="number"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form textarea:focus,
+.ui.form select:focus{
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 0;
@@ -243,15 +269,21 @@
   color: #D95C5C;
 }
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field select,
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="number"],
+.ui.form .fields.error .field input[type="tel"],
 .ui.form .field.error textarea,
+.ui.form .field.error select,
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
-.ui.form .field.error input[type="password"] {
+.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="number"],
+.ui.form .field.error input[type="tel"]{
   background-color: #FFFAFA;
   border-color: #E7BEBE;
   border-left: none;
@@ -268,10 +300,13 @@
 
 }
 .ui.form .field.error textarea:focus,
+.ui.form .field.error select:focus,
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
-.ui.form .field.error input[type="password"]:focus {
+.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="number"]:focus,
+.ui.form .field.error input[type="tel"]:focus{
   border-color: rgba(255, 80, 80, 1);
   color: rgba(255, 80, 80, 1);
 
@@ -385,12 +420,11 @@
 }
 .ui.form .date.field > label:after {
   position: absolute;
-  top: 1.4em;
+  top: 2em;
   right: 0.5em;
-
   font-family: 'Icons';
-  content: '📅'; /* '\1f4c5' */
-  font-size: 1.5em;
+  content: '\f133'; ; /*anterior : '📅' '\1f4c5' */
+  font-size: 1.2em;
   font-weight: normal;
   color: #CCCCCC;
 }
@@ -403,10 +437,13 @@
   color: #FFFFFF;
 }
 .ui.inverted.form .field.error textarea,
+.ui.inverted.form .field.error select,
 .ui.inverted.form .field.error input[type="text"],
 .ui.inverted.form .field.error input[type="email"],
 .ui.inverted.form .field.error input[type="date"],
-.ui.inverted.form .field.error input[type="password"]{
+.ui.inverted.form .field.error input[type="password"],
+.ui.inverted.form .field.error input[type="number"],
+.ui.inverted.form .field.error input[type="tel"]{
   background-color: #FFCCCC;
 }
 
@@ -541,7 +578,10 @@
 .ui.small.form input[type="email"],
 .ui.small.form input[type="date"],
 .ui.small.form input[type="password"],
-.ui.small.form label {
+.ui.small.form input[type="number"],
+.ui.small.form input[type="tel"],
+.ui.small.form label,
+.ui.small.form select{
   font-size: 1em;
 }
 
