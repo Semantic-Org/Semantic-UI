@@ -65,6 +65,7 @@
 
 .ui.form textarea,
 .ui.form input[type="text"],
+.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="password"],
 .ui.form .ui.input {
@@ -73,6 +74,7 @@
 
 .ui.form textarea,
 .ui.form input[type="text"],
+.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="password"] {
 
@@ -201,6 +203,8 @@
 ---------------------*/
 
 .ui.form input[type="text"]:focus,
+.ui.form input[type="email"]:focus,
+.ui.form input[type="date"]:focus,
 .ui.form input[type="password"]:focus,
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
@@ -240,10 +244,12 @@
 }
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="password"],
 .ui.form .field.error textarea,
 .ui.form .field.error input[type="text"],
+.ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="password"] {
   background-color: #FFFAFA;
@@ -263,6 +269,8 @@
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="email"]:focus,
+.ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="password"]:focus {
   border-color: rgba(255, 80, 80, 1);
   color: rgba(255, 80, 80, 1);
@@ -395,7 +403,10 @@
   color: #FFFFFF;
 }
 .ui.inverted.form .field.error textarea,
-.ui.inverted.form .field.error input[type="text"] {
+.ui.inverted.form .field.error input[type="text"],
+.ui.inverted.form .field.error input[type="email"],
+.ui.inverted.form .field.error input[type="date"],
+.ui.inverted.form .field.error input[type="password"]{
   background-color: #FFCCCC;
 }
 
@@ -527,6 +538,8 @@
 }
 .ui.small.form textarea,
 .ui.small.form input[type="text"],
+.ui.small.form input[type="email"],
+.ui.small.form input[type="date"],
 .ui.small.form input[type="password"],
 .ui.small.form label {
   font-size: 1em;
