@@ -188,12 +188,22 @@ $.fn.dropdown = function(parameters) {
         determine: {
           selectAction: function(text, value) {
             module.verbose('Determining action', settings.action);
-            if( $.isFunction( module[settings.action] ) ) {
-              module.verbose('Triggering preset action', settings.action);
+            if(settings.action == 'auto') {
+              if(module.is.selection()) {
+                module.debug('Selection dropdown used updating form', text, value);
+                module.updateForm(text, value);
+              }
+              else {
+                module.debug('No action specified hiding dropdown', text, value);
+                module.hide();
+              }
+            }
+            else if( $.isFunction( module[settings.action] ) ) {
+              module.verbose('Triggering preset action', settings.action, text, value);
               module[ settings.action ](text, value);
             }
             else if( $.isFunction(settings.action) ) {
-              module.verbose('Triggering user action', settings.action);
+              module.verbose('Triggering user action', settings.action, text, value);
               settings.action(text, value);
             }
             else {
@@ -318,6 +328,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         is: {
+          selection: function() {
+            return $module.hasClass(className.selection);
+          },
           visible: function($subMenu) {
             return ($subMenu)
               ? $subMenu.is(':animated, :visible')
@@ -666,7 +679,7 @@ $.fn.dropdown.settings = {
   performance : true,
 
   on          : 'click',
-  action      : 'hide',
+  action      : 'auto',
 
   delay: {
     show: 200,
@@ -702,7 +715,8 @@ $.fn.dropdown.settings = {
     active      : 'active',
     placeholder : 'default',
     disabled    : 'disabled',
-    visible     : 'visible'
+    visible     : 'visible',
+    selection   : 'selection'
   }
 
 };
