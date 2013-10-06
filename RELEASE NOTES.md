@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+### Version 0.3.6 - Oct 2, 2013
+
+**Updates**
+
+- Adds fluid variation to accordion
+- Adds more html5 form support for forms (deneuxa)
+
 ### Version 0.3.5 - Oct 2, 2013
 
 **Fixes**
