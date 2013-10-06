@@ -117,6 +117,7 @@
 ---------------------*/
 .ui.form textarea,
 .ui.form input[type="text"],
+.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="password"],
 .ui.form .ui.input {
@@ -124,6 +125,7 @@
 }
 .ui.form textarea,
 .ui.form input[type="text"],
+.ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="password"] {
   margin: 0em;
@@ -209,6 +211,8 @@
         Focus
 ---------------------*/
 .ui.form input[type="text"]:focus,
+.ui.form input[type="email"]:focus,
+.ui.form input[type="date"]:focus,
 .ui.form input[type="password"]:focus,
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
@@ -241,10 +245,12 @@
 }
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="password"],
 .ui.form .field.error textarea,
 .ui.form .field.error input[type="text"],
+.ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
 .ui.form .field.error input[type="password"] {
   background-color: #FFFAFA;
@@ -260,6 +266,8 @@
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="email"]:focus,
+.ui.form .field.error input[type="date"]:focus,
 .ui.form .field.error input[type="password"]:focus {
   border-color: #ff5050;
   color: #ff5050;
@@ -371,7 +379,10 @@
   color: #FFFFFF;
 }
 .ui.inverted.form .field.error textarea,
-.ui.inverted.form .field.error input[type="text"] {
+.ui.inverted.form .field.error input[type="text"],
+.ui.inverted.form .field.error input[type="email"],
+.ui.inverted.form .field.error input[type="date"],
+.ui.inverted.form .field.error input[type="password"] {
   background-color: #FFCCCC;
 }
 /*--------------------
@@ -485,6 +496,8 @@
 }
 .ui.small.form textarea,
 .ui.small.form input[type="text"],
+.ui.small.form input[type="email"],
+.ui.small.form input[type="date"],
 .ui.small.form input[type="password"],
 .ui.small.form label {
   font-size: 1em;
@@ -3978,6 +3991,11 @@ i.basic.icon {
   font-size: 1em;
 }
 i.large.basic.icon {
+  font-size: 1.5em;
+  margin-right: 0.2em;
+  vertical-align: middle;
+}
+i.big.basic.icon {
   font-size: 2em;
   margin-right: 0.5em;
   vertical-align: middle;
@@ -6860,6 +6878,10 @@ i.icon {
   font-size: 1em;
 }
 i.large.icon {
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+i.big.icon {
   font-size: 2em;
   vertical-align: middle;
 }
@@ -9118,7 +9140,7 @@ a.ui.teal.label:hover:before {
   display: block;
 }
 /*******************************
-            Variations
+           Variations
 *******************************/
 /*--------------
      Fluid
@@ -10010,7 +10032,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 *******************************/
 /* Opposite on last menu on right */
 .ui.menu .right.menu .dropdown:last-child .menu,
-.ui.button > .ui.dropdown:last-child .menu {
+.ui.buttons > .ui.dropdown:last-child .menu {
   left: auto;
   right: 0px;
 }
