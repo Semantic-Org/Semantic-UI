@@ -253,7 +253,9 @@ $.fn.popup = function(parameters) {
           // refresh state of module
           module.refresh();
           if( !$module.hasClass(className.visible) ) {
-            module.hideAll();
+            if(settings.on == 'click') {
+              module.hideAll();
+            }
             module.show();
           }
           else {
