@@ -1,5 +1,20 @@
 ## RELEASE NOTES
 
+### Version 0.3.6 - Oct 7, 2013
+
+**Fixes**
+- Fixes popup position sometimes appearing off-stage on second apperance
+- Fixes popup positions top left, top right, bottom left, bottom right being flipped
+
+**Docs**
+- Updates form and accordion docs
+
+**Updates**
+- Dropdown action default is now automatically determined based on type of dropdown, select dropdowns now will update form fields with default options
+- Adds fluid variation to accordion
+- Adds more html5 form support for forms (deneuxa)
+- Fields can include both field and another level of fields
+
 ### Version 0.3.5 - Oct 2, 2013
 
 **Fixes**

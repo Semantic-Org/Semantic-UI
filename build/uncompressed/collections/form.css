@@ -50,18 +50,24 @@
     Standard Inputs
 ---------------------*/
 .ui.form textarea,
+.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="password"],
+.ui.form input[type="number"],
+.ui.form input[type="tel"],
 .ui.form .ui.input {
   width: 100%;
 }
 .ui.form textarea,
+.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
-.ui.form input[type="password"] {
+.ui.form input[type="password"],
+.ui.form input[type="number"],
+.ui.form input[type="tel"] {
   margin: 0em;
   padding: 0.85em 1.2em;
   font-size: 0.875em;
@@ -94,9 +100,6 @@
   height: 12em;
   max-height: 24em;
   resize: vertical;
-}
-.ui.form select {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
@@ -148,7 +151,10 @@
 .ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="password"]:focus,
-.ui.form textarea:focus {
+.ui.form input[type="number"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form textarea:focus,
+.ui.form select:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 0;
@@ -182,11 +188,15 @@
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="number"],
+.ui.form .fields.error .field input[type="tel"],
 .ui.form .field.error textarea,
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
-.ui.form .field.error input[type="password"] {
+.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="number"],
+.ui.form .field.error input[type="tel"] {
   background-color: #FFFAFA;
   border-color: #E7BEBE;
   border-left: none;
@@ -202,7 +212,9 @@
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
-.ui.form .field.error input[type="password"]:focus {
+.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="number"]:focus,
+.ui.form .field.error input[type="tel"]:focus {
   border-color: #ff5050;
   color: #ff5050;
   -webkit-appearance: none;
@@ -296,13 +308,11 @@
 }
 .ui.form .date.field > label:after {
   position: absolute;
-  top: 1.4em;
+  top: 2em;
   right: 0.5em;
   font-family: 'Icons';
-  content: '📅';
-  /* '\1f4c5' */
-
-  font-size: 1.5em;
+  content: '\f133';
+  font-size: 1.2em;
   font-weight: normal;
   color: #CCCCCC;
 }
@@ -316,7 +326,9 @@
 .ui.inverted.form .field.error input[type="text"],
 .ui.inverted.form .field.error input[type="email"],
 .ui.inverted.form .field.error input[type="date"],
-.ui.inverted.form .field.error input[type="password"] {
+.ui.inverted.form .field.error input[type="password"],
+.ui.inverted.form .field.error input[type="number"],
+.ui.inverted.form .field.error input[type="tel"] {
   background-color: #FFCCCC;
 }
 /*--------------------
@@ -347,7 +359,7 @@
   line-height: 0;
   height: 0;
 }
-.ui.form .fields .field {
+.ui.form .fields > .field {
   clear: none;
   float: left;
   -webkit-box-sizing: border-box;
@@ -355,32 +367,35 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-.ui.form .fields .field:first-child {
+.ui.form .fields > .field:first-child {
   border-left: none;
   box-shadow: none;
 }
 /* Other Combinations */
-.ui.form .two.fields .field {
+.ui.form .two.fields > .fields,
+.ui.form .two.fields > .field {
   width: 50%;
   padding-left: 1%;
   padding-right: 1%;
 }
-.ui.form .three.fields .field {
+.ui.form .three.fields > .fields,
+.ui.form .three.fields > .field {
   width: 33.333%;
   padding-left: 1%;
   padding-right: 1%;
 }
-.ui.form .four.fields .field {
+.ui.form .four.fields > .fields,
+.ui.form .four.fields > .field {
   width: 25%;
   padding-left: 1%;
   padding-right: 1%;
 }
-.ui.form .five.fields .field {
+.ui.form .five.fields > .fields,
+.ui.form .five.fields > .field {
   width: 20%;
   padding-left: 1%;
   padding-right: 1%;
 }
-/* override sides, ie8 no last-child */
 .ui.form .fields .field:first-child {
   padding-left: 0%;
 }
@@ -397,11 +412,9 @@
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
-.ui.form .inline.fields .field > select,
 .ui.form .inline.field > label,
 .ui.form .inline.field > p,
-.ui.form .inline.field > input,
-.ui.form .inline.field > select {
+.ui.form .inline.field > input {
   display: inline-block;
   width: auto;
   margin-top: 0em;
@@ -433,7 +446,10 @@
 .ui.small.form input[type="email"],
 .ui.small.form input[type="date"],
 .ui.small.form input[type="password"],
-.ui.small.form label {
+.ui.small.form input[type="number"],
+.ui.small.form input[type="tel"],
+.ui.small.form label,
+.ui.small.form select {
   font-size: 1em;
 }
 /* Large */
