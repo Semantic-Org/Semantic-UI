@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.3.6 - Oct 2, 2013
+### Version 0.3.6 - Oct 7, 2013
 
 **Docs**
 - Updates form and accordion docs
