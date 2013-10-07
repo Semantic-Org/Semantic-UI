@@ -1,0 +1,115 @@
+/*
+ * # Semantic - Input
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+           Standard
+*******************************/
+
+
+/*--------------------
+        Selects
+---------------------*/
+
+.ui.select {
+  display: inline-block;
+  position: relative;
+}
+.ui.select select {
+  width: 100%;
+  margin: 0em;
+  padding: 0.85em 1.2em;
+  font-size: 0.875em;
+  height: 2.85em;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+/*--------------------
+        Active
+---------------------*/
+
+.ui.select select:active,
+.ui.input.down input {
+  border-color: rgba(0, 0, 0, 0.3);
+  background-color: #FAFAFA;
+}
+
+/*--------------------
+        Focus
+---------------------*/
+
+.ui.select.focus select,
+.ui.select select:focus  {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/*--------------------
+        Error
+---------------------*/
+
+.ui.select.error select {
+  background-color: #FFFAFA;
+  border-color: #E7BEBE;
+  color: #D95C5C;
+}
+
+
+/*--------------------
+        Fluid
+---------------------*/
+
+.ui.fluid.select {
+  display: block;
+}
+
+
+/*--------------------
+        Size
+---------------------*/
+
+.ui.mini.select {
+  font-size: 0.8125rem;
+}
+.ui.tiny.select {
+  font-size: 0.875rem;
+}
+.ui.small.select {
+  font-size: 0.875rem;
+}
+.ui.select {
+  font-size: 1rem;
+}
+.ui.large.select {
+  font-size: 1.125rem;
+}
+.ui.big.select {
+  font-size: 1.25rem;
+}
+.ui.huge.select {
+  font-size: 1.375rem;
+}
+.ui.massive.select {
+  font-size: 1.5rem;
+}

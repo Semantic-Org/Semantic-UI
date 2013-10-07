@@ -103,27 +103,27 @@
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
   -moz-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
   -o-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
   -ms-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
   transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
 
   -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
   -moz-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
@@ -150,6 +150,24 @@
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
   vertical-align: top;
+}
+
+
+.ui.form select {
+  width: 100%;
+  margin: 0em;
+  padding: 0.85em 1.2em;
+  font-size: 0.875em;
+  height: 3em;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /*--------------------
@@ -250,6 +268,7 @@
   color: #D95C5C;
 }
 .ui.form .fields.error .field textarea,
+.ui.form .fields.error .field select,
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
@@ -257,6 +276,7 @@
 .ui.form .fields.error .field input[type="number"],
 .ui.form .fields.error .field input[type="tel"],
 .ui.form .field.error textarea,
+.ui.form .field.error select,
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
@@ -279,6 +299,7 @@
 
 }
 .ui.form .field.error textarea:focus,
+.ui.form .field.error select:focus,
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
@@ -551,6 +572,7 @@
   font-size: 0.875em;
 }
 .ui.small.form textarea,
+.ui.small.form select,
 .ui.small.form input[type="text"],
 .ui.small.form input[type="email"],
 .ui.small.form input[type="date"],
