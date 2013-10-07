@@ -10,7 +10,7 @@
     {
       "name" : "Jack Lukic",
       "email": "jacklukic@gmail.com",
-      "web"  : "http://www.jacklukic.com",
+      T"web"  : "http://www.jacklukic.com",
       "role" : "Creator"
     }
   ],
@@ -21,6 +21,6 @@
     "framework"
   ],
   "license" : [
-    "http://semantic-ui.mit-license.org/"
+    "MIT"
   ]
 }
