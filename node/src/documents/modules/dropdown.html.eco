@@ -470,9 +470,13 @@ type        : 'UI Module'
       </tr>
       <tr>
         <td>action</td>
-        <td>hide</td>
+        <td>auto</td>
         <td>Sets a default action to occur.
         <div class="ui vertical divided list">
+          <div class="item">
+            <div class="header">auto</div>
+            <div class="description">Most likely action will be determined by type of dropdown, for example a selection dropdown will automatically use updateForm</div>
+          </div>
           <div class="item">
             <div class="header">nothing</div>
             <div class="description">no action occurs</div>

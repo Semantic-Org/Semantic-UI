@@ -116,18 +116,24 @@
     Standard Inputs
 ---------------------*/
 .ui.form textarea,
+.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
 .ui.form input[type="password"],
+.ui.form input[type="number"],
+.ui.form input[type="tel"],
 .ui.form .ui.input {
   width: 100%;
 }
 .ui.form textarea,
+.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
-.ui.form input[type="password"] {
+.ui.form input[type="password"],
+.ui.form input[type="number"],
+.ui.form input[type="tel"] {
   margin: 0em;
   padding: 0.85em 1.2em;
   font-size: 0.875em;
@@ -160,9 +166,6 @@
   height: 12em;
   max-height: 24em;
   resize: vertical;
-}
-.ui.form select {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
@@ -214,7 +217,10 @@
 .ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="password"]:focus,
-.ui.form textarea:focus {
+.ui.form input[type="number"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form textarea:focus,
+.ui.form select:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 0;
@@ -248,11 +254,15 @@
 .ui.form .fields.error .field input[type="email"],
 .ui.form .fields.error .field input[type="date"],
 .ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="number"],
+.ui.form .fields.error .field input[type="tel"],
 .ui.form .field.error textarea,
 .ui.form .field.error input[type="text"],
 .ui.form .field.error input[type="email"],
 .ui.form .field.error input[type="date"],
-.ui.form .field.error input[type="password"] {
+.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="number"],
+.ui.form .field.error input[type="tel"] {
   background-color: #FFFAFA;
   border-color: #E7BEBE;
   border-left: none;
@@ -268,7 +278,9 @@
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="email"]:focus,
 .ui.form .field.error input[type="date"]:focus,
-.ui.form .field.error input[type="password"]:focus {
+.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="number"]:focus,
+.ui.form .field.error input[type="tel"]:focus {
   border-color: #ff5050;
   color: #ff5050;
   -webkit-appearance: none;
@@ -362,13 +374,11 @@
 }
 .ui.form .date.field > label:after {
   position: absolute;
-  top: 1.4em;
+  top: 2em;
   right: 0.5em;
   font-family: 'Icons';
-  content: '📅';
-  /* '\1f4c5' */
-
-  font-size: 1.5em;
+  content: '\f133';
+  font-size: 1.2em;
   font-weight: normal;
   color: #CCCCCC;
 }
@@ -382,7 +392,9 @@
 .ui.inverted.form .field.error input[type="text"],
 .ui.inverted.form .field.error input[type="email"],
 .ui.inverted.form .field.error input[type="date"],
-.ui.inverted.form .field.error input[type="password"] {
+.ui.inverted.form .field.error input[type="password"],
+.ui.inverted.form .field.error input[type="number"],
+.ui.inverted.form .field.error input[type="tel"] {
   background-color: #FFCCCC;
 }
 /*--------------------
@@ -413,7 +425,7 @@
   line-height: 0;
   height: 0;
 }
-.ui.form .fields .field {
+.ui.form .fields > .field {
   clear: none;
   float: left;
   -webkit-box-sizing: border-box;
@@ -421,32 +433,35 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-.ui.form .fields .field:first-child {
+.ui.form .fields > .field:first-child {
   border-left: none;
   box-shadow: none;
 }
 /* Other Combinations */
-.ui.form .two.fields .field {
+.ui.form .two.fields > .fields,
+.ui.form .two.fields > .field {
   width: 50%;
   padding-left: 1%;
   padding-right: 1%;
 }
-.ui.form .three.fields .field {
+.ui.form .three.fields > .fields,
+.ui.form .three.fields > .field {
   width: 33.333%;
   padding-left: 1%;
   padding-right: 1%;
 }
-.ui.form .four.fields .field {
+.ui.form .four.fields > .fields,
+.ui.form .four.fields > .field {
   width: 25%;
   padding-left: 1%;
   padding-right: 1%;
 }
-.ui.form .five.fields .field {
+.ui.form .five.fields > .fields,
+.ui.form .five.fields > .field {
   width: 20%;
   padding-left: 1%;
   padding-right: 1%;
 }
-/* override sides, ie8 no last-child */
 .ui.form .fields .field:first-child {
   padding-left: 0%;
 }
@@ -463,11 +478,9 @@
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
-.ui.form .inline.fields .field > select,
 .ui.form .inline.field > label,
 .ui.form .inline.field > p,
-.ui.form .inline.field > input,
-.ui.form .inline.field > select {
+.ui.form .inline.field > input {
   display: inline-block;
   width: auto;
   margin-top: 0em;
@@ -499,7 +512,10 @@
 .ui.small.form input[type="email"],
 .ui.small.form input[type="date"],
 .ui.small.form input[type="password"],
-.ui.small.form label {
+.ui.small.form input[type="number"],
+.ui.small.form input[type="tel"],
+.ui.small.form label,
+.ui.small.form select {
   font-size: 1em;
 }
 /* Large */
@@ -9023,7 +9039,7 @@ a.ui.teal.label:hover:before {
  *
  */
 /*******************************
-            Button
+            Accordion
 *******************************/
 .ui.accordion {
   width: 600px;
@@ -9092,6 +9108,27 @@ a.ui.teal.label:hover:before {
   padding: 0em;
 }
 /*******************************
+            Types
+*******************************/
+/*--------------
+     Basic
+---------------*/
+.ui.basic.accordion {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.accordion .title {
+  background-color: transparent;
+  border-top: none;
+}
+.ui.basic.accordion .title,
+.ui.basic.accordion .content {
+  padding-left: 0em;
+  padding-right: 0em;
+}
+/*******************************
             States
 *******************************/
 /*--------------
@@ -9119,22 +9156,13 @@ a.ui.teal.label:hover:before {
   display: block;
 }
 /*******************************
-            Variations
+           Variations
 *******************************/
-.ui.basic.accordion {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.ui.basic.accordion .title {
-  background-color: transparent;
-  border-top: none;
-}
-.ui.basic.accordion .title,
-.ui.basic.accordion .content {
-  padding-left: 0em;
-  padding-right: 0em;
+/*--------------
+     Fluid
+---------------*/
+.ui.fluid.accordion {
+  width: 100%;
 }
 
 /*
@@ -10753,21 +10781,27 @@ a.ui.nag {
   -moz-box-shadow: -1px -1px 1px #dcddde;
   box-shadow: -1px -1px 1px #dcddde;
 }
+.ui.bottom.left.popup {
+  margin-right: -0.8em;
+}
 .ui.bottom.left.popup:before {
   top: -0.4em;
-  left: 1em;
-  right: auto;
+  right: 1em;
   bottom: auto;
+  left: auto;
   margin-left: 0em;
   -webkit-box-shadow: -1px -1px 1px #dcddde;
   -moz-box-shadow: -1px -1px 1px #dcddde;
   box-shadow: -1px -1px 1px #dcddde;
 }
+.ui.bottom.right.popup {
+  margin-left: -0.8em;
+}
 .ui.bottom.right.popup:before {
   top: -0.4em;
-  right: 1em;
+  left: 1em;
+  right: auto;
   bottom: auto;
-  left: auto;
   margin-left: 0em;
   -webkit-box-shadow: -1px -1px 1px #dcddde;
   -moz-box-shadow: -1px -1px 1px #dcddde;
@@ -10781,21 +10815,27 @@ a.ui.nag {
   left: 50%;
   margin-left: -0.4em;
 }
-.ui.top.left.popup:before {
-  bottom: -0.4em;
-  left: 1em;
-  top: auto;
-  right: auto;
-  margin-left: 0em;
+.ui.top.left.popup {
+  margin-right: -0.8em;
 }
-.ui.top.right.popup:before {
+.ui.top.left.popup:before {
   bottom: -0.4em;
   right: 1em;
   top: auto;
   left: auto;
   margin-left: 0em;
 }
-/*--- Left ---*/
+.ui.top.right.popup {
+  margin-left: -0.8em;
+}
+.ui.top.right.popup:before {
+  bottom: -0.4em;
+  left: 1em;
+  top: auto;
+  right: auto;
+  margin-left: 0em;
+}
+/*--- Left Center ---*/
 .ui.left.center.popup:before {
   top: 50%;
   right: -0.35em;
@@ -10806,7 +10846,7 @@ a.ui.nag {
   -webkit-box-shadow: 1px -1px 1px #dcddde;
   box-shadow: 1px -1px 1px #dcddde;
 }
-/*--- Right ---*/
+/*--- Right Center  ---*/
 .ui.right.center.popup:before {
   top: 50%;
   left: -0.35em;

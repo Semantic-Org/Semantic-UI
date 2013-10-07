@@ -9,7 +9,7 @@
  *
  */
 /*******************************
-            Button
+            Accordion
 *******************************/
 .ui.accordion {
   width: 600px;
@@ -78,6 +78,27 @@
   padding: 0em;
 }
 /*******************************
+            Types
+*******************************/
+/*--------------
+     Basic
+---------------*/
+.ui.basic.accordion {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.ui.basic.accordion .title {
+  background-color: transparent;
+  border-top: none;
+}
+.ui.basic.accordion .title,
+.ui.basic.accordion .content {
+  padding-left: 0em;
+  padding-right: 0em;
+}
+/*******************************
             States
 *******************************/
 /*--------------
@@ -105,20 +126,11 @@
   display: block;
 }
 /*******************************
-            Variations
+           Variations
 *******************************/
-.ui.basic.accordion {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.ui.basic.accordion .title {
-  background-color: transparent;
-  border-top: none;
-}
-.ui.basic.accordion .title,
-.ui.basic.accordion .content {
-  padding-left: 0em;
-  padding-right: 0em;
+/*--------------
+     Fluid
+---------------*/
+.ui.fluid.accordion {
+  width: 100%;
 }
