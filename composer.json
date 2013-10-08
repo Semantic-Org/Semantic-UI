@@ -7,7 +7,7 @@
     {
       "name" : "Jack Lukic",
       "email": "jacklukic@gmail.com",
-      T"web"  : "http://www.jacklukic.com",
+      "web"  : "http://www.jacklukic.com",
       "role" : "Creator"
     }
   ],
@@ -17,7 +17,5 @@
     "css",
     "framework"
   ],
-  "license" : [
-    "MIT"
-  ]
+  "license" : "MIT"
 }
