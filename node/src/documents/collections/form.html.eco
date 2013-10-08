@@ -90,7 +90,7 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Checkbox</h4>
-    <p><a href="modules/checkbox.html">UI Checkboxes</a> are styled forms of standard form checkboxes.</p>
+    <p><a href="/modules/checkbox.html">UI Checkboxes</a> are styled forms of standard form checkboxes.</p>
     <div class="evaluated code" data-type="javascript" data-label="true">
       $('.checkbox')
         .checkbox()
