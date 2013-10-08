@@ -574,7 +574,7 @@ a:hover {
 }
 #example .icon.example .grid .column {
   opacity: 0.8;
-  margin-bottom: 4%;
+  margin-bottom: 2em;
   text-align: center;
   color: #888888;
 
@@ -1159,6 +1159,7 @@ body.progress .ui.progress .bar {
   transform-style: preserve-3d;
 }
 
+
 @media only screen and (max-width : 1725px) {
   #example .container {
     width: auto;
@@ -1282,6 +1283,15 @@ body.progress .ui.progress .bar {
     width: 170px;
   }
 }
+
+
+@media only screen and (max-width : 600px) {
+  #example .icon.example .grid .column {
+    width: 33.33%;
+  }
+}
+
+
 @media only screen and (max-width : 600px) {
   #example .main.menu .borderless.item {
     display: none;
