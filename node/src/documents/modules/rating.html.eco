@@ -166,40 +166,41 @@ type        : 'UI Module'
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A rating can vary in size</p>
-  <div class="another example">
-    <div class="ui small star rating">
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
+    <div class="another example">
+      <div class="ui small star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+      </div>
     </div>
-  </div>
-  <div class="another example">
-    <div class="ui star rating">
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
+    <div class="another example">
+      <div class="ui star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+      </div>
     </div>
-  </div>
-  <div class="another example">
-    <div class="ui large star rating">
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
+    <div class="another example">
+      <div class="ui large star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+      </div>
     </div>
-  </div>
-  <div class="another example">
-    <div class="ui huge star rating">
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
-      <i class="icon"></i>
+    <div class="another example">
+      <div class="ui huge star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+      </div>
     </div>
   </div>
 

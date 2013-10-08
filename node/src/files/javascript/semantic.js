@@ -32,7 +32,7 @@ semantic.ready = function() {
     $hideMenu         = $('#menu .hide.item'),
     $sortTable        = $('.sortable.table'),
     $demo             = $('.demo'),
-    $waypoints        = $('.main.container').find('h2').first().siblings('h2').andSelf(),
+    $waypoints        = $('.main.container').find('h2').first().siblings('h2').addBack(),
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
