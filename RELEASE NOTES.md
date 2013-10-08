@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 0.3.7 - Oct 8, 2013
+
+**Fixes**
+- Fixes modal show/hide action reversal in Webkit
+
+**Updates**
+- Dimmer can now take different durations for its show and hide
+
 ### Version 0.3.6 - Oct 7, 2013
 
 **Fixes**
