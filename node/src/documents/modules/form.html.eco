@@ -108,9 +108,8 @@ type        : 'UI Behavior'
       <div class="inline field">
         <div class="ui checkbox">
           <input type="checkbox" name="terms" />
-          <label class="box"></label>
+          <label>I agree to the terms and conditions</label>
         </div>
-        <label>I agree to the terms and conditions</label>
       </div>
       <div class="ui blue submit button">Submit</div>
     </div>
@@ -144,9 +143,8 @@ type        : 'UI Behavior'
       <div class="inline field">
         <div class="ui checkbox">
           <input type="checkbox" name="terms" />
-          <label class="box"></label>
+          <label>I agree to the Terms and Conditions</label>
         </div>
-        <label>I agree to the terms and conditions</label>
       </div>
       <div class="ui blue submit button">Submit</div>
       <div class="ui error message"></div>
@@ -224,9 +222,8 @@ type        : 'UI Behavior'
       <div class="inline field">
         <div class="ui checkbox">
           <input type="checkbox" name="terms" />
-          <label class="box"></label>
+          <label>I agree to the Terms and Conditions</label>
         </div>
-        <label>I agree to the terms and conditions</label>
       </div>
       <div class="ui blue submit button">Submit</div>
     </div>

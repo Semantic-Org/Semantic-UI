@@ -99,24 +99,22 @@ type        : 'UI Collection'
     <div class="ui form">
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" id="uniqueid" />
-          <label for="uniqueid"></label>
+          <input type="checkbox" />
+          <label>Checkbox</label>
         </div>
-        <label>Checkbox</label>
       </div>
       <div class="inline field">
         <div class="ui slider checkbox">
-          <input type="checkbox"/>
-          <label></label>
+          <input type="checkbox" />
+          <label>Slider</label>
         </div>
-        <label>Slider</label>
+        <label></label>
       </div>
       <div class="inline field">
         <div class="ui toggle checkbox">
-          <input type="checkbox"/>
-          <label></label>
+          <input type="checkbox" />
+          <label>Toggle</label>
         </div>
-        <label>Toggle</label>
       </div>
     </div>
   </div>
@@ -152,38 +150,27 @@ type        : 'UI Collection'
       <div class="grouped inline fields">
         <div class="field">
           <div class="ui radio checkbox">
-            <input type="radio" name="example" />
-            <label></label>
+            <input type="radio" name="fruit" checked />
+            <label>Apples</label>
           </div>
-          <label>Apples</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
-            <input type="radio" name="example" />
-            <label></label>
+            <input type="radio" name="fruit" />
+            <label>Oranges</label>
           </div>
-          <label>Pears</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
-            <input type="radio" name="example" />
-            <label></label>
+            <input type="radio" name="fruit" />
+            <label>Pears</label>
           </div>
-          <label>Bananas</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
-            <input type="radio" name="example" />
-            <label></label>
+            <input type="radio" name="fruit" />
+            <label>Grapefruit</label>
           </div>
-          <label>Oranges</label>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" name="example" />
-            <label></label>
-          </div>
-          <label>Persimmon</label>
         </div>
       </div>
     </div>
@@ -232,10 +219,9 @@ type        : 'UI Collection'
       </div>
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" id="terms" />
-          <label for="terms"></label>
+          <input type="checkbox" />
+          <label>I agree to the terms and conditions</label>
         </div>
-        <label>I agree to the terms and conditions</label>
       </div>
       <div class="ui blue submit button">Submit</div>
     </div>
@@ -269,10 +255,9 @@ type        : 'UI Collection'
       </div>
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" id="terms" />
-          <label for="terms"></label>
+          <input type="checkbox" />
+          <label>I agree to the Terms and Conditions</label>
         </div>
-        <label>I agree to the terms and conditions</label>
       </div>
       <div class="ui blue submit button">Submit</div>
     </div>
@@ -312,10 +297,9 @@ type        : 'UI Collection'
       </div>
       <div class="inline field">
         <div class="ui checkbox">
-          <input type="checkbox" id="terms" />
-          <label for="terms"></label>
+          <input type="checkbox" />
+          <label>I agree to the Terms and Conditions</label>
         </div>
-        <label>I agree to the terms and conditions</label>
       </div>
       <div class="ui blue submit button">Submit</div>
     </div>
