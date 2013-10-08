@@ -119,13 +119,13 @@ module.exports = function(grunt) {
         force: true
       },
       build : [
-        'src/files/build',
         '../build/less',
         '../build/minified',
         '../build/packaged',
         '../build/uncompressed'
       ],
       release : [
+        'src/files/build',
         '../docs',
         '../rtl'
       ]
