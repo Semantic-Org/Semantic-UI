@@ -38,9 +38,8 @@ type        : 'UI Module'
     <div class="code" data-type="html" data-preview="true">
     <div class="ui checkbox">
       <input type="checkbox">
-      <div class="box"></div>
+      <label>Poodle</label>
     </div>
-    <label>Poodle</label>
     </div>
 
     <div class="static example">
@@ -48,11 +47,10 @@ type        : 'UI Module'
       <p>A checkbox can also be used without using javascript by creating the check box as a label with a for tag matching the <code>id</code> attribute of the input field.</p>
       <div class="ui language label">HTML Only</div>
       <div class="code" data-type="html" data-preview="true">
-      <div class="ui checkbox">
-        <input type="checkbox" id="unique-id" />
-        <label class="box" for="unique-id"></label>
-      </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="unique-id" />
       <label for="unique-id">Poodle</label>
+    </div>
       </div>
     </div>
 
@@ -66,9 +64,8 @@ type        : 'UI Module'
     <p>A checkbox can be formatted to show user selection as a slider</p>
     <div class="ui slider checkbox">
       <input type="checkbox" name="walk" />
-      <label></label>
+      <label>Allow others to see when your dog is on a walk</label>
     </div>
-    <label> Allow others to see when your dog is on a walk</label>
   </div>
 
   <div class="example">
@@ -76,9 +73,8 @@ type        : 'UI Module'
     <p>A checkbox can be formatted to show user selection as a toggle</p>
     <div class="ui toggle checkbox">
       <input type="checkbox" name="pet" />
-      <label></label>
+      <label>Allow other people to pet my dog</label>
     </div>
-    <label> Allow other people to pet my dog</label>
   </div>
 
 
@@ -90,31 +86,27 @@ type        : 'UI Module'
       <div class="grouped inline fields">
         <div class="field">
           <div class="ui radio checkbox">
-            <input type="radio" name="fruit" />
-            <label></label>
+            <input type="radio" name="fruit" checked />
+            <label>Apples</label>
           </div>
-          <label> Apples</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
-            <label></label>
+            <label>Oranges</label>
           </div>
-          <label> Oranges</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
-            <label></label>
+            <label>Pears</label>
           </div>
-          <label> Pears</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
-            <label></label>
+            <label>Grapefruit</label>
           </div>
-          <label> Grapefruit</label>
         </div>
       </div>
     </div>
@@ -127,16 +119,14 @@ type        : 'UI Module'
     <p>A checkbox can be a different size.</p>
     <div class="ui large checkbox">
       <input type="checkbox" />
-      <label></label>
+      <label>Add a pro membership</label>
     </div>
-    <label>Add a pro membership</label>
   </div>
   <div class="another example">
     <div class="ui huge checkbox">
       <input type="checkbox" />
-      <label></label>
+      <label>Signup for our mailing list</label>
     </div>
-    <label>Signup for our mailing list</label>
   </div>
 
   <h2 class="ui dividing header">Behavior</h2>
