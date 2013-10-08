@@ -1,6 +1,5 @@
 {
   "name"        : "semantic",
-  "version"     : "0.1.0",
   "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage"    : "http://www.semantic-ui.com",
   "main": [

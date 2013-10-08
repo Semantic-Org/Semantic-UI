@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.4.0 - Oct 8, 2013
+
+**Updates**
+- Updated some checkbox stylings
+- Checkboxes now work with text inside the hiden label field
+
 ### Version 0.3.8 - Oct 8, 2013
 
 **Fixes**
