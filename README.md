@@ -12,6 +12,8 @@ If you need to create a test case, you can [fork this jsfiddle](http://jsfiddle.
 
 If you want to keep track of development, please [join our google group](https://groups.google.com/forum/?hl=en#!forum/semantic-ui)
 
+If you want to know more aout our roadmap, please [consult our trello board](https://trello.com/b/Q8uTLy2T/community-suggestions-public)
+
 ## The Library
 
 ### Getting Started
