@@ -17,6 +17,7 @@ type        : 'UI Collection'
       <a class="item">Elements</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
+      <a class="item">Groups</a>
     </div>
   </div>
   <h2 class="ui dividing header">Types</h2>
