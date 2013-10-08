@@ -88,13 +88,13 @@ type        : 'UI Collection'
     </div>
   </div>
 
-  <div class="example">
+  <div class="no example">
     <h4 class="ui header">Checkbox</h4>
     <p><a href="/modules/checkbox.html">UI Checkboxes</a> are styled forms of standard form checkboxes.</p>
     <div class="evaluated code" data-type="javascript" data-label="true">
-      $('.checkbox')
-        .checkbox()
-      ;
+    $('.ui.checkbox')
+      .checkbox()
+    ;
     </div>
     <div class="ui form">
       <div class="inline field">
@@ -121,13 +121,13 @@ type        : 'UI Collection'
     </div>
   </div>
 
-  <div class="form example">
+  <div class="no form example">
     <h4 class="ui header">Select</h4>
     <p>A selection dropdown, a type of <a href="/modules/dropdown.html">ui dropdown</a> can be used to allow for a selection from multiple choices</p>
     <div class="evaluated code" data-type="javascript" data-label="true">
-      $('.selection.dropdown')
-        .dropdown()
-      ;
+    $('.ui.selection.dropdown')
+      .dropdown()
+    ;
     </div>
     <div class="ui selection dropdown">
       <input type="hidden" name="gender">
@@ -140,13 +140,13 @@ type        : 'UI Collection'
     </div>
   </div>
 
-  <div class="example">
+  <div class="no example">
     <h4 class="ui header">Radio Box</h4>
     <p>Radio boxes are styled forms of standard form radio controls.</p>
     <div class="evaluated code" data-type="javascript" data-label="true">
-      $('.radio')
-        .checkbox()
-      ;
+    $('.ui.radio.checkbox')
+      .checkbox()
+    ;
     </div>
     <div class="ui form">
       <div class="grouped inline fields">
