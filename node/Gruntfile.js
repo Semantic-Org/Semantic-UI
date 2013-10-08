@@ -69,14 +69,14 @@ module.exports = function(grunt) {
       // creates release zip
       'compress:everything',
 
+      // cleans previous generated release
+      'clean:release',
+
       // copies assets to rtl
       'copy:buildToRTL',
 
       // create rtl release
       'cssjanus:rtl',
-
-      // cleans docs build folder
-      'clean:docs',
 
       // copies spec files over to docs
       'copy:specToDocs',
@@ -115,14 +115,20 @@ module.exports = function(grunt) {
     *******************************/
 
     clean: {
-      build : {
-        cwd: '../build',
-        src: '*'
+      options: {
+        force: true
       },
-      docs : {
-        cwd: 'src/files/build/',
-        src: '*'
-      }
+      build : [
+        'src/files/build',
+        '../build/less',
+        '../build/minified',
+        '../build/packaged',
+        '../build/uncompressed'
+      ],
+      release : [
+        '../docs',
+        '../rtl'
+      ]
     },
 
     docco: {
