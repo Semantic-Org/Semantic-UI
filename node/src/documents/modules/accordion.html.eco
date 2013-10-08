@@ -201,7 +201,7 @@ type        : 'UI Module'
   <div class="example">
     <h4 class="ui header">Fluid</h4>
     <p>An accordion can take up the width of its container</p>
-    <div class="ui accordion">
+    <div class="ui fluid accordion">
       <div class="active title">
         <i class="dropdown icon"></i>
         What is a dog?
