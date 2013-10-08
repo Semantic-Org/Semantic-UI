@@ -89,14 +89,19 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+.ui.basic.accordion .title,
 .ui.basic.accordion .title {
   background-color: transparent;
   border-top: none;
+  padding-left: 0em;
+  padding-right: 0em;
 }
-.ui.basic.accordion .title,
 .ui.basic.accordion .content {
   padding-left: 0em;
   padding-right: 0em;
+}
+.ui.basic.accordion .active.title {
+  background-color: transparent;
 }
 /*******************************
             States

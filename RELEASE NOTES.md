@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.3.8 - Oct 8, 2013
+
+**Fixes**
+- Display issues with accordion
+
 ### Version 0.3.7 - Oct 8, 2013
 
 **Fixes**
