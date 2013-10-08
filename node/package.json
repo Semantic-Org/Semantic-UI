@@ -22,6 +22,8 @@
     "grunt-css": "~0.5.4",
     "grunt-contrib-compress": "~0.5.2",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-docco-multi": "0.0.2"
+    "grunt-docco-multi": "0.0.2",
+    "grunt-flipcss": "~0.1.2",
+    "grunt-cssjanus": "~0.1.1"
   }
 }

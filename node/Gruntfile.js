@@ -69,7 +69,13 @@ module.exports = function(grunt) {
       // creates release zip
       'compress:everything',
 
-      // cleans docs folder
+      // copies assets to rtl
+      'copy:buildToRTL',
+
+      // create rtl release
+      'cssjanus:rtl',
+
+      // cleans docs build folder
       'clean:docs',
 
       // copies spec files over to docs
@@ -135,6 +141,18 @@ module.exports = function(grunt) {
           }
         ]
       }
+    },
+
+    cssjanus: {
+      rtl: {
+        expand : true,
+        cwd    : '../build/',
+        src    : [
+          '**/*.less',
+          '**/*.css',
+        ],
+        dest   : '../rtl'
+      },
     },
 
     less: {
@@ -205,6 +223,20 @@ module.exports = function(grunt) {
               'fonts/*'
             ],
             dest : '../build/packaged'
+          }
+        ]
+      },
+
+      // copy assets to rtl
+      buildToRTL: {
+        files: [
+          {
+            expand : true,
+            cwd    : '../build/',
+            src    : [
+              '**'
+            ],
+            dest   : '../rtl'
           }
         ]
       },
@@ -378,13 +410,14 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-docco-multi');
-  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-cssjanus');
 
   grunt.initConfig(config);
 
