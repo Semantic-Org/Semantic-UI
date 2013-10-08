@@ -197,7 +197,7 @@ $.fn.modal = function(parameters) {
           module.debug('Hiding modal');
           // remove keyboard detection
           $document
-            .off('keyup.' + namespace)
+            .off('keyup.' + eventNamespace)
           ;
           if(settings.transition && $.fn.transition !== undefined) {
             $module
@@ -242,7 +242,7 @@ $.fn.modal = function(parameters) {
 
         restore: {
           focus: function() {
-          $focusedElement.focus();
+            $focusedElement.focus();
           }
         },
 
@@ -292,7 +292,10 @@ $.fn.modal = function(parameters) {
             module.debug('Setting dimmer settings', settings.closable);
             $context
               .dimmer('setting', 'closable', settings.closable)
-              .dimmer('setting', 'duration', settings.duration * 0.75)
+              .dimmer('setting', 'duration', {
+                show : settings.duration * 0.95,
+                hide : settings.duration * 1.05
+              })
               .dimmer('setting', 'onShow' , module.add.keyboardShortcuts)
               .dimmer('setting', 'onHide', function() {
                 module.hide();
@@ -526,7 +529,7 @@ $.fn.modal.settings = {
 
   closable    : true,
   context     : 'body',
-  duration    : 600,
+  duration    : 500,
   easing      : 'easeOutExpo',
   offset      : 0,
   transition  : 'scale',

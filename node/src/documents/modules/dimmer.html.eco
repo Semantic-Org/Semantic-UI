@@ -192,8 +192,15 @@ type        : 'UI Module'
       </tr>
       <tr>
         <td>duration</td>
-        <td>500</td>
-        <td>Duration of dimming animation.</td>
+        <td>
+          <div class="code">
+      duration    : {
+        show : 500,
+        hide : 500
+      },
+          </div>
+        </td>
+        <td>Animation duration of dimming. If an integer is used, that value will apply to both show and hide animations.</td>
       </tr>
     </tbody>
   </table>

@@ -4024,7 +4024,7 @@ $.fn.dimmer = function(parameters) {
             module.set.dimmed();
             if($.fn.transition !== undefined) {
               $dimmer
-                .transition(settings.transition + ' in', settings.duration, function() {
+                .transition(settings.transition + ' in', module.get.duration(), function() {
                   module.set.active();
                   callback();
                 })
@@ -4039,7 +4039,7 @@ $.fn.dimmer = function(parameters) {
                   width   : '100%',
                   height  : '100%'
                 })
-                .fadeTo(settings.duration, 1, function() {
+                .fadeTo(module.get.duration(), 1, function() {
                   $dimmer.removeAttr('style');
                   module.set.active();
                   callback();
@@ -4053,7 +4053,7 @@ $.fn.dimmer = function(parameters) {
             if($.fn.transition !== undefined) {
               module.verbose('Hiding dimmer with css');
               $dimmer
-                .transition(settings.transition + ' out', settings.duration, function() {
+                .transition(settings.transition + ' out', module.get.duration(), function() {
                   module.remove.active();
                   callback();
                 })
@@ -4063,7 +4063,7 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with javascript');
               $dimmer
                 .stop()
-                .fadeOut(settings.duration, function() {
+                .fadeOut(module.get.duration(), function() {
                   $dimmer.removeAttr('style');
                   module.remove.active();
                   callback();
@@ -4076,6 +4076,17 @@ $.fn.dimmer = function(parameters) {
         get: {
           dimmer: function() {
             return $dimmer;
+          },
+          duration: function() {
+            if(typeof settings.duration == 'object') {
+              if( module.is.active() ) {
+                return settings.duration.hide;
+              }
+              else {
+                return settings.duration.show;
+              }
+            }
+            return settings.duration;
           }
         },
 
@@ -4385,7 +4396,10 @@ $.fn.dimmer.settings = {
 
   on          : false,
   closable    : true,
-  duration    : 500,
+  duration    : {
+    show : 500,
+    hide : 500
+  },
 
   onChange    : function(){},
   onShow      : function(){},
@@ -5344,7 +5358,7 @@ $.fn.modal = function(parameters) {
           module.debug('Hiding modal');
           // remove keyboard detection
           $document
-            .off('keyup.' + namespace)
+            .off('keyup.' + eventNamespace)
           ;
           if(settings.transition && $.fn.transition !== undefined) {
             $module
@@ -5389,7 +5403,7 @@ $.fn.modal = function(parameters) {
 
         restore: {
           focus: function() {
-          $focusedElement.focus();
+            $focusedElement.focus();
           }
         },
 
@@ -5439,7 +5453,10 @@ $.fn.modal = function(parameters) {
             module.debug('Setting dimmer settings', settings.closable);
             $context
               .dimmer('setting', 'closable', settings.closable)
-              .dimmer('setting', 'duration', settings.duration * 0.75)
+              .dimmer('setting', 'duration', {
+                show : settings.duration * 0.95,
+                hide : settings.duration * 1.05
+              })
               .dimmer('setting', 'onShow' , module.add.keyboardShortcuts)
               .dimmer('setting', 'onHide', function() {
                 module.hide();
@@ -5673,7 +5690,7 @@ $.fn.modal.settings = {
 
   closable    : true,
   context     : 'body',
-  duration    : 600,
+  duration    : 500,
   easing      : 'easeOutExpo',
   offset      : 0,
   transition  : 'scale',
