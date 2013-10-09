@@ -64,7 +64,6 @@
 
 
 .ui.form textarea,
-.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -76,7 +75,6 @@
 }
 
 .ui.form textarea,
-.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -103,27 +101,27 @@
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
   -moz-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
   -o-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
   -ms-transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
   transition:
     background-color 0.3s ease-out,
     box-shadow 0.2s ease,
     border-color 0.2s ease
-  ;
+;
 
   -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
   -moz-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
@@ -150,6 +148,26 @@
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
   vertical-align: top;
+}
+
+
+.ui.form select {
+  width: 100%;
+  margin: 0em;
+  padding: 0.7em 10px;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  vertical-align: middle;
+  height: 3em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-border-radius: 0.3125em;
+  -moz-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /*--------------------
@@ -212,8 +230,7 @@
 .ui.form input[type="password"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="tel"]:focus,
-.ui.form textarea:focus,
-.ui.form select:focus{
+.ui.form textarea:focus{
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 0;
@@ -224,6 +241,11 @@
   -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+}
+
+.ui.form select:focus{
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.85);
 }
 
 /*--------------------
@@ -293,6 +315,19 @@
   -moz-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
   box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
 }
+/* On Select */
+.ui.form .fields.error .field select,
+.ui.form .field.error select{
+  background-color: #FFFAFA;
+  border-color: #E7BEBE;
+  color: #D95C5C;
+}
+
+.ui.form .field.error select:focus{
+  border-color: rgba(255, 80, 80, 1);
+  color: rgba(255, 80, 80, 1);
+}
+
 
 /*--------------------
   Empty (Placeholder)
@@ -557,8 +592,7 @@
 .ui.small.form input[type="password"],
 .ui.small.form input[type="number"],
 .ui.small.form input[type="tel"],
-.ui.small.form label,
-.ui.small.form select{
+.ui.small.form label{
   font-size: 1em;
 }
 
