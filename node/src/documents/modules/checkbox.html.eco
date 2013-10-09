@@ -86,7 +86,7 @@ type        : 'UI Module'
       <div class="grouped inline fields">
         <div class="field">
           <div class="ui radio checkbox">
-            <input type="radio" name="fruit" checked />
+            <input type="radio" name="fruit" checked="checked" />
             <label>Apples</label>
           </div>
         </div>
