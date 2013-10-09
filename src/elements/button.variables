@@ -1,0 +1,36 @@
+/*******************************
+           Variables
+*******************************/
+
+@import "../global.variables";
+
+/*-------------------
+ Unchanged Globals
+--------------------*/
+
+// @primaryColor       : @primaryColor;
+// @secondaryColor     : @secondaryColor;
+//
+// @transitionDuration : @transitionDuration;
+// @transitionEasing   : @transitionEasing;
+
+
+/*-------------------
+   Modified Globals
+--------------------*/
+
+@neutral : #E8E8E8;
+
+
+/*-------------------
+   Button Variables
+--------------------*/
+
+@verticalPadding    : 0.8em;
+@horizontalPadding  : 1.5em;
+
+@borderRadius       : 0.2em;
+
+
+@boxShadow          : 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
+@activeBoxShadow    : 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
