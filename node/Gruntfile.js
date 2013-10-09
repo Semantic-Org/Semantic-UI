@@ -66,11 +66,11 @@ module.exports = function(grunt) {
       // generate code docs
       'docco:generate',
 
-      // creates release zip
-      'compress:everything',
-
       // cleans previous generated release
       'clean:release',
+
+      // creates release zip
+      'compress:everything',
 
       // copies assets to rtl
       'copy:buildToRTL',

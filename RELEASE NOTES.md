@@ -1,10 +1,15 @@
 ## RELEASE NOTES
 
+### Version 0.4.1 - Oct 9, 2013
+
+**Fixes**
+- Fixes heart rating color
+
 ### Version 0.4.0 - Oct 8, 2013
 
 **Updates**
 - Updated some checkbox stylings
-- Checkboxes markup now more semantic with default markup including only one label tag that can be inside ui checkbox 
+- Checkboxes markup now more semantic with default markup including only one label tag that can be inside ui checkbox
 
 ### Version 0.3.8 - Oct 8, 2013
 
