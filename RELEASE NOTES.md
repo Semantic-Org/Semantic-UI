@@ -4,7 +4,7 @@
 
 **Updates**
 - Updated some checkbox stylings
-- Checkboxes now work with text inside the hiden label field
+- Checkboxes markup now more semantic with default markup including texr label tags inside ui checkbox 
 
 ### Version 0.3.8 - Oct 8, 2013
 
