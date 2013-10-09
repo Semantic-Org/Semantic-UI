@@ -35,10 +35,17 @@ type        : 'Semantic Project'
   <h3 class="ui header">2) Install Dependencies</h3>
 
   <div class="code" data-title="Installing DocPad" data-type="terminal">
+    // docpad is used to generate static sites like semantic docs
     npm install -g docpad
   </div>
 
   <div class="code" data-title="Installing Grunt" data-type="terminal">
+    // eco is used for templating inside documentation
+    docpad install eco
+  </div>
+
+  <div class="code" data-title="Installing Grunt" data-type="terminal">
+    // grunt is used to automated tasks like concatenating and minifying files
     npm install -g grunt-cli
   </div>
 
