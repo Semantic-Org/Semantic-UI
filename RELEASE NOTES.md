@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.4.2 - Oct 9, 2013
+
+**Fixes**
+- Fixes issue with event bubbling being cancelled on dropdown item click
+
 ### Version 0.4.1 - Oct 9, 2013
 
 **Fixes**

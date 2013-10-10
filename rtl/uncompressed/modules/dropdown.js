@@ -112,10 +112,6 @@ $.fn.dropdown = function(parameters) {
 
         event: {
 
-          stopPropagation: function(event) {
-            event.stopPropagation();
-          },
-
           test: {
             toggle: function(event) {
               module.determine.intent(event, module.toggle);
@@ -173,7 +169,6 @@ $.fn.dropdown = function(parameters) {
                 ;
                 module.determine.selectAction(text, value);
                 $.proxy(settings.onChange, element)(value, text);
-                event.stopPropagation();
               }
             }
 
