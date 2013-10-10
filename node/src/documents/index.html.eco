@@ -260,8 +260,14 @@ type   : 'Semantic'
   </div>
 </div>
 <div class="ui divider"></div>
+
 <div class="ui divided horizontal footer link list">
-  <a href="https://github.com/jlukic/Semantic-UI" class="item">Github</a>
-  <a href="http://www.quirky.com" class="item">Quirky.com</a>
   <div class="item">jack lukic 2013</div>
+  <a href="https://github.com/jlukic/Semantic-UI" class="item">Github</a>
+  <div class="item">
+    Made possibly by <a href="http://www.quirky.com" target="_blank" class="item">Quirky.com</a>
+  </div>
+  <div class="item">
+    Tested with <a href="http://www.browserstack.com" target="_blank" class="item">Browser Stack</a>
+  </div>
 </div>
