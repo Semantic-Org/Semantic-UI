@@ -31,6 +31,5 @@
 
 @borderRadius       : 0.2em;
 
-
 @boxShadow          : 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
 @activeBoxShadow    : 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;

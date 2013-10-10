@@ -101,24 +101,6 @@
   ;
 }
 
-/*--------------
-     Count
----------------*/
-
-.ui.count.button {
-  -webkit-box-shadow: 0px 0px 0px 1px @borderColor !important;
-  -moz-box-shadow: 0px 0px 0px 1px @borderColor !important;
-  box-shadow: 0px 0px 0px 1px @borderColor !important;
-}
-
-.ui.count.button > .count {
-  position: absolute;
-  background-color: #FFFFFF;
-  border: 1px solid #F0F0F0;
-  margin: -@verticalPadding -@horizontalPadding;
-  padding: @verticalPadding @horizontalPadding;
-}
-
 /*-------------------
        Primary
 --------------------*/
@@ -132,12 +114,12 @@
 .ui.primary.button:hover,
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
-  background-color: #E75859;
+  background-color: @primaryColorHover;
   color: #FFFFFF;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #D24B4C;
+  background-color: @primaryColorActive;
   color: #FFFFFF;
 }
 
@@ -199,19 +181,6 @@
   margin-right: 0.5em;
 
   line-height: 1;
-
-  -webkit-transition:
-    opacity 0.1s ease
-  ;
-  -moz-transition:
-    opacity 0.1s ease
-  ;
-  -o-transition:
-    opacity 0.1s ease
-  ;
-  -ms-transition:
-    opacity 0.1s ease
-  ;
   transition:
     opacity 0.1s ease
   ;
@@ -232,21 +201,8 @@
 .ui.active.button {
   opacity: 1 !important;
   background-color: #B0B0B0;
-
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0.1)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
-  background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
   background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
-
   color: #FFFFFF;
-
-  -webkit-box-shadow:
-    0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
-  ;
-  -moz-box-shadow:
-    0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
-  ;
   box-shadow:
     0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
   ;
@@ -280,9 +236,7 @@
 
   color: #FFFFFF;
 
-  -webkit-box-shadow: 0px 1px @borderRadius 0px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 1px @borderRadius 0px rgba(0, 0, 0, 0.3) inset;
-  box-shadow: 0px 1px @borderRadius 0px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
 }
 
 /*--------------
@@ -297,14 +251,8 @@
   color: transparent !important;
   background-image: none !important;
 
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
   box-shadow: none !important;
 
-  -webkit-transition: all 0s linear;
-  -moz-transition: all 0s linear;
-  -o-transition: all 0s linear;
-  -ms-transition: all 0s linear;
   transition: all 0s linear;
 }
 .ui.loading.button:after {
