@@ -23,7 +23,7 @@
   ],
   "ignore": [
     "node",
-    "source",
+    "src",
     "docs"
   ]
 }
