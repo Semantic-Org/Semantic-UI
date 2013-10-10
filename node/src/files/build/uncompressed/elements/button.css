@@ -9,6 +9,69 @@
  *
  */
 /*******************************
+           Variables
+*******************************/
+/*******************************
+             Site
+*******************************/
+/*-------------------
+       Page
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*******************************
+             Colors
+*******************************/
+/*-------------------
+     Background
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+     Text Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+ Unchanged Globals
+--------------------*/
+/*-------------------
+   Modified Globals
+--------------------*/
+/*-------------------
+   Button Variables
+--------------------*/
+/*******************************
             Button
 *******************************/
 /* Prototype */
@@ -20,7 +83,7 @@
   outline: none;
   border: none;
   background-color: #EBEBEB;
-  color: #999999;
+  color: rgba(0, 0, 0, 0.4);
   padding: 0.8em 1.5em;
   font-size: 1rem;
   text-transform: uppercase;
@@ -50,39 +113,24 @@
   -ms-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
-/*--------------
-     Count
----------------*/
-.ui.count.button {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-}
-.ui.count.button > .count {
-  position: absolute;
-  background-color: #FFFFFF;
-  border: 1px solid #F0F0F0;
-  margin: -0.8em -1.5em;
-  padding: 0.8em 1.5em;
-}
 /*-------------------
        Primary
 --------------------*/
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #D95C5C;
+  background-color: #d95c5c;
   color: #FFFFFF;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover,
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
-  background-color: #E75859;
+  background-color: #ea7e7e;
   color: #FFFFFF;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #D24B4C;
+  background-color: #e38585;
   color: #FFFFFF;
 }
 /*-------------------
@@ -136,14 +184,6 @@
 .ui.button > .icon {
   margin-right: 0.5em;
   line-height: 1;
-  -webkit-transition: opacity 0.1s ease
-  ;
-  -moz-transition: opacity 0.1s ease
-  ;
-  -o-transition: opacity 0.1s ease
-  ;
-  -ms-transition: opacity 0.1s ease
-  ;
   transition: opacity 0.1s ease
   ;
 }
@@ -157,14 +197,8 @@
 .ui.active.button {
   opacity: 1 !important;
   background-color: #B0B0B0;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0.1)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
-  background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
   background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
   color: #FFFFFF;
-  -webkit-box-shadow: 0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset;
   box-shadow: 0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset;
 }
 /*--------------
@@ -188,8 +222,6 @@
   opacity: 1 !important;
   background-color: #8C8C8C;
   color: #FFFFFF;
-  -webkit-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
   box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
 }
 /*--------------
@@ -201,13 +233,7 @@
   background-color: #F3F3F3 !important;
   color: transparent !important;
   background-image: none !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
   box-shadow: none !important;
-  -webkit-transition: all 0s linear;
-  -moz-transition: all 0s linear;
-  -o-transition: all 0s linear;
-  -ms-transition: all 0s linear;
   transition: all 0s linear;
 }
 .ui.loading.button:after {
@@ -230,7 +256,7 @@
 --------------------*/
 .ui.disabled.button {
   cursor: default;
-  color: #DDDDDD !important;
+  color: rgba(0, 0, 0, 0.2) !important;
   background-color: rgba(50, 50, 50, 0.05) !important;
   background-image: none !important;
   -webkit-box-shadow: none !important;
@@ -344,7 +370,7 @@
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: #999999 !important;
+  color: rgba(0, 0, 0, 0.7) !important;
   font-weight: normal;
   text-transform: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
@@ -798,7 +824,7 @@
 /*--- Red ---*/
 .ui.red.buttons .button,
 .ui.red.button {
-  background-color: #D95C5C;
+  background-color: #d95c5c;
   color: #FFFFFF;
 }
 .ui.red.buttons .button:hover,
@@ -910,7 +936,7 @@
 ----------------*/
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #D95C5C !important;
+  background-color: #d95c5c !important;
   color: #FFFFFF;
 }
 .ui.negative.buttons .button:hover,

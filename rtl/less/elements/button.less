@@ -9,6 +9,7 @@
  *
  */
 
+@import "button.variables";
 
 /*******************************
             Button
@@ -25,9 +26,9 @@
   outline: none;
   border: none;
   background-color: #EBEBEB;
-  color: #999999;
+  color: @lightTextColor;
 
-  padding: 0.8em 1.5em;
+  padding: @verticalPadding @horizontalPadding;
 
   font-size: 1rem;
   text-transform: uppercase;
@@ -37,18 +38,18 @@
   text-align: center;
   text-decoration: none;
 
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
+  -webkit-border-radius: @borderRadius;
+  -moz-border-radius: @borderRadius;
+  border-radius: @borderRadius;
 
   -webkit-box-shadow:
-    0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset
+    @boxShadow
   ;
   -moz-box-shadow:
-    0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset
+    @boxShadow
   ;
   box-shadow:
-    0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset
+    @boxShadow
   ;
 
   -webkit-user-select: none;
@@ -64,58 +65,40 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   -webkit-transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
+    opacity @transitionDuration ease,
+    background-color @transitionDuration ease,
+    color @transitionDuration ease,
+    background @transitionDuration ease,
+    box-shadow @transitionDuration ease
   ;
   -moz-transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
+    opacity @transitionDuration ease,
+    background-color @transitionDuration ease,
+    color @transitionDuration ease,
+    background @transitionDuration ease,
+    box-shadow @transitionDuration ease
   ;
   -o-transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
+    opacity @transitionDuration ease,
+    background-color @transitionDuration ease,
+    color @transitionDuration ease,
+    background @transitionDuration ease,
+    box-shadow @transitionDuration ease
   ;
   -ms-transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
+    opacity @transitionDuration ease,
+    background-color @transitionDuration ease,
+    color @transitionDuration ease,
+    background @transitionDuration ease,
+    box-shadow @transitionDuration ease
   ;
   transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
+    opacity @transitionDuration ease,
+    background-color @transitionDuration ease,
+    color @transitionDuration ease,
+    background @transitionDuration ease,
+    box-shadow @transitionDuration ease
   ;
-}
-
-/*--------------
-     Count
----------------*/
-
-.ui.count.button {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-}
-
-.ui.count.button > .count {
-  position: absolute;
-  background-color: #FFFFFF;
-  border: 1px solid #F0F0F0;
-  margin: -0.8em -1.5em;
-  padding: 0.8em 1.5em;
 }
 
 /*-------------------
@@ -124,19 +107,19 @@
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #D95C5C;
+  background-color: @primaryColor;
   color: #FFFFFF;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover,
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
-  background-color: #E75859;
+  background-color: @primaryColorHover;
   color: #FFFFFF;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #D24B4C;
+  background-color: @primaryColorActive;
   color: #FFFFFF;
 }
 
@@ -198,19 +181,6 @@
   margin-left: 0.5em;
 
   line-height: 1;
-
-  -webkit-transition:
-    opacity 0.1s ease
-  ;
-  -moz-transition:
-    opacity 0.1s ease
-  ;
-  -o-transition:
-    opacity 0.1s ease
-  ;
-  -ms-transition:
-    opacity 0.1s ease
-  ;
   transition:
     opacity 0.1s ease
   ;
@@ -231,21 +201,8 @@
 .ui.active.button {
   opacity: 1 !important;
   background-color: #B0B0B0;
-
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 0.1)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
-  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
-  background-image: -o-linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
   background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
-
   color: #FFFFFF;
-
-  -webkit-box-shadow:
-    0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
-  ;
-  -moz-box-shadow:
-    0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
-  ;
   box-shadow:
     0px 0px 0.3em 0px rgba(0, 0, 0, 0.3) inset
   ;
@@ -279,8 +236,6 @@
 
   color: #FFFFFF;
 
-  -webkit-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
   box-shadow: 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
 }
 
@@ -296,14 +251,8 @@
   color: transparent !important;
   background-image: none !important;
 
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
   box-shadow: none !important;
 
-  -webkit-transition: all 0s linear;
-  -moz-transition: all 0s linear;
-  -o-transition: all 0s linear;
-  -ms-transition: all 0s linear;
   transition: all 0s linear;
 }
 .ui.loading.button:after {
@@ -329,7 +278,7 @@
 
 .ui.disabled.button {
   cursor: default;
-  color: #DDDDDD !important;
+  color: @disabledTextColor !important;
   background-color: rgba(50, 50, 50, 0.05) !important;
   background-image: none !important;
 
@@ -461,22 +410,22 @@
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: #999999 !important;
+  color: @textColor !important;
   font-weight: normal;
   text-transform: none;
 
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px @borderColor inset;
+  -moz-box-shadow: 0px 0px 0px 1px @borderColor inset;
+  box-shadow: 0px 0px 0px 1px @borderColor inset;
 }
 .ui.basic.buttons {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px @borderColor inset;
+  -moz-box-shadow: 0px 0px 0px 1px @borderColor inset;
+  box-shadow: 0px 0px 0px 1px @borderColor inset;
 
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
+  -webkit-border-radius: @borderRadius;
+  -moz-border-radius: @borderRadius;
+  border-radius: @borderRadius;
 }
 
 .ui.basic.buttons .button:hover,
@@ -491,9 +440,9 @@
   background-color: rgba(0, 0, 0, 0.02) !important;
   color: #7F7F7F !important;
 
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px @borderColor inset;
+  -moz-box-shadow: 0px 0px 0px 1px @borderColor inset;
+  box-shadow: 0px 0px 0px 1px @borderColor inset;
 }
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
@@ -506,7 +455,7 @@
 }
 .ui.basic.buttons .button.active:hover,
 .ui.basic.button.active:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: @borderColor;
 }
 
 /* Basic Group */
@@ -524,9 +473,9 @@
   box-shadow: none;
 }
 .ui.basic.buttons .button.active {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px @borderColor inset;
+  -moz-box-shadow: 0px 0px 0px 1px @borderColor inset;
+  box-shadow: 0px 0px 0px 1px @borderColor inset;
 }
 
 
@@ -559,9 +508,9 @@
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
 
-  -webkit-border-radius: 0px 0.2em 0.2em 0px;
-  -moz-border-radius: 0px 0.2em 0.2em 0px;
-  border-radius: 0px 0.2em 0.2em 0px;
+  -webkit-border-radius: 0px @borderRadius @borderRadius 0px;
+  -moz-border-radius: 0px @borderRadius @borderRadius 0px;
+  border-radius: 0px @borderRadius @borderRadius 0px;
 
   line-height: 1;
 
@@ -576,24 +525,24 @@
   border-radius: 0em;
 }
 .ui.labeled.icon.buttons .button:first-child > .icon {
-  border-top-right-radius: 0.2em;
-  border-bottom-right-radius: 0.2em;
+  border-top-right-radius: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
 }
 .ui.labeled.icon.buttons .button:last-child > .icon {
-  border-top-left-radius: 0.2em;
-  border-bottom-left-radius: 0.2em;
+  border-top-left-radius: @borderRadius;
+  border-bottom-left-radius: @borderRadius;
 }
 .ui.vertical.labeled.icon.buttons .button:first-child > .icon {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
-  border-top-right-radius: 0.2em;
+  border-top-right-radius: @borderRadius;
 }
 .ui.vertical.labeled.icon.buttons .button:last-child > .icon {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
   border-radius: 0em;
-  border-bottom-right-radius: 0.2em;
+  border-bottom-right-radius: @borderRadius;
 }
 
 .ui.right.labeled.icon.button {
@@ -610,9 +559,9 @@
   right: auto;
   left: 0em;
 
-  -webkit-border-radius: 0.2em 0em 0em 0.2em;
-  -moz-border-radius: 0.2em 0em 0em 0.2em;
-  border-radius: 0.2em 0em 0em 0.2em;
+  -webkit-border-radius: @borderRadius 0em 0em @borderRadius;
+  -moz-border-radius: @borderRadius 0em 0em @borderRadius;
+  border-radius: @borderRadius 0em 0em @borderRadius;
 
   -webkit-box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
   -moz-box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
@@ -653,20 +602,20 @@
 
 .ui.attached.button {
   display: block;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
+  -webkit-box-shadow: 0px 0px 0px 1px @borderColor !important;
+  -moz-box-shadow: 0px 0px 0px 1px @borderColor !important;
+  box-shadow: 0px 0px 0px 1px @borderColor !important;
 }
 .ui.attached.top.button {
 
-  -webkit-border-radius: 0.2em 0.2em 0em 0em;
-  -moz-border-radius: 0.2em 0.2em 0em 0em;
-  border-radius: 0.2em 0.2em 0em 0em;
+  -webkit-border-radius: @borderRadius @borderRadius 0em 0em;
+  -moz-border-radius: @borderRadius @borderRadius 0em 0em;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.attached.bottom.button {
-  -webkit-border-radius: 0em 0em 0.2em 0.2em;
-  -moz-border-radius: 0em 0em 0.2em 0.2em;
-  border-radius: 0em 0em 0.2em 0.2em;
+  -webkit-border-radius: 0em 0em @borderRadius @borderRadius;
+  -moz-border-radius: 0em 0em @borderRadius @borderRadius;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 .ui.attached.left.button {
   display: inline-block;
@@ -675,9 +624,9 @@
   padding-left: 0.75em;
   text-align: left;
 
-  -webkit-border-radius: 0em 0.2em 0.2em 0em;
-  -moz-border-radius: 0em 0.2em 0.2em 0em;
-  border-radius: 0em 0.2em 0.2em 0em;
+  -webkit-border-radius: 0em @borderRadius @borderRadius 0em;
+  -moz-border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: 0em @borderRadius @borderRadius 0em;
 }
 .ui.attached.right.button {
   display: inline-block;
@@ -685,9 +634,9 @@
   padding-right: 0.75em;
   text-align: right;
 
-  -webkit-border-radius: 0.2em 0em 0em 0.2em;
-  -moz-border-radius: 0.2em 0em 0em 0.2em;
-  border-radius: 0.2em 0em 0em 0.2em;
+  -webkit-border-radius: @borderRadius 0em 0em @borderRadius;
+  -moz-border-radius: @borderRadius 0em 0em @borderRadius;
+  border-radius: @borderRadius 0em 0em @borderRadius;
 }
 
 
@@ -979,7 +928,7 @@
 /*--- Red ---*/
 .ui.red.buttons .button,
 .ui.red.button {
-  background-color: #D95C5C;
+  background-color: @primaryColor;
   color: #FFFFFF;
 }
 .ui.red.buttons .button:hover,
@@ -1099,7 +1048,7 @@
 ----------------*/
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #D95C5C !important;
+  background-color: @primaryColor !important;
   color: #FFFFFF;
 }
 .ui.negative.buttons .button:hover,
@@ -1144,12 +1093,12 @@
 }
 .ui.buttons .button:first-child  {
   margin-right: 0em;
-  border-top-right-radius: 0.2em;
-  border-bottom-right-radius: 0.2em;
+  border-top-right-radius: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
 }
 .ui.buttons .button:last-child {
-  border-top-left-radius: 0.2em;
-  border-bottom-left-radius: 0.2em;
+  border-top-left-radius: @borderRadius;
+  border-bottom-left-radius: @borderRadius;
 }
 
 /* Vertical  Style */
@@ -1170,9 +1119,9 @@
 .ui.vertical.buttons .massive.button:first-child,
 .ui.vertical.buttons .huge.button:first-child {
   margin-top: 0px;
-  -moz-border-radius: 0.2em 0.2em 0px 0px;
-  -webkit-border-radius: 0.2em 0.2em 0px 0px;
-  border-radius: 0.2em 0.2em 0px 0px;
+  -moz-border-radius: @borderRadius @borderRadius 0px 0px;
+  -webkit-border-radius: @borderRadius @borderRadius 0px 0px;
+  border-radius: @borderRadius @borderRadius 0px 0px;
 }
 .ui.vertical.buttons .button:last-child,
 .ui.vertical.buttons .mini.button:last-child,
@@ -1181,7 +1130,7 @@
 .ui.vertical.buttons .massive.button:last-child,
 .ui.vertical.buttons .huge.button:last-child,
 .ui.vertical.buttons .gigantic.button:last-child {
-  -moz-border-radius: 0px 0px 0.2em 0.2em;
-  -webkit-border-radius: 0px 0px 0.2em 0.2em;
-  border-radius: 0px 0px 0.2em 0.2em;
+  -moz-border-radius: 0px 0px @borderRadius @borderRadius;
+  -webkit-border-radius: 0px 0px @borderRadius @borderRadius;
+  border-radius: 0px 0px @borderRadius @borderRadius;
 }

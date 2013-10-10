@@ -7,9 +7,6 @@ module.exports = function(grunt) {
     ],
 
     watchTasks = [
-      // clean build directory
-      'clean:build',
-
       // compiles less
       'less:buildCSS',
 
@@ -104,6 +101,7 @@ module.exports = function(grunt) {
         files: [
           '../build/examples/**/*',
           '../src/**/*.less',
+          '../src/**/*.variables',
           '../src/**/*.js'
         ],
         tasks : watchTasks

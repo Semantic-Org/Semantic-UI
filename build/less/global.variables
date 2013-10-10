@@ -1,6 +1,6 @@
 
 /*******************************
-            Site
+             Site
 *******************************/
 
 /*-------------------
@@ -19,14 +19,13 @@
 @pageFont   : 'Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;';
 
 
-
 /*******************************
-         User Interface
+             Colors
 *******************************/
 
 
 /*-------------------
-       Colors
+     Background
 --------------------*/
 
 /*---  Colors  ---*/
@@ -67,7 +66,54 @@
 
 
 /*-------------------
-       Hover
+     Text Colors
+--------------------*/
+
+@darkTextColor  : rgba(0, 0, 0, 0.85);
+@textColor      : rgba(0, 0, 0, 0.7);
+@lightTextColor : rgba(0, 0, 0, 0.4);
+
+@disabledTextColor : rgba(0, 0, 0, 0.2);
+
+
+/*-------------------
+      Borders
+--------------------*/
+
+@borderColor      : rgba(0, 0, 0, 0.1);
+@solidBorderColor : #DDDDDD;
+
+
+/*-------------------
+        Sizes
+--------------------*/
+
+@mini    : 0.7;
+@tiny    : 0.8;
+@small   : 0.875;
+@medium  : 1;
+@large   : 1.125;
+@big     : 1.25;
+@huge    : 1.375;
+@massive : 1.5;
+
+
+/*-------------------
+     Transitions
+--------------------*/
+
+@transitionDuration : 0.25s;
+@transitionEasing   : ease;
+
+
+
+/*******************************
+           States
+*******************************/
+
+
+/*-------------------
+        Hover
 --------------------*/
 
 /*---  Colors  ---*/
@@ -111,6 +157,7 @@
     Down (:active)
 --------------------*/
 
+
 /*---  Colors  ---*/
 @primaryColorDown   : darken(@primaryColor, 10);
 @secondaryColorDown : darken(@secondaryColor, 10);
@@ -146,6 +193,7 @@
 @whiteDown          : darken(@white, 10);
 @offWhiteDown       : darken(@offWhite, 10);
 @darkWhiteDown      : darken(@darkWhite, 10);
+
 
 /*-------------------
         Active
@@ -186,45 +234,3 @@
 @whiteActive          : lighten(@white, 10);
 @offWhiteActive       : lighten(@offWhite, 10);
 @darkWhiteActive      : lighten(@darkWhite, 10);
-
-
-/*-------------------
-     Text Colors
---------------------*/
-
-@darkTextColor  : rgba(0, 0, 0, 0.85);
-@textColor      : rgba(0, 0, 0, 0.7);
-@lightTextColor : rgba(0, 0, 0, 0.4);
-
-@disabledTextColor : rgba(0, 0, 0, 0.2);
-
-
-/*-------------------
-      Borders
---------------------*/
-
-@borderColor      : rgba(0, 0, 0, 0.1);
-@solidBorderColor : #DDDDDD;
-
-
-
-/*-------------------
-        Sizes
---------------------*/
-
-@mini    : 0.7;
-@tiny    : 0.8;
-@small   : 0.875;
-@medium  : 1;
-@large   : 1.125;
-@big     : 1.25;
-@huge    : 1.375;
-@massive : 1.5;
-
-
-/*-------------------
-     Transitions
---------------------*/
-
-@transitionDuration : 0.25s;
-@transitionEasing   : ease;
