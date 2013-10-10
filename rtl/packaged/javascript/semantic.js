@@ -4549,10 +4549,6 @@ $.fn.dropdown = function(parameters) {
 
         event: {
 
-          stopPropagation: function(event) {
-            event.stopPropagation();
-          },
-
           test: {
             toggle: function(event) {
               module.determine.intent(event, module.toggle);
@@ -4610,7 +4606,6 @@ $.fn.dropdown = function(parameters) {
                 ;
                 module.determine.selectAction(text, value);
                 $.proxy(settings.onChange, element)(value, text);
-                event.stopPropagation();
               }
             }
 
@@ -7004,17 +6999,6 @@ $.fn.rating = function(parameters) {
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
 
-    settings        = $.extend(true, {}, $.fn.rating.settings, parameters),
-
-    namespace       = settings.namespace,
-    className       = settings.className,
-    metadata        = settings.metadata,
-    selector        = settings.selector,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-
     time            = new Date().getTime(),
     performance     = [],
 
@@ -7026,11 +7010,22 @@ $.fn.rating = function(parameters) {
   $allModules
     .each(function() {
       var
-        $module  = $(this),
-        $icon    = $module.find(selector.icon),
+        settings        = $.extend(true, {}, $.fn.rating.settings, parameters),
 
-        element  = this,
-        instance = $module.data(moduleNamespace),
+        namespace       = settings.namespace,
+        className       = settings.className,
+        metadata        = settings.metadata,
+        selector        = settings.selector,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
+        $module         = $(this),
+        $icon           = $module.find(selector.icon),
+
+        element         = this,
+        instance        = $module.data(moduleNamespace),
         module
       ;
 

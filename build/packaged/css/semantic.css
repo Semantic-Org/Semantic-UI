@@ -11057,12 +11057,12 @@ a.ui.nag {
   font-family: 'Icons';
 }
 .ui.heart.rating .active.icon {
-  color: !important;
+  color: #EF404A !important;
 }
 /* Hovered */
 .ui.heart.rating .hover.icon,
 .ui.heart.rating .active.hover.icon {
-  color: !important;
+  color: #FF2733 !important;
 }
 /*******************************
              States
