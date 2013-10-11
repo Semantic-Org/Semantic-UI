@@ -1,5 +1,6 @@
 ---
 layout      : 'default'
+standalone  : true
 css         : 'item'
 
 title       : 'Item'
@@ -79,23 +80,31 @@ type        : 'UI View'
   <div class="text example">
     <div class="ui items">
       <div class="item">
-        <div class="name">Cute Dog</div>
-        <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+        <div class="content">
+          <div class="meta">2 days ago</div>
+          <div class="name">Cute Dog</div>
+          <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+        </div>
         <div class="extra">
             199 votes
         </div>
       </div>
       <div class="item">
-        <div class="meta">5 days ago</div>
-        <div class="name">Faithful Dog</div>
-        <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+        <div class="content">
+          <div class="meta">5 days ago</div>
+          <div class="name">Faithful Dog</div>
+          <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+        </div>
         <div class="extra">
             311 votes
         </div>
       </div>
       <div class="item">
-        <div class="name">Silly Dog</div>
-        <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+        <div class="content">
+          <div class="meta">1 week ago</div>
+          <div class="name">Silly Dog</div>
+          <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+        </div>
         <div class="extra">
             522 votes
         </div>
@@ -185,31 +194,43 @@ type        : 'UI View'
     </div>
   </div>
   <div class="another text example">
-    <div class="ui connected items">
+    <div class="ui six connected items">
       <div class="row">
         <div class="item">
-          <div class="name">Cute Dog</div>
-          <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          <div class="content">
+            <div class="name">Cute Dog</div>
+            <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          </div>
         </div>
         <div class="item">
-          <div class="name">Faithful Dog</div>
-          <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          <div class="content">
+            <div class="name">Faithful Dog</div>
+            <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          </div>
         </div>
         <div class="item">
-          <div class="name">Silly Dog</div>
-          <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+          <div class="content">
+            <div class="name">Silly Dog</div>
+            <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+          </div>
         </div>
         <div class="item">
-          <div class="name">Cute Dog</div>
-          <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          <div class="content">
+            <div class="name">Cute Dog</div>
+            <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+          </div>
         </div>
         <div class="item">
-          <div class="name">Faithful Dog</div>
-          <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          <div class="content">
+            <div class="name">Faithful Dog</div>
+            <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+          </div>
         </div>
         <div class="item">
-          <div class="name">Silly Dog</div>
-          <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+          <div class="content">
+            <div class="name">Silly Dog</div>
+            <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+          </div>
         </div>
       </div>
     </div>
