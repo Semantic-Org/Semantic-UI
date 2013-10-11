@@ -1,9 +1,9 @@
 ## RELEASE NOTES
 
-### Version 0.4.3 - Oct 9, 2013
+### Version 0.4.3 - Oct 10, 2013
 
 **Fixes**
-- Updates dropdown to latest invoke method
+- Updates dropdown to include proper invoke
 
 ### Version 0.4.2 - Oct 9, 2013
 
