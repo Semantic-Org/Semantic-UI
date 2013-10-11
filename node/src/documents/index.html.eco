@@ -4,6 +4,7 @@ css    : 'index'
 title  : 'Getting Started'
 type   : 'Semantic'
 ---
+
 <% uiElements    = @getCollection("uiElements").toJSON() %>
 <% uiCollections = @getCollection("uiCollections").toJSON() %>
 <% uiViews       = @getCollection("uiViews").toJSON() %>

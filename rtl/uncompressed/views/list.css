@@ -150,17 +150,24 @@ ol.ui.list li,
 /*-------------------
        Link
 --------------------*/
-.ui.link.list a {
-  color: rgba(0, 0, 0, 0.5);
+.ui.link.list .item {
+  color: rgba(0, 0, 0, 0.4);
 }
-.ui.link.list a:hover {
-  color: rgba(0, 0, 0, 0.7);
+.ui.link.list a.item,
+.ui.link.list .item a {
+  color: rgba(0, 0, 0, 0.6);
 }
-.ui.link.list a:active {
+.ui.link.list a.item:hover,
+.ui.link.list .item a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.link.list a.item:active,
+.ui.link.list .item a:active {
   color: rgba(0, 0, 0, 0.9);
 }
-.ui.link.list .active {
-  color: rgba(0, 0, 0, 0.7);
+.ui.link.list a.active.item,
+.ui.link.list .active.item a {
+  color: rgba(0, 0, 0, 0.8);
 }
 /*-------------------
       Selection
