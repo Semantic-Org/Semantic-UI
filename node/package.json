@@ -1,7 +1,7 @@
 {
   "semantic": {
     "name": "Semantic UI",
-    "version": "0.4.2"
+    "version": "0.4.3"
   },
   "dependencies": {
     "docpad": "~6.53.1",
