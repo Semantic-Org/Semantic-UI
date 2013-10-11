@@ -19,7 +19,7 @@ docpadConfig = {
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
 				'learnsemantic.com'
-			]
+			],
 
 			# The default title of our website
 			title: "Semantic UI"
