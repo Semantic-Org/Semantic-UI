@@ -1,6 +1,6 @@
   ---
 layout      : 'default'
-css         : 'types'
+css         : 'guide'
 status      : 'draft'
 
 title       : 'Definitions'
@@ -30,24 +30,137 @@ type        : 'UI Introduction'
   <p>Semantic has five different ui definitions. These are useful patterns for describing re-usable parts of a website.</p>
   <table class="ui celled table segment">
     <tr>
-      <td class="two wide"><b>Element</b></td>
-      <td> a basic building block of a website, exists alone or in homogenous groups</td>
+      <td class="four wide"><b>UI Element</b></td>
+      <td>A basic building block of a website, exists alone or in homogenous groups</td>
     </tr>
     <tr>
-      <td><b>Collection</b></td>
-      <td>a heterogeneous group of several elements which can usually be found together. often pairs with individual elements</td>
+      <td><b>UI Collection</b></td>
+      <td>A heterogeneous group of several elements which can usually be found together.</td>
     </tr>
     <tr>
-      <td><b>View</b></td>
-      <td> a way to present common website content like comments, activity feeds</td>
+      <td><b>UI View</b></td>
+      <td>A way to present common website content like comments, activity feeds</td>
     </tr>
     <tr>
-      <td><b>Module</b></td>
-      <td> an element that also includes behavior as part of its definition</td>
+      <td><b>UI Module</b></td>
+      <td>An element where its behavior is an essential part of its definition</td>
     </tr>
     <tr>
-      <td><b>Behavior</b></td>
-      <td> a set of behaviors not specfically tied to a design</td>
+      <td><b>UI Behavior</b></td>
+      <td>A set of free-standing actions not specfically tied to an element</td>
+    </tr>
+  </table>
+
+  <h3 class="ui dividing header">Definition Sections</h2>
+  <p>All UI components of a single type are defined similarly.</p>
+  <table class="ui celled definition table segment">
+    <tr>
+      <td class="three wide">All UI</td>
+      <td>
+        <div class="ui divided relaxed list">
+          <div class="item">
+            <div class="header">Types</div>
+            <div class="description">Defines mutually exclusive types which each may have their own html</div>
+          </div>
+          <div class="item">
+            <div class="header">States</div>
+            <div class="description">Defines element states like disabled, hovered, pressed down</div>
+          </div>
+          <div class="item">
+            <div class="header">Variations</div>
+            <div class="description">Defines changes to an element which are not mutually exclusive and can be used together</div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Elements</td>
+      <td>
+        <div class="ui divided relaxed list">
+          <div class="item">
+            <div class="header">Group</div>
+            <div class="description">An element can define how attributes can be shared across a group</div>
+          </div>
+          <div class="item">
+            <div class="header">
+              View an example <a href="/elements/button.html">UI Button</a>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Collections</td>
+      <td>
+        <div class="ui divided relaxed list">
+          <div class="item">
+            <div class="header">Content</div>
+            <div class="description">Content elements which can exist inside of the UI collection</div>
+          </div>
+          <div class="item">
+            <div class="header">States</div>
+            <div class="description">A collection may define states for content elements or itself</div>
+          </div>
+          <div class="item">
+            <div class="header">Variations</div>
+            <div class="description">A collection may define variations for content elements or itself</div>
+          </div>
+          <div class="item">
+            <div class="header">
+              View an example <a href="/collections/form.html">UI Form</a>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Views</td>
+      <td>
+        <div class="ui divided relaxed list">
+          <div class="item">
+            <div class="header">Content</div>
+            <div class="description">Content elements which can exist inside of the UI view</div>
+          </div>
+          <div class="item">
+            <div class="header">States</div>
+            <div class="description">A view may define states for content elements or itself</div>
+          </div>
+          <div class="item">
+            <div class="header">Variations</div>
+            <div class="description">A view may define variations for a content elements or itself</div>
+          </div>
+          <div class="item">
+            <div class="header">
+              View an example <a href="/views/item.html">UI Item</a>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Modules & Behaviors</td>
+      <td>
+        <div class="ui divided relaxed list">
+          <div class="item">
+            <div class="header">Behavior</div>
+            <div class="description">A set of behaviors which can be invoked programatically</div>
+          </div>
+          <div class="item">
+            <div class="header">Settings</div>
+            <div class="description">A settings object which can alter the default behavior when instantiating a module</div>
+          </div>
+          <div class="item">
+            <div class="header">Examples</div>
+            <div class="description">A list of examples to showcase the variations in behavior of a module</div>
+          </div>
+          <div class="item">
+            <div class="header">
+              View an example <a href="/modules/dropdown.html">UI Dropdown</a>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
     </tr>
   </table>
 
@@ -137,50 +250,12 @@ type        : 'UI Introduction'
     <li>Product List</li>
   </ul>
 
-  <h2 class="ui dividing header">Authoring UI</h2>
-
-  <p><b>All UI</b>: The specification defines class name and html structures which can be used to represent an element
-</p>
-  <p><b>Elements</b>: An element definition gives states which an elements can occupy, common types of that element, and if necessary, defines how the element functions in groups.</p>
-  <p><b>Collections</b>: Collection definitions list elements that it can include, and variations which can apply to both the collection, or individual elements found in the collection.</p>
-  <p><b>Modules</b>: Module definitions include a list of behaviors that are commonly associated with an element</p>
-  <p><b>Views</b>: View specifications defines the types of content the view usually display, and the heirarchy typical to presenting this content to the user.</p>
 
 <!--   <a class="ui large right labeled teal icon button">
     Authoring Guide
     <i class="right arrow icon"></i>
   </a>
  -->
-
-  <h3 class="ui header">Context sensitive</h3>
-
-  <p>In Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between elements. Just like how in English, the adjective 'big' may describe a different scale for a big planet versus a big insect.</p>
-
-  <p>For example, a form you can have a variation called "inverted". This changes the appearance of form elements to work on dark backgrounds.</p>
-
-  <div class="code" data-type="html" data-label="true">
-  <div class="ui inverted form">
-      <div class="field">
-          <label>Name</label>
-          <input type="text">
-      </div>
-  </div>
-  </div>
-
-  <p>The same variation can also be useful in the context of a menu although the implementation may be different.</p>
-
-  <div class="code" data-type="html" data-label="true">
-  <div class="ui inverted menu">
-      <div class="item">Section 1</div>
-      <div class="ui simple dropdown item">
-          Dropdown
-          <div class="menu">
-              <div class="item">Dropdown item 1</div>
-              <div class="item">Dropdown item 2</div>
-          </div>
-      </div>
-  </div>
-  </div>
 
   <div class="ui divider"></div>
   <a class="ui large right labeled teal icon button" href="/introduction/types.html">

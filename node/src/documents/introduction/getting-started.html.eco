@@ -29,7 +29,7 @@ $(document)
 
   <p>UI definitions in Semantic are given the class name <code>ui</code>. This is to help tell the difference between ui elements and parts of the definition of an element. For example a menu may have menu items inside of it. These items are contained as part of the menu definition but do not receive the class name <code>ui</code>.</p>
 
-  <p>Class names in semantic always use single english words. If a class name is an adjective it is either a <a href="/introduction/types.html">type</a> of element or <a href="/introduction/variation.html">variation</a> of an element. <b>CSS definitions always define adjectives in the context of a noun</b>. In this way class names cannot pollute the namespace.</p>
+  <p>Class names in semantic always use single english words. If a class name is an adjective it is either a <a href="/introduction/types.html">type</a> of element or <a href="/introduction/variations.html">variation</a> of an element. <b>CSS definitions always define adjectives in the context of a noun</b>. In this way class names cannot pollute the namespace.</p>
 
   <div class="code" data-type="html" data-label="true" data-preview="true">
     <div class="ui compact menu">

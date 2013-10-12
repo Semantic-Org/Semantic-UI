@@ -1,6 +1,6 @@
   ---
 layout      : 'default'
-css         : 'types'
+css         : 'guide'
 
 title       : 'Variations'
 description : 'Variations are stackable, symbiotic changes to an elements appearance'
@@ -47,7 +47,8 @@ type        : 'UI Introduction'
 
   <h3 class="ui header">Stacking Variations</h3>
 
-  <p>Another variation of a menu is an <b>inverted menu</b>. This alters the color contrast to appear inverted for darker backgrounds. Some variations may also mutate when used together. Lets try adding the class name <code>red</code> as well. Because variations are not mutually exclusive we can use these together to create a compact, inverted, red tiered menu</p>
+  <p>Another variation of a menu is an <b>inverted menu</b>. This alters the color contrast to appear inverted for darker backgrounds. Some variations may also mutate when used together. Lets try adding the class name <code>red</code> as well.</p>
+  <p>Variations are not mutually exclusive so we can use these together to create an <code>inverted red tiered menu</code></p>
 
   <div class="code" data-type="html" data-label="true">
     <div class="ui red inverted tiered menu">
@@ -95,6 +96,37 @@ type        : 'UI Introduction'
     <div class="sub menu">
       <a class="active item">Activity</a>
       <a class="item">Profile</a>
+    </div>
+  </div>
+
+
+  <h3 class="ui header">Context sensitive</h3>
+
+  <p>In Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between elements. Just like how in English, the adjective 'big' may describe a different scale for a big planet versus a big insect.</p>
+
+  <p>For example, a form you can have a variation called "inverted". This changes the appearance of form elements to work on dark backgrounds.</p>
+
+  <div class="code" data-type="html" data-label="true">
+    <div class="ui inverted form">
+      <div class="field">
+          <label>Name</label>
+          <input type="text">
+      </div>
+    </div>
+  </div>
+
+  <p>The same variation can also be useful in the context of a menu although the implementation may be different.</p>
+
+  <div class="code" data-type="html" data-label="true">
+    <div class="ui inverted menu">
+      <div class="item">Section 1</div>
+      <div class="ui simple dropdown item">
+          Dropdown
+          <div class="menu">
+              <div class="item">Dropdown item 1</div>
+              <div class="item">Dropdown item 2</div>
+          </div>
+      </div>
     </div>
   </div>
 
