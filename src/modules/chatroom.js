@@ -13,19 +13,19 @@
 
 $.fn.chatroom = function(parameters) {
   var
-    settings  = $.extend(true, {}, $.fn.chatroom.settings, parameters),
-
-    className = settings.className,
-    namespace = settings.namespace,
-    selector  = settings.selector,
-    error     = settings.error,
-
     // hoist arguments
     moduleArguments = arguments || false
   ;
   $(this)
     .each(function() {
       var
+        settings  = $.extend(true, {}, $.fn.chatroom.settings, parameters),
+
+        className = settings.className,
+        namespace = settings.namespace,
+        selector  = settings.selector,
+        error     = settings.error,
+
         $module         = $(this),
 
         $expandButton   = $module.find(selector.expandButton),

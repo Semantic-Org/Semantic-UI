@@ -16,10 +16,6 @@ $.fn.popup = function(parameters) {
     $allModules     = $(this),
     $document       = $(document),
 
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.popup.settings, parameters)
-      : $.fn.popup.settings,
-
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -34,6 +30,19 @@ $.fn.popup = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.popup.settings, parameters)
+          : $.fn.popup.settings,
+
+        selector        = settings.selector,
+        className       = settings.className,
+        error           = settings.error,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+
+        eventNamespace  = '.' + settings.namespace,
+        moduleNamespace = settings.namespace + '-module',
+
         $module         = $(this),
 
         $window         = $(window),
@@ -43,15 +52,6 @@ $.fn.popup = function(parameters) {
           : $window.children(settings.selector.popup).last(),
 
         searchDepth     = 0,
-
-        eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = settings.namespace + '-module',
-
-        selector        = settings.selector,
-        className       = settings.className,
-        error           = settings.error,
-        metadata        = settings.metadata,
-        namespace       = settings.namespace,
 
         element         = this,
         instance        = $module.data(moduleNamespace),

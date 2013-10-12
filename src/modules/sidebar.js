@@ -14,18 +14,6 @@
 $.fn.sidebar = function(parameters) {
   var
     $allModules     = $(this),
-
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.sidebar.settings, parameters)
-      : $.fn.sidebar.settings,
-
-    selector        = settings.selector,
-    className       = settings.className,
-    namespace       = settings.namespace,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -40,6 +28,18 @@ $.fn.sidebar = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.sidebar.settings, parameters)
+          : $.fn.sidebar.settings,
+
+        selector        = settings.selector,
+        className       = settings.className,
+        namespace       = settings.namespace,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
         $module  = $(this),
 
         $body    = $('body'),

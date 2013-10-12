@@ -15,19 +15,6 @@ $.fn.shape = function(parameters) {
   var
     $allModules     = $(this),
 
-    moduleSelector  = $allModules.selector || '',
-    settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
-
-    // internal aliases
-    namespace     = settings.namespace,
-    selector      = settings.selector,
-    error         = settings.error,
-    className     = settings.className,
-
-    // define namespaces for modules
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-
     time            = new Date().getTime(),
     performance     = [],
 
@@ -40,6 +27,19 @@ $.fn.shape = function(parameters) {
   $allModules
     .each(function() {
       var
+        moduleSelector  = $allModules.selector || '',
+        settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
+
+        // internal aliases
+        namespace     = settings.namespace,
+        selector      = settings.selector,
+        error         = settings.error,
+        className     = settings.className,
+
+        // define namespaces for modules
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
         // selector cache
         $module       = $(this),
         $sides        = $module.find(selector.sides),

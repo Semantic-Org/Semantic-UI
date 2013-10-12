@@ -14,15 +14,6 @@
 $.fn.nag = function(parameters) {
   var
     $allModules     = $(this),
-    settings        = $.extend(true, {}, $.fn.nag.settings, parameters),
-
-    className       = settings.className,
-    selector        = settings.selector,
-    error           = settings.error,
-    namespace       = settings.namespace,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module',
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -36,6 +27,16 @@ $.fn.nag = function(parameters) {
   $(this)
     .each(function() {
       var
+        settings        = $.extend(true, {}, $.fn.nag.settings, parameters),
+
+        className       = settings.className,
+        selector        = settings.selector,
+        error           = settings.error,
+        namespace       = settings.namespace,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = namespace + '-module',
+
         $module         = $(this),
 
         $close          = $module.find(selector.close),
