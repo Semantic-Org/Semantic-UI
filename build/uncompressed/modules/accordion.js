@@ -15,19 +15,6 @@ $.fn.accordion = function(parameters) {
   var
     $allModules     = $(this),
 
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.accordion.settings, parameters)
-      : $.fn.accordion.settings,
-
-    className       = settings.className,
-    namespace       = settings.namespace,
-    selector        = settings.selector,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-    moduleSelector  = $allModules.selector || '',
-
     time            = new Date().getTime(),
     performance     = [],
 
@@ -39,6 +26,19 @@ $.fn.accordion = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.accordion.settings, parameters)
+          : $.fn.accordion.settings,
+
+        className       = settings.className,
+        namespace       = settings.namespace,
+        selector        = settings.selector,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+        moduleSelector  = $allModules.selector || '',
+
         $module  = $(this),
         $title   = $module.find(selector.title),
         $content = $module.find(selector.content),
@@ -290,9 +290,6 @@ $.fn.accordion = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
-            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -393,8 +390,8 @@ $.fn.accordion.settings = {
   exclusive   : true,
   collapsible : true,
 
-  duration    : 300,
-  easing      : 'linear',
+  duration    : 500,
+  easing      : 'easeInOutQuint',
 
   onOpen      : function(){},
   onClose     : function(){},
@@ -416,4 +413,13 @@ $.fn.accordion.settings = {
 
 };
 
+// Adds easing
+$.extend( $.easing, {
+  easeInOutQuint: function (x, t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+    return c/2*((t-=2)*t*t*t*t + 2) + b;
+  }
+});
+
 })( jQuery, window , document );
+

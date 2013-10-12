@@ -15,28 +15,12 @@ $.fn.dimmer = function(parameters) {
   var
     $allModules     = $(this),
 
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.dimmer.settings, parameters)
-      : $.fn.dimmer.settings,
-
-    selector        = settings.selector,
-    namespace       = settings.namespace,
-    className       = settings.className,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-    moduleSelector  = $allModules.selector || '',
-
     time            = new Date().getTime(),
     performance     = [],
 
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    clickEvent      = ('ontouchstart' in document.documentElement)
-      ? 'touchstart'
-      : 'click',
 
     invokedResponse
   ;
@@ -44,6 +28,23 @@ $.fn.dimmer = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.dimmer.settings, parameters)
+          : $.fn.dimmer.settings,
+
+        selector        = settings.selector,
+        namespace       = settings.namespace,
+        className       = settings.className,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+        moduleSelector  = $allModules.selector || '',
+
+        clickEvent      = ('ontouchstart' in document.documentElement)
+          ? 'touchstart'
+          : 'click',
+
         $module = $(this),
         $dimmer,
         $dimmable,
@@ -66,7 +67,7 @@ $.fn.dimmer = function(parameters) {
               $dimmer = $dimmable.children(selector.dimmer).first();
             }
             else {
-              module.create();
+              $dimmer = module.create();
             }
           }
         },
@@ -141,8 +142,7 @@ $.fn.dimmer = function(parameters) {
         },
 
         create: function() {
-          $dimmer = $( settings.template.dimmer() );
-          return $dimmer.appendTo($dimmable);
+          return $( settings.template.dimmer() ).appendTo($dimmable);
         },
 
         animate: {

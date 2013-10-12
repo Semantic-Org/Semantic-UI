@@ -606,40 +606,40 @@ $.fn.transition = function() {
 $.fn.transition.settings = {
 
   // module info
-  name   : 'Transition',
+  name        : 'Transition',
 
   // debug content outputted to console
-  debug        : true,
+  debug       : false,
 
   // verbose debug output
-  verbose      : true,
+  verbose     : true,
 
   // performance data output
-  performance  : true,
+  performance : true,
 
   // event namespace
-  namespace    : 'transition',
+  namespace   : 'transition',
 
   // animation complete event
-  complete     : function() {},
+  complete    : function() {},
 
   // animation duration
-  animation    : 'fade',
-  duration     : '700ms',
+  animation   : 'fade',
+  duration    : '700ms',
 
   // queue up animations
-  queue        : true,
+  queue       : true,
 
-  className    : {
-    transition : 'ui transition',
+  className   : {
     animating  : 'animating',
-    looping    : 'looping',
-    loading    : 'loading',
     disabled   : 'disabled',
     hidden     : 'hidden',
-    visible    : 'visible',
     inward     : 'in',
-    outward    : 'out'
+    loading    : 'loading',
+    looping    : 'looping',
+    outward    : 'out',
+    transition : 'ui transition',
+    visible    : 'visible'
   },
 
   // possible errors

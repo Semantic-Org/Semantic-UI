@@ -15,19 +15,6 @@ $.fn.accordion = function(parameters) {
   var
     $allModules     = $(this),
 
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.accordion.settings, parameters)
-      : $.fn.accordion.settings,
-
-    className       = settings.className,
-    namespace       = settings.namespace,
-    selector        = settings.selector,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-    moduleSelector  = $allModules.selector || '',
-
     time            = new Date().getTime(),
     performance     = [],
 
@@ -39,6 +26,19 @@ $.fn.accordion = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.accordion.settings, parameters)
+          : $.fn.accordion.settings,
+
+        className       = settings.className,
+        namespace       = settings.namespace,
+        selector        = settings.selector,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+        moduleSelector  = $allModules.selector || '',
+
         $module  = $(this),
         $title   = $module.find(selector.title),
         $content = $module.find(selector.content),
@@ -290,9 +290,6 @@ $.fn.accordion = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
-            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -393,8 +390,8 @@ $.fn.accordion.settings = {
   exclusive   : true,
   collapsible : true,
 
-  duration    : 300,
-  easing      : 'linear',
+  duration    : 500,
+  easing      : 'easeInOutQuint',
 
   onOpen      : function(){},
   onClose     : function(){},
@@ -416,7 +413,16 @@ $.fn.accordion.settings = {
 
 };
 
+// Adds easing
+$.extend( $.easing, {
+  easeInOutQuint: function (x, t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+    return c/2*((t-=2)*t*t*t*t + 2) + b;
+  }
+});
+
 })( jQuery, window , document );
+
 
 /*
  * # Semantic - API
@@ -2771,19 +2777,19 @@ $.fn.state.settings = {
 
 $.fn.chatroom = function(parameters) {
   var
-    settings  = $.extend(true, {}, $.fn.chatroom.settings, parameters),
-
-    className = settings.className,
-    namespace = settings.namespace,
-    selector  = settings.selector,
-    error     = settings.error,
-
     // hoist arguments
     moduleArguments = arguments || false
   ;
   $(this)
     .each(function() {
       var
+        settings  = $.extend(true, {}, $.fn.chatroom.settings, parameters),
+
+        className = settings.className,
+        namespace = settings.namespace,
+        selector  = settings.selector,
+        error     = settings.error,
+
         $module         = $(this),
 
         $expandButton   = $module.find(selector.expandButton),
@@ -3542,16 +3548,6 @@ $.fn.chatroom = function(parameters) {
 $.fn.checkbox = function(parameters) {
   var
     $allModules    = $(this),
-
-    settings       = $.extend(true, {}, $.fn.checkbox.settings, parameters),
-
-    className      = settings.className,
-    namespace      = settings.namespace,
-    error          = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-
     moduleSelector = $allModules.selector || '',
 
     time           = new Date().getTime(),
@@ -3566,6 +3562,15 @@ $.fn.checkbox = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = $.extend(true, {}, $.fn.checkbox.settings, parameters),
+
+        className       = settings.className,
+        namespace       = settings.namespace,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
         $module         = $(this),
         $label          = $(this).next(settings.selector.label).first(),
         $input          = $(this).find(settings.selector.input),
@@ -3888,28 +3893,12 @@ $.fn.dimmer = function(parameters) {
   var
     $allModules     = $(this),
 
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.dimmer.settings, parameters)
-      : $.fn.dimmer.settings,
-
-    selector        = settings.selector,
-    namespace       = settings.namespace,
-    className       = settings.className,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-    moduleSelector  = $allModules.selector || '',
-
     time            = new Date().getTime(),
     performance     = [],
 
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    clickEvent      = ('ontouchstart' in document.documentElement)
-      ? 'touchstart'
-      : 'click',
 
     invokedResponse
   ;
@@ -3917,6 +3906,23 @@ $.fn.dimmer = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.dimmer.settings, parameters)
+          : $.fn.dimmer.settings,
+
+        selector        = settings.selector,
+        namespace       = settings.namespace,
+        className       = settings.className,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+        moduleSelector  = $allModules.selector || '',
+
+        clickEvent      = ('ontouchstart' in document.documentElement)
+          ? 'touchstart'
+          : 'click',
+
         $module = $(this),
         $dimmer,
         $dimmable,
@@ -3939,7 +3945,7 @@ $.fn.dimmer = function(parameters) {
               $dimmer = $dimmable.children(selector.dimmer).first();
             }
             else {
-              module.create();
+              $dimmer = module.create();
             }
           }
         },
@@ -4014,8 +4020,7 @@ $.fn.dimmer = function(parameters) {
         },
 
         create: function() {
-          $dimmer = $( settings.template.dimmer() );
-          return $dimmer.appendTo($dimmable);
+          return $( settings.template.dimmer() ).appendTo($dimmable);
         },
 
         animate: {
@@ -5199,19 +5204,6 @@ $.fn.modal = function(parameters) {
     $window     = $(window),
     $document   = $(document),
 
-    settings    = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.modal.settings, parameters)
-      : $.fn.modal.settings,
-
-    selector        = settings.selector,
-    className       = settings.className,
-    namespace       = settings.namespace,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-    moduleSelector  = $allModules.selector || '',
-
     time            = new Date().getTime(),
     performance     = [],
 
@@ -5226,6 +5218,19 @@ $.fn.modal = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings    = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.modal.settings, parameters)
+          : $.fn.modal.settings,
+
+        selector        = settings.selector,
+        className       = settings.className,
+        namespace       = settings.namespace,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+        moduleSelector  = $allModules.selector || '',
+
         $module      = $(this),
         $context     = $(settings.context),
         $otherModals = $allModules.not($module),
@@ -5246,7 +5251,6 @@ $.fn.modal = function(parameters) {
 
           $dimmer = $context
             .dimmer('add content', $module)
-            .dimmer('get dimmer')
           ;
 
           module.verbose('Attaching close events', $close);
@@ -5289,7 +5293,7 @@ $.fn.modal = function(parameters) {
           ;
           event = $.isFunction(module[event])
             ? module[event]
-            : module.show
+            : module.toggle
           ;
           if($toggle.size() > 0) {
             module.debug('Attaching modal events to element', selector, event);
@@ -5306,7 +5310,7 @@ $.fn.modal = function(parameters) {
         event: {
           close: function() {
             module.verbose('Close button pressed');
-            $context.dimmer('hide');
+            module.hide();
           },
           debounce: function(method, delay) {
             clearTimeout(module.timer);
@@ -5319,12 +5323,12 @@ $.fn.modal = function(parameters) {
             ;
             if(keyCode == escapeKey) {
               module.debug('Escape key pressed hiding modal');
-              $context.dimmer('hide');
+              module.hide();
               event.preventDefault();
             }
           },
           resize: function() {
-            if( $context.dimmer('is active') ) {
+            if( $dimmer.dimmer('is active') ) {
               module.refresh();
             }
           }
@@ -5346,20 +5350,12 @@ $.fn.modal = function(parameters) {
           module.hideAll();
           if(settings.transition && $.fn.transition !== undefined) {
             $module
-              .transition(settings.transition + ' in', settings.duration, function() {
-                module.set.active();
-                module.save.focus();
-                module.set.type();
-              })
+              .transition(settings.transition + ' in', settings.duration, module.set.active)
             ;
           }
           else {
             $module
-              .fadeIn(settings.duration, settings.easing, function() {
-                module.set.active();
-                module.save.focus();
-                module.set.type();
-              })
+              .fadeIn(settings.duration, settings.easing, module.set.active)
             ;
           }
           module.debug('Triggering dimmer');
@@ -5369,18 +5365,30 @@ $.fn.modal = function(parameters) {
         showDimmer: function() {
           module.debug('Showing modal');
           module.set.dimmerSettings();
-          $context.dimmer('show');
-        },
-        hideDimmer: function() {
-          $context.dimmer('hide');
+          $dimmer.dimmer('show');
         },
 
         hide: function() {
+          if( $dimmer.dimmer('is active') ) {
+            $dimmer.dimmer('hide');
+          }
+          if( module.is.active() ) {
+            module.hideModal();
+            $.proxy(settings.onHide, element)();
+          }
+          else {
+            module.debug('Cannot hide modal, modal is not visible');
+          }
+        },
+
+        hideDimmer: function() {
+          module.debug('Hiding dimmer');
+          $dimmer.dimmer('hide');
+        },
+
+        hideModal: function() {
           module.debug('Hiding modal');
-          // remove keyboard detection
-          $document
-            .off('keyup.' + eventNamespace)
-          ;
+          module.remove.keyboardShortcuts();
           if(settings.transition && $.fn.transition !== undefined) {
             $module
               .transition(settings.transition + ' out', settings.duration, function() {
@@ -5397,7 +5405,6 @@ $.fn.modal = function(parameters) {
               })
             ;
           }
-          $.proxy(settings.onHide, element)();
         },
 
         hideAll: function() {
@@ -5424,7 +5431,9 @@ $.fn.modal = function(parameters) {
 
         restore: {
           focus: function() {
-            $focusedElement.focus();
+            if($focusedElement.size() > 0) {
+              $focusedElement.focus();
+            }
           }
         },
 
@@ -5449,7 +5458,7 @@ $.fn.modal = function(parameters) {
             height        : $module.outerHeight() + settings.offset,
             contextHeight : (settings.context == 'body')
               ? $(window).height()
-              : $context.height()
+              : $dimmer.height()
           };
           module.debug('Caching modal and container sizes', module.cache);
         },
@@ -5468,21 +5477,28 @@ $.fn.modal = function(parameters) {
 
         set: {
           active: function() {
-            $module.addClass(className.active);
+            module.save.focus();
+            module.set.type();
+            $module
+              .addClass(className.active)
+            ;
+            if(settings.closable) {
+              $dimmer
+                .dimmer('get dimmer')
+                .on('click', module.hide)
+              ;
+            }
           },
           dimmerSettings: function() {
-            module.debug('Setting dimmer settings', settings.closable);
-            $context
-              .dimmer('setting', 'closable', settings.closable)
+            module.debug('Setting dimmer settings', $dimmer);
+            $dimmer
+              .dimmer('setting', 'closable', false)
               .dimmer('setting', 'duration', {
                 show : settings.duration * 0.95,
                 hide : settings.duration * 1.05
               })
               .dimmer('setting', 'onShow' , module.add.keyboardShortcuts)
-              .dimmer('setting', 'onHide', function() {
-                module.hide();
-                module.remove.keyboardShortcuts();
-              })
+              // destory after changing settings in order to reattach events
               .dimmer('destroy')
               .dimmer('initialize')
             ;
@@ -5749,15 +5765,6 @@ $.fn.modal.settings = {
 $.fn.nag = function(parameters) {
   var
     $allModules     = $(this),
-    settings        = $.extend(true, {}, $.fn.nag.settings, parameters),
-
-    className       = settings.className,
-    selector        = settings.selector,
-    error           = settings.error,
-    namespace       = settings.namespace,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module',
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -5771,6 +5778,16 @@ $.fn.nag = function(parameters) {
   $(this)
     .each(function() {
       var
+        settings        = $.extend(true, {}, $.fn.nag.settings, parameters),
+
+        className       = settings.className,
+        selector        = settings.selector,
+        error           = settings.error,
+        namespace       = settings.namespace,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = namespace + '-module',
+
         $module         = $(this),
 
         $close          = $module.find(selector.close),
@@ -6297,10 +6314,6 @@ $.fn.popup = function(parameters) {
     $allModules     = $(this),
     $document       = $(document),
 
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.popup.settings, parameters)
-      : $.fn.popup.settings,
-
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -6315,6 +6328,19 @@ $.fn.popup = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.popup.settings, parameters)
+          : $.fn.popup.settings,
+
+        selector        = settings.selector,
+        className       = settings.className,
+        error           = settings.error,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+
+        eventNamespace  = '.' + settings.namespace,
+        moduleNamespace = settings.namespace + '-module',
+
         $module         = $(this),
 
         $window         = $(window),
@@ -6324,15 +6350,6 @@ $.fn.popup = function(parameters) {
           : $window.children(settings.selector.popup).last(),
 
         searchDepth     = 0,
-
-        eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = settings.namespace + '-module',
-
-        selector        = settings.selector,
-        className       = settings.className,
-        error           = settings.error,
-        metadata        = settings.metadata,
-        namespace       = settings.namespace,
 
         element         = this,
         instance        = $module.data(moduleNamespace),
@@ -6436,18 +6453,18 @@ $.fn.popup = function(parameters) {
               .html(html)
             ;
             if(settings.inline) {
-              module.verbose('Inserting popup element inline');
+              module.verbose('Inserting popup element inline', $popup);
               $popup
                 .insertAfter($module)
               ;
             }
             else {
-              module.verbose('Appending popup element to body');
+              module.verbose('Appending popup element to body', $popup);
               $popup
                 .appendTo( $('body') )
               ;
             }
-            $.proxy(settings.onInit, $popup)();
+            $.proxy(settings.onCreate, $popup)();
           }
           else {
             module.error(error.content);
@@ -6642,8 +6659,9 @@ $.fn.popup = function(parameters) {
           });
           // tentatively place on stage
           $popup
-            .attr('class', position + ' ' + className.popup + ' ' + className.loading)
             .css(positioning)
+            .removeClass(className.position)
+            .addClass(position)
           ;
           // check if is offstage
           offstagePosition = module.get.offstagePosition();
@@ -6677,9 +6695,6 @@ $.fn.popup = function(parameters) {
           module.position();
           $module
             .addClass(className.visible)
-          ;
-          $popup
-            .removeClass(className.loading)
           ;
           if(settings.transition && $.fn.transition !== undefined) {
             $popup
@@ -6732,9 +6747,6 @@ $.fn.popup = function(parameters) {
             ;
           }
           $.proxy(settings.onHide, $popup)();
-          if(!settings.inline) {
-            module.remove();
-          }
         },
 
         reset: function() {
@@ -6743,6 +6755,9 @@ $.fn.popup = function(parameters) {
             .attr('style', '')
             .removeAttr('style')
           ;
+          if(!settings.inline) {
+            module.remove();
+          }
         },
 
         gracefully: {
@@ -6941,7 +6956,7 @@ $.fn.popup.settings = {
   performance    : true,
   namespace      : 'popup',
 
-  onInit         : function(){},
+  onCreate         : function(){},
   onShow         : function(){},
   onHide         : function(){},
 
@@ -6983,7 +6998,8 @@ $.fn.popup.settings = {
   className   : {
     popup       : 'ui popup',
     visible     : 'visible',
-    loading     : 'loading'
+    loading     : 'loading',
+    position    : 'top left center bottom right'
   },
 
   selector    : {
@@ -7427,16 +7443,6 @@ $.fn.rating.settings = {
 $.fn.search = function(source, parameters) {
   var
     $allModules     = $(this),
-    settings        = $.extend(true, {}, $.fn.search.settings, parameters),
-
-
-    className       = settings.className,
-    selector        = settings.selector,
-    error           = settings.error,
-    namespace       = settings.namespace,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module',
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -7450,15 +7456,25 @@ $.fn.search = function(source, parameters) {
   $(this)
     .each(function() {
       var
-        $module       = $(this),
-        $prompt       = $module.find(selector.prompt),
-        $searchButton = $module.find(selector.searchButton),
-        $results      = $module.find(selector.results),
-        $result       = $module.find(selector.result),
-        $category     = $module.find(selector.category),
+        settings        = $.extend(true, {}, $.fn.search.settings, parameters),
 
-        element       = this,
-        instance      = $module.data(moduleNamespace),
+        className       = settings.className,
+        selector        = settings.selector,
+        error           = settings.error,
+        namespace       = settings.namespace,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = namespace + '-module',
+
+        $module         = $(this),
+        $prompt         = $module.find(selector.prompt),
+        $searchButton   = $module.find(selector.searchButton),
+        $results        = $module.find(selector.results),
+        $result         = $module.find(selector.result),
+        $category       = $module.find(selector.category),
+
+        element         = this,
+        instance        = $module.data(moduleNamespace),
 
         module
       ;
@@ -8200,19 +8216,6 @@ $.fn.shape = function(parameters) {
   var
     $allModules     = $(this),
 
-    moduleSelector  = $allModules.selector || '',
-    settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
-
-    // internal aliases
-    namespace     = settings.namespace,
-    selector      = settings.selector,
-    error         = settings.error,
-    className     = settings.className,
-
-    // define namespaces for modules
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-
     time            = new Date().getTime(),
     performance     = [],
 
@@ -8225,6 +8228,19 @@ $.fn.shape = function(parameters) {
   $allModules
     .each(function() {
       var
+        moduleSelector  = $allModules.selector || '',
+        settings        = $.extend(true, {}, $.fn.shape.settings, parameters),
+
+        // internal aliases
+        namespace     = settings.namespace,
+        selector      = settings.selector,
+        error         = settings.error,
+        className     = settings.className,
+
+        // define namespaces for modules
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
         // selector cache
         $module       = $(this),
         $sides        = $module.find(selector.sides),
@@ -8977,18 +8993,6 @@ $.fn.shape.settings = {
 $.fn.sidebar = function(parameters) {
   var
     $allModules     = $(this),
-
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.sidebar.settings, parameters)
-      : $.fn.sidebar.settings,
-
-    selector        = settings.selector,
-    className       = settings.className,
-    namespace       = settings.namespace,
-    error           = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -9003,6 +9007,18 @@ $.fn.sidebar = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.sidebar.settings, parameters)
+          : $.fn.sidebar.settings,
+
+        selector        = settings.selector,
+        className       = settings.className,
+        namespace       = settings.namespace,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
         $module  = $(this),
 
         $body    = $('body'),
@@ -10749,40 +10765,40 @@ $.fn.transition = function() {
 $.fn.transition.settings = {
 
   // module info
-  name   : 'Transition',
+  name        : 'Transition',
 
   // debug content outputted to console
-  debug        : true,
+  debug       : false,
 
   // verbose debug output
-  verbose      : true,
+  verbose     : true,
 
   // performance data output
-  performance  : true,
+  performance : true,
 
   // event namespace
-  namespace    : 'transition',
+  namespace   : 'transition',
 
   // animation complete event
-  complete     : function() {},
+  complete    : function() {},
 
   // animation duration
-  animation    : 'fade',
-  duration     : '700ms',
+  animation   : 'fade',
+  duration    : '700ms',
 
   // queue up animations
-  queue        : true,
+  queue       : true,
 
-  className    : {
-    transition : 'ui transition',
+  className   : {
     animating  : 'animating',
-    looping    : 'looping',
-    loading    : 'loading',
     disabled   : 'disabled',
     hidden     : 'hidden',
-    visible    : 'visible',
     inward     : 'in',
-    outward    : 'out'
+    loading    : 'loading',
+    looping    : 'looping',
+    outward    : 'out',
+    transition : 'ui transition',
+    visible    : 'visible'
   },
 
   // possible errors
@@ -10813,10 +10829,6 @@ $.fn.video = function(parameters) {
   var
     $allModules     = $(this),
 
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.video.settings, parameters)
-      : $.fn.video.settings,
-
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -10826,21 +10838,25 @@ $.fn.video = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
-    selector        = settings.selector,
-    className       = settings.className,
-    error           = settings.error,
-    metadata        = settings.metadata,
-    namespace       = settings.namespace,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module',
-
     invokedResponse
   ;
 
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.video.settings, parameters)
+          : $.fn.video.settings,
+
+        selector        = settings.selector,
+        className       = settings.className,
+        error           = settings.error,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = namespace + '-module',
+
         $module         = $(this),
         $placeholder    = $module.find(selector.placeholder),
         $playButton     = $module.find(selector.playButton),

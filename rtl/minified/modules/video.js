@@ -15,10 +15,6 @@ $.fn.video = function(parameters) {
   var
     $allModules     = $(this),
 
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.video.settings, parameters)
-      : $.fn.video.settings,
-
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -28,21 +24,25 @@ $.fn.video = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
-    selector        = settings.selector,
-    className       = settings.className,
-    error           = settings.error,
-    metadata        = settings.metadata,
-    namespace       = settings.namespace,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module',
-
     invokedResponse
   ;
 
   $allModules
     .each(function() {
       var
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.video.settings, parameters)
+          : $.fn.video.settings,
+
+        selector        = settings.selector,
+        className       = settings.className,
+        error           = settings.error,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = namespace + '-module',
+
         $module         = $(this),
         $placeholder    = $module.find(selector.placeholder),
         $playButton     = $module.find(selector.playButton),

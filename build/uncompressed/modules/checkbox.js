@@ -14,16 +14,6 @@
 $.fn.checkbox = function(parameters) {
   var
     $allModules    = $(this),
-
-    settings       = $.extend(true, {}, $.fn.checkbox.settings, parameters),
-
-    className      = settings.className,
-    namespace      = settings.namespace,
-    error          = settings.error,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-
     moduleSelector = $allModules.selector || '',
 
     time           = new Date().getTime(),
@@ -38,6 +28,15 @@ $.fn.checkbox = function(parameters) {
   $allModules
     .each(function() {
       var
+        settings        = $.extend(true, {}, $.fn.checkbox.settings, parameters),
+
+        className       = settings.className,
+        namespace       = settings.namespace,
+        error           = settings.error,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
         $module         = $(this),
         $label          = $(this).next(settings.selector.label).first(),
         $input          = $(this).find(settings.selector.input),

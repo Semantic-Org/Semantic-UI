@@ -1,13 +1,13 @@
 ## RELEASE NOTES
 
-### Version 0.4.4 - Oct 10, 2013
+### Version 0.5.0 - Oct 10, 2013
 
 **Critical Fixes**
 - Fixes on some modules where settings were shared across elements initialized at the same time instead of each module.
 - Fixes regression where popup was overriding variation class name on positioning
 
 **Fixes**
-- Fixed an issue where popup that was set to inline: false was being removed prematurely
+- Fixes an issue where popup that was set to inline: false was being removed prematurely
 - Fixes inheritance issue where grid column may sometimes not appear the correct size
 - Fixes modal hide/show dependency issue where dimmer would not always hide modal and vice-versa
 

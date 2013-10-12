@@ -14,16 +14,6 @@
 $.fn.search = function(source, parameters) {
   var
     $allModules     = $(this),
-    settings        = $.extend(true, {}, $.fn.search.settings, parameters),
-
-
-    className       = settings.className,
-    selector        = settings.selector,
-    error           = settings.error,
-    namespace       = settings.namespace,
-
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = namespace + '-module',
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -37,15 +27,25 @@ $.fn.search = function(source, parameters) {
   $(this)
     .each(function() {
       var
-        $module       = $(this),
-        $prompt       = $module.find(selector.prompt),
-        $searchButton = $module.find(selector.searchButton),
-        $results      = $module.find(selector.results),
-        $result       = $module.find(selector.result),
-        $category     = $module.find(selector.category),
+        settings        = $.extend(true, {}, $.fn.search.settings, parameters),
 
-        element       = this,
-        instance      = $module.data(moduleNamespace),
+        className       = settings.className,
+        selector        = settings.selector,
+        error           = settings.error,
+        namespace       = settings.namespace,
+
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = namespace + '-module',
+
+        $module         = $(this),
+        $prompt         = $module.find(selector.prompt),
+        $searchButton   = $module.find(selector.searchButton),
+        $results        = $module.find(selector.results),
+        $result         = $module.find(selector.result),
+        $category       = $module.find(selector.category),
+
+        element         = this,
+        instance        = $module.data(moduleNamespace),
 
         module
       ;
