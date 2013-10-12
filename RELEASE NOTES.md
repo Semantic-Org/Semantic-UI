@@ -3,7 +3,7 @@
 ### Version 0.5.0 - Oct 10, 2013
 
 **Critical Fixes**
-- Fixes on some modules where settings were shared across elements initialized at the same time instead of each module.
+- Fixes in some UI modules, issue where settings being shared across elements initialized at the same time instead of each instance.
 - Fixes regression where popup was overriding variation class name on positioning
 
 **Fixes**
