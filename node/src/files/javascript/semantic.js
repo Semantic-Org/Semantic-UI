@@ -63,8 +63,7 @@ semantic.ready = function() {
     handler
   ;
 
-  $.fn.accordion.settings.duration = 500;
-  $.fn.accordion.settings.easing   = 'easeInOutQuint';
+  $.fn.transition.debug = true;
 
   // event handlers
   handler = {
