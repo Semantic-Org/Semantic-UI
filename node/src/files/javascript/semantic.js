@@ -63,7 +63,6 @@ semantic.ready = function() {
     handler
   ;
 
-  $.fn.transition.debug = true;
 
   // event handlers
   handler = {

@@ -5,7 +5,7 @@ semantic.accordion.ready = function() {
 
   // selector cache
   var
-    $popup = $('.example .help.icon'),
+    $popup = $('.example .heart.icon'),
     // alias
     handler
   ;
