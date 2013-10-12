@@ -18,10 +18,10 @@ type        : 'UI Introduction'
 
   <h2 class="ui dividing header">Overview</h2>
 
-  <p>A <b>type</b> is a mutually exclusive change to an element. Types may require different html structures to work correctly, or expect different content.</p>
+  <p>A <b>type</b> is a mutually exclusive change to an element. Types may require different html structures to work correctly, or expect different content. </p>
 
   <h3 class="ui header">Content</h3>
-  <p>An icon menu might expect you to include glyphs instead of text to be formatted correctly</p>
+  <p>For example, an icon menu might expect different content like icons glyphs instead of text to be formatted correctly</p>
 
   <div class="code" data-type="html" data-label="true" data-preview="true">
     <div class="ui icon menu">

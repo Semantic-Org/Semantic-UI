@@ -1,7 +1,6 @@
   ---
 layout      : 'default'
 css         : 'guide'
-status      : 'draft'
 
 title       : 'Definitions'
 description : 'Definitions provide a re-usable format for sharing an interface design'
@@ -15,10 +14,7 @@ type        : 'UI Introduction'
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Definitions</a>
       <a class="item">Elements</a>
-      <a class="item">Collections</a>
-      <a class="item">Modules</a>
-      <a class="item">Views</a>
-      <a class="item">Authoring</a>
+      <a class="item">Types</a>
     </div>
   </div>
 
@@ -163,8 +159,9 @@ type        : 'UI Introduction'
     </tr>
     </tr>
   </table>
+  <h2 class="ui dividing header">Types of Definitions</h2>
 
-  <h2 class="ui dividing header">UI Elements</h2>
+  <h3 class="ui dividing header">UI Elements</h3>
 
   <p>UI Elements are page elements which are indivisible. This can be thought of as similar in definition as an "element" in chemistry.</p>
 
@@ -214,7 +211,7 @@ type        : 'UI Introduction'
     </tr>
   </table>
 
-  <h2 class="ui dividing header">UI Collections</h2>
+  <h3 class="ui dividing header">UI Collections</h3>
 
   <p>UI Collections are groups of heterogeneous page elements which are usually found together. Carrying the chemistry metaphor, these can be thought of as molecules.</p>
 
@@ -228,9 +225,9 @@ type        : 'UI Introduction'
     <li>Menus</li>
   </ul>
 
-  <h2 class="ui dividing header">UI Modules</h2>
+  <h3 class="ui dividing header">UI Modules</h3>
 
-  <p>UI modules are elements where it's behavior is a fundamental part of its definition. UI Modules are dependent on the javascript which carry their definition. They also may be more complex, and have a variety of different functions. Further abusing the scientific analogy: These can be thought of as "organs".</p>
+  <p>UI modules are elements whose behavior is a fundamental part of its definition. UI Modules are usually dependent on javascript which carries the implementation of it's behavior, although in some special circumstances the behavior can include css alone.</p>
 
   <p>Examples of UI modules:</p>
   <ul class="ui list">
@@ -239,9 +236,9 @@ type        : 'UI Introduction'
     <li>Chat Rooms</li>
   </ul>
 
-  <h2 class="ui dividing header">UI Views</h2>
+  <h3 class="ui dividing header">UI Views</h3>
 
-  <p>UI Views are common ways to present content so that it can be understood more easily. A view's definition in semantic only describes the content which typically occupies the view.</p>
+  <p>UI Views are common tropes for presenting specific types of information. Unlike collections which focus specifically on the relation of interface elements, views focus specifically on the relation of site content to other pieces of site content.</p>
 
   <h3 class="ui header">Examples of UI views:</h3>
   <ul class="ui list">
@@ -250,22 +247,10 @@ type        : 'UI Introduction'
     <li>Product List</li>
   </ul>
 
-
-<!--   <a class="ui large right labeled teal icon button">
-    Authoring Guide
-    <i class="right arrow icon"></i>
-  </a>
- -->
-
   <div class="ui divider"></div>
   <a class="ui large right labeled teal icon button" href="/introduction/types.html">
     Next: Element Types
     <i class="right arrow icon"></i>
   </a>
-<!--
-  <h3 class="ui header" class="ui header">Known Limitations</h3>
 
-  <p>Semantic uses the UI namespace to separate element definitions from the content that they define. This means that namespaces might conflict with other definitions if a variation or a type used matches the namespace of another ui definition.</p>
-
-   -->
 </div>

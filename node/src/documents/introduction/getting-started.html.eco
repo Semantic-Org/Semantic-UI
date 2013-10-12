@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Getting Started'
+title       : 'Semantic Coding'
 description : 'An introduction to Semantic coding'
 type        : 'UI Introduction'
 ---
@@ -21,13 +21,17 @@ $(document)
 <div class="main container">
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Interfacing Carefully</a>
-      <a class="item">Semantic APIs</a>
+      <a class="active item">Interfacing</a>
+      <a class="item">APIs</a>
     </div>
   </div>
   <h2 class="ui dividing header">Interfacing Carefully</h2>
 
-  <p>UI definitions in Semantic are given the class name <code>ui</code>. This is to help tell the difference between ui elements and parts of the definition of an element. For example a menu may have menu items inside of it. These items are contained as part of the menu definition but do not receive the class name <code>ui</code>.</p>
+  <p>UI definitions in Semantic are given the class name <code>ui</code>. This is to help tell the difference between ui elements and parts of the definition of an element. This means any element with the class name UI has a corresponding UI definition.
+
+  <p>For example a menu may have menu items inside of it. These items are contained as part of the menu definition but do not receive the class name <code>ui</code> because they are part of a UI menu collection.</p>
+
+  <h3 class="ui header">Namespacing</h3>
 
   <p>Class names in semantic always use single english words. If a class name is an adjective it is either a <a href="/introduction/types.html">type</a> of element or <a href="/introduction/variations.html">variation</a> of an element. <b>CSS definitions always define adjectives in the context of a noun</b>. In this way class names cannot pollute the namespace.</p>
 
