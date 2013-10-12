@@ -155,18 +155,18 @@ $.fn.popup = function(parameters) {
               .html(html)
             ;
             if(settings.inline) {
-              module.verbose('Inserting popup element inline');
+              module.verbose('Inserting popup element inline', $popup);
               $popup
                 .insertAfter($module)
               ;
             }
             else {
-              module.verbose('Appending popup element to body');
+              module.verbose('Appending popup element to body', $popup);
               $popup
                 .appendTo( $('body') )
               ;
             }
-            $.proxy(settings.onInit, $popup)();
+            $.proxy(settings.onCreate, $popup)();
           }
           else {
             module.error(error.content);
@@ -361,8 +361,9 @@ $.fn.popup = function(parameters) {
           });
           // tentatively place on stage
           $popup
-            .attr('class', position + ' ' + className.popup + ' ' + className.loading)
             .css(positioning)
+            .removeClass(className.position)
+            .addClass(position)
           ;
           // check if is offstage
           offstagePosition = module.get.offstagePosition();
@@ -396,9 +397,6 @@ $.fn.popup = function(parameters) {
           module.position();
           $module
             .addClass(className.visible)
-          ;
-          $popup
-            .removeClass(className.loading)
           ;
           if(settings.transition && $.fn.transition !== undefined) {
             $popup
@@ -451,9 +449,6 @@ $.fn.popup = function(parameters) {
             ;
           }
           $.proxy(settings.onHide, $popup)();
-          if(!settings.inline) {
-            module.remove();
-          }
         },
 
         reset: function() {
@@ -462,6 +457,9 @@ $.fn.popup = function(parameters) {
             .attr('style', '')
             .removeAttr('style')
           ;
+          if(!settings.inline) {
+            module.remove();
+          }
         },
 
         gracefully: {
@@ -660,7 +658,7 @@ $.fn.popup.settings = {
   performance    : true,
   namespace      : 'popup',
 
-  onInit         : function(){},
+  onCreate         : function(){},
   onShow         : function(){},
   onHide         : function(){},
 
@@ -702,7 +700,8 @@ $.fn.popup.settings = {
   className   : {
     popup       : 'ui popup',
     visible     : 'visible',
-    loading     : 'loading'
+    loading     : 'loading',
+    position    : 'top left center bottom right'
   },
 
   selector    : {

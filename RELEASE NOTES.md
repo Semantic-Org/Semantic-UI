@@ -3,14 +3,18 @@
 ### Version 0.4.4 - Oct 10, 2013
 
 **Critical Fixes**
-- Fixes on all modules where settings were shared across elements initialized at the same time instead of each module.
-
-**Updates**
-- Accordion now comes bundled with proper easing
+- Fixes on some modules where settings were shared across elements initialized at the same time instead of each module.
+- Fixes regression where popup was overriding variation class name on positioning
 
 **Fixes**
+- Fixed an issue where popup that was set to inline: false was being removed prematurely
 - Fixes inheritance issue where grid column may sometimes not appear the correct size
 - Fixes modal hide/show dependency issue where dimmer would not always hide modal and vice-versa
+
+**Updates**
+- Adds an example to popup where inline is set to false
+- Accordion now comes bundled with proper easing
+- Added onCreate to popup module
 
 ### Version 0.4.3 - Oct 10, 2013
 
