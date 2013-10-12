@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.5.1 - Oct 10, 2013
+
+**Updates**
+- Fixes vertical alignment of checkboxes
+
 ### Version 0.5.0 - Oct 10, 2013
 
 **Critical Fixes**
