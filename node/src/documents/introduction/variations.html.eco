@@ -13,6 +13,7 @@ type        : 'UI Introduction'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Overview</a>
+      <a class="active item">Usage</a>
     </div>
   </div>
 
@@ -45,10 +46,30 @@ type        : 'UI Introduction'
     </div>
   </div>
 
-  <h3 class="ui header">Stacking Variations</h3>
+  <h3 class="ui header">Context sensitive</h3>
 
+  <p>In Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between elements. Just like how in English, the adjective 'big' may describe a different scale for a big planet versus a big insect.</p>
+
+  <p>For example an icon might need to modify it's vertical alignment when it is larger than the surrounding text, while a form does not.</p>
+
+  <p>All definitions in Semantic <b>are based around em and rem</b> so resizing an element usually is as simple as altering the base font size of the element, padding, margins, and other properties will adjust automatically.</p>
+
+  <div class="code" data-type="css" data-label="true">
+    /* a large form is not quite as large as a large icon */
+    .ui.large.form {
+      font-size: 1.125em;
+    }
+    /* icons need to adjust vertical alignment as they grow past 1em */
+    i.large.icon {
+      font-size: 1.5em;
+      vertical-align: middle;
+    }
+  </div>
+
+
+  <h2 class="ui dividing header">Using Variations Together</h2>
   <p>Another variation of a menu is an <b>inverted menu</b>. This alters the color contrast to appear inverted for darker backgrounds. Some variations may also mutate when used together. Lets try adding the class name <code>red</code> as well.</p>
-  <p>Variations are not mutually exclusive so we can use these together to create an <code>inverted red tiered menu</code></p>
+  <p>Variations are not mutually exclusive and can be used together harmoniously, so we can use these together to create an <code>inverted red tiered menu</code></p>
 
   <div class="code" data-type="html" data-label="true">
     <div class="ui red inverted tiered menu">
@@ -74,6 +95,7 @@ type        : 'UI Introduction'
   </div>
   <div class="ui divider"></div>
 
+  <h3 class="ui header">Intersecting Variations</h3>
   <p>The definition for the variation red contains css specifically for describing the intersection of both <code>red</code> and <code>inverted</code>. For example, lets see the same menu with only the red variation.</p>
 
   <div class="code" data-type="html" data-label="true">
@@ -96,37 +118,6 @@ type        : 'UI Introduction'
     <div class="sub menu">
       <a class="active item">Activity</a>
       <a class="item">Profile</a>
-    </div>
-  </div>
-
-
-  <h3 class="ui header">Context sensitive</h3>
-
-  <p>In Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between elements. Just like how in English, the adjective 'big' may describe a different scale for a big planet versus a big insect.</p>
-
-  <p>For example, a form you can have a variation called "inverted". This changes the appearance of form elements to work on dark backgrounds.</p>
-
-  <div class="code" data-type="html" data-label="true">
-    <div class="ui inverted form">
-      <div class="field">
-          <label>Name</label>
-          <input type="text">
-      </div>
-    </div>
-  </div>
-
-  <p>The same variation can also be useful in the context of a menu although the implementation may be different.</p>
-
-  <div class="code" data-type="html" data-label="true">
-    <div class="ui inverted menu">
-      <div class="item">Section 1</div>
-      <div class="ui simple dropdown item">
-          Dropdown
-          <div class="menu">
-              <div class="item">Dropdown item 1</div>
-              <div class="item">Dropdown item 2</div>
-          </div>
-      </div>
     </div>
   </div>
 
