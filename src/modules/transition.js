@@ -609,7 +609,7 @@ $.fn.transition.settings = {
   name   : 'Transition',
 
   // debug content outputted to console
-  debug        : true,
+  debug        : false,
 
   // verbose debug output
   verbose      : true,
