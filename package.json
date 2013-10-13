@@ -11,7 +11,7 @@
     "karma": "~0.8"
   },
   "scripts": {
-    "test": "./node_modules/.bin/karma start --browsers Firefox --single-run"
+    "test": "grunt travis --verbose"
   },
   "license": "MIT"
 }

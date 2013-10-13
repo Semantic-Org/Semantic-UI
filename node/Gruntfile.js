@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   var
 
     defaultTasks = [
-      // watch less folder
+      // run grunt watch
       'watch'
     ],
 
@@ -15,7 +15,13 @@ module.exports = function(grunt) {
       'copy:srcToDocs',
 
       // copies examples over to docs
-      'copy:examplesToDocs'
+      'copy:examplesToDocs',
+
+    ],
+
+    testTasks = [
+      // test components
+      'karma:test:run'
     ],
 
     buildTasks = [
@@ -109,16 +115,34 @@ module.exports = function(grunt) {
 
     // watches for changes in a source folder
     watch: {
+      options: {
+        spawn: false
+      },
       scripts: {
-        options: {
-          spawn: false
-        },
+        files: [
+          '../src/**/*.js'
+        ],
+        tasks : testTasks
+      },
+      src: {
         files: [
           '../build/examples/**/*',
           '../src/**/*.less',
           '../src/**/*.js'
         ],
         tasks : watchTasks
+      }
+    },
+
+    /*******************************
+                  Test
+    *******************************/
+
+    karma: {
+      test: {
+        configFile : '../test/karma.conf.js',
+        background : true,
+        reporters: 'dots'
       }
     },
 
@@ -488,12 +512,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-docco-multi');
   grunt.loadNpmTasks('grunt-cssjanus');
+  grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig(config);
 
   grunt.registerTask('default', defaultTasks);
-
   grunt.registerTask('build', buildTasks);
+  grunt.registerTask('test', testTasks);
 
   // compiles only changed less files <https://npmjs.org/package/grunt-contrib-watch>
   grunt.event.on('watch', setWatchFiles);

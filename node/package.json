@@ -23,6 +23,16 @@
     "grunt-contrib-compress": "~0.5.2",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-docco-multi": "0.0.2",
-    "grunt-cssjanus": "~0.1.1"
+    "grunt-cssjanus": "~0.1.1",
+    "karma-script-launcher": "~0.1.0",
+    "karma-chrome-launcher": "~0.1.0",
+    "karma-firefox-launcher": "~0.1.0",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-jasmine": "~0.1.3",
+    "karma-requirejs": "~0.1.0",
+    "karma-coffee-preprocessor": "~0.1.0",
+    "karma-phantomjs-launcher": "~0.1.0",
+    "karma": "~0.10.2",
+    "grunt-karma": "~0.6.2"
   }
 }
