@@ -1,6 +1,6 @@
 docs/
+node_modules
 node/server.json
-node/node_modules
 
 # Numerous always-ignore extensions
 *.diff

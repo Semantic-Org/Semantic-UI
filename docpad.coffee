@@ -2,7 +2,8 @@
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 
-	outPath: '../docs'
+	srcPath : './server'
+	outPath: './docs'
 
 	# =================================
 	# Template Data
