@@ -247,9 +247,9 @@ type        : 'UI Introduction'
     <li>Product List</li>
   </ul>
 
-  <div class="ui divider"></div>
-  <a class="ui large right labeled teal icon button" href="/introduction/types.html">
-    Next: Element Types
+  <div class="ui section divider"></div>
+  <a class="ui large right labeled teal icon button" href="/introduction/overview.html">
+    Next: Semantic Coding
     <i class="right arrow icon"></i>
   </a>
 

@@ -2,8 +2,8 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Semantic Coding'
-description : 'An introduction to Semantic coding'
+title       : 'Overview'
+description : 'An introduction to Semantic style coding'
 type        : 'UI Introduction'
 ---
 <script src="/javascript/intro.js"></script>
@@ -31,11 +31,18 @@ $(document)
 
   <p>For example a menu may have menu items inside of it. These items are contained as part of the menu definition but do not receive the class name <code>ui</code> because they are part of a UI menu collection.</p>
 
-  <h3 class="ui header">Namespacing</h3>
+  <div class="code" data-type="html" data-title="A Simple Menu" data-preview="true">
+    <div class="ui menu">
+      <a class="item">Home</a>
+      <a class="item">Inbox</a>
+    </div>
+  </div>
 
-  <p>Class names in semantic always use single english words. If a class name is an adjective it is either a <a href="/introduction/types.html">type</a> of element or <a href="/introduction/variations.html">variation</a> of an element. <b>CSS definitions always define adjectives in the context of a noun</b>. In this way class names cannot pollute the namespace.</p>
+  <h3 class="ui header">Changing an Element</h3>
 
-  <div class="code" data-type="html" data-label="true" data-preview="true">
+  <p>Class names in Semantic always use single english words. If a class name is an adjective it is either a <a href="/introduction/types.html">type</a> of element or <a href="/introduction/variations.html">variation</a> of an element. <b>CSS definitions always define adjectives in the context of a noun</b>. In this way class names cannot pollute the namespace.</p>
+
+  <div class="code" data-type="html" data-title="A Compact Menu Variation" data-preview="true">
     <div class="ui compact menu">
       <a class="item">Home</a>
       <a class="item">Inbox</a>
@@ -48,7 +55,7 @@ $(document)
 
   <p>For example you might want to include a badge inside a menu. A label inside of a menu will automatically function as a badge.</p>
 
-  <div class="code" data-type="html" data-label="true" data-preview="true">
+  <div class="code" data-type="html" data-title="Using a UI Label inside a UI Menu" data-preview="true">
     <div class="ui compact menu">
       <a class="item">Home</a>
       <a class="item">
@@ -102,8 +109,8 @@ $(document)
 
   <div class="ui divider"></div>
 
-  <a class="ui large right labeled teal icon button" href="/introduction/definitions.html">
-    Next: UI Definitions
+  <a class="ui large right labeled teal icon button" href="/introduction/types.html">
+    Next: UI Types
     <i class="right arrow icon"></i>
   </a>
 

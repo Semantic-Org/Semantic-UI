@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'guide'
 
 title       : 'Types'
-description : 'A type is an mutually exclusive change to an element'
+description : 'A type is an mutually exclusive version of an element'
 type        : 'UI Introduction'
 ---
 <script src="/javascript/intro.js"></script>
@@ -18,12 +18,28 @@ type        : 'UI Introduction'
 
   <h2 class="ui dividing header">Overview</h2>
 
-  <p>A <b>type</b> is a mutually exclusive change to an element. Types may require different html structures to work correctly, or expect different content. </p>
+  <p>A ui definition in Semantic usually contains a list of mutually exclusive variations on an element design. A type is designated by an additional class name on a UI element</p>
+
+  <div class="code" data-type="html" data-preview="true" data-title="Types of UI Button">
+    <div class="ui labeled icon button">
+      Download <i class="download icon"></i>
+    </div>
+    <div class="ui icon button">
+      <i class="download icon"></i>
+    </div>
+    <div class="ui button">
+      Download
+    </div>
+    <div class="ui facebook button">
+      <i class="facebook icon"></i>
+      Facebook
+    </div>
+  </div>
 
   <h3 class="ui header">Content</h3>
-  <p>For example, an icon menu might expect different content like icons glyphs instead of text to be formatted correctly</p>
+  <p>Types may require different html structures to work correctly. For example, an icon menu might expect different content like icons glyphs instead of text to be formatted correctly</p>
 
-  <div class="code" data-type="html" data-label="true" data-preview="true">
+  <div class="code" data-type="html" data-title="Icon Menu Type" data-preview="true">
     <div class="ui icon menu">
       <a class="item">
         <i class="mail icon"></i>
@@ -38,9 +54,9 @@ type        : 'UI Introduction'
   </div>
 
   <h3 class="ui header">HTML Differences</h3>
-  <p>Types may also require different html. For example, a tiered menu needs html specified for a sub menu to display itself correctly</p>
+  <p>Types may also each require slightly different html. For example, a tiered menu needs html specified for a sub menu to display itself correctly</p>
 
-  <div class="code" data-type="html" data-label="true" data-preview="true">
+  <div class="code" data-type="html" data-title="Tiered Menu Type" data-preview="true">
     <div class="ui tiered menu">
       <div class="menu">
         <div class="active item">
