@@ -29,6 +29,14 @@ To download the entire library
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
     http://semantic-ui.com/build/semantic.zip
+    
+### LESS Semantic UI
+
+More css-processing features are currently being added to help in the customizing and theming Semantic UI. This will be one of the core features additions for Semantic's first release version.
+    
+### SASS/SCSS Semantic UI
+    
+If you are looking for a SCSS/SASS port of Semantic for your rails projects check out doabit's [Semantic UI for SASS](https://github.com/doabit/semantic-ui-sass)
 
 ## The Specification
 
