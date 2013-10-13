@@ -31,6 +31,7 @@ type        : 'UI Module'
       <a class="item">States</a>
       <a class="item">Variations</a>
       <a class="item">Behavior</a>
+      <a class="item">Settings</a>
     </div>
   </div>
   <h2 class="ui dividing header">Usage</h2>
@@ -156,9 +157,94 @@ type        : 'UI Module'
 
   <h2 class="ui dividing header">Behavior</h2>
 
+  <p>All the following behaviors can be called using the syntax <code>$('.foo').dimmer('behavior name', argumentOne, argumentTwo)</code></p>
+
+  <table class="ui definition celled table segment">
+    <tr>
+      <td>add content (element)</td>
+      <td>Detatches a given element from DOM and reattaches element inside dimmer</td>
+    </tr>
+    <tr>
+      <td>show</td>
+      <td>Shows dimmer</td>
+    </tr>
+    <tr>
+      <td>hide</td>
+      <td>Hides dimmer</td>
+    </tr>
+    <tr>
+      <td>toggle</td>
+      <td>Toggles current dimmer visibility</td>
+    </tr>
+    <tr>
+      <td>get duration</td>
+      <td>Returns current duration for show or hide event depending on current visibility</td>
+    </tr>
+    <tr>
+      <td>get dimmer</td>
+      <td>Returbns DOM element for dimmer</td>
+    </tr>
+    <tr>
+      <td>has dimmer</td>
+      <td>Returns whether current dimmable has a dimmer</td>
+    </tr>
+    <tr>
+      <td>is dimmer</td>
+      <td>Whether current element is a dimmer</td>
+    </tr>
+    <tr>
+      <td>is dimamable</td>
+      <td>Whether current element is a dimmable section</td>
+    </tr>
+    <tr>
+      <td>is active</td>
+      <td>Whether section's dimmer is active</td>
+    </tr>
+    <tr>
+      <td>is animating</td>
+      <td>Whether dimmer is animating</td>
+    </tr>
+    <tr>
+      <td>is page</td>
+      <td>Whether dimmable section is <code>body</code></td>
+    </tr>
+    <tr>
+      <td>is enabled</td>
+      <td>Whether dimmer is not disabled</td>
+    </tr>
+    <tr>
+      <td>is disabled</td>
+      <td>Whether dimmer is disabled</td>
+    </tr>
+    <tr>
+      <td>is page dimmer</td>
+      <td>Whether dimmer is a page dimmer</td>
+    </tr>
+    <tr>
+      <td>set active</td>
+      <td>Sets page dimmer to active</td>
+    </tr>
+    <tr>
+      <td>set dimmable</td>
+      <td>Sets an element as a dimmable section</td>
+    </tr>
+    <tr>
+      <td>set dimmed</td>
+      <td>Sets a dimmable section as dimmed</td>
+    </tr>
+    <tr>
+      <td>set page dimmer</td>
+      <td>Sets current dimmer as a page dimmer</td>
+    </tr>
+    <tr>
+      <td>set disabled</td>
+      <td>Sets a dimmer as disabled</td>
+    </tr>
+  </table>
+
 
   <div class="no example">
-    <h4>Display</h4>
+    <h4 class="ui header">Display</h4>
     <p>You can display a dimmer by either invoking dimmer show on a section or a dimmer itself. If you choose to dim a dimmable section, a dimmer will automatically be created.</p>
     <div class="ignore code">
     // these two are the same
@@ -179,25 +265,25 @@ type        : 'UI Module'
     </div>
   </div>
 
-  <h3 class="ui header">Settings</h3>
-  <table class="ui green table segment">
+  <h2 class="ui dividing header">Settings</h2>
+  <table class="ui green celled table segment">
     <thead>
-      <th colspan="3">Popup Settings</th>
+      <th colspan="3">Dimmer Settings</th>
     </thead>
     <tbody>
       <tr>
         <td>closable</td>
-        <td>true</td>
+        <td class="six wide">true</td>
         <td>Whether clicking on the dimmer should close it automatically</td>
       </tr>
       <tr>
         <td>duration</td>
         <td>
           <div class="code">
-      duration    : {
-        show : 500,
-        hide : 500
-      },
+    duration    : {
+      show : 500,
+      hide : 500
+    }
           </div>
         </td>
         <td>Animation duration of dimming. If an integer is used, that value will apply to both show and hide animations.</td>
@@ -205,7 +291,7 @@ type        : 'UI Module'
     </tbody>
   </table>
 
-  <table class="ui teal table segment">
+  <table class="ui teal celled table segment">
     <thead>
       <th colspan="3">Callbacks</th>
     </thead>
@@ -228,7 +314,7 @@ type        : 'UI Module'
     </tbody>
   </table>
 
-  <table class="ui blue table segment">
+  <table class="ui blue celled table segment">
     <thead>
       <th colspan="3">UI Module Settings</th>
     </thead>
