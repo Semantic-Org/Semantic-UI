@@ -1,0 +1,17 @@
+{
+  "name"        : "semantic",
+  "preferGlobal": true,
+  "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
+  "homepage"    : "http://www.semantic-ui.com",
+  "author": "Jack Lukic <jack@myfav.es>",
+  "dependencies": {
+    "jquery"      : ">=1.8"
+  },
+  "devDependencies": {
+    "karma": "~0.8"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start --browsers Firefox --single-run"
+  },
+  "license": "MIT"
+}
