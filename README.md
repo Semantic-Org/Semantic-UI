@@ -1,14 +1,24 @@
 # Semantic
+[![Build Status](https://travis-ci.org/jlukic/Semantic-UI.png)](https://travis-ci.org/jlukic/Semantic-UI)
 
 Semantic is a set of specifications for sharing UI elements between developers. Semantic is also a UI library to make front end development simpler and easier to learn.
 
 ## Development Status
 
-Semantic is pre-release. Build tools are not yet available, and APIs may be updated regularly prior to 1.0, so be warned!
+Semantic is production ready, but is formally "pre-release" until proper build and theming tools are available, and documentation is complete for all components.
+
+### Bugs and Issues
 
 Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
 
-If you need to create a test case, you can [fork this jsfiddle](http://jsfiddle.net/jlukic/Vbr9d/1/) to get you started.
+If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/jlukic/Vbr9d/1/) to get you started.
+
+### Roadmap
+* [Features Missing for 1.0](https://github.com/jlukic/Semantic-UI/issues?direction=desc&milestone=1&page=1&sort=updated&state=open)
+* [Planned Updates for 1.X](https://github.com/jlukic/Semantic-UI/issues?direction=desc&milestone=2&page=1&sort=updated&state=open)
+* [Additional Components Scoped for 2.0](https://github.com/jlukic/Semantic-UI/issues?direction=desc&labels=&milestone=3&page=1&sort=updated&state=open)
+
+### Updates
 
 If you want to keep track of development, please [join our google group](https://groups.google.com/forum/?hl=en#!forum/semantic-ui)
 
@@ -29,6 +39,10 @@ To download the entire library
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
     http://semantic-ui.com/build/semantic.zip
+    
+### Right-to-Left (RTL Version)
+
+RTL versions are compiled on every patch update, and are available in ``/rtl/``
     
 ### LESS Semantic UI
 
