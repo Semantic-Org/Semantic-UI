@@ -1,6 +1,9 @@
 ## RELEASE NOTES
 
-### Version 0.5.1 - Oct 10, 2013
+### Version 0.5.1 - Oct 11, 2013
+
+**Fixes**
+- Fixes issue with modal sometimes closing/opening multiple times caused by changes in 0.5.0
 
 **Updates**
 - Fixes vertical alignment of checkboxes

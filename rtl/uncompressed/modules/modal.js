@@ -50,6 +50,7 @@ $.fn.modal = function(parameters) {
         $close       = $module.find(selector.close),
 
         $focusedElement,
+        $dimmable,
         $dimmer,
 
         element      = this,
@@ -62,8 +63,11 @@ $.fn.modal = function(parameters) {
         initialize: function() {
           module.verbose('Initializing dimmer', $context);
 
-          $dimmer = $context
+          $dimmable = $context
             .dimmer('add content', $module)
+          ;
+          $dimmer = $context
+            .dimmer('get dimmer')
           ;
 
           module.verbose('Attaching close events', $close);
@@ -125,6 +129,13 @@ $.fn.modal = function(parameters) {
             module.verbose('Close button pressed');
             module.hide();
           },
+          click: function(event) {
+            module.verbose('Determining if event occured on dimmer', event);
+            if( $dimmer.find(event.target).size() === 0 ) {
+              module.hide();
+              event.stopImmediatePropagation();
+            }
+          },
           debounce: function(method, delay) {
             clearTimeout(module.timer);
             module.timer = setTimeout(method, delay);
@@ -141,7 +152,7 @@ $.fn.modal = function(parameters) {
             }
           },
           resize: function() {
-            if( $dimmer.dimmer('is active') ) {
+            if( $dimmable.dimmer('is active') ) {
               module.refresh();
             }
           }
@@ -178,12 +189,17 @@ $.fn.modal = function(parameters) {
         showDimmer: function() {
           module.debug('Showing modal');
           module.set.dimmerSettings();
-          $dimmer.dimmer('show');
+          $dimmable.dimmer('show');
         },
 
         hide: function() {
-          if( $dimmer.dimmer('is active') ) {
-            $dimmer.dimmer('hide');
+          if(settings.closable) {
+            $dimmer
+              .off('click' + eventNamespace)
+            ;
+          }
+          if( $dimmable.dimmer('is active') ) {
+            $dimmable.dimmer('hide');
           }
           if( module.is.active() ) {
             module.hideModal();
@@ -196,7 +212,7 @@ $.fn.modal = function(parameters) {
 
         hideDimmer: function() {
           module.debug('Hiding dimmer');
-          $dimmer.dimmer('hide');
+          $dimmable.dimmer('hide');
         },
 
         hideModal: function() {
@@ -261,7 +277,7 @@ $.fn.modal = function(parameters) {
             ;
           },
           scrolling: function() {
-            $dimmer.removeClass(className.scrolling);
+            $dimmable.removeClass(className.scrolling);
             $module.removeClass(className.scrolling);
           }
         },
@@ -271,7 +287,7 @@ $.fn.modal = function(parameters) {
             height        : $module.outerHeight() + settings.offset,
             contextHeight : (settings.context == 'body')
               ? $(window).height()
-              : $dimmer.height()
+              : $dimmable.height()
           };
           module.debug('Caching modal and container sizes', module.cache);
         },
@@ -297,14 +313,13 @@ $.fn.modal = function(parameters) {
             ;
             if(settings.closable) {
               $dimmer
-                .dimmer('get dimmer')
-                .on('click', module.hide)
+                .on('click' + eventNamespace, module.event.click)
               ;
             }
           },
           dimmerSettings: function() {
-            module.debug('Setting dimmer settings', $dimmer);
-            $dimmer
+            module.debug('Setting dimmer settings', $dimmable);
+            $dimmable
               .dimmer('setting', 'closable', false)
               .dimmer('setting', 'duration', {
                 show : settings.duration * 0.95,
@@ -317,7 +332,7 @@ $.fn.modal = function(parameters) {
             ;
           },
           scrolling: function() {
-            $dimmer.addClass(className.scrolling);
+            $dimmable.addClass(className.scrolling);
             $module.addClass(className.scrolling);
           },
           type: function() {
