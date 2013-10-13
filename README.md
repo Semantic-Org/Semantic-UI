@@ -5,6 +5,8 @@ Semantic is a set of specifications for sharing UI elements between developers. 
 
 Semantic is production ready, but is formally "pre-release" until proper build and theming tools are available, and documentation is complete for all components.
 
+[![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
+
 ## Getting Started
 
 The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need. 
