@@ -6,10 +6,6 @@
   "author"       : "Jack Lukic <jacklukic@gmail.com>",
   "license": "MIT",
 
-  "scripts": {
-    "test": "grunt test --verbose"
-  },
-
   "dependencies" : {
     "docpad"                 : "~6.53.4",
     "docpad-plugin-eco"      : "~2.0.2",
