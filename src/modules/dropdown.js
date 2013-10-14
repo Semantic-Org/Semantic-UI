@@ -31,28 +31,28 @@ $.fn.dropdown = function(parameters) {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
-          : $.fn.dropdown.settings,
+          : $.extend({}, $.fn.dropdown.settings),
 
-        className         = settings.className,
-        metadata          = settings.metadata,
-        namespace         = settings.namespace,
-        selector          = settings.selector,
-        error             = settings.error,
+        className       = settings.className,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+        selector        = settings.selector,
+        error           = settings.error,
 
-        eventNamespace    = '.' + namespace,
-        dropdownNamespace = 'module-' + namespace,
-        isTouchDevice     = ('ontouchstart' in document.documentElement),
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+        isTouchDevice   = ('ontouchstart' in document.documentElement),
 
-        $module           = $(this),
-        $item             = $module.find(selector.item),
-        $text             = $module.find(selector.text),
-        $input            = $module.find(selector.input),
+        $module         = $(this),
+        $item           = $module.find(selector.item),
+        $text           = $module.find(selector.text),
+        $input          = $module.find(selector.input),
 
-        $menu             = $module.children(selector.menu),
+        $menu           = $module.children(selector.menu),
 
 
-        element           = this,
-        instance          = $module.data(dropdownNamespace),
+        element         = this,
+        instance        = $module.data(moduleNamespace),
         module
       ;
 
@@ -94,8 +94,9 @@ $.fn.dropdown = function(parameters) {
 
         instantiate: function() {
           module.verbose('Storing instance of dropdown', module);
+          instance = module;
           $module
-            .data(dropdownNamespace, module)
+            .data(moduleNamespace, module)
           ;
         },
 
@@ -106,7 +107,7 @@ $.fn.dropdown = function(parameters) {
           ;
           $module
             .off(eventNamespace)
-            .removeData(dropdownNamespace)
+            .removeData(moduleNamespace)
           ;
         },
 

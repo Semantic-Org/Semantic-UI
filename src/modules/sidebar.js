@@ -30,7 +30,7 @@ $.fn.sidebar = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.sidebar.settings, parameters)
-          : $.fn.sidebar.settings,
+          : $.extend({}, $.fn.sidebar.settings),
 
         selector        = settings.selector,
         className       = settings.className,

@@ -7,21 +7,29 @@ module.exports = function(config) {
 
     // frameworks to use
     frameworks: [
-        'jasmine'
+      'jasmine'
     ],
 
     // list of files / patterns to load in the browser
     files: [
       // require jquery
-      '../server/files/javascript/library/jquery.js',
+      'server/files/javascript/library/jquery.js',
       // read css from compiled css
-      '../docs/build/**/*.css',
+      'docs/build/uncompressed/**/*.css',
       // read js from src js
-      '../src/**/*.js',
+      'src/**/*.js',
       // require helpers
-      'helpers/*.js',
+      'test/helpers/*.js',
+      // require fixtures
+      {
+        pattern  : 'test/fixtures/*.html',
+        included : false,
+        served   : true
+      },
+      // require spec
+      'test/modules/module.spec.js',
       // require tests
-      'modules/*.js'
+      'test/modules/*.js'
     ],
 
     // list of files to exclude
@@ -29,6 +37,10 @@ module.exports = function(config) {
       '**/*.swp',
       'karma.conf.js'
     ],
+
+    preprocessors: {
+      '**/*.html': []
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'

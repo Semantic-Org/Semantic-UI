@@ -1,7 +1,10 @@
 describe("UI Modal", function() {
 
-  it("should have an instance in metadata after init", function() {
-    expect(true).toBe(true);
+  $.fn.dimmer.settings.debug = false;
+
+  moduleTests({
+    module  : 'modal',
+    element : '.ui.modal'
   });
 
 });

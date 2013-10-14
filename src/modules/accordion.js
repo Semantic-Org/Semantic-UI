@@ -28,7 +28,7 @@ $.fn.accordion = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.accordion.settings, parameters)
-          : $.fn.accordion.settings,
+          : $.extend({}, $.fn.accordion.settings),
 
         className       = settings.className,
         namespace       = settings.namespace,
@@ -60,6 +60,7 @@ $.fn.accordion = function(parameters) {
         },
 
         instantiate: function() {
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;

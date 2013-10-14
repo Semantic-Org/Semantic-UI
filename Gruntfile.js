@@ -16,7 +16,11 @@ module.exports = function(grunt) {
 
       // copies examples over to docs
       'copy:examplesToDocs'
+    ],
 
+    testWatchTasks = [
+      'clear',
+      'karma:watch:run'
     ],
 
     testTasks = [
@@ -86,6 +90,24 @@ module.exports = function(grunt) {
       'copy:buildToDocs'
     ],
 
+    setWatchTests = function(action, filePath) {
+      var
+        karmaFiles   = grunt.config('karma.watch.files'),
+        isJavascript = (filePath.search('.js') !== -1),
+        isModule     = (filePath.search('modules/') !== -1),
+        isSpec       = (filePath.search('.spec') !== -1),
+        specFile     = (isSpec)
+          ? filePath
+          : filePath
+              .replace('src/', 'test/')
+              .replace('.js', '.spec.js')
+      ;
+      if(isJavascript && (isSpec || isModule) ) {
+        karmaFiles.pop();
+        karmaFiles.push(specFile);
+      }
+    },
+
     setWatchFiles = function(action, filePath) {
       var
         buildPath = filePath.replace('src/', 'docs/build/').replace('less', 'css')
@@ -123,9 +145,10 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: [
+          'test/**/*.js',
           'src/**/*.js'
         ],
-        tasks : ['karma:test:run']
+        tasks : testWatchTasks
       },
       src: {
         files: [
@@ -141,13 +164,19 @@ module.exports = function(grunt) {
                   Test
     *******************************/
 
+    clear: {
+      terminal: {
+
+      }
+    },
+
     karma: {
-      test: {
-        configFile : 'test/karma.conf.js',
+      watch: {
+        configFile : 'karma.conf.js',
         background : true
       },
       travis: {
-        configFile : 'test/karma.conf.js',
+        configFile : 'karma.conf.js',
         singleRun  : true
       }
     },
@@ -528,6 +557,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-docco-multi');
   grunt.loadNpmTasks('grunt-cssjanus');
+  grunt.loadNpmTasks('grunt-clear');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig(config);

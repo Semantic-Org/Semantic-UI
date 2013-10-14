@@ -25,23 +25,6 @@ $.fn.example = function(parameters) {
     // Store a reference to the module group, this can be useful to refer to other modules inside each module
     $allModules     = $(this),
 
-    // Extend settings to merge run-time settings with defaults
-    settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.example.settings, parameters)
-      : $.fn.example.settings,
-
-    // Alias settings object for convenience and performance
-    namespace      = settings.namespace,
-    error          = settings.error,
-    className      = settings.className,
-
-    // You may also find it useful to alias your own settings
-    text           = settings.text,
-
-    // Define namespaces for storing module instance and binding events
-    eventNamespace  = '.' + namespace,
-    moduleNamespace = 'module-' + namespace,
-
     // Preserve selector from outside each scope and mark current time for performance tracking
     moduleSelector  = $allModules.selector || '',
     time            = new Date().getTime(),
@@ -59,6 +42,28 @@ $.fn.example = function(parameters) {
   $allModules
     .each(function() {
       var
+
+        // Extend settings to merge run-time settings with defaults
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.example.settings, parameters)
+          : $.extend({}, $.fn.example.settings),
+
+        // Alias settings object for convenience and performance
+        namespace      = settings.namespace,
+        error          = settings.error,
+        className      = settings.className,
+
+        // You may also find it useful to alias your own settings
+        text           = settings.text,
+
+        // Define namespaces for storing module instance and binding events
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+
+        // Instance is stored and retreived in namespaced DOM metadata
+        instance        = $(this).data(moduleNamespace),
+        element         = this,
+
         // Cache selectors using selector settings object for access inside instance of module
         $module        = $(this),
         $text          = $module.find(settings.selector.text),
@@ -66,9 +71,6 @@ $.fn.example = function(parameters) {
         // Define private variables which can be used to maintain internal state, these cannot be changed from outside the module closure so use conservatively. Default values are set using `a || b` syntax
         foo            = false,
 
-        // Instance is stored and retreived in namespaced DOM metadata
-        instance        = $module.data(moduleNamespace),
-        element         = this,
 
         module
       ;
