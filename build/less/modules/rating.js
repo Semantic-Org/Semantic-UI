@@ -27,7 +27,9 @@ $.fn.rating = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings        = $.extend(true, {}, $.fn.rating.settings, parameters),
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.rating.settings, parameters)
+          : $.extend({}, $.fn.rating.settings),
 
         namespace       = settings.namespace,
         className       = settings.className,
@@ -38,11 +40,12 @@ $.fn.rating = function(parameters) {
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
 
+        element         = this,
+        instance        = $(this).data(moduleNamespace),
+
         $module         = $(this),
         $icon           = $module.find(selector.icon),
 
-        element         = this,
-        instance        = $module.data(moduleNamespace),
         module
       ;
 
@@ -71,12 +74,14 @@ $.fn.rating = function(parameters) {
 
         instantiate: function() {
           module.verbose('Instantiating module', settings);
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;
         },
 
         destroy: function() {
+          module.verbose('Destroying previous instance', instance);
           $module
             .removeData(moduleNamespace)
           ;
@@ -274,6 +279,9 @@ $.fn.rating = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
+            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -343,7 +351,6 @@ $.fn.rating = function(parameters) {
           return found;
         }
       };
-
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();

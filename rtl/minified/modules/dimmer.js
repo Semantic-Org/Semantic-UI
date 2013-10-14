@@ -30,7 +30,7 @@ $.fn.dimmer = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dimmer.settings, parameters)
-          : $.fn.dimmer.settings,
+          : $.extend({}, $.fn.dimmer.settings),
 
         selector        = settings.selector,
         namespace       = settings.namespace,
@@ -45,12 +45,12 @@ $.fn.dimmer = function(parameters) {
           ? 'touchstart'
           : 'click',
 
-        $module = $(this),
+        $module  = $(this),
         $dimmer,
         $dimmable,
 
-        element   = this,
-        instance  = $module.data(moduleNamespace),
+        element  = this,
+        instance = $module.data(moduleNamespace),
         module
       ;
 
@@ -111,10 +111,14 @@ $.fn.dimmer = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module', $dimmer);
+          $module
+            .removeData(moduleNamespace)
+          ;
           $dimmable
             .off(eventNamespace)
           ;
           $dimmer
+            .remove()
             .off(eventNamespace)
           ;
         },
@@ -515,8 +519,8 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  verbose     : true,
   debug       : true,
+  verbose     : true,
   performance : true,
 
   transition  : 'fade',

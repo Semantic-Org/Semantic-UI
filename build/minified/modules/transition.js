@@ -314,7 +314,7 @@ $.fn.transition = function() {
                 animation : animation
               });
             }
-            return $.fn.transition.settings;
+            return $.extend({}, $.fn.transition.settings);
           },
 
           animationName: function() {

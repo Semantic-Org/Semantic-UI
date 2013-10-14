@@ -27,13 +27,12 @@ $.fn.modal = function(parameters) {
     invokedResponse
   ;
 
-
   $allModules
-    .each(function() {
+    .each(function(index) {
       var
         settings    = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.modal.settings, parameters)
-          : $.fn.modal.settings,
+          : $.extend(true, {}, $.fn.modal.settings),
 
         selector        = settings.selector,
         className       = settings.className,
@@ -44,17 +43,17 @@ $.fn.modal = function(parameters) {
         moduleNamespace = 'module-' + namespace,
         moduleSelector  = $allModules.selector || '',
 
-        $module      = $(this),
-        $context     = $(settings.context),
-        $otherModals = $allModules.not($module),
-        $close       = $module.find(selector.close),
+        $module         = $(this),
+        $context        = $(settings.context),
+        $otherModals    = $allModules.not($module),
+        $close          = $module.find(selector.close),
 
         $focusedElement,
         $dimmable,
         $dimmer,
 
-        element      = this,
-        instance     = $module.data(moduleNamespace),
+        element         = this,
+        instance        = $module.data(moduleNamespace),
         module
       ;
 
@@ -64,6 +63,7 @@ $.fn.modal = function(parameters) {
           module.verbose('Initializing dimmer', $context);
 
           $dimmable = $context
+            .dimmer()
             .dimmer('add content', $module)
           ;
           $dimmer = $context
@@ -94,7 +94,16 @@ $.fn.modal = function(parameters) {
           module.verbose('Destroying previous modal');
           $module
             .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
+          $close
+            .off(eventNamespace)
+          ;
+          if($dimmable) {
+            $dimmable
+              .dimmer('destroy')
+            ;
+          }
         },
 
         refresh: function() {

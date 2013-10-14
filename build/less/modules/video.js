@@ -32,7 +32,7 @@ $.fn.video = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.video.settings, parameters)
-          : $.fn.video.settings,
+          : $.extend({}, $.fn.video.settings),
 
         selector        = settings.selector,
         className       = settings.className,
@@ -41,7 +41,7 @@ $.fn.video = function(parameters) {
         namespace       = settings.namespace,
 
         eventNamespace  = '.' + namespace,
-        moduleNamespace = namespace + '-module',
+        moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
         $placeholder    = $module.find(selector.placeholder),
@@ -78,6 +78,12 @@ $.fn.video = function(parameters) {
           module.verbose('Destroying previous instance of video');
           $module
             .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+          $placeholder
+            .off(eventNamespace)
+          ;
+          $playButton
             .off(eventNamespace)
           ;
         },

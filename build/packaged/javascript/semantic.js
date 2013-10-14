@@ -28,7 +28,7 @@ $.fn.accordion = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.accordion.settings, parameters)
-          : $.fn.accordion.settings,
+          : $.extend({}, $.fn.accordion.settings),
 
         className       = settings.className,
         namespace       = settings.namespace,
@@ -60,6 +60,7 @@ $.fn.accordion = function(parameters) {
         },
 
         instantiate: function() {
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;
@@ -3908,7 +3909,7 @@ $.fn.dimmer = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dimmer.settings, parameters)
-          : $.fn.dimmer.settings,
+          : $.extend({}, $.fn.dimmer.settings),
 
         selector        = settings.selector,
         namespace       = settings.namespace,
@@ -3923,12 +3924,12 @@ $.fn.dimmer = function(parameters) {
           ? 'touchstart'
           : 'click',
 
-        $module = $(this),
+        $module  = $(this),
         $dimmer,
         $dimmable,
 
-        element   = this,
-        instance  = $module.data(moduleNamespace),
+        element  = this,
+        instance = $module.data(moduleNamespace),
         module
       ;
 
@@ -3989,10 +3990,14 @@ $.fn.dimmer = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous module', $dimmer);
+          $module
+            .removeData(moduleNamespace)
+          ;
           $dimmable
             .off(eventNamespace)
           ;
           $dimmer
+            .remove()
             .off(eventNamespace)
           ;
         },
@@ -4393,8 +4398,8 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  verbose     : true,
   debug       : true,
+  verbose     : true,
   performance : true,
 
   transition  : 'fade',
@@ -4473,28 +4478,28 @@ $.fn.dropdown = function(parameters) {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
-          : $.fn.dropdown.settings,
+          : $.extend({}, $.fn.dropdown.settings),
 
-        className         = settings.className,
-        metadata          = settings.metadata,
-        namespace         = settings.namespace,
-        selector          = settings.selector,
-        error             = settings.error,
+        className       = settings.className,
+        metadata        = settings.metadata,
+        namespace       = settings.namespace,
+        selector        = settings.selector,
+        error           = settings.error,
 
-        eventNamespace    = '.' + namespace,
-        dropdownNamespace = 'module-' + namespace,
-        isTouchDevice     = ('ontouchstart' in document.documentElement),
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
+        isTouchDevice   = ('ontouchstart' in document.documentElement),
 
-        $module           = $(this),
-        $item             = $module.find(selector.item),
-        $text             = $module.find(selector.text),
-        $input            = $module.find(selector.input),
+        $module         = $(this),
+        $item           = $module.find(selector.item),
+        $text           = $module.find(selector.text),
+        $input          = $module.find(selector.input),
 
-        $menu             = $module.children(selector.menu),
+        $menu           = $module.children(selector.menu),
 
 
-        element           = this,
-        instance          = $module.data(dropdownNamespace),
+        element         = this,
+        instance        = $module.data(moduleNamespace),
         module
       ;
 
@@ -4536,8 +4541,9 @@ $.fn.dropdown = function(parameters) {
 
         instantiate: function() {
           module.verbose('Storing instance of dropdown', module);
+          instance = module;
           $module
-            .data(dropdownNamespace, module)
+            .data(moduleNamespace, module)
           ;
         },
 
@@ -4548,7 +4554,7 @@ $.fn.dropdown = function(parameters) {
           ;
           $module
             .off(eventNamespace)
-            .removeData(dropdownNamespace)
+            .removeData(moduleNamespace)
           ;
         },
 
@@ -5214,13 +5220,12 @@ $.fn.modal = function(parameters) {
     invokedResponse
   ;
 
-
   $allModules
-    .each(function() {
+    .each(function(index) {
       var
         settings    = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.modal.settings, parameters)
-          : $.fn.modal.settings,
+          : $.extend(true, {}, $.fn.modal.settings),
 
         selector        = settings.selector,
         className       = settings.className,
@@ -5231,17 +5236,17 @@ $.fn.modal = function(parameters) {
         moduleNamespace = 'module-' + namespace,
         moduleSelector  = $allModules.selector || '',
 
-        $module      = $(this),
-        $context     = $(settings.context),
-        $otherModals = $allModules.not($module),
-        $close       = $module.find(selector.close),
+        $module         = $(this),
+        $context        = $(settings.context),
+        $otherModals    = $allModules.not($module),
+        $close          = $module.find(selector.close),
 
         $focusedElement,
         $dimmable,
         $dimmer,
 
-        element      = this,
-        instance     = $module.data(moduleNamespace),
+        element         = this,
+        instance        = $module.data(moduleNamespace),
         module
       ;
 
@@ -5251,6 +5256,7 @@ $.fn.modal = function(parameters) {
           module.verbose('Initializing dimmer', $context);
 
           $dimmable = $context
+            .dimmer()
             .dimmer('add content', $module)
           ;
           $dimmer = $context
@@ -5281,7 +5287,16 @@ $.fn.modal = function(parameters) {
           module.verbose('Destroying previous modal');
           $module
             .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
+          $close
+            .off(eventNamespace)
+          ;
+          if($dimmable) {
+            $dimmable
+              .dimmer('destroy')
+            ;
+          }
         },
 
         refresh: function() {
@@ -6345,7 +6360,7 @@ $.fn.popup = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.popup.settings, parameters)
-          : $.fn.popup.settings,
+          : $.extend({}, $.fn.popup.settings),
 
         selector        = settings.selector,
         className       = settings.className,
@@ -6354,7 +6369,7 @@ $.fn.popup = function(parameters) {
         namespace       = settings.namespace,
 
         eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = settings.namespace + '-module',
+        moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
 
@@ -6411,6 +6426,9 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
+          $window
+            .off(eventNamespace)
+          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -7067,7 +7085,9 @@ $.fn.rating = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings        = $.extend(true, {}, $.fn.rating.settings, parameters),
+        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.rating.settings, parameters)
+          : $.extend({}, $.fn.rating.settings),
 
         namespace       = settings.namespace,
         className       = settings.className,
@@ -7078,11 +7098,12 @@ $.fn.rating = function(parameters) {
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
 
+        element         = this,
+        instance        = $(this).data(moduleNamespace),
+
         $module         = $(this),
         $icon           = $module.find(selector.icon),
 
-        element         = this,
-        instance        = $module.data(moduleNamespace),
         module
       ;
 
@@ -7111,12 +7132,14 @@ $.fn.rating = function(parameters) {
 
         instantiate: function() {
           module.verbose('Instantiating module', settings);
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;
         },
 
         destroy: function() {
+          module.verbose('Destroying previous instance', instance);
           $module
             .removeData(moduleNamespace)
           ;
@@ -7314,6 +7337,9 @@ $.fn.rating = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
+            if($allModules.size() > 1) {
+              title += ' ' + '(' + $allModules.size() + ')';
+            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -7383,7 +7409,6 @@ $.fn.rating = function(parameters) {
           return found;
         }
       };
-
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -9024,7 +9049,7 @@ $.fn.sidebar = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.sidebar.settings, parameters)
-          : $.fn.sidebar.settings,
+          : $.extend({}, $.fn.sidebar.settings),
 
         selector        = settings.selector,
         className       = settings.className,
@@ -9522,7 +9547,7 @@ $.fn.sidebar.settings = {
       error           = settings.error,
 
       eventNamespace  = '.' + settings.namespace,
-      moduleNamespace = settings.namespace + '-module',
+      moduleNamespace = 'module-' + settings.namespace,
 
       instance        = $module.data(moduleNamespace),
 
@@ -9587,6 +9612,7 @@ $.fn.sidebar.settings = {
       destroy: function() {
         module.debug('Destroying tabs', $module);
         $module
+          .removeData(moduleNamespace)
           .off(eventNamespace)
         ;
       },
@@ -10488,7 +10514,7 @@ $.fn.transition = function() {
                 animation : animation
               });
             }
-            return $.fn.transition.settings;
+            return $.extend({}, $.fn.transition.settings);
           },
 
           animationName: function() {
@@ -10861,7 +10887,7 @@ $.fn.video = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.video.settings, parameters)
-          : $.fn.video.settings,
+          : $.extend({}, $.fn.video.settings),
 
         selector        = settings.selector,
         className       = settings.className,
@@ -10870,7 +10896,7 @@ $.fn.video = function(parameters) {
         namespace       = settings.namespace,
 
         eventNamespace  = '.' + namespace,
-        moduleNamespace = namespace + '-module',
+        moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
         $placeholder    = $module.find(selector.placeholder),
@@ -10907,6 +10933,12 @@ $.fn.video = function(parameters) {
           module.verbose('Destroying previous instance of video');
           $module
             .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+          $placeholder
+            .off(eventNamespace)
+          ;
+          $playButton
             .off(eventNamespace)
           ;
         },

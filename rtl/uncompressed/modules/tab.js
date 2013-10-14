@@ -38,7 +38,7 @@
       error           = settings.error,
 
       eventNamespace  = '.' + settings.namespace,
-      moduleNamespace = settings.namespace + '-module',
+      moduleNamespace = 'module-' + settings.namespace,
 
       instance        = $module.data(moduleNamespace),
 
@@ -103,6 +103,7 @@
       destroy: function() {
         module.debug('Destroying tabs', $module);
         $module
+          .removeData(moduleNamespace)
           .off(eventNamespace)
         ;
       },
