@@ -7,7 +7,7 @@
   "author": "Jack Lukic <jacklukic@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "grunt test --verbose"
+    "test": "grunt test"
   },
   "dependencies": {
     "docpad": "~6.53.4",
