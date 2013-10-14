@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 0.6.0 - Oct 14, 2013
+
+**Updates**
+- Adds travis CI support with preliminary test coverage for all javascript modules
+
+**Fixes**
+- Minor Fixes caught with testing suite, related to ensuring proper destroy, init,
+- Minor fixes to edge cases with seting and retrieving internals/settings as default, init, or during run-time on some modules
+
 ### Version 0.5.1 - Oct 11, 2013
 
 **Fixes**
