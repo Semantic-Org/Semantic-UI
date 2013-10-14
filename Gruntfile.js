@@ -123,9 +123,10 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: [
+          'test/**/*.js',
           'src/**/*.js'
         ],
-        tasks : ['karma:test:run']
+        tasks : ['clear', 'karma:test:run']
       },
       src: {
         files: [
@@ -141,13 +142,19 @@ module.exports = function(grunt) {
                   Test
     *******************************/
 
+    clear: {
+      terminal: {
+
+      }
+    },
+
     karma: {
       test: {
-        configFile : 'test/karma.conf.js',
+        configFile : 'karma.conf.js',
         background : true
       },
       travis: {
-        configFile : 'test/karma.conf.js',
+        configFile : 'karma.conf.js',
         singleRun  : true
       }
     },
@@ -528,6 +535,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-docco-multi');
   grunt.loadNpmTasks('grunt-cssjanus');
+  grunt.loadNpmTasks('grunt-clear');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig(config);
