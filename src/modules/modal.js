@@ -63,6 +63,7 @@ $.fn.modal = function(parameters) {
           module.verbose('Initializing dimmer', $context);
 
           $dimmable = $context
+            .dimmer()
             .dimmer('add content', $module)
           ;
           $dimmer = $context
@@ -93,7 +94,16 @@ $.fn.modal = function(parameters) {
           module.verbose('Destroying previous modal');
           $module
             .off(eventNamespace)
+            .removeData(moduleNamespace)
           ;
+          $close
+            .off(eventNamespace)
+          ;
+          if($dimmable) {
+            $dimmable
+              .dimmer('destroy')
+            ;
+          }
         },
 
         refresh: function() {

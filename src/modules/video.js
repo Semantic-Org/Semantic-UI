@@ -32,7 +32,7 @@ $.fn.video = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.video.settings, parameters)
-          : $.fn.video.settings,
+          : $.extend({}, $.fn.video.settings),
 
         selector        = settings.selector,
         className       = settings.className,

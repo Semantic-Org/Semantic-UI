@@ -31,7 +31,7 @@ $.fn.dropdown = function(parameters) {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.dropdown.settings, parameters)
-          : $.fn.dropdown.settings,
+          : $.extend({}, $.fn.dropdown.settings),
 
         className         = settings.className,
         metadata          = settings.metadata,

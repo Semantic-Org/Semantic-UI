@@ -32,7 +32,7 @@ $.fn.popup = function(parameters) {
       var
         settings        = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.popup.settings, parameters)
-          : $.fn.popup.settings,
+          : $.extend({}, $.fn.popup.settings),
 
         selector        = settings.selector,
         className       = settings.className,
