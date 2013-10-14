@@ -16,7 +16,11 @@ module.exports = function(grunt) {
 
       // copies examples over to docs
       'copy:examplesToDocs'
+    ],
 
+    testWatchTasks = [
+      'clear',
+      'karma:watch:run'
     ],
 
     testTasks = [
@@ -86,6 +90,24 @@ module.exports = function(grunt) {
       'copy:buildToDocs'
     ],
 
+    setWatchTests = function(action, filePath) {
+      var
+        karmaFiles   = grunt.config('karma.watch.files'),
+        isJavascript = (filePath.search('.js') !== -1),
+        isModule     = (filePath.search('modules/') !== -1),
+        isSpec       = (filePath.search('.spec') !== -1),
+        specFile     = (isSpec)
+          ? filePath
+          : filePath
+              .replace('src/', 'test/')
+              .replace('.js', '.spec.js')
+      ;
+      if(isJavascript && (isSpec || isModule) ) {
+        karmaFiles.pop();
+        karmaFiles.push(specFile);
+      }
+    },
+
     setWatchFiles = function(action, filePath) {
       var
         buildPath = filePath.replace('src/', 'docs/build/').replace('less', 'css')
@@ -126,7 +148,7 @@ module.exports = function(grunt) {
           'test/**/*.js',
           'src/**/*.js'
         ],
-        tasks : ['clear', 'karma:test:run']
+        tasks : testWatchTasks
       },
       src: {
         files: [
@@ -149,7 +171,7 @@ module.exports = function(grunt) {
     },
 
     karma: {
-      test: {
+      watch: {
         configFile : 'karma.conf.js',
         background : true
       },

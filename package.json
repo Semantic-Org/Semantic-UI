@@ -40,7 +40,6 @@
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.2",
     "grunt-karma": "~0.6.2",
-    "karma-coverage": "~0.1.0",
     "karma-spec-reporter": "0.0.5",
     "grunt-clear": "~0.2.1"
   }

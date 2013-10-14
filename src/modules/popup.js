@@ -41,7 +41,7 @@ $.fn.popup = function(parameters) {
         namespace       = settings.namespace,
 
         eventNamespace  = '.' + settings.namespace,
-        moduleNamespace = settings.namespace + '-module',
+        moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
 
@@ -98,6 +98,9 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
+          $window
+            .off(eventNamespace)
+          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)

@@ -60,6 +60,7 @@ $.fn.accordion = function(parameters) {
         },
 
         instantiate: function() {
+          instance = module;
           $module
             .data(moduleNamespace, module)
           ;

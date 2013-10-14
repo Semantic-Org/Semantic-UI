@@ -23,10 +23,11 @@ module.exports = function(config) {
       // require fixtures
       {
         pattern  : 'test/fixtures/*.html',
-        watched  : true,
         included : false,
         served   : true
       },
+      // require spec
+      'test/modules/module.spec.js',
       // require tests
       'test/modules/*.js'
     ],
