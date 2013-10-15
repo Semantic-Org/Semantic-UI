@@ -1694,9 +1694,11 @@ body > .ui.grid {
   vertical-align: middle;
 }
 .ui.pagination.menu .item {
-  min-width: 2.7em;
-  min-height: 2.7em;
+  min-width: 3em;
   text-align: center;
+}
+.ui.pagination.menu .icon.item .icon {
+  vertical-align: top;
 }
 .ui.pagination.menu.floated {
   display: block;
@@ -10091,6 +10093,9 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   -o-transition: border-radius 0.1s ease, width 0.2s ease;
   -ms-transition: border-radius 0.1s ease, width 0.2s ease;
   transition: border-radius 0.1s ease, width 0.2s ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
 }
 /*******************************
             Content
@@ -10203,6 +10208,9 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.vertical.menu .dropdown.item > .dropdown.icon {
   content: "\f0da";
 }
+.ui.dropdown.icon.button > .dropdown.icon {
+  margin: 0em;
+}
 /*******************************
             States
 *******************************/
@@ -10223,6 +10231,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.dropdown .menu .active.item {
   background-color: rgba(0, 0, 0, 0.04);
   border-left: none;
+  border-color: transparent !important;
   -webkit-box-shadow: none;
   -moz-shadow: none;
   box-shadow: none;
@@ -10309,6 +10318,9 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   -webkit-border-radius: 0.3125em !important;
   -moz-border-radius: 0.3125em !important;
   border-radius: 0.3125em !important;
+}
+.ui.selection.dropdown select {
+  display: none;
 }
 .ui.selection.dropdown > .dropdown.icon {
   float: right;

@@ -39,6 +39,10 @@
     border-radius 0.1s ease,
     width 0.2s ease
   ;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 
@@ -179,6 +183,9 @@
 .ui.vertical.menu .dropdown.item > .dropdown.icon {
   content: "\f0da";
 }
+.ui.dropdown.icon.button > .dropdown.icon {
+  margin: 0em;
+}
 
 
 /*******************************
@@ -205,6 +212,7 @@
   box-shadow: none;
   background-color: rgba(0, 0, 0, 0.04);
   border-right: none;
+  border-color: transparent !important;
 
   -webkit-box-shadow: none;
   -moz-shadow: none;
@@ -307,6 +315,9 @@
   -webkit-border-radius: !important 0.3125em;
   -moz-border-radius: !important 0.3125em;
   border-radius: !important 0.3125em;
+}
+.ui.selection.dropdown select {
+  display: none;
 }
 .ui.selection.dropdown > .dropdown.icon {
   float: left;

@@ -20,6 +20,9 @@
   -o-transition: border-radius 0.1s ease, width 0.2s ease;
   -ms-transition: border-radius 0.1s ease, width 0.2s ease;
   transition: border-radius 0.1s ease, width 0.2s ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
 }
 /*******************************
             Content
@@ -132,6 +135,9 @@
 .ui.vertical.menu .dropdown.item > .dropdown.icon {
   content: "\f0da";
 }
+.ui.dropdown.icon.button > .dropdown.icon {
+  margin: 0em;
+}
 /*******************************
             States
 *******************************/
@@ -152,6 +158,7 @@
 .ui.dropdown .menu .active.item {
   background-color: rgba(0, 0, 0, 0.04);
   border-left: none;
+  border-color: transparent !important;
   -webkit-box-shadow: none;
   -moz-shadow: none;
   box-shadow: none;
@@ -238,6 +245,9 @@
   -webkit-border-radius: 0.3125em !important;
   -moz-border-radius: 0.3125em !important;
   border-radius: 0.3125em !important;
+}
+.ui.selection.dropdown select {
+  display: none;
 }
 .ui.selection.dropdown > .dropdown.icon {
   float: right;
