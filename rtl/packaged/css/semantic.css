@@ -10229,7 +10229,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 }
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.06) !important;
   border-right: none;
   border-color: transparent !important;
   -webkit-box-shadow: none;
@@ -10455,7 +10455,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   transform: rotate(45deg);
   z-index: 2;
 }
-.ui.pointing.dropdown .menu .item.active:first-child {
+.ui.pointing.dropdown .menu .active.item:first-child {
   background: transparent -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
   background: transparent -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
   background: transparent -o-linear-gradient(transparent, rgba(0, 0, 0, 0.03));

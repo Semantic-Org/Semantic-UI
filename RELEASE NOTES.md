@@ -1,5 +1,16 @@
 ## RELEASE NOTES
 
+### Version 0.6.2 - Oct 15, 2013
+
+**Fixes**
+- Fixes touch+mouse like touchscreen laptops to work with dropdowns
+- Fixes input position inside menus with no other content
+- Fixes input sizing on small/large menus
+
+**Updates**
+- Dropdown vastly improved for touch, now can scroll with touch without closing dropdown
+- Dropdown active style now slightly more noticable
+
 ### Version 0.6.1 - Oct 15, 2013
 
 **Updates**
