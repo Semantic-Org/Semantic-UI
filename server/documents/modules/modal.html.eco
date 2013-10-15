@@ -38,6 +38,44 @@ type        : 'UI Module'
     </div>
   </div>
 
+  <div class="ui small modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Changing Your Thing
+    </div>
+    <div class="content">
+      <p>Do you want to change that thing to something else?</p>
+    </div>
+    <div class="actions">
+      <div class="ui negative button">
+        No
+      </div>
+      <div class="ui positive right labeled icon button">
+        Yes
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui large modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Changing Your Thing
+    </div>
+    <div class="content">
+      <p>Do you want to change that thing to something else?</p>
+    </div>
+    <div class="actions">
+      <div class="ui negative button">
+        No
+      </div>
+      <div class="ui positive right labeled icon button">
+        Yes
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
   <div class="ui test modal">
     <i class="close icon"></i>
     <div class="header">
@@ -45,7 +83,7 @@ type        : 'UI Module'
     </div>
     <div class="content">
       <div class="left">
-        <img class="ui fluid image" src="/images/demo/avatar2.jpg">
+        <img class="ui medium image" src="/images/demo/avatar2.jpg">
       </div>
       <div class="right">
         <div class="ui header">Are you sure you want to upload that?</div>
@@ -68,6 +106,7 @@ type        : 'UI Module'
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Usage</a>
       <a class="item">Types</a>
+      <a class="item">Variations</a>
       <a class="item">States</a>
       <a class="item">Examples</a>
       <a class="item">Behavior</a>
@@ -131,6 +170,23 @@ type        : 'UI Module'
     </div>
   </div>
 
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="no example">
+    <h4 class="ui header">Size</h4>
+    <p>A modal can vary in size</p>
+    <div class="code" data-demo="true">
+    $('.small.modal')
+      .modal('show')
+    ;
+    </div>
+    <div class="code" data-demo="true">
+    $('.large.modal')
+      .modal('show')
+    ;
+    </div>
+  </div>
+
   <h2 class="ui dividing header">States</h2>
 
   <div class="example">
@@ -142,6 +198,22 @@ type        : 'UI Module'
   </div>
 
   <h2 class="ui dividing header">Examples</h2>
+
+  <div class="no example">
+    <h4 class="ui header">Approve / Deny Callbacks</h4>
+    <p>Modals will automatically tie approve deny callbacks to any positive/approve or negative/deny buttons</p>
+    <div class="code" data-demo="true">
+    $('.basic.modal')
+      .modal('setting', 'onDeny', function(){
+        window.alert('Denied!');
+      })
+      .modal('setting', 'onApprove', function(){
+        window.alert('Approved!');
+      })
+      .modal('show')
+    ;
+    </div>
+  </div>
 
   <div class="no example">
     <h4 class="ui header">Forcing a Choice</h4>
