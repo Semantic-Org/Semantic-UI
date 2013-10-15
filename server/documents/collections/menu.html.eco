@@ -32,7 +32,7 @@ type        : 'UI Collection'
       </a>
       <a class="item">
         <i class="mail icon"></i> Messages
-      </a>1
+      </a>
       <div class="right menu">
         <div class="item">
           <div class="ui icon input">

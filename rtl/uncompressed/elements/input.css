@@ -17,6 +17,7 @@
 .ui.input {
   display: inline-block;
   position: relative;
+  color: rgba(0, 0, 0, 0.7);
 }
 .ui.input input {
   width: 100%;
@@ -132,7 +133,7 @@
   margin: 0em;
   width: 2.6em;
   height: 100%;
-  padding-top: 0.85em;
+  padding-top: 0.82em;
   text-align: center;
   -webkit-border-radius: 0.3125em 0em 0em 0.3125em;
   -moz-border-radius: 0.3125em 0em 0em 0.3125em;
