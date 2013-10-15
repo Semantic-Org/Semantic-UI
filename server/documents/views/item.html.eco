@@ -30,10 +30,10 @@ type        : 'UI View'
     <div class="ui items">
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres.jpg">
           <a class="like ui corner label">
             <i class="like icon"></i>
           </a>
-          <img src="/images/demo/highres.jpg">
         </div>
         <div class="content">
           <div class="name">Cute Dog</div>
@@ -45,10 +45,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres2.jpg">
           <a class="like ui corner label">
             <i class="like icon"></i>
           </a>
-          <img src="/images/demo/highres2.jpg">
         </div>
         <div class="content">
           <div class="meta">5 days ago</div>
@@ -61,10 +61,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres3.jpg">
           <a class="like ui corner label">
             <i class="like icon"></i>
           </a>
-          <img src="/images/demo/highres3.jpg">
         </div>
         <div class="content">
           <div class="name">Silly Dog</div>
@@ -122,10 +122,10 @@ type        : 'UI View'
     <div class="ui stackable items">
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres5.jpg">
           <a class="like ui corner label">
             <i class="like icon"></i>
           </a>
-          <img src="/images/demo/highres5.jpg">
         </div>
         <div class="content">
           <div class="name">Cute Dog</div>
@@ -137,10 +137,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres6.jpg">
           <a class="like ui corner label">
             <i class="like icon"></i>
           </a>
-          <img src="/images/demo/highres6.jpg">
         </div>
         <div class="content">
           <div class="meta">5 days ago</div>
@@ -244,10 +244,10 @@ type        : 'UI View'
     <div class="ui four items">
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres4.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres4.jpg">
         </div>
         <div class="content">
           <div class="name">Cute Dog</div>
@@ -256,10 +256,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres5.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres5.jpg">
         </div>
         <div class="content">
           <div class="name">Faithful Dog</div>
@@ -268,10 +268,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres3.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres3.jpg">
         </div>
         <div class="content">
           <div class="name">Silly Dog</div>
@@ -280,10 +280,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres2.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres2.jpg">
         </div>
         <div class="content">
           <div class="name">Happy Dog</div>
@@ -297,10 +297,10 @@ type        : 'UI View'
     <div class="ui five connected items">
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres4.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres4.jpg">
         </div>
         <div class="content">
           <div class="name">Cute Dog</div>
@@ -309,10 +309,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres5.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres5.jpg">
         </div>
         <div class="content">
           <div class="name">Faithful Dog</div>
@@ -321,10 +321,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres3.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres3.jpg">
         </div>
         <div class="content">
           <div class="name">Silly Dog</div>
@@ -333,10 +333,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres2.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres2.jpg">
         </div>
         <div class="content">
           <div class="name">Happy Dog</div>
@@ -345,10 +345,10 @@ type        : 'UI View'
       </div>
       <div class="item">
         <div class="image">
+          <img src="/images/demo/highres.jpg">
           <a class="star ui corner label">
             <i class="star icon"></i>
           </a>
-          <img src="/images/demo/highres.jpg">
         </div>
         <div class="content">
           <div class="name">Quiet Dog</div>

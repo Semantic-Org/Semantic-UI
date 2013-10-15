@@ -33,9 +33,6 @@ type        : 'UI Collection'
       <a class="item">
         <i class="mail icon"></i> Messages
       </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
       <div class="right menu">
         <div class="borderless vertically fitted item">
           <div class="ui icon input">
@@ -50,6 +47,9 @@ type        : 'UI Collection'
             <a class="item">Russian</a>
             <a class="item">Spanish</a>
           </div>
+        </div>
+        <div class="item">
+            <div class="ui teal button">Sign Up</div>
         </div>
       </div>
     </div>
@@ -186,7 +186,7 @@ type        : 'UI Collection'
         <i class="mail icon"></i> Messages
       </a>
       <div class="ui dropdown item">
-        More <i class="icon right triangle"></i>
+        More <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item"><i class="edit icon"></i> Edit Profile</a>
           <a class="item"><i class="globe icon"></i> Choose Language</a>
@@ -238,7 +238,7 @@ type        : 'UI Collection'
         <i class="user icon"></i> Friends
       </a>
       <div class="ui dropdown item">
-        More <i class="icon right triangle"></i>
+        More <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item"><i class="edit icon"></i> Edit Profile</a>
           <a class="item"><i class="globe icon"></i> Choose Language</a>
@@ -434,6 +434,35 @@ type        : 'UI Collection'
     </div>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Input</h4>
+    <p>A menu item can contain an <a href="/elements/input.html">input</a> inside of it</p>
+
+    <div class="ui menu">
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Button</h4>
+    <p>A menu item can contain a <a href="/elements/button.html">button</a> inside of it</p>
+
+    <div class="ui menu">
+      <div class="item">
+        <div class="ui teal button">Sign up</div>
+      </div>
+      <div class="item">
+        <div class="ui button">Log-in</div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="example">
     <h4 class="ui header">Link Item</h4>
@@ -460,7 +489,7 @@ type        : 'UI Collection'
     </div>
     <div class="ui vertical menu">
       <div class="ui dropdown item">
-        Categories <i class="icon right triangle"></i>
+        Categories <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item">Electronics</a>
           <a class="item">Automotive</a>
@@ -810,7 +839,7 @@ type        : 'UI Collection'
         </div>
       </div>
       <div class="ui dropdown item">
-        Dropdown <i class="icon right triangle"></i>
+        Dropdown <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Choice 1</div>
           <div class="item">Choice 2</div>
