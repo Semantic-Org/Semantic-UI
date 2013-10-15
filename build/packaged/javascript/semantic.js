@@ -4666,13 +4666,6 @@ $.fn.dropdown = function(parameters) {
                 value   = $choice.data(metadata.value) || text.toLowerCase()
               ;
               if( $choice.find(selector.menu).size() === 0 ) {
-                module.verbose('Adding active state to selected item');
-                $item
-                  .removeClass(className.active)
-                ;
-                $choice
-                  .addClass(className.active)
-                ;
                 module.determine.selectAction(text, value);
                 $.proxy(settings.onChange, element)(value, text);
                 event.preventDefault();
@@ -4690,19 +4683,9 @@ $.fn.dropdown = function(parameters) {
         determine: {
           selectAction: function(text, value) {
             module.verbose('Determining action', settings.action);
-            if(settings.action == 'auto') {
-              if(module.is.selection()) {
-                module.debug('Selection dropdown used updating form', text, value);
-                module.updateForm(text, value);
-              }
-              else {
-                module.debug('No action specified hiding dropdown', text, value);
-                module.hide();
-              }
-            }
-            else if( $.isFunction( module[settings.action] ) ) {
+            if( $.isFunction( module.action[settings.action] ) ) {
               module.verbose('Triggering preset action', settings.action, text, value);
-              module[ settings.action ](text, value);
+              module.action[ settings.action ](text, value);
             }
             else if( $.isFunction(settings.action) ) {
               module.verbose('Triggering user action', settings.action, text, value);
@@ -4725,17 +4708,44 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        nothing: function() {},
+        action: {
 
-        changeText: function(text, value) {
-          module.set.text(text);
-          module.hide();
-        },
+          nothing: function() {},
 
-        updateForm: function(text, value) {
-          module.set.text(text);
-          module.set.value(value);
-          module.hide();
+          hide: function() {
+            module.hide();
+          },
+
+          activate: function(text, value) {
+            value = value || text;
+            module.set.selected(value);
+            module.set.value(value);
+            module.hide();
+          },
+
+          /* Deprecated */
+          auto: function(text, value) {
+            value = value || text;
+            module.set.selected(value);
+            module.set.value(value);
+            module.hide();
+          },
+
+          /* Deprecated */
+          changeText: function(text, value) {
+            value = value || text;
+            module.set.selected(value);
+            module.hide();
+          },
+
+          /* Deprecated */
+          updateForm: function(text, value) {
+            value = value || text;
+            module.set.selected(value);
+            module.set.value(value);
+            module.hide();
+          }
+
         },
 
         get: {
@@ -5194,7 +5204,7 @@ $.fn.dropdown.settings = {
   performance : true,
 
   on          : 'click',
-  action      : 'auto',
+  action      : 'activate',
 
   delay: {
     show: 200,
