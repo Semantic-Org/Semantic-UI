@@ -772,6 +772,7 @@
   -moz-box-shadow: none;
   box-shadow: none;
 }
+.ui.secondary.menu > .menu > .item,
 .ui.secondary.menu > .item {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -787,10 +788,17 @@
   -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
 }
+.ui.secondary.menu > .menu > .item:before,
 .ui.secondary.menu > .item:before {
   display: none !important;
 }
 
+.ui.secondary.menu .item > .input input {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  background-color: transparent;
+  border: none;
+}
 .ui.secondary.menu .link.item,
 .ui.secondary.menu a.item {
   opacity: 0.8;
@@ -801,7 +809,6 @@
   -ms-transition: none;
   transition: none;
 }
-
 .ui.secondary.menu .header.item {
   border-right: 0.1em solid rgba(0, 0, 0, 0.1);
   background-color: transparent;
@@ -818,6 +825,7 @@
 }
 
 /* active */
+.ui.secondary.menu > .menu > .active.item,
 .ui.secondary.menu > .active.item {
   background-color: rgba(0, 0, 0, 0.08);
   opacity: 1;
@@ -862,18 +870,9 @@
 
 .ui.secondary.pointing.menu {
   border-bottom: 3px solid rgba(0, 0, 0, 0.1);
-
 }
 
-.ui.secondary.pointing.menu .header.item {
-  border-right-width: 0px;
-  font-weight: bold;
-}
-
-.ui.secondary.pointing.menu .text.item {
-  box-shadow: none !important;
-}
-
+.ui.secondary.pointing.menu > .menu > .item,
 .ui.secondary.pointing.menu > .item {
   margin: 0em 0em -3px;
   padding: 0.6em 0.95em;
@@ -900,24 +899,40 @@
     color 0.2s
   ;
 }
+
+/* Item Types */
+.ui.secondary.pointing.menu .header.item {
+  border-right-width: 0px;
+  font-weight: bold;
+}
+.ui.secondary.pointing.menu .text.item {
+  box-shadow: none !important;
+}
+.ui.secondary.pointing.menu > .menu > .item:after,
 .ui.secondary.pointing.menu > .item:after {
   display: none;
 }
 
 /* Hover */
-.ui.secondary.pointing.menu > .item.hover,
-.ui.secondary.pointing.menu > .item:hover {
+.ui.secondary.pointing.menu > .menu > .link.item:hover,
+.ui.secondary.pointing.menu > .link.item:hover,
+.ui.secondary.pointing.menu > .menu > a.item:hover,
+.ui.secondary.pointing.menu > a.item:hover {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.7);
 }
 
 /* Down */
-.ui.secondary.pointing.menu > .item:active {
+.ui.secondary.pointing.menu > .menu > .link.item:active,
+.ui.secondary.pointing.menu > .link.item:active,
+.ui.secondary.pointing.menu > .menu > a.item:active,
+.ui.secondary.pointing.menu > a.item:active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Active */
+.ui.secondary.pointing.menu > .menu > .item.active,
 .ui.secondary.pointing.menu > .item.active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.4);
