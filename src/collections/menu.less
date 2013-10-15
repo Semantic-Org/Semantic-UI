@@ -261,21 +261,25 @@
 
 .ui.menu .item > .input,
 .ui.menu .item > .input input {
+  margin-top: -0.83em;
+  margin-bottom: -0.83em;
   width: 100%;
 }
-.ui.menu .ui.input > .icon {
-  padding-top: 0.1em;
-  height: auto;
+.ui.vertical.menu .item > .input,
+.ui.vertical.menu .item > .input input {
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
-.ui.menu .item > .input input,
-.ui.menu .item > input[type="text"] {
+.ui.menu .ui.input > .icon {
+  padding-top: 0em;
+}
+.ui.menu .item > .input input {
   position: relative;
-  margin: -0.45em 0em;
+  top: -0.075em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
-.ui.vertical.menu .item > .input input,
-.ui.vertical.menu .item > input[type="text"] {
+.ui.vertical.menu .item > .input input {
   top: 0em;
   margin: 0em;
   padding-top: 0.63em;
@@ -1782,6 +1786,10 @@
 .ui.small.menu .item {
   font-size: 0.875rem;
 }
+.ui.small.menu:not(.vertical) .item > .input input {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
 .ui.small.vertical.menu {
   width: 13rem;
 }
@@ -1800,13 +1808,10 @@
 .ui.large.menu .item .item {
   font-size: 0.875rem;
 }
-.ui.large.menu .item > .input input,
-.ui.large.menu .item > input[type="text"] {
-  padding-top: 0.65em;
-  padding-bottom: 0.65em;
-}
-.ui.large.menu .ui.input > .icon {
-  padding-top: 0.3em;
+.ui.large.menu:not(.vertical) .item > .input input {
+  top: -0.125em;
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
 }
 .ui.large.menu .dropdown.item .item {
   font-size: 1rem;
