@@ -133,7 +133,13 @@ $.fn.modal = function(parameters) {
 
         event: {
           close: function() {
-            module.verbose('Close button pressed');
+            module.verbose('Closing element pressed');
+            if( $(this).is(selector.approve) ) {
+              $.proxy(settings.onApprove, element)();
+            }
+            if( $(this).is(selector.deny) ) {
+              $.proxy(settings.onDeny, element)();
+            }
             module.hide();
           },
           click: function(event) {
@@ -566,9 +572,13 @@ $.fn.modal.settings = {
 
   onShow      : function(){},
   onHide      : function(){},
+  onApprove   : function(){ console.log('approved'); },
+  onDeny      : function(){ console.log('denied'); },
 
   selector    : {
-    close : '.close, .actions .button'
+    close    : '.close, .actions .button',
+    approve  : '.actions .positive, .actions .approve',
+    deny     : '.actions .negative, .actions .cancel'
   },
   error : {
     method : 'The method you called is not defined.'

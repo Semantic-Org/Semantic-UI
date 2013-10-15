@@ -26,11 +26,11 @@ type        : 'UI Module'
     </div>
     <div class="actions">
       <div class="two fluid ui buttons">
-        <div class="ui red labeled icon button">
+        <div class="ui negative labeled icon button">
           <i class="remove icon"></i>
           No
         </div>
-        <div class="ui green right labeled icon button">
+        <div class="ui positive right labeled icon button">
           Yes
           <i class="checkmark icon"></i>
         </div>
@@ -57,7 +57,7 @@ type        : 'UI Module'
       <div class="ui black button">
         Cancel
       </div>
-      <div class="ui green right labeled icon button">
+      <div class="ui positive right labeled icon button">
         Add Photo
         <i class="checkmark icon"></i>
       </div>
@@ -337,6 +337,16 @@ type        : 'UI Module'
         <td>Modal</td>
         <td>Is called after a modal is hidden.</td>
       </tr>
+      <tr>
+        <td>onApprove</td>
+        <td>Modal</td>
+        <td>Is called after a positive or approve button is pressed</td>
+      </tr>
+      <tr>
+        <td>onDeny</td>
+        <td>Modal</td>
+        <td>Is called after a negative or cancel button is pressed.</td>
+      </tr>
     </tbody>
   </table>
 
@@ -358,8 +368,10 @@ type        : 'UI Module'
         <td>selector</td>
         <td colspan="2">
           <div class="code">
-    selector : {
-      close : '.close, .actions .button'
+    selector    : {
+      close    : '.close, .actions .button',
+      approve  : '.actions .positive, .actions .approve',
+      deny     : '.actions .negative, .actions .cancel'
     },
           </div>
         </td>
