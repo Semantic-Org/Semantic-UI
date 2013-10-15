@@ -3924,12 +3924,12 @@ $.fn.dimmer = function(parameters) {
           ? 'touchstart'
           : 'click',
 
-        $module  = $(this),
+        $module = $(this),
         $dimmer,
         $dimmable,
 
-        element  = this,
-        instance = $module.data(moduleNamespace),
+        element   = this,
+        instance  = $module.data(moduleNamespace),
         module
       ;
 
@@ -3997,7 +3997,6 @@ $.fn.dimmer = function(parameters) {
             .off(eventNamespace)
           ;
           $dimmer
-            .remove()
             .off(eventNamespace)
           ;
         },
@@ -4398,8 +4397,8 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  debug       : true,
   verbose     : true,
+  debug       : true,
   performance : true,
 
   transition  : 'fade',
@@ -5220,12 +5219,13 @@ $.fn.modal = function(parameters) {
     invokedResponse
   ;
 
+
   $allModules
-    .each(function(index) {
+    .each(function() {
       var
         settings    = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, $.fn.modal.settings, parameters)
-          : $.extend(true, {}, $.fn.modal.settings),
+          : $.extend({}, $.fn.modal.settings),
 
         selector        = settings.selector,
         className       = settings.className,
@@ -5236,17 +5236,17 @@ $.fn.modal = function(parameters) {
         moduleNamespace = 'module-' + namespace,
         moduleSelector  = $allModules.selector || '',
 
-        $module         = $(this),
-        $context        = $(settings.context),
-        $otherModals    = $allModules.not($module),
-        $close          = $module.find(selector.close),
+        $module      = $(this),
+        $context     = $(settings.context),
+        $otherModals = $allModules.not($module),
+        $close       = $module.find(selector.close),
 
         $focusedElement,
         $dimmable,
         $dimmer,
 
-        element         = this,
-        instance        = $module.data(moduleNamespace),
+        element      = this,
+        instance     = $module.data(moduleNamespace),
         module
       ;
 
@@ -5256,7 +5256,6 @@ $.fn.modal = function(parameters) {
           module.verbose('Initializing dimmer', $context);
 
           $dimmable = $context
-            .dimmer()
             .dimmer('add content', $module)
           ;
           $dimmer = $context
@@ -5286,17 +5285,15 @@ $.fn.modal = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous modal');
           $module
-            .off(eventNamespace)
             .removeData(moduleNamespace)
+            .off(eventNamespace)
           ;
           $close
             .off(eventNamespace)
           ;
-          if($dimmable) {
-            $dimmable
-              .dimmer('destroy')
-            ;
-          }
+          $context
+            .dimmer('destroy')
+          ;
         },
 
         refresh: function() {
@@ -5328,7 +5325,13 @@ $.fn.modal = function(parameters) {
 
         event: {
           close: function() {
-            module.verbose('Close button pressed');
+            module.verbose('Closing element pressed');
+            if( $(this).is(selector.approve) ) {
+              $.proxy(settings.onApprove, element)();
+            }
+            if( $(this).is(selector.deny) ) {
+              $.proxy(settings.onDeny, element)();
+            }
             module.hide();
           },
           click: function(event) {
@@ -5508,6 +5511,7 @@ $.fn.modal = function(parameters) {
 
         set: {
           active: function() {
+            module.add.keyboardShortcuts();
             module.save.focus();
             module.set.type();
             $module
@@ -5522,15 +5526,11 @@ $.fn.modal = function(parameters) {
           dimmerSettings: function() {
             module.debug('Setting dimmer settings', $dimmable);
             $dimmable
-              .dimmer('setting', 'closable', false)
-              .dimmer('setting', 'duration', {
-                show : settings.duration * 0.95,
-                hide : settings.duration * 1.05
+              .dimmer({
+                closable: false,
+                show: settings.duration * 0.95,
+                hide: settings.duration * 1.05
               })
-              .dimmer('setting', 'onShow' , module.add.keyboardShortcuts)
-              // destory after changing settings in order to reattach events
-              .dimmer('destroy')
-              .dimmer('initialize')
             ;
           },
           scrolling: function() {
@@ -5764,9 +5764,13 @@ $.fn.modal.settings = {
 
   onShow      : function(){},
   onHide      : function(){},
+  onApprove   : function(){ console.log('approved'); },
+  onDeny      : function(){ console.log('denied'); },
 
   selector    : {
-    close : '.close, .actions .button'
+    close    : '.close, .actions .button',
+    approve  : '.actions .positive, .actions .approve',
+    deny     : '.actions .negative, .actions .cancel'
   },
   error : {
     method : 'The method you called is not defined.'

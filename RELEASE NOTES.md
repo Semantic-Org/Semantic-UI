@@ -1,5 +1,23 @@
 ## RELEASE NOTES
 
+### Version 0.7.1 - Oct 15, 2013
+
+**Updates**
+- Adds onApprove/onDeny callbacks to modal
+- Adds small/large sizing of modal, reformats default modal size to be slightly inset from page grid
+- Adds clockwise/counterclockwise rotated icon and default rotate
+- Adds orange label/segment
+- Adds automatic menu formatting for buttons inside menus
+- Dropdowns in vertical menu automatically receive proper triangle pointer direction
+
+**Fixes**
+- Fixes modal spacing on left/right content to match up with grid gutters
+- Fixes inheritance issues with rotated icon
+- Fixes tests not passing for modal/dimmer
+- Fixes overflow on item corner label
+- Fixes right menu formatting in secondary menus
+- Fixed shadow overlap on dropdown in menus
+
 ### Version 0.6.0 - Oct 14, 2013
 
 **Updates**

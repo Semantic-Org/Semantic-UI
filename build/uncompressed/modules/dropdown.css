@@ -129,6 +129,9 @@
   left: auto;
   right: 0px;
 }
+.ui.vertical.menu .dropdown.item > .dropdown.icon {
+  content: "\f0da";
+}
 /*******************************
             States
 *******************************/

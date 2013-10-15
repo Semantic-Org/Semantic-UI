@@ -55,6 +55,12 @@ i.icon {
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
+i.icon.left:before {
+  content: "\f060";
+}
+i.icon.right:before {
+  content: "\f061";
+}
 i.icon.add.sign.box:before {
   content: "\f0fe";
 }
@@ -604,9 +610,6 @@ i.icon.layout.list:before {
 i.icon.leaf:before {
   content: "\f06c";
 }
-i.icon.left:before {
-  content: "\f060";
-}
 i.icon.legal:before {
   content: "\f0e3";
 }
@@ -831,9 +834,6 @@ i.icon.resize.vertical:before {
 }
 i.icon.retweet:before {
   content: "\f079";
-}
-i.icon.right:before {
-  content: "\f061";
 }
 i.icon.road:before {
   content: "\f018";
@@ -1286,9 +1286,9 @@ i.link.icon:hover {
       Circular
 --------------------*/
 i.circular.icon {
-  -webkit-border-radius: 500px;
-  -moz-border-radius: 500px;
-  border-radius: 500px;
+  -webkit-border-radius: !important 500em;
+  -moz-border-radius: !important 500em;
+  border-radius: !important 500em;
   padding: 0.5em 0.35em !important;
   -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
@@ -1321,21 +1321,24 @@ i.horizontally.flipped.icon {
   transform: scale(-1, 1);
 }
 /*-------------------
-        Rotated
+      Rotated
 --------------------*/
-i.left.rotated.icon {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-i.right.rotated.icon {
+i.rotated.icon,
+i.right.rotated.icon,
+i.clockwise.rotated.icon {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+i.left.rotated.icon,
+i.counterclockwise.rotated.icon {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 /*-------------------
         Square

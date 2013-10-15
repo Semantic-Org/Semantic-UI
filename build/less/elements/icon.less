@@ -71,6 +71,9 @@ i.icon {
   font-smoothing: antialiased;
 }
 
+i.icon.left:before { content: "\f060"; }
+i.icon.right:before { content: "\f061"; }
+
 i.icon.add.sign.box:before { content: "\f0fe"; }
 i.icon.add.sign:before { content: "\f055"; }
 i.icon.add:before { content: "\f067"; }
@@ -254,7 +257,6 @@ i.icon.layout.column:before { content: "\f0db"; }
 i.icon.layout.grid:before { content: "\f00a"; }
 i.icon.layout.list:before { content: "\f00b"; }
 i.icon.leaf:before { content: "\f06c"; }
-i.icon.left:before { content: "\f060"; }
 i.icon.legal:before { content: "\f0e3"; }
 i.icon.lemon:before { content: "\f094"; }
 i.icon.level.down:before { content: "\f149"; }
@@ -330,7 +332,6 @@ i.icon.resize.horizontal:before { content: "\f07e"; }
 i.icon.resize.small:before { content: "\f066"; }
 i.icon.resize.vertical:before { content: "\f07d"; }
 i.icon.retweet:before { content: "\f079"; }
-i.icon.right:before { content: "\f061"; }
 i.icon.road:before { content: "\f018"; }
 i.icon.rocket:before { content: "\f135"; }
 i.icon.rss.sign:before { content: "\f143"; }
@@ -596,9 +597,9 @@ i.link.icon:hover {
 --------------------*/
 
 i.circular.icon {
-  -webkit-border-radius: 500px;
-  -moz-border-radius: 500px;
-  border-radius: 500px;
+  -webkit-border-radius: 500em !important;
+  -moz-border-radius: 500em !important;
+  border-radius: 500em !important;
 
   padding: 0.5em 0.35em !important;
 
@@ -637,17 +638,12 @@ i.horizontally.flipped.icon {
 }
 
 /*-------------------
-        Rotated
+      Rotated
 --------------------*/
 
-i.left.rotated.icon {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-i.right.rotated.icon {
+i.rotated.icon,
+i.right.rotated.icon,
+i.clockwise.rotated.icon {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
@@ -655,6 +651,14 @@ i.right.rotated.icon {
   transform: rotate(90deg);
 }
 
+i.left.rotated.icon,
+i.counterclockwise.rotated.icon {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
 
 /*-------------------
         Square

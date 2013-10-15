@@ -45,12 +45,12 @@ $.fn.dimmer = function(parameters) {
           ? 'touchstart'
           : 'click',
 
-        $module  = $(this),
+        $module = $(this),
         $dimmer,
         $dimmable,
 
-        element  = this,
-        instance = $module.data(moduleNamespace),
+        element   = this,
+        instance  = $module.data(moduleNamespace),
         module
       ;
 
@@ -118,7 +118,6 @@ $.fn.dimmer = function(parameters) {
             .off(eventNamespace)
           ;
           $dimmer
-            .remove()
             .off(eventNamespace)
           ;
         },
@@ -519,8 +518,8 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  debug       : true,
   verbose     : true,
+  debug       : true,
   performance : true,
 
   transition  : 'fade',

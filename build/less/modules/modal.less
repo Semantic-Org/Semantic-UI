@@ -92,14 +92,13 @@
 }
 .ui.modal > .content > .left {
   display: table-cell;
-  padding-right: 5%;
+  padding-right: 1.5%;
   min-width: 25%;
 }
 .ui.modal > .content > .right {
   display: table-cell;
-  padding-left: 5%;
+  padding-left: 1.5%;
   vertical-align: top;
-  min-width: 25%;
 }
 .ui.modal > .content > .left > .icon {
   font-size: 8em;
@@ -161,20 +160,20 @@
 }
 @media only screen and (min-width : 1500px) {
   .ui.modal {
-    width: 64%;
-    margin-left: -32%;
+    width: 56%;
+    margin-left: -28%;
   }
 }
 @media only screen and (min-width : 1750px) {
   .ui.modal {
-    width: 54%;
-    margin-left: -27%;
+    width: 42%;
+    margin-left: -21%;
   }
 }
 @media only screen and (min-width : 2000px) {
   .ui.modal {
-    width: 44%;
-    margin-left: -22%;
+    width: 36%;
+    margin-left: -18%;
   }
 }
 
@@ -214,4 +213,64 @@
 
 .ui.active.modal {
   display: block;
+}
+
+
+/*--------------
+      Size
+---------------*/
+
+/* Small */
+.ui.small.modal > .header {
+  font-size: 1.3em;
+}
+@media only screen and (min-width : 998px) {
+  .ui.small.modal {
+    width: 58%;
+    margin-left: -29%;
+  }
+}
+  .ui.small.modal {
+@media only screen and (min-width : 1500px) {
+    width: 40%;
+    margin-left: -20%;
+  }
+}
+@media only screen and (min-width : 1750px) {
+  .ui.small.modal {
+    width: 26%;
+    margin-left: -13%;
+  }
+}
+@media only screen and (min-width : 2000px) {
+  .ui.small.modal {
+    width: 20%;
+    margin-left: -10%;
+  }
+}
+
+/* Large */
+@media only screen and (min-width : 998px) {
+  .ui.large.modal {
+    width: 74%;
+    margin-left: -37%;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .ui.large.modal {
+    width: 64%;
+    margin-left: -32%;
+  }
+}
+@media only screen and (min-width : 1750px) {
+  .ui.large.modal {
+    width: 54%;
+    margin-left: -27%;
+  }
+}
+@media only screen and (min-width : 2000px) {
+  .ui.large.modal {
+    width: 44%;
+    margin-left: -22%;
+  }
 }
