@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 0.6.3 - Oct 15, 2013
+
+**Deprecation**
+- Dropdown changeText and updateForm have been deprecated and will be removed in 1.0
+
+**Updates**
+- Dropdown hide no longer selects current item as active (useful for menus)
+- Simplified possible dropdown actions changeText and updateForm are now consolidated into activate which is the new default
+
 ### Version 0.6.2 - Oct 15, 2013
 
 **Fixes**

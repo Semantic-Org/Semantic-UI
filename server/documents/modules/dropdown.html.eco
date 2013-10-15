@@ -47,7 +47,7 @@ type        : 'UI Module'
 
   <h2 class="ui dividing header">Types</h2>
 
-  <div class="visible form example">
+  <div class="visible dropdown example">
     <h4 class="ui header">Dropdown</h4>
     <p>A basic dropdown has no special formatting of its own</p>
     <div class="ui dropdown">
@@ -61,7 +61,7 @@ type        : 'UI Module'
     </div>
   </div>
 
-  <div class="form example">
+  <div class="dropdown example">
     <h4 class="ui header">Inline</h4>
     <p>A dropdown can be formatted to appear inline in other content</p>
     <div>Show me posts trending
@@ -69,7 +69,7 @@ type        : 'UI Module'
         <div class="text">today</div>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <div class="active item" data-text="today">Today</div>
+          <div class="item" data-text="today">Today</div>
           <div class="item" data-text="this week">This Week</div>
           <div class="item" data-text="this month">This Month</div>
         </div>
@@ -77,7 +77,7 @@ type        : 'UI Module'
     </div>
   </div>
 
-  <div class="form example">
+  <div class="dropdown example">
     <h4 class="ui header">Selection</h4>
     <p>A dropdown can be formatted to allow selection of a menu choice.</p>
     <div class="ui selection dropdown">
@@ -92,7 +92,7 @@ type        : 'UI Module'
   </div>
 
 
-  <div class="dropdown example">
+  <div class="button example">
     <h4 class="ui header">Floating</h4>
     <p>A dropdown menu can appear to be floating below an element.</p>
     <div class="ui teal buttons">
@@ -132,7 +132,7 @@ type        : 'UI Module'
       </div>
     </div>
   </div>
-  <div class="another dropdown example">
+  <div class="another button example">
     <div class="ui blue labeled icon top left pointing dropdown button">
       <i class="settings icon"></i>
       <span class="text">Settings</span>
@@ -152,7 +152,7 @@ type        : 'UI Module'
       </div>
     </div>
   </div>
-  <div class="another dropdown example">
+  <div class="another button example">
     <div class="ui teal right pointing dropdown icon button">
       <i class="settings icon"></i>
       <div class="menu">
@@ -189,7 +189,7 @@ type        : 'UI Module'
 
   <h2 class="ui dividing header">Examples</h2>
 
-  <div class="form example">
+  <div class="dropdown example">
     <h4 class="ui header">Re-selecting values</h4>
     <p>A dropdown will automatically select on page load any menu item that includes the currently value of <code>text</code> or your dropdown's hidden input value. This is used to preserve a user's selection on page navigation and will automatically remove and default text placeholder formatting.</p>
 
@@ -253,7 +253,7 @@ type        : 'UI Module'
     </div>
   </div>
 
-  <div class="form example">
+  <div class="dropdown example">
     <h4 class="ui header">Multiple Levels</h4>
     <p>A dropdown menu can also contain sub menus inside of it</p>
     My favorite animal breed is <div class="ui inline dropdown">
@@ -265,7 +265,7 @@ type        : 'UI Module'
           <i class="dropdown icon"></i>
           Dogs
           <div class="menu">
-            <div class="active item">Shiba Inu</div>
+            <div class="item">Shiba Inu</div>
             <div class="item">Poodle</div>
             <div class="item">Labrador</div>
           </div>
@@ -311,14 +311,14 @@ type        : 'UI Module'
           </a>
         </div>
         <div class="sub menu">
-          <div class="active item">Activity Feed</div>
+          <a class="item">Activity Feed</a>
           <a class="item">Profile</a>
           <a class="item">Events</a>
         </div>
       </div>
   </div>
 
-  <div class="form example">
+  <div class="dropdown example">
     <h4 class="ui header">Form</h4>
     <p>A dropdown can be formatted to allow selection inside a <a href="/collection/form.html">form</a></p>
     <div class="ui form segment">
@@ -367,7 +367,7 @@ type        : 'UI Module'
 
   <h2 class="ui dividing header">Variations</h2>
 
-  <div class="form example">
+  <div class="dropdown example">
     <h4 class="ui header">Fluid</h4>
     <p>A dropdown can take the full width of its parent</p>
     <div class="ui vertical menu">
@@ -491,7 +491,7 @@ type        : 'UI Module'
         <td>Sets a default action to occur.
         <div class="ui vertical divided list">
           <div class="item">
-            <div class="header">auto</div>
+            <div class="header">activate</div>
             <div class="description">Most likely action will be determined by type of dropdown, for example a selection dropdown will automatically use updateForm</div>
           </div>
           <div class="item">
@@ -503,12 +503,8 @@ type        : 'UI Module'
             <div class="description">Dropdown menu is hidden</div>
           </div>
           <div class="item">
-            <div class="header">changeText</div>
-            <div class="description">dropdown menu is hidden and text field is changed</div>
-          </div>
-          <div class="item">
-            <div class="header">updateForm</div>
-            <div class="description">dropdown menu is hidden text field is changed and hidden input value is changed</div>
+            <div class="header">activate</div>
+            <div class="description">Dropdown menu is hidden, item activated and text is changed</div>
           </div>
           <div class="item">
             <div class="header">function(){}</div>
