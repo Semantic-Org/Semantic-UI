@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.7.1 - Oct 15, 2013
+### Version 0.6.1 - Oct 15, 2013
 
 **Updates**
 - Adds onApprove/onDeny callbacks to modal
