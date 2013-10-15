@@ -1320,6 +1320,9 @@ body.progress .ui.progress .bar {
   #example .main.menu .github.item {
     display: block;
   }
+  #example .main.menu .github.item:before {
+    display: none;
+  }
   #example .carbonad {
     height: 135px;
   }
