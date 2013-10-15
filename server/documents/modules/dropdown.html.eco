@@ -237,7 +237,7 @@ type        : 'UI Module'
   </div>
 
 
-  <div class="dropdown example">
+  <div class="button example">
     <h4 class="ui header">Combo Button</h4>
     <p>A <a href="/element/button.html">button</a> can be formatted with a dropdown</p>
     <div class="ui teal buttons">
