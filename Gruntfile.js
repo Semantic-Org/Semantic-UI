@@ -110,7 +110,7 @@ module.exports = function(grunt) {
 
     setWatchFiles = function(action, filePath) {
       var
-        buildPath = filePath.replace('src/', 'docs/build/').replace('less', 'css')
+        buildPath = filePath.replace('src/', 'docs/build/uncompressed/').replace('less', 'css')
       ;
       if(filePath.search('.less') !== -1) {
         grunt.config('less.buildDocsCSS.src', filePath);

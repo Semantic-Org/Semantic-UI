@@ -202,6 +202,9 @@ function moduleTests(ui) {
 
     it("removes all events from page", function() {
       $module[module]('destroy');
+      if($.events().length > 0) {
+        dump($.events());
+      }
       expect($.events().length).toBe(0);
     });
 
