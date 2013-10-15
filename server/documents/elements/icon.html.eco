@@ -1218,15 +1218,15 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Flipped</h4>
     <p>An icon can be flipped</p>
-    <i class="horizontally flipped forward icon"></i>
-    <i class="vertically flipped forward icon"></i>
+    <i class="horizontally flipped cloud icon"></i>
+    <i class="vertically flipped cloud icon"></i>
   </div>
 
   <div class="example">
     <h4 class="ui header">Rotated</h4>
     <p>An icon can be rotated</p>
-    <i class="left rotated forward icon"></i>
-    <i class="right rotated forward icon"></i>
+    <i class="clockwise rotated cloud icon"></i>
+    <i class="counterclockwise rotated cloud icon"></i>
   </div>
 
 
