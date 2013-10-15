@@ -180,6 +180,9 @@ type        : 'UI Element'
     <a class="ui blue label">
       Smart
     </a>
+    <a class="ui orange label">
+      Radical
+    </a>
     <a class="ui purple label">
       Insane
     </a>
