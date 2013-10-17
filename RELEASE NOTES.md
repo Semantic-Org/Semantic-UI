@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.6.4 - Oct 16, 2013
+
+**Fixes**
+- Fixes issue where browser default action, like link clicking, was prevented on dropdown item click
+
 ### Version 0.6.3 - Oct 15, 2013
 
 **Deprecation**
