@@ -14,12 +14,6 @@
 
 
 .ui.transition {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
-
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
   -ms-animation-iteration-count: 1;
@@ -40,6 +34,18 @@
   -ms-animation-fill-mode: both;
   -o-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.animating.transition {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
 
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -47,10 +53,6 @@
   -o-transform: translateZ(0);
   transform: translateZ(0);
 }
-
-/*******************************
-       States
-*******************************/
 
 /* Loading */
 .ui.loading.transition {
