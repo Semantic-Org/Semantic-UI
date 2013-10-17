@@ -54,6 +54,8 @@ $.fn.dimmer = function(parameters) {
         module
       ;
 
+      console.log(element, parameters);
+
       module = {
 
         preinitialize: function() {

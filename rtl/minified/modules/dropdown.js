@@ -222,7 +222,6 @@ $.fn.dropdown = function(parameters) {
               if( $choice.find(selector.menu).size() === 0 ) {
                 module.determine.selectAction(text, value);
                 $.proxy(settings.onChange, element)(value, text);
-                event.preventDefault();
               }
             }
 

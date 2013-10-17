@@ -64,9 +64,14 @@ $.fn.modal = function(parameters) {
           module.verbose('Initializing dimmer', $context);
 
           $dimmable = $context
+            .dimmer({
+              closable : false,
+              show     : settings.duration * 0.95,
+              hide     : settings.duration * 1.05
+            })
             .dimmer('add content', $module)
           ;
-          $dimmer = $context
+          $dimmer = $dimmable
             .dimmer('get dimmer')
           ;
 
@@ -201,7 +206,6 @@ $.fn.modal = function(parameters) {
 
         showDimmer: function() {
           module.debug('Showing modal');
-          module.set.dimmerSettings();
           $dimmable.dimmer('show');
         },
 
@@ -330,16 +334,6 @@ $.fn.modal = function(parameters) {
                 .on('click' + eventNamespace, module.event.click)
               ;
             }
-          },
-          dimmerSettings: function() {
-            module.debug('Setting dimmer settings', $dimmable);
-            $dimmable
-              .dimmer({
-                closable: false,
-                show: settings.duration * 0.95,
-                hide: settings.duration * 1.05
-              })
-            ;
           },
           scrolling: function() {
             $dimmable.addClass(className.scrolling);
