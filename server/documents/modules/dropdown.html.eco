@@ -82,8 +82,8 @@ type        : 'UI Module'
     <p>A dropdown can be formatted to allow selection of a menu choice.</p>
     <div class="ui selection dropdown">
       <input type="hidden" name="gender">
-      <i class="dropdown icon"></i>
       <div class="default text">Gender</div>
+      <i class="dropdown icon"></i>
       <div class="menu">
         <div class="item" data-value="male">Male</div>
         <div class="item" data-value="female">Female</div>
@@ -337,8 +337,8 @@ type        : 'UI Module'
         <label>Gender</label>
         <div class="ui dropdown selection">
           <input type="hidden" name="gender">
-          <i class="dropdown icon"></i>
           <div class="default text">...</div>
+          <i class="dropdown icon"></i>
           <div class="menu">
             <div class="item" data-value="male">Male</div>
             <div class="item" data-value="female">Female</div>
