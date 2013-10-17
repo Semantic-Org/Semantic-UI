@@ -1,11 +1,17 @@
 ## RELEASE NOTES
 
-### Version 0.6.4 - Oct 15, 2013
+
+### Version 0.7.0 - Oct 17, 2013
 
 **New**
-- Popups can now have a different target element than itself
+- Popups can now have a different target than itself
+- Adds onTabInit for local tabs on first load
 
 **Fixes**
+- Fixes border radius on tabular menu
+- Removes vertical label width line missing units
+- Fixes pointing dropdown to appear correctly in menu
+- Fixes issue with borders on selection dropdown
 - Popup fixed a bug where "top right" placed popup might sometimes be too large
 - Popup will not reshow a visible popup on hover
 - Popup .toggle() now always hides/shows popup correctly
@@ -15,12 +21,18 @@
 **Updates**
 - Ribbon labels now have a shadow color
 - Popups are no longer inline by default
+- Optimizes dimmer init on modal to occur on modal init and not modal show
 - Popup metadata attribute arrowOffset is now offset for simplicities sake
 - Adds more popup examples
 - Popup default duration is now 200ms (slighty slower)
 - Popup border now uses RGBA to look sexier on dark backgrounds
 - Popup no-longer receives class name 'visible' on show, this allows popups to be used on dropdowns and other elements with a visible state
-- Optimizes dimmer init on modal to occur on modal init and not modal show
+
+
+### Version 0.6.4 - Oct 16, 2013
+
+**Fixes**
+- Fixes issue where browser default action, like link clicking, was prevented on dropdown item click
 
 ### Version 0.6.3 - Oct 15, 2013
 

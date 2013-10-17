@@ -94,11 +94,12 @@ pre {
   background-color: #F0F0F0;
 }
 code {
-  background-color: #F0F0F0;
-  border: 1px solid #E0E0E0;
+  background-color: rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   display: inline-block;
   font-family: Courier New;
   font-size: 14px;
+  margin: 0.25em;
   padding: 0.125em 0.25em;
   vertical-align: middle;
 }
@@ -155,6 +156,19 @@ a:hover {
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
+
+#example > .tab.segment {
+  padding-bottom: 0em;
+}
+#example > .tab.segment .tabular.menu {
+  margin: 2rem 0em 0em;
+  border-bottom: none;
+}
+#example > .tab.segment .tabular.menu .active.item {
+  background-color: #FAFAFA;
+}
+
+
 #example .download.menu {
   margin-top: 0em;
   margin-bottom: 3rem;

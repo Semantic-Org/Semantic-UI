@@ -26,16 +26,22 @@ semantic.ready = function() {
 
   // selector cache
   var
+
+    $peek             = $('.peek'),
+    $peekItem         = $peek.children('.menu').children('a.item'),
+    $peekSubItem      = $peek.find('.item .menu .item'),
+
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
     $menu             = $('#menu'),
     $hideMenu         = $('#menu .hide.item'),
     $sortTable        = $('.sortable.table'),
     $demo             = $('.demo'),
-    $waypoints        = $('.main.container').find('h2').first().siblings('h2').addBack(),
+    $waypoints        = $peek.closest('.tab, .container').find('h2').first().siblings('h2').addBack(),
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
+    $pageTabs         = $('.tab.segment .tabular.menu .item'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
 
@@ -53,9 +59,6 @@ semantic.ready = function() {
     $increaseFont     = $('.font .increase'),
     $decreaseFont     = $('.font .decrease'),
 
-    $peek             = $('.peek'),
-    $peekItem         = $peek.children('.menu').children('a.item'),
-    $peekSubItem      = $peek.find('.item .menu .item'),
     $code             = $('div.code').not('.existing'),
     $existingCode     = $('.existing.code'),
 
@@ -336,6 +339,19 @@ semantic.ready = function() {
       ;
     },
 
+    makeCode: function() {
+      if(window.ace !== undefined) {
+        $code
+          .filter(':visible')
+          .each(handler.initializeCode)
+        ;
+        $existingCode
+          .filter(':visible')
+          .each(handler.createAnnotation)
+        ;
+      }
+    },
+
     initializeCode: function() {
       var
         $code        = $(this).show(),
@@ -522,7 +538,7 @@ semantic.ready = function() {
         $menu           = $header.parent(),
         $subHeaderGroup = $header.find('.item'),
         $headerGroup    = $menu.children(),
-        $waypoint       = $('h2').eq( $headerGroup.index( $header ) )
+        $waypoint       = $('h2').eq( $headerGroup.index( $header ) ),
         $subWaypoint    = $waypoint.nextAll('h3').eq( $subHeaderGroup.index($subHeader) ),
         offset          = $subWaypoint.offset().top - 80
       ;
@@ -598,14 +614,18 @@ semantic.ready = function() {
     ;
   }
 
-  if(window.ace !== undefined) {
-    $code
-      .each(handler.initializeCode)
-    ;
-    $existingCode
-      .each(handler.createAnnotation)
+  if( $pageTabs.size() > 0 ) {
+    $pageTabs
+      .tab({
+        history: false,
+        onTabInit: handler.makeCode
+      })
     ;
   }
+  else {
+    handler.makeCode();
+  }
+
 
   handler.createIcon();
 

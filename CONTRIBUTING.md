@@ -107,7 +107,7 @@ Docpad should now run an instance of semantic-ui.com locally you can access at `
 
 If you are working on fixing a UI component that is part of Semantic, your best bet is to work actively on the file in `/src/{type}/{elementname}/` while running a watch script from grunt. This will rebuild the docs after you make changes, so you can see if you have corrected the issue you are fixing.
 
-To see exactly what this is doing you can check out our [commented gruntfile](https://github.com/jlukic/Semantic-UI/blob/master/node/Gruntfile.js)
+To see exactly what this is doing you can check out our [commented gruntfile](https://github.com/jlukic/Semantic-UI/blob/master/Gruntfile.js)
 
 ```bash
 grunt
