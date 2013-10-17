@@ -566,6 +566,54 @@ body.guide .main.container > * {
   padding: 1.5em 2em;
 }
 
+#example.popup .example .popup {
+  color: #FF0000;
+}
+#example .position.example .icon {
+  position: absolute;
+  margin: 0em;
+}
+#example .position.example .segment {
+  width: 250px;
+  height: 250px;
+}
+#example .position.example .segment .icon:nth-of-type(1) {
+  top: 3em;
+  left: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(2) {
+  top: 3em;
+  left: 50%;
+  margin-left: -1em;
+}
+#example .position.example .segment .icon:nth-of-type(3) {
+  top: 3em;
+  right: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(4) {
+  top: 50%;
+  margin-top: -1em;
+  right: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(5) {
+  bottom: 3em;
+  right: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(6) {
+  bottom: 3em;
+  left: 50%;
+  margin-left: -1em;
+}
+#example .position.example .segment .icon:nth-of-type(7) {
+  bottom: 3em;
+  left: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(8) {
+  top: 50%;
+  margin-top: -1em;
+  left: 3em;
+}
+
 #example .main.ui.grid {
   position: relative;
 }

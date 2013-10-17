@@ -228,7 +228,7 @@ type        : 'UI Module'
 
   <div class="no example">
     <h4 class="ui header">Transitions</h4>
-    <p>A dimmer can use any named ui transition.</p>
+    <p>A modal can use any named ui transition.</p>
     <div class="ui selection dropdown">
       <input type="hidden" name="transition">
       <i class="dropdown icon"></i>

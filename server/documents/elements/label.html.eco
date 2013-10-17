@@ -12,14 +12,14 @@ type        : 'UI Element'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Content</a>
-      <a class="item">Types</a>
+      <a class="active item">Types</a>
       <a class="item">Variations</a>
       <a class="item">Groups</a>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Content</h2>
+  <h2 class="ui dividing header">Types</h2>
+
   <div class="example">
     <h4 class="ui header">Label</h4>
     <p>A basic label</p>
@@ -29,7 +29,7 @@ type        : 'UI Element'
   </div>
   <div class="example">
     <h4 class="ui header">Detail</h4>
-    <p>A tag can optionally display a detail</p>
+    <p>A label can contain a detail</p>
     <div class="ui label">
       Dogs
       <div class="detail">214</div>
@@ -38,18 +38,16 @@ type        : 'UI Element'
 
   <div class="example">
     <h4 class="ui header">Removable</h4>
-    <p>A tag can optionally be removable</p>
+    <p>A label can contain a delete icon</p>
     <div class="ui label">
       Witty
       <i class="delete icon"></i>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Types</h2>
-
   <div class="example">
     <h4 class="ui header">Image</h4>
-    <p>A tag can optionally display an image</p>
+    <p>A label can be formatted to include an image</p>
     <a class="ui image label">
       <img src="/images/demo/photo2.jpg">
       dog@doggington.com
@@ -80,14 +78,17 @@ type        : 'UI Element'
       </div>
       This is a normal text segment
     </div>
-    <div class="ui image">
+    <div class="ui left floated medium image">
       <a class="ui left corner label">
         <div class="text">New</div>
       </a>
+      <img src="/images/demo/highres2.jpg">
+    </div>
+    <div class="ui left floated medium image">
       <a class="ui right red corner label">
         <i class="heart icon"></i>
       </a>
-      <img src="/images/demo/stickfigure.jpg">
+      <img src="/images/demo/highres3.jpg">
     </div>
   </div>
 
@@ -99,7 +100,11 @@ type        : 'UI Element'
         <div class="column">
           <div class="ui raised segment">
             <div class="ui ribbon label">Dogs</div>
-            <p>Pretty nice animals</p>
+            <p>Pretty nice animals.</p>
+            <div class="ui teal ribbon label">Cats</div>
+            <p>Also pretty nice animals, but can prefer solitude.</p>
+            <div class="ui red ribbon label">Ogres and monsters</div>
+            <p>Never seen one as a pet before, but I imagine they'd make pretty terrible companions.</p>
           </div>
         </div>
       </div>

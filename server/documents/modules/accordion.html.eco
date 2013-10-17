@@ -287,8 +287,8 @@ type        : 'UI Module'
       </tr>
       <tr>
         <td>easing</td>
-        <td>linear</td>
-        <td>Easing equation used for accordion (additional options require <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jQuery easing</a>)</td>
+        <td>easeInOutQuint</td>
+        <td>EaseInOutQuint is included with accordion, for additional options consider <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jQuery easing</a>)</td>
       </tr>
     </tbody>
   </table>

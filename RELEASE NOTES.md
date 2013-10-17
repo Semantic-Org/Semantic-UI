@@ -1,5 +1,27 @@
 ## RELEASE NOTES
 
+### Version 0.6.4 - Oct 15, 2013
+
+**New**
+- Popups can now have a different target element than itself
+
+**Fixes**
+- Popup fixed a bug where "top right" placed popup might sometimes be too large
+- Popup will not reshow a visible popup on hover
+- Popup .toggle() now always hides/shows popup correctly
+- Dropdown cannot display inside item image
+- Dropdown links were being prevented by event.preventDefault used for touch devices
+
+**Updates**
+- Ribbon labels now have a shadow color
+- Popups are no longer inline by default
+- Popup metadata attribute arrowOffset is now offset for simplicities sake
+- Adds more popup examples
+- Popup default duration is now 200ms (slighty slower)
+- Popup border now uses RGBA to look sexier on dark backgrounds
+- Popup no-longer receives class name 'visible' on show, this allows popups to be used on dropdowns and other elements with a visible state
+- Optimizes dimmer init on modal to occur on modal init and not modal show
+
 ### Version 0.6.3 - Oct 15, 2013
 
 **Deprecation**

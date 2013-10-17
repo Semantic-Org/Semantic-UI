@@ -486,6 +486,13 @@ type        : 'UI Module'
         <td>Named transition to use when animating menu in and out. Fade and slide down are available without including <a href="/modules/transition.html">ui transitions</a></td>
       </tr>
       <tr>
+        <td>duration</td>
+        <td>
+          250
+        </td>
+        <td>Duration of animation events</td>
+      </tr>
+      <tr>
         <td>action</td>
         <td>auto</td>
         <td>Sets a default action to occur.
@@ -567,11 +574,11 @@ type        : 'UI Module'
         <td colspan="2">
           <div class="code">
     selector : {
-      menu  : '.menu',
+      input : '> input[type="hidden"]',
       item  : '.menu > .item',
-      text  : '> .text',
-      input : '> input[type="hidden"]'
-    },
+      menu  : '.menu',
+      text  : '> .text'
+    }
           </div>
         </td>
       </tr>
@@ -582,7 +589,7 @@ type        : 'UI Module'
     metadata: {
       text  : 'text',
       value : 'value'
-    },
+    }
           </div>
         </td>
       </tr>
@@ -592,8 +599,8 @@ type        : 'UI Module'
           <div class="code">
     className : {
       active      : 'active',
-      placeholder : 'default',
       disabled    : 'disabled',
+      placeholder : 'default',
       visible     : 'visible'
     }
           </div>

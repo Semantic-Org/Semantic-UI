@@ -7594,11 +7594,13 @@ a.ui.label:hover:before {
 --------------------*/
 .ui.ribbon.label {
   position: relative;
-  right: -1.8rem;
+  margin: 0em 0.2em;
+  right: -2rem;
   padding-right: 2rem;
   -webkit-border-radius: 4px 0px 0px 4px;
   -moz-border-radius: 4px 0px 0px 4px;
   border-radius: 4px 0px 0px 4px;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 .ui.ribbon.label:after {
   position: absolute;
@@ -7788,18 +7790,22 @@ a.ui.label:hover:before {
 /* Hover */
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #888888 !important;
-  border-color: #888888 !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #888888 !important;
+  background-color: #333333 !important;
 }
 /* Corner */
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.black.ribbon.label {
+  border-color: #333333 !important;
 }
 /*--- Green ---*/
 .ui.green.labels .label,
@@ -7829,6 +7835,10 @@ a.ui.green.label:hover:before {
 .ui.green.corner.label:hover {
   background-color: transparent !important;
 }
+/* Ribbon */
+.ui.green.ribbon.label {
+  border-color: #89B84C !important;
+}
 /*--- Red ---*/
 .ui.red.labels .label,
 .ui.red.label {
@@ -7857,6 +7867,10 @@ a.ui.red.label:hover {
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
   background-color: #DE3859 !important;
+}
+/* Ribbon */
+.ui.red.ribbon.label {
+  border-color: #DE3859 !important;
 }
 /*--- Blue ---*/
 .ui.blue.labels .label,
@@ -7888,6 +7902,10 @@ a.ui.blue.label:hover:before {
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
 }
+/* Ribbon */
+.ui.blue.ribbon.label {
+  border-color: #1AB8F3 !important;
+}
 /*--- Purple ---*/
 .ui.purple.labels .label,
 .ui.purple.label {
@@ -7917,6 +7935,10 @@ a.ui.purple.label:hover:before {
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.purple.ribbon.label {
+  border-color: #3E3773 !important;
 }
 /*--- Orange ---*/
 .ui.orange.labels .label,
@@ -7948,7 +7970,11 @@ a.ui.orange.label:hover:before {
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
 }
-/*--- Pink ---*/
+/* Ribbon */
+.ui.orange.ribbon.label {
+  border-color: #FF4121 !important;
+}
+/*--- Teal ---*/
 .ui.teal.labels .label,
 .ui.teal.label {
   background-color: #00B5AD !important;
@@ -7977,6 +8003,10 @@ a.ui.teal.label:hover:before {
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.teal.ribbon.label {
+  border-color: #009A93 !important;
 }
 /*-------------------
      Horizontal
@@ -10918,7 +10948,7 @@ a.ui.nag {
   top: 0px;
   left: 0px;
   z-index: 900;
-  border: 1px solid #DCDDDE;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   max-width: 250px;
   background-color: #FFFFFF;
   padding: 0.8em 1.2em;
@@ -10929,9 +10959,9 @@ a.ui.nag {
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;
   border-radius: 0.2em;
-  -webkit-box-shadow: 0px 1px 1px #DCDDDE;
-  -moz-box-shadow: 0px 1px 1px #DCDDDE;
-  box-shadow: 0px 1px 1px #DCDDDE;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .header {
   padding: 0em 0em 0.5em;
@@ -10954,9 +10984,9 @@ a.ui.nag {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-box-shadow: 1px 1px 1px #DCDDDE;
-  -moz-box-shadow: 1px 1px 1px #DCDDDE;
-  box-shadow: 1px 1px 1px #DCDDDE;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .ui.button {
   width: 100%;
@@ -10995,12 +11025,12 @@ a.ui.nag {
   right: 50%;
   left: auto;
   bottom: auto;
-  -webkit-box-shadow: -1px -1px 1px #dcddde;
-  -moz-box-shadow: -1px -1px 1px #dcddde;
-  box-shadow: -1px -1px 1px #dcddde;
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.left.popup {
-  margin-left: -0.8em;
+  margin-left: -2em;
 }
 .ui.bottom.left.popup:before {
   top: -0.4em;
@@ -11008,12 +11038,12 @@ a.ui.nag {
   bottom: auto;
   right: auto;
   margin-right: 0em;
-  -webkit-box-shadow: -1px -1px 1px #dcddde;
-  -moz-box-shadow: -1px -1px 1px #dcddde;
-  box-shadow: -1px -1px 1px #dcddde;
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.right.popup {
-  margin-right: -0.8em;
+  margin-right: -2em;
 }
 .ui.bottom.right.popup:before {
   top: -0.4em;
@@ -11021,9 +11051,9 @@ a.ui.nag {
   left: auto;
   bottom: auto;
   margin-right: 0em;
-  -webkit-box-shadow: -1px -1px 1px #dcddde;
-  -moz-box-shadow: -1px -1px 1px #dcddde;
-  box-shadow: -1px -1px 1px #dcddde;
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Above ---*/
 .ui.top.center.popup:before {
@@ -11034,7 +11064,7 @@ a.ui.nag {
   margin-right: -0.4em;
 }
 .ui.top.left.popup {
-  margin-left: -0.8em;
+  margin-left: -2em;
 }
 .ui.top.left.popup:before {
   bottom: -0.4em;
@@ -11044,7 +11074,7 @@ a.ui.nag {
   margin-right: 0em;
 }
 .ui.top.right.popup {
-  margin-right: -0.8em;
+  margin-right: -2em;
 }
 .ui.top.right.popup:before {
   bottom: -0.4em;
@@ -11060,9 +11090,9 @@ a.ui.nag {
   bottom: auto;
   right: auto;
   margin-top: -0.4em;
-  -moz-box-shadow: 1px -1px 1px #dcddde;
-  -webkit-box-shadow: 1px -1px 1px #dcddde;
-  box-shadow: 1px -1px 1px #dcddde;
+  -moz-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Right Center  ---*/
 .ui.right.center.popup:before {
@@ -11071,9 +11101,9 @@ a.ui.nag {
   bottom: auto;
   left: auto;
   margin-top: -0.4em;
-  -moz-box-shadow: -1px 1px 1px #dcddde;
-  -webkit-box-shadow: -1px 1px 1px #dcddde;
-  box-shadow: -1px 1px 1px #dcddde;
+  -moz-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 /*******************************
             States
@@ -13616,7 +13646,6 @@ body {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  overflow: hidden;
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;
   border-radius: 0.2em;
