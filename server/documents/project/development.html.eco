@@ -56,10 +56,7 @@ type        : 'Semantic Project'
 
   <h3 class="ui header">4) Start Your Server</h3>
 
-  <p>It's important to note that all server code exists inside of <code>/node</code> in the project. So all commands should be run relative to that directory.</p>
-
   <div class="code" data-title="Starting server locally" data-type="terminal">
-    cd node
     docpad run
   </div>
 
