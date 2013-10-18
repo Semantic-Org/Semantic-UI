@@ -68,11 +68,6 @@ $.fn.dropdown = function(parameters) {
             module.bind.touchEvents();
           }
           module.bind.mouseEvents();
-
-          $document
-            .one('mousemove' + eventNamespace, module.set.hasMouse)
-          ;
-
           module.instantiate();
         },
 
@@ -518,10 +513,12 @@ $.fn.dropdown = function(parameters) {
           if( module.is.hidden() ) {
             module.hideOthers();
             module.set.active();
-            module.animate.show(module.set.visible);
-            if( module.can.click() ) {
-              module.bind.intent();
-            }
+            module.animate.show(function() {
+              if( module.can.click() ) {
+                module.bind.intent();
+              }
+              module.set.visible();
+            });
             $.proxy(settings.onShow, element)();
           }
         },
