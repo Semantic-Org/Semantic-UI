@@ -56,10 +56,7 @@ type        : 'Semantic Project'
 
   <h3 class="ui header">4) Start Your Server</h3>
 
-  <p>It's important to note that all server code exists inside of <code>/node</code> in the project. So all commands should be run relative to that directory.</p>
-
   <div class="code" data-title="Starting server locally" data-type="terminal">
-    cd node
     docpad run
   </div>
 
@@ -71,7 +68,7 @@ type        : 'Semantic Project'
 
   <p>If you are working on fixing a UI component that is part of Semantic, your best bet is to work actively on the file in <code>/src/{type}/{elementname}/</code> while running a watch script from grunt. This will rebuild the docs after you make changes, so you can see if you have corrected the issue you are fixing.</p>
 
-  <p>To see exactly what this is doing you can check out our <a href="https://github.com/jlukic/Semantic-UI/blob/master/node/Gruntfile.js">commented gruntfile</a></p>
+  <p>To see exactly what this is doing you can check out our <a href="https://github.com/jlukic/Semantic-UI/blob/master/Gruntfile.js">commented gruntfile</a></p>
 
   <div class="code" data-title="Watching Changes" data-type="terminal">
     grunt

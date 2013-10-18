@@ -207,7 +207,7 @@ type        : 'UI Module'
 
   <div class="dropdown example">
   <h4 class="ui header">Button Group</h4>
-    <p>A <a href="/element/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
+    <p>A <a href="/elements/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
     <div class="ui red icon buttons">
       <div class="ui top left pointing dropdown button">
         <i class="user icon"></i>
@@ -239,7 +239,7 @@ type        : 'UI Module'
 
   <div class="button example">
     <h4 class="ui header">Combo Button</h4>
-    <p>A <a href="/element/button.html">button</a> can be formatted with a dropdown</p>
+    <p>A <a href="/elements/button.html">button</a> can be formatted with a dropdown</p>
     <div class="ui teal buttons">
       <div class="ui button">Update Post</div>
       <div class="ui teal dropdown icon button">
@@ -286,7 +286,7 @@ type        : 'UI Module'
 
   <div class="hover example">
     <h4 class="ui header">Menu</h4>
-    <p>A <a href="/collection/menu.html">menu</a> element can contain a dropdown</p>
+    <p>A <a href="/collections/menu.html">menu</a> element can contain a dropdown</p>
       <div class="ui compact tiered purple inverted menu">
         <div class="menu">
           <a class="active item">
@@ -320,7 +320,7 @@ type        : 'UI Module'
 
   <div class="dropdown example">
     <h4 class="ui header">Form</h4>
-    <p>A dropdown can be formatted to allow selection inside a <a href="/collection/form.html">form</a></p>
+    <p>A dropdown can be formatted to allow selection inside a <a href="/collections/form.html">form</a></p>
     <div class="ui form segment">
       <p>Let's go ahead and get you signed up.</p>
       <div class="two fields">

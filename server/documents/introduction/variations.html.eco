@@ -13,7 +13,7 @@ type        : 'UI Introduction'
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Overview</a>
-      <a class="active item">Usage</a>
+      <a class="item">Usage</a>
     </div>
   </div>
 
