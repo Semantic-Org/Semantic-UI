@@ -4,11 +4,15 @@
 ### Version 0.7.0 - Oct 17, 2013
 
 **New**
+- Added responsive style to ui tables
+- Adds sortable tables to docs
+- Adds new tabbed doc style for modules
 - Popups can now have a different target than itself
 - Adds onTabInit for local tabs on first load
+- Adds documentation for module format
 
 **Fixes**
-- Fixes border radius on tabular menu
+- Fixes border radius on tabular menu, fixes one pixel jump on active state
 - Removes vertical label width line missing units
 - Fixes pointing dropdown to appear correctly in menu
 - Fixes issue with borders on selection dropdown
@@ -17,8 +21,13 @@
 - Popup .toggle() now always hides/shows popup correctly
 - Dropdown cannot display inside item image
 - Dropdown links were being prevented by event.preventDefault used for touch devices
+- Fixes some code samples not being properly indented
 
 **Updates**
+- Increased padding on attached labels
+- Leading on bulleted and ordered list slightly increased
+- Horizontal padding on icon list slightly increased
+- Increase opacity of icons on icon messages
 - Ribbon labels now have a shadow color
 - Popups are no longer inline by default
 - Optimizes dimmer init on modal to occur on modal init and not modal show

@@ -13,17 +13,14 @@ type        : 'Semantic'
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Design Pattern</a>
+      <a class="active item">Overview</a>
+      <a class="item">Initializing</a>
       <a class="item">Behaviors</a>
       <a class="item">Settings</a>
     </div>
   </div>
-  <h2 class="ui dividing header">Design Pattern</h2>
+  <h2 class="ui dividing header">Overview</h2>
   <p>All official javascript modules in Semantic are designed using a singular design pattern. This pattern allows several useful features common to all javascript components</p>
-  <a class="ui secondary labeled icon button" href="/spec/docs/module.commented.html">
-    <i class="book icon"></i>
-    View Commented Example
-  </a>
   <div class="ui relaxed list">
     <div class="item">
       <i class="check icon"></i>
@@ -61,21 +58,66 @@ type        : 'Semantic'
       </div>
     </div>
   </div>
+  <a class="ui secondary labeled icon button" href="/spec/docs/module.commented.html">
+    <i class="book icon"></i>
+    View Commented Example
+  </a>
+
+  <h2 class="ui dividing header">Initializing</h2>
+  <p>UI Modules are not automatically initialized on page load. You must attach event handlers to trigger the behavior you require for each element</p>
+  <p>Its okay to initialize an element multiple times, the element will automatically destroy the previous instance and re-initiale with the settings provided.</p>
+  <div class="evaluated code" data-type="javascript">
+    $(document)
+      .ready(function() {
+        // just initializing
+        $('.help.icon')
+          .popup()
+        ;
+        // initializing with settings
+        $('.ui.image')
+          .popup({
+            position: 'top right'
+          })
+        ;
+      })
+    ;
+  </div>
+  <div class="code" data-type="html" data-preview="true">
+    <i class="help link icon" data-content="This appears in the default location"></i>
+    <img class="ui medium image" src="/images/demo/photo.jpg" data-content="This pop-up appears to the top right">
+  </div>
+
   <h2 class="ui dividing header">Behaviors</h2>
   <p>Behaviors are an elements API. These can be invoke functionality or return aspects of the current state for an element</p>
 
   <h3 class="ui header">Triggering a Behavior</h3>
   <p>Behaviors are triggered in Semantic using a familiar syntax. API behaviors can be called using spaced words, camelcase or dot notation. The preferred method however is <b>spaced words</b>. Method lookup is done internally.</p>
-  <div class="code" data-title="Using Behaviors Programatically">
-    // generically
-    $('.ui.element')
-      .module('method', valueOne, valueTwo)
-    ;
+  <div class="code" data-title="Invoking Behaviors with arguments">
     // Sets a popup to top left position with an offset of negative five
-    $('.ui.popup')
+    $('.popup.icon')
       .popup('set position', 'top left', -5)
     ;
   </div>
+  <div class="code" data-title="Invoking Behaviors that does not Chain">
+    // returns boolean value instead of jQuery chain
+    $('.popup.icon').popup('is visible');
+  </div>
+  <div class="code" data-title="Returning multiple values">
+    // if selector size > 1 returns array of values [boolean, boolean...]
+    $('.many.popup').popup('is visible');
+  </div>
+
+  <h3 class="ui header">Overriding Internals</h3>
+  <p>Internal methods can be overwritten at run-time for individual instances of a module as well. For example:</p>
+  <div class="code" data-title="Changing Popup Logging">
+    // this instance will popup an alert for each log
+    $('.popup.icon')
+      .popup('internal', 'debug', function() {
+        window.alert(arguments[0]);
+      })
+    ;
+  </div>
+
 
   <h3 class="ui header">Common Behaviors</h3>
   <p>All modules have a set of core behaviors which allow you to configure the component</p>
@@ -106,7 +148,7 @@ type        : 'Semantic'
         <td>Internal method used for translating sentence case method into an internal method</td>
       </tr>
       <tr>
-        <td>log(comment, values)</td>
+        <td>debug(comment, values)</td>
         <td>Displays a log if a user has logging enabled</td>
       </tr>
       <tr>
@@ -186,13 +228,13 @@ type        : 'Semantic'
     <div class="item">
       <div class="header">Setting module defaults</div>
       Default settings for the module can be overridden by modifying <b>$.fn.module.settings</b>.
-      <br><div class="code">$.fn.popup.settings.moduleName = 'Godzilla';</div>
+      <br><div class="code" data-title="Example: Overriding a Popup's Log Name">$.fn.popup.settings.moduleName = 'Godzilla';</div>
     </div>
     <div class="item">
       <div class="header">At initialization</div>
       A settings object can be passed in when initializing the plugin
       <br>
-    <div class="code">
+    <div class="code" data-title="Example: Settings popup's log name at initialization">
     $('.foo')
       .popup({
         moduleName : 'Godzilla',
@@ -205,7 +247,7 @@ type        : 'Semantic'
       <div class="header">After initialization</div>
       Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair.
       <br>
-    <div class="code">
+    <div class="code" data-title="Example: Changing a Popup's log name after Initialization">
     $('.foo')
       // lets initialize that!
       .popup()
@@ -222,8 +264,8 @@ type        : 'Semantic'
   </div>
   <h3 class="ui header">Reading Settings</h3>
   <p>Settings can also be read programmatically:
-  <div class="code">
-    // outputs godzilla
+  <div class="code" data-title="Reading Settings">
+    // outputs 'godzilla' (1) or ['godzilla', 'godzilla'...] (2 or more)
     $('.foo').popup('setting', 'moduleName');
   </div>
 </div>

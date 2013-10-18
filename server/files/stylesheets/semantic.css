@@ -856,7 +856,7 @@ body.guide .main.container > * {
   background-color: transparent;
 }
 #example .label + div.code {
-  margin-top: 1em;
+  margin-top: 1.5em;
 }
 #example div.code .ace_gutter {
   background-color: #FAFAFA;

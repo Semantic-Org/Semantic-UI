@@ -10,11 +10,17 @@
       </h1>
 
       <p><%=@document.description %></p>
-      <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+      <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection': %>
       <div class="ui basic labeled icon toggle overview button">
-        Overview
+        Definition Mode
         <i class="book icon"></i>
       </div>
+      <% end %>
+      <% if @document.type is 'UI Module': %>
+      <a href="/module.html" class="ui basic labeled icon button">
+        How to Use
+        <i class="help icon"></i>
+      </a>
       <% end %>
     </div>
     <div class="advertisement">

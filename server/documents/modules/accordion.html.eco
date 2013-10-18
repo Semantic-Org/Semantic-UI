@@ -111,9 +111,12 @@ type        : 'UI Module'
       </div>
     </div>
 
-    <h2 class="ui dividing header">Behavior</h2>
+    <h2 class="ui dividing header">Behaviors</h2>
 
-    All the following behaviors can be called using the syntax <code>$('.foo').accordion('behavior name', argumentOne, argumentTwo)</code>
+    <p>Behaviors are accessible with javascript using the syntax:<p>
+    <div class="code">
+    $('.ui.accordion').accordion('behavior', argumentOne, argumentTwo...);
+    </div>
 
     <table class="ui definition celled table segment">
       <tr>
@@ -126,7 +129,7 @@ type        : 'UI Module'
       </tr>
       <tr>
         <td>toggle (index)</td>
-        <td>Closes accordion content at index</td>
+        <td>Toggles accordion content at index</td>
       </tr>
     </table>
 
@@ -135,33 +138,36 @@ type        : 'UI Module'
   <div class="ui tab" data-tab="examples">
 
     <div class="example">
-      <h4 class="ui header">Form</h4>
+      <h3 class="ui header">Form</h3>
       <p>An accordion can be used anywhere where content can be shown or hidden. For example, to show optional form fields.</p>
-      <div class="ui basic accordion form">
-        <div class="two fields">
-          <div class="field">
-            <label>First Name</label>
-            <input placeholder="First Name" type="text">
+      <div class="ui segment">
+        <div class="ui basic fluid accordion form">
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              <input placeholder="First Name" type="text">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input placeholder="Last Name" type="text">
+            </div>
           </div>
-          <div class="field">
-            <label>Last Name</label>
-            <input placeholder="Last Name" type="text">
+          <div class="title">
+            <i class="icon dropdown"></i>
+            Optional Details
           </div>
-        </div>
-        <div class="title">
-          <i class="icon dropdown"></i>
-          Optional Details
-        </div>
-        <div class="content">
-          <div class="field">
-            <label>Maiden Name</label>
-            <input placeholder="Maiden Name" type="text">
+          <div class="content">
+            <div class="field">
+              <label>Maiden Name</label>
+              <input placeholder="Maiden Name" type="text">
+            </div>
           </div>
+          <div class="ui secondary submit button">Sign Up</div>
         </div>
       </div>
     </div>
     <div class="example">
-      <h4 class="ui header">Menu</h4>
+      <h3 class="ui header">Menu</h3>
       <p>An accordion can be used to create content drawers inside a menu</p>
       <div class="ui basic vertical accordion menu">
         <div class="item">
@@ -250,7 +256,8 @@ type        : 'UI Module'
   <div class="ui tab" data-tab="usage">
 
     <h3 class="ui header">Initializing an accordion</h3>
-    <div class="code">
+    <p>After including accordion html in a page you can attach behaviors with javascript</p>
+    <div class="test code">
     $('.ui.accordion')
       .accordion()
     ;
@@ -342,10 +349,11 @@ type        : 'UI Module'
         <tr>
           <td>selector</td>
           <td>
-            <div class="code" data-type="css">{
-        title   : '.title',
-        content : '.content'
-      }
+            <div class="code" data-type="css">
+            {
+              title   : '.title',
+              content : '.content'
+            }
             </div>
           </td>
           <td>Object containing selectors used by module.</td>
@@ -354,9 +362,9 @@ type        : 'UI Module'
           <td>className</td>
           <td>
             <div class="code">
-      className : {
-        active : 'active'
-      },
+            className : {
+              active : 'active'
+            }
             </div>
           </td>
           <td>Class names used to attach style to state</td>
@@ -400,10 +408,10 @@ type        : 'UI Module'
           <td>errors</td>
           <td colspan="2">
             <div class="code">
-      error   : {
-        method   : 'The method you called is not defined.',
-        notFound : 'There were no elements that matched the specified selector'
-      }
+            error   : {
+              method   : 'The method you called is not defined.',
+              notFound : 'There were no elements that matched the specified selector'
+            }
             </div>
           </td>
         </tr>

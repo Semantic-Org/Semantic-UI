@@ -42,7 +42,7 @@ semantic.ready = function() {
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
-    $pageTabs         = $('.tab.segment .menu .item'),
+    $pageTabs         = $('body > .tab.segment .menu .item'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
 
@@ -236,6 +236,33 @@ semantic.ready = function() {
       ;
     },
 
+    getIndent: function(text) {
+      var
+        lines           = text.split("\n"),
+        firstLine       = (lines[0] === '')
+          ? lines[1]
+          : lines[0],
+        spacesPerIndent = 2,
+        leadingSpaces   = firstLine.length - firstLine.replace(/^\s*/g, '').length,
+        indent
+      ;
+      if(leadingSpaces !== 0) {
+        indent = leadingSpaces;
+      }
+      else {
+        // string has already been trimmed, get first indented line and subtract 2
+        $.each(lines, function(index, line) {
+          leadingSpaces = line.length - line.replace(/^\s*/g, '').length;
+          if(leadingSpaces !== 0) {
+            indent = leadingSpaces - spacesPerIndent;
+            console.log('returning' + indent);
+            return false;
+          }
+        });
+      }
+      return indent || 4;
+    },
+
     generateCode: function() {
       var
         $example    = $(this).closest('.example'),
@@ -243,7 +270,6 @@ semantic.ready = function() {
         $code       = $annotation.find('.code'),
         $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
         $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
-        whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
         code        = ''
       ;
       if( $code.size() === 0) {
@@ -370,16 +396,18 @@ semantic.ready = function() {
           text       : 'Command Line',
           sh         : 'Command Line'
         },
-        whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
+        indent     = handler.getIndent(code) || 4,
+        padding    = 20,
+        whiteSpace,
         $label,
-        padding     = 20,
         editor,
         editorSession,
         codeHeight
       ;
 
       // trim whitespace
-      code = $.trim(code.replace(whiteSpace, '\n'));
+      whiteSpace = new RegExp('\\n\\s{' + indent + '}', 'g');
+      code = $.trim(code).replace(whiteSpace, '\n');
 
       if(contentType == 'html') {
         $code.text(code);
@@ -618,8 +646,11 @@ semantic.ready = function() {
   if( $pageTabs.size() > 0 ) {
     $pageTabs
       .tab({
-        history: false,
-        onTabInit: handler.makeCode
+        onTabInit : handler.makeCode,
+        onTabLoad : function() {
+          $.waypoints('refresh');
+          $peekItem.removeClass('active').first().addClass('active');
+        }
       })
     ;
   }
