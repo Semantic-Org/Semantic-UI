@@ -110,9 +110,9 @@ $.fn.example = function(parameters) {
         },
 
         // #### Refresh
-        // Selectors are cached so we sometimes need to manually refresh the cache
+        // Selectors or cached values sometimes need to refreshed
         refresh: function() {
-          module.verbose('Refreshing selector cache for', element);
+          module.verbose('Refreshing elements', element);
           $module = $(element);
           $text   = $(this).find(settings.selector.text);
         },
