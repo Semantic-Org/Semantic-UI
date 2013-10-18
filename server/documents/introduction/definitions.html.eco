@@ -49,7 +49,7 @@ type        : 'UI Introduction'
 
   <h3 class="ui dividing header">Definition Sections</h2>
   <p>All UI components of a single type are defined similarly.</p>
-  <table class="ui celled definition table segment">
+  <table class="ui celled sortable definition table segment">
     <tr>
       <td class="three wide">All UI</td>
       <td>

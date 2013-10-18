@@ -238,7 +238,7 @@ type        : 'UI Module'
   </div>
 
   <h3 class="ui header">Settings</h3>
-  <table class="ui red celled definition table segment">
+  <table class="ui red celled sortable definition table segment">
     <thead>
       <th colspan="3">Checkbox Settings</th>
     </thead>
@@ -256,7 +256,7 @@ type        : 'UI Module'
     </tbody>
   </table>
 
-  <table class="ui teal celled definition table segment">
+  <table class="ui teal celled sortable definition table segment">
     <thead>
       <th colspan="3">Callbacks</th>
     </thead>
@@ -281,7 +281,7 @@ type        : 'UI Module'
 
   <h4 class="ui header">DOM Settings</h4>
   <p>DOM settings specify how this module should interface with the DOM</p>
-  <table class="ui celled definition table segment">
+  <table class="ui celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>

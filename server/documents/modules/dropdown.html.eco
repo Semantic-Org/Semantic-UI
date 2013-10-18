@@ -454,7 +454,7 @@ type        : 'UI Module'
 
   <h4 class="ui header">Dropdown Settings</h4>
   <p>Dropdown settings modify the dropdown's behavior</p>
-  <table class="ui celled definition table segment">
+  <table class="ui celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>
@@ -526,7 +526,7 @@ type        : 'UI Module'
   <h4 class="ui header">Callbacks</h4>
   <p>Callback settings specify a function to occur after a specific behavior.</p>
 
-  <table class="ui celled definition table segment">
+  <table class="ui celled sortable definition table segment">
     <thead>
       <th class="four wide">Setting</th>
       <th>Context</th>
@@ -557,7 +557,7 @@ type        : 'UI Module'
 
   <h4 class="ui header">DOM Settings</h4>
   <p>DOM settings specify how this module should interface with the DOM</p>
-  <table class="ui celled definition table segment">
+  <table class="ui celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>
@@ -615,7 +615,7 @@ type        : 'UI Module'
 
   <h4 class="ui header">Debug Settings</h4>
   <p>Debug settings controls debug output to the console</p>
-  <table class="ui celled definition table segment">
+  <table class="ui celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>

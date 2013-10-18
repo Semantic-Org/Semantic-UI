@@ -18,26 +18,30 @@ type        : 'UI Module'
       <div class="ui vertical pointing secondary menu">
         <a class="active item">Types</a>
         <a class="item">Variations</a>
+        <a class="item">Behaviors</a>
       </div>
     </div>
 
-    <h2 class="ui dividing header">Types</h2>
+    <h2 class="ui dividing header">
+      Types
+    </h2>
+
     <div class="example">
       <h3 class="ui header">Popup</h3>
       <p>A standard popup</p>
-      <i class="large heart circular icon link" data-content="Hello, I am a pop-up."></i>
+      <i class="heart circular icon link" data-content="Hello, I am a pop-up."></i>
     </div>
 
     <div class="example">
       <h3 class="ui header">Title</h3>
       <p>A popup can be formatted with a title</p>
-      <i class="circular heart icon link" data-title="Dog Breeds" data-content="There are many types of dogs. We don't have time to list them all"></i>
+      <img src="/images/demo/photo.jpg" data-title="PonyDog22" data-content="Ponydog has been a member for 22 days" class="ui avatar image"> PonyDog22
     </div>
 
     <div class="example">
       <h3 class="ui header">HTML</h3>
       <p>A popup can be formatted with html</p>
-      <i class="circular heart icon link" data-html="<div class='ui red button'>Button</div>"></i>
+      <i class="circular heart icon link" data-html="Average Rating: <div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div>"></i>
     </div>
 
     <h2 class="ui dividing header">Variations</h2>
@@ -54,6 +58,47 @@ type        : 'UI Module'
       <p>A popup can have its colors inverted</p>
       <i class="circular heart icon link" data-content="Hello. This is an inverted popup" data-variation="inverted"></i>
     </div>
+
+    <h2 class="ui dividing header">Behavior</h2>
+    All the following behaviors can be called using the syntax <code>$('.foo').sidebar('behavior name', argumentOne, argumentTwo)</code>
+    <table class="ui definition celled table segment">
+      <tr>
+        <td>show</td>
+        <td>Shows popup</td>
+      </tr>
+      <tr>
+        <td>hide</td>
+        <td>Hides popup</td>
+      </tr>
+      <tr>
+        <td>hide all</td>
+        <td>Hides all visible pop ups on the page</td>
+      </tr>
+      <tr>
+        <td>toggle</td>
+        <td>Toggles visibility of popup</td>
+      </tr>
+      <tr>
+        <td>is visible</td>
+        <td>Returns whether popup is visible</td>
+      </tr>
+      <tr>
+        <td>is hidden</td>
+        <td>Returns whether popup is hidden</td>
+      </tr>
+      <tr>
+        <td>exists</td>
+        <td>Returns whether popup is created and inserted into the page</td>
+      </tr>
+      <tr>
+        <td>set position(position)</td>
+        <td>Repositions a popup</td>
+      </tr>
+      <tr>
+        <td>remove</td>
+        <td>Removes popup from the page</td>
+      </tr>
+    </table>
   </div>
 
 
@@ -91,12 +136,12 @@ type        : 'UI Module'
           </ul>
         </div>
       </div>
-      <h4 class="ui header">Initializing with javascript content</h4>
+      <h4 class="ui header">Initializing with metadata</h4>
       <div class="code" data-type="html">
         <i class="heart icon" title="Hello I am a popup"></i>
       </div>
       <div class="ui horizontal divider">Or</div>
-      <h4 class="ui header">Initializing with metadata</h4>
+      <h4 class="ui header">Initializing with javascript content</h4>
     <div class="code">
     $('.ui.popup')
       .popup({
@@ -193,7 +238,7 @@ type        : 'UI Module'
 
     <div class="example">
       <h3 class="ui header">Specifying an offset</h3>
-      <p>A popup position can be adjusted manually by specifying an offset propery using <code>data-offset="value"</code></p>
+      <p>A popup position can be adjusted manually by specifying an offset property using <code>data-offset="value"</code></p>
 
       <i class="heart circular icon link" data-offset="50" data-content="As expected this popup is way off to the right"></i>
     </div>
@@ -236,54 +281,6 @@ type        : 'UI Module'
     </div>
   </div>
 
-  <div class="ui tab" data-tab="behaviors">
-
-    <h2 class="ui dividing header">Behavior</h2>
-    All the following behaviors can be called using the syntax <code>$('.foo').sidebar('behavior name', argumentOne, argumentTwo)</code>
-    <table class="ui definition celled table segment">
-      <tr>
-        <td>attach events(selector, event)</td>
-        <td>Attaches sidebar action to given selector. Default event if none specified is toggle</td>
-      </tr>
-      <tr>
-        <td>show</td>
-        <td>Shows popup</td>
-      </tr>
-      <tr>
-        <td>hide</td>
-        <td>Hides popup</td>
-      </tr>
-      <tr>
-        <td>hide all</td>
-        <td>Hides all visible pop ups on the page</td>
-      </tr>
-      <tr>
-        <td>toggle</td>
-        <td>Toggles visibility of popup</td>
-      </tr>
-      <tr>
-        <td>is visible</td>
-        <td>Returns whether popup is visible</td>
-      </tr>
-      <tr>
-        <td>is hidden</td>
-        <td>Returns whether popup is hidden</td>
-      </tr>
-      <tr>
-        <td>exists</td>
-        <td>Returns whether popup is created and inserted into the page</td>
-      </tr>
-      <tr>
-        <td>set position</td>
-        <td>Repositions a popup</td>
-      </tr>
-      <tr>
-        <td>remove</td>
-        <td>Removes popup from the page</td>
-      </tr>
-    </table>
-  </div>
-
   <div class="ui tab" data-tab="settings">
 
     <h2 class="ui dividing header">Settings</h2>
@@ -292,7 +289,7 @@ type        : 'UI Module'
       Popup Settings
       <div class="sub header">Settings to configure popup behavior</div>
     </h3>
-    <table class="ui red celled definition table segment">
+    <table class="ui celled sortable definition table segment">
       <thead>
         <th>Setting</th>
         <th class="four wide">Default</th>
@@ -370,7 +367,7 @@ type        : 'UI Module'
       Content Settings
       <div class="sub header">Settings to specify popup contents</div>
     </h3>
-    <table class="ui red celled definition table segment">
+    <table class="ui celled sortable definition table segment">
       <thead>
         <th>Setting</th>
         <th>Description</th>
@@ -399,7 +396,7 @@ type        : 'UI Module'
       DOM Settings
       <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
     </h3>
-    <table class="ui celled purple definition table segment">
+    <table class="ui celled sortable definition table segment">
       <thead>
         <th>Setting</th>
         <th class="six wide">Default</th>
@@ -462,7 +459,7 @@ type        : 'UI Module'
       <div class="sub header">Debug settings controls debug output to the console</div>
     </h3>
 
-    <table class="ui blue celled definition table segment">
+    <table class="ui celled sortable definition table segment">
       <thead>
         <th>Setting</th>
         <th class="four wide">Default</th>

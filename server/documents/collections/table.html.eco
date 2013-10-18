@@ -6,7 +6,6 @@ title       : 'Table'
 description : 'Tables display collections of data grouped into rows'
 type        : 'UI Collection'
 ---
-<script src="/javascript/library/tablesort.js"></script>
 <script src="/javascript/table.js"></script>
 
 <%- @partial('header') %>
@@ -25,7 +24,14 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Table</h4>
     <p>A standard table</p>
-    <div class="ui ignored info message">
+    <div class="ui ignored positive icon message">
+      <i class="mobile icon"></i>
+      <div class="content">
+        <h3 class="header">Responsive Element</h3>
+        <p>Tables are designed to be responsive. Table cells will stack when a mobile viewport size is reached.</p>
+      </div>
+    </div>
+    <div class="ui ignored message">
       <p>This example uses a <a href="/elements/segment.html">segment</a> to add padding and a background color.</p>
     </div>
     <table class="ui sortable table segment">

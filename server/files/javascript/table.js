@@ -4,16 +4,12 @@ semantic.table = {};
 semantic.table.ready = function() {
 
   // selector cache
-  var 
-    $sortTable = $('.sortable.table'),
+  var
     // alias
     handler
   ;
 
-  $sortTable
-    .tablesort()
-  ;
-  
+
 };
 
 

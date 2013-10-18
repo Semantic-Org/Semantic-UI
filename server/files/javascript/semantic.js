@@ -30,6 +30,7 @@ semantic.ready = function() {
     $peek             = $('.peek'),
     $peekItem         = $peek.children('.menu').children('a.item'),
     $peekSubItem      = $peek.find('.item .menu .item'),
+    $sortableTables   = $('.sortable.table'),
 
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
@@ -41,7 +42,7 @@ semantic.ready = function() {
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
-    $pageTabs         = $('.tab.segment .tabular.menu .item'),
+    $pageTabs         = $('.tab.segment .menu .item'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
 
@@ -671,6 +672,9 @@ semantic.ready = function() {
         popup: 'ui popup'
       }
     })
+  ;
+  $sortableTables
+    .tablesort()
   ;
 
   $menuDropdown
