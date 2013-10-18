@@ -161,9 +161,9 @@ $.fn.dropdown = function(parameters) {
         event: {
           test: {
             toggle: function(event) {
-              module.determine.intent(event, module.toggle);
-              event.preventDefault();
-              event.stopImmediatePropagation();
+              if( module.determine.intent(event, module.toggle) ) {
+                event.preventDefault();
+              }
             },
             touch: function(event) {
               module.determine.intent(event, function() {
@@ -254,9 +254,11 @@ $.fn.dropdown = function(parameters) {
             if( $(event.target).closest($menu).size() === 0 ) {
               module.verbose('Triggering event', callback);
               callback();
+              return true;
             }
             else {
               module.verbose('Event occurred in dropdown, canceling callback');
+              return false;
             }
           }
         },
