@@ -24,6 +24,7 @@
 - Fixes some code samples not being properly indented
 
 **Updates**
+- Block header now uses RGBA instead of solid color by default
 - Increased padding on attached labels
 - Leading on bulleted and ordered list slightly increased
 - Horizontal padding on icon list slightly increased

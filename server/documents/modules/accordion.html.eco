@@ -137,6 +137,8 @@ type        : 'UI Module'
 
   <div class="ui tab" data-tab="examples">
 
+    <h2 class="ui dividing header">Examples</h2>
+
     <div class="example">
       <h3 class="ui header">Form</h3>
       <p>An accordion can be used anywhere where content can be shown or hidden. For example, to show optional form fields.</p>
@@ -181,30 +183,26 @@ type        : 'UI Module'
                 <div class="field">
                   <div class="ui radio checkbox">
                     <input type="radio" name="size" value="small" />
-                    <label></label>
+                    <label>Small</label>
                   </div>
-                  <label>Small</label>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
                     <input type="radio" name="size" value="medium" />
-                    <label></label>
+                    <label>Medium</label>
                   </div>
-                  <label>Medium</label>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
                     <input type="radio" name="size" value="large" />
-                    <label></label>
+                    <label>Large</label>
                   </div>
-                  <label>Large</label>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
                     <input type="radio" name="size" value="x-large" />
-                    <label></label>
+                    <label>X-Large</label>
                   </div>
-                  <label>X-Large</label>
                 </div>
               </div>
             </div>
@@ -221,30 +219,26 @@ type        : 'UI Module'
                 <div class="field">
                   <div class="ui checkbox">
                     <input type="checkbox" name="small" />
-                    <label></label>
+                    <label>Red</label>
                   </div>
-                  <label>Red</label>
                 </div>
                 <div class="field">
                   <div class="ui checkbox">
                     <input type="checkbox" name="medium" />
-                    <label></label>
+                    <label>Orange</label>
                   </div>
-                  <label>Orange</label>
                 </div>
                 <div class="field">
                   <div class="ui checkbox">
                     <input type="checkbox" name="large" />
-                    <label></label>
+                    <label>Green</label>
                   </div>
-                  <label>Green</label>
                 </div>
                 <div class="field">
                   <div class="ui checkbox">
                     <input type="checkbox" name="x-large" />
-                    <label></label>
+                    <label>Blue</label>
                   </div>
-                  <label>Blue</label>
                 </div>
               </div>
             </div>
@@ -255,8 +249,8 @@ type        : 'UI Module'
   </div>
   <div class="ui tab" data-tab="usage">
 
+    <h2 class="ui dividing header">Usage</h2>
     <h3 class="ui header">Initializing an accordion</h3>
-    <p>After including accordion html in a page you can attach behaviors with javascript</p>
     <div class="test code">
     $('.ui.accordion')
       .accordion()

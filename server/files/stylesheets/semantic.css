@@ -159,6 +159,12 @@ a:hover {
 
 #example > .tab.segment {
   padding-bottom: 0em;
+  margin-bottom: 2em;
+}
+
+#example > .tab.segment .fixed .tabular.menu {
+  position: fixed;
+  top: 50px;
 }
 #example > .tab.segment .vertical.menu {
   display: none;

@@ -42,6 +42,7 @@ semantic.ready = function() {
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
+    $pageTabMenu      = $('body > .tab.segment .tabular.menu'),
     $pageTabs         = $('body > .tab.segment .menu .item'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),

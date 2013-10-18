@@ -124,39 +124,30 @@ type        : 'UI Module'
 
   <div class="ui tab" data-tab="usage">
 
-    <h2 class="ui dividing header">Usage</h2>
+    <h3 class="ui header">Check Box</h3>
+    <p>A checkbox can be initialized with javascript for increase programmatic control</p>
 
-    <div class="example">
-      <h4 class="ui header">Check Box</h4>
-      <p>A checkbox can be initialized with javascript</p>
-
-      <div class="ui language label">Javascript</div>
-      <div class="code">
-      $('.ui.checkbox')
-        .checkbox()
-      ;
-      </div>
-      <div class="ui language label">HTML</div>
-      <div class="code" data-type="html" data-preview="true">
+    <div class="code">
+    $('.ui.checkbox')
+      .checkbox()
+    ;
+    </div>
+    <div class="code" data-type="html">
       <div class="ui checkbox">
         <input type="checkbox">
         <label>Poodle</label>
       </div>
-      </div>
+    </div>
 
-      <div class="static example">
-        <h4 class="ui header">Check Box without Javascript</h4>
-        <p>A checkbox can also be used without using javascript by matching the <code>id</code> attribute of the input field to the <code>for</code> attribute of the accompanying label</p>
-        <div class="ui language label">HTML Only</div>
-        <div class="code" data-type="html" data-preview="true">
+    <h3 class="ui header">Check Box without Javascript</h3>
+    <p>A checkbox can also be used without using javascript by matching the <code>id</code> attribute of the input field to the <code>for</code> attribute of the accompanying label</p>
+    <div class="code" data-type="html">
       <div class="ui checkbox">
         <input type="checkbox" id="unique-id" />
         <label for="unique-id">Poodle</label>
       </div>
-        </div>
-      </div>
-
     </div>
+
 
   </div>
 
@@ -170,7 +161,6 @@ type        : 'UI Module'
       $('.enable.button')
         .on('click', function() {
           $(this)
-            .parent()
             .nextAll('.checkbox')
               .checkbox('enable')
           ;
@@ -179,7 +169,6 @@ type        : 'UI Module'
       $('.disable.button')
         .on('click', function() {
           $(this)
-            .parent()
             .nextAll('.checkbox')
               .checkbox('disable')
           ;
@@ -188,18 +177,15 @@ type        : 'UI Module'
       $('.toggle.button')
         .on('click', function() {
           $(this)
-            .parent()
             .nextAll('.checkbox')
               .checkbox('toggle')
           ;
         })
       ;
       </div>
-      <div class="ui buttons">
-        <div class="ui enable button">Enable</div>
-        <div class="ui disable button">Disable</div>
-        <div class="ui toggle button">Toggle</div>
-      </div>
+      <div class="ui toggle button">Toggle</div>
+      <div class="ui positive enable button">Enable</div>
+      <div class="ui negative disable button">Disable</div>
       <br><br>
       <div class="ui slider checkbox">
         <input type="checkbox" />
@@ -246,10 +232,15 @@ type        : 'UI Module'
 
   <div class="ui tab" data-tab="settings">
 
-    <h3 class="ui header">Settings</h3>
-    <table class="ui red celled sortable definition table segment">
+    <h3 class="ui header">
+      Checkbox Settings
+      <div class="sub header">Checkbox settings modify its behavior</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
       <thead>
-        <th colspan="3">Checkbox Settings</th>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
       </thead>
       <tbody>
         <tr>
@@ -265,31 +256,39 @@ type        : 'UI Module'
       </tbody>
     </table>
 
-    <table class="ui teal celled sortable definition table segment">
+    <h3 class="ui header">
+      Callbacks
+      <div class="sub header">Callback settings specify a function to occur after a specific behavior.</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
       <thead>
-        <th colspan="3">Callbacks</th>
+        <th class="four wide">Setting</th>
+        <th>Context</th>
+        <th>Description</th>
       </thead>
       <tbody>
         <tr>
           <td>onChange</td>
-          <td>None</td>
+          <td>Checkbox</td>
           <td>Callback after a checkbox is either disabled or enabled.</td>
         </tr>
         <tr>
           <td>onEnable</td>
-          <td>None</td>
+          <td>Checkbox</td>
           <td>Callback after a checkbox is enabled.</td>
         </tr>
         <tr>
           <td>onDisable</td>
-          <td>None</td>
+          <td>Checkbox</td>
           <td>Callback after a checkbox is disabled.</td>
         </tr>
       </tbody>
     </table>
 
-    <h4 class="ui header">DOM Settings</h4>
-    <p>DOM settings specify how this module should interface with the DOM</p>
+    <h3 class="ui header">DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
     <table class="ui celled sortable definition table segment">
       <thead>
         <th>Setting</th>
@@ -317,11 +316,9 @@ type        : 'UI Module'
           <td>className</td>
           <td colspan="2">
             <div class="code">
-
       className : {
         radio  : 'radio'
       }
-
             </div>
           </td>
         </tr>

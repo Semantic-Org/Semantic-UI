@@ -7,266 +7,267 @@ description : 'Modules are interface elements whose behavior is an essential par
 type        : 'Semantic'
 ---
 
-<%- @partial('header') %>
+<%- @partial('header', { tabs: { overview: 'Overview', init: 'Initializing', behavior: 'Behaviors', settings: 'Settings'} }) %>
 
 <div class="main container">
 
-  <div class="peek">
-    <div class="ui vertical pointing secondary menu">
-      <a class="active item">Overview</a>
-      <a class="item">Initializing</a>
-      <a class="item">Behaviors</a>
-      <a class="item">Settings</a>
-    </div>
-  </div>
-  <h2 class="ui dividing header">Overview</h2>
-  <p>All official javascript modules in Semantic are designed using a singular design pattern. This pattern allows several useful features common to all javascript components</p>
-  <div class="ui relaxed list">
-    <div class="item">
-      <i class="check icon"></i>
-      <div class="content">
-        <div class="header">Run-time Performance Analysis</div>
-        <p>Semantic modules all provide the ability to log performance traces to the console, allowing you to see which aspects of the module are more or less performant and to track total init time <code>onDomReady</code></p>
+  <div class="ui tab" data-tab="overview">
+
+    <p>All official javascript modules in Semantic are designed using a singular design pattern. This pattern allows several useful features common to all javascript components</p>
+    <div class="ui relaxed list">
+      <div class="item">
+        <i class="check icon"></i>
+        <div class="content">
+          <div class="header">Run-time Performance Analysis</div>
+          <p>Semantic modules all provide the ability to log performance traces to the console, allowing you to see which aspects of the module are more or less performant and to track total init time <code>onDomReady</code></p>
+        </div>
+      </div>
+      <div class="item">
+        <i class="check icon"></i>
+        <div class="content">
+          <div class="header">Human Readable Traces</div>
+          <p>Unlike other component libraries which hides explanations of behavior in inline comments which can only be read by combing the source, semantic modules provide run-time debug output to the javascript console telling you what each component is doing as it is doing it.</p>
+        </div>
+      </div>
+      <div class="item">
+        <i class="check icon"></i>
+        <div class="content">
+          <div class="header">Settings can be overwritten after initialization</div>
+          <p>Semantic provides methods to set default settings, set settings at initialization, and set settings after initialization, allowing complete flexibility over component behaviors.</p>
+        </div>
+      </div>
+      <div class="item">
+        <i class="check icon"></i>
+        <div class="content">
+          <div class="header">All modules include an initialize and destroy method</div>
+          <p>All events and metadata are namespaced and can be removed after initialization, modules automatically handle destroy/init events to allow users to lazy-initialize a plugin multiple times with no issues.</p>
+        </div>
+      </div>
+      <div class="item">
+        <i class="check icon"></i>
+        <div class="content">
+          <div class="header">Instance available in metadata</div>
+          <p>Modules store their instance in metadata meaning that, in a pinch, you can directly modify the instance of a UI element by modifying its properties.</p>
+        </div>
       </div>
     </div>
-    <div class="item">
-      <i class="check icon"></i>
-      <div class="content">
-        <div class="header">Human Readable Traces</div>
-        <p>Unlike other component libraries which hides explanations of behavior in inline comments which can only be read by combing the source, semantic modules provide run-time debug output to the javascript console telling you what each component is doing as it is doing it.</p>
+    <a class="ui secondary labeled icon button" href="/spec/docs/module.commented.html">
+      <i class="book icon"></i>
+      View Commented Example
+    </a>
+  </div>
+  <div class="ui tab" data-tab="init">
+    <p>UI Modules are not automatically initialized on page load. You must attach event handlers to trigger the behavior you require for each element</p>
+    <p>Its okay to initialize an element multiple times, the element will automatically destroy the previous instance and re-initialize with the settings provided.</p>
+    <div class="code" data-type="html" data-preview="true">
+      <div class="ui medium image">
+        <div class="ui corner label">
+          <i class="help link icon" data-content="This appears to the right"></i>
+        </div>
+        <img src="/images/demo/photo.jpg" data-content="This appears in the default location">
       </div>
     </div>
-    <div class="item">
-      <i class="check icon"></i>
-      <div class="content">
-        <div class="header">Settings can be overwritten after initialization</div>
-        <p>Semantic provides methods to set default settings, set settings at initialization, and set settings after initialization, allowing complete flexibility over component behaviors.</p>
+    <div class="evaluated code" data-type="javascript">
+      $(document)
+        .ready(function() {
+          // just initializing
+          $('.ui.image img')
+            .popup()
+          ;
+          // initializing with settings
+          $('.ui.image .help')
+            .popup({
+              position: 'right center'
+            })
+          ;
+        })
+      ;
+    </div>
+  </div>
+  <div class="ui tab" data-tab="behavior">
+    <h3 class="ui header">Triggering a Behavior</h3>
+    <p>Behaviors are an element's API. They invoke functionality or return aspects of the current state for an element</p>
+    <p>Behaviors can be called using spaced words, camelcase or dot notation. The preferred method however is <b>spaced words</b>. Method lookup is done automatically internally.</p>
+    <div class="code">
+      // Sets a popup to top left position with an offset of negative five
+      $('.popup.icon')
+        .popup('set position', 'top left', -5)
+      ;
+    </div>
+    <div class="code">
+      // returns boolean value instead of jQuery chain
+      $('.popup.icon').popup('is visible');
+    </div>
+    <div class="code">
+      // if selector size > 1 returns array of values [boolean, boolean...]
+      $('.many.popup').popup('is visible');
+    </div>
+
+    <h3 class="ui header">Overriding Internals</h3>
+    <p>Internal methods can be overwritten at run-time for individual instances of a module as well. For example:</p>
+    <div class="code">
+      // this instance will popup an alert for each log
+      $('.popup.icon')
+        .popup('internal', 'debug', function() {
+          window.alert(arguments[0]);
+        })
+      ;
+    </div>
+
+
+    <h3 class="ui header">Common Behaviors</h3>
+    <p>All modules have a set of core behaviors which allow you to configure the component</p>
+    <table class="ui celled definition sortable table segment">
+      <thead>
+        <th>Name</th>
+        <th>Usage</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>initialize</td>
+          <td>Initializes an element, adding page event handlers and init data</td>
+        </tr>
+        <tr>
+          <td>destroy</td>
+          <td>Removes all changes to the page made by initialization</td>
+        </tr>
+        <tr>
+          <td>refresh</td>
+          <td>Refreshes cached values for a component</td>
+        </tr>
+        <tr>
+          <td>setting(setting, value)</td>
+          <td>Allows you to modify or read a component setting</td>
+        </tr>
+        <tr>
+          <td>invoke(query, passedArguments, instance)</td>
+          <td>Internal method used for translating sentence case method into an internal method</td>
+        </tr>
+        <tr>
+          <td>debug(comment, values)</td>
+          <td>Displays a log if a user has logging enabled</td>
+        </tr>
+        <tr>
+          <td>verbose(comment, values)</td>
+          <td>Displays a log if a user has verbose logging enabled</td>
+        </tr>
+        <tr>
+          <td>error(name)</td>
+          <td>Displays a name error message from the component's settings</td>
+        </tr>
+        <tr>
+          <td>performance log(comment, value)</td>
+          <td>Adds a performance trace for an element</td>
+        </tr>
+        <tr>
+          <td>performance display</td>
+          <td>Displays current element performance trace</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ui tab" data-tab="settings">
+
+    <p>Unlike many javascript components, anything arbitrary in Semantic is a setting. This means no need to dig inside the internals of the component to alter an expected css selector or class name, simply alter the settings object</p>
+
+    <h3 class="ui header">Common Settings</h3>
+    <p>That means class names, selectors, error output, dom metadata etc can all be controlled by altering the settings object.</p>
+    <p>The following is a list of common settings usually found in each javascript module.
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Name</th>
+        <th>Usage</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Name used in debug logs to differentiate this widget from other debug statements.</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>Provides standard debug output to console.</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>Provides performance logging to console of internal method calls.</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>Provides extra debug output to console</td>
+        </tr>
+        <tr>
+          <td>namespace</td>
+          <td>Namespace used for DOM event and metadata namespacing. Allows module's destroy method to not affect other modules.</td>
+        </tr>
+        <tr>
+          <td>metadata</td>
+          <td>An object containing any metadata attributes used.</td>
+        </tr>
+        <tr>
+          <td>selectors</td>
+          <td>An object containing all selectors used in the module, these are usually children of the module.</td>
+        </tr>
+        <tr>
+          <td>classNames</td>
+          <td>An object containing all classnames used in the module.</td>
+        </tr>
+        <tr>
+          <td>errors</td>
+          <td colspan="2">A javascript array of error statements used in the plugin. These may sometimes appear to the user, but most often appear in debug statements.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="ui header">Changing Settings</h3>
+    <p>The following examples use <a href="/modules/popup.html">popup</a> as an example for how to modify settings</p>
+    <div class="ui ordered very relaxed list">
+      <div class="item">
+        <div class="header">Setting module defaults</div>
+        Default settings for the module can be overridden by modifying <b>$.fn.module.settings</b>.
+        <br>
+        <div class="code">
+        $.fn.popup.settings.moduleName = 'Godzilla';
+        </div>
+      </div>
+      <div class="item">
+        <div class="header">At initialization</div>
+        A settings object can be passed in when initializing the plugin
+        <br>
+      <div class="code">
+      $('.foo')
+        .popup({
+          moduleName : 'Godzilla',
+          verbose    : true
+        })
+      ;
+      </div>
+      </div>
+      <div class="item">
+        <div class="header">After initialization</div>
+        Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair.
+        <br>
+      <div class="code">
+      $('.foo')
+        // lets initialize that!
+        .popup()
+        // oh wait forgot something
+        .popup('setting', 'moduleName', 'Godzilla')
+        // and some more things
+        .popup('setting', {
+          debug   : true,
+          verbose : true
+        })
+      ;
+      </div>
       </div>
     </div>
-    <div class="item">
-      <i class="check icon"></i>
-      <div class="content">
-        <div class="header">All modules include an initialize and destroy method</div>
-        <p>All events and metadata are namespaced and can be removed after initialization, modules automatically handle destroy/init events to allow users to lazy-initialize a plugin multiple times with no issues.</p>
-      </div>
+    <h3 class="ui header">Reading Settings</h3>
+    <p>Settings can also be read programmatically:
+    <div class="code">
+      // outputs 'godzilla' (1) or ['godzilla', 'godzilla'...] (2 or more)
+      $('.foo').popup('setting', 'moduleName');
     </div>
-    <div class="item">
-      <i class="check icon"></i>
-      <div class="content">
-        <div class="header">Instance available in metadata</div>
-        <p>Modules store their instance in metadata meaning that, in a pinch, you can directly modify the instance of a UI element by modifying its properties.</p>
-      </div>
-    </div>
-  </div>
-  <a class="ui secondary labeled icon button" href="/spec/docs/module.commented.html">
-    <i class="book icon"></i>
-    View Commented Example
-  </a>
-
-  <h2 class="ui dividing header">Initializing</h2>
-  <p>UI Modules are not automatically initialized on page load. You must attach event handlers to trigger the behavior you require for each element</p>
-  <p>Its okay to initialize an element multiple times, the element will automatically destroy the previous instance and re-initiale with the settings provided.</p>
-  <div class="evaluated code" data-type="javascript">
-    $(document)
-      .ready(function() {
-        // just initializing
-        $('.help.icon')
-          .popup()
-        ;
-        // initializing with settings
-        $('.ui.image')
-          .popup({
-            position: 'top right'
-          })
-        ;
-      })
-    ;
-  </div>
-  <div class="code" data-type="html" data-preview="true">
-    <i class="help link icon" data-content="This appears in the default location"></i>
-    <img class="ui medium image" src="/images/demo/photo.jpg" data-content="This pop-up appears to the top right">
-  </div>
-
-  <h2 class="ui dividing header">Behaviors</h2>
-  <p>Behaviors are an elements API. These can be invoke functionality or return aspects of the current state for an element</p>
-
-  <h3 class="ui header">Triggering a Behavior</h3>
-  <p>Behaviors are triggered in Semantic using a familiar syntax. API behaviors can be called using spaced words, camelcase or dot notation. The preferred method however is <b>spaced words</b>. Method lookup is done internally.</p>
-  <div class="code" data-title="Invoking Behaviors with arguments">
-    // Sets a popup to top left position with an offset of negative five
-    $('.popup.icon')
-      .popup('set position', 'top left', -5)
-    ;
-  </div>
-  <div class="code" data-title="Invoking Behaviors that does not Chain">
-    // returns boolean value instead of jQuery chain
-    $('.popup.icon').popup('is visible');
-  </div>
-  <div class="code" data-title="Returning multiple values">
-    // if selector size > 1 returns array of values [boolean, boolean...]
-    $('.many.popup').popup('is visible');
-  </div>
-
-  <h3 class="ui header">Overriding Internals</h3>
-  <p>Internal methods can be overwritten at run-time for individual instances of a module as well. For example:</p>
-  <div class="code" data-title="Changing Popup Logging">
-    // this instance will popup an alert for each log
-    $('.popup.icon')
-      .popup('internal', 'debug', function() {
-        window.alert(arguments[0]);
-      })
-    ;
-  </div>
-
-
-  <h3 class="ui header">Common Behaviors</h3>
-  <p>All modules have a set of core behaviors which allow you to configure the component</p>
-  <table class="ui celled definition sortable table segment">
-    <thead>
-      <th>Name</th>
-      <th>Usage</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>initialize</td>
-        <td>Initializes an element, adding page event handlers and init data</td>
-      </tr>
-      <tr>
-        <td>destroy</td>
-        <td>Removes all changes to the page made by initialization</td>
-      </tr>
-      <tr>
-        <td>refresh</td>
-        <td>Refreshes cached values for a component</td>
-      </tr>
-      <tr>
-        <td>setting(setting, value)</td>
-        <td>Allows you to modify or read a component setting</td>
-      </tr>
-      <tr>
-        <td>invoke(query, passedArguments, instance)</td>
-        <td>Internal method used for translating sentence case method into an internal method</td>
-      </tr>
-      <tr>
-        <td>debug(comment, values)</td>
-        <td>Displays a log if a user has logging enabled</td>
-      </tr>
-      <tr>
-        <td>verbose(comment, values)</td>
-        <td>Displays a log if a user has verbose logging enabled</td>
-      </tr>
-      <tr>
-        <td>error(name)</td>
-        <td>Displays a name error message from the component's settings</td>
-      </tr>
-      <tr>
-        <td>performance log(comment, value)</td>
-        <td>Adds a performance trace for an element</td>
-      </tr>
-      <tr>
-        <td>performance display</td>
-        <td>Displays current element performance trace</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2 class="ui dividing header">Settings</h2>
-  <p>Unlike many javascript components, anything arbitrary in Semantic is a setting. This means no need to dig inside the internals of the component to alter an expected css selector or class name, simply alter the settings object</p>
-
-  <h3 class="ui header">Common Settings</h3>
-  <p>That means class names, selectors, error output, dom metadata etc can all be controlled by altering the settings object.</p>
-  <p>The following is a list of common settings usually found in each javascript module.
-  <table class="ui celled sortable definition table segment">
-    <thead>
-      <th>Name</th>
-      <th>Usage</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>name</td>
-        <td>Name used in debug logs to differentiate this widget from other debug statements.</td>
-      </tr>
-      <tr>
-        <td>debug</td>
-        <td>Provides standard debug output to console.</td>
-      </tr>
-      <tr>
-        <td>performance</td>
-        <td>Provides performance logging to console of internal method calls.</td>
-      </tr>
-      <tr>
-        <td>verbose</td>
-        <td>Provides extra debug output to console</td>
-      </tr>
-      <tr>
-        <td>namespace</td>
-        <td>Namespace used for DOM event and metadata namespacing. Allows module's destroy method to not affect other modules.</td>
-      </tr>
-      <tr>
-        <td>metadata</td>
-        <td>An object containing any metadata attributes used.</td>
-      </tr>
-      <tr>
-        <td>selectors</td>
-        <td>An object containing all selectors used in the module, these are usually children of the module.</td>
-      </tr>
-      <tr>
-        <td>classNames</td>
-        <td>An object containing all classnames used in the module.</td>
-      </tr>
-      <tr>
-        <td>errors</td>
-        <td colspan="2">A javascript array of error statements used in the plugin. These may sometimes appear to the user, but most often appear in debug statements.
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3 class="ui header">Changing Settings</h3>
-  <p>The following examples use <a href="/modules/popup.html">popup</a> as an example for how to modify settings</p>
-  <div class="ui ordered very relaxed list">
-    <div class="item">
-      <div class="header">Setting module defaults</div>
-      Default settings for the module can be overridden by modifying <b>$.fn.module.settings</b>.
-      <br><div class="code" data-title="Example: Overriding a Popup's Log Name">$.fn.popup.settings.moduleName = 'Godzilla';</div>
-    </div>
-    <div class="item">
-      <div class="header">At initialization</div>
-      A settings object can be passed in when initializing the plugin
-      <br>
-    <div class="code" data-title="Example: Settings popup's log name at initialization">
-    $('.foo')
-      .popup({
-        moduleName : 'Godzilla',
-        verbose    : true
-      })
-    ;
-    </div>
-    </div>
-    <div class="item">
-      <div class="header">After initialization</div>
-      Settings can be changed after a module is initialized by calling the 'settings' method on the module with either a settings object or a name, value pair.
-      <br>
-    <div class="code" data-title="Example: Changing a Popup's log name after Initialization">
-    $('.foo')
-      // lets initialize that!
-      .popup()
-      // oh wait forgot something
-      .popup('setting', 'moduleName', 'Godzilla')
-      // and some more things
-      .popup('setting', {
-        debug   : true,
-        verbose : true
-      })
-    ;
-    </div>
-    </div>
-  </div>
-  <h3 class="ui header">Reading Settings</h3>
-  <p>Settings can also be read programmatically:
-  <div class="code" data-title="Reading Settings">
-    // outputs 'godzilla' (1) or ['godzilla', 'godzilla'...] (2 or more)
-    $('.foo').popup('setting', 'moduleName');
   </div>
 </div>
 </body>
