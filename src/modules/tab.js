@@ -65,18 +65,26 @@
 
         // attach history events
         if(settings.history) {
+          module.debug('Initializing page state');
           if( $.address === undefined ) {
             module.error(error.state);
             return false;
           }
-          else if(settings.path === false) {
-            module.error(error.path);
-            return false;
-          }
           else {
-            module.verbose('Address library found adding state change event');
+            if(settings.historyType == 'html5') {
+              module.debug('Using HTML5 to manage state');
+              if(settings.path !== false) {
+                $.address
+                  .history(true)
+                  .state(settings.path)
+                ;
+              }
+              else {
+                module.error(error.path);
+                return false;
+              }
+            }
             $.address
-              .state(settings.path)
               .unbind('change')
               .bind('change', module.event.history.change)
             ;
@@ -110,15 +118,16 @@
 
       event: {
         click: function(event) {
-          module.debug('Navigation clicked');
           var
             tabPath = $(this).data(metadata.tab)
           ;
           if(tabPath !== undefined) {
             if(settings.history) {
+              module.verbose('Updating page state', event);
               $.address.value(tabPath);
             }
             else {
+              module.verbose('Changing tab without state management', event);
               module.changeTab(tabPath);
             }
             event.preventDefault();
@@ -169,6 +178,12 @@
           cacheKey = cacheKey || activeTabPath;
           module.debug('Removing cached content for', cacheKey);
           delete cache[cacheKey];
+        }
+      },
+
+      set: {
+        state: function(url) {
+          $.address.value(url);
         }
       },
 
@@ -649,7 +664,8 @@
 
     // uses pjax style endpoints fetching content from same url with remote-content headers
     auto            : false,
-    history         : false,
+    history         : true,
+    historyType     : 'hash',
     path            : false,
 
     context         : 'body',
