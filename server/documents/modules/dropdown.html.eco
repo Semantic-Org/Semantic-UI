@@ -278,14 +278,14 @@ type        : 'UI Module'
     <h2 class="ui dividing header">Examples</h2>
 
     <div class="dropdown example">
-      <h4 class="ui header">Re-selecting values</h4>
+      <h3 class="ui header">Re-selecting values</h3>
       <p>A dropdown will automatically select on page load any menu item that includes the currently value of <code>text</code> or your dropdown's hidden input value. This is used to preserve a user's selection on page navigation and will automatically remove and default text placeholder formatting.</p>
 
       Current action: <div class="ui inline dropdown">
         <div class="text">Hide</div>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <a href="http://www.google.com" class="item">Edit</a>
+          <div class="item">Edit</div>
           <div class="item">Remove</div>
           <div class="item">Hide</div>
         </div>
@@ -294,7 +294,7 @@ type        : 'UI Module'
     </div>
 
     <div class="dropdown example">
-    <h4 class="ui header">Button Group</h4>
+    <h3 class="ui header">Button Group</h3>
       <p>A <a href="/element/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
       <div class="ui red icon buttons">
         <div class="ui top left pointing dropdown button">
@@ -326,7 +326,7 @@ type        : 'UI Module'
 
 
     <div class="button example">
-      <h4 class="ui header">Combo Button</h4>
+      <h3 class="ui header">Combo Button</h3>
       <p>A <a href="/element/button.html">button</a> can be formatted with a dropdown</p>
       <div class="ui teal buttons">
         <div class="ui button">Update Post</div>
@@ -342,7 +342,7 @@ type        : 'UI Module'
     </div>
 
     <div class="dropdown example">
-      <h4 class="ui header">Multiple Levels</h4>
+      <h3 class="ui header">Multiple Levels</h3>
       <p>A dropdown menu can also contain sub menus inside of it</p>
       My favorite animal breed is <div class="ui inline dropdown">
         <input type="hidden" name="gender">
@@ -373,7 +373,7 @@ type        : 'UI Module'
 
 
     <div class="hover example">
-      <h4 class="ui header">Menu</h4>
+      <h3 class="ui header">Menu</h3>
       <p>A <a href="/collection/menu.html">menu</a> element can contain a dropdown</p>
         <div class="ui compact tiered purple inverted menu">
           <div class="menu">
@@ -407,7 +407,7 @@ type        : 'UI Module'
     </div>
 
     <div class="dropdown example">
-      <h4 class="ui header">Form</h4>
+      <h3 class="ui header">Form</h3>
       <p>A dropdown can be formatted to allow selection inside a <a href="/collection/form.html">form</a></p>
       <div class="ui form segment">
         <p>Let's go ahead and get you signed up.</p>
@@ -437,7 +437,7 @@ type        : 'UI Module'
     </div>
 
     <div class="transition example">
-      <h4 class="ui header">Transitions</h4>
+      <h3 class="ui header">Transitions</h3>
       <p>A dropdown can have different <a href="/modules/transition.html">transitions</a>.</p>
       <div class="ui teal buttons">
         <div class="ui button">Toggle</div>
