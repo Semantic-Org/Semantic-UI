@@ -30,7 +30,7 @@
   animation-fill-mode: both;
 }
 /*******************************
-       States
+            States
 *******************************/
 .ui.animating.transition {
   -webkit-backface-visibility: hidden;

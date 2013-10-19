@@ -163,7 +163,7 @@ $.fn.dropdown = function(parameters) {
             touch: function(event) {
               module.determine.intent(event, function() {
                 if(event.type == 'touchstart') {
-                  module.timer = setTimeout(module.hide, 50);
+                  module.timer = setTimeout(module.hide, settings.delay.touch);
                 }
                 else if(event.type == 'touchmove') {
                   clearTimeout(module.timer);
@@ -173,7 +173,6 @@ $.fn.dropdown = function(parameters) {
             },
             hide: function(event) {
               module.determine.intent(event, module.hide);
-              event.stopPropagation();
             }
           },
 
@@ -765,8 +764,9 @@ $.fn.dropdown.settings = {
   action      : 'activate',
 
   delay: {
-    show: 200,
-    hide: 300
+    show  : 200,
+    hide  : 300,
+    touch : 50
   },
 
   transition : 'slide down',

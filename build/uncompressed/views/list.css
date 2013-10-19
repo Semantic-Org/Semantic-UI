@@ -57,9 +57,9 @@ ol.ui.list li,
 }
 /* Icon */
 .ui.list .item > .icon {
-  display: table-cell;
+  display: inline-block;
   margin: 0em;
-  padding: 0.2em 0.5em;
+  padding: 0.1em 0.5em 0em 0em;
   vertical-align: top;
 }
 .ui.list .item > .icon:only-child {
@@ -85,7 +85,7 @@ ol.ui.list li,
   line-height: 1.2;
 }
 .ui.list .item > .icon + .content {
-  display: table-cell;
+  display: inline-block;
   vertical-align: top;
   padding-left: 0.5em;
 }

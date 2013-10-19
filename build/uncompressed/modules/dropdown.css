@@ -57,8 +57,9 @@
       Icon
 ---------------*/
 .ui.dropdown > .dropdown.icon {
+  float: right;
   width: auto;
-  margin: 0em 0em 0em 0.5em;
+  margin: 0em 0em 0em 1em;
 }
 .ui.dropdown > .dropdown.icon:before {
   content: "\f0d7";
@@ -250,7 +251,6 @@
   display: none;
 }
 .ui.selection.dropdown > .dropdown.icon {
-  float: right;
   opacity: 0.7;
   margin: 0.2em 0em 0.2em 1.25em;
   -webkit-transition: opacity 0.2s ease-out;
@@ -272,9 +272,9 @@
   max-height: 312px;
   overflow-x: hidden;
   overflow-y: auto;
-  -webkit-box-shadow: 0px 1px 0px 1px #EEEEEE;
-  -moz-box-shadow: 0px 1px 0px 1px #EEEEEE;
-  box-shadow: 0px 1px 0px 1px #EEEEEE;
+  -webkit-box-shadow: 0px 1px 0px 1px #E0E0E0;
+  -moz-box-shadow: 0px 1px 0px 1px #E0E0E0;
+  box-shadow: 0px 1px 0px 1px #E0E0E0;
   -moz-border-radius: 0px 0px 0.325em 0.325em;
   -webkit-border-radius: 0px 0px 0.325em 0.325em;
   border-radius: 0px 0px 0.325em 0.325em;
@@ -290,31 +290,27 @@
   margin-right: 0.5em;
 }
 /* Hover */
-.ui.selection.dropdown:hover,
-.ui.selection.dropdown.hover {
+.ui.selection.dropdown:hover {
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
+.ui.selection.dropdown:hover .menu {
+  -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
+  -moz-box-shadow: 0px 1px 0px 1px #D3D3D3;
+  box-shadow: 0px 1px 0px 1px #D3D3D3;
+}
 .ui.selection.dropdown:hover > .dropdown.icon {
   opacity: 1;
 }
-/* Visible */
-.ui.selection.active.dropdown {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+/* Active */
+.ui.active.selection.dropdown {
   -webkit-border-radius: 0.3125em 0.3125em 0em 0em !important;
   -moz-border-radius: 0.3125em 0.3125em 0em 0em !important;
   border-radius: 0.3125em 0.3125em 0em 0em !important;
 }
-.ui.selection.active.dropdown > .dropdown.icon {
+.ui.active.selection.dropdown > .dropdown.icon {
   opacity: 1;
-}
-.ui.selection.active.dropdown .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
-  -moz-box-shadow: 0px 1px 0px 1px #D3D3D3;
-  box-shadow: 0px 1px 0px 1px #D3D3D3;
 }
 /*--------------
       Fluid

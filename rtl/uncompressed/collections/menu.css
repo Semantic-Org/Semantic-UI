@@ -218,6 +218,9 @@
   min-width: calc(99%);
   box-shadow: 0 1px 1px 1px #DDDDDD;
 }
+.ui.menu .pointing.dropdown.item .menu {
+  margin-top: 0.75em;
+}
 .ui.menu .simple.dropdown.item .menu {
   margin: 0px !important;
 }
@@ -380,7 +383,6 @@
 }
 .ui.vertical.menu .item > .label {
   float: left;
-  min-width: 2.5;
   text-align: center;
 }
 .ui.vertical.menu .item > .icon:not(.input) {
