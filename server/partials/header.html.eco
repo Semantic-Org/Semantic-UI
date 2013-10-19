@@ -18,7 +18,7 @@
       <% end %>
       <% if @document.type is 'UI Module': %>
       <a href="/module.html" class="ui basic labeled icon button">
-        How to Use
+        Learn about Modules
         <i class="help icon"></i>
       </a>
       <% end %>
