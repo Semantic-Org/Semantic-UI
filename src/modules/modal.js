@@ -571,8 +571,8 @@ $.fn.modal.settings = {
 
   onShow      : function(){},
   onHide      : function(){},
-  onApprove   : function(){ console.log('approved'); },
-  onDeny      : function(){ console.log('denied'); },
+  onApprove   : function(){},
+  onDeny      : function(){},
 
   selector    : {
     close    : '.close, .actions .button',
