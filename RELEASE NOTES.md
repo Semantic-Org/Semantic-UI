@@ -1,6 +1,5 @@
 ## RELEASE NOTES
 
-
 ### Version 0.7.0 - Oct 17, 2013
 
 **New**
@@ -38,6 +37,12 @@
 - Popup default duration is now 200ms (slighty slower)
 - Popup border now uses RGBA to look sexier on dark backgrounds
 - Popup no-longer receives class name 'visible' on show, this allows popups to be used on dropdowns and other elements with a visible state
+
+### Version 0.6.5 - Oct 18, 2013
+
+**Fixes**
+- Fixes issue where browser default action, like link clicking, was prevented on dropdown item click
+- Modal keyboard shortcuts now obey settings.closable (credit to luisrudge)
 
 
 ### Version 0.6.4 - Oct 16, 2013

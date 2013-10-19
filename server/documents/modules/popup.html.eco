@@ -154,8 +154,6 @@ type        : 'UI Module'
 
   <div class="ui tab" data-tab="examples">
 
-    <h2 class="ui dividing header">Examples</h2>
-
     <div class="example">
       <h3 class="ui header">Specifying a trigger event</h3>
       <p>A popup trigger event can be specified</p>
@@ -281,8 +279,6 @@ type        : 'UI Module'
   </div>
 
   <div class="ui tab" data-tab="settings">
-
-    <h2 class="ui dividing header">Settings</h2>
 
     <h3 class="ui header">
       Popup Settings

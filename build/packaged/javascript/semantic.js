@@ -4516,11 +4516,6 @@ $.fn.dropdown = function(parameters) {
             module.bind.touchEvents();
           }
           module.bind.mouseEvents();
-
-          $document
-            .one('mousemove' + eventNamespace, module.set.hasMouse)
-          ;
-
           module.instantiate();
         },
 
@@ -4609,9 +4604,9 @@ $.fn.dropdown = function(parameters) {
         event: {
           test: {
             toggle: function(event) {
-              module.determine.intent(event, module.toggle);
-              event.preventDefault();
-              event.stopImmediatePropagation();
+              if( module.determine.intent(event, module.toggle) ) {
+                event.preventDefault();
+              }
             },
             touch: function(event) {
               module.determine.intent(event, function() {
@@ -4702,9 +4697,11 @@ $.fn.dropdown = function(parameters) {
             if( $(event.target).closest($menu).size() === 0 ) {
               module.verbose('Triggering event', callback);
               callback();
+              return true;
             }
             else {
               module.verbose('Event occurred in dropdown, canceling callback');
+              return false;
             }
           }
         },
@@ -4831,16 +4828,22 @@ $.fn.dropdown = function(parameters) {
           selection: function() {
             return $module.hasClass(className.selection);
           },
+          animated: function($subMenu) {
+            return ($subMenu)
+              ? $subMenu.is(':animated') || $subMenu.transition('is animating')
+              : $menu.is(':animated') || $menu.transition('is animating')
+            ;
+          },
           visible: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':animated, :visible')
-              : $menu.is(':animated, :visible')
+              ? $subMenu.is(':visible')
+              : $menu.is(':visible')
             ;
           },
           hidden: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':not(:animated, :visible)')
-              : $menu.is(':not(:animated, :visible)')
+              ? $subMenu.is(':not(:visible)')
+              : $menu.is(':not(:visible)')
             ;
           }
         },
@@ -4964,16 +4967,18 @@ $.fn.dropdown = function(parameters) {
           if( module.is.hidden() ) {
             module.hideOthers();
             module.set.active();
-            module.animate.show(module.set.visible);
-            if( module.can.click() ) {
-              module.bind.intent();
-            }
+            module.animate.show(function() {
+              if( module.can.click() ) {
+                module.bind.intent();
+              }
+              module.set.visible();
+            });
             $.proxy(settings.onShow, element)();
           }
         },
 
         hide: function() {
-          if( module.is.visible() ) {
+          if( !module.is.animated() && module.is.visible() ) {
             module.debug('Hiding dropdown');
             if( module.can.click() ) {
               module.unbind.intent();
@@ -5414,8 +5419,13 @@ $.fn.modal = function(parameters) {
               escapeKey = 27
             ;
             if(keyCode == escapeKey) {
-              module.debug('Escape key pressed hiding modal');
-              module.hide();
+              if(settings.closable) {
+                module.debug('Escape key pressed hiding modal');
+                module.hide();
+              }
+              else {
+                module.debug('Escape key pressed, but closable is set to false');
+              }
               event.preventDefault();
             }
           },
@@ -5816,8 +5826,8 @@ $.fn.modal.settings = {
 
   onShow      : function(){},
   onHide      : function(){},
-  onApprove   : function(){ console.log('approved'); },
-  onDeny      : function(){ console.log('denied'); },
+  onApprove   : function(){},
+  onDeny      : function(){},
 
   selector    : {
     close    : '.close, .actions .button',
@@ -9692,18 +9702,26 @@ $.fn.sidebar.settings = {
 
         // attach history events
         if(settings.history) {
+          module.debug('Initializing page state');
           if( $.address === undefined ) {
             module.error(error.state);
             return false;
           }
-          else if(settings.path === false) {
-            module.error(error.path);
-            return false;
-          }
           else {
-            module.verbose('Address library found adding state change event');
+            if(settings.historyType == 'html5') {
+              module.debug('Using HTML5 to manage state');
+              if(settings.path !== false) {
+                $.address
+                  .history(true)
+                  .state(settings.path)
+                ;
+              }
+              else {
+                module.error(error.path);
+                return false;
+              }
+            }
             $.address
-              .state(settings.path)
               .unbind('change')
               .bind('change', module.event.history.change)
             ;
@@ -9737,15 +9755,16 @@ $.fn.sidebar.settings = {
 
       event: {
         click: function(event) {
-          module.debug('Navigation clicked');
           var
             tabPath = $(this).data(metadata.tab)
           ;
           if(tabPath !== undefined) {
             if(settings.history) {
+              module.verbose('Updating page state', event);
               $.address.value(tabPath);
             }
             else {
+              module.verbose('Changing tab without state management', event);
               module.changeTab(tabPath);
             }
             event.preventDefault();
@@ -9796,6 +9815,12 @@ $.fn.sidebar.settings = {
           cacheKey = cacheKey || activeTabPath;
           module.debug('Removing cached content for', cacheKey);
           delete cache[cacheKey];
+        }
+      },
+
+      set: {
+        state: function(url) {
+          $.address.value(url);
         }
       },
 
@@ -9861,6 +9886,11 @@ $.fn.sidebar.settings = {
             else {
               module.debug('Opened local tab', currentPath);
               module.activate.all(currentPath);
+              if( !module.cache.read(currentPath) ) {
+                module.cache.add(currentPath, true);
+                module.debug('First time tab loaded calling tab init');
+                $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
+              }
               $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
             }
           }
@@ -10271,7 +10301,8 @@ $.fn.sidebar.settings = {
 
     // uses pjax style endpoints fetching content from same url with remote-content headers
     auto            : false,
-    history         : false,
+    history         : true,
+    historyType     : 'hash',
     path            : false,
 
     context         : 'body',

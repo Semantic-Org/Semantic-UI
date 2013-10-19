@@ -79,6 +79,17 @@ a.ui.label {
 .ui.label .delete.icon:hover {
   opacity: 0.99;
 }
+/*-------------------
+       Coupling
+--------------------*/
+/* Padding on next content after a label */
+.ui.segment > .attached.label:first-child + * {
+  margin-top: 2.5em;
+}
+.ui.segment > .bottom.attached.label:first-child ~ :last-child {
+  margin-top: 0em;
+  margin-bottom: 2.5em;
+}
 /*******************************
              Types
 *******************************/
@@ -234,6 +245,7 @@ a.ui.label:hover:before {
   margin: 0em;
   top: 0em;
   left: 0em;
+  padding: 0.75em 1em;
   -webkit-border-radius: 4px 4px 0em 0em;
   -moz-border-radius: 4px 4px 0em 0em;
   border-radius: 4px 4px 0em 0em;

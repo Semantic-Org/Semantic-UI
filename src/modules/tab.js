@@ -250,9 +250,9 @@
               module.debug('Opened local tab', currentPath);
               module.activate.all(currentPath);
               if( !module.cache.read(currentPath) ) {
+                module.cache.add(currentPath, true);
                 module.debug('First time tab loaded calling tab init');
                 $.proxy(settings.onTabInit, $tab)(currentPath, parameterArray, historyEvent);
-                module.cache.add(currentPath, true);
               }
               $.proxy(settings.onTabLoad, $tab)(currentPath, parameterArray, historyEvent);
             }

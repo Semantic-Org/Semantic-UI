@@ -24,8 +24,9 @@
   position: relative;
   display: inline-block;
 
-  width: 1em;
-  height: 1.5em;
+  min-width: 1em;
+  height: 1.25em;
+  line-height: 1em;
 
   outline: none;
   vertical-align: middle;
@@ -44,21 +45,14 @@
 .ui.checkbox .box,
 .ui.checkbox label {
   cursor: pointer;
-  position: relative;
-
-  min-width: 1em;
-  height: 1.5em;
-
   padding-left: 2em;
   outline: none;
-
-  white-space: nowrap;
 }
 
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
   position: absolute;
-  top: 0.25em;
+  top: 0em;
   left: 0em;
 
   line-height: 1;
@@ -117,7 +111,7 @@
 }
 .ui.checkbox .box:after,
 .ui.checkbox label:after {
-  top: 0.54em;
+  top: 0.275em;
   left: 0.2em;
   width: 0.45em;
   height: 0.15em;
@@ -208,7 +202,7 @@
 
 .ui.radio.checkbox .box:before,
 .ui.radio.checkbox label:before {
-  width: 1em;
+  min-width: 1em;
   height: 1em;
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
@@ -217,13 +211,15 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
-  top: 0.45em;
+  top: 0.2em;
   left: 0.2em;
 
   width: 0.6em;
   height: 0.6em;
 
   background-color: #555555;
+
+  transform: none;
 
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
@@ -237,13 +233,12 @@
 .ui.slider.checkbox {
   cursor: pointer;
   min-width: 3em;
-  height: 2em;
 }
 
 /* Line */
 .ui.slider.checkbox:after {
   position: absolute;
-  top: 0.8em;
+  top: 0.5em;
   left: 0em;
   content: '';
 
@@ -263,8 +258,8 @@
   display: block;
 
   position: absolute;
-  top: 0em;
-  left: 0;
+  top: -0.25em;
+  left: 0em;
   z-index: 1;
 
   width: 1.5em;
@@ -290,7 +285,7 @@
 
   position: absolute;
   content: '';
-  top: 0.375em;
+  top: 0.15em;
   left: 0em;
   z-index: 2;
 
@@ -301,6 +296,8 @@
   height: 0.75em;
 
   border-radius: 50rem;
+
+  transform: none;
 
   -webkit-transition:
     background 0.3s ease 0s,
@@ -360,7 +357,6 @@
 
 .ui.toggle.checkbox {
   cursor: pointer;
-  height: 2em;
 }
 
 .ui.toggle.checkbox .box,
@@ -376,7 +372,7 @@
 
   position: absolute;
   content: '';
-  top: 0em;
+  top: -0.25em;
   left: 0em;
   z-index: 1;
 
@@ -403,7 +399,7 @@
 
   content: '';
   position: absolute;
-  top: 0.35em;
+  top: 0.15em;
   left: 0.5em;
   z-index: 2;
 
