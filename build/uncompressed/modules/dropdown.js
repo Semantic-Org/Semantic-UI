@@ -24,7 +24,7 @@ $.fn.dropdown = function(parameters) {
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
-    invokedResponse
+    returnedValue
   ;
 
   $allModules
@@ -240,7 +240,7 @@ $.fn.dropdown = function(parameters) {
               settings.action(text, value);
             }
             else {
-              module.error(error.action);
+              module.error(error.action, settings.action);
             }
           },
           intent: function(event, callback) {
@@ -457,7 +457,7 @@ $.fn.dropdown = function(parameters) {
                 ;
               }
               else {
-                module.error(error.transition);
+                module.error(error.transition, settings.transition);
               }
             }
           },
@@ -718,14 +718,14 @@ $.fn.dropdown = function(parameters) {
           else if(found !== undefined) {
             response = found;
           }
-          if($.isArray(invokedResponse)) {
-            invokedResponse.push(response);
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
           }
-          else if(typeof invokedResponse == 'string') {
-            invokedResponse = [invokedResponse, response];
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
           }
           else if(response !== undefined) {
-            invokedResponse = response;
+            returnedValue = response;
           }
           return found;
         }
@@ -746,8 +746,8 @@ $.fn.dropdown = function(parameters) {
     })
   ;
 
-  return (invokedResponse)
-    ? invokedResponse
+  return (returnedValue)
+    ? returnedValue
     : this
   ;
 };

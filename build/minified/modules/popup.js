@@ -26,7 +26,7 @@ $.fn.popup = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
-    invokedResponse
+    returnedValue
   ;
   $allModules
     .each(function() {
@@ -196,7 +196,8 @@ $.fn.popup = function(parameters) {
           }
         },
 
-        show: function() {
+        show: function(callback) {
+          callback = callback || function(){};
           module.debug('Showing pop-up', settings.transition);
           if( !module.exists() ) {
             module.create();
@@ -207,20 +208,27 @@ $.fn.popup = function(parameters) {
           ;
           if(settings.transition && $.fn.transition !== undefined) {
             $popup
-              .transition(settings.transition + ' in', settings.duration, module.bind.close)
+              .transition(settings.transition + ' in', settings.duration, function() {
+                module.bind.close();
+                $.proxy(callback, element)();
+              })
             ;
           }
           else {
             $popup
               .stop()
-              .fadeIn(settings.duration, settings.easing, module.bind.close)
+              .fadeIn(settings.duration, settings.easing, function() {
+                module.bind.close();
+                $.proxy(callback, element)();
+              })
             ;
           }
           $.proxy(settings.onShow, $popup)();
         },
 
 
-        hide: function() {
+        hide: function(callback) {
+          callback = callback || function(){};
           $module
             .removeClass(className.visible)
           ;
@@ -229,13 +237,19 @@ $.fn.popup = function(parameters) {
             module.debug('Hiding pop-up');
             if(settings.transition && $.fn.transition !== undefined) {
               $popup
-                .transition(settings.transition + ' out', settings.duration, module.reset)
+                .transition(settings.transition + ' out', settings.duration, function() {
+                  module.reset();
+                  callback();
+                })
               ;
             }
             else {
               $popup
                 .stop()
-                .fadeOut(settings.duration, settings.easing, module.reset)
+                .fadeOut(settings.duration, settings.easing, function() {
+                  module.reset();
+                  callback();
+                })
               ;
             }
           }
@@ -668,7 +682,7 @@ $.fn.popup = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -679,14 +693,14 @@ $.fn.popup = function(parameters) {
           else if(found !== undefined) {
             response = found;
           }
-          if($.isArray(invokedResponse)) {
-            invokedResponse.push(response);
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
           }
-          else if(typeof invokedResponse == 'string') {
-            invokedResponse = [invokedResponse, response];
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
           }
           else if(response !== undefined) {
-            invokedResponse = response;
+            returnedValue = response;
           }
           return found;
         }
@@ -707,8 +721,8 @@ $.fn.popup = function(parameters) {
     })
   ;
 
-  return (invokedResponse !== undefined)
-    ? invokedResponse
+  return (returnedValue !== undefined)
+    ? returnedValue
     : this
   ;
 };

@@ -585,8 +585,8 @@ $.fn.chatroom = function(parameters) {
   })
 ;
 
-  return (invokedResponse)
-    ? invokedResponse
+  return (returnedValue)
+    ? returnedValue
     : this
   ;
 };

@@ -35,9 +35,12 @@
 .ui.table thead {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
+.ui.table tfoot th {
+  background-color: rgba(0, 0, 0, 0.03);
+}
 .ui.table th {
   cursor: auto;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.1);
   text-align: left;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.5em 0.7em;
@@ -133,17 +136,21 @@
       Hover
 ---------------*/
 /* Sortable */
-.ui.sortable.table thead th:hover {
-  background-image: none;
-  color: rgba(0, 0, 0, 0.8);
-}
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
-  background-color: rgba(0, 0, 0, 0.1);
   text-align: left;
   font-weight: bold;
   color: #333333;
   color: rgba(0, 0, 0, 0.8);
+}
+.ui.sortable.table thead th:hover {
+  background-color: rgba(0, 0, 0, 0.13);
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Inverted Sortable */
+.ui.inverted.sortable.table thead th:hover {
+  background-color: rgba(255, 255, 255, 0.13);
+  color: #ffffff;
 }
 /*--------------
     Positive
@@ -387,17 +394,16 @@
   border: none;
 }
 .ui.celled.table th,
-.ui.celled.table tbody td {
+.ui.celled.table td {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /* Coupling with segment */
-.ui.celled.table.segment th {
-  border: none;
-}
-.ui.celled.table.segment tbody td:first-child {
+.ui.celled.table.segment th:first-child,
+.ui.celled.table.segment td:first-child {
   border-left: none;
 }
-.ui.celled.table.segment tbody td:last-child {
+.ui.celled.table.segment th:last-child,
+.ui.celled.table.segment td:last-child {
   border-right: none;
 }
 /*--------------
