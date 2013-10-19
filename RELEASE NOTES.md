@@ -1,5 +1,42 @@
 ## RELEASE NOTES
 
+### Version 0.7.0 - Oct 17, 2013
+
+**New**
+- Added responsive style to ui tables
+- Adds sortable tables to docs
+- Adds new tabbed doc style for modules
+- Popups can now have a different target than itself
+- Adds onTabInit for local tabs on first load
+- Adds documentation for module format
+
+**Fixes**
+- Fixes border radius on tabular menu, fixes one pixel jump on active state
+- Removes vertical label width line missing units
+- Fixes pointing dropdown to appear correctly in menu
+- Fixes issue with borders on selection dropdown
+- Popup fixed a bug where "top right" placed popup might sometimes be too large
+- Popup will not reshow a visible popup on hover
+- Popup .toggle() now always hides/shows popup correctly
+- Dropdown cannot display inside item image
+- Dropdown links were being prevented by event.preventDefault used for touch devices
+- Fixes some code samples not being properly indented
+
+**Updates**
+- Block header now uses RGBA instead of solid color by default
+- Increased padding on attached labels
+- Leading on bulleted and ordered list slightly increased
+- Horizontal padding on icon list slightly increased
+- Increase opacity of icons on icon messages
+- Ribbon labels now have a shadow color
+- Popups are no longer inline by default
+- Optimizes dimmer init on modal to occur on modal init and not modal show
+- Popup metadata attribute arrowOffset is now offset for simplicities sake
+- Adds more popup examples
+- Popup default duration is now 200ms (slighty slower)
+- Popup border now uses RGBA to look sexier on dark backgrounds
+- Popup no-longer receives class name 'visible' on show, this allows popups to be used on dropdowns and other elements with a visible state
+
 ### Version 0.6.5 - Oct 18, 2013
 
 **Fixes**

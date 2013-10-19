@@ -94,12 +94,13 @@ pre {
   background-color: #F0F0F0;
 }
 code {
-  background-color: #F0F0F0;
-  border: 1px solid #E0E0E0;
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   display: inline-block;
   font-family: Courier New;
   font-size: 14px;
-  padding: 0.125em 0.25em;
+  margin: 0.25em;
+  padding: 0.125em 0.5em;
   vertical-align: middle;
 }
 pre code {
@@ -155,6 +156,30 @@ a:hover {
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
+
+#example > .tab.segment {
+  padding-bottom: 0em;
+  margin-bottom: 2em;
+}
+
+#example > .tab.segment .fixed .tabular.menu {
+  position: fixed;
+  top: 50px;
+}
+#example > .tab.segment .vertical.menu {
+  display: none;
+  margin: 2rem 0em 1rem;
+}
+#example > .tab.segment .tabular.menu {
+  margin: 2rem 0em 0em;
+  border-bottom: none;
+}
+#example > .tab.segment .tabular.menu .active.item {
+  background-color: #FAFAFA;
+  border-bottom-color: #FAFAFA;
+}
+
+
 #example .download.menu {
   margin-top: 0em;
   margin-bottom: 3rem;
@@ -382,7 +407,7 @@ body.guide .main.container > * {
 #example .advertisement {
   float: none;
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
   padding-left: 2em;
 }
 #example #carbonads-container {
@@ -564,6 +589,54 @@ body.guide .main.container > * {
 
 #example .ui.tab.segment {
   padding: 1.5em 2em;
+}
+
+#example.popup .example .popup {
+  color: #FF0000;
+}
+#example .position.example .icon {
+  position: absolute;
+  margin: 0em;
+}
+#example .position.example .segment {
+  width: 250px;
+  height: 250px;
+}
+#example .position.example .segment .icon:nth-of-type(1) {
+  top: 3em;
+  left: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(2) {
+  top: 3em;
+  left: 50%;
+  margin-left: -1em;
+}
+#example .position.example .segment .icon:nth-of-type(3) {
+  top: 3em;
+  right: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(4) {
+  top: 50%;
+  margin-top: -1em;
+  right: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(5) {
+  bottom: 3em;
+  right: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(6) {
+  bottom: 3em;
+  left: 50%;
+  margin-left: -1em;
+}
+#example .position.example .segment .icon:nth-of-type(7) {
+  bottom: 3em;
+  left: 3em;
+}
+#example .position.example .segment .icon:nth-of-type(8) {
+  top: 50%;
+  margin-top: -1em;
+  left: 3em;
 }
 
 #example .main.ui.grid {
@@ -789,7 +862,7 @@ body.guide .main.container > * {
   background-color: transparent;
 }
 #example .label + div.code {
-  margin-top: 1em;
+  margin-top: 1.5em;
 }
 #example div.code .ace_gutter {
   background-color: #FAFAFA;
@@ -951,6 +1024,7 @@ body.guide .main.container > * {
   display: none;
 }
 
+#example .example:first-child,
 #example h2 + .example,
 #example h3 + .example,
 #example h4 + .example {
@@ -1311,6 +1385,13 @@ body.progress .ui.progress .bar {
   #example .fixed .previous,
   #example .fixed .next {
     display: none;
+  }
+  #example > .tab.segment .tabular.menu {
+    display: none;
+  }
+
+  #example > .tab.segment .vertical.menu {
+    display: block;
   }
 }
 @media only screen and (max-width : 450px) {

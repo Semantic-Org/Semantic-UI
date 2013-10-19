@@ -106,6 +106,21 @@ a.ui.label {
   opacity: 0.99;
 }
 
+
+/*-------------------
+       Coupling
+--------------------*/
+
+/* Padding on next content after a label */
+.ui.segment > .attached.label:first-child + * {
+  margin-top: 2.5em;
+}
+.ui.segment > .bottom.attached.label:first-child ~ :last-child {
+  margin-top: 0em;
+  margin-bottom: 2.5em;
+}
+
+
 /*******************************
              Types
 *******************************/
@@ -266,11 +281,14 @@ a.ui.label:hover:before {
 
 .ui.ribbon.label {
   position: relative;
-  left: -1.8rem;
+  margin: 0em 0.2em;
+  left: -2rem;
   padding-left: 2rem;
   -webkit-border-radius: 0px 4px 4px 0px;
   -moz-border-radius: 0px 4px 4px 0px;
   border-radius: 0px 4px 4px 0px;
+
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .ui.ribbon.label:after {
@@ -302,6 +320,9 @@ a.ui.label:hover:before {
   margin: 0em;
   top: 0em;
   left: 0em;
+
+  padding: 0.75em 1em;
+
   -webkit-border-radius: 4px 4px 0em 0em;
   -moz-border-radius: 4px 4px 0em 0em;
   border-radius: 4px 4px 0em 0em;
@@ -495,19 +516,23 @@ a.ui.label:hover:before {
 /* Hover */
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #888888 !important;
-  border-color: #888888 !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #888888 !important;
+  background-color: #333333 !important;
 }
 
 /* Corner */
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.black.ribbon.label {
+  border-color: #333333 !important;
 }
 
 
@@ -541,6 +566,10 @@ a.ui.green.label:hover:before {
 .ui.green.corner.label:hover {
   background-color: transparent !important;
 }
+/* Ribbon */
+.ui.green.ribbon.label {
+  border-color: #89B84C !important;
+}
 
 
 /*--- Red ---*/
@@ -572,6 +601,10 @@ a.ui.red.label:hover{
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
   background-color: #DE3859 !important;
+}
+/* Ribbon */
+.ui.red.ribbon.label {
+  border-color: #DE3859 !important;
 }
 
 
@@ -605,6 +638,10 @@ a.ui.blue.label:hover:before {
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
 }
+/* Ribbon */
+.ui.blue.ribbon.label {
+  border-color: #1AB8F3 !important;
+}
 
 /*--- Purple ---*/
 .ui.purple.labels .label,
@@ -635,6 +672,10 @@ a.ui.purple.label:hover:before {
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.purple.ribbon.label {
+  border-color: #3E3773 !important;
 }
 
 /*--- Orange ---*/
@@ -667,11 +708,15 @@ a.ui.orange.label:hover:before {
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
 }
+/* Ribbon */
+.ui.orange.ribbon.label {
+  border-color: #FF4121 !important;
+}
 
 
 
 
-/*--- Pink ---*/
+/*--- Teal ---*/
 .ui.teal.labels .label,
 .ui.teal.label {
   background-color: #00B5AD !important;
@@ -700,6 +745,10 @@ a.ui.teal.label:hover:before {
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.teal.ribbon.label {
+  border-color: #009A93 !important;
 }
 
 /*-------------------
