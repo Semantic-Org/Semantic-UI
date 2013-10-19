@@ -4,6 +4,7 @@
 ### Version 0.7.0 - Oct 17, 2013
 
 **New**
+- New social buttons for Instagram, LinkedIn, Google Plus, Pinterest
 - Added responsive style to ui tables
 - Adds sortable tables to docs
 - Adds new tabbed doc style for modules
