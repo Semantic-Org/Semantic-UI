@@ -18,7 +18,6 @@ type        : 'UI Module'
       <div class="ui vertical pointing secondary menu">
         <a class="active item">Types</a>
         <a class="item">Variations</a>
-        <a class="item">Behaviors</a>
       </div>
     </div>
 
@@ -58,9 +57,59 @@ type        : 'UI Module'
       <p>A popup can have its colors inverted</p>
       <i class="circular heart icon link" data-content="Hello. This is an inverted popup" data-variation="inverted"></i>
     </div>
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+
+    <h2 class="ui dividing header">Initializing</h2>
+
+    <h3 class="ui header">Initializing an popup</h3>
+    <div class="code">
+    $('.ui.popup')
+      .popup()
+    ;
+    </div>
+
+    <div class="no example">
+      <h3 class="ui header">Including content with HTML Metadata</h3>
+      <p>Frequently used settings like, title, content, html, or offset or variation, can be included in html metadata<p>
+      <div class="ui info icon ignored message">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="header">Specifying Content</div>
+          <p>Popups can specify content in three ways:<p>
+          <ul class="list">
+            <li>Using html <code>title</code> attribute</li>
+            <li>Using <code>data-content</code> attribute</li>
+            <li>Using <code>data-html</code> for specific html</li>
+            <li>Using the content property in the initialization of the popup</li>
+          </ul>
+          <p>Popups can also specify some other frequently used settings using metadata<p>
+          <ul class="list">
+            <li><code>data-variation</code>: the popup variation to use </li>
+            <li><code>data-offset</code>: a pixel offset correction for popup</li>
+            <li><code>data-position</code>: the side to position popup on</li>
+            <li><code>data-variation</code>: the popup variation to use </li>
+          </ul>
+        </div>
+      </div>
+      <h4 class="ui header">Initializing with metadata</h4>
+      <div class="code" data-type="html">
+        <i class="heart icon" title="Hello I am a popup"></i>
+      </div>
+      <div class="ui horizontal divider">Or</div>
+      <h4 class="ui header">Initializing with javascript content</h4>
+      <div class="code">
+      $('.ui.popup')
+        .popup({
+          content: 'Hello I am a popup'
+        })
+      ;
+      </div>
+    </div>
 
     <h2 class="ui dividing header">Behavior</h2>
-    All the following behaviors can be called using the syntax <code>$('.foo').sidebar('behavior name', argumentOne, argumentTwo)</code>
+    All the following behaviors can be called using the syntax <code>$('.foo').popup('behavior name', argumentOne, argumentTwo)</code>
     <table class="ui definition celled table segment">
       <tr>
         <td>show</td>
@@ -99,57 +148,7 @@ type        : 'UI Module'
         <td>Removes popup from the page</td>
       </tr>
     </table>
-  </div>
 
-
-  <div class="ui tab" data-tab="usage">
-
-    <h2 class="ui dividing header">Usage</h2>
-
-    <h3 class="ui header">Initializing an popup</h3>
-    <div class="code">
-    $('.ui.popup')
-      .popup()
-    ;
-    </div>
-
-    <div class="no example">
-      <h3 class="ui header">Including content with HTML Metadata</h3>
-      <p>Frequently used settings like, title, content, html, or offset or variation, can be included in html metadata<p>
-      <div class="ui info icon ignored message">
-        <i class="info icon"></i>
-        <div class="content">
-          <div class="header">Specifying Content</div>
-          <p>Popups can specify content in three ways:<p>
-          <ul class="list">
-            <li>Using html <code>title</code> attribute</li>
-            <li>Using <code>data-content</code> attribute</li>
-            <li>Using <code>data-html</code> for specific html</li>
-            <li>Using the content property in the initialization of the popup</li>
-          </ul>
-          <p>Popups can also specify some other frequently used settings using metadata<p>
-          <ul class="list">
-            <li><code>data-variation</code>: the popup variation to use </li>
-            <li><code>data-offset</code>: a pixel offset correction for popup</li>
-            <li><code>data-position</code>: the side to position popup on</li>
-            <li><code>data-variation</code>: the popup variation to use </li>
-          </ul>
-        </div>
-      </div>
-      <h4 class="ui header">Initializing with metadata</h4>
-      <div class="code" data-type="html">
-        <i class="heart icon" title="Hello I am a popup"></i>
-      </div>
-      <div class="ui horizontal divider">Or</div>
-      <h4 class="ui header">Initializing with javascript content</h4>
-    <div class="code">
-    $('.ui.popup')
-      .popup({
-        content: 'Hello I am a popup'
-      })
-    ;
-    </div>
-    </div>
   </div>
 
 
@@ -468,7 +467,7 @@ type        : 'UI Module'
       <tbody>
         <tr>
           <td>name</td>
-          <td>Sidebar</td>
+          <td>Popup</td>
           <td>Name used in debug logs</td>
         </tr>
         <tr>

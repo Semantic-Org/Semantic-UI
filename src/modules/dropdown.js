@@ -380,16 +380,22 @@ $.fn.dropdown = function(parameters) {
           selection: function() {
             return $module.hasClass(className.selection);
           },
+          animated: function($subMenu) {
+            return ($subMenu)
+              ? $subMenu.is(':animated') || $subMenu.transition('is animating')
+              : $menu.is(':animated') || $menu.transition('is animating')
+            ;
+          },
           visible: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':animated, :visible')
-              : $menu.is(':animated, :visible')
+              ? $subMenu.is(':visible')
+              : $menu.is(':visible')
             ;
           },
           hidden: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':not(:animated, :visible)')
-              : $menu.is(':not(:animated, :visible)')
+              ? $subMenu.is(':not(:visible)')
+              : $menu.is(':not(:visible)')
             ;
           }
         },
@@ -524,7 +530,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         hide: function() {
-          if( module.is.visible() ) {
+          if( !module.is.animated() && module.is.visible() ) {
             module.debug('Hiding dropdown');
             if( module.can.click() ) {
               module.unbind.intent();

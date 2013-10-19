@@ -1,4 +1,4 @@
-<% @tabs = {  definition: 'Definition', usage: 'Usage', examples: 'Examples', settings: 'Settings' } if @tabs == 'module' %>
+<% @tabs = {  definition: 'Definition', examples: 'Examples', usage: 'Usage', settings: 'Settings' } if @tabs == 'module' %>
 
 <div class="<% if @tabs?: %>tab <% end %>segment">
   <div class="container">
