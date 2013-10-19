@@ -164,8 +164,13 @@ $.fn.modal = function(parameters) {
               escapeKey = 27
             ;
             if(keyCode == escapeKey) {
-              module.debug('Escape key pressed hiding modal');
-              module.hide();
+              if(settings.closable) {
+                module.debug('Escape key pressed hiding modal');
+                module.hide();
+              }
+              else {
+                module.debug('Escape key pressed, but closable is set to false');
+              }
               event.preventDefault();
             }
           },
