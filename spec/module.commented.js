@@ -34,7 +34,7 @@ $.fn.example = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    invokedResponse
+    returnedValue
   ;
 
   // ## Singular
@@ -345,14 +345,14 @@ $.fn.example = function(parameters) {
           // ### Invocation response
           // If a user passes in multiple elements invoke will be called for each element and the value will be returned in an array
           // For example ``$('.things').example('has text')`` with two elements might return ``[true, false]`` and for one element ``true``
-          if($.isArray(invokedResponse)) {
-            invokedResponse.push(response);
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
           }
-          else if(typeof invokedResponse == 'string') {
-            invokedResponse = [invokedResponse, response];
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
           }
           else if(response !== undefined) {
-            invokedResponse = response;
+            returnedValue = response;
           }
           return found;
         }
@@ -379,8 +379,8 @@ $.fn.example = function(parameters) {
     })
   ;
 
-  return (invokedResponse !== undefined)
-    ? invokedResponse
+  return (returnedValue !== undefined)
+    ? returnedValue
     : this
   ;
 

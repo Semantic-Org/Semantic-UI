@@ -141,6 +141,7 @@ type   : 'Semantic'
       .transition('tada', '800ms')
     ;
           </div>
+          <a href="module.html" class="ui teal right labeled button">Learn about modules <i class="right arrow icon"></i></a>
           </div>
           <div class="column">
             <img src="/images/demo/vector.png" class="ui dog image">

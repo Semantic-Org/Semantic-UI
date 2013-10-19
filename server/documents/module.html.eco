@@ -53,12 +53,15 @@ type        : 'Semantic'
     </div>
     <a class="ui secondary labeled icon button" href="/spec/docs/module.commented.html">
       <i class="book icon"></i>
-      View Commented Example
+      View Commented Design Pattern
     </a>
   </div>
   <div class="ui tab" data-tab="init">
-    <p>UI Modules are not automatically initialized on page load. You must attach event handlers to trigger the behavior you require for each element</p>
-    <p>Its okay to initialize an element multiple times, the element will automatically destroy the previous instance and re-initialize with the settings provided.</p>
+    <h3 class="ui header">Overview</h3>
+    <p>Semantic does not automatically attach any events on page load. You must decide which modules to initialize on each page by initializing a module in javascript.</p>
+    <div class="ui info message">It's okay to initialize an element multiple times, the element will automatically destroy the previous instance and re-initialize with the settings provided.</div>
+    <h3 class="ui header">Example of Initializing</h3>
+    <p>The following example shows how to attach behavior to elements on a page using Semantic</p>
     <div class="code" data-type="html" data-preview="true">
       <div class="ui medium image">
         <div class="ui corner label">
@@ -68,52 +71,24 @@ type        : 'Semantic'
       </div>
     </div>
     <div class="evaluated code" data-type="javascript">
-      $(document)
-        .ready(function() {
-          // just initializing
-          $('.ui.image img')
-            .popup()
-          ;
-          // initializing with settings
-          $('.ui.image .help')
-            .popup({
-              position: 'right center'
-            })
-          ;
-        })
-      ;
+    // just initializing
+    $('.ui.image img')
+      .popup()
+    ;
+    </div>
+    <div class="evaluated code" data-type="javascript">
+    // initializing with settings
+    $('.ui.image .help')
+      .popup({
+        position: 'right center'
+      })
+    ;
     </div>
   </div>
   <div class="ui tab" data-tab="behavior">
     <h3 class="ui header">Triggering a Behavior</h3>
     <p>Behaviors are an element's API. They invoke functionality or return aspects of the current state for an element</p>
     <p>Behaviors can be called using spaced words, camelcase or dot notation. The preferred method however is <b>spaced words</b>. Method lookup is done automatically internally.</p>
-    <div class="code">
-      // Sets a popup to top left position with an offset of negative five
-      $('.popup.icon')
-        .popup('set position', 'top left', -5)
-      ;
-    </div>
-    <div class="code">
-      // returns boolean value instead of jQuery chain
-      $('.popup.icon').popup('is visible');
-    </div>
-    <div class="code">
-      // if selector size > 1 returns array of values [boolean, boolean...]
-      $('.many.popup').popup('is visible');
-    </div>
-
-    <h3 class="ui header">Overriding Internals</h3>
-    <p>Internal methods can be overwritten at run-time for individual instances of a module as well. For example:</p>
-    <div class="code">
-      // this instance will popup an alert for each log
-      $('.popup.icon')
-        .popup('internal', 'debug', function() {
-          window.alert(arguments[0]);
-        })
-      ;
-    </div>
-
 
     <h3 class="ui header">Common Behaviors</h3>
     <p>All modules have a set of core behaviors which allow you to configure the component</p>
@@ -165,6 +140,64 @@ type        : 'Semantic'
         </tr>
       </tbody>
     </table>
+
+    <h2 class="ui dividing header">Examples</h3>
+
+    <h3 class="ui header">Overriding Internals</h3>
+    <p>Internal methods can be overwritten at run-time for individual instances of a module</p>
+
+    <div class="evaluated code">
+      // the above examples will output the first demo popup's logs to the page
+      $('.demo.icon')
+        .popup()
+        .first()
+          .popup('internal', 'debug', function() {
+            $('.console')
+              .append(arguments[0] + "\n")
+              // scroll to bottom
+              .prop('scrollTop', $('.console').prop('scrollHeight') )
+            ;
+          })
+      ;
+    </div>
+    <div class="ui inverted raised segment">
+      <div class="ui top red attached label">Console</div>
+      <pre class="console"></pre>
+    </div>
+
+    <h3 class="ui header">Triggering Behavior</h3>
+    <p>The following example shows how you can override, retrieve, and invoked behaviors from Javascript</p>
+    <div class="ui divider"></div>
+
+    <i class="demo circular help icon" data-content="Popup #1"></i>
+    <i class="demo circular help icon" data-content="Popup #2"></i>
+
+    <div class="ui divider"></div>
+
+    <p>Some behaviors can accept arguments, for example a popup <b>show</b> behavior can accept a callback function. This arbitrary example shows opening a popup then changing its position programatically</p>
+    <div class="code" data-demo="true">
+      // Sets a popup to top left position with an offset of negative five
+      $('.demo.icon')
+        .popup('show', function() {
+          $(this)
+            .popup('set position', 'right center')
+          ;
+        })
+      ;
+    </div>
+    <p>Behaviors may also provide an API for accessing a module's internal state. For example popups have a method <code>is visible</code> which returns true or false for whether a popup is currently visible.
+    <div class="code" data-demo="true">
+      // returns boolean value instead of jQuery chain
+      $('.demo.icon')
+        .popup('debug', $('.demo.icon').first().popup('is visible') )
+      ;
+    </div>
+    <div class="code" data-demo="true">
+      // if selector size > 1 returns array of values [boolean, boolean...]
+      $('.demo.icon')
+        .popup('debug', $('.demo.icon').popup('is visible') )
+      ;
+    </div>
   </div>
   <div class="ui tab" data-tab="settings">
 

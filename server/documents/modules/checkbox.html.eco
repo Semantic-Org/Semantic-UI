@@ -18,7 +18,6 @@ type        : 'UI Module'
       <div class="ui vertical pointing secondary menu">
         <a class="active item">Types</a>
         <a class="item">Variations</a>
-        <a class="item">Behavior</a>
       </div>
     </div>
 
@@ -103,23 +102,6 @@ type        : 'UI Module'
       </div>
     </div>
 
-    <h2 class="ui dividing header">Behavior</h2>
-
-    <table class="ui definition celled table segment">
-      <tr>
-        <td>enable</td>
-        <td>A checkbox can change to show a user has selected it</td>
-      </tr>
-      <tr>
-        <td>disable</td>
-        <td>A checkbox can change to show a user has deselected it</td>
-      </tr>
-      <tr>
-        <td>toggle</td>
-        <td>A checkbox can toggle its current selection state</td>
-      </tr>
-    </table>
-
   </div>
 
   <div class="ui tab" data-tab="usage">
@@ -147,6 +129,22 @@ type        : 'UI Module'
         <label for="unique-id">Poodle</label>
       </div>
     </div>
+
+    <h2 class="ui dividing header">Behavior</h2>
+    <table class="ui definition celled table segment">
+      <tr>
+        <td>enable</td>
+        <td>A checkbox can change to show a user has selected it</td>
+      </tr>
+      <tr>
+        <td>disable</td>
+        <td>A checkbox can change to show a user has deselected it</td>
+      </tr>
+      <tr>
+        <td>toggle</td>
+        <td>A checkbox can toggle its current selection state</td>
+      </tr>
+    </table>
 
 
   </div>

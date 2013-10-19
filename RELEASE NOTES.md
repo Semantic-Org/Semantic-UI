@@ -22,8 +22,10 @@
 - Dropdown cannot display inside item image
 - Dropdown links were being prevented by event.preventDefault used for touch devices
 - Fixes some code samples not being properly indented
+- Celled tables now have celled table headers
 
 **Updates**
+- Table headers are now darker to increase contrast with rainbow striped rows
 - Block header now uses RGBA instead of solid color by default
 - Increased padding on attached labels
 - Leading on bulleted and ordered list slightly increased

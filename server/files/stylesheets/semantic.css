@@ -93,6 +93,13 @@ h4 + p {
 pre {
   background-color: #F0F0F0;
 }
+pre.console {
+  background-color: transparent;
+  line-height: 1.6;
+  font-family:  'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  height: 200px;
+  overflow: auto;
+}
 code {
   background-color: rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -177,6 +184,12 @@ a:hover {
 #example > .tab.segment .tabular.menu .active.item {
   background-color: #FAFAFA;
   border-bottom-color: #FAFAFA;
+}
+#example .tab[data-tab="settings"] .header {
+  margin-top: 3em;
+}
+#example .tab[data-tab="settings"] .header:first-child {
+  margin-top: 0em;
 }
 
 
