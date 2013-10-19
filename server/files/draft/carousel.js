@@ -26,7 +26,7 @@ $.fn.carousel = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    invokedResponse
+    returnedValue
   ;
 
   $allModules
@@ -287,8 +287,8 @@ $.fn.carousel = function(parameters) {
       }
     })
   ;
-  return (invokedResponse !== undefined)
-    ? invokedResponse
+  return (returnedValue !== undefined)
+    ? returnedValue
     : this
   ;
 };

@@ -1,5 +1,47 @@
 ## RELEASE NOTES
 
+### Version 0.7.0 - Oct 17, 2013
+
+**New**
+- **Table** - Added aweosome new responsive style to ui tables
+- **Button** - New social buttons for Instagram, LinkedIn, Google Plus, Pinterest
+- **List** - Adds documentation for module format
+- **List** - Adds onTabInit for local tabs on first load
+- **List** - Popups can now have a different target than itself
+
+**Docs**
+- **Popup** - Adds more popup examples
+- Adds sortable tables to docs
+- New tabbed doc style for modules
+- Ensures all code samples are properly indented programatically
+
+**Fixes**
+- **Dropdown** - Dropdown cannot display inside item image
+- **Dropdown** - Dropdown links were being prevented by event.preventDefault used for touch devices
+- **Dropdown** - Fixes issue with borders on selection dropdown
+- **Dropdown** - Fixes pointing dropdown to appear correctly in menu
+- **List** - Celled tables now have celled table headers
+- **Menu** - Fixes border radius on tabular menu, fixes one pixel jump on active state
+- **Menu** - Removes vertical label width missing units in menu
+- **Popup** - Popup .toggle() now always hides/shows popup correctly
+- **Popup** - Popup fixed a bug where "top right" placed popup might sometimes be too large
+- **Popup** - Popup will not reshow a visible popup on hover
+
+**Updates**
+- **Header** - Block header now uses RGBA instead of solid color by default
+- **Label** - Ribbon labels now have a shadow color
+- **List** - Horizontal padding on icon list slightly increased, fixes to icon position
+- **List** - Increased padding on attached labels
+- **List** - Leading on bulleted and ordered list slightly increased
+- **Message** - Increase opacity of icons on icon messages
+- **Modal** - Optimizes dimmer init on modal to occur on modal init and not modal show
+- **Popup** - Popup border now uses RGBA to look sexier on dark backgrounds
+- **Popup** - Popup default duration is now 200ms (slighty slower)
+- **Popup** - Popup metadata attribute arrowOffset is now offset for simplicities sake
+- **Popup** - Popup no-longer receives class name 'visible' on show, this allows popups to be used on dropdowns and other elements with a visible state
+- **Popup** - Popups are no longer inline by default
+- **Table** - Table headers are now darker to increase contrast with rainbow striped rows
+
 ### Version 0.6.5 - Oct 18, 2013
 
 **Fixes**

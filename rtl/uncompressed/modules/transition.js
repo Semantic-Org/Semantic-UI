@@ -30,7 +30,7 @@ $.fn.transition = function() {
       || window.msRequestAnimationFrame
       || function(callback) { setTimeout(callback, 0); },
 
-    invokedResponse
+    returnedValue
   ;
   $allModules
     .each(function() {
@@ -582,14 +582,14 @@ $.fn.transition = function() {
           else if(found !== undefined) {
             response = found;
           }
-          if($.isArray(invokedResponse)) {
-            invokedResponse.push(response);
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
           }
-          else if(typeof invokedResponse == 'string') {
-            invokedResponse = [invokedResponse, response];
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
           }
           else if(response !== undefined) {
-            invokedResponse = response;
+            returnedValue = response;
           }
           return found || false;
         }
@@ -597,8 +597,8 @@ $.fn.transition = function() {
       module.initialize();
     })
   ;
-  return (invokedResponse !== undefined)
-    ? invokedResponse
+  return (returnedValue !== undefined)
+    ? returnedValue
     : this
   ;
 };

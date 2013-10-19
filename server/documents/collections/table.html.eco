@@ -6,7 +6,6 @@ title       : 'Table'
 description : 'Tables display collections of data grouped into rows'
 type        : 'UI Collection'
 ---
-<script src="/javascript/library/tablesort.js"></script>
 <script src="/javascript/table.js"></script>
 
 <%- @partial('header') %>
@@ -25,10 +24,17 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Table</h4>
     <p>A standard table</p>
-    <div class="ui ignored info message">
+    <div class="ui ignored positive icon message">
+      <i class="mobile icon"></i>
+      <div class="content">
+        <h3 class="header">Responsive Element</h3>
+        <p>Tables are designed to be responsive. Table cells will stack when a mobile viewport size is reached.</p>
+      </div>
+    </div>
+    <div class="ui ignored message">
       <p>This example uses a <a href="/elements/segment.html">segment</a> to add padding and a background color.</p>
     </div>
-    <table class="ui sortable table segment">
+    <table class="ui table segment">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -233,6 +239,40 @@ type        : 'UI Collection'
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Celled</h4>
+    <p>A table may be divided each row into separate cells</p>
+    <table class="ui celled table segment">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Basic</h4>
@@ -459,40 +499,6 @@ type        : 'UI Collection'
           <td>rating (integer)</td>
           <td>Sets the current star rating to specified value</td>
         </tr>
-    </table>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Celled</h4>
-    <p>A table may be divided each row into separate cells</p>
-    <table class="ui celled table segment">
-      <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John</td>
-          <td>Approved</td>
-          <td>None</td>
-        </tr>
-        <tr>
-          <td>Jamie</td>
-          <td>Approved</td>
-          <td>Requires call</td>
-        </tr>
-        <tr>
-          <td>Jill</td>
-          <td>Denied</td>
-          <td>None</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <th>3 People</th>
-        <th>2 Approved</th>
-        <th></th>
-      </tfoot>
     </table>
   </div>
 

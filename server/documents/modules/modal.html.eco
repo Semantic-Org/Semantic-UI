@@ -228,7 +228,7 @@ type        : 'UI Module'
 
   <div class="no example">
     <h4 class="ui header">Transitions</h4>
-    <p>A dimmer can use any named ui transition.</p>
+    <p>A modal can use any named ui transition.</p>
     <div class="ui selection dropdown">
       <input type="hidden" name="transition">
       <i class="dropdown icon"></i>
@@ -338,7 +338,7 @@ type        : 'UI Module'
 
   <h4 class="ui header">Modal Settings</h4>
   <p>Modal settings modify the modal's behavior</p>
-  <table class="ui red celled definition table segment">
+  <table class="ui red celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>
@@ -392,7 +392,7 @@ type        : 'UI Module'
   <h4 class="ui header">Callbacks</h4>
   <p>Callback settings specify a function to occur after a specific behavior.</p>
 
-  <table class="ui green celled definition table segment">
+  <table class="ui green celled sortable definition table segment">
     <thead>
       <th class="four wide">Setting</th>
       <th>Context</th>
@@ -424,7 +424,7 @@ type        : 'UI Module'
 
   <h4 class="ui header">DOM Settings</h4>
   <p>DOM settings specify how this module should interface with the DOM</p>
-  <table class="ui purple celled definition table segment">
+  <table class="ui purple celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>
@@ -464,7 +464,7 @@ type        : 'UI Module'
 
   <h4 class="ui header">Debug Settings</h4>
   <p>Debug settings controls debug output to the console</p>
-  <table class="ui blue celled definition table segment">
+  <table class="ui blue celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>

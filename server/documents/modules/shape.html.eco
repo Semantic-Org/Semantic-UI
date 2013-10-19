@@ -222,7 +222,7 @@ type        : 'UI Module'
 ;</div>
 
   <h3 class="ui header">Defaults</h3>
-  <table class="ui celled definition table">
+  <table class="ui celled sortable definition table">
       <thead>
         <th colspan="3">Shape Settings</th>
       </thead>
@@ -260,7 +260,7 @@ type        : 'UI Module'
         <td>Object containing class names used by module.</td>
       </tr>
     </table>
-    <table class="ui celled definition table">
+    <table class="ui celled sortable definition table">
       <thead>
         <th colspan="3">Callbacks</th>
       </thead>
@@ -275,7 +275,7 @@ type        : 'UI Module'
         <td>Callback after side is changed. This context is new side.</td>
       </tr>
     </table>
-    <table class="ui celled definition table">
+    <table class="ui celled sortable definition table">
       <thead>
         <th colspan="3">UI Module Settings</th>
       </thead>

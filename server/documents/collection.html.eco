@@ -107,7 +107,7 @@ type        : 'Semantic'
 
     <div class="item">
       <div class="image">
-        <table class="ui celled definition table segment">
+        <table class="ui celled sortable definition table segment">
           <thead>
             <tr><th>Name</th>
             <th>Status</th>

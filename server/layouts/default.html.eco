@@ -77,6 +77,7 @@
   <script src="/javascript/library/history.js"></script>
   <script src="/javascript/library/easing.js"></script>
   <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
   <script src="/javascript/library/waypoints.js"></script>
 
   <script src="/build/uncompressed/modules/behavior/api.js"></script>
@@ -155,7 +156,7 @@
       </div>
     </div>
     <div class="item">
-      <b>Modules</b>
+      <a href="/module.html"><b>Modules</b></a>
       <div class="menu">
         <% for element in uiModules: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>

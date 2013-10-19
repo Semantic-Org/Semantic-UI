@@ -1,18 +1,16 @@
 // # Semantic Modules
-// This is a design pattern for creating ui modules in Semantic
+// This is a design pattern for creating UI modules in Semantic
 //
 // Semantic is unique in that all arbitrary data is a setting. Semantic modules also are self documenting, with module.debug calls serving to explain state, and log performance data.
-// [Read more about coding conventions](http://semantic-ui.com/guide/javascriptguide.html)
+// [Read more about coding conventions](http://semantic-ui.com/guide/javascriptguide.html) and [Read about modules](http://semantic-ui.com/module.html)
 /*
- * # Semantic Module 1.0
+ * # Semantic Module
  * http://github.com/quirkyinc/semantic
  *
  *
  * Copyright 2013 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
- *
- * Released: April 17 2013
  */
 
 ;(function ( $, window, document, undefined ) {
@@ -34,7 +32,7 @@ $.fn.example = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-    invokedResponse
+    returnedValue
   ;
 
   // ## Singular
@@ -110,9 +108,9 @@ $.fn.example = function(parameters) {
         },
 
         // #### Refresh
-        // Selectors are cached so we sometimes need to manually refresh the cache
+        // Selectors or cached values sometimes need to refreshed
         refresh: function() {
-          module.verbose('Refreshing selector cache for', element);
+          module.verbose('Refreshing elements', element);
           $module = $(element);
           $text   = $(this).find(settings.selector.text);
         },
@@ -345,14 +343,14 @@ $.fn.example = function(parameters) {
           // ### Invocation response
           // If a user passes in multiple elements invoke will be called for each element and the value will be returned in an array
           // For example ``$('.things').example('has text')`` with two elements might return ``[true, false]`` and for one element ``true``
-          if($.isArray(invokedResponse)) {
-            invokedResponse.push(response);
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
           }
-          else if(typeof invokedResponse == 'string') {
-            invokedResponse = [invokedResponse, response];
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
           }
           else if(response !== undefined) {
-            invokedResponse = response;
+            returnedValue = response;
           }
           return found;
         }
@@ -379,8 +377,8 @@ $.fn.example = function(parameters) {
     })
   ;
 
-  return (invokedResponse !== undefined)
-    ? invokedResponse
+  return (returnedValue !== undefined)
+    ? returnedValue
     : this
   ;
 

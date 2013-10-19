@@ -43,6 +43,7 @@ type        : 'UI Module'
       })
     ;
     </div>
+
     <div class="code" data-type="html" data-label="true">
     <div class="ui pointing secondary menu">
       <a class="active item" data-tab="first">First</a>
@@ -273,7 +274,7 @@ type        : 'UI Module'
     Transition Settings
     <div class="sub header">Form settings modify the transition behavior</div>
   </h3>
-  <table class="ui red celled definition table segment">
+  <table class="ui red celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>
@@ -340,7 +341,7 @@ type        : 'UI Module'
     <div class="sub header">Debug settings controls debug output to the console</div>
   </h3>
 
-  <table class="ui blue celled definition table segment">
+  <table class="ui blue celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>

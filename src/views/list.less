@@ -68,10 +68,10 @@ ol.ui.list li,
 
 /* Icon */
 .ui.list .item > .icon {
-  display: table-cell;
+  display: inline-block;
   margin: 0em;
-  padding: 0em 0.5em 0em 0em;
-  vertical-align: middle;
+  padding: 0.1em 0.5em 0em 0em;
+  vertical-align: top;
 }
 .ui.list .item > .icon:only-child {
   display: inline-block;
@@ -99,7 +99,7 @@ ol.ui.list li,
   line-height: 1.2;
 }
 .ui.list .item > .icon + .content {
-  display: table-cell;
+  display: inline-block;
   vertical-align: top;
   padding-left: 0.5em;
 }
@@ -265,7 +265,7 @@ ol.ui.list li,
 
 ul.ui.list,
 .ui.bulleted.list {
-  margin-left: 1em;
+  margin-left: 1.5em;
 }
 ul.ui.list li,
 .ui.bulleted.list .item {
@@ -274,7 +274,7 @@ ul.ui.list li,
 ul.ui.list li:before,
 .ui.bulleted.list .item:before {
   position: absolute;
-  left: -1em;
+  left: -1.5em;
   content: '•';
 
   line-height: 1.2rem;
@@ -283,7 +283,7 @@ ul.ui.list li:before,
 
 ul.ui.list ul,
 .ui.bulleted.list .list {
-  padding-left: 1.2em;
+  padding-left: 1.5em;
 }
 
 /* Horizontal Bulleted */
@@ -339,7 +339,7 @@ ol.ui.list li:before,
 ol.ui.list ol,
 .ui.ordered.list .list {
   counter-reset: ordered;
-  padding-left: 3em;
+  padding-left: 2.5em;
 }
 
 ol.ui.list ol li:before,

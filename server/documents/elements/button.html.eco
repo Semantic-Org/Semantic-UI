@@ -49,20 +49,6 @@ type        : 'UI Element'
       Next
     </div>
   </div>
-
-  <div class="example">
-    <h4 class="ui header">Social</h4>
-    <p>A button can be formatted to link to a social website</p>
-    <div class="ui facebook button">
-      <i class="facebook icon"></i>
-      Log-in with Facebook
-    </div>
-    <div class="ui twitter button">
-      <i class="twitter icon"></i>
-      Sign-up with Twitter
-    </div>
-  </div>
-
   <h2 class="ui dividing header">Groups</h2>
 
   <div class="example">
@@ -129,6 +115,37 @@ type        : 'UI Element'
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
+
+
+  <div class="example">
+    <h4 class="ui header">Social</h4>
+    <p>A button can be formatted to link to a social website</p>
+    <div class="ui facebook button">
+      <i class="facebook icon"></i>
+      Log-in with Facebook
+    </div>
+    <div class="ui twitter button">
+      <i class="twitter icon"></i>
+      Sign-up with Twitter
+    </div>
+    <div class="ui google plus button">
+      <i class="google plus icon"></i>
+      Share on Google Plus
+    </div>
+    <div class="ui linkedin button">
+      <i class="linkedin icon"></i>
+      Associate your LinkedIn
+    </div>
+    <div class="ui instagram button">
+      <i class="instagram icon"></i>
+      Import from Instagram
+    </div>
+    <div class="ui youtube button">
+      <i class="youtube icon"></i>
+      Watch on YouTube
+    </div>
+  </div>
+
 
   <div class="example">
     <h4 class="ui header">Sizes</h4>

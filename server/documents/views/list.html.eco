@@ -532,40 +532,167 @@ type        : 'UI View'
   <div class="example">
     <h4 class="ui header">Sizes</h4>
     <p>A list can vary in size</p>
-    <div class="ui mini horizontal list">
-      <div class="item">About Us</div>
-      <div class="item">Contact</div>
-      <div class="item">Support</div>
+
+    <div class="ui mini list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
     </div>
-    <div class="ui tiny horizontal list">
-      <div class="item">About Us</div>
-      <div class="item">Contact</div>
-      <div class="item">Support</div>
+    <div class="ui tiny list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
     </div>
-    <div class="ui small horizontal list">
-      <div class="item">About Us</div>
-      <div class="item">Contact</div>
-      <div class="item">Support</div>
+    <div class="ui small list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
     </div>
-    <div class="ui large horizontal list">
-      <div class="item">About Us</div>
-      <div class="item">Contact</div>
-      <div class="item">Support</div>
+    <div class="ui large list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
     </div>
-    <div class="ui big horizontal list">
-      <div class="item">About Us</div>
-      <div class="item">Contact</div>
-      <div class="item">Support</div>
+    <div class="ui big list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
     </div>
-    <div class="ui huge horizontal list">
-      <div class="item">About Us</div>
-      <div class="item">Contact</div>
-      <div class="item">Support</div>
+    <div class="ui huge list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
     </div>
-    <div class="ui massive horizontal list">
-      <div class="item">About Us</div>
-      <div class="item">Contact</div>
-      <div class="item">Support</div>
+    <div class="ui massive list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
     </div>
   </div>
 

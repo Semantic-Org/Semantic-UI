@@ -35,9 +35,12 @@
 .ui.table thead {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
+.ui.table tfoot th {
+  background-color: rgba(0, 0, 0, 0.03);
+}
 .ui.table th {
   cursor: auto;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.1);
   text-align: right;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.5em 0.7em;
@@ -86,6 +89,46 @@
 .ui.table.segment.stacked:after {
   display: block;
 }
+/* Responsive */
+@media only screen and (max-width: 768px) {
+  .ui.table {
+    display: block;
+    padding: 0em;
+  }
+  .ui.table thead,
+  .ui.table tfoot {
+    display: none;
+  }
+  .ui.table tbody {
+    display: block;
+  }
+  .ui.table tr {
+    display: block;
+  }
+  .ui.table tr > td {
+    width: 100% !important;
+    display: block;
+    border: none !important;
+    padding: 0.25em 0.75em;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) !important;
+  }
+  .ui.table td:first-child {
+    font-weight: bold;
+    padding-top: 1em;
+  }
+  .ui.table td:last-child {
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+    padding-bottom: 1em;
+  }
+  /* Clear BG Colors */
+  .ui.table tr > td.warning,
+  .ui.table tr > td.error,
+  .ui.table tr > td.active,
+  .ui.table tr > td.positive,
+  .ui.table tr > td.negative {
+    background-color: transparent !important;
+  }
+}
 /*******************************
              States
 *******************************/
@@ -93,17 +136,21 @@
       Hover
 ---------------*/
 /* Sortable */
-.ui.sortable.table thead th:hover {
-  background-image: none;
-  color: rgba(0, 0, 0, 0.8);
-}
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
-  background-color: rgba(0, 0, 0, 0.1);
   text-align: right;
   font-weight: bold;
   color: #333333;
   color: rgba(0, 0, 0, 0.8);
+}
+.ui.sortable.table thead th:hover {
+  background-color: rgba(0, 0, 0, 0.13);
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Inverted Sortable */
+.ui.inverted.sortable.table thead th:hover {
+  background-color: rgba(255, 255, 255, 0.13);
+  color: #ffffff;
 }
 /*--------------
     Positive
@@ -146,8 +193,8 @@
 .ui.table tr.negative:hover td,
 .ui.table td:hover.negative,
 .ui.table th:hover.negative {
-  background-color: #F2E8E8 !important;
-  color: #CD2929 !important;
+  background-color: #F2E8E8;
+  color: #CD2929;
 }
 /*--------------
       Error
@@ -161,16 +208,16 @@
 .ui.table tr.error td,
 .ui.table td.error,
 .ui.table th.error {
-  background-color: #F9F4F4 !important;
-  color: #CD2929 !important;
+  background-color: #F9F4F4;
+  color: #CD2929;
 }
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error,
 .ui.table tr.error:hover td,
 .ui.table td:hover.error,
 .ui.table th:hover.error {
-  background-color: #F2E8E8 !important;
-  color: #CD2929 !important;
+  background-color: #F2E8E8;
+  color: #CD2929;
 }
 /*--------------
      Warning
@@ -185,15 +232,15 @@
 .ui.table td.warning,
 .ui.table th.warning {
   background-color: #FBF6E9;
-  color: #7D6C00 !important;
+  color: #7D6C00;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning,
 .ui.table tr.warning:hover td,
 .ui.table td:hover.warning,
 .ui.table th:hover.warning {
-  background-color: #F3EDDC !important;
-  color: #7D6C00 !important;
+  background-color: #F3EDDC;
+  color: #7D6C00;
 }
 /*--------------
      Active
@@ -206,7 +253,7 @@
 }
 .ui.table tr.active td,
 .ui.table tr td.active {
-  background-color: #E0E0E0 !important;
+  background-color: #E0E0E0;
   color: rgba(50, 50, 50, 0.9);
   /* border-color: rgba(0, 0, 0, 0.15) !important; */
 
@@ -347,17 +394,16 @@
   border: none;
 }
 .ui.celled.table th,
-.ui.celled.table tbody td {
+.ui.celled.table td {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /* Coupling with segment */
-.ui.celled.table.segment th {
-  border: none;
-}
-.ui.celled.table.segment tbody td:first-child {
+.ui.celled.table.segment th:first-child,
+.ui.celled.table.segment td:first-child {
   border-right: none;
 }
-.ui.celled.table.segment tbody td:last-child {
+.ui.celled.table.segment th:last-child,
+.ui.celled.table.segment td:last-child {
   border-left: none;
 }
 /*--------------

@@ -26,16 +26,24 @@ semantic.ready = function() {
 
   // selector cache
   var
+
+    $peek             = $('.peek'),
+    $peekItem         = $peek.children('.menu').children('a.item'),
+    $peekSubItem      = $peek.find('.item .menu .item'),
+    $sortableTables   = $('.sortable.table'),
+
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
     $menu             = $('#menu'),
     $hideMenu         = $('#menu .hide.item'),
     $sortTable        = $('.sortable.table'),
     $demo             = $('.demo'),
-    $waypoints        = $('.main.container').find('h2').first().siblings('h2').addBack(),
+    $waypoints        = $peek.closest('.tab, .container').find('h2').first().siblings('h2').addBack(),
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
+    $pageTabMenu      = $('body > .tab.segment .tabular.menu'),
+    $pageTabs         = $('body > .tab.segment .menu .item'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
 
@@ -53,9 +61,6 @@ semantic.ready = function() {
     $increaseFont     = $('.font .increase'),
     $decreaseFont     = $('.font .decrease'),
 
-    $peek             = $('.peek'),
-    $peekItem         = $peek.children('.menu').children('a.item'),
-    $peekSubItem      = $peek.find('.item .menu .item'),
     $code             = $('div.code').not('.existing'),
     $existingCode     = $('.existing.code'),
 
@@ -232,6 +237,33 @@ semantic.ready = function() {
       ;
     },
 
+    getIndent: function(text) {
+      var
+        lines           = text.split("\n"),
+        firstLine       = (lines[0] === '')
+          ? lines[1]
+          : lines[0],
+        spacesPerIndent = 2,
+        leadingSpaces   = firstLine.length - firstLine.replace(/^\s*/g, '').length,
+        indent
+      ;
+      if(leadingSpaces !== 0) {
+        indent = leadingSpaces;
+      }
+      else {
+        // string has already been trimmed, get first indented line and subtract 2
+        $.each(lines, function(index, line) {
+          leadingSpaces = line.length - line.replace(/^\s*/g, '').length;
+          if(leadingSpaces !== 0) {
+            indent = leadingSpaces - spacesPerIndent;
+            console.log('returning' + indent);
+            return false;
+          }
+        });
+      }
+      return indent || 4;
+    },
+
     generateCode: function() {
       var
         $example    = $(this).closest('.example'),
@@ -239,7 +271,6 @@ semantic.ready = function() {
         $code       = $annotation.find('.code'),
         $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
         $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
-        whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
         code        = ''
       ;
       if( $code.size() === 0) {
@@ -336,6 +367,19 @@ semantic.ready = function() {
       ;
     },
 
+    makeCode: function() {
+      if(window.ace !== undefined) {
+        $code
+          .filter(':visible')
+          .each(handler.initializeCode)
+        ;
+        $existingCode
+          .filter(':visible')
+          .each(handler.createAnnotation)
+        ;
+      }
+    },
+
     initializeCode: function() {
       var
         $code        = $(this).show(),
@@ -353,16 +397,18 @@ semantic.ready = function() {
           text       : 'Command Line',
           sh         : 'Command Line'
         },
-        whiteSpace  = new RegExp('\\n\\s{4}', 'g'),
+        indent     = handler.getIndent(code) || 4,
+        padding    = 20,
+        whiteSpace,
         $label,
-        padding     = 20,
         editor,
         editorSession,
         codeHeight
       ;
 
       // trim whitespace
-      code = $.trim(code.replace(whiteSpace, '\n'));
+      whiteSpace = new RegExp('\\n\\s{' + indent + '}', 'g');
+      code = $.trim(code).replace(whiteSpace, '\n');
 
       if(contentType == 'html') {
         $code.text(code);
@@ -522,7 +568,7 @@ semantic.ready = function() {
         $menu           = $header.parent(),
         $subHeaderGroup = $header.find('.item'),
         $headerGroup    = $menu.children(),
-        $waypoint       = $('h2').eq( $headerGroup.index( $header ) )
+        $waypoint       = $('h2').eq( $headerGroup.index( $header ) ),
         $subWaypoint    = $waypoint.nextAll('h3').eq( $subHeaderGroup.index($subHeader) ),
         offset          = $subWaypoint.offset().top - 80
       ;
@@ -598,14 +644,21 @@ semantic.ready = function() {
     ;
   }
 
-  if(window.ace !== undefined) {
-    $code
-      .each(handler.initializeCode)
-    ;
-    $existingCode
-      .each(handler.createAnnotation)
+  if( $pageTabs.size() > 0 ) {
+    $pageTabs
+      .tab({
+        onTabInit : handler.makeCode,
+        onTabLoad : function() {
+          $.waypoints('refresh');
+          $peekItem.removeClass('active').first().addClass('active');
+        }
+      })
     ;
   }
+  else {
+    handler.makeCode();
+  }
+
 
   handler.createIcon();
 
@@ -652,11 +705,14 @@ semantic.ready = function() {
       }
     })
   ;
+  $sortableTables
+    .tablesort()
+  ;
 
   $menuDropdown
     .dropdown({
       on         : 'hover',
-      action     : 'none'
+      action     : 'nothing'
     })
   ;
 

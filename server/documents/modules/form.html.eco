@@ -271,7 +271,7 @@ type        : 'UI Behavior'
     <div class="sub header">Form settings modify the form validation behavior</div>
   </h3>
 
-  <table class="ui red celled definition table segment">
+  <table class="ui red celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>
@@ -315,7 +315,7 @@ type        : 'UI Behavior'
     <div class="sub header">Validation rules are a set of conditions required to validate a field</div>
   </h3>
   <div class="ui info message">Validation rules are found in <code>settings.rules</code>, to add new global validation rules, modify <code>$.fn.form.settings.rules</code> to include your function.</div>
-  <table class="ui teal celled definition table segment">
+  <table class="ui teal celled sortable definition table segment">
     <thead>
       <th class="four wide">Name</th>
       <th>Arguments</th>
@@ -506,7 +506,7 @@ type        : 'UI Behavior'
     <div class="sub header">Debug settings controls debug output to the console</div>
   </h3>
 
-  <table class="ui blue celled definition table segment">
+  <table class="ui blue celled sortable definition table segment">
     <thead>
       <th>Setting</th>
       <th class="four wide">Default</th>

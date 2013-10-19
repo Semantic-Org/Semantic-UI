@@ -1641,6 +1641,7 @@ body > .ui.grid {
 .ui.tabular.menu {
   background-color: transparent;
   border-bottom: 1px solid #DCDDDE;
+  border-radius: 0em;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
@@ -1665,11 +1666,12 @@ body > .ui.grid {
 /* Active */
 .ui.tabular.menu .active.item {
   position: relative;
-  top: 1px;
   background-color: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
   border-color: #DCDDDE;
-  padding-top: 0.83em;
+  font-weight: bold;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #FFFFFF;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -2726,7 +2728,7 @@ body > .ui.grid {
   display: table-cell;
   vertical-align: middle;
   font-size: 3.8em;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 .ui.icon.message > .icon + .content {
   padding-right: 1em;
@@ -2849,9 +2851,12 @@ body > .ui.grid {
 .ui.table thead {
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
+.ui.table tfoot th {
+  background-color: rgba(0, 0, 0, 0.03);
+}
 .ui.table th {
   cursor: auto;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.1);
   text-align: right;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.5em 0.7em;
@@ -2900,6 +2905,46 @@ body > .ui.grid {
 .ui.table.segment.stacked:after {
   display: block;
 }
+/* Responsive */
+@media only screen and (max-width: 768px) {
+  .ui.table {
+    display: block;
+    padding: 0em;
+  }
+  .ui.table thead,
+  .ui.table tfoot {
+    display: none;
+  }
+  .ui.table tbody {
+    display: block;
+  }
+  .ui.table tr {
+    display: block;
+  }
+  .ui.table tr > td {
+    width: 100% !important;
+    display: block;
+    border: none !important;
+    padding: 0.25em 0.75em;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) !important;
+  }
+  .ui.table td:first-child {
+    font-weight: bold;
+    padding-top: 1em;
+  }
+  .ui.table td:last-child {
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+    padding-bottom: 1em;
+  }
+  /* Clear BG Colors */
+  .ui.table tr > td.warning,
+  .ui.table tr > td.error,
+  .ui.table tr > td.active,
+  .ui.table tr > td.positive,
+  .ui.table tr > td.negative {
+    background-color: transparent !important;
+  }
+}
 /*******************************
              States
 *******************************/
@@ -2907,17 +2952,21 @@ body > .ui.grid {
       Hover
 ---------------*/
 /* Sortable */
-.ui.sortable.table thead th:hover {
-  background-image: none;
-  color: rgba(0, 0, 0, 0.8);
-}
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
-  background-color: rgba(0, 0, 0, 0.1);
   text-align: right;
   font-weight: bold;
   color: #333333;
   color: rgba(0, 0, 0, 0.8);
+}
+.ui.sortable.table thead th:hover {
+  background-color: rgba(0, 0, 0, 0.13);
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Inverted Sortable */
+.ui.inverted.sortable.table thead th:hover {
+  background-color: rgba(255, 255, 255, 0.13);
+  color: #ffffff;
 }
 /*--------------
     Positive
@@ -2960,8 +3009,8 @@ body > .ui.grid {
 .ui.table tr.negative:hover td,
 .ui.table td:hover.negative,
 .ui.table th:hover.negative {
-  background-color: #F2E8E8 !important;
-  color: #CD2929 !important;
+  background-color: #F2E8E8;
+  color: #CD2929;
 }
 /*--------------
       Error
@@ -2975,16 +3024,16 @@ body > .ui.grid {
 .ui.table tr.error td,
 .ui.table td.error,
 .ui.table th.error {
-  background-color: #F9F4F4 !important;
-  color: #CD2929 !important;
+  background-color: #F9F4F4;
+  color: #CD2929;
 }
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error,
 .ui.table tr.error:hover td,
 .ui.table td:hover.error,
 .ui.table th:hover.error {
-  background-color: #F2E8E8 !important;
-  color: #CD2929 !important;
+  background-color: #F2E8E8;
+  color: #CD2929;
 }
 /*--------------
      Warning
@@ -2999,15 +3048,15 @@ body > .ui.grid {
 .ui.table td.warning,
 .ui.table th.warning {
   background-color: #FBF6E9;
-  color: #7D6C00 !important;
+  color: #7D6C00;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning,
 .ui.table tr.warning:hover td,
 .ui.table td:hover.warning,
 .ui.table th:hover.warning {
-  background-color: #F3EDDC !important;
-  color: #7D6C00 !important;
+  background-color: #F3EDDC;
+  color: #7D6C00;
 }
 /*--------------
      Active
@@ -3020,7 +3069,7 @@ body > .ui.grid {
 }
 .ui.table tr.active td,
 .ui.table tr td.active {
-  background-color: #E0E0E0 !important;
+  background-color: #E0E0E0;
   color: rgba(50, 50, 50, 0.9);
   /* border-color: rgba(0, 0, 0, 0.15) !important; */
 
@@ -3161,17 +3210,16 @@ body > .ui.grid {
   border: none;
 }
 .ui.celled.table th,
-.ui.celled.table tbody td {
+.ui.celled.table td {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /* Coupling with segment */
-.ui.celled.table.segment th {
-  border: none;
-}
-.ui.celled.table.segment tbody td:first-child {
+.ui.celled.table.segment th:first-child,
+.ui.celled.table.segment td:first-child {
   border-right: none;
 }
-.ui.celled.table.segment tbody td:last-child {
+.ui.celled.table.segment th:last-child,
+.ui.celled.table.segment td:last-child {
   border-left: none;
 }
 /*--------------
@@ -4108,7 +4156,8 @@ i.massive.basic.icon {
   outline: none;
   border: none;
   background-color: #EBEBEB;
-  color: #999999;
+  color: #808080;
+  margin: 0em 0em 0.4em;
   padding: 0.8em 1.5em;
   font-size: 1rem;
   text-transform: uppercase;
@@ -4209,13 +4258,68 @@ i.massive.basic.icon {
 }
 /* Twitter */
 .ui.twitter.button {
-  background-color: #00ACED;
+  background-color: #4092CC;
   color: #FFFFFF;
 }
 .ui.twitter.button:hover {
-  background-color: #00B9FF;
+  background-color: #399ADE;
 }
 .ui.twitter.button:active {
+  background-color: #3283BC;
+}
+/* Google Plus */
+.ui.google.plus.button {
+  background-color: #D34836;
+  color: #FFFFFF;
+}
+.ui.google.plus.button:hover {
+  background-color: #E3432E;
+}
+.ui.google.plus.button:active {
+  background-color: #CA3A27;
+}
+/* Linked In */
+.ui.linkedin.button {
+  background-color: #1F88BE;
+  color: #FFFFFF;
+}
+.ui.linkedin.button:hover {
+  background-color: #1394D6;
+}
+.ui.linkedin.button:active {
+  background-color: #1179AE;
+}
+/* YouTube */
+.ui.youtube.button {
+  background-color: #CC181E;
+  color: #FFFFFF;
+}
+.ui.youtube.button:hover {
+  background-color: #DF0209;
+}
+.ui.youtube.button:active {
+  background-color: #A50006;
+}
+/* Instagram */
+.ui.instagram.button {
+  background-color: #49769C;
+  color: #FFFFFF;
+}
+.ui.instagram.button:hover {
+  background-color: #4781B1;
+}
+.ui.instagram.button:active {
+  background-color: #38658A;
+}
+/* Pinterest */
+.ui.pinterest.button {
+  background-color: #00ACED;
+  color: #FFFFFF;
+}
+.ui.pinterest.button:hover {
+  background-color: #00B9FF;
+}
+.ui.pinterest.button:active {
   background-color: #009EDA;
 }
 /*--------------
@@ -4432,7 +4536,7 @@ i.massive.basic.icon {
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: #999999 !important;
+  color: #808080 !important;
   font-weight: normal;
   text-transform: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
@@ -5502,7 +5606,7 @@ h5.ui.header {
         Block
 --------------------*/
 .ui.block.header {
-  background-color: #F5F5F5;
+  background-color: rgba(0, 0, 0, 0.05);
   padding: 0.5em 1em;
 }
 /*-------------------
@@ -7471,6 +7575,17 @@ a.ui.label {
 .ui.label .delete.icon:hover {
   opacity: 0.99;
 }
+/*-------------------
+       Coupling
+--------------------*/
+/* Padding on next content after a label */
+.ui.segment > .attached.label:first-child + * {
+  margin-top: 2.5em;
+}
+.ui.segment > .bottom.attached.label:first-child ~ :last-child {
+  margin-top: 0em;
+  margin-bottom: 2.5em;
+}
 /*******************************
              Types
 *******************************/
@@ -7594,11 +7709,13 @@ a.ui.label:hover:before {
 --------------------*/
 .ui.ribbon.label {
   position: relative;
-  right: -1.8rem;
+  margin: 0em 0.2em;
+  right: -2rem;
   padding-right: 2rem;
   -webkit-border-radius: 4px 0px 0px 4px;
   -moz-border-radius: 4px 0px 0px 4px;
   border-radius: 4px 0px 0px 4px;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 .ui.ribbon.label:after {
   position: absolute;
@@ -7624,6 +7741,7 @@ a.ui.label:hover:before {
   margin: 0em;
   top: 0em;
   right: 0em;
+  padding: 0.75em 1em;
   -webkit-border-radius: 4px 4px 0em 0em;
   -moz-border-radius: 4px 4px 0em 0em;
   border-radius: 4px 4px 0em 0em;
@@ -7788,18 +7906,22 @@ a.ui.label:hover:before {
 /* Hover */
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #888888 !important;
-  border-color: #888888 !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #888888 !important;
+  background-color: #333333 !important;
 }
 /* Corner */
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.black.ribbon.label {
+  border-color: #333333 !important;
 }
 /*--- Green ---*/
 .ui.green.labels .label,
@@ -7829,6 +7951,10 @@ a.ui.green.label:hover:before {
 .ui.green.corner.label:hover {
   background-color: transparent !important;
 }
+/* Ribbon */
+.ui.green.ribbon.label {
+  border-color: #89B84C !important;
+}
 /*--- Red ---*/
 .ui.red.labels .label,
 .ui.red.label {
@@ -7857,6 +7983,10 @@ a.ui.red.label:hover {
 .ui.red.labels a.label:hover:before,
 a.ui.red.label:hover:before {
   background-color: #DE3859 !important;
+}
+/* Ribbon */
+.ui.red.ribbon.label {
+  border-color: #DE3859 !important;
 }
 /*--- Blue ---*/
 .ui.blue.labels .label,
@@ -7888,6 +8018,10 @@ a.ui.blue.label:hover:before {
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
 }
+/* Ribbon */
+.ui.blue.ribbon.label {
+  border-color: #1AB8F3 !important;
+}
 /*--- Purple ---*/
 .ui.purple.labels .label,
 .ui.purple.label {
@@ -7917,6 +8051,10 @@ a.ui.purple.label:hover:before {
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.purple.ribbon.label {
+  border-color: #3E3773 !important;
 }
 /*--- Orange ---*/
 .ui.orange.labels .label,
@@ -7948,7 +8086,11 @@ a.ui.orange.label:hover:before {
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
 }
-/*--- Pink ---*/
+/* Ribbon */
+.ui.orange.ribbon.label {
+  border-color: #FF4121 !important;
+}
+/*--- Teal ---*/
 .ui.teal.labels .label,
 .ui.teal.label {
   background-color: #00B5AD !important;
@@ -7977,6 +8119,10 @@ a.ui.teal.label:hover:before {
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
+}
+/* Ribbon */
+.ui.teal.ribbon.label {
+  border-color: #009A93 !important;
 }
 /*-------------------
      Horizontal
@@ -8607,14 +8753,6 @@ a.ui.teal.label:hover:before {
 }
 .ui.segment > :last-child {
   margin-bottom: 0em;
-}
-/* Padding on next content after a label */
-.ui.segment > .attached.label:first-child + * {
-  margin-top: 2em;
-}
-.ui.segment > .bottom.attached.label:first-child ~ :last-child {
-  margin-top: 0em;
-  margin-bottom: 2em;
 }
 /*******************************
              Types
@@ -9547,8 +9685,9 @@ a.ui.teal.label:hover:before {
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  width: 1em;
-  height: 1.5em;
+  min-width: 1em;
+  height: 1.25em;
+  line-height: 1em;
   outline: none;
   vertical-align: middle;
 }
@@ -9563,17 +9702,13 @@ a.ui.teal.label:hover:before {
 .ui.checkbox .box,
 .ui.checkbox label {
   cursor: pointer;
-  position: relative;
-  min-width: 1em;
-  height: 1.5em;
   padding-right: 2em;
   outline: none;
-  white-space: nowrap;
 }
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
   position: absolute;
-  top: 0.25em;
+  top: 0em;
   line-height: 1;
   width: 1em;
   height: 1em;
@@ -9610,7 +9745,7 @@ a.ui.teal.label:hover:before {
 }
 .ui.checkbox .box:after,
 .ui.checkbox label:after {
-  top: 0.54em;
+  top: 0.275em;
   right: 0.2em;
   width: 0.45em;
   height: 0.15em;
@@ -9684,7 +9819,7 @@ a.ui.teal.label:hover:before {
 ---------------*/
 .ui.radio.checkbox .box:before,
 .ui.radio.checkbox label:before {
-  width: 1em;
+  min-width: 1em;
   height: 1em;
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
@@ -9693,11 +9828,12 @@ a.ui.teal.label:hover:before {
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
-  top: 0.45em;
+  top: 0.2em;
   right: 0.2em;
   width: 0.6em;
   height: 0.6em;
   background-color: #555555;
+  transform: none;
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
@@ -9708,12 +9844,11 @@ a.ui.teal.label:hover:before {
 .ui.slider.checkbox {
   cursor: pointer;
   min-width: 3em;
-  height: 2em;
 }
 /* Line */
 .ui.slider.checkbox:after {
   position: absolute;
-  top: 0.8em;
+  top: 0.5em;
   right: 0em;
   content: '';
   width: 3em;
@@ -9730,8 +9865,8 @@ a.ui.teal.label:hover:before {
   cursor: pointer;
   display: block;
   position: absolute;
-  top: 0em;
-  right: 0;
+  top: -0.25em;
+  right: 0em;
   z-index: 1;
   width: 1.5em;
   height: 1.5em;
@@ -9751,7 +9886,7 @@ a.ui.teal.label:hover:before {
   opacity: 1;
   position: absolute;
   content: '';
-  top: 0.375em;
+  top: 0.15em;
   right: 0em;
   z-index: 2;
   margin-right: 0.375em;
@@ -9759,6 +9894,7 @@ a.ui.teal.label:hover:before {
   width: 0.75em;
   height: 0.75em;
   border-radius: 50rem;
+  transform: none;
   -webkit-transition: background 0.3s ease 0s,
     right 0.3s ease 0s
   ;
@@ -9797,7 +9933,6 @@ a.ui.teal.label:hover:before {
 ---------------*/
 .ui.toggle.checkbox {
   cursor: pointer;
-  height: 2em;
 }
 .ui.toggle.checkbox .box,
 .ui.toggle.checkbox label {
@@ -9810,7 +9945,7 @@ a.ui.teal.label:hover:before {
   display: block;
   position: absolute;
   content: '';
-  top: 0em;
+  top: -0.25em;
   right: 0em;
   z-index: 1;
   background-color: #FFFFFF;
@@ -9831,7 +9966,7 @@ a.ui.teal.label:hover:before {
   box-shadow: none;
   content: '';
   position: absolute;
-  top: 0.35em;
+  top: 0.15em;
   right: 0.5em;
   z-index: 2;
   border: none;
@@ -10918,7 +11053,7 @@ a.ui.nag {
   top: 0px;
   left: 0px;
   z-index: 900;
-  border: 1px solid #DCDDDE;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   max-width: 250px;
   background-color: #FFFFFF;
   padding: 0.8em 1.2em;
@@ -10929,9 +11064,9 @@ a.ui.nag {
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;
   border-radius: 0.2em;
-  -webkit-box-shadow: 0px 1px 1px #DCDDDE;
-  -moz-box-shadow: 0px 1px 1px #DCDDDE;
-  box-shadow: 0px 1px 1px #DCDDDE;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .header {
   padding: 0em 0em 0.5em;
@@ -10954,9 +11089,9 @@ a.ui.nag {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-box-shadow: 1px 1px 1px #DCDDDE;
-  -moz-box-shadow: 1px 1px 1px #DCDDDE;
-  box-shadow: 1px 1px 1px #DCDDDE;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .ui.button {
   width: 100%;
@@ -10995,12 +11130,12 @@ a.ui.nag {
   right: 50%;
   left: auto;
   bottom: auto;
-  -webkit-box-shadow: -1px -1px 1px #dcddde;
-  -moz-box-shadow: -1px -1px 1px #dcddde;
-  box-shadow: -1px -1px 1px #dcddde;
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.left.popup {
-  margin-left: -0.8em;
+  margin-left: -2em;
 }
 .ui.bottom.left.popup:before {
   top: -0.4em;
@@ -11008,12 +11143,12 @@ a.ui.nag {
   bottom: auto;
   right: auto;
   margin-right: 0em;
-  -webkit-box-shadow: -1px -1px 1px #dcddde;
-  -moz-box-shadow: -1px -1px 1px #dcddde;
-  box-shadow: -1px -1px 1px #dcddde;
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.right.popup {
-  margin-right: -0.8em;
+  margin-right: -2em;
 }
 .ui.bottom.right.popup:before {
   top: -0.4em;
@@ -11021,9 +11156,9 @@ a.ui.nag {
   left: auto;
   bottom: auto;
   margin-right: 0em;
-  -webkit-box-shadow: -1px -1px 1px #dcddde;
-  -moz-box-shadow: -1px -1px 1px #dcddde;
-  box-shadow: -1px -1px 1px #dcddde;
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Above ---*/
 .ui.top.center.popup:before {
@@ -11034,7 +11169,7 @@ a.ui.nag {
   margin-right: -0.4em;
 }
 .ui.top.left.popup {
-  margin-left: -0.8em;
+  margin-left: -2em;
 }
 .ui.top.left.popup:before {
   bottom: -0.4em;
@@ -11044,7 +11179,7 @@ a.ui.nag {
   margin-right: 0em;
 }
 .ui.top.right.popup {
-  margin-right: -0.8em;
+  margin-right: -2em;
 }
 .ui.top.right.popup:before {
   bottom: -0.4em;
@@ -11060,9 +11195,9 @@ a.ui.nag {
   bottom: auto;
   right: auto;
   margin-top: -0.4em;
-  -moz-box-shadow: 1px -1px 1px #dcddde;
-  -webkit-box-shadow: 1px -1px 1px #dcddde;
-  box-shadow: 1px -1px 1px #dcddde;
+  -moz-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Right Center  ---*/
 .ui.right.center.popup:before {
@@ -11071,9 +11206,9 @@ a.ui.nag {
   bottom: auto;
   left: auto;
   margin-top: -0.4em;
-  -moz-box-shadow: -1px 1px 1px #dcddde;
-  -webkit-box-shadow: -1px 1px 1px #dcddde;
-  box-shadow: -1px 1px 1px #dcddde;
+  -moz-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 /*******************************
             States
@@ -12030,11 +12165,6 @@ body {
   https://github.com/daneden/animate.css
 */
 .ui.transition {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
   -ms-animation-iteration-count: 1;
@@ -12052,15 +12182,22 @@ body {
   -ms-animation-fill-mode: both;
   -o-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+/*******************************
+       States
+*******************************/
+.ui.animating.transition {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
 }
-/*******************************
-       States
-*******************************/
 /* Loading */
 .ui.loading.transition {
   position: absolute;
@@ -14150,8 +14287,8 @@ ol.ui.list li,
 .ui.list .item > .icon {
   display: table-cell;
   margin: 0em;
-  padding: 0em 0em 0em 0.5em;
-  vertical-align: middle;
+  padding: 0.2em 0.5em;
+  vertical-align: top;
 }
 .ui.list .item > .icon:only-child {
   display: inline-block;
@@ -14296,7 +14433,7 @@ ol.ui.list li,
 --------------------*/
 ul.ui.list,
 .ui.bulleted.list {
-  margin-right: 1em;
+  margin-right: 1.5em;
 }
 ul.ui.list li,
 .ui.bulleted.list .item {
@@ -14305,14 +14442,14 @@ ul.ui.list li,
 ul.ui.list li:before,
 .ui.bulleted.list .item:before {
   position: absolute;
-  right: -1em;
+  right: -1.5em;
   content: '•';
   line-height: 1.2rem;
   vertical-align: top;
 }
 ul.ui.list ul,
 .ui.bulleted.list .list {
-  padding-right: 1.2em;
+  padding-right: 1.5em;
 }
 /* Horizontal Bulleted */
 ul.ui.horizontal.bulleted.list,
@@ -14362,7 +14499,7 @@ ol.ui.list li:before,
 ol.ui.list ol,
 .ui.ordered.list .list {
   counter-reset: ordered;
-  padding-right: 3em;
+  padding-right: 2.5em;
 }
 ol.ui.list ol li:before,
 .ui.ordered.list .list .item:before {
