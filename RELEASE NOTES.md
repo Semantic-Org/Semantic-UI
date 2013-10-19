@@ -30,7 +30,7 @@
 **Updates**
 - **Header** - Block header now uses RGBA instead of solid color by default
 - **Label** - Ribbon labels now have a shadow color
-- **List** - Horizontal padding on icon list slightly increased
+- **List** - Horizontal padding on icon list slightly increased, fixes to icon position
 - **List** - Increased padding on attached labels
 - **List** - Leading on bulleted and ordered list slightly increased
 - **Message** - Increase opacity of icons on icon messages

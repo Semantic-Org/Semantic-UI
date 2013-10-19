@@ -1,18 +1,16 @@
 // # Semantic Modules
-// This is a design pattern for creating ui modules in Semantic
+// This is a design pattern for creating UI modules in Semantic
 //
 // Semantic is unique in that all arbitrary data is a setting. Semantic modules also are self documenting, with module.debug calls serving to explain state, and log performance data.
-// [Read more about coding conventions](http://semantic-ui.com/guide/javascriptguide.html)
+// [Read more about coding conventions](http://semantic-ui.com/guide/javascriptguide.html) and [Read about modules](http://semantic-ui.com/module.html)
 /*
- * # Semantic Module 1.0
+ * # Semantic Module
  * http://github.com/quirkyinc/semantic
  *
  *
  * Copyright 2013 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
- *
- * Released: April 17 2013
  */
 
 ;(function ( $, window, document, undefined ) {
