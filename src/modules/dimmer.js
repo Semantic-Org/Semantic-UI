@@ -54,8 +54,6 @@ $.fn.dimmer = function(parameters) {
         module
       ;
 
-      console.log(element, parameters);
-
       module = {
 
         preinitialize: function() {
@@ -152,13 +150,21 @@ $.fn.dimmer = function(parameters) {
 
         animate: {
           show: function(callback) {
-            callback = callback || function(){};
+            callback = $.isFunction(callback)
+              ? callback
+              : function(){}
+            ;
             module.set.dimmed();
             if($.fn.transition !== undefined) {
               $dimmer
-                .transition(settings.transition + ' in', module.get.duration(), function() {
-                  module.set.active();
-                  callback();
+                .transition({
+                  animation : settings.transition + ' in',
+                  queue     : true,
+                  duration  : module.get.duration(),
+                  complete  : function() {
+                    module.set.active();
+                    callback();
+                  },
                 })
               ;
             }
@@ -180,14 +186,22 @@ $.fn.dimmer = function(parameters) {
             }
           },
           hide: function(callback) {
-            callback = callback || function(){};
-            module.remove.dimmed();
+            callback = $.isFunction(callback)
+              ? callback
+              : function(){}
+            ;
             if($.fn.transition !== undefined) {
               module.verbose('Hiding dimmer with css');
               $dimmer
-                .transition(settings.transition + ' out', module.get.duration(), function() {
-                  module.remove.active();
-                  callback();
+                .transition({
+                  animation : settings.transition + ' out',
+                  duration  : module.get.duration(),
+                  queue     : true,
+                  complete  : function() {
+                    module.remove.dimmed();
+                    module.remove.active();
+                    callback();
+                  }
                 })
               ;
             }
@@ -197,6 +211,7 @@ $.fn.dimmer = function(parameters) {
                 .stop()
                 .fadeOut(module.get.duration(), function() {
                   $dimmer.removeAttr('style');
+                  module.remove.dimmed();
                   module.remove.active();
                   callback();
                 })
@@ -229,26 +244,29 @@ $.fn.dimmer = function(parameters) {
         },
 
         is: {
-          dimmer: function() {
-            return $module.is(selector.dimmer);
-          },
-          dimmable: function() {
-            return $module.is(selector.dimmable);
-          },
           active: function() {
             return $dimmer.hasClass(className.active);
           },
           animating: function() {
             return ( $dimmer.is(':animated') || $dimmer.hasClass(className.transition) );
           },
-          page: function () {
-            return $dimmable.is('body');
+          dimmer: function() {
+            return $module.is(selector.dimmer);
           },
-          enabled: function() {
-            return !$dimmable.hasClass(className.disabled);
+          dimmable: function() {
+            return $module.is(selector.dimmable);
+          },
+          dimmed: function() {
+            return $dimmable.hasClass(className.dimmed);
           },
           disabled: function() {
             return $dimmable.hasClass(className.disabled);
+          },
+          enabled: function() {
+            return !module.is.disabled();
+          },
+          page: function () {
+            return $dimmable.is('body');
           },
           pageDimmer: function() {
             return $dimmer.hasClass(className.pageDimmer);
@@ -263,6 +281,7 @@ $.fn.dimmer = function(parameters) {
 
         set: {
           active: function() {
+            module.set.dimmed();
             $dimmer
               .removeClass(className.transition)
               .addClass(className.active)
@@ -298,8 +317,12 @@ $.fn.dimmer = function(parameters) {
         },
 
         show: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
           module.debug('Showing dimmer', $dimmer, settings);
-          if( !(module.is.active() || module.is.animating() ) && module.is.enabled() ) {
+          if( !module.is.active() && module.is.enabled() ) {
             module.animate.show(callback);
             $.proxy(settings.onShow, element)();
             $.proxy(settings.onChange, element)();
@@ -310,7 +333,11 @@ $.fn.dimmer = function(parameters) {
         },
 
         hide: function(callback) {
-          if( module.is.active() && !module.is.animating() ) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( module.is.active() || module.is.animating() ) {
             module.debug('Hiding dimmer', $dimmer);
             module.animate.hide(callback);
             $.proxy(settings.onHide, element)();
@@ -323,7 +350,7 @@ $.fn.dimmer = function(parameters) {
 
         toggle: function() {
           module.verbose('Toggling dimmer visibility', $dimmer);
-          if( !module.is.active() ) {
+          if( !module.is.dimmed() ) {
             module.show();
           }
           else {
@@ -332,26 +359,22 @@ $.fn.dimmer = function(parameters) {
         },
 
         setting: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, settings, name);
-            }
-            else {
-              settings[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            settings[name] = value;
           }
           else {
             return settings[name];
           }
         },
         internal: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, module, name);
-            }
-            else {
-              module[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
           }
           else {
             return module[name];
@@ -520,12 +543,11 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  verbose     : true,
   debug       : true,
+  verbose     : true,
   performance : true,
 
   transition  : 'fade',
-
   on          : false,
   closable    : true,
   duration    : {
