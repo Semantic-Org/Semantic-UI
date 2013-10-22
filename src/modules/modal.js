@@ -63,6 +63,11 @@ $.fn.modal = function(parameters) {
         initialize: function() {
           module.verbose('Initializing dimmer', $context);
 
+          if(typeof $.fn.dimmer === undefined) {
+            module.error(error.dimmer);
+            return;
+          }
+
           $dimmable = $context
             .dimmer({
               closable : false,
@@ -140,12 +145,18 @@ $.fn.modal = function(parameters) {
           close: function() {
             module.verbose('Closing element pressed');
             if( $(this).is(selector.approve) ) {
-              $.proxy(settings.onApprove, element)();
+              if($.proxy(settings.onApprove, element)()) {
+                modal.hide();
+              }
             }
             if( $(this).is(selector.deny) ) {
-              $.proxy(settings.onDeny, element)();
+              if($.proxy(settings.onDeny, element)()) {
+                modal.hide();
+              }
             }
-            module.hide();
+            else {
+              module.hide();
+            }
           },
           click: function(event) {
             module.verbose('Determining if event occured on dimmer', event);
@@ -282,7 +293,7 @@ $.fn.modal = function(parameters) {
 
         restore: {
           focus: function() {
-            if($focusedElement.size() > 0) {
+            if($focusedElement && $focusedElement.size() > 0) {
               $focusedElement.focus();
             }
           }
@@ -571,8 +582,8 @@ $.fn.modal.settings = {
 
   onShow      : function(){},
   onHide      : function(){},
-  onApprove   : function(){},
-  onDeny      : function(){},
+  onApprove   : function(){ return true; },
+  onDeny      : function(){ return true; },
 
   selector    : {
     close    : '.close, .actions .button',
@@ -580,6 +591,7 @@ $.fn.modal.settings = {
     deny     : '.actions .negative, .actions .cancel'
   },
   error : {
+    dimmer : 'UI Dimmer, a required component is not included in this page',
     method : 'The method you called is not defined.'
   },
   className : {
