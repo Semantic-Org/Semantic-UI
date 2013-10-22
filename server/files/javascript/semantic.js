@@ -374,7 +374,6 @@ semantic.ready = function() {
           .each(handler.initializeCode)
         ;
         $existingCode
-          .filter(':visible')
           .each(handler.createAnnotation)
         ;
       }

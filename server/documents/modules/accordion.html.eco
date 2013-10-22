@@ -131,12 +131,12 @@ type        : 'UI Module'
               <input placeholder="Last Name" type="text">
             </div>
           </div>
-          <div class="title">
-            <i class="icon dropdown"></i>
-            Optional Details
-          </div>
-          <div class="content">
-            <div class="field">
+          <div class="field">
+            <div class="title">
+              <i class="icon dropdown"></i>
+              Optional Details
+            </div>
+            <div class="content">
               <label>Maiden Name</label>
               <input placeholder="Maiden Name" type="text">
             </div>

@@ -51,9 +51,14 @@ type        : 'Semantic'
         </div>
       </div>
     </div>
-    <a class="ui secondary labeled icon button" href="/spec/docs/module.commented.html">
-      <i class="book icon"></i>
-      View Commented Design Pattern
+    <div class="ui divider"></div>
+    <a href="/spec/docs/modal.commented.html" class="ui large secondary labeled icon button">
+      <i class="info icon"></i>
+      Real World Commented Example
+    </a>
+    <a href="/spec/docs/module.commented.html" class="ui large black labeled icon button">
+      <i class="info icon"></i>
+      Commented Design Pattern
     </a>
   </div>
   <div class="ui tab" data-tab="init">
@@ -204,8 +209,7 @@ type        : 'Semantic'
     <p>Unlike many javascript components, anything arbitrary in Semantic is a setting. This means no need to dig inside the internals of the component to alter an expected css selector or class name, simply alter the settings object</p>
 
     <h3 class="ui header">Common Settings</h3>
-    <p>That means class names, selectors, error output, dom metadata etc can all be controlled by altering the settings object.</p>
-    <p>The following is a list of common settings usually found in each javascript module.
+    <p>The following is a list of common settings usually found in javascript modules.
     <table class="ui celled sortable definition table segment">
       <thead>
         <th>Name</th>
@@ -218,15 +222,15 @@ type        : 'Semantic'
         </tr>
         <tr>
           <td>debug</td>
-          <td>Provides standard debug output to console.</td>
+          <td>Whether to provide standard debug output to console.</td>
         </tr>
         <tr>
           <td>performance</td>
-          <td>Provides performance logging to console of internal method calls.</td>
+          <td>Whether to provide performance logging to console of internal method calls.</td>
         </tr>
         <tr>
           <td>verbose</td>
-          <td>Provides extra debug output to console</td>
+          <td>Whether to provide extra debug output to console</td>
         </tr>
         <tr>
           <td>namespace</td>
@@ -242,7 +246,7 @@ type        : 'Semantic'
         </tr>
         <tr>
           <td>classNames</td>
-          <td>An object containing all classnames used in the module.</td>
+          <td>An object containing all class names used in the module.</td>
         </tr>
         <tr>
           <td>errors</td>

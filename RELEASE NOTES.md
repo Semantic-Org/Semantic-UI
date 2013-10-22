@@ -8,6 +8,7 @@
 - **List** - Adds documentation for module format
 - **List** - Adds onTabInit for local tabs on first load
 - **List** - Popups can now have a different target than itself
+- **Modal** - Modal hide can be cancelled from ``onApprove`` and ``onDeny`` by returning false from callback
 
 **Docs**
 - **Popup** - Adds more popup examples
@@ -28,6 +29,7 @@
 - **Popup** - Popup will not reshow a visible popup on hover
 
 **Updates**
+- **Accordion** - Reduces vertical padding on basic accordion content
 - **Header** - Block header now uses RGBA instead of solid color by default
 - **Label** - Ribbon labels now have a shadow color
 - **List** - Horizontal padding on icon list slightly increased, fixes to icon position

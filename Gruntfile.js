@@ -31,6 +31,14 @@ module.exports = function(grunt) {
       'karma:travis'
     ],
 
+    specTasks = [
+      // generate code docs
+      'docco:generate',
+
+      // copies spec files over to docs
+      'copy:specToDocs'
+    ],
+
     buildTasks = [
       // clean build directory
       'clean:build',
@@ -65,8 +73,6 @@ module.exports = function(grunt) {
       // creates custom license in header
       'cssmin:addBanner',
 
-      // generate code docs
-      'docco:generate',
 
       // cleans previous generated release
       'clean:release',
@@ -79,9 +85,6 @@ module.exports = function(grunt) {
 
       // create rtl release
       'cssjanus:rtl',
-
-      // copies spec files over to docs
-      'copy:specToDocs',
 
       // copies examples over to docs
       'copy:examplesToDocs',
@@ -563,6 +566,7 @@ module.exports = function(grunt) {
   grunt.initConfig(config);
   grunt.registerTask('default', defaultTasks);
   grunt.registerTask('build', buildTasks);
+  grunt.registerTask('spec', specTasks);
   grunt.registerTask('test', testTasks);
 
   // compiles only changed less files <https://npmjs.org/package/grunt-contrib-watch>

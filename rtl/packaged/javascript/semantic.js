@@ -5324,6 +5324,11 @@ $.fn.modal = function(parameters) {
         initialize: function() {
           module.verbose('Initializing dimmer', $context);
 
+          if(typeof $.fn.dimmer === undefined) {
+            module.error(error.dimmer);
+            return;
+          }
+
           $dimmable = $context
             .dimmer({
               closable : false,
@@ -5841,6 +5846,7 @@ $.fn.modal.settings = {
     deny     : '.actions .negative, .actions .cancel'
   },
   error : {
+    dimmer : 'UI Dimmer, a required component is not included in this page',
     method : 'The method you called is not defined.'
   },
   className : {

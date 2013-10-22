@@ -122,27 +122,27 @@ type        : 'UI Element'
     <p>A button can be formatted to link to a social website</p>
     <div class="ui facebook button">
       <i class="facebook icon"></i>
-      Log-in with Facebook
+      Facebook
     </div>
     <div class="ui twitter button">
       <i class="twitter icon"></i>
-      Sign-up with Twitter
+      Twitter
     </div>
     <div class="ui google plus button">
       <i class="google plus icon"></i>
-      Share on Google Plus
+      Google Plus
     </div>
     <div class="ui linkedin button">
       <i class="linkedin icon"></i>
-      Associate your LinkedIn
+      LinkedIn
     </div>
     <div class="ui instagram button">
       <i class="instagram icon"></i>
-      Import from Instagram
+      Instagram
     </div>
     <div class="ui youtube button">
       <i class="youtube icon"></i>
-      Watch on YouTube
+      YouTube
     </div>
   </div>
 
