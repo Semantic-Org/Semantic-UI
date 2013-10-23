@@ -106,6 +106,7 @@ $.fn.shape = function(parameters) {
             module.reset();
             module.set.active();
           };
+          $.proxy(settings.beforeChange, $nextSide[0])();
           if(module.get.transitionEvent()) {
             module.verbose('Starting CSS animation');
             $module
@@ -244,7 +245,7 @@ $.fn.shape = function(parameters) {
             $nextSide
               .addClass(className.active)
             ;
-            $.proxy(settings.onChange, $nextSide)();
+            $.proxy(settings.onChange, $nextSide[0])();
             module.set.defaultSide();
           }
         },
@@ -754,6 +755,7 @@ $.fn.shape.settings = {
   namespace  : 'shape',
 
   // callback occurs on side change
+  beforeChange : function() {},
   onChange     : function() {},
 
   // animation duration
