@@ -106,6 +106,7 @@ $.fn.transition = function() {
             if(settings.queue) {
               module.queue(settings.animation);
             }
+            return false;
           }
           module.save.conditions();
           module.set.duration(settings.duration);
