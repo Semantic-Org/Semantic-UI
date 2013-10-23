@@ -13,15 +13,18 @@
 
 $.fn.sidebar = function(parameters) {
   var
-    $allModules     = $(this),
-    moduleSelector  = $allModules.selector || '',
+    $allModules    = $(this),
+    $body          = $('body'),
+    $head          = $('head'),
 
-    time            = new Date().getTime(),
-    performance     = [],
+    moduleSelector = $allModules.selector || '',
 
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
+    time           = new Date().getTime(),
+    performance    = [],
+
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
     returnedValue
   ;
 
@@ -40,14 +43,11 @@ $.fn.sidebar = function(parameters) {
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
 
-        $module  = $(this),
+        $module         = $(this),
+        $style          = $('style[title=' + namespace + ']'),
 
-        $body    = $('body'),
-        $head    = $('head'),
-        $style   = $('style[title=' + namespace + ']'),
-
-        element  = this,
-        instance = $module.data(moduleNamespace),
+        element         = this,
+        instance        = $module.data(moduleNamespace),
         module
       ;
 
@@ -99,28 +99,52 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-
-        show: function() {
-          module.debug('Showing sidebar');
+        show: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.debug('Showing sidebar', callback);
           if(module.is.closed()) {
             if(!settings.overlay) {
+              if(settings.exclusive) {
+                module.hideAll();
+              }
               module.pushPage();
             }
             module.set.active();
+            callback();
+            $.proxy(settings.onChange, element)();
+            $.proxy(settings.onShow, element)();
           }
           else {
             module.debug('Sidebar is already visible');
           }
         },
 
-        hide: function() {
+        hide: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.debug('Hiding sidebar', callback);
           if(module.is.open()) {
             if(!settings.overlay) {
               module.pullPage();
               module.remove.pushed();
             }
             module.remove.active();
+            callback();
+            $.proxy(settings.onChange, element)();
+            $.proxy(settings.onHide, element)();
           }
+        },
+
+        hideAll: function() {
+          $(selector.sidebar)
+            .filter(':visible')
+              .sidebar('hide')
+          ;
         },
 
         toggle: function() {
@@ -458,10 +482,9 @@ $.fn.sidebar.settings = {
   performance : true,
 
   useCSS      : true,
+  exclusive   : true,
   overlay     : false,
   duration    : 300,
-
-  side        : 'left',
 
   onChange     : function(){},
   onShow       : function(){},
@@ -474,6 +497,10 @@ $.fn.sidebar.settings = {
     left   : 'left',
     right  : 'right',
     bottom : 'bottom'
+  },
+
+  selector: {
+    sidebar: '.ui.sidebar'
   },
 
   error   : {
