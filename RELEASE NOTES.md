@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.7.0 - Oct 17, 2013
+### Version 0.7.0 - Oct 22, 2013
 
 **New**
 - **Table** - Added aweosome new responsive style to ui tables
@@ -9,14 +9,27 @@
 - **List** - Adds onTabInit for local tabs on first load
 - **List** - Popups can now have a different target than itself
 - **Modal** - Modal hide can be cancelled from ``onApprove`` and ``onDeny`` by returning false from callback
+- **Transition** - onShow and onHide callbacks for visibilit changing transitions
+- **Shape** - New 'cube' and 'text' shape type
+- **Shape** - Transition duration can now be set programatically
+- **Shape** - New beforeChange callback
+- **Sidebar** - Sidebar will now default to being exclusive and hiding other sidebars on show
+- **Sidebar** - Sidebar now has onChange, onShow, onHide callbacks
+- **Sidebar** - Sidebar now have several size variations, and a new styled variation that comes preformatted
 
 **Docs**
-- **Popup** - Adds more popup examples
+- **Dimmer** - Adds more dimmer examples, fixes settings
+- **Modules** - New examples and docs for all modules
 - Adds sortable tables to docs
 - New tabbed doc style for modules
-- Ensures all code samples are properly indented programatically
+- Code samples will now automatically format indention
 
 **Fixes**
+- **Button** - Fixes vertical fluid buttons not taking up full width
+- **Shape** - Shape now works with no additional stylings
+- **Shape** - Fixes calculation of next side size to work correctly by using offstage element
+- **Modules** - Fixed issue when altering settings using ``module('setting')`` with an object
+- **Dimmer** - Dimmer now obeys border radius of parent
 - **Dropdown** - Dropdown cannot display inside item image
 - **Dropdown** - Dropdown links were being prevented by event.preventDefault used for touch devices
 - **Dropdown** - Fixes issue with borders on selection dropdown
@@ -43,6 +56,8 @@
 - **Popup** - Popup no-longer receives class name 'visible' on show, this allows popups to be used on dropdowns and other elements with a visible state
 - **Popup** - Popups are no longer inline by default
 - **Table** - Table headers are now darker to increase contrast with rainbow striped rows
+- **Sidebar** - Floating sidebar is slightly less heavily shadowed
+
 
 ### Version 0.6.5 - Oct 18, 2013
 

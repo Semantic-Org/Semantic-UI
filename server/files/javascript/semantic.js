@@ -31,6 +31,7 @@ semantic.ready = function() {
     $peekItem         = $peek.children('.menu').children('a.item'),
     $peekSubItem      = $peek.find('.item .menu .item'),
     $sortableTables   = $('.sortable.table'),
+    $stuckColumn      = $('.fixed.column .image, .fixed.column .content'),
 
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
@@ -758,6 +759,17 @@ semantic.ready = function() {
       },
       offset: 'bottom-in-view'
      })
+  ;
+
+  $stuckColumn
+    .each(function() {
+      $(this)
+        .waypoint('sticky', {
+          offset     : 65,
+          stuckClass : 'fixed'
+        })
+      ;
+    })
   ;
 
   $peek

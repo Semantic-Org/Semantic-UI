@@ -89,6 +89,7 @@
   <script src="/build/uncompressed/modules/modal.js"></script>
   <script src="/build/uncompressed/modules/popup.js"></script>
   <script src="/build/uncompressed/modules/rating.js"></script>
+  <script src="/build/uncompressed/modules/shape.js"></script>
   <script src="/build/uncompressed/modules/sidebar.js"></script>
   <script src="/build/uncompressed/modules/tab.js"></script>
   <script src="/build/uncompressed/modules/transition.js"></script>

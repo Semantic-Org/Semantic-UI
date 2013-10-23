@@ -136,7 +136,7 @@ type        : 'UI Module'
               <i class="icon dropdown"></i>
               Optional Details
             </div>
-            <div class="content">
+            <div class="content field">
               <label>Maiden Name</label>
               <input placeholder="Maiden Name" type="text">
             </div>
@@ -296,7 +296,7 @@ type        : 'UI Module'
 
     <h3 class="ui header">
       Callbacks
-      <div class="sub header">Callback settings specify a function to occur after a specific behavior.</div>
+      <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
     </h3>
 
     <table class="ui sortable celled definition table segment">

@@ -97,7 +97,7 @@ pre.console {
   background-color: transparent;
   line-height: 1.6;
   font-family:  'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
-  height: 200px;
+  height: 300px;
   overflow: auto;
 }
 code {
@@ -185,12 +185,6 @@ a:hover {
   background-color: #FAFAFA;
   border-bottom-color: #FAFAFA;
 }
-#example .tab[data-tab="settings"] .header {
-  margin-top: 3em;
-}
-#example .tab[data-tab="settings"] .header:first-child {
-  margin-top: 0em;
-}
 
 
 #example .download.menu {
@@ -199,7 +193,6 @@ a:hover {
 }
 
 #example .main.menu {
-  top: 0px;
   min-width: 320px;
   z-index: 900;
 
@@ -216,10 +209,6 @@ a:hover {
 }
 #example .main.menu iframe {
   margin: 0px 0px 0px 0px;
-}
-#example .main.menu .count {
-/*  font-size: 0.875em;
-  vertical-align: middle;*/
 }
 /* lists */
 #example .features {
@@ -556,14 +545,17 @@ body.guide .main.container > * {
   float: right;
   clear: both;
 }
-#example .page {
-  /* font-family: "Arial, Helvetica, sans-serif"; */
-}
 #example .launch.button {
   position: fixed;
   top: 63px;
   z-index: 500;
   width: 70px;
+}
+#example.index .main.menu {
+  top: 0px;
+}
+#example.index pre.console {
+  height: 120px;
 }
 #example.index .attached.launch.button {
   top: 96px;
@@ -1241,10 +1233,14 @@ body.progress .ui.progress .bar {
   font-family: 'Basic Icons';
 }
 
+#example .fixed.column .sticky-wrapper {
+  height: 0px !important;
+}
 
-#example .fixed.column,
-#example .fixed.segment {
+#example .fixed.column .fixed,
+#example .fixed.segment .fixed {
   position: fixed;
+  top: 65px;
   -webkit-perspective: 2000px;
   -moz-perspective: 2000px;
   -ms-perspective: 2000px;
@@ -1255,6 +1251,7 @@ body.progress .ui.progress .bar {
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
+
 
 
 @media only screen and (max-width : 1725px) {
@@ -1317,6 +1314,9 @@ body.progress .ui.progress .bar {
   }
 }
 @media only screen and (max-width : 780px) {
+  pre.console {
+    height: 150px;
+  }
   #example.index .masthead {
     text-align: center;
     padding: 50px 0px 15px;
@@ -1455,17 +1455,39 @@ body.progress .ui.progress .bar {
     width: auto;
     padding: 0% 4%;
   }
+  #example.transition .examples {
+    width: 100%;
+  }
+  #example.transition .examples .pointing.below.label {
+    display: none;
+  }
 }
 @media only screen and (min-width : 998px) {
   #example.index .main.menu .container {
     width: auto;
     padding: 0% 8%;
   }
+  #example .examples {
+    margin-right: 400px;
+  }
+  #example .fixed.column,
+  #example .fixed.column .fixed {
+    float: right;
+    width: 300px;
+  }
 }
 @media only screen and (min-width : 1500px) {
   #example.index .main.menu .container {
     width: auto;
     padding: 0% 13%;
+  }
+  #example .examples {
+    margin-right: 500px;
+  }
+  #example .fixed.column,
+  #example .fixed.column .fixed  {
+    float: right;
+    width: 400px;
   }
 }
 @media only screen and (min-width : 1750px) {

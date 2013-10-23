@@ -3,6 +3,10 @@ semantic.dropdown = {};
 // ready event
 semantic.dropdown.ready = function() {
 
+  $('.ui.rating')
+    .rating()
+  ;
+
 };
 
 

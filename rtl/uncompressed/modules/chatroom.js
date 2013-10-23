@@ -13,8 +13,16 @@
 
 $.fn.chatroom = function(parameters) {
   var
-    // hoist arguments
-    moduleArguments = arguments || false
+    $allModules    = $(this),
+    moduleSelector = $allModules.selector || '',
+
+    time           = new Date().getTime(),
+    performance    = [],
+
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
+    returnedValue
   ;
   $(this)
     .each(function() {
@@ -42,6 +50,7 @@ $.fn.chatroom = function(parameters) {
         $messageButton  = $module.find(selector.messageButton),
 
         instance        = $module.data('module'),
+        element         = this,
 
         html            = '',
         users           = {},
@@ -435,8 +444,6 @@ $.fn.chatroom = function(parameters) {
 
         },
 
-
-
       setting: function(name, value) {
         if(value !== undefined) {
           if( $.isPlainObject(name) ) {
@@ -451,13 +458,11 @@ $.fn.chatroom = function(parameters) {
         }
       },
       internal: function(name, value) {
-        if(value !== undefined) {
-          if( $.isPlainObject(name) ) {
-            $.extend(true, module, name);
-          }
-          else {
-            module[name] = value;
-          }
+        if( $.isPlainObject(name) ) {
+          $.extend(true, module, name);
+        }
+        else if(value !== undefined) {
+          module[name] = value;
         }
         else {
           return module[name];
@@ -525,7 +530,6 @@ $.fn.chatroom = function(parameters) {
           if(moduleSelector) {
             title += ' \'' + moduleSelector + '\'';
           }
-          title += ' ' + '(' + $allDropdowns.size() + ')';
           if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
             console.groupCollapsed(title);
             if(console.table) {

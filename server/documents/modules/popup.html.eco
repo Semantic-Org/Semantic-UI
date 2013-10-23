@@ -109,44 +109,57 @@ type        : 'UI Module'
     </div>
 
     <h2 class="ui dividing header">Behavior</h2>
-    All the following behaviors can be called using the syntax <code>$('.foo').popup('behavior name', argumentOne, argumentTwo)</code>
-    <table class="ui definition celled table segment">
-      <tr>
-        <td>show</td>
-        <td>Shows popup</td>
-      </tr>
-      <tr>
-        <td>hide</td>
-        <td>Hides popup</td>
-      </tr>
-      <tr>
-        <td>hide all</td>
-        <td>Hides all visible pop ups on the page</td>
-      </tr>
-      <tr>
-        <td>toggle</td>
-        <td>Toggles visibility of popup</td>
-      </tr>
-      <tr>
-        <td>is visible</td>
-        <td>Returns whether popup is visible</td>
-      </tr>
-      <tr>
-        <td>is hidden</td>
-        <td>Returns whether popup is hidden</td>
-      </tr>
-      <tr>
-        <td>exists</td>
-        <td>Returns whether popup is created and inserted into the page</td>
-      </tr>
-      <tr>
-        <td>set position(position)</td>
-        <td>Repositions a popup</td>
-      </tr>
-      <tr>
-        <td>remove</td>
-        <td>Removes popup from the page</td>
-      </tr>
+
+    <p>All the following behaviors can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .popup('behavior name', argumentOne, argumentTwo)
+    ;
+    </div>
+
+    <table class="ui definition celled sortable table segment">
+      <thead>
+        <th>Behavior</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>show</td>
+          <td>Shows popup</td>
+        </tr>
+        <tr>
+          <td>hide</td>
+          <td>Hides popup</td>
+        </tr>
+        <tr>
+          <td>hide all</td>
+          <td>Hides all visible pop ups on the page</td>
+        </tr>
+        <tr>
+          <td>toggle</td>
+          <td>Toggles visibility of popup</td>
+        </tr>
+        <tr>
+          <td>is visible</td>
+          <td>Returns whether popup is visible</td>
+        </tr>
+        <tr>
+          <td>is hidden</td>
+          <td>Returns whether popup is hidden</td>
+        </tr>
+        <tr>
+          <td>exists</td>
+          <td>Returns whether popup is created and inserted into the page</td>
+        </tr>
+        <tr>
+          <td>set position(position)</td>
+          <td>Repositions a popup</td>
+        </tr>
+        <tr>
+          <td>remove</td>
+          <td>Removes popup from the page</td>
+        </tr>
+      </tbody>
     </table>
 
   </div>

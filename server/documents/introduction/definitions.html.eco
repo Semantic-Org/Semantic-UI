@@ -43,7 +43,7 @@ type        : 'UI Introduction'
     </tr>
     <tr>
       <td><b>UI Behavior</b></td>
-      <td>A set of free-standing actions not specfically tied to an element</td>
+      <td>A set of free-standing actions not specifically tied to an element</td>
     </tr>
   </table>
 

@@ -622,19 +622,20 @@ i.circular.inverted.icon {
       Flipped
 --------------------*/
 
-i.vertically.flipped.icon {
-  -webkit-transform: scale(1, -1);
-  -moz-transform: scale(1, -1);
-  -o-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
-  transform: scale(1, -1);
-}
+i.flipped.icon,
 i.horizontally.flipped.icon {
   -webkit-transform: scale(-1, 1);
   -moz-transform: scale(-1, 1);
   -o-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
+}
+i.vertically.flipped.icon {
+  -webkit-transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 
 /*-------------------
@@ -674,9 +675,6 @@ i.square.icon {
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
 
   vertical-align: baseline;
-}
-i.square.icon:before {
-  vertical-align: middle;
 }
 i.square.inverted.icon {
   border: none;

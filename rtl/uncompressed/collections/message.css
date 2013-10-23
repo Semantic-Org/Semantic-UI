@@ -78,7 +78,7 @@
 .ui.message ul.list li {
   position: relative;
   list-style-type: none;
-  margin: 0em 1em 0em 0em;
+  margin: 0em 1em 0.3em 0em;
   padding: 0em;
 }
 .ui.message ul.list li:before {

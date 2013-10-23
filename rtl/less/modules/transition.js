@@ -146,10 +146,12 @@ $.fn.transition = function() {
             if($module.hasClass(className.outward)) {
               module.restore.conditions();
               module.hide();
+              $.proxy(settings.onHide, this)();
             }
             else if($module.hasClass(className.inward)) {
               module.restore.conditions();
               module.show();
+              $.proxy(settings.onShow, this)();
             }
             else {
               module.restore.conditions();
@@ -436,26 +438,22 @@ $.fn.transition = function() {
         },
 
         setting: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, settings, name);
-            }
-            else {
-              settings[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            settings[name] = value;
           }
           else {
             return settings[name];
           }
         },
         internal: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, module, name);
-            }
-            else {
-              module[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
           }
           else {
             return module[name];
@@ -622,12 +620,14 @@ $.fn.transition.settings = {
 
   // animation complete event
   complete    : function() {},
+  onShow      : function() {},
+  onHide      : function() {},
 
   // animation duration
   animation   : 'fade',
   duration    : '700ms',
 
-  // queue up animations
+  // new animations will occur after previous ones
   queue       : true,
 
   className   : {

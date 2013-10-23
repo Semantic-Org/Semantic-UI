@@ -40,12 +40,16 @@ body {
 
   margin: 0 !important;
 
-  width: 275px !important;
   height: 100% !important;
 
   -webkit-border-radius: 0px !important;
   -moz-border-radius: 0px !important;
   border-radius: 0px !important;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 
   -ms-overflow-y: auto;
   overflow-y: auto;
@@ -77,12 +81,13 @@ body {
 
 
 /*******************************
-            Types
+             Types
 *******************************/
 
-.ui.sidebar {
-  margin-left: -275px !important;
-}
+/*-------------------
+       Direction
+--------------------*/
+
 
 .ui.right.sidebar {
   left: 100%;
@@ -90,14 +95,11 @@ body {
 }
 
 .ui.top.sidebar {
-  margin: -40px 0px 0px 0px !important;
   width: 100% !important;
-  height: 40px !important;
 }
 
 .ui.bottom.sidebar {
   width: 100% !important;
-  height: 40px !important;
   top: 100%;
   margin: 0px !important;
 }
@@ -110,41 +112,140 @@ body {
 .ui.active.sidebar {
   margin-left: 0px !important;
 }
-.ui.active.right.sidebar {
-  margin-left: -275px !important;
-}
-
-.ui.active.top.sidebar {
+.ui.active.top.sidebar,
+.ui.active.bottom.sidebar {
   margin-top: 0px !important;
 }
-.ui.active.bottom.sidebar {
-  margin-top: -40px !important;
-}
+
 
 /*******************************
            Variations
 *******************************/
 
+/*-------------------
+      Formatted
+--------------------*/
+
+.ui.styled.sidebar {
+  padding: 1em 1.5em;
+  background-color: #FFFFFF;
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.styled.very.thin.sidebar {
+  padding: 0.5em;
+}
+.ui.styled.thin.sidebar {
+  padding: 1em;
+}
+
+
+/*-------------------
+       Floating
+--------------------*/
+
 .ui.floating.sidebar {
-  -webkit-box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
 }
 
 .ui.right.floating.sidebar {
-  -webkit-box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
 }
 
 .ui.top.floating.sidebar {
-  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .ui.bottom.floating.sidebar {
-  -webkit-box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/*-------------------
+        Width
+--------------------*/
+
+/* Very Thin */
+.ui.very.thin.sidebar {
+  width: 60px !important;
+  margin-left: -60px !important;
+}
+.ui.active.very.thin.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.very.thin.sidebar {
+  margin-left: -60px !important;
+}
+
+/* Thin */
+.ui.thin.sidebar {
+  width: 200px !important;
+  margin-left: -200px !important;
+}
+.ui.active.thin.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.thin.sidebar {
+  margin-left: -200px !important;
+}
+
+/* Standard */
+.ui.sidebar {
+  width: 275px !important;
+  margin-left: -275px !important;
+}
+.ui.active.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.sidebar {
+  margin-left: -275px !important;
+}
+
+/* Wide */
+.ui.wide.sidebar {
+  width: 350px !important;
+  margin-left: -350px !important;
+}
+.ui.active.wide.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.wide.sidebar {
+  margin-left: -350px !important;
+}
+
+/* Very Wide */
+.ui.very.wide.sidebar {
+  width: 475px !important;
+  margin-left: -475px !important;
+}
+.ui.active.very.wide.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.very.wide.sidebar {
+  margin-left: -475px !important;
+}
+
+
+
+/*-------------------
+       Height
+--------------------*/
+
+/* Standard */
+.ui.top.sidebar {
+  margin: -40px 0px 0px 0px !important;
+}
+.ui.top.sidebar,
+.ui.bottom.sidebar {
+  height: 40px !important;
+}
+.ui.active.bottom.sidebar {
+  margin-top: -40px !important;
 }

@@ -4,9 +4,19 @@ semantic.home = {};
 semantic.home.ready = function() {
 
   // selector cache
-  var 
+  var
     $navigationItem = $('.demo .menu .item'),
     $oddballItem    = $navigationItem.filter('.oddball')
+  ;
+  $.fn.transition.settings.debug = true;
+  $('.kitten.image')
+    .transition('internal', 'debug', function() {
+      $('.console')
+        .append(arguments[0] + "\n")
+        // scroll to bottom
+        .prop('scrollTop', $('.console').prop('scrollHeight') )
+      ;
+    })
   ;
 
   $navigationItem

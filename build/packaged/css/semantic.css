@@ -1074,7 +1074,7 @@ body > .ui.grid {
     display: block !important;
     padding: 0em;
   }
-  .ui.stackable.grid .row > .column,
+  .ui.stackable.grid > .row > .column,
   .ui.stackable.grid > .column {
     display: block !important;
     width: auto !important;
@@ -2643,7 +2643,7 @@ body > .ui.grid {
 .ui.message ul.list li {
   position: relative;
   list-style-type: none;
-  margin: 0em 0em 0em 1em;
+  margin: 0em 0em 0.3em 1em;
   padding: 0em;
 }
 .ui.message ul.list li:before {
@@ -4159,7 +4159,7 @@ i.massive.basic.icon {
   border: none;
   background-color: #EBEBEB;
   color: #808080;
-  margin: 0em 0em 0.4em;
+  margin: 0em;
   padding: 0.8em 1.5em;
   font-size: 1rem;
   text-transform: uppercase;
@@ -4171,9 +4171,9 @@ i.massive.basic.icon {
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;
   border-radius: 0.2em;
-  -webkit-box-shadow: 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0em -0.2rem 0em rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0em -0.2rem 0em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em -0.2rem 0em rgba(0, 0, 0, 0.1) inset;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -4904,6 +4904,7 @@ i.massive.basic.icon {
 /* Fluid Vertical Buttons */
 .ui.fluid.vertical.buttons,
 .ui.fluid.vertical.buttons > .button {
+  display: block;
   width: auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -6942,19 +6943,20 @@ i.circular.inverted.icon {
 /*-------------------
       Flipped
 --------------------*/
-i.vertically.flipped.icon {
-  -webkit-transform: scale(1, -1);
-  -moz-transform: scale(1, -1);
-  -o-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
-  transform: scale(1, -1);
-}
+i.flipped.icon,
 i.horizontally.flipped.icon {
   -webkit-transform: scale(-1, 1);
   -moz-transform: scale(-1, 1);
   -o-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
+}
+i.vertically.flipped.icon {
+  -webkit-transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 /*-------------------
       Rotated
@@ -6987,9 +6989,6 @@ i.square.icon {
   -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
-}
-i.square.icon:before {
-  vertical-align: middle;
 }
 i.square.inverted.icon {
   border: none;
@@ -9371,8 +9370,7 @@ a.ui.teal.label:hover:before {
   padding-right: 0em;
 }
 .ui.basic.accordion .content {
-  padding-left: 0em;
-  padding-right: 0em;
+  padding: 0.5em 0em;
 }
 .ui.basic.accordion .active.title {
   background-color: transparent;
@@ -10069,25 +10067,6 @@ a.ui.teal.label:hover:before {
   box-sizing: border-box;
   z-index: 1000;
 }
-/*
-.ui.dimmed.dimmable > :not(.dimmer) {
-  -webkit-transition:
-    filter 0.5s ease
-  ;
-  -moz-transition:
-    filter 0.5s ease
-  ;
-  -o-transition:
-    filter 0.5s ease
-  ;
-  -ms-transition:
-    filter 0.5s ease
-  ;
-  transition:
-    filter 0.5s ease
-  ;
-}
-*/
 /* Dimmer Content */.ui.dimmer > .content {
   width: 100%;
   height: 100%;
@@ -10117,12 +10096,9 @@ a.ui.teal.label:hover:before {
 /*******************************
             States
 *******************************/
-/*
-.ui.dimmed.dimmable > :not(.dimmer) {
-  -webkit-filter: ~"blur(5px) grayscale(0.7)";
-  -moz-filter: ~"blur(5px) grayscale(0.7)";
+.ui.dimmed.dimmable:not(body) {
+  overflow: hidden;
 }
-*/
 .ui.dimmed.dimmable > .ui.dimmer,
 .ui.active.dimmer {
   display: block;
@@ -11270,7 +11246,7 @@ a.ui.nag {
   display: inline-block;
   font-size: 0em;
   vertical-align: baseline;
-  margin: 0em 0.5em 0em 0em;
+  margin: 0em 0.5rem 0em 0em;
 }
 .ui.rating:last-child {
   margin-right: 0em;
@@ -11917,11 +11893,16 @@ a.ui.nag {
               Shape
 *******************************/
 .ui.shape {
+  display: inline-block;
   position: relative;
   -webkit-perspective: 2000px;
   -moz-perspective: 2000px;
   -ms-perspective: 2000px;
   perspective: 2000px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .ui.shape .sides {
   -webkit-transform-style: preserve-3d;
@@ -11932,26 +11913,75 @@ a.ui.nag {
 .ui.shape .side {
   opacity: 1;
   width: 100%;
+  margin: 0em !important;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .ui.shape .side {
   display: none;
 }
 /*******************************
+             Types
+*******************************/
+.ui.cube.shape .side {
+  min-width: 15em;
+  height: 15em;
+  padding: 2em;
+  background-color: #E6E6E6;
+  color: rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+}
+.ui.cube.shape .side > .content {
+  width: 100%;
+  height: 100%;
+  display: table;
+  text-align: center;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+.ui.cube.shape .side > .content > div {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 2em;
+}
+/*******************************
+          Variations
+*******************************/
+.ui.text.shape.animating .sides {
+  position: static;
+}
+.ui.text.shape .side {
+  white-space: nowrap;
+}
+.ui.text.shape .side > * {
+  white-space: normal;
+}
+/*******************************
              States
 *******************************/
 /*--------------
+    Loading
+---------------*/
+.ui.loading.shape {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+/*--------------
     Animating
 ---------------*/
-.ui.shape.animating .sides {
-  position: absolute;
-}
 .ui.shape .animating.side {
   position: absolute;
-  width: 100%;
   top: 0px;
   left: 0px;
   z-index: 100;
@@ -11962,21 +11992,24 @@ a.ui.nag {
 /*--------------
       CSS
 ---------------*/
-.ui.shape.css {
+.ui.shape.animating {
   -webkit-transition: all 0.6s ease-in-out;
   -moz-transition: all 0.6s ease-in-out;
   -o-transition: all 0.6s ease-in-out;
   -ms-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
-.ui.shape.css .sides {
+.ui.shape.animating .sides {
+  position: absolute;
+}
+.ui.shape.animating .sides {
   -webkit-transition: all 0.6s ease-in-out;
   -moz-transition: all 0.6s ease-in-out;
   -o-transition: all 0.6s ease-in-out;
   -ms-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
-.ui.shape.css .side {
+.ui.shape.animating .side {
   -webkit-transition: opacity 0.6s ease-in-out;
   -moz-transition: opacity 0.6s ease-in-out;
   -o-transition: opacity 0.6s ease-in-out;
@@ -12019,11 +12052,14 @@ body {
 .ui.sidebar {
   position: fixed;
   margin: 0 !important;
-  width: 275px !important;
   height: 100% !important;
   -webkit-border-radius: 0px !important;
   -moz-border-radius: 0px !important;
   border-radius: 0px !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   -ms-overflow-y: auto;
   overflow-y: auto;
   top: 0px;
@@ -12036,23 +12072,20 @@ body {
   transition: margin-left 0.3s ease, margin-top 0.3s ease;
 }
 /*******************************
-            Types
+             Types
 *******************************/
-.ui.sidebar {
-  margin-left: -275px !important;
-}
+/*-------------------
+       Direction
+--------------------*/
 .ui.right.sidebar {
   left: 100%;
   margin: 0px !important;
 }
 .ui.top.sidebar {
-  margin: -40px 0px 0px 0px !important;
   width: 100% !important;
-  height: 40px !important;
 }
 .ui.bottom.sidebar {
   width: 100% !important;
-  height: 40px !important;
   top: 100%;
   margin: 0px !important;
 }
@@ -12062,37 +12095,121 @@ body {
 .ui.active.sidebar {
   margin-left: 0px !important;
 }
-.ui.active.right.sidebar {
-  margin-left: -275px !important;
-}
-.ui.active.top.sidebar {
-  margin-top: 0px !important;
-}
+.ui.active.top.sidebar,
 .ui.active.bottom.sidebar {
-  margin-top: -40px !important;
+  margin-top: 0px !important;
 }
 /*******************************
            Variations
 *******************************/
+/*-------------------
+      Formatted
+--------------------*/
+.ui.styled.sidebar {
+  padding: 1em 1.5em;
+  background-color: #FFFFFF;
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.styled.very.thin.sidebar {
+  padding: 0.5em;
+}
+.ui.styled.thin.sidebar {
+  padding: 1em;
+}
+/*-------------------
+       Floating
+--------------------*/
 .ui.floating.sidebar {
-  -webkit-box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
 }
 .ui.right.floating.sidebar {
-  -webkit-box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
 }
 .ui.top.floating.sidebar {
-  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.floating.sidebar {
-  -webkit-box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.2);
+}
+/*-------------------
+        Width
+--------------------*/
+/* Very Thin */
+.ui.very.thin.sidebar {
+  width: 60px !important;
+  margin-left: -60px !important;
+}
+.ui.active.very.thin.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.very.thin.sidebar {
+  margin-left: -60px !important;
+}
+/* Thin */
+.ui.thin.sidebar {
+  width: 200px !important;
+  margin-left: -200px !important;
+}
+.ui.active.thin.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.thin.sidebar {
+  margin-left: -200px !important;
+}
+/* Standard */
+.ui.sidebar {
+  width: 275px !important;
+  margin-left: -275px !important;
+}
+.ui.active.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.sidebar {
+  margin-left: -275px !important;
+}
+/* Wide */
+.ui.wide.sidebar {
+  width: 350px !important;
+  margin-left: -350px !important;
+}
+.ui.active.wide.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.wide.sidebar {
+  margin-left: -350px !important;
+}
+/* Very Wide */
+.ui.very.wide.sidebar {
+  width: 475px !important;
+  margin-left: -475px !important;
+}
+.ui.active.very.wide.sidebar {
+  margin-left: 0px !important;
+}
+.ui.active.right.very.wide.sidebar {
+  margin-left: -475px !important;
+}
+/*-------------------
+       Height
+--------------------*/
+/* Standard */
+.ui.top.sidebar {
+  margin: -40px 0px 0px 0px !important;
+}
+.ui.top.sidebar,
+.ui.bottom.sidebar {
+  height: 40px !important;
+}
+.ui.active.bottom.sidebar {
+  margin-top: -40px !important;
 }
 
 /*

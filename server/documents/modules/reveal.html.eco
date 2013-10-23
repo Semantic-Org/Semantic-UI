@@ -4,7 +4,7 @@ css         : 'reveal'
 
 title       : 'Reveal'
 description : 'A reveal is an element that shows different content below it when hovered'
-type        : 'UI Module'
+type        : 'UI Element'
 ---
 
 <%- @partial('header') %>

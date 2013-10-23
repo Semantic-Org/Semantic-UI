@@ -38,6 +38,7 @@ type        : 'UI Module'
           <div class="item">Hide</div>
         </div>
       </div>
+    </div>
 
     <div class="dropdown example">
       <h4 class="ui header">Inline</h4>
@@ -242,33 +243,115 @@ type        : 'UI Module'
 
     <h2 class="ui dividing header">Behavior</h2>
 
-    <div class="no example">
-      <h4 class="ui header">Show</h4>
-      <p>A dropdown can show its menu</p>
-      <div class="ignore code">
-      $('.ui.dropdown')
-        .dropdown('show')
-      ;
-      </div>
+    <p>All the following behaviors can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .dropdown('behavior name', argumentOne, argumentTwo)
+    ;
     </div>
-    <div class="no example">
-      <h4 class="ui header">Hide</h4>
-      <p>A dropdown can hide its menu</p>
-      <div class="ignore code">
-      $('.ui.dropdown')
-        .dropdown('hide')
-      ;
-      </div>
-    </div>
-    <div class="no example">
-      <h4 class="ui header">Toggle</h4>
-      <p>A dropdown can toggle between menu visibility</p>
-      <div class="ignore code">
-      $('.ui.dropdown')
-        .dropdown('toggle')
-      ;
-      </div>
-    </div>
+
+    <table class="ui definition sortabled celled table segment">
+      <thead>
+        <th>Behavior</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>toggle</td>
+          <td>Toggles current visibility of dropdown</td>
+        </tr>
+        <tr>
+          <td>show</td>
+          <td>Shows dropdown</td>
+        </tr>
+        <tr>
+          <td>hide</td>
+          <td>Hides dropdown</td>
+        </tr>
+        <tr>
+          <td>hide others</td>
+          <td>Hides all other dropdowns that is not current dropdown</td>
+        </tr>
+        <tr>
+          <td>set selected(value)</td>
+          <td>Sets selected state to a given value</td>
+        </tr>
+        <tr>
+          <td>set text(text)</td>
+          <td>Sets dropdown text to a value</td>
+        </tr>
+        <tr>
+          <td>set value(value)</td>
+          <td>Sets dropdown input to value</td>
+        </tr>
+        <tr>
+          <td>get text</td>
+          <td>Returns current dropdown text</td>
+        </tr>
+        <tr>
+          <td>get value</td>
+          <td>Returns current dropdown input value</td>
+        </tr>
+        <tr>
+          <td>get item(value)</td>
+          <td>Returns DOM element that matches a given input value</td>
+        </tr>
+        <tr>
+          <td>bind touch events</td>
+          <td>Adds touch events to element</td>
+        </tr>
+        <tr>
+          <td>mouse events</td>
+          <td>Adds mouse events to element</td>
+        </tr>
+        <tr>
+          <td>bind intent</td>
+          <td>Binds a click to document to determine if you click away from a dropdown</td>
+        </tr>
+        <tr>
+          <td>unbind intent</td>
+          <td>Unbinds document intent click</td>
+        </tr>
+        <tr>
+          <td>determine intent</td>
+          <td>Returns whether event occurred inside dropdown</td>
+        </tr>
+        <tr>
+          <td>determine select action(text, value)</td>
+          <td>Triggers preset item selection action based on settings passing text/value</td>
+        </tr>
+        <tr>
+          <td>set active</td>
+          <td>Sets dropdown to active state
+        <tr>
+          <td>set visible</td>
+          <td>Sets dropdown to visible state</td>
+        </tr>
+        <tr>
+          <td>remove active</td>
+          <td>rRemoves dropdown active state
+        <tr>
+          <td>remove visible</td>
+          <td>Removes dropdown visible state</td>
+        </tr>
+        <tr>
+          <td>is selection</td>
+          <td>Returns whether dropdown is a selection dropdown</td>
+        </tr>
+        <tr>
+          <td>is animated</td>
+          <td>Returns whether dropdown is animated</td>
+        </tr>
+        <tr>
+          <td>is visible</td>
+          <td>Returns whether dropdown is visible</td>
+        </tr>
+        <tr>
+          <td>is hidden</td>
+          <td>Returns whether dropdown is hidden</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="ui tab" data-tab="examples">
@@ -453,12 +536,10 @@ type        : 'UI Module'
 
   <div class="ui tab" data-tab="settings">
 
-    <h2 class="ui dividing header">Settings</h2>
-
-    <div class="no example">
-
-    <h4 class="ui header">Dropdown Settings</h4>
-    <p>Dropdown settings modify the dropdown's behavior</p>
+    <h3 class="ui header">
+      Dropdown Settings
+      <div class="sub header">Dropdown settings modify the dropdown's behavior</div>
+    </h3>
     <table class="ui celled sortable definition table segment">
       <thead>
         <th>Setting</th>
@@ -528,8 +609,10 @@ type        : 'UI Module'
     </table>
 
     <div class="ui horizontal section divider"><i class="icon setting"></i></div>
-    <h4 class="ui header">Callbacks</h4>
-    <p>Callback settings specify a function to occur after a specific behavior.</p>
+    <h3 class="ui header">
+      Callbacks
+      <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+    </h3>
 
     <table class="ui celled sortable definition table segment">
       <thead>
@@ -556,12 +639,10 @@ type        : 'UI Module'
       </tbody>
     </table>
 
-    </div>
-
-    <div class="no example">
-
-    <h4 class="ui header">DOM Settings</h4>
-    <p>DOM settings specify how this module should interface with the DOM</p>
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
     <table class="ui celled sortable definition table segment">
       <thead>
         <th>Setting</th>
@@ -614,12 +695,10 @@ type        : 'UI Module'
       </tbody>
     </table>
 
-    </div>
-
-    <div class="no example">
-
-    <h4 class="ui header">Debug Settings</h4>
-    <p>Debug settings controls debug output to the console</p>
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
     <table class="ui celled sortable definition table segment">
       <thead>
         <th>Setting</th>
@@ -662,7 +741,6 @@ type        : 'UI Module'
       </tbody>
     </table>
 
-    </div>
   </div>
 
 </div>

@@ -145,12 +145,24 @@ $.fn.modal = function(parameters) {
           close: function() {
             module.verbose('Closing element pressed');
             if( $(this).is(selector.approve) ) {
-              $.proxy(settings.onApprove, element)();
+              if($.proxy(settings.onApprove, element)()) {
+                module.hide();
+              }
+              else {
+                module.verbose('Approve callback returned false cancelling hide');
+              }
             }
             if( $(this).is(selector.deny) ) {
-              $.proxy(settings.onDeny, element)();
+              if($.proxy(settings.onDeny, element)()) {
+                module.hide();
+              }
+              else {
+                module.verbose('Deny callback returned false cancelling hide');
+              }
             }
-            module.hide();
+            else {
+              module.hide();
+            }
           },
           click: function(event) {
             module.verbose('Determining if event occured on dimmer', event);
@@ -287,7 +299,7 @@ $.fn.modal = function(parameters) {
 
         restore: {
           focus: function() {
-            if($focusedElement.size() > 0) {
+            if($focusedElement && $focusedElement.size() > 0) {
               $focusedElement.focus();
             }
           }
@@ -381,26 +393,22 @@ $.fn.modal = function(parameters) {
         },
 
         setting: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, settings, name);
-            }
-            else {
-              settings[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            settings[name] = value;
           }
           else {
             return settings[name];
           }
         },
         internal: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, module, name);
-            }
-            else {
-              module[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
           }
           else {
             return module[name];
@@ -576,8 +584,8 @@ $.fn.modal.settings = {
 
   onShow      : function(){},
   onHide      : function(){},
-  onApprove   : function(){},
-  onDeny      : function(){},
+  onApprove   : function(){ return true; },
+  onDeny      : function(){ return true; },
 
   selector    : {
     close    : '.close, .actions .button',
@@ -585,8 +593,8 @@ $.fn.modal.settings = {
     deny     : '.actions .negative, .actions .cancel'
   },
   error : {
-    dimmer : 'UI Dimmer, a required component is not included in this page',
-    method : 'The method you called is not defined.'
+    dimmer    : 'UI Dimmer, a required component is not included in this page',
+    method    : 'The method you called is not defined.'
   },
   className : {
     active    : 'active',

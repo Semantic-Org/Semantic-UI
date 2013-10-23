@@ -203,27 +203,7 @@ $.fn.popup = function(parameters) {
             module.create();
           }
           module.set.position();
-          $module
-            .addClass(className.visible)
-          ;
-          if(settings.transition && $.fn.transition !== undefined) {
-            $popup
-              .transition(settings.transition + ' in', settings.duration, function() {
-                module.bind.close();
-                $.proxy(callback, element)();
-              })
-            ;
-          }
-          else {
-            $popup
-              .stop()
-              .fadeIn(settings.duration, settings.easing, function() {
-                module.bind.close();
-                $.proxy(callback, element)();
-              })
-            ;
-          }
-          $.proxy(settings.onShow, $popup)();
+          module.animate.show(callback);
         },
 
 
@@ -234,26 +214,8 @@ $.fn.popup = function(parameters) {
           ;
           module.unbind.close();
           if( module.is.visible() ) {
-            module.debug('Hiding pop-up');
-            if(settings.transition && $.fn.transition !== undefined) {
-              $popup
-                .transition(settings.transition + ' out', settings.duration, function() {
-                  module.reset();
-                  callback();
-                })
-              ;
-            }
-            else {
-              $popup
-                .stop()
-                .fadeOut(settings.duration, settings.easing, function() {
-                  module.reset();
-                  callback();
-                })
-              ;
-            }
+            module.animate.hide(callback);
           }
-          $.proxy(settings.onHide, $popup)();
         },
 
         hideAll: function() {
@@ -284,6 +246,55 @@ $.fn.popup = function(parameters) {
           $popup
             .remove()
           ;
+        },
+
+        animate: {
+          show: function(callback) {
+            callback = callback || function(){};
+            $module
+              .addClass(className.visible)
+            ;
+            if(settings.transition && $.fn.transition !== undefined) {
+              $popup
+                .transition(settings.transition + ' in', settings.duration, function() {
+                  module.bind.close();
+                  $.proxy(callback, element)();
+                })
+              ;
+            }
+            else {
+              $popup
+                .stop()
+                .fadeIn(settings.duration, settings.easing, function() {
+                  module.bind.close();
+                  $.proxy(callback, element)();
+                })
+              ;
+            }
+            $.proxy(settings.onShow, element)();
+          },
+          hide: function(callback) {
+            callback = callback || function(){};
+            module.debug('Hiding pop-up');
+            if(settings.transition && $.fn.transition !== undefined) {
+              $popup
+                .transition(settings.transition + ' out', settings.duration, function() {
+                  module.reset();
+                  callback();
+                })
+              ;
+            }
+            else {
+              $popup
+                .stop()
+                .fadeOut(settings.duration, settings.easing, function() {
+                  module.reset();
+                  callback();
+                })
+              ;
+            }
+            $.proxy(settings.onHide, element)();
+          }
         },
 
         get: {
@@ -549,26 +560,22 @@ $.fn.popup = function(parameters) {
         },
 
         setting: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, settings, name);
-            }
-            else {
-              settings[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            settings[name] = value;
           }
           else {
             return settings[name];
           }
         },
         internal: function(name, value) {
-          if(value !== undefined) {
-            if( $.isPlainObject(name) ) {
-              $.extend(true, module, name);
-            }
-            else {
-              module[name] = value;
-            }
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
           }
           else {
             return module[name];

@@ -91,71 +91,94 @@ type        : 'Semantic'
     </div>
   </div>
   <div class="ui tab" data-tab="behavior">
-    <h3 class="ui header">Triggering a Behavior</h3>
-    <p>Behaviors are an element's API. They invoke functionality or return aspects of the current state for an element</p>
-    <p>Behaviors can be called using spaced words, camelcase or dot notation. The preferred method however is <b>spaced words</b>. Method lookup is done automatically internally.</p>
+    <div class="fixed column">
+      <div class="content">
+        <h3 class="ui header">Demo Element</h3>
+        <i class="demo circular help link icon" data-content="Popup #1"></i>
+        <i class="demo circular help link icon" data-content="Popup #2"></i>
+        <div class="ui raised segment">
+          <div class="ui top attached label">Console</div>
+          <pre class="console"></pre>
+        </div>
+      </div>
+    </div>
+    <div class="examples">
+      <h2 class="ui dividing header">Using Module Behaviors</h2>
+      <p>Behaviors are an element's API. They invoke functionality or return aspects of the current state for an element</p>
+      <p>Behaviors can be called using spaced words, camelcase or dot notation. The preferred method however is <b>spaced words</b>. Method lookup is done automatically internally.</p>
 
-    <h3 class="ui header">Common Behaviors</h3>
-    <p>All modules have a set of core behaviors which allow you to configure the component</p>
-    <table class="ui celled definition sortable table segment">
-      <thead>
-        <th>Name</th>
-        <th>Usage</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>initialize</td>
-          <td>Initializes an element, adding page event handlers and init data</td>
-        </tr>
-        <tr>
-          <td>destroy</td>
-          <td>Removes all changes to the page made by initialization</td>
-        </tr>
-        <tr>
-          <td>refresh</td>
-          <td>Refreshes cached values for a component</td>
-        </tr>
-        <tr>
-          <td>setting(setting, value)</td>
-          <td>Allows you to modify or read a component setting</td>
-        </tr>
-        <tr>
-          <td>invoke(query, passedArguments, instance)</td>
-          <td>Internal method used for translating sentence case method into an internal method</td>
-        </tr>
-        <tr>
-          <td>debug(comment, values)</td>
-          <td>Displays a log if a user has logging enabled</td>
-        </tr>
-        <tr>
-          <td>verbose(comment, values)</td>
-          <td>Displays a log if a user has verbose logging enabled</td>
-        </tr>
-        <tr>
-          <td>error(name)</td>
-          <td>Displays a name error message from the component's settings</td>
-        </tr>
-        <tr>
-          <td>performance log(comment, value)</td>
-          <td>Adds a performance trace for an element</td>
-        </tr>
-        <tr>
-          <td>performance display</td>
-          <td>Displays current element performance trace</td>
-        </tr>
-      </tbody>
-    </table>
+      <p>Behaviors can be called using the syntax:</p>
+      <div class="code">
+      // both are the same
+      $('.your.element')
+        .module('behavior name', argumentOne, argumentTwo)
+        .module('behaviorName', argumentOne, argumentTwo)
+      ;
+      </div>
 
-    <h2 class="ui dividing header">Examples</h3>
+      <h3 class="ui header">Common Behaviors</h3>
+      <p>All modules have a set of core behaviors which allow you to configure the component</p>
+      <table class="ui celled definition sortable table segment">
+        <thead>
+          <th>Name</th>
+          <th>Usage</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>initialize</td>
+            <td>Initializes an element, adding page event handlers and init data</td>
+          </tr>
+          <tr>
+            <td>destroy</td>
+            <td>Removes all changes to the page made by initialization</td>
+          </tr>
+          <tr>
+            <td>refresh</td>
+            <td>Refreshes cached values for a component</td>
+          </tr>
+          <tr>
+            <td>setting(setting, value)</td>
+            <td>Allows you to modify or read a component setting</td>
+          </tr>
+          <tr>
+            <td>invoke(query, passedArguments, instance)</td>
+            <td>Internal method used for translating sentence case method into an internal method</td>
+          </tr>
+          <tr>
+            <td>debug(comment, values)</td>
+            <td>Displays a log if a user has logging enabled</td>
+          </tr>
+          <tr>
+            <td>verbose(comment, values)</td>
+            <td>Displays a log if a user has verbose logging enabled</td>
+          </tr>
+          <tr>
+            <td>error(name)</td>
+            <td>Displays a name error message from the component's settings</td>
+          </tr>
+          <tr>
+            <td>performance log(comment, value)</td>
+            <td>Adds a performance trace for an element</td>
+          </tr>
+          <tr>
+            <td>performance display</td>
+            <td>Displays current element performance trace</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h3 class="ui header">Overriding Internals</h3>
-    <p>Internal methods can be overwritten at run-time for individual instances of a module</p>
+      <h2 class="ui dividing header">Examples</h2>
 
-    <div class="evaluated code">
-      // the above examples will output the first demo popup's logs to the page
-      $('.demo.icon')
-        .popup()
-        .first()
+      <h3 class="ui header">Overriding Internals</h3>
+      <p>Internal methods can be overwritten at run-time for individual instances of a module</p>
+
+      <div class="evaluated code">
+        // initialize both popups
+        $('.demo.icon')
+          .popup()
+        ;
+        //output the first popup's logs to the page
+        $('.demo.icon').first()
           .popup('internal', 'debug', function() {
             $('.console')
               .append(arguments[0] + "\n")
@@ -163,47 +186,40 @@ type        : 'Semantic'
               .prop('scrollTop', $('.console').prop('scrollHeight') )
             ;
           })
-      ;
-    </div>
-    <div class="ui inverted raised segment">
-      <div class="ui top red attached label">Console</div>
-      <pre class="console"></pre>
-    </div>
+        ;
+      </div>
 
-    <h3 class="ui header">Triggering Behavior</h3>
-    <p>The following example shows how you can override, retrieve, and invoked behaviors from Javascript</p>
-    <div class="ui divider"></div>
-
-    <i class="demo circular help icon" data-content="Popup #1"></i>
-    <i class="demo circular help icon" data-content="Popup #2"></i>
-
-    <div class="ui divider"></div>
-
-    <p>Some behaviors can accept arguments, for example a popup <b>show</b> behavior can accept a callback function. This arbitrary example shows opening a popup then changing its position programatically</p>
-    <div class="code" data-demo="true">
-      // Sets a popup to top left position with an offset of negative five
-      $('.demo.icon')
-        .popup('show', function() {
-          $(this)
-            .popup('set position', 'right center')
-          ;
-        })
-      ;
-    </div>
-    <p>Behaviors may also provide an API for accessing a module's internal state. For example popups have a method <code>is visible</code> which returns true or false for whether a popup is currently visible.
-    <div class="code" data-demo="true">
-      // returns boolean value instead of jQuery chain
-      $('.demo.icon')
-        .popup('debug', $('.demo.icon').first().popup('is visible') )
-      ;
-    </div>
-    <div class="code" data-demo="true">
-      // if selector size > 1 returns array of values [boolean, boolean...]
-      $('.demo.icon')
-        .popup('debug', $('.demo.icon').popup('is visible') )
-      ;
+      <h3 class="ui header">Triggering Behavior</h3>
+      <p>Some behaviors can accept arguments, for example a popup <b>show</b> behavior can accept a callback function. This arbitrary example shows opening a popup then changing its position programatically</p>
+      <div class="code" data-demo="true">
+        // Sets a popup to top left position with an offset of negative five
+        $('.demo.icon').first()
+          .popup('setting', 'position', 'top right')
+          .popup('show', function() {
+            $(this)
+              .popup('set position', 'right center')
+            ;
+          })
+        ;
+      </div>
+      <h3 class="ui header">Returning values</h3>
+      <p>Behaviors may also provide an API for accessing a module's internal state. For example popups have a method <code>is visible</code> which returns true or false for whether a popup is currently visible.</p>
+      <div class="code" data-demo="true">
+        // returns boolean value instead of jQuery chain
+        $('.demo.icon')
+          .popup('debug', $('.demo.icon').first().popup('is visible') )
+        ;
+      </div>
+      <div class="code" data-demo="true">
+        // if selector size > 1 returns array of values [boolean, boolean...]
+        $('.demo.icon')
+          .popup('debug', $('.demo.icon').popup('is visible') )
+        ;
+      </div>
     </div>
   </div>
+
+
   <div class="ui tab" data-tab="settings">
 
     <p>Unlike many javascript components, anything arbitrary in Semantic is a setting. This means no need to dig inside the internals of the component to alter an expected css selector or class name, simply alter the settings object</p>

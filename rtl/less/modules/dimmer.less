@@ -74,27 +74,6 @@
   z-index: 1000;
 }
 
-/*
-.ui.dimmed.dimmable > :not(.dimmer) {
-  -webkit-transition:
-    filter 0.5s ease
-  ;
-  -moz-transition:
-    filter 0.5s ease
-  ;
-  -o-transition:
-    filter 0.5s ease
-  ;
-  -ms-transition:
-    filter 0.5s ease
-  ;
-  transition:
-    filter 0.5s ease
-  ;
-}
-*/
-
-
 /* Dimmer Content */;
 .ui.dimmer > .content {
   width: 100%;
@@ -129,12 +108,11 @@
 /*******************************
             States
 *******************************/
-/*
-.ui.dimmed.dimmable > :not(.dimmer) {
-  -webkit-filter: ~"blur(5px) grayscale(0.7)";
-  -moz-filter: ~"blur(5px) grayscale(0.7)";
+
+.ui.dimmed.dimmable:not(body) {
+  overflow: hidden;
 }
-*/
+
 .ui.dimmed.dimmable > .ui.dimmer,
 .ui.active.dimmer {
   display: block;
@@ -147,7 +125,6 @@
   width: 0em !important;
   height: 0em !important;
 }
-
 
 /*******************************
            Variations
