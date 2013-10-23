@@ -140,10 +140,10 @@ type   : 'Semantic'
             .transition('tada', '800ms')
           ;
           </div>
-          <div class="ui raised segment">
+<!--           <div class="ui raised segment">
             <div class="ui black top attached label">Console</div>
             <pre class="console"></pre>
-          </div>
+          </div> -->
           <a href="module.html" class="ui teal right labeled button">Learn about modules <i class="right arrow icon"></i></a>
           </div>
           <div class="five wide right floated column">
