@@ -14,6 +14,7 @@
 $.fn.shape = function(parameters) {
   var
     $allModules     = $(this),
+    $body           = $('body'),
 
     time            = new Date().getTime(),
     performance     = [],
@@ -46,6 +47,7 @@ $.fn.shape = function(parameters) {
         $side         = $module.find(selector.side),
 
         // private variables
+        nextSelector = false,
         $activeSide,
         $nextSide,
 
@@ -104,46 +106,26 @@ $.fn.shape = function(parameters) {
             module.reset();
             module.set.active();
           };
-          if(settings.useCSS) {
-            if(module.get.transitionEvent()) {
-              module.verbose('Starting CSS animation');
-              $module
-                .addClass(className.animating)
-              ;
-              module.set.stageSize();
-              module.repaint();
-              $module
-                .addClass(className.css)
-              ;
-              $activeSide
-                .addClass(className.hidden)
-              ;
-              $sides
-                .css(propertyObject)
-                .one(module.get.transitionEvent(), callback)
-              ;
-            }
-            else {
-              callback();
-            }
-          }
-          else {
-            // not yet supported until .animate() is extended to allow RotateX/Y
-            module.verbose('Starting javascript animation');
+          if(module.get.transitionEvent()) {
+            module.verbose('Starting CSS animation');
             $module
               .addClass(className.animating)
-              .removeClass(className.css)
             ;
-            module.set.stageSize();
             module.repaint();
+            $module
+              .addClass(className.animating)
+            ;
             $activeSide
-              .animate({
-                opacity: 0
-              }, settings.duration, settings.easing)
+              .addClass(className.hidden)
             ;
             $sides
-              .animate(propertyObject, settings.duration, settings.easing, callback)
+              .css(propertyObject)
+              .one(module.get.transitionEvent(), callback)
             ;
+            module.set.duration(settings.duration);
+          }
+          else {
+            callback();
           }
         },
 
@@ -162,7 +144,6 @@ $.fn.shape = function(parameters) {
         reset: function() {
           module.verbose('Animating states reset');
           $module
-            .removeClass(className.css)
             .removeClass(className.animating)
             .attr('style', '')
             .removeAttr('style')
@@ -188,6 +169,160 @@ $.fn.shape = function(parameters) {
           animating: function() {
             return $module.hasClass(className.animating);
           }
+        },
+
+        set: {
+
+          defaultSide: function() {
+            $activeSide = $module.find('.' + settings.className.active);
+            $nextSide   = ( $activeSide.next(selector.side).size() > 0 )
+              ? $activeSide.next(selector.side)
+              : $module.find(selector.side).first()
+            ;
+            nextSelector = false;
+            module.verbose('Active side set to', $activeSide);
+            module.verbose('Next side set to', $nextSide);
+          },
+
+          duration: function(duration) {
+            duration = duration || settings.duration;
+            duration = (typeof duration == 'number')
+              ? duration + 'ms'
+              : duration
+            ;
+            module.verbose('Setting animation duration', duration);
+            $sides.add($side)
+              .css({
+                '-webkit-transition-duration': duration,
+                '-moz-transition-duration': duration,
+                '-ms-transition-duration': duration,
+                '-o-transition-duration': duration,
+                'transition-duration': duration
+              })
+            ;
+          },
+
+          stageSize: function() {
+            var
+              $clone      = $module.clone().addClass(className.loading),
+              $activeSide = $clone.find('.' + settings.className.active),
+              $nextSide   = (nextSelector)
+                ? $clone.find(nextSelector)
+                : ( $activeSide.next(selector.side).size() > 0 )
+                  ? $activeSide.next(selector.side)
+                  : $clone.find(selector.side).first(),
+              newSize = {}
+            ;
+            $activeSide.removeClass(className.active);
+            $nextSide.addClass(className.active);
+            $clone.prependTo($body);
+            newSize = {
+              width  : $nextSide.outerWidth(),
+              height : $nextSide.outerHeight()
+            };
+            $clone.remove();
+            $module
+              .css(newSize)
+            ;
+            module.verbose('Resizing stage to fit new content', newSize);
+          },
+
+          nextSide: function(selector) {
+            nextSelector = selector;
+            $nextSide = $module.find(selector);
+            if($nextSide.size() === 0) {
+              module.error(error.side);
+            }
+            module.verbose('Next side manually set to', $nextSide);
+          },
+
+          active: function() {
+            module.verbose('Setting new side to active', $nextSide);
+            $side
+              .removeClass(className.active)
+            ;
+            $nextSide
+              .addClass(className.active)
+            ;
+            $.proxy(settings.onChange, $nextSide)();
+            module.set.defaultSide();
+          }
+        },
+
+        flip: {
+
+          up: function() {
+            module.debug('Flipping up', $nextSide);
+            if( !module.is.animating() ) {
+              module.set.stageSize();
+              module.stage.above();
+              module.animate( module.get.transform.up() );
+            }
+            else {
+              module.queue('flip up');
+            }
+          },
+
+          down: function() {
+            module.debug('Flipping down', $nextSide);
+            if( !module.is.animating() ) {
+              module.set.stageSize();
+              module.stage.below();
+              module.animate( module.get.transform.down() );
+            }
+            else {
+              module.queue('flip down');
+            }
+          },
+
+          left: function() {
+            module.debug('Flipping left', $nextSide);
+            if( !module.is.animating() ) {
+              module.set.stageSize();
+              module.stage.left();
+              module.animate(module.get.transform.left() );
+            }
+            else {
+              module.queue('flip left');
+            }
+          },
+
+          right: function() {
+            module.debug('Flipping right', $nextSide);
+            if( !module.is.animating() ) {
+              module.set.stageSize();
+              module.stage.right();
+              module.animate(module.get.transform.right() );
+            }
+            else {
+              module.queue('flip right');
+            }
+          },
+
+          over: function() {
+            module.debug('Flipping over', $nextSide);
+            if( !module.is.animating() ) {
+              module.set.stageSize();
+              module.stage.behind();
+              module.animate(module.get.transform.over() );
+            }
+            else {
+              module.queue('flip over');
+            }
+          },
+
+          back: function() {
+            module.debug('Flipping back', $nextSide);
+            if( !module.is.animating() ) {
+              module.set.stageSize();
+              module.stage.behind();
+              module.animate(module.get.transform.back() );
+            }
+            else {
+              module.queue('flip back');
+            }
+          }
+
         },
 
         get: {
@@ -287,125 +422,6 @@ $.fn.shape = function(parameters) {
               ? $activeSide.next(selector.side)
               : $module.find(selector.side).first()
             ;
-          }
-
-        },
-
-        set: {
-
-          defaultSide: function() {
-            $activeSide = $module.find('.' + settings.className.active);
-            $nextSide   = ( $activeSide.next(selector.side).size() > 0 )
-              ? $activeSide.next(selector.side)
-              : $module.find(selector.side).first()
-            ;
-            module.verbose('Active side set to', $activeSide);
-            module.verbose('Next side set to', $nextSide);
-          },
-
-          stageSize: function() {
-            var
-              stage = {
-                width  : $nextSide.outerWidth(),
-                height : $nextSide.outerHeight()
-              }
-            ;
-            module.verbose('Resizing stage to fit new content', stage);
-            $module
-              .css({
-                width  : stage.width,
-                height : stage.height
-              })
-            ;
-          },
-
-          nextSide: function(selector) {
-            $nextSide = $module.find(selector);
-            if($nextSide.size() === 0) {
-              module.error(error.side);
-            }
-            module.verbose('Next side manually set to', $nextSide);
-          },
-
-          active: function() {
-            module.verbose('Setting new side to active', $nextSide);
-            $side
-              .removeClass(className.active)
-            ;
-            $nextSide
-              .addClass(className.active)
-            ;
-            $.proxy(settings.onChange, $nextSide)();
-            module.set.defaultSide();
-          }
-        },
-
-        flip: {
-
-          up: function() {
-            module.debug('Flipping up', $nextSide);
-            if( !module.is.animating() ) {
-              module.stage.above();
-              module.animate( module.get.transform.up() );
-            }
-            else {
-              module.queue('flip up');
-            }
-          },
-
-          down: function() {
-            module.debug('Flipping down', $nextSide);
-            if( !module.is.animating() ) {
-              module.stage.below();
-              module.animate( module.get.transform.down() );
-            }
-            else {
-              module.queue('flip down');
-            }
-          },
-
-          left: function() {
-            module.debug('Flipping left', $nextSide);
-            if( !module.is.animating() ) {
-              module.stage.left();
-              module.animate(module.get.transform.left() );
-            }
-            else {
-              module.queue('flip left');
-            }
-          },
-
-          right: function() {
-            module.debug('Flipping right', $nextSide);
-            if( !module.is.animating() ) {
-              module.stage.right();
-              module.animate(module.get.transform.right() );
-            }
-            else {
-              module.queue('flip right');
-            }
-          },
-
-          over: function() {
-            module.debug('Flipping over', $nextSide);
-            if( !module.is.animating() ) {
-              module.stage.behind();
-              module.animate(module.get.transform.over() );
-            }
-            else {
-              module.queue('flip over');
-            }
-          },
-
-          back: function() {
-            module.debug('Flipping back', $nextSide);
-            if( !module.is.animating() ) {
-              module.stage.behind();
-              module.animate(module.get.transform.back() );
-            }
-            else {
-              module.queue('flip back');
-            }
           }
 
         },
@@ -738,15 +754,10 @@ $.fn.shape.settings = {
   namespace  : 'shape',
 
   // callback occurs on side change
-  beforeChange : function() {},
   onChange     : function() {},
 
-  // use css animation (currently only true is supported)
-  useCSS     : true,
-
-  // animation duration (useful only with future js animations)
-  duration   : 1000,
-  easing     : 'easeInOutQuad',
+  // animation duration
+  duration   : 700,
 
   // possible errors
   error: {
@@ -756,9 +767,9 @@ $.fn.shape.settings = {
 
   // classnames used
   className   : {
-    css       : 'css',
     animating : 'animating',
     hidden    : 'hidden',
+    loading   : 'loading',
     active    : 'active'
   },
 
