@@ -31,26 +31,26 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="ui column">
       <h2 class="ui header">
-        <i class="circular emphasized code icon"></i>
+        <i class="circular emphasized book icon"></i>
         <div class="content">
           Lose the Hieroglyphics
           <div class="sub header">Semantic is structured around natural language conventions to make development more intuitive.
           </div>
         </div>
       </h2>
-      <div class="ui horizontal section divider">
-        <i class="circular heart icon"></i>
+      <div class="ui message">
+        Semantic is tag ambivalent meaning you can use <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list" target="_blank">any html tags</a> with UI elements.
       </div>
       <div class="ui stackable grid">
       <div class="two column row">
         <div class="column">
           <a class="ui teal label" href="/collections/grid.html">Semantic</a>
           <div class="code" data-type="html">
-    <div class="ui three column grid">
-      <div class="column">1</div>
-      <div class="column">2</div>
-      <div class="column">3</div>
-    </div>
+    <main class="ui three column grid">
+      <aside class="column">1</aside>
+      <section class="column">2</section>
+      <section class="column">3</section>
+    </main>
           </div>
         </div>
         <div class="column">
@@ -68,15 +68,15 @@ type   : 'Semantic'
         <div class="column">
           <a class="ui teal label" href="/collections/menu.html">Semantic</a>
           <div class="code" data-type="html">
-    <div class="ui menu">
-      <div class="header item">Title</div>
+    <nav class="ui menu">
+      <h3 class="header item">Title</h3>
       <a class="active item">Home</a>
       <a class="item">Link</a>
       <a class="item">Link</a>
-      <div class="right floated text item">
+      <span class="right floated text item">
         Signed in as <a href="#">user</a>
-      </div>
-    </div>
+      </span>
+    </nav>
           </div>
         </div>
         <div class="column">
@@ -98,10 +98,10 @@ type   : 'Semantic'
         <div class="column">
           <a class="ui teal label" href="/elements/button.html">Semantic</a>
           <div class="code" data-type="html">
-    <div class="large ui button">
+    <button class="large ui button">
       <i class="heart icon"></i>
       Like it
-    </div>
+    </button>
           </div>
         </div>
         <div class="column">

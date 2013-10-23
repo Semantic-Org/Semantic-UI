@@ -535,9 +535,7 @@ body.guide .main.container > * {
   color: rgba(0, 0, 0, 0.5);
 }
 #example .stripe .message {
-  margin: 0em;
-  padding: 0em;
-  background-color: transparent;
+  margin: 2em 0em;
 }
 
 
