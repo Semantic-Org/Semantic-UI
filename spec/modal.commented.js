@@ -123,7 +123,7 @@ $.fn.modal = function(parameters) {
           ;
         },
 
-        // ### Refresh
+        // ### Destroy
         // Remove all module data from metadata and remove all events
         destroy: function() {
           module.verbose('Destroying previous modal');
