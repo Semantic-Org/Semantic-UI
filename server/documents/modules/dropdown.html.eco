@@ -506,8 +506,8 @@ type        : 'UI Module'
           <label>Gender</label>
           <div class="ui dropdown selection">
             <input type="hidden" name="gender">
-            <i class="dropdown icon"></i>
             <div class="default text">...</div>
+            <i class="dropdown icon"></i>
             <div class="menu">
               <div class="item" data-value="male">Male</div>
               <div class="item" data-value="female">Female</div>
