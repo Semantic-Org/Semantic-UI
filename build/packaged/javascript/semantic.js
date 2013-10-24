@@ -6615,6 +6615,9 @@ $.fn.popup = function(parameters) {
         show: function(callback) {
           callback = callback || function(){};
           module.debug('Showing pop-up', settings.transition);
+          if(!settings.preserve) {
+            module.refresh();
+          }
           if( !module.exists() ) {
             module.create();
           }

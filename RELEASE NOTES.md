@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.7.1 - Oct 23, 2013
+
+**Fixes**
+- **Dropdown** - Fixes issue with dropdown icon position in chrome
+- **Popup** - Fixes issue with popup's using setting inline: true
+
 ### Version 0.7.0 - Oct 22, 2013
 
 **New**

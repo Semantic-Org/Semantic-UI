@@ -57,7 +57,6 @@
       Icon
 ---------------*/
 .ui.dropdown > .dropdown.icon {
-  float: right;
   width: auto;
   margin: 0em 0em 0em 1em;
 }
@@ -317,6 +316,9 @@
 ---------------*/
 .ui.fluid.dropdown {
   display: block;
+}
+.ui.fluid.dropdown > .dropdown.icon {
+  float: right;
 }
 /*--------------
      Inline
