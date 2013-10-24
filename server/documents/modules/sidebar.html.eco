@@ -341,7 +341,7 @@ type        : 'UI Module'
 
     <h2 class="ui dividing header">Behavior</h2>
 
-    <p>All the following <a href="module.html#/behavior">behaviors</a> can be called using the syntax:</p>
+    <p>All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax:</p>
     <div class="code">
     $('.your.element')
       .dropdown('behavior name', argumentOne, argumentTwo)
