@@ -110,7 +110,7 @@ type        : 'UI Module'
 
     <h2 class="ui dividing header">Behavior</h2>
 
-    <p>All the following behaviors can be called using the syntax:</p>
+    <p>All the following <a href="module.html#/behavior">behaviors</a> can be called using the syntax:</p>
     <div class="code">
     $('.your.element')
       .popup('behavior name', argumentOne, argumentTwo)
@@ -208,8 +208,8 @@ type        : 'UI Module'
 
       <h3 class="ui header">Inline or relative to page</h3>
       <p>A popup can either be inserted directly after an element, or added as a child element to the page's <code>body</code>.</p>
-      <div class="ui warning message">
-        An inline popup will remain in your page's html after being hidden, while a non-inline popup will remove itself after being hidden.
+      <div class="ui positive message">
+        Using inline will allow your popups to go places other popups can't go, like inside <code>fixed</code> or <code>absolutely</code> positioned elements
       </div>
       <div class="ui info message">
         If you want to style each popup individually it makes sense to keep popup <code>inline: true</code>. If you are worried that your pop up might mistakingly inherit styles that it shouldn't, you should set <code>inline: false</code>.

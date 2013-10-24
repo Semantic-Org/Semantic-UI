@@ -231,7 +231,7 @@ type        : 'UI Behavior'
 
   <h2 class="ui dividing header">Behavior</h2>
 
-  All the following behaviors can be called using the syntax <code>$('.foo').form('behavior name', argumentOne, argumentTwo)</code>
+  All the following <a href="module.html#/behavior">behaviors</a> can be called using the syntax <code>$('.foo').form('behavior name', argumentOne, argumentTwo)</code>
 
   <table class="ui definition celled table segment">
     <tr>

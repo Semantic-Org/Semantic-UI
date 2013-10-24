@@ -173,9 +173,11 @@ type        : 'Semantic'
       <p>Internal methods can be overwritten at run-time for individual instances of a module</p>
 
       <div class="evaluated code">
-        // initialize both popups
+        // initialize both popups inline
         $('.demo.icon')
-          .popup()
+          .popup({
+            inline: true
+          })
         ;
         //output the first popup's logs to the page
         $('.demo.icon').first()

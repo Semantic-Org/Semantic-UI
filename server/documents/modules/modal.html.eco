@@ -172,11 +172,12 @@ type        : 'UI Module'
       <div class="code" data-demo="true">
       $('.basic.modal')
         .modal('setting', {
-          onDeny: function(){
+          closable  : false,
+          onDeny    : function(){
             window.alert('Wait not yet!');
             return false;
           },
-          onApprove: function() {
+          onApprove : function() {
             window.alert('Approved!');
           }
         })
@@ -276,7 +277,7 @@ type        : 'UI Module'
 
     <h2 class="ui dividing header">Behavior</h2>
 
-    <p>All the following behaviors can be called using the syntax:</p>
+    <p>All the following <a href="module.html#/behavior">behaviors</a> can be called using the syntax:</p>
     <div class="code">
     $('.ui.modal')
       .modal('behavior name', argumentOne, argumentTwo)
