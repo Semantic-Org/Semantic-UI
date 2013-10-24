@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.7.2 - Oct 23, 2013
+
+**Fixes**
+- **Modal** - Fixes issue with modal hiding twice onApprove
+
 ### Version 0.7.1 - Oct 23, 2013
 
 **Fixes**

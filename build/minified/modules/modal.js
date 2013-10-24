@@ -152,7 +152,7 @@ $.fn.modal = function(parameters) {
                 module.verbose('Approve callback returned false cancelling hide');
               }
             }
-            if( $(this).is(selector.deny) ) {
+            else if( $(this).is(selector.deny) ) {
               if($.proxy(settings.onDeny, element)()) {
                 module.hide();
               }
