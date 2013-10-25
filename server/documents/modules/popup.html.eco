@@ -198,7 +198,7 @@ type        : 'UI Module'
         position : 'top right',
         target   : '.test.image',
         title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themself'
+        content  : 'My favorite dog would like other dogs as much as themselves'
       })
     ;
       </div>

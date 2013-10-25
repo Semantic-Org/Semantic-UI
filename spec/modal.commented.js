@@ -117,7 +117,7 @@ $.fn.modal = function(parameters) {
           module.verbose('Storing instance of modal');
           // Immediately define possibly undefined instance
           instance = module;
-          // Store new refrence in metadata
+          // Store new reference in metadata
           $module
             .data(moduleNamespace, instance)
           ;

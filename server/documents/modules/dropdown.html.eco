@@ -624,7 +624,7 @@ type        : 'UI Module'
         <tr>
           <td>onChange(value, text)</td>
           <td>Dropdown</td>
-          <td>Is called after a dropdown item is selected. Receieves the name and value of selection.</td>
+          <td>Is called after a dropdown item is selected. receives the name and value of selection.</td>
         </tr>
         <tr>
           <td>onShow</td>

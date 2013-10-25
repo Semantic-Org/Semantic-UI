@@ -248,7 +248,7 @@ type        : 'UI Behavior'
     </tr>
     <tr>
       <td>get field(id)</td>
-      <td>Returns element with maching name, id, or data-validate metadata to ID</td>
+      <td>Returns element with matching name, id, or data-validate metadata to ID</td>
     </tr>
     <tr>
       <td>get validation(element)</td>

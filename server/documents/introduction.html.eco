@@ -44,7 +44,7 @@ type        : 'Semantic'
 
     <h2 class="ui header">
       Portable and self-contained.
-      <div class="sub header">Using Semantic doesn't mean adopting an entire framework, or rewriting your codebase</div>
+      <div class="sub header">Using Semantic doesn't mean adopting an entire framework, or rewriting your code base</div>
     </h2>
     <p>Semantic components are written in a singular style, but are not part of mandated overarching library. Only like a couple components? No problem, use only what you need.</p>
     <p>UI components in Semantic also define optional and required couplings with other components where their usage intersect. That means for example, a popup can check for the existence of CSS animation component before using the fallback javascript animations.</p>

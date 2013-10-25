@@ -696,7 +696,7 @@ type        : 'UI Collection'
         </div>
         <div class="column" style="background-color:#F0F0FF;">
           <p>This is a very long row with lots of text in it and way more text than the other rows</p>
-          <p>It might even span for multiplie paragraphs.</p>
+          <p>It might even span for multiple paragraphs.</p>
         </div>
       </div>
     </div>

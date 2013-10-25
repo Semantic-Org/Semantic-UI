@@ -54,14 +54,14 @@ type        : 'UI Guide'
 
 
     <h3 class="ui header">Not Sure the Size? Table It</h3>
-    <p>If content needs to fill a specified size exactly, but may be made up of parts with arbitary size, it can be useful to use display table and table-cell. This will make sure the parent width is always obeyed regardles of alterations to an element's width.</p>
+    <p>If content needs to fill a specified size exactly, but may be made up of parts with arbitrary size, it can be useful to use display table and table-cell. This will make sure the parent width is always obeyed regardless of alterations to an element's width.</p>
     <p>Keep in mind any table-cell element must have a parent with <code>display:table</code> to appear formatted correctly.</p>
 
     <div class="code" data-type="css">
     .ui.input {
       display: table;
     }
-    /* these two elements will always fill the input exactly regardless of the text content of the button */
+    /* these two elements will always fill the input exactly regardlesss of the text content of the button */
     .ui.input input {
       display: table-cell;
     }
@@ -192,7 +192,7 @@ type        : 'UI Guide'
     </div>
 
     <h3 class="ui header">Nothing is always Fixed</h3>
-    <p>CSS fixed allows you to have content stick to an offset position in a page regardless of the scroll position of the page. Fixed menus will use the page as the offset parent, in all circumstances except when css transform is used on a parent element. <b>This will change the offset context to the transformed element instead of the page</b>.
+    <p>CSS fixed allows you to have content stick to an offset position in a page regardlesss of the scroll position of the page. Fixed menus will use the page as the offset parent, in all circumstances except when css transform is used on a parent element. <b>This will change the offset context to the transformed element instead of the page</b>.
     <p>This behavior may seem unexpected, but using this quirk can allow you to have fixed position content relative to any element in a page.</p>
     <div class="code" data-type="css">
     .ui.content {
@@ -241,7 +241,7 @@ type        : 'UI Guide'
     </div>
 
     <h3 class="ui header">Consider alternatives to floats</h3>
-    <p>CSS floats can create issues with the containing element not receiving the size of its children. Using overflow:hidden to clear floats means that no peice of an element can be shown outside the bounding box of the element, which limits the possibilities in an element. Clearfixes can use up one of two available pseudo class which can often be useful for styling elements.</p>
+    <p>CSS floats can create issues with the containing element not receiving the size of its children. Using overflow:hidden to clear floats means that no piece of an element can be shown outside the bounding box of the element, which limits the possibilities in an element. Clearfixes can use up one of two available pseudo class which can often be useful for styling elements.</p>
     <p>Consider using another means of putting content side by side like inline-block or table-cell. These provide more freedom than floated block elements, and can add additional benefits.</p>
     <p>To avoid issues with inline-block causing spacing between elements, specify no font size on the group and 1rem on the floated content</p>
     <div class="code" data-type="css">
@@ -397,7 +397,7 @@ type        : 'UI Guide'
     </div>
 
   <h3 class="ui header">Avoid non-semantic tags, make wrappers groups</h3>
-  <p>UI elements should be designed to include the minimum footprint of an element. If extra styling is needed, consider using pseudo selectors :after and :before. This allows for the creation of two extra divs inside each div context which can almost always be enough to accomodate extra styling.</p>
+  <p>UI elements should be designed to include the minimum footprint of an element. If extra styling is needed, consider using pseudo selectors :after and :before. This allows for the creation of two extra divs inside each div context which can almost always be enough to accommodate extra styling.</p>
   <p>If there is no other option than wrapping content in a containing HTML element, consider using a singular/plural relationship by having the wrapper describe its contents instead of an arbitrary class name like <code>wrapper</code></p>
     <div class="code" data-type="css">
     /* not tops */
@@ -481,7 +481,7 @@ type        : 'UI Guide'
     .ui.widget {
       border: 2px solid rgba(0, 0, 0, 0.1);
     }
-    /* will recieve same border treatment as parent */
+    /* will receive same border treatment as parent */
     .ui.widget .foo {
       border: inherit;
     }

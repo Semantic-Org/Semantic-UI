@@ -41,7 +41,7 @@ type        : 'Semantic Project'
 
     <p>Be sure to include a set of steps to reproduce the issue and any related information, browser, OS etc. If we can't see the issue then it will make solving things much more difficult.</p>
 
-    <div class="ui warning message">When submiting a bug report, please <a href="http://jsfiddle.net/jlukic/Vbr9d/1/">Fork this JSFiddle</a> to create a test-case. It will have Semantic and normalize.css included for you automatically.</div>
+    <div class="ui warning message">When submitting a bug report, please <a href="http://jsfiddle.net/jlukic/Vbr9d/1/">Fork this JSFiddle</a> to create a test-case. It will have Semantic and normalize.css included for you automatically.</div>
 
     <a class="ui teal button" href="https://github.com/jlukic/Semantic-UI/issues/new"><i class="github icon"></i> Submit a bug report</a>
 

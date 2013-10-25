@@ -137,24 +137,24 @@ type        : 'UI Element'
 
   <div class="example">
     <h4 class="ui header">Ordinality</h4>
-    <p>A segment can be formatted to appear more or less noticable</p>
+    <p>A segment can be formatted to appear more or less noticeable</p>
     <div class="ui primary segment">
       <p>I'm here to tell you something, and you will probably read me first.</p>
     </div>
     <div class="ui secondary segment">
-      <p>I am pretty noticable but you might check out other content before you look at me.</p>
+      <p>I am pretty noticeable but you might check out other content before you look at me.</p>
     </div>
     <div class="ui tertiary segment">
       <p>If you notice me you must be looking very hard.</p>
     </div>
   </div>
   <div class="another example">
-    <p>Inverted colors may also be more or less noticable</p>
+    <p>Inverted colors may also be more or less noticeable</p>
     <div class="ui primary inverted segment">
       <p>I'm here to tell you something, and you will probably read me first.</p>
     </div>
     <div class="ui secondary inverted segment">
-      <p>I am pretty noticable but you might check out other content before you look at me.</p>
+      <p>I am pretty noticeable but you might check out other content before you look at me.</p>
     </div>
     <div class="ui tertiary inverted segment">
       <p>If you notice me you must be looking very hard.</p>
@@ -165,7 +165,7 @@ type        : 'UI Element'
       <p>I'm here to tell you something, and you will probably read me first.</p>
     </div>
     <div class="ui secondary inverted red segment">
-      <p>I am pretty noticable but you might check out other content before you look at me.</p>
+      <p>I am pretty noticeable but you might check out other content before you look at me.</p>
     </div>
     <div class="ui tertiary inverted red segment">
       <p>If you notice me you must be looking very hard.</p>
