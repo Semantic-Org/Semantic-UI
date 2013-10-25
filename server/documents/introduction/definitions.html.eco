@@ -91,7 +91,7 @@ type        : 'UI Introduction'
         <div class="ui divided relaxed list">
           <div class="item">
             <div class="header">Content</div>
-            <div class="description">Content elements which can exist inside of the UI collection</div>
+            <div class="description">A collection can define elements which might be found inside</div>
           </div>
           <div class="item">
             <div class="header">States</div>
@@ -115,7 +115,7 @@ type        : 'UI Introduction'
         <div class="ui divided relaxed list">
           <div class="item">
             <div class="header">Content</div>
-            <div class="description">Content elements which can exist inside of the UI view</div>
+            <div class="description">A view may define elements which can exist inside of the view</div>
           </div>
           <div class="item">
             <div class="header">States</div>
@@ -139,11 +139,11 @@ type        : 'UI Introduction'
         <div class="ui divided relaxed list">
           <div class="item">
             <div class="header">Behavior</div>
-            <div class="description">A set of behaviors which can be invoked programatically</div>
+            <div class="description">A module will define a set of <a href="/module.html#/behavior">behaviors</a> which can be used as an API</div>
           </div>
           <div class="item">
             <div class="header">Settings</div>
-            <div class="description">A settings object which can alter the default behavior when instantiating a module</div>
+            <div class="description">A <a href="/module.html#/settings">settings object</a> which can alter the default behavior when instantiating a module</div>
           </div>
           <div class="item">
             <div class="header">Examples</div>

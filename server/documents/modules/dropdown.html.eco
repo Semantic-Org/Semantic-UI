@@ -132,7 +132,7 @@ type        : 'UI Module'
       </div>
     </div>
     <div class="another button example">
-      <div class="ui teal right pointing dropdown icon button">
+      <div class="ui right pointing dropdown icon button">
         <i class="settings icon"></i>
         <div class="menu">
           <div class="item"><i class="edit icon"></i>Edit</div>
@@ -140,7 +140,7 @@ type        : 'UI Module'
           <div class="item"><i class="hide icon"></i>Hide</div>
         </div>
       </div>
-      <div class="ui green left pointing dropdown icon button">
+      <div class="ui left pointing dropdown icon button">
         <i class="settings icon"></i>
         <div class="menu">
           <div class="item"><i class="edit icon"></i>Edit</div>
@@ -377,7 +377,7 @@ type        : 'UI Module'
     <div class="dropdown example">
     <h3 class="ui header">Button Group</h3>
       <p>A <a href="/elements/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
-      <div class="ui red icon buttons">
+      <div class="ui icon buttons">
         <div class="ui top left pointing dropdown button">
           <i class="user icon"></i>
           <div class="menu">

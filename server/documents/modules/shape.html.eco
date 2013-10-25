@@ -8,6 +8,7 @@ type        : 'UI Module'
 ---
 
 <script src="/javascript/shape.js"></script>
+<link rel="stylesheet" type="text/css" class="ui" href="/stylesheets/shape.css">
 
 <%- @partial('header', { tabs: 'module' }) %>
 
@@ -147,6 +148,14 @@ type        : 'UI Module'
     <div class="no example">
       <h3 class="ui header">Shape Types</h3>
       <p>Shapes do not have to be regular or have its sides match up in length and width to animate correctly.</p>
+
+      <h3 class="ui header">Shape</h3>
+      <div class="ui type buttons">
+        <div class="active ui button" data-shape="rectangle">Rectangle</div>
+        <div class="ui button" data-shape="square">Square</div>
+        <div class="ui button" data-shape="irregular">Irregular</div>
+      </div>
+      <div class="ui divider"></div>
       <div class="demo rectangle ui shape">
         <div class="sides">
           <div class="active jira side">
@@ -159,12 +168,6 @@ type        : 'UI Module'
             <img src="/images/shape/quirky.png">
           </div>
         </div>
-      </div>
-      <h3 class="ui header">Shape</h3>
-      <div class="ui type buttons">
-        <div class="active ui button" data-shape="rectangle">Rectangle</div>
-        <div class="ui button" data-shape="square">Square</div>
-        <div class="ui button" data-shape="irregular">Irregular</div>
       </div>
 
       <div class="ui divider"></div>

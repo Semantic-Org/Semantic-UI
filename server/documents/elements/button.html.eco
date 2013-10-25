@@ -207,6 +207,8 @@ type        : 'UI Element'
     <a class="ui green button">Green BUtton</a>
     <a class="ui red button">Red Button</a>
     <a class="ui blue button">Blue Button</a>
+  </div>
+  <div class="another example">
     <a class="ui purple button">Purple Button</a>
     <a class="ui teal button">Teal Button</a>
     <a class="ui orange button">Orange Button</a>

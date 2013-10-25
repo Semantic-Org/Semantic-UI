@@ -129,8 +129,8 @@ type        : 'UI Collection'
     </div>
     <div class="ui selection dropdown">
       <input type="hidden" name="gender">
-      <i class="dropdown icon"></i>
       <div class="default text">Gender</div>
+      <i class="dropdown icon"></i>
       <div class="menu">
         <div class="item" data-value="male">Male</div>
         <div class="item" data-value="female">Female</div>

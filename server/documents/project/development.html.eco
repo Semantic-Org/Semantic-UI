@@ -14,7 +14,6 @@ type        : 'Semantic Project'
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Running Locally</a>
       <a class="item">Fixing Bugs</a>
-      <a class="item">The Future</a>
     </div>
   </div>
 
@@ -83,23 +82,11 @@ type        : 'Semantic Project'
     grunt build
   </div>
 
-  <h2 class="ui dividing header">The Future</h2>
-
-  <h3 class="ui header">UI Dev Kits</h3>
-  <p>We are working to create development kits for writing and distributing third party UI definitions. These, are planned to land after our 1.0 release and allow other developers to contribute ui components or reskins of existing components.</p>
-
-  <p>For more information on the development of the UI specification for third party components, please visit our community discussion boards on Trello</p>
-
-  <h4 class="ui header">Development Boards</h4>
-  <div class="ui buttons">
-    <a class="ui button" href="https://trello.com/b/FZvMsVIM">Public</a>
-    <a class="ui button" href="https://trello.com/b/eOoZwNBQ">Contributor</a>
-  </div>
 
   <h3 class="ui header"></h3>
 
   <div class="ui divider"></div>
-  <a class="ui large right labeled teal icon button" href="/introduction.html">
+  <a class="ui large right floated labeled teal icon button" href="/introduction.html">
     Next: Library Introduction
     <i class="right arrow icon"></i>
   </a>

@@ -770,6 +770,12 @@ body.guide .main.container > * {
 #example.overview h2.ui.header {
   margin-bottom: 0em;
 }
+/*
+#example .ui.header ~ .ui.message a,
+#example .ui.header ~ p a {
+  font-weight: bold;
+}
+*/
 #example.overview .example {
   margin: 0em;
   min-height: 0px !important;
