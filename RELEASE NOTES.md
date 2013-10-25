@@ -1,5 +1,21 @@
 ## RELEASE NOTES
 
+### Version 0.8.0 - Oct 25, 2013
+
+**New**
+- **Button** - Default button styles have been significantly tweaked
+- **Button** - New animated button styles, fade, horizontal, and vertical
+
+**Fixes**
+- **Button** - Fixes "or" sizing to work for all sizes
+- **Dropdown** - Fixes border radius on non-selection dropdowns from changing on activation
+- **Input** - Action buttons now have tactile feedback like normal buttons
+
+**Docs**
+- Added more detailed contributing guide
+- Updates info on setting up server
+- Added new examples to button and input
+
 ### Version 0.7.2 - Oct 23, 2013
 
 **Fixes**
