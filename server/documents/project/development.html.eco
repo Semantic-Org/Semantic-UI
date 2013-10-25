@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Stack Set-up'
+title       : 'Set-up'
 description : 'A guide to developing locally'
 type        : 'Semantic Project'
 ---
@@ -94,7 +94,7 @@ type        : 'Semantic Project'
   <h3 class="ui header"></h3>
 
   <div class="ui divider"></div>
-  <a class="ui large right floated labeled teal icon button" href="/introduction.html">
+  <a class="ui large right labeled teal icon button" href="/introduction.html">
     Next: Library Introduction
     <i class="right arrow icon"></i>
   </a>
