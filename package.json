@@ -9,6 +9,10 @@
   "scripts": {
     "test": "grunt test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jlukic/Semantic-UI.git"
+  },
   "dependencies": {
     "docpad": "~6.53.4",
     "docpad-plugin-eco": "~2.0.2",
