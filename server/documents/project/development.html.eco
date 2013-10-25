@@ -1,8 +1,8 @@
   ---
 layout      : 'default'
-css         : 'build'
+css         : 'guide'
 
-title       : 'Development'
+title       : 'Stack Set-up'
 description : 'A guide to developing locally'
 type        : 'Semantic Project'
 ---
@@ -12,16 +12,16 @@ type        : 'Semantic Project'
 <div class="main container">
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Running Locally</a>
+      <a class="active item">Installing Dependencies</a>
       <a class="item">Fixing Bugs</a>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Running Locally</h2>
+  <h2 class="ui dividing header">Installing Dependencies</h2>
 
   <p>It may be useful to run the development docs locally when working on a forked version of semantic, as the docs themselves help in testing out changes to ui components.</p>
 
-  <h3 class="ui header">1) Install Node</h3>
+  <h3 class="ui header">1. Install Node</h3>
   <p>Semantic docs are written in DocPad which requires NodeJS. </p>
 
   <div class="ui warning message">Make sure npm does not require sudo to operate, this might cause permissions issues.</div>
@@ -31,29 +31,20 @@ type        : 'Semantic Project'
     <li><a href="https://gist.github.com/isaacs/579814">Installing Node JS without sudo</a></li>
   </ul>
 
-  <h3 class="ui header">2) Install Dependencies</h3>
-
-  <div class="code" data-title="Installing DocPad" data-type="terminal">
-    // docpad is used to generate static sites like semantic docs
-    npm install -g docpad
-  </div>
-
-  <div class="code" data-title="Installing Grunt" data-type="terminal">
-    // eco is used for templating inside documentation
-    docpad install eco
-  </div>
-
-  <div class="code" data-title="Installing Grunt" data-type="terminal">
-    // grunt is used to automated tasks like concatenating and minifying files
-    npm install -g grunt-cli
-  </div>
-
-  <h3 class="ui header">3) Fork Semantic</h3>
+  <h3 class="ui header">2. Fork Semantic</h3>
 
   <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=fork&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
 
-  <h3 class="ui header">4) Start Your Server</h3>
+  <h3 class="ui header">3. Install Dependencies</h3>
+  <p>Running update inside the local directory will grab all packages in <code>package.json</code> in the root of the project.</p>
+
+  <div class="code" data-title="Installing dependencies" data-type="terminal">
+    npm update
+  </div>
+
+
+  <h3 class="ui header">4. Start Your Server</h3>
 
   <div class="code" data-title="Starting server locally" data-type="terminal">
     docpad run
@@ -74,6 +65,23 @@ type        : 'Semantic Project'
   </div>
 
   <p>The watch task is the default grunt task for Semantic, so you can start it quite simply.</p>
+
+  <h3 class="ui header">Running Tests</h3>
+  <p>Tests will automatically run with <code>grunt watch</code> if you have started karma</p>
+
+  <div class="code" data-title="Execute tests while developing" data-type="terminal">
+    karma start
+    grunt watch
+  </div>
+
+  <p>You can also run the test suite manually</p>
+  <div class="code" data-title="Execute tests while developing" data-type="terminal">
+    npm test
+    // or
+    grunt build
+    // or
+    karma run
+  </div>
 
   <h3 class="ui header">Packaging Elements</h3>
   <p>For convenience there is also a separate grunt command for building minified, packaged, and compressed versions of the library.</p>
