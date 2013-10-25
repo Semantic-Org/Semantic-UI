@@ -4,6 +4,7 @@
 
 **New**
 - **Button** - Default button styles have been significantly tweaked
+- **Button** - Evenly divided buttons can use number classes instead of words ``class="2 buttons"``
 - **Button** - New animated button styles, fade, horizontal, and vertical
 
 **Fixes**

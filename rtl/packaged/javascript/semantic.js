@@ -4729,7 +4729,10 @@ $.fn.dropdown = function(parameters) {
           },
 
           activate: function(text, value) {
-            value = value || text;
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
             module.set.selected(value);
             module.set.value(value);
             module.hide();
@@ -4737,7 +4740,10 @@ $.fn.dropdown = function(parameters) {
 
           /* Deprecated */
           auto: function(text, value) {
-            value = value || text;
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
             module.set.selected(value);
             module.set.value(value);
             module.hide();
@@ -4745,14 +4751,20 @@ $.fn.dropdown = function(parameters) {
 
           /* Deprecated */
           changeText: function(text, value) {
-            value = value || text;
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
             module.set.selected(value);
             module.hide();
           },
 
           /* Deprecated */
           updateForm: function(text, value) {
-            value = value || text;
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
             module.set.selected(value);
             module.set.value(value);
             module.hide();
@@ -4771,7 +4783,10 @@ $.fn.dropdown = function(parameters) {
             var
               $selectedItem
             ;
-            value = value || module.get.value() || module.get.text();
+            value = (value !== undefined)
+              ? value
+              : ( module.get.value() || module.get.text() )
+            ;
             if(value) {
               $item
                 .each(function() {

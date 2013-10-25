@@ -349,12 +349,34 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Fluid</h4>
     <p>Groups can be divided evenly to fit parent</p>
+    <div class="ui message">Evenly divided elements can either use the number or the word, i.e. 2 or "two"</div>
+    <div class="3 fluid ui buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+    <div class="ui ignored divider"></div>
     <div class="five fluid ui buttons">
       <div class="ui button">One</div>
       <div class="ui button">Two</div>
       <div class="ui button">Three</div>
       <div class="ui button">Four</div>
       <div class="ui button">Five</div>
+    </div>
+    <div class="ui ignored divider"></div>
+    <div class="12 fluid ui icon buttons">
+      <div class="ui button"><i class="tag icon"></i></div>
+      <div class="ui button"><i class="tags icon"></i></div>
+      <div class="ui button"><i class="tasks icon"></i></div>
+      <div class="ui button"><i class="terminal icon"></i></div>
+      <div class="ui button"><i class="text file icon"></i></div>
+      <div class="ui button"><i class="text file outline icon"></i></div>
+      <div class="ui button"><i class="time icon"></i></div>
+      <div class="ui button"><i class="trash icon"></i></div>
+      <div class="ui button"><i class="url icon"></i></div>
+      <div class="ui button"><i class="user icon"></i></div>
+      <div class="ui button"><i class="users icon"></i></div>
+      <div class="ui button"><i class="video icon"></i></div>
     </div>
   </div>
 
