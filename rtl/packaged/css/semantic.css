@@ -5109,6 +5109,7 @@ i.massive.basic.icon {
 .ui.loading.button {
   position: relative;
   cursor: default;
+  background-color: #FFFFFF !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
   transition: all 0s linear;
@@ -5136,9 +5137,9 @@ i.massive.basic.icon {
 .ui.disabled.button,
 .ui.disabled.button:hover,
 .ui.disabled.button.active {
-  background-color: #DDDDDD;
+  background-color: #DDDDDD !important;
   cursor: default;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5) !important;
   opacity: 0.3 !important;
   background-image: none !important;
   box-shadow: none !important;
@@ -5282,7 +5283,7 @@ i.massive.basic.icon {
 .ui.primary.buttons .button,
 .ui.primary.button {
   background-color: #D95C5C;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.primary.buttons .button:hover,
@@ -5290,11 +5291,13 @@ i.massive.basic.icon {
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
   background-color: #E75859;
+  color: #FFFFFF;
 }
 
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
   background-color: #D24B4C;
+  color: #FFFFFF;
 }
 
 /*-------------------
@@ -5304,7 +5307,7 @@ i.massive.basic.icon {
 .ui.secondary.buttons .button,
 .ui.secondary.button {
   background-color: #00B5AD;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.secondary.buttons .button:hover,
@@ -5312,11 +5315,13 @@ i.massive.basic.icon {
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
   background-color: #009A93;
+  color: #FFFFFF;
 }
 
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
   background-color: #00847E;
+  color: #FFFFFF;
 }
 
 /*-------------------
@@ -5327,105 +5332,119 @@ i.massive.basic.icon {
 
 .ui.facebook.button {
   background-color: #3B579D;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.facebook.button:hover {
   background-color: #3A59A9;
+  color: #FFFFFF;
 }
 
 .ui.facebook.button:active {
   background-color: #334F95;
+  color: #FFFFFF;
 }
 
 /* Twitter */
 
 .ui.twitter.button {
   background-color: #4092CC;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.twitter.button:hover {
   background-color: #399ADE;
+  color: #FFFFFF;
 }
 
 .ui.twitter.button:active {
   background-color: #3283BC;
+  color: #FFFFFF;
 }
 
 /* Google Plus */
 
 .ui.google.plus.button {
   background-color: #D34836;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.google.plus.button:hover {
   background-color: #E3432E;
+  color: #FFFFFF;
 }
 
 .ui.google.plus.button:active {
   background-color: #CA3A27;
+  color: #FFFFFF;
 }
 
 /* Linked In */
 
 .ui.linkedin.button {
   background-color: #1F88BE;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.linkedin.button:hover {
   background-color: #1394D6;
+  color: #FFFFFF;
 }
 
 .ui.linkedin.button:active {
   background-color: #1179AE;
+  color: #FFFFFF;
 }
 
 /* YouTube */
 
 .ui.youtube.button {
   background-color: #CC181E;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.youtube.button:hover {
   background-color: #DF0209;
+  color: #FFFFFF;
 }
 
 .ui.youtube.button:active {
   background-color: #A50006;
+  color: #FFFFFF;
 }
 
 /* Instagram */
 
 .ui.instagram.button {
   background-color: #49769C;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.instagram.button:hover {
   background-color: #4781B1;
+  color: #FFFFFF;
 }
 
 .ui.instagram.button:active {
   background-color: #38658A;
+  color: #FFFFFF;
 }
 
 /* Pinterest */
 
 .ui.pinterest.button {
   background-color: #00ACED;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.pinterest.button:hover {
   background-color: #00B9FF;
+  color: #FFFFFF;
 }
 
 .ui.pinterest.button:active {
   background-color: #009EDA;
+  color: #FFFFFF;
 }
 
 /*--------------
@@ -6049,7 +6068,7 @@ i.massive.basic.icon {
 .ui.black.buttons .button,
 .ui.black.button {
   background-color: #5C6166;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.black.buttons .button:hover,
@@ -6067,7 +6086,7 @@ i.massive.basic.icon {
 .ui.green.buttons .button,
 .ui.green.button {
   background-color: #5BBD72;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.green.buttons .button:hover,
@@ -6075,11 +6094,13 @@ i.massive.basic.icon {
 .ui.green.buttons .active.button,
 .ui.green.button.active {
   background-color: #58cb73;
+  color: #FFFFFF;
 }
 
 .ui.green.buttons .button:active,
 .ui.green.button:active {
   background-color: #4CB164;
+  color: #FFFFFF;
 }
 
 /*--- Red ---*/
@@ -6087,7 +6108,7 @@ i.massive.basic.icon {
 .ui.red.buttons .button,
 .ui.red.button {
   background-color: #D95C5C;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.red.buttons .button:hover,
@@ -6095,11 +6116,13 @@ i.massive.basic.icon {
 .ui.red.buttons .active.button,
 .ui.red.button.active {
   background-color: #E75859;
+  color: #FFFFFF;
 }
 
 .ui.red.buttons .button:active,
 .ui.red.button:active {
   background-color: #D24B4C;
+  color: #FFFFFF;
 }
 
 /*--- Orange ---*/
@@ -6107,7 +6130,7 @@ i.massive.basic.icon {
 .ui.orange.buttons .button,
 .ui.orange.button {
   background-color: #E96633;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.orange.buttons .button:hover,
@@ -6115,11 +6138,13 @@ i.massive.basic.icon {
 .ui.orange.buttons .active.button,
 .ui.orange.button.active {
   background-color: #FF7038;
+  color: #FFFFFF;
 }
 
 .ui.orange.buttons .button:active,
 .ui.orange.button:active {
   background-color: #DA683B;
+  color: #FFFFFF;
 }
 
 /*--- Blue ---*/
@@ -6127,7 +6152,7 @@ i.massive.basic.icon {
 .ui.blue.buttons .button,
 .ui.blue.button {
   background-color: #6ECFF5;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.blue.buttons .button:hover,
@@ -6135,11 +6160,13 @@ i.massive.basic.icon {
 .ui.blue.buttons .active.button,
 .ui.blue.button.active {
   background-color: #1AB8F3;
+  color: #FFFFFF;
 }
 
 .ui.blue.buttons .button:active,
 .ui.blue.button:active {
   background-color: #0AA5DF;
+  color: #FFFFFF;
 }
 
 /*--- Purple ---*/
@@ -6147,7 +6174,7 @@ i.massive.basic.icon {
 .ui.purple.buttons .button,
 .ui.purple.button {
   background-color: #564F8A;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.purple.buttons .button:hover,
@@ -6155,11 +6182,13 @@ i.massive.basic.icon {
 .ui.purple.buttons .active.button,
 .ui.purple.button.active {
   background-color: #3E3773;
+  color: #FFFFFF;
 }
 
 .ui.purple.buttons .button:active,
 .ui.purple.button:active {
   background-color: #2E2860;
+  color: #FFFFFF;
 }
 
 /*--- Teal ---*/
@@ -6167,7 +6196,7 @@ i.massive.basic.icon {
 .ui.teal.buttons .button,
 .ui.teal.button {
   background-color: #00B5AD;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.teal.buttons .button:hover,
@@ -6175,11 +6204,13 @@ i.massive.basic.icon {
 .ui.teal.buttons .active.button,
 .ui.teal.button.active {
   background-color: #009A93;
+  color: #FFFFFF;
 }
 
 .ui.teal.buttons .button:active,
 .ui.teal.button:active {
   background-color: #00847E;
+  color: #FFFFFF;
 }
 
 /*---------------
@@ -6189,7 +6220,7 @@ i.massive.basic.icon {
 .ui.positive.buttons .button,
 .ui.positive.button {
   background-color: #5BBD72 !important;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.positive.buttons .button:hover,
@@ -6197,11 +6228,13 @@ i.massive.basic.icon {
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
   background-color: #58CB73 !important;
+  color: #FFFFFF;
 }
 
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
   background-color: #4CB164 !important;
+  color: #FFFFFF;
 }
 
 /*---------------
@@ -6211,7 +6244,7 @@ i.massive.basic.icon {
 .ui.negative.buttons .button,
 .ui.negative.button {
   background-color: #D95C5C !important;
-  color: #FFFFFF !important;
+  color: #FFFFFF;
 }
 
 .ui.negative.buttons .button:hover,
@@ -6219,11 +6252,13 @@ i.massive.basic.icon {
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
   background-color: #E75859 !important;
+  color: #FFFFFF;
 }
 
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
   background-color: #D24B4C !important;
+  color: #FFFFFF;
 }
 
 /*******************************
