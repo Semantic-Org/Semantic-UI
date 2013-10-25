@@ -41,6 +41,7 @@
     "karma": "~0.10.2",
     "grunt-karma": "~0.6.2",
     "karma-spec-reporter": "0.0.5",
-    "grunt-clear": "~0.2.1"
+    "grunt-clear": "~0.2.1",
+    "grunt-autoprefixer": "~0.4.0"
   }
 }
