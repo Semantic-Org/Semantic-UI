@@ -36,21 +36,22 @@ type        : 'UI Element'
     <div class="ui animated button">
       <div class="visible content">Next</div>
       <div class="hidden content">
-        <i class="right arrow icon"</i></i>
+        <i class="right arrow icon"></i>
       </div>
     </div>
     <div class="ui vertical animated button">
       <div class="hidden content">Shop</div>
       <div class="visible content">
-        <i class="cart icon"</i></i>
+        <i class="cart icon"></i>
       </div>
     </div>
     <div class="ui animated fade button">
-      <div class="visible content">Buy</div>
+      <div class="visible content">Sign-up for a Pro account</div>
       <div class="hidden content">
-        $12.99
+        $12.99 a month
       </div>
     </div>
+
   </div>
 
 

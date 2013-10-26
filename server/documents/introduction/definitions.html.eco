@@ -75,11 +75,11 @@ type        : 'UI Introduction'
         <div class="ui divided relaxed list">
           <div class="item">
             <div class="header">Group</div>
-            <div class="description">An element can define how attributes can be shared across a group</div>
+            <div class="description">An element can optionally define how attributes can be shared across a group</div>
           </div>
           <div class="item">
             <div class="header">
-              View an example <a href="/elements/button.html">UI Button</a>
+              <a href="/elements/button.html"><i class="book icon"></i>UI Button</a>
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ type        : 'UI Introduction'
           </div>
           <div class="item">
             <div class="header">
-              View an example <a href="/collections/form.html">UI Form</a>
+              <a href="/collections/form.html"><i class="book icon"></i>UI Form</a>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ type        : 'UI Introduction'
           </div>
           <div class="item">
             <div class="header">
-              View an example <a href="/views/item.html">UI Item</a>
+              <a href="/views/item.html"><i class="book icon"></i>UI Item</a>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@ type        : 'UI Introduction'
           </div>
           <div class="item">
             <div class="header">
-              View an example <a href="/modules/dropdown.html">UI Dropdown</a>
+              <a href="/modules/dropdown.html"><i class="book icon"></i>UI Dropdown</a>
             </div>
           </div>
         </div>
