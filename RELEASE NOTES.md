@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 0.8.1 - Oct 26, 2013
+
+**Fixes**
+- **Button** - Fixes colored version sometime losing white text color
+- **Button** - Fixes 1pixel jump on animated fade buttons
+
+**Docs**
+- Prefixer now used for prefixing in grunt
+- Spelling fixes
+
 ### Version 0.8.0 - Oct 25, 2013
 
 **New**

@@ -126,9 +126,7 @@
   top: 50%;
   right: auto;
   left: -100%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  margin-top: -.55em;
 }
 
 .ui.animated.button:hover .visible.content {
@@ -191,9 +189,9 @@
   opacity: 0;
   right: 0;
   left: auto;
-  -webkit-transform: translateY(-50%) scale(1.2);
-  -ms-transform: translateY(-50%) scale(1.2);
-  transform: translateY(-50%) scale(1.2);
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .ui.fade.animated.button:hover .visible.content {
@@ -209,9 +207,9 @@
   right: 0;
   left: auto;
   opacity: 1;
-  -webkit-transform: translateY(-50%) scale(1);
-  -ms-transform: translateY(-50%) scale(1);
-  transform: translateY(-50%) scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 
 .ui.primary.buttons .button,
@@ -910,11 +908,13 @@
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
   background-color: #4C4C4C;
+  color: #FFF;
 }
 
 .ui.black.buttons .button:active,
 .ui.black.button:active {
   background-color: #333;
+  color: #FFF;
 }
 
 .ui.green.buttons .button,

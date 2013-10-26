@@ -1,6 +1,6 @@
 /*
 * # Semantic UI
-* Version: 0.8.0
+* Version: 0.8.1
 * http://github.com/jlukic/semantic-ui
 *
 *
@@ -8,7 +8,7 @@
 * Released under the MIT license
 * http://opensource.org/licenses/MIT
 *
-* Released: 10/25/2013
+* Released: 10/26/2013
 */
 
 .ui.breadcrumb {
@@ -4051,9 +4051,7 @@ i.massive.basic.icon {
   top: 50%;
   left: auto;
   right: -100%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  margin-top: -.55em;
 }
 
 .ui.animated.button:hover .visible.content {
@@ -4116,9 +4114,9 @@ i.massive.basic.icon {
   opacity: 0;
   left: 0;
   right: auto;
-  -webkit-transform: translateY(-50%) scale(1.2);
-  -ms-transform: translateY(-50%) scale(1.2);
-  transform: translateY(-50%) scale(1.2);
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .ui.fade.animated.button:hover .visible.content {
@@ -4134,9 +4132,9 @@ i.massive.basic.icon {
   left: 0;
   right: auto;
   opacity: 1;
-  -webkit-transform: translateY(-50%) scale(1);
-  -ms-transform: translateY(-50%) scale(1);
-  transform: translateY(-50%) scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 
 .ui.primary.buttons .button,
@@ -4835,11 +4833,13 @@ i.massive.basic.icon {
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
   background-color: #4C4C4C;
+  color: #FFF;
 }
 
 .ui.black.buttons .button:active,
 .ui.black.button:active {
   background-color: #333;
+  color: #FFF;
 }
 
 .ui.green.buttons .button,
