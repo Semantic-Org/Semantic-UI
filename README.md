@@ -7,6 +7,12 @@ Semantic is production ready, but is formally "pre-release" until proper build a
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 
+### Bugs and Issues
+
+Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
+
+If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
+
 ## Getting Started
 
 The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need. 
@@ -21,7 +27,6 @@ If you prefer to download the whole kit as a zip, it is so conveniently packaged
     
 **Build tools for creating customized downloads will be available in 1.0** Until then we suggest using an asset management tool like [grunt](https://github.com/gruntjs/grunt-cli) or [jammit](https://github.com/documentcloud/jammit) to create packaged versions for use in production.
 
-    
 #### Right-to-Left (RTL Version)
 
 RTL versions are compiled on every patch update, and are available in ``/rtl/``
@@ -39,6 +44,7 @@ If you are looking for a SCSS/SASS port of Semantic for your rails projects chec
 ### Learn More
 
 * [Introduction to Semantic](http://www.semantic-ui.com/introduction.html)
+* [Semantic Modules](http://www.semantic-ui.com/module.html)
 * [Contributing to Semantic](http://semantic-ui.com/project/contributing.html)
 * [Running Docs/Server Locally](http://semantic-ui.com/project/development)
 
@@ -51,12 +57,6 @@ Semantic is very new standard, and we need a community to become truly useful.
 
 If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@myfav.es](mailto:jack@myfav.es)
 
-
-### Bugs and Issues
-
-Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
-
-If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/jlukic/Vbr9d/1/) to get you started.
 
 ### Roadmap
 * [Features Missing for 1.0](https://github.com/jlukic/Semantic-UI/issues?direction=desc&milestone=1&page=1&sort=updated&state=open)
