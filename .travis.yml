@@ -4,4 +4,3 @@ node_js:
 before_script:
   - npm install -g grunt-cli
   - npm update
-  - karma run
