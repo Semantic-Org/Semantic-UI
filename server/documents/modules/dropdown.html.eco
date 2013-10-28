@@ -252,8 +252,10 @@ type        : 'UI Module'
 
     <table class="ui definition sortabled celled table segment">
       <thead>
+        <tr>
         <th>Behavior</th>
         <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -542,9 +544,11 @@ type        : 'UI Module'
     </h3>
     <table class="ui celled sortable definition table segment">
       <thead>
+        <tr>
         <th>Setting</th>
         <th class="four wide">Default</th>
         <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -616,9 +620,11 @@ type        : 'UI Module'
 
     <table class="ui celled sortable definition table segment">
       <thead>
+        <tr>
         <th class="four wide">Setting</th>
         <th>Context</th>
         <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -645,9 +651,11 @@ type        : 'UI Module'
     </h3>
     <table class="ui celled sortable definition table segment">
       <thead>
+        <tr>
         <th>Setting</th>
         <th class="four wide">Default</th>
         <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -701,9 +709,11 @@ type        : 'UI Module'
     </h3>
     <table class="ui celled sortable definition table segment">
       <thead>
+        <tr>
         <th>Setting</th>
         <th class="four wide">Default</th>
         <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -744,6 +754,3 @@ type        : 'UI Module'
   </div>
 
 </div>
-</body>
-
-</html>

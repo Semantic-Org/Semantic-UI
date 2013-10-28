@@ -286,8 +286,10 @@ type        : 'UI Module'
 
     <table class="ui definition celled sortable table segment">
       <thead>
-        <th>Behavior</th>
-        <th>Description</th>
+        <tr>
+          <th>Behavior</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -342,13 +344,17 @@ type        : 'UI Module'
 
     <h2 class="ui dividing header">Settings</h2>
 
-    <h4 class="ui header">Modal Settings</h4>
-    <p>Modal settings modify the modal's behavior</p>
+    <h3 class="ui header">Modal Settings
+      <div class="sub header">Modal settings modify the modal's behavior</div>
+    </h3>
+
     <table class="ui red celled sortable definition table segment">
       <thead>
-        <th>Setting</th>
-        <th class="four wide">Default</th>
-        <th>Description</th>
+        <tr>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -369,6 +375,13 @@ type        : 'UI Module'
           true
           </td>
           <td>Settings to false will not allow you to close the modal by clicking on the dimmer</td>
+        </tr>
+        <tr>
+          <td>useCSS</td>
+          <td>
+            true
+          </td>
+          <td>Whether to use CSS animations instead of fallback javascript animations</td>
         </tr>
         <tr>
           <td>transition</td>
@@ -395,14 +408,18 @@ type        : 'UI Module'
     </table>
 
     <div class="ui horizontal section icon divider"><i class="icon setting"></i></div>
-    <h4 class="ui header">Callbacks</h4>
-    <p>Callbacks specify a function to occur after a specific behavior.</p>
+    <h3 class="ui header">Callbacks
+      <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+    </h3>
+
 
     <table class="ui celled sortable definition table segment">
       <thead>
-        <th class="four wide">Setting</th>
-        <th>Context</th>
-        <th>Description</th>
+        <tr>
+          <th class="four wide">Setting</th>
+          <th>Context</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -428,10 +445,13 @@ type        : 'UI Module'
       </tbody>
     </table>
 
-    <h4 class="ui header">DOM Settings</h4>
-    <p>DOM settings specify how this module should interface with the DOM</p>
+    <h3 class="ui header">DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+
     <table class="ui celled sortable definition table segment">
       <thead>
+        <tr>
         <th>Setting</th>
         <th class="four wide">Default</th>
         <th>Description</th>
@@ -468,13 +488,17 @@ type        : 'UI Module'
       </tbody>
     </table>
 
-    <h4 class="ui header">Debug Settings</h4>
-    <p>Debug settings controls debug output to the console</p>
+    <h3 class="ui header">Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+
     <table class="ui celled sortable definition table segment">
       <thead>
-        <th>Setting</th>
-        <th class="four wide">Default</th>
-        <th>Description</th>
+        <tr>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -512,6 +536,3 @@ type        : 'UI Module'
   </div>
 
 </div>
-</body>
-
-</html>
