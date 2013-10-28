@@ -67,13 +67,12 @@ $.fn.modal = function(parameters) {
             module.error(error.dimmer);
             return;
           }
-
           $dimmable = $context
             .dimmer({
               closable : false,
-              useCSS   : false,
-              show     : settings.duration * 0.95,
-              hide     : settings.duration * 1.05
+              useCSS   : module.is.modernBrowser(),
+              show     : settings.duration * 0.9,
+              hide     : settings.duration * 1.1
             })
             .dimmer('add content', $module)
           ;
@@ -146,7 +145,7 @@ $.fn.modal = function(parameters) {
           close: function() {
             module.verbose('Closing element pressed');
             if( $(this).is(selector.approve) ) {
-              if($.proxy(settings.onApprove, element)()) {
+              if($.proxy(settings.onApprove, element)() !== false) {
                 module.hide();
               }
               else {
@@ -154,7 +153,7 @@ $.fn.modal = function(parameters) {
               }
             }
             else if( $(this).is(selector.deny) ) {
-              if($.proxy(settings.onDeny, element)()) {
+              if($.proxy(settings.onDeny, element)() !== false) {
                 module.hide();
               }
               else {
@@ -341,6 +340,10 @@ $.fn.modal = function(parameters) {
         is: {
           active: function() {
             return $module.hasClass(className.active);
+          },
+          modernBrowser: function() {
+            // lol
+            return (navigator.appName !== 'Microsoft Internet Explorer');
           }
         },
 
