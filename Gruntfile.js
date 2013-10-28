@@ -201,7 +201,13 @@ module.exports = function(grunt) {
     *******************************/
     autoprefixer: {
       options: {
-        browsers: ['last 2 version', 'ie 9']
+        browsers: [
+          'last 2 version',
+          '> 1%',
+          'ie 9',
+          'bb 10',
+          'android 4'
+        ]
       },
       prefixBuild: {
         src : 'build/**/*.css'
