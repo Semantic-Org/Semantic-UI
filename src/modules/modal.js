@@ -71,6 +71,7 @@ $.fn.modal = function(parameters) {
           $dimmable = $context
             .dimmer({
               closable : false,
+              useCSS   : false,
               show     : settings.duration * 0.95,
               hide     : settings.duration * 1.05
             })
@@ -571,8 +572,9 @@ $.fn.modal.settings = {
 
   name        : 'Modal',
   namespace   : 'modal',
-  verbose     : true,
+
   debug       : true,
+  verbose     : true,
   performance : true,
 
   closable    : true,
