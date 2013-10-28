@@ -15,9 +15,10 @@
   outline: 0;
   color: rgba(0,0,0,.7);
   border-radius: .3125em;
-  -webkit-transition: background-color .3s ease-out,box-shadow .2s ease,border-color .2s ease;
+  -webkit-transition: background-color .3s ease-out,-webkit-box-shadow .2s ease,border-color .2s ease;
   transition: background-color .3s ease-out,box-shadow .2s ease,border-color .2s ease;
   -webkit-tap-highlight-color: rgba(255,255,255,0);
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -101,6 +102,7 @@
   padding-top: .82em;
   text-align: center;
   border-radius: .3125em 0 0 .3125em;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;

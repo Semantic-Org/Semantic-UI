@@ -209,6 +209,7 @@
   padding: 4px 12px;
   font-size: 12px;
   line-height: 23px;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
   box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
   border-radius: 5px 0 0 5px;
 }

@@ -40,6 +40,7 @@
   position: relative;
   padding: 2em;
   background-color: #F4F4F4;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -84,6 +85,7 @@
   .ui.modal .content .right {
     display: block;
     padding: 1em 0 0;
+    -webkit-box-shadow: none;
     box-shadow: none;
   }
 }

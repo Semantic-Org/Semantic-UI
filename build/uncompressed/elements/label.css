@@ -24,6 +24,7 @@
   text-transform: uppercase;
   font-weight: normal;
   border-radius: 0.325em;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -102,6 +103,7 @@ a.ui.label {
   line-height: 1.5em;
   vertical-align: baseline;
   text-transform: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
@@ -203,6 +205,7 @@ a.ui.label:hover:before {
   background-color: #FFFFFF;
   width: 0.55em;
   height: 0.55em;
+  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 100px 100px 100px 100px;
 }
@@ -378,6 +381,7 @@ a.ui.label:hover:before {
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;

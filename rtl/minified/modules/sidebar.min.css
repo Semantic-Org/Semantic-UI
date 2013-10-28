@@ -8,6 +8,7 @@ body {
   margin: 0!important;
   height: 100%!important;
   border-radius: 0!important;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -47,6 +48,7 @@ body {
 .ui.styled.sidebar {
   padding: 1em 1.5em;
   background-color: #FFF;
+  -webkit-box-shadow: 1px 0 0 rgba(0,0,0,.1);
   box-shadow: 1px 0 0 rgba(0,0,0,.1);
 }
 
@@ -59,18 +61,22 @@ body {
 }
 
 .ui.floating.sidebar {
+  -webkit-box-shadow: 2px 0 2px rgba(0,0,0,.2);
   box-shadow: 2px 0 2px rgba(0,0,0,.2);
 }
 
 .ui.right.floating.sidebar {
+  -webkit-box-shadow: -2px 0 2px rgba(0,0,0,.2);
   box-shadow: -2px 0 2px rgba(0,0,0,.2);
 }
 
 .ui.top.floating.sidebar {
+  -webkit-box-shadow: 0 4px 4px rgba(0,0,0,.2);
   box-shadow: 0 4px 4px rgba(0,0,0,.2);
 }
 
 .ui.bottom.floating.sidebar {
+  -webkit-box-shadow: 0 -4px 4px rgba(0,0,0,.2);
   box-shadow: 0 -4px 4px rgba(0,0,0,.2);
 }
 

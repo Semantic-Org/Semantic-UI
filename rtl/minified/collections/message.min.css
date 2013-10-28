@@ -7,8 +7,9 @@
   padding: 1em;
   line-height: 1.33;
   color: rgba(0,0,0,.6);
-  -webkit-transition: opacity .1s ease,color .1s ease,background .1s ease,box-shadow .1s ease;
+  -webkit-transition: opacity .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
   transition: opacity .1s ease,color .1s ease,background .1s ease,box-shadow .1s ease;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -115,6 +116,7 @@
   margin-left: -1px;
   margin-bottom: -1px;
   border-radius: .325em .325em 0 0;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
   box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
 }
 
@@ -150,6 +152,7 @@
 }
 
 .ui.floating.message {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 0 0 1px rgba(0,0,0,.05) inset;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 0 0 1px rgba(0,0,0,.05) inset;
 }
 

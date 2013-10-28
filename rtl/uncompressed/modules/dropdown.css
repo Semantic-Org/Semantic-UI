@@ -42,6 +42,7 @@
   white-space: nowrap;
   font-size: 0.875em;
   text-shadow: none;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 0px 0px 0.325em 0.325em;
   -webkit-transition: opacity 0.2s ease;
@@ -144,7 +145,7 @@
   left: 0px;
 }
 
-.ui.vertical.menu .dropdown.item > .dropdown.icon {
+.ui.vertical.menu .dropdown.item > .dropdown.icon:before {
   content: "\f0da";
 }
 
@@ -175,6 +176,7 @@
   background-color: rgba(0, 0, 0, 0.06) !important;
   border-right: none;
   border-color: transparent !important;
+  -webkit-box-shadow: none;
   -moz-shadow: none;
   box-shadow: none;
   z-index: 12;
@@ -266,6 +268,7 @@
   padding: 0.5em 1em;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   border-radius: !important 0.3125em;
 }
@@ -284,7 +287,7 @@
 .ui.selection.dropdown,
 .ui.selection.dropdown .menu {
   top: 100%;
-  -webkit-transition: box-shadow 0.2s ease-out;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-out;
   transition: box-shadow 0.2s ease-out;
 }
 
@@ -292,6 +295,7 @@
   max-height: 312px;
   overflow-x: hidden;
   overflow-y: auto;
+  -webkit-box-shadow: 0px 1px 0px 1px #E0E0E0;
   box-shadow: 0px 1px 0px 1px #E0E0E0;
   border-radius: 0px 0px 0.325em 0.325em;
 }
@@ -311,10 +315,12 @@
 /* Hover */
 
 .ui.selection.dropdown:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
 }
 
 .ui.selection.dropdown:hover .menu {
+  -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
   box-shadow: 0px 1px 0px 1px #D3D3D3;
 }
 
@@ -404,6 +410,7 @@
   visibility: visible;
   width: 0.5em;
   height: 0.5em;
+  -webkit-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
   box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
   background-image: none;
   background-color: #FFFFFF;
@@ -415,6 +422,7 @@
 
 .ui.pointing.dropdown .menu .active.item:first-child {
   background: transparent -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+  background: transparent-webkit-gradient(linear, top right, bottom right, from(transparent), to(rgba(0, 0, 0, 0.03)));
   background: transparent linear-gradient(transparent, rgba(0, 0, 0, 0.03));
 }
 

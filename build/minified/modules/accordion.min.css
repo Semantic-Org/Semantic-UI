@@ -5,6 +5,7 @@
   font-size: 1rem;
   border-radius: .3125em;
   background-color: #FFF;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
   box-shadow: 0 0 0 1px rgba(0,0,0,.1);
 }
 
@@ -45,6 +46,7 @@
 
 .ui.basic.accordion.menu {
   background-color: #FFF;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
   box-shadow: 0 0 0 1px rgba(0,0,0,.1);
 }
 
@@ -55,6 +57,7 @@
 
 .ui.basic.accordion {
   background-color: transparent;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 

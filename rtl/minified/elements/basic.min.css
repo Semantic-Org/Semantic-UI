@@ -22,6 +22,7 @@ i.basic.icon {
   text-decoration: inherit;
   text-align: center;
   speak: none;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -624,6 +625,7 @@ i.link.basic.icon {
 i.circular.basic.icon {
   border-radius: 500px!important;
   padding: .5em 0!important;
+  -webkit-box-shadow: 0 0 0 .1em rgba(0,0,0,.1) inset;
   box-shadow: 0 0 0 .1em rgba(0,0,0,.1) inset;
   line-height: 1!important;
   width: 2em!important;
@@ -632,6 +634,7 @@ i.circular.basic.icon {
 
 i.circular.inverted.basic.icon {
   border: 0;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -663,6 +666,7 @@ i.square.basic.icon {
   width: 2em;
   height: 2em;
   padding: .5em .35em!important;
+  -webkit-box-shadow: 0 0 0 .1em rgba(0,0,0,.1) inset;
   box-shadow: 0 0 0 .1em rgba(0,0,0,.1) inset;
   vertical-align: baseline;
 }
@@ -673,6 +677,7 @@ i.square.basic.icon:before {
 
 i.square.inverted.basic.icon {
   border: 0;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 

@@ -4,6 +4,7 @@
   font-size: 0;
   margin: 0 -1.5%;
   padding: 0;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -30,6 +31,7 @@ body>.ui.grid {
   font-size: 1rem;
   padding-right: 1.5%;
   padding-left: 1.5%;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -309,6 +311,7 @@ body>.ui.grid {
 .ui.divided.grid>.column:not(.row),
 .ui.divided.grid>.row>.column {
   display: table-cell;
+  -webkit-box-shadow: -1px 0 0 0 rgba(0,0,0,.1),-2px 0 0 0 rgba(255,255,255,.8);
   box-shadow: -1px 0 0 0 rgba(0,0,0,.1),-2px 0 0 0 rgba(255,255,255,.8);
 }
 
@@ -318,16 +321,19 @@ body>.ui.grid {
 
 .ui.divided.grid>.column:first-child,
 .ui.divided.grid>.row>.column:first-child {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.vertically.divided.grid>.row {
+  -webkit-box-shadow: 0 -1px 0 0 rgba(0,0,0,.1),0 -2px 0 0 rgba(255,255,255,.8)!important;
   box-shadow: 0 -1px 0 0 rgba(0,0,0,.1),0 -2px 0 0 rgba(255,255,255,.8)!important;
 }
 
 .ui.vertically.divided.grid>.row>.column,
 .ui.vertically.divided.grid>.column:not(.row),
 .ui.vertically.divided.grid>.row:first-child {
+  -webkit-box-shadow: none!important;
   box-shadow: none!important;
 }
 
@@ -336,6 +342,7 @@ body>.ui.grid {
   width: 100%;
   margin-right: 0!important;
   margin-left: 0!important;
+  -webkit-box-shadow: 0 0 0 1px #DFDFDF;
   box-shadow: 0 0 0 1px #DFDFDF;
 }
 
@@ -346,6 +353,7 @@ body>.ui.grid {
   width: 100%;
   margin-top: 0;
   padding-top: 0;
+  -webkit-box-shadow: 0 -1px 0 0 #dfdfdf;
   box-shadow: 0 -1px 0 0 #dfdfdf;
 }
 
@@ -353,15 +361,18 @@ body>.ui.grid {
 .ui.celled.grid>.row>.column {
   display: table-cell;
   padding: .75em;
+  -webkit-box-shadow: -1px 0 0 0 #dfdfdf;
   box-shadow: -1px 0 0 0 #dfdfdf;
 }
 
 .ui.celled.grid>.column:first-child,
 .ui.celled.grid>.row>.column:first-child {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.celled.page.grid {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -551,6 +562,7 @@ body>.ui.grid {
     width: auto!important;
     margin: 1.5em 5% 0!important;
     padding: 1.5em 0 0!important;
+    -webkit-box-shadow: none!important;
     box-shadow: none!important;
   }
 

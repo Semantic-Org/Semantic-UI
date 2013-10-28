@@ -271,6 +271,7 @@ h5.ui.header {
 .ui.attached.header {
   background-color: #E0E0E0;
   padding: .5em 1rem;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
   box-shadow: 0 0 0 1px rgba(0,0,0,.1);
 }
 

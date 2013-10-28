@@ -6,6 +6,7 @@
   vertical-align: top;
   background-color: #FFF;
   color: #888;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -28,7 +29,7 @@
 .ui.step,
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition: opacity .1s ease,color .1s ease,box-shadow .1s ease;
+  -webkit-transition: opacity .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
   transition: opacity .1s ease,color .1s ease,box-shadow .1s ease;
 }
 
@@ -36,8 +37,10 @@
   cursor: pointer;
   display: inline-block;
   font-size: 0;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
   box-shadow: 0 0 0 1px rgba(0,0,0,.1);
   line-height: 1;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -122,6 +125,7 @@
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  -webkit-box-shadow: -1px -1px 0 0 rgba(0,0,0,.1) inset;
   box-shadow: -1px -1px 0 0 rgba(0,0,0,.1) inset;
 }
 

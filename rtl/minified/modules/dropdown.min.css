@@ -19,6 +19,7 @@
   white-space: nowrap;
   font-size: .875em;
   text-shadow: none;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
   box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
   border-radius: 0 0 .325em .325em;
   -webkit-transition: opacity .2s ease;
@@ -101,7 +102,7 @@
   left: 0;
 }
 
-.ui.vertical.menu .dropdown.item>.dropdown.icon {
+.ui.vertical.menu .dropdown.item>.dropdown.icon:before {
   content: "\f0da";
 }
 
@@ -122,6 +123,7 @@
   background-color: rgba(0,0,0,.06)!important;
   border-right: 0;
   border-color: transparent!important;
+  -webkit-box-shadow: none;
   -moz-shadow: none;
   box-shadow: none;
   z-index: 12;
@@ -195,6 +197,7 @@
   padding: .5em 1em;
   line-height: 1.33;
   color: rgba(0,0,0,.8);
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1)!important;
   box-shadow: 0 0 0 1px rgba(0,0,0,.1)!important;
   border-radius: .3125em!important;
 }
@@ -213,7 +216,7 @@
 .ui.selection.dropdown,
 .ui.selection.dropdown .menu {
   top: 100%;
-  -webkit-transition: box-shadow .2s ease-out;
+  -webkit-transition: -webkit-box-shadow .2s ease-out;
   transition: box-shadow .2s ease-out;
 }
 
@@ -221,6 +224,7 @@
   max-height: 312px;
   overflow-x: hidden;
   overflow-y: auto;
+  -webkit-box-shadow: 0 1px 0 1px #E0E0E0;
   box-shadow: 0 1px 0 1px #E0E0E0;
   border-radius: 0 0 .325em .325em;
 }
@@ -238,10 +242,12 @@
 }
 
 .ui.selection.dropdown:hover {
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.2)!important;
   box-shadow: 0 0 0 1px rgba(0,0,0,.2)!important;
 }
 
 .ui.selection.dropdown:hover .menu {
+  -webkit-box-shadow: 0 1px 0 1px #D3D3D3;
   box-shadow: 0 1px 0 1px #D3D3D3;
 }
 
@@ -311,6 +317,7 @@
   visibility: visible;
   width: .5em;
   height: .5em;
+  -webkit-box-shadow: -1px -1px 0 1px rgba(0,0,0,.05);
   box-shadow: -1px -1px 0 1px rgba(0,0,0,.05);
   background-image: none;
   background-color: #FFF;
@@ -322,6 +329,7 @@
 
 .ui.pointing.dropdown .menu .active.item:first-child {
   background: transparent -webkit-linear-gradient(transparent,rgba(0,0,0,.03));
+  background: transparent-webkit-gradient(linear, top right, bottom right, from(transparent), to(rgba(0,0,0,.03)));
   background: transparent -webkit-linear-gradient(transparent, rgba(0,0,0,.03));
   background: transparent linear-gradient(transparent,rgba(0,0,0,.03));
 }

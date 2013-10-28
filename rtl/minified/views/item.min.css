@@ -32,10 +32,11 @@
   background-color: #FFF;
   line-height: 1.2;
   font-size: 1em;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
   box-shadow: 0 0 0 1px rgba(0,0,0,.1);
   border-bottom: .2em solid rgba(0,0,0,.2);
   border-radius: .33em;
-  -webkit-transition: box-shadow .2s ease;
+  -webkit-transition: -webkit-box-shadow .2s ease;
   transition: box-shadow .2s ease;
   padding: .5em;
 }
@@ -51,6 +52,7 @@
 .ui.items .item>.content,
 .ui.items .item>.content>.meta,
 .ui.items .item>.content>.extra {
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -60,6 +62,7 @@
   display: block;
   position: relative;
   background-color: rgba(0,0,0,.05);
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -185,6 +188,7 @@
 .ui.items .item:hover {
   cursor: pointer;
   z-index: 5;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.2);
   box-shadow: 0 0 0 1px rgba(0,0,0,.2);
 }
 

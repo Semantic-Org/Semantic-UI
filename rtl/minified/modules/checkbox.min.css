@@ -34,8 +34,9 @@
   content: '';
   border-radius: 4px;
   background: #FFF;
-  -webkit-transition: background-color .3s ease,box-shadow .3s ease;
+  -webkit-transition: background-color .3s ease,-webkit-box-shadow .3s ease;
   transition: background-color .3s ease,box-shadow .3s ease;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.2);
   box-shadow: 0 0 0 1px rgba(0,0,0,.2);
 }
 
@@ -89,6 +90,7 @@
 
 .ui.checkbox .box:hover::before,
 .ui.checkbox label:hover::before {
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.3);
   box-shadow: 0 0 0 1px rgba(0,0,0,.3);
 }
 
@@ -99,6 +101,7 @@
 
 .ui.checkbox input:focus+.box:before,
 .ui.checkbox input:focus+label:before {
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.3);
   box-shadow: 0 0 0 1px rgba(0,0,0,.3);
 }
 
@@ -168,6 +171,7 @@
   z-index: 1;
   width: 1.5em;
   height: 1.5em;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
   box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
   border-radius: 50rem;
   -webkit-transition: right .3s ease 0s;
@@ -232,6 +236,7 @@
   background-color: #FFF;
   width: 3em;
   height: 1.5em;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
   box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
   border-radius: 50rem;
 }
@@ -240,6 +245,7 @@
 .ui.toggle.checkbox label:after {
   opacity: 1;
   background-color: transparent;
+  -webkit-box-shadow: none;
   box-shadow: none;
   content: '';
   position: absolute;

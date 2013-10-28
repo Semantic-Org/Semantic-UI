@@ -7,6 +7,7 @@
   z-index: 101;
   min-height: 0;
   width: 100%;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -14,6 +15,7 @@
   line-height: 3em;
   padding: 0 1em;
   background-color: #555;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
   font-size: 1em;
   text-align: center;

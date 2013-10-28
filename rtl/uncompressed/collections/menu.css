@@ -22,6 +22,7 @@
   background-color: #FFFFFF;
   font-size: 0px;
   font-weight: normal;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   border-radius: 0.1875rem;
 }
@@ -59,10 +60,11 @@
   vertical-align: middle;
   line-height: 1;
   text-decoration: none;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
   transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -155,8 +157,9 @@
   left: 0px;
   width: 1px;
   height: 100%;
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: -webkit-gradient(linear, top right, bottom right, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
 }
 
 .ui.menu .menu.right .item:before,
@@ -198,6 +201,7 @@
   padding-bottom: 0.55em;
   padding-top: 0.55em;
   font-size: 0.875em;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -250,6 +254,7 @@
   margin: 1px 0px 0px 0px;
   min-width: -webkit-calc(99%);
   min-width: calc(99%);
+  -webkit-box-shadow: 0 1px 1px 1px #DDDDDD;
   box-shadow: 0 1px 1px 1px #DDDDDD;
 }
 
@@ -267,6 +272,7 @@
 }
 
 .ui.menu .dropdown.item .menu .active.item {
+  -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
@@ -320,6 +326,7 @@
 
 .ui.menu .ui.dropdown.active {
   background-color: rgba(0, 0, 0, 0.02);
+  -webkit-box-shadow: none;
   box-shadow: none;
   border-bottom-left-radius: 0em;
   border-bottom-right-radius: 0em;
@@ -343,11 +350,13 @@
 .ui.menu .active.item {
   background-color: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.95);
+  -webkit-box-shadow: 0em 0.2em 0em inset;
   box-shadow: 0em 0.2em 0em inset;
 }
 
 .ui.vertical.menu .active.item {
   border-radius: 0em;
+  -webkit-box-shadow: 0.2em 0em 0em inset;
   box-shadow: 0.2em 0em 0em inset;
 }
 
@@ -373,6 +382,7 @@
 
 .ui.vertical.menu .item .menu .active.item {
   background-color: rgba(0, 0, 0, 0.03);
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -459,6 +469,7 @@
   width: 100%;
   height: 1px;
   background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: -webkit-gradient(linear, top right, top left, from(rgba(0, 0, 0, 0.03)), color-stop(1.5em, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.03)));
   background-image: linear-gradient(right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
 }
 
@@ -477,6 +488,7 @@
   top: 0% !important;
   right: 100%;
   margin: 0px 1px 0px 0px;
+  -webkit-box-shadow: 0 0px 1px 1px #DDDDDD;
   box-shadow: 0 0px 1px 1px #DDDDDD;
 }
 
@@ -494,6 +506,7 @@
 }
 
 .ui.vertical.menu .dropdown.item.active {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -544,6 +557,7 @@
   background-color: rgba(0, 0, 0, 0.01);
   border-radius: 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: none;
   box-shadow: none;
   color: #FFFFFF;
 }
@@ -561,6 +575,7 @@
   background-color: transparent;
   border-radius: 0 0 0 0;
   border-top: medium none;
+  -webkit-box-shadow: none;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.7) !important;
 }
@@ -595,6 +610,7 @@
 .ui.inverted.tiered.menu > .sub.menu > .active.item,
 .ui.inverted.tiered.menu > .menu > .active.item {
   color: #ffffff !important;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -616,6 +632,7 @@
   background-color: transparent;
   border-bottom: 1px solid #DCDDDE;
   border-radius: 0em;
+  -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
@@ -650,6 +667,7 @@
   font-weight: bold;
   margin-bottom: -1px;
   border-bottom: 1px solid #FFFFFF;
+  -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 5px 5px 0 0;
 }
@@ -694,6 +712,7 @@
   border-top: none;
   padding-top: 0.83em;
   background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -704,11 +723,13 @@
 .ui.secondary.menu {
   background-color: transparent;
   border-radius: 0px;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.secondary.menu > .menu > .item,
 .ui.secondary.menu > .item {
+  -webkit-box-shadow: none;
   box-shadow: none;
   border: none;
   height: auto !important;
@@ -753,6 +774,7 @@
 .ui.secondary.menu > .active.item {
   background-color: rgba(0, 0, 0, 0.08);
   opacity: 1;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -783,6 +805,7 @@
 }
 
 .ui.secondary.attached.menu {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -812,6 +835,7 @@
 }
 
 .ui.secondary.pointing.menu .text.item {
+  -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
@@ -846,6 +870,7 @@
 .ui.secondary.pointing.menu > .item.active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -952,6 +977,7 @@
   background-color: transparent;
   margin: 1rem -1rem;
   border-radius: 0px;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -961,6 +987,7 @@
   padding: 0em;
   height: auto !important;
   border-radius: 0px;
+  -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
@@ -1031,16 +1058,19 @@
   border: none;
   opacity: 1;
   font-weight: bold;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 /* disable variations */
 
 .ui.text.pointing.menu .active.item:after {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.text.attached.menu {
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -1165,12 +1195,14 @@
 
 .ui.inverted.menu {
   background-color: #333333;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.inverted.menu .header.item {
   margin: 0em;
   background-color: rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -1198,12 +1230,14 @@
 /*--- Border ---*/
 
 .ui.inverted.menu .item:before {
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: linear-gradient(top, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -webkit-gradient(linear, top right, bottom right, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 .ui.vertical.inverted.menu .item:before {
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
   background-image: linear-gradient(right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
@@ -1240,6 +1274,7 @@
 /*--- Active ---*/
 
 .ui.inverted.menu .active.item {
+  -webkit-box-shadow: none !important;
   box-shadow: none !important;
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -1258,6 +1293,7 @@
 
 .ui.inverted.pointing.menu .active.item:after {
   background-color: #505050;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -1604,6 +1640,7 @@
   margin: 0rem;
   border-radius: 0px;
   /* avoid rgba multiplying */
+  -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
   box-shadow: 0px 0px 0px 1px #DDDDDD;
 }
 

@@ -50,6 +50,7 @@ i.icon {
   text-decoration: inherit;
   text-align: center;
   speak: none;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
@@ -1655,6 +1656,7 @@ i.link.icon:hover {
 i.circular.icon {
   border-radius: !important 500em;
   padding: 0.5em 0.35em !important;
+  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   line-height: 1 !important;
   width: 2em !important;
@@ -1663,6 +1665,7 @@ i.circular.icon {
 
 i.circular.inverted.icon {
   border: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -1710,12 +1713,14 @@ i.square.icon {
   width: 2em;
   height: 2em;
   padding: 0.5em 0.35em !important;
+  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
 }
 
 i.square.inverted.icon {
   border: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 

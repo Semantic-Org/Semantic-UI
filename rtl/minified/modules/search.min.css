@@ -16,6 +16,7 @@
   margin: 0 -15px 0 0;
   padding: 6px 15px 7px;
   border-radius: 15px 0 0 15px;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -33,6 +34,7 @@
   line-height: 1.2;
   color: #555;
   border-radius: 3px;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0,0,0,.1),0 -2px 0 0 rgba(0,0,0,.1) inset;
   box-shadow: 0 0 1px 1px rgba(0,0,0,.1),0 -2px 0 0 rgba(0,0,0,.1) inset;
 }
 
