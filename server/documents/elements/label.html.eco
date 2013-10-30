@@ -46,6 +46,15 @@ type        : 'UI Element'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Link</h4>
+    <p>A label can contain a text link</p>
+    <div class="ui label">
+      Inbox
+      <a class="detail"><i class="mail icon"></i> 23</a>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Image</h4>
     <p>A label can be formatted to include an image</p>
     <a class="ui image label">
