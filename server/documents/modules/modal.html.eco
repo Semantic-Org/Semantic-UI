@@ -317,8 +317,12 @@ type        : 'UI Module'
           <td>Hides associated page dimmer</td>
         </tr>
         <tr>
+          <td>hide others</td>
+          <td>Hides all modals not selected modal in a dimmer</td>
+        </tr>
+        <tr>
           <td>hide all</td>
-          <td>Hides all visible modals initialized at the same time</td>
+          <td>Hides all visible modals in the same dimmer</td>
         </tr>
         <tr>
           <td>cache sizes</td>

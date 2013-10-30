@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'guide'
 title       : "What's Different"
 description : 'Separating Semantic from the pack'
-type        : 'Semantic'
+type        : 'UI Introduction'
 ---
 <script src="/javascript/intro.js"></script>
 

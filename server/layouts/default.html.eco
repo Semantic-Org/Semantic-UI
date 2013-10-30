@@ -115,19 +115,19 @@
       <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
     </a>
     <div class="item">
-      <b>Project</b>
+      <a href="/">
+        <b>Introduction</b>
+      </a>
       <div class="menu">
-        <% for element in uiProject: %>
+        <% for element in uiIntroduction: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
         <% end %>
       </div>
     </div>
     <div class="item">
-      <a href="/introduction.html">
-        <b>Introduction</b>
-      </a>
+      <b>Project</b>
       <div class="menu">
-        <% for element in uiIntroduction: %>
+        <% for element in uiProject: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
         <% end %>
       </div>

@@ -134,7 +134,7 @@ type        : 'UI Module'
       <h2 class="ui dividing header">Introduction</h2>
 
       <p>UI Transitions provide a wrapper for using css transitions in javascript providing cross-browser callbacks, advanced queuing, and feature detection.</p>
-      <p>Transitions are loosely coupled with other ui modules like <a href="modules/dropdown.html">dropdowns</a> and <a href="modules/modal.html">modals</a> to provide element transitions</p>
+      <p>Transitions are loosely coupled with other ui modules like <a href="/modules/dropdown.html">dropdowns</a> and <a href="/modules/modal.html">modals</a> to provide element transitions</p>
 
       <h3 class="ui header">Types</h3>
       <p>Transitions are separated into three categories. <b>Inward transitions</b>, <b>outward transitions</b>, and <b>static transitions</b>. These three categories determine the visibility of the element after the animation completes.</p>

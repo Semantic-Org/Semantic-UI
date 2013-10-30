@@ -1,63 +1,42 @@
----
-layout      : 'default'
-css         : 'modal-demo'
 
-title       : 'Test'
-description : 'Test area'
----
+<script src="/build/uncompressed/modules/behavior/form.js"></script>
+<script type='text/javascript'>//<![CDATA[
+$(document).ready(function () {
 
+
+    $('.signup')
+        .form({
+        countryNumber: {
+            identifier: 'somefield',
+            rules: [{
+                type: 'contains[+]',
+                prompt: 'This errors out'
+            }]
+        }
+    }, {
+        inline: true
+    });
+
+});
+</script>
 <style>
 .main.container {
     padding-top: 200px;
 }
 </style>
-<div class="main container">
-<script type='text/javascript'>//<![CDATA[
-$(function(){
-$("#button1").on("click", function ()
-{
-   $("#modal1").modal("show");
-});
-
-$("#button2").on("click", function ()
-{
-   $("#modal2").modal("show");
-});
-});//]]>
-
-</script>
 
 
-</head>
-<body>
-  <div id="modal1" class="ui modal">
-    <i class="close icon"></i>
-    <div class="header">
-          Modal 1
+    <div class="main container">
+  <div class="ui form segment signup">
+    <div class="field">
+        <label>Something with an +</label>
+        <div class="ui left labeled icon input">
+            <input name="somefield" type="text" placeholder="insert something"> <i class="user icon"></i>
+
+            <div class="ui corner label"> <i class="icon asterisk"></i>
+
+            </div>
+        </div>
     </div>
-    <div class="content">
-        <button type="button" id="button2">Open modal 2</button>
-    </div>
-    <div class="actions">
-        <div class="ui button" data-action="close">Close</div>
-        <div class="ui button" data-action="save">Save &amp; Close</div>
-    </div>
-</div>
-
-<div id="modal2" class="ui modal">
-    <i class="close icon"></i>
-    <div class="header">
-          Modal 2
-    </div>
-    <div class="content">
-        This is modal 2
-    </div>
-    <div class="actions">
-        <div class="ui button" data-action="close">Close</div>
-        <div class="ui button" data-action="save">Save &amp; Close</div>
-    </div>
-</div>
-
-<button type="button" id="button1">Open modal 1</button>
-
+    <div class="ui green submit button approve">Check</div>
 </div>
