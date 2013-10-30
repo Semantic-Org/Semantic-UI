@@ -19,29 +19,47 @@
     Globals Used
 --------------------*/
 
-// @primaryColor       : @primaryColor;
-// @secondaryColor     : @secondaryColor;
-//
-// @transitionDuration : @transitionDuration;
-// @transitionEasing   : @transitionEasing;
+// @primaryColor
+// @secondaryColor
+// @transitionDuration
+// @transitionEasing
+// @offWhite
+// @white
 
 /*-------------------
    Modified Globals
 --------------------*/
 
-@neutral : #E8E8E8;
-
 /*-------------------
    Button Variables
 --------------------*/
 
-@verticalPadding    : 0.8em;
-@horizontalPadding  : 1.5em;
+@padding: 0.8em 1.5em 0.8665em;
+@iconPadding: 0.8em 0.8em 0.8665em;
 
-@borderRadius       : 0.25em;
+@compactPadding: 0.6em 0.8em 0.73em;
+@compactIconPadding: 0.6em 0.6em 0.73em;
 
-@boxShadow          : 0em -0.185rem 0em rgba(0, 0, 0, 0.1) inset;
-@activeBoxShadow    : 0px 1px 0.2em 0px rgba(0, 0, 0, 0.3) inset;
+@borderRadius: 0.25em;
+
+@backgroundColor: #FAFAFA;
+@backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+@boxShadow:
+  0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset,
+  0px -0.133em 0px 0px rgba(0, 0, 0, 0.1) inset
+;
+
+@hoverBackgroundColor: #FAFAFA;
+@hoverBackgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+@hoverBoxShadow: '';
+
+@downBackgroundColor: '';
+@downBackgroundImage: '';
+@downBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+
+@activeBackgroundColor: #EAEAEA;
+@activeBackgroundImage: none;
+@activeBoxShadow:  0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
 
 
 /*******************************
@@ -59,10 +77,10 @@
   outline: none;
   border: none;
   background-color: #FAFAFA;
-  color: #808080;
+  color: @textColor;
 
   margin: 0em;
-  padding: 0.8em 1.5em 0.875em;
+  padding: @padding;
 
   font-size: 1rem;
   text-transform: uppercase;
@@ -72,57 +90,12 @@
   text-align: center;
   text-decoration: none;
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: @backgroundImage;
+  border-radius: @borderRadius;
+  box-shadow: @boxShadow;
 
-  -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
-  border-radius: 0.25em;
-
-  box-shadow:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset,
-    0px -0.133em 0px 0px rgba(0, 0, 0, 0.1) inset
-  ;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
-
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-  -webkit-transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
-  ;
-  -moz-transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
-  ;
-  -o-transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
-  ;
-  -ms-transition:
-    opacity 0.25s ease,
-    background-color 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease
-  ;
   transition:
     opacity 0.25s ease,
     background-color 0.25s ease,
@@ -146,10 +119,10 @@
 
 .ui.buttons .active.button,
 .ui.active.button {
-  background-color: #EAEAEA;
-  background-image: none;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
-  color: rgba(0, 0, 0, 0.7);
+  background-color: @activeBackgroundColor;
+  background-image: @activeBackgroundImage;
+  box-shadow: @activeBoxShadow;
+  color: @textColor;
 }
 
 
@@ -158,8 +131,9 @@
 ---------------*/
 
 .ui.button:not(.loading):hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
-  color: rgba(0, 0, 0, 0.7);
+  background-color: @hoverBackgroundColor;
+  background-image: @hoverBackgroundImage;
+  color: @textColor;
 }
 .ui.button.active:hover {
   background-image: none;
@@ -176,9 +150,10 @@
 
 .ui.button:not(.loading):active,
 .ui.active.button:not(.loading):active {
-  background-color: #F1F1F1;
-  color: rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+  background-color: @hoverBackgroundColor;
+  background-image: @hoverBackgroundImage;
+  color: @textColor;
+  box-shadow: @downBoxShadow;
 }
 
 /*--------------
@@ -191,11 +166,6 @@
 
   background-color: #FFFFFF !important;
   color: transparent !important;
-
-  -webkit-transition: all 0s linear;
-  -moz-transition: all 0s linear;
-  -o-transition: all 0s linear;
-  -ms-transition: all 0s linear;
   transition: all 0s linear;
 }
 .ui.loading.button:after {
@@ -205,13 +175,11 @@
   width: 100%;
   height: 100%;
   content: '';
-  background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
+  background: transparent url(~"@{imageFolder}/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.labeled.icon.loading.button .icon {
   background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -227,8 +195,6 @@
   color: rgba(0, 0, 0, 0.5) !important;
   opacity: 0.3 !important;
   background-image: none !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
 
@@ -543,11 +509,11 @@
 }
 .ui.mini.buttons .button,
 .ui.mini.button {
-  padding: 0.6em 0.8em 0.73em;
+  padding: @compactPadding;
 }
 .ui.mini.icon.buttons .button,
 .ui.mini.buttons .icon.button {
-  padding: 0.6em 0.6em 0.73em;
+  padding: @compactIconPadding;
 }
 
 .ui.tiny.buttons .button,
@@ -558,11 +524,11 @@
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .button,
 .ui.tiny.button {
-  padding: 0.6em 0.8em 0.73em;
+  padding: @compactPadding;
 }
 .ui.tiny.icon.buttons .button,
 .ui.tiny.buttons .icon.button {
-  padding: 0.6em 0.6em 0.73em;
+  padding: @compactIconPadding;
 }
 
 .ui.small.buttons .button,
@@ -609,18 +575,18 @@
 
 /* loading */
 .ui.huge.loading.button:after {
-  background-image: url(../images/loader-small.gif);
+  background-image: url(~"@{imageFolder}/loader-small.gif");
 }
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
 .ui.massive.loading.button:after,
 .ui.gigantic.loading.button:after {
-  background-image: url(../images/loader-medium.gif);
+  background-image: url(~"@{imageFolder}/loader-medium.gif");
 }
 
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
-  background-image: url(../images/loader-small.gif);
+  background-image: url(~"@{imageFolder}/loader-small.gif");
 }
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
@@ -630,7 +596,7 @@
 .ui.gigantic.buttons .loading.button.active:after,
 .ui.massive.loading.button.active:after,
 .ui.gigantic.loading.button.active:after {
-  background-image: url(../images/loader-medium.gif);
+  background-image: url(~"@{imageFolder}/loader-medium.gif");
 }
 
 /*--------------
@@ -639,7 +605,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.8em 0.8em 0.875em;
+  padding: 0.8em 0.8em 0.8665em;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
@@ -658,21 +624,14 @@
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: #808080 !important;
+  color: @textColor !important;
   font-weight: normal;
   text-transform: none;
 
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.basic.buttons {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-
-  -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
   border-radius: 0.25em;
 }
 
@@ -680,26 +639,18 @@
 .ui.basic.button:hover {
   background-image: none;
   color: #7F7F7F !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background-color: rgba(0, 0, 0, 0.02) !important;
   color: #7F7F7F !important;
-
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
   background-color: rgba(0, 0, 0, 0.05);
   color: #7F7F7F;
-
-  -webkit-box-shadow: 0px 0px 0px 1px #BDBDBD inset;
-  -moz-box-shadow: 0px 0px 0px 1px #BDBDBD inset;
   box-shadow: 0px 0px 0px 1px #BDBDBD inset;
 }
 .ui.basic.buttons .button.active:hover,
@@ -710,21 +661,14 @@
 /* Basic Group */
 .ui.basic.buttons .button {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.basic.buttons .button:hover,
 .ui.basic.buttons .button:active {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.basic.buttons .button.active,
 .ui.basic.buttons .button.active:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
 }
 
@@ -746,10 +690,6 @@
   position: absolute;
   top: 0em;
   left: 0em;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 
   width: 2.75em;
@@ -758,20 +698,12 @@
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
 
-  -webkit-border-radius: 0.25em 0px 0px 0.25em;
-  -moz-border-radius: 0.25em 0px 0px 0.25em;
   border-radius: 0.25em 0px 0px 0.25em;
-
   line-height: 1;
-
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
-  -moz-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
   box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 }
 
 .ui.labeled.icon.buttons .button > .icon {
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
 }
 .ui.labeled.icon.buttons .button:first-child > .icon {
@@ -783,14 +715,10 @@
   border-bottom-right-radius: 0.25em;
 }
 .ui.vertical.labeled.icon.buttons .button:first-child > .icon {
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
   border-top-left-radius: 0.25em;
 }
 .ui.vertical.labeled.icon.buttons .button:last-child > .icon {
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
   border-bottom-left-radius: 0.25em;
 }
@@ -809,12 +737,7 @@
   left: auto;
   right: 0em;
 
-  -webkit-border-radius: 0em 0.25em 0.25em 0em;
-  -moz-border-radius: 0em 0.25em 0.25em 0em;
   border-radius: 0em 0.25em 0.25em 0em;
-
-  -webkit-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
-  -moz-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 }
 
@@ -842,8 +765,6 @@
 ---------------*/
 
 .ui.circular.button {
-  -webkit-border-radius: 10em;
-  -moz-border-radius: 10em;
   border-radius: 10em;
 }
 
@@ -854,19 +775,12 @@
 
 .ui.attached.button {
   display: block;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
 }
 .ui.attached.top.button {
-
-  -webkit-border-radius: 0.25em 0.25em 0em 0em;
-  -moz-border-radius: 0.25em 0.25em 0em 0em;
   border-radius: 0.25em 0.25em 0em 0em;
 }
 .ui.attached.bottom.button {
-  -webkit-border-radius: 0em 0em 0.25em 0.25em;
-  -moz-border-radius: 0em 0em 0.25em 0.25em;
   border-radius: 0em 0em 0.25em 0.25em;
 }
 .ui.attached.left.button {
@@ -875,19 +789,12 @@
 
   padding-right: 0.75em;
   text-align: right;
-
-  -webkit-border-radius: 0.25em 0em 0em 0.25em;
-  -moz-border-radius: 0.25em 0em 0em 0.25em;
   border-radius: 0.25em 0em 0em 0.25em;
 }
 .ui.attached.right.button {
   display: inline-block;
-
   padding-left: 0.75em;
   text-align: left;
-
-  -webkit-border-radius: 0em 0.25em 0.25em 0em;
-  -moz-border-radius: 0em 0.25em 0.25em 0em;
   border-radius: 0em 0.25em 0.25em 0em;
 }
 
@@ -923,15 +830,10 @@
   font-weight: normal;
   text-align: center;
 
-  -moz-border-radius: 500px;
-  -webkit-border-radius: 500px;
   border-radius: 500px;
 
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 .ui.buttons .or:after {
@@ -965,76 +867,52 @@
 /* Plural Attached */
 .attached.ui.buttons {
   margin: 0px;
-  -webkit-border-radius: 4px 4px 0px 0px;
-  -moz-border-radius: 4px 4px 0px 0px;
   border-radius: 4px 4px 0px 0px;
 }
 .attached.ui.buttons .button:first-child {
-  -webkit-border-radius: 4px 0px 0px 0px;
-  -moz-border-radius: 4px 0px 0px 0px;
   border-radius: 4px 0px 0px 0px;
 }
 .attached.ui.buttons .button:last-child {
-  -webkit-border-radius: 0px 4px 0px 0px;
-  -moz-border-radius: 0px 4px 0px 0px;
   border-radius: 0px 4px 0px 0px;
 }
 
 /* Bottom Side */
 .bottom.attached.ui.buttons {
   margin-top: -1px;
-  -webkit-border-radius: 0px 0px 4px 4px;
-  -moz-border-radius: 0px 0px 4px 4px;
   border-radius: 0px 0px 4px 4px;
 }
 .bottom.attached.ui.buttons .button:first-child {
-  -webkit-border-radius: 0px 0px 0px 4px;
-  -moz-border-radius: 0px 0px 0px 4px;
   border-radius: 0px 0px 0px 4px;
 }
 .bottom.attached.ui.buttons .button:last-child {
-  -webkit-border-radius: 0px 0px 4px 0px;
-  -moz-border-radius: 0px 0px 4px 0px;
   border-radius: 0px 0px 4px 0px;
 }
 
 /* Left Side */
 .left.attached.ui.buttons {
   margin-left: -1px;
-  -webkit-border-radius: 0px 4px 4px 0px;
-  -moz-border-radius: 0px 4px 4px 0px;
   border-radius: 0px 4px 4px 0px;
 }
 .left.attached.ui.buttons .button:first-child {
   margin-left: -1px;
-  -webkit-border-radius: 0px 4px 0px 0px;
-  -moz-border-radius: 0px 4px 0px 0px;
   border-radius: 0px 4px 0px 0px;
 }
 .left.attached.ui.buttons .button:last-child {
   margin-left: -1px;
-  -webkit-border-radius: 0px 0px 4px 0px;
-  -moz-border-radius: 0px 0px 4px 0px;
   border-radius: 0px 0px 4px 0px;
 }
 /* Right Side */
 .right.attached.ui.buttons,
 .right.attached.ui.buttons .button {
   margin-right: -1px;
-  -webkit-border-radius: 4px 0px 0px 4px;
-  -moz-border-radius: 4px 0px 0px 4px;
   border-radius: 4px 0px 0px 4px;
 }
 .right.attached.ui.buttons .button:first-child {
   margin-left: -1px;
-  -webkit-border-radius: 4px 0px 0px 0px;
-  -moz-border-radius: 4px 0px 0px 0px;
   border-radius: 4px 0px 0px 0px;
 }
 .right.attached.ui.buttons .button:last-child {
   margin-left: -1px;
-  -webkit-border-radius: 0px 0px 0px 4px;
-  -moz-border-radius: 0px 0px 0px 4px;
   border-radius: 0px 0px 0px 4px;
 }
 
@@ -1097,9 +975,6 @@
 .ui.fluid.vertical.buttons > .button {
   display: block;
   width: auto;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -1351,8 +1226,6 @@
 
 .ui.buttons .button {
   float: left;
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
 }
 .ui.buttons .button:first-child  {
@@ -1381,8 +1254,6 @@
 .ui.vertical.buttons .massive.button:first-child,
 .ui.vertical.buttons .huge.button:first-child {
   margin-top: 0px;
-  -moz-border-radius: 0.25em 0.25em 0px 0px;
-  -webkit-border-radius: 0.25em 0.25em 0px 0px;
   border-radius: 0.25em 0.25em 0px 0px;
 }
 .ui.vertical.buttons .button:last-child,
@@ -1392,7 +1263,5 @@
 .ui.vertical.buttons .massive.button:last-child,
 .ui.vertical.buttons .huge.button:last-child,
 .ui.vertical.buttons .gigantic.button:last-child {
-  -moz-border-radius: 0px 0px 0.25em 0.25em;
-  -webkit-border-radius: 0px 0px 0.25em 0.25em;
   border-radius: 0px 0px 0.25em 0.25em;
 }

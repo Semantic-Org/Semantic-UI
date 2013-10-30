@@ -4,12 +4,17 @@
 *******************************/
 
 /*-------------------
+       Folders
+--------------------*/
+
+@imageFolder: '../images';
+
+/*-------------------
        Page
 --------------------*/
 
 @bodyColor  : #FCFCFC;
 @fontSize   : 15px;
-
 
 /*-------------------
        Fonts
@@ -69,10 +74,11 @@
      Text Colors
 --------------------*/
 
-@darkTextColor  : rgba(0, 0, 0, 0.85);
-@textColor      : rgba(0, 0, 0, 0.7);
-@lightTextColor : rgba(0, 0, 0, 0.4);
+@darkTextColor     : rgba(0, 0, 0, 0.85);
+@textColor         : rgba(0, 0, 0, 0.7);
+@lightTextColor    : rgba(0, 0, 0, 0.4);
 
+@activeTextColor   : rgba(0, 0, 0, 0.8);
 @disabledTextColor : rgba(0, 0, 0, 0.2);
 
 
