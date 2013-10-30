@@ -169,6 +169,7 @@ module.exports = function(grunt) {
         files: [
           'build/examples/**/*',
           'src/**/*.less',
+          'src/**/*.variables',
           'src/**/*.js'
         ],
         tasks : watchTasks
