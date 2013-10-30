@@ -476,11 +476,11 @@ $.fn.dimmer = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
               }
               else if( instance[value] !== undefined ) {
                 found = instance[value];
