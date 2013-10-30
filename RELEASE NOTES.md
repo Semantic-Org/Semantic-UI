@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 0.8.3 - Oct 30, 2013
+
+**Fixes**
+- **Modal** - Adds fixes for opening modals when other modals are opened, adds a few new API behaviors
+- **Form** - Fixes issues with form validation not escaping regex characters
+- **Form** - Errored fields now have their icons and corner labels colored appropriately
+- **Labels** - Fixes formatting of links inside labels
+
 ### Version 0.8.2 - Oct 28, 2013
 
 **Fixes**

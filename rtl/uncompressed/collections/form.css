@@ -210,8 +210,16 @@
 /* On Field(s) */
 
 .ui.form .fields.error .field label,
-.ui.form .field.error label {
+.ui.form .field.error label,
+.ui.form .fields.error .field .input,
+.ui.form .field.error .input {
   color: #D95C5C;
+}
+
+.ui.form .fields.error .field .corner.label,
+.ui.form .field.error .corner.label {
+  border-color: #D95C5C;
+  color: #FFFFFF;
 }
 
 .ui.form .fields.error .field textarea,

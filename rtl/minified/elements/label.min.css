@@ -29,6 +29,18 @@ a.ui.label {
   cursor: pointer;
 }
 
+.ui.label a {
+  cursor: pointer;
+  color: inherit;
+  opacity: .8;
+  -webkit-transition: .2s opacity ease;
+  transition: .2s opacity ease;
+}
+
+.ui.label a:hover {
+  opacity: 1;
+}
+
 .ui.label .detail {
   display: inline-block;
   margin-right: .5em;

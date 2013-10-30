@@ -46,6 +46,20 @@ a.ui.label {
   cursor: pointer;
 }
 
+/* Inside Link */
+
+.ui.label a {
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.8;
+  -webkit-transition: 0.2s opacity ease;
+  transition: 0.2s opacity ease;
+}
+
+.ui.label a:hover {
+  opacity: 1;
+}
+
 /* Detail */
 
 .ui.label .detail {

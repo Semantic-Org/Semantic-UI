@@ -246,9 +246,18 @@
 
 /* On Field(s) */
 .ui.form .fields.error .field label,
-.ui.form .field.error label {
+.ui.form .field.error label,
+.ui.form .fields.error .field .input,
+.ui.form .field.error .input {
   color: #D95C5C;
 }
+
+.ui.form .fields.error .field .corner.label,
+.ui.form .field.error .corner.label {
+  border-color: #D95C5C;
+  color: #FFFFFF;
+}
+
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="email"],
@@ -276,7 +285,6 @@
   -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
   -moz-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
   box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
-
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,

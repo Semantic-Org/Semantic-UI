@@ -46,9 +46,10 @@ $.fn.modal = function(parameters) {
 
         $module      = $(this),
         $context     = $(settings.context),
-        $otherModals = $allModules.not($module),
         $close       = $module.find(selector.close),
 
+        $allModals,
+        $otherModals,
         $focusedElement,
         $dimmable,
         $dimmer,
@@ -80,12 +81,15 @@ $.fn.modal = function(parameters) {
             .dimmer('get dimmer')
           ;
 
+          $otherModals = $module.siblings(selector.modal);
+          $allModals   = $otherModals.add($module);
+
           module.verbose('Attaching close events', $close);
           $close
             .on('click' + eventNamespace, module.event.close)
           ;
           $window
-            .on('resize', function() {
+            .on('resize' + eventNamespace, function() {
               module.event.debounce(module.refresh, 50);
             })
           ;
@@ -165,9 +169,9 @@ $.fn.modal = function(parameters) {
             }
           },
           click: function(event) {
-            module.verbose('Determining if event occured on dimmer', event);
-            if( $dimmer.find(event.target).size() === 0 ) {
-              module.hide();
+            if( $(event.target).closest(selector.modal).size() === 0 ) {
+              module.debug('Dimmer clicked, hiding all modals');
+              module.hideAll();
               event.stopImmediatePropagation();
             }
           },
@@ -207,79 +211,145 @@ $.fn.modal = function(parameters) {
           }
         },
 
-        show: function() {
+        show: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
           module.showDimmer();
-          module.cacheSizes();
-          module.set.position();
-          module.hideAll();
-          if(settings.transition && $.fn.transition !== undefined) {
-            $module
-              .transition(settings.transition + ' in', settings.duration, module.set.active)
-            ;
+          module.showModal(callback);
+        },
+
+        showModal: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( !module.is.active() ) {
+            module.debug('Showing modal');
+            module.cacheSizes();
+            module.set.position();
+
+            if( $otherModals.filter(':visible').size() > 0 ) {
+              module.debug('Other modals visible, queueing show animation');
+              module.hideOthers(module.showModal);
+            }
+            else {
+              if(settings.transition && $.fn.transition !== undefined) {
+                $module
+                  .transition(settings.transition + ' in', settings.duration, function() {
+                    module.set.active();
+                    callback();
+                  })
+                ;
+              }
+              else {
+                $module
+                  .fadeIn(settings.duration, settings.easing, function() {
+                    module.set.active();
+                    callback();
+                  })
+                ;
+              }
+              $.proxy(settings.onShow, element)();
+            }
           }
           else {
-            $module
-              .fadeIn(settings.duration, settings.easing, module.set.active)
-            ;
+            module.debug('Modal is already visible');
           }
-          module.debug('Triggering dimmer');
-          $.proxy(settings.onShow, element)();
         },
 
         showDimmer: function() {
-          module.debug('Showing modal');
-          $dimmable.dimmer('show');
-        },
-
-        hide: function() {
-          if(settings.closable) {
-            $dimmer
-              .off('click' + eventNamespace)
-            ;
-          }
-          if( $dimmable.dimmer('is active') ) {
-            $dimmable.dimmer('hide');
-          }
-          if( module.is.active() ) {
-            module.hideModal();
-            $.proxy(settings.onHide, element)();
+          if( !$dimmable.dimmer('is active') ) {
+            module.debug('Showing dimmer');
+            $dimmable.dimmer('show');
           }
           else {
-            module.debug('Cannot hide modal, modal is not visible');
+            module.debug('Dimmer already visible');
           }
+        },
+
+        hide: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          module.hideDimmer();
+          module.hideModal(callback);
         },
 
         hideDimmer: function() {
-          module.debug('Hiding dimmer');
-          $dimmable.dimmer('hide');
-        },
-
-        hideModal: function() {
-          module.debug('Hiding modal');
-          module.remove.keyboardShortcuts();
-          if(settings.transition && $.fn.transition !== undefined) {
-            $module
-              .transition(settings.transition + ' out', settings.duration, function() {
-                module.remove.active();
-                module.restore.focus();
-              })
-            ;
+          if( $dimmable.dimmer('is active') ) {
+            module.debug('Hiding dimmer');
+            if(settings.closable) {
+              $dimmer
+                .off('click' + eventNamespace)
+              ;
+            }
+            $dimmable.dimmer('hide');
           }
           else {
-            $module
-              .fadeOut(settings.duration, settings.easing, function() {
-                module.remove.active();
-                module.restore.focus();
-              })
+            module.debug('Dimmer is not visible cannot hide');
+          }
+        },
+
+        hideModal: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( module.is.active() ) {
+            module.debug('Hiding modal');
+            module.remove.keyboardShortcuts();
+            if(settings.transition && $.fn.transition !== undefined) {
+              $module
+                .transition(settings.transition + ' out', settings.duration, function() {
+                  module.remove.active();
+                  module.restore.focus();
+                  callback();
+                })
+              ;
+            }
+            else {
+              $module
+                .fadeOut(settings.duration, settings.easing, function() {
+                  module.remove.active();
+                  module.restore.focus();
+                  callback();
+                })
+              ;
+            }
+            $.proxy(settings.onHide, element)();
+          }
+        },
+
+        hideAll: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if( $allModals.is(':visible') ) {
+            module.debug('Hiding all visible modals');
+            module.hideDimmer();
+            $allModals
+              .filter(':visible')
+                .modal('hide modal', callback)
             ;
           }
         },
 
-        hideAll: function() {
-          $otherModals
-            .filter(':visible')
-            .modal('hide')
+        hideOthers: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
           ;
+          if( $otherModals.is(':visible') ) {
+            module.debug('Hiding other modals');
+            $otherModals
+              .filter(':visible')
+                .modal('hide modal', callback)
+            ;
+          }
         },
 
         add: {
@@ -357,6 +427,7 @@ $.fn.modal = function(parameters) {
             ;
             if(settings.closable) {
               $dimmer
+                .off('click' + eventNamespace)
                 .on('click' + eventNamespace, module.event.click)
               ;
             }
@@ -511,18 +582,18 @@ $.fn.modal = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -595,7 +666,8 @@ $.fn.modal.settings = {
   selector    : {
     close    : '.close, .actions .button',
     approve  : '.actions .positive, .actions .approve',
-    deny     : '.actions .negative, .actions .cancel'
+    deny     : '.actions .negative, .actions .cancel',
+    modal    : '.ui.modal'
   },
   error : {
     dimmer    : 'UI Dimmer, a required component is not included in this page',
