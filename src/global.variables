@@ -41,7 +41,6 @@
 @blue           : #6ECFF5;
 @gold           : #FFCB08;
 @green          : #5BBD72;
-@lightGreen     : #A1CF64;
 @orange         : #E96633;
 @pink           : #D9499A;
 @purple         : #564F8A;
@@ -51,8 +50,8 @@
 @yellow         : #F6F3D5;
 
 /*---  Emotive  ---*/
-@positiveColor : #5BBD72;
-@negativeColor : #D95C5C;
+@positiveColor : @green;
+@negativeColor : @red;
 
 @infoColor     : #E6F4F9;
 @warningColor  : #96904D;
