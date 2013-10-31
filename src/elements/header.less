@@ -10,6 +10,33 @@
  */
 
 /*******************************
+           Variables
+*******************************/
+
+@import "../global.variables";
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+// @white
+// @blue
+// @red
+// @lightGreen
+// @purple
+// @teal
+// @midGrey
+
+/*-------------------
+   Modified Globals
+--------------------*/
+
+/*-------------------
+   Header Variables
+--------------------*/
+
+
+/*******************************
             Header
 *******************************/
 
@@ -167,41 +194,41 @@ h5.ui.header {
 --------------------*/
 
 .ui.blue.header {
-  color: #6ECFF5 !important;
+  color: @blue !important;
 }
 .ui.black.header {
-  color: #5C6166 !important;
+  color: @midGrey !important;
 }
 .ui.green.header {
-  color: #A1CF64 !important;
+  color: @lightGreen !important;
 }
 .ui.red.header {
-  color: #D95C5C !important;
+  color: @red !important;
 }
 .ui.purple.header {
-  color: #564F8A !important;
+  color: @purple !important;
 }
 .ui.teal.header {
-  color: #00B5AD !important;
+  color: @teal !important;
 }
 
 .ui.blue.dividing.header {
-  border-bottom: 3px solid #6ECFF5;
+  border-bottom: 3px solid @blue;
 }
 .ui.black.dividing.header {
-  border-bottom: 3px solid #5C6166;
+  border-bottom: 3px solid @midGrey;
 }
 .ui.green.dividing.header {
-  border-bottom: 3px solid #A1CF64;
+  border-bottom: 3px solid @lightGreen;
 }
 .ui.red.dividing.header {
-  border-bottom: 3px solid #D95C5C;
+  border-bottom: 3px solid @red;
 }
 .ui.purple.dividing.header {
-  border-bottom: 3px solid #564F8A;
+  border-bottom: 3px solid @purple;
 }
 .ui.teal.dividing.header {
-  border-bottom: 3px solid #00B5AD;
+  border-bottom: 3px solid @teal;
 }
 
 /*-------------------
@@ -209,7 +236,7 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.header {
-  color: #FFFFFF;
+  color: @white;
 }
 .ui.inverted.header .sub.header {
   color: rgba(255, 255, 255, 0.85);
@@ -221,28 +248,28 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.black.header {
-  background-color: #5C6166 !important;
-  color: #FFFFFF !important;
+  background-color: @midGrey !important;
+  color: @white !important;
 }
 .ui.inverted.blue.header {
-  background-color: #6ECFF5 !important;
-  color: #FFFFFF !important;
+  background-color: @blue !important;
+  color: @white !important;
 }
 .ui.inverted.green.header {
-  background-color: #A1CF64 !important;
-  color: #FFFFFF !important;
+  background-color: @lightGreen !important;
+  color: @white !important;
 }
 .ui.inverted.red.header {
-  background-color: #D95C5C !important;
-  color: #FFFFFF !important;
+  background-color: @red !important;
+  color: @white !important;
 }
 .ui.inverted.purple.header {
-  background-color: #564F8A !important;
-  color: #FFFFFF !important;
+  background-color: @purple !important;
+  color: @white !important;
 }
 .ui.inverted.teal.header {
-  background-color: #00B5AD !important;
-  color: #FFFFFF !important;
+  background-color: @teal !important;
+  color: @white !important;
 }
 
 .ui.inverted.block.header {
@@ -320,23 +347,14 @@ h5.ui.header {
 .ui.attached.header {
   background-color: #E0E0E0;
   padding: 0.5em 1rem;
-
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.top.attached.header {
   margin-bottom: 0em;
-
-  -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
-  -moz-border-radius: 0.3125em 0.3125em 0em 0em;
   border-radius: 0.3125em 0.3125em 0em 0em;
 }
 .ui.bottom.attached.header {
   margin-top: 0em;
-
-  -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
-  -moz-border-radius: 0em 0em 0.3125em 0.3125em;
   border-radius: 0em 0em 0.3125em 0.3125em;
 }
 
