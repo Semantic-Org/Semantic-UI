@@ -78,8 +78,20 @@
 @textColor         : rgba(0, 0, 0, 0.7);
 @lightTextColor    : rgba(0, 0, 0, 0.4);
 
-@activeTextColor   : rgba(0, 0, 0, 0.8);
+@selectedTextColor : rgba(0, 0, 0, 0.8);
 @disabledTextColor : rgba(0, 0, 0, 0.2);
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+@facebookColor   : #3B579D;
+@twitterColor    : #4092CC;
+@googlePlusColor : #D34836;
+@linkedInColor   : #1F88BE;
+@youtubeColor    : #CC181E;
+@instagramColor  : #49769C;
+@pinterestColor  : #00ACED;
 
 
 /*-------------------
@@ -103,15 +115,6 @@
 @huge        : 1.375em;
 @massive     : 1.5em;
 
-@rootMini    : 0.7rem;
-@rootTiny    : 0.8rem;
-@rootSmall   : 0.875rem;
-@rootMedium  : 1rem;
-@rootLarge   : 1.125rem;
-@rootBig     : 1.25rem;
-@rootHuge    : 1.375rem;
-@rootMassive : 1.5em;
-
 
 /*-------------------
      Transitions
@@ -121,51 +124,63 @@
 @transitionEasing   : ease;
 
 
-
 /*******************************
            States
 *******************************/
 
+/*-------------------
+      Disabled
+--------------------*/
+
+@disabledOpacity: 0.3;
 
 /*-------------------
         Hover
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorHover   : lighten( saturate(@primaryColor, 10), 10);
-@secondaryColorHover : lighten( saturate(@secondaryColor, 10), 10);
-@tertiaryColorHover  : lighten( saturate(@tertiaryColor, 10), 10);
+@primaryColorHover    : darken( saturate(@primaryColor, 10), 10);
+@secondaryColorHover  : darken( saturate(@secondaryColor, 10), 10);
+@tertiaryColorHover   : darken( saturate(@tertiaryColor, 10), 10);
 
-@blueHover           : lighten( saturate(@blue, 10), 10);
-@goldHover           : lighten( saturate(@gold, 10), 10);
-@greenHover          : lighten( saturate(@green, 10), 10);
-@orangeHover         : lighten( saturate(@orange, 10), 10);
-@pinkHover           : lighten( saturate(@pink, 10), 10);
-@purpleHover         : lighten( saturate(@purple, 10), 10);
-@redHover            : lighten( saturate(@red, 10), 10);
-@tealHover           : lighten( saturate(@teal, 10), 10);
-@whiteHover          : lighten( saturate(@white, 10), 10);
-@yellowHover         : lighten( saturate(@yellow, 10), 10);
+@blueHover            : darken( saturate(@blue, 10), 10);
+@goldHover            : darken( saturate(@gold, 10), 10);
+@greenHover           : darken( saturate(@green, 10), 10);
+@orangeHover          : darken( saturate(@orange, 10), 10);
+@pinkHover            : darken( saturate(@pink, 10), 10);
+@purpleHover          : darken( saturate(@purple, 10), 10);
+@redHover             : darken( saturate(@red, 10), 10);
+@tealHover            : darken( saturate(@teal, 10), 10);
+@whiteHover           : darken( saturate(@white, 10), 10);
+@yellowHover          : darken( saturate(@yellow, 10), 10);
 
 /*---  Emotive  ---*/
-@positiveColorHover  : lighten( saturate(@positiveColor, 10), 10);
-@negativeColorHover  : lighten( saturate(@negativeColor, 10), 10);
+@positiveColorHover   : darken( saturate(@positiveColor, 10), 10);
+@negativeColorHover   : darken( saturate(@negativeColor, 10), 10);
 
-@infoColorHover      : lighten( saturate(@infoColor, 10), 10);
-@warningColorHover   : lighten( saturate(@warningColor, 10), 10);
-@errorColorHover     : lighten( saturate(@errorColor, 10), 10);
+@infoColorHover       : darken( saturate(@infoColor, 10), 10);
+@warningColorHover    : darken( saturate(@warningColor, 10), 10);
+@errorColorHover      : darken( saturate(@errorColor, 10), 10);
 
 /*---  Neutrals  ---*/
-@darkGreyHover       : lighten( saturate(@darkGrey, 10), 10);
-@midGreyHover        : lighten( saturate(@midGrey, 10), 10);
-@greyHover           : lighten( saturate(@grey, 10), 10);
-@lightGreyHover      : lighten( saturate(@lightGrey, 10), 10);
+@darkGreyHover        : darken( saturate(@darkGrey, 10), 10);
+@midGreyHover         : darken( saturate(@midGrey, 10), 10);
+@greyHover            : darken( saturate(@grey, 10), 10);
+@lightGreyHover       : darken( saturate(@lightGrey, 10), 10);
 
-@neutralHover        : lighten( saturate(@neutral, 10), 10);
+@neutralHover         : darken( saturate(@neutral, 10), 10);
 
-@whiteHover          : lighten( saturate(@white, 10), 10);
-@offWhiteHover       : lighten( saturate(@offWhite, 10), 10);
-@darkWhiteHover      : lighten( saturate(@darkWhite, 10), 10);
+@whiteHover           : darken( saturate(@white, 10), 10);
+@offWhiteHover        : darken( saturate(@offWhite, 10), 10);
+@darkWhiteHover       : darken( saturate(@darkWhite, 10), 10);
+
+@facebookHoverColor   : darken( saturate(@facebookColor, 10), 10);
+@twitterHoverColor    : darken( saturate(@twitterColor, 10), 10);
+@googlePlusHoverColor : darken( saturate(@googlePlusColor, 10), 10);
+@linkedInHoverColor   : darken( saturate(@linkedInColor, 10), 10);
+@youtubeHoverColor    : darken( saturate(@youtubeColor, 10), 10);
+@instagramHoverColor  : darken( saturate(@instagramColor, 10), 10);
+@pinterestHoverColor  : darken( saturate(@pinterestColor, 10), 10);
 
 
 /*-------------------
@@ -174,40 +189,48 @@
 
 
 /*---  Colors  ---*/
-@primaryColorDown   : darken(@primaryColor, 10);
-@secondaryColorDown : darken(@secondaryColor, 10);
-@tertiaryColorDown  : darken(@tertiaryColor, 10);
+@primaryColorDown    : darken(@primaryColor, 10);
+@secondaryColorDown  : darken(@secondaryColor, 10);
+@tertiaryColorDown   : darken(@tertiaryColor, 10);
 
-@blueDown           : darken(@blue, 10);
-@goldDown           : darken(@gold, 10);
-@greenDown          : darken(@green, 10);
-@orangeDown         : darken(@orange, 10);
-@pinkDown           : darken(@pink, 10);
-@purpleDown         : darken(@purple, 10);
-@redDown            : darken(@red, 10);
-@tealDown           : darken(@teal, 10);
-@whiteDown          : darken(@white, 10);
-@yellowDown         : darken(@yellow, 10);
+@blueDown            : darken(@blue, 10);
+@goldDown            : darken(@gold, 10);
+@greenDown           : darken(@green, 10);
+@orangeDown          : darken(@orange, 10);
+@pinkDown            : darken(@pink, 10);
+@purpleDown          : darken(@purple, 10);
+@redDown             : darken(@red, 10);
+@tealDown            : darken(@teal, 10);
+@whiteDown           : darken(@white, 10);
+@yellowDown          : darken(@yellow, 10);
 
 /*---  Emotive  ---*/
-@positiveColorDown  : darken(@positiveColor, 10);
-@negativeColorDown  : darken(@negativeColor, 10);
+@positiveColorDown   : darken(@positiveColor, 10);
+@negativeColorDown   : darken(@negativeColor, 10);
 
-@infoColorDown      : darken(@infoColor, 10);
-@warningColorDown   : darken(@warningColor, 10);
-@errorColorDown     : darken(@errorColor, 10);
+@infoColorDown       : darken(@infoColor, 10);
+@warningColorDown    : darken(@warningColor, 10);
+@errorColorDown      : darken(@errorColor, 10);
 
 /*---  Neutrals  ---*/
-@darkGreyDown       : darken(@darkGrey, 10);
-@midGreyDown        : darken(@midGrey, 10);
-@greyDown           : darken(@grey, 10);
-@lightGreyDown      : darken(@lightGrey, 10);
+@darkGreyDown        : darken(@darkGrey, 10);
+@midGreyDown         : darken(@midGrey, 10);
+@greyDown            : darken(@grey, 10);
+@lightGreyDown       : darken(@lightGrey, 10);
 
-@neutralDown        : darken(@neutral, 10);
+@neutralDown         : darken(@neutral, 10);
 
-@whiteDown          : darken(@white, 10);
-@offWhiteDown       : darken(@offWhite, 10);
-@darkWhiteDown      : darken(@darkWhite, 10);
+@whiteDown           : darken(@white, 10);
+@offWhiteDown        : darken(@offWhite, 10);
+@darkWhiteDown       : darken(@darkWhite, 10);
+
+@facebookDownColor   : darken(@facebookColor, 10);
+@twitterDownColor    : darken(@twitterColor, 10);
+@googlePlusDownColor : darken(@googlePlusColor, 10);
+@linkedInDownColor   : darken(@linkedInColor, 10);
+@youtubeDownColor    : darken(@youtubeColor, 10);
+@instagramDownColor  : darken(@instagramColor, 10);
+@pinterestDownColor  : darken(@pinterestColor, 10);
 
 
 /*-------------------
@@ -215,37 +238,45 @@
 --------------------*/
 
 /*---  Standard  ---*/
-@primaryColorActive   : lighten(@primaryColor, 10);
-@secondaryColorActive : lighten(@secondaryColor, 10);
-@tertiaryColorActive  : lighten(@tertiaryColor, 10);
+@primaryColorActive    : lighten(@primaryColor, 10);
+@secondaryColorActive  : lighten(@secondaryColor, 10);
+@tertiaryColorActive   : lighten(@tertiaryColor, 10);
 
-@blueActive           : lighten(@blue, 10);
-@goldActive           : lighten(@gold, 10);
-@greenActive          : lighten(@green, 10);
-@orangeActive         : lighten(@orange, 10);
-@pinkActive           : lighten(@pink, 10);
-@purpleActive         : lighten(@purple, 10);
-@redActive            : lighten(@red, 10);
-@tealActive           : lighten(@teal, 10);
-@whiteActive          : lighten(@white, 10);
-@yellowActive         : lighten(@yellow, 10);
+@blueActive            : lighten(@blue, 10);
+@goldActive            : lighten(@gold, 10);
+@greenActive           : lighten(@green, 10);
+@orangeActive          : lighten(@orange, 10);
+@pinkActive            : lighten(@pink, 10);
+@purpleActive          : lighten(@purple, 10);
+@redActive             : lighten(@red, 10);
+@tealActive            : lighten(@teal, 10);
+@whiteActive           : lighten(@white, 10);
+@yellowActive          : lighten(@yellow, 10);
 
 /*---  Emotive  ---*/
-@positiveColorActive  : lighten(@positiveColor, 10);
-@negativeColorActive  : lighten(@negativeColor, 10);
+@positiveColorActive   : lighten(@positiveColor, 10);
+@negativeColorActive   : lighten(@negativeColor, 10);
 
-@infoColorActive      : lighten(@infoColor, 10);
-@warningColorActive   : lighten(@warningColor, 10);
-@errorColorActive     : lighten(@errorColor, 10);
+@infoColorActive       : lighten(@infoColor, 10);
+@warningColorActive    : lighten(@warningColor, 10);
+@errorColorActive      : lighten(@errorColor, 10);
 
 /*---  Neutrals  ---*/
-@darkGreyActive       : lighten(@darkGrey, 10);
-@midGreyActive        : lighten(@midGrey, 10);
-@greyActive           : lighten(@grey, 10);
-@lightGreyActive      : lighten(@lightGrey, 10);
+@darkGreyActive        : lighten(@darkGrey, 10);
+@midGreyActive         : lighten(@midGrey, 10);
+@greyActive            : lighten(@grey, 10);
+@lightGreyActive       : lighten(@lightGrey, 10);
 
-@neutralActive        : lighten(@neutral, 10);
+@neutralActive         : lighten(@neutral, 10);
 
-@whiteActive          : lighten(@white, 10);
-@offWhiteActive       : lighten(@offWhite, 10);
-@darkWhiteActive      : lighten(@darkWhite, 10);
+@whiteActive           : lighten(@white, 10);
+@offWhiteActive        : lighten(@offWhite, 10);
+@darkWhiteActive       : lighten(@darkWhite, 10);
+
+@facebookActiveColor   : lighten(@facebookColor, 10);
+@twitterActiveColor    : lighten(@twitterColor, 10);
+@googlePlusActiveColor : lighten(@googlePlusColor, 10);
+@linkedInActiveColor   : lighten(@linkedInColor, 10);
+@youtubeActiveColor    : lighten(@youtubeColor, 10);
+@instagramActiveColor  : lighten(@instagramColor, 10);
+@pinterestActiveColor  : lighten(@pinterestColor, 10);
