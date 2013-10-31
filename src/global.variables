@@ -95,14 +95,23 @@
         Sizes
 --------------------*/
 
-@mini    : 0.7;
-@tiny    : 0.8;
-@small   : 0.875;
-@medium  : 1;
-@large   : 1.125;
-@big     : 1.25;
-@huge    : 1.375;
-@massive : 1.5;
+@mini        : 0.7em;
+@tiny        : 0.8em;
+@small       : 0.875em;
+@medium      : 1em;
+@large       : 1.125em;
+@big         : 1.25em;
+@huge        : 1.375em;
+@massive     : 1.5em;
+
+@rootMini    : 0.7rem;
+@rootTiny    : 0.8rem;
+@rootSmall   : 0.875rem;
+@rootMedium  : 1rem;
+@rootLarge   : 1.125rem;
+@rootBig     : 1.25rem;
+@rootHuge    : 1.375rem;
+@rootMassive : 1.5em;
 
 
 /*-------------------
