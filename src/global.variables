@@ -41,10 +41,11 @@
 @blue           : #6ECFF5;
 @gold           : #FFCB08;
 @green          : #5BBD72;
+@lightGreen     : #A1CF64;
 @orange         : #E96633;
 @pink           : #D9499A;
 @purple         : #564F8A;
-@red            : #F00000;
+@red            : #D95C5C;
 @teal           : #00B5AD;
 @white          : #FFFFFF;
 @yellow         : #F6F3D5;
