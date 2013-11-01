@@ -25,11 +25,17 @@
 // @green
 // @purple
 // @teal
-// @midGrey
+// @black
 
 /*-------------------
    Modified Globals
 --------------------*/
+
+@tiny: 1em;
+@small: 1.1em;
+@medium: 1.33em;
+@large: 1.75em;
+@huge: 2em;
 
 /*-------------------
    Header Variables
@@ -180,7 +186,7 @@ h5.ui.header {
 *******************************/
 
 .ui.disabled.header {
-  opacity: 0.5;
+  opacity: @disabledOpacity;
 }
 
 
@@ -197,7 +203,7 @@ h5.ui.header {
   color: @blue !important;
 }
 .ui.black.header {
-  color: @midGrey !important;
+  color: @black !important;
 }
 .ui.green.header {
   color: @green !important;
@@ -216,7 +222,7 @@ h5.ui.header {
   border-bottom: 3px solid @blue;
 }
 .ui.black.dividing.header {
-  border-bottom: 3px solid @midGrey;
+  border-bottom: 3px solid @black;
 }
 .ui.green.dividing.header {
   border-bottom: 3px solid @green;
@@ -248,7 +254,7 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.black.header {
-  background-color: @midGrey !important;
+  background-color: @black !important;
   color: @white !important;
 }
 .ui.inverted.blue.header {
