@@ -35,7 +35,9 @@
 @textColor: rgba(0, 0, 0, 0.6);
 
 @borderRadius: 0.25em;
-@shadowDistance: 0em;
+
+@shadowDistance: 0.133em;
+@shadowOffset: (@shadowDistance / 2 + 0.05em);
 
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.5em;
@@ -106,7 +108,7 @@
   color: @textColor;
 
   margin: 0em;
-  padding: @verticalPadding @horizontalPadding ( @verticalPadding + @shadowDistance );
+  padding: @verticalPadding @horizontalPadding (@verticalPadding + @shadowOffset);
 
   font-size: 1rem;
   text-transform: @textTransform;
@@ -504,7 +506,6 @@
   ;
 }
 
-
 /*******************************
            Variations
 *******************************/
@@ -531,16 +532,11 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: @compactVerticalPadding @compactHorizontalPadding ( @compactVerticalPadding + @shadowDistance );
+  padding: @compactVerticalPadding @compactHorizontalPadding @shadowOffset;
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.buttons .icon.button {
-  padding: @compactVerticalPadding @compactVerticalPadding ( @compactVerticalPadding + @shadowDistance );
-}
-.ui.compact.buttons .button:active,
-.ui.compact.buttons .button.active {
-  padding-top: (@compactVerticalPadding + (@shadowDistance / 2)) !important;
-  padding-bottom: (@compactVerticalPadding + (@shadowDistance / 2)) !important;
+  padding: @compactVerticalPadding @compactVerticalPadding @shadowOffset;
 }
 
 
@@ -635,13 +631,12 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: @verticalPadding @verticalPadding ( @verticalPadding + @shadowDistance );
+  padding: @verticalPadding @verticalPadding ( @verticalPadding + @shadowOffset );
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   opacity: @iconButtonOpacity;
   margin: 0em;
-  vertical-align: top;
 }
 
 
@@ -657,7 +652,11 @@
   color: @textColor !important;
   font-weight: normal;
   text-transform: none;
+  padding: @verticalPadding @horizontalPadding !important;
   box-shadow: 0px 0px 0px 1px @borderColor inset;
+}
+.ui.basic.labeled.icon.button > .icon {
+  padding-top: (@verticalPadding) !important;
 }
 .ui.basic.buttons {
   box-shadow: 0px 0px 0px 1px @borderColor inset;
@@ -760,14 +759,6 @@
   box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 }
 
-/* Hover */
-
-.ui.labeled.icon.buttons > .button:active > .icon,
-.ui.buttons > .labeled.icon.button:active > .icon,
-.ui.labeled.icon.buttons > .button.active > .icon,
-.ui.buttons > .labeled.icon.button.active > .icon {
-  padding-top: (@verticalPadding + (@shadowDistance / 2) + 0.05em);
-}
 
 
 /*--------------
@@ -1361,12 +1352,6 @@
   border-bottom-right-radius: @borderRadius;
 }
 
-/* Hover */
-.ui.buttons .button:active,
-.ui.buttons .button.active {
-  padding-top: (@verticalPadding + (@shadowDistance / 2)) !important;
-  padding-bottom: (@verticalPadding + (@shadowDistance / 2)) !important;
-}
 
 /* Vertical  Style */
 .ui.vertical.buttons {
