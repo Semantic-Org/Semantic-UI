@@ -14,7 +14,7 @@
     "url": "git://github.com/jlukic/Semantic-UI.git"
   },
   "dependencies": {
-    "docpad": "~6.54.2",
+    "docpad": "~6.54.4",
     "docpad-plugin-eco": "~2.0.2",
     "docpad-plugin-ghpages": "~2.4.0",
     "docpad-plugin-partials": "~2.8.0"
