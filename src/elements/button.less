@@ -34,18 +34,18 @@
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
 
+@borderRadius: 0.25em;
+@shadowDistance: 0.133em;
+
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.5em;
 
 @compactVerticalPadding: (@verticalPadding * 0.75);
 @compactHorizontalPadding: (@horizontalPadding * 0.75);
 
-@borderRadius: 0.25em;
-
 @backgroundColor: #FAFAFA;
 @backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
 
-@shadowDistance: 0.133em;
 @boxShadow:
   0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset,
   0px -@shadowDistance 0px 0px rgba(0, 0, 0, 0.1) inset
@@ -106,7 +106,7 @@
   color: @textColor;
 
   margin: 0em;
-  padding: @verticalPadding @horizontalPadding ( @verticalPadding + (@shadowDistance / 2) );
+  padding: @verticalPadding @horizontalPadding ( @verticalPadding + @shadowDistance );
 
   font-size: 1rem;
   text-transform: @textTransform;
@@ -161,6 +161,8 @@
 .ui.active.button:active {
   background-color: @downBackgroundColor;
   background-image: @downBackgroundImage;
+  padding-top: (@verticalPadding + (@shadowDistance / 2));
+  padding-bottom: (@verticalPadding + (@shadowDistance / 2));
   color: @selectedTextColor;
   box-shadow: @downBoxShadow;
 }
@@ -173,6 +175,8 @@
 .ui.active.button {
   background-color: @activeBackgroundColor;
   background-image: @activeBackgroundImage;
+  padding-top: (@verticalPadding + (@shadowDistance / 2));
+  padding-bottom: (@verticalPadding + (@shadowDistance / 2));
   box-shadow: @activeBoxShadow;
   color: @textColor;
 }
@@ -533,11 +537,11 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: @compactVerticalPadding @compactHorizontalPadding ( @compactVerticalPadding + (@shadowDistance / 2) );
+  padding: @compactVerticalPadding @compactHorizontalPadding ( @compactVerticalPadding + @shadowDistance );
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.buttons .icon.button {
-  padding: @compactVerticalPadding @compactVerticalPadding ( @compactVerticalPadding + (@shadowDistance / 2) );
+  padding: @compactVerticalPadding @compactVerticalPadding ( @compactVerticalPadding + @shadowDistance );
 }
 
 
@@ -631,7 +635,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: @verticalPadding @verticalPadding ( @verticalPadding + (@shadowDistance / 2) );
+  padding: @verticalPadding @verticalPadding ( @verticalPadding + @shadowDistance );
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
