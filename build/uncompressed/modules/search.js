@@ -537,7 +537,7 @@ $.fn.search = function(source, parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });

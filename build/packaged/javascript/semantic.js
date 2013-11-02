@@ -334,7 +334,7 @@ $.fn.accordion = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -903,7 +903,7 @@ $.extend( $.easing, {
               return false;
             }
             else {
-              module.error(error.method);
+              module.error(error.method, query);
               return false;
             }
           });
@@ -1844,7 +1844,7 @@ $.fn.form = function(fields, parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -2598,7 +2598,7 @@ $.fn.state = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -3316,7 +3316,7 @@ $.fn.chatroom = function(parameters) {
               found = instance[value];
             }
             else {
-              module.error(error.method);
+              module.error(error.method, query);
             }
           });
         }
@@ -3792,7 +3792,7 @@ $.fn.checkbox = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -4364,7 +4364,7 @@ $.fn.dimmer = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -5183,7 +5183,7 @@ $.fn.dropdown = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -5881,7 +5881,7 @@ $.fn.modal = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -6401,7 +6401,7 @@ $.fn.nag = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -7650,7 +7650,7 @@ $.fn.rating = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -8270,7 +8270,7 @@ $.fn.search = function(source, parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -9191,7 +9191,7 @@ $.fn.shape = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -9714,7 +9714,7 @@ $.fn.sidebar = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -10391,7 +10391,7 @@ $.fn.sidebar.settings = {
               return false;
             }
             else {
-              module.error(error.method);
+              module.error(error.method, query);
               return false;
             }
           });
@@ -11084,7 +11084,6 @@ $.fn.transition = function() {
                 return false;
               }
               else {
-                module.error(error.method);
                 return false;
               }
             });
@@ -11104,7 +11103,7 @@ $.fn.transition = function() {
           else if(response !== undefined) {
             returnedValue = response;
           }
-          return found;
+          return found || false;
         }
       };
       module.initialize();
@@ -11534,7 +11533,7 @@ $.fn.video = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });

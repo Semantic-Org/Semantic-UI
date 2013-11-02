@@ -334,7 +334,7 @@ $.fn.accordion = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });
