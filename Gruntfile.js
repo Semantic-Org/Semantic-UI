@@ -325,12 +325,11 @@ module.exports = function(grunt) {
             ],
             dest : 'docs/build/uncompressed'
           },
-          // copy everything but less for minified release
+          // copy assets only for minified version
           {
             expand : true,
             cwd    : 'src/',
             src    : [
-              '**/*.js',
               'images/*',
               'fonts/*'
             ],
@@ -373,12 +372,11 @@ module.exports = function(grunt) {
             ],
             dest : 'build/uncompressed'
           },
-          // copy everything but less for minified release
+          // copy assets only for minified version
           {
             expand : true,
             cwd    : 'src/',
             src    : [
-              '**/*.js',
               'images/*',
               'fonts/*'
             ],
