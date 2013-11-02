@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 0.8.6 - Nov 2, 2013
+
+**Fixes**
+- **Modal** - Fixes issue with scrollable variation on mobile, updates mobile styles
+
+**Docs**
+- Fixes bug in jquery waypoint 2.0.3 causing menus to be lame
+
 ### Version 0.8.5 - Nov 2, 2013
 
 **Fixes**

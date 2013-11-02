@@ -79,7 +79,7 @@
 @media only screen and (max-width:768px) {
   .ui.modal .content .left {
     display: block;
-    padding: 0 0 0 1em;
+    padding: 0 0 1em;
   }
 
   .ui.modal .content .right {
@@ -90,7 +90,17 @@
   }
 
   .ui.modal .content .image {
-    width: 100%!important;
+    width: auto!important;
+    max-width: 100%;
+  }
+
+  .ui.modal .actions {
+    padding-bottom: 0;
+  }
+
+  .ui.modal .actions .buttons,
+  .ui.modal .actions .button {
+    margin-bottom: 1em;
   }
 }
 
