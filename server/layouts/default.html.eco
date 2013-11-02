@@ -40,6 +40,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/label.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/loader.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/reveal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/segment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/step.css">
@@ -61,7 +62,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/accordion.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/popup.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/reveal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/rating.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/sidebar.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/shape.css">

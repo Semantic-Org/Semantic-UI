@@ -12533,6 +12533,7 @@ a.ui.teal.label:hover:before {
   transform-origin: center center;
 }
 
+.ui.scrolling.dimmable > .dimmer,
 .ui.scrolling.page.dimmer {
   position: absolute;
 }
@@ -13227,6 +13228,10 @@ a.ui.teal.label:hover:before {
     padding: 1em 0em 0em 0em;
     -webkit-box-shadow: none;
     box-shadow: none;
+  }
+
+  .ui.modal .content .image {
+    width: 100% !important;
   }
 }
 
