@@ -77,19 +77,25 @@
   box-sizing: border-box;
 }
 
-.ui.modal > .content > .left {
+.ui.modal > .content > .right:not(.input,
+.button,
+.label) {
   display: table-cell;
   padding-left: 1.5%;
   min-width: 25%;
 }
 
-.ui.modal > .content > .right {
+.ui.modal > .content > .left:not(.input,
+.button,
+.label) {
   display: table-cell;
   padding-right: 1.5%;
   vertical-align: top;
 }
 
-.ui.modal > .content > .left > .icon {
+.ui.modal > .content > .right:not(.input,
+.button,
+.label) > i.icon {
   font-size: 8em;
   margin: 0em;
 }
@@ -118,12 +124,16 @@
 /* Mobile Only */
 
 @media only screen and (max-width: 768px) {
-  .ui.modal .content .left {
+  .ui.modal .content > .right:not(.input,
+  .button,
+  .label) {
     display: block;
     padding: 0em 0em 1em;
   }
 
-  .ui.modal .content .right {
+  .ui.modal .content > .left:not(.input,
+  .button,
+  .label) {
     display: block;
     padding: 1em 0em 0em;
     -webkit-box-shadow: none;
@@ -139,8 +149,8 @@
     padding-bottom: 0em;
   }
 
-  .ui.modal .actions .buttons,
-  .ui.modal .actions .button {
+  .ui.modal .actions > .buttons,
+  .ui.modal .actions > .button {
     margin-bottom: 1em;
   }
 }

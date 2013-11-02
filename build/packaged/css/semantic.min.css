@@ -10758,19 +10758,25 @@ a.ui.teal.label:hover:before {
   box-sizing: border-box;
 }
 
-.ui.modal>.content>.left {
+.ui.modal>.content>.left:not(.input,
+.button,
+.label) {
   display: table-cell;
   padding-right: 1.5%;
   min-width: 25%;
 }
 
-.ui.modal>.content>.right {
+.ui.modal>.content>.right:not(.input,
+.button,
+.label) {
   display: table-cell;
   padding-left: 1.5%;
   vertical-align: top;
 }
 
-.ui.modal>.content>.left>.icon {
+.ui.modal>.content>.left:not(.input,
+.button,
+.label)>i.icon {
   font-size: 8em;
   margin: 0;
 }
@@ -10789,12 +10795,16 @@ a.ui.teal.label:hover:before {
 }
 
 @media only screen and (max-width:768px) {
-  .ui.modal .content .left {
+  .ui.modal .content>.left:not(.input,
+  .button,
+  .label) {
     display: block;
     padding: 0 0 1em;
   }
 
-  .ui.modal .content .right {
+  .ui.modal .content>.right:not(.input,
+  .button,
+  .label) {
     display: block;
     padding: 1em 0 0;
     -webkit-box-shadow: none;
@@ -10810,8 +10820,8 @@ a.ui.teal.label:hover:before {
     padding-bottom: 0;
   }
 
-  .ui.modal .actions .buttons,
-  .ui.modal .actions .button {
+  .ui.modal .actions>.buttons,
+  .ui.modal .actions>.button {
     margin-bottom: 1em;
   }
 }
