@@ -600,10 +600,6 @@ type        : 'UI Module'
               <div class="description">Dropdown menu is hidden</div>
             </div>
             <div class="item">
-              <div class="header">activate</div>
-              <div class="description">Dropdown menu is hidden, item activated and text is changed</div>
-            </div>
-            <div class="item">
               <div class="header">function(){}</div>
               <div class="description">custom function is executed</div>
             </div>

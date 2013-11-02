@@ -88,6 +88,10 @@
     -webkit-box-shadow: none;
     box-shadow: none;
   }
+
+  .ui.modal .content .image {
+    width: 100%!important;
+  }
 }
 
 @media only screen and (max-width:998px) {

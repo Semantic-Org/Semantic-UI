@@ -434,7 +434,7 @@ $.fn.dropdown = function(parameters) {
               if(settings.transition == 'none') {
                 callback();
               }
-              else if($.fn.transition !== undefined) {
+              else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu.transition({
                   animation : settings.transition + ' in',
                   duration  : settings.duration,
@@ -482,7 +482,7 @@ $.fn.dropdown = function(parameters) {
             callback = callback || function(){};
             if(module.is.visible($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
-              if($.fn.transition !== undefined) {
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu.transition({
                   animation : settings.transition + ' out',
                   duration  : settings.duration,
@@ -702,22 +702,22 @@ $.fn.dropdown = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
                 return false;
               }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
+                return false;
+              }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });

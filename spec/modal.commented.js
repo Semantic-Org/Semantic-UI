@@ -261,7 +261,7 @@ $.fn.modal = function(parameters) {
           module.set.position();
           module.hideAll();
           // #### Loose Coupling
-          if(settings.transition && $.fn.transition !== undefined) {
+          if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             // Use dimmer plugin if available
             $module
               .transition(settings.transition + ' in', settings.duration, module.set.active)
@@ -320,7 +320,7 @@ $.fn.modal = function(parameters) {
         hideModal: function() {
           module.debug('Hiding modal');
           module.remove.keyboardShortcuts();
-          if(settings.transition && $.fn.transition !== undefined) {
+          if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition(settings.transition + ' out', settings.duration, function() {
                 module.remove.active();
@@ -640,7 +640,7 @@ $.fn.modal = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });

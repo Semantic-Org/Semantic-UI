@@ -145,7 +145,6 @@
 ---------------------*/
 
 .ui.form textarea,
-.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -157,7 +156,6 @@
 }
 
 .ui.form textarea,
-.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -258,8 +256,7 @@
 .ui.form input[type="password"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="tel"]:focus,
-.ui.form textarea:focus,
-.ui.form select:focus {
+.ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
   border-bottom-right-radius: 0;
@@ -626,8 +623,7 @@
 .ui.small.form input[type="password"],
 .ui.small.form input[type="number"],
 .ui.small.form input[type="tel"],
-.ui.small.form label,
-.ui.small.form select {
+.ui.small.form label {
   font-size: 1em;
 }
 
@@ -12629,6 +12625,7 @@ a.ui.teal.label:hover:before {
   transform-origin: center center;
 }
 
+.ui.scrolling.dimmable > .dimmer,
 .ui.scrolling.page.dimmer {
   position: absolute;
 }
@@ -13323,6 +13320,10 @@ a.ui.teal.label:hover:before {
     padding: 1em 0em 0em 0em;
     -webkit-box-shadow: none;
     box-shadow: none;
+  }
+
+  .ui.modal .content .image {
+    width: 100% !important;
   }
 }
 

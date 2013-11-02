@@ -1,5 +1,21 @@
 ## RELEASE NOTES
 
+### Version 0.8.5 - Nov 2, 2013
+
+**Fixes**
+- **Modal** - Fixed issue with modals not working in 0.8.4 due to mistake in transition invoke
+- **Modules** - Invoke now gives user's query in error message for method not found
+
+### Version 0.8.4 - Nov 1, 2013
+
+**Fixes**
+- **Modules** - Fixes bug where invoking a sentence behavior that has a single word match would always invoke single word match. I.e. ``show modal`` would mistakenly call ``show`` if it existed.
+- **Modules** - Adds CSS transition support detection to all modules using css transitions to allow for graceful degradation for IE8
+
+**Docs**
+- **Download** - Fixes issue where non minified source was being included with minified copy
+- **IE** - Fixed some issue with IE display in docs
+
 ### Version 0.8.3 - Oct 30, 2013
 
 **Fixes**
