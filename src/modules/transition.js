@@ -577,7 +577,6 @@ $.fn.transition = function() {
                 return false;
               }
               else {
-                module.error(error.method);
                 return false;
               }
             });
@@ -597,7 +596,7 @@ $.fn.transition = function() {
           else if(response !== undefined) {
             returnedValue = response;
           }
-          return found;
+          return found || false;
         }
       };
       module.initialize();
