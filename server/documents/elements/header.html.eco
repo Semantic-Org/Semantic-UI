@@ -34,10 +34,8 @@ type        : 'UI Element'
       Account Settings
       <div class="sub header">Manage your account settings and set e-mail preferences.</div>
     </h2>
-    <h2 class="ui header">
-      <i class="settings icon"></i>
-      Account Settings
-    </h2>
+  </div>
+  <div class="another example">
     <h2 class="ui header">
       <i class="settings icon"></i>
       <div class="content">

@@ -257,7 +257,6 @@ semantic.ready = function() {
           leadingSpaces = line.length - line.replace(/^\s*/g, '').length;
           if(leadingSpaces !== 0) {
             indent = leadingSpaces - spacesPerIndent;
-            console.log('returning' + indent);
             return false;
           }
         });
@@ -270,7 +269,7 @@ semantic.ready = function() {
         $example    = $(this).closest('.example'),
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
-        $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
+        $header     = $example.not('.another').children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
         $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         code        = ''
       ;

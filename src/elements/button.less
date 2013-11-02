@@ -35,7 +35,7 @@
 @textColor: rgba(0, 0, 0, 0.6);
 
 @borderRadius: 0.25em;
-@shadowDistance: 0.133em;
+@shadowDistance: 0em;
 
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.5em;
@@ -161,8 +161,6 @@
 .ui.active.button:active {
   background-color: @downBackgroundColor;
   background-image: @downBackgroundImage;
-  padding-top: (@verticalPadding + (@shadowDistance / 2));
-  padding-bottom: (@verticalPadding + (@shadowDistance / 2));
   color: @selectedTextColor;
   box-shadow: @downBoxShadow;
 }
@@ -171,16 +169,12 @@
      Active
 ---------------*/
 
-.ui.buttons .active.button,
 .ui.active.button {
   background-color: @activeBackgroundColor;
   background-image: @activeBackgroundImage;
-  padding-top: (@verticalPadding + (@shadowDistance / 2));
-  padding-bottom: (@verticalPadding + (@shadowDistance / 2));
   box-shadow: @activeBoxShadow;
   color: @textColor;
 }
-
 .ui.button.active:hover {
   background-color: @activeBackgroundColor;
   background-image: @activeBackgroundImage;
@@ -266,7 +260,7 @@
   top: 50%;
   left: auto;
   right: -100%;
-  margin-top: -0.55em;
+  margin-top: -0.5em;
 }
 .ui.animated.button:hover .visible.content {
   left: auto;
@@ -543,6 +537,12 @@
 .ui.compact.buttons .icon.button {
   padding: @compactVerticalPadding @compactVerticalPadding ( @compactVerticalPadding + @shadowDistance );
 }
+.ui.compact.buttons .button:active,
+.ui.compact.buttons .button.active {
+  padding-top: (@compactVerticalPadding + (@shadowDistance / 2)) !important;
+  padding-bottom: (@compactVerticalPadding + (@shadowDistance / 2)) !important;
+}
+
 
 
 /*-------------------
@@ -760,6 +760,15 @@
   box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 }
 
+/* Hover */
+
+.ui.labeled.icon.buttons > .button:active > .icon,
+.ui.buttons > .labeled.icon.button:active > .icon,
+.ui.labeled.icon.buttons > .button.active > .icon,
+.ui.buttons > .labeled.icon.button.active > .icon {
+  padding-top: (@verticalPadding + (@shadowDistance / 2) + 0.05em);
+}
+
 
 /*--------------
      Toggle
@@ -771,12 +780,10 @@
 .ui.button.toggle.active {
   background-color: @positiveColor !important;
   color: #FFFFFF !important;
-  box-shadow: none !important;
 }
 .ui.button.toggle.active:hover {
   background-color: @positiveColorHover !important;
   color: #FFFFFF !important;
-  box-shadow: none !important;
 }
 
 /*--------------
@@ -1352,6 +1359,13 @@
 .ui.buttons .button:last-child {
   border-top-right-radius: @borderRadius;
   border-bottom-right-radius: @borderRadius;
+}
+
+/* Hover */
+.ui.buttons .button:active,
+.ui.buttons .button.active {
+  padding-top: (@verticalPadding + (@shadowDistance / 2)) !important;
+  padding-bottom: (@verticalPadding + (@shadowDistance / 2)) !important;
 }
 
 /* Vertical  Style */
