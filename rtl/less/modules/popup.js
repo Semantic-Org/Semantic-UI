@@ -256,7 +256,7 @@ $.fn.popup = function(parameters) {
             $module
               .addClass(className.visible)
             ;
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition(settings.transition + ' in', settings.duration, function() {
                   module.bind.close();
@@ -278,7 +278,7 @@ $.fn.popup = function(parameters) {
           hide: function(callback) {
             callback = callback || function(){};
             module.debug('Hiding pop-up');
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition(settings.transition + ' out', settings.duration, function() {
                   module.reset();

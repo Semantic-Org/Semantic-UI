@@ -319,18 +319,18 @@ $.fn.accordion = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -1575,7 +1575,7 @@ $.fn.form = function(fields, parameters) {
                 .html(errors[0])
               ;
               if(!promptExists) {
-                if(settings.transition && $.fn.transition !== undefined) {
+                if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                   module.verbose('Displaying error with css transition', settings.transition);
                   $prompt.transition(settings.transition + ' in', settings.duration);
                 }
@@ -1608,7 +1608,7 @@ $.fn.form = function(fields, parameters) {
             ;
             if(settings.inline && $prompt.is(':visible')) {
               module.verbose('Removing prompt for field', field);
-              if(settings.transition && $.fn.transition !== undefined) {
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 $prompt.transition(settings.transition + ' out', settings.duration, function() {
                   $prompt.remove();
                 });
@@ -1829,18 +1829,18 @@ $.fn.form = function(fields, parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -2583,18 +2583,18 @@ $.fn.state = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -3777,18 +3777,18 @@ $.fn.checkbox = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -4028,7 +4028,7 @@ $.fn.dimmer = function(parameters) {
               : function(){}
             ;
             module.set.dimmed();
-            if($.fn.transition !== undefined && settings.useCSS) {
+            if(settings.useCSS && $.fn.transition !== undefined && $module.transition('is supported')) {
               $dimmer
                 .transition({
                   animation : settings.transition + ' in',
@@ -4063,7 +4063,7 @@ $.fn.dimmer = function(parameters) {
               ? callback
               : function(){}
             ;
-            if($.fn.transition !== undefined && settings.useCSS) {
+            if(settings.useCSS && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
@@ -4900,7 +4900,7 @@ $.fn.dropdown = function(parameters) {
               if(settings.transition == 'none') {
                 callback();
               }
-              else if($.fn.transition !== undefined) {
+              else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu.transition({
                   animation : settings.transition + ' in',
                   duration  : settings.duration,
@@ -4948,7 +4948,7 @@ $.fn.dropdown = function(parameters) {
             callback = callback || function(){};
             if(module.is.visible($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
-              if($.fn.transition !== undefined) {
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu.transition({
                   animation : settings.transition + ' out',
                   duration  : settings.duration,
@@ -5168,18 +5168,18 @@ $.fn.dropdown = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -5519,7 +5519,7 @@ $.fn.modal = function(parameters) {
               module.hideOthers(module.showModal);
             }
             else {
-              if(settings.transition && $.fn.transition !== undefined) {
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 $module
                   .transition(settings.transition + ' in', settings.duration, function() {
                     module.set.active();
@@ -5585,7 +5585,7 @@ $.fn.modal = function(parameters) {
           if( module.is.active() ) {
             module.debug('Hiding modal');
             module.remove.keyboardShortcuts();
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $module
                 .transition(settings.transition + ' out', settings.duration, function() {
                   module.remove.active();
@@ -6386,18 +6386,18 @@ $.fn.nag = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -6767,7 +6767,7 @@ $.fn.popup = function(parameters) {
             $module
               .addClass(className.visible)
             ;
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition(settings.transition + ' in', settings.duration, function() {
                   module.bind.close();
@@ -6789,7 +6789,7 @@ $.fn.popup = function(parameters) {
           hide: function(callback) {
             callback = callback || function(){};
             module.debug('Hiding pop-up');
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition(settings.transition + ' out', settings.duration, function() {
                   module.reset();
@@ -7635,18 +7635,18 @@ $.fn.rating = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -8255,18 +8255,18 @@ $.fn.search = function(source, parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -9176,18 +9176,18 @@ $.fn.shape = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -9699,18 +9699,18 @@ $.fn.sidebar = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {
@@ -10608,6 +10608,10 @@ $.fn.transition = function() {
 
         animate: function(overrideSettings) {
           settings = overrideSettings || settings;
+          if(!module.is.supported()) {
+            module.error(error.support);
+            return false;
+          }
           module.debug('Preparing animation', settings.animation);
           if(module.is.animating()) {
             if(settings.queue) {
@@ -10627,7 +10631,7 @@ $.fn.transition = function() {
           if(!module.has.direction() && module.can.transition()) {
             module.set.direction();
           }
-          if(!module.can.animate()) {
+          if(!module.has.transitionAvailable) {
             module.restore.conditions();
             module.error(error.noAnimation);
             return false;
@@ -10678,6 +10682,16 @@ $.fn.transition = function() {
             animation = animation || settings.animation;
             if( $module.hasClass(className.inward) || $module.hasClass(className.outward) ) {
               return true;
+            }
+          },
+          transitionAvailable: function() {
+            if($module.css(animationName) !== 'none') {
+              module.debug('CSS definition found');
+              return true;
+            }
+            else {
+              module.debug('Unable to find css definition');
+              return false;
             }
           }
         },
@@ -10839,7 +10853,7 @@ $.fn.transition = function() {
             ;
             for(animation in animations){
               if( element.style[animation] !== undefined ){
-                module.verbose('Determining animation vendor name property', animations[animation]);
+                module.verbose('Determined animation vendor name property', animations[animation]);
                 return animations[animation];
               }
             }
@@ -10859,7 +10873,7 @@ $.fn.transition = function() {
             ;
             for(animation in animations){
               if( element.style[animation] !== undefined ){
-                module.verbose('Determining animation vendor end event', animations[animation]);
+                module.verbose('Determined animation vendor end event', animations[animation]);
                 return animations[animation];
               }
             }
@@ -10869,16 +10883,6 @@ $.fn.transition = function() {
         },
 
         can: {
-          animate: function() {
-            if($module.css(animationName) !== 'none') {
-              module.debug('CSS definition found');
-              return true;
-            }
-            else {
-              module.debug('Unable to find css definition');
-              return false;
-            }
-          },
           transition: function() {
             var
               $clone           = $('<div>').addClass( $module.attr('class') ).appendTo($('body')),
@@ -10907,6 +10911,9 @@ $.fn.transition = function() {
           },
           visible: function() {
             return $module.is(':visible');
+          },
+          supported: function() {
+            return(animationName !== false && animationEnd !== false);
           }
         },
 
@@ -11062,21 +11069,22 @@ $.fn.transition = function() {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
                 return false;
               }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
+                return false;
+              }
               else {
+                module.error(error.method);
                 return false;
               }
             });
@@ -11096,7 +11104,7 @@ $.fn.transition = function() {
           else if(response !== undefined) {
             returnedValue = response;
           }
-          return found || false;
+          return found;
         }
       };
       module.initialize();
@@ -11152,7 +11160,8 @@ $.fn.transition.settings = {
   // possible errors
   error: {
     noAnimation : 'There is no css animation matching the one you specified.',
-    method      : 'The method you called is not defined'
+    method      : 'The method you called is not defined',
+    support     : 'This browser does not support CSS animations'
   }
 
 };
@@ -11510,18 +11519,18 @@ $.fn.video = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
-              }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+              if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
                 instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
-                return false;
               }
               else if( instance[camelCaseValue] !== undefined ) {
                 found = instance[camelCaseValue];
+                return false;
+              }
+              else if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
                 return false;
               }
               else {

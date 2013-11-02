@@ -155,7 +155,7 @@ $.fn.dimmer = function(parameters) {
               : function(){}
             ;
             module.set.dimmed();
-            if($.fn.transition !== undefined && settings.useCSS) {
+            if(settings.useCSS && $.fn.transition !== undefined && $module.transition('is supported')) {
               $dimmer
                 .transition({
                   animation : settings.transition + ' in',
@@ -190,7 +190,7 @@ $.fn.dimmer = function(parameters) {
               ? callback
               : function(){}
             ;
-            if($.fn.transition !== undefined && settings.useCSS) {
+            if(settings.useCSS && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
