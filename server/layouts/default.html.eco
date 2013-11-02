@@ -27,6 +27,9 @@
   <meta name="description" content="<%= @getPreparedDescription() %>" />
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  <% unless 'development' in @getEnvironments(): %>
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/basic.icon.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/icon.css">
 
@@ -66,12 +69,11 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/checkbox.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dimmer.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/transition.css">
+  <% else: %>
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  <% end %>
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
-<!--
-  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
- -->
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
 
   <script src="/javascript/library/jquery.js"></script>
   <script src="/javascript/library/history.js"></script>
@@ -80,6 +82,7 @@
   <script src="/javascript/library/tablesort.js"></script>
   <script src="/javascript/library/waypoints.js"></script>
 
+  <% if 'development' in @getEnvironments(): %>
   <script src="/build/uncompressed/modules/behavior/api.js"></script>
   <script src="/build/uncompressed/modules/behavior/state.js"></script>
   <script src="/build/uncompressed/modules/accordion.js"></script>
@@ -93,6 +96,9 @@
   <script src="/build/uncompressed/modules/sidebar.js"></script>
   <script src="/build/uncompressed/modules/tab.js"></script>
   <script src="/build/uncompressed/modules/transition.js"></script>
+  <% else: %>
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  <% end %>
 
   <script src="/javascript/semantic.js"></script>
   <script>
