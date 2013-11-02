@@ -29,7 +29,7 @@
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
 
-  <% unless 'development' in @getEnvironments(): %>
+  <% if 'development' in @getEnvironments(): %>
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/basic.icon.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/icon.css">
 
