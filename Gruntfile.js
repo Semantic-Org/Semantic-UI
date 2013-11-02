@@ -204,6 +204,8 @@ module.exports = function(grunt) {
         browsers: [
           'last 2 version',
           '> 1%',
+          'opera 12.1',
+          'safari 6',
           'ie 9',
           'bb 10',
           'android 4'
