@@ -19,13 +19,11 @@
     Globals Used
 --------------------*/
 
-// @primaryColor
-// @secondaryColor
+// (Color Variables)
 // @transitionDuration
 // @transitionEasing
-// @offWhite
-// @white
 // @iconWidth
+// @borderColor
 
 /*-------------------
    Button Variables
@@ -73,8 +71,12 @@
 @labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
 @labeledIconBoxShadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 
+@floatedMargin: 0.25em;
+
 @animationDuration: 0.3s;
 @animationEasing: ease;
+@fadeScaleHigh: 1.5;
+@fadeScaleLow: 0.75;
 
 @mini: 0.7rem;
 @tiny: 0.8rem;
@@ -309,13 +311,13 @@
   opacity: 0;
   left: 0%;
   right: auto;
-  transform: scale(1.2);
+  transform: scale(@fadeScaleHigh);
 }
 .ui.fade.animated.button:hover .visible.content {
   left: auto;
   right: auto;
   opacity: 0;
-  transform: scale(0.7);
+  transform: scale(@fadeScaleLow);
 }
 .ui.fade.animated.button:hover .hidden.content {
   left: 0%;
@@ -517,12 +519,12 @@
 .ui.left.floated.buttons,
 .ui.left.floated.button {
   float: left;
-  margin-right: 0.25em;
+  margin-right: @floatedMargin;
 }
 .ui.right.floated.buttons,
 .ui.right.floated.button {
   float: right;
-  margin-left: 0.25em;
+  margin-left: @floatedMargin;
 }
 
 /*-------------------
@@ -651,11 +653,10 @@
   color: @textColor !important;
   font-weight: normal;
   text-transform: none;
-
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px @borderColor inset;
 }
 .ui.basic.buttons {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px @borderColor inset;
   border-radius: @borderRadius;
 }
 
@@ -663,43 +664,33 @@
 .ui.basic.button:hover {
   background-image: none;
   color: @selectedTextColor !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+  box-shadow: @selectedBorderColor inset;
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background-color: rgba(0, 0, 0, 0.02) !important;
   color: @selectedTextColor !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px @borderColor inset;
 }
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: @transparentBlack !important;
   color: @selectedTextColor;
-  box-shadow: 0px 0px 0px 1px #BDBDBD inset;
+  box-shadow: @selectedBorderColor inset;
 }
 .ui.basic.buttons .button.active:hover,
 .ui.basic.button.active:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: @transparentBlack;
 }
 
 /* Basic Group */
 .ui.basic.buttons .button {
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid @borderColor;
   box-shadow: none;
 }
-.ui.basic.buttons .button:hover,
-.ui.basic.buttons .button:active {
-  box-shadow: none;
-}
-.ui.basic.buttons .button.active,
-.ui.basic.buttons .button.active:hover {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
-}
-
-
 
 /*--------------
-   Labeled Icon
+  Labeled Icon
 ---------------*/
 
 .ui.labeled.icon.buttons .button,
@@ -1120,7 +1111,7 @@
 .ui.green.buttons .button.active:active,
 .ui.green.button.active,
 .ui.green.button .button.active:active {
-  background: @blackActive;
+  background: @greenActive;
   color: #FFFFFF;
 }
 
@@ -1168,7 +1159,7 @@
 .ui.pink.buttons .button.active:active,
 .ui.pink.button.active,
 .ui.pink.button .button.active:active {
-  background: @blackActive;
+  background: @pinkActive;
   color: #FFFFFF;
 }
 
@@ -1192,7 +1183,7 @@
 .ui.purple.buttons .button.active:active,
 .ui.purple.button.active,
 .ui.purple.button .button.active:active {
-  background: @blackActive;
+  background: @purpleActive;
   color: #FFFFFF;
 }
 
@@ -1216,7 +1207,7 @@
 .ui.red.buttons .button.active:active,
 .ui.red.button.active,
 .ui.red.button .button.active:active {
-  background: @blackActive;
+  background: @redActive;
   color: #FFFFFF;
 }
 
@@ -1240,7 +1231,7 @@
 .ui.teal.buttons .button.active:active,
 .ui.teal.button.active,
 .ui.teal.button .button.active:active {
-  background: @blackActive;
+  background: @tealActive;
   color: #FFFFFF;
 }
 
@@ -1264,7 +1255,7 @@
 .ui.yellow.buttons .button.active:active,
 .ui.yellow.button.active,
 .ui.yellow.button .button.active:active {
-  background: @blackActive;
+  background: @yellowActive;
   color: #FFFFFF;
 }
 
@@ -1281,12 +1272,19 @@
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background: #58CB73 !important;
+  background: @positiveColorHover !important;
   color: #FFFFFF;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background: #4CB164 !important;
+  background: @positiveColorDown !important;
+  color: #FFFFFF;
+}
+.ui.positive.buttons .button.active,
+.ui.positive.buttons .button.active:active,
+.ui.positive.button.active,
+.ui.positive.button .button.active:active {
+  background: @positiveColorActive;
   color: #FFFFFF;
 }
 
@@ -1296,22 +1294,28 @@
 ----------------*/
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background: #D95C5C !important;
+  background: @negativeColor !important;
   color: #FFFFFF;
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
-  background: #E75859 !important;
+  background: @negativeColorHover !important;
   color: #FFFFFF;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background: #D24B4C !important;
+  background: @negativeColorDown !important;
   color: #FFFFFF;
 }
-
+.ui.negative.buttons .button.active,
+.ui.negative.buttons .button.active:active,
+.ui.negative.button.active,
+.ui.negative.button .button.active:active {
+  background: @negativeColorActive;
+  color: #FFFFFF;
+}
 
 /*******************************
             Groups
@@ -1353,7 +1357,7 @@
 .ui.vertical.buttons .button {
   display: block;
   float: none;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px @borderColor inset;
 }
 .ui.vertical.buttons .button:first-child,
 .ui.vertical.buttons .mini.button:first-child,

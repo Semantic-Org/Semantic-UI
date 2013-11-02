@@ -30,11 +30,22 @@
 /* Width of largest icon */
 @iconWidth : 1.23em;
 
+/*******************************
+           BG Colors
+*******************************/
+
+@subtleTransparentBlack : rgba(0, 0, 0, 0.01);
+@transparentBlack       : rgba(0, 0, 0, 0.05);
+@strongTransparentBlack : rgba(0, 0, 0, 0.10);
+
+@subtleTransparentWhite : rgba(255, 255, 255, 0.01);
+@transparentWhite       : rgba(255, 255, 255, 0.05);
+@strongTransparentWhite : rgba(255, 255, 255, 0.01);
+
 
 /*******************************
              Colors
 *******************************/
-
 
 /*-------------------
      Background
@@ -75,7 +86,6 @@
 @offWhite       : #FAFAFA;
 @darkWhite      : #F0F0F0;
 
-
 /*-------------------
      Text Colors
 --------------------*/
@@ -103,9 +113,9 @@
       Borders
 --------------------*/
 
-@borderColor      : rgba(0, 0, 0, 0.1);
-@solidBorderColor : #DDDDDD;
-
+@borderColor         : rgba(0, 0, 0, 0.1);
+@selectedBorderColor : rgba(0, 0, 0, 0.2);
+@solidBorderColor    : #DDDDDD;
 
 /*-------------------
         Sizes
