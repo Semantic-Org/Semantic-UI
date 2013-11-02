@@ -20,6 +20,8 @@ Please submit any bugs you encounter when using the library to our [Github Issue
 
 When submiting a bug report, please include a set of steps to reproduce the issue and any related information, browser, OS etc. If we can't see the issue then it will make solving things much more difficult.
 
+Please create a fork of this [jsfiddle](http://jsfiddle.net/pMDsH/) to demonstrate bugs.
+
 ### Style Guide
 
 Contributors should read over the coding guidelines for the project. Most importantly, the guide for language, as it is one of the most important parts about Semantic UI.
