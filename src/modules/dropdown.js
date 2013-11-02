@@ -434,7 +434,7 @@ $.fn.dropdown = function(parameters) {
               if(settings.transition == 'none') {
                 callback();
               }
-              else if($.fn.transition !== undefined) {
+              else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu.transition({
                   animation : settings.transition + ' in',
                   duration  : settings.duration,
@@ -482,7 +482,7 @@ $.fn.dropdown = function(parameters) {
             callback = callback || function(){};
             if(module.is.visible($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
-              if($.fn.transition !== undefined) {
+              if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu.transition({
                   animation : settings.transition + ' out',
                   duration  : settings.duration,

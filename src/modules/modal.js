@@ -235,7 +235,7 @@ $.fn.modal = function(parameters) {
               module.hideOthers(module.showModal);
             }
             else {
-              if(settings.transition && $.fn.transition !== undefined) {
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 $module
                   .transition(settings.transition + ' in', settings.duration, function() {
                     module.set.active();
@@ -301,7 +301,7 @@ $.fn.modal = function(parameters) {
           if( module.is.active() ) {
             module.debug('Hiding modal');
             module.remove.keyboardShortcuts();
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $module
                 .transition(settings.transition + ' out', settings.duration, function() {
                   module.remove.active();
