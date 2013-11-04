@@ -33,15 +33,9 @@ If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click 
 
 RTL versions are compiled on every patch update, and are available in ``/rtl/``
     
-#### LESS Semantic UI
+### Integration
 
-More css-processing features are currently being added to help in the customizing and theming Semantic UI. This will be one of the core features additions for Semantic's first release version.
-    
-#### SASS/SCSS Semantic UI
-    
-If you are looking for a SCSS/SASS port of Semantic for your rails projects check out doabit's [Semantic UI for SASS](https://github.com/doabit/semantic-ui-sass)
-
-## About the Project
+Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/jlukic/Semantic-UI/wiki/Integration).
 
 ### Learn More
 
