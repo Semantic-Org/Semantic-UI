@@ -37,7 +37,6 @@
 .ui.segment:first-child {
   margin-top: 0em;
 }
-
 .ui.segment:last-child {
   margin-bottom: 0em;
 }
@@ -436,6 +435,7 @@
   -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
   box-shadow: 0px 0px 0px 1px #DDDDDD;
 }
+
 .ui.top.attached.segment {
   top: 0px;
   bottom: -1px;
@@ -447,6 +447,10 @@
   -webkit-border-radius: 5px 5px 0px 0px;
   border-radius: 5px 5px 0px 0px;
 }
+.ui.segment.top.attached:first-child {
+  margin-top: 0em;
+}
+
 .ui.segment.bottom.attached {
   top: -1px;
   bottom: 0px;
@@ -457,4 +461,7 @@
   -moz-border-radius: 0px 0px 5px 5px;
   -webkit-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;
+}
+.ui.segment.bottom.attached:last-child {
+  margin-bottom: 0em;
 }
