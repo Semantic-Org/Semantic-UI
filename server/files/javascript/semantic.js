@@ -256,7 +256,6 @@ semantic.ready = function() {
           leadingSpaces = line.length - line.replace(/^\s*/g, '').length;
           if(leadingSpaces !== 0) {
             indent = leadingSpaces - spacesPerIndent;
-            console.log('returning' + indent);
             return false;
           }
         });
@@ -384,7 +383,6 @@ semantic.ready = function() {
         $visibleStuck = $(this).find('.fixed.column .image, .fixed.column .content'),
         isInitialized = ($visibleStuck.parent('.sticky-wrapper').size() !== 0)
       ;
-      console.log(this);
       if(!isInitialized) {
         $visibleStuck
           .waypoint('sticky', {
