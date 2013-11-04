@@ -186,7 +186,7 @@ type        : 'UI Module'
       ;
       </div>
 
-      <table class="ui definition sortabled celled table segment">
+      <table class="ui definition sortable celled table segment">
         <thead>
           <tr>
           <th>Behavior</th>
