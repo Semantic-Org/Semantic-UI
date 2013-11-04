@@ -37,6 +37,8 @@ RTL versions are compiled on every patch update, and are available in ``/rtl/``
 
 More css-processing features are currently being added to help in the customizing and theming Semantic UI. This will be one of the core features additions for Semantic's first release version.
     
+You can easily use it in your rails project with [semantic-ui-rails](https://github.com/nd0ut/semantic-ui-rails)
+    
 #### SASS/SCSS Semantic UI
     
 If you are looking for a SCSS/SASS port of Semantic for your rails projects check out doabit's [Semantic UI for SASS](https://github.com/doabit/semantic-ui-sass)
