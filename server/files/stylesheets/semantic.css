@@ -1053,7 +1053,7 @@ body.guide .main.container > * {
   margin: 1em 0em;
   padding: 1em 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  clear: both;
+/*  clear: both;*/
   position: relative;
 }
 #example .example .grid i.code {
