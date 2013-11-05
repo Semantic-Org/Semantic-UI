@@ -18,7 +18,13 @@ module.exports = function(grunt) {
       'copy:srcToDocs',
 
       // copies examples over to docs
-      'copy:examplesToDocs'
+      'copy:examplesToDocs',
+
+      // create concatenated css release
+      'concat:createCSSPackage',
+
+      // create concatenated js release
+      'concat:createJSPackage'
     ],
 
     testWatchTasks = [
@@ -34,63 +40,53 @@ module.exports = function(grunt) {
       'karma:travis'
     ],
 
-    specTasks = [
-      // generate code docs
-      'docco:generate',
-
-      // copies spec files over to docs
-      'copy:specToDocs'
-    ],
-
-    buildTasks = [
+    releaseTasks = [
       // clean build directory
       'clean:build',
-
-      // compiles less
-      'less:buildCSS',
 
       // copies assets and js over to build dir
       'copy:srcToBuild',
 
-      // creates minified css of each file
-      'cssmin:minifyCSS',
-
-      // adds custom license in header
-      'cssmin:addBanner',
-
-      // create concatenated css release
-      'concat:concatenateCSS',
-
-      // create concatenated js release
-      'concat:concatenateJS',
-
-      // creates minified js of each file
-      'uglify:minifyJS',
-
-      // creates release js of all together
-      'uglify:buildReleaseJS',
-
-      // creates minified css of each file
-      'cssmin:minifyCSS',
-
-      // creates custom license in header
-      'cssmin:addBanner',
+      // compiles less
+      'less:buildCSS',
 
       // auto prefix build files
       'autoprefixer:prefixBuild',
 
-      // cleans previous generated release
-      'clean:release',
+      // creates minified js of each file
+      'uglify:minifyJS',
+
+      // creates minified css of each file
+      'cssmin:minifyCSS',
+
+      // create concatenated css release
+      'concat:createCSSPackage',
+
+      // create concatenated js release
+      'concat:createJSPackage',
+
+      // creates release js of all together
+      'uglify:createMinJSPackage',
+
+      // creates custom license in header
+      'cssmin:createMinCSSPackage',
 
       // creates release zip
       'compress:everything',
 
+      // cleans previous generated release
+      'clean:release'
+    ],
+
+    rtlTasks = [
       // copies assets to rtl
       'copy:buildToRTL',
 
       // create rtl release
-      'cssjanus:rtl',
+      'cssjanus:rtl'
+    ],
 
+    docTasks = [
       // copies examples over to docs
       'copy:examplesToDocs',
 
@@ -103,6 +99,8 @@ module.exports = function(grunt) {
       // copies spec files over to docs
       'copy:specToDocs'
     ],
+
+    buildTasks = releaseTasks.concat(rtlTasks).concat(docTasks),
 
     setWatchTests = function(action, filePath) {
       var
@@ -140,6 +138,9 @@ module.exports = function(grunt) {
     // this allows filenames with multiple extensions to be preserved
     preserveFileExtensions = function(folder, filename) {
       return folder + filename.substring(0, filename.lastIndexOf('.') ) + '.css';
+    },
+    preserveMinFileExtensions = function(folder, filename) {
+      return folder + filename.substring(0, filename.lastIndexOf('.') ) + '.min.css';
     },
 
     config
@@ -477,17 +478,34 @@ module.exports = function(grunt) {
     concat: {
       options: {
       },
-      concatenateCSS: {
+      createCSSPackage: {
         src: ['build/uncompressed/**/*.css'],
         dest: 'build/packaged/css/semantic.css'
       },
-      concatenateJS: {
+      createJSPackage: {
         src: ['build/uncompressed/**/*.js'],
         dest: 'build/packaged/javascript/semantic.js'
       },
     },
 
     cssmin: {
+      options : {
+        keepSpecialComments: 0,
+        report: 'min',
+        banner : '' +
+          '/*\n' +
+          '* # <%= package.title %>\n' +
+          '* Version: <%= package.version %>\n' +
+          '* http://github.com/jlukic/semantic-ui\n' +
+          '*\n' +
+          '*\n' +
+          '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
+          '* Released under the MIT license\n' +
+          '* http://opensource.org/licenses/MIT\n' +
+          '*\n' +
+          '* Released: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
+          '*/\n'
+      },
 
       // copy minified css to minified release
       minifyCSS: {
@@ -496,27 +514,12 @@ module.exports = function(grunt) {
         src    : [
           '**/*.css'
         ],
-        dest : 'build/minified',
-        ext  : '.min.css'
+        dest : 'build/minified/',
+        rename: preserveMinFileExtensions
       },
 
       // add comment banner to css release
-      addBanner: {
-        options : {
-          banner : '' +
-            '/*\n' +
-            '* # <%= package.title %>\n' +
-            '* Version: <%= package.version %>\n' +
-            '* http://github.com/jlukic/semantic-ui\n' +
-            '*\n' +
-            '*\n' +
-            '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
-            '* Released under the MIT license\n' +
-            '* http://opensource.org/licenses/MIT\n' +
-            '*\n' +
-            '* Released: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
-            '*/\n'
-        },
+      createMinCSSPackage: {
         files: {
           'build/packaged/css/semantic.min.css': [
             'build/uncompressed/**/*.css'
@@ -550,7 +553,7 @@ module.exports = function(grunt) {
           '*/\n'
       },
 
-      buildReleaseJS: {
+      createMinJSPackage: {
         options: {
           mangle   : true,
           compress : true,
@@ -595,10 +598,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig(config);
+  
   grunt.registerTask('default', defaultTasks);
-  grunt.registerTask('build', buildTasks);
-  grunt.registerTask('spec', specTasks);
   grunt.registerTask('test', testTasks);
+
+  grunt.registerTask('release', releaseTasks);
+  grunt.registerTask('rtl', rtlTasks);
+  grunt.registerTask('docs', docTasks);
+  grunt.registerTask('build', buildTasks);
 
   // compiles only changed less files <https://npmjs.org/package/grunt-contrib-watch>
   grunt.event.on('watch', setWatchFiles);
