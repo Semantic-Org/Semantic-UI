@@ -22,7 +22,7 @@ type        : 'UI View'
   <div class="example">
     <h4 class="ui header">List</h4>
     <p>A standard list</p>
-    <div class="ui divided list">
+    <div class="ui list">
       <div class="item">
         <img src="/images/demo/avatar2.jpg">
         <div class="content">
@@ -242,28 +242,28 @@ type        : 'UI View'
     <p>A list item can contain a description</p>
     <div class="ui divided list">
       <div class="item">
-        <i class="circular map marker icon"></i>
+        <i class="map marker icon"></i>
         <div class="content">
           <a class="header">New York City</a>
           <div class="description">A lovely city</div>
         </div>
       </div>
       <div class="item">
-        <i class="circular map marker icon"></i>
+        <i class="map marker icon"></i>
         <div class="content">
           <a class="header">Chicago</a>
           <div class="description">A lovely city</div>
         </div>
       </div>
       <div class="item">
-        <i class="circular map marker icon"></i>
+        <i class="map marker icon"></i>
         <div class="content">
           <a class="header">Los Angeles</a>
           <div class="description">A lovely city</div>
         </div>
       </div>
       <div class="item">
-        <i class="circular map marker icon"></i>
+        <i class="map marker icon"></i>
         <div class="content">
           <a class="header">San Francisco</a>
           <div class="description">A lovely city</div>
