@@ -1,0 +1,138 @@
+/*******************************
+            Global
+*******************************/
+
+html,
+body {
+  font-size: 15px;
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background: #FFFFFF;
+  margin: 0px;
+  padding: 0px;
+  color: #555555;
+  text-rendering: optimizeLegibility;
+  min-width: 320px;
+}
+
+.ui.header {
+  font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.ui.header,
+.header,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal !important;
+}
+
+h1.ui.header, {
+  font-size: 2.5em;
+  font-weight: normal;
+}
+
+a {
+  opacity: 0.8;
+  color: #009FDA;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+p a {
+  font-weight: bold;
+}
+
+/*******************************
+            Global
+*******************************/
+
+.ui.page.grid.segment {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.masthead.segment {
+  margin: 0em;
+  padding-top: 4rem;
+  overflow: hidden;
+}
+
+.masthead.segment .column {
+  position: relative;
+}
+
+.masthead.segment .information {
+  margin: 3em 1em;
+}
+
+.masthead.segment .information p {
+  max-width: 600px;
+  margin: 2em 290px 2em 0em;
+  font-size: 1.2em;
+}
+
+.masthead.segment h1.ui.header .sub {
+  font-size: 0.7em;
+}
+
+.masthead.segment .image {
+  position: absolute;
+  right: 0%;
+  bottom: -110px;
+}
+
+.overview .divided.grid .header + p {
+  min-height: 100px;
+}
+
+/*******************************
+          Responsive
+*******************************/
+
+/* Mobile Only */
+
+@media only screen and (max-width : 768px) {
+  .masthead.segment .information {
+    margin-right: 190px;
+  }
+  .masthead.segment .image {
+    bottom: -10px;
+    width: 150px;
+  }
+  .masthead.segment .button {
+    font-size: 1rem;
+  }
+  .overview > .column:first-child {
+    width: 100% !important;
+  }
+  .overview > .column:last-child {
+    display: none;
+  }
+  .overview .divided.grid .header .icon {
+    font-size: 1em;
+  }
+  .overview .divided.grid .header + p {
+    min-height: 0px;
+  }
+  .masthead.segment .column {
+    font-size: 0.7rem;
+  }
+  .masthead.segment .column p {
+    display: none;
+  }
+}
+
+@media only screen and (max-width : 1000px) {
+
+}
