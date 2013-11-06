@@ -21,10 +21,10 @@ module.exports = function(grunt) {
       'copy:examplesToDocs',
 
       // create concatenated css release
-      'concat:createCSSPackage',
+      'concat:createDocsCSSPackage',
 
       // create concatenated js release
-      'concat:createJSPackage'
+      'concat:createDocsJSPackage'
     ],
 
     testWatchTasks = [
@@ -132,6 +132,7 @@ module.exports = function(grunt) {
       else {
         grunt.config('less.buildDocsCSS.src', 'non/existant/path');
         grunt.config('less.buildDocsCSS.dest', 'non/existant/path');
+        grunt.config('autoprefixer.prefixDocs.src', 'non/existant/path');
       }
     },
 
@@ -450,7 +451,7 @@ module.exports = function(grunt) {
             src    : [
               '**'
             ],
-            dest   : 'docs/examples/'
+            dest   : 'docs/build/examples/'
           }
         ]
       }
@@ -485,6 +486,14 @@ module.exports = function(grunt) {
       createJSPackage: {
         src: ['build/uncompressed/**/*.js'],
         dest: 'build/packaged/javascript/semantic.js'
+      },
+      createDocsCSSPackage: {
+        src: ['docs/build/uncompressed/**/*.css'],
+        dest: 'docs/build/packaged/css/semantic.css'
+      },
+      createDocsJSPackage: {
+        src: ['docs/build/uncompressed/**/*.js'],
+        dest: 'docs/build/packaged/javascript/semantic.js'
       },
     },
 

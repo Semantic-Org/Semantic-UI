@@ -79,7 +79,6 @@
 .ui.huge.breadcrumb {
   font-size: 1.3em;
 }
-
 /*
  * # Semantic - Form
  * http://github.com/jlukic/semantic-ui/
@@ -347,19 +346,19 @@
 /* browsers require these rules separate */
 
 .ui.form ::-webkit-input-placeholder {
-  color: #E0E0E0;
+  color: #AAAAAA;
 }
 
 .ui.form ::-moz-placeholder {
-  color: #E0E0E0;
+  color: #AAAAAA;
 }
 
 .ui.form :focus::-webkit-input-placeholder {
-  color: #AAAAAA;
+  color: #999999;
 }
 
 .ui.form :focus::-moz-placeholder {
-  color: #AAAAAA;
+  color: #999999;
 }
 
 /* Error Placeholder */
@@ -632,7 +631,6 @@
 .ui.large.form {
   font-size: 1.125em;
 }
-
 /*
  * # Semantic - Grid
  * http://github.com/jlukic/semantic-ui/
@@ -661,8 +659,8 @@
 }
 
 body > .ui.grid {
-  margin-right: 0%;
-  margin-left: 0%;
+  margin-right: 0% !important;
+  margin-left: 0% !important;
 }
 
 .ui.grid:after,
@@ -1193,6 +1191,7 @@ body > .ui.grid {
 @media only screen and (min-width: 768px) {
   .ui.mobile.only.grid,
   .ui.grid > .mobile.only.row,
+  .ui.grid > .mobile.only.column,
   .ui.grid > .row > .mobile.only.column {
     display: none;
   }
@@ -1234,6 +1233,7 @@ body > .ui.grid {
 @media only screen and (max-width: 768px), (min-width: 998px) {
   .ui.tablet.only.grid,
   .ui.grid > .tablet.only.row,
+  .ui.grid > .tablet.only.column,
   .ui.grid > .row > .tablet.only.column {
     display: none;
   }
@@ -1275,6 +1275,7 @@ body > .ui.grid {
 @media only screen and (max-width: 998px) {
   .ui.computer.only.grid,
   .ui.grid > .computer.only.row,
+  .ui.grid > .computer.only.column,
   .ui.grid > .row > .computer.only.column {
     display: none;
   }
@@ -1324,7 +1325,6 @@ body > .ui.grid {
     display: none;
   }
 }
-
 /*
  * # Semantic - Menu
  * http://github.com/jlukic/semantic-ui/
@@ -1578,11 +1578,16 @@ body > .ui.grid {
 
 .ui.menu .dropdown.item .menu {
   right: 1px;
-  margin: 1px 0px 0px 0px;
+  margin: 0px;
   min-width: -webkit-calc(99%);
   min-width: calc(99%);
-  -webkit-box-shadow: 0 1px 1px 1px #DDDDDD;
-  box-shadow: 0 1px 1px 1px #DDDDDD;
+  -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ui.secondary.menu .dropdown.item .menu {
+  right: 0px;
+  min-width: 100%;
 }
 
 .ui.menu .pointing.dropdown.item .menu {
@@ -2121,8 +2126,8 @@ body > .ui.grid {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.ui.secondary.inverted.menu > .active.item {
-  background-color: rgba(255, 255, 255, 0.9);
+.ui.secondary.inverted.menu .active.item {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* disable variations */
@@ -2157,8 +2162,11 @@ body > .ui.grid {
 /* Item Types */
 
 .ui.secondary.pointing.menu .header.item {
-  border-left-width: 0px;
-  font-weight: bold;
+  margin-bottom: -3px;
+  background-color: transparent !important;
+  border-left-width: 0px !important;
+  font-weight: bold !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .ui.secondary.pointing.menu .text.item {
@@ -2267,23 +2275,29 @@ body > .ui.grid {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.ui.secondary.inverted.pointing.menu > .header.item {
+  color: #FFFFFF !important;
+}
+
 /* Hover */
 
-.ui.secondary.inverted.pointing.menu > .item.hover,
+.ui.secondary.inverted.pointing.menu > .menu > .item:hover,
 .ui.secondary.inverted.pointing.menu > .item:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 
 /* Down */
 
+.ui.secondary.inverted.pointing.menu > .menu > .item:active,
 .ui.secondary.inverted.pointing.menu > .item:active {
-  border-color: rgba(255, 255, 255, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Active */
 
+.ui.secondary.inverted.pointing.menu > .menu > .item.active,
 .ui.secondary.inverted.pointing.menu > .item.active {
-  border-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.8);
   color: #ffffff;
 }
 
@@ -2619,13 +2633,13 @@ body > .ui.grid {
 /*--- Pointers ---*/
 
 .ui.inverted.pointing.menu .active.item:after {
-  background-color: #505050;
+  background-color: #5B5B5B;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.inverted.pointing.menu .active.item:hover:after {
-  background-color: #3B3B3B;
+  background-color: #4A4A4A;
 }
 
 /*--------------
@@ -2904,7 +2918,7 @@ body > .ui.grid {
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
-  bottom: -0.35em;
+  bottom: -0.3em;
   right: 50%;
   content: "";
   margin-right: -0.3em;
@@ -3025,7 +3039,6 @@ body > .ui.grid {
 .ui.large.vertical.menu {
   width: 18rem;
 }
-
 /*
  * # Semantic - Message
  * http://github.com/jlukic/semantic-ui/
@@ -3319,7 +3332,6 @@ body > .ui.grid {
 .ui.massive.message {
   font-size: 2em;
 }
-
 /*
  * # Semantic - Table
  * http://github.com/jlukic/semantic-ui/
@@ -3960,7 +3972,6 @@ body > .ui.grid {
 .ui.large.table {
   font-size: 1.1em;
 }
-
 /*
  * # Semantic - basic.Icon (Basic)
  * http://github.com/jlukic/semantic-ui/
@@ -5081,7 +5092,6 @@ i.massive.basic.icon {
   margin-left: 1em;
   vertical-align: middle;
 }
-
 /*
  * # Semantic - Button
  * http://github.com/jlukic/semantic-ui/
@@ -5109,7 +5119,7 @@ i.massive.basic.icon {
   background-color: #FAFAFA;
   color: #808080;
   margin: 0em;
-  padding: 0.8em 1.5em 0.875em;
+  padding: 0.8em 1.5em;
   font-size: 1rem;
   text-transform: uppercase;
   line-height: 1;
@@ -5121,8 +5131,8 @@ i.massive.basic.icon {
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   border-radius: 0.25em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px -0.133em 0px 0px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px -0.133em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -5578,29 +5588,29 @@ i.massive.basic.icon {
 
 .ui.mini.buttons .button,
 .ui.mini.button {
-  padding: 0.6em 0.8em 0.73em;
+  padding: 0.6em 0.8em;
 }
 
 .ui.mini.icon.buttons .button,
 .ui.mini.buttons .icon.button {
-  padding: 0.6em 0.6em 0.73em;
+  padding: 0.6em 0.6em;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .button,
 .ui.tiny.button {
-  padding: 0.6em 0.8em 0.73em;
+  padding: 0.6em 0.8em;
 }
 
 .ui.tiny.icon.buttons .button,
 .ui.tiny.buttons .icon.button {
-  padding: 0.6em 0.6em 0.73em;
+  padding: 0.6em 0.6em;
 }
 
 .ui.small.buttons .button,
@@ -5685,7 +5695,7 @@ i.massive.basic.icon {
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.8em 0.8em 0.875em;
+  padding: 0.8em;
 }
 
 .ui.icon.buttons .button > .icon,
@@ -5745,6 +5755,44 @@ i.massive.basic.icon {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Inverted */
+
+.ui.basic.inverted.buttons .button,
+.ui.basic.inverted.button {
+  color: #FAFAFA !important;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.3) inset;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.3) inset;
+}
+
+.ui.basic.inverted.buttons .button:hover,
+.ui.basic.inverted.button:hover {
+  background-image: none;
+  color: #FFFFFF !important;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.5) inset;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+.ui.basic.inverted.buttons .button:active,
+.ui.basic.inverted.button:active {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #FFFFFF !important;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.8) inset !important;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.8) inset !important;
+}
+
+.ui.basic.inverted.buttons .button.active,
+.ui.basic.inverted.button.active {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ui.basic.inverted.buttons .button.active:hover,
+.ui.basic.inverted.button.active:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 /* Basic Group */
 
 .ui.basic.buttons .button {
@@ -5787,7 +5835,7 @@ i.massive.basic.icon {
   box-sizing: border-box;
   width: 2.75em;
   height: 100%;
-  padding-top: 0.85em;
+  padding-top: 0.8em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
   border-radius: 0px 0.25em 0.25em 0px;
@@ -6433,7 +6481,6 @@ i.massive.basic.icon {
 .ui.vertical.buttons .gigantic.button:last-child {
   border-radius: 0px 0px 0.25em 0.25em;
 }
-
 /*
  * # Semantic - Divider
  * http://github.com/jlukic/semantic-ui/
@@ -6614,7 +6661,6 @@ i.massive.basic.icon {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-
 /*
  * # Semantic - Header
  * http://github.com/jlukic/semantic-ui/
@@ -6658,6 +6704,7 @@ i.massive.basic.icon {
 
 .ui.header .icon:only-child {
   display: inline-block;
+  vertical-align: baseline;
 }
 
 .ui.header .content {
@@ -6980,7 +7027,6 @@ h5.ui.header {
   margin-top: 0em;
   border-radius: 0em 0em 0.3125em 0.3125em;
 }
-
 /*
  * # Semantic - Icon
  * http://github.com/jlukic/semantic-ui/
@@ -8809,7 +8855,6 @@ i.massive.icon {
   font-size: 8em;
   vertical-align: middle;
 }
-
 /*
  * # Semantic - Image
  * http://github.com/jlukic/semantic-ui/
@@ -8984,7 +9029,6 @@ img.ui.image {
   display: inline-block;
   margin: 0em 0.25em 0.5em;
 }
-
 /*
  * # Semantic - Input
  * http://github.com/jlukic/semantic-ui/
@@ -9037,11 +9081,11 @@ img.ui.image {
 /* browsers require these rules separate */
 
 .ui.input::-web inputkit-input-placeholder {
-  color: #E0E0E0;
+  color: #BBBBBB;
 }
 
 .ui.input::-moz input-placeholder {
-  color: #E0E0E0;
+  color: #BBBBBB;
 }
 
 /*******************************
@@ -9200,7 +9244,12 @@ img.ui.image {
 .ui.labeled.input .corner.label {
   top: 1px;
   left: 1px;
+  font-size: 0.55em;
   border-top-left-radius: 0.3125em;
+}
+
+.ui.labeled.input .corner.label > .icon {
+  margin: 0.4em 2em 0em 0em;
 }
 
 .ui.labeled.input input {
@@ -9287,7 +9336,6 @@ img.ui.image {
 .ui.massive.input {
   font-size: 1.5rem;
 }
-
 /*
  * # Semantic - Label
  * http://github.com/jlukic/semantic-ui/
@@ -10156,7 +10204,6 @@ a.ui.teal.label:hover:before {
 .ui.huge.label {
   font-size: 1rem;
 }
-
 /*
  * # Semantic - Loader
  * http://github.com/jlukic/semantic-ui/
@@ -10344,7 +10391,6 @@ a.ui.teal.label:hover:before {
 .ui.inline.loader.visible {
   display: inline-block;
 }
-
 /*
  * # Semantic - Progress Bar
  * http://github.com/jlukic/semantic-ui/
@@ -10601,7 +10647,6 @@ a.ui.teal.label:hover:before {
 .ui.small.progress .bar {
   height: 14px;
 }
-
 /*
  * # Semantic - Reveal
  * http://github.com/jlukic/semantic-ui/
@@ -10917,7 +10962,6 @@ a.ui.teal.label:hover:before {
   -webkit-transition-delay: 0s !important;
   transition-delay: 0s !important;
 }
-
 /*
  * # Semantic - Segment
  * http://github.com/jlukic/semantic-ui/
@@ -10997,6 +11041,20 @@ a.ui.teal.label:hover:before {
 
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
+}
+
+.ui.page.grid.segment .ui.grid .ui.segment.column {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.ui.grid.segment,
+.ui.grid .ui.segment.row,
+.ui.grid .ui.segment.column {
+  border-radius: 0em;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
 }
 
 /* No padding on edge content */
@@ -11316,6 +11374,10 @@ a.ui.teal.label:hover:before {
   border-radius: 5px 5px 0px 0px;
 }
 
+.ui.segment.top.attached:first-child {
+  margin-top: 0em;
+}
+
 .ui.segment.bottom.attached {
   top: -1px;
   bottom: 0px;
@@ -11324,6 +11386,9 @@ a.ui.teal.label:hover:before {
   border-radius: 0px 0px 5px 5px;
 }
 
+.ui.segment.bottom.attached:last-child {
+  margin-bottom: 0em;
+}
 /*
  * # Semantic - Steps
  * http://github.com/jlukic/semantic-ui/
@@ -11583,7 +11648,6 @@ a.ui.teal.label:hover:before {
 .ui.large.steps .step {
   font-size: 1.25rem;
 }
-
 /*
  * # Semantic - Accordion
  * http://github.com/jlukic/semantic-ui/
@@ -11738,7 +11802,6 @@ a.ui.teal.label:hover:before {
 .ui.fluid.accordion {
   width: 100%;
 }
-
 /*
  * # Semantic - Chat Room
  * http://github.com/jlukic/semantic-ui/
@@ -12038,7 +12101,6 @@ a.ui.teal.label:hover:before {
 .ui.chatroom .talk {
   height: 40px;
 }
-
 /*
  * # Semantic - Checkbox
  * http://github.com/jlukic/semantic-ui/
@@ -12411,7 +12473,6 @@ a.ui.teal.label:hover:before {
 .ui.huge.checkbox {
   font-size: 1.5em;
 }
-
 /*
  * # Semantic - Dimmer
  * http://github.com/jlukic/semantic-ui/
@@ -12592,7 +12653,6 @@ a.ui.teal.label:hover:before {
 .ui.dimmed.dimmable > .ui.simple.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0.85);
 }
-
 /*
  * # Semantic - Dropdown
  * http://github.com/jlukic/semantic-ui/
@@ -12609,6 +12669,7 @@ a.ui.teal.label:hover:before {
 *******************************/
 
 .ui.dropdown {
+  cursor: pointer;
   position: relative;
   display: inline-block;
   line-height: 1;
@@ -12628,6 +12689,7 @@ a.ui.teal.label:hover:before {
 ---------------*/
 
 .ui.dropdown .menu {
+  cursor: auto;
   position: absolute;
   display: none;
   top: 100%;
@@ -12673,7 +12735,6 @@ a.ui.teal.label:hover:before {
 ---------------*/
 
 .ui.dropdown > .text {
-  cursor: pointer;
   display: inline-block;
   -webkit-transition: color 0.2s ease;
   transition: color 0.2s ease;
@@ -12983,7 +13044,7 @@ a.ui.teal.label:hover:before {
 .ui.floating.dropdown .menu {
   right: 0;
   left: auto;
-  margin-top: 0.5em;
+  margin-top: 0.5em !important;
   border-radius: 0.325em;
 }
 
@@ -13097,7 +13158,6 @@ a.ui.teal.label:hover:before {
   -ms-transform: rotate(135deg);
   transform: rotate(135deg);
 }
-
 /*
  * # Semantic - Modal
  * http://github.com/jlukic/semantic-ui/
@@ -13177,25 +13237,19 @@ a.ui.teal.label:hover:before {
   box-sizing: border-box;
 }
 
-.ui.modal > .content > .right:not(.input,
-.button,
-.label) {
+.ui.modal > .content > .right:not(.ui) {
   display: table-cell;
   padding-left: 1.5%;
   min-width: 25%;
 }
 
-.ui.modal > .content > .left:not(.input,
-.button,
-.label) {
+.ui.modal > .content > .left:not(.ui) {
   display: table-cell;
   padding-right: 1.5%;
   vertical-align: top;
 }
 
-.ui.modal > .content > .right:not(.input,
-.button,
-.label) > i.icon {
+.ui.modal > .content > .right:not(.ui) > i.icon {
   font-size: 8em;
   margin: 0em;
 }
@@ -13224,16 +13278,12 @@ a.ui.teal.label:hover:before {
 /* Mobile Only */
 
 @media only screen and (max-width: 768px) {
-  .ui.modal .content > .right:not(.input,
-  .button,
-  .label) {
+  .ui.modal .content > .right:not(.ui) {
     display: block;
     padding: 0em 0em 1em;
   }
 
-  .ui.modal .content > .left:not(.input,
-  .button,
-  .label) {
+  .ui.modal .content > .left:not(.ui) {
     display: block;
     padding: 1em 0em 0em;
     -webkit-box-shadow: none;
@@ -13405,7 +13455,6 @@ a.ui.teal.label:hover:before {
     margin-right: -22%;
   }
 }
-
 /*
  * # Semantic - Nag
  * http://github.com/jlukic/semantic-ui/
@@ -13544,7 +13593,6 @@ a.ui.nag {
 .ui.nags .nag {
   border-radius: 0px;
 }
-
 /*
  * # Semantic - Popup
  * http://github.com/jlukic/semantic-ui/
@@ -13796,7 +13844,6 @@ a.ui.nag {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 /*
  * # Semantic - Rating
  * http://github.com/jlukic/semantic-ui/
@@ -13968,7 +14015,6 @@ a.ui.nag {
   font-size: 2rem;
   vertical-align: middle;
 }
-
 /*
  * # Semantic - Search
  * http://github.com/jlukic/semantic-ui/
@@ -14223,7 +14269,6 @@ a.ui.nag {
 .ui.search .large.results .info .description {
   font-size: 11px;
 }
-
 /*
  * # Semantic - Shape
  * http://github.com/jlukic/semantic-ui/
@@ -14380,7 +14425,6 @@ a.ui.nag {
 .ui.shape .active.side {
   display: block;
 }
-
 /*
  * # Semantic - Sidebar
  * http://github.com/jlukic/semantic-ui/
@@ -14600,7 +14644,6 @@ body {
 .ui.active.bottom.sidebar {
   margin-top: -40px !important;
 }
-
 /*
  * # Semantic - Tab
  * http://github.com/jlukic/semantic-ui/
@@ -14664,7 +14707,6 @@ body {
   background: url(../images/loader-large.gif) no-repeat 0px 0px;
   visibility: visible;
 }
-
 /*******************************
   Semantic - Transition
   Author: Jack Lukic
@@ -15531,7 +15573,6 @@ body {
     transform: scale(0.7);
   }
 }
-
 /*
  * # Semantic - Video
  * http://github.com/jlukic/semantic-ui/
@@ -15626,7 +15667,6 @@ body {
 .ui.video.active .embed {
   display: block;
 }
-
 /*
  * # Semantic Comment View
  * http://github.com/jlukic/semantic-ui/
@@ -15844,7 +15884,6 @@ body {
 .ui.small.comments {
   font-size: 0.875em;
 }
-
 /*
  * # Activity Feed View
  * http://github.com/jlukic/semantic-ui/
@@ -16005,7 +16044,6 @@ body {
 .ui.small.feed .content .extra.text {
   padding: 0.25em 0.5em;
 }
-
 /*
  * # Semantic Item View
  * http://github.com/jlukic/semantic-ui/
@@ -16688,7 +16726,6 @@ body {
 .ui.twelve.items > .item:nth-child(12n+1) {
   clear: right;
 }
-
 /*
  * # Semantic List - Flat
  * http://github.com/jlukic/semantic-ui/
@@ -16756,13 +16793,19 @@ ol.ui.list li,
   visibility: hidden;
 }
 
+/* Sub-List */
+
+.ui.list .list {
+  clear: both;
+}
+
 /* Icon */
 
 .ui.list .item > .icon {
-  display: table-cell;
-  margin: 0em;
-  padding: 0.1em 0em 0em 0.5em;
-  vertical-align: top;
+  display: block;
+  float: right;
+  margin: 0em 0em 0em 1em;
+  padding: 0.1em 0em 0em 0em;
 }
 
 .ui.list .item > .icon:only-child {
@@ -16770,17 +16813,23 @@ ol.ui.list li,
 }
 
 .ui.horizontal.list .item > .icon {
+  margin: 0em;
   padding: 0em 0em 0em 0.25em;
+}
+
+.ui.horizontal.list .item > .icon,
+.ui.horizontal.list .item > .icon + .content {
+  float: none;
+  display: inline-block;
 }
 
 /* Image */
 
 .ui.list .item > img {
-  display: inline-block;
-  width: 2em;
-  margin-left: 0.5em;
+  display: block;
+  float: right;
+  margin-left: 1em;
   vertical-align: middle;
-  border-radius: 0.2em;
 }
 
 /* Content */
@@ -16792,9 +16841,8 @@ ol.ui.list li,
 }
 
 .ui.list .item > .icon + .content {
-  display: table-cell;
+  float: right;
   vertical-align: top;
-  padding-right: 0.5em;
 }
 
 /* Link */
@@ -16844,14 +16892,19 @@ ol.ui.list li,
   font-size: 0em;
 }
 
-.ui.horizontal.list .item {
+.ui.horizontal.list > .item {
   display: inline-block;
   margin-right: 1em;
   font-size: 1rem;
 }
 
-.ui.horizontal.list .item:first-child {
+.ui.horizontal.list > .item:first-child {
   margin-right: 0em;
+}
+
+.ui.horizontal.list .list {
+  padding-right: 0em;
+  padding-bottom: 0em;
 }
 
 /*******************************
@@ -16871,16 +16924,32 @@ ol.ui.list li,
 *******************************/
 
 /*-------------------
+       Inverted
+--------------------*/
+
+.ui.inverted.list a .icon {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ui.inverted.list .description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ui.inverted.link.list .item {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/*-------------------
        Link
 --------------------*/
 
 .ui.link.list .item {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .ui.link.list a.item,
 .ui.link.list .item a {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .ui.link.list a.item:hover,
@@ -16890,12 +16959,34 @@ ol.ui.list li,
 
 .ui.link.list a.item:active,
 .ui.link.list .item a:active {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.link.list a.active.item,
 .ui.link.list .active.item a {
   color: rgba(0, 0, 0, 0.8);
+}
+
+/* Inverted */
+
+.ui.inverted.link.list a.item,
+.ui.inverted.link.list .item a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ui.inverted.link.list a.item:hover,
+.ui.inverted.link.list .item a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ui.inverted.link.list a.item:active,
+.ui.inverted.link.list .item a:active {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ui.inverted.link.list a.active.item,
+.ui.inverted.link.list .active.item a {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /*-------------------
@@ -16915,16 +17006,6 @@ ol.ui.list li,
   color: rgba(0, 0, 0, 0.7);
 }
 
-.ui.selection.list:not(.horizontal,
-.ordered) .item:hover {
-  padding-right: 1em;
-}
-
-.ui.selection.list:not(.horizontal,
-.ordered) .item:hover .item:hover {
-  padding-right: 0.5em;
-}
-
 .ui.selection.list .item:active {
   background-color: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.7);
@@ -16933,6 +17014,40 @@ ol.ui.list li,
 .ui.selection.list .item.active {
   background-color: rgba(0, 0, 0, 0.04);
   color: rgba(0, 0, 0, 0.7);
+}
+
+.ui.animated.list .item {
+  -webkit-transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
+  transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
+}
+
+.ui.animated.list:not(.horizontal) .item:hover {
+  padding-right: 1em;
+}
+
+.ui.animated.list:not(.horizontal) .item:hover .item:hover {
+  padding-right: 0.5em;
+}
+
+/* Inverted */
+
+.ui.inverted.selection.list .item {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ui.inverted.selection.list .item:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ui.inverted.selection.list .item:active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ui.inverted.selection.list .item.active {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
 }
 
 /*-------------------
@@ -17047,7 +17162,7 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.divided.list > .item,
-.ui.divided.list > .list {
+.ui.divided.list:not(.horizontal) > .list {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-right: 0.5em;
   padding-left: 0.5em;
@@ -17063,17 +17178,17 @@ ol.ui.horizontal.list li:before,
 
 /* Sub Menu */
 
-.ui.divided.list .list {
+.ui.divided.list:not(.horizontal) .list {
   margin-right: -0.5em;
   margin-left: -0.5em;
 }
 
-.ui.divided.list .list .item {
+.ui.divided.list:not(.horizontal) .list .item {
   padding-right: 1em;
   padding-left: 1em;
 }
 
-.ui.divided.list .list .item:first-child {
+.ui.divided.list:not(.horizontal) .list .item:first-child {
   border-top-width: 1px;
 }
 
@@ -17117,7 +17232,7 @@ ol.ui.horizontal.list li:before,
   margin-right: 0em;
 }
 
-.ui.divided.horizontal.list .item {
+.ui.divided.horizontal.list > .item {
   border-top: none;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0em;
@@ -17126,9 +17241,20 @@ ol.ui.horizontal.list li:before,
   line-height: 0.6;
 }
 
-.ui.horizontal.divided.list .item:first-child {
+.ui.horizontal.divided.list > .item:first-child {
   border-right: none;
   padding-right: 0em;
+}
+
+/* Inverted */
+
+.ui.divided.inverted.list > .item,
+.ui.divided.inverted.list > .list {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ui.divided.inverted.horizontal.list .item {
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /*-------------------
@@ -17215,6 +17341,17 @@ ol.ui.horizontal.list li:before,
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Inverted */
+
+.ui.celled.inverted.list > .item,
+.ui.celled.inverted.list > .list {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ui.celled.inverted.horizontal.list .item {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
 /*-------------------
        Relaxed
 --------------------*/
@@ -17222,6 +17359,10 @@ ol.ui.horizontal.list li:before,
 .ui.relaxed.list:not(.horizontal) .item {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+}
+
+.ui.relaxed.list .header {
+  margin-bottom: 0.25em;
 }
 
 .ui.horizontal.relaxed.list .item {
@@ -17232,6 +17373,10 @@ ol.ui.horizontal.list li:before,
 .ui.very.relaxed.list:not(.horizontal) .item {
   padding-top: 1em;
   padding-bottom: 1em;
+}
+
+.ui.very.relaxed.list .header {
+  margin-bottom: 0.5em;
 }
 
 .ui.horizontal.very.relaxed.list .item {
@@ -17274,7 +17419,6 @@ ol.ui.horizontal.list li:before,
 .ui.massive.list .item {
   font-size: 1.5rem;
 }
-
 /*
  * # Statistic
  *

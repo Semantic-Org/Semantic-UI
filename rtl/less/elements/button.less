@@ -28,7 +28,7 @@
   color: #808080;
 
   margin: 0em;
-  padding: 0.8em 1.5em 0.875em;
+  padding: 0.8em 1.5em;
 
   font-size: 1rem;
   text-transform: uppercase;
@@ -45,8 +45,7 @@
   border-radius: 0.25em;
 
   box-shadow:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset,
-    0px -0.133em 0px 0px rgba(0, 0, 0, 0.1) inset
+    0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset
   ;
 
   -webkit-user-select: none;
@@ -509,26 +508,26 @@
 }
 .ui.mini.buttons .button,
 .ui.mini.button {
-  padding: 0.6em 0.8em 0.73em;
+  padding: 0.6em 0.8em;
 }
 .ui.mini.icon.buttons .button,
 .ui.mini.buttons .icon.button {
-  padding: 0.6em 0.6em 0.73em;
+  padding: 0.6em 0.6em;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .button,
 .ui.tiny.button {
-  padding: 0.6em 0.8em 0.73em;
+  padding: 0.6em 0.8em;
 }
 .ui.tiny.icon.buttons .button,
 .ui.tiny.buttons .icon.button {
-  padding: 0.6em 0.6em 0.73em;
+  padding: 0.6em 0.6em;
 }
 
 .ui.small.buttons .button,
@@ -605,7 +604,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.8em 0.8em 0.875em;
+  padding: 0.8em;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
@@ -673,6 +672,35 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Inverted */
+.ui.basic.inverted.buttons .button,
+.ui.basic.inverted.button {
+  color: #FAFAFA !important;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.3) inset;
+}
+.ui.basic.inverted.buttons .button:hover,
+.ui.basic.inverted.button:hover {
+  background-image: none;
+  color: #FFFFFF !important;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.5) inset;
+}
+.ui.basic.inverted.buttons .button:active,
+.ui.basic.inverted.button:active {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.8) inset !important;
+}
+.ui.basic.inverted.buttons .button.active,
+.ui.basic.inverted.button.active {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  box-shadow: none;
+}
+.ui.basic.inverted.buttons .button.active:hover,
+.ui.basic.inverted.button.active:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 /* Basic Group */
 .ui.basic.buttons .button {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
@@ -720,7 +748,7 @@
 
   width: 2.75em;
   height: 100%;
-  padding-top: 0.85em;
+  padding-top: 0.8em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
 
