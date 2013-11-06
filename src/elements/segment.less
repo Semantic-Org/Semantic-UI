@@ -107,11 +107,17 @@
   top: 1px;
 }
 
-.ui.page.grid.segment {
-  border-radius: 0em;
-  border: none;
+.ui.page.grid.segment
+.ui.grid .ui.segment.column {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.ui.grid.segment,
+.ui.grid .ui.segment.row,
+.ui.grid .ui.segment.column {
+  border-radius: 0em;
+  box-shadow: none;
+  border: none;
 }
 
 /* No padding on edge content */
