@@ -277,8 +277,13 @@
 ---------------*/
 .ui.menu .dropdown.item .menu {
   left: 1px;
-  margin: 1px 0px 0px 0px;
+  margin: 0px;
   min-width: calc(100% - 1px);
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.secondary.menu .dropdown.item .menu {
+  left: 0px;
+  min-width: 100%;
 }
 .ui.menu .pointing.dropdown.item .menu {
   margin-top: 0.75em;
