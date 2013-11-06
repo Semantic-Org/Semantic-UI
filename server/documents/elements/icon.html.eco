@@ -559,11 +559,11 @@ type        : 'UI Element'
       <p>Icons can indicate the status of something</p>
       <div class="ui eight column grid">
         <div class="column"><i class="ban circle icon"></i>Ban Circle</div>
-        <div class="column"><i class="check icon"></i>Check</div>
+        <div class="column"><i class="checkmark icon"></i>Checkmark</div>
         <div class="column"><i class="checkmark sign icon"></i>Checkmark Sign</div>
-        <div class="column"><i class="checkbox minus icon"></i>Minus Checkbox</div>
-        <div class="column"><i class="empty checkbox icon"></i>Empty Check</div>
-        <div class="column"><i class="checked checkbox icon"></i>Checked Check</div>
+        <div class="column"><i class="minus checkbox icon"></i>Minus Checkbox</div>
+        <div class="column"><i class="empty checkbox icon"></i>Empty Checkbox</div>
+        <div class="column"><i class="checked checkbox icon"></i>Checked Checkbox</div>
         <div class="column"><i class="exclamation icon"></i>Exclamation</div>
         <div class="column"><i class="attention icon"></i>attention</div>
         <div class="column"><i class="frown icon"></i>Frown</div>
@@ -589,10 +589,11 @@ type        : 'UI Element'
       </div>
       <div class="existing code">
     <i class="ban circle icon"></i>
-    <i class="check icon"></i>
-    <i class="check minus icon"></i>
-    <i class="check sign icon"></i>
-    <i class="empty check icon"></i>
+    <i class="checkmark icon"></i>
+    <i class="minus checkmark icon"></i>
+    <i class="checkmark sign icon"></i>
+    <i class="empty checkbox icon"></i>
+    <i class="checked checkbox icon"></i>
     <i class="exclamation icon"></i>
     <i class="exclamation sign icon"></i>
     <i class="frown icon"></i>
