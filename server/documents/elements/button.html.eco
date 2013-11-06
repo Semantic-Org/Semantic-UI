@@ -237,9 +237,13 @@ type        : 'UI Element'
       <i class="icon user"></i>
       Add Friend
     </div>
-    <div class="ui basic button">
-      <i class="icon globe"></i>
-      Change Language
+  </div>
+  <div class="another example">
+    <div class="ui inverted segment">
+      <div class="ui inverted basic button">
+        <i class="icon globe"></i>
+        Change Language
+      </div>
     </div>
   </div>
 

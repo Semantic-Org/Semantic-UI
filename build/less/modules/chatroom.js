@@ -563,7 +563,7 @@ $.fn.chatroom = function(parameters) {
               found = instance[value];
             }
             else {
-              module.error(error.method);
+              module.error(error.method, query);
             }
           });
         }

@@ -37,7 +37,6 @@
 .ui.segment:first-child {
   margin-top: 0em;
 }
-
 .ui.segment:last-child {
   margin-bottom: 0em;
 }
@@ -106,6 +105,19 @@
 
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
+}
+
+.ui.page.grid.segment
+.ui.grid .ui.segment.column {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.ui.grid.segment,
+.ui.grid .ui.segment.row,
+.ui.grid .ui.segment.column {
+  border-radius: 0em;
+  box-shadow: none;
+  border: none;
 }
 
 /* No padding on edge content */
@@ -436,6 +448,7 @@
   -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
   box-shadow: 0px 0px 0px 1px #DDDDDD;
 }
+
 .ui.top.attached.segment {
   top: 0px;
   bottom: -1px;
@@ -447,6 +460,10 @@
   -webkit-border-radius: 5px 5px 0px 0px;
   border-radius: 5px 5px 0px 0px;
 }
+.ui.segment.top.attached:first-child {
+  margin-top: 0em;
+}
+
 .ui.segment.bottom.attached {
   top: -1px;
   bottom: 0px;
@@ -457,4 +474,7 @@
   -moz-border-radius: 0px 0px 5px 5px;
   -webkit-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;
+}
+.ui.segment.bottom.attached:last-child {
+  margin-bottom: 0em;
 }

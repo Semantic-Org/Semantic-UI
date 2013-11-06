@@ -31,7 +31,6 @@ semantic.ready = function() {
     $peekItem         = $peek.children('.menu').children('a.item'),
     $peekSubItem      = $peek.find('.item .menu .item'),
     $sortableTables   = $('.sortable.table'),
-    $stuckColumn      = $('.fixed.column .image, .fixed.column .content'),
 
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
@@ -379,6 +378,25 @@ semantic.ready = function() {
       }
     },
 
+    makeStickyColumns: function() {
+      var
+        $visibleStuck = $(this).find('.fixed.column .image, .fixed.column .content'),
+        isInitialized = ($visibleStuck.parent('.sticky-wrapper').size() !== 0)
+      ;
+      console.log(this);
+      if(!isInitialized) {
+        $visibleStuck
+          .waypoint('sticky', {
+            offset     : 65,
+            stuckClass : 'fixed'
+          })
+        ;
+      }
+      // apparently this doesnt refresh on first hit
+      $.waypoints('refresh');
+      $.waypoints('refresh');
+    },
+
     initializeCode: function() {
       var
         $code        = $(this).show(),
@@ -648,7 +666,7 @@ semantic.ready = function() {
       .tab({
         onTabInit : handler.makeCode,
         onTabLoad : function() {
-          $.waypoints('refresh');
+          $.proxy(handler.makeStickyColumns, this)();
           $peekItem.removeClass('active').first().addClass('active');
         }
       })
@@ -759,18 +777,6 @@ semantic.ready = function() {
       offset: 'bottom-in-view'
      })
   ;
-
-  $stuckColumn
-    .each(function() {
-      $(this)
-        .waypoint('sticky', {
-          offset     : 65,
-          stuckClass : 'fixed'
-        })
-      ;
-    })
-  ;
-
   $peek
     .waypoint('sticky', {
       offset     : 85,

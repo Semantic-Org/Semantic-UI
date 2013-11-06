@@ -76,9 +76,13 @@ body {
   padding: 1em 2em;
 }
 
+#feed .middle.column h2 {
+  margin-top: 0em;
+}
+
 #feed .right.column {
   padding: 1em 2em;
-  background-color: #FFFFFF;
+  background-color: #FAFAFA;
 }
 
 /*******************************

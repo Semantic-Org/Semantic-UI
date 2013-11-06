@@ -22,9 +22,9 @@ type        : 'UI View'
   <div class="example">
     <h4 class="ui header">List</h4>
     <p>A standard list</p>
-    <div class="ui divided list">
+    <div class="ui list">
       <div class="item">
-        <img src="/images/demo/avatar2.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
         <div class="content">
           <div class="header">Schnoodle</div>
           Your new dog
@@ -54,7 +54,7 @@ type        : 'UI View'
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar3.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
         <div class="content">
           <div class="header">Ragamuffin</div>
           Your old dog.
@@ -188,14 +188,14 @@ type        : 'UI View'
     <div class="ui divided list">
       <div class="item">
         <div class="right floated tiny teal ui button">View Listing</div>
-        <img src="/images/demo/avatar2.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
         <div class="content">
           <div class="header">New York Dog Fair</div>
         </div>
       </div>
       <div class="item">
         <div class="right floated tiny teal ui button">View Listing</div>
-        <img src="/images/demo/avatar3.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
         <div class="content">
           <div class="header">Dog Appreciation Day</div>
         </div>
@@ -242,28 +242,28 @@ type        : 'UI View'
     <p>A list item can contain a description</p>
     <div class="ui divided list">
       <div class="item">
-        <i class="circular map marker icon"></i>
+        <i class="map marker icon"></i>
         <div class="content">
           <a class="header">New York City</a>
           <div class="description">A lovely city</div>
         </div>
       </div>
       <div class="item">
-        <i class="circular map marker icon"></i>
+        <i class="map marker icon"></i>
         <div class="content">
           <a class="header">Chicago</a>
           <div class="description">A lovely city</div>
         </div>
       </div>
       <div class="item">
-        <i class="circular map marker icon"></i>
+        <i class="map marker icon"></i>
         <div class="content">
           <a class="header">Los Angeles</a>
           <div class="description">A lovely city</div>
         </div>
       </div>
       <div class="item">
-        <i class="circular map marker icon"></i>
+        <i class="map marker icon"></i>
         <div class="content">
           <a class="header">San Francisco</a>
           <div class="description">A lovely city</div>
@@ -280,21 +280,21 @@ type        : 'UI View'
     <p>A list can be formatted horizontally</p>
     <div class="ui horizontal list">
       <div class="item">
-        <img src="/images/demo/avatar.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
         <div class="content">
           <div class="header">Snickerdoodle</div>
           An excellent companion
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar2.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
         <div class="content">
           <div class="header">Poodle</div>
           A poodle, its pretty basic
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar3.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
         <div class="content">
           <div class="header">Paulo</div>
           He's also a dog
@@ -329,25 +329,79 @@ type        : 'UI View'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Inverted</h4>
+    <p>A list can be inverted to appear on a dark background</p>
+    <div class="ui inverted segment">
+      <div class="ui inverted relaxed divided list">
+        <div class="item">
+          <div class="content">
+            <div class="header">Snickerdoodle</div>
+            An excellent companion
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Poodle</div>
+            A poodle, its pretty basic
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Paulo</div>
+            He's also a dog
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Selection</h4>
     <p>A selection list formats list items as possible choices</p>
     <div class="ui selection list">
       <div class="item">
-        <img src="/images/demo/avatar.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
         <div class="content">
           <div class="header">Snickerdoodle</div>
           An excellent companion
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar2.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
         <div class="content">
           <div class="header">Poodle</div>
           A poodle, its pretty basic
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar3.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Animated</h4>
+    <p>A list can animate to set the current item apart from the list</p>
+    <div class="ui animated list">
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
         <div class="content">
           <div class="header">Paulo</div>
           He's also a dog
@@ -464,21 +518,21 @@ type        : 'UI View'
     <p>A list can show divisions between content</p>
     <div class="ui divided list">
       <div class="item">
-        <img src="/images/demo/avatar.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
         <div class="content">
           <div class="header">Snickerdoodle</div>
           An excellent companion
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar2.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
         <div class="content">
           <div class="header">Poodle</div>
           A poodle, its pretty basic
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar3.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
         <div class="content">
           <div class="header">Paulo</div>
           He's also a dog
@@ -499,21 +553,21 @@ type        : 'UI View'
     <p>A list can divide its items into cells</p>
     <div class="ui celled list">
       <div class="item">
-        <img src="/images/demo/avatar.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
         <div class="content">
           <div class="header">Snickerdoodle</div>
           An excellent companion
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar2.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
         <div class="content">
           <div class="header">Poodle</div>
           A poodle, its pretty basic
         </div>
       </div>
       <div class="item">
-        <img src="/images/demo/avatar3.jpg">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
         <div class="content">
           <div class="header">Paulo</div>
           He's also a dog

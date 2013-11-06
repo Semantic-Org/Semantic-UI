@@ -84,10 +84,10 @@
 
 /* browsers require these rules separate */
 .ui.input::-web inputkit-input-placeholder {
-  color: #E0E0E0;
+  color: #BBBBBB;
 }
 .ui.input::-moz input-placeholder {
-  color: #E0E0E0;
+  color: #BBBBBB;
 }
 
 
@@ -250,10 +250,14 @@
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
+  font-size: 0.55em;
 
   -webkit-border-top-right-radius: 0.3125em;
   -moz-border-top-right-radius: 0.3125em;
   border-top-right-radius: 0.3125em;
+}
+.ui.labeled.input .corner.label > .icon {
+  margin: 0.4em 0em 0em 2em;
 }
 .ui.labeled.input input {
   padding-right: 2.5em !important;

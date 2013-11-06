@@ -686,6 +686,35 @@
   background-color: @transparentBlack;
 }
 
+/* Inverted */
+.ui.basic.inverted.buttons .button,
+.ui.basic.inverted.button {
+  color: @offWhite !important;
+  box-shadow: @whiteBorderColor;
+}
+.ui.basic.inverted.buttons .button:hover,
+.ui.basic.inverted.button:hover {
+  background-image: none;
+  color: #FFFFFF !important;
+  box-shadow: @whiteBorderColor;
+}
+.ui.basic.inverted.buttons .button:active,
+.ui.basic.inverted.button:active {
+  background-color: @transparentWhite !important;
+  color: #FFFFFF !important;
+  box-shadow: @selectedWhiteBorderColor inset !important;
+}
+.ui.basic.inverted.buttons .button.active,
+.ui.basic.inverted.button.active {
+  background-color: @transparentWhite;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+.ui.basic.inverted.buttons .button.active:hover,
+.ui.basic.inverted.button.active:hover {
+  background-color: @strongTransparentWhite;
+}
+
 /* Basic Group */
 .ui.basic.buttons .button {
   border-left: 1px solid @borderColor;
@@ -712,7 +741,7 @@
 
   width: @labeledIconWidth;
   height: 100%;
-  padding-top: (@verticalPadding + 0.05em);
+  padding-top: (@verticalPadding);
   background-color: @labeledIconBackgroundColor;
   text-align: center;
 

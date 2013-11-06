@@ -24,22 +24,18 @@ To download the entire library
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
     http://semantic-ui.com/build/semantic.zip
-    
+
 **Build tools for creating customized downloads will be available in 1.0** Until then we suggest using an asset management tool like [grunt](https://github.com/gruntjs/grunt-cli) or [jammit](https://github.com/documentcloud/jammit) to create packaged versions for use in production.
+
+If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
 
 #### Right-to-Left (RTL Version)
 
 RTL versions are compiled on every patch update, and are available in ``/rtl/``
     
-#### LESS Semantic UI
+### Integration
 
-More css-processing features are currently being added to help in the customizing and theming Semantic UI. This will be one of the core features additions for Semantic's first release version.
-    
-#### SASS/SCSS Semantic UI
-    
-If you are looking for a SCSS/SASS port of Semantic for your rails projects check out doabit's [Semantic UI for SASS](https://github.com/doabit/semantic-ui-sass)
-
-## About the Project
+Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/jlukic/Semantic-UI/wiki/Integration).
 
 ### Learn More
 

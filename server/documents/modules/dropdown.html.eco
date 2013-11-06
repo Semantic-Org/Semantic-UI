@@ -250,7 +250,7 @@ type        : 'UI Module'
     ;
     </div>
 
-    <table class="ui definition sortabled celled table segment">
+    <table class="ui definition sortable celled table segment">
       <thead>
         <tr>
         <th>Behavior</th>
@@ -598,10 +598,6 @@ type        : 'UI Module'
             <div class="item">
               <div class="header">hide</div>
               <div class="description">Dropdown menu is hidden</div>
-            </div>
-            <div class="item">
-              <div class="header">activate</div>
-              <div class="description">Dropdown menu is hidden, item activated and text is changed</div>
             </div>
             <div class="item">
               <div class="header">function(){}</div>

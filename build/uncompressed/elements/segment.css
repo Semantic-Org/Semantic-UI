@@ -79,6 +79,20 @@
   top: 1px;
 }
 
+.ui.page.grid.segment .ui.grid .ui.segment.column {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.ui.grid.segment,
+.ui.grid .ui.segment.row,
+.ui.grid .ui.segment.column {
+  border-radius: 0em;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
 /* No padding on edge content */
 
 .ui.segment > :first-child {
@@ -396,10 +410,18 @@
   border-radius: 5px 5px 0px 0px;
 }
 
+.ui.segment.top.attached:first-child {
+  margin-top: 0em;
+}
+
 .ui.segment.bottom.attached {
   top: -1px;
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 1em;
   border-radius: 0px 0px 5px 5px;
+}
+
+.ui.segment.bottom.attached:last-child {
+  margin-bottom: 0em;
 }
