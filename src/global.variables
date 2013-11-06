@@ -117,6 +117,9 @@
 @selectedBorderColor : rgba(0, 0, 0, 0.2);
 @solidBorderColor    : #DDDDDD;
 
+@whiteBorderColor         : rgba(255, 255, 255, 0.3);
+@selectedWhiteBorderColor : rgba(255, 255, 255, 0.8);
+
 /*-------------------
         Sizes
 --------------------*/
