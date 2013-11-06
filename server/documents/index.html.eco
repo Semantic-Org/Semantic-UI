@@ -261,7 +261,6 @@ type   : 'Semantic'
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -271,9 +270,9 @@ type   : 'Semantic'
   <div class="item">jack lukic 2013</div>
   <a href="https://github.com/jlukic/Semantic-UI" class="item">Github</a>
   <div class="item">
-    Made possibly by <a href="http://www.quirky.com" target="_blank" class="item">Quirky.com</a>
+    Made possibly by <a href="http://www.quirky.com" target="_blank">Quirky.com</a>
   </div>
   <div class="item">
-    Tested with <a href="http://www.browserstack.com" target="_blank" class="item">Browser Stack</a>
+    Tested with <a href="http://www.browserstack.com" target="_blank">Browser Stack</a>
   </div>
 </div>
