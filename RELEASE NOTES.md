@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.9.0 - Nov 2, 2013
+### Version 0.9.0 - Nov 5, 2013
 
 **New**
 - **Button** - Basic icons now have inverted style

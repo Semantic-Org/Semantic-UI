@@ -71,11 +71,9 @@ module.exports = function(grunt) {
       // creates custom license in header
       'cssmin:createMinCSSPackage',
 
-      // creates release zip
-      'compress:everything',
-
       // cleans previous generated release
       'clean:release'
+
     ],
 
     rtlTasks = [
@@ -87,8 +85,12 @@ module.exports = function(grunt) {
     ],
 
     docTasks = [
+
       // copies examples over to docs
       'copy:examplesToDocs',
+
+      // creates release zip
+      'compress:everything',
 
       // copies files over to docs
       'copy:buildToDocs',
