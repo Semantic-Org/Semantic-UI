@@ -307,7 +307,7 @@ type        : 'UI Module'
         <tr>
           <td>context</td>
           <td>body</td>
-          <td>Selector or jquery object specifying the area to dim</td>
+          <td>Selector or jquery object specifying where the popup should be created</td>
         </tr>
         <tr>
           <td>position</td>
