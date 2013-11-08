@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 0.9.1 - Nov 7, 2013
+
+**New**
+- **Popup** - Adds context option for popup (thanks jefmathiot)
+- **Accordion** - Adds formatting for nested accordions
+
+**Updates** 
+- **Accordion** - Fixes issue with accordion events inside accordions
+
 ### Version 0.9.0 - Nov 5, 2013
 
 **New**

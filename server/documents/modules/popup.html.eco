@@ -305,6 +305,11 @@ type        : 'UI Module'
       </thead>
       <tbody>
         <tr>
+          <td>context</td>
+          <td>body</td>
+          <td>Selector or jquery object specifying where the popup should be created</td>
+        </tr>
+        <tr>
           <td>position</td>
           <td>top center</td>
           <td>Position that the popup should appear</td>

@@ -11755,7 +11755,8 @@ a.ui.teal.label:hover:before {
             Accordion
 *******************************/
 
-.ui.accordion {
+.ui.accordion,
+.ui.accordion .accordion {
   width: 600px;
   max-width: 100%;
   overflow: hidden;
@@ -11891,7 +11892,8 @@ a.ui.teal.label:hover:before {
      Fluid
 ---------------*/
 
-.ui.fluid.accordion {
+.ui.fluid.accordion,
+.ui.fluid.accordion .accordion {
   width: 100%;
 }
 /*

@@ -383,7 +383,6 @@ semantic.ready = function() {
         $visibleStuck = $(this).find('.fixed.column .image, .fixed.column .content'),
         isInitialized = ($visibleStuck.parent('.sticky-wrapper').size() !== 0)
       ;
-      console.log(this);
       if(!isInitialized) {
         $visibleStuck
           .waypoint('sticky', {
