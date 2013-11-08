@@ -28,8 +28,8 @@
 }
 
 body > .ui.grid {
-  margin-right: 0%;
-  margin-left: 0%;
+  margin-right: 0% !important;
+  margin-left: 0% !important;
 }
 
 .ui.grid:after,
@@ -538,6 +538,7 @@ body > .ui.grid {
 @media only screen and (min-width : 768px) {
   .ui.mobile.only.grid,
   .ui.grid > .mobile.only.row,
+  .ui.grid > .mobile.only.column,
   .ui.grid > .row > .mobile.only.column {
     display: none;
   }
@@ -573,6 +574,7 @@ body > .ui.grid {
 @media only screen and (max-width : 768px), (min-width: 998px) {
   .ui.tablet.only.grid,
   .ui.grid > .tablet.only.row,
+  .ui.grid > .tablet.only.column,
   .ui.grid > .row > .tablet.only.column {
     display: none;
   }
@@ -608,6 +610,7 @@ body > .ui.grid {
 @media only screen and (max-width : 998px) {
   .ui.computer.only.grid,
   .ui.grid > .computer.only.row,
+  .ui.grid > .computer.only.column,
   .ui.grid > .row > .computer.only.column {
     display: none;
   }

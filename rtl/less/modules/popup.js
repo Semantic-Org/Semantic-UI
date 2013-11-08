@@ -15,7 +15,6 @@ $.fn.popup = function(parameters) {
   var
     $allModules     = $(this),
     $document       = $(document),
-    $body           = $('body'),
 
     moduleSelector  = $allModules.selector || '',
 
@@ -45,6 +44,7 @@ $.fn.popup = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
+        $context        = $(settings.context),
         $target         = (settings.target)
           ? $(settings.target)
           : $module,
@@ -173,7 +173,7 @@ $.fn.popup = function(parameters) {
             else {
               module.verbose('Appending popup element to body', $popup);
               $popup
-                .appendTo( $body )
+                .appendTo( $context )
               ;
             }
             $.proxy(settings.onCreate, $popup)();
@@ -239,7 +239,7 @@ $.fn.popup = function(parameters) {
             return ( $popup.size() !== 0 );
           }
           else {
-            return ( $popup.parent($body).size() );
+            return ( $popup.parent($context).size() );
           }
         },
 
@@ -757,6 +757,7 @@ $.fn.popup.settings = {
   target         : false,
   closable       : true,
 
+  context        : 'body',
   position       : 'top center',
   delay          : 150,
   inline         : false,

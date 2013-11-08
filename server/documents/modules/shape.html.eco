@@ -103,14 +103,14 @@ type        : 'UI Module'
         </div>
       </div>
 
-      <div class="ui divider"></div>
-      <div class="ui icon direction buttons">
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
         <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
         <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
         <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
         <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
       </div>
-      <div class="ui icon direction buttons">
+      <div class="ui ignored icon direction buttons">
         <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
         <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
       </div>
@@ -129,14 +129,14 @@ type        : 'UI Module'
         </div>
       </div>
 
-      <div class="ui divider"></div>
-      <div class="ui icon direction buttons">
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
         <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
         <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
         <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
         <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
       </div>
-      <div class="ui icon direction buttons">
+      <div class="ui ignored icon direction buttons">
         <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
         <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
       </div>
@@ -170,14 +170,14 @@ type        : 'UI Module'
         </div>
       </div>
 
-      <div class="ui divider"></div>
-      <div class="ui icon direction buttons">
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
         <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
         <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
         <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
         <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
       </div>
-      <div class="ui icon direction buttons">
+      <div class="ui ignored icon direction buttons">
         <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
         <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
       </div>

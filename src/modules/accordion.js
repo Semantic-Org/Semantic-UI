@@ -121,7 +121,7 @@ $.fn.accordion = function(parameters) {
           var
             $activeTitle     = $title.eq(index),
             $activeContent   = $activeTitle.next($content),
-            $previousTitle   = $title.filter('.' + className.active),
+            $previousTitle   = $activeTitle.siblings(selector.title).filter('.' + className.active),
             $previousContent = $previousTitle.next($title),
             contentIsOpen    =  ($previousTitle.size() > 0)
           ;
@@ -177,7 +177,7 @@ $.fn.accordion = function(parameters) {
             $activeTitle   = $title.eq(index),
             $activeContent = $activeTitle.next($content)
           ;
-          module.debug('Closing accordion content', $activeTitle);
+          module.debug('Closing accordion content', $activeContent);
           $activeTitle
             .removeClass(className.active)
           ;

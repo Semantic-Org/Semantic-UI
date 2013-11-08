@@ -117,6 +117,102 @@ type        : 'UI Module'
     <h2 class="ui dividing header">Examples</h2>
 
     <div class="example">
+      <h3 class="ui header">Nested</h3>
+      <p>An accordion can have multiple levels of nested content. This content can either be in a nested <code>accordion</code> or simply another level of <code>title</code> and <code>content</code></p>
+      <div class="ui accordion">
+        <div class="active title">
+          <i class="dropdown icon"></i>
+          Level 1
+        </div>
+        <div class="active content">
+          <p>Welcome to level 1 where sub content formatted as its own accordion.</p>
+          <div class="accordion">
+            <div class="active title">
+                <i class="dropdown icon"></i>
+                Level 1A
+            </div>
+            <div class="active content">
+              <p>Level 1A Contents</p>
+              <div class="accordion">
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Level 1A-A
+                </div>
+                <div class="content">
+                    Level 1A-A Contents
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Level 1A-B
+                </div>
+                <div class="content">
+                    Level 1A-B Contents
+                </div>
+              </div>
+            </div>
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Level 1B
+            </div>
+            <div class="content">
+                Level 1B Contents
+            </div>
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Level 1C
+            </div>
+            <div class="content">
+                Level 1C Contents
+            </div>
+          </div>
+        </div>
+        <div class="title">
+          <i class="dropdown icon"></i>
+          Level 2
+        </div>
+        <div class="content">
+          <p>Welcome to level 2 where content is formatted without nested accordions</p>
+          <div class="active title">
+            <i class="dropdown icon"></i>
+            Level 2A
+          </div>
+          <div class="active content">
+            <p>Level 2A Contents</p>
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Level 2A-A
+            </div>
+            <div class="content">
+                Level 2A-A Contents
+            </div>
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Level 2A-B
+            </div>
+            <div class="content">
+                Level 2A-B Contents
+            </div>
+          </div>
+          <div class="title">
+              <i class="dropdown icon"></i>
+              Level 2B
+          </div>
+          <div class="content">
+              Level 2B Contents
+          </div>
+          <div class="title">
+              <i class="dropdown icon"></i>
+              Level 2C
+          </div>
+          <div class="content">
+              Level 2C Contents
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
       <h3 class="ui header">Form</h3>
       <p>An accordion can be used anywhere where content can be shown or hidden. For example, to show optional form fields.</p>
       <div class="ui segment">

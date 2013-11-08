@@ -92,14 +92,6 @@ type        : 'UI Element'
         <i class="asterisk icon"></i>
       </div>
     </div>
-    <br><br>
-    <div class="ui labeled input">
-      <input type="text" placeholder="Search...">
-      <div class="ui corner label">
-        <div class="text">New</div>
-      </div>
-    </div>
-
   </div>
 
   <div class="example">
