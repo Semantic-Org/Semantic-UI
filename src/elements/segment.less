@@ -11,6 +11,40 @@
 
 
 /*******************************
+           Variables
+*******************************/
+
+@import "../global.variables";
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+@borderColor
+
+*/
+
+/*-------------------
+   Segment Variables
+--------------------*/
+
+@verticalPadding: 1em;
+@horizontalPadding: 1em;
+
+@margin: 1em;
+@borderRadius: 5px;
+
+@pageGridMargin: 2 * @verticalPadding;
+
+@coloredBorderSize: 0.2em;
+
+@secondaryColor: #FAF9FA;
+@tertiaryColor:  #EBEBEB;
+
+
+
+/*******************************
             Segment
 *******************************/
 
@@ -18,18 +52,12 @@
   position: relative;
   background-color: #FFFFFF;
 
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px @borderColor;
 
-  margin: 1em 0em;
-  padding: 1em;
+  margin: @margin 0em;
+  padding: @verticalPadding @horizontalPadding;
 
-  -webkit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  border-radius: @borderRadius;
   box-sizing: border-box;
 
 }
@@ -44,7 +72,7 @@
 .ui.segment:after {
   content: '';
   display: block;
-  height: 0;
+  height: 0px;
   clear: both;
   visibility: hidden;
 }
@@ -55,20 +83,8 @@
   padding-right: 0em;
 
   background-color: transparent;
-
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
   border-radius: 0px;
-
-  -webkit-box-shadow:
-    0px 1px 0px rgba(0, 0, 0, 0.1)
-  ;
-  -moz-box-shadow:
-    0px 1px 0px rgba(0, 0, 0, 0.1)
-  ;
-  box-shadow:
-    0px 1px 0px rgba(0, 0, 0, 0.1)
-  ;
+  box-shadow: 0px 1px 0px @borderColor;
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
@@ -80,20 +96,8 @@
   padding-bottom: 0em;
 
   background-color: transparent;
-
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
   border-radius: 0px;
-
-  -webkit-box-shadow:
-    1px 0px 0px rgba(0, 0, 0, 0.1)
-  ;
-  -moz-box-shadow:
-    1px 0px 0px rgba(0, 0, 0, 0.1)
-  ;
-  box-shadow:
-    1px 0px 0px rgba(0, 0, 0, 0.1)
-  ;
+  box-shadow: 1px 0px 0px @borderColor;
 }
 .ui.horizontal.segment:first-child {
   padding-left: 0em;
@@ -107,10 +111,10 @@
   top: 1px;
 }
 
-.ui.page.grid.segment
+.ui.page.grid.segment,
 .ui.grid .ui.segment.column {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: @pageGridMargin;
+  padding-bottom: @pageGridMargin;
 }
 .ui.grid.segment,
 .ui.grid .ui.segment.row,
@@ -137,22 +141,8 @@
 --------------------*/
 
 .ui.piled.segment {
-  margin: 2em 0em;
-  -webkit-box-shadow:
-    0px 0px 1px 1px rgba(0, 0, 0, 0.15)
-  ;
-  -moz-box-shadow:
-    0px 0px 1px 1px rgba(0, 0, 0, 0.15)
-  ;
-  -ms-box-shadow:
-    0px 0px 1px 1px rgba(0, 0, 0, 0.15)
-  ;
-  -o-box-shadow:
-    0px 0px 1px 1px rgba(0, 0, 0, 0.15)
-  ;
-  box-shadow:
-    0px 0px 1px 1px rgba(0, 0, 0, 0.15)
-  ;
+  margin: (2 * @margin) 0em;
+  box-shadow: 0px 0px 1px 1px @borderColor;
 }
 .ui.piled.segment:first-child {
   margin-top: 0em;
@@ -170,31 +160,14 @@
   left: -1px;
   position: absolute;
   width: 100%;
-
-  -webkit-box-shadow:
-    0px 0px 1px 1px rgba(0, 0, 0, 0.1)
-  ;
-  -moz-box-shadow:
-    0px 0px 1px 1px rgba(0, 0, 0, 0.1)
-  ;
-  box-shadow:
-    0px 0px 1px 1px rgba(0, 0, 0, 0.1)
-  ;
+  box-shadow: 0px 0px 1px 1px @borderColor;
 }
 .ui.piled.segment:after {
-  -webkit-transform: rotate(1.2deg);
-  -moz-transform: rotate(1.2deg);
-  -ms-transform: rotate(1.2deg);
-  -o-transform: rotate(1.2deg);
   transform: rotate(1.2deg);
   top: 0;
   z-index: -1;
 }
 .ui.piled.segment:before {
-  -webkit-transform: rotate(-1.2deg);
-  -moz-transform: rotate(-1.2deg);
-  -ms-transform: rotate(-1.2deg);
-  -o-transform: rotate(-1.2deg);
   transform: rotate(-1.2deg);
   top: 0;
   z-index: -2;
@@ -205,7 +178,7 @@
 --------------------*/
 
 .ui.stacked.segment {
-  padding-bottom: 1.7em;
+  padding-bottom: @verticalPadding + (0.7em);
 }
 .ui.stacked.segment:after,
 .ui.stacked.segment:before {
@@ -214,8 +187,8 @@
   bottom: -3px;
   left: 0%;
 
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid @borderColor;
+  background-color: @subtleTransparentBlack;
 
   width: 100%;
   height: 5px;
@@ -228,8 +201,8 @@
 /* Inverted */
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  background-color: @subtleTransparentBlack;
+  border-top: 1px solid @selectedBorderColor;
 }
 
 /*-------------------
@@ -237,9 +210,7 @@
 --------------------*/
 
 .ui.raised.segment {
-  -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 1px @borderColor;
 }
 
 
@@ -248,8 +219,8 @@
 *******************************/
 
 .ui.disabled.segment {
-  opacity: 0.8;
-  color: #DDDDDD;
+  opacity: @disabledOpacity;
+  color: @disabledTextColor;
 }
 
 
@@ -265,13 +236,8 @@
 .ui.basic.segment {
   position: relative;
   background-color: transparent;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
   border-radius: 0px;
 }
 .ui.basic.segment:first-child {
@@ -295,58 +261,75 @@
        Colors
 --------------------*/
 
+.ui.black.segment {
+  border-top: @coloredBorderSize solid @black;
+}
 .ui.blue.segment {
-  border-top: 0.2em solid #6ECFF5;
+  border-top: @coloredBorderSize solid @blue;
 }
 .ui.green.segment {
-  border-top: 0.2em solid #A1CF64;
-}
-.ui.red.segment {
-  border-top: 0.2em solid #D95C5C;
+  border-top: @coloredBorderSize solid @green;
 }
 .ui.orange.segment {
-  border-top: 0.2em solid #F05940;
+  border-top: @coloredBorderSize solid @orange;
+}
+.ui.pink.segment {
+  border-top: @coloredBorderSize solid @pink;
 }
 .ui.purple.segment {
-  border-top: 0.2em solid #564F8A;
+  border-top: @coloredBorderSize solid @purple;
+}
+.ui.red.segment {
+  border-top: @coloredBorderSize solid @red;
 }
 .ui.teal.segment {
-  border-top: 0.2em solid #00B5AD;
+  border-top: @coloredBorderSize solid @teal;
+}
+.ui.yellow.segment {
+  border-top: @coloredBorderSize solid @yellow;
 }
 
 /*-------------------
    Inverted Colors
 --------------------*/
 
+.ui.inverted.segment,
 .ui.inverted.black.segment {
-  background-color: #5C6166 !important;
+  background-color: @black !important;
   color: #FFFFFF !important;
 }
 .ui.inverted.blue.segment {
-  background-color: #6ECFF5 !important;
+  background-color: @blue !important;
   color: #FFFFFF !important;
 }
 .ui.inverted.green.segment {
-  background-color: #A1CF64 !important;
-  color: #FFFFFF !important;
-}
-.ui.inverted.red.segment {
-  background-color: #D95C5C !important;
+  background-color: @green !important;
   color: #FFFFFF !important;
 }
 .ui.inverted.orange.segment {
-  background-color: #F05940 !important;
+  background-color: @orange !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.pink.segment {
+  background-color: @pink !important;
   color: #FFFFFF !important;
 }
 .ui.inverted.purple.segment {
-  background-color: #564F8A !important;
+  background-color: @purple !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.red.segment {
+  background-color: @red !important;
   color: #FFFFFF !important;
 }
 .ui.inverted.teal.segment {
-  background-color: #00B5AD !important;
+  background-color: @teal !important;
   color: #FFFFFF !important;
 }
-
+.ui.inverted.yellow.segment {
+  background-color: @yellow !important;
+  color: #FFFFFF !important;
+}
 
 /*-------------------
        Aligned
@@ -387,7 +370,7 @@
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #222222;
+  background-color: @black;
   color: #FFFFFF;
 }
 
@@ -395,38 +378,25 @@
      Ordinality
 --------------------*/
 
-.ui.primary.segment {
-  background-color: #FFFFFF;
-  color: #555555;
-}
-
 .ui.secondary.segment {
-  background-color: #FAF9FA;
-  color: #777777;
+  background-color: @secondaryColor;
+  color: @textColor;
 }
 
 .ui.tertiary.segment {
-  background-color: #EBEBEB;
-  color: #B0B0B0;
+  background-color: @tertiaryColor;
+  color: @lightTextColor;
 }
 
 .ui.secondary.inverted.segment {
-  background-color: #555555;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  color: #FAFAFA;
+  background-color: @black;
+ background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  color: @offWhite;
 }
 .ui.tertiary.inverted.segment {
-  background-color: #555555;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-color: @black;
   background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  color: #EEEEEE;
+  color: @darkWhite;
 }
 
 
@@ -437,28 +407,18 @@
 .ui.segment.attached {
   top: -1px;
   bottom: -1px;
-
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-
   margin: 0em;
-
-  -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
-  -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
-  box-shadow: 0px 0px 0px 1px #DDDDDD;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px 1px @solidBorderColor;
 }
 
 .ui.top.attached.segment {
   top: 0px;
   bottom: -1px;
 
-  margin-top: 1em;
+  margin-top: @margin;
   margin-bottom: 0em;
-
-  -moz-border-radius: 5px 5px 0px 0px;
-  -webkit-border-radius: 5px 5px 0px 0px;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.segment.top.attached:first-child {
   margin-top: 0em;
@@ -469,11 +429,9 @@
   bottom: 0px;
 
   margin-top: 0em;
-  margin-bottom: 1em;
+  margin-bottom: @margin;
 
-  -moz-border-radius: 0px 0px 5px 5px;
-  -webkit-border-radius: 0px 0px 5px 5px;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px @borderRadius @borderRadius;
 }
 .ui.segment.bottom.attached:last-child {
   margin-bottom: 0em;
