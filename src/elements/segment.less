@@ -9,6 +9,23 @@
  *
  */
 
+/*******************************
+           Variables
+*******************************/
+
+@import "../global.variables";
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+// (Color Variables)
+
+/*-------------------
+   Segment Variables
+--------------------*/
+
+/* Segment Variables */
 
 /*******************************
             Segment
@@ -16,7 +33,7 @@
 
 .ui.segment {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: @white;
 
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
@@ -107,7 +124,7 @@
 }
 .ui.piled.segment:after,
 .ui.piled.segment:before {
-  background-color: #FFFFFF;
+  background-color: @white;
   visibility: visible;
   content: "";
   display: block;
@@ -183,7 +200,7 @@
 
 .ui.disabled.segment {
   opacity: 0.8;
-  color: #DDDDDD;
+  color: @lightGrey;
 }
 
 
@@ -224,22 +241,22 @@
 --------------------*/
 
 .ui.blue.segment {
-  border-top: 0.2em solid #6ECFF5;
+  border-top: 0.2em solid @blue;
 }
 .ui.green.segment {
-  border-top: 0.2em solid #A1CF64;
+  border-top: 0.2em solid @green;
 }
 .ui.red.segment {
-  border-top: 0.2em solid #D95C5C;
+  border-top: 0.2em solid @red;
 }
 .ui.orange.segment {
-  border-top: 0.2em solid #F05940;
+  border-top: 0.2em solid @orange;
 }
 .ui.purple.segment {
-  border-top: 0.2em solid #564F8A;
+  border-top: 0.2em solid @purple;
 }
 .ui.teal.segment {
-  border-top: 0.2em solid #00B5AD;
+  border-top: 0.2em solid @teal;
 }
 
 /*-------------------
@@ -248,31 +265,31 @@
 
 .ui.inverted.black.segment {
   background-color: #5C6166 !important;
-  color: #FFFFFF !important;
+  color: @white !important;
 }
 .ui.inverted.blue.segment {
-  background-color: #6ECFF5 !important;
-  color: #FFFFFF !important;
+  background-color: @blue !important;
+  color: @white !important;
 }
 .ui.inverted.green.segment {
-  background-color: #A1CF64 !important;
-  color: #FFFFFF !important;
+  background-color: @green !important;
+  color: @white !important;
 }
 .ui.inverted.red.segment {
-  background-color: #D95C5C !important;
-  color: #FFFFFF !important;
+  background-color: @red !important;
+  color: @white !important;
 }
 .ui.inverted.orange.segment {
-  background-color: #F05940 !important;
-  color: #FFFFFF !important;
+  background-color: @orange !important;
+  color: @white !important;
 }
 .ui.inverted.purple.segment {
-  background-color: #564F8A !important;
-  color: #FFFFFF !important;
+  background-color: @purple !important;
+  color: @white !important;
 }
 .ui.inverted.teal.segment {
-  background-color: #00B5AD !important;
-  color: #FFFFFF !important;
+  background-color: @teal !important;
+  color: @white !important;
 }
 
 
@@ -313,8 +330,8 @@
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #222222;
-  color: #FFFFFF;
+  background-color: @darkBlack;
+  color: @white;
 }
 
 /*-------------------
@@ -322,8 +339,8 @@
 --------------------*/
 
 .ui.primary.segment {
-  background-color: #FFFFFF;
-  color: #555555;
+  background-color: @white;
+  color: @black;
 }
 
 .ui.secondary.segment {
@@ -337,16 +354,16 @@
 }
 
 .ui.secondary.inverted.segment {
-  background-color: #555555;
+  background-color: @black;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  color: #FAFAFA;
+  color: @offWhite;
 }
 .ui.tertiary.inverted.segment {
-  background-color: #555555;
+  background-color: @black;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
@@ -365,7 +382,7 @@
   bottom: -1px;
   border-radius: 0px;
   margin: 0em;
-  box-shadow: 0px 0px 0px 1px #DDDDDD;
+  box-shadow: 0px 0px 0px 1px @lightGrey;
 }
 .ui.top.attached.segment {
   top: 0px;
