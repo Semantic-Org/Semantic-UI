@@ -9263,7 +9263,7 @@ img.ui.image {
 }
 
 .ui.labeled.icon.input:not(.left) > .icon {
-  margin-right: 0.75em;
+  margin-right: 1.25em;
 }
 
 /*--------------------
@@ -13802,7 +13802,7 @@ a.ui.nag {
   visibility: hidden;
 }
 
-.ui.active.popup {
+.ui.visible.popup {
   display: block;
 }
 

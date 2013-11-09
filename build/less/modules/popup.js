@@ -492,6 +492,7 @@ $.fn.popup = function(parameters) {
               .css(positioning)
               .removeClass(className.position)
               .addClass(position)
+              .addClass(className.loading)
             ;
             // check if is offstage
             offstagePosition = module.get.offstagePosition();
@@ -508,6 +509,7 @@ $.fn.popup = function(parameters) {
               else {
                 module.error(error.recursion);
                 searchDepth = 0;
+                module.reset();
                 return false;
               }
             }
@@ -516,6 +518,8 @@ $.fn.popup = function(parameters) {
               searchDepth = 0;
               return true;
             }
+
+            $module.removeClass(className.loading);
           }
 
         },
