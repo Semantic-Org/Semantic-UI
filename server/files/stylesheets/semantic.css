@@ -1032,6 +1032,9 @@ body.guide .main.container > * {
 #example .no.example i.code {
   display: none;
 }
+#example .clearing.example {
+  overflow: hidden;
+}
 
 #example .example:first-child,
 #example h2 + .example,

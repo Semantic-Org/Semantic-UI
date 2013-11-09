@@ -172,7 +172,7 @@ type        : 'UI Element'
     </div>
   </div>
 
-  <div class="example">
+  <div class="clearing example">
     <h4 class="ui header">Floated</h4>
     <p>A segment cant sit to the left or right of other content</p>
     <div class="ui right floated segment">
