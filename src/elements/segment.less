@@ -20,12 +20,32 @@
 --------------------*/
 
 // (Color Variables)
+// @blue
+// @green
+// @orange
+// @pink
+// @purple
+// @red
+// @teal
+// @black
+// @lightGrey
+// @white
+// @offwhite
+// @darkwhite
+// @strongTransparentBlack
+// @textColor
+// @disabledTextColor
+
 
 /*-------------------
    Segment Variables
 --------------------*/
 
 /* Segment Variables */
+
+@piledRotation             : 1.2deg;
+@secondaryInvertedGradient : rgba(255, 255, 255, 0.3);
+@tertiaryInvertedGradient  : rgba(255, 255, 255, 0.6);
 
 /*******************************
             Segment
@@ -35,7 +55,7 @@
   position: relative;
   background-color: @white;
 
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px @strongTransparentBlack;
 
   margin: 1em 0em;
   padding: 1em;
@@ -70,7 +90,7 @@
   padding-right: 0em;
   background-color: transparent;
   border-radius: 0px;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 0px @strongTransparentBlack;
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
@@ -82,7 +102,7 @@
   padding-bottom: 0em;
   background-color: transparent;
   border-radius: 0px;
-  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 0px @strongTransparentBlack;
 }
 .ui.horizontal.segment:first-child {
   padding-left: 0em;
@@ -132,23 +152,23 @@
   left: -1px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px @strongTransparentBlack;
 }
 .ui.piled.segment:after {
-  -webkit-transform: rotate(1.2deg);
-  -moz-transform: rotate(1.2deg);
-  -ms-transform: rotate(1.2deg);
-  -o-transform: rotate(1.2deg);
-  transform: rotate(1.2deg);
+  -webkit-transform: rotate(@piledRotation);
+  -moz-transform: rotate(@piledRotation);
+  -ms-transform: rotate(@piledRotation);
+  -o-transform: rotate(@piledRotation);
+  transform: rotate(@piledRotation);
   top: 0;
   z-index: -1;
 }
 .ui.piled.segment:before {
-  -webkit-transform: rotate(-1.2deg);
-  -moz-transform: rotate(-1.2deg);
-  -ms-transform: rotate(-1.2deg);
-  -o-transform: rotate(-1.2deg);
-  transform: rotate(-1.2deg);
+  -webkit-transform: rotate(-@piledRotation);
+  -moz-transform: rotate(-@piledRotation);
+  -ms-transform: rotate(-@piledRotation);
+  -o-transform: rotate(-@piledRotation);
+  transform: rotate(-@piledRotation);
   top: 0;
   z-index: -2;
 }
@@ -167,7 +187,7 @@
   bottom: -3px;
   left: 0%;
 
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid @strongTransparentBlack;
   background-color: rgba(0, 0, 0, 0.02);
 
   width: 100%;
@@ -190,7 +210,7 @@
 --------------------*/
 
 .ui.raised.segment {
-  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 1px @strongTransparentBlack;
 }
 
 
@@ -200,7 +220,7 @@
 
 .ui.disabled.segment {
   opacity: 0.8;
-  color: @lightGrey;
+  color: @disabledTextColor;
 }
 
 
@@ -264,7 +284,7 @@
 --------------------*/
 
 .ui.inverted.black.segment {
-  background-color: #5C6166 !important;
+  background-color: @black !important;
   color: @white !important;
 }
 .ui.inverted.blue.segment {
@@ -340,35 +360,35 @@
 
 .ui.primary.segment {
   background-color: @white;
-  color: @black;
+  color: @textColor;
 }
 
 .ui.secondary.segment {
-  background-color: #FAF9FA;
+  background-color: @offWhite;
   color: #777777;
 }
 
 .ui.tertiary.segment {
-  background-color: #EBEBEB;
+  background-color: @darkWhite;
   color: #B0B0B0;
 }
 
 .ui.secondary.inverted.segment {
   background-color: @black;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@secondaryInvertedGradient), to(@secondaryInvertedGradient));
+  background-image: -webkit-linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
+  background-image: -moz-linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
+  background-image: -o-linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
+  background-image: linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
   color: @offWhite;
 }
 .ui.tertiary.inverted.segment {
   background-color: @black;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@tertiaryInvertedGradient), to(@tertiaryInvertedGradient));
+  background-image: -webkit-linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
+  background-image: -moz-linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
+  background-image: -o-linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
+  background-image: linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
   color: #EEEEEE;
 }
 
