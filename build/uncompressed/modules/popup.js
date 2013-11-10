@@ -15,7 +15,6 @@ $.fn.popup = function(parameters) {
   var
     $allModules     = $(this),
     $document       = $(document),
-    $body           = $('body'),
 
     moduleSelector  = $allModules.selector || '',
 
@@ -45,6 +44,7 @@ $.fn.popup = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
+        $context        = $(settings.context),
         $target         = (settings.target)
           ? $(settings.target)
           : $module,
@@ -173,7 +173,7 @@ $.fn.popup = function(parameters) {
             else {
               module.verbose('Appending popup element to body', $popup);
               $popup
-                .appendTo( $body )
+                .appendTo( $context )
               ;
             }
             $.proxy(settings.onCreate, $popup)();
@@ -239,7 +239,7 @@ $.fn.popup = function(parameters) {
             return ( $popup.size() !== 0 );
           }
           else {
-            return ( $popup.parent($body).size() );
+            return ( $popup.parent($context).size() );
           }
         },
 
@@ -256,7 +256,7 @@ $.fn.popup = function(parameters) {
             $module
               .addClass(className.visible)
             ;
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition(settings.transition + ' in', settings.duration, function() {
                   module.bind.close();
@@ -278,7 +278,7 @@ $.fn.popup = function(parameters) {
           hide: function(callback) {
             callback = callback || function(){};
             module.debug('Hiding pop-up');
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition(settings.transition + ' out', settings.duration, function() {
                   module.reset();
@@ -492,6 +492,7 @@ $.fn.popup = function(parameters) {
               .css(positioning)
               .removeClass(className.position)
               .addClass(position)
+              .addClass(className.loading)
             ;
             // check if is offstage
             offstagePosition = module.get.offstagePosition();
@@ -508,6 +509,7 @@ $.fn.popup = function(parameters) {
               else {
                 module.error(error.recursion);
                 searchDepth = 0;
+                module.reset();
                 return false;
               }
             }
@@ -516,6 +518,8 @@ $.fn.popup = function(parameters) {
               searchDepth = 0;
               return true;
             }
+
+            $module.removeClass(className.loading);
           }
 
         },
@@ -757,6 +761,7 @@ $.fn.popup.settings = {
   target         : false,
   closable       : true,
 
+  context        : 'body',
   position       : 'top center',
   delay          : 150,
   inline         : false,

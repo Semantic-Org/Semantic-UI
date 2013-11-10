@@ -330,7 +330,7 @@ type        : 'UI Behavior'
       <tr>
         <td>email</td>
         <td>value</td>
-        <td>Checks whether a field is empty</td>
+        <td>Checks whether a field is a valid email address</td>
       </tr>
       <tr>
         <td>length</td>
@@ -366,6 +366,11 @@ type        : 'UI Behavior'
         <td>url</td>
         <td>value</td>
         <td>Checks whether a field is a url</td>
+      </tr>
+      <tr>
+        <td>checked</td>
+        <td>-</td>
+        <td>Checks whether a checkbox field is checked</td>
       </tr>
     </tbody>
   </table>

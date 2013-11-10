@@ -14,6 +14,7 @@
 *******************************/
 
 .ui.dropdown {
+  cursor: pointer;
   position: relative;
   display: inline-block;
 
@@ -55,6 +56,7 @@
 ---------------*/
 
 .ui.dropdown .menu {
+  cursor: auto;
   position: absolute;
   display: none;
   top: 100%;
@@ -110,9 +112,7 @@
 ---------------*/
 
 .ui.dropdown > .text {
-  cursor: pointer;
   display: inline-block;
-
   -webkit-transition: color 0.2s ease;
   -moz-transition: color 0.2s ease;
   -o-transition: color 0.2s ease;
@@ -168,6 +168,7 @@
 .ui.dropdown .menu .item:first-child {
   border-top: none;
 }
+
 
 /*******************************
             Coupling
@@ -437,7 +438,7 @@
   left: 0;
   right: auto;
 
-  margin-top: 0.5em;
+  margin-top: 0.5em !important;
 
   -webkit-border-radius: 0.325em;
   -moz-border-radius: 0.325em;

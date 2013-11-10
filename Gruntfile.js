@@ -18,7 +18,13 @@ module.exports = function(grunt) {
       'copy:srcToDocs',
 
       // copies examples over to docs
-      'copy:examplesToDocs'
+      'copy:examplesToDocs',
+
+      // create concatenated css release
+      'concat:createDocsCSSPackage',
+
+      // create concatenated js release
+      'concat:createDocsJSPackage'
     ],
 
     testWatchTasks = [
@@ -34,65 +40,57 @@ module.exports = function(grunt) {
       'karma:travis'
     ],
 
-    specTasks = [
-      // generate code docs
-      'docco:generate',
-
-      // copies spec files over to docs
-      'copy:specToDocs'
-    ],
-
-    buildTasks = [
+    releaseTasks = [
       // clean build directory
       'clean:build',
-
-      // compiles less
-      'less:buildCSS',
 
       // copies assets and js over to build dir
       'copy:srcToBuild',
 
-      // creates minified css of each file
-      'cssmin:minifyCSS',
-
-      // adds custom license in header
-      'cssmin:addBanner',
-
-      // create concatenated css release
-      'concat:concatenateCSS',
-
-      // create concatenated js release
-      'concat:concatenateJS',
-
-      // creates minified js of each file
-      'uglify:minifyJS',
-
-      // creates release js of all together
-      'uglify:buildReleaseJS',
-
-      // creates minified css of each file
-      'cssmin:minifyCSS',
-
-      // creates custom license in header
-      'cssmin:addBanner',
+      // compiles less
+      'less:buildCSS',
 
       // auto prefix build files
       'autoprefixer:prefixBuild',
 
+      // creates minified js of each file
+      'uglify:minifyJS',
+
+      // creates minified css of each file
+      'cssmin:minifyCSS',
+
+      // create concatenated css release
+      'concat:createCSSPackage',
+
+      // create concatenated js release
+      'concat:createJSPackage',
+
+      // creates release js of all together
+      'uglify:createMinJSPackage',
+
+      // creates custom license in header
+      'cssmin:createMinCSSPackage',
+
       // cleans previous generated release
-      'clean:release',
+      'clean:release'
 
-      // creates release zip
-      'compress:everything',
+    ],
 
+    rtlTasks = [
       // copies assets to rtl
       'copy:buildToRTL',
 
       // create rtl release
-      'cssjanus:rtl',
+      'cssjanus:rtl'
+    ],
+
+    docTasks = [
 
       // copies examples over to docs
       'copy:examplesToDocs',
+
+      // creates release zip
+      'compress:everything',
 
       // copies files over to docs
       'copy:buildToDocs',
@@ -103,6 +101,8 @@ module.exports = function(grunt) {
       // copies spec files over to docs
       'copy:specToDocs'
     ],
+
+    buildTasks = releaseTasks.concat(rtlTasks).concat(docTasks),
 
     setWatchTests = function(action, filePath) {
       var
@@ -134,12 +134,16 @@ module.exports = function(grunt) {
       else {
         grunt.config('less.buildDocsCSS.src', 'non/existant/path');
         grunt.config('less.buildDocsCSS.dest', 'non/existant/path');
+        grunt.config('autoprefixer.prefixDocs.src', 'non/existant/path');
       }
     },
 
     // this allows filenames with multiple extensions to be preserved
     preserveFileExtensions = function(folder, filename) {
       return folder + filename.substring(0, filename.lastIndexOf('.') ) + '.css';
+    },
+    preserveMinFileExtensions = function(folder, filename) {
+      return folder + filename.substring(0, filename.lastIndexOf('.') ) + '.min.css';
     },
 
     config
@@ -205,6 +209,8 @@ module.exports = function(grunt) {
         browsers: [
           'last 2 version',
           '> 1%',
+          'opera 12.1',
+          'safari 6',
           'ie 9',
           'bb 10',
           'android 4'
@@ -448,7 +454,7 @@ module.exports = function(grunt) {
             src    : [
               '**'
             ],
-            dest   : 'docs/examples/'
+            dest   : 'docs/build/examples/'
           }
         ]
       }
@@ -476,17 +482,42 @@ module.exports = function(grunt) {
     concat: {
       options: {
       },
-      concatenateCSS: {
+      createCSSPackage: {
         src: ['build/uncompressed/**/*.css'],
         dest: 'build/packaged/css/semantic.css'
       },
-      concatenateJS: {
+      createJSPackage: {
         src: ['build/uncompressed/**/*.js'],
         dest: 'build/packaged/javascript/semantic.js'
+      },
+      createDocsCSSPackage: {
+        src: ['docs/build/uncompressed/**/*.css'],
+        dest: 'docs/build/packaged/css/semantic.css'
+      },
+      createDocsJSPackage: {
+        src: ['docs/build/uncompressed/**/*.js'],
+        dest: 'docs/build/packaged/javascript/semantic.js'
       },
     },
 
     cssmin: {
+      options : {
+        keepSpecialComments: 0,
+        report: 'min',
+        banner : '' +
+          '/*\n' +
+          '* # <%= package.title %>\n' +
+          '* Version: <%= package.version %>\n' +
+          '* http://github.com/jlukic/semantic-ui\n' +
+          '*\n' +
+          '*\n' +
+          '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
+          '* Released under the MIT license\n' +
+          '* http://opensource.org/licenses/MIT\n' +
+          '*\n' +
+          '* Released: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
+          '*/\n'
+      },
 
       // copy minified css to minified release
       minifyCSS: {
@@ -495,27 +526,12 @@ module.exports = function(grunt) {
         src    : [
           '**/*.css'
         ],
-        dest : 'build/minified',
-        ext  : '.min.css'
+        dest : 'build/minified/',
+        rename: preserveMinFileExtensions
       },
 
       // add comment banner to css release
-      addBanner: {
-        options : {
-          banner : '' +
-            '/*\n' +
-            '* # <%= package.title %>\n' +
-            '* Version: <%= package.version %>\n' +
-            '* http://github.com/jlukic/semantic-ui\n' +
-            '*\n' +
-            '*\n' +
-            '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
-            '* Released under the MIT license\n' +
-            '* http://opensource.org/licenses/MIT\n' +
-            '*\n' +
-            '* Released: <%= grunt.template.today("mm/dd/yyyy") %>\n' +
-            '*/\n'
-        },
+      createMinCSSPackage: {
         files: {
           'build/packaged/css/semantic.min.css': [
             'build/uncompressed/**/*.css'
@@ -549,7 +565,7 @@ module.exports = function(grunt) {
           '*/\n'
       },
 
-      buildReleaseJS: {
+      createMinJSPackage: {
         options: {
           mangle   : true,
           compress : true,
@@ -594,10 +610,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig(config);
+  
   grunt.registerTask('default', defaultTasks);
-  grunt.registerTask('build', buildTasks);
-  grunt.registerTask('spec', specTasks);
   grunt.registerTask('test', testTasks);
+
+  grunt.registerTask('release', releaseTasks);
+  grunt.registerTask('rtl', rtlTasks);
+  grunt.registerTask('docs', docTasks);
+  grunt.registerTask('build', buildTasks);
 
   // compiles only changed less files <https://npmjs.org/package/grunt-contrib-watch>
   grunt.event.on('watch', setWatchFiles);

@@ -34,18 +34,20 @@
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
 
+@borderRadius: 0.25em;
+
+@shadowDistance: 0.133em;
+@shadowOffset: (@shadowDistance / 2 + 0.05em);
+
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.5em;
 
 @compactVerticalPadding: (@verticalPadding * 0.75);
 @compactHorizontalPadding: (@horizontalPadding * 0.75);
 
-@borderRadius: 0.25em;
-
 @backgroundColor: #FAFAFA;
 @backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
 
-@shadowDistance: 0.133em;
 @boxShadow:
   0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset,
   0px -@shadowDistance 0px 0px rgba(0, 0, 0, 0.1) inset
@@ -106,7 +108,7 @@
   color: @textColor;
 
   margin: 0em;
-  padding: @verticalPadding @horizontalPadding ( @verticalPadding + (@shadowDistance / 2) );
+  padding: @verticalPadding @horizontalPadding (@verticalPadding + @shadowOffset);
 
   font-size: 1rem;
   text-transform: @textTransform;
@@ -169,14 +171,12 @@
      Active
 ---------------*/
 
-.ui.buttons .active.button,
 .ui.active.button {
   background-color: @activeBackgroundColor;
   background-image: @activeBackgroundImage;
   box-shadow: @activeBoxShadow;
   color: @textColor;
 }
-
 .ui.button.active:hover {
   background-color: @activeBackgroundColor;
   background-image: @activeBackgroundImage;
@@ -262,7 +262,7 @@
   top: 50%;
   left: auto;
   right: -100%;
-  margin-top: -0.55em;
+  margin-top: -0.5em;
 }
 .ui.animated.button:hover .visible.content {
   left: auto;
@@ -506,7 +506,6 @@
   ;
 }
 
-
 /*******************************
            Variations
 *******************************/
@@ -533,12 +532,13 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: @compactVerticalPadding @compactHorizontalPadding ( @compactVerticalPadding + (@shadowDistance / 2) );
+  padding: @compactVerticalPadding @compactHorizontalPadding @shadowOffset;
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.buttons .icon.button {
-  padding: @compactVerticalPadding @compactVerticalPadding ( @compactVerticalPadding + (@shadowDistance / 2) );
+  padding: @compactVerticalPadding @compactVerticalPadding @shadowOffset;
 }
+
 
 
 /*-------------------
@@ -631,13 +631,12 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: @verticalPadding @verticalPadding ( @verticalPadding + (@shadowDistance / 2) );
+  padding: @verticalPadding @verticalPadding ( @verticalPadding + @shadowOffset );
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   opacity: @iconButtonOpacity;
   margin: 0em;
-  vertical-align: top;
 }
 
 
@@ -653,7 +652,11 @@
   color: @textColor !important;
   font-weight: normal;
   text-transform: none;
+  padding: @verticalPadding @horizontalPadding !important;
   box-shadow: 0px 0px 0px 1px @borderColor inset;
+}
+.ui.basic.labeled.icon.button > .icon {
+  padding-top: (@verticalPadding) !important;
 }
 .ui.basic.buttons {
   box-shadow: 0px 0px 0px 1px @borderColor inset;
@@ -683,6 +686,35 @@
   background-color: @transparentBlack;
 }
 
+/* Inverted */
+.ui.basic.inverted.buttons .button,
+.ui.basic.inverted.button {
+  color: @offWhite !important;
+  box-shadow: @whiteBorderColor;
+}
+.ui.basic.inverted.buttons .button:hover,
+.ui.basic.inverted.button:hover {
+  background-image: none;
+  color: #FFFFFF !important;
+  box-shadow: @whiteBorderColor;
+}
+.ui.basic.inverted.buttons .button:active,
+.ui.basic.inverted.button:active {
+  background-color: @transparentWhite !important;
+  color: #FFFFFF !important;
+  box-shadow: @selectedWhiteBorderColor inset !important;
+}
+.ui.basic.inverted.buttons .button.active,
+.ui.basic.inverted.button.active {
+  background-color: @transparentWhite;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+.ui.basic.inverted.buttons .button.active:hover,
+.ui.basic.inverted.button.active:hover {
+  background-color: @strongTransparentWhite;
+}
+
 /* Basic Group */
 .ui.basic.buttons .button {
   border-left: 1px solid @borderColor;
@@ -709,7 +741,7 @@
 
   width: @labeledIconWidth;
   height: 100%;
-  padding-top: (@verticalPadding + 0.05em);
+  padding-top: (@verticalPadding);
   background-color: @labeledIconBackgroundColor;
   text-align: center;
 
@@ -757,6 +789,7 @@
 }
 
 
+
 /*--------------
      Toggle
 ---------------*/
@@ -767,12 +800,10 @@
 .ui.button.toggle.active {
   background-color: @positiveColor !important;
   color: #FFFFFF !important;
-  box-shadow: none !important;
 }
 .ui.button.toggle.active:hover {
   background-color: @positiveColorHover !important;
   color: #FFFFFF !important;
-  box-shadow: none !important;
 }
 
 /*--------------
@@ -1349,6 +1380,7 @@
   border-top-right-radius: @borderRadius;
   border-bottom-right-radius: @borderRadius;
 }
+
 
 /* Vertical  Style */
 .ui.vertical.buttons {

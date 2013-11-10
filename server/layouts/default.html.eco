@@ -28,6 +28,7 @@
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
 
   <% if 'development' in @getEnvironments(): %>
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/basic.icon.css">
@@ -40,6 +41,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/label.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/loader.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/reveal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/progress.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/segment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/step.css">
@@ -61,7 +63,6 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/accordion.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dropdown.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/popup.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/reveal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/rating.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/sidebar.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/shape.css">

@@ -48,6 +48,40 @@
 @tertiaryInvertedGradient  : rgba(255, 255, 255, 0.6);
 
 /*******************************
+           Variables
+*******************************/
+
+@import "../global.variables";
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+@borderColor
+
+*/
+
+/*-------------------
+   Segment Variables
+--------------------*/
+
+@verticalPadding: 1em;
+@horizontalPadding: 1em;
+
+@margin: 1em;
+@borderRadius: 5px;
+
+@pageGridMargin: 2 * @verticalPadding;
+
+@coloredBorderSize: 0.2em;
+
+@secondaryColor: #FAF9FA;
+@tertiaryColor:  #EBEBEB;
+
+
+
+/*******************************
             Segment
 *******************************/
 
@@ -55,15 +89,12 @@
   position: relative;
   background-color: @white;
 
-  box-shadow: 0px 0px 0px 1px @strongTransparentBlack;
+  box-shadow: 0px 0px 0px 1px @borderColor;
 
-  margin: 1em 0em;
-  padding: 1em;
-  border-radius: 5px 5px 5px 5px;
+  margin: @margin 0em;
+  padding: @verticalPadding @horizontalPadding;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  border-radius: @borderRadius;
   box-sizing: border-box;
 
 }
@@ -71,7 +102,6 @@
 .ui.segment:first-child {
   margin-top: 0em;
 }
-
 .ui.segment:last-child {
   margin-bottom: 0em;
 }
@@ -79,7 +109,7 @@
 .ui.segment:after {
   content: '';
   display: block;
-  height: 0;
+  height: 0px;
   clear: both;
   visibility: hidden;
 }
@@ -90,7 +120,7 @@
   padding-right: 0em;
   background-color: transparent;
   border-radius: 0px;
-  box-shadow: 0px 1px 0px @strongTransparentBlack;
+  box-shadow: 0px 1px 0px @borderColor;
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
@@ -102,7 +132,7 @@
   padding-bottom: 0em;
   background-color: transparent;
   border-radius: 0px;
-  box-shadow: 1px 0px 0px @strongTransparentBlack;
+  box-shadow: 1px 0px 0px @borderColor;
 }
 .ui.horizontal.segment:first-child {
   padding-left: 0em;
@@ -114,6 +144,19 @@
 
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
+}
+
+.ui.page.grid.segment,
+.ui.grid .ui.segment.column {
+  padding-top: @pageGridMargin;
+  padding-bottom: @pageGridMargin;
+}
+.ui.grid.segment,
+.ui.grid .ui.segment.row,
+.ui.grid .ui.segment.column {
+  border-radius: 0em;
+  box-shadow: none;
+  border: none;
 }
 
 /* No padding on edge content */
@@ -133,8 +176,8 @@
 --------------------*/
 
 .ui.piled.segment {
-  margin: 2em 0em;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+  margin: (2 * @margin) 0em;
+  box-shadow: 0px 0px 1px 1px @borderColor;
 }
 .ui.piled.segment:first-child {
   margin-top: 0em;
@@ -152,22 +195,14 @@
   left: -1px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px @strongTransparentBlack;
 }
 .ui.piled.segment:after {
-  -webkit-transform: rotate(@piledRotation);
-  -moz-transform: rotate(@piledRotation);
-  -ms-transform: rotate(@piledRotation);
-  -o-transform: rotate(@piledRotation);
   transform: rotate(@piledRotation);
+  box-shadow: 0px 0px 1px 1px @borderColor;
   top: 0;
   z-index: -1;
 }
 .ui.piled.segment:before {
-  -webkit-transform: rotate(-@piledRotation);
-  -moz-transform: rotate(-@piledRotation);
-  -ms-transform: rotate(-@piledRotation);
-  -o-transform: rotate(-@piledRotation);
   transform: rotate(-@piledRotation);
   top: 0;
   z-index: -2;
@@ -178,7 +213,7 @@
 --------------------*/
 
 .ui.stacked.segment {
-  padding-bottom: 1.7em;
+  padding-bottom: @verticalPadding + (0.7em);
 }
 .ui.stacked.segment:after,
 .ui.stacked.segment:before {
@@ -187,8 +222,8 @@
   bottom: -3px;
   left: 0%;
 
-  border-top: 1px solid @strongTransparentBlack;
-  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid @borderColor;
+  background-color: @subtleTransparentBlack;
 
   width: 100%;
   height: 5px;
@@ -201,8 +236,8 @@
 /* Inverted */
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  background-color: @subtleTransparentBlack;
+  border-top: 1px solid @selectedBorderColor;
 }
 
 /*-------------------
@@ -210,7 +245,7 @@
 --------------------*/
 
 .ui.raised.segment {
-  box-shadow: 0px 1px 2px 1px @strongTransparentBlack;
+  box-shadow: 0px 1px 2px 1px @borderColor;
 }
 
 
@@ -219,7 +254,7 @@
 *******************************/
 
 .ui.disabled.segment {
-  opacity: 0.8;
+  opacity: @disabledOpacity;
   color: @disabledTextColor;
 }
 
@@ -237,6 +272,7 @@
   position: relative;
   background-color: transparent;
   box-shadow: none;
+
   border-radius: 0px;
 }
 .ui.basic.segment:first-child {
@@ -260,29 +296,39 @@
        Colors
 --------------------*/
 
+.ui.black.segment {
+  border-top: @coloredBorderSize solid @black;
+}
 .ui.blue.segment {
-  border-top: 0.2em solid @blue;
+  border-top: @coloredBorderSize solid @blue;
 }
 .ui.green.segment {
-  border-top: 0.2em solid @green;
-}
-.ui.red.segment {
-  border-top: 0.2em solid @red;
+  border-top: @coloredBorderSize solid @green;
 }
 .ui.orange.segment {
-  border-top: 0.2em solid @orange;
+  border-top: @coloredBorderSize solid @orange;
+}
+.ui.pink.segment {
+  border-top: @coloredBorderSize solid @pink;
 }
 .ui.purple.segment {
-  border-top: 0.2em solid @purple;
+  border-top: @coloredBorderSize solid @purple;
+}
+.ui.red.segment {
+  border-top: @coloredBorderSize solid @red;
 }
 .ui.teal.segment {
-  border-top: 0.2em solid @teal;
+  border-top: @coloredBorderSize solid @teal;
+}
+.ui.yellow.segment {
+  border-top: @coloredBorderSize solid @yellow;
 }
 
 /*-------------------
    Inverted Colors
 --------------------*/
 
+.ui.inverted.segment,
 .ui.inverted.black.segment {
   background-color: @black !important;
   color: @white !important;
@@ -311,7 +357,10 @@
   background-color: @teal !important;
   color: @white !important;
 }
-
+.ui.inverted.yellow.segment {
+  background-color: @yellow !important;
+  color: @white !important;
+}
 
 /*-------------------
        Aligned
@@ -350,8 +399,8 @@
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: @darkBlack;
   color: @white;
+  background-color: @black;
 }
 
 /*-------------------
@@ -364,32 +413,24 @@
 }
 
 .ui.secondary.segment {
-  background-color: @offWhite;
-  color: #777777;
+  background-color: @secondaryColor;
+  color: @textColor;
 }
 
 .ui.tertiary.segment {
-  background-color: @darkWhite;
-  color: #B0B0B0;
+  background-color: @tertiaryColor;
+  color: @lightTextColor;
 }
 
 .ui.secondary.inverted.segment {
   background-color: @black;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@secondaryInvertedGradient), to(@secondaryInvertedGradient));
-  background-image: -webkit-linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
-  background-image: -moz-linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
-  background-image: -o-linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
   background-image: linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
   color: @offWhite;
 }
 .ui.tertiary.inverted.segment {
   background-color: @black;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@tertiaryInvertedGradient), to(@tertiaryInvertedGradient));
-  background-image: -webkit-linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
-  background-image: -moz-linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
-  background-image: -o-linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
   background-image: linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
-  color: #EEEEEE;
+  color: @darkWhite;
 }
 
 
@@ -400,25 +441,32 @@
 .ui.segment.attached {
   top: -1px;
   bottom: -1px;
-  border-radius: 0px;
   margin: 0em;
-  box-shadow: 0px 0px 0px 1px @lightGrey;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px 1px @solidBorderColor;
 }
+
 .ui.top.attached.segment {
   top: 0px;
   bottom: -1px;
 
-  margin-top: 1em;
+  margin-top: @margin;
   margin-bottom: 0em;
-
-  border-radius: 5px 5px 0px 0px;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
+.ui.segment.top.attached:first-child {
+  margin-top: 0em;
+}
+
 .ui.segment.bottom.attached {
   top: -1px;
   bottom: 0px;
 
   margin-top: 0em;
-  margin-bottom: 1em;
+  margin-bottom: @margin;
 
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px @borderRadius @borderRadius;
+}
+.ui.segment.bottom.attached:last-child {
+  margin-bottom: 0em;
 }

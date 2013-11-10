@@ -229,13 +229,14 @@ $.fn.modal = function(parameters) {
             module.debug('Showing modal');
             module.cacheSizes();
             module.set.position();
+            module.set.type();
 
             if( $otherModals.filter(':visible').size() > 0 ) {
               module.debug('Other modals visible, queueing show animation');
               module.hideOthers(module.showModal);
             }
             else {
-              if(settings.transition && $.fn.transition !== undefined) {
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 $module
                   .transition(settings.transition + ' in', settings.duration, function() {
                     module.set.active();
@@ -301,7 +302,7 @@ $.fn.modal = function(parameters) {
           if( module.is.active() ) {
             module.debug('Hiding modal');
             module.remove.keyboardShortcuts();
-            if(settings.transition && $.fn.transition !== undefined) {
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $module
                 .transition(settings.transition + ' out', settings.duration, function() {
                   module.remove.active();
@@ -421,7 +422,6 @@ $.fn.modal = function(parameters) {
           active: function() {
             module.add.keyboardShortcuts();
             module.save.focus();
-            module.set.type();
             $module
               .addClass(className.active)
             ;
@@ -597,7 +597,7 @@ $.fn.modal = function(parameters) {
                 return false;
               }
               else {
-                module.error(error.method);
+                module.error(error.method, query);
                 return false;
               }
             });

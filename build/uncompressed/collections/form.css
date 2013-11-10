@@ -63,7 +63,6 @@
 ---------------------*/
 
 .ui.form textarea,
-.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -75,7 +74,6 @@
 }
 
 .ui.form textarea,
-.ui.form select,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -176,8 +174,7 @@
 .ui.form input[type="password"]:focus,
 .ui.form input[type="number"]:focus,
 .ui.form input[type="tel"]:focus,
-.ui.form textarea:focus,
-.ui.form select:focus {
+.ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 0;
@@ -268,19 +265,19 @@
 /* browsers require these rules separate */
 
 .ui.form ::-webkit-input-placeholder {
-  color: #E0E0E0;
+  color: #AAAAAA;
 }
 
 .ui.form ::-moz-placeholder {
-  color: #E0E0E0;
+  color: #AAAAAA;
 }
 
 .ui.form :focus::-webkit-input-placeholder {
-  color: #AAAAAA;
+  color: #999999;
 }
 
 .ui.form :focus::-moz-placeholder {
-  color: #AAAAAA;
+  color: #999999;
 }
 
 /* Error Placeholder */
@@ -544,8 +541,7 @@
 .ui.small.form input[type="password"],
 .ui.small.form input[type="number"],
 .ui.small.form input[type="tel"],
-.ui.small.form label,
-.ui.small.form select {
+.ui.small.form label {
   font-size: 1em;
 }
 

@@ -31,7 +31,6 @@ semantic.ready = function() {
     $peekItem         = $peek.children('.menu').children('a.item'),
     $peekSubItem      = $peek.find('.item .menu .item'),
     $sortableTables   = $('.sortable.table'),
-    $stuckColumn      = $('.fixed.column .image, .fixed.column .content'),
 
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
@@ -257,7 +256,6 @@ semantic.ready = function() {
           leadingSpaces = line.length - line.replace(/^\s*/g, '').length;
           if(leadingSpaces !== 0) {
             indent = leadingSpaces - spacesPerIndent;
-            console.log('returning' + indent);
             return false;
           }
         });
@@ -270,7 +268,7 @@ semantic.ready = function() {
         $example    = $(this).closest('.example'),
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
-        $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
+        $header     = $example.not('.another').children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
         $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         code        = ''
       ;
@@ -378,6 +376,24 @@ semantic.ready = function() {
           .each(handler.createAnnotation)
         ;
       }
+    },
+
+    makeStickyColumns: function() {
+      var
+        $visibleStuck = $(this).find('.fixed.column .image, .fixed.column .content'),
+        isInitialized = ($visibleStuck.parent('.sticky-wrapper').size() !== 0)
+      ;
+      if(!isInitialized) {
+        $visibleStuck
+          .waypoint('sticky', {
+            offset     : 65,
+            stuckClass : 'fixed'
+          })
+        ;
+      }
+      // apparently this doesnt refresh on first hit
+      $.waypoints('refresh');
+      $.waypoints('refresh');
     },
 
     initializeCode: function() {
@@ -649,7 +665,7 @@ semantic.ready = function() {
       .tab({
         onTabInit : handler.makeCode,
         onTabLoad : function() {
-          $.waypoints('refresh');
+          $.proxy(handler.makeStickyColumns, this)();
           $peekItem.removeClass('active').first().addClass('active');
         }
       })
@@ -760,18 +776,6 @@ semantic.ready = function() {
       offset: 'bottom-in-view'
      })
   ;
-
-  $stuckColumn
-    .each(function() {
-      $(this)
-        .waypoint('sticky', {
-          offset     : 65,
-          stuckClass : 'fixed'
-        })
-      ;
-    })
-  ;
-
   $peek
     .waypoint('sticky', {
       offset     : 85,

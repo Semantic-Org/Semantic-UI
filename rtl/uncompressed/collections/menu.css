@@ -251,11 +251,16 @@
 
 .ui.menu .dropdown.item .menu {
   right: 1px;
-  margin: 1px 0px 0px 0px;
+  margin: 0px;
   min-width: -webkit-calc(99%);
   min-width: calc(99%);
-  -webkit-box-shadow: 0 1px 1px 1px #DDDDDD;
-  box-shadow: 0 1px 1px 1px #DDDDDD;
+  -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ui.secondary.menu .dropdown.item .menu {
+  right: 0px;
+  min-width: 100%;
 }
 
 .ui.menu .pointing.dropdown.item .menu {
@@ -794,8 +799,8 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-.ui.secondary.inverted.menu > .active.item {
-  background-color: rgba(255, 255, 255, 0.9);
+.ui.secondary.inverted.menu .active.item {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* disable variations */
@@ -830,8 +835,11 @@
 /* Item Types */
 
 .ui.secondary.pointing.menu .header.item {
-  border-left-width: 0px;
-  font-weight: bold;
+  margin-bottom: -3px;
+  background-color: transparent !important;
+  border-left-width: 0px !important;
+  font-weight: bold !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .ui.secondary.pointing.menu .text.item {
@@ -940,23 +948,29 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.ui.secondary.inverted.pointing.menu > .header.item {
+  color: #FFFFFF !important;
+}
+
 /* Hover */
 
-.ui.secondary.inverted.pointing.menu > .item.hover,
+.ui.secondary.inverted.pointing.menu > .menu > .item:hover,
 .ui.secondary.inverted.pointing.menu > .item:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 
 /* Down */
 
+.ui.secondary.inverted.pointing.menu > .menu > .item:active,
 .ui.secondary.inverted.pointing.menu > .item:active {
-  border-color: rgba(255, 255, 255, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Active */
 
+.ui.secondary.inverted.pointing.menu > .menu > .item.active,
 .ui.secondary.inverted.pointing.menu > .item.active {
-  border-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.8);
   color: #ffffff;
 }
 
@@ -1292,13 +1306,13 @@
 /*--- Pointers ---*/
 
 .ui.inverted.pointing.menu .active.item:after {
-  background-color: #505050;
+  background-color: #5B5B5B;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.inverted.pointing.menu .active.item:hover:after {
-  background-color: #3B3B3B;
+  background-color: #4A4A4A;
 }
 
 /*--------------
@@ -1577,7 +1591,7 @@
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
-  bottom: -0.35em;
+  bottom: -0.3em;
   right: 50%;
   content: "";
   margin-right: -0.3em;

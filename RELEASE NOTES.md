@@ -1,5 +1,71 @@
 ## RELEASE NOTES
 
+### Version 0.9.2 - Nov 8, 2013
+
+**Fixes** - Fixes popup not repositioning itself when offstage.
+
+### Version 0.9.1 - Nov 7, 2013
+
+**New**
+- **Popup** - Adds context option for popup (thanks jefmathiot)
+- **Accordion** - Adds formatting for nested accordions
+
+**Updates**
+- **Accordion** - Fixes issue with accordion events inside accordions
+
+### Version 0.9.0 - Nov 5, 2013
+
+**New**
+- **Button** - Basic icons now have inverted style
+- **Segment** - Segments can now be used with ``ui grid`` and ``ui grid column/row``
+- **List** - Adds animated list variation
+
+**Docs**
+- **Release** - Fixes issues with minification in grunt
+- **Examples** - Adds new homepage example to release zip
+- **Code Samples** - Updates ACE editor version
+
+**Updates**
+- **List** - Updated some list styles for greater flexibility
+- **Dropdown** - Dropdown now always receives pointer cursor in all types
+- **Form** - Darkens placeholder text color to be more visible
+- **Menu** - Dropdown position inside secondary menus should be more precise
+- **Input** - Labeled icons now have smaller corner labels
+- **Menu** - Floating dropdown menus now work inside menus
+- **Button** - UI buttons no longer have shadows, this helps match colored buttons in layouts
+
+**Fixes**
+- **Header** - Fixes alignment of solo icons in headers
+- **Button** - Fixes labeled icon placement in Chrome
+- **Modal** - Fixes use of unsupported comma separated :not selector
+- **Modal** - Fixes left/right ui content receiving modal styles inappropriately
+- **Menu** - Fixes some inverted menu stylings not applying correctly in some instances
+- **Grid** - Fixes comp/tablet/mobile only columns not working if not inside a row
+
+### Version 0.8.6 - Nov 2, 2013
+
+**Fixes**
+- **Modal** - Fixes issue with scrollable variation on mobile, updates mobile styles
+
+**Docs**
+- Fixes bug in jquery waypoint 2.0.3 causing menus to be lame
+
+### Version 0.8.5 - Nov 2, 2013
+
+**Fixes**
+- **Modal** - Fixed issue with modals not working in 0.8.4 due to mistake in transition invoke
+- **Modules** - Invoke now gives user's query in error message for method not found
+
+### Version 0.8.4 - Nov 1, 2013
+
+**Fixes**
+- **Modules** - Fixes bug where invoking a sentence behavior that has a single word match would always invoke single word match. I.e. ``show modal`` would mistakenly call ``show`` if it existed.
+- **Modules** - Adds CSS transition support detection to all modules using css transitions to allow for graceful degradation for IE8
+
+**Docs**
+- **Download** - Fixes issue where non minified source was being included with minified copy
+- **IE** - Fixed some issue with IE display in docs
+
 ### Version 0.8.3 - Oct 30, 2013
 
 **Fixes**

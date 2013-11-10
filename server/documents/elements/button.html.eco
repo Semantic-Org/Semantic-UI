@@ -36,7 +36,7 @@ type        : 'UI Element'
     <div class="ui animated button">
       <div class="visible content">Next</div>
       <div class="hidden content">
-        <i class="right arrow icon"></i>
+        <i class="right icon"></i>
       </div>
     </div>
     <div class="ui vertical animated button">
@@ -237,9 +237,13 @@ type        : 'UI Element'
       <i class="icon user"></i>
       Add Friend
     </div>
-    <div class="ui basic button">
-      <i class="icon globe"></i>
-      Change Language
+  </div>
+  <div class="another example">
+    <div class="ui inverted segment">
+      <div class="ui inverted basic button">
+        <i class="icon globe"></i>
+        Change Language
+      </div>
     </div>
   </div>
 
