@@ -9,6 +9,43 @@
  *
  */
 
+/*******************************
+           Variables
+*******************************/
+
+@import "../global.variables";
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+// (Color Variables)
+// @blue
+// @green
+// @orange
+// @pink
+// @purple
+// @red
+// @teal
+// @black
+// @lightGrey
+// @white
+// @offwhite
+// @darkwhite
+// @strongTransparentBlack
+// @textColor
+// @disabledTextColor
+
+
+/*-------------------
+   Segment Variables
+--------------------*/
+
+/* Segment Variables */
+
+@piledRotation             : 1.2deg;
+@secondaryInvertedGradient : rgba(255, 255, 255, 0.3);
+@tertiaryInvertedGradient  : rgba(255, 255, 255, 0.6);
 
 /*******************************
            Variables
@@ -50,7 +87,7 @@
 
 .ui.segment {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: @white;
 
   box-shadow: 0px 0px 0px 1px @borderColor;
 
@@ -81,7 +118,6 @@
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
-
   background-color: transparent;
   border-radius: 0px;
   box-shadow: 0px 1px 0px @borderColor;
@@ -94,7 +130,6 @@
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;
-
   background-color: transparent;
   border-radius: 0px;
   box-shadow: 1px 0px 0px @borderColor;
@@ -152,7 +187,7 @@
 }
 .ui.piled.segment:after,
 .ui.piled.segment:before {
-  background-color: #FFFFFF;
+  background-color: @white;
   visibility: visible;
   content: "";
   display: block;
@@ -160,15 +195,15 @@
   left: -1px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px @borderColor;
 }
 .ui.piled.segment:after {
-  transform: rotate(1.2deg);
+  transform: rotate(@piledRotation);
+  box-shadow: 0px 0px 1px 1px @borderColor;
   top: 0;
   z-index: -1;
 }
 .ui.piled.segment:before {
-  transform: rotate(-1.2deg);
+  transform: rotate(-@piledRotation);
   top: 0;
   z-index: -2;
 }
@@ -296,39 +331,35 @@
 .ui.inverted.segment,
 .ui.inverted.black.segment {
   background-color: @black !important;
-  color: #FFFFFF !important;
+  color: @white !important;
 }
 .ui.inverted.blue.segment {
   background-color: @blue !important;
-  color: #FFFFFF !important;
+  color: @white !important;
 }
 .ui.inverted.green.segment {
   background-color: @green !important;
-  color: #FFFFFF !important;
-}
-.ui.inverted.orange.segment {
-  background-color: @orange !important;
-  color: #FFFFFF !important;
-}
-.ui.inverted.pink.segment {
-  background-color: @pink !important;
-  color: #FFFFFF !important;
-}
-.ui.inverted.purple.segment {
-  background-color: @purple !important;
-  color: #FFFFFF !important;
+  color: @white !important;
 }
 .ui.inverted.red.segment {
   background-color: @red !important;
-  color: #FFFFFF !important;
+  color: @white !important;
+}
+.ui.inverted.orange.segment {
+  background-color: @orange !important;
+  color: @white !important;
+}
+.ui.inverted.purple.segment {
+  background-color: @purple !important;
+  color: @white !important;
 }
 .ui.inverted.teal.segment {
   background-color: @teal !important;
-  color: #FFFFFF !important;
+  color: @white !important;
 }
 .ui.inverted.yellow.segment {
   background-color: @yellow !important;
-  color: #FFFFFF !important;
+  color: @white !important;
 }
 
 /*-------------------
@@ -364,19 +395,22 @@
 
 .ui.inverted.segment {
   border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
+  color: @white;
   background-color: @black;
-  color: #FFFFFF;
 }
 
 /*-------------------
      Ordinality
 --------------------*/
+
+.ui.primary.segment {
+  background-color: @white;
+  color: @textColor;
+}
 
 .ui.secondary.segment {
   background-color: @secondaryColor;
@@ -390,12 +424,12 @@
 
 .ui.secondary.inverted.segment {
   background-color: @black;
- background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background-image: linear-gradient(@secondaryInvertedGradient 0%, @secondaryInvertedGradient 100%);
   color: @offWhite;
 }
 .ui.tertiary.inverted.segment {
   background-color: @black;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-image: linear-gradient(@tertiaryInvertedGradient 0%, @tertiaryInvertedGradient 100%);
   color: @darkWhite;
 }
 
