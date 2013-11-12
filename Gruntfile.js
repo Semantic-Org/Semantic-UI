@@ -174,6 +174,7 @@ module.exports = function(grunt) {
           'build/examples/**/*',
           'src/**/*.less',
           'src/**/*.variables',
+          'src/**/*.config',
           'src/**/*.js'
         ],
         tasks : watchTasks
@@ -327,8 +328,7 @@ module.exports = function(grunt) {
             cwd    : 'src/',
             src    : [
               '**/*.js',
-              'images/*',
-              'fonts/*'
+              'theme/**/*'
             ],
             dest : 'docs/build/uncompressed'
           },
@@ -337,8 +337,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'images/*',
-              'fonts/*'
+              'theme/**/*'
             ],
             dest : 'docs/build/minified'
           },
@@ -348,8 +347,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'images/*',
-              'fonts/*'
+              'theme/**/*'
             ],
             dest : 'docs/build/packaged'
           }
@@ -374,8 +372,7 @@ module.exports = function(grunt) {
             cwd    : 'src/',
             src    : [
               '**/*.js',
-              'images/*',
-              'fonts/*'
+              'theme/**/*'
             ],
             dest : 'build/uncompressed'
           },
@@ -384,8 +381,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'images/*',
-              'fonts/*'
+              'theme/**/*'
             ],
             dest : 'build/minified'
           },
@@ -395,8 +391,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'images/*',
-              'fonts/*'
+              'theme/**/*'
             ],
             dest : 'build/packaged'
           }
@@ -610,7 +605,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig(config);
-  
+
   grunt.registerTask('default', defaultTasks);
   grunt.registerTask('test', testTasks);
 
