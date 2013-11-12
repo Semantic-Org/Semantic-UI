@@ -10,14 +10,13 @@
  */
 
 /*******************************
-             Theme
+            Theme
 *******************************/
 
-@import "../theme.less";
+@type    : 'element';
+@element : 'button';
 
-@element: 'button';
-.importVariables(@element);
-.importOverides(@element);
+@import '../semantic.config';
 
 
 /*******************************
@@ -136,7 +135,7 @@
   width: 100%;
   height: 100%;
   content: '';
-  background: transparent url(~"@{imageFolder}/loader-mini.gif") no-repeat 50% 50%;
+  background: transparent url("@{imagePath}/loader-mini.gif") no-repeat 50% 50%;
 }
 .ui.labeled.icon.loading.button .icon {
   background-color: transparent;
@@ -531,18 +530,18 @@
 
 /* loading */
 .ui.huge.loading.button:after {
-  background-image: url(~"@{imageFolder}/loader-small.gif");
+  background-image: url("@{imagePath}/loader-small.gif");
 }
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
 .ui.massive.loading.button:after,
 .ui.gigantic.loading.button:after {
-  background-image: url(~"@{imageFolder}/loader-medium.gif");
+  background-image: url("@{imagePath}/loader-medium.gif");
 }
 
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
-  background-image: url(~"@{imageFolder}/loader-small.gif");
+  background-image: url("@{imagePath}/loader-small.gif");
 }
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
@@ -552,7 +551,7 @@
 .ui.gigantic.buttons .loading.button.active:after,
 .ui.massive.loading.button.active:after,
 .ui.gigantic.loading.button.active:after {
-  background-image: url(~"@{imageFolder}/loader-medium.gif");
+  background-image: url("@{imagePath}/loader-medium.gif");
 }
 
 /*--------------
