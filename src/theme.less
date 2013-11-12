@@ -1,0 +1,16 @@
+.loadUIVariables() {
+  @import "theme/semantic/@{element}.variables";
+  @import "theme/@{theme}/@{element}.overrides";
+}
+.loadUIOverrides() {
+  @import "theme/semantic/@{element}.variables";
+  @import "theme/@{theme}/@{element}.overrides";
+}
+.loadGlobal() {
+  @import "theme/semantic/@{element}.variables";
+  @import "theme/@{theme}/@{element}.overrides";
+}
+
+.loadGlobal();
+.loadUIVariables();
+.loadUIOverrides();
