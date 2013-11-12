@@ -1,0 +1,27 @@
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+@borderColor
+
+*/
+
+/*-------------------
+   Segment Variables
+--------------------*/
+
+@verticalPadding: 1em;
+@horizontalPadding: 1em;
+
+@margin: 1em;
+@borderRadius: 5px;
+
+@pageGridMargin: 2 * @verticalPadding;
+
+@coloredBorderSize: 0.2em;
+
+@secondaryColor: #FAF9FA;
+@tertiaryColor:  #EBEBEB;
+
