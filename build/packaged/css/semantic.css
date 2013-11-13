@@ -5104,12 +5104,20 @@ i.massive.basic.icon {
  */
 
 /*******************************
-           Variables
+            Theme
 *******************************/
 
+/*-------------------
+         Theme
+--------------------*/
+
 /*******************************
-             Site
+        Global Variables
 *******************************/
+
+/*-------------------
+        Paths
+--------------------*/
 
 /*-------------------
        Page
@@ -5118,6 +5126,16 @@ i.massive.basic.icon {
 /*-------------------
        Fonts
 --------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
 
 /*******************************
              Colors
@@ -5138,6 +5156,10 @@ i.massive.basic.icon {
 --------------------*/
 
 /*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
       Borders
 --------------------*/
 
@@ -5152,6 +5174,10 @@ i.massive.basic.icon {
 /*******************************
            States
 *******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
 
 /*-------------------
         Hover
@@ -5188,12 +5214,14 @@ i.massive.basic.icon {
 --------------------*/
 
 /*-------------------
-   Modified Globals
---------------------*/
-
-/*-------------------
    Button Variables
 --------------------*/
+
+/* Button Variables */
+
+/*******************************
+           Overrides
+*******************************/
 
 /*******************************
             Button
@@ -5208,14 +5236,14 @@ i.massive.basic.icon {
   min-height: 1em;
   outline: none;
   border: none;
-  background-color: #FAFAFA;
-  color: #808080;
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.7);
   margin: 0em;
-  padding: 0.8em 1.5em;
+  padding: 0.8em 1.5em 0.9165000000000001em;
   font-size: 1rem;
   text-transform: uppercase;
-  line-height: 1;
   font-weight: bold;
+  line-height: 1;
   font-style: normal;
   text-align: center;
   text-decoration: none;
@@ -5223,17 +5251,15 @@ i.massive.basic.icon {
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   border-radius: 0.25em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px -0.133em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px -0.133em 0px 0px rgba(0, 0, 0, 0.1) inset;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, -webkit-box-shadow 0.25s ease;
   transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
@@ -5243,31 +5269,15 @@ i.massive.basic.icon {
 *******************************/
 
 /*--------------
-     Active
----------------*/
-
-.ui.buttons .active.button,
-.ui.active.button {
-  background-color: #EAEAEA;
-  background-image: none;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-/*--------------
       Hover
 ---------------*/
 
-.ui.button:not(.loading):hover {
+.ui.button:hover {
+  background-color: '';
   background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.08)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.ui.button.active:hover {
-  background-image: none;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.button:hover .icon,
@@ -5279,12 +5289,35 @@ i.massive.basic.icon {
       Down
 ---------------*/
 
-.ui.button:not(.loading):active,
-.ui.active.button:not(.loading):active {
-  background-color: #F1F1F1;
+.ui.button:active,
+.ui.active.button:active {
+  background-color: #f1f1f1;
+  background-image: '';
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.active.button {
+  background-color: #eaeaea;
+  background-image: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   color: rgba(0, 0, 0, 0.7);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+}
+
+.ui.button.active:hover {
+  background-color: #eaeaea;
+  background-image: none;
+}
+
+.ui.button.active:active {
+  background-color: #eaeaea;
+  background-image: none;
 }
 
 /*--------------
@@ -5307,7 +5340,7 @@ i.massive.basic.icon {
   width: 100%;
   height: 100%;
   content: '';
-  background: transparent url(../images/loader-mini.gif) no-repeat 50% 50%;
+  background: transparent url("theme/semantic/images/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.labeled.icon.loading.button .icon {
@@ -5323,9 +5356,9 @@ i.massive.basic.icon {
 .ui.disabled.button,
 .ui.disabled.button:hover,
 .ui.disabled.button.active {
-  background-color: #DDDDDD !important;
   cursor: default;
-  color: rgba(0, 0, 0, 0.5) !important;
+  background-color: #dcddde !important;
+  color: rgba(0, 0, 0, 0.4) !important;
   opacity: 0.3 !important;
   background-image: none !important;
   -webkit-box-shadow: none !important;
@@ -5371,7 +5404,7 @@ i.massive.basic.icon {
   top: 50%;
   left: auto;
   right: -100%;
-  margin-top: -0.55em;
+  margin-top: -0.5em;
 }
 
 .ui.animated.button:hover .visible.content {
@@ -5388,8 +5421,8 @@ i.massive.basic.icon {
 
 .ui.vertical.animated.button .visible.content,
 .ui.vertical.animated.button .hidden.content {
-  -webkit-transition: top 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
-  transition: top 0.3s ease 0s, transform 0.3s ease 0s;
+  -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
+  transition: top 0.3s ease, transform 0.3s ease;
 }
 
 .ui.vertical.animated.button .visible.content {
@@ -5421,8 +5454,8 @@ i.massive.basic.icon {
 
 .ui.fade.animated.button .visible.content,
 .ui.fade.animated.button .hidden.content {
-  -webkit-transition: opacity 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
-  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .ui.fade.animated.button .visible.content {
@@ -5438,18 +5471,18 @@ i.massive.basic.icon {
   opacity: 0;
   left: 0%;
   right: auto;
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .ui.fade.animated.button:hover .visible.content {
   left: auto;
   right: auto;
   opacity: 0;
-  -webkit-transform: scale(0.7);
-  -ms-transform: scale(0.7);
-  transform: scale(0.7);
+  -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
+  transform: scale(0.75);
 }
 
 .ui.fade.animated.button:hover .hidden.content {
@@ -5467,21 +5500,25 @@ i.massive.basic.icon {
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #D95C5C;
+  background: #00b5ad;
   color: #FFFFFF;
 }
 
 .ui.primary.buttons .button:hover,
-.ui.primary.button:hover,
-.ui.primary.buttons .active.button,
-.ui.primary.button.active {
-  background-color: #E75859;
+.ui.primary.button:hover {
+  background: #009c95;
   color: #FFFFFF;
 }
 
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #D24B4C;
+  background: #006964;
+  color: #FFFFFF;
+}
+
+.ui.primary.buttons .active.button,
+.ui.primary.button.active {
+  background: #00827c;
   color: #FFFFFF;
 }
 
@@ -5491,21 +5528,25 @@ i.massive.basic.icon {
 
 .ui.secondary.buttons .button,
 .ui.secondary.button {
-  background-color: #00B5AD;
+  background: #555555;
   color: #FFFFFF;
 }
 
 .ui.secondary.buttons .button:hover,
-.ui.secondary.button:hover,
-.ui.secondary.buttons .active.button,
-.ui.secondary.button.active {
-  background-color: #009A93;
+.ui.secondary.button:hover {
+  background: #4f4141;
   color: #FFFFFF;
 }
 
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-  background-color: #00847E;
+  background: #2f2f2f;
+  color: #FFFFFF;
+}
+
+.ui.secondary.buttons .active.button,
+.ui.secondary.button.active {
+  background: #3b3b3b;
   color: #FFFFFF;
 }
 
@@ -5516,119 +5557,119 @@ i.massive.basic.icon {
 /* Facebook */
 
 .ui.facebook.button {
-  background-color: #3B579D;
+  background-color: #3b579d;
   color: #FFFFFF;
 }
 
 .ui.facebook.button:hover {
-  background-color: #3A59A9;
+  background-color: #2b4994;
   color: #FFFFFF;
 }
 
 .ui.facebook.button:active {
-  background-color: #334F95;
+  background-color: #263865;
   color: #FFFFFF;
 }
 
 /* Twitter */
 
 .ui.twitter.button {
-  background-color: #4092CC;
+  background-color: #4092cc;
   color: #FFFFFF;
 }
 
 .ui.twitter.button:hover {
-  background-color: #399ADE;
+  background-color: #2787cc;
   color: #FFFFFF;
 }
 
 .ui.twitter.button:active {
-  background-color: #3283BC;
+  background-color: #286997;
   color: #FFFFFF;
 }
 
 /* Google Plus */
 
 .ui.google.plus.button {
-  background-color: #D34836;
+  background-color: #d34836;
   color: #FFFFFF;
 }
 
 .ui.google.plus.button:hover {
-  background-color: #E3432E;
+  background-color: #d0331f;
   color: #FFFFFF;
 }
 
 .ui.google.plus.button:active {
-  background-color: #CA3A27;
+  background-color: #9b3022;
   color: #FFFFFF;
 }
 
 /* Linked In */
 
 .ui.linkedin.button {
-  background-color: #1F88BE;
+  background-color: #1f88be;
   color: #FFFFFF;
 }
 
 .ui.linkedin.button:hover {
-  background-color: #1394D6;
+  background-color: #127bb2;
   color: #FFFFFF;
 }
 
 .ui.linkedin.button:active {
-  background-color: #1179AE;
+  background-color: #14597c;
   color: #FFFFFF;
 }
 
 /* YouTube */
 
 .ui.youtube.button {
-  background-color: #CC181E;
+  background-color: #cc181e;
   color: #FFFFFF;
 }
 
 .ui.youtube.button:hover {
-  background-color: #DF0209;
+  background-color: #bf0b11;
   color: #FFFFFF;
 }
 
 .ui.youtube.button:active {
-  background-color: #A50006;
+  background-color: #881014;
   color: #FFFFFF;
 }
 
 /* Instagram */
 
 .ui.instagram.button {
-  background-color: #49769C;
+  background-color: #49769c;
   color: #FFFFFF;
 }
 
 .ui.instagram.button:hover {
-  background-color: #4781B1;
+  background-color: #376a95;
   color: #FFFFFF;
 }
 
 .ui.instagram.button:active {
-  background-color: #38658A;
+  background-color: #314f68;
   color: #FFFFFF;
 }
 
 /* Pinterest */
 
 .ui.pinterest.button {
-  background-color: #00ACED;
+  background-color: #00aced;
   color: #FFFFFF;
 }
 
 .ui.pinterest.button:hover {
-  background-color: #00B9FF;
+  background-color: #0099d4;
   color: #FFFFFF;
 }
 
 .ui.pinterest.button:active {
-  background-color: #009EDA;
+  background-color: #0074a1;
   color: #FFFFFF;
 }
 
@@ -5664,76 +5705,68 @@ i.massive.basic.icon {
 }
 
 /*-------------------
-        Sizes
+       Compact
 --------------------*/
 
-.ui.buttons .button,
-.ui.button {
-  font-size: 1rem;
+.ui.compact.buttons .button,
+.ui.compact.button {
+  padding: 0.6000000000000001em 1.125em 0.1165em;
 }
+
+.ui.compact.icon.buttons .button,
+.ui.compact.buttons .icon.button {
+  padding: 0.6000000000000001em 0.6000000000000001em 0.1165em;
+}
+
+/*-------------------
+        Sizes
+--------------------*/
 
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.8rem;
-}
-
-.ui.mini.buttons .button,
-.ui.mini.button {
-  padding: 0.6em 0.8em;
-}
-
-.ui.mini.icon.buttons .button,
-.ui.mini.buttons .icon.button {
-  padding: 0.6em 0.6em;
+  font-size: 0.7em;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.875em;
-}
-
-.ui.tiny.buttons .button,
-.ui.tiny.buttons .button,
-.ui.tiny.button {
-  padding: 0.6em 0.8em;
-}
-
-.ui.tiny.icon.buttons .button,
-.ui.tiny.buttons .icon.button {
-  padding: 0.6em 0.6em;
+  font-size: 0.8em;
 }
 
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.875rem;
+  font-size: 0.875em;
+}
+
+.ui.buttons .button,
+.ui.button {
+  font-size: 1em;
 }
 
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.125rem;
+  font-size: 1.125em;
 }
 
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.25rem;
+  font-size: 1.25em;
 }
 
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.375rem;
+  font-size: 1.375em;
 }
 
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.5em;
 }
 
 /* Or resize */
@@ -5755,19 +5788,19 @@ i.massive.basic.icon {
 /* loading */
 
 .ui.huge.loading.button:after {
-  background-image: url(../images/loader-small.gif);
+  background-image: url("theme/semantic/images/loader-small.gif");
 }
 
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
 .ui.massive.loading.button:after,
 .ui.gigantic.loading.button:after {
-  background-image: url(../images/loader-medium.gif);
+  background-image: url("theme/semantic/images/loader-medium.gif");
 }
 
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
-  background-image: url(../images/loader-small.gif);
+  background-image: url("theme/semantic/images/loader-small.gif");
 }
 
 .ui.massive.buttons .loading.button:after,
@@ -5778,7 +5811,7 @@ i.massive.basic.icon {
 .ui.gigantic.buttons .loading.button.active:after,
 .ui.massive.loading.button.active:after,
 .ui.gigantic.loading.button.active:after {
-  background-image: url(../images/loader-medium.gif);
+  background-image: url("theme/semantic/images/loader-medium.gif");
 }
 
 /*--------------
@@ -5787,14 +5820,13 @@ i.massive.basic.icon {
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.8em;
+  padding: 0.8em 0.8em 0.9165000000000001em;
 }
 
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   opacity: 0.9;
   margin: 0em;
-  vertical-align: top;
 }
 
 /*-------------------
@@ -5805,11 +5837,16 @@ i.massive.basic.icon {
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: #808080 !important;
+  color: rgba(0, 0, 0, 0.7) !important;
   font-weight: normal;
   text-transform: none;
+  padding: 0.8em 1.5em !important;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+.ui.basic.labeled.icon.button > .icon {
+  padding-top: 0.8em !important;
 }
 
 .ui.basic.buttons {
@@ -5821,60 +5858,60 @@ i.massive.basic.icon {
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
   background-image: none;
-  color: #7F7F7F !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.18) inset;
+  color: rgba(0, 0, 0, 0.8) !important;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
+  box-shadow: rgba(0, 0, 0, 0.2) inset;
 }
 
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background-color: rgba(0, 0, 0, 0.02) !important;
-  color: #7F7F7F !important;
+  color: rgba(0, 0, 0, 0.8) !important;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #7F7F7F;
-  -webkit-box-shadow: 0px 0px 0px 1px #BDBDBD inset;
-  box-shadow: 0px 0px 0px 1px #BDBDBD inset;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
+  box-shadow: rgba(0, 0, 0, 0.2) inset;
 }
 
 .ui.basic.buttons .button.active:hover,
 .ui.basic.button.active:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Inverted */
 
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
-  color: #FAFAFA !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.3) inset;
-  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.3) inset;
+  color: #fafafa !important;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(255, 255, 255, 0.3);
 }
 
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
   background-image: none;
   color: #FFFFFF !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.5) inset;
-  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.5) inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(255, 255, 255, 0.3);
 }
 
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
   background-color: rgba(255, 255, 255, 0.05) !important;
   color: #FFFFFF !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.8) inset !important;
-  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.8) inset !important;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.8) inset !important;
+  box-shadow: rgba(255, 255, 255, 0.8) inset !important;
 }
 
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
   color: #FFFFFF;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -5882,7 +5919,7 @@ i.massive.basic.icon {
 
 .ui.basic.inverted.buttons .button.active:hover,
 .ui.basic.inverted.button.active:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.01);
 }
 
 /* Basic Group */
@@ -5893,27 +5930,15 @@ i.massive.basic.icon {
   box-shadow: none;
 }
 
-.ui.basic.buttons .button:hover,
-.ui.basic.buttons .button:active {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.ui.basic.buttons .button.active,
-.ui.basic.buttons .button.active:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
-}
-
 /*--------------
-   Labeled Icon
+  Labeled Icon
 ---------------*/
 
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 4em !important;
-  padding-right: 1.4em !important;
+  padding-left: 4.33em !important;
+  padding-right: 1.5em !important;
 }
 
 .ui.labeled.icon.buttons > .button > .icon,
@@ -5923,9 +5948,8 @@ i.massive.basic.icon {
   left: 0em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
-  width: 2.75em;
+  width: 2.83em;
   height: 100%;
   padding-top: 0.8em;
   background-color: rgba(0, 0, 0, 0.05);
@@ -5988,17 +6012,13 @@ i.massive.basic.icon {
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-  background-color: #5BBD72 !important;
+  background-color: #5bbd72 !important;
   color: #FFFFFF !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
 }
 
 .ui.button.toggle.active:hover {
-  background-color: #58CB73 !important;
+  background-color: #3cc25c !important;
   color: #FFFFFF !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
 }
 
 /*--------------
@@ -6065,16 +6085,15 @@ i.massive.basic.icon {
   width: 1.8em;
   height: 1.8em;
   line-height: 1.55;
-  color: #AAAAAA;
+  color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: normal;
   text-align: center;
-  border-radius: 500px;
+  border-radius: 500em;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -6108,47 +6127,47 @@ i.massive.basic.icon {
 
 .attached.ui.buttons {
   margin: 0px;
-  border-radius: 4px 4px 0px 0px;
+  border-radius: 0.25em 0.25em 0em 0em;
 }
 
 .attached.ui.buttons .button:first-child {
-  border-radius: 4px 0px 0px 0px;
+  border-radius: 0.25em 0em 0em 0em;
 }
 
 .attached.ui.buttons .button:last-child {
-  border-radius: 0px 4px 0px 0px;
+  border-radius: 0em 0.25em 0em 0em;
 }
 
 /* Bottom Side */
 
 .bottom.attached.ui.buttons {
   margin-top: -1px;
-  border-radius: 0px 0px 4px 4px;
+  border-radius: 0em 0em 0.25em 0.25em;
 }
 
 .bottom.attached.ui.buttons .button:first-child {
-  border-radius: 0px 0px 0px 4px;
+  border-radius: 0em 0em 0em 0.25em;
 }
 
 .bottom.attached.ui.buttons .button:last-child {
-  border-radius: 0px 0px 4px 0px;
+  border-radius: 0em 0em 0.25em 0em;
 }
 
 /* Left Side */
 
 .left.attached.ui.buttons {
   margin-left: -1px;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0em 0.25em 0.25em 0em;
 }
 
 .left.attached.ui.buttons .button:first-child {
   margin-left: -1px;
-  border-radius: 0px 4px 0px 0px;
+  border-radius: 0em 0.25em 0em 0em;
 }
 
 .left.attached.ui.buttons .button:last-child {
   margin-left: -1px;
-  border-radius: 0px 0px 4px 0px;
+  border-radius: 0em 0em 0.25em 0em;
 }
 
 /* Right Side */
@@ -6156,17 +6175,17 @@ i.massive.basic.icon {
 .right.attached.ui.buttons,
 .right.attached.ui.buttons .button {
   margin-right: -1px;
-  border-radius: 4px 0px 0px 4px;
+  border-radius: 0.25em 0em 0em 0.25em;
 }
 
 .right.attached.ui.buttons .button:first-child {
   margin-left: -1px;
-  border-radius: 4px 0px 0px 0px;
+  border-radius: 0.25em 0em 0em 0em;
 }
 
 .right.attached.ui.buttons .button:last-child {
   margin-left: -1px;
-  border-radius: 0px 0px 0px 4px;
+  border-radius: 0em 0em 0em 0.25em;
 }
 
 /* Fluid */
@@ -6241,7 +6260,6 @@ i.massive.basic.icon {
   width: auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -6308,85 +6326,27 @@ i.massive.basic.icon {
 
 .ui.black.buttons .button,
 .ui.black.button {
-  background-color: #5C6166;
+  background-color: #555555;
   color: #FFFFFF;
 }
 
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #4C4C4C;
+  background: #4f4141;
   color: #FFFFFF;
 }
 
 .ui.black.buttons .button:active,
 .ui.black.button:active {
-  background-color: #333333;
+  background: #2f2f2f;
   color: #FFFFFF;
 }
 
-/*--- Green ---*/
-
-.ui.green.buttons .button,
-.ui.green.button {
-  background-color: #5BBD72;
-  color: #FFFFFF;
-}
-
-.ui.green.buttons .button:hover,
-.ui.green.button:hover,
-.ui.green.buttons .active.button,
-.ui.green.button.active {
-  background-color: #58cb73;
-  color: #FFFFFF;
-}
-
-.ui.green.buttons .button:active,
-.ui.green.button:active {
-  background-color: #4CB164;
-  color: #FFFFFF;
-}
-
-/*--- Red ---*/
-
-.ui.red.buttons .button,
-.ui.red.button {
-  background-color: #D95C5C;
-  color: #FFFFFF;
-}
-
-.ui.red.buttons .button:hover,
-.ui.red.button:hover,
-.ui.red.buttons .active.button,
-.ui.red.button.active {
-  background-color: #E75859;
-  color: #FFFFFF;
-}
-
-.ui.red.buttons .button:active,
-.ui.red.button:active {
-  background-color: #D24B4C;
-  color: #FFFFFF;
-}
-
-/*--- Orange ---*/
-
-.ui.orange.buttons .button,
-.ui.orange.button {
-  background-color: #E96633;
-  color: #FFFFFF;
-}
-
-.ui.orange.buttons .button:hover,
-.ui.orange.button:hover,
-.ui.orange.buttons .active.button,
-.ui.orange.button.active {
-  background-color: #FF7038;
-  color: #FFFFFF;
-}
-
-.ui.orange.buttons .button:active,
-.ui.orange.button:active {
-  background-color: #DA683B;
+.ui.black.buttons .button.active,
+.ui.black.buttons .button.active:active,
+.ui.black.button.active,
+.ui.black.button .button.active:active {
+  background: #3b3b3b;
   color: #FFFFFF;
 }
 
@@ -6394,21 +6354,111 @@ i.massive.basic.icon {
 
 .ui.blue.buttons .button,
 .ui.blue.button {
-  background-color: #6ECFF5;
+  background: #6ecff5;
   color: #FFFFFF;
 }
 
 .ui.blue.buttons .button:hover,
-.ui.blue.button:hover,
-.ui.blue.buttons .active.button,
-.ui.blue.button.active {
-  background-color: #1AB8F3;
+.ui.blue.button:hover {
+  background: #4dcbfc;
   color: #FFFFFF;
 }
 
 .ui.blue.buttons .button:active,
 .ui.blue.button:active {
-  background-color: #0AA5DF;
+  background: #26b7f0;
+  color: #FFFFFF;
+}
+
+.ui.blue.buttons .button.active,
+.ui.blue.buttons .button.active:active,
+.ui.blue.button.active,
+.ui.blue.button .button.active:active {
+  background: #3ebff2;
+  color: #FFFFFF;
+}
+
+/*--- Green ---*/
+
+.ui.green.buttons .button,
+.ui.green.button {
+  background: #5bbd72;
+  color: #FFFFFF;
+}
+
+.ui.green.buttons .button:hover,
+.ui.green.button:hover {
+  background: #3cc25c;
+  color: #FFFFFF;
+}
+
+.ui.green.buttons .button:active,
+.ui.green.button:active {
+  background: #3a914f;
+  color: #FFFFFF;
+}
+
+.ui.green.buttons .button.active,
+.ui.green.buttons .button.active:active,
+.ui.green.button.active,
+.ui.green.button .button.active:active {
+  background: #42a359;
+  color: #FFFFFF;
+}
+
+/*--- Orange ---*/
+
+.ui.orange.buttons .button,
+.ui.orange.button {
+  background: #e96633;
+  color: #FFFFFF;
+}
+
+.ui.orange.buttons .button:hover,
+.ui.orange.button:hover {
+  background: #f34f0f;
+  color: #FFFFFF;
+}
+
+.ui.orange.buttons .button:active,
+.ui.orange.button:active {
+  background: #bb4314;
+  color: #FFFFFF;
+}
+
+.ui.orange.buttons .button.active,
+.ui.orange.buttons .button.active:active,
+.ui.orange.button.active,
+.ui.orange.button .button.active:active {
+  background: #3b3b3b;
+  color: #FFFFFF;
+}
+
+/*--- Pink ---*/
+
+.ui.pink.buttons .button,
+.ui.pink.button {
+  background: #d9499a;
+  color: #FFFFFF;
+}
+
+.ui.pink.buttons .button:hover,
+.ui.pink.button:hover {
+  background: #e12890;
+  color: #FFFFFF;
+}
+
+.ui.pink.buttons .button:active,
+.ui.pink.button:active {
+  background: #b12573;
+  color: #FFFFFF;
+}
+
+.ui.pink.buttons .button.active,
+.ui.pink.buttons .button.active:active,
+.ui.pink.button.active,
+.ui.pink.button .button.active:active {
+  background: #c62981;
   color: #FFFFFF;
 }
 
@@ -6416,21 +6466,55 @@ i.massive.basic.icon {
 
 .ui.purple.buttons .button,
 .ui.purple.button {
-  background-color: #564F8A;
+  background: #564f8a;
   color: #FFFFFF;
 }
 
 .ui.purple.buttons .button:hover,
-.ui.purple.button:hover,
-.ui.purple.buttons .active.button,
-.ui.purple.button.active {
-  background-color: #3E3773;
+.ui.purple.button:hover {
+  background: #453c83;
   color: #FFFFFF;
 }
 
 .ui.purple.buttons .button:active,
 .ui.purple.button:active {
-  background-color: #2E2860;
+  background: #383359;
+  color: #FFFFFF;
+}
+
+.ui.purple.buttons .button.active,
+.ui.purple.buttons .button.active:active,
+.ui.purple.button.active,
+.ui.purple.button .button.active:active {
+  background: #423c6a;
+  color: #FFFFFF;
+}
+
+/*--- Red ---*/
+
+.ui.red.buttons .button,
+.ui.red.button {
+  background: #d95c5c;
+  color: #FFFFFF;
+}
+
+.ui.red.buttons .button:hover,
+.ui.red.button:hover {
+  background: #e03c3c;
+  color: #FFFFFF;
+}
+
+.ui.red.buttons .button:active,
+.ui.red.button:active {
+  background: #bd2c2c;
+  color: #FFFFFF;
+}
+
+.ui.red.buttons .button.active,
+.ui.red.buttons .button.active:active,
+.ui.red.button.active,
+.ui.red.button .button.active:active {
+  background: #cf3333;
   color: #FFFFFF;
 }
 
@@ -6438,21 +6522,55 @@ i.massive.basic.icon {
 
 .ui.teal.buttons .button,
 .ui.teal.button {
-  background-color: #00B5AD;
+  background: #00b5ad;
   color: #FFFFFF;
 }
 
 .ui.teal.buttons .button:hover,
-.ui.teal.button:hover,
-.ui.teal.buttons .active.button,
-.ui.teal.button.active {
-  background-color: #009A93;
+.ui.teal.button:hover {
+  background: #009c95;
   color: #FFFFFF;
 }
 
 .ui.teal.buttons .button:active,
 .ui.teal.button:active {
-  background-color: #00847E;
+  background: #006964;
+  color: #FFFFFF;
+}
+
+.ui.teal.buttons .button.active,
+.ui.teal.buttons .button.active:active,
+.ui.teal.button.active,
+.ui.teal.button .button.active:active {
+  background: #00827c;
+  color: #FFFFFF;
+}
+
+/*--- Yellow ---*/
+
+.ui.yellow.buttons .button,
+.ui.yellow.button {
+  background: #ffcb08;
+  color: #FFFFFF;
+}
+
+.ui.yellow.buttons .button:hover,
+.ui.yellow.button:hover {
+  background: #edbc00;
+  color: #FFFFFF;
+}
+
+.ui.yellow.buttons .button:active,
+.ui.yellow.button:active {
+  background: #ba9300;
+  color: #FFFFFF;
+}
+
+.ui.yellow.buttons .button.active,
+.ui.yellow.buttons .button.active:active,
+.ui.yellow.button.active,
+.ui.yellow.button .button.active:active {
+  background: #d4a700;
   color: #FFFFFF;
 }
 
@@ -6462,7 +6580,7 @@ i.massive.basic.icon {
 
 .ui.positive.buttons .button,
 .ui.positive.button {
-  background-color: #5BBD72 !important;
+  background: #5bbd72 !important;
   color: #FFFFFF;
 }
 
@@ -6470,13 +6588,21 @@ i.massive.basic.icon {
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background-color: #58CB73 !important;
+  background: #3cc25c !important;
   color: #FFFFFF;
 }
 
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: #4CB164 !important;
+  background: #3a914f !important;
+  color: #FFFFFF;
+}
+
+.ui.positive.buttons .button.active,
+.ui.positive.buttons .button.active:active,
+.ui.positive.button.active,
+.ui.positive.button .button.active:active {
+  background: #42a359;
   color: #FFFFFF;
 }
 
@@ -6486,7 +6612,7 @@ i.massive.basic.icon {
 
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #D95C5C !important;
+  background: #d95c5c !important;
   color: #FFFFFF;
 }
 
@@ -6494,13 +6620,21 @@ i.massive.basic.icon {
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
-  background-color: #E75859 !important;
+  background: #e03c3c !important;
   color: #FFFFFF;
 }
 
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #D24B4C !important;
+  background: #bd2c2c !important;
+  color: #FFFFFF;
+}
+
+.ui.negative.buttons .button.active,
+.ui.negative.buttons .button.active:active,
+.ui.negative.button.active,
+.ui.negative.button .button.active:active {
+  background: #cf3333;
   color: #FFFFFF;
 }
 
@@ -6765,6 +6899,128 @@ i.massive.basic.icon {
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+         Theme
+--------------------*/
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+   Modified Globals
+--------------------*/
+
+/*-------------------
+   Header Variables
+--------------------*/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
             Header
 *******************************/
 
@@ -6923,7 +7179,7 @@ h5.ui.header {
 *******************************/
 
 .ui.disabled.header {
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 /*******************************
@@ -6935,51 +7191,51 @@ h5.ui.header {
 --------------------*/
 
 .ui.blue.header {
-  color: #6ECFF5 !important;
+  color: #6ecff5 !important;
 }
 
 .ui.black.header {
-  color: #5C6166 !important;
+  color: #555555 !important;
 }
 
 .ui.green.header {
-  color: #A1CF64 !important;
+  color: #5bbd72 !important;
 }
 
 .ui.red.header {
-  color: #D95C5C !important;
+  color: #d95c5c !important;
 }
 
 .ui.purple.header {
-  color: #564F8A !important;
+  color: #564f8a !important;
 }
 
 .ui.teal.header {
-  color: #00B5AD !important;
+  color: #00b5ad !important;
 }
 
 .ui.blue.dividing.header {
-  border-bottom: 3px solid #6ECFF5;
+  border-bottom: 3px solid #6ecff5;
 }
 
 .ui.black.dividing.header {
-  border-bottom: 3px solid #5C6166;
+  border-bottom: 3px solid #555555;
 }
 
 .ui.green.dividing.header {
-  border-bottom: 3px solid #A1CF64;
+  border-bottom: 3px solid #5bbd72;
 }
 
 .ui.red.dividing.header {
-  border-bottom: 3px solid #D95C5C;
+  border-bottom: 3px solid #d95c5c;
 }
 
 .ui.purple.dividing.header {
-  border-bottom: 3px solid #564F8A;
+  border-bottom: 3px solid #564f8a;
 }
 
 .ui.teal.dividing.header {
-  border-bottom: 3px solid #00B5AD;
+  border-bottom: 3px solid #00b5ad;
 }
 
 /*-------------------
@@ -6987,7 +7243,7 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.header {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .ui.inverted.header .sub.header {
@@ -6999,33 +7255,33 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.black.header {
-  background-color: #5C6166 !important;
-  color: #FFFFFF !important;
+  background-color: #555555 !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.blue.header {
-  background-color: #6ECFF5 !important;
-  color: #FFFFFF !important;
+  background-color: #6ecff5 !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.green.header {
-  background-color: #A1CF64 !important;
-  color: #FFFFFF !important;
+  background-color: #5bbd72 !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.red.header {
-  background-color: #D95C5C !important;
-  color: #FFFFFF !important;
+  background-color: #d95c5c !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.purple.header {
-  background-color: #564F8A !important;
-  color: #FFFFFF !important;
+  background-color: #564f8a !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.teal.header {
-  background-color: #00B5AD !important;
-  color: #FFFFFF !important;
+  background-color: #00b5ad !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.block.header {
@@ -7104,10 +7360,16 @@ h5.ui.header {
 --------------------*/
 
 .ui.attached.header {
-  background-color: #E0E0E0;
-  padding: 0.5em 1rem;
+  background-color: #F0F0F0;
+  margin: 0em;
+  padding: 0.75rem 1rem;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ui.attached:not(.top,
+.bottom) {
+  margin: 0em;
 }
 
 .ui.top.attached.header {
@@ -7144,13 +7406,135 @@ h5.ui.header {
  *    http://scripts.sil.org/OFL
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+         Theme
+--------------------*/
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+  @disabledOpacity
+*/
+
+/*-------------------
+   Icon Variables
+--------------------*/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
              Icon
 *******************************/
 
 @font-face {
   font-family: 'Icons';
-  src: url(../fonts/icons.eot);
-  src: url(../fonts/icons.eot?#iefix) format('embedded-opentype'), url(../fonts/icons.woff) format('woff'), url(../fonts/icons.ttf) format('truetype'), url(../fonts/icons.svg#icons) format('svg');
+  src: url("theme/semantic/fonts/icons.eot");
+  src: url("theme/semantic/fonts/icons.eot?#iefix") format('embedded-opentype'), url("theme/semantic/fonts/icons.woff") format('woff'), url("theme/semantic/fonts/icons.ttf") format('truetype'), url("theme/semantic/fonts/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -7173,10 +7557,7 @@ i.icon {
   speak: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
 
@@ -8689,22 +9070,7 @@ i.icon.right {
 
 i.icon.loading {
   -webkit-animation: icon-loading 2s linear infinite;
-  -ms-animation: icon-loading 2s linear infinite;
   animation: icon-loading 2s linear infinite;
-}
-
-@keyframes icon-loading {
-  from {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }
 
 @-webkit-keyframes icon-loading {
@@ -8719,13 +9085,15 @@ i.icon.loading {
   }
 }
 
-@-ms-keyframes icon-loading {
+@keyframes icon-loading {
   from {
+    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   to {
+    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -8761,9 +9129,9 @@ i.icon.disabled {
 
 i.link.icon {
   cursor: pointer;
-  opacity: 0.7;
-  -webkit-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
+  opacity: 0.75;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
 }
 
 i.link.icon:hover {
@@ -8833,7 +9201,7 @@ i.counterclockwise.rotated.icon {
 i.square.icon {
   width: 2em;
   height: 2em;
-  padding: 0.5em 0.35em !important;
+  padding: 2em !important;
   -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
@@ -8858,61 +9226,88 @@ i.inverted.icon {
        Colors
 --------------------*/
 
-i.blue.icon {
-  color: #6ECFF5 !important;
+i.black.icon {
+  color: #555555 !important;
 }
 
-i.black.icon {
-  color: #5C6166 !important;
+i.blue.icon {
+  color: #6ecff5 !important;
 }
 
 i.green.icon {
-  color: #A1CF64 !important;
+  color: #5bbd72 !important;
 }
 
-i.red.icon {
-  color: #D95C5C !important;
+i.orange.icon {
+  color: #e96633 !important;
+}
+
+i.pink.icon {
+  color: #d9499a !important;
 }
 
 i.purple.icon {
-  color: #564F8A !important;
+  color: #564f8a !important;
+}
+
+i.red.icon {
+  color: #d95c5c !important;
 }
 
 i.teal.icon {
-  color: #00B5AD !important;
+  color: #00b5ad !important;
+}
+
+i.yellow.icon {
+  color: #ffcb08 !important;
 }
 
 /*-------------------
    Inverted Colors
 --------------------*/
 
-i.inverted.black.icon {
-  background-color: #5C6166 !important;
+i.black.icon {
+  background-color: #555555 !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.blue.icon {
-  background-color: #6ECFF5 !important;
+i.blue.icon {
+  background-color: #6ecff5 !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.green.icon {
-  background-color: #A1CF64 !important;
+i.green.icon {
+  background-color: #5bbd72 !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.red.icon {
-  background-color: #D95C5C !important;
+i.orange.icon {
+  background-color: #e96633 !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.purple.icon {
-  background-color: #564F8A !important;
+i.pink.icon {
+  background-color: #d9499a !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.teal.icon {
-  background-color: #00B5AD !important;
+i.purple.icon {
+  background-color: #564f8a !important;
+  color: #FFFFFF !important;
+}
+
+i.red.icon {
+  background-color: #d95c5c !important;
+  color: #FFFFFF !important;
+}
+
+i.teal.icon {
+  background-color: #00b5ad !important;
+  color: #FFFFFF !important;
+}
+
+i.yellow.icon {
+  background-color: #ffcb08 !important;
   color: #FFFFFF !important;
 }
 
@@ -8929,22 +9324,22 @@ i.icon {
 }
 
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 1.125em;
   vertical-align: middle;
 }
 
 i.big.icon {
-  font-size: 2em;
+  font-size: 1.25em;
   vertical-align: middle;
 }
 
 i.huge.icon {
-  font-size: 4em;
+  font-size: 1.375em;
   vertical-align: middle;
 }
 
 i.massive.icon {
-  font-size: 8em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 /*
@@ -8957,6 +9352,129 @@ i.massive.icon {
  * http://opensource.org/licenses/MIT
  *
  */
+
+/*******************************
+            Theme
+*******************************/
+
+/*-------------------
+         Theme
+--------------------*/
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+@borderColor
+
+*/
+
+/*-------------------
+      Variables
+--------------------*/
+
+/*******************************
+           Overrides
+*******************************/
 
 /*******************************
              Image
@@ -9036,7 +9554,7 @@ img.ui.image {
 .ui.avatar.images img,
 .ui.avatar.image img,
 .ui.avatar.image {
-  margin-right: 0.5em;
+  margin-right: 0.25rem;
   display: inline-block;
   width: 2em;
   height: 2em;
@@ -9065,46 +9583,60 @@ img.ui.image {
      Sizes
 ---------------*/
 
-.ui.tiny.images .image,
-.ui.tiny.images img,
-.ui.tiny.image {
-  width: 20px;
-  font-size: 0.7rem;
-}
-
 .ui.mini.images .image,
 .ui.mini.images img,
 .ui.mini.image {
-  width: 35px;
-  font-size: 0.8rem;
+  width: 20px;
+  font-size: 0.7em;
+}
+
+.ui.tiny.images .image,
+.ui.tiny.images img,
+.ui.tiny.image {
+  width: 80px;
+  font-size: 0.8em;
 }
 
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
-  width: 80px;
-  font-size: 0.9rem;
+  width: 150px;
+  font-size: 0.875em;
 }
 
 .ui.medium.images .image,
 .ui.medium.images img,
 .ui.medium.image {
   width: 300px;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ui.large.images .image,
 .ui.large.images img,
 .ui.large.image {
   width: 450px;
-  font-size: 1.1rem;
+  font-size: 1.125em;
+}
+
+.ui.big.images .image,
+.ui.big.images img,
+.ui.big.image {
+  width: 600px;
+  font-size: 1.25em;
 }
 
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
-  width: 600px;
-  font-size: 1.2rem;
+  width: 800px;
+  font-size: 1.375em;
+}
+
+.ui.massive.images .image,
+.ui.massive.images img,
+.ui.massive.image {
+  width: 960px;
+  font-size: 1.5em;
 }
 
 /*******************************
@@ -9119,7 +9651,7 @@ img.ui.image {
 .ui.images .image,
 .ui.images img {
   display: inline-block;
-  margin: 0em 0.25em 0.5em;
+  margin: 0em 0.25rem 0.5rem;
 }
 /*
  * # Semantic - Input
@@ -11066,6 +11598,129 @@ a.ui.teal.label:hover:before {
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+         Theme
+--------------------*/
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+@borderColor
+
+*/
+
+/*-------------------
+   Segment Variables
+--------------------*/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
             Segment
 *******************************/
 
@@ -11075,11 +11730,10 @@ a.ui.teal.label:hover:before {
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   margin: 1em 0em;
-  padding: 1em;
-  border-radius: 5px 5px 5px 5px;
+  padding: 1em 1em;
+  border-radius: 5px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -11094,7 +11748,7 @@ a.ui.teal.label:hover:before {
 .ui.segment:after {
   content: '';
   display: block;
-  height: 0;
+  height: 0px;
   clear: both;
   visibility: hidden;
 }
@@ -11135,9 +11789,10 @@ a.ui.teal.label:hover:before {
   top: 1px;
 }
 
-.ui.page.grid.segment .ui.grid .ui.segment.column {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.ui.page.grid.segment,
+.ui.grid .ui.segment.column {
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .ui.grid.segment,
@@ -11169,10 +11824,8 @@ a.ui.teal.label:hover:before {
 
 .ui.piled.segment {
   margin: 2em 0em;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-  -ms-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-  -o-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .ui.piled.segment:first-child {
@@ -11228,7 +11881,7 @@ a.ui.teal.label:hover:before {
   bottom: -3px;
   left: 0%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.01);
   width: 100%;
   height: 5px;
   visibility: visible;
@@ -11242,8 +11895,8 @@ a.ui.teal.label:hover:before {
 
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  background-color: rgba(0, 0, 0, 0.01);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 /*-------------------
@@ -11260,8 +11913,8 @@ a.ui.teal.label:hover:before {
 *******************************/
 
 .ui.disabled.segment {
-  opacity: 0.8;
-  color: #DDDDDD;
+  opacity: 0.3;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 /*******************************
@@ -11300,66 +11953,89 @@ a.ui.teal.label:hover:before {
        Colors
 --------------------*/
 
+.ui.black.segment {
+  border-top: 0.2em solid #555555;
+}
+
 .ui.blue.segment {
-  border-top: 0.2em solid #6ECFF5;
+  border-top: 0.2em solid #6ecff5;
 }
 
 .ui.green.segment {
-  border-top: 0.2em solid #A1CF64;
-}
-
-.ui.red.segment {
-  border-top: 0.2em solid #D95C5C;
+  border-top: 0.2em solid #5bbd72;
 }
 
 .ui.orange.segment {
-  border-top: 0.2em solid #F05940;
+  border-top: 0.2em solid #e96633;
+}
+
+.ui.pink.segment {
+  border-top: 0.2em solid #d9499a;
 }
 
 .ui.purple.segment {
-  border-top: 0.2em solid #564F8A;
+  border-top: 0.2em solid #564f8a;
+}
+
+.ui.red.segment {
+  border-top: 0.2em solid #d95c5c;
 }
 
 .ui.teal.segment {
-  border-top: 0.2em solid #00B5AD;
+  border-top: 0.2em solid #00b5ad;
+}
+
+.ui.yellow.segment {
+  border-top: 0.2em solid #ffcb08;
 }
 
 /*-------------------
    Inverted Colors
 --------------------*/
 
+.ui.inverted.segment,
 .ui.inverted.black.segment {
-  background-color: #5C6166 !important;
+  background-color: #555555 !important;
   color: #FFFFFF !important;
 }
 
 .ui.inverted.blue.segment {
-  background-color: #6ECFF5 !important;
+  background-color: #6ecff5 !important;
   color: #FFFFFF !important;
 }
 
 .ui.inverted.green.segment {
-  background-color: #A1CF64 !important;
-  color: #FFFFFF !important;
-}
-
-.ui.inverted.red.segment {
-  background-color: #D95C5C !important;
+  background-color: #5bbd72 !important;
   color: #FFFFFF !important;
 }
 
 .ui.inverted.orange.segment {
-  background-color: #F05940 !important;
+  background-color: #e96633 !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.pink.segment {
+  background-color: #d9499a !important;
   color: #FFFFFF !important;
 }
 
 .ui.inverted.purple.segment {
-  background-color: #564F8A !important;
+  background-color: #564f8a !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.red.segment {
+  background-color: #d95c5c !important;
   color: #FFFFFF !important;
 }
 
 .ui.inverted.teal.segment {
-  background-color: #00B5AD !important;
+  background-color: #00b5ad !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.yellow.segment {
+  background-color: #ffcb08 !important;
   color: #FFFFFF !important;
 }
 
@@ -11404,7 +12080,7 @@ a.ui.teal.label:hover:before {
 
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #222222;
+  background-color: #555555;
   color: #FFFFFF;
 }
 
@@ -11412,37 +12088,30 @@ a.ui.teal.label:hover:before {
      Ordinality
 --------------------*/
 
-.ui.primary.segment {
-  background-color: #FFFFFF;
-  color: #555555;
-}
-
 .ui.secondary.segment {
-  background-color: #FAF9FA;
-  color: #777777;
+  background-color: #555555;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.tertiary.segment {
-  background-color: #EBEBEB;
-  color: #B0B0B0;
+  background-color: #e96633;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .ui.secondary.inverted.segment {
   background-color: #555555;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  color: #FAFAFA;
+  color: #fafafa;
 }
 
 .ui.tertiary.inverted.segment {
   background-color: #555555;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  color: #EEEEEE;
+  color: #f0f0f0;
 }
 
 /*-------------------
@@ -11452,10 +12121,10 @@ a.ui.teal.label:hover:before {
 .ui.segment.attached {
   top: -1px;
   bottom: -1px;
-  border-radius: 0px;
   margin: 0em;
-  -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
-  box-shadow: 0px 0px 0px 1px #DDDDDD;
+  border-radius: 0px;
+  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
 }
 
 .ui.top.attached.segment {
@@ -11463,7 +12132,7 @@ a.ui.teal.label:hover:before {
   bottom: -1px;
   margin-top: 1em;
   margin-bottom: 0em;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0em 0em;
 }
 
 .ui.segment.top.attached:first-child {

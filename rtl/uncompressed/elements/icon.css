@@ -23,13 +23,135 @@
  *    http://scripts.sil.org/OFL
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+         Theme
+--------------------*/
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+  @disabledOpacity
+*/
+
+/*-------------------
+   Icon Variables
+--------------------*/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
              Icon
 *******************************/
 
 @font-face {
   font-family: 'Icons';
-  src: url(../fonts/icons.eot);
-  src: url(../fonts/icons.eot?#iefix) format('embedded-opentype'), url(../fonts/icons.woff) format('woff'), url(../fonts/icons.ttf) format('truetype'), url(../fonts/icons.svg#icons) format('svg');
+  src: url("theme/semantic/fonts/icons.eot");
+  src: url("theme/semantic/fonts/icons.eot?#iefix") format('embedded-opentype'), url("theme/semantic/fonts/icons.woff") format('woff'), url("theme/semantic/fonts/icons.ttf") format('truetype'), url("theme/semantic/fonts/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -52,10 +174,7 @@ i.icon {
   speak: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
 
@@ -1568,22 +1687,7 @@ i.icon.right {
 
 i.icon.loading {
   -webkit-animation: icon-loading 2s linear infinite;
-  -ms-animation: icon-loading 2s linear infinite;
   animation: icon-loading 2s linear infinite;
-}
-
-@keyframes icon-loading {
-  from {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }
 
 @-webkit-keyframes icon-loading {
@@ -1598,13 +1702,15 @@ i.icon.loading {
   }
 }
 
-@-ms-keyframes icon-loading {
+@keyframes icon-loading {
   from {
+    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   to {
+    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -1640,9 +1746,9 @@ i.icon.disabled {
 
 i.link.icon {
   cursor: pointer;
-  opacity: 0.7;
-  -webkit-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
+  opacity: 0.75;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
 }
 
 i.link.icon:hover {
@@ -1712,7 +1818,7 @@ i.counterclockwise.rotated.icon {
 i.square.icon {
   width: 2em;
   height: 2em;
-  padding: 0.5em 0.35em !important;
+  padding: 2em !important;
   -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
@@ -1737,61 +1843,88 @@ i.inverted.icon {
        Colors
 --------------------*/
 
-i.blue.icon {
-  color: #6ECFF5 !important;
+i.black.icon {
+  color: #555555 !important;
 }
 
-i.black.icon {
-  color: #5C6166 !important;
+i.blue.icon {
+  color: #6ecff5 !important;
 }
 
 i.green.icon {
-  color: #A1CF64 !important;
+  color: #5bbd72 !important;
 }
 
-i.red.icon {
-  color: #D95C5C !important;
+i.orange.icon {
+  color: #e96633 !important;
+}
+
+i.pink.icon {
+  color: #d9499a !important;
 }
 
 i.purple.icon {
-  color: #564F8A !important;
+  color: #564f8a !important;
+}
+
+i.red.icon {
+  color: #d95c5c !important;
 }
 
 i.teal.icon {
-  color: #00B5AD !important;
+  color: #00b5ad !important;
+}
+
+i.yellow.icon {
+  color: #ffcb08 !important;
 }
 
 /*-------------------
    Inverted Colors
 --------------------*/
 
-i.inverted.black.icon {
-  background-color: #5C6166 !important;
+i.black.icon {
+  background-color: #555555 !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.blue.icon {
-  background-color: #6ECFF5 !important;
+i.blue.icon {
+  background-color: #6ecff5 !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.green.icon {
-  background-color: #A1CF64 !important;
+i.green.icon {
+  background-color: #5bbd72 !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.red.icon {
-  background-color: #D95C5C !important;
+i.orange.icon {
+  background-color: #e96633 !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.purple.icon {
-  background-color: #564F8A !important;
+i.pink.icon {
+  background-color: #d9499a !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.teal.icon {
-  background-color: #00B5AD !important;
+i.purple.icon {
+  background-color: #564f8a !important;
+  color: #FFFFFF !important;
+}
+
+i.red.icon {
+  background-color: #d95c5c !important;
+  color: #FFFFFF !important;
+}
+
+i.teal.icon {
+  background-color: #00b5ad !important;
+  color: #FFFFFF !important;
+}
+
+i.yellow.icon {
+  background-color: #ffcb08 !important;
   color: #FFFFFF !important;
 }
 
@@ -1808,21 +1941,21 @@ i.icon {
 }
 
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 1.125em;
   vertical-align: middle;
 }
 
 i.big.icon {
-  font-size: 2em;
+  font-size: 1.25em;
   vertical-align: middle;
 }
 
 i.huge.icon {
-  font-size: 4em;
+  font-size: 1.375em;
   vertical-align: middle;
 }
 
 i.massive.icon {
-  font-size: 8em;
+  font-size: 1.5em;
   vertical-align: middle;
 }

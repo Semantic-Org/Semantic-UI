@@ -23,17 +23,26 @@
  *    http://scripts.sil.org/OFL
 
 /*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'icon';
+
+@import '../semantic.config';
+
+/*******************************
              Icon
 *******************************/
 
 @font-face {
   font-family: 'Icons';
-  src: url(../fonts/icons.eot);
+  src: url("@{iconFont}.eot");
   src:
-    url(../fonts/icons.eot?#iefix) format('embedded-opentype'),
-    url(../fonts/icons.woff) format('woff'),
-    url(../fonts/icons.ttf) format('truetype'),
-    url(../fonts/icons.svg#icons) format('svg')
+    url("@{iconFont}.eot?#iefix") format('embedded-opentype'),
+    url("@{iconFont}.woff") format('woff'),
+    url("@{iconFont}.ttf") format('truetype'),
+    url("@{iconFont}.svg#icons") format('svg')
   ;
 
   font-style: normal;
@@ -45,12 +54,12 @@
 
 i.icon {
   display: inline-block;
-  opacity: 0.75;
+  opacity: @opacity;
 
-  margin: 0em 0.25em 0em 0em;
+  margin: 0em @margin 0em 0em;
 
-  width: 1.23em;
-  height: 1em;
+  width: @width;
+  height: @height;
 
   font-family: 'Icons';
   font-style: normal;
@@ -60,14 +69,7 @@ i.icon {
   text-align: center;
 
   speak: none;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
 
@@ -462,7 +464,7 @@ i.icon.left,
 i.icon.left,
 i.icon.left {
   width: auto;
-  margin: 0em 0.5em 0em 0em;
+  margin: 0em @directionMargin 0em 0em;
 }
 
 /* right side icons */
@@ -471,7 +473,7 @@ i.icon.up,
 i.icon.down,
 i.icon.right {
   width: auto;
-  margin: 0em 0em 0em 0.5em;
+  margin: 0em 0em 0em @directionMargin;
 }
 
 
@@ -484,70 +486,16 @@ i.icon.right {
 ---------------*/
 
 i.icon.loading {
-  -webkit-animation: icon-loading 2s linear infinite;
-  -moz-animation: icon-loading 2s linear infinite;
-  -ms-animation: icon-loading 2s linear infinite;
-  -o-animation: icon-loading 2s linear infinite;
-  animation: icon-loading 2s linear infinite;
+  animation: icon-loading @loadingDuration linear infinite;
 }
 @keyframes icon-loading {
  from {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
     transform: rotate(0deg);
  }
  to {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
     transform: rotate(360deg);
  }
 }
-@-moz-keyframes icon-loading {
- from {
-   -moz-transform: rotate(0deg);
-   transform: rotate(0deg);
- }
- to {
-   -moz-transform: rotate(360deg);
-   transform: rotate(360deg);
- }
-}
-@-webkit-keyframes icon-loading {
- from {
-   -webkit-transform: rotate(0deg);
-   transform: rotate(0deg);
- }
- to {
-   -webkit-transform: rotate(360deg);
-   transform: rotate(360deg);
- }
-}
-@-ms-keyframes icon-loading {
- from {
-   -ms-transform: rotate(0deg);
-   transform: rotate(0deg);
- }
- to {
-   -ms-transform: rotate(360deg);
-   transform: rotate(360deg);
- }
-}
-@-o-keyframes icon-loading {
- from {
-   -o-transform: rotate(0deg);
-   transform: rotate(0deg);
- }
- to {
-   -o-transform: rotate(360deg);
-   transform: rotate(360deg);
- }
-}
-
-
 
 /*******************************
              States
@@ -566,7 +514,7 @@ i.emphasized.icon {
 }
 
 i.icon.disabled {
-  opacity: 0.3;
+  opacity: @disabledOpacity;
 }
 
 
@@ -581,12 +529,8 @@ i.icon.disabled {
 
 i.link.icon {
   cursor: pointer;
-  opacity: 0.7;
-  -webkit-transition: opacity 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
+  opacity: @opacity;
+  transition: opacity @transitionDuration @transitionEasing;
 }
 i.link.icon:hover {
   opacity: 1 !important;
@@ -597,24 +541,18 @@ i.link.icon:hover {
 --------------------*/
 
 i.circular.icon {
-  -webkit-border-radius: 500em !important;
-  -moz-border-radius: 500em !important;
   border-radius: 500em !important;
 
-  padding: 0.5em 0.35em !important;
+  padding: @circularPadding !important;
 
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: @circularShadow;
 
   line-height: 1 !important;
-  width: 2em !important;
-  height: 2em !important;
+  width: @circularSize !important;
+  height: @circularSize !important;
 }
 i.circular.inverted.icon {
   border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -624,17 +562,9 @@ i.circular.inverted.icon {
 
 i.flipped.icon,
 i.horizontally.flipped.icon {
-  -webkit-transform: scale(-1, 1);
-  -moz-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
 i.vertically.flipped.icon {
-  -webkit-transform: scale(1, -1);
-  -moz-transform: scale(1, -1);
-  -o-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
   transform: scale(1, -1);
 }
 
@@ -645,19 +575,11 @@ i.vertically.flipped.icon {
 i.rotated.icon,
 i.right.rotated.icon,
 i.clockwise.rotated.icon {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
 i.left.rotated.icon,
 i.counterclockwise.rotated.icon {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
 
@@ -666,20 +588,16 @@ i.counterclockwise.rotated.icon {
 --------------------*/
 
 i.square.icon {
-  width: 2em;
-  height: 2em;
-  padding: 0.5em 0.35em !important;
+  width: @squareSize;
+  height: @squareSize;
 
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  padding: @squareSize !important;
+  box-shadow: @squareShadow;
 
   vertical-align: baseline;
 }
 i.square.inverted.icon {
   border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -697,78 +615,98 @@ i.inverted.icon {
        Colors
 --------------------*/
 
-i.blue.icon {
-  color: #6ECFF5 !important;
-}
 i.black.icon {
-  color: #5C6166 !important;
+  color: @black !important;
+}
+i.blue.icon {
+  color: @blue !important;
 }
 i.green.icon {
-  color: #A1CF64 !important;
+  color: @green !important;
 }
-i.red.icon {
-  color: #D95C5C !important;
+i.orange.icon {
+  color: @orange !important;
+}
+i.pink.icon {
+  color: @pink !important;
 }
 i.purple.icon {
-  color: #564F8A !important;
+  color: @purple !important;
+}
+i.red.icon {
+  color: @red !important;
 }
 i.teal.icon {
-  color: #00B5AD !important;
+  color: @teal !important;
+}
+i.yellow.icon {
+  color: @yellow !important;
 }
 
 /*-------------------
    Inverted Colors
 --------------------*/
 
-i.inverted.black.icon {
-  background-color: #5C6166 !important;
+i.black.icon {
+  background-color: @black !important;
   color: #FFFFFF !important;
 }
-i.inverted.blue.icon {
-  background-color: #6ECFF5 !important;
+i.blue.icon {
+  background-color: @blue !important;
   color: #FFFFFF !important;
 }
-i.inverted.green.icon {
-  background-color: #A1CF64 !important;
+i.green.icon {
+  background-color: @green !important;
   color: #FFFFFF !important;
 }
-i.inverted.red.icon {
-  background-color: #D95C5C !important;
+i.orange.icon {
+  background-color: @orange !important;
   color: #FFFFFF !important;
 }
-i.inverted.purple.icon {
-  background-color: #564F8A !important;
+i.pink.icon {
+  background-color: @pink !important;
   color: #FFFFFF !important;
 }
-i.inverted.teal.icon {
-  background-color: #00B5AD !important;
+i.purple.icon {
+  background-color: @purple !important;
   color: #FFFFFF !important;
 }
-
+i.red.icon {
+  background-color: @red !important;
+  color: #FFFFFF !important;
+}
+i.teal.icon {
+  background-color: @teal !important;
+  color: #FFFFFF !important;
+}
+i.yellow.icon {
+  background-color: @yellow !important;
+  color: #FFFFFF !important;
+}
 
 /*-------------------
         Sizes
 --------------------*/
 
 i.small.icon {
-  font-size: 0.875em;
+  font-size: @small;
 }
 i.icon {
-  font-size: 1em;
+  font-size: @medium;
 }
 i.large.icon {
-  font-size: 1.5em;
+  font-size: @large;
   vertical-align: middle;
 }
 i.big.icon {
-  font-size: 2em;
+  font-size: @big;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 4em;
+  font-size: @huge;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 8em;
+  font-size: @massive;
   vertical-align: middle;
 }
