@@ -25,6 +25,10 @@
   background-color: #FFFFFF;
   border: 1px solid #DDDDDD;
   border-radius: 5px;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 /*******************************

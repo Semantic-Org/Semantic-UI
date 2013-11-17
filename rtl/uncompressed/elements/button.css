@@ -73,7 +73,7 @@
       Hover
 ---------------*/
 
-.ui.button:not(.loading):hover {
+.ui.button:hover {
   background-image: -webkit-gradient(linear, top right, bottom right, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.08)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
@@ -93,8 +93,8 @@
       Down
 ---------------*/
 
-.ui.button:not(.loading):active,
-.ui.active.button:not(.loading):active {
+.ui.button:active,
+.ui.active.button:active {
   background-color: #F1F1F1;
   color: rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;

@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+### Version 0.9.3 - Nov 17, 2013
+
+**Fixes**
+- **Dropdown** - Fixes "falsey" values (like 0) not being processed correctly
+- **Segment** - Fixes segment text color when nested inside inverted segment
+- **Button** - Fixes improper active/visible state due to :not specificity (most noticiable in mousedown on a dropdown button)
+
 ### Version 0.9.2 - Nov 8, 2013
 
 **Fixes** - Fixes popup not repositioning itself when offstage.
