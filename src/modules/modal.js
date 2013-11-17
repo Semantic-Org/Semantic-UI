@@ -676,7 +676,7 @@ $.fn.modal.settings = {
   className : {
     active    : 'active',
     scrolling : 'scrolling'
-  },
+  }
 };
 
 
