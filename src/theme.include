@@ -1,13 +1,16 @@
 .loadUIVariables() {
-  @import "theme/semantic/@{type}/@{element}.variables";
-  @import "theme/@{theme}/@{type}/@{element}.variables";
+  @import "theme/default/@{type}s/@{element}.variables";
+  @import "theme/@{theme}/@{type}s/@{element}.variables";
+  @import "theme/user/@{type}s/@{element}.variables";
 }
 .loadUIOverrides() {
-  @import "theme/@{theme}/@{type}/@{element}.overrides";
+  @import "theme/@{theme}/@{type}s/@{element}.overrides";
+  @import "theme/user/@{type}s/@{element}.overrides";
 }
 .loadGlobal() {
-  @import "theme/semantic/global.variables";
+  @import "theme/default/global.variables";
   @import "theme/@{theme}/global.variables";
+  @import "theme/user/global.variables";
 }
 
 .loadGlobal();
