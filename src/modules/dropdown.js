@@ -796,7 +796,7 @@ $.fn.dropdown.settings = {
   transition : 'slide down',
   duration   : 250,
 
-  onChange : function(){},
+  onChange : function(value, text){},
   onShow   : function(){},
   onHide   : function(){},
 
