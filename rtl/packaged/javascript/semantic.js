@@ -406,7 +406,7 @@ $.fn.accordion.settings = {
   selector    : {
     title   : '.title',
     content : '.content'
-  },
+  }
 
 
 };
@@ -4037,7 +4037,7 @@ $.fn.dimmer = function(parameters) {
                   complete  : function() {
                     module.set.active();
                     callback();
-                  },
+                  }
                 })
               ;
             }
@@ -4676,8 +4676,12 @@ $.fn.dropdown = function(parameters) {
             click: function (event) {
               var
                 $choice = $(this),
-                text    = $choice.data(metadata.text)  || $choice.text(),
-                value   = $choice.data(metadata.value) || text.toLowerCase()
+                text    = ( $choice.data(metadata.text) !== undefined )
+                  ? $choice.data(metadata.text)
+                  : $choice.text(),
+                value   = ( $choice.data(metadata.value) !== undefined)
+                  ? $choice.data(metadata.value)
+                  : text.toLowerCase()
               ;
               if( $choice.find(selector.menu).size() === 0 ) {
                 module.determine.selectAction(text, value);
@@ -4788,15 +4792,21 @@ $.fn.dropdown = function(parameters) {
             ;
             value = (value !== undefined)
               ? value
-              : ( module.get.value() || module.get.text() )
+              : ( module.get.value() !== undefined)
+                ? module.get.value()
+                : module.get.text()
             ;
             if(value) {
               $item
                 .each(function() {
                   var
                     $choice       = $(this),
-                    optionText    = $choice.data(metadata.text)  || $choice.text(),
-                    optionValue   = $choice.data(metadata.value) || optionText.toLowerCase()
+                    optionText    = ( $choice.data(metadata.text) !== undefined )
+                      ? $choice.data(metadata.text)
+                      : $choice.text(),
+                    optionValue   = ( $choice.data(metadata.value) !== undefined )
+                      ? $choice.data(metadata.value)
+                      : optionText.toLowerCase()
                   ;
                   if( optionValue == value || optionText == value ) {
                     $selectedItem = $(this);
@@ -4835,7 +4845,10 @@ $.fn.dropdown = function(parameters) {
             ;
             if($selectedItem) {
               module.debug('Setting selected menu item to', $selectedItem);
-              selectedText = $selectedItem.data(metadata.text) || $selectedItem.text();
+              selectedText = ($selectedItem.data(metadata.text) !== undefined)
+                ? $selectedItem.data(metadata.text)
+                : $selectedItem.text()
+              ;
               $item
                 .removeClass(className.active)
               ;
@@ -5249,7 +5262,7 @@ $.fn.dropdown.settings = {
   transition : 'slide down',
   duration   : 250,
 
-  onChange : function(){},
+  onChange : function(value, text){},
   onShow   : function(){},
   onHide   : function(){},
 
@@ -5960,7 +5973,7 @@ $.fn.modal.settings = {
   className : {
     active    : 'active',
     scrolling : 'scrolling'
-  },
+  }
 };
 
 

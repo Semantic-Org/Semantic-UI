@@ -5111,6 +5111,10 @@ i.massive.basic.icon {
          Theme
 --------------------*/
 
+/* To Override a theme for an individual element
+   Specify using camel case
+*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -5209,6 +5213,10 @@ i.massive.basic.icon {
 
 /*---  Neutrals  ---*/
 
+/*******************************
+     User Global Variables
+*******************************/
+
 /*-------------------
     Globals Used
 --------------------*/
@@ -5218,6 +5226,14 @@ i.massive.basic.icon {
 --------------------*/
 
 /* Button Variables */
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 
 /*******************************
            Overrides
@@ -5340,7 +5356,7 @@ i.massive.basic.icon {
   width: 100%;
   height: 100%;
   content: '';
-  background: transparent url("theme/semantic/images/loader-mini.gif") no-repeat 50% 50%;
+  background: transparent url("theme/default/images/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.labeled.icon.loading.button .icon {
@@ -5788,19 +5804,19 @@ i.massive.basic.icon {
 /* loading */
 
 .ui.huge.loading.button:after {
-  background-image: url("theme/semantic/images/loader-small.gif");
+  background-image: url("theme/default/images/loader-small.gif");
 }
 
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
 .ui.massive.loading.button:after,
 .ui.gigantic.loading.button:after {
-  background-image: url("theme/semantic/images/loader-medium.gif");
+  background-image: url("theme/default/images/loader-medium.gif");
 }
 
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
-  background-image: url("theme/semantic/images/loader-small.gif");
+  background-image: url("theme/default/images/loader-small.gif");
 }
 
 .ui.massive.buttons .loading.button:after,
@@ -5811,7 +5827,7 @@ i.massive.basic.icon {
 .ui.gigantic.buttons .loading.button.active:after,
 .ui.massive.loading.button.active:after,
 .ui.gigantic.loading.button.active:after {
-  background-image: url("theme/semantic/images/loader-medium.gif");
+  background-image: url("theme/default/images/loader-medium.gif");
 }
 
 /*--------------
@@ -6906,6 +6922,10 @@ i.massive.basic.icon {
          Theme
 --------------------*/
 
+/* To Override a theme for an individual element
+   Specify using camel case
+*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -7004,6 +7024,10 @@ i.massive.basic.icon {
 
 /*---  Neutrals  ---*/
 
+/*******************************
+     User Global Variables
+*******************************/
+
 /*-------------------
     Globals Used
 --------------------*/
@@ -7015,6 +7039,14 @@ i.massive.basic.icon {
 /*-------------------
    Header Variables
 --------------------*/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 
 /*******************************
            Overrides
@@ -7413,6 +7445,10 @@ h5.ui.header {
          Theme
 --------------------*/
 
+/* To Override a theme for an individual element
+   Specify using camel case
+*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -7511,6 +7547,10 @@ h5.ui.header {
 
 /*---  Neutrals  ---*/
 
+/*******************************
+     User Global Variables
+*******************************/
+
 /*-------------------
     Globals Used
 --------------------*/
@@ -7524,6 +7564,14 @@ h5.ui.header {
 --------------------*/
 
 /*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
            Overrides
 *******************************/
 
@@ -7533,8 +7581,8 @@ h5.ui.header {
 
 @font-face {
   font-family: 'Icons';
-  src: url("theme/semantic/fonts/icons.eot");
-  src: url("theme/semantic/fonts/icons.eot?#iefix") format('embedded-opentype'), url("theme/semantic/fonts/icons.woff") format('woff'), url("theme/semantic/fonts/icons.ttf") format('truetype'), url("theme/semantic/fonts/icons.svg#icons") format('svg');
+  src: url("theme/default/fonts/icons.eot");
+  src: url("theme/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("theme/default/fonts/icons.woff") format('woff'), url("theme/default/fonts/icons.ttf") format('truetype'), url("theme/default/fonts/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -9361,6 +9409,10 @@ i.massive.icon {
          Theme
 --------------------*/
 
+/* To Override a theme for an individual element
+   Specify using camel case
+*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -9459,6 +9511,10 @@ i.massive.icon {
 
 /*---  Neutrals  ---*/
 
+/*******************************
+     User Global Variables
+*******************************/
+
 /*-------------------
     Globals Used
 --------------------*/
@@ -9471,6 +9527,14 @@ i.massive.icon {
 /*-------------------
       Variables
 --------------------*/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 
 /*******************************
            Overrides
@@ -11605,6 +11669,10 @@ a.ui.teal.label:hover:before {
          Theme
 --------------------*/
 
+/* To Override a theme for an individual element
+   Specify using camel case
+*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -11703,6 +11771,10 @@ a.ui.teal.label:hover:before {
 
 /*---  Neutrals  ---*/
 
+/*******************************
+     User Global Variables
+*******************************/
+
 /*-------------------
     Globals Used
 --------------------*/
@@ -11715,6 +11787,14 @@ a.ui.teal.label:hover:before {
 /*-------------------
    Segment Variables
 --------------------*/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 
 /*******************************
            Overrides
@@ -12076,6 +12156,14 @@ a.ui.teal.label:hover:before {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+.ui.inverted.segment .segment {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.ui.inverted.segment .inverted.segment {
+  color: #FFFFFF;
 }
 
 .ui.inverted.segment,
@@ -13948,6 +14036,10 @@ a.ui.teal.label:hover:before {
   background-color: #FFFFFF;
   border: 1px solid #DDDDDD;
   border-radius: 5px;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 /*******************************
@@ -17604,7 +17696,7 @@ ol.ui.list li,
 }
 
 .ui.list .item > .icon + .content {
-  float: right;
+  display: table-cell;
   vertical-align: top;
 }
 

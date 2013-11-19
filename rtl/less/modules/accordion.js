@@ -406,7 +406,7 @@ $.fn.accordion.settings = {
   selector    : {
     title   : '.title',
     content : '.content'
-  },
+  }
 
 
 };

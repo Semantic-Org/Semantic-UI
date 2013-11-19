@@ -17,6 +17,10 @@
          Theme
 --------------------*/
 
+/* To Override a theme for an individual element
+   Specify using camel case
+*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -115,6 +119,10 @@
 
 /*---  Neutrals  ---*/
 
+/*******************************
+     User Global Variables
+*******************************/
+
 /*-------------------
     Globals Used
 --------------------*/
@@ -127,6 +135,14 @@
 /*-------------------
    Segment Variables
 --------------------*/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 
 /*******************************
            Overrides
@@ -488,6 +504,14 @@
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+.ui.inverted.segment .segment {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.ui.inverted.segment .inverted.segment {
+  color: #FFFFFF;
 }
 
 .ui.inverted.segment,

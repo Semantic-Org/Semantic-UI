@@ -263,8 +263,8 @@ type        : 'UI Module'
 
       <div class="ui selection dropdown">
         <input type="hidden" name="transition">
-        <i class="dropdown icon"></i>
         <div class="default text">Choose a transition</div>
+        <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Horizontal Flip</div>
           <div class="item">Vertical Flip</div>

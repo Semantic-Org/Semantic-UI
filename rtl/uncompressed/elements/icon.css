@@ -30,6 +30,10 @@
          Theme
 --------------------*/
 
+/* To Override a theme for an individual element
+   Specify using camel case
+*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -128,6 +132,10 @@
 
 /*---  Neutrals  ---*/
 
+/*******************************
+     User Global Variables
+*******************************/
+
 /*-------------------
     Globals Used
 --------------------*/
@@ -141,6 +149,14 @@
 --------------------*/
 
 /*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
            Overrides
 *******************************/
 
@@ -150,8 +166,8 @@
 
 @font-face {
   font-family: 'Icons';
-  src: url("theme/semantic/fonts/icons.eot");
-  src: url("theme/semantic/fonts/icons.eot?#iefix") format('embedded-opentype'), url("theme/semantic/fonts/icons.woff") format('woff'), url("theme/semantic/fonts/icons.ttf") format('truetype'), url("theme/semantic/fonts/icons.svg#icons") format('svg');
+  src: url("theme/default/fonts/icons.eot");
+  src: url("theme/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("theme/default/fonts/icons.woff") format('woff'), url("theme/default/fonts/icons.ttf") format('truetype'), url("theme/default/fonts/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

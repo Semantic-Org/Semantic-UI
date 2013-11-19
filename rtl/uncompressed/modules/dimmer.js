@@ -164,7 +164,7 @@ $.fn.dimmer = function(parameters) {
                   complete  : function() {
                     module.set.active();
                     callback();
-                  },
+                  }
                 })
               ;
             }

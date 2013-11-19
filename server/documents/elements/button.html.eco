@@ -332,11 +332,14 @@ type        : 'UI Element'
     <p>Groups can be formatted as icons</p>
     <div class="ui icon buttons">
       <div class="ui button">
-        <i class="pause icon"></i></div>
+        <i class="pause icon"></i>
+      </div>
       <div class="ui button">
-        <i class="play icon"></i></div>
+        <i class="play icon"></i>
+      </div>
       <div class="ui button">
-        <i class="shuffle icon"></i></div>
+        <i class="shuffle icon"></i>
+      </div>
     </div>
   </div>
 
