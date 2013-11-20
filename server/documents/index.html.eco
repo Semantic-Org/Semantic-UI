@@ -22,7 +22,9 @@ type   : 'Semantic'
         <a class="ui red large labeled icon button" href="build/semantic.zip" class="ui button"><i class="awesome download cloud icon"></i> Download</a>
       </div>
       <div class="inverted advertisement">
+        <% unless 'development' in @getEnvironments(): %>
         <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+        <% end %>
       </div>
     </div>
   </div>
