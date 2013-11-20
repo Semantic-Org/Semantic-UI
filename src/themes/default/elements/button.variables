@@ -20,7 +20,7 @@
 
 @borderRadius: 0.25em;
 
-@shadowDistance: 0.133em;
+@shadowDistance: 0em;
 @shadowOffset: (@shadowDistance / 2 + 0.05em);
 
 @verticalPadding: 0.8em;

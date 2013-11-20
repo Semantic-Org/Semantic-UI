@@ -166,8 +166,8 @@
 
 @font-face {
   font-family: 'Icons';
-  src: url("theme/default/fonts/icons.eot");
-  src: url("theme/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("theme/default/fonts/icons.woff") format('woff'), url("theme/default/fonts/icons.ttf") format('truetype'), url("theme/default/fonts/icons.svg#icons") format('svg');
+  src: url("../themes/default/fonts/icons.eot");
+  src: url("../themes/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("../themes/default/fonts/icons.woff") format('woff'), url("../themes/default/fonts/icons.ttf") format('truetype'), url("../themes/default/fonts/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;

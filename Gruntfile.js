@@ -328,7 +328,7 @@ module.exports = function(grunt) {
             cwd    : 'src/',
             src    : [
               '**/*.js',
-              'theme/**/*'
+              'themes/**/*'
             ],
             dest : 'docs/build/uncompressed'
           },
@@ -337,7 +337,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'theme/**/*'
+              'themes/**/*'
             ],
             dest : 'docs/build/minified'
           },
@@ -347,7 +347,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'theme/**/*'
+              'themes/**/*'
             ],
             dest : 'docs/build/packaged'
           }
@@ -372,7 +372,7 @@ module.exports = function(grunt) {
             cwd    : 'src/',
             src    : [
               '**/*.js',
-              'theme/**/*'
+              'themes/**/*'
             ],
             dest : 'build/uncompressed'
           },
@@ -381,7 +381,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'theme/**/*'
+              'themes/**/*'
             ],
             dest : 'build/minified'
           },
@@ -391,7 +391,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'theme/**/*'
+              'themes/**/*'
             ],
             dest : 'build/packaged'
           }

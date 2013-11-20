@@ -6,8 +6,8 @@
         Paths
 --------------------*/
 
-@imagePath : "theme/@{theme}/images";
-@fontPath  : "theme/@{theme}/fonts";
+@imagePath : "../themes/@{theme}/images";
+@fontPath  : "../themes/@{theme}/fonts";
 
 /*-------------------
        Page
