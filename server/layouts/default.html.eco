@@ -250,10 +250,12 @@
       <div class="disabled icon item"><i class="right arrow icon"></i></div>
       <% end %>
       <div class="right menu">
+        <% unless 'development' in @getEnvironments(): %>
         <div class="vertically fitted borderless item">
           <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic-ui&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
         </div>
+        <% end %>
         <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
 <!--         <a class="popup overview icon item" title="Toggle Definition">
           <i class="book icon"></i>
