@@ -377,7 +377,6 @@ $.fn.dropdown = function(parameters) {
               $selectedItem = module.get.item(value),
               selectedText
             ;
-            console.log(value, $selectedItem);
             if($selectedItem) {
               module.debug('Setting selected menu item to', $selectedItem);
               selectedText = ($selectedItem.data(metadata.text) !== undefined)
