@@ -21,7 +21,7 @@
 @borderRadius: 0.25em;
 
 @shadowDistance: 0em;
-@shadowOffset: (@shadowDistance / 2 + 0.05em);
+@shadowOffset: (@shadowDistance / 2);
 
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.5em;
