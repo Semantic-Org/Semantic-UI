@@ -330,7 +330,7 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.value()
                 : module.get.text()
             ;
-            if(value) {
+            if(value !== undefined) {
               $item
                 .each(function() {
                   var
@@ -377,6 +377,7 @@ $.fn.dropdown = function(parameters) {
               $selectedItem = module.get.item(value),
               selectedText
             ;
+            console.log(value, $selectedItem);
             if($selectedItem) {
               module.debug('Setting selected menu item to', $selectedItem);
               selectedText = ($selectedItem.data(metadata.text) !== undefined)
