@@ -124,7 +124,7 @@ $.fn.transition = function() {
           if(!module.has.direction() && module.can.transition()) {
             module.set.direction();
           }
-          if(!module.has.transitionAvailable) {
+          if( !module.has.transitionAvailable() ) {
             module.restore.conditions();
             module.error(error.noAnimation);
             return false;

@@ -330,7 +330,7 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.value()
                 : module.get.text()
             ;
-            if(value) {
+            if(value !== undefined) {
               $item
                 .each(function() {
                   var

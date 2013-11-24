@@ -79,6 +79,14 @@ body {
   ;
 }
 
+/*-------------------
+      Coupling
+--------------------*/
+
+body.pushed.scrolling.ui.dimmable {
+  position: static;
+}
+
 
 /*******************************
              Types
@@ -88,8 +96,11 @@ body {
        Direction
 --------------------*/
 
-
-.ui.right.sidebar {
+.ui.right.very.thin.sidebar,
+.ui.right.thin.sidebar,
+.ui.right.sidebar,
+.ui.right.wide.sidebar,
+.ui.right.very.wide.sidebar {
   left: 100%;
   margin: 0px !important;
 }

@@ -1049,6 +1049,10 @@ body.guide .main.container > * {
 #example .example > h4 {
   margin-bottom: 0em;
 }
+
+#example .clearing.example {
+  clear: both;
+}
 #example .example {
   margin: 1em 0em;
   padding: 1em 0em;

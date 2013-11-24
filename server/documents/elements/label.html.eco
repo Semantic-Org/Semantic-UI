@@ -101,7 +101,7 @@ type        : 'UI Element'
     </div>
   </div>
 
-  <div class="example">
+  <div class="clearing example">
     <h4 class="ui header">Ribbon</h4>
     <p>A label can appear as a ribbon attaching itself to an element.</p>
     <div class="ui two column grid">

@@ -1,7 +1,7 @@
 docs/
 node_modules
 node/server.json
-test/coverage
+test/coverage/
 
 # Numerous always-ignore extensions
 *.diff

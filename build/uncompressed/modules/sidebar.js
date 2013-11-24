@@ -1,5 +1,5 @@
 /*
- * # Semantic - Dropdown
+ * # Semantic - Sidebar
  * http://github.com/jlukic/semantic-ui/
  *
  *

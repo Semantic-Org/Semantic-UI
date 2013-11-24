@@ -37,6 +37,14 @@ body {
   transition: margin-right 0.3s ease, margin-top 0.3s ease;
 }
 
+/*-------------------
+      Coupling
+--------------------*/
+
+body.pushed.scrolling.ui.dimmable {
+  position: static;
+}
+
 /*******************************
              Types
 *******************************/
@@ -45,7 +53,11 @@ body {
        Direction
 --------------------*/
 
-.ui.right.sidebar {
+.ui.right.very.thin.sidebar,
+.ui.right.thin.sidebar,
+.ui.right.sidebar,
+.ui.right.wide.sidebar,
+.ui.right.very.wide.sidebar {
   right: 100%;
   margin: 0px !important;
 }
