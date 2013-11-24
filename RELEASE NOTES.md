@@ -1,5 +1,18 @@
 ## RELEASE NOTES
 
+### Version 0.9.4 - Nov 24, 2013
+
+**Fixes**
+- **Dropdown** - Fixes issue where falsey value (i.e. 0) could not be selected
+- **Transition** - Fixes transition exists function from not being called
+- **Form** - Adds input type="url" to forms
+- **Sidebar** - Fixes right sidebars to correctly allow for sizing (Thanks DveMac)
+- **Sidebar** - Typo in sidebar header (Thanks slobo)
+
+
+**Docs**
+- Fixes various typos and missing closing html tags
+
 ### Version 0.9.3 - Nov 17, 2013
 
 **Fixes**
