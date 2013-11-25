@@ -1,12 +1,12 @@
-# Semantic [![Build Status](https://travis-ci.org/jlukic/Semantic-UI.png)](https://travis-ci.org/jlukic/Semantic-UI) 
-Semantic is a modular UI Component library implemented using a set of specification designed around natural language
+# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/jlukic/Semantic-UI) 
+Semantic is a UI Component library implemented using a set of specifications designed around natural language
 
 Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 ### Bugs and Issues
 
-> Semantic is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
+> Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
 
 Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
 
