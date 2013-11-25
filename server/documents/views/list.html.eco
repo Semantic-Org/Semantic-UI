@@ -203,7 +203,7 @@ type        : 'UI View'
     </div>
   </div>
 
-  <div class="example">
+  <div class="clearing example">
     <h4 class="ui header">Link</h4>
     <p>A list can contain items that link</p>
     <div class="ui list">

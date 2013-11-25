@@ -78,7 +78,7 @@ type        : 'UI Element'
     </div>
   </div>
 
-  <div class="example">
+  <div class="clearing example">
     <h4 class="ui header">Sizes</h4>
     <p>An image may be formatted to be different sizes</p>
     <img class="ui tiny image" src="/images/demo/photo2.jpg">

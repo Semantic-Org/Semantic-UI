@@ -11163,6 +11163,18 @@ a.ui.teal.label:hover:before {
 }
 
 /*-------------------
+       Circular
+--------------------*/
+
+.ui.circular.segment {
+  display: table-cell;
+  padding: 2em;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 500em;
+}
+
+/*-------------------
        Raised
 --------------------*/
 

@@ -2,6 +2,9 @@
 
 ### Version 0.9.5 - Nov 25, 2013
 
+**New**
+- **Segment** - Segments now have a circular variation
+
 **Fixes**
 - LESS files now include vendor prefixes by default instead of only including them in css releases
 

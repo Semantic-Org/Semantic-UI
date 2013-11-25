@@ -593,6 +593,10 @@ body.guide .main.container > * {
 #example .ui.tab.segment {
   padding: 1.5em 2em;
 }
+#example .example .circular.segment {
+  width: 175px;
+  height: 175px;
+}
 
 #example.popup .example .popup {
   color: #FF0000;
