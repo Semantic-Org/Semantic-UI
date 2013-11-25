@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       'less:buildDocsCSS',
 
       // auto prefix doc files
-      'autoprefixer:prefixDocs',
+      'autoprefixer:prefixFile',
 
       // copies assets and js over to docs
       'copy:srcToDocs',
@@ -49,6 +49,9 @@ module.exports = function(grunt) {
 
       // compiles less
       'less:buildCSS',
+
+      // auto prefix docs files
+      'autoprefixer:prefixDocs',
 
       // auto prefix build files
       'autoprefixer:prefixBuild',
@@ -129,12 +132,12 @@ module.exports = function(grunt) {
       if(filePath.search('.less') !== -1) {
         grunt.config('less.buildDocsCSS.src', filePath);
         grunt.config('less.buildDocsCSS.dest', buildPath);
-        grunt.config('autoprefixer.prefixDocs.src', buildPath);
+        grunt.config('autoprefixer.prefixFile.src', buildPath);
       }
       else {
         grunt.config('less.buildDocsCSS.src', 'non/existant/path');
         grunt.config('less.buildDocsCSS.dest', 'non/existant/path');
-        grunt.config('autoprefixer.prefixDocs.src', 'non/existant/path');
+        grunt.config('autoprefixer.prefixFile.src', 'non/existant/path');
       }
     },
 
@@ -216,9 +219,24 @@ module.exports = function(grunt) {
         ]
       },
       prefixBuild: {
-        src : 'build/**/*.css'
+        expand : true,
+        cwd    : 'build/',
+        dest   : 'build/',
+        src    : [
+          '**/*.less',
+          '**/*.css',
+        ]
       },
       prefixDocs: {
+        expand : true,
+        cwd    : 'docs/build/',
+        dest   : 'docs/build/',
+        src    : [
+          '**/*.less',
+          '**/*.css',
+        ]
+      },
+      prefixFile: {
         src : 'docs/build/**/*.css'
       }
     },
@@ -609,7 +627,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig(config);
-  
+
   grunt.registerTask('default', defaultTasks);
   grunt.registerTask('test', testTasks);
 

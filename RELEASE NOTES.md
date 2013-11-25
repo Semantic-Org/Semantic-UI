@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.9.5 - Nov 25, 2013
+
+**Fixes**
+- LESS files now include vendor prefixes by default instead of only including them in css releases
+
 ### Version 0.9.4 - Nov 24, 2013
 
 **Fixes**
