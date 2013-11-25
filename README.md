@@ -1,15 +1,12 @@
-# Semantic
-[![Build Status](https://travis-ci.org/jlukic/Semantic-UI.png)](https://travis-ci.org/jlukic/Semantic-UI)
+# Semantic [![Build Status](https://travis-ci.org/jlukic/Semantic-UI.png)](https://travis-ci.org/jlukic/Semantic-UI) 
+Semantic is a modular UI Component library implemented using a set of specification designed around natural language
 
-Semantic is a set of specifications for sharing UI elements between developers. Semantic is also a UI library to make front end development simpler and easier to learn.
-
-Semantic is production ready, but is formally "pre-release" until proper build and theming tools are available, and documentation is complete for all components.
-
-The project is under constant development, so be sure to check out our [release notes](https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes.
+Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
-
 ### Bugs and Issues
+
+> Semantic is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
 
 Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
 
@@ -39,7 +36,7 @@ RTL versions are compiled on every patch update, and are available in ``/rtl/``
 
 Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/jlukic/Semantic-UI/wiki/Integration).
 
-### Learn More
+## Learn More
 
 * [Introduction to Semantic](http://www.semantic-ui.com/introduction.html)
 * [Semantic Modules](http://www.semantic-ui.com/module.html)
