@@ -5523,7 +5523,6 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           if( !module.is.active() ) {
-            module.debug('Showing modal');
             module.cacheSizes();
             module.set.position();
             module.set.type();
@@ -5534,6 +5533,7 @@ $.fn.modal = function(parameters) {
             }
             else {
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.debug('Showing modal with css animations');
                 $module
                   .transition(settings.transition + ' in', settings.duration, function() {
                     module.set.active();
@@ -5542,6 +5542,7 @@ $.fn.modal = function(parameters) {
                 ;
               }
               else {
+                module.debug('Showing modal with javascript');
                 $module
                   .fadeIn(settings.duration, settings.easing, function() {
                     module.set.active();

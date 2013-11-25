@@ -17,68 +17,40 @@
   position: relative;
   min-height: 18px;
   margin: 1em 0em;
-
   height: auto;
   background-color: #EFEFEF;
   padding: 1em;
-
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.6);
-
-  -webkit-transition:
-    opacity 0.1s ease,
+  -webkit-transition: opacity 0.1s ease,
     color 0.1s ease,
     background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -moz-transition:
-    opacity 0.1s ease,
+    -webkit-box-shadow 0.1s ease;
+  transition: opacity 0.1s ease,
     color 0.1s ease,
     background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -o-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -ms-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-
+    box-shadow 0.1s ease;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-
-  -webkit-border-radius: 0.325em 0.325em 0.325em 0.325em;
-  -moz-border-radius: 0.325em 0.325em 0.325em 0.325em;
   border-radius: 0.325em 0.325em 0.325em 0.325em;
 }
 
 .ui.message:first-child {
   margin-top: 0em;
 }
+
 .ui.message:last-child {
   margin-bottom: 0em;
 }
-
 
 /*--------------
      Content
 ---------------*/
 
 /* block with headers */
+
 .ui.message .header {
   margin: 0em;
   font-size: 1.33em;
@@ -86,82 +58,77 @@
 }
 
 /* block with paragraphs */
+
 .ui.message p {
   opacity: 0.85;
   margin: 1em 0em;
 }
+
 .ui.message p:first-child {
   margin-top: 0em;
 }
+
 .ui.message p:last-child {
   margin-bottom: 0em;
 }
+
 .ui.message .header + p {
   margin-top: 0.3em;
 }
+
 .ui.message > :first-child {
   margin-top: 0em;
 }
+
 .ui.message > :last-child {
   margin-bottom: 0em;
 }
 
 /* block with child list */
+
 .ui.message ul.list {
   opacity: 0.85;
   list-style-position: inside;
   margin: 0.2em 0em;
   padding: 0em;
 }
+
 .ui.message ul.list li {
   position: relative;
   list-style-type: none;
   margin: 0em 0em 0.3em 1em;
   padding: 0em;
 }
+
 .ui.message ul.list li:before {
   position: absolute;
   content: '\2022';
   top: -0.05em;
   left: -0.8em;
-
   height: 100%;
   vertical-align: baseline;
   opacity: 0.5;
 }
+
 .ui.message ul.list li:first-child {
   margin-top: 0em;
 }
 
 /* dismissable block */
+
 .ui.message > .close.icon {
   cursor: pointer;
   position: absolute;
   top: 1em;
   right: 0.5em;
   opacity: 0.7;
-
-  -webkit-transition:
-    opacity 0.1s linear
-  ;
-  -moz-transition:
-    opacity 0.1s linear
-  ;
-  -o-transition:
-    opacity 0.1s linear
-  ;
-  -ms-transition:
-    opacity 0.1s linear
-  ;
-  transition:
-    opacity 0.1s linear
-  ;
+  -webkit-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
 }
+
 .ui.message > .close.icon:hover {
   opacity: 1;
 }
-
-
 
 /*******************************
             States
@@ -171,6 +138,7 @@
 .ui.header.visible {
   display: block !important;
 }
+
 .ui.message.hidden,
 .ui.header.hidden {
   display: none;
@@ -188,7 +156,6 @@
   display: inline-block;
 }
 
-
 /*--------------
     Attached
 ---------------*/
@@ -197,29 +164,15 @@
   margin-left: -1px;
   margin-right: -1px;
   margin-bottom: -1px;
-
-  -webkit-border-radius: 0.325em 0.325em 0em 0em;
-  -moz-border-radius: 0.325em 0.325em 0em 0em;
   border-radius: 0.325em 0.325em 0em 0em;
-
-  -webkit-box-shadow:
-    0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset
-  ;
-  -moz-box-shadow:
-    0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset
-  ;
-  box-shadow:
-    0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset
-  ;
+  -webkit-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
 }
+
 .ui.bottom.attached.message {
   margin-top: -1px;
-
-  -webkit-border-radius: 0em 0em 0.325em 0.325em;
-  -moz-border-radius: 0em 0em 0.325em 0.325em;
   border-radius: 0em 0em 0.325em 0.325em;
 }
-
 
 /*--------------
       Icon
@@ -229,15 +182,18 @@
   display: table;
   width: 100%;
 }
+
 .ui.icon.message > .icon {
   display: table-cell;
   vertical-align: middle;
   font-size: 3.8em;
   opacity: 0.5;
 }
+
 .ui.icon.message > .icon + .content {
   padding-left: 1em;
 }
+
 .ui.icon.message > .content {
   display: table-cell;
   vertical-align: middle;
@@ -252,26 +208,16 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
-
 /*--------------
     Floating
 ---------------*/
 
 .ui.floating.message {
-  -webkit-box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.1),
-    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
-  ;
-  -moz-box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.1),
-    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
-  ;
-  box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.1),
-    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
-  ;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
 }
-
 
 /*--------------
      Colors
@@ -282,11 +228,10 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
-
-
 /*--------------
      Types
 ---------------*/
+
 .ui.blue.message,
 .ui.info.message {
   background-color: #E6F4F9;
@@ -294,36 +239,42 @@
 }
 
 /* Green Text Block */
+
 .ui.green.message {
   background-color: #DEFCD5;
   color: #52A954;
 }
 
 /* Yellow Text Block */
+
 .ui.yellow.message,
 .ui.warning.message {
   background-color: #F6F3D5;
   color: #96904D;
 }
+
 /* Red Text Block */
+
 .ui.red.message {
   background-color: #F1D7D7;
   color: #A95252;
 }
 
 /* Success Text Block */
+
 .ui.success.message,
 .ui.positive.message {
   background-color: #DEFCD5;
   color: #52A954;
 }
+
 /* Error Text Block */
+
 .ui.error.message,
 .ui.negative.message {
   background-color: #F1D7D7;
   color: #A95252;
 }
-
 
 /*--------------
      Sizes
@@ -332,15 +283,19 @@
 .ui.small.message {
   font-size: 0.875em;
 }
+
 .ui.message {
   font-size: 1em;
 }
+
 .ui.large.message {
   font-size: 1.125em;
 }
+
 .ui.huge.message {
   font-size: 1.5em;
 }
+
 .ui.massive.message {
   font-size: 2em;
 }
