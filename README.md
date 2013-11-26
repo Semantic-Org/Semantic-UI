@@ -46,11 +46,9 @@ Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, 
 If you want to keep track of development, please [join our google group](https://groups.google.com/forum/?hl=en#!forum/semantic-ui)
 
 
-#### I want to contribute to Semantic
+#### Reaching Out
 
-Semantic is very new standard, and we need a community to become truly useful. 
-
-If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@myfav.es](mailto:jack@myfav.es)
+If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
 
 ### Roadmap
