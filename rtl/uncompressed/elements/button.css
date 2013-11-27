@@ -14,12 +14,24 @@
 *******************************/
 
 /*-------------------
-         Theme
+        Theme
 --------------------*/
 
-/* To Override a theme for an individual element
-   Specify using camel case
+/* To override a theme for an individual element
+   specify theme name below
 */
+
+/* Global */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
 
 /*******************************
         Global Variables
@@ -133,6 +145,12 @@
 
 /* Button Variables */
 
+/*-------------------
+   Button Variables
+--------------------*/
+
+/* Button Variables */
+
 /*******************************
     User Variable Overrides
 *******************************/
@@ -161,9 +179,8 @@
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.7);
   margin: 0em;
-  padding: 0.8em 1.5em 0.8500000000000001em;
-  font-size: 1rem;
-  text-transform: uppercase;
+  padding: 0.8em 1.2em 0.8em;
+  text-transform: normal;
   font-weight: bold;
   line-height: 1;
   font-style: normal;
@@ -632,12 +649,12 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.6000000000000001em 1.125em 0.05em;
+  padding: 0.8em 1.2em 0em;
 }
 
 .ui.compact.icon.buttons .button,
 .ui.compact.buttons .icon.button {
-  padding: 0.6000000000000001em 0.6000000000000001em 0.05em;
+  padding: 0.8em 0.8em 0em;
 }
 
 /*-------------------
@@ -742,7 +759,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.8em 0.8em 0.8500000000000001em;
+  padding: 0.8em 0.8em 0.8em;
 }
 
 .ui.icon.buttons .button > .icon,
@@ -762,7 +779,7 @@
   color: rgba(0, 0, 0, 0.7) !important;
   font-weight: normal;
   text-transform: none;
-  padding: 0.8em 1.5em !important;
+  padding: 0.8em 1.2em !important;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
@@ -859,8 +876,8 @@
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-right: 4.33em !important;
-  padding-left: 1.5em !important;
+  padding-right: 4.03em !important;
+  padding-left: 1.2em !important;
 }
 
 .ui.labeled.icon.buttons > .button > .icon,

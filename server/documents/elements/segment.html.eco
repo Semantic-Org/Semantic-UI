@@ -172,7 +172,31 @@ type        : 'UI Element'
     </div>
   </div>
 
+<<<<<<< HEAD
   <div class="clearing example">
+=======
+  <div class="example">
+    <h4 class="ui header">Circular</h4>
+    <p>A segment can be circular</p>
+    <div class="ui ignored info message">A circular segment will most likely have to have its content manually sized to be equal width and height, otherwise it will flow to the size of your content</div>
+    <div class="ui circular segment">
+      <h2 class="ui header">
+        Buy Now
+        <div class="sub header">$10.99</div>
+      </h2>
+    </div>
+    <div class="ui inverted circular segment">
+      <h2 class="ui inverted header">
+        Buy Now
+        <div class="sub header">$10.99</div>
+      </h2>
+    </div>
+  </div>
+  <div class="another example">
+  </div>
+
+  <div class="example">
+>>>>>>> master
     <h4 class="ui header">Floated</h4>
     <p>A segment cant sit to the left or right of other content</p>
     <div class="ui right floated segment">
@@ -183,7 +207,7 @@ type        : 'UI Element'
     </div>
   </div>
 
-  <div class="example">
+  <div class="clearing example">
     <h4 class="ui header">Text Alignment</h4>
     <p>A segment cant have its text aligned to a side</p>
     <div class="ui right aligned segment">

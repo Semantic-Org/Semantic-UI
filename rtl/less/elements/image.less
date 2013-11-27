@@ -9,9 +9,6 @@
  *
  */
 
-
-
-
 /*******************************
             Theme
 *******************************/
@@ -33,10 +30,12 @@
   max-width: 100%;
   background-color: @placeholderColor;
 }
+
 img.ui.image {
   display: block;
   background: none;
 }
+
 .ui.image img {
   display: block;
   max-width: 100%;
@@ -47,12 +46,10 @@ img.ui.image {
             States
 *******************************/
 
-
 .ui.disabled.image {
   cursor: default;
   opacity: @disabledOpacity;
 }
-
 
 /*******************************
           Variations
@@ -77,8 +74,6 @@ img.ui.image {
 .ui.circular.images img,
 .ui.circular.image img,
 .ui.circular.image {
-  -webkit-border-radius: @circularRadius;
-  -moz-border-radius: @circularRadius;
   border-radius: @circularRadius;
 }
 
@@ -94,7 +89,6 @@ img.ui.image {
   width: 100%;
 }
 
-
 /*--------------
      Avatar
 ---------------*/
@@ -104,17 +98,11 @@ img.ui.image {
 .ui.avatar.image img,
 .ui.avatar.image {
   margin-left: @imageSpacing;
-
   display: inline-block;
   width: @avatarSize;
   height: @avatarSize;
-
-  -webkit-border-radius: @circularRadius;
-  -moz-border-radius: @circularRadius;
   border-radius: @circularRadius;
 }
-
-
 
 /*-------------------
        Floated
@@ -126,13 +114,13 @@ img.ui.image {
   margin-left: @floatedHorizontalMargin;
   margin-bottom: @floatedVerticalMargin;
 }
+
 .ui.right.floated.images,
 .ui.right.floated.image {
   float: left;
   margin-bottom: @floatedVerticalMargin;
   margin-right: @floatedHorizontalMargin;
 }
-
 
 /*--------------
      Sizes
@@ -144,42 +132,49 @@ img.ui.image {
   width: @miniWidth;
   font-size: @mini;
 }
+
 .ui.tiny.images .image,
 .ui.tiny.images img,
 .ui.tiny.image {
   width: @tinyWidth;
   font-size: @tiny;
 }
+
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
   width: @smallWidth;
   font-size: @small;
 }
+
 .ui.medium.images .image,
 .ui.medium.images img,
 .ui.medium.image {
   width: @mediumWidth;
   font-size: @medium;
 }
+
 .ui.large.images .image,
 .ui.large.images img,
 .ui.large.image {
   width: @largeWidth;
   font-size: @large;
 }
+
 .ui.big.images .image,
 .ui.big.images img,
 .ui.big.image {
   width: @bigWidth;
   font-size: @big;
 }
+
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
   width: @hugeWidth;
   font-size: @huge;
 }
+
 .ui.massive.images .image,
 .ui.massive.images img,
 .ui.massive.image {

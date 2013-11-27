@@ -14,12 +14,24 @@
 *******************************/
 
 /*-------------------
-         Theme
+        Theme
 --------------------*/
 
-/* To Override a theme for an individual element
-   Specify using camel case
+/* To override a theme for an individual element
+   specify theme name below
 */
+
+/* Global */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
 
 /*******************************
         Global Variables
@@ -325,6 +337,18 @@
 .ui.stacked.inverted.segment:before {
   background-color: rgba(0, 0, 0, 0.01);
   border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/*-------------------
+       Circular
+--------------------*/
+
+.ui.circular.segment {
+  display: table-cell;
+  padding: 2em;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 500em;
 }
 
 /*-------------------

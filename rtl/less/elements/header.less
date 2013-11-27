@@ -27,7 +27,6 @@
   border: none;
   margin: 1em 0em 1rem;
   padding: 0em;
-
   font-size: 1.33em;
   font-weight: bold;
   line-height: 1.33;
@@ -38,7 +37,6 @@
   font-weight: normal;
   margin: 0em;
   padding: 0em;
-
   line-height: 1.2;
   color: rgba(0, 0, 0, 0.5);
 }
@@ -48,6 +46,7 @@
   vertical-align: middle;
   padding-left: 0.5em;
 }
+
 .ui.header .icon:only-child {
   display: inline-block;
   vertical-align: baseline;
@@ -57,22 +56,25 @@
   display: inline-block;
   vertical-align: top;
 }
+
 .ui.header .icon + .content {
   padding-right: 0.5em;
   display: table-cell;
 }
 
 /* Positioning */
+
 .ui.header:first-child {
   margin-top: 0em;
 }
+
 .ui.header:last-child {
   margin-bottom: 0em;
 }
+
 .ui.header + p {
   margin-top: 0em;
 }
-
 
 /*--------------
   Page Heading
@@ -83,18 +85,22 @@ h1.ui.header {
   line-height: 1.33;
   font-size: 2rem;
 }
+
 h2.ui.header {
   line-height: 1.33;
   font-size: 1.75rem;
 }
+
 h3.ui.header {
   line-height: 1.33;
   font-size: 1.33rem;
 }
+
 h4.ui.header {
   line-height: 1.33;
   font-size: 1.1rem;
 }
+
 h5.ui.header {
   line-height: 1.2;
   font-size: 1rem;
@@ -108,24 +114,26 @@ h5.ui.header {
   min-height: 1em;
   font-size: 2em;
 }
+
 .ui.large.header {
   font-size: 1.75em;
 }
+
 .ui.medium.header {
   font-size: 1.33em;
 }
+
 .ui.small.header {
   font-size: 1.1em;
 }
+
 .ui.tiny.header {
   font-size: 1em;
 }
 
-
 /*******************************
             Types
 *******************************/
-
 
 /*-------------------
         Icon
@@ -135,6 +143,7 @@ h5.ui.header {
   display: inline-block;
   text-align: center;
 }
+
 .ui.icon.header .icon {
   float: none;
   display: block;
@@ -142,16 +151,20 @@ h5.ui.header {
   margin: 0em auto 0.2em;
   padding: 0em;
 }
+
 .ui.icon.header .content {
   display: block;
 }
+
 .ui.icon.header .circular.icon,
 .ui.icon.header .square.icon {
   font-size: 2em;
 }
+
 .ui.block.icon.header .icon {
   margin-bottom: 0em;
 }
+
 .ui.icon.header.aligned {
   margin-right: auto;
   margin-left: auto;
@@ -166,11 +179,9 @@ h5.ui.header {
   opacity: @disabledOpacity;
 }
 
-
 /*******************************
            Variations
 *******************************/
-
 
 /*-------------------
        Colors
@@ -179,18 +190,23 @@ h5.ui.header {
 .ui.blue.header {
   color: @blue !important;
 }
+
 .ui.black.header {
   color: @black !important;
 }
+
 .ui.green.header {
   color: @green !important;
 }
+
 .ui.red.header {
   color: @red !important;
 }
+
 .ui.purple.header {
   color: @purple !important;
 }
+
 .ui.teal.header {
   color: @teal !important;
 }
@@ -198,18 +214,23 @@ h5.ui.header {
 .ui.blue.dividing.header {
   border-bottom: 3px solid @blue;
 }
+
 .ui.black.dividing.header {
   border-bottom: 3px solid @black;
 }
+
 .ui.green.dividing.header {
   border-bottom: 3px solid @green;
 }
+
 .ui.red.dividing.header {
   border-bottom: 3px solid @red;
 }
+
 .ui.purple.dividing.header {
   border-bottom: 3px solid @purple;
 }
+
 .ui.teal.dividing.header {
   border-bottom: 3px solid @teal;
 }
@@ -221,10 +242,10 @@ h5.ui.header {
 .ui.inverted.header {
   color: @white;
 }
+
 .ui.inverted.header .sub.header {
   color: rgba(255, 255, 255, 0.85);
 }
-
 
 /*-------------------
    Inverted Colors
@@ -234,22 +255,27 @@ h5.ui.header {
   background-color: @black !important;
   color: @white !important;
 }
+
 .ui.inverted.blue.header {
   background-color: @blue !important;
   color: @white !important;
 }
+
 .ui.inverted.green.header {
   background-color: @green !important;
   color: @white !important;
 }
+
 .ui.inverted.red.header {
   background-color: @red !important;
   color: @white !important;
 }
+
 .ui.inverted.purple.header {
   background-color: @purple !important;
   color: @white !important;
 }
+
 .ui.inverted.teal.header {
   background-color: @teal !important;
   color: @white !important;
@@ -266,9 +292,11 @@ h5.ui.header {
 .ui.left.aligned.header {
   text-align: right;
 }
+
 .ui.right.aligned.header {
   text-align: left;
 }
+
 .ui.center.aligned.header {
   text-align: center;
 }
@@ -283,6 +311,7 @@ h5.ui.header {
   margin-top: 0em;
   margin-left: 0.5em;
 }
+
 .ui.right.floated.header {
   float: left;
   margin-top: 0em;
@@ -297,7 +326,6 @@ h5.ui.header {
   padding: 0em;
 }
 
-
 /*-------------------
       Dividing
 --------------------*/
@@ -306,13 +334,14 @@ h5.ui.header {
   padding-bottom: 0.2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .ui.dividing.header .sub.header {
   padding-bottom: 0.5em;
 }
+
 .ui.dividing.header .icon {
   margin-bottom: 0.2em;
 }
-
 
 /*-------------------
         Block
@@ -331,17 +360,21 @@ h5.ui.header {
   background-color: #F0F0F0;
   margin: 0em;
   padding: 0.75rem 1rem;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
-.ui.attached:not(.top, .bottom) {
+
+.ui.attached:not(.top,
+.bottom) {
   margin: 0em;
 }
+
 .ui.top.attached.header {
   margin-bottom: 0em;
   border-radius: 0.3125em 0.3125em 0em 0em;
 }
+
 .ui.bottom.attached.header {
   margin-top: 0em;
   border-radius: 0em 0em 0.3125em 0.3125em;
 }
-

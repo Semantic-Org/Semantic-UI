@@ -9,7 +9,6 @@
  *
  */
 
-
 /*******************************
             Video
 *******************************/
@@ -24,37 +23,33 @@
 ---------------*/
 
 /* Placeholder Image */
+
 .ui.video .placeholder {
   background-color: #333333;
 }
 
 /* Play Icon Overlay */
+
 .ui.video .play {
   cursor: pointer;
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: 10;
-
   width: 100%;
   height: 100%;
-
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
   filter: alpha(opacity=60);
   opacity: 0.6;
-
   -webkit-transition: opacity 0.3s;
-  -moz-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  -ms-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
+
 .ui.video .play.icon:before {
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 11;
-
   font-size: 6rem;
   margin: -3rem 0em 0em -3rem;
   color: #FFFFFF;
@@ -68,6 +63,7 @@
 }
 
 /* IFrame Embed */
+
 .ui.video .embed {
   display: none;
 }
@@ -84,7 +80,6 @@
   opacity: 1;
 }
 
-
 /*--------------
      Active
 ---------------*/
@@ -93,6 +88,7 @@
 .ui.video.active .placeholder {
   display: none;
 }
+
 .ui.video.active .embed {
   display: block;
 }
