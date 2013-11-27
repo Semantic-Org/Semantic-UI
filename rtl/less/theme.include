@@ -1,0 +1,18 @@
+.loadGlobal() {
+  @import "themes/default/global.variables";
+  @import "themes/@{theme}/global.variables";
+  @import "themes/user/global.variables";
+}
+.loadUIVariables() {
+  @import "themes/default/@{type}s/@{element}.variables";
+  @import "themes/@{elementTheme}/@{type}s/@{element}.variables";
+  @import "themes/user/@{type}s/@{element}.variables";
+}
+.loadUIOverrides() {
+  @import "themes/@{elementTheme}/@{type}s/@{element}.overrides";
+  @import "themes/user/@{type}s/@{element}.overrides";
+}
+
+.loadGlobal();
+.loadUIVariables();
+.loadUIOverrides() !important;

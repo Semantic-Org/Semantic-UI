@@ -1,0 +1,217 @@
+/*
+ * # Semantic Comment View
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: April 17 2013
+ */
+
+/*******************************
+            Standard
+*******************************/
+
+/*--------------
+    Comments
+---------------*/
+
+.ui.comments a {
+  cursor: pointer;
+}
+
+/*--------------
+     Comment
+---------------*/
+
+.ui.comments .comment {
+  position: relative;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+}
+
+.ui.comments .comment:first-child {
+  margin-top: 0em;
+  padding-top: 0em;
+}
+
+/*--------------------
+   Avatar (Optional)
+---------------------*/
+
+.ui.comments .comment .avatar {
+  display: block;
+  float: left;
+  width: 4em;
+}
+
+.ui.comments .comment .avatar img {
+  display: block;
+  margin: 0em auto;
+  width: 3em;
+  height: 3em;
+  border-radius: 500px;
+}
+
+/*--------------
+     Content
+---------------*/
+
+.ui.comments .comment > .content,
+.ui.comments .comment > .avatar {
+  display: block;
+}
+
+.ui.comments .comment .avatar ~ .content {
+  padding: 0em 1em;
+}
+
+/* If there is an avatar move content over */
+
+.ui.comments .comment > .avatar ~ .content {
+  padding-top: 0.25em;
+  margin-left: 3.5em;
+}
+
+.ui.comments .comment .metadata {
+  display: inline-block;
+  margin-left: 0.3em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.ui.comments .comment .metadata > * {
+  display: inline-block;
+  margin: 0em 0.3em 0em 0em;
+}
+
+/*--------------------
+     Comment Text
+---------------------*/
+
+.ui.comments .comment .text {
+  margin: 0.25em 0em 0.5em;
+  word-wrap: break-word;
+}
+
+/*--------------------
+     User Actions
+---------------------*/
+
+.ui.comments .comment .actions {
+  font-size: 0.9em;
+}
+
+.ui.comments .comment .actions a {
+  display: inline-block;
+  margin: 0em 0.3em 0em 0em;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.ui.comments .comment .actions a.active,
+.ui.comments .comment .actions a:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/*--------------------
+      Reply Form
+---------------------*/
+
+.ui.comments .reply.form {
+  margin-top: 0.75em;
+  width: 100%;
+  max-width: 30em;
+}
+
+.ui.comments .comment .reply.form {
+  margin-left: 2em;
+}
+
+.ui.comments > .reply.form {
+  margin-top: 1.5em;
+  max-width: 40em;
+}
+
+.ui.comments .reply.form textarea {
+  height: 12em;
+}
+
+/*--------------------
+    Nested Comments
+---------------------*/
+
+.ui.comments .comment .comments {
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+.ui.comments .comment .comments:before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+/* One Deep */
+
+.ui.comments > .comment .comments {
+  margin-left: 2em;
+}
+
+/* Two Deep */
+
+.ui.comments > .comment > .comments > .comment > .comments {
+  margin-left: 1.75em;
+}
+
+/* Three Deep */
+
+.ui.comments > .comment > .comments > .comment > .comments > .comment > .comments {
+  margin-left: 1.5em;
+}
+
+/* Four Deep or more */
+
+.ui.comments > .comment > .comments > .comment > .comments > .comment > .comments > .comment .comments {
+  margin-left: 0.5em;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------------
+        Threaded
+---------------------*/
+
+.ui.threaded.comments .comment .comments {
+  margin-left: 2em !important;
+  padding-left: 2em !important;
+  -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+}
+
+/*--------------------
+        Minimal
+---------------------*/
+
+.ui.minimal.comments .comment .actions {
+  opacity: 0;
+  -webkit-transition: opacity 0.1s ease-out;
+  transition: opacity 0.1s ease-out;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.ui.minimal.comments .comment > .content:hover > .actions {
+  opacity: 1;
+}
+
+/*--------------------
+       Sizes
+---------------------*/
+
+.ui.small.comments {
+  font-size: 0.875em;
+}
