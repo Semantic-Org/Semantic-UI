@@ -12,7 +12,3 @@
   @import "themes/@{elementTheme}/@{type}s/@{element}.overrides";
   @import "themes/user/@{type}s/@{element}.overrides";
 }
-
-.loadGlobal();
-.loadUIVariables();
-.loadUIOverrides() !important;

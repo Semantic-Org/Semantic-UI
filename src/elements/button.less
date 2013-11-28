@@ -18,7 +18,6 @@
 
 @import '../semantic.config';
 
-
 /*******************************
             Button
 *******************************/
@@ -40,6 +39,7 @@
   padding: @verticalPadding @horizontalPadding (@verticalPadding + @shadowOffset);
 
   text-transform: @textTransform;
+  text-shadow: @textShadow;
   font-weight: @fontWeight;
   line-height: 1;
   font-style: normal;
@@ -122,6 +122,7 @@
   cursor: default;
 
   background-color: #FFFFFF !important;
+  text-shadow: none !important;
   color: transparent !important;
   transition: all 0s linear;
 }
@@ -259,23 +260,27 @@
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background: @primaryColor;
-  color: #FFFFFF;
+  background-color: @primaryColor;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background: @primaryColorHover;
-  color: #FFFFFF;
+  background-color: @primaryColorHover;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background: @primaryColorDown;
-  color: #FFFFFF;
+  background-color: @primaryColorDown;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
-  background: @primaryColorActive;
-  color: #FFFFFF;
+  background-color: @primaryColorActive;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*-------------------
@@ -284,23 +289,27 @@
 
 .ui.secondary.buttons .button,
 .ui.secondary.button {
-  background: @secondaryColor;
-  color: #FFFFFF;
+  background-color: @secondaryColor;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background: @secondaryColorHover;
-  color: #FFFFFF;
+  background-color: @secondaryColorHover;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-  background: @secondaryColorDown;
-  color: #FFFFFF;
+  background-color: @secondaryColorDown;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
-  background: @secondaryColorActive;
-  color: #FFFFFF;
+  background-color: @secondaryColorActive;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*-------------------
@@ -310,100 +319,121 @@
 /* Facebook */
 .ui.facebook.button {
   background-color: @facebookColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.facebook.button:hover {
   background-color: @facebookHoverColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.facebook.button:active {
   background-color: @facebookDownColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /* Twitter */
 .ui.twitter.button {
   background-color: @twitterColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.twitter.button:hover {
   background-color: @twitterHoverColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.twitter.button:active {
   background-color: @twitterDownColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /* Google Plus */
 .ui.google.plus.button {
   background-color: @googlePlusColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.google.plus.button:hover {
   background-color: @googlePlusHoverColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.google.plus.button:active {
   background-color: @googlePlusDownColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /* Linked In */
 .ui.linkedin.button {
   background-color: @linkedInColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.linkedin.button:hover {
   background-color: @linkedInHoverColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.linkedin.button:active {
   background-color: @linkedInDownColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /* YouTube */
 .ui.youtube.button {
   background-color: @youtubeColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.youtube.button:hover {
   background-color: @youtubeHoverColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.youtube.button:active {
   background-color: @youtubeDownColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /* Instagram */
 .ui.instagram.button {
   background-color: @instagramColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.instagram.button:hover {
   background-color: @instagramHoverColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.instagram.button:active {
   background-color: @instagramDownColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 
 /* Pinterest */
 .ui.pinterest.button {
   background-color: @pinterestColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.pinterest.button:hover {
   background-color: @pinterestHoverColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.pinterest.button:active {
   background-color: @pinterestDownColor;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--------------
@@ -458,11 +488,11 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: @compactVerticalPadding @compactHorizontalPadding @shadowOffset;
+  padding: @compactVerticalPadding @compactHorizontalPadding ( @compactVerticalPadding + @shadowOffset );
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.buttons .icon.button {
-  padding: @compactVerticalPadding @compactVerticalPadding @shadowOffset;
+  padding: @compactVerticalPadding @compactVerticalPadding ( @compactHorizontalPadding + @shadowOffset );
 }
 
 
@@ -578,6 +608,7 @@
   color: @textColor !important;
   font-weight: normal;
   text-transform: none;
+  text-shadow: none !important;
   padding: @verticalPadding @horizontalPadding !important;
   box-shadow: 0px 0px 0px 1px @borderColor inset;
 }
@@ -633,7 +664,8 @@
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
   background-color: @transparentWhite;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
   box-shadow: none;
 }
 .ui.basic.inverted.buttons .button.active:hover,
@@ -654,7 +686,7 @@
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: (@horizontalPadding + @labeledIconWidth) !important;
+  padding-left: @labeledIconPadding !important;
   padding-right: @horizontalPadding !important;
 }
 
@@ -673,7 +705,7 @@
 
   border-radius: @borderRadius 0px 0px @borderRadius;
   line-height: 1;
-  box-shadow: @labeledIconBoxShadow;
+  box-shadow: -1px 0px 0px 0px @labeledIconBorder inset;
 }
 
 .ui.labeled.icon.buttons .button > .icon {
@@ -697,21 +729,20 @@
 }
 
 .ui.right.labeled.icon.button {
-  padding-left: 1.4em !important;
-  padding-right: 4em !important;
+  padding-right: @labeledIconPadding !important;
+  padding-left: @horizontalPadding !important;
 }
 .ui.left.fluid.labeled.icon.button,
 .ui.right.fluid.labeled.icon.button {
-  padding-left: 1.4em !important;
-  padding-right: 1.4em !important;
+  padding-left: @horizontalPadding !important;
+  padding-right: @horizontalPadding !important;
 }
 
 .ui.right.labeled.icon.button .icon {
   left: auto;
   right: 0em;
-
   border-radius: 0em @borderRadius @borderRadius 0em;
-  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 1px 0px 0px 0px @labeledIconBorder inset;
 }
 
 
@@ -725,11 +756,13 @@
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
   background-color: @positiveColor !important;
-  color: #FFFFFF !important;
+  text-shadow: @invertedTextShadow;
+  color: @invertedTextColor !important;
 }
 .ui.button.toggle.active:hover {
   background-color: @positiveColorHover !important;
-  color: #FFFFFF !important;
+  text-shadow: @invertedTextShadow;
+  color: @invertedTextColor !important;
 }
 
 /*--------------
@@ -789,6 +822,7 @@
   left: 50%;
   content: 'or';
   background-color: #FFFFFF;
+  text-shadow: @invertedTextShadow;
 
   margin-top: -0.1em;
   margin-left: -0.9em;
@@ -1004,216 +1038,252 @@
 .ui.black.buttons .button,
 .ui.black.button {
   background-color: @black;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
   background-color: @blackHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.black.buttons .button:active,
 .ui.black.button:active {
   background-color: @blackDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.black.buttons .button.active,
 .ui.black.buttons .button.active:active,
 .ui.black.button.active,
 .ui.black.button .button.active:active {
   background-color: @blackActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--- Blue ---*/
 .ui.blue.buttons .button,
 .ui.blue.button {
   background-color: @blue;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
   background-color: @blueHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.blue.buttons .button:active,
 .ui.blue.button:active {
   background-color: @blueDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.blue.buttons .button.active,
 .ui.blue.buttons .button.active:active,
 .ui.blue.button.active,
 .ui.blue.button .button.active:active {
   background-color: @blueActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--- Green ---*/
 .ui.green.buttons .button,
 .ui.green.button {
   background-color: @green;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
   background-color: @greenHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.green.buttons .button:active,
 .ui.green.button:active {
   background-color: @greenDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.green.buttons .button.active,
 .ui.green.buttons .button.active:active,
 .ui.green.button.active,
 .ui.green.button .button.active:active {
   background-color: @greenActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--- Orange ---*/
 .ui.orange.buttons .button,
 .ui.orange.button {
   background-color: @orange;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
   background-color: @orangeHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.orange.buttons .button:active,
 .ui.orange.button:active {
   background-color: @orangeDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.orange.buttons .button.active,
 .ui.orange.buttons .button.active:active,
 .ui.orange.button.active,
 .ui.orange.button .button.active:active {
   background-color: @blackActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--- Pink ---*/
 .ui.pink.buttons .button,
 .ui.pink.button {
   background-color: @pink;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
   background-color: @pinkHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.pink.buttons .button:active,
 .ui.pink.button:active {
   background-color: @pinkDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.pink.buttons .button.active,
 .ui.pink.buttons .button.active:active,
 .ui.pink.button.active,
 .ui.pink.button .button.active:active {
   background-color: @pinkActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--- Purple ---*/
 .ui.purple.buttons .button,
 .ui.purple.button {
   background-color: @purple;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
   background-color: @purpleHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.purple.buttons .button:active,
 .ui.purple.button:active {
   background-color: @purpleDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.purple.buttons .button.active,
 .ui.purple.buttons .button.active:active,
 .ui.purple.button.active,
 .ui.purple.button .button.active:active {
   background-color: @purpleActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--- Red ---*/
 .ui.red.buttons .button,
 .ui.red.button {
   background-color: @red;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
   background-color: @redHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.red.buttons .button:active,
 .ui.red.button:active {
   background-color: @redDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.red.buttons .button.active,
 .ui.red.buttons .button.active:active,
 .ui.red.button.active,
 .ui.red.button .button.active:active {
   background-color: @redActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--- Teal ---*/
 .ui.teal.buttons .button,
 .ui.teal.button {
   background-color: @teal;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
   background-color: @tealHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.teal.buttons .button:active,
 .ui.teal.button:active {
   background-color: @tealDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.teal.buttons .button.active,
 .ui.teal.buttons .button.active:active,
 .ui.teal.button.active,
 .ui.teal.button .button.active:active {
   background-color: @tealActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*--- Yellow ---*/
 .ui.yellow.buttons .button,
 .ui.yellow.button {
   background-color: @yellow;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
   background-color: @yellowHover;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.yellow.buttons .button:active,
 .ui.yellow.button:active {
   background-color: @yellowDown;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.yellow.buttons .button.active,
 .ui.yellow.buttons .button.active:active,
 .ui.yellow.button.active,
 .ui.yellow.button .button.active:active {
   background-color: @yellowActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*---------------
@@ -1223,26 +1293,30 @@
 .ui.positive.buttons .button,
 .ui.positive.button {
   background-color: @positiveColor !important;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
   background-color: @positiveColorHover !important;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
   background-color: @positiveColorDown !important;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.positive.buttons .button.active,
 .ui.positive.buttons .button.active:active,
 .ui.positive.button.active,
 .ui.positive.button .button.active:active {
   background-color: @positiveColorActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 
@@ -1252,26 +1326,30 @@
 .ui.negative.buttons .button,
 .ui.negative.button {
   background-color: @negativeColor !important;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
   background-color: @negativeColorHover !important;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
   background-color: @negativeColorDown !important;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 .ui.negative.buttons .button.active,
 .ui.negative.buttons .button.active:active,
 .ui.negative.button.active,
 .ui.negative.button .button.active:active {
   background-color: @negativeColorActive;
-  color: #FFFFFF;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
 }
 
 /*******************************
@@ -1335,3 +1413,5 @@
 .ui.vertical.buttons .gigantic.button:last-child {
   border-radius: 0px 0px @borderRadius @borderRadius;
 }
+
+.loadUIOverrides() !important;

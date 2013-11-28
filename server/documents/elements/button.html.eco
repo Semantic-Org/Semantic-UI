@@ -251,7 +251,7 @@ type        : 'UI Element'
     <h4 class="ui header">Colors</h4>
     <p>A button can have different colors:</p>
     <a class="ui black button">Black Button</a>
-    <a class="ui yellow button">yellow Button</a>
+    <a class="ui yellow button">Yellow Button</a>
     <a class="ui green button">Green Button</a>
     <a class="ui blue button">Blue Button</a>
   </div>
