@@ -1,14 +1,14 @@
-# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/jlukic/Semantic-UI) 
+# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI) 
 Semantic is a UI Component library implemented using a set of specifications designed around natural language
 
-Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
+Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 ### Bugs and Issues
 
 > Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
 
-Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
+Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
 
 If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
 
@@ -18,7 +18,7 @@ The Semantic library describes many UI elements. In most instances it might be b
 
 To download the entire library
 
-    git clone git@github.com:quirkyinc/semantic.git
+    git clone git@github.com:Semantic-Org/semantic.git
 
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
@@ -34,7 +34,7 @@ RTL versions are compiled on every patch update, and are available in ``/rtl/``
     
 ### Integration
 
-Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/jlukic/Semantic-UI/wiki/Integration).
+Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
 
 ## Learn More
 
@@ -52,7 +52,6 @@ If you'd like to start a conversation about Semantic feel free to reach out by e
 
 
 ### Roadmap
-* [Features Missing for 1.0](https://github.com/jlukic/Semantic-UI/issues?direction=desc&milestone=1&page=1&sort=updated&state=open)
-* [Planned Updates for 1.X](https://github.com/jlukic/Semantic-UI/issues?direction=desc&milestone=2&page=1&sort=updated&state=open)
-* [Additional Components Scoped for 2.0](https://github.com/jlukic/Semantic-UI/issues?direction=desc&labels=&milestone=3&page=1&sort=updated&state=open)
-
+* [Features Missing for 1.0](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&milestone=1&page=1&sort=updated&state=open)
+* [Planned Updates for 1.X](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&milestone=2&page=1&sort=updated&state=open)
+* [Additional Components Scoped for 2.0](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&labels=&milestone=3&page=1&sort=updated&state=open)
