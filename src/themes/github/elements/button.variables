@@ -3,6 +3,7 @@
 --------------------*/
 
 /* Button Variables */
+@fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif';
 @textTransform: none;
 @fontWeight: bold;
 @textColor: #333333;
