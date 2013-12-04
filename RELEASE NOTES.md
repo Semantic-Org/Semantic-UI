@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 0.9.6 - Dec 04, 2013
+
+**Updates**
+- **Rating** - Ratings now recieve class disabled when read only, instead of recieving ``active`` when rateable since active are much more common
+- **Grid** - Fixes some instances where grid column width ``x wide`` was being overruled by parent element ``x column``.
+- **Header, Grid, Segment** - Adds justified alignemnt
+- **Message** - Fixes issues with attached icon message (thanks overra)
+
 ### Version 0.9.5 - Nov 25, 2013
 
 **New**

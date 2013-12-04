@@ -168,6 +168,11 @@
   border-radius: 0em 0em 0.325em 0.325em;
 }
 
+.ui.attached.icon.message {
+  display: block;
+  width: auto;
+}
+
 /*--------------
       Icon
 ---------------*/

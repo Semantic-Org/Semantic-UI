@@ -35,7 +35,7 @@
 /* Icon */
 
 .ui.rating .icon {
-  cursor: default;
+  cursor: pointer;
   margin: 0em;
   width: 1em;
   height: auto;
@@ -118,10 +118,10 @@
         Active
 --------------------*/
 
-/* active rating */
+/* disabled rating */
 
-.ui.active.rating .icon {
-  cursor: pointer;
+.ui.disabled.rating .icon {
+  cursor: default;
 }
 
 /* active icons */

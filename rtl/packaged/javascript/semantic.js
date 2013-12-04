@@ -7497,7 +7497,7 @@ $.fn.rating = function(parameters) {
             .on('click' + eventNamespace, module.event.click)
           ;
           $module
-            .addClass(className.active)
+            .removeClass(className.disabled)
           ;
         },
 
@@ -7507,7 +7507,7 @@ $.fn.rating = function(parameters) {
             .off(eventNamespace)
           ;
           $module
-            .removeClass(className.active)
+            .addClass(className.disabled)
           ;
         },
 
@@ -7737,9 +7737,10 @@ $.fn.rating.settings = {
   },
 
   className : {
-    active  : 'active',
-    hover   : 'hover',
-    loading : 'loading'
+    active   : 'active',
+    disabled : 'disabled',
+    hover    : 'hover',
+    loading  : 'loading'
   },
 
   selector  : {
