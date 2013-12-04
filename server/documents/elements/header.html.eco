@@ -150,6 +150,9 @@ type        : 'UI Element'
       <h3 class="ui left aligned header">
         Left
       </h3>
+      <h3 class="ui justified header">
+        This should take up the full width even if only one line
+      </h3>
       <h3 class="ui center aligned header">
         Center
       </h3>

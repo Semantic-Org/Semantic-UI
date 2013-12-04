@@ -215,6 +215,9 @@ type        : 'UI Element'
     <div class="ui center aligned segment">
       Center
     </div>
+    <div class="ui justified segment">
+      This segment is justified to take up the whole width. Justified content must be at least the content width to be justified correctly.
+    </div>
   </div>
 
   <div class="example">

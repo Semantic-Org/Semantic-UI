@@ -732,6 +732,11 @@ type        : 'UI Collection'
           </div>
         </div>
       </div>
+      <div class="justified row">
+        <div class="sixteen wide column">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit sagittis elit, nec pharetra justo lobortis vitae. Quisque sed libero ut lacus mattis lacinia. Pellentesque pharetra vel quam sed tristique. Aenean sit amet purus sed sapien suscipit rhoncus. Nunc vel pharetra elit. Integer eleifend in turpis vel suscipit. Mauris porttitor nunc ante, eu vestibulum augue facilisis lacinia. Curabitur blandit urna lorem, et ornare mi laoreet iaculis. Nunc volutpat ultrices libero quis molestie. Nunc ac porta odio. Quisque interdum sodales augue, quis facilisis sem elementum quis.</p>
+        </div>
+      </div>
       <div class="middle aligned row">
         <div class="column">
           <div class="ui vertical fluid menu">
