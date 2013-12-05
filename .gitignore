@@ -25,6 +25,7 @@ Thumbs.db
 .project
 .settings
 .tmproj
+.docpad.db
 *.esproj
 nbproject
 *.sublime-project
