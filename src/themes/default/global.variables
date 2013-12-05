@@ -20,8 +20,7 @@
        Fonts
 --------------------*/
 
-@headerFont : 'Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;';
-@pageFont   : 'Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;';
+@fontFamily   : Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 
 /*-------------------
        Icons

@@ -1,17 +1,14 @@
-# Semantic
-[![Build Status](https://travis-ci.org/jlukic/Semantic-UI.png)](https://travis-ci.org/jlukic/Semantic-UI)
+# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI) 
+Semantic is a UI Component library implemented using a set of specifications designed around natural language
 
-Semantic is a set of specifications for sharing UI elements between developers. Semantic is also a UI library to make front end development simpler and easier to learn.
-
-Semantic is production ready, but is formally "pre-release" until proper build and theming tools are available, and documentation is complete for all components.
-
-The project is under constant development, so be sure to check out our [release notes](https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes.
+Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
-
 ### Bugs and Issues
 
-Please [share any issues](https://github.com/jlukic/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
+> Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
+
+Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
 
 If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
 
@@ -21,7 +18,7 @@ The Semantic library describes many UI elements. In most instances it might be b
 
 To download the entire library
 
-    git clone git@github.com:quirkyinc/semantic.git
+    git clone git@github.com:Semantic-Org/semantic.git
 
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
@@ -37,9 +34,9 @@ RTL versions are compiled on every patch update, and are available in ``/rtl/``
     
 ### Integration
 
-Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/jlukic/Semantic-UI/wiki/Integration).
+Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
 
-### Learn More
+## Learn More
 
 * [Introduction to Semantic](http://www.semantic-ui.com/introduction.html)
 * [Semantic Modules](http://www.semantic-ui.com/module.html)
@@ -49,15 +46,12 @@ Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, 
 If you want to keep track of development, please [join our google group](https://groups.google.com/forum/?hl=en#!forum/semantic-ui)
 
 
-#### I want to contribute to Semantic
+#### Reaching Out
 
-Semantic is very new standard, and we need a community to become truly useful. 
-
-If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@myfav.es](mailto:jack@myfav.es)
+If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
 
 ### Roadmap
-* [Features Missing for 1.0](https://github.com/jlukic/Semantic-UI/issues?direction=desc&milestone=1&page=1&sort=updated&state=open)
-* [Planned Updates for 1.X](https://github.com/jlukic/Semantic-UI/issues?direction=desc&milestone=2&page=1&sort=updated&state=open)
-* [Additional Components Scoped for 2.0](https://github.com/jlukic/Semantic-UI/issues?direction=desc&labels=&milestone=3&page=1&sort=updated&state=open)
-
+* [Features Missing for 1.0](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&milestone=1&page=1&sort=updated&state=open)
+* [Planned Updates for 1.X](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&milestone=2&page=1&sort=updated&state=open)
+* [Additional Components Scoped for 2.0](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&labels=&milestone=3&page=1&sort=updated&state=open)

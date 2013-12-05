@@ -684,11 +684,14 @@ body > .ui.grid {
        Columns
 --------------------*/
 
+/* Standard 16 column */
+
 .ui.grid > .column,
 .ui.grid > .row > .column {
   display: inline-block;
   text-align: left;
   font-size: 1rem;
+  width: 6.25%;
   padding-left: 1.5%;
   padding-right: 1.5%;
   -webkit-box-sizing: border-box;
@@ -696,6 +699,13 @@ body > .ui.grid {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: top;
+}
+
+/* Vertical padding when no rows */
+
+.ui.grid > .column {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /*-------------------
@@ -706,7 +716,7 @@ body > .ui.grid {
   display: block;
   width: 100% !important;
   margin-top: 1.5%;
-  padding: 1.5% 0% 0%;
+  padding: 1rem 0% 0%;
   font-size: 0rem;
 }
 
@@ -780,94 +790,87 @@ body > .ui.grid {
 
 .ui.grid > .row > .one.wide.column,
 .ui.grid > .one.wide.column {
-  width: 6.25%;
+  width: 6.25% !important;
 }
 
 .ui.grid > .row > .two.wide.column,
 .ui.grid > .two.wide.column {
-  width: 12.5%;
+  width: 12.5% !important;
 }
 
 .ui.grid > .row > .three.wide.column,
 .ui.grid > .three.wide.column {
-  width: 18.75%;
+  width: 18.75% !important;
 }
 
 .ui.grid > .row > .four.wide.column,
 .ui.grid > .four.wide.column {
-  width: 25%;
+  width: 25% !important;
 }
 
 .ui.grid > .row > .five.wide.column,
 .ui.grid > .five.wide.column {
-  width: 31.25%;
+  width: 31.25% !important;
 }
 
 .ui.grid > .row > .six.wide.column,
 .ui.grid > .six.wide.column {
-  width: 37.5%;
+  width: 37.5% !important;
 }
 
 .ui.grid > .row > .seven.wide.column,
 .ui.grid > .seven.wide.column {
-  width: 43.75%;
+  width: 43.75% !important;
 }
 
 .ui.grid > .row > .eight.wide.column,
 .ui.grid > .eight.wide.column {
-  width: 50%;
+  width: 50% !important;
 }
 
 .ui.grid > .row > .nine.wide.column,
 .ui.grid > .nine.wide.column {
-  width: 56.25%;
+  width: 56.25% !important;
 }
 
 .ui.grid > .row > .ten.wide.column,
 .ui.grid > .ten.wide.column {
-  width: 62.5%;
+  width: 62.5% !important;
 }
 
 .ui.grid > .row > .eleven.wide.column,
 .ui.grid > .eleven.wide.column {
-  width: 68.75%;
+  width: 68.75% !important;
 }
 
 .ui.grid > .row > .twelve.wide.column,
 .ui.grid > .twelve.wide.column {
-  width: 75%;
+  width: 75% !important;
 }
 
 .ui.grid > .row > .thirteen.wide.column,
 .ui.grid > .thirteen.wide.column {
-  width: 81.25%;
+  width: 81.25% !important;
 }
 
 .ui.grid > .row > .fourteen.wide.column,
 .ui.grid > .fourteen.wide.column {
-  width: 87.5%;
+  width: 87.5% !important;
 }
 
 .ui.grid > .row > .fifteen.wide.column,
 .ui.grid > .fifteen.wide.column {
-  width: 93.75%;
+  width: 93.75% !important;
 }
 
 .ui.grid > .row > .sixteen.wide.column,
 .ui.grid > .sixteen.wide.column {
-  width: 100%;
+  width: 100% !important;
 }
 
 /*-------------------
      Column Count
 --------------------*/
-
-/* Standard */
-
-.ui.grid > .column,
-.ui.grid > .row > .column {
-  width: 6.25%;
-}
 
 /* Assume full width with one column */
 
@@ -1116,6 +1119,18 @@ body > .ui.grid {
   text-align: right;
 }
 
+.ui.justified.grid,
+.ui.justified.grid > .row > .column,
+.ui.justified.grid > .column,
+.ui.grid .justified.column,
+.ui.grid > .justified.row > .column {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
 /*----------------------
   Vertically Centered
 -----------------------*/
@@ -1290,6 +1305,162 @@ body > .ui.grid {
 }
 
 /*-------------------
+      Doubling
+--------------------*/
+
+/* Mobily Only */
+
+@media only screen and (max-width: 768px) {
+  .ui.two.column.doubling.grid > .row > .column,
+  .ui.two.column.doubling.grid > .column,
+  .ui.grid > .two.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.three.column.doubling.grid > .row > .column,
+  .ui.three.column.doubling.grid > .column,
+  .ui.grid > .three.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.four.column.doubling.grid > .row > .column,
+  .ui.four.column.doubling.grid > .column,
+  .ui.grid > .four.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.five.column.doubling.grid > .row > .column,
+  .ui.five.column.doubling.grid > .column,
+  .ui.grid > .five.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.six.column.doubling.grid > .row > .column,
+  .ui.six.column.doubling.grid > .column,
+  .ui.grid > .six.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.seven.column.doubling.grid > .row > .column,
+  .ui.seven.column.doubling.grid > .column,
+  .ui.grid > .seven.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.eight.column.doubling.grid > .row > .column,
+  .ui.eight.column.doubling.grid > .column,
+  .ui.grid > .eight.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.nine.column.doubling.grid > .row > .column,
+  .ui.nine.column.doubling.grid > .column,
+  .ui.grid > .nine.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.ten.column.doubling.grid > .row > .column,
+  .ui.ten.column.doubling.grid > .column,
+  .ui.grid > .ten.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.twelve.column.doubling.grid > .row > .column,
+  .ui.twelve.column.doubling.grid > .column,
+  .ui.grid > .twelve.column.doubling.row > .column {
+    width: 33.3333333333333%;
+  }
+
+  .ui.fourteen.column.doubling.grid > .row > .column,
+  .ui.fourteen.column.doubling.grid > .column,
+  .ui.grid > .fourteen.column.doubling.row > .column {
+    width: 33.3333333333333%;
+  }
+
+  .ui.sixteen.column.doubling.grid > .row > .column,
+  .ui.sixteen.column.doubling.grid > .column,
+  .ui.grid > .sixteen.column.doubling.row > .column {
+    width: 25%;
+  }
+}
+
+/* Tablet Only */
+
+@media only screen and (min-width: 768px) and (max-width: 998px) {
+  .ui.two.column.doubling.grid > .row > .column,
+  .ui.two.column.doubling.grid > .column,
+  .ui.grid > .two.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.three.column.doubling.grid > .row > .column,
+  .ui.three.column.doubling.grid > .column,
+  .ui.grid > .three.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.four.column.doubling.grid > .row > .column,
+  .ui.four.column.doubling.grid > .column,
+  .ui.grid > .four.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.five.column.doubling.grid > .row > .column,
+  .ui.five.column.doubling.grid > .column,
+  .ui.grid > .five.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+
+  .ui.six.column.doubling.grid > .row > .column,
+  .ui.six.column.doubling.grid > .column,
+  .ui.grid > .six.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+
+  .ui.eight.column.doubling.grid > .row > .column,
+  .ui.eight.column.doubling.grid > .column,
+  .ui.grid > .eight.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+
+  .ui.eight.column.doubling.grid > .row > .column,
+  .ui.eight.column.doubling.grid > .column,
+  .ui.grid > .eight.column.doubling.row > .column {
+    width: 25%;
+  }
+
+  .ui.nine.column.doubling.grid > .row > .column,
+  .ui.nine.column.doubling.grid > .column,
+  .ui.grid > .nine.column.doubling.row > .column {
+    width: 25%;
+  }
+
+  .ui.ten.column.doubling.grid > .row > .column,
+  .ui.ten.column.doubling.grid > .column,
+  .ui.grid > .ten.column.doubling.row > .column {
+    width: 20%;
+  }
+
+  .ui.twelve.column.doubling.grid > .row > .column,
+  .ui.twelve.column.doubling.grid > .column,
+  .ui.grid > .twelve.column.doubling.row > .column {
+    width: 16.6666666%;
+  }
+
+  .ui.fourteen.column.doubling.grid > .row > .column,
+  .ui.fourteen.column.doubling.grid > .column,
+  .ui.grid > .fourteen.column.doubling.row > .column {
+    width: 14.28571428571429%;
+  }
+
+  .ui.sixteen.column.doubling.grid > .row > .column,
+  .ui.sixteen.column.doubling.grid > .column,
+  .ui.grid > .sixteen.column.doubling.row > .column {
+    width: 12.5%;
+  }
+}
+
+/*-------------------
        Stackable
 --------------------*/
 
@@ -1297,14 +1468,15 @@ body > .ui.grid {
   .ui.stackable.grid {
     display: block !important;
     padding: 0em;
+    margin: 0em;
   }
 
   .ui.stackable.grid > .row > .column,
   .ui.stackable.grid > .column {
     display: block !important;
     width: auto !important;
-    margin: 1.5em 5% 0em !important;
-    padding: 1.5em 0em 0em !important;
+    margin: 1em 0em 0em !important;
+    padding: 1em 0em 0em !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
   }
@@ -1325,6 +1497,12 @@ body > .ui.grid {
   .ui.stackable.divided.grid > .column:first-child,
   .ui.stackable.celled.grid > .column:first-child {
     border-top: none !important;
+  }
+
+  .ui.stackable.page.grid > .row > .column,
+  .ui.stackable.page.grid > .column {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
   }
 
   /* Remove pointers from vertical menus */
@@ -4118,10 +4296,6 @@ body > .ui.grid {
 
 /*---  Neutrals  ---*/
 
-/*******************************
-     User Global Variables
-*******************************/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -4132,22 +4306,12 @@ body > .ui.grid {
 
 /* Button Variables */
 
-/*-------------------
-   Button Variables
---------------------*/
-
-/* Button Variables */
+/*******************************
+     User Global Variables
+*******************************/
 
 /*******************************
     User Variable Overrides
-*******************************/
-
-/*******************************
-           Overrides
-*******************************/
-
-/*******************************
-           Overrides
 *******************************/
 
 /*******************************
@@ -4164,10 +4328,12 @@ body > .ui.grid {
   outline: none;
   border: none;
   background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.6);
   margin: 0em;
-  padding: 0.8em 1.2em 0.8em;
-  text-transform: normal;
+  padding: 0.8em 1.5em 0.8em;
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-shadow: none;
   font-weight: bold;
   line-height: 1;
   font-style: normal;
@@ -4233,7 +4399,7 @@ body > .ui.grid {
   background-image: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .ui.button.active:hover {
@@ -4254,6 +4420,7 @@ body > .ui.grid {
   position: relative;
   cursor: default;
   background-color: #FFFFFF !important;
+  text-shadow: none !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
   transition: all 0s linear;
@@ -4426,26 +4593,30 @@ body > .ui.grid {
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background: #00b5ad;
-  color: #FFFFFF;
+  background-color: #00b5ad;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background: #009c95;
-  color: #FFFFFF;
+  background-color: #00cfc5;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background: #006964;
-  color: #FFFFFF;
+  background-color: #00918b;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
-  background: #00827c;
-  color: #FFFFFF;
+  background-color: #009c95;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*-------------------
@@ -4454,26 +4625,30 @@ body > .ui.grid {
 
 .ui.secondary.buttons .button,
 .ui.secondary.button {
-  background: #555555;
-  color: #FFFFFF;
+  background-color: #555555;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background: #4f4141;
-  color: #FFFFFF;
+  background-color: #626262;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-  background: #2f2f2f;
-  color: #FFFFFF;
+  background-color: #434343;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
-  background: #3b3b3b;
-  color: #FFFFFF;
+  background-color: #484848;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*-------------------
@@ -4484,119 +4659,140 @@ body > .ui.grid {
 
 .ui.facebook.button {
   background-color: #3b579d;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.facebook.button:hover {
-  background-color: #2b4994;
-  color: #FFFFFF;
+  background-color: #4261b0;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.facebook.button:active {
-  background-color: #263865;
-  color: #FFFFFF;
+  background-color: #314983;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /* Twitter */
 
 .ui.twitter.button {
   background-color: #4092cc;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.twitter.button:hover {
-  background-color: #2787cc;
-  color: #FFFFFF;
+  background-color: #549dd1;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.twitter.button:active {
-  background-color: #286997;
-  color: #FFFFFF;
+  background-color: #3180b7;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /* Google Plus */
 
 .ui.google.plus.button {
   background-color: #d34836;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.google.plus.button:hover {
-  background-color: #d0331f;
-  color: #FFFFFF;
+  background-color: #d85b4b;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.google.plus.button:active {
-  background-color: #9b3022;
-  color: #FFFFFF;
+  background-color: #bc3a29;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /* Linked In */
 
 .ui.linkedin.button {
   background-color: #1f88be;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.linkedin.button:hover {
-  background-color: #127bb2;
-  color: #FFFFFF;
+  background-color: #2398d4;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.linkedin.button:active {
-  background-color: #14597c;
-  color: #FFFFFF;
+  background-color: #1a729f;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /* YouTube */
 
 .ui.youtube.button {
   background-color: #cc181e;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.youtube.button:hover {
-  background-color: #bf0b11;
-  color: #FFFFFF;
+  background-color: #e31b21;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.youtube.button:active {
-  background-color: #881014;
-  color: #FFFFFF;
+  background-color: #ac1419;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /* Instagram */
 
 .ui.instagram.button {
   background-color: #49769c;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.instagram.button:hover {
-  background-color: #376a95;
-  color: #FFFFFF;
+  background-color: #5183ad;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.instagram.button:active {
-  background-color: #314f68;
-  color: #FFFFFF;
+  background-color: #3e6484;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /* Pinterest */
 
 .ui.pinterest.button {
   background-color: #00aced;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.pinterest.button:hover {
-  background-color: #0099d4;
-  color: #FFFFFF;
+  background-color: #08bbff;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.pinterest.button:active {
-  background-color: #0074a1;
-  color: #FFFFFF;
+  background-color: #0092c9;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--------------
@@ -4636,12 +4832,12 @@ body > .ui.grid {
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.8em 1.2em 0em;
+  padding: 0.6000000000000001em 1.125em 0.6000000000000001em;
 }
 
 .ui.compact.icon.buttons .button,
 .ui.compact.buttons .icon.button {
-  padding: 0.8em 0.8em 0em;
+  padding: 0.6000000000000001em 0.6000000000000001em 1.125em;
 }
 
 /*-------------------
@@ -4651,48 +4847,48 @@ body > .ui.grid {
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 .ui.buttons .button,
 .ui.button {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.125em;
+  font-size: 1.125rem;
 }
 
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.375em;
+  font-size: 1.375rem;
 }
 
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 /* Or resize */
@@ -4763,10 +4959,11 @@ body > .ui.grid {
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
   font-weight: normal;
   text-transform: none;
-  padding: 0.8em 1.2em !important;
+  text-shadow: none !important;
+  padding: 0.8em 1.5em !important;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
@@ -4838,7 +5035,8 @@ body > .ui.grid {
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
   background-color: rgba(255, 255, 255, 0.05);
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4863,8 +5061,8 @@ body > .ui.grid {
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 4.03em !important;
-  padding-right: 1.2em !important;
+  padding-left: 4.33em !important;
+  padding-right: 1.5em !important;
 }
 
 .ui.labeled.icon.buttons > .button > .icon,
@@ -4911,14 +5109,14 @@ body > .ui.grid {
 }
 
 .ui.right.labeled.icon.button {
-  padding-left: 1.4em !important;
-  padding-right: 4em !important;
+  padding-right: 4.33em !important;
+  padding-left: 1.5em !important;
 }
 
 .ui.left.fluid.labeled.icon.button,
 .ui.right.fluid.labeled.icon.button {
-  padding-left: 1.4em !important;
-  padding-right: 1.4em !important;
+  padding-left: 1.5em !important;
+  padding-right: 1.5em !important;
 }
 
 .ui.right.labeled.icon.button .icon {
@@ -4939,12 +5137,14 @@ body > .ui.grid {
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
   background-color: #5bbd72 !important;
-  color: #FFFFFF !important;
+  text-shadow: none;
+  color: #ffffff !important;
 }
 
 .ui.button.toggle.active:hover {
-  background-color: #3cc25c !important;
-  color: #FFFFFF !important;
+  background-color: #6dc482 !important;
+  text-shadow: none;
+  color: #ffffff !important;
 }
 
 /*--------------
@@ -5006,6 +5206,7 @@ body > .ui.grid {
   left: 50%;
   content: 'or';
   background-color: #FFFFFF;
+  text-shadow: none;
   margin-top: -0.1em;
   margin-left: -0.9em;
   width: 1.8em;
@@ -5253,27 +5454,31 @@ body > .ui.grid {
 .ui.black.buttons .button,
 .ui.black.button {
   background-color: #555555;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #4f4141;
-  color: #FFFFFF;
+  background-color: #626262;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.black.buttons .button:active,
 .ui.black.button:active {
-  background-color: #2f2f2f;
-  color: #FFFFFF;
+  background-color: #434343;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.black.buttons .button.active,
 .ui.black.buttons .button.active:active,
 .ui.black.button.active,
 .ui.black.button .button.active:active {
-  background-color: #3b3b3b;
-  color: #FFFFFF;
+  background-color: #484848;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--- Blue ---*/
@@ -5281,27 +5486,31 @@ body > .ui.grid {
 .ui.blue.buttons .button,
 .ui.blue.button {
   background-color: #6ecff5;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
-  background-color: #4dcbfc;
-  color: #FFFFFF;
+  background-color: #86d7f7;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.blue.buttons .button:active,
 .ui.blue.button:active {
-  background-color: #26b7f0;
-  color: #FFFFFF;
+  background-color: #4dc4f3;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.blue.buttons .button.active,
 .ui.blue.buttons .button.active:active,
 .ui.blue.button.active,
 .ui.blue.button .button.active:active {
-  background-color: #3ebff2;
-  color: #FFFFFF;
+  background-color: #56c7f3;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--- Green ---*/
@@ -5309,27 +5518,31 @@ body > .ui.grid {
 .ui.green.buttons .button,
 .ui.green.button {
   background-color: #5bbd72;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
-  background-color: #3cc25c;
-  color: #FFFFFF;
+  background-color: #6dc482;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.green.buttons .button:active,
 .ui.green.button:active {
-  background-color: #3a914f;
-  color: #FFFFFF;
+  background-color: #46ae5f;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.green.buttons .button.active,
 .ui.green.buttons .button.active:active,
 .ui.green.button.active,
 .ui.green.button .button.active:active {
-  background-color: #42a359;
-  color: #FFFFFF;
+  background-color: #49b562;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--- Orange ---*/
@@ -5337,27 +5550,31 @@ body > .ui.grid {
 .ui.orange.buttons .button,
 .ui.orange.button {
   background-color: #e96633;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
-  background-color: #f34f0f;
-  color: #FFFFFF;
+  background-color: #eb774a;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.orange.buttons .button:active,
 .ui.orange.button:active {
-  background-color: #bb4314;
-  color: #FFFFFF;
+  background-color: #e05018;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.orange.buttons .button.active,
 .ui.orange.buttons .button.active:active,
 .ui.orange.button.active,
 .ui.orange.button .button.active:active {
-  background-color: #3b3b3b;
-  color: #FFFFFF;
+  background-color: #484848;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--- Pink ---*/
@@ -5365,27 +5582,31 @@ body > .ui.grid {
 .ui.pink.buttons .button,
 .ui.pink.button {
   background-color: #d9499a;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
-  background-color: #e12890;
-  color: #FFFFFF;
+  background-color: #dd5ea6;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.pink.buttons .button:active,
 .ui.pink.button:active {
-  background-color: #b12573;
-  color: #FFFFFF;
+  background-color: #d22c8a;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.pink.buttons .button.active,
 .ui.pink.buttons .button.active:active,
 .ui.pink.button.active,
 .ui.pink.button .button.active:active {
-  background-color: #c62981;
-  color: #FFFFFF;
+  background-color: #d5348e;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--- Purple ---*/
@@ -5393,27 +5614,31 @@ body > .ui.grid {
 .ui.purple.buttons .button,
 .ui.purple.button {
   background-color: #564f8a;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
-  background-color: #453c83;
-  color: #FFFFFF;
+  background-color: #60589a;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.purple.buttons .button:active,
 .ui.purple.button:active {
-  background-color: #383359;
-  color: #FFFFFF;
+  background-color: #484273;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.purple.buttons .button.active,
 .ui.purple.buttons .button.active:active,
 .ui.purple.button.active,
 .ui.purple.button .button.active:active {
-  background-color: #423c6a;
-  color: #FFFFFF;
+  background-color: #4c467a;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--- Red ---*/
@@ -5421,27 +5646,31 @@ body > .ui.grid {
 .ui.red.buttons .button,
 .ui.red.button {
   background-color: #d95c5c;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
-  background-color: #e03c3c;
-  color: #FFFFFF;
+  background-color: #de7171;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.red.buttons .button:active,
 .ui.red.button:active {
-  background-color: #bd2c2c;
-  color: #FFFFFF;
+  background-color: #d23f3f;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.red.buttons .button.active,
 .ui.red.buttons .button.active:active,
 .ui.red.button.active,
 .ui.red.button .button.active:active {
-  background-color: #cf3333;
-  color: #FFFFFF;
+  background-color: #d44747;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--- Teal ---*/
@@ -5449,27 +5678,31 @@ body > .ui.grid {
 .ui.teal.buttons .button,
 .ui.teal.button {
   background-color: #00b5ad;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
-  background-color: #009c95;
-  color: #FFFFFF;
+  background-color: #00cfc5;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.teal.buttons .button:active,
 .ui.teal.button:active {
-  background-color: #006964;
-  color: #FFFFFF;
+  background-color: #00918b;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.teal.buttons .button.active,
 .ui.teal.buttons .button.active:active,
 .ui.teal.button.active,
 .ui.teal.button .button.active:active {
-  background-color: #00827c;
-  color: #FFFFFF;
+  background-color: #009c95;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*--- Yellow ---*/
@@ -5477,27 +5710,31 @@ body > .ui.grid {
 .ui.yellow.buttons .button,
 .ui.yellow.button {
   background-color: #ffcb08;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
-  background-color: #edbc00;
-  color: #FFFFFF;
+  background-color: #ffd021;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.yellow.buttons .button:active,
 .ui.yellow.button:active {
-  background-color: #ba9300;
-  color: #FFFFFF;
+  background-color: #e3b300;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.yellow.buttons .button.active,
 .ui.yellow.buttons .button.active:active,
 .ui.yellow.button.active,
 .ui.yellow.button .button.active:active {
-  background-color: #d4a700;
-  color: #FFFFFF;
+  background-color: #edbb00;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*---------------
@@ -5507,29 +5744,33 @@ body > .ui.grid {
 .ui.positive.buttons .button,
 .ui.positive.button {
   background-color: #5bbd72 !important;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background-color: #3cc25c !important;
-  color: #FFFFFF;
+  background-color: #6dc482 !important;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: #3a914f !important;
-  color: #FFFFFF;
+  background-color: #46ae5f !important;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.positive.buttons .button.active,
 .ui.positive.buttons .button.active:active,
 .ui.positive.button.active,
 .ui.positive.button .button.active:active {
-  background-color: #42a359;
-  color: #FFFFFF;
+  background-color: #49b562;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*---------------
@@ -5539,29 +5780,33 @@ body > .ui.grid {
 .ui.negative.buttons .button,
 .ui.negative.button {
   background-color: #d95c5c !important;
-  color: #FFFFFF;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
-  background-color: #e03c3c !important;
-  color: #FFFFFF;
+  background-color: #de7171 !important;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #bd2c2c !important;
-  color: #FFFFFF;
+  background-color: #d23f3f !important;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 .ui.negative.buttons .button.active,
 .ui.negative.buttons .button.active:active,
 .ui.negative.button.active,
 .ui.negative.button .button.active:active {
-  background-color: #cf3333;
-  color: #FFFFFF;
+  background-color: #d44747;
+  color: #ffffff;
+  text-shadow: none;
 }
 
 /*******************************
@@ -5633,6 +5878,14 @@ body > .ui.grid {
 .ui.vertical.buttons .gigantic.button:last-child {
   border-radius: 0px 0px 0.25em 0.25em;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 /*
  * # Semantic - Divider
  * http://github.com/jlukic/semantic-ui/
@@ -5946,10 +6199,6 @@ body > .ui.grid {
 
 /*---  Neutrals  ---*/
 
-/*******************************
-     User Global Variables
-*******************************/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -5963,15 +6212,11 @@ body > .ui.grid {
 --------------------*/
 
 /*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
     User Variable Overrides
-*******************************/
-
-/*******************************
-           Overrides
-*******************************/
-
-/*******************************
-           Overrides
 *******************************/
 
 /*******************************
@@ -5982,6 +6227,7 @@ body > .ui.grid {
 
 .ui.header {
   border: none;
+  font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em;
   font-size: 1.33em;
@@ -6258,6 +6504,16 @@ h5.ui.header {
   text-align: center;
 }
 
+.ui.justified.header {
+  text-align: justify;
+}
+
+.ui.justified.header:after {
+  display: inline-block;
+  content: '';
+  width: 100%;
+}
+
 /*-------------------
        Floated
 --------------------*/
@@ -6481,10 +6737,6 @@ h5.ui.header {
 
 /*---  Neutrals  ---*/
 
-/*******************************
-     User Global Variables
-*******************************/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -6498,1512 +6750,11 @@ h5.ui.header {
 --------------------*/
 
 /*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
     User Variable Overrides
-*******************************/
-
-/*******************************
-           Overrides
-*******************************/
-
-i.icon.left:before {
-  content: "\f060";
-}
-
-i.icon.right:before {
-  content: "\f061";
-}
-
-i.icon.add.sign.box:before {
-  content: "\f0fe";
-}
-
-i.icon.add.sign:before {
-  content: "\f055";
-}
-
-i.icon.add:before {
-  content: "\f067";
-}
-
-i.icon.adjust:before {
-  content: "\f042";
-}
-
-i.icon.adn:before {
-  content: "\f170";
-}
-
-i.icon.align.center:before {
-  content: "\f037";
-}
-
-i.icon.align.justify:before {
-  content: "\f039";
-}
-
-i.icon.align.left:before {
-  content: "\f036";
-}
-
-i.icon.align.right:before {
-  content: "\f038";
-}
-
-i.icon.ambulance:before {
-  content: "\f0f9";
-}
-
-i.icon.anchor:before {
-  content: "\f13d";
-}
-
-i.icon.android:before {
-  content: "\f17b";
-}
-
-i.icon.angle.down:before {
-  content: "\f107";
-}
-
-i.icon.angle.left:before {
-  content: "\f104";
-}
-
-i.icon.angle.right:before {
-  content: "\f105";
-}
-
-i.icon.angle.up:before {
-  content: "\f106";
-}
-
-i.icon.apple:before {
-  content: "\f179";
-}
-
-i.icon.archive:before {
-  content: "\f187";
-}
-
-i.icon.arrow.down:before {
-  content: "\f078";
-}
-
-i.icon.arrow.left:before {
-  content: "\f053";
-}
-
-i.icon.arrow.right:before {
-  content: "\f054";
-}
-
-i.icon.arrow.sign.down:before {
-  content: "\f13a";
-}
-
-i.icon.arrow.sign.left:before {
-  content: "\f137";
-}
-
-i.icon.arrow.sign.right:before {
-  content: "\f138";
-}
-
-i.icon.arrow.sign.up:before {
-  content: "\f139";
-}
-
-i.icon.arrow.up:before {
-  content: "\f077";
-}
-
-i.icon.asterisk:before {
-  content: "\f069";
-}
-
-i.icon.attachment:before {
-  content: "\f0c6";
-}
-
-i.icon.attention:before {
-  content: "\f06a";
-}
-
-i.icon.backward:before {
-  content: "\f04a";
-}
-
-i.icon.ban.circle:before {
-  content: "\f05e";
-}
-
-i.icon.bar.chart:before {
-  content: "\f080";
-}
-
-i.icon.barcode:before {
-  content: "\f02a";
-}
-
-i.icon.beer:before {
-  content: "\f0fc";
-}
-
-i.icon.bell.outline:before {
-  content: "\f0a2";
-}
-
-i.icon.bell:before {
-  content: "\f0f3";
-}
-
-i.icon.bitbucket.sign:before {
-  content: "\f172";
-}
-
-i.icon.bitbucket:before {
-  content: "\f171";
-}
-
-i.icon.bitcoin:before {
-  content: "\f15a";
-}
-
-i.icon.bold:before {
-  content: "\f032";
-}
-
-i.icon.bolt:before {
-  content: "\f0e7";
-}
-
-i.icon.book:before {
-  content: "\f02d";
-}
-
-i.icon.bookmark.empty:before {
-  content: "\f097";
-}
-
-i.icon.bookmark:before {
-  content: "\f02e";
-}
-
-i.icon.box.arrow.down:before {
-  content: "\f150";
-}
-
-i.icon.box.arrow.right:before {
-  content: "\f152";
-}
-
-i.icon.box.arrow.up:before {
-  content: "\f151";
-}
-
-i.icon.briefcase:before {
-  content: "\f0b1";
-}
-
-i.icon.browser:before {
-  content: "\f022";
-}
-
-i.icon.bug:before {
-  content: "\f188";
-}
-
-i.icon.building:before {
-  content: "\f0f7";
-}
-
-i.icon.bullhorn:before {
-  content: "\f0a1";
-}
-
-i.icon.bullseye:before {
-  content: "\f140";
-}
-
-i.icon.calendar.empty:before {
-  content: "\f133";
-}
-
-i.icon.calendar:before {
-  content: "\f073";
-}
-
-i.icon.camera.retro:before {
-  content: "\f083";
-}
-
-i.icon.camera:before {
-  content: "\f030";
-}
-
-i.icon.triangle.down:before {
-  content: "\f0d7";
-}
-
-i.icon.triangle.left:before {
-  content: "\f0d9";
-}
-
-i.icon.triangle.right:before {
-  content: "\f0da";
-}
-
-i.icon.triangle.up:before {
-  content: "\f0d8";
-}
-
-i.icon.cart:before {
-  content: "\f07a";
-}
-
-i.icon.certificate:before {
-  content: "\f0a3";
-}
-
-i.icon.chat.outline:before {
-  content: "\f0e6";
-}
-
-i.icon.chat:before {
-  content: "\f086";
-}
-
-i.icon.checkbox.empty:before {
-  content: "\f096";
-}
-
-i.icon.checkbox.minus:before {
-  content: "\f147";
-}
-
-i.icon.checked.checkbox:before {
-  content: "\f046";
-}
-
-i.icon.checkmark.sign:before {
-  content: "\f14a";
-}
-
-i.icon.checkmark:before {
-  content: "\f00c";
-}
-
-i.icon.circle.blank:before {
-  content: "\f10c";
-}
-
-i.icon.circle.down:before {
-  content: "\f0ab";
-}
-
-i.icon.circle.left:before {
-  content: "\f0a8";
-}
-
-i.icon.circle.right:before {
-  content: "\f0a9";
-}
-
-i.icon.circle.up:before {
-  content: "\f0aa";
-}
-
-i.icon.circle:before {
-  content: "\f111";
-}
-
-i.icon.cloud.download:before {
-  content: "\f0ed";
-}
-
-i.icon.cloud.upload:before {
-  content: "\f0ee";
-}
-
-i.icon.cloud:before {
-  content: "\f0c2";
-}
-
-i.icon.code.fork:before {
-  content: "\f126";
-}
-
-i.icon.code:before {
-  content: "\f121";
-}
-
-i.icon.coffee:before {
-  content: "\f0f4";
-}
-
-i.icon.collapse:before {
-  content: "\f117";
-}
-
-i.icon.comment.outline:before {
-  content: "\f0e5";
-}
-
-i.icon.comment:before {
-  content: "\f075";
-}
-
-i.icon.copy:before {
-  content: "\f0c5";
-}
-
-i.icon.crop:before {
-  content: "\f125";
-}
-
-i.icon.css3:before {
-  content: "\f13c";
-}
-
-i.icon.cut:before {
-  content: "\f0c4";
-}
-
-i.icon.dashboard:before {
-  content: "\f0e4";
-}
-
-i.icon.desktop:before {
-  content: "\f108";
-}
-
-i.icon.doctor:before {
-  content: "\f0f0";
-}
-
-i.icon.dollar:before {
-  content: "\f155";
-}
-
-i.icon.double.angle.down:before {
-  content: "\f103";
-}
-
-i.icon.double.angle.left:before {
-  content: "\f100";
-}
-
-i.icon.double.angle.right:before {
-  content: "\f101";
-}
-
-i.icon.double.angle.up:before {
-  content: "\f102";
-}
-
-i.icon.down:before {
-  content: "\f063";
-}
-
-i.icon.download.disk:before {
-  content: "\f019";
-}
-
-i.icon.download:before {
-  content: "\f01a";
-}
-
-i.icon.dribbble:before {
-  content: "\f17d";
-}
-
-i.icon.dropbox:before {
-  content: "\f16b";
-}
-
-i.icon.edit.sign:before {
-  content: "\f14b";
-}
-
-i.icon.edit:before {
-  content: "\f044";
-}
-
-i.icon.eject:before {
-  content: "\f052";
-}
-
-i.icon.ellipsis.horizontal:before {
-  content: "\f141";
-}
-
-i.icon.ellipsis.vertical:before {
-  content: "\f142";
-}
-
-i.icon.eraser:before {
-  content: "\f12d";
-}
-
-i.icon.euro:before {
-  content: "\f153";
-}
-
-i.icon.exchange:before {
-  content: "\f0ec";
-}
-
-i.icon.exclamation:before {
-  content: "\f12a";
-}
-
-i.icon.expand:before {
-  content: "\f116";
-}
-
-i.icon.external.url.sign:before {
-  content: "\f14c";
-}
-
-i.icon.external.url:before {
-  content: "\f08e";
-}
-
-i.icon.facebook.sign:before {
-  content: "\f082";
-}
-
-i.icon.facebook:before {
-  content: "\f09a";
-}
-
-i.icon.facetime.video:before {
-  content: "\f03d";
-}
-
-i.icon.fast.backward:before {
-  content: "\f049";
-}
-
-i.icon.fast.forward:before {
-  content: "\f050";
-}
-
-i.icon.female:before {
-  content: "\f182";
-}
-
-i.icon.fighter.jet:before {
-  content: "\f0fb";
-}
-
-i.icon.file.outline:before {
-  content: "\f016";
-}
-
-i.icon.file.text.outline:before {
-  content: "\f0f6";
-}
-
-i.icon.file.text:before {
-  content: "\f15c";
-}
-
-i.icon.file:before {
-  content: "\f15b";
-}
-
-i.icon.filter:before {
-  content: "\f0b0";
-}
-
-i.icon.fire.extinguisher:before {
-  content: "\f134";
-}
-
-i.icon.fire:before {
-  content: "\f06d";
-}
-
-i.icon.flag.checkered:before {
-  content: "\f11e";
-}
-
-i.icon.flag.empty:before {
-  content: "\f11d";
-}
-
-i.icon.flag:before {
-  content: "\f024";
-}
-
-i.icon.flickr:before {
-  content: "\f16e";
-}
-
-i.icon.folder.open.outline:before {
-  content: "\f115";
-}
-
-i.icon.folder.open:before {
-  content: "\f07c";
-}
-
-i.icon.folder.outline:before {
-  content: "\f114";
-}
-
-i.icon.folder:before {
-  content: "\f07b";
-}
-
-i.icon.font:before {
-  content: "\f031";
-}
-
-i.icon.food:before {
-  content: "\f0f5";
-}
-
-i.icon.forward.mail:before {
-  content: "\f064";
-}
-
-i.icon.forward:before {
-  content: "\f04e";
-}
-
-i.icon.foursquare:before {
-  content: "\f180";
-}
-
-i.icon.frown:before {
-  content: "\f119";
-}
-
-i.icon.fullscreen:before {
-  content: "\f0b2";
-}
-
-i.icon.gamepad:before {
-  content: "\f11b";
-}
-
-i.icon.gift:before {
-  content: "\f06b";
-}
-
-i.icon.github.alternate:before {
-  content: "\f09b";
-}
-
-i.icon.github.sign:before {
-  content: "\f092";
-}
-
-i.icon.github:before {
-  content: "\f113";
-}
-
-i.icon.gittip:before {
-  content: "\f184";
-}
-
-i.icon.glass:before {
-  content: "\f000";
-}
-
-i.icon.globe:before {
-  content: "\f0ac";
-}
-
-i.icon.google.plus.sign:before {
-  content: "\f0d4";
-}
-
-i.icon.google.plus:before {
-  content: "\f0d5";
-}
-
-i.icon.h.sign:before {
-  content: "\f0fd";
-}
-
-i.icon.hand.down:before {
-  content: "\f0a7";
-}
-
-i.icon.hand.left:before {
-  content: "\f0a5";
-}
-
-i.icon.hand.right:before {
-  content: "\f0a4";
-}
-
-i.icon.hand.up:before {
-  content: "\f0a6";
-}
-
-i.icon.hdd:before {
-  content: "\f0a0";
-}
-
-i.icon.headphones:before {
-  content: "\f025";
-}
-
-i.icon.heart.empty:before {
-  content: "\f08a";
-}
-
-i.icon.heart:before {
-  content: "\f004";
-}
-
-i.icon.help:before {
-  content: "\f059";
-}
-
-i.icon.hide:before {
-  content: "\f070";
-}
-
-i.icon.home:before {
-  content: "\f015";
-}
-
-i.icon.hospital:before {
-  content: "\f0f8";
-}
-
-i.icon.html5:before {
-  content: "\f13b";
-}
-
-i.icon.inbox:before {
-  content: "\f01c";
-}
-
-i.icon.indent.left:before {
-  content: "\f03b";
-}
-
-i.icon.indent.right:before {
-  content: "\f03c";
-}
-
-i.icon.info.letter:before {
-  content: "\f129";
-}
-
-i.icon.info:before {
-  content: "\f05a";
-}
-
-i.icon.instagram:before {
-  content: "\f16d";
-}
-
-i.icon.italic:before {
-  content: "\f033";
-}
-
-i.icon.key:before {
-  content: "\f084";
-}
-
-i.icon.keyboard:before {
-  content: "\f11c";
-}
-
-i.icon.lab:before {
-  content: "\f0c3";
-}
-
-i.icon.laptop:before {
-  content: "\f109";
-}
-
-i.icon.layout.block:before {
-  content: "\f009";
-}
-
-i.icon.layout.column:before {
-  content: "\f0db";
-}
-
-i.icon.layout.grid:before {
-  content: "\f00a";
-}
-
-i.icon.layout.list:before {
-  content: "\f00b";
-}
-
-i.icon.leaf:before {
-  content: "\f06c";
-}
-
-i.icon.legal:before {
-  content: "\f0e3";
-}
-
-i.icon.lemon:before {
-  content: "\f094";
-}
-
-i.icon.level.down:before {
-  content: "\f149";
-}
-
-i.icon.level.up:before {
-  content: "\f148";
-}
-
-i.icon.lightbulb:before {
-  content: "\f0eb";
-}
-
-i.icon.linkedin.sign:before {
-  content: "\f08c";
-}
-
-i.icon.linkedin:before {
-  content: "\f0e1";
-}
-
-i.icon.linux:before {
-  content: "\f17c";
-}
-
-i.icon.list.ordered:before {
-  content: "\f0cb";
-}
-
-i.icon.list.unordered:before {
-  content: "\f0ca";
-}
-
-i.icon.list:before {
-  content: "\f03a";
-}
-
-i.icon.loading:before {
-  content: "\f110";
-}
-
-i.icon.location:before {
-  content: "\f124";
-}
-
-i.icon.lock:before {
-  content: "\f023";
-}
-
-i.icon.long.arrow.down:before {
-  content: "\f175";
-}
-
-i.icon.long.arrow.left:before {
-  content: "\f177";
-}
-
-i.icon.long.arrow.right:before {
-  content: "\f178";
-}
-
-i.icon.long.arrow.up:before {
-  content: "\f176";
-}
-
-i.icon.magic:before {
-  content: "\f0d0";
-}
-
-i.icon.magnet:before {
-  content: "\f076";
-}
-
-i.icon.mail.outline:before {
-  content: "\f003";
-}
-
-i.icon.mail.reply:before {
-  content: "\f112";
-}
-
-i.icon.mail:before {
-  content: "\f0e0";
-}
-
-i.icon.male:before {
-  content: "\f183";
-}
-
-i.icon.map.marker:before {
-  content: "\f041";
-}
-
-i.icon.map:before {
-  content: "\f14e";
-}
-
-i.icon.maxcdn:before {
-  content: "\f136";
-}
-
-i.icon.medkit:before {
-  content: "\f0fa";
-}
-
-i.icon.meh:before {
-  content: "\f11a";
-}
-
-i.icon.minus.sign.alternate:before {
-  content: "\f146";
-}
-
-i.icon.minus.sign:before {
-  content: "\f056";
-}
-
-i.icon.minus:before {
-  content: "\f068";
-}
-
-i.icon.mobile:before {
-  content: "\f10b";
-}
-
-i.icon.money:before {
-  content: "\f0d6";
-}
-
-i.icon.moon:before {
-  content: "\f186";
-}
-
-i.icon.move:before {
-  content: "\f047";
-}
-
-i.icon.music:before {
-  content: "\f001";
-}
-
-i.icon.mute:before {
-  content: "\f131";
-}
-
-i.icon.off:before {
-  content: "\f011";
-}
-
-i.icon.ok.circle:before {
-  content: "\f05d";
-}
-
-i.icon.ok.sign:before {
-  content: "\f058";
-}
-
-i.icon.paste:before {
-  content: "\f0ea";
-}
-
-i.icon.pause:before {
-  content: "\f04c";
-}
-
-i.icon.payment:before {
-  content: "\f09d";
-}
-
-i.icon.pencil:before {
-  content: "\f040";
-}
-
-i.icon.phone.sign:before {
-  content: "\f098";
-}
-
-i.icon.phone:before {
-  content: "\f095";
-}
-
-i.icon.photo:before {
-  content: "\f03e";
-}
-
-i.icon.pin:before {
-  content: "\f08d";
-}
-
-i.icon.pinterest.sign:before {
-  content: "\f0d3";
-}
-
-i.icon.pinterest:before {
-  content: "\f0d2";
-}
-
-i.icon.plane:before {
-  content: "\f072";
-}
-
-i.icon.play.circle:before {
-  content: "\f01d";
-}
-
-i.icon.play.sign:before {
-  content: "\f144";
-}
-
-i.icon.play:before {
-  content: "\f04b";
-}
-
-i.icon.pound:before {
-  content: "\f154";
-}
-
-i.icon.print:before {
-  content: "\f02f";
-}
-
-i.icon.puzzle.piece:before {
-  content: "\f12e";
-}
-
-i.icon.qr.code:before {
-  content: "\f029";
-}
-
-i.icon.question:before {
-  content: "\f128";
-}
-
-i.icon.quote.left:before {
-  content: "\f10d";
-}
-
-i.icon.quote.right:before {
-  content: "\f10e";
-}
-
-i.icon.refresh:before {
-  content: "\f021";
-}
-
-i.icon.remove.circle:before {
-  content: "\f05c";
-}
-
-i.icon.remove.sign:before {
-  content: "\f057";
-}
-
-i.icon.remove:before {
-  content: "\f00d";
-}
-
-i.icon.renren:before {
-  content: "\f18b";
-}
-
-i.icon.reorder:before {
-  content: "\f0c9";
-}
-
-i.icon.repeat:before {
-  content: "\f01e";
-}
-
-i.icon.reply.all.mail:before {
-  content: "\f122";
-}
-
-i.icon.resize.full:before {
-  content: "\f065";
-}
-
-i.icon.resize.horizontal:before {
-  content: "\f07e";
-}
-
-i.icon.resize.small:before {
-  content: "\f066";
-}
-
-i.icon.resize.vertical:before {
-  content: "\f07d";
-}
-
-i.icon.retweet:before {
-  content: "\f079";
-}
-
-i.icon.road:before {
-  content: "\f018";
-}
-
-i.icon.rocket:before {
-  content: "\f135";
-}
-
-i.icon.rss.sign:before {
-  content: "\f143";
-}
-
-i.icon.rss:before {
-  content: "\f09e";
-}
-
-i.icon.rupee:before {
-  content: "\f156";
-}
-
-i.icon.save:before {
-  content: "\f0c7";
-}
-
-i.icon.screenshot:before {
-  content: "\f05b";
-}
-
-i.icon.search:before {
-  content: "\f002";
-}
-
-i.icon.setting:before {
-  content: "\f013";
-}
-
-i.icon.settings:before {
-  content: "\f085";
-}
-
-i.icon.share.sign:before {
-  content: "\f14d";
-}
-
-i.icon.share:before {
-  content: "\f045";
-}
-
-i.icon.shield:before {
-  content: "\f132";
-}
-
-i.icon.shuffle:before {
-  content: "\f074";
-}
-
-i.icon.sign.in:before {
-  content: "\f090";
-}
-
-i.icon.sign.out:before {
-  content: "\f08b";
-}
-
-i.icon.sign:before {
-  content: "\f0c8";
-}
-
-i.icon.signal:before {
-  content: "\f012";
-}
-
-i.icon.sitemap:before {
-  content: "\f0e8";
-}
-
-i.icon.skype:before {
-  content: "\f17e";
-}
-
-i.icon.smile:before {
-  content: "\f118";
-}
-
-i.icon.sort.alphabet.descending:before {
-  content: "\f15e";
-}
-
-i.icon.sort.alphabet:before {
-  content: "\f15d";
-}
-
-i.icon.sort.ascending:before {
-  content: "\f0de";
-}
-
-i.icon.sort.attributes.descending:before {
-  content: "\f161";
-}
-
-i.icon.sort.attributes:before {
-  content: "\f160";
-}
-
-i.icon.sort.descending:before {
-  content: "\f0dd";
-}
-
-i.icon.sort.order.descending:before {
-  content: "\f163";
-}
-
-i.icon.sort.order:before {
-  content: "\f162";
-}
-
-i.icon.sort:before {
-  content: "\f0dc";
-}
-
-i.icon.stackexchange:before {
-  content: "\f16c";
-}
-
-i.icon.star.empty:before {
-  content: "\f006";
-}
-
-i.icon.star.half.empty:before {
-  content: "\f123";
-}
-
-i.icon.star.half.full:before,
-i.icon.star.half:before {
-  content: "\f089";
-}
-
-i.icon.star:before {
-  content: "\f005";
-}
-
-i.icon.step.backward:before {
-  content: "\f048";
-}
-
-i.icon.step.forward:before {
-  content: "\f051";
-}
-
-i.icon.stethoscope:before {
-  content: "\f0f1";
-}
-
-i.icon.stop:before {
-  content: "\f04d";
-}
-
-i.icon.strikethrough:before {
-  content: "\f0cc";
-}
-
-i.icon.subscript:before {
-  content: "\f12c";
-}
-
-i.icon.suitcase:before {
-  content: "\f0f2";
-}
-
-i.icon.sun:before {
-  content: "\f185";
-}
-
-i.icon.superscript:before {
-  content: "\f12b";
-}
-
-i.icon.table:before {
-  content: "\f0ce";
-}
-
-i.icon.tablet:before {
-  content: "\f10a";
-}
-
-i.icon.tag:before {
-  content: "\f02b";
-}
-
-i.icon.tags:before {
-  content: "\f02c";
-}
-
-i.icon.tasks:before {
-  content: "\f0ae";
-}
-
-i.icon.terminal:before {
-  content: "\f120";
-}
-
-i.icon.text.height:before {
-  content: "\f034";
-}
-
-i.icon.text.width:before {
-  content: "\f035";
-}
-
-i.icon.thumbs.down.outline:before {
-  content: "\f088";
-}
-
-i.icon.thumbs.down:before {
-  content: "\f165";
-}
-
-i.icon.thumbs.up.outline:before {
-  content: "\f087";
-}
-
-i.icon.thumbs.up:before {
-  content: "\f164";
-}
-
-i.icon.ticket:before {
-  content: "\f145";
-}
-
-i.icon.time:before {
-  content: "\f017";
-}
-
-i.icon.tint:before {
-  content: "\f043";
-}
-
-i.icon.trash:before {
-  content: "\f014";
-}
-
-i.icon.trello:before {
-  content: "\f181";
-}
-
-i.icon.trophy:before {
-  content: "\f091";
-}
-
-i.icon.truck:before {
-  content: "\f0d1";
-}
-
-i.icon.tumblr.sign:before {
-  content: "\f174";
-}
-
-i.icon.tumblr:before {
-  content: "\f173";
-}
-
-i.icon.twitter.sign:before {
-  content: "\f081";
-}
-
-i.icon.twitter:before {
-  content: "\f099";
-}
-
-i.icon.umbrella:before {
-  content: "\f0e9";
-}
-
-i.icon.underline:before {
-  content: "\f0cd";
-}
-
-i.icon.undo:before {
-  content: "\f0e2";
-}
-
-i.icon.unhide:before {
-  content: "\f06e";
-}
-
-i.icon.unlink:before {
-  content: "\f127";
-}
-
-i.icon.unlock.alternate:before {
-  content: "\f13e";
-}
-
-i.icon.unlock:before {
-  content: "\f09c";
-}
-
-i.icon.unmute:before {
-  content: "\f130";
-}
-
-i.icon.up:before {
-  content: "\f062";
-}
-
-i.icon.upload.disk:before {
-  content: "\f093";
-}
-
-i.icon.upload:before {
-  content: "\f01b";
-}
-
-i.icon.url:before {
-  content: "\f0c1";
-}
-
-i.icon.user:before {
-  content: "\f007";
-}
-
-i.icon.users:before {
-  content: "\f0c0";
-}
-
-i.icon.video:before {
-  content: "\f008";
-}
-
-i.icon.vk:before {
-  content: "\f189";
-}
-
-i.icon.volume.down:before {
-  content: "\f027";
-}
-
-i.icon.volume.off:before {
-  content: "\f026";
-}
-
-i.icon.volume.up:before {
-  content: "\f028";
-}
-
-i.icon.warning:before {
-  content: "\f071";
-}
-
-i.icon.weibo:before {
-  content: "\f18a";
-}
-
-i.icon.windows:before {
-  content: "\f17a";
-}
-
-i.icon.won:before {
-  content: "\f159";
-}
-
-i.icon.wrench:before {
-  content: "\f0ad";
-}
-
-i.icon.xing.sign:before {
-  content: "\f169";
-}
-
-i.icon.xing:before {
-  content: "\f168";
-}
-
-i.icon.yen:before {
-  content: "\f157";
-}
-
-i.icon.youtube.play:before {
-  content: "\f16a";
-}
-
-i.icon.youtube.sign:before {
-  content: "\f166";
-}
-
-i.icon.youtube:before {
-  content: "\f167";
-}
-
-i.icon.yuan:before {
-  content: "\f158";
-}
-
-i.icon.zoom.in:before {
-  content: "\f00e";
-}
-
-i.icon.zoom.out:before {
-  content: "\f010";
-}
-
-/*--------------
-    Aliases
----------------*/
-
-i.icon.check:before {
-  content: "\f00c";
-}
-
-i.icon.close:before {
-  content: "\f00d";
-}
-
-i.icon.delete:before {
-  content: "\f00d";
-}
-
-i.icon.like:before {
-  content: "\f004";
-}
-
-i.icon.plus:before {
-  content: "\f067";
-}
-
-i.icon.signup:before {
-  content: "\f044";
-}
-
-/*--------------
-   Spacing Fix
----------------*/
-
-/* stars are usually consecutive */
-
-i.icon.star {
-  width: auto;
-  margin: 0em;
-}
-
-/* left side icons */
-
-i.icon.left {
-  width: auto;
-  margin: 0em 0.5em 0em 0em;
-}
-
-/* right side icons */
-
-i.icon.search,
-i.icon.up,
-i.icon.down,
-i.icon.right {
-  width: auto;
-  margin: 0em 0em 0em 0.5em;
-}
-
-/*******************************
-           Overrides
 *******************************/
 
 /*******************************
@@ -8013,7 +6764,7 @@ i.icon.right {
 @font-face {
   font-family: 'Icons';
   src: url("../themes/default/fonts/icons.eot");
-  src: url("../themes/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("../themes/default/fonts/icons.woff") format('woff'), url("../themes/default/fonts/icons.ttf") format('truetype'), url("../themes/default/fonts/icons.svg#icons") format('svg');
+  src: url("../themes/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("../themes/default/fonts/icons.svg#icons") format('svg') url("../themes/default/fonts/icons.woff") format('woff'), url("../themes/default/fonts/icons.ttf") format('truetype');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -8304,22 +7055,22 @@ i.icon {
 }
 
 i.large.icon {
-  font-size: 1.125em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 
 i.big.icon {
-  font-size: 1.25em;
+  font-size: 2em;
   vertical-align: middle;
 }
 
 i.huge.icon {
-  font-size: 1.375em;
+  font-size: 4em;
   vertical-align: middle;
 }
 
 i.massive.icon {
-  font-size: 1.5em;
+  font-size: 8em;
   vertical-align: middle;
 }
 /*
@@ -8455,10 +7206,6 @@ i.massive.icon {
 
 /*---  Neutrals  ---*/
 
-/*******************************
-     User Global Variables
-*******************************/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -8473,15 +7220,11 @@ i.massive.icon {
 --------------------*/
 
 /*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
     User Variable Overrides
-*******************************/
-
-/*******************************
-           Overrides
-*******************************/
-
-/*******************************
-           Overrides
 *******************************/
 
 /*******************************
@@ -10727,10 +9470,6 @@ a.ui.teal.label:hover:before {
 
 /*---  Neutrals  ---*/
 
-/*******************************
-     User Global Variables
-*******************************/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -10745,15 +9484,11 @@ a.ui.teal.label:hover:before {
 --------------------*/
 
 /*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
     User Variable Overrides
-*******************************/
-
-/*******************************
-           Overrides
-*******************************/
-
-/*******************************
-           Overrides
 *******************************/
 
 /*******************************
@@ -11103,6 +9838,14 @@ a.ui.teal.label:hover:before {
   text-align: center;
 }
 
+.ui.justified.segment {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
 /*-------------------
        Floated
 --------------------*/
@@ -11145,12 +9888,12 @@ a.ui.teal.label:hover:before {
 --------------------*/
 
 .ui.secondary.segment {
-  background-color: #555555;
+  background-color: #faf9fa;
   color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.tertiary.segment {
-  background-color: #e96633;
+  background-color: #ebebeb;
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -12379,7 +11122,7 @@ a.ui.teal.label:hover:before {
   overflow: hidden;
 }
 
-.ui.dimmed.dimmable > .ui.dimmer,
+.ui.dimmed.dimmable > .ui.active.dimmer,
 .ui.active.dimmer {
   display: block;
   width: 100%;
@@ -13704,7 +12447,7 @@ a.ui.nag {
 /* Icon */
 
 .ui.rating .icon {
-  cursor: default;
+  cursor: pointer;
   margin: 0em;
   width: 1em;
   height: auto;
@@ -13787,10 +12530,10 @@ a.ui.nag {
         Active
 --------------------*/
 
-/* active rating */
+/* disabled rating */
 
-.ui.active.rating .icon {
-  cursor: pointer;
+.ui.disabled.rating .icon {
+  cursor: default;
 }
 
 /* active icons */

@@ -25,6 +25,7 @@
 /* Standard */
 .ui.header {
   border: none;
+  font-family: @fontFamily;
   margin: 1em 0em 1rem;
   padding: 0em;
 
@@ -271,6 +272,14 @@ h5.ui.header {
 }
 .ui.center.aligned.header {
   text-align: center;
+}
+.ui.justified.header {
+  text-align: justify;
+}
+.ui.justified.header:after {
+  display: inline-block;
+  content: '';
+  width: 100%;
 }
 
 /*-------------------

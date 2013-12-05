@@ -131,10 +131,6 @@
 
 /*---  Neutrals  ---*/
 
-/*******************************
-     User Global Variables
-*******************************/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -149,15 +145,11 @@
 --------------------*/
 
 /*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
     User Variable Overrides
-*******************************/
-
-/*******************************
-           Overrides
-*******************************/
-
-/*******************************
-           Overrides
 *******************************/
 
 /*******************************
@@ -507,6 +499,14 @@
   text-align: center;
 }
 
+.ui.justified.segment {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
 /*-------------------
        Floated
 --------------------*/
@@ -549,12 +549,12 @@
 --------------------*/
 
 .ui.secondary.segment {
-  background-color: #555555;
+  background-color: #faf9fa;
   color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.tertiary.segment {
-  background-color: #e96633;
+  background-color: #ebebeb;
   color: rgba(0, 0, 0, 0.4);
 }
 

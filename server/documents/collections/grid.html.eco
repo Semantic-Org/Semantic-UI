@@ -502,6 +502,46 @@ type        : 'UI Collection'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Doubling Grid</h4>
+    <p>A grid can double its</p>
+    <div class="ui text message info ignore">
+      <i class="icon heart"></i> A grid will round its columns to the closest reasonable value when doubling, for example a <code>five column grid</code> will double <code>1 mobile, 3 tablet, 5 desktop</code>
+    </div>
+    <div class="five column doubling ui grid">
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Stackable Grid</h4>
     <p>A grid can have its columns stack on-top of each other after reaching mobile breakpoints</p>
     <div class="ui text message info ignore">
@@ -730,6 +770,11 @@ type        : 'UI Collection'
               Monkeys
             </div>
           </div>
+        </div>
+      </div>
+      <div class="justified row">
+        <div class="sixteen wide column">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit sagittis elit, nec pharetra justo lobortis vitae. Quisque sed libero ut lacus mattis lacinia. Pellentesque pharetra vel quam sed tristique. Aenean sit amet purus sed sapien suscipit rhoncus. Nunc vel pharetra elit. Integer eleifend in turpis vel suscipit. Mauris porttitor nunc ante, eu vestibulum augue facilisis lacinia. Curabitur blandit urna lorem, et ornare mi laoreet iaculis. Nunc volutpat ultrices libero quis molestie. Nunc ac porta odio. Quisque interdum sodales augue, quis facilisis sem elementum quis.</p>
         </div>
       </div>
       <div class="middle aligned row">

@@ -8,6 +8,7 @@
 // @transitionEasing
 // @iconWidth
 // @borderColor
+// @textColor, @invertedTextColor
 
 /*-------------------
    Button Variables
@@ -17,6 +18,9 @@
 @textTransform: uppercase;
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
+
+@textShadow: none;
+@invertedTextShadow: none;
 
 @borderRadius: 0.25em;
 
@@ -55,7 +59,8 @@
 
 @labeledIconWidth: @iconWidth + (@verticalPadding * 2);
 @labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
-@labeledIconBoxShadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+@labeledIconPadding: (@horizontalPadding + @labeledIconWidth);
+@labeledIconBorder: rgba(0, 0, 0, 0.05);
 
 @floatedMargin: 0.25em;
 

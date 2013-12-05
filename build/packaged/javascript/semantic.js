@@ -1487,12 +1487,12 @@ $.fn.form = function(fields, parameters) {
                 $field      = $(this),
                 $fieldGroup = $field.closest($group)
               ;
-              if( $fieldGroup.hasClass(className.error) ) {
-                module.debug('Revalidating field', $field,  module.get.validation($field));
-                module.validate.field( module.get.validation($field) );
-              }
-              else if(settings.on == 'change') {
-                module.validate.field( module.get.validation($field) );
+              if(settings.on == 'change' || ( $fieldGroup.hasClass(className.error) && settings.revalidate) ) {
+                clearTimeout(module.timer);
+                module.timer = setTimeout(function() {
+                  module.debug('Revalidating field', $field,  module.get.validation($field));
+                  module.validate.field( module.get.validation($field) );
+                }, settings.delay);
               }
             }
           }
@@ -1903,6 +1903,9 @@ $.fn.form.settings = {
   on                : 'submit',
   inline            : false,
 
+  delay             : 200,
+  revalidate        : true,
+
   transition        : 'scale',
   duration          : 150,
 
@@ -1936,7 +1939,6 @@ $.fn.form.settings = {
   error: {
     method   : 'The method you called is not defined.'
   },
-
 
 
   templates: {
@@ -4784,7 +4786,10 @@ $.fn.dropdown = function(parameters) {
             return $text.text();
           },
           value: function() {
-            return $input.val();
+            return ($input.size() > 0)
+              ? $input.val()
+              : $module.data(metadata.value)
+            ;
           },
           item: function(value) {
             var
@@ -4830,7 +4835,12 @@ $.fn.dropdown = function(parameters) {
           },
           value: function(value) {
             module.debug('Adding selected value to hidden input', value, $input);
-            $input.val(value);
+            if($input.size() > 0) {
+              $input.val(value);
+            }
+            else {
+              $module.data(metadata.value, value);
+            }
           },
           active: function() {
             $module.addClass(className.active);
@@ -7497,7 +7507,7 @@ $.fn.rating = function(parameters) {
             .on('click' + eventNamespace, module.event.click)
           ;
           $module
-            .addClass(className.active)
+            .removeClass(className.disabled)
           ;
         },
 
@@ -7507,7 +7517,7 @@ $.fn.rating = function(parameters) {
             .off(eventNamespace)
           ;
           $module
-            .removeClass(className.active)
+            .addClass(className.disabled)
           ;
         },
 
@@ -7737,9 +7747,10 @@ $.fn.rating.settings = {
   },
 
   className : {
-    active  : 'active',
-    hover   : 'hover',
-    loading : 'loading'
+    active   : 'active',
+    disabled : 'disabled',
+    hover    : 'hover',
+    loading  : 'loading'
   },
 
   selector  : {

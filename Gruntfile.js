@@ -225,7 +225,6 @@ module.exports = function(grunt) {
         cwd    : 'build/',
         dest   : 'build/',
         src    : [
-          '**/*.less',
           '**/*.css',
         ]
       },
@@ -234,7 +233,6 @@ module.exports = function(grunt) {
         cwd    : 'docs/build/',
         dest   : 'docs/build/',
         src    : [
-          '**/*.less',
           '**/*.css',
         ]
       },
