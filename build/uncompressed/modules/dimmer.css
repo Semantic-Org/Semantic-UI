@@ -85,7 +85,7 @@
   overflow: hidden;
 }
 
-.ui.dimmed.dimmable > .ui.dimmer,
+.ui.dimmed.dimmable > .ui.active.dimmer,
 .ui.active.dimmer {
   display: block;
   width: 100%;
