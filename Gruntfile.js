@@ -253,7 +253,6 @@ module.exports = function(grunt) {
       ],
       release : [
         'docs/build',
-        'docs',
         'rtl'
       ]
     },
