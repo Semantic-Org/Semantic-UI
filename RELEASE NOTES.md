@@ -11,7 +11,6 @@
 - **Grid** - Grid columns not inside a row will automatically receive row padding now. This will allow for content to flow correctly when row count is unknown
 
 **Fixes**
-- **Grid** - (x) column rows will automatically add vertical padding when new rows are formed!
 - **Grid** - Fixes margin on stackable grids
 - **Dropdown** - Value can be retrieved even in instances where forms arent used
 
