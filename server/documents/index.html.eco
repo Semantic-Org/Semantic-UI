@@ -15,7 +15,7 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <div class="introduction">
-        <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.9.6</a></h1>
+        <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/jlukic/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.<9 class="6"></9></a></h1>
         <h2 class="ui header">UI is the vocabulary of the web.</h2>
         <p>Semantic empowers designers and developers by creating a language for sharing UI.</p>
         <a class="ui black large labeled launch icon button"><i class="icon list layout"></i> View UI</a>
@@ -43,79 +43,73 @@ type   : 'Semantic'
       <div class="ui message">
         Semantic is tag ambivalent meaning you can use <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list" target="_blank">any html tags</a> with UI elements.
       </div>
-      <div class="ui stackable grid">
-      <div class="two column row">
+      <div class="ui stackable two column grid">
         <div class="column">
           <a class="ui teal label" href="/collections/grid.html">Semantic</a>
           <div class="code" data-type="html">
-    <main class="ui three column grid">
-      <aside class="column">1</aside>
-      <section class="column">2</section>
-      <section class="column">3</section>
-    </main>
+          <main class="ui three column grid">
+            <aside class="column">1</aside>
+            <section class="column">2</section>
+            <section class="column">3</section>
+          </main>
           </div>
         </div>
         <div class="column">
           <div class="ui black label">Bootstrap</div>
           <div class="code" data-type="html">
-    <div class="row">
-      <div class="col-lg-4">1</div>
-      <div class="col-lg-4">2</div>
-      <div class="col-lg-4">3</div>
-    </div>
+          <div class="row">
+            <div class="col-lg-4">1</div>
+            <div class="col-lg-4">2</div>
+            <div class="col-lg-4">3</div>
+          </div>
           </div>
         </div>
-      </div>
-      <div class="two column row">
         <div class="column">
           <a class="ui teal label" href="/collections/menu.html">Semantic</a>
           <div class="code" data-type="html">
-    <nav class="ui menu">
-      <h3 class="header item">Title</h3>
-      <a class="active item">Home</a>
-      <a class="item">Link</a>
-      <a class="item">Link</a>
-      <span class="right floated text item">
-        Signed in as <a href="#">user</a>
-      </span>
-    </nav>
+          <nav class="ui menu">
+            <h3 class="header item">Title</h3>
+            <a class="active item">Home</a>
+            <a class="item">Link</a>
+            <a class="item">Link</a>
+            <span class="right floated text item">
+              Signed in as <a href="#">user</a>
+            </span>
+          </nav>
           </div>
         </div>
         <div class="column">
           <div class="ui black label">Bootstrap</div>
           <div class="code" data-type="html">
-    <div class="navbar">
-      <a class="navbar-brand" href="#">Title</a>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <p class="navbar-text pull-right">Signed in as <a href="#" class="navbar-link">User</a></p>
-      </ul>
-    </div>
+          <div class="navbar">
+            <a class="navbar-brand" href="#">Title</a>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <p class="navbar-text pull-right">Signed in as <a href="#" class="navbar-link">User</a></p>
+            </ul>
+          </div>
           </div>
         </div>
-      </div>
-      <div class="two column row">
         <div class="column">
           <a class="ui teal label" href="/elements/button.html">Semantic</a>
           <div class="code" data-type="html">
-    <button class="large ui button">
-      <i class="heart icon"></i>
-      Like it
-    </button>
+          <button class="large ui button">
+            <i class="heart icon"></i>
+            Like it
+          </button>
           </div>
         </div>
         <div class="column">
           <div class="ui black label">Bootstrap</div>
           <div class="code" data-type="html">
-    <button type="button" class="btn btn-primary btn-lg">
-      <span class="glyphicon glyphicon-heart"></span>
-      Like
-    </button>
+          <button type="button" class="btn btn-primary btn-lg">
+            <span class="glyphicon glyphicon-heart"></span>
+            Like
+          </button>
           </div>
         </div>
-      </div>
     </div>
     </div>
   </div>
