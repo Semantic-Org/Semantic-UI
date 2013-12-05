@@ -1,10 +1,12 @@
 ## RELEASE NOTES
 
-### Version 0.9.7 - Dec 04, 2013
+### Version 0.10.0 - Dec 05, 2013
 
-**Updates**
+**New**
 - **Grid** - Adds ``doubling`` responsive variation which automatically formats content spacing based on device type
 - **Form Validation** - Adds two new parameters, to allow for changing of revalidation and delay on input
+
+**Updates**
 - **Grid** - Row padding is now EM not % based, this might shift layouts slightly
 - **Grid** - Grid columns not inside a row will automatically receive row padding now. This will allow for content to flow correctly when row count is unknown
 
