@@ -4175,7 +4175,7 @@ body > .ui.grid {
  */
 
 /*******************************
-             basic.Icon
+          Basic Icon
 *******************************/
 
 @font-face {
@@ -12791,7 +12791,7 @@ a.ui.teal.label:hover:before {
   overflow: hidden;
 }
 
-.ui.dimmed.dimmable > .ui.active.dimmer,
+.ui.dimmed.dimmable > .ui.visible.dimmer,
 .ui.active.dimmer {
   display: block;
   width: 100%;
