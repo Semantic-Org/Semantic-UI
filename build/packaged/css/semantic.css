@@ -14560,7 +14560,7 @@ a.ui.nag {
 
 .ui.cube.shape .side {
   min-width: 15em;
-  height: 15em;
+  min-height: 15em;
   padding: 2em;
   background-color: #E6E6E6;
   color: rgba(0, 0, 0, 0.6);
