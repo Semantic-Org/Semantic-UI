@@ -4,3 +4,5 @@ node_js:
 before_script:
   - npm install -g grunt-cli
   - npm update
+after_script:
+  - grunt coveralls

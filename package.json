@@ -46,6 +46,8 @@
     "grunt-karma": "~0.6.2",
     "karma-spec-reporter": "0.0.5",
     "grunt-clear": "~0.2.1",
-    "grunt-autoprefixer": "~0.4.0"
+    "grunt-autoprefixer": "~0.4.0",
+    "grunt-karma-coveralls": "~2.2.0",
+    "karma-coverage": "~0.1.4"
   }
 }
