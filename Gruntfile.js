@@ -605,6 +605,12 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+
+    coveralls: {
+        options: {
+            coverage_dir: 'coverage'
+        }
     }
 
   };
@@ -624,6 +630,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-cssjanus');
   grunt.loadNpmTasks('grunt-clear');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-karma-coveralls');
 
   grunt.initConfig(config);
 
