@@ -40,12 +40,16 @@ type        : 'UI Module'
       <h4 class="ui header">Star</h4>
       <p>A rating can use a set of star icons</p>
       <div class="ui info message">Star and heart rating types require the inclusion of semantic <a href="/elements/icon.html">ui icons</a></div>
-      <div class="ui star rating">
-        <i class="icon"></i>
-        <i class="icon"></i>
-        <i class="icon"></i>
-        <i class="icon"></i>
-        <i class="icon"></i>
+
+      <div>
+        Average rating:
+        <div class="ui star rating">
+          <i class="icon"></i>
+          <i class="icon"></i>
+          <i class="icon"></i>
+          <i class="icon"></i>
+          <i class="icon"></i>
+        </div>
       </div>
     </div>
 
