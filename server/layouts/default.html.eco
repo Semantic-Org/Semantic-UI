@@ -256,17 +256,17 @@
         </div>
         <% end %>
         <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
-<!--         <a class="popup overview icon item" title="Toggle Definition">
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
           <i class="book icon"></i>
         </a> -->
-        <a class="popup designer icon item" title="Designer Mode">
+        <a class="popup designer icon item" data-content="Designer Mode">
           <i class="basic paint icon"></i>
         </a>
-        <a class="popup developer icon item" title="Developer Mode">
+        <a class="popup developer icon item" data-content="Developer Mode">
           <i class="terminal icon"></i>
         </a>
         <% end %>
-        <a class="popup icon github item" title="View project on Github" href="https://github.com/quirkyinc/semantic">
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
           <i class="icon github"></i>
         </a>
         <!--
