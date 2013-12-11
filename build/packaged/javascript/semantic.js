@@ -9972,6 +9972,7 @@ $.fn.sidebar.settings = {
               tabPath   = event.pathNames.join('/') || module.get.initialPath(),
               pageTitle = settings.templates.determineTitle(tabPath) || false
             ;
+            if(tabPath.indexOf('%2F') > -1) tabPath = tabPath.replace('%2F','');
             module.debug('History change event', tabPath, event);
             historyEvent = event;
             if(tabPath !== undefined) {
