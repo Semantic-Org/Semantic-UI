@@ -257,9 +257,6 @@
         </div>
         <% end %>
         <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
-<!--         <a class="popup overview icon item" data-content="Toggle Definition">
-          <i class="book icon"></i>
-        </a> -->
         <a class="popup designer icon item" data-content="Designer Mode">
           <i class="basic paint icon"></i>
         </a>
@@ -270,16 +267,6 @@
         <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
           <i class="icon github"></i>
         </a>
-        <!--
-        <div class="ui simple dropdown item">
-          <i class="icon tint"></i> Theme
-          <div class="theme menu">
-            <div class="active item" data-theme="flat">Flat</div>
-            <div class="item" data-theme="shaded">Shaded</div>
-            <div class="item" data-theme="classic">Classic</div>
-          </div>
-        </div>
-        !-->
       </div>
     </div>
   </div>
