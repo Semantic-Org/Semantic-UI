@@ -39,12 +39,17 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      '**/*.html': []
+      '**/*.html': [],
+      'src/**/*.js': 'coverage'
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['spec'],
+    reporters: ['spec', 'coverage'],
+
+    coverageReporter: {
+      type: 'lcov'
+    },
 
     // web server port
     port: 9999,
