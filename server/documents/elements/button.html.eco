@@ -187,6 +187,10 @@ type        : 'UI Element'
       <i class="youtube icon"></i>
       YouTube
     </div>
+    <div class="ui vk button">
+      <i class="vk icon"></i>
+      VK
+    </div>
   </div>
 
 
