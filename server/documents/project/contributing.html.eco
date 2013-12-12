@@ -20,15 +20,15 @@ type        : 'Semantic Project'
 
     <p>One of the easiest ways to support Semantic UI is to get the word out</p>
 
-    <script id='fbrob7c'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=jlukic&button=compact&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI';f.title='Flattr';f.height=31;f.width=110;f.style.marginRight=10;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbrob7c');</script>
+    <script id='fbrob7c'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=semantic-org&button=compact&url=https%3A%2F%2Fgithub.com%2Fsemantic-org%2FSemantic-UI';f.title='Flattr';f.height=31;f.width=110;f.style.marginRight=10;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbrob7c');</script>
 
-    <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=watch&count=true&size=large"
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=watch&count=true&size=large"
     allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
 
-    <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=follow&count=true&size=large"
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=follow&count=true&size=large"
     allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
-    <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=fork&count=true&size=large"
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=fork&count=true&size=large"
     allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
 
     <a href="https://twitter.com/intent/tweet?button_hashtag=semanticui" class="twitter-hashtag-button" data-size="large" data-url="http://www.semantic-ui.com"></a>
@@ -37,20 +37,20 @@ type        : 'Semantic Project'
 
     <h3 class="ui header">Squashing Bugs</h3>
 
-    <p>Please submit any bugs you encounter when using the library to our <a href="https://github.com/jlukic/Semantic-UI/issues?state=open">Github Issues Tracker</a>.</p>
+    <p>Please submit any bugs you encounter when using the library to our <a href="https://github.com/semantic-org/Semantic-UI/issues?state=open">Github Issues Tracker</a>.</p>
 
     <p>Be sure to include a set of steps to reproduce the issue and any related information, browser, OS etc. If we can't see the issue then it will make solving things much more difficult.</p>
 
-    <div class="ui warning message">When submitting a bug report, please <a href="http://jsfiddle.net/jlukic/Vbr9d/1/">Fork this JSFiddle</a> to create a test-case. It will have Semantic and normalize.css included for you automatically.</div>
+    <div class="ui warning message">When submitting a bug report, please <a href="http://jsfiddle.net/semantic-org/Vbr9d/1/">Fork this JSFiddle</a> to create a test-case. It will have Semantic and normalize.css included for you automatically.</div>
 
-    <a class="ui teal button" href="https://github.com/jlukic/Semantic-UI/issues/new"><i class="github icon"></i> Submit a bug report</a>
+    <a class="ui teal button" href="https://github.com/semantic-org/Semantic-UI/issues/new"><i class="github icon"></i> Submit a bug report</a>
 
     <h3 class="ui header">Pull Requests</h3>
 
     <p>If you see a bug and you'd like to fix it, feel free to open a pull request.</p>
     <div class="ui buttons">
-      <a class="ui teal button" href="https://github.com/jlukic/Semantic-UI/compare/">Create a Pull Request</a>
-      <a class="ui button" href="https://github.com/jlukic/Semantic-UI/issues?state=open">View Open Issues</a>
+      <a class="ui teal button" href="https://github.com/semantic-org/Semantic-UI/compare/">Create a Pull Request</a>
+      <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues?state=open">View Open Issues</a>
     </div>
 
   </div>
@@ -63,7 +63,7 @@ type        : 'Semantic Project'
 
     <p>If you have suggestions for components missing from Semantic which you'd like to see in future versions please add them to our public UI Component board. The current list of upcoming components, and their current development status can be seen on the contributor UI board.</p>
 
-    <a class="ui button" href="https://github.com/jlukic/Semantic-UI/issues/new"><i class="lightbulb icon"></i> Add an idea</a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/new"><i class="lightbulb icon"></i> Add an idea</a>
 
     <h2 class="ui dividing header">Code</h2>
 
@@ -76,7 +76,7 @@ type        : 'Semantic Project'
       <div class="visible content">Help code this</div>
       <div class="hidden content"><i class="mail icon"></i> Reach Out</div>
     </a>
-    <a class="ui button" href="https://github.com/jlukic/Semantic-UI/issues/216">Share Ideas</a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/216">Share Ideas</a>
 
     <div class="ui section divider"></div>
 
@@ -88,7 +88,7 @@ type        : 'Semantic Project'
       <div class="visible content">Help code this</div>
       <div class="hidden content"><i class="mail icon"></i> Reach Out</div>
     </a>
-    <a class="ui button" href="https://github.com/jlukic/Semantic-UI/issues/206">Share Ideas</a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/206">Share Ideas</a>
 
     <div class="ui section divider"></div>
 
@@ -101,13 +101,13 @@ type        : 'Semantic Project'
       <div class="visible content">Help code this</div>
       <div class="hidden content"><i class="mail icon"></i> Reach Out</div>
     </a>
-    <a class="ui button" href="https://github.com/jlukic/Semantic-UI/issues/189">Share Ideas</a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/189">Share Ideas</a>
 
     <div class="ui section divider"></div>
 
     <h3 class="ui header">Test Coverage</h3>
 
-    <p>Semantic uses <a href="">Jasmine</a> with <a href="http://karma-runner.github.io/0.10/index.html" target="_blank">Karma Test Runner</a> and <a href="https://travis-ci.org/jlukic/Semantic-UI" target="_blank">Travis CI</a> to write unit tests for our UI modules.</p>
+    <p>Semantic uses <a href="">Jasmine</a> with <a href="http://karma-runner.github.io/0.10/index.html" target="_blank">Karma Test Runner</a> and <a href="https://travis-ci.org/semantic-org/Semantic-UI" target="_blank">Travis CI</a> to write unit tests for our UI modules.</p>
 
     <p>We need help to increase our code coverage by writing Jasmine tests for <a href="/module.html">modules</a> and to write feature specs which can be used to write tests.</p>
 
@@ -115,7 +115,7 @@ type        : 'Semantic Project'
       <div class="visible content">Help code this</div>
       <div class="hidden content"><i class="mail icon"></i> Reach Out</div>
     </a>
-    <a class="ui button" href="https://github.com/jlukic/Semantic-UI/issues/244">Share Ideas</a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/244">Share Ideas</a>
 
   </div>
 
