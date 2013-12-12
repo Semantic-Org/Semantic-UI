@@ -1,0 +1,41 @@
+<script src="/build/uncompressed/modules/behavior/form.js"></script>
+<script type='text/javascript'>//<![CDATA[
+$(document).ready(function () {
+
+
+    $('.signup')
+        .form({
+        countryNumber: {
+            identifier: 'somefield',
+            rules: [{
+                type: 'contains[+]',
+                prompt: 'This errors out'
+            }]
+        }
+    }, {
+        inline: true
+    });
+
+});
+</script>
+<style>
+.main.container {
+    padding-top: 200px;
+}
+</style>
+
+
+    <div class="main container">
+  <div class="ui form segment signup">
+    <div class="field">
+        <label>Something with an +</label>
+        <div class="ui left labeled icon input">
+            <input name="somefield" type="text" placeholder="insert something"> <i class="user icon"></i>
+
+            <div class="ui corner label"> <i class="icon asterisk"></i>
+
+            </div>
+        </div>
+    </div>
+    <div class="ui green submit button approve">Check</div>
+</div>

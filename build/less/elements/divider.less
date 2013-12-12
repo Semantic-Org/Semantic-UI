@@ -1,0 +1,181 @@
+/*
+ * # Semantic - Divider
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Divider
+*******************************/
+
+.ui.divider {
+  margin: 1rem 0rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  line-height: 1;
+  height: 0em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ui.vertical.divider,
+.ui.horizontal.divider {
+  position: absolute;
+  border: none;
+  height: 0em;
+  margin: 0em;
+  background-color: transparent;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/*--------------
+    Vertical
+---------------*/
+
+.ui.vertical.divider {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin: 0% 0% 0% -3%;
+  width: 6%;
+  height: 50%;
+  line-height: 0;
+  padding: 0em;
+}
+
+.ui.vertical.divider:before,
+.ui.vertical.divider:after {
+  position: absolute;
+  left: 50%;
+  content: " ";
+  z-index: 3;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  width: 0%;
+  height: 80%;
+}
+
+.ui.vertical.divider:before {
+  top: -100%;
+}
+
+.ui.vertical.divider:after {
+  top: auto;
+  bottom: 0px;
+}
+
+/*--------------
+    Horizontal
+---------------*/
+
+.ui.horizontal.divider {
+  position: relative;
+  top: 0%;
+  left: 0%;
+  margin: 1rem 1.5rem;
+  height: auto;
+  padding: 0em;
+  line-height: 1;
+}
+
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
+  position: absolute;
+  top: 50%;
+  content: " ";
+  z-index: 3;
+  width: 50%;
+  top: 50%;
+  height: 0%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.ui.horizontal.divider:before {
+  left: 0%;
+  margin-left: -1.5rem;
+}
+
+.ui.horizontal.divider:after {
+  left: auto;
+  right: 0%;
+  margin-right: -1.5rem;
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.divider > .icon {
+  margin: 0em;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+/*******************************
+            Variations
+*******************************/
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.divider.inverted {
+  color: rgba(255, 255, 255, 1);
+}
+
+.ui.vertical.inverted.divider,
+.ui.horizontal.inverted.divider {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ui.divider.inverted,
+.ui.divider.inverted:after,
+.ui.divider.inverted:before {
+  border-top-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+  border-left-color: rgba(0, 0, 0, 0.15);
+  border-right-color: rgba(255, 255, 255, 0.15);
+}
+
+/*--------------
+    Fitted
+---------------*/
+
+.ui.fitted.divider {
+  margin: 0em;
+}
+
+/*--------------
+    Clearing
+---------------*/
+
+.ui.clearing.divider {
+  clear: both;
+}
+
+/*--------------
+    Section
+---------------*/
+
+.ui.section.divider {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

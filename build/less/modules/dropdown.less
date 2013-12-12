@@ -1,0 +1,510 @@
+/*
+ * # Semantic - Dropdown
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Dropdown
+*******************************/
+
+.ui.dropdown {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  -webkit-transition: border-radius 0.1s ease,
+    width 0.2s ease;
+  transition: border-radius 0.1s ease,
+    width 0.2s ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*******************************
+            Content
+*******************************/
+
+/*--------------
+     Menu
+---------------*/
+
+.ui.dropdown .menu {
+  cursor: auto;
+  position: absolute;
+  display: none;
+  top: 100%;
+  margin: 0em;
+  background-color: #FFFFFF;
+  min-width: 100%;
+  white-space: nowrap;
+  font-size: 0.875em;
+  text-shadow: none;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 0.325em 0.325em;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  z-index: 11;
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.dropdown > .dropdown.icon {
+  width: auto;
+  margin: 0em 0em 0em 1em;
+}
+
+.ui.dropdown > .dropdown.icon:before {
+  content: "\f0d7";
+}
+
+.ui.dropdown .menu .item .dropdown.icon {
+  width: auto;
+  float: right;
+  margin: 0em 0em 0em 0.5em;
+}
+
+.ui.dropdown .menu .item .dropdown.icon:before {
+  content: "\f0da";
+}
+
+/*--------------
+      Text
+---------------*/
+
+.ui.dropdown > .text {
+  display: inline-block;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+/* Flyout Direction */
+
+.ui.dropdown .menu {
+  left: 0px;
+}
+
+/*--------------
+    Sub Menu
+---------------*/
+
+.ui.dropdown .menu .menu {
+  top: 0% !important;
+  left: 100% !important;
+  margin: 0em !important;
+  border-radius: 0 0.325em 0.325em 0em !important;
+}
+
+.ui.dropdown .menu .menu:after {
+  display: none;
+}
+
+.ui.dropdown .menu .item {
+  cursor: pointer;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  height: auto;
+  font-size: 0.875em;
+  display: block;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 0.85em 1em !important;
+  font-size: 0.875rem;
+  text-transform: none;
+  font-weight: normal;
+  text-align: left;
+  -webkit-touch-callout: none;
+}
+
+.ui.dropdown .menu .item:before {
+  display: none;
+}
+
+.ui.dropdown .menu .item .icon {
+  margin-right: 0.75em;
+}
+
+.ui.dropdown .menu .item:first-child {
+  border-top: none;
+}
+
+/*******************************
+            Coupling
+*******************************/
+
+/* Opposite on last menu on right */
+
+.ui.menu .right.menu .dropdown:last-child .menu,
+.ui.buttons > .ui.dropdown:last-child .menu {
+  left: auto;
+  right: 0px;
+}
+
+.ui.vertical.menu .dropdown.item > .dropdown.icon:before {
+  content: "\f0da";
+}
+
+.ui.dropdown.icon.button > .dropdown.icon {
+  margin: 0em;
+}
+
+/*******************************
+            States
+*******************************/
+
+/* Dropdown Visible */
+
+.ui.visible.dropdown > .menu {
+  display: block;
+}
+
+/* Menu Item Hover */
+
+.ui.dropdown .menu .item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  z-index: 12;
+}
+
+/* Menu Item Active */
+
+.ui.dropdown .menu .active.item {
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-left: none;
+  border-color: transparent !important;
+  -webkit-box-shadow: none;
+  -moz-shadow: none;
+  box-shadow: none;
+  z-index: 12;
+}
+
+/* Default Text */
+
+.ui.dropdown > .default.text,
+.ui.default.dropdown > .text {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.ui.dropdown:hover > .default.text,
+.ui.default.dropdown:hover > .text {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+     Simple
+---------------*/
+
+/* Displays without javascript */
+
+.ui.simple.dropdown .menu:before,
+.ui.simple.dropdown .menu:after {
+  display: none;
+}
+
+.ui.simple.dropdown .menu {
+  display: block;
+  overflow: hidden;
+  top: -9999px !important;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+
+.ui.simple.active.dropdown,
+.ui.simple.dropdown:hover {
+  border-bottom-left-radius: 0em !important;
+  border-bottom-right-radius: 0em !important;
+}
+
+.ui.simple.active.dropdown > .menu,
+.ui.simple.dropdown:hover > .menu {
+  overflow: visible;
+  width: auto;
+  height: auto;
+  top: 100% !important;
+  opacity: 1;
+}
+
+.ui.simple.dropdown > .menu .item:active > .menu,
+.ui.simple.dropdown:hover > .menu .item:hover > .menu {
+  overflow: visible;
+  width: auto;
+  height: auto;
+  top: 0% !important;
+  left: 100% !important;
+  opacity: 1;
+}
+
+.ui.simple.disabled.dropdown:hover .menu {
+  display: none;
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+}
+
+/*--------------
+    Selection
+---------------*/
+
+/* Displays like a select box */
+
+.ui.selection.dropdown {
+  cursor: pointer;
+  display: inline-block;
+  word-wrap: break-word;
+  white-space: normal;
+  background-color: #FFFFFF;
+  padding: 0.5em 1em;
+  line-height: 1.33;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 0.3125em !important;
+}
+
+.ui.selection.dropdown select {
+  display: none;
+}
+
+.ui.selection.dropdown > .dropdown.icon {
+  opacity: 0.7;
+  margin: 0.2em 0em 0.2em 1.25em;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+
+.ui.selection.dropdown,
+.ui.selection.dropdown .menu {
+  top: 100%;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-out;
+  transition: box-shadow 0.2s ease-out;
+}
+
+.ui.selection.dropdown .menu {
+  max-height: 312px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-box-shadow: 0px 1px 0px 1px #E0E0E0;
+  box-shadow: 0px 1px 0px 1px #E0E0E0;
+  border-radius: 0px 0px 0.325em 0.325em;
+}
+
+.ui.selection.dropdown .menu:after,
+.ui.selection.dropdown .menu:before {
+  display: none;
+}
+
+.ui.selection.dropdown .menu img {
+  height: 2.5em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+
+/* Hover */
+
+.ui.selection.dropdown:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.ui.selection.dropdown:hover .menu {
+  -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
+  box-shadow: 0px 1px 0px 1px #D3D3D3;
+}
+
+.ui.selection.dropdown:hover > .dropdown.icon {
+  opacity: 1;
+}
+
+/* Visible */
+
+.ui.visible.selection.dropdown {
+  border-bottom-left-radius: 0em !important;
+  border-bottom-right-radius: 0em !important;
+}
+
+/* Active */
+
+.ui.active.selection.dropdown {
+  border-radius: 0.3125em 0.3125em 0em 0em !important;
+}
+
+.ui.active.selection.dropdown > .dropdown.icon {
+  opacity: 1;
+}
+
+
+
+/*--------------
+      Fluid
+---------------*/
+
+.ui.fluid.dropdown {
+  display: block;
+}
+
+.ui.fluid.dropdown > .dropdown.icon {
+  float: right;
+}
+
+/*--------------
+     Inline
+---------------*/
+
+.ui.inline.dropdown {
+  cursor: pointer;
+  display: inline-block;
+  color: inherit;
+}
+
+.ui.inline.dropdown .dropdown.icon {
+  margin: 0em 0.5em 0em 0.25em;
+}
+
+.ui.inline.dropdown .text {
+  font-weight: bold;
+}
+
+.ui.inline.dropdown .menu {
+  cursor: auto;
+  margin-top: 0.25em;
+  border-radius: 0.325em;
+}
+
+/*--------------
+    Floating
+---------------*/
+
+.ui.floating.dropdown .menu {
+  left: 0;
+  right: auto;
+  margin-top: 0.5em !important;
+  border-radius: 0.325em;
+}
+
+/*--------------
+     Pointing
+---------------*/
+
+.ui.pointing.dropdown .menu {
+  top: 100%;
+  margin-top: 0.75em;
+  border-radius: 0.325em;
+}
+
+.ui.pointing.dropdown .menu:after {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  content: " ";
+  visibility: visible;
+  width: 0.5em;
+  height: 0.5em;
+  -webkit-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
+  background-image: none;
+  background-color: #FFFFFF;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 2;
+}
+
+.ui.pointing.dropdown .menu .active.item:first-child {
+  background: transparent -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+  background: transparent-webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.03)));
+  background: transparent linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+}
+
+/* Directions */
+
+.ui.pointing.dropdown .menu:after {
+  top: -0.25em;
+  left: 50%;
+  margin: 0em 0em 0em -0.25em;
+}
+
+.ui.top.left.pointing.dropdown .menu {
+  top: 100%;
+  bottom: auto;
+  left: 0%;
+  right: auto;
+  margin: 0.75em 0em 0em;
+}
+
+.ui.top.left.pointing.dropdown .menu:after {
+  top: -0.25em;
+  left: 1.25em;
+  right: auto;
+  margin: 0em;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.ui.top.right.pointing.dropdown .menu {
+  top: 100%;
+  bottom: auto;
+  right: 0%;
+  left: auto;
+  margin: 0.75em 0em 0em;
+}
+
+.ui.top.right.pointing.dropdown .menu:after {
+  top: -0.25em;
+  left: auto;
+  right: 1.25em;
+  margin: 0em;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.ui.left.pointing.dropdown .menu {
+  top: 0%;
+  left: 100%;
+  right: auto;
+  margin: 0em 0em 0em 0.75em;
+}
+
+.ui.left.pointing.dropdown .menu:after {
+  top: 1em;
+  left: -0.25em;
+  margin: 0em 0em 0em 0em;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.ui.right.pointing.dropdown .menu {
+  top: 0%;
+  left: auto;
+  right: 100%;
+  margin: 0em 0.75em 0em 0em;
+}
+
+.ui.right.pointing.dropdown .menu:after {
+  top: 1em;
+  left: auto;
+  right: -0.25em;
+  margin: 0em 0em 0em 0em;
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}

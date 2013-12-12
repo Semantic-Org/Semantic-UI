@@ -1,0 +1,301 @@
+/*
+ * # Semantic - Modal
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+             Modal
+*******************************/
+
+.ui.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  text-align: left;
+  width: 90%;
+  margin-left: -45%;
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/*******************************
+            Content
+*******************************/
+
+/*--------------
+     Close
+---------------*/
+
+.ui.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0.8;
+  font-size: 1.25em;
+  top: -1.75em;
+  right: -1.75em;
+  color: #FFFFFF;
+}
+
+.ui.modal > .close:hover {
+  opacity: 1;
+}
+
+/*--------------
+     Header
+---------------*/
+
+.ui.modal > .header {
+  margin: 0em;
+  padding: 1.5rem 2rem;
+  font-size: 1.6em;
+  font-weight: bold;
+  border-radius: 0.325em 0.325em 0px 0px;
+}
+
+/*--------------
+     Content
+---------------*/
+
+.ui.modal > .content {
+  display: table;
+  width: 100%;
+  position: relative;
+  padding: 2em;
+  background-color: #F4F4F4;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui.modal > .content > .left:not(.ui) {
+  display: table-cell;
+  padding-right: 1.5%;
+  min-width: 25%;
+}
+
+.ui.modal > .content > .right:not(.ui) {
+  display: table-cell;
+  padding-left: 1.5%;
+  vertical-align: top;
+}
+
+.ui.modal > .content > .left:not(.ui) > i.icon {
+  font-size: 8em;
+  margin: 0em;
+}
+
+.ui.modal > .content p {
+  line-height: 1.6;
+}
+
+/*--------------
+     Actions
+---------------*/
+
+.ui.modal .actions {
+  padding: 1rem 2rem;
+  text-align: right;
+}
+
+.ui.modal .actions > .button {
+  margin-left: 0.75em;
+}
+
+/*-------------------
+       Sizing
+--------------------*/
+
+/* Mobile Only */
+
+@media only screen and (max-width : 768px) {
+  .ui.modal .content > .left:not(.ui) {
+    display: block;
+    padding: 0em 0em 1em;
+  }
+
+  .ui.modal .content > .right:not(.ui) {
+    display: block;
+    padding: 1em 0em 0em;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .ui.modal .content .image {
+    width: auto !important;
+    max-width: 100%;
+  }
+
+  .ui.modal .actions {
+    padding-bottom: 0em;
+  }
+
+  .ui.modal .actions > .buttons,
+  .ui.modal .actions > .button {
+    margin-bottom: 1em;
+  }
+}
+
+/* Tablet and Mobile */
+
+@media only screen and (max-width : 998px) {
+  .ui.modal {
+    width: 92%;
+    margin-left: -46%;
+  }
+
+  .ui.modal > .close {
+    color: rgba(0, 0, 0, 0.8);
+    top: 1.5rem;
+    right: 1rem;
+  }
+}
+
+/* Computer / Responsive */
+
+@media only screen and (min-width : 998px) {
+  .ui.modal {
+    width: 74%;
+    margin-left: -37%;
+  }
+}
+
+@media only screen and (min-width : 1500px) {
+  .ui.modal {
+    width: 56%;
+    margin-left: -28%;
+  }
+}
+
+@media only screen and (min-width : 1750px) {
+  .ui.modal {
+    width: 42%;
+    margin-left: -21%;
+  }
+}
+
+@media only screen and (min-width : 2000px) {
+  .ui.modal {
+    width: 36%;
+    margin-left: -18%;
+  }
+}
+
+/*******************************
+             Types
+*******************************/
+
+.ui.basic.modal {
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+}
+
+.ui.basic.modal > .close {
+  top: 1.5rem;
+  right: 1rem;
+}
+
+.ui.basic.modal .content {
+  background-color: transparent;
+}
+
+/*******************************
+            Variations
+*******************************/
+
+/* A modal that cannot fit on the page */
+
+.ui.modal.scrolling {
+  position: absolute;
+  margin-top: 10px;
+}
+
+/*******************************
+              States
+*******************************/
+
+.ui.active.modal {
+  display: block;
+}
+
+/*--------------
+      Size
+---------------*/
+
+/* Small */
+
+.ui.small.modal > .header {
+  font-size: 1.3em;
+}
+
+@media only screen and (min-width : 998px) {
+  .ui.small.modal {
+    width: 58%;
+    margin-left: -29%;
+  }
+}
+
+@media only screen and (min-width : 1500px) {
+  .ui.small.modal {
+    width: 40%;
+    margin-left: -20%;
+  }
+}
+
+@media only screen and (min-width : 1750px) {
+  .ui.small.modal {
+    width: 26%;
+    margin-left: -13%;
+  }
+}
+
+@media only screen and (min-width : 2000px) {
+  .ui.small.modal {
+    width: 20%;
+    margin-left: -10%;
+  }
+}
+
+/* Large */
+
+@media only screen and (min-width : 998px) {
+  .ui.large.modal {
+    width: 74%;
+    margin-left: -37%;
+  }
+}
+
+@media only screen and (min-width : 1500px) {
+  .ui.large.modal {
+    width: 64%;
+    margin-left: -32%;
+  }
+}
+
+@media only screen and (min-width : 1750px) {
+  .ui.large.modal {
+    width: 54%;
+    margin-left: -27%;
+  }
+}
+
+@media only screen and (min-width : 2000px) {
+  .ui.large.modal {
+    width: 44%;
+    margin-left: -22%;
+  }
+}

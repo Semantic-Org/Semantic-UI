@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Semantic Modules</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="modal.commented.html">
+                modal.commented.js
+              </a>
+            
+              
+              <a class="source" href="module.commented.html">
+                module.commented.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1 id="semantic-modules">Semantic Modules</h1>
+<p>This is a design pattern for creating UI modules in Semantic</p>
+<p>Semantic is unique in that all arbitrary data is a setting. Semantic modules also are self documenting, with module.debug calls serving to explain state, and log performance data.
+<a href="http://semantic-ui.com/guide/javascriptguide.html">Read more about coding conventions</a> and <a href="http://semantic-ui.com/module.html">Read about modules</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="comment">/*
+ * # Semantic Module
+ * http://github.com/quirkyinc/semantic
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ */</span>
+
+;(<span class="function"><span class="keyword">function</span> <span class="params">( $, window, document, undefined )</span> {</span>
+
+$.fn.example = <span class="function"><span class="keyword">function</span><span class="params">(parameters)</span> {</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="group">Group</h2>
+<p>Some properties remain constant across all instances of a module.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Store a reference to the module group, this can be useful to refer to other modules inside each module</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $allModules     = $(<span class="keyword">this</span>),</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Preserve selector from outside each scope and mark current time for performance tracking</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    moduleSelector  = $allModules.selector || <span class="string">''</span>,
+    time            = <span class="keyword">new</span> Date().getTime(),
+    performance     = [],</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Preserve original arguments to determine if a method is being invoked</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    query           = arguments[<span class="number">0</span>],
+    methodInvoked   = (<span class="keyword">typeof</span> query == <span class="string">'string'</span>),
+    queryArguments  = [].slice.call(arguments, <span class="number">1</span>),
+    returnedValue
+  ;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <h2 id="singular">Singular</h2>
+<p>Iterate over all elements to initialize module</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  $allModules
+    .each(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+      <span class="keyword">var</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Extend settings to merge run-time settings with defaults</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        settings        = ( $.isPlainObject(parameters) )
+          ? $.extend(<span class="literal">true</span>, {}, $.fn.example.settings, parameters)
+          : $.extend({}, $.fn.example.settings),</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Alias settings object for convenience and performance</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        namespace      = settings.namespace,
+        error          = settings.error,
+        className      = settings.className,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>You may also find it useful to alias your own settings</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        text           = settings.text,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Define namespaces for storing module instance and binding events</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        eventNamespace  = <span class="string">'.'</span> + namespace,
+        moduleNamespace = <span class="string">'module-'</span> + namespace,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Instance is stored and retreived in namespaced DOM metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        instance        = $(<span class="keyword">this</span>).data(moduleNamespace),
+        element         = <span class="keyword">this</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Cache selectors using selector settings object for access inside instance of module</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        $module        = $(<span class="keyword">this</span>),
+        $text          = $module.find(settings.selector.text),</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Define private variables which can be used to maintain internal state, these cannot be changed from outside the module closure so use conservatively. Default values are set using <code>a || b</code> syntax</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        foo            = <span class="literal">false</span>,
+
+
+        module
+      ;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <h2 id="module-behavior">Module Behavior</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      module = {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <h3 id="required">Required</h3>
+<h4 id="initialize">Initialize</h4>
+<p>Initialize attaches events and preserves each instance in html metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        initialize: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          module.debug(<span class="string">'Initializing module for'</span>, element);
+          $module
+            .on(<span class="string">'click'</span> + eventNamespace, module.exampleBehavior)
+          ;
+          module.instantiate();
+        },
+
+        instantiate: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          module.verbose(<span class="string">'Storing instance of module'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>The instance is just a copy of the module definition, we store it in metadata so we can use it outside of scope, but also define it for immediate use</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          instance = module;
+          $module
+            .data(moduleNamespace, instance)
+          ;
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <h4 id="destroy">Destroy</h4>
+<p>Removes all events and the instance copy from metadata</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        destroy: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          module.verbose(<span class="string">'Destroying previous module for'</span>, element);
+          $module
+            .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <h4 id="refresh">Refresh</h4>
+<p>Selectors or cached values sometimes need to refreshed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        refresh: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          module.verbose(<span class="string">'Refreshing elements'</span>, element);
+          $module = $(element);
+          $text   = $(<span class="keyword">this</span>).find(settings.selector.text);
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <h3 id="custom">Custom</h3>
+<h4 id="by-event">By Event</h4>
+<p>Sometimes it makes sense to call an event handler by its type if it is dependent on the event to behave properly</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        event: {
+          click: <span class="function"><span class="keyword">function</span><span class="params">(event)</span> {</span>
+            module.verbose(<span class="string">'Preventing default action'</span>);
+            <span class="keyword">if</span>( !$module.hasClass(className.disabled) ) {
+              module.behavior();
+            }
+            event.preventDefault();
+          }
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <h4 id="by-function">By Function</h4>
+<p>Other times events make more sense for methods to be called by their function if it is ambivalent to how it is invoked</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        behavior: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          module.debug(<span class="string">'Changing the text to a new value'</span>, text);
+          <span class="keyword">if</span>( !module.has.text() ) {
+            module.set.text( text);
+          }
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <h4 id="vocabulary">Vocabulary</h4>
+<p>Custom methods should be defined with consistent vocabulary some useful terms: &quot;has&quot;, &quot;set&quot;, &quot;get&quot;, &quot;change&quot;, &quot;add&quot;, &quot;remove&quot;</p>
+<p>This makes it easier for new developers to get to know your module without learning your schema</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        has: {
+          text: <span class="function"><span class="keyword">function</span><span class="params">(state)</span> {</span>
+            module.verbose(<span class="string">'Checking whether text state exists'</span>, state);
+            <span class="keyword">if</span>( text[state] === <span class="literal">undefined</span> ) {
+              module.error(error.noText);
+              <span class="keyword">return</span> <span class="literal">false</span>;
+            }
+            <span class="keyword">return</span> <span class="literal">true</span>;
+          }
+        },
+
+        set: {
+          text: <span class="function"><span class="keyword">function</span><span class="params">(state)</span> {</span>
+            module.verbose(<span class="string">'Setting text to new state'</span>, state);
+            <span class="keyword">if</span>( module.has.text(state) ) {
+              $text
+                .text( text[state] )
+              ;
+              settings.onChange();
+            }
+          }
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <h3 id="standard">Standard</h3>
+<h4 id="setting">Setting</h4>
+<p>Module settings can be read or set using this method</p>
+<p>Settings can either be specified by modifying the module defaults, by initializing the module with a settings object, or by changing a setting by invoking this method
+<code>$(.foo&#39;).example(&#39;setting&#39;, &#39;moduleName&#39;);</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        setting: <span class="function"><span class="keyword">function</span><span class="params">(name, value)</span> {</span>
+          <span class="keyword">if</span>( $.isPlainObject(name) ) {
+            $.extend(<span class="literal">true</span>, settings, name);
+          }
+          <span class="keyword">else</span> <span class="keyword">if</span>(value !== <span class="literal">undefined</span>) {
+            settings[name] = value;
+          }
+          <span class="keyword">else</span> {
+            <span class="keyword">return</span> settings[name];
+          }
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <h4 id="internal">Internal</h4>
+<p>Module internals can be set or retrieved as well
+<code>$(.foo&#39;).example(&#39;internal&#39;, &#39;behavior&#39;, function() { // do something });</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        internal: <span class="function"><span class="keyword">function</span><span class="params">(name, value)</span> {</span>
+          <span class="keyword">if</span>( $.isPlainObject(name) ) {
+            $.extend(<span class="literal">true</span>, module, name);
+          }
+          <span class="keyword">else</span> <span class="keyword">if</span>(value !== <span class="literal">undefined</span>) {
+            module[name] = value;
+          }
+          <span class="keyword">else</span> {
+            <span class="keyword">return</span> module[name];
+          }
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <h4 id="debug">Debug</h4>
+<p>Debug pushes arguments to the console formatted as a debug statement</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        debug: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          <span class="keyword">if</span>(settings.debug) {
+            <span class="keyword">if</span>(settings.performance) {
+              module.performance.log(arguments);
+            }
+            <span class="keyword">else</span> {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + <span class="string">':'</span>);
+              module.debug.apply(console, arguments);
+            }
+          }
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <h4 id="verbose">Verbose</h4>
+<p>Calling verbose internally allows for additional data to be logged which can assist in debugging</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        verbose: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          <span class="keyword">if</span>(settings.verbose &amp;&amp; settings.debug) {
+            <span class="keyword">if</span>(settings.performance) {
+              module.performance.log(arguments);
+            }
+            <span class="keyword">else</span> {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + <span class="string">':'</span>);
+              module.verbose.apply(console, arguments);
+            }
+          }
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <h4 id="error">Error</h4>
+<p>Error allows for the module to report named error messages, it may be useful to modify this to push error messages to the user. Error messages are defined in the modules settings object.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        error: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          module.error = Function.prototype.bind.call(console.error, console, settings.name + <span class="string">':'</span>);
+          module.error.apply(console, arguments);
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <h4 id="performance">Performance</h4>
+<p>This is called on each debug statement and logs the time since the last debug statement.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        performance: {
+          log: <span class="function"><span class="keyword">function</span><span class="params">(message)</span> {</span>
+            <span class="keyword">var</span>
+              currentTime,
+              executionTime,
+              previousTime
+            ;
+            <span class="keyword">if</span>(settings.performance) {
+              currentTime   = <span class="keyword">new</span> Date().getTime();
+              previousTime  = time || currentTime;
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                <span class="string">'Element'</span>        : element,
+                <span class="string">'Name'</span>           : message[<span class="number">0</span>],
+                <span class="string">'Arguments'</span>      : [].slice.call(message, <span class="number">1</span>) || <span class="string">''</span>,
+                <span class="string">'Execution Time'</span> : executionTime
+              });
+            }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, <span class="number">100</span>);
+          },
+          display: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+            <span class="keyword">var</span>
+              title = settings.name + <span class="string">':'</span>,
+              totalTime = <span class="number">0</span>
+            ;
+            time = <span class="literal">false</span>;
+            clearTimeout(module.performance.timer);
+            $.each(performance, <span class="function"><span class="keyword">function</span><span class="params">(index, data)</span> {</span>
+              totalTime += data[<span class="string">'Execution Time'</span>];
+            });
+            title += <span class="string">' '</span> + totalTime + <span class="string">'ms'</span>;
+            <span class="keyword">if</span>(moduleSelector) {
+              title += <span class="string">' \''</span> + moduleSelector + <span class="string">'\''</span>;
+            }
+            <span class="keyword">if</span>( (console.group !== <span class="literal">undefined</span> || console.table !== <span class="literal">undefined</span>) &amp;&amp; performance.length &gt; <span class="number">0</span>) {
+              console.groupCollapsed(title);
+              <span class="keyword">if</span>(console.table) {
+                console.table(performance);
+              }
+              <span class="keyword">else</span> {
+                $.each(performance, <span class="function"><span class="keyword">function</span><span class="params">(index, data)</span> {</span>
+                  console.log(data[<span class="string">'Name'</span>] + <span class="string">': '</span> + data[<span class="string">'Execution Time'</span>]+<span class="string">'ms'</span>);
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
+          }
+        },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <h4 id="invoke">Invoke</h4>
+<p>Invoke is used to match internal functions to string lookups.
+<code>$(&#39;.foo&#39;).example(&#39;invoke&#39;, &#39;set text&#39;, &#39;Foo&#39;)</code>
+Method lookups are lazy, looking for many variations of a search string
+For example &#39;set active&#39;, will look for both <code>setText : function(){}</code>, <code>set: { text: function(){} }</code>
+Invoke attempts to preserve the &#39;this&#39; chaining unless a value is returned.
+If multiple values are returned an array of values matching up to the length of the selector is returned</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        invoke: <span class="function"><span class="keyword">function</span><span class="params">(query, passedArguments, context)</span> {</span>
+          <span class="keyword">var</span>
+            maxDepth,
+            found,
+            response
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          <span class="keyword">if</span>(<span class="keyword">typeof</span> query == <span class="string">'string'</span> &amp;&amp; instance !== <span class="literal">undefined</span>) {
+            query    = query.split(<span class="regexp">/[\. ]/</span>);
+            maxDepth = query.length - <span class="number">1</span>;
+            $.each(query, <span class="function"><span class="keyword">function</span><span class="params">(depth, value)</span> {</span>
+              <span class="keyword">var</span> camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + <span class="number">1</span>].charAt(<span class="number">0</span>).toUpperCase() + query[depth + <span class="number">1</span>].slice(<span class="number">1</span>)
+                : query
+              ;
+              <span class="keyword">if</span>( $.isPlainObject( instance[value] ) &amp;&amp; (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              <span class="keyword">else</span> <span class="keyword">if</span>( $.isPlainObject( instance[camelCaseValue] ) &amp;&amp; (depth != maxDepth) ) {
+                instance = instance[camelCaseValue];
+              }
+              <span class="keyword">else</span> <span class="keyword">if</span>( instance[value] !== <span class="literal">undefined</span> ) {
+                found = instance[value];
+                <span class="keyword">return</span> <span class="literal">false</span>;
+              }
+              <span class="keyword">else</span> <span class="keyword">if</span>( instance[camelCaseValue] !== <span class="literal">undefined</span> ) {
+                found = instance[camelCaseValue];
+                <span class="keyword">return</span> <span class="literal">false</span>;
+              }
+              <span class="keyword">else</span> {
+                module.error(error.method, query);
+                <span class="keyword">return</span> <span class="literal">false</span>;
+              }
+            });
+          }
+          <span class="keyword">if</span> ( $.isFunction( found ) ) {
+            response = found.apply(context, passedArguments);
+          }
+          <span class="keyword">else</span> <span class="keyword">if</span>(found !== <span class="literal">undefined</span>) {
+            response = found;
+          }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <h3 id="invocation-response">Invocation response</h3>
+<p>If a user passes in multiple elements invoke will be called for each element and the value will be returned in an array
+For example <code>$(&#39;.things&#39;).example(&#39;has text&#39;)</code> with two elements might return <code>[true, false]</code> and for one element <code>true</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="keyword">if</span>($.isArray(returnedValue)) {
+            returnedValue.push(response);
+          }
+          <span class="keyword">else</span> <span class="keyword">if</span>(returnedValue !== <span class="literal">undefined</span>) {
+            returnedValue = [returnedValue, response];
+          }
+          <span class="keyword">else</span> <span class="keyword">if</span>(response !== <span class="literal">undefined</span>) {
+            returnedValue = response;
+          }
+          <span class="keyword">return</span> found;
+        }
+      };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <h3 id="determining-intent">Determining Intent</h3>
+<p>This is where the actual action occurs.
+    $(&#39;.foo&#39;).module(&#39;set text&#39;, &#39;Ho hum&#39;);
+If you call a module with a string parameter you are most likely trying to invoke a function</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span>(methodInvoked) {
+        <span class="keyword">if</span>(instance === <span class="literal">undefined</span>) {
+          module.initialize();
+        }
+        module.invoke(query);
+      }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>if no method call is required we simply initialize the plugin, destroying it if it exists already</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="keyword">else</span> {
+        <span class="keyword">if</span>(instance !== <span class="literal">undefined</span>) {
+          module.destroy();
+        }
+        module.initialize();
+      }
+    })
+  ;
+
+  <span class="keyword">return</span> (returnedValue !== <span class="literal">undefined</span>)
+    ? returnedValue
+    : <span class="keyword">this</span>
+  ;
+
+};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <h2 id="settings">Settings</h2>
+<p>It is necessary to include a settings object which specifies the defaults for your module</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>$.fn.example.settings = {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <h3 id="required">Required</h3>
+<p>Used in debug statements to refer to the module itself</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  name  : <span class="string">'Example Module'</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>Whether debug content should be outputted to console</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  debug       : <span class="literal">true</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>Whether extra debug content should be outputted</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  verbose     : <span class="literal">false</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>Whether to track performance data</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  performance : <span class="literal">false</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>A unique identifier used to namespace events,and preserve the module instance</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  namespace   : <span class="string">'example'</span>,</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <h3 id="optional">Optional</h3>
+<p>Selectors used by your module</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  selector    : {
+    example : <span class="string">'.example'</span>
+  },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>Error messages returned by the module</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  error: {
+    noText : <span class="string">'The text you tried to display has not been defined.'</span>,
+    method : <span class="string">'The method you called is not defined.'</span>
+  },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>Class names which your module refers to</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  className   : {
+    disabled : <span class="string">'disabled'</span>
+  },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>Metadata attributes stored or retrieved by your module. <code>$(&#39;.foo&#39;).data(&#39;value&#39;);</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  metadata: {
+    text: <span class="string">'text'</span>
+  },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <h3 id="callbacks">Callbacks</h3>
+<p>Callbacks are often useful to include in your settings object</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  onChange     : <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>},</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <h3 id="definition-specific">Definition Specific</h3>
+<p>You may also want to include settings specific to your module&#39;s function</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  text: {
+    hover : <span class="string">'You are hovering me now'</span>,
+    click : <span class="string">'You clicked on me'</span>
+  }
+
+};
+
+
+})( jQuery, window , document );</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

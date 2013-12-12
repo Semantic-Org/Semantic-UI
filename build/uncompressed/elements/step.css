@@ -1,0 +1,259 @@
+/*
+ * # Semantic - Steps
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Step
+*******************************/
+
+.ui.step,
+.ui.steps .step {
+  display: inline-block;
+  position: relative;
+  padding: 1em 2em 1em 3em;
+  vertical-align: top;
+  background-color: #FFFFFF;
+  color: #888888;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui.step:after,
+.ui.steps .step:after {
+  position: absolute;
+  z-index: 2;
+  content: '';
+  top: 0em;
+  right: -1.45em;
+  border-bottom: 1.5em solid transparent;
+  border-left: 1.5em solid #FFFFFF;
+  border-top: 1.5em solid transparent;
+  width: 0em;
+  height: 0em;
+}
+
+.ui.step,
+.ui.steps .step,
+.ui.steps .step:after {
+  -webkit-transition: opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+}
+
+/*******************************
+            Group
+*******************************/
+
+.ui.steps {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0em;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 0.3125rem;
+}
+
+.ui.steps .step:first-child {
+  padding-left: 1.35em;
+  border-radius: 0.3125em 0em 0em 0.3125em;
+}
+
+.ui.steps .step:last-child {
+  border-radius: 0em 0.3125em 0.3125em 0em;
+}
+
+.ui.steps .step:only-child {
+  border-radius: 0.3125em;
+}
+
+.ui.steps .step:last-child {
+  margin-right: 0em;
+}
+
+.ui.steps .step:last-child:after {
+  display: none;
+}
+
+/*******************************
+             States
+*******************************/
+
+/* Hover */
+
+.ui.step:hover,
+.ui.step.hover {
+  background-color: #F7F7F7;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.steps .step.hover:after,
+.ui.steps .step:hover:after,
+.ui.step:hover,
+.ui.step.hover::after {
+  border-left-color: #F7F7F7;
+}
+
+/* Hover */
+
+.ui.steps .step.down,
+.ui.steps .step:active,
+.ui.step.down,
+.ui.step:active {
+  background-color: #F0F0F0;
+}
+
+.ui.steps .step.down:after,
+.ui.steps .step:active:after,
+.ui.steps.down::after,
+.ui.steps:active::after {
+  border-left-color: #F0F0F0;
+}
+
+/* Active */
+
+.ui.steps .step.active,
+.ui.active.step {
+  cursor: auto;
+  background-color: #555555;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.ui.steps .step.active:after,
+.ui.active.steps:after {
+  border-left-color: #555555;
+}
+
+/* Disabled */
+
+.ui.steps .disabled.step,
+.ui.disabled.step {
+  cursor: auto;
+  background-color: #FFFFFF;
+  color: #CBCBCB;
+}
+
+.ui.disabled.step:after {
+  border: none;
+  background-color: #FFFFFF;
+  top: 0.42em;
+  right: -1em;
+  width: 2.15em;
+  height: 2.15em;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/* Attached */
+
+.attached.ui.steps {
+  margin: 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;
+}
+
+.attached.ui.steps .step:first-child {
+  border-radius: 0.3125em 0em 0em 0em;
+}
+
+.attached.ui.steps .step:last-child {
+  border-radius: 0em 0.3125em 0em 0em;
+}
+
+/* Bottom Side */
+
+.bottom.attached.ui.steps {
+  margin-top: -1px;
+  border-radius: 0em 0em 0.3125em 0.3125em;
+}
+
+.bottom.attached.ui.steps .step:first-child {
+  border-radius: 0em 0em 0em 0.3125em;
+}
+
+.bottom.attached.ui.steps .step:last-child {
+  border-radius: 0em 0em 0.3125em 0em;
+}
+
+/* Evenly divided  */
+
+.ui.one.steps,
+.ui.two.steps,
+.ui.three.steps,
+.ui.four.steps,
+.ui.five.steps,
+.ui.six.steps,
+.ui.seven.steps,
+.ui.eight.steps {
+  display: block;
+}
+
+.ui.one.steps > .step {
+  width: 100%;
+}
+
+.ui.two.steps > .step {
+  width: 50%;
+}
+
+.ui.three.steps > .step {
+  width: 33.333%;
+}
+
+.ui.four.steps > .step {
+  width: 25%;
+}
+
+.ui.five.steps > .step {
+  width: 20%;
+}
+
+.ui.six.steps > .step {
+  width: 16.666%;
+}
+
+.ui.seven.steps > .step {
+  width: 14.285%;
+}
+
+.ui.eight.steps > .step {
+  width: 12.500%;
+}
+
+/*******************************
+             Sizes
+*******************************/
+
+.ui.small.step,
+.ui.small.steps .step {
+  font-size: 0.8rem;
+}
+
+.ui.step,
+.ui.steps .step {
+  font-size: 1rem;
+}
+
+.ui.large.step,
+.ui.large.steps .step {
+  font-size: 1.25rem;
+}
