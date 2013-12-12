@@ -12,6 +12,14 @@ Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?sta
 
 If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
 
+## Browser Support
+
+* Last 2 Versions FF, Chrome, IE (aka 10+)
+* Safari 6
+* IE 9+ (Browser prefix only)
+* Android 4
+* Blackberry 10
+
 ## Getting Started
 
 The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need.
