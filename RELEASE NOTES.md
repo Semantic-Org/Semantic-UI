@@ -1,5 +1,22 @@
 ## RELEASE NOTES
 
+### Version 0.10.2 - Dec 13, 2013
+
+**New**
+- **Button** - Adds VK button
+- **Input** - Action inputs now support button groups
+
+**Updates**
+
+**Fixes**
+- **Rating** - Fixes vertical alignment with text
+- **Dropdown** - Fixes missing easing equations for dropdown javascript animations. Would cause an error when no css transitions were included and jquery easing was not available.
+
+### Version 0.10.1 - Dec 06, 2013
+
+**Fixes**
+- **Modal** - Fixes issue with modal animation regression in 0.10.0
+
 ### Version 0.10.0 - Dec 05, 2013
 
 **New**
