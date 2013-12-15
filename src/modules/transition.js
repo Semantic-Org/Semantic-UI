@@ -165,9 +165,17 @@ $.fn.transition = function() {
           $.proxy(settings.complete, this)();
         },
 
-        repaint: function(fakeAssignment) {
+        repaint: function(removeThenAdd) {
           module.verbose('Forcing repaint event');
-          fakeAssignment = element.offsetWidth;
+          var fakeAssignment = element.offsetWidth;
+          if (removeThenAdd) {
+              var parent = $module.parent();
+              var next = $module.next();
+              if (next.length == 0)
+                  $module.detach().appendTo(parent);
+              else
+                  $module.detach().before(next);
+          }
         },
 
         has: {
@@ -426,7 +434,7 @@ $.fn.transition = function() {
             .addClass(className.transition)
             .addClass(className.visible)
           ;
-          module.repaint();
+          module.repaint(true/*or better: true only if its IE*/);
         },
 
         start: function() {
