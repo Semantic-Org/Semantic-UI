@@ -170,11 +170,14 @@ $.fn.transition = function() {
           var fakeAssignment = element.offsetWidth;
           if (removeThenAdd) {
               var parent = $module.parent();
+              //element not attached yet.
+              if (parent.length == 0)
+                  return;
               var next = $module.next();
               if (next.length == 0)
                   $module.detach().appendTo(parent);
               else
-                  $module.detach().before(next);
+                  $module.detach().insertBefore(next);
           }
         },
 
