@@ -159,7 +159,6 @@ $.fn.popup = function(parameters) {
                 content : content
               });
             }
-            module.save.conditions();
             $popup = $('<div/>')
               .addClass(className.popup)
               .addClass(variation)
@@ -205,6 +204,7 @@ $.fn.popup = function(parameters) {
           if( !module.exists() ) {
             module.create();
           }
+          module.save.conditions();
           module.set.position();
           module.animate.show(callback);
         },
