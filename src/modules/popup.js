@@ -159,6 +159,7 @@ $.fn.popup = function(parameters) {
                 content : content
               });
             }
+            module.save.conditions();
             $popup = $('<div/>')
               .addClass(className.popup)
               .addClass(variation)
@@ -214,6 +215,7 @@ $.fn.popup = function(parameters) {
           $module
             .removeClass(className.visible)
           ;
+          module.restore.conditions();
           module.unbind.close();
           if( module.is.visible() ) {
             module.animate.hide(callback);
@@ -250,6 +252,29 @@ $.fn.popup = function(parameters) {
           ;
         },
 
+        save: {
+            conditions: function () {
+                module.cache = {
+                    title: $module.attr('title')
+                };
+                if (module.cache.title) {
+                    $module.attr('title', '');
+                }
+                module.verbose('Saving original attributes', module.cache);
+            }
+        },
+        restore: {
+            conditions: function () {
+                if (typeof module.cache === undefined) {
+                    module.error(error.cache);
+                    return false;
+                }
+                if (module.cache.title) {
+                    $module.attr('title', module.cache.title);
+                }
+                module.verbose('Restoring original attributes', module.cache);
+            }
+        },
         animate: {
           show: function(callback) {
             callback = callback || function(){};
