@@ -265,7 +265,7 @@ $.fn.popup = function(parameters) {
         },
         restore: {
             conditions: function () {
-                if (typeof module.cache === undefined) {
+                if (module.cache === undefined) {
                     module.error(error.cache);
                     return false;
                 }
