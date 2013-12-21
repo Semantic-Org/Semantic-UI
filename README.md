@@ -4,6 +4,14 @@ Semantic is a UI Component library implemented using a set of specifications des
 Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
+
+### Translations
+* [中国翻译 Semantic UI](http://semantic.icoolxue.com/)
+
+We need people who can contribute to translations of Semantic UI's documentation. 
+
+Please [reach out by e-mail](mailto:jack@semantic-ui.com) if you can help.
+
 ### Bugs and Issues
 
 > Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
@@ -11,9 +19,6 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out.
 
 If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
-
-## Translations
-* [中国翻译 Semantic UI](http://semantic.icoolxue.com/)
 
 ### Browser Support
 
