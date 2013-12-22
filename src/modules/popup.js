@@ -253,7 +253,7 @@ $.fn.popup = function(parameters) {
         },
 
         save: {
-          conditions: function () {
+          conditions: function() {
             module.cache = {
               title: $module.attr('title')
             };
@@ -264,7 +264,7 @@ $.fn.popup = function(parameters) {
           }
         },
         restore: {
-          conditions: function () {
+          conditions: function() {
             if(module.cache === undefined) {
               module.error(error.cache);
               return false;
