@@ -304,7 +304,6 @@ type        : 'UI Module'
         .transition('bounce', '2000ms')
       ;
       </div>
-      <div class="ui warning message">There is currently a bug in WebKit that makes it impossible to force css looping animations to end programatically</div>
       <div class="code" data-demo="true" data-title="Ending looping">
       $('.kitten.image')
         .transition('remove looping')
