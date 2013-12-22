@@ -170,11 +170,11 @@ $.fn.transition = function() {
             $parentElement = $module.parent(),
             $nextElement = $module.next()
           ;
-          if($nextElement.size() == 0) {
+          if($nextElement.size() === 0) {
             $module.detach().appendTo($parentElement);
           }
           else {
-            $module.detach().before($nextElement);
+            $module.detach().insertBefore($nextElement);
           }
         },
         repaint: function() {
