@@ -4011,11 +4011,11 @@ $.fn.dimmer = function(parameters) {
 
         addContent: function(element) {
           var
-            $content = $(element).detach()
+            $content = $(element)
           ;
           module.debug('Add content to dimmer', $content);
           if($content.parent()[0] !== $dimmer[0]) {
-            $dimmer.append($content);
+            $content.detach().appendTo($dimmer);
           }
         },
 
@@ -4924,12 +4924,15 @@ $.fn.dropdown = function(parameters) {
                 callback();
               }
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
-                $currentMenu.transition({
-                  animation : settings.transition + ' in',
-                  duration  : settings.duration,
-                  complete  : callback,
-                  queue     : false
-                });
+                $currentMenu
+                  .transition({
+                    animation : settings.transition + ' in',
+                    duration  : settings.duration,
+                    complete  : callback,
+                    queue     : false
+                  })
+                ;
+                $currentMenu.transition('force repaint');
               }
               else if(settings.transition == 'slide down') {
                 $currentMenu
@@ -6747,6 +6750,7 @@ $.fn.popup = function(parameters) {
           if( !module.exists() ) {
             module.create();
           }
+          module.save.conditions();
           module.set.position();
           module.animate.show(callback);
         },
@@ -6757,6 +6761,7 @@ $.fn.popup = function(parameters) {
           $module
             .removeClass(className.visible)
           ;
+          module.restore.conditions();
           module.unbind.close();
           if( module.is.visible() ) {
             module.animate.hide(callback);
@@ -6793,6 +6798,30 @@ $.fn.popup = function(parameters) {
           ;
         },
 
+        save: {
+          conditions: function() {
+            module.cache = {
+              title: $module.attr('title')
+            };
+            if (module.cache.title) {
+              $module.removeAttr('title');
+            }
+            module.verbose('Saving original attributes', module.cache.title);
+          }
+        },
+        restore: {
+          conditions: function() {
+            if(module.cache === undefined) {
+              module.error(error.cache);
+              return false;
+            }
+            if(module.cache.title) {
+              $module.attr('title', module.cache.title);
+            }
+            module.verbose('Restoring original attributes', module.cache.title);
+            return true;
+          }
+        },
         animate: {
           show: function(callback) {
             callback = callback || function(){};
@@ -9526,13 +9555,15 @@ $.fn.sidebar = function(parameters) {
         add: {
           bodyCSS: function(direction, distance) {
             var
+              invertDirection,
               style
             ;
             if(direction !== className.bottom) {
+              invertDirection = direction === 'right' ? -1 : 1;
               style = ''
                 + '<style title="' + namespace + '">'
                 + 'body.pushed {'
-                + '  margin-' + direction + ': ' + distance + 'px !important;'
+                + '  margin-left: ' + invertDirection * distance + 'px !important;'
                 + '}'
                 + '</style>'
               ;
@@ -9541,6 +9572,7 @@ $.fn.sidebar = function(parameters) {
             module.debug('Adding body css to head', $style);
           }
         },
+
 
         remove: {
           bodyCSS: function() {
@@ -9909,6 +9941,9 @@ $.fn.sidebar.settings = {
             return false;
           }
           else {
+            if(settings.historyType == 'hash') {
+              module.debug('Using hash state change to manage state');
+            }
             if(settings.historyType == 'html5') {
               module.debug('Using HTML5 to manage state');
               if(settings.path !== false) {
@@ -10672,7 +10707,7 @@ $.fn.transition = function() {
           }
           if( !module.has.transitionAvailable() ) {
             module.restore.conditions();
-            module.error(error.noAnimation);
+            module.error(error.noAnimation, settings.animation);
             return false;
           }
           module.show();
@@ -10710,12 +10745,25 @@ $.fn.transition = function() {
           }
           $.proxy(settings.complete, this)();
         },
-
-        repaint: function(fakeAssignment) {
-          module.verbose('Forcing repaint event');
-          fakeAssignment = element.offsetWidth;
+        forceRepaint: function() {
+          module.verbose('Forcing element repaint');
+          var
+            $parentElement = $module.parent(),
+            $nextElement = $module.next()
+          ;
+          if($nextElement.size() === 0) {
+            $module.detach().appendTo($parentElement);
+          }
+          else {
+            $module.detach().insertBefore($nextElement);
+          }
         },
-
+        repaint: function() {
+          module.verbose('Repainting element');
+          var
+            fakeAssignment = element.offsetWidth
+          ;
+        },
         has: {
           direction: function(animation) {
             animation = animation || settings.animation;
@@ -10830,7 +10878,7 @@ $.fn.transition = function() {
             $module
               .removeClass(className.looping)
             ;
-            module.repaint();
+            module.forceRepaint();
           }
 
         },
@@ -11206,7 +11254,6 @@ $.fn.transition.settings = {
 
 
 })( jQuery, window , document );
-
 /*  ******************************
   Module - Video
   Author: Jack Lukic

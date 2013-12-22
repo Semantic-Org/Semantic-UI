@@ -126,7 +126,7 @@ $.fn.transition = function() {
           }
           if( !module.has.transitionAvailable() ) {
             module.restore.conditions();
-            module.error(error.noAnimation);
+            module.error(error.noAnimation, settings.animation);
             return false;
           }
           module.show();
@@ -164,12 +164,25 @@ $.fn.transition = function() {
           }
           $.proxy(settings.complete, this)();
         },
-
-        repaint: function(fakeAssignment) {
-          module.verbose('Forcing repaint event');
-          fakeAssignment = element.offsetWidth;
+        forceRepaint: function() {
+          module.verbose('Forcing element repaint');
+          var
+            $parentElement = $module.parent(),
+            $nextElement = $module.next()
+          ;
+          if($nextElement.size() === 0) {
+            $module.detach().appendTo($parentElement);
+          }
+          else {
+            $module.detach().insertBefore($nextElement);
+          }
         },
-
+        repaint: function() {
+          module.verbose('Repainting element');
+          var
+            fakeAssignment = element.offsetWidth
+          ;
+        },
         has: {
           direction: function(animation) {
             animation = animation || settings.animation;
@@ -284,7 +297,7 @@ $.fn.transition = function() {
             $module
               .removeClass(className.looping)
             ;
-            module.repaint();
+            module.forceRepaint();
           }
 
         },
