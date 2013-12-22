@@ -165,9 +165,20 @@ $.fn.transition = function() {
           $.proxy(settings.complete, this)();
         },
 
-        repaint: function(fakeAssignment) {
+        repaint: function(removeThenAdd) {
           module.verbose('Forcing repaint event');
-          fakeAssignment = element.offsetWidth;
+          var fakeAssignment = element.offsetWidth;
+          if (removeThenAdd) {
+              var parent = $module.parent();
+              //element not attached yet.
+              if (parent.length == 0)
+                  return;
+              var next = $module.next();
+              if (next.length == 0)
+                  $module.detach().appendTo(parent);
+              else
+                  $module.detach().insertBefore(next);
+          }
         },
 
         has: {
@@ -250,7 +261,7 @@ $.fn.transition = function() {
 
         restore: {
           conditions: function() {
-            if(typeof module.cache === undefined) {
+            if(module.cache === undefined) {
               module.error(error.cache);
               return false;
             }
@@ -426,7 +437,7 @@ $.fn.transition = function() {
             .addClass(className.transition)
             .addClass(className.visible)
           ;
-          module.repaint();
+          module.repaint(true/*or better: true only if its IE*/);
         },
 
         start: function() {
