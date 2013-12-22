@@ -126,7 +126,7 @@ $.fn.transition = function() {
           }
           if( !module.has.transitionAvailable() ) {
             module.restore.conditions();
-            module.error(error.noAnimation);
+            module.error(error.noAnimation, settings.animation);
             return false;
           }
           module.show();
@@ -439,7 +439,7 @@ $.fn.transition = function() {
             .addClass(className.transition)
             .addClass(className.visible)
           ;
-          module.forceRepaint();
+          module.repaint();
         },
 
         start: function() {
