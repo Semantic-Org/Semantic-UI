@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.10.3 - Dec 13, 2013
+### Version 0.10.3 - Dec 22, 2013
 
 **Critical Fixes**
 - **Dropdown** - Fixes issue where dropdown animation does not occur sometimes (Thanks MohammadYounes)
