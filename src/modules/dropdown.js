@@ -464,6 +464,7 @@ $.fn.dropdown = function(parameters) {
                     queue     : false
                   })
                 ;
+                $currentMenu.transition('force repaint');
               }
               else if(settings.transition == 'slide down') {
                 $currentMenu
