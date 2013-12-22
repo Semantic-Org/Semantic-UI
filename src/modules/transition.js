@@ -164,23 +164,25 @@ $.fn.transition = function() {
           }
           $.proxy(settings.complete, this)();
         },
-
-        repaint: function(removeThenAdd) {
-          module.verbose('Forcing repaint event');
-          var fakeAssignment = element.offsetWidth;
-          if (removeThenAdd) {
-              var parent = $module.parent();
-              //element not attached yet.
-              if (parent.length == 0)
-                  return;
-              var next = $module.next();
-              if (next.length == 0)
-                  $module.detach().appendTo(parent);
-              else
-                  $module.detach().insertBefore(next);
+        forceRepaint: function() {
+          module.verbose('Forcing element repaint');
+          var
+            $parentElement = $module.parent(),
+            $nextElement = $module.next()
+          ;
+          if($nextElement.size() == 0) {
+            $module.detach().appendTo($parentElement);
+          }
+          else {
+            $module.detach().before($nextElement);
           }
         },
-
+        repaint: function() {
+          module.verbose('Repainting element');
+          var
+            fakeAssignment = element.offsetWidth
+          ;
+        },
         has: {
           direction: function(animation) {
             animation = animation || settings.animation;
@@ -261,7 +263,7 @@ $.fn.transition = function() {
 
         restore: {
           conditions: function() {
-            if(module.cache === undefined) {
+            if(typeof module.cache === undefined) {
               module.error(error.cache);
               return false;
             }
@@ -295,7 +297,7 @@ $.fn.transition = function() {
             $module
               .removeClass(className.looping)
             ;
-            module.repaint();
+            module.forceRepaint();
           }
 
         },
@@ -437,7 +439,7 @@ $.fn.transition = function() {
             .addClass(className.transition)
             .addClass(className.visible)
           ;
-          module.repaint(true/*or better: true only if its IE*/);
+          module.forceRepaint();
         },
 
         start: function() {
