@@ -29,6 +29,7 @@ type        : 'UI Module'
       <h3 class="ui header">Popup</h3>
       <p>A standard popup</p>
       <i class="heart circular icon link" data-content="Hello, I am a pop-up."></i>
+      <i class="heart circular icon link" title="Hello, I am a pop-up."></i>
     </div>
 
     <div class="example">
