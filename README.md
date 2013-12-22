@@ -1,9 +1,17 @@
-# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI) [![Coverage Status](https://coveralls.io/repos/optikfluffel/Semantic-UI/badge.png?branch=coveralls-integration)](https://coveralls.io/r/optikfluffel/Semantic-UI?branch=coveralls-integration)
+# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI)
 Semantic is a UI Component library implemented using a set of specifications designed around natural language
 
 Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
+
+### Translations
+* [中国翻译 Semantic UI](http://semantic.icoolxue.com/)
+
+We need people who can contribute to translations of Semantic UI's documentation. 
+
+Please [reach out by e-mail](mailto:jack@semantic-ui.com) if you can help.
+
 ### Bugs and Issues
 
 > Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
