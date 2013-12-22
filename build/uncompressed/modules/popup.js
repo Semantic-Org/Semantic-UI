@@ -204,6 +204,7 @@ $.fn.popup = function(parameters) {
           if( !module.exists() ) {
             module.create();
           }
+          module.save.conditions();
           module.set.position();
           module.animate.show(callback);
         },
@@ -214,6 +215,7 @@ $.fn.popup = function(parameters) {
           $module
             .removeClass(className.visible)
           ;
+          module.restore.conditions();
           module.unbind.close();
           if( module.is.visible() ) {
             module.animate.hide(callback);
@@ -250,6 +252,30 @@ $.fn.popup = function(parameters) {
           ;
         },
 
+        save: {
+          conditions: function() {
+            module.cache = {
+              title: $module.attr('title')
+            };
+            if (module.cache.title) {
+              $module.removeAttr('title');
+            }
+            module.verbose('Saving original attributes', module.cache.title);
+          }
+        },
+        restore: {
+          conditions: function() {
+            if(module.cache === undefined) {
+              module.error(error.cache);
+              return false;
+            }
+            if(module.cache.title) {
+              $module.attr('title', module.cache.title);
+            }
+            module.verbose('Restoring original attributes', module.cache.title);
+            return true;
+          }
+        },
         animate: {
           show: function(callback) {
             callback = callback || function(){};

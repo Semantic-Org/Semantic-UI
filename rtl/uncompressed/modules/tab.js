@@ -71,6 +71,9 @@
             return false;
           }
           else {
+            if(settings.historyType == 'hash') {
+              module.debug('Using hash state change to manage state');
+            }
             if(settings.historyType == 'html5') {
               module.debug('Using HTML5 to manage state');
               if(settings.path !== false) {

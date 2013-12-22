@@ -1,12 +1,21 @@
 ## RELEASE NOTES
 
+### Version 0.10.3 - Dec 13, 2013
+
+**Critical Fixes**
+- **Dropdown** - Fixes issue where dropdown animation does not occur sometimes (Thanks MohammadYounes)
+
+**Fixes**
+- **Popup** - Native browser popups no longer if using ``title`` attribute
+- **Grid** - Fixes issue where stackable grid was not working correctly when using (x) wide column
+- **Modal** - Fixes element detatching sometimes in case where it is already inside a dimmer
+- **Input** - Removes duplicate sizes
+
 ### Version 0.10.2 - Dec 13, 2013
 
 **New**
 - **Button** - Adds VK button
 - **Input** - Action inputs now support button groups
-
-**Updates**
 
 **Fixes**
 - **Rating** - Fixes vertical alignment with text

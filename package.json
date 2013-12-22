@@ -1,6 +1,6 @@
 {
   "name": "semantic",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "title": "Semantic UI",
   "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage": "http://www.semantic-ui.com",
@@ -14,9 +14,9 @@
     "url": "git://github.com/jlukic/Semantic-UI.git"
   },
   "dependencies": {
-    "docpad": "~6.57.1",
-    "docpad-plugin-eco": "~2.0.2",
-    "docpad-plugin-ghpages": "~2.4.0",
+    "docpad": "~6.59.6",
+    "docpad-plugin-eco": "~2.0.3",
+    "docpad-plugin-ghpages": "~2.4.1",
     "docpad-plugin-partials": "~2.8.1"
   },
   "devDependencies": {
