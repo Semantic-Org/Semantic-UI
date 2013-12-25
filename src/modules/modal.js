@@ -414,8 +414,8 @@ $.fn.modal = function(parameters) {
             return $module.hasClass(className.active);
           },
           modernBrowser: function() {
-            // lol
-            return (navigator.appName !== 'Microsoft Internet Explorer');
+            // appName for IE11 reports 'Netscape' can no longer use
+            return !(window.ActiveXObject || "ActiveXObject" in window);
           }
         },
 
