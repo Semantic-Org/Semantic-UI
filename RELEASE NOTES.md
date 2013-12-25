@@ -16,11 +16,11 @@
 
 -**Transition**: Fixes typo in "horizontal flip out" causing opacity to be fading in
 
+-**Popup** - Fixes popup sometimes opening and closing when ``event:click`` is used and a user double clicks
+
 -**Modules**: Fixed error in all modules where calling invoke would modify instance outside of scope, making it impossible to access some data (for instance cached positions) from outside of module.
 
 -**Modal**: Fixes issues with modal in IE, IE11 can now use CSS animations with modals
-
-
 
 ### Version 0.10.3 - Dec 22, 2013
 
