@@ -202,6 +202,12 @@ $.fn.transition = function() {
           }
         },
 
+        reset: function() {
+          module.restore.conditions();
+          module.hide();
+          module.remove.animating();
+        },
+
         set: {
 
           animating: function() {
@@ -263,8 +269,7 @@ $.fn.transition = function() {
 
         restore: {
           conditions: function() {
-            if(typeof module.cache === undefined) {
-              module.error(error.cache);
+            if(module.cache === undefined) {
               return false;
             }
             if(module.cache.className) {
