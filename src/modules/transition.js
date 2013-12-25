@@ -96,6 +96,11 @@ $.fn.transition = function() {
           ;
         },
 
+        refresh: function() {
+          module.verbose('Refreshing display type on next animation');
+          delete instance.displayType;
+        },
+
         forceRepaint: function() {
           module.verbose('Forcing element repaint');
           var

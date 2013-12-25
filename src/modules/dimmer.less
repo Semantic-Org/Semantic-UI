@@ -113,6 +113,7 @@
   overflow: hidden;
 }
 
+.ui.dimmed.dimmable > .ui.animating.dimmer,
 .ui.dimmed.dimmable > .ui.visible.dimmer,
 .ui.active.dimmer {
   display: block;
@@ -137,19 +138,8 @@
 .ui.page.dimmer {
   position: fixed;
 
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
-
-  -webkit-perspective: 2000px;
-  -moz-perspective: 2000px;
   perspective: 2000px;
-
-  -webkit-transform-origin: center center;
-  -moz-transform-origin: center center;
-  -o-transform-origin: center center;
-  -ms-transform-origin: center center;
   transform-origin: center center;
 }
 
