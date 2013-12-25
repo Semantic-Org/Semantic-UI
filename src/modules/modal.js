@@ -281,7 +281,7 @@ $.fn.modal = function(parameters) {
         },
 
         hideDimmer: function() {
-          if( $dimmable.dimmer('is active') ) {
+          if( module.is.active() ) {
             module.debug('Hiding dimmer');
             if(settings.closable) {
               $dimmer
