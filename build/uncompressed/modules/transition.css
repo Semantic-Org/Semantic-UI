@@ -28,6 +28,7 @@
 *******************************/
 
 .ui.animating.transition {
+  display: block;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -190,7 +191,7 @@
 }
 
 /*--------------
-      Slide
+     Slide
 ---------------*/
 
 .ui.slide.down.transition.in {
@@ -290,7 +291,7 @@
 *******************************/
 
 /*--------------
-  Emphasis
+    Emphasis
 ---------------*/
 
 /* Flash */
@@ -541,13 +542,13 @@
   0% {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
-    opacity: 1;
+    opacity: 0;
   }
 }
 
@@ -556,14 +557,14 @@
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     -webkit-transform: rotateY(90deg);
     -ms-transform: rotateY(90deg);
     transform: rotateY(90deg);
-    opacity: 1;
+    opacity: 0;
   }
 }
 

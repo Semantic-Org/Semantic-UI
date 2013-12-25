@@ -11943,7 +11943,6 @@ a.ui.teal.label:hover:before {
 .ui.accordion .accordion {
   width: 600px;
   max-width: 100%;
-  overflow: hidden;
   font-size: 1rem;
   border-radius: 0.3125em;
   background-color: #FFFFFF;
@@ -12838,6 +12837,7 @@ a.ui.teal.label:hover:before {
   overflow: hidden;
 }
 
+.ui.dimmed.dimmable > .ui.animating.dimmer,
 .ui.dimmed.dimmable > .ui.visible.dimmer,
 .ui.active.dimmer {
   display: block;
@@ -14082,6 +14082,7 @@ a.ui.nag {
   visibility: hidden;
 }
 
+.ui.animating.popup,
 .ui.visible.popup {
   display: block;
 }
@@ -15031,6 +15032,7 @@ body.pushed.scrolling.ui.dimmable {
 *******************************/
 
 .ui.animating.transition {
+  display: block;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -15193,7 +15195,7 @@ body.pushed.scrolling.ui.dimmable {
 }
 
 /*--------------
-      Slide
+     Slide
 ---------------*/
 
 .ui.slide.down.transition.in {
@@ -15293,7 +15295,7 @@ body.pushed.scrolling.ui.dimmable {
 *******************************/
 
 /*--------------
-  Emphasis
+    Emphasis
 ---------------*/
 
 /* Flash */
@@ -15544,13 +15546,13 @@ body.pushed.scrolling.ui.dimmable {
   0% {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
-    opacity: 1;
+    opacity: 0;
   }
 }
 
@@ -15559,14 +15561,14 @@ body.pushed.scrolling.ui.dimmable {
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     -webkit-transform: rotateY(90deg);
     -ms-transform: rotateY(90deg);
     transform: rotateY(90deg);
-    opacity: 1;
+    opacity: 0;
   }
 }
 
