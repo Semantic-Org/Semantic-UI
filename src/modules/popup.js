@@ -539,16 +539,16 @@ $.fn.popup = function(parameters) {
                 module.error(error.recursion);
                 searchDepth = 0;
                 module.reset();
+                $popup.removeClass(className.loading);
                 return false;
               }
             }
             else {
               module.debug('Position is on stage', position);
               searchDepth = 0;
+              $popup.removeClass(className.loading);
               return true;
             }
-
-            $module.removeClass(className.loading);
           }
 
         },
@@ -580,7 +580,7 @@ $.fn.popup = function(parameters) {
 
         is: {
           animating: function() {
-            return ( $popup.is(':animated') || $popup.hasClass(className.transition) );
+            return ( $popup.is(':animated') || $popup.hasClass(className.animating) );
           },
           visible: function() {
             return $popup.is(':visible');
@@ -701,13 +701,14 @@ $.fn.popup = function(parameters) {
         },
         invoke: function(query, passedArguments, context) {
           var
+            object = instance,
             maxDepth,
             found,
             response
           ;
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
-          if(typeof query == 'string' && instance !== undefined) {
+          if(typeof query == 'string' && object !== undefined) {
             query    = query.split(/[\. ]/);
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
@@ -715,22 +716,21 @@ $.fn.popup = function(parameters) {
                 ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
                 : query
               ;
-              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
-                instance = instance[value];
+              if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
+                object = object[camelCaseValue];
               }
-              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
-                instance = instance[camelCaseValue];
-              }
-              else if( instance[value] !== undefined ) {
-                found = instance[value];
+              else if( object[camelCaseValue] !== undefined ) {
+                found = object[camelCaseValue];
                 return false;
               }
-              else if( instance[camelCaseValue] !== undefined ) {
-                found = instance[camelCaseValue];
+              else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
+                object = object[value];
+              }
+              else if( object[value] !== undefined ) {
+                found = object[value];
                 return false;
               }
               else {
-                module.error(error.method, query);
                 return false;
               }
             });
@@ -826,6 +826,7 @@ $.fn.popup.settings = {
   },
 
   className   : {
+    animating   : 'animating',
     loading     : 'loading',
     popup       : 'ui popup',
     position    : 'top left center bottom right',
