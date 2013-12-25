@@ -71,13 +71,12 @@ $.fn.modal = function(parameters) {
           $dimmable = $context
             .dimmer({
               closable : false,
-              useCSS   : module.is.modernBrowser(),
+              useCSS   : true,
               duration : {
                 show : settings.duration * 0.9,
                 hide : settings.duration * 1.1
               }
             })
-            .dimmer('add content', $module)
           ;
           $dimmer = $dimmable
             .dimmer('get dimmer')
