@@ -187,10 +187,13 @@ $.fn.popup = function(parameters) {
         toggle: function() {
           module.debug('Toggling pop-up');
           if( module.is.hidden() ) {
+            module.debug('Popup is hidden, showing pop-up');
+            module.unbind.close();
             module.hideAll();
             module.show();
           }
           else {
+            module.debug('Popup is visible, hiding pop-up');
             module.hide();
           }
         },
@@ -231,8 +234,12 @@ $.fn.popup = function(parameters) {
 
         hideGracefully: function(event) {
           // don't close on clicks inside popup
-          if( $(event.target).closest(selector.popup).size() === 0) {
+          if(event && $(event.target).closest(selector.popup).size() === 0) {
+            module.debug('Click occurred outside popup hiding popup');
             module.hide();
+          }
+          else {
+            module.debug('Click was inside popup, keeping popup open');
           }
         },
 
@@ -265,11 +272,7 @@ $.fn.popup = function(parameters) {
         },
         restore: {
           conditions: function() {
-            if(module.cache === undefined) {
-              module.error(error.cache);
-              return false;
-            }
-            if(module.cache.title) {
+            if(module.cache && module.cache.title) {
               $module.attr('title', module.cache.title);
             }
             module.verbose('Restoring original attributes', module.cache.title);
@@ -555,7 +558,10 @@ $.fn.popup = function(parameters) {
             if(settings.on == 'click' && settings.closable) {
               module.verbose('Binding popup close event to document');
               $document
-                .on('click' + eventNamespace, module.hideGracefully)
+                .on('click' + eventNamespace, function(event) {
+                  module.verbose('Pop-up clickaway intent detected');
+                  $.proxy(module.hideGracefully, this)(event);
+                })
               ;
             }
           }
@@ -573,6 +579,9 @@ $.fn.popup = function(parameters) {
         },
 
         is: {
+          animating: function() {
+            return ( $popup.is(':animated') || $popup.hasClass(className.transition) );
+          },
           visible: function() {
             return $popup.is(':visible');
           },
