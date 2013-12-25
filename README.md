@@ -6,7 +6,7 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 
 ### Translations
-* [中国翻译 Semantic UI](http://semantic.icoolxue.com/)
+* [中文翻译 Semantic UI](http://semantic.icoolxue.com/)
 
 We need people who can contribute to translations of Semantic UI's documentation. 
 
