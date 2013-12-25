@@ -72,8 +72,10 @@ $.fn.modal = function(parameters) {
             .dimmer({
               closable : false,
               useCSS   : module.is.modernBrowser(),
-              show     : settings.duration * 0.9,
-              hide     : settings.duration * 1.1
+              duration : {
+                show : settings.duration * 0.9,
+                hide : settings.duration * 1.1
+              }
             })
             .dimmer('add content', $module)
           ;
