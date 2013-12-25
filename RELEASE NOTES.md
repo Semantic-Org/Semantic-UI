@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.11.0 - Dec 22, 2013
+### Version 0.11.0 - Dec 25, 2013
 
 ### Merry Christmas!
 
