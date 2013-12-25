@@ -1,5 +1,27 @@
 ## RELEASE NOTES
 
+### Version 0.11.0 - Dec 22, 2013
+
+### Merry Christmas!
+
+**Major Updates**
+
+-**Transition**: Transition has been completely rewritten, performance should be about 10x after first animation due to caching and use of request animation frame
+
+**New Features**
+
+-**Transition**: Transitions now work with **any display type** not just display: block, meaning transitions can be used on buttons and other inline elements without affecting display
+
+**Fixes**
+
+-**Transition**: Fixes typo in "horizontal flip out" causing opacity to be fading in
+
+-**Modules**: Fixed error in all modules where calling invoke would modify instance outside of scope, making it impossible to access some data (for instance cached positions) from outside of module.
+
+-**Modal**: Fixes issues with modal in IE, IE11 can now use CSS animations with modals
+
+
+
 ### Version 0.10.3 - Dec 22, 2013
 
 **Critical Fixes**
