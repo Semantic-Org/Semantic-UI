@@ -34,7 +34,7 @@ The Semantic library describes many UI elements. In most instances it might be b
 
 To download the entire library
 
-    git clone git@github.com:Semantic-Org/semantic.git
+    git clone git@github.com:Semantic-Org/Semantic-UI.git
 
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
