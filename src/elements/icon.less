@@ -25,8 +25,18 @@
 /*******************************
 Semantic-ui integration of font-awesome :
 
+///class names are separated
 .fa-circle => i.icon.circle
 .fa-circle-o => i.icon.circle.outline
+
+//abbreviation are replaced by full letters:
+.fa-ellipsis-h => i.icon.ellipsis.horizontal
+.fa-ellipsis-v => i.icon.ellipsis.vertical
+.alpha => .i.icon.alphabet
+.asc => .i.icon.ascending
+.desc => .i.icon.descending
+.alt =>.alternate
+
 
 ASCII order is conserved for easier maintenance.
 *******************************/
@@ -180,7 +190,7 @@ i.icon.repeat:before {
 i.icon.refresh:before {
   content: "\f021";
 }
-i.icon.list.alt:before {
+i.icon.list.alternate:before {
   content: "\f022";
 }
 i.icon.lock:before {
@@ -445,10 +455,10 @@ i.icon.folder:before {
 i.icon.folder.open:before {
   content: "\f07c";
 }
-i.icon.arrows.v:before {
+i.icon.arrows.vertical:before {
   content: "\f07d";
 }
-i.icon.arrows.h:before {
+i.icon.arrows.horizontal:before {
   content: "\f07e";
 }
 i.icon.bar.chart.outline:before {
@@ -593,7 +603,7 @@ i.icon.filter:before {
 i.icon.briefcase:before {
   content: "\f0b1";
 }
-i.icon.arrows.alt:before {
+i.icon.arrows.alternate:before {
   content: "\f0b2";
 }
 i.icon.group:before,
@@ -687,11 +697,11 @@ i.icon.sort:before {
   content: "\f0dc";
 }
 i.icon.sort.down:before,
-i.icon.sort.asc:before {
+i.icon.sort.ascending:before {
   content: "\f0dd";
 }
 i.icon.sort.up:before,
-i.icon.sort.desc:before {
+i.icon.sort.descending:before {
   content: "\f0de";
 }
 i.icon.envelope:before {
@@ -845,7 +855,7 @@ i.icon.mail.reply:before,
 i.icon.reply:before {
   content: "\f112";
 }
-i.icon.github.alt:before {
+i.icon.github.alternate:before {
   content: "\f113";
 }
 i.icon.folder.outline:before {
@@ -968,16 +978,16 @@ i.icon.css3:before {
 i.icon.anchor:before {
   content: "\f13d";
 }
-i.icon.unlock.alt:before {
+i.icon.unlock.alternate:before {
   content: "\f13e";
 }
 i.icon.bullseye:before {
   content: "\f140";
 }
-i.icon.ellipsis.h:before {
+i.icon.ellipsis.horizontal:before {
   content: "\f141";
 }
-i.icon.ellipsis.v:before {
+i.icon.ellipsis.vertical:before {
   content: "\f142";
 }
 i.icon.rss.square:before {
@@ -1032,6 +1042,7 @@ i.icon.euro:before,
 i.icon.eur:before {
   content: "\f153";
 }
+i.icon.pound:before,
 i.icon.gbp:before {
   content: "\f154";
 }
@@ -1068,22 +1079,22 @@ i.icon.file:before {
 i.icon.file.text:before {
   content: "\f15c";
 }
-i.icon.sort.alpha.asc:before {
+i.icon.sort.alphabet.ascending:before {
   content: "\f15d";
 }
-i.icon.sort.alpha.desc:before {
+i.icon.sort.alphabet.descending:before {
   content: "\f15e";
 }
-i.icon.sort.amount.asc:before {
+i.icon.sort.amount.ascending:before {
   content: "\f160";
 }
-i.icon.sort.amount.desc:before {
+i.icon.sort.amount.descending:before {
   content: "\f161";
 }
-i.icon.sort.numeric.asc:before {
+i.icon.sort.numeric.ascending:before {
   content: "\f162";
 }
-i.icon.sort.numeric.desc:before {
+i.icon.sort.numeric.descending:before {
   content: "\f163";
 }
 i.icon.thumbs.up:before {
@@ -1238,6 +1249,167 @@ i.icon.plus.square.outline:before {
     Aliases SUI
 ---------------*/
 
+//backward compatibility
+i.icon.left:before { content: "\f060"; }   // replaced by i.icon.arrow.left
+i.icon.right:before { content: "\f061"; }  // replaced by i.icon.arrow.right
+i.icon.add:before { content: "\f067"; }    // replaced by i.icon.plus
+i.icon.add.sign.box:before {content: "\f0fe";}   // replaced by i.icon.plus.square
+i.icon.add.sign:before { content: "\f055"; }      // replaced by i.icon.plus.circle
+i.icon.attachment:before { content: "\f0c6"; }    // replaced by i.icon.paperclip
+i.icon.attention:before { content: "\f06a"; }     // replaced by i.icon.exclamation.circle:
+i.icon.ban.circle:before { content: "\f05e"; }     //replaced by i.icon.ban
+i.icon.bar.chart:before { content: "\f080"; }      // replaced by i.icon.bar.chart.outline
+i.icon.bitbucket.sign:before { content: "\f172"; }  // replaced by i.icon.bitbucket.square
+i.icon.bookmark.empty:before { content: "\f097"; }  // replaced by i.icon.bookmark.outline
+i.icon.box.arrow.down:before { content: "\f150"; }  // replaced by i.icon.toggle.down
+i.icon.box.arrow.right:before { content: "\f152"; } // replaced by i.icon.toggle.right
+i.icon.box.arrow.up:before { content: "\f151"; }    //replaced by i.icon.toggle.up
+i.icon.browser:before { content: "\f022"; }   // replaced by i.icon.list.alternate
+i.icon.building:before { content: "\f0f7"; }  // replaced by i.icon.building.building
+i.icon.calendar.empty:before { content: "\f133"; }   // replaced by i.icon.calendar.outline
+i.icon.triangle.down:before { content: "\f0d7"; }  //replaced by i.icon.caret.down
+i.icon.triangle.left:before { content: "\f0d9"; }  //replaced by i.icon.caret.left
+i.icon.triangle.right:before { content: "\f0da"; } //replaced by i.icon.caret.right
+i.icon.triangle.up:before { content: "\f0d8"; }    //replaced by i.icon.caret.up
+i.icon.cart:before { content: "\f07a"; }  //replaced by  i.icon.shopping.cart
+i.icon.chat:before { content: "\f086"; }          //replaced by i.icon.comments
+i.icon.chat.outline:before { content: "\f0e6"; }  //replaced by i.icon.comments.outline
+i.icon.checkbox.empty:before { content: "\f096"; }  // i.icon.square.outline
+i.icon.checkbox.minus:before { content: "\f147"; }  // i.icon.minus.square.outline
+i.icon.checked.checkbox:before { content: "\f046"; } //i.icon.check.square.outline
+i.icon.checkmark.sign:before { content: "\f14a"; }   //i.icon.check.square
+i.icon.checkmark:before { content: "\f00c"; } // i.icon.check
+i.icon.circle.blank:before { content: "\f10c"; }  // i.icon.circle.outline
+i.icon.circle.down:before { content: "\f0ab"; }  // i.icon.arrow.circle.down
+i.icon.circle.left:before { content: "\f0a8"; }  // i.icon.arrow.circle.left
+i.icon.circle.right:before { content: "\f0a9"; } // i.icon.arrow.circle.right
+i.icon.circle.up:before { content: "\f0aa"; }    // i.icon.arrow.circle.up
+i.icon.doctor:before { content: "\f0f0"; }      // i.icon.user.md
+i.icon.down:before { content: "\f063"; }       // i.icon.arrow.down
+i.icon.download.disk:before { content: "\f019"; }   //i.icon.download
+i.icon.edit.sign:before { content: "\f14b"; }       //i.icon.pencil.square
+i.icon.external.url.sign:before { content: "\f14c"; }  //i.icon.external.link.square
+i.icon.external.url:before { content: "\f08e"; } // i.icon.external.link
+i.icon.facebook.sign:before { content: "\f082"; }  // i.icon.facebook.square
+i.icon.facetime.video:before { content: "\f03d"; }  //i.icon.video.camera
+i.icon.flag.empty:before { content: "\f11d"; } //i.icon.flag.outline
+i.icon.food:before { content: "\f0f5"; }    //i.icon.cutlery
+i.icon.frown:before { content: "\f119"; } //i.icon.frown.outline
+i.icon.fullscreen:before { content: "\f0b2"; } //i.icon.arrows.alternate
+i.icon.github.sign:before { content: "\f092"; }  // i.icon.github.square
+i.icon.google.plus.sign:before { content: "\f0d4"; } // i.icon.google.plus.square
+i.icon.h.sign:before { content: "\f0fd"; } // i.icon.h.square
+i.icon.hand.down:before { content: "\f0a7"; }  //i.icon.hand.outline.down
+i.icon.hand.left:before { content: "\f0a5"; }  //i.icon.hand.outline.left
+i.icon.hand.right:before { content: "\f0a4"; } //i.icon.hand.outline.right
+i.icon.hand.up:before { content: "\f0a6"; }    //i.icon.hand.outline.up
+i.icon.hdd:before { content: "\f0a0"; }  //i.icon.hdd.outline
+i.icon.heart.empty:before { content: "\f08a"; } //i.icon.heart.outline
+i.icon.help:before { content: "\f059"; } //i.icon.question.circle
+i.icon.hide:before { content: "\f070"; }  //i.icon.eye.slash
+i.icon.hospital:before { content: "\f0f8"; }  //i.icon.hospital.outline
+i.icon.indent.left:before { content: "\f03b"; } //i.icon.dedent
+i.icon.indent.right:before { content: "\f03c"; } // i.icon.indent
+i.icon.info.letter:before { content: "\f129"; }  //i.icon.info
+i.icon.lab:before { content: "\f0c3"; }   //i.icon.flask
+i.icon.layout.block:before { content: "\f009"; } //i.icon.th.large
+i.icon.layout.column:before { content: "\f0db"; } //i.icon.columns
+i.icon.layout.grid:before { content: "\f00a"; }  //i.icon.th.before
+i.icon.layout.list:before { content: "\f00b"; }  //i.icon.th.list
+i.icon.lightbulb:before { content: "\f0eb"; }    //i.icon.lightbulb.outline
+i.icon.linkedin.sign:before { content: "\f08c"; } //i.icon.linkedin.square
+i.icon.list.ordered:before { content: "\f0cb"; }  //i.icon.list.ol
+i.icon.list.unordered:before { content: "\f0ca"; }  //i.icon.list.ul
+i.icon.loading:before { content: "\f110"; }   //i.icon.spinner
+i.icon.location:before { content: "\f124"; } //i.icon.location.arrow
+i.icon.mail.outline:before { content: "\f003"; }  //i.icon.envelope.outline
+i.icon.mail:before { content: "\f0e0"; }  //i.icon.envelope
+i.icon.map:before { content: "\f14e"; }  //i.icon.compass
+i.icon.meh:before { content: "\f11a"; }   //i.icon.meh.outline
+i.icon.minus.sign.alternate:before { content: "\f146"; } //i.icon.minus.square
+i.icon.minus.sign:before { content: "\f056"; } //i.icon.minus.circle
+i.icon.moon:before { content: "\f186"; }  //i.icon.moon.outline
+i.icon.move:before { content: "\f047"; }  //i.icon.arrows
+i.icon.mute:before { content: "\f131"; } //i.icon.microphone.slash
+i.icon.off:before { content: "\f011"; }  //i.icon.power.off
+i.icon.ok.circle:before { content: "\f05d"; }  //i.icon.check.circle.outline
+i.icon.ok.sign:before { content: "\f058"; }   // i.icon.check.circle
+i.icon.payment:before { content: "\f09d"; }  //i.icon.credit.card
+i.icon.phone.sign:before { content: "\f098"; } //i.icon.phone.square
+i.icon.pin:before { content: "\f08d"; } //i.icon.thumb.tack
+i.icon.pinterest.sign:before { content: "\f0d3"; } // i.icon.pinterest.square
+i.icon.play.sign:before { content: "\f144"; }  //i.icon.play.circle
+i.icon.qr.code:before { content: "\f029"; } // i.icon.qrcode:before
+i.icon.remove.circle:before { content: "\f05c"; } //i.icon.times.circle.outline
+i.icon.remove.sign:before { content: "\f057"; }  //i.icon.times.circle
+i.icon.remove:before { content: "\f00d"; }  //i.icon.times
+i.icon.reorder:before { content: "\f0c9"; }  //i.icon.bars
+i.icon.reply.all.mail:before { content: "\f122"; } // i.icon.reply.all
+i.icon.resize.full:before { content: "\f065"; }  //i.icon.expand
+i.icon.resize.horizontal:before { content: "\f07e"; } //i.icon.arrows.horizontal
+i.icon.resize.small:before { content: "\f066"; }  //i.icon.compress
+i.icon.resize.vertical:before { content: "\f07d"; } //i.icon.arrows.vertical
+i.icon.rss.sign:before { content: "\f143"; } //i.icon.rss.square
+i.icon.screenshot:before { content: "\f05b"; }  //i.icon.crosshairs
+i.icon.setting:before { content: "\f013"; } //i.icon.gear
+i.icon.settings:before { content: "\f085"; } //i.icon.gears:before
+i.icon.share.sign:before { content: "\f14d"; } // i.icon.share.square
+i.icon.share:before { content: "\f045"; } // i.icon.share.square.outline
+i.icon.shuffle:before { content: "\f074"; } //i.icon.random
+i.icon.sign:before { content: "\f0c8"; }  //i.icon.square
+i.icon.smile:before { content: "\f118"; } //i.icon.smile.outline
+i.icon.sort.alphabet:before { content: "\f15d"; } //i.icon.sort.alphabet.ascending
+i.icon.sort.order.descending:before { content: "\f163"; } //i.icon.sort.numeric.descending
+i.icon.sort.order:before { content: "\f162"; } //i.icon.sort.numeric.ascending
+i.icon.stackexchange:before { content: "\f16c"; }   //i.icon.stack.overflow
+i.icon.star.empty:before { content: "\f006"; } //i.icon.star.outline
+i.icon.sun:before { content: "\f185"; } //i.icon.sun.outline
+i.icon.time:before { content: "\f017"; } //i.icon.clock.outline
+i.icon.trash:before { content: "\f014"; } //i.icon.trash.outline
+i.icon.tumblr.sign:before { content: "\f174"; } //i.icon.tumblr.square
+i.icon.twitter.sign:before { content: "\f081"; } //i.icon.twitter.square
+i.icon.unhide:before { content: "\f06e"; }  //i.icon.eye
+i.icon.unmute:before { content: "\f130"; } //i.icon.microphone
+i.icon.up:before { content: "\f062"; } //i.icon.arrow.up
+i.icon.upload.disk:before { content: "\f093"; }  //i.icon.upload
+i.icon.url:before { content: "\f0c1"; }  //i.icon.link
+i.icon.video:before { content: "\f008"; } //i.icon.film
+i.icon.xing.sign:before { content: "\f169"; }   //i.icon.xing.square
+i.icon.youtube.sign:before { content: "\f166"; } //i.icon.youtube.square
+i.icon.zoom.in:before { content: "\f00e"; }  //i.icon.search.plus
+i.icon.zoom.out:before { content: "\f010"; } //i.icon.search.minus
+
+
+//backward compatibility
+
+/* DEPRECATED
+Changed
+  Old 'arrow' becomes 'chevron'.
+  New 'arrow' design comes in font-awesome:
+      i.icon.arrow.down:before { content: "\f078"; }
+      i.icon.arrow.left:before { content: "\f053"; }
+      i.icon.arrow.right:before { content: "\f054"; }
+      i.icon.arrow.sign.down:before { content: "\f13a"; }
+      i.icon.arrow.sign.left:before { content: "\f137"; }
+      i.icon.arrow.sign.right:before { content: "\f138"; }
+      i.icon.arrow.sign.up:before { content: "\f139"; }
+      i.icon.arrow.up:before { content: "\f077"; }
+
+  i.icon.download:before { content: "\f01a"; }  became i.icon.arrow.circle.outline.down
+  i.icon.github.alternate:before { content: "\f09b"; } became i.icon.github
+  i.icon.github:before { content: "\f113"; }  became i.icon.github.alternate
+  i.icon.info:before { content: "\f05a"; }  became:  i.icon.info =>"\f129" and "\f05a" => i.icon.info.circle
+  i.icon.play.circle:before { content: "\f01d"; } became  i.icon.play.circle => "\f144" and "\f01d" => i.icon.play.circle.outline
+  i.icon.upload:before { content: "\f01b"; }  //became i.icon.upload =>  "\f093" and  "\f01b" => i.icon.arrow.circle.outline.up
+
+
+Removed from Font-awesome:
+    i.icon.collapse:before { content: "\f117"; }
+    i.icon.expand:before { content: "\f116"; }
+
+
+ DEPRECATED */
+
 i.icon.close:before, i.icon.delete:before { content: "\f00d"; }
 i.icon.close.circle:before, i.icon.delete.circle:before { content: "\f057"; }
 i.icon.close.circle.outline:before, i.icon.delete.circle.outline:before { content: "\f05c"; }
@@ -1245,8 +1417,6 @@ i.icon.close.circle.outline:before, i.icon.delete.circle.outline:before { conten
 i.icon.like:before { content: "\f004"; }
 i.icon.like.outline:before { content: "\f08a"; }
 
-i.icon.chat:before { content: "\f086"; }
-i.icon.chat.outline:before { content: "\f0e6"; }
 
 i.icon.signup:before { content: "\f044"; }
 
