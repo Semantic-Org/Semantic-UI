@@ -49,11 +49,11 @@
 
 /* browsers require these rules separate */
 
-.ui.input::-web inputkit-input-placeholder {
+.ui.input::-webkit-input-placeholder {
   color: #BBBBBB;
 }
 
-.ui.input::-moz input-placeholder {
+.ui.input::-moz-placeholder {
   color: #BBBBBB;
 }
 
