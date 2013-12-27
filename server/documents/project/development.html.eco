@@ -26,6 +26,8 @@ type        : 'Semantic Project'
 
   <div class="ui warning message">Make sure npm does not require sudo to operate, this might cause permissions issues.</div>
 
+  <p>There are many tutorials online on how to install node in your environment, here are a few we think are helpful:</p>
+
   <ul class="ui list">
     <li><a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">Node JS via Package Manager</a></li>
     <li><a href="https://gist.github.com/isaacs/579814">Installing Node JS without sudo</a></li>
@@ -35,9 +37,14 @@ type        : 'Semantic Project'
 
   <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=fork&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+  <p>Fork the Semantic repo into a directory on your local machine and navigate into that directory</p>
+
+  <p>Alternatively, you can <a href="https://github.com/Semantic-Org/Semantic-UI/archive/master.zip">download the entire repository as a zip</a> instead of using Git</p>
 
   <h3 class="ui header">3. Install Dependencies</h3>
-  <p>Running update inside the local directory will grab all packages in <code>package.json</code> in the root of the project.</p>
+  <p>NPM (Node Package Manager) keeps track of all the dependencies required for the project.</p>
+
+  <p>Running <code>npm update</code> inside the local directory will grab all development dependencies from <code>package.json</code> and store them in the root of the project.</p>
 
   <div class="code" data-title="Installing dependencies" data-type="terminal">
     npm update
@@ -46,11 +53,15 @@ type        : 'Semantic Project'
 
   <h3 class="ui header">4. Start Your Server</h3>
 
+  <p>Now that you've installed all the dependencies, starting your server should be a simple command</p>
+
   <div class="code" data-title="Starting server locally" data-type="terminal">
     docpad run
   </div>
 
-  <p>Docpad should now run an instance of semantic-ui.com locally you can access at <code>http://localhost:9778</code></p>
+  <p>Docpad should now run the documentation on a local server accessible at <code>http://localhost:9778</code></p>
+
+  <p>A static version of the documentation will be generated every time you make a change to a document. This will also be available in the <code>docs/</code> folder.
 
   <h3 class="ui header">5. (Optional) Install Karma</h3>
 
@@ -61,19 +72,21 @@ type        : 'Semantic Project'
     npm install -g karma
   </div>
 
+  <p>Installing Karma will allow you to run the unit tests on Javascript to ensure all tests are passed when changes are made to javascript code. This will also occur automatically when you create a pull request</p>
+
   <h2 class="ui dividing header">Using Grunt</h2>
 
   <h3 class="ui header">Watch Changes in Source</h3>
 
   <p>If you are working on fixing a UI component that is part of Semantic, your best bet is to work actively on the file in <code>/src/{type}/{elementname}/</code> while running a watch script from grunt. This will rebuild the docs after you make changes, so you can see if you have corrected the issue you are fixing.</p>
 
-  <p>To see exactly what this is doing you can check out our <a href="https://github.com/semantic-org/Semantic-UI/blob/master/Gruntfile.js">commented gruntfile</a></p>
+  <p>To see exactly what this grunt tasks is doing view our <a href="https://github.com/semantic-org/Semantic-UI/blob/master/Gruntfile.js">commented gruntfile</a></p>
 
   <div class="code" data-title="Watching Changes" data-type="terminal">
     grunt
   </div>
 
-  <p>The watch task is the default grunt task for Semantic, so you can start it quite simply.</p>
+  <p>The watch task is the default grunt task for Semantic, so you can start it quite simply. This will copy files automatically from the <code>src</code> directory, compiling LESS files, whenever any changes are made.</p>
 
   <h3 class="ui header">Run Unit Tests</h3>
   <p>Tests will automatically run with <code>grunt watch</code> if you have started karma</p>
@@ -93,7 +106,7 @@ type        : 'Semantic Project'
   </div>
 
   <h3 class="ui header">Build Semantic Packages Locally</h3>
-  <p>For convenience there is also a separate grunt command for building minified, packaged, and compressed versions of the library.</p>
+  <p>There is also a separate grunt command for building minified, packaged, and compressed versions of the library. This might be useful when creating custom builds of Semantic.</p>
 
   <div class="code" data-title="Building Release Files" data-type="terminal">
     grunt build

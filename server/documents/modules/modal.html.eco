@@ -202,8 +202,8 @@ type        : 'UI Module'
       <p>A modal can use any named ui transition.</p>
       <div class="ui selection dropdown">
         <input type="hidden" name="transition">
-        <i class="dropdown icon"></i>
         <div class="default text">Choose transition</div>
+        <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Horizontal Flip</div>
           <div class="item">Vertical Flip</div>
