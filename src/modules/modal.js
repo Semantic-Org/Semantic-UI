@@ -77,7 +77,6 @@ $.fn.modal = function(parameters) {
                 hide     : settings.duration * 1.1
               }
             })
-            .dimmer('add content', $module)
           ;
           $dimmer = $dimmable
             .dimmer('get dimmer')
