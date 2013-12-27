@@ -318,7 +318,10 @@ $.fn.dropdown = function(parameters) {
             return $text.text();
           },
           value: function() {
-            return $input.val();
+            return ($input.size() > 0)
+              ? $input.val()
+              : $module.data(metadata.value)
+            ;
           },
           item: function(value) {
             var
@@ -364,7 +367,12 @@ $.fn.dropdown = function(parameters) {
           },
           value: function(value) {
             module.debug('Adding selected value to hidden input', value, $input);
-            $input.val(value);
+            if($input.size() > 0) {
+              $input.val(value);
+            }
+            else {
+              $module.data(metadata.value, value);
+            }
           },
           active: function() {
             $module.addClass(className.active);
@@ -448,12 +456,15 @@ $.fn.dropdown = function(parameters) {
                 callback();
               }
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
-                $currentMenu.transition({
-                  animation : settings.transition + ' in',
-                  duration  : settings.duration,
-                  complete  : callback,
-                  queue     : false
-                });
+                $currentMenu
+                  .transition({
+                    animation : settings.transition + ' in',
+                    duration  : settings.duration,
+                    complete  : callback,
+                    queue     : false
+                  })
+                ;
+                $currentMenu.transition('force repaint');
               }
               else if(settings.transition == 'slide down') {
                 $currentMenu
@@ -827,5 +838,13 @@ $.fn.dropdown.settings = {
   }
 
 };
+
+// Adds easing
+$.extend( $.easing, {
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  },
+});
+
 
 })( jQuery, window , document );

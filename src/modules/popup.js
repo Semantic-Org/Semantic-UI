@@ -253,27 +253,28 @@ $.fn.popup = function(parameters) {
         },
 
         save: {
-            conditions: function () {
-                module.cache = {
-                    title: $module.attr('title')
-                };
-                if (module.cache.title) {
-                    $module.attr('title', '');
-                }
-                module.verbose('Saving original attributes', module.cache);
+          conditions: function() {
+            module.cache = {
+              title: $module.attr('title')
+            };
+            if (module.cache.title) {
+              $module.removeAttr('title');
             }
+            module.verbose('Saving original attributes', module.cache.title);
+          }
         },
         restore: {
-            conditions: function () {
-                if (module.cache === undefined) {
-                    module.error(error.cache);
-                    return false;
-                }
-                if (module.cache.title) {
-                    $module.attr('title', module.cache.title);
-                }
-                module.verbose('Restoring original attributes', module.cache);
+          conditions: function() {
+            if(module.cache === undefined) {
+              module.error(error.cache);
+              return false;
             }
+            if(module.cache.title) {
+              $module.attr('title', module.cache.title);
+            }
+            module.verbose('Restoring original attributes', module.cache.title);
+            return true;
+          }
         },
         animate: {
           show: function(callback) {

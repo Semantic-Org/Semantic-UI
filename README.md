@@ -1,20 +1,36 @@
-# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI) 
+# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI)
 Semantic is a UI Component library implemented using a set of specifications designed around natural language
 
 Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
+
+### Translations
+* [中国翻译 Semantic UI](http://semantic.icoolxue.com/)
+
+We need people who can contribute to translations of Semantic UI's documentation. 
+
+Please [reach out by e-mail](mailto:jack@semantic-ui.com) if you can help.
+
 ### Bugs and Issues
 
 > Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
 
-Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out. 
+Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have, we need your help to get all the kinks out.
 
 If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
 
+### Browser Support
+
+* Last 2 Versions FF, Chrome, IE (aka 10+)
+* Safari 6
+* IE 9+ (Browser prefix only)
+* Android 4
+* Blackberry 10
+
 ## Getting Started
 
-The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need. 
+The Semantic library describes many UI elements. In most instances it might be best to build a custom build with only the elements you need.
 
 To download the entire library
 
@@ -31,7 +47,7 @@ If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click 
 #### Right-to-Left (RTL Version)
 
 RTL versions are compiled on every patch update, and are available in ``/rtl/``
-    
+
 ### Integration
 
 Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).

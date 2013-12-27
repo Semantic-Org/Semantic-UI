@@ -1,5 +1,45 @@
 ## RELEASE NOTES
 
+### Version 0.10.3 - Dec 22, 2013
+
+**Critical Fixes**
+- **Dropdown** - Fixes issue where dropdown animation does not occur sometimes (Thanks MohammadYounes)
+
+**Fixes**
+- **Popup** - Native browser popups no longer if using ``title`` attribute
+- **Grid** - Fixes issue where stackable grid was not working correctly when using (x) wide column
+- **Modal** - Fixes element detatching sometimes in case where it is already inside a dimmer
+- **Input** - Removes duplicate sizes
+
+### Version 0.10.2 - Dec 13, 2013
+
+**New**
+- **Button** - Adds VK button
+- **Input** - Action inputs now support button groups
+
+**Fixes**
+- **Rating** - Fixes vertical alignment with text
+- **Dropdown** - Fixes missing easing equations for dropdown javascript animations. Would cause an error when no css transitions were included and jquery easing was not available.
+
+### Version 0.10.1 - Dec 06, 2013
+
+**Fixes**
+- **Modal** - Fixes issue with modal animation regression in 0.10.0
+
+### Version 0.10.0 - Dec 05, 2013
+
+**New**
+- **Grid** - Adds ``doubling`` responsive variation which automatically formats content spacing based on device type
+- **Form Validation** - Adds two new parameters, to allow for changing of revalidation and delay on input
+
+**Updates**
+- **Grid** - Row padding is now EM not % based, this might shift layouts slightly
+- **Grid** - Grid columns not inside a row will automatically receive row padding now. This will allow for content to flow correctly when row count is unknown
+
+**Fixes**
+- **Grid** - Fixes margin on stackable grids
+- **Dropdown** - Value can be retrieved even in instances where forms arent used
+
 ### Version 0.9.6 - Dec 04, 2013
 
 **Updates**

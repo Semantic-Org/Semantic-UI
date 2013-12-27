@@ -684,11 +684,14 @@ body > .ui.grid {
        Columns
 --------------------*/
 
+/* Standard 16 column */
+
 .ui.grid > .column,
 .ui.grid > .row > .column {
   display: inline-block;
   text-align: left;
   font-size: 1rem;
+  width: 6.25%;
   padding-left: 1.5%;
   padding-right: 1.5%;
   -webkit-box-sizing: border-box;
@@ -696,6 +699,13 @@ body > .ui.grid {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: top;
+}
+
+/* Vertical padding when no rows */
+
+.ui.grid > .column {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /*-------------------
@@ -706,7 +716,7 @@ body > .ui.grid {
   display: block;
   width: 100% !important;
   margin-top: 1.5%;
-  padding: 1.5% 0% 0%;
+  padding: 1rem 0% 0%;
   font-size: 0rem;
 }
 
@@ -779,95 +789,120 @@ body > .ui.grid {
 /* Sizing Combinations */
 
 .ui.grid > .row > .one.wide.column,
-.ui.grid > .one.wide.column {
-  width: 6.25% !important;
+.ui.grid > .column.row > .one.wide.column,
+.ui.grid > .one.wide.column,
+.ui.column.grid > .one.wide.column {
+  width: 6.25%;
 }
 
 .ui.grid > .row > .two.wide.column,
-.ui.grid > .two.wide.column {
-  width: 12.5% !important;
+.ui.grid > .column.row > .two.wide.column,
+.ui.grid > .two.wide.column,
+.ui.column.grid > .two.wide.column {
+  width: 12.5%;
 }
 
 .ui.grid > .row > .three.wide.column,
-.ui.grid > .three.wide.column {
-  width: 18.75% !important;
+.ui.grid > .column.row > .three.wide.column,
+.ui.grid > .three.wide.column,
+.ui.column.grid > .three.wide.column {
+  width: 18.75%;
 }
 
 .ui.grid > .row > .four.wide.column,
-.ui.grid > .four.wide.column {
-  width: 25% !important;
+.ui.grid > .column.row > .four.wide.column,
+.ui.grid > .four.wide.column,
+.ui.column.grid > .four.wide.column {
+  width: 25%;
 }
 
 .ui.grid > .row > .five.wide.column,
-.ui.grid > .five.wide.column {
-  width: 31.25% !important;
+.ui.grid > .column.row > .five.wide.column,
+.ui.grid > .five.wide.column,
+.ui.column.grid > .five.wide.column {
+  width: 31.25%;
 }
 
 .ui.grid > .row > .six.wide.column,
-.ui.grid > .six.wide.column {
-  width: 37.5% !important;
+.ui.grid > .column.row > .six.wide.column,
+.ui.grid > .six.wide.column,
+.ui.column.grid > .six.wide.column {
+  width: 37.5%;
 }
 
 .ui.grid > .row > .seven.wide.column,
-.ui.grid > .seven.wide.column {
-  width: 43.75% !important;
+.ui.grid > .column.row > .seven.wide.column,
+.ui.grid > .seven.wide.column,
+.ui.column.grid > .seven.wide.column {
+  width: 43.75%;
 }
 
 .ui.grid > .row > .eight.wide.column,
-.ui.grid > .eight.wide.column {
-  width: 50% !important;
+.ui.grid > .column.row > .eight.wide.column,
+.ui.grid > .eight.wide.column,
+.ui.column.grid > .eight.wide.column {
+  width: 50%;
 }
 
 .ui.grid > .row > .nine.wide.column,
-.ui.grid > .nine.wide.column {
-  width: 56.25% !important;
+.ui.grid > .column.row > .nine.wide.column,
+.ui.grid > .nine.wide.column,
+.ui.column.grid > .nine.wide.column {
+  width: 56.25%;
 }
 
 .ui.grid > .row > .ten.wide.column,
-.ui.grid > .ten.wide.column {
-  width: 62.5% !important;
+.ui.grid > .column.row > .ten.wide.column,
+.ui.grid > .ten.wide.column,
+.ui.column.grid > .ten.wide.column {
+  width: 62.5%;
 }
 
 .ui.grid > .row > .eleven.wide.column,
-.ui.grid > .eleven.wide.column {
-  width: 68.75% !important;
+.ui.grid > .column.row > .eleven.wide.column,
+.ui.grid > .eleven.wide.column,
+.ui.column.grid > .eleven.wide.column {
+  width: 68.75%;
 }
 
 .ui.grid > .row > .twelve.wide.column,
-.ui.grid > .twelve.wide.column {
-  width: 75% !important;
+.ui.grid > .column.row > .twelve.wide.column,
+.ui.grid > .twelve.wide.column,
+.ui.column.grid > .twelve.wide.column {
+  width: 75%;
 }
 
 .ui.grid > .row > .thirteen.wide.column,
-.ui.grid > .thirteen.wide.column {
-  width: 81.25% !important;
+.ui.grid > .column.row > .thirteen.wide.column,
+.ui.grid > .thirteen.wide.column,
+.ui.column.grid > .thirteen.wide.column {
+  width: 81.25%;
 }
 
 .ui.grid > .row > .fourteen.wide.column,
-.ui.grid > .fourteen.wide.column {
-  width: 87.5% !important;
+.ui.grid > .column.row > .fourteen.wide.column,
+.ui.grid > .fourteen.wide.column,
+.ui.column.grid > .fourteen.wide.column {
+  width: 87.5%;
 }
 
 .ui.grid > .row > .fifteen.wide.column,
-.ui.grid > .fifteen.wide.column {
-  width: 93.75% !important;
+.ui.grid > .column.row > .fifteen.wide.column,
+.ui.grid > .fifteen.wide.column,
+.ui.column.grid > .fifteen.wide.column {
+  width: 93.75%;
 }
 
 .ui.grid > .row > .sixteen.wide.column,
-.ui.grid > .sixteen.wide.column {
-  width: 100% !important;
+.ui.grid > .column.row > .sixteen.wide.column,
+.ui.grid > .sixteen.wide.column,
+.ui.column.grid > .sixteen.wide.column {
+  width: 100%;
 }
 
 /*-------------------
      Column Count
 --------------------*/
-
-/* Standard */
-
-.ui.grid > .column,
-.ui.grid > .row > .column {
-  width: 6.25%;
-}
 
 /* Assume full width with one column */
 
@@ -1302,6 +1337,162 @@ body > .ui.grid {
 }
 
 /*-------------------
+      Doubling
+--------------------*/
+
+/* Mobily Only */
+
+@media only screen and (max-width: 768px) {
+  .ui.two.column.doubling.grid > .row > .column,
+  .ui.two.column.doubling.grid > .column,
+  .ui.grid > .two.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.three.column.doubling.grid > .row > .column,
+  .ui.three.column.doubling.grid > .column,
+  .ui.grid > .three.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.four.column.doubling.grid > .row > .column,
+  .ui.four.column.doubling.grid > .column,
+  .ui.grid > .four.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.five.column.doubling.grid > .row > .column,
+  .ui.five.column.doubling.grid > .column,
+  .ui.grid > .five.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.six.column.doubling.grid > .row > .column,
+  .ui.six.column.doubling.grid > .column,
+  .ui.grid > .six.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.seven.column.doubling.grid > .row > .column,
+  .ui.seven.column.doubling.grid > .column,
+  .ui.grid > .seven.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.eight.column.doubling.grid > .row > .column,
+  .ui.eight.column.doubling.grid > .column,
+  .ui.grid > .eight.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.nine.column.doubling.grid > .row > .column,
+  .ui.nine.column.doubling.grid > .column,
+  .ui.grid > .nine.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.ten.column.doubling.grid > .row > .column,
+  .ui.ten.column.doubling.grid > .column,
+  .ui.grid > .ten.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.twelve.column.doubling.grid > .row > .column,
+  .ui.twelve.column.doubling.grid > .column,
+  .ui.grid > .twelve.column.doubling.row > .column {
+    width: 33.3333333333333%;
+  }
+
+  .ui.fourteen.column.doubling.grid > .row > .column,
+  .ui.fourteen.column.doubling.grid > .column,
+  .ui.grid > .fourteen.column.doubling.row > .column {
+    width: 33.3333333333333%;
+  }
+
+  .ui.sixteen.column.doubling.grid > .row > .column,
+  .ui.sixteen.column.doubling.grid > .column,
+  .ui.grid > .sixteen.column.doubling.row > .column {
+    width: 25%;
+  }
+}
+
+/* Tablet Only */
+
+@media only screen and (min-width: 768px) and (max-width: 998px) {
+  .ui.two.column.doubling.grid > .row > .column,
+  .ui.two.column.doubling.grid > .column,
+  .ui.grid > .two.column.doubling.row > .column {
+    width: 100%;
+  }
+
+  .ui.three.column.doubling.grid > .row > .column,
+  .ui.three.column.doubling.grid > .column,
+  .ui.grid > .three.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.four.column.doubling.grid > .row > .column,
+  .ui.four.column.doubling.grid > .column,
+  .ui.grid > .four.column.doubling.row > .column {
+    width: 50%;
+  }
+
+  .ui.five.column.doubling.grid > .row > .column,
+  .ui.five.column.doubling.grid > .column,
+  .ui.grid > .five.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+
+  .ui.six.column.doubling.grid > .row > .column,
+  .ui.six.column.doubling.grid > .column,
+  .ui.grid > .six.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+
+  .ui.eight.column.doubling.grid > .row > .column,
+  .ui.eight.column.doubling.grid > .column,
+  .ui.grid > .eight.column.doubling.row > .column {
+    width: 33.3333333%;
+  }
+
+  .ui.eight.column.doubling.grid > .row > .column,
+  .ui.eight.column.doubling.grid > .column,
+  .ui.grid > .eight.column.doubling.row > .column {
+    width: 25%;
+  }
+
+  .ui.nine.column.doubling.grid > .row > .column,
+  .ui.nine.column.doubling.grid > .column,
+  .ui.grid > .nine.column.doubling.row > .column {
+    width: 25%;
+  }
+
+  .ui.ten.column.doubling.grid > .row > .column,
+  .ui.ten.column.doubling.grid > .column,
+  .ui.grid > .ten.column.doubling.row > .column {
+    width: 20%;
+  }
+
+  .ui.twelve.column.doubling.grid > .row > .column,
+  .ui.twelve.column.doubling.grid > .column,
+  .ui.grid > .twelve.column.doubling.row > .column {
+    width: 16.6666666%;
+  }
+
+  .ui.fourteen.column.doubling.grid > .row > .column,
+  .ui.fourteen.column.doubling.grid > .column,
+  .ui.grid > .fourteen.column.doubling.row > .column {
+    width: 14.28571428571429%;
+  }
+
+  .ui.sixteen.column.doubling.grid > .row > .column,
+  .ui.sixteen.column.doubling.grid > .column,
+  .ui.grid > .sixteen.column.doubling.row > .column {
+    width: 12.5%;
+  }
+}
+
+/*-------------------
        Stackable
 --------------------*/
 
@@ -1309,14 +1500,15 @@ body > .ui.grid {
   .ui.stackable.grid {
     display: block !important;
     padding: 0em;
+    margin: 0em;
   }
 
   .ui.stackable.grid > .row > .column,
   .ui.stackable.grid > .column {
     display: block !important;
     width: auto !important;
-    margin: 1.5em 5% 0em !important;
-    padding: 1.5em 0em 0em !important;
+    margin: 1em 0em 0em !important;
+    padding: 1em 0em 0em !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
   }
@@ -1337,6 +1529,12 @@ body > .ui.grid {
   .ui.stackable.divided.grid > .column:first-child,
   .ui.stackable.celled.grid > .column:first-child {
     border-top: none !important;
+  }
+
+  .ui.stackable.page.grid > .row > .column,
+  .ui.stackable.page.grid > .column {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
   }
 
   /* Remove pointers from vertical menus */
@@ -1504,7 +1702,7 @@ body > .ui.grid {
   right: 0px;
   width: 1px;
   height: 100%;
-  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
   background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
 }
@@ -1821,7 +2019,7 @@ body > .ui.grid {
   width: 100%;
   height: 1px;
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
-  background-image: -webkit-gradient(linear, top left, top right, from(rgba(0, 0, 0, 0.03)), color-stop(1.5em, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.03)));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.03)), color-stop(1.5em, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.03)));
   background-image: linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
 }
 
@@ -2592,13 +2790,13 @@ body > .ui.grid {
 
 .ui.inverted.menu .item:before {
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
   background-image: linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 .ui.vertical.inverted.menu .item:before {
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
   background-image: linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
@@ -4009,7 +4207,7 @@ body > .ui.grid {
  */
 
 /*******************************
-             basic.Icon
+          Basic Icon
 *******************************/
 
 @font-face {
@@ -5152,7 +5350,7 @@ i.massive.basic.icon {
   font-style: normal;
   text-align: center;
   text-decoration: none;
-  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   border-radius: 0.25em;
@@ -5193,7 +5391,7 @@ i.massive.basic.icon {
 ---------------*/
 
 .ui.button:hover {
-  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.08)));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.08)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
   color: rgba(0, 0, 0, 0.7);
@@ -5562,6 +5760,23 @@ i.massive.basic.icon {
 
 .ui.pinterest.button:active {
   background-color: #009EDA;
+  color: #FFFFFF;
+}
+
+/* vk.com */
+
+.ui.vk.button {
+  background-color: #4D7198;
+  color: #FFFFFF;
+}
+
+.ui.vk.button:hover {
+  background-color: #537AA5;
+  color: #FFFFFF;
+}
+
+.ui.vk.button:active {
+  background-color: #405E7E;
   color: #FFFFFF;
 }
 
@@ -9316,14 +9531,16 @@ img.ui.image {
   border-right: none;
 }
 
-.ui.action.input > .button {
+.ui.action.input > .button,
+.ui.action.input > .buttons {
   display: table-cell;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   white-space: nowrap;
 }
 
-.ui.action.input > .button > .icon {
+.ui.action.input > .button > .icon,
+.ui.action.input > .buttons > .button > .icon {
   display: inline;
   vertical-align: top;
 }
@@ -9342,10 +9559,6 @@ img.ui.image {
 
 .ui.mini.input {
   font-size: 0.8125rem;
-}
-
-.ui.tiny.input {
-  font-size: 0.875rem;
 }
 
 .ui.small.input {
@@ -11402,7 +11615,7 @@ a.ui.teal.label:hover:before {
   background-color: #555555;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #FAFAFA;
 }
@@ -11411,7 +11624,7 @@ a.ui.teal.label:hover:before {
   background-color: #555555;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: -webkit-gradient(linear, top left, bottom left, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
   background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   color: #EEEEEE;
 }
@@ -12625,7 +12838,7 @@ a.ui.teal.label:hover:before {
   overflow: hidden;
 }
 
-.ui.dimmed.dimmable > .ui.dimmer,
+.ui.dimmed.dimmable > .ui.visible.dimmer,
 .ui.active.dimmer {
   display: block;
   width: 100%;
@@ -13143,7 +13356,7 @@ a.ui.teal.label:hover:before {
 
 .ui.pointing.dropdown .menu .active.item:first-child {
   background: transparent -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
-  background: transparent-webkit-gradient(linear, top left, bottom left, from(transparent), to(rgba(0, 0, 0, 0.03)));
+  background: transparent-webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.03)));
   background: transparent linear-gradient(transparent, rgba(0, 0, 0, 0.03));
 }
 
@@ -13931,7 +14144,7 @@ a.ui.nag {
 .ui.rating {
   display: inline-block;
   font-size: 0em;
-  vertical-align: baseline;
+  vertical-align: middle;
   margin: 0em 0.5rem 0em 0em;
 }
 
@@ -14994,25 +15207,25 @@ body.pushed.scrolling.ui.dimmable {
 .ui.slide.down.transition.out {
   -webkit-animation-name: slideOut;
   animation-name: slideOut;
-  transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
 }
 
 .ui.slide.up.transition.in {
   -webkit-animation-name: slide;
   animation-name: slide;
-  transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
   -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
 }
 
 .ui.slide.up.transition.out {
   -webkit-animation-name: slideOut;
   animation-name: slideOut;
-  transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
   -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
 }
 
 @-webkit-keyframes slide {

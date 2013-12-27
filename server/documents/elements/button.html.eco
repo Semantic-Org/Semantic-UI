@@ -175,6 +175,11 @@ type        : 'UI Element'
       <i class="google plus icon"></i>
       Google Plus
     </div>
+    <div class="ui vk button">
+      <i class="vk icon"></i>
+      VK
+    </div>
+    <br><br>
     <div class="ui linkedin button">
       <i class="linkedin icon"></i>
       LinkedIn

@@ -2,6 +2,7 @@ docs/
 node_modules
 node/server.json
 test/coverage/
+coverage/
 
 # Numerous always-ignore extensions
 *.diff
@@ -25,6 +26,7 @@ Thumbs.db
 .project
 .settings
 .tmproj
+.docpad.db
 *.esproj
 nbproject
 *.sublime-project

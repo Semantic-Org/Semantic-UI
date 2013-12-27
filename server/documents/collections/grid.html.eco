@@ -502,6 +502,46 @@ type        : 'UI Collection'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Doubling Grid</h4>
+    <p>A grid can double its</p>
+    <div class="ui text message info ignore">
+      <i class="icon heart"></i> A grid will round its columns to the closest reasonable value when doubling, for example a <code>five column grid</code> will double <code>1 mobile, 3 tablet, 5 desktop</code>
+    </div>
+    <div class="five column doubling ui grid">
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Stackable Grid</h4>
     <p>A grid can have its columns stack on-top of each other after reaching mobile breakpoints</p>
     <div class="ui text message info ignore">
@@ -837,13 +877,13 @@ type        : 'UI Collection'
     <p>A column can vary in width taking up more than a single grid column.</p>
     <div class="ui grid">
       <div class="three wide column">
-        <div class="ui segment"><b>Colume One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien.</div>
+        <div class="ui segment"><b>Column One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien.</div>
       </div>
       <div class="six wide column">
-        <div class="ui segment"><b>Colume Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem. Nam augue erat, dignissim nec aliquam vel, congue et sapien. Integer viverra justo vel nibh suscipit commodo. Nullam ut turpis nibh, in luctus risus. Sed ut risus nec dui mattis porta. Nam nisi magna, ornare mollis congue a, suscipit at nisl.</div>
+        <div class="ui segment"><b>Column Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem. Nam augue erat, dignissim nec aliquam vel, congue et sapien. Integer viverra justo vel nibh suscipit commodo. Nullam ut turpis nibh, in luctus risus. Sed ut risus nec dui mattis porta. Nam nisi magna, ornare mollis congue a, suscipit at nisl.</div>
       </div>
       <div class="three wide column">
-        <div class="ui segment"><b>Colume Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. </div>
+        <div class="ui segment"><b>Column Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. </div>
       </div>
     </div>
   </div>

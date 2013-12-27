@@ -2,8 +2,8 @@
 layout      : 'default'
 css         : 'guide'
 
-title       : 'Set-up'
-description : 'A guide to developing locally'
+title       : 'Local Docs'
+description : 'A guide to generating docs locally'
 type        : 'Semantic Project'
 ---
 <script src="/javascript/intro.js"></script>
@@ -12,12 +12,12 @@ type        : 'Semantic Project'
 <div class="main container">
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Installing Dependencies</a>
-      <a class="item">Fixing Bugs</a>
+      <a class="active item">Install Steps</a>
+      <a class="item">Using Grunt</a>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Installing Dependencies</h2>
+  <h2 class="ui dividing header">Step by Step</h2>
 
   <p>It may be useful to run the development docs locally when working on a forked version of semantic, as the docs themselves help in testing out changes to ui components.</p>
 
@@ -33,7 +33,7 @@ type        : 'Semantic Project'
 
   <h3 class="ui header">2. Fork Semantic</h3>
 
-  <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic=ui&type=fork&count=true&size=large"
+  <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=fork&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
 
   <h3 class="ui header">3. Install Dependencies</h3>
@@ -52,13 +52,22 @@ type        : 'Semantic Project'
 
   <p>Docpad should now run an instance of semantic-ui.com locally you can access at <code>http://localhost:9778</code></p>
 
-  <h2 class="ui dividing header">Fixing Bugs</h2>
+  <h3 class="ui header">5. (Optional) Install Karma</h3>
 
-  <h3 class="ui header">Watch Script</h3>
+  <p>
+    Unit tests are written in Jasmine, but are run using a test runner called Karma. To install karma you need to grab the npm package.
+  </p>
+  <div class="code" data-title="Installing Test Runner" data-type="terminal">
+    npm install -g karma
+  </div>
+
+  <h2 class="ui dividing header">Using Grunt</h2>
+
+  <h3 class="ui header">Watch Changes in Source</h3>
 
   <p>If you are working on fixing a UI component that is part of Semantic, your best bet is to work actively on the file in <code>/src/{type}/{elementname}/</code> while running a watch script from grunt. This will rebuild the docs after you make changes, so you can see if you have corrected the issue you are fixing.</p>
 
-  <p>To see exactly what this is doing you can check out our <a href="https://github.com/jlukic/Semantic-UI/blob/master/Gruntfile.js">commented gruntfile</a></p>
+  <p>To see exactly what this is doing you can check out our <a href="https://github.com/semantic-org/Semantic-UI/blob/master/Gruntfile.js">commented gruntfile</a></p>
 
   <div class="code" data-title="Watching Changes" data-type="terminal">
     grunt
@@ -66,7 +75,7 @@ type        : 'Semantic Project'
 
   <p>The watch task is the default grunt task for Semantic, so you can start it quite simply.</p>
 
-  <h3 class="ui header">Running Tests</h3>
+  <h3 class="ui header">Run Unit Tests</h3>
   <p>Tests will automatically run with <code>grunt watch</code> if you have started karma</p>
 
   <div class="code" data-title="Execute tests while developing" data-type="terminal">
@@ -78,12 +87,12 @@ type        : 'Semantic Project'
   <div class="code" data-title="Execute tests while developing" data-type="terminal">
     npm test
     // or
-    grunt build
+    grunt test
     // or
     karma run
   </div>
 
-  <h3 class="ui header">Packaging Elements</h3>
+  <h3 class="ui header">Build Semantic Packages Locally</h3>
   <p>For convenience there is also a separate grunt command for building minified, packaged, and compressed versions of the library.</p>
 
   <div class="code" data-title="Building Release Files" data-type="terminal">
