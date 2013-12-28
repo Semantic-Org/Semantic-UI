@@ -82,6 +82,8 @@ Make sure npm does not require sudo to operate, this might cause permissions iss
 
 ```bash
 npm install -g docpad
+docpad install eco
+docpad update; docpad upgrade
 ```
 
 ```bash
@@ -94,14 +96,13 @@ npm install -g grunt-cli
 
 ### 4) Start Your Server
 
-It's important to note that all server code exists inside of `/node` in the project. So all commands should be run relative to that directory.
-
 ```bash
-cd node
 docpad run
 ```
 
 Docpad should now run an instance of semantic-ui.com locally you can access at `http://localhost:9778`
+
+Note that some asset files might be missing until you run `grunt build` once.
 
 ## Fixing Bugs
 
