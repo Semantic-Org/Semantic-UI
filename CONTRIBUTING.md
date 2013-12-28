@@ -102,6 +102,8 @@ docpad run
 
 Docpad should now run an instance of semantic-ui.com locally you can access at `http://localhost:9778`
 
+Note that some asset files might be missing until you run `grunt build` once.
+
 ## Fixing Bugs
 
 ### Watch Script
