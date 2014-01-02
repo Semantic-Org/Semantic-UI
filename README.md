@@ -5,9 +5,15 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 
-### Translations
-* 中文翻译 Semantic UI - [GitHub](https://github.com/Semantic-Org/Semantic-UI-zh) - [Website](http://semantic.icoolxue.com/)
+#### Right-to-Left (RTL Version)
+
+Special RTL versions are maintained with the Arabic translation of Semantic.
+
 * سيمانتك يو آي - الإصدار العربي - [GitHub](https://github.com/Semantic-Org/Semantic-UI-ar) - [Website](http://semantic-ui.me/)
+
+#### Additional Translations
+* 中文翻译 Semantic UI - [GitHub](https://github.com/Semantic-Org/Semantic-UI-zh) - [Website](http://semantic.icoolxue.com/)
+
 * Tradução em Português - [GitHub](https://github.com/Semantic-Org/Semantic-UI-pt-br)
 
 We need people who can contribute to translations of Semantic UI's documentation. 
@@ -45,10 +51,6 @@ If you prefer to download the whole kit as a zip, it is so conveniently packaged
 **Build tools for creating customized downloads will be available in 1.0** Until then we suggest using an asset management tool like [grunt](https://github.com/gruntjs/grunt-cli) or [jammit](https://github.com/documentcloud/jammit) to create packaged versions for use in production.
 
 If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
-
-#### Right-to-Left (RTL Version)
-
-RTL versions are compiled on every patch update, and are available in ``/rtl/``
 
 ### Integration
 
