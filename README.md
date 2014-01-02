@@ -12,7 +12,7 @@ Special RTL versions are maintained with the Arabic translation of Semantic.
 * سيمانتك يو آي - الإصدار العربي - [GitHub](https://github.com/Semantic-Org/Semantic-UI-ar) - [Website](http://semantic-ui.me/)
 
 #### Additional Translations
-* 中文翻译 Semantic UI - [GitHub](https://github.com/Semantic-Org/Semantic-UI-zh) - [Website](http://semantic.icoolxue.com/)
+* 中文翻译 Semantic UI - [GitHub](https://github.com/Semantic-Org/Semantic-UI-zh) - [Website](http://zh.semantic-ui.com/)
 
 * Tradução em Português - [GitHub](https://github.com/Semantic-Org/Semantic-UI-pt-br)
 
