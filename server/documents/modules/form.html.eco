@@ -116,8 +116,8 @@ type        : 'UI Behavior'
   </div>
 
   <div class="example">
-    <h3 class="ui header">Validation w/ Message</h3>
-    <p>Forms that contain a <a href="elements/message.html">ui message</a> error block will automatically be filled in with form validation information.</p>
+    <h3 class="ui header">Validation with Message</h3>
+    <p>Forms that contain a <a href="/elements/message.html">ui message</a> error block will automatically be filled in with form validation information.</p>
     <div class="info message">The template for error messages can be modified by adjusting settings.template.error</div>
 
     <div class="ui form segment">
