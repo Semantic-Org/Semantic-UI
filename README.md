@@ -5,13 +5,17 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 
-#### Right-to-Left (RTL Version)
+#### Integration
+
+Comunity contributed plugins and ports for Wordpress, Angular, Dart, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
+
+##### Right-to-Left (RTL Version)
 
 Special RTL versions are maintained with the Arabic translation of Semantic.
 
 * سيمانتك يو آي - الإصدار العربي - [GitHub](https://github.com/Semantic-Org/Semantic-UI-ar) - [Website](http://semantic-ui.me/)
 
-#### Additional Translations
+##### Additional Translations
 * 中文翻译 Semantic UI - [GitHub](https://github.com/Semantic-Org/Semantic-UI-zh) - [Website](http://zh.semantic-ui.com/)
 
 * Tradução em Português - [GitHub](https://github.com/Semantic-Org/Semantic-UI-pt-br)
@@ -27,6 +31,8 @@ Please [reach out by e-mail](mailto:jack@semantic-ui.com) if you can help.
 Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have. We need your help to get all the kinks out.
 
 If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
+
+If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
 
 ### Browser Support
 
@@ -47,14 +53,11 @@ To download the entire library
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
     http://semantic-ui.com/build/semantic.zip
+    
+Semantic is also available from CDN
 
-**Build tools for creating customized downloads will be available in 1.0** Until then we suggest using an asset management tool like [grunt](https://github.com/gruntjs/grunt-cli) or [jammit](https://github.com/documentcloud/jammit) to create packaged versions for use in production.
-
-If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
-
-### Integration
-
-Comunity contributed plugins and ports for Wordpress, Angular, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
+* [Hosted on CloudFlare CDN](http://cdnjs.com/libraries/semantic-ui/)
+* [Hosted on BootCDN](http://open.bootcss.com/semantic-ui/) (Chinese)
 
 ## Learn More
 
