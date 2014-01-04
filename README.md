@@ -5,9 +5,9 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 
 [![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
 
-#### Integration
+> Comunity contributed plugins and ports for Wordpress, Angular, Dart, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
 
-Comunity contributed plugins and ports for Wordpress, Angular, Dart, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
+## Translations
 
 ##### Right-to-Left (RTL Version)
 
@@ -23,24 +23,6 @@ Special RTL versions are maintained with the Arabic translation of Semantic.
 We need people who can contribute to translations of Semantic UI's documentation. 
 
 Please [reach out by e-mail](mailto:jack@semantic-ui.com) if you can help.
-
-### Bugs and Issues
-
-> Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
-
-Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have. We need your help to get all the kinks out.
-
-If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
-
-If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
-
-### Browser Support
-
-* Last 2 Versions FF, Chrome, IE (aka 10+)
-* Safari 6
-* IE 9+ (Browser prefix only)
-* Android 4
-* Blackberry 10
 
 ## Getting Started
 
@@ -69,7 +51,25 @@ Semantic is also available from CDN
 If you want to keep track of development, please [join our google group](https://groups.google.com/forum/?hl=en#!forum/semantic-ui)
 
 
-#### Reaching Out
+### Bugs and Issues
+
+> Semantic UI is production ready, but is "pre-release" until build and theming tools are available, and documentation is complete for all components.
+
+Please [share any issues](https://github.com/Semantic-Org/Semantic-UI/issues?state=open) you may have. We need your help to get all the kinks out.
+
+If you are reporting a bug *you must create a test-case*. You can [fork this jsfiddle](http://jsfiddle.net/Vbr9d/42/) to get you started.
+
+If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click here to use [webchat](http://webchat.freenode.net/?randomnick=1&channels=%23semantic-ui&prompt=1&uio=OT10cnVlJjExPTEyMwb9).
+
+### Browser Support
+
+* Last 2 Versions FF, Chrome, IE (aka 10+)
+* Safari 6
+* IE 9+ (Browser prefix only)
+* Android 4
+* Blackberry 10
+
+### Reaching Out
 
 If you'd like to start a conversation about Semantic feel free to reach out by e-mail [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
