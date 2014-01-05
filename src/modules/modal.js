@@ -78,6 +78,10 @@ $.fn.modal = function(parameters) {
               }
             })
           ;
+
+          if(settings.detachable)
+            $dimmable.dimmer('add content', $module);
+
           $dimmer = $dimmable
             .dimmer('get dimmer')
           ;
@@ -661,6 +665,7 @@ $.fn.modal.settings = {
 
   closable    : true,
   context     : 'body',
+  detachable  : false,
   duration    : 500,
   easing      : 'easeOutExpo',
   offset      : 0,
