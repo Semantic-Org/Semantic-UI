@@ -444,7 +444,7 @@ type        : 'UI Module'
         <tr>
           <td>onDeny</td>
           <td>Modal</td>
-          <td>Is called after a negative or cancel button is pressed.</td>
+          <td>Is called after a negative or deny button is pressed.</td>
         </tr>
       </tbody>
     </table>
@@ -473,7 +473,7 @@ type        : 'UI Module'
       selector    : {
         close    : '.close, .actions .button',
         approve  : '.actions .positive, .actions .approve',
-        deny     : '.actions .negative, .actions .cancel'
+        deny     : '.actions .negative, .actions .deny'
       },
             </div>
           </td>
