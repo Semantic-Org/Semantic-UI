@@ -44,10 +44,19 @@ type        : 'Semantic Project'
   <h3 class="ui header">3. Install Dependencies</h3>
   <p>NPM (Node Package Manager) keeps track of all the dependencies required for the project.</p>
 
-  <p>Running <code>npm update</code> inside the local directory will grab all development dependencies from <code>package.json</code> and store them in the root of the project.</p>
+  <p>Updating npm inside the local directory will grab all development dependencies from <code>package.json</code> and store them in the root of the project.</p>
 
   <div class="code" data-title="Installing dependencies" data-type="terminal">
-    npm update
+    npm update; npm install;
+  </div>
+
+  <h3 class="ui header">Creating Packages for Server</h3>
+
+  <p>Docpad will generate a static (html/css only) version of the documentation everytime you update a file inside <code>server/</code></p>
+  <p>Additionally your server needs to have the latest version of Semantic built before the documentation will appear formatted correctly. Running <code>grunt build</code> will create a version of the library at <code>docs/build</code> available for your server</p>
+
+  <div class="code" data-title="Updating semantic for docs" data-type="terminal">
+    grunt build
   </div>
 
 
