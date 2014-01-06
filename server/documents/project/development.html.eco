@@ -50,17 +50,25 @@ type        : 'Semantic Project'
     npm update; npm install;
   </div>
 
-  <h3 class="ui header">Creating Packages for Server</h3>
+  <h3 class="ui header">4a Creating Packages for Server</h3>
 
-  <p>Docpad will generate a static (html/css only) version of the documentation everytime you update a file inside <code>server/</code></p>
+
   <p>Additionally your server needs to have the latest version of Semantic built before the documentation will appear formatted correctly. Running <code>grunt build</code> will create a version of the library at <code>docs/build</code> available for your server</p>
 
   <div class="code" data-title="Updating semantic for docs" data-type="terminal">
     grunt build
   </div>
+  <h3 class="ui header">4b Watching Files</h3>
 
+  <p>Docpad will automatically generate a static (html/css only) version of the documentation everytime you update a file inside <code>server/</code></p>
 
-  <h3 class="ui header">4. Start Your Server</h3>
+  <p>If you would like it to build semantic everytime you edit a file inside <code>src/</code> you will have to run the grunt watch script.</p>
+
+  <div class="code" data-title="Installing dependencies" data-type="terminal">
+    grunt watch;
+  </div>
+
+  <h3 class="ui header">4c. Start Your Server</h3>
 
   <p>Now that you've installed all the dependencies, starting your server should be a simple command</p>
 
