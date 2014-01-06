@@ -168,7 +168,7 @@ type        : 'UI Module'
 
     <div class="no example">
       <h4 class="ui header">Approve / Deny Callbacks</h4>
-      <p>Modals will automatically tie approve deny callbacks to any positive/approve or negative/deny buttons. If a callback returns false it will prevent the modal from closing</p>
+      <p>Modals will automatically tie approve deny callbacks to any positive/approve or negative/deny or ok/cancel buttons. If a callback returns false it will prevent the modal from closing</p>
       <div class="code" data-demo="true">
       $('.basic.modal')
         .modal('setting', {
@@ -444,7 +444,7 @@ type        : 'UI Module'
         <tr>
           <td>onDeny</td>
           <td>Modal</td>
-          <td>Is called after a negative or deny button is pressed.</td>
+          <td>Is called after a negative or deny or cancel button is pressed.</td>
         </tr>
       </tbody>
     </table>
@@ -472,8 +472,8 @@ type        : 'UI Module'
             <div class="code">
       selector    : {
         close    : '.close, .actions .button',
-        approve  : '.actions .positive, .actions .approve',
-        deny     : '.actions .negative, .actions .deny'
+        approve  : '.actions .positive, .actions .approve, .actions .ok',
+        deny     : '.actions .negative, .actions .deny, .actions .cancel'
       },
             </div>
           </td>
