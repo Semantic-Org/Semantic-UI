@@ -61,6 +61,7 @@ $.fn.dropdown = function(parameters) {
         initialize: function() {
           module.debug('Initializing dropdown', settings);
 
+          module.save.defaults();
           module.set.selected();
 
           if(hasTouch) {
@@ -358,6 +359,43 @@ $.fn.dropdown = function(parameters) {
               value = module.get.text();
             }
             return $selectedItem || false;
+          }
+        },
+
+        restore: {
+          defaults: function() {
+            module.restore.defaultText();
+            module.restore.defaultValue();
+          },
+          defaultText: function() {
+            var
+              defaultText = $module.data(metadata.defaultText)
+            ;
+            module.debug('Restoring default text', defaultText);
+            module.set.text(defaultText);
+          },
+          defaultValue: function() {
+            var
+              defaultValue = $module.data(metadata.defaultValue)
+            ;
+            if(defaultValue !== undefined) {
+              module.debug('Restoring default value', defaultValue);
+              module.set.selected(defaultValue);
+              module.set.value(defaultValue);
+            }
+          }
+        },
+
+        save: {
+          defaults: function() {
+            module.save.defaultText();
+            module.save.defaultValue();
+          },
+          defaultValue: function() {
+            $module.data(metadata.defaultValue, module.get.value() );
+          },
+          defaultText: function() {
+            $module.data(metadata.defaultText, $text.text() );
           }
         },
 
@@ -820,8 +858,10 @@ $.fn.dropdown.settings = {
   },
 
   metadata: {
-    text    : 'text',
-    value   : 'value'
+    defaultText  : 'defaultText',
+    defaultValue : 'defaultValue',
+    text         : 'text',
+    value        : 'value'
   },
 
   selector : {
