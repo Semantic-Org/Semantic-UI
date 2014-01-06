@@ -325,7 +325,7 @@ $.fn.dropdown = function(parameters) {
           },
           item: function(value) {
             var
-              $selectedItem
+              $selectedItem = false
             ;
             value = (value !== undefined)
               ? value
@@ -345,9 +345,11 @@ $.fn.dropdown = function(parameters) {
                       ? $choice.data(metadata.value)
                       : optionText.toLowerCase()
                   ;
-                  if( optionValue == value || optionText == value ) {
+                  if( optionValue == value ) {
                     $selectedItem = $(this);
-                    return false;
+                  }
+                  else if( !$selectedItem && optionText == value ) {
+                    $selectedItem = $(this);
                   }
                 })
               ;
