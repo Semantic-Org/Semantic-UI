@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.12.0 - Jan 07, 2013
+### Version 0.12.0 - Jan 06, 2013
 
 **Major Fixes**
 - **Dropdown** - Fixes dropdowns links not working on touch devices
