@@ -47,6 +47,14 @@ type        : 'UI Element'
   </div>
 
   <div class="example">
+  <h4 class="ui header">Warning</h4>
+  <p>A progress bar can show a warning state</p>
+    <div class="ui warning progress">
+      <div class="bar" style="width:100%"></div>
+    </div>
+  </div>
+
+  <div class="example">
   <h4 class="ui header">Failed</h4>
   <p>A progress bar can show failure</p>
     <div class="ui failed progress">

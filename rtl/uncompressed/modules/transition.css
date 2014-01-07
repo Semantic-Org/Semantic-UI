@@ -28,6 +28,7 @@
 *******************************/
 
 .ui.animating.transition {
+  display: block;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -190,7 +191,7 @@
 }
 
 /*--------------
-      Slide
+     Slide
 ---------------*/
 
 .ui.slide.down.transition.in {
@@ -204,25 +205,25 @@
 .ui.slide.down.transition.out {
   -webkit-animation-name: slideOut;
   animation-name: slideOut;
-  transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
 }
 
 .ui.slide.up.transition.in {
   -webkit-animation-name: slide;
   animation-name: slide;
-  transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
   -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
 }
 
 .ui.slide.up.transition.out {
   -webkit-animation-name: slideOut;
   animation-name: slideOut;
-  transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
   -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
 }
 
 @-webkit-keyframes slide {
@@ -290,7 +291,7 @@
 *******************************/
 
 /*--------------
-  Emphasis
+    Emphasis
 ---------------*/
 
 /* Flash */
@@ -541,13 +542,13 @@
   0% {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
-    opacity: 1;
+    opacity: 0;
   }
 }
 
@@ -556,14 +557,14 @@
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     -webkit-transform: rotateY(90deg);
     -ms-transform: rotateY(90deg);
     transform: rotateY(90deg);
-    opacity: 1;
+    opacity: 0;
   }
 }
 

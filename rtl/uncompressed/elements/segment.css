@@ -21,7 +21,7 @@
    specify theme name below
 */
 
-/* Global */
+/* Theme to load global Variables */
 
 /* Elements */
 
@@ -560,7 +560,7 @@
 
 .ui.secondary.inverted.segment {
   background-color: #555555;
-  background-image: -webkit-gradient(linear, top right, bottom right, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
+  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #fafafa;
@@ -568,7 +568,7 @@
 
 .ui.tertiary.inverted.segment {
   background-color: #555555;
-  background-image: -webkit-gradient(linear, top right, bottom right, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
+  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   color: #f0f0f0;
@@ -610,3 +610,11 @@
 .ui.segment.bottom.attached:last-child {
   margin-bottom: 0em;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/

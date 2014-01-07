@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
 <% uiIntroduction    = @getCollection("documents").findAll({type: $in: ['UI Introduction']},[{title: 1}]).toJSON() %>
 <% uiProject         = @getCollection("documents").findAll({type: $in: ['Semantic Project']},[{title: 1}]).toJSON() %>
@@ -250,12 +251,10 @@
       <div class="disabled icon item"><i class="right arrow icon"></i></div>
       <% end %>
       <div class="right menu">
-        <% unless 'development' in @getEnvironments(): %>
         <div class="vertically fitted borderless item">
-          <iframe src="http://ghbtns.com/github-btn.html?user=jlukic&repo=semantic-ui&type=watch&count=true"
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
   allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
         </div>
-        <% end %>
         <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
         <a class="popup designer icon item" data-content="Designer Mode">
           <i class="basic paint icon"></i>

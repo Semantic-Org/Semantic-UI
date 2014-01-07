@@ -21,7 +21,7 @@
    specify theme name below
 */
 
-/* Global */
+/* Theme to load global Variables */
 
 /* Elements */
 
@@ -523,3 +523,11 @@ h5.ui.header {
   margin-top: 0em;
   border-radius: 0em 0em 0.3125em 0.3125em;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/

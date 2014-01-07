@@ -1204,6 +1204,8 @@ type        : 'UI Element'
     <br>
     <i class="large home icon"></i>
     <br>
+    <i class="big home icon"></i>
+    <br>
     <i class="huge home icon"></i>
     <br>
     <i class="massive home icon"></i>

@@ -877,13 +877,13 @@ type        : 'UI Collection'
     <p>A column can vary in width taking up more than a single grid column.</p>
     <div class="ui grid">
       <div class="three wide column">
-        <div class="ui segment"><b>Colume One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien.</div>
+        <div class="ui segment"><b>Column One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien.</div>
       </div>
       <div class="six wide column">
-        <div class="ui segment"><b>Colume Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem. Nam augue erat, dignissim nec aliquam vel, congue et sapien. Integer viverra justo vel nibh suscipit commodo. Nullam ut turpis nibh, in luctus risus. Sed ut risus nec dui mattis porta. Nam nisi magna, ornare mollis congue a, suscipit at nisl.</div>
+        <div class="ui segment"><b>Column Two</b> Aliquam lobortis commodo sem ac accumsan. Vestibulum non faucibus lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sed lorem lorem. Nam augue erat, dignissim nec aliquam vel, congue et sapien. Integer viverra justo vel nibh suscipit commodo. Nullam ut turpis nibh, in luctus risus. Sed ut risus nec dui mattis porta. Nam nisi magna, ornare mollis congue a, suscipit at nisl.</div>
       </div>
       <div class="three wide column">
-        <div class="ui segment"><b>Colume Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. </div>
+        <div class="ui segment"><b>Column Three</b> Donec semper mollis condimentum. Aenean eget rutrum magna. Mauris ornare nibh scelerisque turpis lobortis dignissim. Etiam eleifend justo eget quam semper vulputate. Nulla et risus convallis velit molestie iaculis. Aliquam erat volutpat. </div>
       </div>
     </div>
   </div>

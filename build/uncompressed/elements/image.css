@@ -21,7 +21,7 @@
    specify theme name below
 */
 
-/* Global */
+/* Theme to load global Variables */
 
 /* Elements */
 
@@ -329,3 +329,11 @@ img.ui.image {
   display: inline-block;
   margin: 0em 0.25rem 0.5rem;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/

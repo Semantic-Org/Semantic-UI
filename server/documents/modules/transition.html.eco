@@ -166,6 +166,19 @@ type        : 'UI Module'
       ;
       </div>
 
+      <h3 class="ui header">Display Type</h3>
+
+      <p>Animations can be used on any display type not just block level elements. For example you can animate a button while preserving its inline-block status.</p>
+      <div class="code" data-demo="true" data-title="Queueing animations">
+      $('.test.button')
+        .transition('horizontal flip', '500ms')
+      ;
+      </div>
+      <div class="ui divider"></div>
+      <div class="ui teal test labeled icon button">
+        <i class="icon user"></i> Sign-up
+      </div>
+
       <h3 class="ui header">Queuing animations</h3>
 
       <p>Animations called in sequence will be queued. Any queued animation will automatically determine the transition direction if none is specified.</p>
@@ -195,8 +208,16 @@ type        : 'UI Module'
         </thead>
         <tbody>
           <tr>
+            <td>force repaint</td>
+            <td>Forces reflow using a more expensive but stable method</td>
+          </tr>
+          <tr>
             <td>repaint</td>
             <td>Triggers reflow on element</td>
+          </tr>
+          <tr>
+            <td>reset</td>
+            <td>Resets all conditions changes during transition</td>
           </tr>
           <tr>
             <td>looping</td>
@@ -219,7 +240,7 @@ type        : 'UI Module'
             <td>Toggles current transition on/off</td>
           </tr>
           <tr>
-            <td>duration(duration)</td>
+            <td>set duration(duration)</td>
             <td>Modifies element animation duration</td>
           </tr>
           <tr>
@@ -239,12 +260,20 @@ type        : 'UI Module'
             <td>Returns vendor prefixed animation property for animationend</td>
           </tr>
           <tr>
+            <td>is visible</td>
+            <td>Returns whether element is currently visible</td>
+          </tr>
+          <tr>
             <td>is animating</td>
             <td>Returns whether transition is currently occurring</td>
           </tr>
           <tr>
             <td>is looping</td>
             <td>Returns whether animation looping is set</td>
+          </tr>
+          <tr>
+            <td>is supported</td>
+            <td>Returns whether animations are supported</td>
           </tr>
           <tr>
             <td>is visible</td>
@@ -304,7 +333,6 @@ type        : 'UI Module'
         .transition('bounce', '2000ms')
       ;
       </div>
-      <div class="ui warning message">There is currently a bug in WebKit that makes it impossible to force css looping animations to end programatically</div>
       <div class="code" data-demo="true" data-title="Ending looping">
       $('.kitten.image')
         .transition('remove looping')
@@ -337,6 +365,11 @@ type        : 'UI Module'
           <td>duration</td>
           <td>700ms</td>
           <td>Duration of the css transition animation</td>
+        </tr>
+        <tr>
+          <td>allowRepeats</td>
+          <td>false</td>
+          <td>If enabled will allow same animation to be queued while it is already occurring</td>
         </tr>
         <tr>
           <td>queue</td>

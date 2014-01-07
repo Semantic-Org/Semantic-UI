@@ -37,12 +37,12 @@
 
 @font-face {
   font-family: 'Icons';
-  src: url("@{iconFont}.eot");
+  src: url("@{fontPath}/@{fontName}.eot");
   src:
-    url("@{iconFont}.eot?#iefix") format('embedded-opentype'),
-    url("@{iconFont}.svg#icons") format('svg')
-    url("@{iconFont}.woff") format('woff'),
-    url("@{iconFont}.ttf") format('truetype')
+    url("@{fontPath}/@{fontName}.eot?#iefix") format('embedded-opentype'),
+    url("@{fontPath}/@{fontName}.svg#icons") format('svg'),
+    url("@{fontPath}/@{fontName}.woff") format('woff'),
+    url("@{fontPath}/@{fontName}.ttf") format('truetype')
   ;
 
   font-style: normal;
@@ -306,3 +306,5 @@ i.massive.icon {
   font-size: @massive;
   vertical-align: middle;
 }
+
+.loadUIOverrides() !important;

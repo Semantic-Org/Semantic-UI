@@ -26,7 +26,7 @@ type        : 'UI Module'
 
     <h2 class="ui dividing header">Types</h2>
 
-    <div class="visible dropdown example">
+    <div class="dropdown example">
       <h4 class="ui header">Dropdown</h4>
       <p>A basic dropdown has no special formatting of its own</p>
       <div class="ui dropdown">
@@ -273,6 +273,22 @@ type        : 'UI Module'
         <tr>
           <td>hide others</td>
           <td>Hides all other dropdowns that is not current dropdown</td>
+        </tr>
+        <tr>
+          <td>restore defaults</td>
+          <td>Restores dropdown text and value to its value on page load</td>
+        </tr>
+        <tr>
+          <td>restore default text</td>
+          <td>Restores dropdown text to its value on page load</td>
+        </tr>
+        <tr>
+          <td>restore default value</td>
+          <td>Restores dropdown value to its value on page load</td>
+        </tr>
+        <tr>
+          <td>save defaults</td>
+          <td>Saves current text and value as new defaults (for use with restore)</td>
         </tr>
         <tr>
           <td>set selected(value)</td>

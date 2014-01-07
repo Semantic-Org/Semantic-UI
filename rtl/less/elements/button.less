@@ -122,7 +122,7 @@
   position: relative;
   cursor: default;
 
-  background-color: #FFFFFF !important;
+  background-color: @loadingBackgroundColor !important;
   text-shadow: none !important;
   color: transparent !important;
   transition: all 0s linear;
@@ -419,7 +419,6 @@
   text-shadow: @invertedTextShadow;
 }
 
-
 /* Pinterest */
 .ui.pinterest.button {
   background-color: @pinterestColor;
@@ -437,6 +436,19 @@
   text-shadow: @invertedTextShadow;
 }
 
+/* vk.com */
+.ui.vk.button {
+  background-color: #4D7198;
+  color: #FFFFFF;
+}
+.ui.vk.button:hover {
+  background-color: #537AA5;
+  color: #FFFFFF;
+}
+.ui.vk.button:active {
+  background-color: #405E7E;
+  color: #FFFFFF;
+}
 /*--------------
      Icon
 ---------------*/

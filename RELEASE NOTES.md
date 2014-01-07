@@ -1,5 +1,79 @@
 ## RELEASE NOTES
 
+### Version 0.12.0 - Jan 06, 2013
+
+**Major Fixes**
+- **Dropdown** - Fixes dropdowns links not working on touch devices
+- **Input** - Fixes input placeholder styles to work (accidental regex replace)
+
+**Major Updates**
+- **Transition** - Transitions will now, by default, prevent the current animation from being queued while it is actively animating the same animation
+- **Modal** - New setting ``allowMultiple`` lets you specify whether multiple modals can be shown at once
+- **Modal** - New setting ``detachable`` allows you to specify whether modal DOM element can be moved (Thanks MohammadYounes)
+
+**Updates**
+- **Dropdown** - Default value is now stored on init, and can be restored using 'restore defaults' behavior
+- **Modal** - Buttons can now use both ``cancel/deny`` or ``ok/approve``, for approve/deny events to fire (Thanks MohammadYounes)
+- **Menu** - Fixed menu now adds padding on the next element if it is a grid
+- **Progress Bar** - Adds warning color
+
+**Fixes**
+- **Icon** - Fixes unnecessary formatting on thumbs up/down
+- **Dropdown** - Fixes touchmove event not clearing on touch devices causing unnecessary overhead
+- **Input** - Action inputs can now be fluid
+- **Sidebar** - Fixes issue where top sidebar was receiving left offset
+- **Menu** - Fixes z-index on fixed menu to exist just below modals
+- **Dropdown** - Fixes issue where last match was returned, not prioritizing value over text
+- **Form** - Fixes all validation input to be trimmed for whitespace
+
+### Version 0.11.0 - Dec 25, 2013
+
+### Merry Christmas!
+
+**Major Updates**
+
+-**Transition**: Transition has been completely rewritten, performance should be about 10x after first animation due to caching and use of request animation frame
+
+**New Features**
+
+-**Transition**: Transitions now work with **any display type** not just display: block, meaning transitions can be used on buttons and other inline elements without affecting display
+
+**Fixes**
+
+-**Transition**: Fixes typo in "horizontal flip out" causing opacity to be fading in
+
+-**Popup** - Fixes popup sometimes opening and closing when ``event:click`` is used and a user double clicks
+
+-**Modules**: Fixed error in all modules where calling invoke would modify instance outside of scope, making it impossible to access some data (for instance cached positions) from outside of module.
+
+-**Modal**: Fixes issues with modal in IE, IE11 can now use CSS animations with modals
+
+### Version 0.10.3 - Dec 22, 2013
+
+**Critical Fixes**
+- **Dropdown** - Fixes issue where dropdown animation does not occur sometimes (Thanks MohammadYounes)
+
+**Fixes**
+- **Popup** - Native browser popups no longer if using ``title`` attribute
+- **Grid** - Fixes issue where stackable grid was not working correctly when using (x) wide column
+- **Modal** - Fixes element detatching sometimes in case where it is already inside a dimmer
+- **Input** - Removes duplicate sizes
+
+### Version 0.10.2 - Dec 13, 2013
+
+**New**
+- **Button** - Adds VK button
+- **Input** - Action inputs now support button groups
+
+**Fixes**
+- **Rating** - Fixes vertical alignment with text
+- **Dropdown** - Fixes missing easing equations for dropdown javascript animations. Would cause an error when no css transitions were included and jquery easing was not available.
+
+### Version 0.10.1 - Dec 06, 2013
+
+**Fixes**
+- **Modal** - Fixes issue with modal animation regression in 0.10.0
+
 ### Version 0.10.0 - Dec 05, 2013
 
 **New**

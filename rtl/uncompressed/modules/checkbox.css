@@ -176,6 +176,9 @@
   min-width: 1em;
   height: 1em;
   border-radius: 500px;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
 .ui.radio.checkbox .box:after,
@@ -230,6 +233,9 @@
   z-index: 1;
   width: 1.5em;
   height: 1.5em;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   border-radius: 50rem;
@@ -311,6 +317,9 @@
   background-color: #FFFFFF;
   width: 3em;
   height: 1.5em;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   border-radius: 50rem;

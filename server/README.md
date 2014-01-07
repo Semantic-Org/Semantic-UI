@@ -4,7 +4,7 @@
 
 This folder contains the templates used to generate the static website for Semantic UI
 
-To create the docs yourself run
+To create the docs yourself, run the commands in the top-level directory:
 
 ```
 npm install -g docpad
