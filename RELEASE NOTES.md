@@ -1,5 +1,31 @@
 ## RELEASE NOTES
 
+### Version 0.12.0 - Jan 07, 2013
+
+**Major Fixes**
+- **Dropdown** - Fixes dropdowns links not working on touch devices
+- **Input** - Fixes input placeholder styles to work (accidental regex replace)
+
+**Major Updates**
+- **Transition** - Transitions will now, by default, prevent the current animation from being queued while it is actively animating the same animation
+- **Modal** - New setting ``allowMultiple`` lets you specify whether multiple modals can be shown at once
+- **Modal** - New setting ``detachable`` allows you to specify whether modal DOM element can be moved (Thanks MohammadYounes)
+
+**Updates**
+- **Dropdown** - Default value is now stored on init, and can be restored using 'restore defaults' behavior
+- **Modal** - Buttons can now use both ``cancel/deny`` or ``ok/approve``, for approve/deny events to fire (Thanks MohammadYounes)
+- **Menu** - Fixed menu now adds padding on the next element if it is a grid
+- **Progress Bar** - Adds warning color
+
+**Fixes**
+- **Icon** - Fixes unnecessary formatting on thumbs up/down
+- **Dropdown** - Fixes touchmove event not clearing on touch devices causing unnecessary overhead
+- **Input** - Action inputs can now be fluid
+- **Sidebar** - Fixes issue where top sidebar was receiving left offset
+- **Menu** - Fixes z-index on fixed menu to exist just below modals
+- **Dropdown** - Fixes issue where last match was returned, not prioritizing value over text
+- **Form** - Fixes all validation input to be trimmed for whitespace
+
 ### Version 0.11.0 - Dec 25, 2013
 
 ### Merry Christmas!

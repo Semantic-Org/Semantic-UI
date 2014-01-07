@@ -3086,7 +3086,7 @@ body > .ui.grid {
 
 .ui.menu.fixed {
   position: fixed;
-  z-index: 10;
+  z-index: 999;
   margin: 0em;
   border: none;
   width: 100%;
@@ -3128,6 +3128,12 @@ body > .ui.grid {
   bottom: auto;
   width: auto;
   height: 100%;
+}
+
+/* Coupling with Grid */
+
+.ui.fixed.menu + .ui.grid {
+  padding-top: 2.75rem;
 }
 
 /*-------------------
@@ -8820,8 +8826,6 @@ i.icon.star {
 
 /* left side icons */
 
-i.icon.left,
-i.icon.left,
 i.icon.left {
   width: auto;
   margin: 0em 0.5em 0em 0em;
@@ -8830,8 +8834,6 @@ i.icon.left {
 /* right side icons */
 
 i.icon.search,
-i.icon.up,
-i.icon.down,
 i.icon.right {
   width: auto;
   margin: 0em 0em 0em 0.5em;
@@ -9330,11 +9332,11 @@ img.ui.image {
 
 /* browsers require these rules separate */
 
-.ui.input::-web inputkit-input-placeholder {
+.ui.input::-webkit-input-placeholder {
   color: #BBBBBB;
 }
 
-.ui.input::-moz input-placeholder {
+.ui.input::-moz-placeholder {
   color: #BBBBBB;
 }
 
@@ -9543,6 +9545,15 @@ img.ui.image {
 .ui.action.input > .buttons > .button > .icon {
   display: inline;
   vertical-align: top;
+}
+
+.ui.fluid.action.input {
+  display: table;
+  width: 100%;
+}
+
+.ui.fluid.action.input > .button {
+  width: 0.01%;
 }
 
 /*--------------------
@@ -10690,6 +10701,16 @@ a.ui.teal.label:hover:before {
 
 .ui.successful.progress .bar,
 .ui.successful.progress .bar::after {
+  -webkit-animation: none !important;
+  animation: none !important;
+}
+
+.ui.warning.progress .bar {
+  background-color: #E96633 !important;
+}
+
+.ui.warning.progress .bar,
+.ui.warning.progress .bar::after {
   -webkit-animation: none !important;
   animation: none !important;
 }
@@ -12556,6 +12577,9 @@ a.ui.teal.label:hover:before {
   min-width: 1em;
   height: 1em;
   border-radius: 500px;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
 .ui.radio.checkbox .box:after,
@@ -12610,6 +12634,9 @@ a.ui.teal.label:hover:before {
   z-index: 1;
   width: 1.5em;
   height: 1.5em;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   border-radius: 50rem;
@@ -12691,6 +12718,9 @@ a.ui.teal.label:hover:before {
   background-color: #FFFFFF;
   width: 3em;
   height: 1.5em;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   border-radius: 50rem;
@@ -12782,10 +12812,8 @@ a.ui.teal.label:hover:before {
   opacity: 0;
   line-height: 1;
   -webkit-animation-fill-mode: both;
-  -ms-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-duration: 0.5s;
-  -ms-animation-duration: 0.5s;
   animation-duration: 0.5s;
   -webkit-transition: background-color 0.5s linear;
   transition: background-color 0.5s linear;
@@ -12795,7 +12823,6 @@ a.ui.teal.label:hover:before {
   user-select: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   z-index: 1000;
 }
