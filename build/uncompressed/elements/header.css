@@ -21,7 +21,11 @@
    specify theme name below
 */
 
+<<<<<<< HEAD
 /* Global */
+=======
+/* Theme to load global Variables */
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 
 /* Elements */
 
@@ -159,6 +163,7 @@
 
 .ui.header {
   border: none;
+  font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em;
   font-size: 1.33em;
@@ -521,4 +526,16 @@ h5.ui.header {
 .ui.bottom.attached.header {
   margin-top: 0em;
   border-radius: 0em 0em 0.3125em 0.3125em;
+<<<<<<< HEAD
 }
+=======
+}
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029

@@ -38,6 +38,7 @@
   margin: 0em;
   padding: @verticalPadding @horizontalPadding (@verticalPadding + @shadowOffset);
 
+  font-family: @fontFamily;
   text-transform: @textTransform;
   text-shadow: @textShadow;
   font-weight: @fontWeight;
@@ -121,7 +122,7 @@
   position: relative;
   cursor: default;
 
-  background-color: #FFFFFF !important;
+  background-color: @loadingBackgroundColor !important;
   text-shadow: none !important;
   color: transparent !important;
   transition: all 0s linear;

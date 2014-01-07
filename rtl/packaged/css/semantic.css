@@ -4224,7 +4224,7 @@ body > .ui.grid {
    specify theme name below
 */
 
-/* Global */
+/* Theme to load global Variables */
 
 /* Elements */
 
@@ -4344,12 +4344,15 @@ body > .ui.grid {
 
 /* Button Variables */
 
+<<<<<<< HEAD
 /*-------------------
    Button Variables
 --------------------*/
 
 /* Button Variables */
 
+=======
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 /*******************************
      User Global Variables
 *******************************/
@@ -4372,19 +4375,34 @@ body > .ui.grid {
   outline: none;
   border: none;
   background-color: #fafafa;
+<<<<<<< HEAD
   color: #333333;
   margin: 0em;
   padding: 0.75em 1.15em 0.75em;
   text-transform: none;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.9);
+=======
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0em;
+  padding: 0.8em 1.5em 0.8em;
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   font-weight: bold;
   line-height: 1;
   font-style: normal;
   text-align: center;
   text-decoration: none;
+<<<<<<< HEAD
   background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.15)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
+=======
+  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   border-radius: 0.25em;
   -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 1px 3px rgba(0, 0, 0, 0.05);
   box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -4440,9 +4458,15 @@ body > .ui.grid {
 .ui.active.button {
   background-color: #dfdfdf;
   background-image: none;
+<<<<<<< HEAD
   -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.1) inset;
   color: #333333;
+=======
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  color: rgba(0, 0, 0, 0.6);
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.button.active:hover {
@@ -4462,7 +4486,11 @@ body > .ui.grid {
 .ui.loading.button {
   position: relative;
   cursor: default;
+<<<<<<< HEAD
   background-color: #FFFFFF !important;
+=======
+  background-color: #ffffff !important;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   text-shadow: none !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
@@ -4636,30 +4664,54 @@ body > .ui.grid {
 
 .ui.primary.buttons .button,
 .ui.primary.button {
+<<<<<<< HEAD
   background-color: #3072b3;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #00b5ad;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
+<<<<<<< HEAD
   background-color: #2165a9;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #00cfc5;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
+<<<<<<< HEAD
   background-color: #204c77;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #00918b;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
+<<<<<<< HEAD
   background-color: #25588b;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #009c95;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*-------------------
@@ -4668,30 +4720,54 @@ body > .ui.grid {
 
 .ui.secondary.buttons .button,
 .ui.secondary.button {
+<<<<<<< HEAD
   background-color: #5d5d5d;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #555555;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
+<<<<<<< HEAD
   background-color: #584848;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #626262;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
+<<<<<<< HEAD
   background-color: #373737;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #434343;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
+<<<<<<< HEAD
   background-color: #434343;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #484848;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*-------------------
@@ -4703,6 +4779,7 @@ body > .ui.grid {
 .ui.facebook.button {
   background-color: #3b579d;
   color: #ffffff;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -4716,6 +4793,21 @@ body > .ui.grid {
   background-color: #263865;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  text-shadow: none;
+}
+
+.ui.facebook.button:hover {
+  background-color: #4261b0;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.facebook.button:active {
+  background-color: #314983;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Twitter */
@@ -4723,6 +4815,7 @@ body > .ui.grid {
 .ui.twitter.button {
   background-color: #4092cc;
   color: #ffffff;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -4736,6 +4829,21 @@ body > .ui.grid {
   background-color: #286997;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  text-shadow: none;
+}
+
+.ui.twitter.button:hover {
+  background-color: #549dd1;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.twitter.button:active {
+  background-color: #3180b7;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Google Plus */
@@ -4743,6 +4851,7 @@ body > .ui.grid {
 .ui.google.plus.button {
   background-color: #d34836;
   color: #ffffff;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -4756,6 +4865,21 @@ body > .ui.grid {
   background-color: #9b3022;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  text-shadow: none;
+}
+
+.ui.google.plus.button:hover {
+  background-color: #d85b4b;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.google.plus.button:active {
+  background-color: #bc3a29;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Linked In */
@@ -4763,6 +4887,7 @@ body > .ui.grid {
 .ui.linkedin.button {
   background-color: #1f88be;
   color: #ffffff;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -4776,6 +4901,21 @@ body > .ui.grid {
   background-color: #14597c;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  text-shadow: none;
+}
+
+.ui.linkedin.button:hover {
+  background-color: #2398d4;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.linkedin.button:active {
+  background-color: #1a729f;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* YouTube */
@@ -4783,6 +4923,7 @@ body > .ui.grid {
 .ui.youtube.button {
   background-color: #cc181e;
   color: #ffffff;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -4796,6 +4937,21 @@ body > .ui.grid {
   background-color: #881014;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  text-shadow: none;
+}
+
+.ui.youtube.button:hover {
+  background-color: #e31b21;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.youtube.button:active {
+  background-color: #ac1419;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Instagram */
@@ -4803,6 +4959,7 @@ body > .ui.grid {
 .ui.instagram.button {
   background-color: #49769c;
   color: #ffffff;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -4816,6 +4973,21 @@ body > .ui.grid {
   background-color: #314f68;
   color: #ffffff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  text-shadow: none;
+}
+
+.ui.instagram.button:hover {
+  background-color: #5183ad;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.instagram.button:active {
+  background-color: #3e6484;
+  color: #ffffff;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Pinterest */
@@ -4823,6 +4995,7 @@ body > .ui.grid {
 .ui.pinterest.button {
   background-color: #00aced;
   color: #ffffff;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -4874,10 +5047,64 @@ body > .ui.grid {
        Floated
 --------------------*/
 
+=======
+  text-shadow: none;
+}
+
+.ui.pinterest.button:hover {
+  background-color: #08bbff;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.pinterest.button:active {
+  background-color: #0092c9;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/* vk.com */
+
+.ui.vk.button {
+  background-color: #4D7198;
+  color: #FFFFFF;
+}
+
+.ui.vk.button:hover {
+  background-color: #537AA5;
+  color: #FFFFFF;
+}
+
+.ui.vk.button:active {
+  background-color: #405E7E;
+  color: #FFFFFF;
+}
+
+/*--------------
+     Icon
+---------------*/
+
+.ui.button > .icon {
+  margin-left: 0.6em;
+  line-height: 1;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*-------------------
+       Floated
+--------------------*/
+
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 .ui.left.floated.buttons,
 .ui.left.floated.button {
   float: right;
   margin-left: 0.25em;
+<<<<<<< HEAD
 }
 
 .ui.right.floated.buttons,
@@ -5072,6 +5299,201 @@ body > .ui.grid {
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
   color: #fafafa !important;
+=======
+}
+
+.ui.right.floated.buttons,
+.ui.right.floated.button {
+  float: left;
+  margin-right: 0.25em;
+}
+
+/*-------------------
+       Compact
+--------------------*/
+
+.ui.compact.buttons .button,
+.ui.compact.button {
+  padding: 0.6000000000000001em 1.125em 0.6000000000000001em;
+}
+
+.ui.compact.icon.buttons .button,
+.ui.compact.buttons .icon.button {
+  padding: 0.6000000000000001em 0.6000000000000001em 1.125em;
+}
+
+/*-------------------
+        Sizes
+--------------------*/
+
+.ui.mini.buttons .button,
+.ui.mini.buttons .or,
+.ui.mini.button {
+  font-size: 0.7rem;
+}
+
+.ui.tiny.buttons .button,
+.ui.tiny.buttons .or,
+.ui.tiny.button {
+  font-size: 0.8rem;
+}
+
+.ui.small.buttons .button,
+.ui.small.buttons .or,
+.ui.small.button {
+  font-size: 0.875rem;
+}
+
+.ui.buttons .button,
+.ui.button {
+  font-size: 1rem;
+}
+
+.ui.large.buttons .button,
+.ui.large.buttons .or,
+.ui.large.button {
+  font-size: 1.125rem;
+}
+
+.ui.big.buttons .button,
+.ui.big.buttons .or,
+.ui.big.button {
+  font-size: 1.25rem;
+}
+
+.ui.huge.buttons .button,
+.ui.huge.buttons .or,
+.ui.huge.button {
+  font-size: 1.375rem;
+}
+
+.ui.massive.buttons .button,
+.ui.massive.buttons .or,
+.ui.massive.button {
+  font-size: 1.5rem;
+}
+
+/* Or resize */
+
+.ui.tiny.buttons .or:before,
+.ui.mini.buttons .or:before {
+  width: 1.45em;
+  height: 1.55em;
+  line-height: 1.4;
+  margin-right: -0.725em;
+  margin-top: -0.25em;
+}
+
+.ui.tiny.buttons .or:after,
+.ui.mini.buttons .or:after {
+  height: 1.45em;
+}
+
+/* loading */
+
+.ui.huge.loading.button:after {
+  background-image: url("../themes/default/images/loader-small.gif");
+}
+
+.ui.massive.buttons .loading.button:after,
+.ui.gigantic.buttons .loading.button:after,
+.ui.massive.loading.button:after,
+.ui.gigantic.loading.button:after {
+  background-image: url("../themes/default/images/loader-medium.gif");
+}
+
+.ui.huge.loading.button:after,
+.ui.huge.loading.button.active:after {
+  background-image: url("../themes/default/images/loader-small.gif");
+}
+
+.ui.massive.buttons .loading.button:after,
+.ui.gigantic.buttons .loading.button:after,
+.ui.massive.loading.button:after,
+.ui.gigantic.loading.button:after,
+.ui.massive.buttons .loading.button.active:after,
+.ui.gigantic.buttons .loading.button.active:after,
+.ui.massive.loading.button.active:after,
+.ui.gigantic.loading.button.active:after {
+  background-image: url("../themes/default/images/loader-medium.gif");
+}
+
+/*--------------
+    Icon Only
+---------------*/
+
+.ui.icon.buttons .button,
+.ui.icon.button {
+  padding: 0.8em 0.8em 0.8em;
+}
+
+.ui.icon.buttons .button > .icon,
+.ui.icon.button > .icon {
+  opacity: 0.9;
+  margin: 0em;
+}
+
+/*-------------------
+        Basic
+--------------------*/
+
+.ui.basic.buttons .button,
+.ui.basic.button {
+  background-color: transparent !important;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-weight: normal;
+  text-transform: none;
+  text-shadow: none !important;
+  padding: 0.8em 1.5em !important;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+.ui.basic.labeled.icon.button > .icon {
+  padding-top: 0.8500000000000001em !important;
+}
+
+.ui.basic.buttons {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 0.25em;
+}
+
+.ui.basic.buttons .button:hover,
+.ui.basic.button:hover {
+  background-image: none;
+  color: rgba(0, 0, 0, 0.8) !important;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
+  box-shadow: rgba(0, 0, 0, 0.2) inset;
+}
+
+.ui.basic.buttons .button:active,
+.ui.basic.button:active {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+.ui.basic.buttons .button.active,
+.ui.basic.button.active {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
+  box-shadow: rgba(0, 0, 0, 0.2) inset;
+}
+
+.ui.basic.buttons .button.active:hover,
+.ui.basic.button.active:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Inverted */
+
+.ui.basic.inverted.buttons .button,
+.ui.basic.inverted.button {
+  color: #fafafa !important;
   -webkit-box-shadow: rgba(255, 255, 255, 0.3);
   box-shadow: rgba(255, 255, 255, 0.3);
 }
@@ -5080,10 +5502,22 @@ body > .ui.grid {
 .ui.basic.inverted.button:hover {
   background-image: none;
   color: #FFFFFF !important;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   -webkit-box-shadow: rgba(255, 255, 255, 0.3);
   box-shadow: rgba(255, 255, 255, 0.3);
 }
 
+<<<<<<< HEAD
+.ui.basic.inverted.buttons .button:hover,
+.ui.basic.inverted.button:hover {
+  background-image: none;
+  color: #FFFFFF !important;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(255, 255, 255, 0.3);
+}
+
+=======
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
   background-color: rgba(255, 255, 255, 0.05) !important;
@@ -5096,7 +5530,11 @@ body > .ui.grid {
 .ui.basic.inverted.button.active {
   background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5121,8 +5559,13 @@ body > .ui.grid {
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
+<<<<<<< HEAD
   padding-right: 3.4em !important;
   padding-left: 1.15em !important;
+=======
+  padding-right: 4.33em !important;
+  padding-left: 1.5em !important;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.labeled.icon.buttons > .button > .icon,
@@ -5133,6 +5576,7 @@ body > .ui.grid {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+<<<<<<< HEAD
   width: 2.73em;
   height: 100%;
   padding-top: 0.8em;
@@ -5142,6 +5586,17 @@ body > .ui.grid {
   line-height: 1;
   -webkit-box-shadow: -1px 0px 0px 0px transparent inset;
   box-shadow: -1px 0px 0px 0px transparent inset;
+=======
+  width: 2.83em;
+  height: 100%;
+  padding-top: 0.8500000000000001em;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border-radius: 0px 0.25em 0.25em 0px;
+  line-height: 1;
+  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.labeled.icon.buttons .button > .icon {
@@ -5169,22 +5624,37 @@ body > .ui.grid {
 }
 
 .ui.right.labeled.icon.button {
+<<<<<<< HEAD
   padding-left: 3.4em !important;
   padding-right: 1.15em !important;
+=======
+  padding-left: 4.33em !important;
+  padding-right: 1.5em !important;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.left.fluid.labeled.icon.button,
 .ui.right.fluid.labeled.icon.button {
+<<<<<<< HEAD
   padding-right: 1.15em !important;
   padding-left: 1.15em !important;
+=======
+  padding-right: 1.5em !important;
+  padding-left: 1.5em !important;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.right.labeled.icon.button .icon {
   right: auto;
   left: 0em;
   border-radius: 0.25em 0em 0em 0.25em;
+<<<<<<< HEAD
   -webkit-box-shadow: 1px 0px 0px 0px transparent inset;
   box-shadow: 1px 0px 0px 0px transparent inset;
+=======
+  -webkit-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*--------------
@@ -5196,14 +5666,24 @@ body > .ui.grid {
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
+<<<<<<< HEAD
   background-color: #60b044 !important;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #5bbd72 !important;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   color: #ffffff !important;
 }
 
 .ui.button.toggle.active:hover {
+<<<<<<< HEAD
   background-color: #51a932 !important;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  background-color: #6dc482 !important;
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   color: #ffffff !important;
 }
 
@@ -5266,7 +5746,11 @@ body > .ui.grid {
   right: 50%;
   content: 'or';
   background-color: #FFFFFF;
+<<<<<<< HEAD
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+=======
+  text-shadow: none;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   margin-top: -0.1em;
   margin-right: -0.9em;
   width: 1.8em;
@@ -5397,6 +5881,7 @@ body > .ui.grid {
 .ui.\34.buttons > .button,
 .ui.four.buttons > .button {
   width: 25%;
+<<<<<<< HEAD
 }
 
 .ui.\35.buttons > .button,
@@ -5424,6 +5909,35 @@ body > .ui.grid {
   width: 11.11%;
 }
 
+=======
+}
+
+.ui.\35.buttons > .button,
+.ui.five.buttons > .button {
+  width: 20%;
+}
+
+.ui.\36.buttons > .button,
+.ui.six.buttons > .button {
+  width: 16.666%;
+}
+
+.ui.\37.buttons > .button,
+.ui.seven.buttons > .button {
+  width: 14.285%;
+}
+
+.ui.\38.buttons > .button,
+.ui.eight.buttons > .button {
+  width: 12.500%;
+}
+
+.ui.\39.buttons > .button,
+.ui.nine.buttons > .button {
+  width: 11.11%;
+}
+
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 .ui.\31\30.buttons > .button,
 .ui.ten.buttons > .button {
   width: 10%;
@@ -5468,6 +5982,2081 @@ body > .ui.grid {
 .ui.\35.vertical.buttons > .button,
 .ui.five.vertical.buttons > .button {
   height: 20%;
+<<<<<<< HEAD
+=======
+}
+
+.ui.\36.vertical.buttons > .button,
+.ui.six.vertical.buttons > .button {
+  height: 16.666%;
+}
+
+.ui.\37.vertical.buttons > .button,
+.ui.seven.vertical.buttons > .button {
+  height: 14.285%;
+}
+
+.ui.\38.vertical.buttons > .button,
+.ui.eight.vertical.buttons > .button {
+  height: 12.500%;
+}
+
+.ui.\39.vertical.buttons > .button,
+.ui.nine.vertical.buttons > .button {
+  height: 11.11%;
+}
+
+.ui.\31\30.vertical.buttons > .button,
+.ui.ten.vertical.buttons > .button {
+  height: 10%;
+}
+
+.ui.\31\31.vertical.buttons > .button,
+.ui.eleven.vertical.buttons > .button {
+  height: 9.09%;
+}
+
+.ui.\31\32.vertical.buttons > .button,
+.ui.twelve.vertical.buttons > .button {
+  height: 8.3333%;
+}
+
+/*-------------------
+       Colors
+--------------------*/
+
+/*--- Black ---*/
+
+.ui.black.buttons .button,
+.ui.black.button {
+  background-color: #555555;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.black.buttons .button:hover,
+.ui.black.button:hover {
+  background-color: #626262;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.black.buttons .button:active,
+.ui.black.button:active {
+  background-color: #434343;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.black.buttons .button.active,
+.ui.black.buttons .button.active:active,
+.ui.black.button.active,
+.ui.black.button .button.active:active {
+  background-color: #484848;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*--- Blue ---*/
+
+.ui.blue.buttons .button,
+.ui.blue.button {
+  background-color: #6ecff5;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.blue.buttons .button:hover,
+.ui.blue.button:hover {
+  background-color: #86d7f7;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.blue.buttons .button:active,
+.ui.blue.button:active {
+  background-color: #4dc4f3;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.blue.buttons .button.active,
+.ui.blue.buttons .button.active:active,
+.ui.blue.button.active,
+.ui.blue.button .button.active:active {
+  background-color: #56c7f3;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*--- Green ---*/
+
+.ui.green.buttons .button,
+.ui.green.button {
+  background-color: #5bbd72;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.green.buttons .button:hover,
+.ui.green.button:hover {
+  background-color: #6dc482;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.green.buttons .button:active,
+.ui.green.button:active {
+  background-color: #46ae5f;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.green.buttons .button.active,
+.ui.green.buttons .button.active:active,
+.ui.green.button.active,
+.ui.green.button .button.active:active {
+  background-color: #49b562;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*--- Orange ---*/
+
+.ui.orange.buttons .button,
+.ui.orange.button {
+  background-color: #e96633;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.orange.buttons .button:hover,
+.ui.orange.button:hover {
+  background-color: #eb774a;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.orange.buttons .button:active,
+.ui.orange.button:active {
+  background-color: #e05018;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.orange.buttons .button.active,
+.ui.orange.buttons .button.active:active,
+.ui.orange.button.active,
+.ui.orange.button .button.active:active {
+  background-color: #484848;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*--- Pink ---*/
+
+.ui.pink.buttons .button,
+.ui.pink.button {
+  background-color: #d9499a;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.pink.buttons .button:hover,
+.ui.pink.button:hover {
+  background-color: #dd5ea6;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.pink.buttons .button:active,
+.ui.pink.button:active {
+  background-color: #d22c8a;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.pink.buttons .button.active,
+.ui.pink.buttons .button.active:active,
+.ui.pink.button.active,
+.ui.pink.button .button.active:active {
+  background-color: #d5348e;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*--- Purple ---*/
+
+.ui.purple.buttons .button,
+.ui.purple.button {
+  background-color: #564f8a;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.purple.buttons .button:hover,
+.ui.purple.button:hover {
+  background-color: #60589a;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.purple.buttons .button:active,
+.ui.purple.button:active {
+  background-color: #484273;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.purple.buttons .button.active,
+.ui.purple.buttons .button.active:active,
+.ui.purple.button.active,
+.ui.purple.button .button.active:active {
+  background-color: #4c467a;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*--- Red ---*/
+
+.ui.red.buttons .button,
+.ui.red.button {
+  background-color: #d95c5c;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.red.buttons .button:hover,
+.ui.red.button:hover {
+  background-color: #de7171;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.red.buttons .button:active,
+.ui.red.button:active {
+  background-color: #d23f3f;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.red.buttons .button.active,
+.ui.red.buttons .button.active:active,
+.ui.red.button.active,
+.ui.red.button .button.active:active {
+  background-color: #d44747;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*--- Teal ---*/
+
+.ui.teal.buttons .button,
+.ui.teal.button {
+  background-color: #00b5ad;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.teal.buttons .button:hover,
+.ui.teal.button:hover {
+  background-color: #00cfc5;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.teal.buttons .button:active,
+.ui.teal.button:active {
+  background-color: #00918b;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.teal.buttons .button.active,
+.ui.teal.buttons .button.active:active,
+.ui.teal.button.active,
+.ui.teal.button .button.active:active {
+  background-color: #009c95;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*--- Yellow ---*/
+
+.ui.yellow.buttons .button,
+.ui.yellow.button {
+  background-color: #ffcb08;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.yellow.buttons .button:hover,
+.ui.yellow.button:hover {
+  background-color: #ffd021;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.yellow.buttons .button:active,
+.ui.yellow.button:active {
+  background-color: #e3b300;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.yellow.buttons .button.active,
+.ui.yellow.buttons .button.active:active,
+.ui.yellow.button.active,
+.ui.yellow.button .button.active:active {
+  background-color: #edbb00;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*---------------
+    Positive
+----------------*/
+
+.ui.positive.buttons .button,
+.ui.positive.button {
+  background-color: #5bbd72 !important;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.positive.buttons .button:hover,
+.ui.positive.button:hover,
+.ui.positive.buttons .active.button,
+.ui.positive.button.active {
+  background-color: #6dc482 !important;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.positive.buttons .button:active,
+.ui.positive.button:active {
+  background-color: #46ae5f !important;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.positive.buttons .button.active,
+.ui.positive.buttons .button.active:active,
+.ui.positive.button.active,
+.ui.positive.button .button.active:active {
+  background-color: #49b562;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*---------------
+     Negative
+----------------*/
+
+.ui.negative.buttons .button,
+.ui.negative.button {
+  background-color: #d95c5c !important;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.negative.buttons .button:hover,
+.ui.negative.button:hover,
+.ui.negative.buttons .active.button,
+.ui.negative.button.active {
+  background-color: #de7171 !important;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.negative.buttons .button:active,
+.ui.negative.button:active {
+  background-color: #d23f3f !important;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.ui.negative.buttons .button.active,
+.ui.negative.buttons .button.active:active,
+.ui.negative.button.active,
+.ui.negative.button .button.active:active {
+  background-color: #d44747;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/*******************************
+            Groups
+*******************************/
+
+.ui.buttons {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ui.buttons:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.ui.buttons .button:first-child {
+  border-right: none;
+}
+
+.ui.buttons .button {
+  float: right;
+  border-radius: 0em;
+}
+
+.ui.buttons .button:first-child {
+  margin-right: 0em;
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+}
+
+.ui.buttons .button:last-child {
+  border-top-left-radius: 0.25em;
+  border-bottom-left-radius: 0.25em;
+}
+
+/* Vertical  Style */
+
+.ui.vertical.buttons {
+  display: inline-block;
+}
+
+.ui.vertical.buttons .button {
+  display: block;
+  float: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+.ui.vertical.buttons .button:first-child,
+.ui.vertical.buttons .mini.button:first-child,
+.ui.vertical.buttons .tiny.button:first-child,
+.ui.vertical.buttons .small.button:first-child,
+.ui.vertical.buttons .massive.button:first-child,
+.ui.vertical.buttons .huge.button:first-child {
+  margin-top: 0px;
+  border-radius: 0.25em 0.25em 0px 0px;
+}
+
+.ui.vertical.buttons .button:last-child,
+.ui.vertical.buttons .mini.button:last-child,
+.ui.vertical.buttons .tiny.button:last-child,
+.ui.vertical.buttons .small.button:last-child,
+.ui.vertical.buttons .massive.button:last-child,
+.ui.vertical.buttons .huge.button:last-child,
+.ui.vertical.buttons .gigantic.button:last-child {
+  border-radius: 0px 0px 0.25em 0.25em;
+}
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+/*
+ * # Semantic - Divider
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Divider
+*******************************/
+
+.ui.divider {
+  margin: 1rem 0rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  line-height: 1;
+  height: 0em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ui.vertical.divider,
+.ui.horizontal.divider {
+  position: absolute;
+  border: none;
+  height: 0em;
+  margin: 0em;
+  background-color: transparent;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/*--------------
+    Vertical
+---------------*/
+
+.ui.vertical.divider {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 50%;
+  margin: 0% -3% 0% 0%;
+  width: 6%;
+  height: 50%;
+  line-height: 0;
+  padding: 0em;
+}
+
+.ui.vertical.divider:before,
+.ui.vertical.divider:after {
+  position: absolute;
+  right: 50%;
+  content: " ";
+  z-index: 3;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  width: 0%;
+  height: 80%;
+}
+
+.ui.vertical.divider:before {
+  top: -100%;
+}
+
+.ui.vertical.divider:after {
+  top: auto;
+  bottom: 0px;
+}
+
+/*--------------
+    Horizontal
+---------------*/
+
+.ui.horizontal.divider {
+  position: relative;
+  top: 0%;
+  right: 0%;
+  margin: 1rem 1.5rem;
+  height: auto;
+  padding: 0em;
+  line-height: 1;
+}
+
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
+  position: absolute;
+  content: " ";
+  z-index: 3;
+  width: 50%;
+  top: 50%;
+  height: 0%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.ui.horizontal.divider:before {
+  right: 0%;
+  margin-right: -1.5rem;
+}
+
+.ui.horizontal.divider:after {
+  right: auto;
+  left: 0%;
+  margin-left: -1.5rem;
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.divider > .icon {
+  margin: 0em;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+/*******************************
+            Variations
+*******************************/
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.divider.inverted {
+  color: #ffffff;
+}
+
+.ui.vertical.inverted.divider,
+.ui.horizontal.inverted.divider {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ui.divider.inverted,
+.ui.divider.inverted:after,
+.ui.divider.inverted:before {
+  border-top-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+  border-right-color: rgba(0, 0, 0, 0.15);
+  border-left-color: rgba(255, 255, 255, 0.15);
+}
+
+/*--------------
+    Fitted
+---------------*/
+
+.ui.fitted.divider {
+  margin: 0em;
+}
+
+/*--------------
+    Clearing
+---------------*/
+
+.ui.clearing.divider {
+  clear: both;
+}
+
+/*--------------
+    Section
+---------------*/
+
+.ui.section.divider {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+/*
+ * # Semantic - Header
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Theme to load global Variables */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+   Modified Globals
+--------------------*/
+
+/*-------------------
+   Header Variables
+--------------------*/
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+            Header
+*******************************/
+
+/* Standard */
+
+.ui.header {
+  border: none;
+  font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 1em 0em 1rem;
+  padding: 0em;
+  font-size: 1.33em;
+  font-weight: bold;
+  line-height: 1.33;
+}
+
+.ui.header .sub.header {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0em;
+  padding: 0em;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.ui.header .icon {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 0.5em;
+}
+
+.ui.header .icon:only-child {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.ui.header .content {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.ui.header .icon + .content {
+  padding-right: 0.5em;
+  display: table-cell;
+}
+
+/* Positioning */
+
+.ui.header:first-child {
+  margin-top: 0em;
+}
+
+.ui.header:last-child {
+  margin-bottom: 0em;
+}
+
+.ui.header + p {
+  margin-top: 0em;
+}
+
+/*--------------
+  Page Heading
+---------------*/
+
+h1.ui.header {
+  min-height: 1rem;
+  line-height: 1.33;
+  font-size: 2rem;
+}
+
+h2.ui.header {
+  line-height: 1.33;
+  font-size: 1.75rem;
+}
+
+h3.ui.header {
+  line-height: 1.33;
+  font-size: 1.33rem;
+}
+
+h4.ui.header {
+  line-height: 1.33;
+  font-size: 1.1rem;
+}
+
+h5.ui.header {
+  line-height: 1.2;
+  font-size: 1rem;
+}
+
+/*--------------
+ Content Heading
+---------------*/
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 2em;
+}
+
+.ui.large.header {
+  font-size: 1.75em;
+}
+
+.ui.medium.header {
+  font-size: 1.33em;
+}
+
+.ui.small.header {
+  font-size: 1.1em;
+}
+
+.ui.tiny.header {
+  font-size: 1em;
+}
+
+/*******************************
+            Types
+*******************************/
+
+/*-------------------
+        Icon
+--------------------*/
+
+.ui.icon.header {
+  display: inline-block;
+  text-align: center;
+}
+
+.ui.icon.header .icon {
+  float: none;
+  display: block;
+  font-size: 3em;
+  margin: 0em auto 0.2em;
+  padding: 0em;
+}
+
+.ui.icon.header .content {
+  display: block;
+}
+
+.ui.icon.header .circular.icon,
+.ui.icon.header .square.icon {
+  font-size: 2em;
+}
+
+.ui.block.icon.header .icon {
+  margin-bottom: 0em;
+}
+
+.ui.icon.header.aligned {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.disabled.header {
+  opacity: 0.3;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*-------------------
+       Colors
+--------------------*/
+
+.ui.blue.header {
+  color: #6ecff5 !important;
+}
+
+.ui.black.header {
+  color: #555555 !important;
+}
+
+.ui.green.header {
+  color: #5bbd72 !important;
+}
+
+.ui.red.header {
+  color: #d95c5c !important;
+}
+
+.ui.purple.header {
+  color: #564f8a !important;
+}
+
+.ui.teal.header {
+  color: #00b5ad !important;
+}
+
+.ui.blue.dividing.header {
+  border-bottom: 3px solid #6ecff5;
+}
+
+.ui.black.dividing.header {
+  border-bottom: 3px solid #555555;
+}
+
+.ui.green.dividing.header {
+  border-bottom: 3px solid #5bbd72;
+}
+
+.ui.red.dividing.header {
+  border-bottom: 3px solid #d95c5c;
+}
+
+.ui.purple.dividing.header {
+  border-bottom: 3px solid #564f8a;
+}
+
+.ui.teal.dividing.header {
+  border-bottom: 3px solid #00b5ad;
+}
+
+/*-------------------
+      Inverted
+--------------------*/
+
+.ui.inverted.header {
+  color: #ffffff;
+}
+
+.ui.inverted.header .sub.header {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/*-------------------
+   Inverted Colors
+--------------------*/
+
+.ui.inverted.black.header {
+  background-color: #555555 !important;
+  color: #ffffff !important;
+}
+
+.ui.inverted.blue.header {
+  background-color: #6ecff5 !important;
+  color: #ffffff !important;
+}
+
+.ui.inverted.green.header {
+  background-color: #5bbd72 !important;
+  color: #ffffff !important;
+}
+
+.ui.inverted.red.header {
+  background-color: #d95c5c !important;
+  color: #ffffff !important;
+}
+
+.ui.inverted.purple.header {
+  background-color: #564f8a !important;
+  color: #ffffff !important;
+}
+
+.ui.inverted.teal.header {
+  background-color: #00b5ad !important;
+  color: #ffffff !important;
+}
+
+.ui.inverted.block.header {
+  border-bottom: none;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.left.aligned.header {
+  text-align: right;
+}
+
+.ui.right.aligned.header {
+  text-align: left;
+}
+
+.ui.center.aligned.header {
+  text-align: center;
+}
+
+.ui.justified.header {
+  text-align: justify;
+}
+
+.ui.justified.header:after {
+  display: inline-block;
+  content: '';
+  width: 100%;
+}
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.header,
+.ui.left.floated.header {
+  float: right;
+  margin-top: 0em;
+  margin-left: 0.5em;
+}
+
+.ui.right.floated.header {
+  float: left;
+  margin-top: 0em;
+  margin-right: 0.5em;
+}
+
+/*-------------------
+       Fittted
+--------------------*/
+
+.ui.fitted.header {
+  padding: 0em;
+}
+
+/*-------------------
+      Dividing
+--------------------*/
+
+.ui.dividing.header {
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ui.dividing.header .sub.header {
+  padding-bottom: 0.5em;
+}
+
+.ui.dividing.header .icon {
+  margin-bottom: 0.2em;
+}
+
+/*-------------------
+        Block
+--------------------*/
+
+.ui.block.header {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.5em 1em;
+}
+
+/*-------------------
+       Attached
+--------------------*/
+
+.ui.attached.header {
+  background-color: #F0F0F0;
+  margin: 0em;
+  padding: 0.75rem 1rem;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ui.attached:not(.top,
+.bottom) {
+  margin: 0em;
+}
+
+.ui.top.attached.header {
+  margin-bottom: 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;
+}
+
+.ui.bottom.attached.header {
+  margin-top: 0em;
+  border-radius: 0em 0em 0.3125em 0.3125em;
+}
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+/*
+ * # Semantic - Icon
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*!
+ *  Font Awesome 3.2.1
+ *  the iconic font designed for Bootstrap
+ *  ------------------------------------------------------------------------------
+ *  The full suite of pictographic icons, examples, and documentation can be
+ *  found at http://fon.io.  Stay up to date on Twitter at
+ *  http://twitter.com/fon.
+ *
+ *  License
+ *  ------------------------------------------------------------------------------
+ *  - The Font Awesome font is licensed under SIL OFL 1.1 -
+ *    http://scripts.sil.org/OFL
+
+/*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Theme to load global Variables */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+  @disabledOpacity
+*/
+
+/*-------------------
+   Icon Variables
+--------------------*/
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+             Icon
+*******************************/
+
+@font-face {
+  font-family: 'Icons';
+  src: url("../themes/default/fonts/icons.eot");
+  src: url("../themes/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("../themes/default/fonts/icons.svg#icons") format('svg'), url("../themes/default/fonts/icons.woff") format('woff'), url("../themes/default/fonts/icons.ttf") format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
+}
+
+i.icon {
+  display: inline-block;
+  opacity: 0.75;
+  margin: 0em 0em 0em 0.25em;
+  width: 1.23em;
+  height: 1em;
+  font-family: 'Icons';
+  font-style: normal;
+  line-height: 1;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  speak: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+}
+
+/*******************************
+             Types
+*******************************/
+
+/*--------------
+    Loading
+---------------*/
+
+i.icon.loading {
+  -webkit-animation: icon-loading 2s linear infinite;
+  animation: icon-loading 2s linear infinite;
+}
+
+@-webkit-keyframes icon-loading {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes icon-loading {
+  from {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*******************************
+             States
+*******************************/
+
+i.icon.hover {
+  opacity: 1;
+}
+
+i.icon.active {
+  opacity: 1;
+}
+
+i.emphasized.icon {
+  opacity: 1;
+}
+
+i.icon.disabled {
+  opacity: 0.3;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*-------------------
+         Link
+--------------------*/
+
+i.link.icon {
+  cursor: pointer;
+  opacity: 0.75;
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+i.link.icon:hover {
+  opacity: 1 !important;
+}
+
+/*-------------------
+      Circular
+--------------------*/
+
+i.circular.icon {
+  border-radius: !important 500em;
+  padding: 0.5em 0.35em !important;
+  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  line-height: 1 !important;
+  width: 2em !important;
+  height: 2em !important;
+}
+
+i.circular.inverted.icon {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/*-------------------
+      Flipped
+--------------------*/
+
+i.flipped.icon,
+i.horizontally.flipped.icon {
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+i.vertically.flipped.icon {
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/*-------------------
+      Rotated
+--------------------*/
+
+i.rotated.icon,
+i.right.rotated.icon,
+i.clockwise.rotated.icon {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+i.left.rotated.icon,
+i.counterclockwise.rotated.icon {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+/*-------------------
+        Square
+--------------------*/
+
+i.square.icon {
+  width: 2em;
+  height: 2em;
+  padding: 2em !important;
+  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  vertical-align: baseline;
+}
+
+i.square.inverted.icon {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/*-------------------
+      Inverted
+--------------------*/
+
+i.inverted.icon {
+  background-color: #222222;
+  color: #FFFFFF;
+}
+
+/*-------------------
+       Colors
+--------------------*/
+
+i.black.icon {
+  color: #555555 !important;
+}
+
+i.blue.icon {
+  color: #6ecff5 !important;
+}
+
+i.green.icon {
+  color: #5bbd72 !important;
+}
+
+i.orange.icon {
+  color: #e96633 !important;
+}
+
+i.pink.icon {
+  color: #d9499a !important;
+}
+
+i.purple.icon {
+  color: #564f8a !important;
+}
+
+i.red.icon {
+  color: #d95c5c !important;
+}
+
+i.teal.icon {
+  color: #00b5ad !important;
+}
+
+i.yellow.icon {
+  color: #ffcb08 !important;
+}
+
+/*-------------------
+   Inverted Colors
+--------------------*/
+
+i.black.icon {
+  background-color: #555555 !important;
+  color: #FFFFFF !important;
+}
+
+i.blue.icon {
+  background-color: #6ecff5 !important;
+  color: #FFFFFF !important;
+}
+
+i.green.icon {
+  background-color: #5bbd72 !important;
+  color: #FFFFFF !important;
+}
+
+i.orange.icon {
+  background-color: #e96633 !important;
+  color: #FFFFFF !important;
+}
+
+i.pink.icon {
+  background-color: #d9499a !important;
+  color: #FFFFFF !important;
+}
+
+i.purple.icon {
+  background-color: #564f8a !important;
+  color: #FFFFFF !important;
+}
+
+i.red.icon {
+  background-color: #d95c5c !important;
+  color: #FFFFFF !important;
+}
+
+i.teal.icon {
+  background-color: #00b5ad !important;
+  color: #FFFFFF !important;
+}
+
+i.yellow.icon {
+  background-color: #ffcb08 !important;
+  color: #FFFFFF !important;
+}
+
+/*-------------------
+        Sizes
+--------------------*/
+
+i.small.icon {
+  font-size: 0.875em;
+}
+
+i.icon {
+  font-size: 1em;
+}
+
+i.large.icon {
+  font-size: 1.5em;
+  vertical-align: middle;
+}
+
+i.big.icon {
+  font-size: 2em;
+  vertical-align: middle;
+}
+
+i.huge.icon {
+  font-size: 4em;
+  vertical-align: middle;
+}
+
+i.massive.icon {
+  font-size: 8em;
+  vertical-align: middle;
+}
+
+/*******************************
+           Overrides
+*******************************/
+
+i.icon.left:before {
+  content: "\f060";
+}
+
+i.icon.right:before {
+  content: "\f061";
+}
+
+i.icon.add.sign.box:before {
+  content: "\f0fe";
+}
+
+i.icon.add.sign:before {
+  content: "\f055";
+}
+
+i.icon.add:before {
+  content: "\f067";
+}
+
+i.icon.adjust:before {
+  content: "\f042";
+}
+
+i.icon.adn:before {
+  content: "\f170";
+}
+
+i.icon.align.center:before {
+  content: "\f037";
+}
+
+i.icon.align.justify:before {
+  content: "\f039";
+}
+
+i.icon.align.left:before {
+  content: "\f036";
+}
+
+i.icon.align.right:before {
+  content: "\f038";
+}
+
+i.icon.ambulance:before {
+  content: "\f0f9";
+}
+
+i.icon.anchor:before {
+  content: "\f13d";
+}
+
+i.icon.android:before {
+  content: "\f17b";
+}
+
+i.icon.angle.down:before {
+  content: "\f107";
+}
+
+i.icon.angle.left:before {
+  content: "\f104";
+}
+
+i.icon.angle.right:before {
+  content: "\f105";
+}
+
+i.icon.angle.up:before {
+  content: "\f106";
+}
+
+i.icon.apple:before {
+  content: "\f179";
+}
+
+i.icon.archive:before {
+  content: "\f187";
+}
+
+i.icon.arrow.down:before {
+  content: "\f078";
+}
+
+i.icon.arrow.left:before {
+  content: "\f053";
+}
+
+i.icon.arrow.right:before {
+  content: "\f054";
+}
+
+i.icon.arrow.sign.down:before {
+  content: "\f13a";
+}
+
+i.icon.arrow.sign.left:before {
+  content: "\f137";
+}
+
+i.icon.arrow.sign.right:before {
+  content: "\f138";
+}
+
+i.icon.arrow.sign.up:before {
+  content: "\f139";
+}
+
+i.icon.arrow.up:before {
+  content: "\f077";
+}
+
+i.icon.asterisk:before {
+  content: "\f069";
+}
+
+i.icon.attachment:before {
+  content: "\f0c6";
+}
+
+i.icon.attention:before {
+  content: "\f06a";
+}
+
+i.icon.backward:before {
+  content: "\f04a";
+}
+
+i.icon.ban.circle:before {
+  content: "\f05e";
+}
+
+i.icon.bar.chart:before {
+  content: "\f080";
+}
+
+i.icon.barcode:before {
+  content: "\f02a";
+}
+
+i.icon.beer:before {
+  content: "\f0fc";
+}
+
+i.icon.bell.outline:before {
+  content: "\f0a2";
+}
+
+i.icon.bell:before {
+  content: "\f0f3";
+}
+
+i.icon.bitbucket.sign:before {
+  content: "\f172";
+}
+
+i.icon.bitbucket:before {
+  content: "\f171";
+}
+
+i.icon.bitcoin:before {
+  content: "\f15a";
+}
+
+i.icon.bold:before {
+  content: "\f032";
+}
+
+i.icon.bolt:before {
+  content: "\f0e7";
+}
+
+i.icon.book:before {
+  content: "\f02d";
+}
+
+i.icon.bookmark.empty:before {
+  content: "\f097";
+}
+
+i.icon.bookmark:before {
+  content: "\f02e";
+}
+
+i.icon.box.arrow.down:before {
+  content: "\f150";
+}
+
+i.icon.box.arrow.right:before {
+  content: "\f152";
+}
+
+i.icon.box.arrow.up:before {
+  content: "\f151";
+}
+
+i.icon.briefcase:before {
+  content: "\f0b1";
+}
+
+i.icon.browser:before {
+  content: "\f022";
+}
+
+i.icon.bug:before {
+  content: "\f188";
+}
+
+i.icon.building:before {
+  content: "\f0f7";
+}
+
+i.icon.bullhorn:before {
+  content: "\f0a1";
+}
+
+i.icon.bullseye:before {
+  content: "\f140";
+}
+
+i.icon.calendar.empty:before {
+  content: "\f133";
+}
+
+i.icon.calendar:before {
+  content: "\f073";
+}
+
+i.icon.camera.retro:before {
+  content: "\f083";
+}
+
+i.icon.camera:before {
+  content: "\f030";
+}
+
+i.icon.triangle.down:before {
+  content: "\f0d7";
+}
+
+i.icon.triangle.left:before {
+  content: "\f0d9";
+}
+
+i.icon.triangle.right:before {
+  content: "\f0da";
+}
+
+i.icon.triangle.up:before {
+  content: "\f0d8";
+}
+
+i.icon.cart:before {
+  content: "\f07a";
+}
+
+i.icon.certificate:before {
+  content: "\f0a3";
+}
+
+i.icon.chat.outline:before {
+  content: "\f0e6";
+}
+
+i.icon.chat:before {
+  content: "\f086";
+}
+
+i.icon.checkbox.empty:before {
+  content: "\f096";
+}
+
+i.icon.checkbox.minus:before {
+  content: "\f147";
+}
+
+i.icon.checked.checkbox:before {
+  content: "\f046";
+}
+
+i.icon.checkmark.sign:before {
+  content: "\f14a";
+}
+
+i.icon.checkmark:before {
+  content: "\f00c";
+}
+
+i.icon.circle.blank:before {
+  content: "\f10c";
+}
+
+i.icon.circle.down:before {
+  content: "\f0ab";
+}
+
+i.icon.circle.left:before {
+  content: "\f0a8";
+}
+
+i.icon.circle.right:before {
+  content: "\f0a9";
+}
+
+i.icon.circle.up:before {
+  content: "\f0aa";
+}
+
+i.icon.circle:before {
+  content: "\f111";
+}
+
+i.icon.cloud.download:before {
+  content: "\f0ed";
+}
+
+i.icon.cloud.upload:before {
+  content: "\f0ee";
+}
+
+i.icon.cloud:before {
+  content: "\f0c2";
+}
+
+i.icon.code.fork:before {
+  content: "\f126";
+}
+
+i.icon.code:before {
+  content: "\f121";
+}
+
+i.icon.coffee:before {
+  content: "\f0f4";
+}
+
+i.icon.collapse:before {
+  content: "\f117";
+}
+
+i.icon.comment.outline:before {
+  content: "\f0e5";
+}
+
+i.icon.comment:before {
+  content: "\f075";
+}
+
+i.icon.copy:before {
+  content: "\f0c5";
+}
+
+i.icon.crop:before {
+  content: "\f125";
+}
+
+i.icon.css3:before {
+  content: "\f13c";
+}
+
+i.icon.cut:before {
+  content: "\f0c4";
+}
+
+i.icon.dashboard:before {
+  content: "\f0e4";
+}
+
+i.icon.desktop:before {
+  content: "\f108";
+}
+
+i.icon.doctor:before {
+  content: "\f0f0";
+}
+
+i.icon.dollar:before {
+  content: "\f155";
+}
+
+i.icon.double.angle.down:before {
+  content: "\f103";
+}
+
+i.icon.double.angle.left:before {
+  content: "\f100";
+}
+
+i.icon.double.angle.right:before {
+  content: "\f101";
+}
+
+i.icon.double.angle.up:before {
+  content: "\f102";
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.\36.vertical.buttons > .button,
@@ -6493,6 +9082,7 @@ h5.ui.header {
   border-bottom: 3px solid #d95c5c;
 }
 
+<<<<<<< HEAD
 .ui.purple.dividing.header {
   border-bottom: 3px solid #564f8a;
 }
@@ -6833,290 +9423,293 @@ h5.ui.header {
   font-variant: normal;
   text-decoration: inherit;
   text-transform: none;
+=======
+i.icon.star:before {
+  content: "\f005";
 }
 
-i.icon {
-  display: inline-block;
-  opacity: 0.75;
-  margin: 0em 0em 0em 0.25em;
-  width: 1.23em;
-  height: 1em;
-  font-family: 'Icons';
-  font-style: normal;
-  line-height: 1;
-  font-weight: normal;
-  text-decoration: inherit;
-  text-align: center;
-  speak: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-smoothing: antialiased;
+i.icon.step.backward:before {
+  content: "\f048";
 }
 
-/*******************************
-             Types
-*******************************/
+i.icon.step.forward:before {
+  content: "\f051";
+}
+
+i.icon.stethoscope:before {
+  content: "\f0f1";
+}
+
+i.icon.stop:before {
+  content: "\f04d";
+}
+
+i.icon.strikethrough:before {
+  content: "\f0cc";
+}
+
+i.icon.subscript:before {
+  content: "\f12c";
+}
+
+i.icon.suitcase:before {
+  content: "\f0f2";
+}
+
+i.icon.sun:before {
+  content: "\f185";
+}
+
+i.icon.superscript:before {
+  content: "\f12b";
+}
+
+i.icon.table:before {
+  content: "\f0ce";
+}
+
+i.icon.tablet:before {
+  content: "\f10a";
+}
+
+i.icon.tag:before {
+  content: "\f02b";
+}
+
+i.icon.tags:before {
+  content: "\f02c";
+}
+
+i.icon.tasks:before {
+  content: "\f0ae";
+}
+
+i.icon.terminal:before {
+  content: "\f120";
+}
+
+i.icon.text.height:before {
+  content: "\f034";
+}
+
+i.icon.text.width:before {
+  content: "\f035";
+}
+
+i.icon.thumbs.down.outline:before {
+  content: "\f088";
+}
+
+i.icon.thumbs.down:before {
+  content: "\f165";
+}
+
+i.icon.thumbs.up.outline:before {
+  content: "\f087";
+}
+
+i.icon.thumbs.up:before {
+  content: "\f164";
+}
+
+i.icon.ticket:before {
+  content: "\f145";
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
+}
+
+i.icon.time:before {
+  content: "\f017";
+}
+
+i.icon.tint:before {
+  content: "\f043";
+}
+
+i.icon.trash:before {
+  content: "\f014";
+}
+
+i.icon.trello:before {
+  content: "\f181";
+}
+
+i.icon.trophy:before {
+  content: "\f091";
+}
+
+i.icon.truck:before {
+  content: "\f0d1";
+}
+
+i.icon.tumblr.sign:before {
+  content: "\f174";
+}
+
+i.icon.tumblr:before {
+  content: "\f173";
+}
+
+i.icon.twitter.sign:before {
+  content: "\f081";
+}
+
+i.icon.twitter:before {
+  content: "\f099";
+}
+
+i.icon.umbrella:before {
+  content: "\f0e9";
+}
+
+i.icon.underline:before {
+  content: "\f0cd";
+}
+
+i.icon.undo:before {
+  content: "\f0e2";
+}
+
+i.icon.unhide:before {
+  content: "\f06e";
+}
+
+i.icon.unlink:before {
+  content: "\f127";
+}
+
+i.icon.unlock.alternate:before {
+  content: "\f13e";
+}
+
+i.icon.unlock:before {
+  content: "\f09c";
+}
+
+i.icon.unmute:before {
+  content: "\f130";
+}
+
+i.icon.up:before {
+  content: "\f062";
+}
+
+i.icon.upload.disk:before {
+  content: "\f093";
+}
+
+i.icon.upload:before {
+  content: "\f01b";
+}
+
+i.icon.url:before {
+  content: "\f0c1";
+}
+
+i.icon.user:before {
+  content: "\f007";
+}
+
+i.icon.users:before {
+  content: "\f0c0";
+}
+
+i.icon.video:before {
+  content: "\f008";
+}
+
+i.icon.vk:before {
+  content: "\f189";
+}
+
+i.icon.volume.down:before {
+  content: "\f027";
+}
+
+i.icon.volume.off:before {
+  content: "\f026";
+}
+
+i.icon.volume.up:before {
+  content: "\f028";
+}
+
+i.icon.warning:before {
+  content: "\f071";
+}
+
+i.icon.weibo:before {
+  content: "\f18a";
+}
+
+i.icon.windows:before {
+  content: "\f17a";
+}
+
+i.icon.won:before {
+  content: "\f159";
+}
+
+i.icon.wrench:before {
+  content: "\f0ad";
+}
+
+i.icon.xing.sign:before {
+  content: "\f169";
+}
+
+i.icon.xing:before {
+  content: "\f168";
+}
+
+i.icon.yen:before {
+  content: "\f157";
+}
+
+i.icon.youtube.play:before {
+  content: "\f16a";
+}
+
+i.icon.youtube.sign:before {
+  content: "\f166";
+}
+
+i.icon.youtube:before {
+  content: "\f167";
+}
+
+i.icon.yuan:before {
+  content: "\f158";
+}
+
+i.icon.zoom.in:before {
+  content: "\f00e";
+}
+
+i.icon.zoom.out:before {
+  content: "\f010";
+}
 
 /*--------------
-    Loading
+    Aliases
 ---------------*/
 
-i.icon.loading {
-  -webkit-animation: icon-loading 2s linear infinite;
-  animation: icon-loading 2s linear infinite;
+i.icon.check:before {
+  content: "\f00c";
 }
 
-@-webkit-keyframes icon-loading {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+i.icon.close:before {
+  content: "\f00d";
 }
 
-@keyframes icon-loading {
-  from {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+i.icon.delete:before {
+  content: "\f00d";
 }
 
-/*******************************
-             States
-*******************************/
-
-i.icon.hover {
-  opacity: 1;
+i.icon.like:before {
+  content: "\f004";
 }
 
-i.icon.active {
-  opacity: 1;
-}
-
-i.emphasized.icon {
-  opacity: 1;
-}
-
-i.icon.disabled {
-  opacity: 0.3;
-}
-
-/*******************************
-           Variations
-*******************************/
-
-/*-------------------
-         Link
---------------------*/
-
-i.link.icon {
-  cursor: pointer;
-  opacity: 0.75;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-i.link.icon:hover {
-  opacity: 1 !important;
-}
-
-/*-------------------
-      Circular
---------------------*/
-
-i.circular.icon {
-  border-radius: !important 500em;
-  padding: 0.5em 0.35em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  line-height: 1 !important;
-  width: 2em !important;
-  height: 2em !important;
-}
-
-i.circular.inverted.icon {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-/*-------------------
-      Flipped
---------------------*/
-
-i.flipped.icon,
-i.horizontally.flipped.icon {
-  -webkit-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
-  transform: scale(-1, 1);
-}
-
-i.vertically.flipped.icon {
-  -webkit-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
-  transform: scale(1, -1);
-}
-
-/*-------------------
-      Rotated
---------------------*/
-
-i.rotated.icon,
-i.right.rotated.icon,
-i.clockwise.rotated.icon {
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
-i.left.rotated.icon,
-i.counterclockwise.rotated.icon {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
-/*-------------------
-        Square
---------------------*/
-
-i.square.icon {
-  width: 2em;
-  height: 2em;
-  padding: 2em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  vertical-align: baseline;
-}
-
-i.square.inverted.icon {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-/*-------------------
-      Inverted
---------------------*/
-
-i.inverted.icon {
-  background-color: #222222;
-  color: #FFFFFF;
-}
-
-/*-------------------
-       Colors
---------------------*/
-
-i.black.icon {
-  color: #555555 !important;
-}
-
-i.blue.icon {
-  color: #6ecff5 !important;
-}
-
-i.green.icon {
-  color: #5bbd72 !important;
-}
-
-i.orange.icon {
-  color: #e96633 !important;
-}
-
-i.pink.icon {
-  color: #d9499a !important;
-}
-
-i.purple.icon {
-  color: #564f8a !important;
-}
-
-i.red.icon {
-  color: #d95c5c !important;
-}
-
-i.teal.icon {
-  color: #00b5ad !important;
-}
-
-i.yellow.icon {
-  color: #ffcb08 !important;
-}
-
-/*-------------------
-   Inverted Colors
---------------------*/
-
-i.black.icon {
-  background-color: #555555 !important;
-  color: #FFFFFF !important;
-}
-
-i.blue.icon {
-  background-color: #6ecff5 !important;
-  color: #FFFFFF !important;
-}
-
-i.green.icon {
-  background-color: #5bbd72 !important;
-  color: #FFFFFF !important;
-}
-
-i.orange.icon {
-  background-color: #e96633 !important;
-  color: #FFFFFF !important;
-}
-
-i.pink.icon {
-  background-color: #d9499a !important;
-  color: #FFFFFF !important;
-}
-
-i.purple.icon {
-  background-color: #564f8a !important;
-  color: #FFFFFF !important;
-}
-
-i.red.icon {
-  background-color: #d95c5c !important;
-  color: #FFFFFF !important;
-}
-
-i.teal.icon {
-  background-color: #00b5ad !important;
-  color: #FFFFFF !important;
-}
-
-i.yellow.icon {
-  background-color: #ffcb08 !important;
-  color: #FFFFFF !important;
-}
-
-/*-------------------
-        Sizes
---------------------*/
-
-i.small.icon {
-  font-size: 0.875em;
-}
-
-i.icon {
-  font-size: 1em;
-}
-
+<<<<<<< HEAD
 i.large.icon {
   font-size: 1.5em;
   vertical-align: middle;
@@ -7135,7 +9728,45 @@ i.huge.icon {
 i.massive.icon {
   font-size: 8em;
   vertical-align: middle;
+=======
+i.icon.plus:before {
+  content: "\f067";
 }
+
+i.icon.signup:before {
+  content: "\f044";
+}
+
+/*--------------
+   Spacing Fix
+---------------*/
+
+/* stars are usually consecutive */
+
+i.icon.star {
+  width: auto;
+  margin: 0em;
+}
+
+/* left side icons */
+
+i.icon.left {
+  width: auto;
+  margin: 0em 0em 0em 0.5em;
+}
+
+/* right side icons */
+
+i.icon.search,
+i.icon.right {
+  width: auto;
+  margin: 0em 0.5em 0em 0em;
+>>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
+}
+
+/*******************************
+           Overrides
+*******************************/
 /*
  * # Semantic - Image
  * http://github.com/jlukic/semantic-ui/
@@ -7159,7 +9790,7 @@ i.massive.icon {
    specify theme name below
 */
 
-/* Global */
+/* Theme to load global Variables */
 
 /* Elements */
 
@@ -7467,6 +10098,14 @@ img.ui.image {
   display: inline-block;
   margin: 0em 0.25rem 0.5rem;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 /*
  * # Semantic - Input
  * http://github.com/jlukic/semantic-ui/
@@ -9440,7 +12079,7 @@ a.ui.teal.label:hover:before {
    specify theme name below
 */
 
-/* Global */
+/* Theme to load global Variables */
 
 /* Elements */
 
@@ -10029,6 +12668,14 @@ a.ui.teal.label:hover:before {
 .ui.segment.bottom.attached:last-child {
   margin-bottom: 0em;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 /*
  * # Semantic - Steps
  * http://github.com/jlukic/semantic-ui/

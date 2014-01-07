@@ -53,6 +53,8 @@
 @activeBackgroundImage: none;
 @activeBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
 
+@loadingBackgroundColor: #FFFFFF;
+
 @iconMargin: 0.6em;
 @iconHoverOpacity: 0.85;
 @iconButtonOpacity: 0.9;

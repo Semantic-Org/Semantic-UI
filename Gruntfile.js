@@ -105,6 +105,22 @@ module.exports = function(grunt) {
       'copy:specToDocs'
     ],
 
+    outputTasks = [
+      // compiles less to docs
+      'less:outputCSS',
+
+      // auto prefix doc files
+      'autoprefixer:prefixOutput',
+
+      // copies assets and js over to docs
+      'copy:outputAssets',
+    ],
+
+    type       = type    || 'element',
+    element    = element || 'button',
+
+    outputPath = type + 's/' + element,
+
     buildTasks = releaseTasks.concat(rtlTasks).concat(docTasks),
 
     setWatchTests = function(action, filePath) {
@@ -319,6 +335,16 @@ module.exports = function(grunt) {
           '**/*.less'
         ],
         dest : 'build/uncompressed/',
+        rename: preserveFileExtensions
+      },
+
+      outputCSS: {
+        cwd    : 'src',
+        src    :  outputPath + '.less',
+        dest   : 'build/uncompressed/' + outputPath + '.css' ,
+        variables : {
+
+        },
         rename: preserveFileExtensions
       }
     },

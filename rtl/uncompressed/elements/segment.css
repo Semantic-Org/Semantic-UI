@@ -21,7 +21,7 @@
    specify theme name below
 */
 
-/* Global */
+/* Theme to load global Variables */
 
 /* Elements */
 
@@ -610,3 +610,11 @@
 .ui.segment.bottom.attached:last-child {
   margin-bottom: 0em;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/

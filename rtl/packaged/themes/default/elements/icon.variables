@@ -11,7 +11,7 @@
    Icon Variables
 --------------------*/
 
-@iconFont: '@{fontPath}/icons';
+@fontName: 'icons';
 
 @opacity: 0.75;
 @width: 1.23em;
