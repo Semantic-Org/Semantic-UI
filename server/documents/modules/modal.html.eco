@@ -248,6 +248,7 @@ type        : 'UI Module'
     <div class="ui info message">
       <div class="header">Why move modal content?</div>
       <p>Having a modal inside the page dimmer allows for 3D animations without having the 3D perspective settings alter the rest of the page content. Additionally, content outside the dimmer can be blurred or altered without affecting the modal's content.</p>
+      <p>If you need to have your modal stay in its current location you can preserve its position using the setting <code>detachable: false</code></p>
     </div>
     <div class="code" data-type="javascript">
       $('.ui.modal')
@@ -361,6 +362,16 @@ type        : 'UI Module'
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>detachable</td>
+          <td>true</td>
+          <td>If set to false will prevent the modal from being moved to inside the dimmer</td>
+        </tr>
+        <tr>
+          <td>allowMultiple</td>
+          <td>false</td>
+          <td>If set to true will not close other visible modals when opening a new one</td>
+        </tr>
         <tr>
           <td>offset</td>
           <td>0</td>

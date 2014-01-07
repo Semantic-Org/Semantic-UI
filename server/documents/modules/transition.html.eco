@@ -367,6 +367,11 @@ type        : 'UI Module'
           <td>Duration of the css transition animation</td>
         </tr>
         <tr>
+          <td>allowRepeats</td>
+          <td>false</td>
+          <td>If enabled will allow same animation to be queued while it is already occurring</td>
+        </tr>
+        <tr>
           <td>queue</td>
           <td>true</td>
           <td>Whether to automatically queue animation if another is occurring</td>
