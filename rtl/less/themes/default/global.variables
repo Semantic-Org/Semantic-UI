@@ -94,6 +94,8 @@
 @textColor         : rgba(0, 0, 0, 0.7);
 @lightTextColor    : rgba(0, 0, 0, 0.4);
 
+@invertedTextColor : rgba(255, 255, 255, 1);
+
 @selectedTextColor : rgba(0, 0, 0, 0.8);
 @disabledTextColor : rgba(0, 0, 0, 0.2);
 

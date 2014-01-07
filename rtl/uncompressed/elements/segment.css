@@ -131,10 +131,6 @@
 
 /*---  Neutrals  ---*/
 
-/*******************************
-     User Global Variables
-*******************************/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -149,15 +145,11 @@
 --------------------*/
 
 /*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
     User Variable Overrides
-*******************************/
-
-/*******************************
-           Overrides
-*******************************/
-
-/*******************************
-           Overrides
 *******************************/
 
 /*******************************
@@ -557,39 +549,27 @@
 --------------------*/
 
 .ui.secondary.segment {
-  background-color: #555555;
+  background-color: #faf9fa;
   color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.tertiary.segment {
-  background-color: #e96633;
+  background-color: #ebebeb;
   color: rgba(0, 0, 0, 0.4);
 }
 
 .ui.secondary.inverted.segment {
   background-color: #555555;
-<<<<<<< HEAD
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
-=======
-  background-image: -webkit-gradient(linear, top right, bottom right, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
->>>>>>> 354afddab5f343c5c9466aa59db8cb6b8fe649d0
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #fafafa;
 }
 
 .ui.tertiary.inverted.segment {
   background-color: #555555;
-<<<<<<< HEAD
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-=======
-  background-image: -webkit-gradient(linear, top right, bottom right, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
->>>>>>> 354afddab5f343c5c9466aa59db8cb6b8fe649d0
   background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   color: #f0f0f0;
 }

@@ -225,8 +225,7 @@ module.exports = function(grunt) {
         cwd    : 'build/',
         dest   : 'build/',
         src    : [
-          '**/*.less',
-          '**/*.css',
+          '**/*.css'
         ]
       },
       prefixDocs: {
@@ -234,8 +233,7 @@ module.exports = function(grunt) {
         cwd    : 'docs/build/',
         dest   : 'docs/build/',
         src    : [
-          '**/*.less',
-          '**/*.css',
+          '**/*.css'
         ]
       },
       prefixFile: {
