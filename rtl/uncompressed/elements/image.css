@@ -10,6 +10,157 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Global */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+@borderColor
+
+*/
+
+/*-------------------
+      Variables
+--------------------*/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
              Image
 *******************************/
 
@@ -87,7 +238,7 @@ img.ui.image {
 .ui.avatar.images img,
 .ui.avatar.image img,
 .ui.avatar.image {
-  margin-left: 0.5em;
+  margin-left: 0.25rem;
   display: inline-block;
   width: 2em;
   height: 2em;
@@ -116,46 +267,60 @@ img.ui.image {
      Sizes
 ---------------*/
 
-.ui.tiny.images .image,
-.ui.tiny.images img,
-.ui.tiny.image {
-  width: 20px;
-  font-size: 0.7rem;
-}
-
 .ui.mini.images .image,
 .ui.mini.images img,
 .ui.mini.image {
-  width: 35px;
-  font-size: 0.8rem;
+  width: 20px;
+  font-size: 0.7em;
+}
+
+.ui.tiny.images .image,
+.ui.tiny.images img,
+.ui.tiny.image {
+  width: 80px;
+  font-size: 0.8em;
 }
 
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
-  width: 80px;
-  font-size: 0.9rem;
+  width: 150px;
+  font-size: 0.875em;
 }
 
 .ui.medium.images .image,
 .ui.medium.images img,
 .ui.medium.image {
   width: 300px;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ui.large.images .image,
 .ui.large.images img,
 .ui.large.image {
   width: 450px;
-  font-size: 1.1rem;
+  font-size: 1.125em;
+}
+
+.ui.big.images .image,
+.ui.big.images img,
+.ui.big.image {
+  width: 600px;
+  font-size: 1.25em;
 }
 
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
-  width: 600px;
-  font-size: 1.2rem;
+  width: 800px;
+  font-size: 1.375em;
+}
+
+.ui.massive.images .image,
+.ui.massive.images img,
+.ui.massive.image {
+  width: 960px;
+  font-size: 1.5em;
 }
 
 /*******************************
@@ -170,5 +335,5 @@ img.ui.image {
 .ui.images .image,
 .ui.images img {
   display: inline-block;
-  margin: 0em 0.25em 0.5em;
+  margin: 0em 0.25rem 0.5rem;
 }

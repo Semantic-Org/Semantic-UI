@@ -9,6 +9,19 @@
  *
  */
 
+
+
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'image';
+
+@import '../semantic.config';
+
+
 /*******************************
              Image
 *******************************/
@@ -18,14 +31,12 @@
   display: inline-block;
   vertical-align: middle;
   max-width: 100%;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: @placeholderColor;
 }
-
 img.ui.image {
   display: block;
   background: none;
 }
-
 .ui.image img {
   display: block;
   max-width: 100%;
@@ -36,10 +47,12 @@ img.ui.image {
             States
 *******************************/
 
+
 .ui.disabled.image {
   cursor: default;
-  opacity: 0.3;
+  opacity: @disabledOpacity;
 }
+
 
 /*******************************
           Variations
@@ -53,7 +66,7 @@ img.ui.image {
 .ui.rounded.images img,
 .ui.rounded.image img,
 .ui.rounded.image {
-  border-radius: 0.3125em;
+  border-radius: @roundedBorderRadius;
 }
 
 /*--------------
@@ -64,7 +77,9 @@ img.ui.image {
 .ui.circular.images img,
 .ui.circular.image img,
 .ui.circular.image {
-  border-radius: 500rem;
+  -webkit-border-radius: @circularRadius;
+  -moz-border-radius: @circularRadius;
+  border-radius: @circularRadius;
 }
 
 /*--------------
@@ -79,6 +94,7 @@ img.ui.image {
   width: 100%;
 }
 
+
 /*--------------
      Avatar
 ---------------*/
@@ -87,12 +103,18 @@ img.ui.image {
 .ui.avatar.images img,
 .ui.avatar.image img,
 .ui.avatar.image {
-  margin-right: 0.5em;
+  margin-right: @imageSpacing;
+
   display: inline-block;
-  width: 2em;
-  height: 2em;
-  border-radius: 500rem;
+  width: @avatarSize;
+  height: @avatarSize;
+
+  -webkit-border-radius: @circularRadius;
+  -moz-border-radius: @circularRadius;
+  border-radius: @circularRadius;
 }
+
+
 
 /*-------------------
        Floated
@@ -101,61 +123,68 @@ img.ui.image {
 .ui.floated.image,
 .ui.floated.images {
   float: left;
-  margin-right: 1em;
-  margin-bottom: 1em;
+  margin-right: @floatedHorizontalMargin;
+  margin-bottom: @floatedVerticalMargin;
 }
-
 .ui.right.floated.images,
 .ui.right.floated.image {
   float: right;
-  margin-bottom: 1em;
-  margin-left: 1em;
+  margin-bottom: @floatedVerticalMargin;
+  margin-left: @floatedHorizontalMargin;
 }
+
 
 /*--------------
      Sizes
 ---------------*/
 
-.ui.tiny.images .image,
-.ui.tiny.images img,
-.ui.tiny.image {
-  width: 20px;
-  font-size: 0.7rem;
-}
-
 .ui.mini.images .image,
 .ui.mini.images img,
 .ui.mini.image {
-  width: 35px;
-  font-size: 0.8rem;
+  width: @miniWidth;
+  font-size: @mini;
 }
-
+.ui.tiny.images .image,
+.ui.tiny.images img,
+.ui.tiny.image {
+  width: @tinyWidth;
+  font-size: @tiny;
+}
 .ui.small.images .image,
 .ui.small.images img,
 .ui.small.image {
-  width: 80px;
-  font-size: 0.9rem;
+  width: @smallWidth;
+  font-size: @small;
 }
-
 .ui.medium.images .image,
 .ui.medium.images img,
 .ui.medium.image {
-  width: 300px;
-  font-size: 1rem;
+  width: @mediumWidth;
+  font-size: @medium;
 }
-
 .ui.large.images .image,
 .ui.large.images img,
 .ui.large.image {
-  width: 450px;
-  font-size: 1.1rem;
+  width: @largeWidth;
+  font-size: @large;
 }
-
+.ui.big.images .image,
+.ui.big.images img,
+.ui.big.image {
+  width: @bigWidth;
+  font-size: @big;
+}
 .ui.huge.images .image,
 .ui.huge.images img,
 .ui.huge.image {
-  width: 600px;
-  font-size: 1.2rem;
+  width: @hugeWidth;
+  font-size: @huge;
+}
+.ui.massive.images .image,
+.ui.massive.images img,
+.ui.massive.image {
+  width: @massiveWidth;
+  font-size: @massive;
 }
 
 /*******************************
@@ -164,11 +193,11 @@ img.ui.image {
 
 .ui.images {
   font-size: 0em;
-  margin: 0em -0.25rem 0rem;
+  margin: 0em -@imageSpacing 0rem;
 }
 
 .ui.images .image,
 .ui.images img {
   display: inline-block;
-  margin: 0em 0.25em 0.5em;
+  margin: 0em @imageSpacing (@imageSpacing * 2);
 }

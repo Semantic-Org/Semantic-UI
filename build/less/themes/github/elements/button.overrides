@@ -1,0 +1,7 @@
+/*******************************
+           Overrides
+*******************************/
+
+.ui.button {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}

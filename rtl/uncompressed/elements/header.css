@@ -10,6 +10,156 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Global */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+   Modified Globals
+--------------------*/
+
+/*-------------------
+   Header Variables
+--------------------*/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
             Header
 *******************************/
 
@@ -168,7 +318,7 @@ h5.ui.header {
 *******************************/
 
 .ui.disabled.header {
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 /*******************************
@@ -180,51 +330,51 @@ h5.ui.header {
 --------------------*/
 
 .ui.blue.header {
-  color: #6ECFF5 !important;
+  color: #6ecff5 !important;
 }
 
 .ui.black.header {
-  color: #5C6166 !important;
+  color: #555555 !important;
 }
 
 .ui.green.header {
-  color: #A1CF64 !important;
+  color: #5bbd72 !important;
 }
 
 .ui.red.header {
-  color: #D95C5C !important;
+  color: #d95c5c !important;
 }
 
 .ui.purple.header {
-  color: #564F8A !important;
+  color: #564f8a !important;
 }
 
 .ui.teal.header {
-  color: #00B5AD !important;
+  color: #00b5ad !important;
 }
 
 .ui.blue.dividing.header {
-  border-bottom: 3px solid #6ECFF5;
+  border-bottom: 3px solid #6ecff5;
 }
 
 .ui.black.dividing.header {
-  border-bottom: 3px solid #5C6166;
+  border-bottom: 3px solid #555555;
 }
 
 .ui.green.dividing.header {
-  border-bottom: 3px solid #A1CF64;
+  border-bottom: 3px solid #5bbd72;
 }
 
 .ui.red.dividing.header {
-  border-bottom: 3px solid #D95C5C;
+  border-bottom: 3px solid #d95c5c;
 }
 
 .ui.purple.dividing.header {
-  border-bottom: 3px solid #564F8A;
+  border-bottom: 3px solid #564f8a;
 }
 
 .ui.teal.dividing.header {
-  border-bottom: 3px solid #00B5AD;
+  border-bottom: 3px solid #00b5ad;
 }
 
 /*-------------------
@@ -232,7 +382,7 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.header {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .ui.inverted.header .sub.header {
@@ -244,33 +394,33 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.black.header {
-  background-color: #5C6166 !important;
-  color: #FFFFFF !important;
+  background-color: #555555 !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.blue.header {
-  background-color: #6ECFF5 !important;
-  color: #FFFFFF !important;
+  background-color: #6ecff5 !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.green.header {
-  background-color: #A1CF64 !important;
-  color: #FFFFFF !important;
+  background-color: #5bbd72 !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.red.header {
-  background-color: #D95C5C !important;
-  color: #FFFFFF !important;
+  background-color: #d95c5c !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.purple.header {
-  background-color: #564F8A !important;
-  color: #FFFFFF !important;
+  background-color: #564f8a !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.teal.header {
-  background-color: #00B5AD !important;
-  color: #FFFFFF !important;
+  background-color: #00b5ad !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.block.header {
@@ -359,10 +509,16 @@ h5.ui.header {
 --------------------*/
 
 .ui.attached.header {
-  background-color: #E0E0E0;
-  padding: 0.5em 1rem;
+  background-color: #F0F0F0;
+  margin: 0em;
+  padding: 0.75rem 1rem;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ui.attached:not(.top,
+.bottom) {
+  margin: 0em;
 }
 
 .ui.top.attached.header {

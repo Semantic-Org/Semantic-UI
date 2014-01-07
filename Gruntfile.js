@@ -176,6 +176,8 @@ module.exports = function(grunt) {
         files: [
           'build/examples/**/*',
           'src/**/*.less',
+          'src/**/*.variables',
+          'src/**/*.config',
           'src/**/*.js'
         ],
         tasks : watchTasks
@@ -343,8 +345,7 @@ module.exports = function(grunt) {
             cwd    : 'src/',
             src    : [
               '**/*.js',
-              'images/*',
-              'fonts/*'
+              'themes/**/*'
             ],
             dest : 'docs/build/uncompressed'
           },
@@ -353,8 +354,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'images/*',
-              'fonts/*'
+              'themes/**/*'
             ],
             dest : 'docs/build/minified'
           },
@@ -364,8 +364,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'images/*',
-              'fonts/*'
+              'themes/**/*'
             ],
             dest : 'docs/build/packaged'
           }
@@ -390,8 +389,7 @@ module.exports = function(grunt) {
             cwd    : 'src/',
             src    : [
               '**/*.js',
-              'images/*',
-              'fonts/*'
+              'themes/**/*'
             ],
             dest : 'build/uncompressed'
           },
@@ -400,8 +398,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'images/*',
-              'fonts/*'
+              'themes/**/*'
             ],
             dest : 'build/minified'
           },
@@ -411,8 +408,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'images/*',
-              'fonts/*'
+              'themes/**/*'
             ],
             dest : 'build/packaged'
           }

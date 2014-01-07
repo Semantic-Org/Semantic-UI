@@ -10,11 +10,19 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+@type   : 'element';
+@element: 'header';
+
+@import '../semantic.config';
+
+/*******************************
             Header
 *******************************/
 
 /* Standard */
-
 .ui.header {
   border: none;
   margin: 1em 0em 1rem;
@@ -168,7 +176,7 @@ h5.ui.header {
 *******************************/
 
 .ui.disabled.header {
-  opacity: 0.5;
+  opacity: @disabledOpacity;
 }
 
 /*******************************
@@ -180,51 +188,51 @@ h5.ui.header {
 --------------------*/
 
 .ui.blue.header {
-  color: #6ECFF5 !important;
+  color: @blue !important;
 }
 
 .ui.black.header {
-  color: #5C6166 !important;
+  color: @black !important;
 }
 
 .ui.green.header {
-  color: #A1CF64 !important;
+  color: @green !important;
 }
 
 .ui.red.header {
-  color: #D95C5C !important;
+  color: @red !important;
 }
 
 .ui.purple.header {
-  color: #564F8A !important;
+  color: @purple !important;
 }
 
 .ui.teal.header {
-  color: #00B5AD !important;
+  color: @teal !important;
 }
 
 .ui.blue.dividing.header {
-  border-bottom: 3px solid #6ECFF5;
+  border-bottom: 3px solid @blue;
 }
 
 .ui.black.dividing.header {
-  border-bottom: 3px solid #5C6166;
+  border-bottom: 3px solid @black;
 }
 
 .ui.green.dividing.header {
-  border-bottom: 3px solid #A1CF64;
+  border-bottom: 3px solid @green;
 }
 
 .ui.red.dividing.header {
-  border-bottom: 3px solid #D95C5C;
+  border-bottom: 3px solid @red;
 }
 
 .ui.purple.dividing.header {
-  border-bottom: 3px solid #564F8A;
+  border-bottom: 3px solid @purple;
 }
 
 .ui.teal.dividing.header {
-  border-bottom: 3px solid #00B5AD;
+  border-bottom: 3px solid @teal;
 }
 
 /*-------------------
@@ -232,7 +240,7 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.header {
-  color: #FFFFFF;
+  color: @white;
 }
 
 .ui.inverted.header .sub.header {
@@ -244,33 +252,33 @@ h5.ui.header {
 --------------------*/
 
 .ui.inverted.black.header {
-  background-color: #5C6166 !important;
-  color: #FFFFFF !important;
+  background-color: @black !important;
+  color: @white !important;
 }
 
 .ui.inverted.blue.header {
-  background-color: #6ECFF5 !important;
-  color: #FFFFFF !important;
+  background-color: @blue !important;
+  color: @white !important;
 }
 
 .ui.inverted.green.header {
-  background-color: #A1CF64 !important;
-  color: #FFFFFF !important;
+  background-color: @green !important;
+  color: @white !important;
 }
 
 .ui.inverted.red.header {
-  background-color: #D95C5C !important;
-  color: #FFFFFF !important;
+  background-color: @red !important;
+  color: @white !important;
 }
 
 .ui.inverted.purple.header {
-  background-color: #564F8A !important;
-  color: #FFFFFF !important;
+  background-color: @purple !important;
+  color: @white !important;
 }
 
 .ui.inverted.teal.header {
-  background-color: #00B5AD !important;
-  color: #FFFFFF !important;
+  background-color: @teal !important;
+  color: @white !important;
 }
 
 .ui.inverted.block.header {
@@ -359,10 +367,16 @@ h5.ui.header {
 --------------------*/
 
 .ui.attached.header {
-  background-color: #E0E0E0;
-  padding: 0.5em 1rem;
+  background-color: #F0F0F0;
+  margin: 0em;
+  padding: 0.75rem 1rem;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ui.attached:not(.top,
+.bottom) {
+  margin: 0em;
 }
 
 .ui.top.attached.header {

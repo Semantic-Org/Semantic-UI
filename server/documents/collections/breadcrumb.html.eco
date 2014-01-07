@@ -21,7 +21,8 @@ type        : 'UI Collection'
   <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
-    <h4 class="ui header">A simple breadcrumb</h4>
+    <h4 class="ui header">Breadcrumb</h4>
+    <p>A standard breadcrumb</p>
     <div class="ui breadcrumb">
       <a class="section">Food</a>
       <div class="divider"> / </div>

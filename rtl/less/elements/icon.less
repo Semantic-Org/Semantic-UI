@@ -23,6 +23,7 @@
  *    http://scripts.sil.org/OFL
 
 /*******************************
+<<<<<<< HEAD
              Icon
 *******************************/
 
@@ -1534,16 +1535,21 @@ i.icon.signup:before {
 /*--------------
    Spacing Fix
 ---------------*/
+=======
+            Theme
+*******************************/
+>>>>>>> 354afddab5f343c5c9466aa59db8cb6b8fe649d0
 
-/* stars are usually consecutive */
+@type    : 'element';
+@element : 'icon';
 
-i.icon.star {
-  width: auto;
-  margin: 0em;
-}
+@import '../semantic.config';
 
-/* left side icons */
+/*******************************
+             Icon
+*******************************/
 
+<<<<<<< HEAD
 i.icon.left {
   width: auto;
   margin: 0em 0em 0em 0.5em;
@@ -1555,6 +1561,39 @@ i.icon.search,
 i.icon.right {
   width: auto;
   margin: 0em 0.5em 0em 0em;
+=======
+@font-face {
+  font-family: 'Icons';
+  src: url("@{iconFont}.eot");
+  src: url("@{iconFont}.eot?#iefix") format('embedded-opentype'),
+    url("@{iconFont}.woff") format('woff'),
+    url("@{iconFont}.ttf") format('truetype'),
+    url("@{iconFont}.svg#icons") format('svg');
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
+}
+
+i.icon {
+  display: inline-block;
+  opacity: @opacity;
+  margin: 0em @margin 0em 0em;
+  width: @width;
+  height: @height;
+  font-family: 'Icons';
+  font-style: normal;
+  line-height: 1;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  speak: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+>>>>>>> 354afddab5f343c5c9466aa59db8cb6b8fe649d0
 }
 
 /*******************************
@@ -1566,23 +1605,8 @@ i.icon.right {
 ---------------*/
 
 i.icon.loading {
-  -webkit-animation: icon-loading 2s linear infinite;
-  -ms-animation: icon-loading 2s linear infinite;
-  animation: icon-loading 2s linear infinite;
-}
-
-@keyframes icon-loading {
-  from {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+  -webkit-animation: icon-loading @loadingDuration linear infinite;
+  animation: icon-loading @loadingDuration linear infinite;
 }
 
 @-webkit-keyframes icon-loading {
@@ -1597,13 +1621,15 @@ i.icon.loading {
   }
 }
 
-@-ms-keyframes icon-loading {
+@keyframes icon-loading {
   from {
+    -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   to {
+    -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
@@ -1626,7 +1652,7 @@ i.emphasized.icon {
 }
 
 i.icon.disabled {
-  opacity: 0.3;
+  opacity: @disabledOpacity;
 }
 
 /*******************************
@@ -1639,9 +1665,9 @@ i.icon.disabled {
 
 i.link.icon {
   cursor: pointer;
-  opacity: 0.7;
-  -webkit-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
+  opacity: @opacity;
+  -webkit-transition: opacity @transitionDuration @transitionEasing;
+  transition: opacity @transitionDuration @transitionEasing;
 }
 
 i.link.icon:hover {
@@ -1654,12 +1680,12 @@ i.link.icon:hover {
 
 i.circular.icon {
   border-radius: !important 500em;
-  padding: 0.5em 0.35em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  padding: @circularPadding !important;
+  -webkit-box-shadow: @circularShadow;
+  box-shadow: @circularShadow;
   line-height: 1 !important;
-  width: 2em !important;
-  height: 2em !important;
+  width: @circularSize !important;
+  height: @circularSize !important;
 }
 
 i.circular.inverted.icon {
@@ -1709,11 +1735,11 @@ i.counterclockwise.rotated.icon {
 --------------------*/
 
 i.square.icon {
-  width: 2em;
-  height: 2em;
-  padding: 0.5em 0.35em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  width: @squareSize;
+  height: @squareSize;
+  padding: @squareSize !important;
+  -webkit-box-shadow: @squareShadow;
+  box-shadow: @squareShadow;
   vertical-align: baseline;
 }
 
@@ -1736,61 +1762,88 @@ i.inverted.icon {
        Colors
 --------------------*/
 
-i.blue.icon {
-  color: #6ECFF5 !important;
+i.black.icon {
+  color: @black !important;
 }
 
-i.black.icon {
-  color: #5C6166 !important;
+i.blue.icon {
+  color: @blue !important;
 }
 
 i.green.icon {
-  color: #A1CF64 !important;
+  color: @green !important;
 }
 
-i.red.icon {
-  color: #D95C5C !important;
+i.orange.icon {
+  color: @orange !important;
+}
+
+i.pink.icon {
+  color: @pink !important;
 }
 
 i.purple.icon {
-  color: #564F8A !important;
+  color: @purple !important;
+}
+
+i.red.icon {
+  color: @red !important;
 }
 
 i.teal.icon {
-  color: #00B5AD !important;
+  color: @teal !important;
+}
+
+i.yellow.icon {
+  color: @yellow !important;
 }
 
 /*-------------------
    Inverted Colors
 --------------------*/
 
-i.inverted.black.icon {
-  background-color: #5C6166 !important;
+i.black.icon {
+  background-color: @black !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.blue.icon {
-  background-color: #6ECFF5 !important;
+i.blue.icon {
+  background-color: @blue !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.green.icon {
-  background-color: #A1CF64 !important;
+i.green.icon {
+  background-color: @green !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.red.icon {
-  background-color: #D95C5C !important;
+i.orange.icon {
+  background-color: @orange !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.purple.icon {
-  background-color: #564F8A !important;
+i.pink.icon {
+  background-color: @pink !important;
   color: #FFFFFF !important;
 }
 
-i.inverted.teal.icon {
-  background-color: #00B5AD !important;
+i.purple.icon {
+  background-color: @purple !important;
+  color: #FFFFFF !important;
+}
+
+i.red.icon {
+  background-color: @red !important;
+  color: #FFFFFF !important;
+}
+
+i.teal.icon {
+  background-color: @teal !important;
+  color: #FFFFFF !important;
+}
+
+i.yellow.icon {
+  background-color: @yellow !important;
   color: #FFFFFF !important;
 }
 
@@ -1799,29 +1852,29 @@ i.inverted.teal.icon {
 --------------------*/
 
 i.small.icon {
-  font-size: 0.875em;
+  font-size: @small;
 }
 
 i.icon {
-  font-size: 1em;
+  font-size: @medium;
 }
 
 i.large.icon {
-  font-size: 1.5em;
+  font-size: @large;
   vertical-align: middle;
 }
 
 i.big.icon {
-  font-size: 2em;
+  font-size: @big;
   vertical-align: middle;
 }
 
 i.huge.icon {
-  font-size: 4em;
+  font-size: @huge;
   vertical-align: middle;
 }
 
 i.massive.icon {
-  font-size: 8em;
+  font-size: @massive;
   vertical-align: middle;
 }

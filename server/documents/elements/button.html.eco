@@ -36,7 +36,7 @@ type        : 'UI Element'
     <div class="ui animated button">
       <div class="visible content">Next</div>
       <div class="hidden content">
-        <i class="right arrow icon"></i>
+        <i class="right icon"></i>
       </div>
     </div>
     <div class="ui vertical animated button">
@@ -119,7 +119,7 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Hover</h4>
     <p>A button can change to show a user has hovered their mouse</p>
-    <div class="ui hover button">
+    <div class="ui button">
       Follow
     </div>
   </div>
@@ -127,7 +127,7 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Down</h4>
     <p>A button can change when pressed using touch or mouse events</p>
-    <div class="ui down button">
+    <div class="ui button">
       <i class="user icon"></i>
       Follow
     </div>
@@ -256,14 +256,23 @@ type        : 'UI Element'
     <h4 class="ui header">Colors</h4>
     <p>A button can have different colors:</p>
     <a class="ui black button">Black Button</a>
-    <a class="ui green button">Green BUtton</a>
-    <a class="ui red button">Red Button</a>
+    <a class="ui yellow button">Yellow Button</a>
+    <a class="ui green button">Green Button</a>
     <a class="ui blue button">Blue Button</a>
   </div>
   <div class="another example">
-    <a class="ui purple button">Purple Button</a>
-    <a class="ui teal button">Teal Button</a>
     <a class="ui orange button">Orange Button</a>
+    <a class="ui purple button">Purple Button</a>
+    <a class="ui red button">Red Button</a>
+    <a class="ui teal button">Teal Button</a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Compact</h4>
+    <p>A button can reduce its padding to fit into tighter spaces</p>
+    <div class="compact ui button">
+      Hold
+    </div>
   </div>
 
   <div class="example">
@@ -290,9 +299,9 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Circular</h4>
     <p>A button can be circular:</p>
-    <div class="circular ui button">Rounded</div>
     <div class="circular ui icon button">
-      <i class="icon settings"></i></div>
+      <i class="icon settings"></i>
+    </div>
   </div>
 
   <div class="example">

@@ -76,7 +76,7 @@ type        : 'UI Module'
       <p>A dropdown menu can appear to be floating below an element.</p>
       <div class="ui teal buttons">
         <div class="ui button">Save</div>
-        <div class="ui teal floating dropdown icon button">
+        <div class="ui floating dropdown icon button">
           <i class="dropdown icon"></i>
           <div class="menu">
             <div class="item"><i class="edit icon"></i>Edit Post</div>
@@ -429,7 +429,7 @@ type        : 'UI Module'
       <p>A <a href="/elements/button.html">button</a> can be formatted with a dropdown</p>
       <div class="ui teal buttons">
         <div class="ui button">Update Post</div>
-        <div class="ui teal dropdown icon button">
+        <div class="ui dropdown icon button">
           <i class="dropdown icon"></i>
           <div class="menu">
             <div class="item"><i class="edit icon"></i>Edit Post</div>
@@ -540,7 +540,7 @@ type        : 'UI Module'
       <p>A dropdown can have different <a href="/modules/transition.html">transitions</a>.</p>
       <div class="ui teal buttons">
         <div class="ui button">Toggle</div>
-        <div class="ui teal floating dropdown icon button">
+        <div class="ui floating dropdown icon button">
           <i class="dropdown icon"></i>
           <div class="menu">
             <div class="item" data-value="horizontal flip">Horizontal Flip</div>
