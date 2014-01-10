@@ -4,7 +4,11 @@ css         : 'button'
 title       : 'Button'
 description : 'Buttons indicate a possible user action.'
 type        : 'UI Element'
+themes      : ['default', 'basic', 'github']
 ---
+<link rel="stylesheet/less" type="text/css" href="/build/less/elements/button.less" />
+<script src="/javascript/library/less.js"></script>
+
 <script src="/javascript/button.js"></script>
 
 <%- @partial('header') %>
@@ -26,6 +30,17 @@ type        : 'UI Element'
     <p>A standard button</p>
     <div class="ui button">
       Follow
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Ordinality</h4>
+    <p>A button can be formatted to show different levels of emphasis</p>
+    <div class="ui primary button">
+      Add to Cart
+    </div>
+    <div class="ui secondary button">
+      Save
     </div>
   </div>
 
@@ -221,17 +236,6 @@ type        : 'UI Element'
     </div>
     <div class="massive ui button">
       Massive
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Ordinality</h4>
-    <p>A button can be formatted to show different levels of emphasis</p>
-    <div class="ui primary button">
-      Add to Cart
-    </div>
-    <div class="ui secondary button">
-      Save
     </div>
   </div>
 

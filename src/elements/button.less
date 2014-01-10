@@ -145,6 +145,7 @@
       Disabled
 --------------------*/
 
+.ui..buttons .disabled.button,
 .ui.disabled.button,
 .ui.disabled.button:hover,
 .ui.disabled.button.active {
@@ -606,6 +607,7 @@
 .ui.icon.button > .icon {
   opacity: @iconButtonOpacity;
   margin: 0em;
+  vertical-align: top;
 }
 
 
@@ -1406,7 +1408,7 @@
 .ui.vertical.buttons .button {
   display: block;
   float: none;
-  box-shadow: 0px 0px 0px 1px @borderColor inset;
+  box-shadow: @verticalBoxShadow;
 }
 .ui.vertical.buttons .button:first-child,
 .ui.vertical.buttons .mini.button:first-child,

@@ -21,11 +21,7 @@
    specify theme name below
 */
 
-<<<<<<< HEAD
-/* Global */
-=======
 /* Theme to load global Variables */
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 
 /* Elements */
 
@@ -145,15 +141,6 @@
 
 /* Button Variables */
 
-<<<<<<< HEAD
-/*-------------------
-   Button Variables
---------------------*/
-
-/* Button Variables */
-
-=======
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 /*******************************
      User Global Variables
 *******************************/
@@ -187,21 +174,12 @@
   font-style: normal;
   text-align: center;
   text-decoration: none;
-<<<<<<< HEAD
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.15)), to(rgba(0, 0, 0, 0.1)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
-  border-radius: 0.25em;
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 1px 3px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 1px 3px rgba(0, 0, 0, 0.05);
-=======
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   border-radius: 0.25em;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -243,13 +221,8 @@
   background-color: #f1f1f1;
   background-image: '';
   color: rgba(0, 0, 0, 0.8);
-<<<<<<< HEAD
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.15) inset;
-  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.15) inset;
-=======
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*--------------
@@ -259,15 +232,9 @@
 .ui.active.button {
   background-color: #eaeaea;
   background-image: none;
-<<<<<<< HEAD
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.1) inset;
-  color: #333333;
-=======
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   color: rgba(0, 0, 0, 0.6);
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.button.active:hover {
@@ -848,11 +815,7 @@
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
-<<<<<<< HEAD
-  padding: 0.75em 1.15em !important;
-=======
   padding: 0.8em 1.5em !important;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
@@ -925,11 +888,7 @@
 .ui.basic.inverted.button.active {
   background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -973,13 +932,8 @@
   text-align: center;
   border-radius: 0.25em 0px 0px 0.25em;
   line-height: 1;
-<<<<<<< HEAD
-  -webkit-box-shadow: -1px 0px 0px 0px transparent inset;
-  box-shadow: -1px 0px 0px 0px transparent inset;
-=======
   -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
   box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.labeled.icon.buttons .button > .icon {
@@ -1021,13 +975,8 @@
   left: auto;
   right: 0em;
   border-radius: 0em 0.25em 0.25em 0em;
-<<<<<<< HEAD
-  -webkit-box-shadow: 1px 0px 0px 0px transparent inset;
-  box-shadow: 1px 0px 0px 0px transparent inset;
-=======
   -webkit-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*--------------
@@ -1786,13 +1735,6 @@
            Overrides
 *******************************/
 
-<<<<<<< HEAD
-.ui.button {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-=======
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 /*******************************
            Overrides
 *******************************/

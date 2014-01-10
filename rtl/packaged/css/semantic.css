@@ -4344,15 +4344,6 @@ body > .ui.grid {
 
 /* Button Variables */
 
-<<<<<<< HEAD
-/*-------------------
-   Button Variables
---------------------*/
-
-/* Button Variables */
-
-=======
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 /*******************************
      User Global Variables
 *******************************/
@@ -4375,37 +4366,23 @@ body > .ui.grid {
   outline: none;
   border: none;
   background-color: #fafafa;
-<<<<<<< HEAD
-  color: #333333;
-  margin: 0em;
-  padding: 0.75em 1.15em 0.75em;
-  text-transform: none;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.9);
-=======
   color: rgba(0, 0, 0, 0.6);
   margin: 0em;
   padding: 0.8em 1.5em 0.8em;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   font-weight: bold;
   line-height: 1;
   font-style: normal;
   text-align: center;
   text-decoration: none;
-<<<<<<< HEAD
-  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.15)), to(rgba(0, 0, 0, 0.1)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
-=======
   background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   border-radius: 0.25em;
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 1px 3px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 1px 3px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -4444,11 +4421,11 @@ body > .ui.grid {
 
 .ui.button:active,
 .ui.active.button:active {
-  background-color: '';
+  background-color: #f1f1f1;
   background-image: '';
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.15) inset;
-  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.15) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
 }
 
 /*--------------
@@ -4456,26 +4433,20 @@ body > .ui.grid {
 ---------------*/
 
 .ui.active.button {
-  background-color: #dfdfdf;
+  background-color: #eaeaea;
   background-image: none;
-<<<<<<< HEAD
-  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.1) inset;
-  color: #333333;
-=======
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   color: rgba(0, 0, 0, 0.6);
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.button.active:hover {
-  background-color: #dfdfdf;
+  background-color: #eaeaea;
   background-image: none;
 }
 
 .ui.button.active:active {
-  background-color: #dfdfdf;
+  background-color: #eaeaea;
   background-image: none;
 }
 
@@ -4486,11 +4457,7 @@ body > .ui.grid {
 .ui.loading.button {
   position: relative;
   cursor: default;
-<<<<<<< HEAD
-  background-color: #FFFFFF !important;
-=======
   background-color: #ffffff !important;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   text-shadow: none !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
@@ -4664,54 +4631,30 @@ body > .ui.grid {
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-<<<<<<< HEAD
-  background-color: #3072b3;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #00b5ad;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-<<<<<<< HEAD
-  background-color: #2165a9;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #00cfc5;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-<<<<<<< HEAD
-  background-color: #204c77;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #00918b;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
-<<<<<<< HEAD
-  background-color: #25588b;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #009c95;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*-------------------
@@ -4720,54 +4663,30 @@ body > .ui.grid {
 
 .ui.secondary.buttons .button,
 .ui.secondary.button {
-<<<<<<< HEAD
-  background-color: #5d5d5d;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #555555;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-<<<<<<< HEAD
-  background-color: #584848;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #626262;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-<<<<<<< HEAD
-  background-color: #373737;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #434343;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
-<<<<<<< HEAD
-  background-color: #434343;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #484848;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*-------------------
@@ -4779,21 +4698,6 @@ body > .ui.grid {
 .ui.facebook.button {
   background-color: #3b579d;
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.facebook.button:hover {
-  background-color: #2b4994;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.facebook.button:active {
-  background-color: #263865;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
 }
 
@@ -4807,7 +4711,6 @@ body > .ui.grid {
   background-color: #314983;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Twitter */
@@ -4815,21 +4718,6 @@ body > .ui.grid {
 .ui.twitter.button {
   background-color: #4092cc;
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.twitter.button:hover {
-  background-color: #2787cc;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.twitter.button:active {
-  background-color: #286997;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
 }
 
@@ -4843,7 +4731,6 @@ body > .ui.grid {
   background-color: #3180b7;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Google Plus */
@@ -4851,21 +4738,6 @@ body > .ui.grid {
 .ui.google.plus.button {
   background-color: #d34836;
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.google.plus.button:hover {
-  background-color: #d0331f;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.google.plus.button:active {
-  background-color: #9b3022;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
 }
 
@@ -4879,7 +4751,6 @@ body > .ui.grid {
   background-color: #bc3a29;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Linked In */
@@ -4887,21 +4758,6 @@ body > .ui.grid {
 .ui.linkedin.button {
   background-color: #1f88be;
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.linkedin.button:hover {
-  background-color: #127bb2;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.linkedin.button:active {
-  background-color: #14597c;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
 }
 
@@ -4915,7 +4771,6 @@ body > .ui.grid {
   background-color: #1a729f;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* YouTube */
@@ -4923,21 +4778,6 @@ body > .ui.grid {
 .ui.youtube.button {
   background-color: #cc181e;
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.youtube.button:hover {
-  background-color: #bf0b11;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.youtube.button:active {
-  background-color: #881014;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
 }
 
@@ -4951,7 +4791,6 @@ body > .ui.grid {
   background-color: #ac1419;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Instagram */
@@ -4959,21 +4798,6 @@ body > .ui.grid {
 .ui.instagram.button {
   background-color: #49769c;
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.instagram.button:hover {
-  background-color: #376a95;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.instagram.button:active {
-  background-color: #314f68;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
 }
 
@@ -4987,7 +4811,6 @@ body > .ui.grid {
   background-color: #3e6484;
   color: #ffffff;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /* Pinterest */
@@ -4995,59 +4818,6 @@ body > .ui.grid {
 .ui.pinterest.button {
   background-color: #00aced;
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.pinterest.button:hover {
-  background-color: #0099d4;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.ui.pinterest.button:active {
-  background-color: #0074a1;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-}
-
-/* vk.com */
-
-.ui.vk.button {
-  background-color: #4D7198;
-  color: #FFFFFF;
-}
-
-.ui.vk.button:hover {
-  background-color: #537AA5;
-  color: #FFFFFF;
-}
-
-.ui.vk.button:active {
-  background-color: #405E7E;
-  color: #FFFFFF;
-}
-
-/*--------------
-     Icon
----------------*/
-
-.ui.button > .icon {
-  margin-left: 0.6em;
-  line-height: 1;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
-}
-
-/*******************************
-           Variations
-*******************************/
-
-/*-------------------
-       Floated
---------------------*/
-
-=======
   text-shadow: none;
 }
 
@@ -5099,207 +4869,10 @@ body > .ui.grid {
        Floated
 --------------------*/
 
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 .ui.left.floated.buttons,
 .ui.left.floated.button {
   float: right;
   margin-left: 0.25em;
-<<<<<<< HEAD
-}
-
-.ui.right.floated.buttons,
-.ui.right.floated.button {
-  float: left;
-  margin-right: 0.25em;
-}
-
-/*-------------------
-       Compact
---------------------*/
-
-.ui.compact.buttons .button,
-.ui.compact.button {
-  padding: 0.5625em 0.8624999999999999em 0.5625em;
-}
-
-.ui.compact.icon.buttons .button,
-.ui.compact.buttons .icon.button {
-  padding: 0.5625em 0.5625em 0.8624999999999999em;
-}
-
-/*-------------------
-        Sizes
---------------------*/
-
-.ui.mini.buttons .button,
-.ui.mini.buttons .or,
-.ui.mini.button {
-  font-size: 0.6rem;
-}
-
-.ui.tiny.buttons .button,
-.ui.tiny.buttons .or,
-.ui.tiny.button {
-  font-size: 0.7rem;
-}
-
-.ui.small.buttons .button,
-.ui.small.buttons .or,
-.ui.small.button {
-  font-size: 0.85rem;
-}
-
-.ui.buttons .button,
-.ui.button {
-  font-size: 0.92rem;
-}
-
-.ui.large.buttons .button,
-.ui.large.buttons .or,
-.ui.large.button {
-  font-size: 1rem;
-}
-
-.ui.big.buttons .button,
-.ui.big.buttons .or,
-.ui.big.button {
-  font-size: 1.125rem;
-}
-
-.ui.huge.buttons .button,
-.ui.huge.buttons .or,
-.ui.huge.button {
-  font-size: 1.25rem;
-}
-
-.ui.massive.buttons .button,
-.ui.massive.buttons .or,
-.ui.massive.button {
-  font-size: 1.3rem;
-}
-
-/* Or resize */
-
-.ui.tiny.buttons .or:before,
-.ui.mini.buttons .or:before {
-  width: 1.45em;
-  height: 1.55em;
-  line-height: 1.4;
-  margin-right: -0.725em;
-  margin-top: -0.25em;
-}
-
-.ui.tiny.buttons .or:after,
-.ui.mini.buttons .or:after {
-  height: 1.45em;
-}
-
-/* loading */
-
-.ui.huge.loading.button:after {
-  background-image: url("../themes/default/images/loader-small.gif");
-}
-
-.ui.massive.buttons .loading.button:after,
-.ui.gigantic.buttons .loading.button:after,
-.ui.massive.loading.button:after,
-.ui.gigantic.loading.button:after {
-  background-image: url("../themes/default/images/loader-medium.gif");
-}
-
-.ui.huge.loading.button:after,
-.ui.huge.loading.button.active:after {
-  background-image: url("../themes/default/images/loader-small.gif");
-}
-
-.ui.massive.buttons .loading.button:after,
-.ui.gigantic.buttons .loading.button:after,
-.ui.massive.loading.button:after,
-.ui.gigantic.loading.button:after,
-.ui.massive.buttons .loading.button.active:after,
-.ui.gigantic.buttons .loading.button.active:after,
-.ui.massive.loading.button.active:after,
-.ui.gigantic.loading.button.active:after {
-  background-image: url("../themes/default/images/loader-medium.gif");
-}
-
-/*--------------
-    Icon Only
----------------*/
-
-.ui.icon.buttons .button,
-.ui.icon.button {
-  padding: 0.75em 0.75em 0.75em;
-}
-
-.ui.icon.buttons .button > .icon,
-.ui.icon.button > .icon {
-  opacity: 0.9;
-  margin: 0em;
-}
-
-/*-------------------
-        Basic
---------------------*/
-
-.ui.basic.buttons .button,
-.ui.basic.button {
-  background-color: transparent !important;
-  background-image: none;
-  color: #333333 !important;
-  font-weight: normal;
-  text-transform: none;
-  text-shadow: none !important;
-  padding: 0.75em 1.15em !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-}
-
-.ui.basic.labeled.icon.button > .icon {
-  padding-top: 0.8em !important;
-}
-
-.ui.basic.buttons {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  border-radius: 0.25em;
-}
-
-.ui.basic.buttons .button:hover,
-.ui.basic.button:hover {
-  background-image: none;
-  color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
-  box-shadow: rgba(0, 0, 0, 0.2) inset;
-}
-
-.ui.basic.buttons .button:active,
-.ui.basic.button:active {
-  background-color: rgba(0, 0, 0, 0.02) !important;
-  color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-}
-
-.ui.basic.buttons .button.active,
-.ui.basic.button.active {
-  background-color: rgba(0, 0, 0, 0.05) !important;
-  color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
-  box-shadow: rgba(0, 0, 0, 0.2) inset;
-}
-
-.ui.basic.buttons .button.active:hover,
-.ui.basic.button.active:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Inverted */
-
-.ui.basic.inverted.buttons .button,
-.ui.basic.inverted.button {
-  color: #fafafa !important;
-=======
 }
 
 .ui.right.floated.buttons,
@@ -5502,22 +5075,10 @@ body > .ui.grid {
 .ui.basic.inverted.button:hover {
   background-image: none;
   color: #FFFFFF !important;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   -webkit-box-shadow: rgba(255, 255, 255, 0.3);
   box-shadow: rgba(255, 255, 255, 0.3);
 }
 
-<<<<<<< HEAD
-.ui.basic.inverted.buttons .button:hover,
-.ui.basic.inverted.button:hover {
-  background-image: none;
-  color: #FFFFFF !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
-  box-shadow: rgba(255, 255, 255, 0.3);
-}
-
-=======
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
   background-color: rgba(255, 255, 255, 0.05) !important;
@@ -5530,11 +5091,7 @@ body > .ui.grid {
 .ui.basic.inverted.button.active {
   background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5559,13 +5116,8 @@ body > .ui.grid {
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-<<<<<<< HEAD
-  padding-right: 3.4em !important;
-  padding-left: 1.15em !important;
-=======
   padding-right: 4.33em !important;
   padding-left: 1.5em !important;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.labeled.icon.buttons > .button > .icon,
@@ -5576,17 +5128,6 @@ body > .ui.grid {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-<<<<<<< HEAD
-  width: 2.73em;
-  height: 100%;
-  padding-top: 0.8em;
-  background-color: transparent;
-  text-align: center;
-  border-radius: 0px 0.25em 0.25em 0px;
-  line-height: 1;
-  -webkit-box-shadow: -1px 0px 0px 0px transparent inset;
-  box-shadow: -1px 0px 0px 0px transparent inset;
-=======
   width: 2.83em;
   height: 100%;
   padding-top: 0.8500000000000001em;
@@ -5596,7 +5137,6 @@ body > .ui.grid {
   line-height: 1;
   -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
   box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.labeled.icon.buttons .button > .icon {
@@ -5624,37 +5164,22 @@ body > .ui.grid {
 }
 
 .ui.right.labeled.icon.button {
-<<<<<<< HEAD
-  padding-left: 3.4em !important;
-  padding-right: 1.15em !important;
-=======
   padding-left: 4.33em !important;
   padding-right: 1.5em !important;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.left.fluid.labeled.icon.button,
 .ui.right.fluid.labeled.icon.button {
-<<<<<<< HEAD
-  padding-right: 1.15em !important;
-  padding-left: 1.15em !important;
-=======
   padding-right: 1.5em !important;
   padding-left: 1.5em !important;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 .ui.right.labeled.icon.button .icon {
   right: auto;
   left: 0em;
   border-radius: 0.25em 0em 0em 0.25em;
-<<<<<<< HEAD
-  -webkit-box-shadow: 1px 0px 0px 0px transparent inset;
-  box-shadow: 1px 0px 0px 0px transparent inset;
-=======
   -webkit-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*--------------
@@ -5666,24 +5191,14 @@ body > .ui.grid {
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-<<<<<<< HEAD
-  background-color: #60b044 !important;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #5bbd72 !important;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   color: #ffffff !important;
 }
 
 .ui.button.toggle.active:hover {
-<<<<<<< HEAD
-  background-color: #51a932 !important;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   background-color: #6dc482 !important;
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   color: #ffffff !important;
 }
 
@@ -5746,11 +5261,7 @@ body > .ui.grid {
   right: 50%;
   content: 'or';
   background-color: #FFFFFF;
-<<<<<<< HEAD
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
-=======
   text-shadow: none;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
   margin-top: -0.1em;
   margin-right: -0.9em;
   width: 1.8em;
@@ -5881,7 +5392,6 @@ body > .ui.grid {
 .ui.\34.buttons > .button,
 .ui.four.buttons > .button {
   width: 25%;
-<<<<<<< HEAD
 }
 
 .ui.\35.buttons > .button,
@@ -5909,35 +5419,6 @@ body > .ui.grid {
   width: 11.11%;
 }
 
-=======
-}
-
-.ui.\35.buttons > .button,
-.ui.five.buttons > .button {
-  width: 20%;
-}
-
-.ui.\36.buttons > .button,
-.ui.six.buttons > .button {
-  width: 16.666%;
-}
-
-.ui.\37.buttons > .button,
-.ui.seven.buttons > .button {
-  width: 14.285%;
-}
-
-.ui.\38.buttons > .button,
-.ui.eight.buttons > .button {
-  width: 12.500%;
-}
-
-.ui.\39.buttons > .button,
-.ui.nine.buttons > .button {
-  width: 11.11%;
-}
-
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 .ui.\31\30.buttons > .button,
 .ui.ten.buttons > .button {
   width: 10%;
@@ -5982,8 +5463,6 @@ body > .ui.grid {
 .ui.\35.vertical.buttons > .button,
 .ui.five.vertical.buttons > .button {
   height: 20%;
-<<<<<<< HEAD
-=======
 }
 
 .ui.\36.vertical.buttons > .button,
@@ -7223,6 +6702,18 @@ h5.ui.header {
 
 /* Import */
 
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+  @disabledOpacity
+*/
+
+/*-------------------
+   Icon Variables
+--------------------*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -7320,18 +6811,6 @@ h5.ui.header {
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
-
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-  @disabledOpacity
-*/
-
-/*-------------------
-   Icon Variables
---------------------*/
 
 /*******************************
      User Global Variables
@@ -7639,22 +7118,22 @@ i.icon {
 }
 
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 1.125em;
   vertical-align: middle;
 }
 
 i.big.icon {
-  font-size: 2em;
+  font-size: 1.25em;
   vertical-align: middle;
 }
 
 i.huge.icon {
-  font-size: 4em;
+  font-size: 1.375em;
   vertical-align: middle;
 }
 
 i.massive.icon {
-  font-size: 8em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 
@@ -8056,1374 +7535,789 @@ i.icon.double.angle.right:before {
 
 i.icon.double.angle.up:before {
   content: "\f102";
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
-.ui.\36.vertical.buttons > .button,
-.ui.six.vertical.buttons > .button {
-  height: 16.666%;
+i.icon.down:before {
+  content: "\f063";
 }
 
-.ui.\37.vertical.buttons > .button,
-.ui.seven.vertical.buttons > .button {
-  height: 14.285%;
+i.icon.download.disk:before {
+  content: "\f019";
 }
 
-.ui.\38.vertical.buttons > .button,
-.ui.eight.vertical.buttons > .button {
-  height: 12.500%;
+i.icon.download:before {
+  content: "\f01a";
 }
 
-.ui.\39.vertical.buttons > .button,
-.ui.nine.vertical.buttons > .button {
-  height: 11.11%;
+i.icon.dribbble:before {
+  content: "\f17d";
 }
 
-.ui.\31\30.vertical.buttons > .button,
-.ui.ten.vertical.buttons > .button {
-  height: 10%;
+i.icon.dropbox:before {
+  content: "\f16b";
 }
 
-.ui.\31\31.vertical.buttons > .button,
-.ui.eleven.vertical.buttons > .button {
-  height: 9.09%;
+i.icon.edit.sign:before {
+  content: "\f14b";
 }
 
-.ui.\31\32.vertical.buttons > .button,
-.ui.twelve.vertical.buttons > .button {
-  height: 8.3333%;
+i.icon.edit:before {
+  content: "\f044";
 }
 
-/*-------------------
-       Colors
---------------------*/
-
-/*--- Black ---*/
-
-.ui.black.buttons .button,
-.ui.black.button {
-  background-color: #5d5d5d;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.eject:before {
+  content: "\f052";
 }
 
-.ui.black.buttons .button:hover,
-.ui.black.button:hover {
-  background-color: #584848;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.ellipsis.horizontal:before {
+  content: "\f141";
 }
 
-.ui.black.buttons .button:active,
-.ui.black.button:active {
-  background-color: #373737;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.ellipsis.vertical:before {
+  content: "\f142";
 }
 
-.ui.black.buttons .button.active,
-.ui.black.buttons .button.active:active,
-.ui.black.button.active,
-.ui.black.button .button.active:active {
-  background-color: #434343;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.eraser:before {
+  content: "\f12d";
 }
 
-/*--- Blue ---*/
-
-.ui.blue.buttons .button,
-.ui.blue.button {
-  background-color: #3072b3;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.euro:before {
+  content: "\f153";
 }
 
-.ui.blue.buttons .button:hover,
-.ui.blue.button:hover {
-  background-color: #2165a9;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.exchange:before {
+  content: "\f0ec";
 }
 
-.ui.blue.buttons .button:active,
-.ui.blue.button:active {
-  background-color: #204c77;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.exclamation:before {
+  content: "\f12a";
 }
 
-.ui.blue.buttons .button.active,
-.ui.blue.buttons .button.active:active,
-.ui.blue.button.active,
-.ui.blue.button .button.active:active {
-  background-color: #25588b;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.expand:before {
+  content: "\f116";
 }
-
-/*--- Green ---*/
 
-.ui.green.buttons .button,
-.ui.green.button {
-  background-color: #60b044;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.external.url.sign:before {
+  content: "\f14c";
 }
 
-.ui.green.buttons .button:hover,
-.ui.green.button:hover {
-  background-color: #51a932;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.external.url:before {
+  content: "\f08e";
 }
 
-.ui.green.buttons .button:active,
-.ui.green.button:active {
-  background-color: #42792f;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.facebook.sign:before {
+  content: "\f082";
 }
 
-.ui.green.buttons .button.active,
-.ui.green.buttons .button.active:active,
-.ui.green.button.active,
-.ui.green.button .button.active:active {
-  background-color: #4c8b36;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.facebook:before {
+  content: "\f09a";
 }
 
-/*--- Orange ---*/
-
-.ui.orange.buttons .button,
-.ui.orange.button {
-  background-color: #e96633;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.facetime.video:before {
+  content: "\f03d";
 }
 
-.ui.orange.buttons .button:hover,
-.ui.orange.button:hover {
-  background-color: #f34f0f;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.fast.backward:before {
+  content: "\f049";
 }
 
-.ui.orange.buttons .button:active,
-.ui.orange.button:active {
-  background-color: #bb4314;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.fast.forward:before {
+  content: "\f050";
 }
 
-.ui.orange.buttons .button.active,
-.ui.orange.buttons .button.active:active,
-.ui.orange.button.active,
-.ui.orange.button .button.active:active {
-  background-color: #434343;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.female:before {
+  content: "\f182";
 }
-
-/*--- Pink ---*/
 
-.ui.pink.buttons .button,
-.ui.pink.button {
-  background-color: #d9499a;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.fighter.jet:before {
+  content: "\f0fb";
 }
 
-.ui.pink.buttons .button:hover,
-.ui.pink.button:hover {
-  background-color: #e12890;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.file.outline:before {
+  content: "\f016";
 }
 
-.ui.pink.buttons .button:active,
-.ui.pink.button:active {
-  background-color: #b12573;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.file.text.outline:before {
+  content: "\f0f6";
 }
 
-.ui.pink.buttons .button.active,
-.ui.pink.buttons .button.active:active,
-.ui.pink.button.active,
-.ui.pink.button .button.active:active {
-  background-color: #c62981;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.file.text:before {
+  content: "\f15c";
 }
 
-/*--- Purple ---*/
-
-.ui.purple.buttons .button,
-.ui.purple.button {
-  background-color: #564f8a;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.file:before {
+  content: "\f15b";
 }
 
-.ui.purple.buttons .button:hover,
-.ui.purple.button:hover {
-  background-color: #453c83;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.filter:before {
+  content: "\f0b0";
 }
 
-.ui.purple.buttons .button:active,
-.ui.purple.button:active {
-  background-color: #383359;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.fire.extinguisher:before {
+  content: "\f134";
 }
 
-.ui.purple.buttons .button.active,
-.ui.purple.buttons .button.active:active,
-.ui.purple.button.active,
-.ui.purple.button .button.active:active {
-  background-color: #423c6a;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.fire:before {
+  content: "\f06d";
 }
-
-/*--- Red ---*/
 
-.ui.red.buttons .button,
-.ui.red.button {
-  background-color: #d95c5c;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.flag.checkered:before {
+  content: "\f11e";
 }
 
-.ui.red.buttons .button:hover,
-.ui.red.button:hover {
-  background-color: #e03c3c;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.flag.empty:before {
+  content: "\f11d";
 }
 
-.ui.red.buttons .button:active,
-.ui.red.button:active {
-  background-color: #bd2c2c;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.flag:before {
+  content: "\f024";
 }
 
-.ui.red.buttons .button.active,
-.ui.red.buttons .button.active:active,
-.ui.red.button.active,
-.ui.red.button .button.active:active {
-  background-color: #cf3333;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.flickr:before {
+  content: "\f16e";
 }
 
-/*--- Teal ---*/
-
-.ui.teal.buttons .button,
-.ui.teal.button {
-  background-color: #00b5ad;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.folder.open.outline:before {
+  content: "\f115";
 }
 
-.ui.teal.buttons .button:hover,
-.ui.teal.button:hover {
-  background-color: #009c95;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.folder.open:before {
+  content: "\f07c";
 }
 
-.ui.teal.buttons .button:active,
-.ui.teal.button:active {
-  background-color: #006964;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.folder.outline:before {
+  content: "\f114";
 }
 
-.ui.teal.buttons .button.active,
-.ui.teal.buttons .button.active:active,
-.ui.teal.button.active,
-.ui.teal.button .button.active:active {
-  background-color: #00827c;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.folder:before {
+  content: "\f07b";
 }
-
-/*--- Yellow ---*/
 
-.ui.yellow.buttons .button,
-.ui.yellow.button {
-  background-color: #ffcb08;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.font:before {
+  content: "\f031";
 }
 
-.ui.yellow.buttons .button:hover,
-.ui.yellow.button:hover {
-  background-color: #edbc00;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.food:before {
+  content: "\f0f5";
 }
 
-.ui.yellow.buttons .button:active,
-.ui.yellow.button:active {
-  background-color: #ba9300;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.forward.mail:before {
+  content: "\f064";
 }
 
-.ui.yellow.buttons .button.active,
-.ui.yellow.buttons .button.active:active,
-.ui.yellow.button.active,
-.ui.yellow.button .button.active:active {
-  background-color: #d4a700;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.forward:before {
+  content: "\f04e";
 }
 
-/*---------------
-    Positive
-----------------*/
-
-.ui.positive.buttons .button,
-.ui.positive.button {
-  background-color: #60b044 !important;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.foursquare:before {
+  content: "\f180";
 }
 
-.ui.positive.buttons .button:hover,
-.ui.positive.button:hover,
-.ui.positive.buttons .active.button,
-.ui.positive.button.active {
-  background-color: #51a932 !important;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.frown:before {
+  content: "\f119";
 }
 
-.ui.positive.buttons .button:active,
-.ui.positive.button:active {
-  background-color: #42792f !important;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.fullscreen:before {
+  content: "\f0b2";
 }
 
-.ui.positive.buttons .button.active,
-.ui.positive.buttons .button.active:active,
-.ui.positive.button.active,
-.ui.positive.button .button.active:active {
-  background-color: #4c8b36;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.gamepad:before {
+  content: "\f11b";
 }
-
-/*---------------
-     Negative
-----------------*/
 
-.ui.negative.buttons .button,
-.ui.negative.button {
-  background-color: #d95c5c !important;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.gift:before {
+  content: "\f06b";
 }
 
-.ui.negative.buttons .button:hover,
-.ui.negative.button:hover,
-.ui.negative.buttons .active.button,
-.ui.negative.button.active {
-  background-color: #e03c3c !important;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.github.alternate:before {
+  content: "\f09b";
 }
 
-.ui.negative.buttons .button:active,
-.ui.negative.button:active {
-  background-color: #bd2c2c !important;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.github.sign:before {
+  content: "\f092";
 }
 
-.ui.negative.buttons .button.active,
-.ui.negative.buttons .button.active:active,
-.ui.negative.button.active,
-.ui.negative.button .button.active:active {
-  background-color: #cf3333;
-  color: #ffffff;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+i.icon.github:before {
+  content: "\f113";
 }
 
-/*******************************
-            Groups
-*******************************/
-
-.ui.buttons {
-  display: inline-block;
-  vertical-align: middle;
+i.icon.gittip:before {
+  content: "\f184";
 }
 
-.ui.buttons:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
+i.icon.glass:before {
+  content: "\f000";
 }
 
-.ui.buttons .button:first-child {
-  border-right: none;
+i.icon.globe:before {
+  content: "\f0ac";
 }
 
-.ui.buttons .button {
-  float: right;
-  border-radius: 0em;
+i.icon.google.plus.sign:before {
+  content: "\f0d4";
 }
 
-.ui.buttons .button:first-child {
-  margin-right: 0em;
-  border-top-right-radius: 0.25em;
-  border-bottom-right-radius: 0.25em;
+i.icon.google.plus:before {
+  content: "\f0d5";
 }
 
-.ui.buttons .button:last-child {
-  border-top-left-radius: 0.25em;
-  border-bottom-left-radius: 0.25em;
+i.icon.h.sign:before {
+  content: "\f0fd";
 }
-
-/* Vertical  Style */
 
-.ui.vertical.buttons {
-  display: inline-block;
+i.icon.hand.down:before {
+  content: "\f0a7";
 }
 
-.ui.vertical.buttons .button {
-  display: block;
-  float: none;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+i.icon.hand.left:before {
+  content: "\f0a5";
 }
 
-.ui.vertical.buttons .button:first-child,
-.ui.vertical.buttons .mini.button:first-child,
-.ui.vertical.buttons .tiny.button:first-child,
-.ui.vertical.buttons .small.button:first-child,
-.ui.vertical.buttons .massive.button:first-child,
-.ui.vertical.buttons .huge.button:first-child {
-  margin-top: 0px;
-  border-radius: 0.25em 0.25em 0px 0px;
+i.icon.hand.right:before {
+  content: "\f0a4";
 }
 
-.ui.vertical.buttons .button:last-child,
-.ui.vertical.buttons .mini.button:last-child,
-.ui.vertical.buttons .tiny.button:last-child,
-.ui.vertical.buttons .small.button:last-child,
-.ui.vertical.buttons .massive.button:last-child,
-.ui.vertical.buttons .huge.button:last-child,
-.ui.vertical.buttons .gigantic.button:last-child {
-  border-radius: 0px 0px 0.25em 0.25em;
+i.icon.hand.up:before {
+  content: "\f0a6";
 }
 
-/*******************************
-           Overrides
-*******************************/
-
-.ui.button {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+i.icon.hdd:before {
+  content: "\f0a0";
 }
-
-/*******************************
-           Overrides
-*******************************/
-/*
- * # Semantic - Divider
- * http://github.com/jlukic/semantic-ui/
- *
- *
- * Copyright 2013 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
 
-/*******************************
-            Divider
-*******************************/
-
-.ui.divider {
-  margin: 1rem 0rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-  line-height: 1;
-  height: 0em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+i.icon.headphones:before {
+  content: "\f025";
 }
 
-.ui.vertical.divider,
-.ui.horizontal.divider {
-  position: absolute;
-  border: none;
-  height: 0em;
-  margin: 0em;
-  background-color: transparent;
-  font-size: 0.875rem;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.8);
+i.icon.heart.empty:before {
+  content: "\f08a";
 }
-
-/*--------------
-    Vertical
----------------*/
 
-.ui.vertical.divider {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  right: 50%;
-  margin: 0% -3% 0% 0%;
-  width: 6%;
-  height: 50%;
-  line-height: 0;
-  padding: 0em;
+i.icon.heart:before {
+  content: "\f004";
 }
 
-.ui.vertical.divider:before,
-.ui.vertical.divider:after {
-  position: absolute;
-  right: 50%;
-  content: " ";
-  z-index: 3;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(255, 255, 255, 0.8);
-  width: 0%;
-  height: 80%;
+i.icon.help:before {
+  content: "\f059";
 }
 
-.ui.vertical.divider:before {
-  top: -100%;
+i.icon.hide:before {
+  content: "\f070";
 }
 
-.ui.vertical.divider:after {
-  top: auto;
-  bottom: 0px;
+i.icon.home:before {
+  content: "\f015";
 }
 
-/*--------------
-    Horizontal
----------------*/
-
-.ui.horizontal.divider {
-  position: relative;
-  top: 0%;
-  right: 0%;
-  margin: 1rem 1.5rem;
-  height: auto;
-  padding: 0em;
-  line-height: 1;
+i.icon.hospital:before {
+  content: "\f0f8";
 }
 
-.ui.horizontal.divider:before,
-.ui.horizontal.divider:after {
-  position: absolute;
-  content: " ";
-  z-index: 3;
-  width: 50%;
-  top: 50%;
-  height: 0%;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+i.icon.html5:before {
+  content: "\f13b";
 }
 
-.ui.horizontal.divider:before {
-  right: 0%;
-  margin-right: -1.5rem;
+i.icon.inbox:before {
+  content: "\f01c";
 }
 
-.ui.horizontal.divider:after {
-  right: auto;
-  left: 0%;
-  margin-left: -1.5rem;
+i.icon.indent.left:before {
+  content: "\f03b";
 }
-
-/*--------------
-      Icon
----------------*/
 
-.ui.divider > .icon {
-  margin: 0em;
-  font-size: 1rem;
-  vertical-align: middle;
+i.icon.indent.right:before {
+  content: "\f03c";
 }
 
-/*******************************
-            Variations
-*******************************/
-
-/*--------------
-    Inverted
----------------*/
-
-.ui.divider.inverted {
-  color: #ffffff;
+i.icon.info.letter:before {
+  content: "\f129";
 }
 
-.ui.vertical.inverted.divider,
-.ui.horizontal.inverted.divider {
-  color: rgba(255, 255, 255, 0.9);
+i.icon.info:before {
+  content: "\f05a";
 }
 
-.ui.divider.inverted,
-.ui.divider.inverted:after,
-.ui.divider.inverted:before {
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(255, 255, 255, 0.15);
-  border-right-color: rgba(0, 0, 0, 0.15);
-  border-left-color: rgba(255, 255, 255, 0.15);
+i.icon.instagram:before {
+  content: "\f16d";
 }
 
-/*--------------
-    Fitted
----------------*/
-
-.ui.fitted.divider {
-  margin: 0em;
+i.icon.italic:before {
+  content: "\f033";
 }
-
-/*--------------
-    Clearing
----------------*/
 
-.ui.clearing.divider {
-  clear: both;
+i.icon.key:before {
+  content: "\f084";
 }
 
-/*--------------
-    Section
----------------*/
-
-.ui.section.divider {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+i.icon.keyboard:before {
+  content: "\f11c";
 }
-/*
- * # Semantic - Header
- * http://github.com/jlukic/semantic-ui/
- *
- *
- * Copyright 2013 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
-            Theme
-*******************************/
-
-/*-------------------
-        Theme
---------------------*/
-
-/* To override a theme for an individual element
-   specify theme name below
-*/
-
-/* Global */
-
-/* Elements */
-
-/* Collections */
-
-/* Modules */
-
-/* Views */
-
-/* Import */
-
-/*******************************
-        Global Variables
-*******************************/
-
-/*-------------------
-        Paths
---------------------*/
-
-/*-------------------
-       Page
---------------------*/
-
-/*-------------------
-       Fonts
---------------------*/
-
-/*-------------------
-       Icons
---------------------*/
-
-/* Width of largest icon */
-
-/*******************************
-           BG Colors
-*******************************/
-
-/*******************************
-             Colors
-*******************************/
-
-/*-------------------
-     Background
---------------------*/
-
-/*---  Colors  ---*/
-
-/*---  Emotive  ---*/
-
-/*---  Neutrals  ---*/
-
-/*-------------------
-     Text Colors
---------------------*/
-
-/*-------------------
-     Brand Colors
---------------------*/
-
-/*-------------------
-      Borders
---------------------*/
-
-/*-------------------
-        Sizes
---------------------*/
-
-/*-------------------
-     Transitions
---------------------*/
-
-/*******************************
-           States
-*******************************/
-
-/*-------------------
-      Disabled
---------------------*/
-
-/*-------------------
-        Hover
---------------------*/
-
-/*---  Colors  ---*/
-
-/*---  Emotive  ---*/
-
-/*---  Neutrals  ---*/
-
-/*-------------------
-    Down (:active)
---------------------*/
-
-/*---  Colors  ---*/
-
-/*---  Emotive  ---*/
-
-/*---  Neutrals  ---*/
-
-/*-------------------
-        Active
---------------------*/
-
-/*---  Standard  ---*/
-
-/*---  Emotive  ---*/
-
-/*---  Neutrals  ---*/
-
-/*-------------------
-    Globals Used
---------------------*/
-
-/*-------------------
-   Modified Globals
---------------------*/
 
-/*-------------------
-   Header Variables
---------------------*/
-
-/*******************************
-     User Global Variables
-*******************************/
-
-/*******************************
-    User Variable Overrides
-*******************************/
-
-/*******************************
-            Header
-*******************************/
-
-/* Standard */
-
-.ui.header {
-  border: none;
-  margin: 1em 0em 1rem;
-  padding: 0em;
-  font-size: 1.33em;
-  font-weight: bold;
-  line-height: 1.33;
+i.icon.lab:before {
+  content: "\f0c3";
 }
 
-.ui.header .sub.header {
-  font-size: 1rem;
-  font-weight: normal;
-  margin: 0em;
-  padding: 0em;
-  line-height: 1.2;
-  color: rgba(0, 0, 0, 0.5);
+i.icon.laptop:before {
+  content: "\f109";
 }
 
-.ui.header .icon {
-  display: table-cell;
-  vertical-align: middle;
-  padding-left: 0.5em;
+i.icon.layout.block:before {
+  content: "\f009";
 }
 
-.ui.header .icon:only-child {
-  display: inline-block;
-  vertical-align: baseline;
+i.icon.layout.column:before {
+  content: "\f0db";
 }
 
-.ui.header .content {
-  display: inline-block;
-  vertical-align: top;
+i.icon.layout.grid:before {
+  content: "\f00a";
 }
 
-.ui.header .icon + .content {
-  padding-right: 0.5em;
-  display: table-cell;
+i.icon.layout.list:before {
+  content: "\f00b";
 }
-
-/* Positioning */
 
-.ui.header:first-child {
-  margin-top: 0em;
+i.icon.leaf:before {
+  content: "\f06c";
 }
 
-.ui.header:last-child {
-  margin-bottom: 0em;
+i.icon.legal:before {
+  content: "\f0e3";
 }
 
-.ui.header + p {
-  margin-top: 0em;
+i.icon.lemon:before {
+  content: "\f094";
 }
 
-/*--------------
-  Page Heading
----------------*/
-
-h1.ui.header {
-  min-height: 1rem;
-  line-height: 1.33;
-  font-size: 2rem;
+i.icon.level.down:before {
+  content: "\f149";
 }
 
-h2.ui.header {
-  line-height: 1.33;
-  font-size: 1.75rem;
+i.icon.level.up:before {
+  content: "\f148";
 }
 
-h3.ui.header {
-  line-height: 1.33;
-  font-size: 1.33rem;
+i.icon.lightbulb:before {
+  content: "\f0eb";
 }
 
-h4.ui.header {
-  line-height: 1.33;
-  font-size: 1.1rem;
+i.icon.linkedin.sign:before {
+  content: "\f08c";
 }
 
-h5.ui.header {
-  line-height: 1.2;
-  font-size: 1rem;
+i.icon.linkedin:before {
+  content: "\f0e1";
 }
-
-/*--------------
- Content Heading
----------------*/
 
-.ui.huge.header {
-  min-height: 1em;
-  font-size: 2em;
+i.icon.linux:before {
+  content: "\f17c";
 }
 
-.ui.large.header {
-  font-size: 1.75em;
+i.icon.list.ordered:before {
+  content: "\f0cb";
 }
 
-.ui.medium.header {
-  font-size: 1.33em;
+i.icon.list.unordered:before {
+  content: "\f0ca";
 }
 
-.ui.small.header {
-  font-size: 1.1em;
+i.icon.list:before {
+  content: "\f03a";
 }
 
-.ui.tiny.header {
-  font-size: 1em;
+i.icon.loading:before {
+  content: "\f110";
 }
 
-/*******************************
-            Types
-*******************************/
-
-/*-------------------
-        Icon
---------------------*/
-
-.ui.icon.header {
-  display: inline-block;
-  text-align: center;
+i.icon.location:before {
+  content: "\f124";
 }
 
-.ui.icon.header .icon {
-  float: none;
-  display: block;
-  font-size: 3em;
-  margin: 0em auto 0.2em;
-  padding: 0em;
+i.icon.lock:before {
+  content: "\f023";
 }
 
-.ui.icon.header .content {
-  display: block;
+i.icon.long.arrow.down:before {
+  content: "\f175";
 }
 
-.ui.icon.header .circular.icon,
-.ui.icon.header .square.icon {
-  font-size: 2em;
+i.icon.long.arrow.left:before {
+  content: "\f177";
 }
 
-.ui.block.icon.header .icon {
-  margin-bottom: 0em;
+i.icon.long.arrow.right:before {
+  content: "\f178";
 }
 
-.ui.icon.header.aligned {
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
+i.icon.long.arrow.up:before {
+  content: "\f176";
 }
 
-/*******************************
-            States
-*******************************/
-
-.ui.disabled.header {
-  opacity: 0.3;
+i.icon.magic:before {
+  content: "\f0d0";
 }
-
-/*******************************
-           Variations
-*******************************/
 
-/*-------------------
-       Colors
---------------------*/
-
-.ui.blue.header {
-  color: #6ecff5 !important;
+i.icon.magnet:before {
+  content: "\f076";
 }
 
-.ui.black.header {
-  color: #555555 !important;
+i.icon.mail.outline:before {
+  content: "\f003";
 }
 
-.ui.green.header {
-  color: #5bbd72 !important;
+i.icon.mail.reply:before {
+  content: "\f112";
 }
 
-.ui.red.header {
-  color: #d95c5c !important;
+i.icon.mail:before {
+  content: "\f0e0";
 }
 
-.ui.purple.header {
-  color: #564f8a !important;
+i.icon.male:before {
+  content: "\f183";
 }
 
-.ui.teal.header {
-  color: #00b5ad !important;
+i.icon.map.marker:before {
+  content: "\f041";
 }
 
-.ui.blue.dividing.header {
-  border-bottom: 3px solid #6ecff5;
+i.icon.map:before {
+  content: "\f14e";
 }
 
-.ui.black.dividing.header {
-  border-bottom: 3px solid #555555;
+i.icon.maxcdn:before {
+  content: "\f136";
 }
 
-.ui.green.dividing.header {
-  border-bottom: 3px solid #5bbd72;
+i.icon.medkit:before {
+  content: "\f0fa";
 }
 
-.ui.red.dividing.header {
-  border-bottom: 3px solid #d95c5c;
+i.icon.meh:before {
+  content: "\f11a";
 }
 
-<<<<<<< HEAD
-.ui.purple.dividing.header {
-  border-bottom: 3px solid #564f8a;
+i.icon.minus.sign.alternate:before {
+  content: "\f146";
 }
 
-.ui.teal.dividing.header {
-  border-bottom: 3px solid #00b5ad;
+i.icon.minus.sign:before {
+  content: "\f056";
 }
-
-/*-------------------
-      Inverted
---------------------*/
 
-.ui.inverted.header {
-  color: #ffffff;
+i.icon.minus:before {
+  content: "\f068";
 }
 
-.ui.inverted.header .sub.header {
-  color: rgba(255, 255, 255, 0.85);
+i.icon.mobile:before {
+  content: "\f10b";
 }
 
-/*-------------------
-   Inverted Colors
---------------------*/
-
-.ui.inverted.black.header {
-  background-color: #555555 !important;
-  color: #ffffff !important;
+i.icon.money:before {
+  content: "\f0d6";
 }
 
-.ui.inverted.blue.header {
-  background-color: #6ecff5 !important;
-  color: #ffffff !important;
+i.icon.moon:before {
+  content: "\f186";
 }
 
-.ui.inverted.green.header {
-  background-color: #5bbd72 !important;
-  color: #ffffff !important;
+i.icon.move:before {
+  content: "\f047";
 }
 
-.ui.inverted.red.header {
-  background-color: #d95c5c !important;
-  color: #ffffff !important;
+i.icon.music:before {
+  content: "\f001";
 }
 
-.ui.inverted.purple.header {
-  background-color: #564f8a !important;
-  color: #ffffff !important;
+i.icon.mute:before {
+  content: "\f131";
 }
 
-.ui.inverted.teal.header {
-  background-color: #00b5ad !important;
-  color: #ffffff !important;
+i.icon.off:before {
+  content: "\f011";
 }
 
-.ui.inverted.block.header {
-  border-bottom: none;
+i.icon.ok.circle:before {
+  content: "\f05d";
 }
 
-/*-------------------
-       Aligned
---------------------*/
+i.icon.ok.sign:before {
+  content: "\f058";
+}
 
-.ui.left.aligned.header {
-  text-align: right;
+i.icon.paste:before {
+  content: "\f0ea";
 }
 
-.ui.right.aligned.header {
-  text-align: left;
+i.icon.pause:before {
+  content: "\f04c";
 }
 
-.ui.center.aligned.header {
-  text-align: center;
+i.icon.payment:before {
+  content: "\f09d";
 }
 
-.ui.justified.header {
-  text-align: justify;
+i.icon.pencil:before {
+  content: "\f040";
 }
 
-.ui.justified.header:after {
-  display: inline-block;
-  content: '';
-  width: 100%;
+i.icon.phone.sign:before {
+  content: "\f098";
 }
 
-/*-------------------
-       Floated
---------------------*/
+i.icon.phone:before {
+  content: "\f095";
+}
 
-.ui.floated.header,
-.ui.left.floated.header {
-  float: right;
-  margin-top: 0em;
-  margin-left: 0.5em;
+i.icon.photo:before {
+  content: "\f03e";
 }
 
-.ui.right.floated.header {
-  float: left;
-  margin-top: 0em;
-  margin-right: 0.5em;
+i.icon.pin:before {
+  content: "\f08d";
 }
 
-/*-------------------
-       Fittted
---------------------*/
+i.icon.pinterest.sign:before {
+  content: "\f0d3";
+}
 
-.ui.fitted.header {
-  padding: 0em;
+i.icon.pinterest:before {
+  content: "\f0d2";
 }
 
-/*-------------------
-      Dividing
---------------------*/
+i.icon.plane:before {
+  content: "\f072";
+}
 
-.ui.dividing.header {
-  padding-bottom: 0.2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+i.icon.play.circle:before {
+  content: "\f01d";
 }
 
-.ui.dividing.header .sub.header {
-  padding-bottom: 0.5em;
+i.icon.play.sign:before {
+  content: "\f144";
 }
 
-.ui.dividing.header .icon {
-  margin-bottom: 0.2em;
+i.icon.play:before {
+  content: "\f04b";
 }
 
-/*-------------------
-        Block
---------------------*/
+i.icon.pound:before {
+  content: "\f154";
+}
 
-.ui.block.header {
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 0.5em 1em;
+i.icon.print:before {
+  content: "\f02f";
 }
 
-/*-------------------
-       Attached
---------------------*/
+i.icon.puzzle.piece:before {
+  content: "\f12e";
+}
 
-.ui.attached.header {
-  background-color: #F0F0F0;
-  margin: 0em;
-  padding: 0.75rem 1rem;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+i.icon.qr.code:before {
+  content: "\f029";
 }
 
-.ui.attached:not(.top,
-.bottom) {
-  margin: 0em;
+i.icon.question:before {
+  content: "\f128";
 }
 
-.ui.top.attached.header {
-  margin-bottom: 0em;
-  border-radius: 0.3125em 0.3125em 0em 0em;
+i.icon.quote.left:before {
+  content: "\f10d";
 }
 
-.ui.bottom.attached.header {
-  margin-top: 0em;
-  border-radius: 0em 0em 0.3125em 0.3125em;
+i.icon.quote.right:before {
+  content: "\f10e";
 }
-/*
- * # Semantic - Icon
- * http://github.com/jlukic/semantic-ui/
- *
- *
- * Copyright 2013 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
 
-/*!
- *  Font Awesome 3.2.1
- *  the iconic font designed for Bootstrap
- *  ------------------------------------------------------------------------------
- *  The full suite of pictographic icons, examples, and documentation can be
- *  found at http://fon.io.  Stay up to date on Twitter at
- *  http://twitter.com/fon.
- *
- *  License
- *  ------------------------------------------------------------------------------
- *  - The Font Awesome font is licensed under SIL OFL 1.1 -
- *    http://scripts.sil.org/OFL
+i.icon.refresh:before {
+  content: "\f021";
+}
 
-/*******************************
-            Theme
-*******************************/
+i.icon.remove.circle:before {
+  content: "\f05c";
+}
 
-/*-------------------
-        Theme
---------------------*/
+i.icon.remove.sign:before {
+  content: "\f057";
+}
 
-/* To override a theme for an individual element
-   specify theme name below
-*/
+i.icon.remove:before {
+  content: "\f00d";
+}
 
-/* Global */
+i.icon.renren:before {
+  content: "\f18b";
+}
 
-/* Elements */
+i.icon.reorder:before {
+  content: "\f0c9";
+}
 
-/* Collections */
+i.icon.repeat:before {
+  content: "\f01e";
+}
 
-/* Modules */
+i.icon.reply.all.mail:before {
+  content: "\f122";
+}
 
-/* Views */
+i.icon.resize.full:before {
+  content: "\f065";
+}
 
-/* Import */
+i.icon.resize.horizontal:before {
+  content: "\f07e";
+}
 
-/*******************************
-        Global Variables
-*******************************/
+i.icon.resize.small:before {
+  content: "\f066";
+}
 
-/*-------------------
-        Paths
---------------------*/
+i.icon.resize.vertical:before {
+  content: "\f07d";
+}
 
-/*-------------------
-       Page
---------------------*/
+i.icon.retweet:before {
+  content: "\f079";
+}
 
-/*-------------------
-       Fonts
---------------------*/
+i.icon.road:before {
+  content: "\f018";
+}
 
-/*-------------------
-       Icons
---------------------*/
+i.icon.rocket:before {
+  content: "\f135";
+}
 
-/* Width of largest icon */
+i.icon.rss.sign:before {
+  content: "\f143";
+}
 
-/*******************************
-           BG Colors
-*******************************/
+i.icon.rss:before {
+  content: "\f09e";
+}
 
-/*******************************
-             Colors
-*******************************/
+i.icon.rupee:before {
+  content: "\f156";
+}
 
-/*-------------------
-     Background
---------------------*/
+i.icon.save:before {
+  content: "\f0c7";
+}
 
-/*---  Colors  ---*/
+i.icon.screenshot:before {
+  content: "\f05b";
+}
 
-/*---  Emotive  ---*/
+i.icon.search:before {
+  content: "\f002";
+}
 
-/*---  Neutrals  ---*/
+i.icon.setting:before {
+  content: "\f013";
+}
 
-/*-------------------
-     Text Colors
---------------------*/
+i.icon.settings:before {
+  content: "\f085";
+}
 
-/*-------------------
-     Brand Colors
---------------------*/
+i.icon.share.sign:before {
+  content: "\f14d";
+}
 
-/*-------------------
-      Borders
---------------------*/
+i.icon.share:before {
+  content: "\f045";
+}
 
-/*-------------------
-        Sizes
---------------------*/
+i.icon.shield:before {
+  content: "\f132";
+}
 
-/*-------------------
-     Transitions
---------------------*/
+i.icon.shuffle:before {
+  content: "\f074";
+}
 
-/*******************************
-           States
-*******************************/
+i.icon.sign.in:before {
+  content: "\f090";
+}
 
-/*-------------------
-      Disabled
---------------------*/
+i.icon.sign.out:before {
+  content: "\f08b";
+}
 
-/*-------------------
-        Hover
---------------------*/
+i.icon.sign:before {
+  content: "\f0c8";
+}
 
-/*---  Colors  ---*/
+i.icon.signal:before {
+  content: "\f012";
+}
 
-/*---  Emotive  ---*/
+i.icon.sitemap:before {
+  content: "\f0e8";
+}
 
-/*---  Neutrals  ---*/
+i.icon.skype:before {
+  content: "\f17e";
+}
 
-/*-------------------
-    Down (:active)
---------------------*/
+i.icon.smile:before {
+  content: "\f118";
+}
 
-/*---  Colors  ---*/
+i.icon.sort.alphabet.descending:before {
+  content: "\f15e";
+}
 
-/*---  Emotive  ---*/
+i.icon.sort.alphabet:before {
+  content: "\f15d";
+}
 
-/*---  Neutrals  ---*/
+i.icon.sort.ascending:before {
+  content: "\f0de";
+}
 
-/*-------------------
-        Active
---------------------*/
+i.icon.sort.attributes.descending:before {
+  content: "\f161";
+}
 
-/*---  Standard  ---*/
+i.icon.sort.attributes:before {
+  content: "\f160";
+}
 
-/*---  Emotive  ---*/
+i.icon.sort.descending:before {
+  content: "\f0dd";
+}
 
-/*---  Neutrals  ---*/
+i.icon.sort.order.descending:before {
+  content: "\f163";
+}
 
-/*-------------------
-    Globals Used
---------------------*/
+i.icon.sort.order:before {
+  content: "\f162";
+}
 
-/*
-  @disabledOpacity
-*/
+i.icon.sort:before {
+  content: "\f0dc";
+}
 
-/*-------------------
-   Icon Variables
---------------------*/
+i.icon.stackexchange:before {
+  content: "\f16c";
+}
 
-/*******************************
-     User Global Variables
-*******************************/
+i.icon.star.empty:before {
+  content: "\f006";
+}
 
-/*******************************
-    User Variable Overrides
-*******************************/
+i.icon.star.half.empty:before {
+  content: "\f123";
+}
 
-/*******************************
-             Icon
-*******************************/
+i.icon.star.half.full:before,
+i.icon.star.half:before {
+  content: "\f089";
+}
 
-@font-face {
-  font-family: 'Icons';
-  src: url("../themes/default/fonts/icons.eot");
-  src: url("../themes/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("../themes/default/fonts/icons.svg#icons") format('svg'), url("../themes/default/fonts/icons.woff") format('woff'), url("../themes/default/fonts/icons.ttf") format('truetype');
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-decoration: inherit;
-  text-transform: none;
-=======
 i.icon.star:before {
   content: "\f005";
 }
@@ -9514,7 +8408,6 @@ i.icon.thumbs.up:before {
 
 i.icon.ticket:before {
   content: "\f145";
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 i.icon.time:before {
@@ -9709,26 +8602,6 @@ i.icon.like:before {
   content: "\f004";
 }
 
-<<<<<<< HEAD
-i.large.icon {
-  font-size: 1.5em;
-  vertical-align: middle;
-}
-
-i.big.icon {
-  font-size: 2em;
-  vertical-align: middle;
-}
-
-i.huge.icon {
-  font-size: 4em;
-  vertical-align: middle;
-}
-
-i.massive.icon {
-  font-size: 8em;
-  vertical-align: middle;
-=======
 i.icon.plus:before {
   content: "\f067";
 }
@@ -9761,7 +8634,6 @@ i.icon.search,
 i.icon.right {
   width: auto;
   margin: 0em 0.5em 0em 0em;
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 }
 
 /*******************************

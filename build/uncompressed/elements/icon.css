@@ -34,11 +34,7 @@
    specify theme name below
 */
 
-<<<<<<< HEAD
-/* Global */
-=======
 /* Theme to load global Variables */
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 
 /* Elements */
 
@@ -49,6 +45,18 @@
 /* Views */
 
 /* Import */
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+  @disabledOpacity
+*/
+
+/*-------------------
+   Icon Variables
+--------------------*/
 
 /*******************************
         Global Variables
@@ -147,18 +155,6 @@
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
-
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-  @disabledOpacity
-*/
-
-/*-------------------
-   Icon Variables
---------------------*/
 
 /*******************************
      User Global Variables
@@ -466,26 +462,23 @@ i.icon {
 }
 
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 1.125em;
   vertical-align: middle;
 }
 
 i.big.icon {
-  font-size: 2em;
+  font-size: 1.25em;
   vertical-align: middle;
 }
 
 i.huge.icon {
-  font-size: 4em;
+  font-size: 1.375em;
   vertical-align: middle;
 }
 
 i.massive.icon {
-  font-size: 8em;
+  font-size: 1.5em;
   vertical-align: middle;
-<<<<<<< HEAD
-}
-=======
 }
 
 /*******************************
@@ -1990,4 +1983,3 @@ i.icon.right {
 /*******************************
            Overrides
 *******************************/
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029

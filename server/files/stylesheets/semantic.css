@@ -138,6 +138,10 @@ a:hover {
   color: #00BAFF;
 }
 
+#example .theme.buttons .basic.button .text {
+  font-weight: bold;
+}
+
 #example #menu .item {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;

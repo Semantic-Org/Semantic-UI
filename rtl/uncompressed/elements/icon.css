@@ -29,8 +29,6 @@
 /*-------------------
         Theme
 --------------------*/
-<<<<<<< HEAD
-=======
 
 /* To override a theme for an individual element
    specify theme name below
@@ -47,6 +45,18 @@
 /* Views */
 
 /* Import */
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+  @disabledOpacity
+*/
+
+/*-------------------
+   Icon Variables
+--------------------*/
 
 /*******************************
         Global Variables
@@ -145,18 +155,6 @@
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
-
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-  @disabledOpacity
-*/
-
-/*-------------------
-   Icon Variables
---------------------*/
 
 /*******************************
      User Global Variables
@@ -464,22 +462,22 @@ i.icon {
 }
 
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 1.125em;
   vertical-align: middle;
 }
 
 i.big.icon {
-  font-size: 2em;
+  font-size: 1.25em;
   vertical-align: middle;
 }
 
 i.huge.icon {
-  font-size: 4em;
+  font-size: 1.375em;
   vertical-align: middle;
 }
 
 i.massive.icon {
-  font-size: 8em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 
@@ -1815,460 +1813,173 @@ i.icon.unhide:before {
 i.icon.unlink:before {
   content: "\f127";
 }
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029
 
-/* To override a theme for an individual element
-   specify theme name below
-*/
-
-/* Global */
-
-/* Elements */
-
-/* Collections */
-
-/* Modules */
-
-/* Views */
-
-/* Import */
-
-/*******************************
-        Global Variables
-*******************************/
-
-/*-------------------
-        Paths
---------------------*/
-
-/*-------------------
-       Page
---------------------*/
-
-/*-------------------
-       Fonts
---------------------*/
-
-/*-------------------
-       Icons
---------------------*/
-
-/* Width of largest icon */
-
-/*******************************
-           BG Colors
-*******************************/
-
-/*******************************
-             Colors
-*******************************/
-
-/*-------------------
-     Background
---------------------*/
-
-/*---  Colors  ---*/
-
-/*---  Emotive  ---*/
-
-/*---  Neutrals  ---*/
-
-/*-------------------
-     Text Colors
---------------------*/
-
-/*-------------------
-     Brand Colors
---------------------*/
-
-/*-------------------
-      Borders
---------------------*/
-
-/*-------------------
-        Sizes
---------------------*/
-
-/*-------------------
-     Transitions
---------------------*/
-
-/*******************************
-           States
-*******************************/
-
-/*-------------------
-      Disabled
---------------------*/
-
-/*-------------------
-        Hover
---------------------*/
-
-/*---  Colors  ---*/
-
-/*---  Emotive  ---*/
-
-/*---  Neutrals  ---*/
-
-/*-------------------
-    Down (:active)
---------------------*/
-
-/*---  Colors  ---*/
-
-/*---  Emotive  ---*/
-
-/*---  Neutrals  ---*/
-
-/*-------------------
-        Active
---------------------*/
-
-/*---  Standard  ---*/
-
-/*---  Emotive  ---*/
-
-/*---  Neutrals  ---*/
-
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-  @disabledOpacity
-*/
-
-/*-------------------
-   Icon Variables
---------------------*/
-
-/*******************************
-     User Global Variables
-*******************************/
-
-/*******************************
-<<<<<<< HEAD
-    User Variable Overrides
-*******************************/
-
-/*******************************
-             Icon
-*******************************/
-
-@font-face {
-  font-family: 'Icons';
-  src: url("../themes/default/fonts/icons.eot");
-  src: url("../themes/default/fonts/icons.eot?#iefix") format('embedded-opentype'), url("../themes/default/fonts/icons.svg#icons") format('svg'), url("../themes/default/fonts/icons.woff") format('woff'), url("../themes/default/fonts/icons.ttf") format('truetype');
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-decoration: inherit;
-  text-transform: none;
+i.icon.unlock.alternate:before {
+  content: "\f13e";
 }
 
-i.icon {
-  display: inline-block;
-  opacity: 0.75;
-  margin: 0em 0em 0em 0.25em;
-  width: 1.23em;
-  height: 1em;
-  font-family: 'Icons';
-  font-style: normal;
-  line-height: 1;
-  font-weight: normal;
-  text-decoration: inherit;
-  text-align: center;
-  speak: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-smoothing: antialiased;
+i.icon.unlock:before {
+  content: "\f09c";
 }
 
-/*******************************
-             Types
-*******************************/
+i.icon.unmute:before {
+  content: "\f130";
+}
+
+i.icon.up:before {
+  content: "\f062";
+}
+
+i.icon.upload.disk:before {
+  content: "\f093";
+}
+
+i.icon.upload:before {
+  content: "\f01b";
+}
+
+i.icon.url:before {
+  content: "\f0c1";
+}
+
+i.icon.user:before {
+  content: "\f007";
+}
+
+i.icon.users:before {
+  content: "\f0c0";
+}
+
+i.icon.video:before {
+  content: "\f008";
+}
+
+i.icon.vk:before {
+  content: "\f189";
+}
+
+i.icon.volume.down:before {
+  content: "\f027";
+}
+
+i.icon.volume.off:before {
+  content: "\f026";
+}
+
+i.icon.volume.up:before {
+  content: "\f028";
+}
+
+i.icon.warning:before {
+  content: "\f071";
+}
+
+i.icon.weibo:before {
+  content: "\f18a";
+}
+
+i.icon.windows:before {
+  content: "\f17a";
+}
+
+i.icon.won:before {
+  content: "\f159";
+}
+
+i.icon.wrench:before {
+  content: "\f0ad";
+}
+
+i.icon.xing.sign:before {
+  content: "\f169";
+}
+
+i.icon.xing:before {
+  content: "\f168";
+}
+
+i.icon.yen:before {
+  content: "\f157";
+}
+
+i.icon.youtube.play:before {
+  content: "\f16a";
+}
+
+i.icon.youtube.sign:before {
+  content: "\f166";
+}
+
+i.icon.youtube:before {
+  content: "\f167";
+}
+
+i.icon.yuan:before {
+  content: "\f158";
+}
+
+i.icon.zoom.in:before {
+  content: "\f00e";
+}
+
+i.icon.zoom.out:before {
+  content: "\f010";
+}
 
 /*--------------
-    Loading
+    Aliases
 ---------------*/
 
-i.icon.loading {
-  -webkit-animation: icon-loading 2s linear infinite;
-  animation: icon-loading 2s linear infinite;
+i.icon.check:before {
+  content: "\f00c";
 }
 
-@-webkit-keyframes icon-loading {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+i.icon.close:before {
+  content: "\f00d";
 }
 
-@keyframes icon-loading {
-  from {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+i.icon.delete:before {
+  content: "\f00d";
+}
 
-  to {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+i.icon.like:before {
+  content: "\f004";
+}
+
+i.icon.plus:before {
+  content: "\f067";
+}
+
+i.icon.signup:before {
+  content: "\f044";
+}
+
+/*--------------
+   Spacing Fix
+---------------*/
+
+/* stars are usually consecutive */
+
+i.icon.star {
+  width: auto;
+  margin: 0em;
+}
+
+/* left side icons */
+
+i.icon.left {
+  width: auto;
+  margin: 0em 0em 0em 0.5em;
+}
+
+/* right side icons */
+
+i.icon.search,
+i.icon.right {
+  width: auto;
+  margin: 0em 0.5em 0em 0em;
 }
 
 /*******************************
-             States
-*******************************/
-
-i.icon.hover {
-  opacity: 1;
-}
-
-i.icon.active {
-  opacity: 1;
-}
-
-i.emphasized.icon {
-  opacity: 1;
-}
-
-i.icon.disabled {
-  opacity: 0.3;
-}
-
-/*******************************
-           Variations
-*******************************/
-
-/*-------------------
-         Link
---------------------*/
-
-i.link.icon {
-  cursor: pointer;
-  opacity: 0.75;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-i.link.icon:hover {
-  opacity: 1 !important;
-}
-
-/*-------------------
-      Circular
---------------------*/
-
-i.circular.icon {
-  border-radius: !important 500em;
-  padding: 0.5em 0.35em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  line-height: 1 !important;
-  width: 2em !important;
-  height: 2em !important;
-}
-
-i.circular.inverted.icon {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-/*-------------------
-      Flipped
---------------------*/
-
-i.flipped.icon,
-i.horizontally.flipped.icon {
-  -webkit-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
-  transform: scale(-1, 1);
-}
-
-i.vertically.flipped.icon {
-  -webkit-transform: scale(1, -1);
-  -ms-transform: scale(1, -1);
-  transform: scale(1, -1);
-}
-
-/*-------------------
-      Rotated
---------------------*/
-
-i.rotated.icon,
-i.right.rotated.icon,
-i.clockwise.rotated.icon {
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
-i.left.rotated.icon,
-i.counterclockwise.rotated.icon {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
-/*-------------------
-        Square
---------------------*/
-
-i.square.icon {
-  width: 2em;
-  height: 2em;
-  padding: 2em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-  vertical-align: baseline;
-}
-
-i.square.inverted.icon {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-/*-------------------
-      Inverted
---------------------*/
-
-i.inverted.icon {
-  background-color: #222222;
-  color: #FFFFFF;
-}
-
-/*-------------------
-       Colors
---------------------*/
-
-i.black.icon {
-  color: #555555 !important;
-}
-
-i.blue.icon {
-  color: #6ecff5 !important;
-}
-
-i.green.icon {
-  color: #5bbd72 !important;
-}
-
-i.orange.icon {
-  color: #e96633 !important;
-}
-
-i.pink.icon {
-  color: #d9499a !important;
-}
-
-i.purple.icon {
-  color: #564f8a !important;
-}
-
-i.red.icon {
-  color: #d95c5c !important;
-}
-
-i.teal.icon {
-  color: #00b5ad !important;
-}
-
-i.yellow.icon {
-  color: #ffcb08 !important;
-}
-
-/*-------------------
-   Inverted Colors
---------------------*/
-
-i.black.icon {
-  background-color: #555555 !important;
-  color: #FFFFFF !important;
-}
-
-i.blue.icon {
-  background-color: #6ecff5 !important;
-  color: #FFFFFF !important;
-}
-
-i.green.icon {
-  background-color: #5bbd72 !important;
-  color: #FFFFFF !important;
-}
-
-i.orange.icon {
-  background-color: #e96633 !important;
-  color: #FFFFFF !important;
-}
-
-i.pink.icon {
-  background-color: #d9499a !important;
-  color: #FFFFFF !important;
-}
-
-i.purple.icon {
-  background-color: #564f8a !important;
-  color: #FFFFFF !important;
-}
-
-i.red.icon {
-  background-color: #d95c5c !important;
-  color: #FFFFFF !important;
-}
-
-i.teal.icon {
-  background-color: #00b5ad !important;
-  color: #FFFFFF !important;
-}
-
-i.yellow.icon {
-  background-color: #ffcb08 !important;
-  color: #FFFFFF !important;
-}
-
-/*-------------------
-        Sizes
---------------------*/
-
-i.small.icon {
-  font-size: 0.875em;
-}
-
-i.icon {
-  font-size: 1em;
-}
-
-i.large.icon {
-  font-size: 1.5em;
-  vertical-align: middle;
-}
-
-i.big.icon {
-  font-size: 2em;
-  vertical-align: middle;
-}
-
-i.huge.icon {
-  font-size: 4em;
-  vertical-align: middle;
-}
-
-i.massive.icon {
-  font-size: 8em;
-  vertical-align: middle;
-}
-=======
            Overrides
 *******************************/
->>>>>>> d7d96b375e43e141bb5d9239847c9da229665029

@@ -11,17 +11,31 @@
 
       <p><%=@document.description %></p>
       <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection': %>
-      <div class="ui basic labeled icon toggle overview button">
+      <div class="ui right floated basic labeled icon toggle overview button">
         Definition Mode
         <i class="book icon"></i>
       </div>
       <% end %>
       <% if @document.type is 'UI Module': %>
-      <a href="/module.html" class="ui basic labeled icon button">
+      <a href="/module.html" class="ui right floated basic labeled icon button">
         Learn about Modules
         <i class="help icon"></i>
       </a>
       <% end %>
+      <div class="ui theme buttons">
+        <div class="ui basic button">
+          <span class="text">Semantic</span>
+           Theme
+        </div>
+        <div class="ui theme dropdown icon button" data-element="button" data-type="element">
+          <i class="dropdown icon"></i>
+          <div class="menu ui transition hidden">
+            <div class="item" data-value="default">Semantic</div>
+            <div class="item" data-value="basic">Basic</div>
+            <div class="item active" data-value="github">Github</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="advertisement">
       <% unless 'development' in @getEnvironments(): %>
