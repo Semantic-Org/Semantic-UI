@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jlukic/Semantic-UI.git"
+    "url": "git://github.com/Semantic-Org/Semantic-UI.git"
   },
   "dependencies": {
     "docpad": "~6.59.6",
