@@ -605,7 +605,6 @@ type        : 'UI Element'
     <i class="lock icon"></i>
     <i class="meh icon"></i>
     <i class="ok circle icon"></i>
-    <i class="ok icon"></i>
     <i class="ok sign icon"></i>
     <i class="smile icon"></i>
     <i class="empty star icon"></i>
@@ -698,7 +697,6 @@ type        : 'UI Element'
     <i class="arrow sign left icon"></i>
     <i class="arrow sign right icon"></i>
     <i class="arrow sign up icon"></i>
-    <i class="arrow up icon"></i>
     <i class="circle left icon"></i>
     <i class="circle right icon"></i>
     <i class="circle up icon"></i>
