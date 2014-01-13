@@ -1,14 +1,16 @@
 ---
 layout      : 'default'
 css         : 'button'
+element     : 'button'
+elementType : 'element'
+
 title       : 'Button'
 description : 'Buttons indicate a possible user action.'
 type        : 'UI Element'
+
 themes      : ['default', 'basic', 'github']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/elements/button.less" />
-<script src="/javascript/library/less.js"></script>
-
 <script src="/javascript/button.js"></script>
 
 <%- @partial('header') %>
@@ -263,8 +265,6 @@ themes      : ['default', 'basic', 'github']
     <a class="ui yellow button">Yellow Button</a>
     <a class="ui green button">Green Button</a>
     <a class="ui blue button">Blue Button</a>
-  </div>
-  <div class="another example">
     <a class="ui orange button">Orange Button</a>
     <a class="ui purple button">Purple Button</a>
     <a class="ui red button">Red Button</a>

@@ -32,6 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/basic.icon.css">
 
+  <link rel="stylesheet/less" type="text/css" href="/build/less/site.less" />
   <% if 'development' in @getEnvironments(): %>
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/icon.css">
 
@@ -275,6 +276,7 @@
       <span class="text">Menu</span>
     </div>
   <%- @content %>
+  <script src="/javascript/library/less.js"></script>
 </body>
 
 </html>

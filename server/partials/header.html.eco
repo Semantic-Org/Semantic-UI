@@ -4,13 +4,14 @@
   <div class="container">
     <div class="introduction">
 
-      <h1 class="ui dividing header">
+      <h1 class="ui header">
         <%=@document.title %>
         <% if @document.status?: %><span class="ui label"><%= @document.status %></span><% end %>
       </h1>
 
       <p><%=@document.description %></p>
       <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection': %>
+      <div class="ui divider"></div>
       <div class="ui right floated basic labeled icon toggle overview button">
         Definition Mode
         <i class="book icon"></i>
@@ -22,20 +23,25 @@
         <i class="help icon"></i>
       </a>
       <% end %>
-      <div class="ui theme buttons">
-        <div class="ui basic button">
-          <span class="text">Semantic</span>
-           Theme
-        </div>
-        <div class="ui theme dropdown icon button" data-element="button" data-type="element">
-          <i class="dropdown icon"></i>
-          <div class="menu ui transition hidden">
-            <div class="item" data-value="default">Semantic</div>
-            <div class="item" data-value="basic">Basic</div>
-            <div class="item active" data-value="github">Github</div>
-          </div>
+      <% if @document.themes?: %>
+      <div class="ui basic floating dropdown theme button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
+        <span class="text">Theme</span>
+        <i class="dropdown icon"></i>
+        <div class="menu ui transition hidden">
+          <% for id, name of @document.themes: %>
+            <div class="item" data-value="<%= name %>"><%= (name.charAt(0).toUpperCase() + name.slice(1)) %></div>
+          <% end %>
         </div>
       </div>
+      <div class="ui button">
+        <i class="settings icon"></i>
+        Customize
+      </div>
+      <div class="ui primary button">
+        Download
+        <i class="download icon"></i>
+      </div>
+      <% end %>
     </div>
     <div class="advertisement">
       <% unless 'development' in @getEnvironments(): %>

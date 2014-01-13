@@ -113,11 +113,9 @@ semantic.ready = function() {
           // clear whitespace
           line = $.trim(line);
           // match variables only
-          console.log(line);
           if(line[0] == '@') {
             name = line.match(/^@(.+):/);
             value = line.match(/:(\W)(.*);/);
-            console.log(name, value);
             if( ($.isArray(name) && name.length >= 2) && ($.isArray(value) && value.length >= 3) ) {
               name = name[1];
               value = value[2];
@@ -738,7 +736,6 @@ semantic.ready = function() {
 
   $themeDropdown
     .dropdown({
-      action: 'combo',
       onChange: handler.less.changeTheme
     })
   ;
