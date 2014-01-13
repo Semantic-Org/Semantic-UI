@@ -35,7 +35,7 @@
   background-color: @backgroundColor;
   color: @textColor;
 
-  margin: 0em;
+  margin: @margin;
   padding: @verticalPadding @horizontalPadding (@verticalPadding + @shadowOffset);
 
   font-family: @fontFamily;
@@ -145,6 +145,7 @@
       Disabled
 --------------------*/
 
+.ui.buttons .disabled.button,
 .ui.disabled.button,
 .ui.disabled.button:hover,
 .ui.disabled.button.active {
@@ -264,6 +265,7 @@
   background-color: @primaryColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
@@ -293,6 +295,7 @@
   background-color: @secondaryColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
@@ -322,6 +325,7 @@
   background-color: @facebookColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.facebook.button:hover {
   background-color: @facebookHoverColor;
@@ -339,6 +343,7 @@
   background-color: @twitterColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.twitter.button:hover {
   background-color: @twitterHoverColor;
@@ -356,6 +361,7 @@
   background-color: @googlePlusColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.google.plus.button:hover {
   background-color: @googlePlusHoverColor;
@@ -390,6 +396,7 @@
   background-color: @youtubeColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.youtube.button:hover {
   background-color: @youtubeHoverColor;
@@ -407,6 +414,7 @@
   background-color: @instagramColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.instagram.button:hover {
   background-color: @instagramHoverColor;
@@ -424,6 +432,7 @@
   background-color: @pinterestColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.pinterest.button:hover {
   background-color: @pinterestHoverColor;
@@ -440,6 +449,7 @@
 .ui.vk.button {
   background-color: #4D7198;
   color: #FFFFFF;
+  box-shadow: none;
 }
 .ui.vk.button:hover {
   background-color: #537AA5;
@@ -607,6 +617,9 @@
   opacity: @iconButtonOpacity;
   margin: 0em;
 }
+.ui.icon.buttons .button > .icon {
+  vertical-align: top;
+}
 
 
 
@@ -622,14 +635,14 @@
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
-  padding: @verticalPadding @horizontalPadding !important;
-  box-shadow: 0px 0px 0px 1px @borderColor inset;
+  /* padding: @verticalPadding @horizontalPadding !important; */
+  box-shadow: 0px 0px 0px 1px @borderColor;
 }
 .ui.basic.labeled.icon.button > .icon {
   padding-top: (@verticalPadding + 0.05em) !important;
 }
 .ui.basic.buttons {
-  box-shadow: 0px 0px 0px 1px @borderColor inset;
+  box-shadow: 0px 0px 0px 1px @borderColor;
   border-radius: @borderRadius;
 }
 
@@ -637,19 +650,19 @@
 .ui.basic.button:hover {
   background-image: none;
   color: @selectedTextColor !important;
-  box-shadow: @selectedBorderColor inset;
+  box-shadow: @selectedBorderColor;
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background-color: rgba(0, 0, 0, 0.02) !important;
   color: @selectedTextColor !important;
-  box-shadow: 0px 0px 0px 1px @borderColor inset;
+  box-shadow: 0px 0px 0px 1px @borderColor;
 }
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
   background-color: @transparentBlack !important;
   color: @selectedTextColor;
-  box-shadow: @selectedBorderColor inset;
+  box-shadow: @selectedBorderColor;
 }
 .ui.basic.buttons .button.active:hover,
 .ui.basic.button.active:hover {
@@ -672,7 +685,7 @@
 .ui.basic.inverted.button:active {
   background-color: @transparentWhite !important;
   color: #FFFFFF !important;
-  box-shadow: @selectedWhiteBorderColor inset !important;
+  box-shadow: @selectedWhiteBorderColor !important;
 }
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
@@ -793,6 +806,7 @@
 
 .ui.attached.button {
   display: block;
+  margin: 0em;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
 }
 .ui.attached.top.button {
@@ -1053,6 +1067,7 @@
   background-color: @black;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
@@ -1081,6 +1096,7 @@
   background-color: @blue;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
@@ -1109,6 +1125,7 @@
   background-color: @green;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
@@ -1137,6 +1154,7 @@
   background-color: @orange;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
@@ -1165,6 +1183,7 @@
   background-color: @pink;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
@@ -1193,6 +1212,7 @@
   background-color: @purple;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
@@ -1221,6 +1241,7 @@
   background-color: @red;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
@@ -1249,6 +1270,7 @@
   background-color: @teal;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
@@ -1277,6 +1299,7 @@
   background-color: @yellow;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
@@ -1308,6 +1331,7 @@
   background-color: @positiveColor !important;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover,
@@ -1341,6 +1365,7 @@
   background-color: @negativeColor !important;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,
@@ -1385,6 +1410,7 @@
 }
 
 .ui.buttons .button {
+  margin: 0em;
   float: left;
   border-radius: 0em;
 }
@@ -1406,7 +1432,7 @@
 .ui.vertical.buttons .button {
   display: block;
   float: none;
-  box-shadow: 0px 0px 0px 1px @borderColor inset;
+  box-shadow: @verticalBoxShadow;
 }
 .ui.vertical.buttons .button:first-child,
 .ui.vertical.buttons .mini.button:first-child,

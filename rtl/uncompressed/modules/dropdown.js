@@ -48,6 +48,10 @@ $.fn.dropdown = function(parameters) {
         $text           = $module.find(selector.text),
         $input          = $module.find(selector.input),
 
+        $combo = ($module.prev().find(selector.text).size() > 0)
+          ? $module.prev().find(selector.text)
+          : $module.prev(),
+
         $menu           = $module.children(selector.menu),
 
 
@@ -288,6 +292,16 @@ $.fn.dropdown = function(parameters) {
             module.hide();
           },
 
+          combo: function(text, value) {
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
+            module.set.selected(value);
+            module.set.value(value);
+            module.hide();
+          },
+
           /* Deprecated */
           auto: function(text, value) {
             value = (value !== undefined)
@@ -409,9 +423,17 @@ $.fn.dropdown = function(parameters) {
 
         set: {
           text: function(text) {
-            module.debug('Changing text', text, $text);
-            $text.removeClass(className.placeholder);
-            $text.text(text);
+            if(settings.action == 'combo') {
+              module.debug('Changing combo button text', text, $combo);
+              $combo
+                .text(text)
+              ;
+            }
+            else {
+              module.debug('Changing text', text, $text);
+              $text.removeClass(className.placeholder);
+              $text.text(text);
+            }
           },
           value: function(value) {
             module.debug('Adding selected value to hidden input', value, $input);

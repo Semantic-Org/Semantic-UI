@@ -46,18 +46,6 @@
 
 /* Import */
 
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-  @disabledOpacity
-*/
-
-/*-------------------
-   Icon Variables
---------------------*/
-
 /*******************************
         Global Variables
 *******************************/
@@ -155,6 +143,18 @@
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+  @disabledOpacity
+*/
+
+/*-------------------
+   Icon Variables
+--------------------*/
 
 /*******************************
      User Global Variables
@@ -462,22 +462,22 @@ i.icon {
 }
 
 i.large.icon {
-  font-size: 1.125em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 
 i.big.icon {
-  font-size: 1.25em;
+  font-size: 2em;
   vertical-align: middle;
 }
 
 i.huge.icon {
-  font-size: 1.375em;
+  font-size: 4em;
   vertical-align: middle;
 }
 
 i.massive.icon {
-  font-size: 1.5em;
+  font-size: 8em;
   vertical-align: middle;
 }
 
@@ -1974,6 +1974,7 @@ i.icon.left {
 
 /* right side icons */
 
+i.icon.download,
 i.icon.search,
 i.icon.right {
   width: auto;

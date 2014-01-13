@@ -129,8 +129,16 @@
 }
 
 /*******************************
-            Variations
+          Variations
 *******************************/
+
+/*--------------
+    Hidden
+---------------*/
+
+.ui.hidden.divider {
+  border-color: transparent;
+}
 
 /*--------------
     Inverted
