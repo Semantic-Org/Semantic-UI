@@ -69,7 +69,7 @@ type        : 'UI Element'
         <div class="column"><i class="info icon"></i>Info</div>
         <div class="column"><i class="info letter icon"></i>Info Letter</div>
         <div class="column"><i class="legal icon"></i>Legal</div>
-        <div class="column"><i class="location arrow icon"></i>Location</div>
+        <div class="column"><i class="location icon"></i>Location</div>
         <div class="column"><i class="mail icon"></i>Mail</div>
         <div class="column"><i class="mail outline icon"></i>Mail Outline</div>
         <div class="column"><i class="map icon"></i>Map</div>
