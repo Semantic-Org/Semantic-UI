@@ -386,6 +386,7 @@ type        : 'UI Element'
       <p>Icons can represent actions that occur on media</p>
       <div class="ui eight column grid">
         <div class="column"><i class="backward icon"></i>Backward</div>
+        <div class="column"><i class="forward icon"></i>Forward</div>
         <div class="column"><i class="eject icon"></i>Eject</div>
         <div class="column"><i class="fast backward icon"></i>Fast Backward</div>
         <div class="column"><i class="fast forward icon"></i>Fast Forward</div>
@@ -406,6 +407,7 @@ type        : 'UI Element'
       </div>
       <div class="existing code">
     <i class="backward icon"></i>
+    <i class="forward icon"></i>
     <i class="eject icon"></i>
     <i class="fast backward icon"></i>
     <i class="fast forward icon"></i>
