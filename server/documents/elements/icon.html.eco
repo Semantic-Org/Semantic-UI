@@ -959,7 +959,7 @@ type        : 'UI Element'
         <div class="column"><i class="flag basic icon"></i> Flag</div>
         <div class="column"><i class="cancel basic icon"></i> Cancel</div>
         <div class="column"><i class="close basic icon"></i> Close</div>
-        <div class="column"><i class="close basic icon"></i> Delete</div>
+        <div class="column"><i class="delete basic icon"></i> Delete</div>
         <div class="column"><i class="check basic icon"></i> Check</div>
         <div class="column"><i class="edit basic icon"></i> Edit</div>
         <div class="column"><i class="open basic icon"></i> Open</div>
@@ -985,7 +985,7 @@ type        : 'UI Element'
     <i class="flag basic icon"></i>
     <i class="cancel basic icon"></i>
     <i class="close basic icon"></i>
-    <i class="close basic icon"></i>
+    <i class="delete basic icon"></i>
     <i class="check basic icon"></i>
     <i class="edit basic icon"></i>
     <i class="open basic icon"></i>
@@ -1039,8 +1039,8 @@ type        : 'UI Element'
         <div class="column"><i class="fast-forward basic icon"></i> Fast-forward</div>
         <div class="column"><i class="pause basic icon"></i> Pause</div>
         <div class="column"><i class="play basic icon"></i> Play</div>
-        <div class="column"><i class="to-end basic icon"></i> To-start</div>
-        <div class="column"><i class="to-start basic icon"></i> To-end</div>
+        <div class="column"><i class="to-start basic icon"></i> To-start</div>
+        <div class="column"><i class="to-end basic icon"></i> To-end</div>
         <div class="column"><i class="forward basic icon"></i> Forward</div>
         <div class="column"><i class="shuffle basic icon"></i> Shuffle</div>
         <div class="column"><i class="clockwise basic icon"></i> Clockwise</div>
