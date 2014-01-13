@@ -1181,6 +1181,11 @@ type        : 'UI Element'
         <div class="column"><i class="twitter basic icon"></i> Twitter</div>
         <div class="column"><i class="github basic icon"></i> Github</div>
       </div>
+      <div class="existing code">
+    <i class="facebook basic icon"></i>
+    <i class="twitter basic icon"></i>
+    <i class="github basic icon"></i>
+      </div>
     </div>
   </div>
 
