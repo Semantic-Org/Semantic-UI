@@ -567,7 +567,7 @@ type        : 'UI Element'
         <div class="column"><i class="empty checkbox icon"></i>Empty Checkbox</div>
         <div class="column"><i class="checked checkbox icon"></i>Checked Checkbox</div>
         <div class="column"><i class="exclamation icon"></i>Exclamation</div>
-        <div class="column"><i class="attention icon"></i>attention</div>
+        <div class="column"><i class="attention icon"></i>Attention</div>
         <div class="column"><i class="frown icon"></i>Frown</div>
         <div class="column"><i class="heart empty icon"></i>Heart Empty</div>
         <div class="column"><i class="heart icon"></i>Heart</div>
@@ -597,7 +597,7 @@ type        : 'UI Element'
     <i class="empty checkbox icon"></i>
     <i class="checked checkbox icon"></i>
     <i class="exclamation icon"></i>
-    <i class="exclamation sign icon"></i>
+    <i class="attention icon"></i>
     <i class="frown icon"></i>
     <i class="heart empty icon"></i>
     <i class="heart icon"></i>
