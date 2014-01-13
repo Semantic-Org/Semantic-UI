@@ -60,8 +60,8 @@ type        : 'UI Element'
         <div class="column"><i class="file icon"></i>File</div>
         <div class="column"><i class="file outline icon"></i>File Outline</div>
         <div class="column"><i class="folder icon"></i>Folder</div>
-        <div class="column"><i class="folder open icon"></i>Open Folder</div>
-        <div class="column"><i class="folder open outline icon"></i>Open Folder Outline</div>
+        <div class="column"><i class="open folder icon"></i>Open Folder</div>
+        <div class="column"><i class="open folder outline icon"></i>Open Folder Outline</div>
         <div class="column"><i class="folder outline icon"></i>Folder Outline</div>
         <div class="column"><i class="help icon"></i>Help</div>
         <div class="column"><i class="home icon"></i>Home</div>
@@ -76,8 +76,8 @@ type        : 'UI Element'
         <div class="column"><i class="map marker icon"></i>Map Marker</div>
         <div class="column"><i class="mobile icon"></i>Mobile</div>
         <div class="column"><i class="music icon"></i>Music</div>
-        <div class="column"><i class="outline chat icon"></i>Chat Outline</div>
-        <div class="column"><i class="outline comment icon"></i>Comment Outline</div>
+        <div class="column"><i class="chat outline icon"></i>Chat Outline</div>
+        <div class="column"><i class="comment outline icon"></i>Comment Outline</div>
         <div class="column"><i class="payment icon"></i>Payment</div>
         <div class="column"><i class="photo icon"></i>Photo</div>
         <div class="column"><i class="qr code icon"></i>QR Code</div>
@@ -123,8 +123,8 @@ type        : 'UI Element'
     <i class="file icon"></i>
     <i class="file outline icon"></i>
     <i class="folder icon"></i>
-    <i class="folder open icon"></i>
-    <i class="folder open outline icon"></i>
+    <i class="open folder icon"></i>
+    <i class="open folder outline icon"></i>
     <i class="folder outline icon"></i>
     <i class="help icon"></i>
     <i class="home icon"></i>
@@ -139,8 +139,8 @@ type        : 'UI Element'
     <i class="map marker icon"></i>
     <i class="mobile icon"></i>
     <i class="music icon"></i>
-    <i class="outline chat icon"></i>
-    <i class="outline comment icon"></i>
+    <i class="chat outline icon"></i>
+    <i class="comment outline icon"></i>
     <i class="payment icon"></i>
     <i class="photo icon"></i>
     <i class="qr code icon"></i>
@@ -176,7 +176,7 @@ type        : 'UI Element'
         <div class="column"><i class="add sign icon"></i>Add Sign</div>
         <div class="column"><i class="add sign box icon"></i>Add Sign Box</div>
         <div class="column"><i class="adjust icon"></i>Adjust</div>
-        <div class="column"><i class="bookmark empty icon"></i>Empty Bookmark</div>
+        <div class="column"><i class="empty bookmark icon"></i>Empty Bookmark</div>
         <div class="column"><i class="bookmark icon"></i>Bookmark</div>
         <div class="column"><i class="cloud download icon"></i>Cloud Download</div>
         <div class="column"><i class="cloud upload icon"></i>Cloud Upload</div>
@@ -453,7 +453,7 @@ type        : 'UI Element'
         <div class="column"><i class="fighter jet icon"></i>Fighter Jet</div>
         <div class="column"><i class="fire extinguisher icon"></i>Fire Extinguisher</div>
         <div class="column"><i class="fire icon"></i>Fire</div>
-        <div class="column"><i class="flag checkered icon"></i>Checkered Flag</div>
+        <div class="column"><i class="checkered flag icon"></i>Checkered Flag</div>
         <div class="column"><i class="food icon"></i>Food</div>
         <div class="column"><i class="gamepad icon"></i>Gamepad</div>
         <div class="column"><i class="gift icon"></i>Gift</div>
@@ -514,7 +514,7 @@ type        : 'UI Element'
     <i class="fighter jet icon"></i>
     <i class="fire extinguisher icon"></i>
     <i class="fire icon"></i>
-    <i class="flag checkered icon"></i>
+    <i class="checkered flag icon"></i>
     <i class="food icon"></i>
     <i class="gamepad icon"></i>
     <i class="gift icon"></i>
@@ -577,9 +577,9 @@ type        : 'UI Element'
         <div class="column"><i class="ok circle icon"></i>OK Circle</div>
         <div class="column"><i class="ok sign icon"></i>OK Sign</div>
         <div class="column"><i class="smile icon"></i>Smile</div>
-        <div class="column"><i class="star empty icon"></i>Empty Star</div>
-        <div class="column"><i class="star half empty icon"></i>Half Empty Star</div>
-        <div class="column"><i class="star half icon"></i>Half Star</div>
+        <div class="column"><i class="empty star icon"></i>Empty Star</div>
+        <div class="column"><i class="half empty star icon"></i>Half Empty Star</div>
+        <div class="column"><i class="half star icon"></i>Half Star</div>
         <div class="column"><i class="star icon"></i>Star</div>
         <div class="column"><i class="thumbs down icon"></i>Thumbs Down</div>
         <div class="column"><i class="thumbs down outline icon"></i>Thumbs Down Outline</div>
@@ -608,9 +608,9 @@ type        : 'UI Element'
     <i class="ok icon"></i>
     <i class="ok sign icon"></i>
     <i class="smile icon"></i>
-    <i class="star empty icon"></i>
-    <i class="star half empty icon"></i>
-    <i class="star half icon"></i>
+    <i class="empty star icon"></i>
+    <i class="shalf empty tar icon"></i>
+    <i class="half star icon"></i>
     <i class="star icon"></i>
     <i class="thumbs down icon"></i>
     <i class="thumbs down outline icon"></i>
@@ -642,10 +642,10 @@ type        : 'UI Element'
         <div class="column"><i class="triangle left icon"></i>Triangle Left</div>
         <div class="column"><i class="triangle right icon"></i>Triangle Right</div>
         <div class="column"><i class="triangle up icon"></i>Triangle Up</div>
-        <div class="column"><i class="arrow down icon"></i>Down Arrow</div>
-        <div class="column"><i class="arrow left icon"></i>Left Arrow</div>
-        <div class="column"><i class="arrow right icon"></i>Right Arrow</div>
-        <div class="column"><i class="arrow up icon"></i>Up Arrow</div>
+        <div class="column"><i class="down arrow icon"></i>Down Arrow</div>
+        <div class="column"><i class="left arrow icon"></i>Left Arrow</div>
+        <div class="column"><i class="right arrow icon"></i>Right Arrow</div>
+        <div class="column"><i class="up arrow icon"></i>Up Arrow</div>
         <div class="column"><i class="arrow sign down icon"></i>Arrow Sign Down</div>
         <div class="column"><i class="arrow sign left icon"></i>Arrow Sign Left</div>
         <div class="column"><i class="arrow sign right icon"></i>Arrow Sign Right</div>
@@ -681,19 +681,19 @@ type        : 'UI Element'
     <i class="arrow box down icon"></i>
     <i class="arrow box right icon"></i>
     <i class="arrow box up icon"></i>
-    <i class="arrow down icon"></i>
-    <i class="arrow left icon"></i>
-    <i class="arrow right icon"></i>
-    <i class="arrow up icon"></i>
+    <i class="down icon"></i>
+    <i class="left icon"></i>
+    <i class="right icon"></i>
+    <i class="up icon"></i>
     <i class="asterisk icon"></i>
     <i class="triangle down icon"></i>
     <i class="triangle left icon"></i>
     <i class="triangle right icon"></i>
     <i class="triangle up icon"></i>
-    <i class="arrow down icon"></i>
-    <i class="arrow left icon"></i>
-    <i class="arrow right icon"></i>
-    <i class="arrow up icon"></i>
+    <i class="down arrow icon"></i>
+    <i class="left arrow icon"></i>
+    <i class="right arrow icon"></i>
+    <i class="up arrow icon"></i>
     <i class="arrow sign down icon"></i>
     <i class="arrow sign left icon"></i>
     <i class="arrow sign right icon"></i>
