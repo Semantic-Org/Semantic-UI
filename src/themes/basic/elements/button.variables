@@ -9,7 +9,7 @@
 
 @borderRadius: 0.25em;
 
-@backgroundColor: #E0E0E0;
+@backgroundColor: #EEEEEE;
 @backgroundImage: none;
 @boxShadow: none;
 

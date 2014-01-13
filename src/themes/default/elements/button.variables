@@ -14,7 +14,7 @@
    Button Variables
 --------------------*/
 
-/* Button Variables */
+@margin: 0.25em 0em;
 @textTransform: uppercase;
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
