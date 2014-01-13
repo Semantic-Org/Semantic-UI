@@ -220,8 +220,8 @@ type        : 'UI Element'
       </div>
       <div class="existing code">
     <i class="add icon"></i>
-    <i class="add sign box icon"></i>
     <i class="add sign icon"></i>
+    <i class="add sign box icon"></i>
     <i class="adjust icon"></i>
     <i class="bookmark empty icon"></i>
     <i class="bookmark icon"></i>
@@ -592,8 +592,8 @@ type        : 'UI Element'
       <div class="existing code">
     <i class="ban circle icon"></i>
     <i class="checkmark icon"></i>
-    <i class="minus checkmark icon"></i>
     <i class="checkmark sign icon"></i>
+    <i class="minus checkbox icon"></i>
     <i class="empty checkbox icon"></i>
     <i class="checked checkbox icon"></i>
     <i class="exclamation icon"></i>
@@ -702,8 +702,8 @@ type        : 'UI Element'
     <i class="circle left icon"></i>
     <i class="circle right icon"></i>
     <i class="circle up icon"></i>
-    <i class="circle blank icon"></i>
     <i class="circle down icon"></i>
+    <i class="circle blank icon"></i>
     <i class="circle icon"></i>
     <i class="double angle down icon"></i>
     <i class="double angle left icon"></i>
@@ -1053,8 +1053,8 @@ type        : 'UI Element'
     <i class="fast-forward basic icon"></i>
     <i class="pause basic icon"></i>
     <i class="play basic icon"></i>
-    <i class="to-end basic icon"></i>
     <i class="to-start basic icon"></i>
+    <i class="to-end basic icon"></i>
     <i class="forward basic icon"></i>
     <i class="shuffle basic icon"></i>
     <i class="clockwise basic icon"></i>
