@@ -1974,6 +1974,7 @@ i.icon.left {
 
 /* right side icons */
 
+i.icon.download,
 i.icon.search,
 i.icon.right {
   width: auto;

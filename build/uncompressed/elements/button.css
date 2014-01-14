@@ -139,8 +139,6 @@
    Button Variables
 --------------------*/
 
-/* Button Variables */
-
 /*******************************
      User Global Variables
 *******************************/
@@ -164,7 +162,7 @@
   border: none;
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.6);
-  margin: 0em;
+  margin: 0.25em 0em;
   padding: 0.8em 1.5em 0.8em;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -281,6 +279,7 @@
       Disabled
 --------------------*/
 
+.ui.buttons .disabled.button,
 .ui.disabled.button,
 .ui.disabled.button:hover,
 .ui.disabled.button.active {
@@ -431,6 +430,8 @@
   background-color: #00b5ad;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.primary.buttons .button:hover,
@@ -463,6 +464,8 @@
   background-color: #555555;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.secondary.buttons .button:hover,
@@ -496,6 +499,8 @@
   background-color: #3b579d;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.facebook.button:hover {
@@ -516,6 +521,8 @@
   background-color: #4092cc;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.twitter.button:hover {
@@ -536,6 +543,8 @@
   background-color: #d34836;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.google.plus.button:hover {
@@ -576,6 +585,8 @@
   background-color: #cc181e;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.youtube.button:hover {
@@ -596,6 +607,8 @@
   background-color: #49769c;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.instagram.button:hover {
@@ -616,6 +629,8 @@
   background-color: #00aced;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.pinterest.button:hover {
@@ -635,6 +650,8 @@
 .ui.vk.button {
   background-color: #4D7198;
   color: #FFFFFF;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.vk.button:hover {
@@ -803,6 +820,10 @@
   margin: 0em;
 }
 
+.ui.icon.buttons .button > .icon {
+  vertical-align: top;
+}
+
 /*-------------------
         Basic
 --------------------*/
@@ -815,9 +836,9 @@
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
-  padding: 0.8em 1.5em !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  /* padding: @verticalPadding @horizontalPadding !important; */
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
 .ui.basic.labeled.icon.button > .icon {
@@ -825,8 +846,8 @@
 }
 
 .ui.basic.buttons {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   border-radius: 0.25em;
 }
 
@@ -834,24 +855,24 @@
 .ui.basic.button:hover {
   background-image: none;
   color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
-  box-shadow: rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.2);
 }
 
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background-color: rgba(0, 0, 0, 0.02) !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
   background-color: rgba(0, 0, 0, 0.05) !important;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
-  box-shadow: rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.2);
 }
 
 .ui.basic.buttons .button.active:hover,
@@ -880,8 +901,8 @@
 .ui.basic.inverted.button:active {
   background-color: rgba(255, 255, 255, 0.05) !important;
   color: #FFFFFF !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.8) inset !important;
-  box-shadow: rgba(255, 255, 255, 0.8) inset !important;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: rgba(255, 255, 255, 0.8) !important;
 }
 
 .ui.basic.inverted.buttons .button.active,
@@ -1013,6 +1034,7 @@
 
 .ui.attached.button {
   display: block;
+  margin: 0em;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
 }
@@ -1308,6 +1330,8 @@
   background-color: #555555;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.black.buttons .button:hover,
@@ -1340,6 +1364,8 @@
   background-color: #6ecff5;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.blue.buttons .button:hover,
@@ -1372,6 +1398,8 @@
   background-color: #5bbd72;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.green.buttons .button:hover,
@@ -1404,6 +1432,8 @@
   background-color: #e96633;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.orange.buttons .button:hover,
@@ -1436,6 +1466,8 @@
   background-color: #d9499a;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.pink.buttons .button:hover,
@@ -1468,6 +1500,8 @@
   background-color: #564f8a;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.purple.buttons .button:hover,
@@ -1500,6 +1534,8 @@
   background-color: #d95c5c;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.red.buttons .button:hover,
@@ -1532,6 +1568,8 @@
   background-color: #00b5ad;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.teal.buttons .button:hover,
@@ -1564,6 +1602,8 @@
   background-color: #ffcb08;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.yellow.buttons .button:hover,
@@ -1598,6 +1638,8 @@
   background-color: #5bbd72 !important;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.positive.buttons .button:hover,
@@ -1634,6 +1676,8 @@
   background-color: #d95c5c !important;
   color: #ffffff;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.negative.buttons .button:hover,
@@ -1683,6 +1727,7 @@
 }
 
 .ui.buttons .button {
+  margin: 0em;
   float: left;
   border-radius: 0em;
 }

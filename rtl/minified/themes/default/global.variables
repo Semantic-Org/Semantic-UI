@@ -13,8 +13,16 @@
        Page
 --------------------*/
 
-@bodyColor  : #FCFCFC;
-@fontSize   : 15px;
+@bodyBackground      : #FCFCFC;
+@fontSize            : 15px;
+@textColor           : rgba(0, 0, 0, 0.7);
+
+@linkColor           : #009FDA;
+@linkUnderline       : none;
+@linkHoverColor      : lighten( @linkColor, 5);
+
+@highlightBackground : #FFFFCC;
+@highlightColor      : @textColor;
 
 /*-------------------
        Fonts
@@ -90,7 +98,6 @@
 --------------------*/
 
 @darkTextColor     : rgba(0, 0, 0, 0.85);
-@textColor         : rgba(0, 0, 0, 0.7);
 @lightTextColor    : rgba(0, 0, 0, 0.4);
 
 @invertedTextColor : rgba(255, 255, 255, 1);

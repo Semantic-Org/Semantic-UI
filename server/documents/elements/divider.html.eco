@@ -124,6 +124,16 @@ type        : 'UI Element'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Hidden</h4>
+    <p>A hidden divider divides content without creating a dividing line</p>
+    <h3 class="ui header">Section One</h3>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <div class="ui hidden divider"></div>
+    <h3 class="ui header">Section Two</h3>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Section</h4>
     <p>A divider can provide greater margins to divide sections of content</p>
     <h3 class="ui header">Section One</h3>

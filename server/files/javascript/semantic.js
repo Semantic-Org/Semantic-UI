@@ -32,6 +32,8 @@ semantic.ready = function() {
     $peekSubItem      = $peek.find('.item .menu .item'),
     $sortableTables   = $('.sortable.table'),
 
+    $themeDropdown    = $('.theme.dropdown'),
+
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
     $menu             = $('#menu'),
@@ -96,6 +98,54 @@ semantic.ready = function() {
           complete: callback
         });
       }
+    },
+
+    less: {
+
+      parseFile: function(content) {
+        var
+          variables = {},
+          lines = content.match(/(@.*;)/g),
+          name,
+          value
+        ;
+        $.each(lines, function(index, line) {
+          // clear whitespace
+          line = $.trim(line);
+          // match variables only
+          if(line[0] == '@') {
+            name = line.match(/^@(.+):/);
+            value = line.match(/:(\W)(.*);/);
+            if( ($.isArray(name) && name.length >= 2) && ($.isArray(value) && value.length >= 3) ) {
+              name = name[1];
+              value = value[2];
+              variables[name] = value;
+            }
+          }
+        });
+        console.log(variables);
+        return variables;
+      },
+
+      parseLine: function() {
+        // clear
+      },
+
+      changeTheme: function(theme) {
+        $.api({
+          url      : '/build/less/themes/{$theme}/{$type}s/{$element}.variables',
+          dataType : 'text',
+          urlData  : {
+            theme   : theme,
+            type    : $themeDropdown.data('type'),
+            element : $themeDropdown.data('element')
+          },
+          success: function(content) {
+            less.modifyVars( handler.less.parseFile(content) );
+          }
+        })
+      }
+
     },
 
     create: {
@@ -682,6 +732,12 @@ semantic.ready = function() {
     .one('mousemove', handler.generateCode)
     .find('i.code')
       .on('click', handler.createCode)
+  ;
+
+  $themeDropdown
+    .dropdown({
+      onChange: handler.less.changeTheme
+    })
   ;
 
   $shownExample

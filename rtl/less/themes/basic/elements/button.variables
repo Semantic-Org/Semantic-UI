@@ -9,7 +9,7 @@
 
 @borderRadius: 0.25em;
 
-@backgroundColor: #E0E0E0;
+@backgroundColor: #EEEEEE;
 @backgroundImage: none;
 @boxShadow: none;
 
@@ -21,9 +21,11 @@
 @downBackgroundImage: none;
 @downBoxShadow: none;
 
-@activeBackgroundColor: #DFDFDF;
+@activeBackgroundColor: #CCCCCC;
 @activeBackgroundImage: none;
 @activeBoxShadow: none;
+
+@verticalBoxShadow: none;
 
 @loadingBackgroundColor: #F0F0F0;
 
