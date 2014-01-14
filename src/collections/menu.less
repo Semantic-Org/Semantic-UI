@@ -10,6 +10,15 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+@type    : 'collection';
+@element : 'menu';
+
+@import '../semantic.config';
+
+/*******************************
             Standard
 *******************************/
 
@@ -18,19 +27,13 @@
 ---------------*/
 
 .ui.menu {
-  margin: 1rem 0rem;
-  background-color: #FFFFFF;
+  margin: @margin;
+  background-color: @backgroundColor;
 
   font-size: 0px;
-  font-weight: normal;
-
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-
-  -webkit-border-radius: 0.1875rem;
-  -moz-border-radius: 0.1875rem;
-  border-radius: 0.1875rem;
+  font-weight: @fontWeight;
+  box-shadow: 0px 0px 0px 1px @borderColor;
+  border-radius: @borderRadius;
 }
 .ui.menu:first-child {
   margin-top: 0rem;
@@ -38,7 +41,6 @@
 .ui.menu:last-child {
   margin-bottom: 0rem;
 }
-
 
 .ui.menu:after {
   content: ".";
@@ -48,56 +50,21 @@
   visibility: hidden;
 }
 
-
 .ui.menu > .item:first-child {
-  border-radius: 0.1875em 0px 0px 0.1875em;
+  border-radius: @borderRadius 0px 0px @borderRadius;
 }
 .ui.menu > .item:last-child {
-  border-radius: 0px 0.1875em 0.1875em 0px;
+  border-radius: 0px @borderRadius @borderRadius 0px;
 }
 .ui.menu .item {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
-
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
   vertical-align: middle;
 
   line-height: 1;
   text-decoration: none;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
-
-  -webkit-transition:
-    opacity 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease
-  ;
-  -moz-transition:
-    opacity 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease
-  ;
-  -o-transition:
-    opacity 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease
-  ;
-  -ms-transition:
-    opacity 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease
-  ;
-  transition:
-    opacity 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease
-  ;
+  transition: @transition;
 }
 
 /*--------------
@@ -107,37 +74,30 @@
 /* Text Color */
 .ui.menu .item,
 .ui.menu .item > a {
-  color: rgba(0, 0, 0, 0.75);
+  color: @menuTextColor;
 }
 .ui.menu .item .item,
 .ui.menu .item .item > a {
-  color: rgba(30, 30, 30, 0.7);
-}
-.ui.menu .item .item .item,
-.ui.menu .item .item .item > a {
-  color: rgba(30, 30, 30, 0.6);
+  color: @subMenuTextColor;
 }
 .ui.menu .dropdown.item .menu .item,
 .ui.menu .dropdown.item .menu .item a {
-  color: rgba(0, 0, 0, 0.75);
+  color: @textColor;
 }
 /* Hover */
 .ui.menu .item .menu a.item:hover,
 .ui.menu .item .menu a.item.hover,
 .ui.menu .item .menu .link.item:hover,
 .ui.menu .item .menu .link.item.hover {
-  color: rgba(0, 0, 0, 0.85);
+  color: @darkTextColor;
 }
 .ui.menu .dropdown.item .menu .item a:hover {
-  color: rgba(0, 0, 0, 0.85);
+  color: @darkTextColor;
 }
 /* Active */
 .ui.menu .active.item,
 .ui.menu .active.item a {
-  color: rgba(0, 0, 0, 0.85);
-
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
+  color: @selectedTextColor;
   border-radius: 0px;
 }
 
@@ -148,14 +108,9 @@
 .ui.menu .item {
   position: relative;
   display: inline-block;
-
-  padding: 0.83em 0.95em;
-
+  padding: @verticalPadding @horizontalPadding;
   border-top: 0em solid rgba(0, 0, 0, 0);
-
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
   user-select: none;
 }
 
@@ -163,6 +118,7 @@
   margin: 0em;
 }
 
+/* Floated Content */
 .ui.menu .item.left,
 .ui.menu .menu.left {
   float: left;
@@ -182,13 +138,9 @@
   content: '';
   top: 0%;
   right: 0px;
-  width: 1px;
+  width: @dividerSize;
   height: 100%;
-  background-image: linear-gradient(
-    rgba(0, 0, 0, 0.05) 0%,
-    rgba(0, 0, 0, 0.1) 50%,
-    rgba(0, 0, 0, 0.05) 100%)
-  ;
+  background-image: @dividerBackground;
 }
 .ui.menu .menu.right .item:before,
 .ui.menu .item.right:before {
@@ -202,19 +154,15 @@
 
 .ui.menu .text.item > *,
 .ui.menu .item > p:only-child {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
   user-select: text;
-
-  line-height: 1.3;
-  color: rgba(0, 0, 0, 0.6);
+  line-height: @textLineHeight;
+  color: @textColor;
 }
 .ui.menu .item > p:first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 .ui.menu .item > p:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 
@@ -240,8 +188,8 @@
 ---------------*/
 
 .ui.menu:not(.vertical) .item > .input {
-  margin-top: -0.83em;
-  margin-bottom: -0.83em;
+  margin-top: -@verticalPadding;
+  margin-bottom: -@verticalPadding;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
   width: 100%;
@@ -275,6 +223,7 @@
 /*--------------
     Dropdowns
 ---------------*/
+
 .ui.menu .dropdown.item .menu {
   left: 1px;
   margin: 0px;
@@ -328,6 +277,7 @@
   margin: 0em auto;
 }
 
+
 /*******************************
              States
 *******************************/
@@ -343,20 +293,12 @@
 .ui.menu .ui.dropdown .menu .item.hover,
 .ui.menu .ui.dropdown .menu .item:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.02);
+  background: @hoverBackground;
 }
 .ui.menu .ui.dropdown.active {
-  background-color: rgba(0, 0, 0, 0.02);
-
-  -webkit-box-shadow: none;
+  background: @subtleTransparentBlack;
   box-shadow: none;
-
-  -webkit-border-bottom-right-radius: 0em;
-  -moz-border-bottom-right-radius: 0em;
   border-bottom-right-radius: 0em;
-
-  -webkit-border-bottom-left-radius: 0em;
-  -moz-border-bottom-left-radius: 0em;
   border-bottom-left-radius: 0em;
 }
 
@@ -369,8 +311,7 @@
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
 .ui.menu .ui.dropdown .menu .item:active {
-  background-color: rgba(0, 0, 0, 0.05);
-
+  background-color: @activeBackground;
 }
 
 /*--------------
@@ -378,36 +319,22 @@
 ---------------*/
 
 .ui.menu .active.item  {
-  background-color: rgba(0, 0, 0, 0.01);
-  color: rgba(0, 0, 0, 0.95);
-
-  -webkit-box-shadow: 0em 0.2em 0em inset;
-  -moz-box-shadow: 0em 0.2em 0em inset;
-  box-shadow: 0em 0.2em 0em inset;
+  background-color: @subtleTransparentBlack;
+  color: @darkTextColor;
+  box-shadow: 0em @activeBorderSize 0em inset;
 }
 .ui.vertical.menu .active.item {
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
-
-  -moz-box-shadow: 0.2em 0em 0em inset;
-  -webkit-box-shadow: 0.2em 0em 0em inset;
-  box-shadow: 0.2em 0em 0em inset;
+  box-shadow: @activeBorderSize 0em 0em inset;
 }
 .ui.vertical.menu > .active.item:first-child {
-  -webkit-border-radius: 0em 0.1875em 0em 0em;
-  -moz-border-radius: 0em 0.1875em 0em 0em;
-  border-radius: 0em 0.1875em 0em 0em;
+  border-radius: 0em @borderRadius 0em 0em;
 }
 .ui.vertical.menu > .active.item:last-child {
-  -webkit-border-radius: 0em 0em 0.1875em 0em;
-  -moz-border-radius: 0em 0em 0.1875em 0em;
-  border-radius: 0em 0em 0.1875em 0em;
+  border-radius: 0em 0em @borderRadius 0em;
 }
 .ui.vertical.menu > .active.item:only-child {
-  -webkit-border-radius: 0em 0.1875em 0.1875em 0em;
-  -moz-border-radius: 0em 0.1875em 0.1875em 0em;
-  border-radius: 0em 0.1875em 0.1875em 0em;
+  border-radius: 0em @borderRadius @borderRadius 0em;
 }
 
 
@@ -418,9 +345,7 @@
   padding-left: 1.5rem;
 }
 .ui.vertical.menu .item .menu .active.item {
-  background-color: rgba(0, 0, 0, 0.03);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
+  background-color: @subMenuActiveColor;
   box-shadow: none;
 }
 
@@ -432,7 +357,7 @@
 .ui.menu .item.disabled:hover,
 .ui.menu .item.disabled.hover {
   cursor: default;
-  color: rgba(0, 0, 0, 0.2);
+  color: @disabledTextColor;
   background-color: transparent !important;
 }
 
@@ -453,7 +378,7 @@
 
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) url("@{imagePath}/loader-large.gif") no-repeat 50% 50%;
   visibility: visible;
 }
 
@@ -474,10 +399,10 @@
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
-  border-radius: 0.1875em 0.1875em 0px 0px;
+  border-radius: @borderRadius @borderRadius 0px 0px;
 }
 .ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px 0.1875em 0.1875em;
+  border-radius: 0px 0px @borderRadius @borderRadius;
 }
 
 .ui.vertical.menu .item > .label {
@@ -486,12 +411,12 @@
 }
 .ui.vertical.menu .item > .icon:not(.input) {
   float: right;
-  width: 1.22em;
-  margin: 0em 0em 0em 0.5em;
+  width: @iconWidth;
+  margin: 0em 0em 0em @iconMargin;
 }
 .ui.vertical.menu .item > .label + .icon {
   float: none;
-  margin: 0em 0.25em 0em 0em;
+  margin: 0em (@iconMargin / 2) 0em 0em;
 }
 
 /*--- Border ---*/
@@ -501,32 +426,8 @@
   top: 0%;
   left: 0px;
   width: 100%;
-  height: 1px;
-  background-image: -webkit-linear-gradient(left,
-    rgba(0, 0, 0, 0.03) 0%,
-    rgba(0, 0, 0, 0.1) 1.5em,
-    rgba(0, 0, 0, 0.03) 100%)
-  ;
-  background-image: -moz-linear-gradient(left,
-    rgba(0, 0, 0, 0.03) 0%,
-    rgba(0, 0, 0, 0.1) 1.5em,
-    rgba(0, 0, 0, 0.03) 100%)
-  ;
-  background-image: -o-linear-gradient(left,
-    rgba(0, 0, 0, 0.03) 0%,
-    rgba(0, 0, 0, 0.1) 1.5em,
-    rgba(0, 0, 0, 0.03) 100%)
-  ;
-  background-image: -ms-linear-gradient(left,
-    rgba(0, 0, 0, 0.03) 0%,
-    rgba(0, 0, 0, 0.1) 1.5em,
-    rgba(0, 0, 0, 0.03) 100%)
-  ;
-  background-image: linear-gradient(left,
-    rgba(0, 0, 0, 0.03) 0%,
-    rgba(0, 0, 0, 0.1) 1.5em,
-    rgba(0, 0, 0, 0.03) 100%)
-  ;
+  height: @dividerSize;
+  background-image: @verticalDividerBackground;
 }
 
 .ui.vertical.menu .item:first-child:before {
@@ -542,7 +443,7 @@
   top: 0% !important;
   left: 100%;
   margin: 0px 0px 0px 1px;
-  box-shadow: 0 0px 1px 1px #DDDDDD;
+  box-shadow: 0 0px 1px 1px @solidBorderColor;
 }
 .ui.vertical.menu .dropdown.item.active {
   border-top-right-radius: 0em;
@@ -555,18 +456,16 @@
   margin-right: 0em;
 }
 .ui.vertical.menu .dropdown.item.active {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
 /*--- Sub Menu ---*/
 .ui.vertical.menu .item > .menu {
-  margin: 0.5em -0.95em 0em;
+  margin: 0.5em -@horizontalPadding 0em;
 }
 .ui.vertical.menu .item > .menu > .item {
   padding: 0.5rem 1.5rem;
-  font-size: 0.875em;
+  font-size: @subMenuFontSize;
 }
 .ui.vertical.menu .item > .menu > .item:before {
   display: none;
@@ -590,7 +489,7 @@
 .ui.tiered.menu > .menu .item.active:after {
   position: absolute;
   content: '';
-  margin-top: -1px;
+  margin-top: -@dividerSize;
   top: 100%;
   left: 0px;
 
@@ -599,61 +498,50 @@
   background-color: #FBFBFB;
 }
 .ui.tiered.menu .sub.menu {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: @subtleTransparentBlack;
   border-radius: 0em;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
+  border-top: 1px solid @borderColor;
   box-shadow: none;
-
   color: #FFFFFF;
 }
 .ui.tiered.menu .sub.menu .item {
-  font-size: 0.875rem;
+  font-size: @subMenuFontSize;
 }
 .ui.tiered.menu .sub.menu .item:before {
   background-image: none;
 }
 .ui.tiered.menu .sub.menu .active.item {
-  padding-top: 0.83em;
+  padding-top: @verticalPadding;
   background-color: transparent;
-  border-radius: 0 0 0 0;
+  border-radius: 0;
   border-top: medium none;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
-
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: @selectedTextColor !important;
 }
 .ui.tiered.menu .sub.menu .active.item:after {
   display: none;
 }
 
-/* Inverted */
+/* Inverted Tiered Menu */
 .ui.inverted.tiered.menu > .menu > .item {
-  color: rgba(255, 255, 255, 0.5);
+  color: @invertedUnselectedTextColor;
 }
 .ui.inverted.tiered.menu .sub.menu {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: @tieredInvertedSubMenuColor;
 }
 .ui.inverted.tiered.menu .sub.menu .item {
-  color: rgba(255, 255, 255, 0.6);
+  color: @invertedLightTextColor;
 }
-
 .ui.inverted.tiered.menu > .menu > .item:hover,
 .ui.inverted.tiered.menu > .menu > .item.hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: @invertedSelectedTextColor;
 }
 .ui.inverted.tiered.menu .active.item:after {
   display: none;
 }
 .ui.inverted.tiered.menu > .sub.menu > .active.item,
 .ui.inverted.tiered.menu > .menu > .active.item {
-  color: rgba(255, 255, 255, 1) !important;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
+  color: @invertedSelectedTextColor !important;
   box-shadow: none;
 }
 
@@ -672,24 +560,21 @@
 
 .ui.tabular.menu {
   background-color: transparent;
-  border-bottom: 1px solid #DCDDDE;
+  border-bottom: @tabularBorderWidth solid @tabularInvisibleBorder;
 
   border-radius: 0em;
-
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
 .ui.tabular.menu .item {
   background-color: transparent;
 
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-top: 1px solid transparent;
+  border-left: @tabularBorderWidth solid transparent;
+  border-right: @tabularBorderWidth solid transparent;
+  border-top: @tabularBorderWidth solid transparent;
 
-  padding-left: 1.4em;
-  padding-right: 1.4em;
-  color: rgba(0, 0, 0, 0.6);
+  padding-left: @tabularHorizontalPadding;
+  padding-right: @tabularHorizontalPadding;
+  color: @tabularMenuTextColor;
 }
 .ui.tabular.menu .item:before {
   display: none;
@@ -698,29 +583,24 @@
 /* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.8);
+  color: @selectedTextColor;
 }
 
 /* Active */
 .ui.tabular.menu .active.item {
   position: relative;
 
-  background-color: #FFFFFF;
+  background-color: @tabularMenuActiveBackground;
   color: rgba(0, 0, 0, 0.8);
 
-  border-color: #DCDDDE;
-  font-weight: bold;
+  border-color: @tabularInvisibleBorder;
+  font-weight: @tabularActiveWeight;
 
-  margin-bottom: -1px;
-  border-bottom: 1px solid #FFFFFF;
+  margin-bottom: -@tabularBorderWidth;
+  border-bottom: @tabularBorderWidth solid #FFFFFF;
 
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
-
-  -webkit-border-radius: 5px 5px 0 0;
-  -moz-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
+  border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
 }
 
 /* Coupling with segment for attachment */
@@ -744,7 +624,7 @@
 }
 
 .ui.pagination.menu .item {
-  min-width: 3em;
+  min-width: @paginationMinWidth;
   text-align: center;
 }
 .ui.pagination.menu .icon.item .icon {
@@ -757,10 +637,8 @@
 /* active */
 .ui.pagination.menu .active.item {
   border-top: none;
-  padding-top: 0.83em;
-  background-color: rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
+  padding-top: @verticalPadding;
+  background-color: @paginationActiveBackground;
   box-shadow: none;
 }
 
@@ -770,19 +648,11 @@
 
 .ui.secondary.menu {
   background-color: transparent;
-
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
   border-radius: 0px;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.secondary.menu > .menu > .item,
 .ui.secondary.menu > .item {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 
   border: none;
@@ -791,8 +661,6 @@
   margin: 0em 0.25em;
   padding: 0.5em 1em;
 
-  -webkit-border-radius: 0.3125em;
-  -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
 }
 .ui.secondary.menu > .menu > .item:before,
@@ -807,11 +675,6 @@
 .ui.secondary.menu .link.item,
 .ui.secondary.menu a.item {
   opacity: 0.8;
-
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
   transition: none;
 }
 .ui.secondary.menu .header.item {
@@ -834,14 +697,9 @@
 .ui.secondary.menu > .active.item {
   background-color: rgba(0, 0, 0, 0.08);
   opacity: 1;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.secondary.vertical.menu > .active.item {
-  -webkit-border-radius: 0.3125em;
-  -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
 }
 
@@ -864,8 +722,6 @@
   margin: 0em;
 }
 .ui.secondary.attached.menu {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -880,26 +736,9 @@
 .ui.secondary.pointing.menu > .menu > .item,
 .ui.secondary.pointing.menu > .item {
   margin: 0em 0em -3px;
-  padding: 0.6em 0.95em;
-
+  padding: 0.6em @horizontalPadding;
   border-bottom: 3px solid rgba(0, 0, 0, 0);
-
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
-
-  -webkit-transition:
-    color 0.2s
-  ;
-  -moz-transition:
-    color 0.2s
-  ;
-  -o-transition:
-    color 0.2s
-  ;
-  -ms-transition:
-    color 0.2s
-  ;
   transition:
     color 0.2s
   ;
@@ -944,9 +783,6 @@
 .ui.secondary.pointing.menu > .item.active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.4);
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -962,22 +798,15 @@
   border: none;
   margin: 0em 0em 0.3em;
   padding: 0.6em 0.8em;
-
-  -webkit-border-radius: 0.1875em;
-  -moz-border-radius: 0.1875em;
-  border-radius: 0.1875em;
+  border-radius: @borderRadius;
 }
 .ui.secondary.vertical.menu > .header.item {
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
 }
 .ui.secondary.vertical.pointing.menu > .item {
   margin: 0em -3px 0em 0em;
   border-bottom: none;
   border-right: 3px solid transparent;
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
 }
 /* Hover */
@@ -1054,12 +883,8 @@
   background-color: transparent;
 
   margin: 1rem -1rem;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
   border-radius: 0px;
 
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.text.menu > .item {
@@ -1069,26 +894,9 @@
   padding: 0em;
   height: auto !important;
 
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
   border-radius: 0px;
 
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
-
-  -webkit-transition:
-    opacity 0.2s ease
-  ;
-  -moz-transition:
-    opacity 0.2s ease
-  ;
-  -o-transition:
-    opacity 0.2s ease
-  ;
-  -ms-transition:
-    opacity 0.2s ease
-  ;
   transition:
     opacity 0.2s ease
   ;
@@ -1129,7 +937,7 @@
 }
 .ui.vertical.text.menu .item > .icon {
   float: none;
-  margin: 0em 0.83em 0em 0em;
+  margin: 0em @verticalPadding 0em 0em;
 }
 .ui.vertical.text.menu .header.item {
   margin: 0.8em 0em;
@@ -1149,20 +957,14 @@
   border: none;
   opacity: 1;
   font-weight: bold;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
 /* disable variations */
 .ui.text.pointing.menu .active.item:after {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.text.attached.menu {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -1283,8 +1085,6 @@
   margin: 0em;
 
   background-color: rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -1310,26 +1110,6 @@
 
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
-  background-image: -webkit-linear-gradient(
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
-  background-image: -moz-linear-gradient(
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
-  background-image: -o-linear-gradient(
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
-  background-image: -ms-linear-gradient(
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
@@ -1337,26 +1117,6 @@
   ;
 }
 .ui.vertical.inverted.menu .item:before {
-  background-image: -webkit-linear-gradient(left,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
-  background-image: -moz-linear-gradient(left,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
-  background-image: -o-linear-gradient(left,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
-  background-image: -ms-linear-gradient(left,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
   background-image: linear-gradient(left,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
@@ -1519,14 +1279,14 @@
 .ui.horizontally.fitted.menu .item,
 .ui.horizontally.fitted.menu .item .menu .item,
 .ui.menu .horizontally.fitted.item {
-  padding-top: 0.83em;
-  padding-bottom: 0.83em;
+  padding-top: @verticalPadding;
+  padding-bottom: @verticalPadding;
 }
 .ui.vertically.fitted.menu .item,
 .ui.vertically.fitted.menu .item .menu .item,
 .ui.menu .vertically.fitted.item {
-  padding-left: 0.95em;
-  padding-right: 0.95em;
+  padding-left: @horizontalPadding;
+  padding-right: @horizontalPadding;
 }
 
 /*--------------
@@ -1626,8 +1386,6 @@
 .ui.menu.fixed,
 .ui.menu.fixed .item:first-child,
 .ui.menu.fixed .item:last-child {
-  -webkit-border-radius: 0px !important;
-  -moz-border-radius: 0px !important;
   border-radius: 0px !important;
 }
 
@@ -1684,24 +1442,9 @@
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 
   background-image: none;
-
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
   transform: rotate(45deg);
   z-index: 2;
 
-  -webkit-transition:
-    background 0.2s ease
-  ;
-  -moz-transition:
-    background 0.2s ease
-  ;
-  -o-transition:
-    background 0.2s ease
-  ;
-  -ms-transition:
-    background 0.2s ease
-  ;
   transition:
     background 0.2s ease
   ;
@@ -1749,24 +1492,15 @@
 
 .ui.menu.attached {
   margin: 0rem;
-
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
   border-radius: 0px;
   /* avoid rgba multiplying */
-  -moz-box-shadow: 0px 0px 0px 1px #DDDDDD;
-  -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
   box-shadow: 0px 0px 0px 1px #DDDDDD;
 }
 .ui.top.attached.menu {
-  -moz-border-radius: 0.1875em 0.1875em 0px 0px;
-  -webkit-border-radius: 0.1875em 0.1875em 0px 0px;
-  border-radius: 0.1875em 0.1875em 0px 0px;
+  border-radius: @borderRadius @borderRadius 0px 0px;
 }
 .ui.menu.bottom.attached {
-  -moz-border-radius: 0px 0px 0.1875em 0.1875em;
-  -webkit-border-radius: 0px 0px 0.1875em 0.1875em;
-  border-radius: 0px 0px 0.1875em 0.1875em;
+  border-radius: 0px 0px @borderRadius @borderRadius;
 }
 
 /*--------------
@@ -1809,3 +1543,5 @@
 .ui.large.vertical.menu {
   width: 18rem;
 }
+
+.loadUIOverrides() !important;

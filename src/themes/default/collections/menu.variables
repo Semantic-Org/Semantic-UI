@@ -1,0 +1,105 @@
+/*-------------------
+    Globals Used
+--------------------*/
+
+// @textColor
+// @borderColor
+// @invertedUnselectedTextColor
+
+/*-------------------
+   Menu Variables
+--------------------*/
+
+@margin: 1rem 0rem;
+@verticalPadding: 0.83em;
+@horizontalPadding: 0.95em;
+
+@backgroundColor: #FFFFFF;
+@fontWeight: normal;
+@boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+
+@transition:
+  opacity 0.2s ease,
+  background 0.2s ease,
+  box-shadow 0.2s ease
+;
+@borderRadius: 0.1875rem;
+
+@dividerSize: 1px;
+@dividerBackground: linear-gradient(
+  rgba(0, 0, 0, 0.05) 0%,
+  rgba(0, 0, 0, 0.1) 50%,
+  rgba(0, 0, 0, 0.05) 100%)
+;
+@verticalDividerBackground: linear-gradient(left,
+  rgba(0, 0, 0, 0.03) 0%,
+  rgba(0, 0, 0, 0.1) 1.5em,
+  rgba(0, 0, 0, 0.03) 100%)
+;
+
+@headerBackground: rgba(0, 0, 0, 0.04);
+@headerWeight: bold;
+
+@textLineHeight: 1.3;
+
+@transition:
+  opacity 0.2s ease,
+  background 0.2s ease,
+  box-shadow 0.2s ease
+;
+
+@menuTextColor: @textColor;
+
+/* Sub Menu */
+@subMenuFontSize: 0.875em;
+@subMenuTextColor: @textColor;
+
+
+/*--------------
+    Elements
+---------------*/
+
+@iconMargin: 0.5em;
+
+
+/*--------------
+    Couplings
+---------------*/
+
+
+/*--------------
+     States
+---------------*/
+
+
+@hoverBackground: @subtleTransparentBlack;
+@hoverColor: @textColor;
+
+@activeBackground: @subtleTransparentBlack;
+@activeColor: @darkTextColor;
+@activeBorderSize: 0.2em;
+
+@subMenuActiveColor: rgba(0, 0, 0, 0.03);
+
+/*--------------
+   Variations
+---------------*/
+
+
+/* Tiered */
+@tieredBackgroundColor: @subtleTransparentBlack;
+@tieredInvertedSubMenuColor: rgba(0, 0, 0, 0.2);
+
+/* Tabular */
+@tabularInvisibleBorder: #DCDDDE;
+@tabularBorderWidth: 1px;
+@tabularHorizontalPadding: 1.4em;
+@tabularMenuTextColor: @menuTextColor;
+
+@tabularMenuActiveBackground: @FFFFFF;
+@tabularActiveWeight: bold;
+@tabularBorderRadius: 5px;
+
+/* Pagination */
+@paginationMinWidth: 3em;
+@paginationActiveBackground: @activeBackground;
