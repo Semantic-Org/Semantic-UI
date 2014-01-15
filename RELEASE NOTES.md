@@ -3,11 +3,11 @@
 ### Version 0.12.1 - Jan 15, 2013
 
 **Fixes**
-**LESS** - Fixes typo breaking less parsing ``thanks DVSoftware**
-**Menu** - Fixes buttons using ``<a>`` tag from inheriting link styles. **thanks joltmode**
-**Menu** - Fixes ``action input`` to work inside menus  **thanks joltmode**
-**Modal** - Fixes possible race conditions in animations of modal **thanks dos1**
-**Message** - Prevents close icon from being misformatted in icon message **thanks MohammadYounes**
+- **LESS** - Fixes typo breaking less parsing **thanks DVSoftware**
+- **Menu** - Fixes buttons using ``<a>`` tag from inheriting link styles. **thanks joltmode**
+- **Menu** - Fixes ``action input`` to work inside menus  **thanks joltmode**
+- **Modal** - Fixes possible race conditions in animations of modal **thanks dos1**
+- **Message** - Prevents close icon from being misformatted in icon message **thanks MohammadYounes**
 
 **Docs**
 - **Icons** - Fixes some icon code samples in docs **thanks mishak87**
