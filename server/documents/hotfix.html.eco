@@ -1,0 +1,62 @@
+---
+layout : 'default'
+css    : 'hotfix'
+
+title  : 'Test Page'
+type   : 'Library'
+---
+<%- @partial('header') %>
+
+<div class="main container">
+    <nav class="ui small menu">
+        <div class="application">
+            <a class="item" href="#home">
+                <i class="home icon"></i>
+                Home
+            </a>
+
+            <a class="item" href="#hot-posts">
+                <i class="fire icon"></i>
+                Hot
+            </a>
+
+            <a class="item" href="#trending-posts">
+                <i class="basic chart icon"></i>
+                Trending
+            </a>
+
+            <a class="item" href="#fresh-posts">
+                <i class="lemon icon"></i>
+                Fresh
+            </a>
+
+            <div class="item">
+                <div class="ui action input">
+                    <input type="text" placeholder="Search...">
+                    <a class="ui icon button">
+                        <i class="search icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <nav class="right menu">
+                <a class="item" href="#login">
+                    <i class="sign in icon"></i>
+                    Sign In
+                </a>
+
+                <a class="item" href="#create-profile">
+                    <i class="signup icon"></i>
+                    Sign Up
+                </a>
+
+                <div class="item">
+                    <a class="ui icon labeled button red" href="#create-post">
+                        <i class="add sign box icon"></i>
+                        Add
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </nav>
+</div>

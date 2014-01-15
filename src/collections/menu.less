@@ -231,7 +231,6 @@
   padding-top: 0.55em;
 
   font-size: 0.875em;
-  box-shadow: none;
 }
 
 
@@ -257,6 +256,33 @@
 }
 .ui.vertical.menu .ui.input > .icon {
   padding-top: 0.63em;
+}
+
+/* Action Input */
+.ui.menu:not(.vertical) .item > .button.labeled > .icon {
+  padding-top: 0.6em;
+}
+.ui.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.55em 0.8em;
+}
+
+/* Resizes */
+.ui.small.menu:not(.vertical) .item > .input input {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+.ui.large.menu:not(.vertical) .item > .input input {
+  top: -0.125em;
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
+}
+.ui.large.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.9em;
+}
+.ui.large.menu:not(.vertical) .item .action.input > .button > .icon {
+  padding-top: 0.8em;
 }
 
 /*--------------
@@ -1776,23 +1802,12 @@
 .ui.small.menu .item {
   font-size: 0.875rem;
 }
-.ui.small.menu:not(.vertical) .item > .input input {
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-}
 .ui.small.vertical.menu {
   width: 13rem;
 }
 
 .ui.menu .item {
   font-size: 1rem;
-}
-.ui.menu:not(.vertical) .item > .button.labeled > .icon {
-  padding-top: 0.6em;
-}
-.ui.menu:not(.vertical) .item .action.input > .button {
-  font-size: 0.8em;
-  padding: 0.55em 0.8em;
 }
 .ui.vertical.menu {
   width: 15rem;
@@ -1804,18 +1819,6 @@
 }
 .ui.large.menu .item .item {
   font-size: 0.875rem;
-}
-.ui.large.menu:not(.vertical) .item > .input input {
-  top: -0.125em;
-  padding-bottom: 0.6em;
-  padding-top: 0.6em;
-}
-.ui.large.menu:not(.vertical) .item .action.input > .button {
-  font-size: 0.8em;
-  padding: 0.9em;
-}
-.ui.large.menu:not(.vertical) .item .action.input > .button > .icon {
-  padding-top: 0.8em;
 }
 .ui.large.menu .dropdown.item .item {
   font-size: 1rem;
