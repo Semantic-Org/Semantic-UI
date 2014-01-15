@@ -10812,6 +10812,7 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
+          $module.off(animationEnd);
           module.restore.conditions();
           module.hide();
           module.remove.animating();
@@ -10823,6 +10824,7 @@ $.fn.transition = function() {
           $module
             .one(animationEnd, function() {
               instance.queuing = false;
+              module.repaint();
               module.animate.apply(this, settings);
             })
           ;
@@ -11423,7 +11425,7 @@ $.fn.transition.settings = {
   name        : 'Transition',
 
   // debug content outputted to console
-  debug       : false,
+  debug       : true,
 
   // verbose debug output
   verbose     : true,
@@ -11473,6 +11475,7 @@ $.fn.transition.settings = {
 
 
 })( jQuery, window , document );
+
 /*  ******************************
   Module - Video
   Author: Jack Lukic

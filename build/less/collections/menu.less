@@ -79,22 +79,22 @@
 /* Text Color */
 
 .ui.menu .item,
-.ui.menu .item > a {
+.ui.menu .item > a:not(.button) {
   color: rgba(0, 0, 0, 0.75);
 }
 
 .ui.menu .item .item,
-.ui.menu .item .item > a {
+.ui.menu .item .item > a:not(.button) {
   color: rgba(30, 30, 30, 0.7);
 }
 
 .ui.menu .item .item .item,
-.ui.menu .item .item .item > a {
+.ui.menu .item .item .item > a:not(.button) {
   color: rgba(30, 30, 30, 0.6);
 }
 
 .ui.menu .dropdown.item .menu .item,
-.ui.menu .dropdown.item .menu .item a {
+.ui.menu .dropdown.item .menu .item a:not(.button) {
   color: rgba(0, 0, 0, 0.75);
 }
 
@@ -107,14 +107,14 @@
   color: rgba(0, 0, 0, 0.85);
 }
 
-.ui.menu .dropdown.item .menu .item a:hover {
+.ui.menu .dropdown.item .menu .item a:not(.button):hover {
   color: rgba(0, 0, 0, 0.85);
 }
 
 /* Active */
 
 .ui.menu .active.item,
-.ui.menu .active.item a {
+.ui.menu .active.item a:not(.button) {
   color: rgba(0, 0, 0, 0.85);
   border-radius: 0px;
 }
@@ -206,8 +206,6 @@
   padding-bottom: 0.55em;
   padding-top: 0.55em;
   font-size: 0.875em;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 
 /*--------------
@@ -235,6 +233,39 @@
 
 .ui.vertical.menu .ui.input > .icon {
   padding-top: 0.63em;
+}
+
+/* Action Input */
+
+.ui.menu:not(.vertical) .item > .button.labeled > .icon {
+  padding-top: 0.6em;
+}
+
+.ui.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.55em 0.8em;
+}
+
+/* Resizes */
+
+.ui.small.menu:not(.vertical) .item > .input input {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+.ui.large.menu:not(.vertical) .item > .input input {
+  top: -0.125em;
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
+}
+
+.ui.large.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.9em;
+}
+
+.ui.large.menu:not(.vertical) .item .action.input > .button > .icon {
+  padding-top: 0.8em;
 }
 
 /*--------------
@@ -1700,11 +1731,6 @@
   font-size: 0.875rem;
 }
 
-.ui.small.menu:not(.vertical) .item > .input input {
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-}
-
 .ui.small.vertical.menu {
   width: 13rem;
 }
@@ -1723,12 +1749,6 @@
 
 .ui.large.menu .item .item {
   font-size: 0.875rem;
-}
-
-.ui.large.menu:not(.vertical) .item > .input input {
-  top: -0.125em;
-  padding-bottom: 0.6em;
-  padding-top: 0.6em;
 }
 
 .ui.large.menu .dropdown.item .item {
