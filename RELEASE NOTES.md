@@ -3,7 +3,7 @@
 ### Version 0.12.1 - Jan 15, 2013
 
 **Fixes**
-**LESS** - Fixes typo breaking less parsing ``thanks DVSoftware**
+**LESS** - Fixes typo breaking less parsing **thanks DVSoftware**
 **Menu** - Fixes buttons using ``<a>`` tag from inheriting link styles. **thanks joltmode**
 **Menu** - Fixes ``action input`` to work inside menus  **thanks joltmode**
 **Modal** - Fixes possible race conditions in animations of modal **thanks dos1**
