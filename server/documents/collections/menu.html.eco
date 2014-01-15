@@ -189,7 +189,7 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Secondary Menu</h4>
     <p>A secondary menu allows for a section of content on a page to be activated</p>
-    <div class="ui secondary pointing menu">
+    <div class="ui secondary  menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
