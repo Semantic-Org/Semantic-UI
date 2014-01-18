@@ -226,7 +226,7 @@ $.fn.form = function(fields, parameters) {
         add: {
           prompt: function(field, errors) {
             var
-              $field       = module.get.field(field.identifier),
+              $field       = module.get.field(field),
               $fieldGroup  = $field.closest($group),
               $prompt      = $fieldGroup.find(selector.prompt),
               promptExists = ($prompt.size() !== 0)
