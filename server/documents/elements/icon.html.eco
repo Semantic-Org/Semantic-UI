@@ -60,8 +60,8 @@ type        : 'UI Element'
         <div class="column"><i class="file icon"></i>File</div>
         <div class="column"><i class="file outline icon"></i>File Outline</div>
         <div class="column"><i class="folder icon"></i>Folder</div>
-        <div class="column"><i class="folder open icon"></i>Open Folder</div>
-        <div class="column"><i class="folder open outline icon"></i>Open Folder Outline</div>
+        <div class="column"><i class="open folder icon"></i>Open Folder</div>
+        <div class="column"><i class="open folder outline icon"></i>Open Folder Outline</div>
         <div class="column"><i class="folder outline icon"></i>Folder Outline</div>
         <div class="column"><i class="help icon"></i>Help</div>
         <div class="column"><i class="home icon"></i>Home</div>
@@ -69,15 +69,15 @@ type        : 'UI Element'
         <div class="column"><i class="info icon"></i>Info</div>
         <div class="column"><i class="info letter icon"></i>Info Letter</div>
         <div class="column"><i class="legal icon"></i>Legal</div>
-        <div class="column"><i class="location arrow icon"></i>Location</div>
+        <div class="column"><i class="location icon"></i>Location</div>
         <div class="column"><i class="mail icon"></i>Mail</div>
         <div class="column"><i class="mail outline icon"></i>Mail Outline</div>
         <div class="column"><i class="map icon"></i>Map</div>
         <div class="column"><i class="map marker icon"></i>Map Marker</div>
         <div class="column"><i class="mobile icon"></i>Mobile</div>
         <div class="column"><i class="music icon"></i>Music</div>
-        <div class="column"><i class="outline chat icon"></i>Chat Outline</div>
-        <div class="column"><i class="outline comment icon"></i>Comment Outline</div>
+        <div class="column"><i class="chat outline icon"></i>Chat Outline</div>
+        <div class="column"><i class="comment outline icon"></i>Comment Outline</div>
         <div class="column"><i class="payment icon"></i>Payment</div>
         <div class="column"><i class="photo icon"></i>Photo</div>
         <div class="column"><i class="qr code icon"></i>QR Code</div>
@@ -123,8 +123,8 @@ type        : 'UI Element'
     <i class="file icon"></i>
     <i class="file outline icon"></i>
     <i class="folder icon"></i>
-    <i class="folder open icon"></i>
-    <i class="folder open outline icon"></i>
+    <i class="open folder icon"></i>
+    <i class="open folder outline icon"></i>
     <i class="folder outline icon"></i>
     <i class="help icon"></i>
     <i class="home icon"></i>
@@ -139,8 +139,8 @@ type        : 'UI Element'
     <i class="map marker icon"></i>
     <i class="mobile icon"></i>
     <i class="music icon"></i>
-    <i class="outline chat icon"></i>
-    <i class="outline comment icon"></i>
+    <i class="chat outline icon"></i>
+    <i class="comment outline icon"></i>
     <i class="payment icon"></i>
     <i class="photo icon"></i>
     <i class="qr code icon"></i>
@@ -176,7 +176,7 @@ type        : 'UI Element'
         <div class="column"><i class="add sign icon"></i>Add Sign</div>
         <div class="column"><i class="add sign box icon"></i>Add Sign Box</div>
         <div class="column"><i class="adjust icon"></i>Adjust</div>
-        <div class="column"><i class="bookmark empty icon"></i>Empty Bookmark</div>
+        <div class="column"><i class="empty bookmark icon"></i>Empty Bookmark</div>
         <div class="column"><i class="bookmark icon"></i>Bookmark</div>
         <div class="column"><i class="cloud download icon"></i>Cloud Download</div>
         <div class="column"><i class="cloud upload icon"></i>Cloud Upload</div>
@@ -192,7 +192,7 @@ type        : 'UI Element'
         <div class="column"><i class="filter icon"></i>Filter</div>
         <div class="column"><i class="flag icon"></i>Flag</div>
         <div class="column"><i class="fork code icon"></i>Fork Code</div>
-        <div class="column"><i class="forward mail icon"></i>Forward</div>
+        <div class="column"><i class="forward mail icon"></i>Forward Mail</div>
         <div class="column"><i class="fullscreen icon"></i>Fullscreen</div>
         <div class="column"><i class="hide icon"></i>Hide</div>
         <div class="column"><i class="level down icon"></i>Level Down</div>
@@ -203,8 +203,8 @@ type        : 'UI Element'
         <div class="column"><i class="remove icon"></i>Remove</div>
         <div class="column"><i class="remove sign icon"></i>Remove Sign</div>
         <div class="column"><i class="reorder icon"></i>Reorder</div>
-        <div class="column"><i class="reply all mail icon"></i>Reply All</div>
-        <div class="column"><i class="reply mail icon"></i>Reply</div>
+        <div class="column"><i class="reply all mail icon"></i>Reply All Mail</div>
+        <div class="column"><i class="reply mail icon"></i>Reply Mail</div>
         <div class="column"><i class="retweet icon"></i>Retweet</div>
         <div class="column"><i class="save icon"></i>Save</div>
         <div class="column"><i class="screenshot icon"></i>Screenshot</div>
@@ -220,8 +220,8 @@ type        : 'UI Element'
       </div>
       <div class="existing code">
     <i class="add icon"></i>
-    <i class="add sign box icon"></i>
     <i class="add sign icon"></i>
+    <i class="add sign box icon"></i>
     <i class="adjust icon"></i>
     <i class="bookmark empty icon"></i>
     <i class="bookmark icon"></i>
@@ -273,7 +273,7 @@ type        : 'UI Element'
       <div class="ui eight column grid">
         <div class="column"><i class="block layout icon"></i>Block Layout</div>
         <div class="column"><i class="column layout icon"></i>Column Layout</div>
-        <div class="column"><i class="grid layout icon"></i>Grid</div>
+        <div class="column"><i class="grid layout icon"></i>Grid Layout</div>
         <div class="column"><i class="list layout icon"></i>List Layout</div>
         <div class="column"><i class="resize full icon"></i>Resize Full</div>
         <div class="column"><i class="resize horizontal icon"></i>Resize Horizontal</div>
@@ -386,6 +386,7 @@ type        : 'UI Element'
       <p>Icons can represent actions that occur on media</p>
       <div class="ui eight column grid">
         <div class="column"><i class="backward icon"></i>Backward</div>
+        <div class="column"><i class="forward icon"></i>Forward</div>
         <div class="column"><i class="eject icon"></i>Eject</div>
         <div class="column"><i class="fast backward icon"></i>Fast Backward</div>
         <div class="column"><i class="fast forward icon"></i>Fast Forward</div>
@@ -406,6 +407,7 @@ type        : 'UI Element'
       </div>
       <div class="existing code">
     <i class="backward icon"></i>
+    <i class="forward icon"></i>
     <i class="eject icon"></i>
     <i class="fast backward icon"></i>
     <i class="fast forward icon"></i>
@@ -451,7 +453,7 @@ type        : 'UI Element'
         <div class="column"><i class="fighter jet icon"></i>Fighter Jet</div>
         <div class="column"><i class="fire extinguisher icon"></i>Fire Extinguisher</div>
         <div class="column"><i class="fire icon"></i>Fire</div>
-        <div class="column"><i class="flag checkered icon"></i>Checkered Flag</div>
+        <div class="column"><i class="checkered flag icon"></i>Checkered Flag</div>
         <div class="column"><i class="food icon"></i>Food</div>
         <div class="column"><i class="gamepad icon"></i>Gamepad</div>
         <div class="column"><i class="gift icon"></i>Gift</div>
@@ -512,7 +514,7 @@ type        : 'UI Element'
     <i class="fighter jet icon"></i>
     <i class="fire extinguisher icon"></i>
     <i class="fire icon"></i>
-    <i class="flag checkered icon"></i>
+    <i class="checkered flag icon"></i>
     <i class="food icon"></i>
     <i class="gamepad icon"></i>
     <i class="gift icon"></i>
@@ -565,7 +567,7 @@ type        : 'UI Element'
         <div class="column"><i class="empty checkbox icon"></i>Empty Checkbox</div>
         <div class="column"><i class="checked checkbox icon"></i>Checked Checkbox</div>
         <div class="column"><i class="exclamation icon"></i>Exclamation</div>
-        <div class="column"><i class="attention icon"></i>attention</div>
+        <div class="column"><i class="attention icon"></i>Attention</div>
         <div class="column"><i class="frown icon"></i>Frown</div>
         <div class="column"><i class="heart empty icon"></i>Heart Empty</div>
         <div class="column"><i class="heart icon"></i>Heart</div>
@@ -575,9 +577,9 @@ type        : 'UI Element'
         <div class="column"><i class="ok circle icon"></i>OK Circle</div>
         <div class="column"><i class="ok sign icon"></i>OK Sign</div>
         <div class="column"><i class="smile icon"></i>Smile</div>
-        <div class="column"><i class="star empty icon"></i>Empty Star</div>
-        <div class="column"><i class="star half empty icon"></i>Half Empty Star</div>
-        <div class="column"><i class="star half icon"></i>Half Star</div>
+        <div class="column"><i class="empty star icon"></i>Empty Star</div>
+        <div class="column"><i class="half empty star icon"></i>Half Empty Star</div>
+        <div class="column"><i class="half star icon"></i>Half Star</div>
         <div class="column"><i class="star icon"></i>Star</div>
         <div class="column"><i class="thumbs down icon"></i>Thumbs Down</div>
         <div class="column"><i class="thumbs down outline icon"></i>Thumbs Down Outline</div>
@@ -590,12 +592,12 @@ type        : 'UI Element'
       <div class="existing code">
     <i class="ban circle icon"></i>
     <i class="checkmark icon"></i>
-    <i class="minus checkmark icon"></i>
     <i class="checkmark sign icon"></i>
+    <i class="minus checkbox icon"></i>
     <i class="empty checkbox icon"></i>
     <i class="checked checkbox icon"></i>
     <i class="exclamation icon"></i>
-    <i class="exclamation sign icon"></i>
+    <i class="attention icon"></i>
     <i class="frown icon"></i>
     <i class="heart empty icon"></i>
     <i class="heart icon"></i>
@@ -603,12 +605,11 @@ type        : 'UI Element'
     <i class="lock icon"></i>
     <i class="meh icon"></i>
     <i class="ok circle icon"></i>
-    <i class="ok icon"></i>
     <i class="ok sign icon"></i>
     <i class="smile icon"></i>
-    <i class="star empty icon"></i>
-    <i class="star half empty icon"></i>
-    <i class="star half icon"></i>
+    <i class="empty star icon"></i>
+    <i class="shalf empty tar icon"></i>
+    <i class="half star icon"></i>
     <i class="star icon"></i>
     <i class="thumbs down icon"></i>
     <i class="thumbs down outline icon"></i>
@@ -640,18 +641,18 @@ type        : 'UI Element'
         <div class="column"><i class="triangle left icon"></i>Triangle Left</div>
         <div class="column"><i class="triangle right icon"></i>Triangle Right</div>
         <div class="column"><i class="triangle up icon"></i>Triangle Up</div>
-        <div class="column"><i class="arrow down icon"></i>Down Arrow</div>
-        <div class="column"><i class="arrow left icon"></i>Left Arrow</div>
-        <div class="column"><i class="arrow right icon"></i>Right Arrow</div>
-        <div class="column"><i class="arrow up icon"></i>Up Arrow</div>
+        <div class="column"><i class="down arrow icon"></i>Down Arrow</div>
+        <div class="column"><i class="left arrow icon"></i>Left Arrow</div>
+        <div class="column"><i class="right arrow icon"></i>Right Arrow</div>
+        <div class="column"><i class="up arrow icon"></i>Up Arrow</div>
         <div class="column"><i class="arrow sign down icon"></i>Arrow Sign Down</div>
         <div class="column"><i class="arrow sign left icon"></i>Arrow Sign Left</div>
         <div class="column"><i class="arrow sign right icon"></i>Arrow Sign Right</div>
         <div class="column"><i class="arrow sign up icon"></i>Arrow Sign Up</div>
-        <div class="column"><i class="circle left icon"></i>Circle Arrow Left</div>
-        <div class="column"><i class="circle right icon"></i>Circle Arrow Right</div>
-        <div class="column"><i class="circle up icon"></i>Circle Arrow Up</div>
-        <div class="column"><i class="circle down icon"></i>Circle Down Arrow</div>
+        <div class="column"><i class="circle left icon"></i>Circle Left</div>
+        <div class="column"><i class="circle right icon"></i>Circle Right</div>
+        <div class="column"><i class="circle up icon"></i>Circle Up</div>
+        <div class="column"><i class="circle down icon"></i>Circle Down</div>
         <div class="column"><i class="circle blank icon"></i>Circle Blank</div>
         <div class="column"><i class="circle icon"></i>Circle</div>
         <div class="column"><i class="double angle down icon"></i>Double Angle Down</div>
@@ -679,29 +680,28 @@ type        : 'UI Element'
     <i class="arrow box down icon"></i>
     <i class="arrow box right icon"></i>
     <i class="arrow box up icon"></i>
-    <i class="arrow down icon"></i>
-    <i class="arrow left icon"></i>
-    <i class="arrow right icon"></i>
-    <i class="arrow up icon"></i>
+    <i class="down icon"></i>
+    <i class="left icon"></i>
+    <i class="right icon"></i>
+    <i class="up icon"></i>
     <i class="asterisk icon"></i>
     <i class="triangle down icon"></i>
     <i class="triangle left icon"></i>
     <i class="triangle right icon"></i>
     <i class="triangle up icon"></i>
-    <i class="arrow down icon"></i>
-    <i class="arrow left icon"></i>
-    <i class="arrow right icon"></i>
-    <i class="arrow up icon"></i>
+    <i class="down arrow icon"></i>
+    <i class="left arrow icon"></i>
+    <i class="right arrow icon"></i>
+    <i class="up arrow icon"></i>
     <i class="arrow sign down icon"></i>
     <i class="arrow sign left icon"></i>
     <i class="arrow sign right icon"></i>
     <i class="arrow sign up icon"></i>
-    <i class="arrow up icon"></i>
-    <i class="circle arrow left icon"></i>
-    <i class="circle arrow right icon"></i>
-    <i class="circle arrow up icon"></i>
+    <i class="circle left icon"></i>
+    <i class="circle right icon"></i>
+    <i class="circle up icon"></i>
+    <i class="circle down icon"></i>
     <i class="circle blank icon"></i>
-    <i class="circle down arrow icon"></i>
     <i class="circle icon"></i>
     <i class="double angle down icon"></i>
     <i class="double angle left icon"></i>
@@ -726,13 +726,13 @@ type        : 'UI Element'
       <h4 class="ui header">Currency</h4>
       <p>Icons can represent units of currency</p>
       <div class="ui eight column grid">
-        <div class="column"><i class="dollar icon"></i>US Dollar</div>
+        <div class="column"><i class="dollar icon"></i>Dollar</div>
         <div class="column"><i class="euro icon"></i>Euro</div>
-        <div class="column"><i class="pound icon"></i>British Pound</div>
+        <div class="column"><i class="pound icon"></i>Pound</div>
         <div class="column"><i class="rupee icon"></i>Rupee</div>
-        <div class="column"><i class="won icon"></i>Korean Won</div>
-        <div class="column"><i class="yen icon"></i>Japanese Yen</div>
-        <div class="column"><i class="yuan icon"></i>Chinese Yuan</div>
+        <div class="column"><i class="won icon"></i>Won</div>
+        <div class="column"><i class="yen icon"></i>Yen</div>
+        <div class="column"><i class="yuan icon"></i>Yuan</div>
       </div>
       <div class="existing code">
     <i class="dollar icon"></i>
@@ -959,7 +959,7 @@ type        : 'UI Element'
         <div class="column"><i class="flag basic icon"></i> Flag</div>
         <div class="column"><i class="cancel basic icon"></i> Cancel</div>
         <div class="column"><i class="close basic icon"></i> Close</div>
-        <div class="column"><i class="close basic icon"></i> Delete</div>
+        <div class="column"><i class="delete basic icon"></i> Delete</div>
         <div class="column"><i class="check basic icon"></i> Check</div>
         <div class="column"><i class="edit basic icon"></i> Edit</div>
         <div class="column"><i class="open basic icon"></i> Open</div>
@@ -985,7 +985,7 @@ type        : 'UI Element'
     <i class="flag basic icon"></i>
     <i class="cancel basic icon"></i>
     <i class="close basic icon"></i>
-    <i class="close basic icon"></i>
+    <i class="delete basic icon"></i>
     <i class="check basic icon"></i>
     <i class="edit basic icon"></i>
     <i class="open basic icon"></i>
@@ -1039,8 +1039,8 @@ type        : 'UI Element'
         <div class="column"><i class="fast-forward basic icon"></i> Fast-forward</div>
         <div class="column"><i class="pause basic icon"></i> Pause</div>
         <div class="column"><i class="play basic icon"></i> Play</div>
-        <div class="column"><i class="to-end basic icon"></i> To-start</div>
-        <div class="column"><i class="to-start basic icon"></i> To-end</div>
+        <div class="column"><i class="to-start basic icon"></i> To-start</div>
+        <div class="column"><i class="to-end basic icon"></i> To-end</div>
         <div class="column"><i class="forward basic icon"></i> Forward</div>
         <div class="column"><i class="shuffle basic icon"></i> Shuffle</div>
         <div class="column"><i class="clockwise basic icon"></i> Clockwise</div>
@@ -1051,8 +1051,8 @@ type        : 'UI Element'
     <i class="fast-forward basic icon"></i>
     <i class="pause basic icon"></i>
     <i class="play basic icon"></i>
-    <i class="to-end basic icon"></i>
     <i class="to-start basic icon"></i>
+    <i class="to-end basic icon"></i>
     <i class="forward basic icon"></i>
     <i class="shuffle basic icon"></i>
     <i class="clockwise basic icon"></i>
@@ -1138,7 +1138,7 @@ type        : 'UI Element'
       <h4 class="ui header">Symbols</h4>
       <p>Icons can represent common symbols</p>
       <div class="ui eight column grid">
-        <div class="column"><i class="left arrow basic icon"></i> Left Open</div>
+        <div class="column"><i class="left arrow basic icon"></i> Left Arrow</div>
         <div class="column"><i class="left triangle basic icon"></i> Left Triangle</div>
         <div class="column"><i class="left basic icon"></i> Left</div>
         <div class="column"><i class="right basic icon"></i> Right</div>
@@ -1149,7 +1149,7 @@ type        : 'UI Element'
         <div class="column"><i class="up arrow basic icon"></i> Up Arrow</div>
         <div class="column"><i class="down arrow basic icon"></i> Down Arrow</div>
         <div class="column"><i class="down triangle basic icon"></i> Down Triangle</div>
-        <div class="column"><i class="down basic icon"></i> Down Arrow</div>
+        <div class="column"><i class="down basic icon"></i> Down</div>
         <div class="column"><i class="cube basic icon"></i> Cube</div>
         <div class="column"><i class="minus basic icon"></i> Minus</div>
         <div class="column"><i class="plus basic icon"></i> Plus</div>
@@ -1180,6 +1180,11 @@ type        : 'UI Element'
         <div class="column"><i class="facebook basic icon"></i> Facebook</div>
         <div class="column"><i class="twitter basic icon"></i> Twitter</div>
         <div class="column"><i class="github basic icon"></i> Github</div>
+      </div>
+      <div class="existing code">
+    <i class="facebook basic icon"></i>
+    <i class="twitter basic icon"></i>
+    <i class="github basic icon"></i>
       </div>
     </div>
   </div>

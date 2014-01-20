@@ -10834,6 +10834,7 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
+          $module.off(animationEnd);
           module.restore.conditions();
           module.hide();
           module.remove.animating();
@@ -11496,6 +11497,7 @@ $.fn.transition.settings = {
 
 
 })( jQuery, window , document );
+
 /*  ******************************
   Module - Video
   Author: Jack Lukic

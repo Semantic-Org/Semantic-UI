@@ -96,7 +96,7 @@
 @tabularHorizontalPadding: 1.4em;
 @tabularMenuTextColor: @menuTextColor;
 
-@tabularMenuActiveBackground: @FFFFFF;
+@tabularMenuActiveBackground: #FFFFFF;
 @tabularActiveWeight: bold;
 @tabularBorderRadius: 5px;
 

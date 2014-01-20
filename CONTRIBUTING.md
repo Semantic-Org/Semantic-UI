@@ -94,7 +94,15 @@ npm install -g grunt-cli
 
 [Fork](https://github.com/jlukic/Semantic-UI/fork)
 
-### 4) Start Your Server
+### 4A) Build Semantic
+
+In order to have the current version of semantic available inside your local documentation, you will have to build it once with Grunt
+
+```bash
+grunt build
+```
+
+### 4B) Start Your Server
 
 ```bash
 docpad run

@@ -73,15 +73,15 @@
 
 /* Text Color */
 .ui.menu .item,
-.ui.menu .item > a {
+.ui.menu .item > a:not(.button) {
   color: @menuTextColor;
 }
 .ui.menu .item .item,
-.ui.menu .item .item > a {
+.ui.menu .item .item > a:not(.button) {
   color: @subMenuTextColor;
 }
 .ui.menu .dropdown.item .menu .item,
-.ui.menu .dropdown.item .menu .item a {
+.ui.menu .dropdown.item .menu .item a:not(.button) {
   color: @textColor;
 }
 /* Hover */
@@ -91,14 +91,13 @@
 .ui.menu .item .menu .link.item.hover {
   color: @darkTextColor;
 }
-.ui.menu .dropdown.item .menu .item a:hover {
+.ui.menu .dropdown.item .menu .item a:not(.button):hover {
   color: @darkTextColor;
 }
 /* Active */
 .ui.menu .active.item,
-.ui.menu .active.item a {
+.ui.menu .active.item a:not(.button) {
   color: @selectedTextColor;
-  border-radius: 0px;
 }
 
 /*--------------
@@ -179,7 +178,6 @@
   padding-top: 0.55em;
 
   font-size: 0.875em;
-  box-shadow: none;
 }
 
 
@@ -193,6 +191,7 @@
   padding-top: 0.3em;
   padding-bottom: 0.3em;
   width: 100%;
+  vertical-align: top;
 }
 .ui.menu .item > .input input {
   padding-top: 0.5em;
@@ -205,6 +204,33 @@
 }
 .ui.vertical.menu .ui.input > .icon {
   padding-top: 0.63em;
+}
+
+/* Action Input */
+.ui.menu:not(.vertical) .item > .button.labeled > .icon {
+  padding-top: 0.6em;
+}
+.ui.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.55em 0.8em;
+}
+
+/* Resizes */
+.ui.small.menu:not(.vertical) .item > .input input {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+.ui.large.menu:not(.vertical) .item > .input input {
+  top: -0.125em;
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
+}
+.ui.large.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.9em;
+}
+.ui.large.menu:not(.vertical) .item .action.input > .button > .icon {
+  padding-top: 0.8em;
 }
 
 /*--------------
@@ -428,6 +454,12 @@
   width: 100%;
   height: @dividerSize;
   background-image: @verticalDividerBackground;
+  height: 1px;
+  background-image: linear-gradient(to right,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.1) 1.5em,
+    rgba(0, 0, 0, 0.03) 100%)
+  ;
 }
 
 .ui.vertical.menu .item:first-child:before {
@@ -1117,7 +1149,7 @@
   ;
 }
 .ui.vertical.inverted.menu .item:before {
-  background-image: linear-gradient(left,
+  background-image: linear-gradient(to right,
     rgba(255, 255, 255, 0.03) 0%,
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0.03) 100%)
@@ -1510,10 +1542,6 @@
 .ui.small.menu .item {
   font-size: 0.875rem;
 }
-.ui.small.menu:not(.vertical) .item > .input input {
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-}
 .ui.small.vertical.menu {
   width: 13rem;
 }
@@ -1531,11 +1559,6 @@
 }
 .ui.large.menu .item .item {
   font-size: 0.875rem;
-}
-.ui.large.menu:not(.vertical) .item > .input input {
-  top: -0.125em;
-  padding-bottom: 0.6em;
-  padding-top: 0.6em;
 }
 .ui.large.menu .dropdown.item .item {
   font-size: 1rem;

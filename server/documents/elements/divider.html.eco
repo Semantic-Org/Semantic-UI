@@ -20,6 +20,7 @@ type        : 'UI Element'
   <h2 class="ui dividing header">Types</h2>
   <div class="example">
     <h4 class="ui header">Divider</h4>
+    <div class="ignored ui warning message">If you are looking to add a divider in between grid rows, you can use the <code>ui divided grid</code> variation. For more information check out <a href="/collections/grid.html">the grid definition</a></div>
     <p>A standard divider</p>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
     <div class="ui divider"></div>

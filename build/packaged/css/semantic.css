@@ -1555,6 +1555,168 @@ body > .ui.grid {
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Theme to load global Variables */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+       Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+   Menu Variables
+--------------------*/
+
+/* Sub Menu */
+
+/*--------------
+    Elements
+---------------*/
+
+/*--------------
+    Couplings
+---------------*/
+
+/*--------------
+     States
+---------------*/
+
+/*--------------
+   Variations
+---------------*/
+
+/* Tiered */
+
+/* Tabular */
+
+/* Pagination */
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
             Standard
 *******************************/
 
@@ -1564,7 +1726,7 @@ body > .ui.grid {
 
 .ui.menu {
   margin: 1rem 0rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   font-size: 0px;
   font-weight: normal;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -1589,11 +1751,11 @@ body > .ui.grid {
 }
 
 .ui.menu > .item:first-child {
-  border-radius: 0.1875em 0px 0px 0.1875em;
+  border-radius: 0.1875rem 0px 0px 0.1875rem;
 }
 
 .ui.menu > .item:last-child {
-  border-radius: 0px 0.1875em 0.1875em 0px;
+  border-radius: 0px 0.1875rem 0.1875rem 0px;
 }
 
 .ui.menu .item {
@@ -1607,7 +1769,6 @@ body > .ui.grid {
   text-decoration: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
   transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -1620,23 +1781,18 @@ body > .ui.grid {
 /* Text Color */
 
 .ui.menu .item,
-.ui.menu .item > a {
-  color: rgba(0, 0, 0, 0.75);
+.ui.menu .item > a:not(.button) {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.menu .item .item,
-.ui.menu .item .item > a {
-  color: rgba(30, 30, 30, 0.7);
-}
-
-.ui.menu .item .item .item,
-.ui.menu .item .item .item > a {
-  color: rgba(30, 30, 30, 0.6);
+.ui.menu .item .item > a:not(.button) {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.menu .dropdown.item .menu .item,
-.ui.menu .dropdown.item .menu .item a {
-  color: rgba(0, 0, 0, 0.75);
+.ui.menu .dropdown.item .menu .item a:not(.button) {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /* Hover */
@@ -1648,16 +1804,15 @@ body > .ui.grid {
   color: rgba(0, 0, 0, 0.85);
 }
 
-.ui.menu .dropdown.item .menu .item a:hover {
+.ui.menu .dropdown.item .menu .item a:not(.button):hover {
   color: rgba(0, 0, 0, 0.85);
 }
 
 /* Active */
 
 .ui.menu .active.item,
-.ui.menu .active.item a {
-  color: rgba(0, 0, 0, 0.85);
-  border-radius: 0px;
+.ui.menu .active.item a:not(.button) {
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /*--------------
@@ -1670,9 +1825,8 @@ body > .ui.grid {
   padding: 0.83em 0.95em;
   border-top: 0em solid rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
   -webkit-user-select: none;
+  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
@@ -1680,6 +1834,8 @@ body > .ui.grid {
 .ui.menu .menu {
   margin: 0em;
 }
+
+/* Floated Content */
 
 .ui.menu .item.left,
 .ui.menu .menu.left {
@@ -1724,15 +1880,15 @@ body > .ui.grid {
   -ms-user-select: text;
   user-select: text;
   line-height: 1.3;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.menu .item > p:first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .ui.menu .item > p:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 /*--------------
@@ -1746,8 +1902,6 @@ body > .ui.grid {
   padding-bottom: 0.55em;
   padding-top: 0.55em;
   font-size: 0.875em;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 
 /*--------------
@@ -1760,6 +1914,7 @@ body > .ui.grid {
   padding-top: 0.3em;
   padding-bottom: 0.3em;
   width: 100%;
+  vertical-align: top;
 }
 
 .ui.menu .item > .input input {
@@ -1775,6 +1930,39 @@ body > .ui.grid {
 
 .ui.vertical.menu .ui.input > .icon {
   padding-top: 0.63em;
+}
+
+/* Action Input */
+
+.ui.menu:not(.vertical) .item > .button.labeled > .icon {
+  padding-top: 0.6em;
+}
+
+.ui.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.55em 0.8em;
+}
+
+/* Resizes */
+
+.ui.small.menu:not(.vertical) .item > .input input {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+.ui.large.menu:not(.vertical) .item > .input input {
+  top: -0.125em;
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
+}
+
+.ui.large.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.9em;
+}
+
+.ui.large.menu:not(.vertical) .item .action.input > .button > .icon {
+  padding-top: 0.8em;
 }
 
 /*--------------
@@ -1871,11 +2059,11 @@ body > .ui.grid {
 .ui.menu .ui.dropdown .menu .item.hover,
 .ui.menu .ui.dropdown .menu .item:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
 }
 
 .ui.menu .ui.dropdown.active {
-  background-color: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
   -webkit-box-shadow: none;
   box-shadow: none;
   border-bottom-right-radius: 0em;
@@ -1890,7 +2078,7 @@ body > .ui.grid {
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
 .ui.menu .ui.dropdown .menu .item:active {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.01);
 }
 
 /*--------------
@@ -1899,7 +2087,7 @@ body > .ui.grid {
 
 .ui.menu .active.item {
   background-color: rgba(0, 0, 0, 0.01);
-  color: rgba(0, 0, 0, 0.95);
+  color: rgba(0, 0, 0, 0.85);
   -webkit-box-shadow: 0em 0.2em 0em inset;
   box-shadow: 0em 0.2em 0em inset;
 }
@@ -1911,15 +2099,15 @@ body > .ui.grid {
 }
 
 .ui.vertical.menu > .active.item:first-child {
-  border-radius: 0em 0.1875em 0em 0em;
+  border-radius: 0em 0.1875rem 0em 0em;
 }
 
 .ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em 0.1875em 0em;
+  border-radius: 0em 0em 0.1875rem 0em;
 }
 
 .ui.vertical.menu > .active.item:only-child {
-  border-radius: 0em 0.1875em 0.1875em 0em;
+  border-radius: 0em 0.1875rem 0.1875rem 0em;
 }
 
 .ui.vertical.menu .active.item .menu .active.item {
@@ -1965,7 +2153,7 @@ body > .ui.grid {
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) url("../themes/default/images/loader-large.gif") no-repeat 50% 50%;
   visibility: visible;
 }
 
@@ -1986,11 +2174,11 @@ body > .ui.grid {
 }
 
 .ui.vertical.menu > .item:first-child {
-  border-radius: 0.1875em 0.1875em 0px 0px;
+  border-radius: 0.1875rem 0.1875rem 0px 0px;
 }
 
 .ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px 0.1875em 0.1875em;
+  border-radius: 0px 0px 0.1875rem 0.1875rem;
 }
 
 .ui.vertical.menu .item > .label {
@@ -2000,7 +2188,7 @@ body > .ui.grid {
 
 .ui.vertical.menu .item > .icon:not(.input) {
   float: right;
-  width: 1.22em;
+  width: 1.23em;
   margin: 0em 0em 0em 0.5em;
 }
 
@@ -2017,10 +2205,11 @@ body > .ui.grid {
   top: 0%;
   left: 0px;
   width: 100%;
-  height: 1px;
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.03)), color-stop(1.5em, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.03)));
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
   background-image: linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
 }
 
 .ui.vertical.menu .item:first-child:before {
@@ -2038,8 +2227,8 @@ body > .ui.grid {
   top: 0% !important;
   left: 100%;
   margin: 0px 0px 0px 1px;
-  -webkit-box-shadow: 0 0px 1px 1px #DDDDDD;
-  box-shadow: 0 0px 1px 1px #DDDDDD;
+  -webkit-box-shadow: 0 0px 1px 1px #dddddd;
+  box-shadow: 0 0px 1px 1px #dddddd;
 }
 
 .ui.vertical.menu .dropdown.item.active {
@@ -2113,7 +2302,7 @@ body > .ui.grid {
 }
 
 .ui.tiered.menu .sub.menu .item {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
 .ui.tiered.menu .sub.menu .item:before {
@@ -2123,18 +2312,18 @@ body > .ui.grid {
 .ui.tiered.menu .sub.menu .active.item {
   padding-top: 0.83em;
   background-color: transparent;
-  border-radius: 0 0 0 0;
+  border-radius: 0;
   border-top: medium none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .ui.tiered.menu .sub.menu .active.item:after {
   display: none;
 }
 
-/* Inverted */
+/* Inverted Tiered Menu */
 
 .ui.inverted.tiered.menu > .menu > .item {
   color: rgba(255, 255, 255, 0.5);
@@ -2145,12 +2334,12 @@ body > .ui.grid {
 }
 
 .ui.inverted.tiered.menu .sub.menu .item {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .ui.inverted.tiered.menu > .menu > .item:hover,
 .ui.inverted.tiered.menu > .menu > .item.hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
 }
 
 .ui.inverted.tiered.menu .active.item:after {
@@ -2180,7 +2369,7 @@ body > .ui.grid {
 
 .ui.tabular.menu {
   background-color: transparent;
-  border-bottom: 1px solid #DCDDDE;
+  border-bottom: 1px solid #dcddde;
   border-radius: 0em;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
@@ -2193,7 +2382,7 @@ body > .ui.grid {
   border-top: 1px solid transparent;
   padding-left: 1.4em;
   padding-right: 1.4em;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.tabular.menu .item:before {
@@ -2211,15 +2400,15 @@ body > .ui.grid {
 
 .ui.tabular.menu .active.item {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: rgba(0, 0, 0, 0.8);
-  border-color: #DCDDDE;
+  border-color: #dcddde;
   font-weight: bold;
   margin-bottom: -1px;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid #ffffff;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0px 0px;
 }
 
 /* Coupling with segment for attachment */
@@ -2261,7 +2450,7 @@ body > .ui.grid {
 .ui.pagination.menu .active.item {
   border-top: none;
   padding-top: 0.83em;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.01);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -2440,7 +2629,7 @@ body > .ui.grid {
   border: none;
   margin: 0em 0em 0.3em;
   padding: 0.6em 0.8em;
-  border-radius: 0.1875em;
+  border-radius: 0.1875rem;
 }
 
 .ui.secondary.vertical.menu > .header.item {
@@ -2789,15 +2978,15 @@ body > .ui.grid {
 /*--- Border ---*/
 
 .ui.inverted.menu .item:before {
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 .ui.vertical.inverted.menu .item:before {
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
-  background-image: linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 /*--- Hover ---*/
@@ -3210,11 +3399,11 @@ body > .ui.grid {
 }
 
 .ui.top.attached.menu {
-  border-radius: 0.1875em 0.1875em 0px 0px;
+  border-radius: 0.1875rem 0.1875rem 0px 0px;
 }
 
 .ui.menu.bottom.attached {
-  border-radius: 0px 0px 0.1875em 0.1875em;
+  border-radius: 0px 0px 0.1875rem 0.1875rem;
 }
 
 /*--------------
@@ -3223,11 +3412,6 @@ body > .ui.grid {
 
 .ui.small.menu .item {
   font-size: 0.875rem;
-}
-
-.ui.small.menu:not(.vertical) .item > .input input {
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
 }
 
 .ui.small.vertical.menu {
@@ -3250,12 +3434,6 @@ body > .ui.grid {
   font-size: 0.875rem;
 }
 
-.ui.large.menu:not(.vertical) .item > .input input {
-  top: -0.125em;
-  padding-bottom: 0.6em;
-  padding-top: 0.6em;
-}
-
 .ui.large.menu .dropdown.item .item {
   font-size: 1rem;
 }
@@ -3263,6 +3441,14 @@ body > .ui.grid {
 .ui.large.vertical.menu {
   width: 18rem;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 /*
  * # Semantic - Message
  * http://github.com/jlukic/semantic-ui/
@@ -3447,7 +3633,7 @@ body > .ui.grid {
   width: 100%;
 }
 
-.ui.icon.message > .icon {
+.ui.icon.message > .icon:not(.close) {
   display: table-cell;
   vertical-align: middle;
   font-size: 3.8em;
@@ -4342,6 +4528,12 @@ body > .ui.grid {
    Button Variables
 --------------------*/
 
+/*-------------------
+   Button Variables
+--------------------*/
+
+/* Button Variables */
+
 /*******************************
      User Global Variables
 *******************************/
@@ -4364,23 +4556,23 @@ body > .ui.grid {
   outline: none;
   border: none;
   background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.6);
+  color: #333333;
   margin: 0.25em 0em;
-  padding: 0.8em 1.5em 0.8em;
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  text-shadow: none;
+  padding: 0.75em 1.15em 0.75em;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-transform: none;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.9);
   font-weight: bold;
   line-height: 1;
   font-style: normal;
   text-align: center;
   text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.15)), to(rgba(0, 0, 0, 0.1)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
   border-radius: 0.25em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 1px 3px rgba(0, 0, 0, 0.05);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -4419,11 +4611,11 @@ body > .ui.grid {
 
 .ui.button:active,
 .ui.active.button:active {
-  background-color: #f1f1f1;
+  background-color: '';
   background-image: '';
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.15) inset;
 }
 
 /*--------------
@@ -4431,20 +4623,20 @@ body > .ui.grid {
 ---------------*/
 
 .ui.active.button {
-  background-color: #eaeaea;
+  background-color: #dfdfdf;
   background-image: none;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-  color: rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.13) inset, 0 3px 5px rgba(0, 0, 0, 0.1) inset;
+  color: #333333;
 }
 
 .ui.button.active:hover {
-  background-color: #eaeaea;
+  background-color: #dfdfdf;
   background-image: none;
 }
 
 .ui.button.active:active {
-  background-color: #eaeaea;
+  background-color: #dfdfdf;
   background-image: none;
 }
 
@@ -4630,32 +4822,32 @@ body > .ui.grid {
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #00b5ad;
+  background-color: #3072b3;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #00cfc5;
+  background-color: #357fc7;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #00918b;
+  background-color: #286097;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.primary.buttons .active.button,
 .ui.primary.button.active {
-  background-color: #009c95;
+  background-color: #2b659f;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*-------------------
@@ -4664,32 +4856,32 @@ body > .ui.grid {
 
 .ui.secondary.buttons .button,
 .ui.secondary.button {
-  background-color: #555555;
+  background-color: #5d5d5d;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background-color: #626262;
+  background-color: #6a6a6a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-  background-color: #434343;
+  background-color: #4b4b4b;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
-  background-color: #484848;
+  background-color: #505050;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*-------------------
@@ -4701,7 +4893,7 @@ body > .ui.grid {
 .ui.facebook.button {
   background-color: #3b579d;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4709,13 +4901,13 @@ body > .ui.grid {
 .ui.facebook.button:hover {
   background-color: #4261b0;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.facebook.button:active {
   background-color: #314983;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /* Twitter */
@@ -4723,7 +4915,7 @@ body > .ui.grid {
 .ui.twitter.button {
   background-color: #4092cc;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4731,13 +4923,13 @@ body > .ui.grid {
 .ui.twitter.button:hover {
   background-color: #549dd1;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.twitter.button:active {
   background-color: #3180b7;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /* Google Plus */
@@ -4745,7 +4937,7 @@ body > .ui.grid {
 .ui.google.plus.button {
   background-color: #d34836;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4753,13 +4945,13 @@ body > .ui.grid {
 .ui.google.plus.button:hover {
   background-color: #d85b4b;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.google.plus.button:active {
   background-color: #bc3a29;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /* Linked In */
@@ -4767,19 +4959,19 @@ body > .ui.grid {
 .ui.linkedin.button {
   background-color: #1f88be;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.linkedin.button:hover {
   background-color: #2398d4;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.linkedin.button:active {
   background-color: #1a729f;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /* YouTube */
@@ -4787,7 +4979,7 @@ body > .ui.grid {
 .ui.youtube.button {
   background-color: #cc181e;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4795,13 +4987,13 @@ body > .ui.grid {
 .ui.youtube.button:hover {
   background-color: #e31b21;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.youtube.button:active {
   background-color: #ac1419;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /* Instagram */
@@ -4809,7 +5001,7 @@ body > .ui.grid {
 .ui.instagram.button {
   background-color: #49769c;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4817,13 +5009,13 @@ body > .ui.grid {
 .ui.instagram.button:hover {
   background-color: #5183ad;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.instagram.button:active {
   background-color: #3e6484;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /* Pinterest */
@@ -4831,7 +5023,7 @@ body > .ui.grid {
 .ui.pinterest.button {
   background-color: #00aced;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4839,13 +5031,13 @@ body > .ui.grid {
 .ui.pinterest.button:hover {
   background-color: #08bbff;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.pinterest.button:active {
   background-color: #0092c9;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /* vk.com */
@@ -4904,12 +5096,12 @@ body > .ui.grid {
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.6000000000000001em 1.125em 0.6000000000000001em;
+  padding: 0.5625em 0.8624999999999999em 0.5625em;
 }
 
 .ui.compact.icon.buttons .button,
 .ui.compact.buttons .icon.button {
-  padding: 0.6000000000000001em 0.6000000000000001em 1.125em;
+  padding: 0.5625em 0.5625em 0.8624999999999999em;
 }
 
 /*-------------------
@@ -4919,48 +5111,48 @@ body > .ui.grid {
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
 }
 
 .ui.buttons .button,
 .ui.button {
-  font-size: 1rem;
+  font-size: 0.92rem;
 }
 
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.375rem;
+  font-size: 1.25rem;
 }
 
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 /* Or resize */
@@ -5014,7 +5206,7 @@ body > .ui.grid {
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.8em 0.8em 0.8em;
+  padding: 0.75em 0.75em 0.75em;
 }
 
 .ui.icon.buttons .button > .icon,
@@ -5035,7 +5227,7 @@ body > .ui.grid {
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: rgba(0, 0, 0, 0.6) !important;
+  color: #333333 !important;
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
@@ -5045,7 +5237,7 @@ body > .ui.grid {
 }
 
 .ui.basic.labeled.icon.button > .icon {
-  padding-top: 0.8500000000000001em !important;
+  padding-top: 0.8em !important;
 }
 
 .ui.basic.buttons {
@@ -5112,7 +5304,7 @@ body > .ui.grid {
 .ui.basic.inverted.button.active {
   background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5137,8 +5329,8 @@ body > .ui.grid {
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 4.33em !important;
-  padding-right: 1.5em !important;
+  padding-left: 3.4em !important;
+  padding-right: 1.15em !important;
 }
 
 .ui.labeled.icon.buttons > .button > .icon,
@@ -5149,15 +5341,15 @@ body > .ui.grid {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 2.83em;
+  width: 2.73em;
   height: 100%;
-  padding-top: 0.8500000000000001em;
-  background-color: rgba(0, 0, 0, 0.05);
+  padding-top: 0.8em;
+  background-color: transparent;
   text-align: center;
   border-radius: 0.25em 0px 0px 0.25em;
   line-height: 1;
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  -webkit-box-shadow: -1px 0px 0px 0px transparent inset;
+  box-shadow: -1px 0px 0px 0px transparent inset;
 }
 
 .ui.labeled.icon.buttons .button > .icon {
@@ -5185,22 +5377,22 @@ body > .ui.grid {
 }
 
 .ui.right.labeled.icon.button {
-  padding-right: 4.33em !important;
-  padding-left: 1.5em !important;
+  padding-right: 3.4em !important;
+  padding-left: 1.15em !important;
 }
 
 .ui.left.fluid.labeled.icon.button,
 .ui.right.fluid.labeled.icon.button {
-  padding-left: 1.5em !important;
-  padding-right: 1.5em !important;
+  padding-left: 1.15em !important;
+  padding-right: 1.15em !important;
 }
 
 .ui.right.labeled.icon.button .icon {
   left: auto;
   right: 0em;
   border-radius: 0em 0.25em 0.25em 0em;
-  -webkit-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
-  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  -webkit-box-shadow: 1px 0px 0px 0px transparent inset;
+  box-shadow: 1px 0px 0px 0px transparent inset;
 }
 
 /*--------------
@@ -5212,14 +5404,14 @@ body > .ui.grid {
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-  background-color: #5bbd72 !important;
-  text-shadow: none;
+  background-color: #60b044 !important;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   color: #ffffff !important;
 }
 
 .ui.button.toggle.active:hover {
-  background-color: #6dc482 !important;
-  text-shadow: none;
+  background-color: #6dbc52 !important;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   color: #ffffff !important;
 }
 
@@ -5283,7 +5475,7 @@ body > .ui.grid {
   left: 50%;
   content: 'or';
   background-color: #FFFFFF;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   margin-top: -0.1em;
   margin-left: -0.9em;
   width: 1.8em;
@@ -5530,102 +5722,102 @@ body > .ui.grid {
 
 .ui.black.buttons .button,
 .ui.black.button {
-  background-color: #555555;
+  background-color: #5d5d5d;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #626262;
+  background-color: #6a6a6a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.black.buttons .button:active,
 .ui.black.button:active {
-  background-color: #434343;
+  background-color: #4b4b4b;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.black.buttons .button.active,
 .ui.black.buttons .button.active:active,
 .ui.black.button.active,
 .ui.black.button .button.active:active {
-  background-color: #484848;
+  background-color: #505050;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*--- Blue ---*/
 
 .ui.blue.buttons .button,
 .ui.blue.button {
-  background-color: #6ecff5;
+  background-color: #3072b3;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
-  background-color: #86d7f7;
+  background-color: #357fc7;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.blue.buttons .button:active,
 .ui.blue.button:active {
-  background-color: #4dc4f3;
+  background-color: #286097;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.blue.buttons .button.active,
 .ui.blue.buttons .button.active:active,
 .ui.blue.button.active,
 .ui.blue.button .button.active:active {
-  background-color: #56c7f3;
+  background-color: #2b659f;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*--- Green ---*/
 
 .ui.green.buttons .button,
 .ui.green.button {
-  background-color: #5bbd72;
+  background-color: #60b044;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
-  background-color: #6dc482;
+  background-color: #6dbc52;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.green.buttons .button:active,
 .ui.green.button:active {
-  background-color: #46ae5f;
+  background-color: #52963a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.green.buttons .button.active,
 .ui.green.buttons .button.active:active,
 .ui.green.button.active,
 .ui.green.button .button.active:active {
-  background-color: #49b562;
+  background-color: #569e3d;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*--- Orange ---*/
@@ -5634,7 +5826,7 @@ body > .ui.grid {
 .ui.orange.button {
   background-color: #e96633;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5643,23 +5835,23 @@ body > .ui.grid {
 .ui.orange.button:hover {
   background-color: #eb774a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.orange.buttons .button:active,
 .ui.orange.button:active {
   background-color: #e05018;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.orange.buttons .button.active,
 .ui.orange.buttons .button.active:active,
 .ui.orange.button.active,
 .ui.orange.button .button.active:active {
-  background-color: #484848;
+  background-color: #505050;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*--- Pink ---*/
@@ -5668,7 +5860,7 @@ body > .ui.grid {
 .ui.pink.button {
   background-color: #d9499a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5677,14 +5869,14 @@ body > .ui.grid {
 .ui.pink.button:hover {
   background-color: #dd5ea6;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.pink.buttons .button:active,
 .ui.pink.button:active {
   background-color: #d22c8a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.pink.buttons .button.active,
@@ -5693,7 +5885,7 @@ body > .ui.grid {
 .ui.pink.button .button.active:active {
   background-color: #d5348e;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*--- Purple ---*/
@@ -5702,7 +5894,7 @@ body > .ui.grid {
 .ui.purple.button {
   background-color: #564f8a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5711,14 +5903,14 @@ body > .ui.grid {
 .ui.purple.button:hover {
   background-color: #60589a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.purple.buttons .button:active,
 .ui.purple.button:active {
   background-color: #484273;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.purple.buttons .button.active,
@@ -5727,7 +5919,7 @@ body > .ui.grid {
 .ui.purple.button .button.active:active {
   background-color: #4c467a;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*--- Red ---*/
@@ -5736,7 +5928,7 @@ body > .ui.grid {
 .ui.red.button {
   background-color: #d95c5c;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5745,14 +5937,14 @@ body > .ui.grid {
 .ui.red.button:hover {
   background-color: #de7171;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.red.buttons .button:active,
 .ui.red.button:active {
   background-color: #d23f3f;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.red.buttons .button.active,
@@ -5761,7 +5953,7 @@ body > .ui.grid {
 .ui.red.button .button.active:active {
   background-color: #d44747;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*--- Teal ---*/
@@ -5770,7 +5962,7 @@ body > .ui.grid {
 .ui.teal.button {
   background-color: #00b5ad;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5779,14 +5971,14 @@ body > .ui.grid {
 .ui.teal.button:hover {
   background-color: #00cfc5;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.teal.buttons .button:active,
 .ui.teal.button:active {
   background-color: #00918b;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.teal.buttons .button.active,
@@ -5795,7 +5987,7 @@ body > .ui.grid {
 .ui.teal.button .button.active:active {
   background-color: #009c95;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*--- Yellow ---*/
@@ -5804,7 +5996,7 @@ body > .ui.grid {
 .ui.yellow.button {
   background-color: #ffcb08;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5813,14 +6005,14 @@ body > .ui.grid {
 .ui.yellow.button:hover {
   background-color: #ffd021;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.yellow.buttons .button:active,
 .ui.yellow.button:active {
   background-color: #e3b300;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.yellow.buttons .button.active,
@@ -5829,7 +6021,7 @@ body > .ui.grid {
 .ui.yellow.button .button.active:active {
   background-color: #edbb00;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*---------------
@@ -5838,9 +6030,9 @@ body > .ui.grid {
 
 .ui.positive.buttons .button,
 .ui.positive.button {
-  background-color: #5bbd72 !important;
+  background-color: #60b044 !important;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5849,25 +6041,25 @@ body > .ui.grid {
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background-color: #6dc482 !important;
+  background-color: #6dbc52 !important;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: #46ae5f !important;
+  background-color: #52963a !important;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.positive.buttons .button.active,
 .ui.positive.buttons .button.active:active,
 .ui.positive.button.active,
 .ui.positive.button .button.active:active {
-  background-color: #49b562;
+  background-color: #569e3d;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*---------------
@@ -5878,7 +6070,7 @@ body > .ui.grid {
 .ui.negative.button {
   background-color: #d95c5c !important;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5889,14 +6081,14 @@ body > .ui.grid {
 .ui.negative.button.active {
   background-color: #de7171 !important;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
   background-color: #d23f3f !important;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 .ui.negative.buttons .button.active,
@@ -5905,7 +6097,7 @@ body > .ui.grid {
 .ui.negative.button .button.active:active {
   background-color: #d44747;
   color: #ffffff;
-  text-shadow: none;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*******************************

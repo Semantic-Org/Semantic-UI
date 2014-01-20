@@ -1,6 +1,19 @@
 ## RELEASE NOTES
 
-### Version 0.12.0 - Jan 06, 2013
+### Version 0.12.1 - Jan 15, 2014
+
+**Fixes**
+- **LESS** - Fixes typo breaking less parsing **thanks DVSoftware**
+- **Menu** - Fixes buttons using ``<a>`` tag from inheriting link styles. **thanks joltmode**
+- **Menu** - Fixes ``action input`` to work inside menus  **thanks joltmode**
+- **Modal** - Fixes possible race conditions in animations of modal **thanks dos1**
+- **Message** - Prevents close icon from being misformatted in icon message **thanks MohammadYounes**
+
+**Docs**
+- **Icons** - Fixes some icon code samples in docs **thanks mishak87**
+Some updates to docs formatting
+
+### Version 0.12.0 - Jan 06, 2014
 
 **Major Fixes**
 - **Dropdown** - Fixes dropdowns links not working on touch devices

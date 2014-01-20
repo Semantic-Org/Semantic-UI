@@ -17,6 +17,8 @@
 @fontSize            : 15px;
 @textColor           : rgba(0, 0, 0, 0.7);
 
+@paragraphMargin     : 1em 0em;
+
 @linkColor           : #009FDA;
 @linkUnderline       : none;
 @linkHoverColor      : lighten( @linkColor, 5);
@@ -97,13 +99,17 @@
      Text Colors
 --------------------*/
 
-@darkTextColor     : rgba(0, 0, 0, 0.85);
-@lightTextColor    : rgba(0, 0, 0, 0.4);
+@darkTextColor               : rgba(0, 0, 0, 0.85);
+@lightTextColor              : rgba(0, 0, 0, 0.4);
 
-@invertedTextColor : rgba(255, 255, 255, 1);
+@invertedTextColor           : rgba(255, 255, 255, 1);
+@invertedLightTextColor      : rgba(255, 255, 255, 0.5);
+@invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
+@invertedSelectedTextColor   : rgba(255, 255, 255, 1);
 
-@selectedTextColor : rgba(0, 0, 0, 0.8);
-@disabledTextColor : rgba(0, 0, 0, 0.2);
+@unselectedTextColor         : rgba(0, 0, 0, 0.4);
+@selectedTextColor           : rgba(0, 0, 0, 0.8);
+@disabledTextColor           : rgba(0, 0, 0, 0.2);
 
 /*-------------------
      Brand Colors

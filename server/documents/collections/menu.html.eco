@@ -51,17 +51,17 @@ type        : 'UI Collection'
     <div class="ui ignore warning message"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
 
     <div class="ui vertical menu">
-      <a class="active item">
-        <div class="ui teal label">1</div>
+      <a class="active teal item">
         Inbox
+        <div class="ui teal label">1</div>
       </a>
       <a class="item">
-        <div class="ui label">51</div>
         Spam
+        <div class="ui label">51</div>
       </a>
       <a class="item">
-        <div class="ui label">1</div>
         Updates
+        <div class="ui label">1</div>
       </a>
       <div class="item">
         <div class="ui icon input">
@@ -189,7 +189,7 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Secondary Menu</h4>
     <p>A secondary menu allows for a section of content on a page to be activated</p>
-    <div class="ui secondary pointing menu">
+    <div class="ui secondary  menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
@@ -214,7 +214,6 @@ type        : 'UI Collection'
   </div>
 
   <div class="another example">
-    <p>A vertical secondary menu</p>
     <div class="ui secondary vertical menu">
       <a class="active item">
         <i class="users icon"></i>
@@ -269,6 +268,19 @@ type        : 'UI Collection'
     </div>
   </div>
   <div class="another example">
+    <div class="ui vertical pointing menu">
+      <a class="active item">
+        <i class="home icon"></i> Home
+      </a>
+      <a class="item">
+        <i class="mail icon"></i> Messages
+      </a>
+      <a class="item">
+        <i class="user icon"></i> Friends
+      </a>
+    </div>
+  </div>
+  <div class="another example">
     <div class="ui secondary pointing menu">
       <a class="active item">
         <i class="home icon"></i> Home
@@ -293,18 +305,6 @@ type        : 'UI Collection'
     </div>
   </div>
   <div class="another example">
-    <div class="ui vertical pointing menu">
-      <a class="active item">
-        <i class="home icon"></i> Home
-      </a>
-      <a class="item">
-        <i class="mail icon"></i> Messages
-      </a>
-      <a class="item">
-        <i class="user icon"></i> Friends
-      </a>
-    </div>
-    <br><br>
     <div class="ui secondary vertical pointing menu">
       <a class="active item">
         <i class="home icon"></i> Home
@@ -335,7 +335,6 @@ type        : 'UI Collection'
     </div>
   </div>
   <div class="another example">
-    <p>A vertical text menu</p>
     <div class="ui vertical text menu">
       <div class="header item">Sort By</div>
       <a class="active item">
@@ -426,12 +425,17 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Input</h4>
     <p>A menu item can contain an <a href="/elements/input.html">input</a> inside of it</p>
-
     <div class="ui menu">
-      <div class="item">
+      <div class="right item">
         <div class="ui icon input">
           <input type="text" placeholder="Search...">
           <i class="search icon"></i>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui action input">
+          <input type="text" placeholder="Navigate to...">
+          <div class="ui button">Go</div>
         </div>
       </div>
     </div>
