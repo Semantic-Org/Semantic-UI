@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.12.1 - Jan 15, 2013
+### Version 0.12.1 - Jan 15, 2014
 
 **Fixes**
 - **LESS** - Fixes typo breaking less parsing **thanks DVSoftware**
@@ -13,7 +13,7 @@
 - **Icons** - Fixes some icon code samples in docs **thanks mishak87**
 Some updates to docs formatting
 
-### Version 0.12.0 - Jan 06, 2013
+### Version 0.12.0 - Jan 06, 2014
 
 **Major Fixes**
 - **Dropdown** - Fixes dropdowns links not working on touch devices
