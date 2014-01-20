@@ -18,6 +18,8 @@
 @fontWeight: normal;
 @boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
+@borderSize: 0em;
+
 @transition:
   opacity 0.2s ease,
   background 0.2s ease,
@@ -31,7 +33,7 @@
   rgba(0, 0, 0, 0.1) 50%,
   rgba(0, 0, 0, 0.05) 100%)
 ;
-@verticalDividerBackground: linear-gradient(left,
+@verticalDividerBackground: linear-gradient(to right,
   rgba(0, 0, 0, 0.03) 0%,
   rgba(0, 0, 0, 0.1) 1.5em,
   rgba(0, 0, 0, 0.03) 100%)
@@ -51,7 +53,7 @@
 @menuTextColor: @textColor;
 
 /* Sub Menu */
-@subMenuFontSize: 0.875em;
+@subMenuFontSize: 0.875rem;
 @subMenuTextColor: @textColor;
 
 
@@ -59,12 +61,46 @@
     Elements
 ---------------*/
 
+/* Icon */
 @iconMargin: 0.5em;
 
+/* Header */
+@headerBackground: rgba(0, 0, 0, 0.04);
+@headerWeight: bold;
+@headerTextTransform: normal;
+@headerFontSize: 1rem;
 
 /*--------------
     Couplings
 ---------------*/
+
+/* Button */
+@buttonOffset: -0.05em;
+@buttonVerticalPadding: 0.55em;
+@buttonSize: 0.875em;
+
+@labeledButtonPadding: 0.6em;
+
+/* Input */
+@inputMargin: -0.75em;
+@inputOffset: -0.05em;
+@inputVerticalPadding: 0.5em;
+
+/* Label */
+@labelOffset: -0.15em;
+@labelBackground: rgba(0, 0, 0, 0.35);
+@labelTextColor: #FFFFFF;
+
+@labelTextMargin: 0.5em;
+@labelVerticalPadding: 0.3em;
+@labelHorizontalPadding: 0.8em;
+
+/* Dropdown */
+@dropdownMenuOffset: 1px;
+@dropdownPointingDistance: 0.75em;
+@dropdownTextColor: rgba(0, 0, 0, 0.75);
+@dropdownBoxShadow: 0 1px 1px 1px @solidBorderColor;
+@dropdownVerticalBoxShadow: 0 0px 1px 1px @solidBorderColor;
 
 
 /*--------------
@@ -81,14 +117,59 @@
 
 @subMenuActiveColor: rgba(0, 0, 0, 0.03);
 
+@loadingImage: "@{imagePath}/loader-large.gif";
+@loadingPosition: 50% 50%;
+
+
 /*--------------
-   Variations
+     Types
 ---------------*/
 
+/* Secondary */
+@secondaryArrowSize: 0.6em;
+@secondaryArrowOffset: -(@secondaryArrowSize / 2);
+@secondaryArrowBorder: 1px solid rgba(0, 0, 0, 0.1);
+
+@secondaryBorderRadius: 0.3125em;
+@secondaryMargin: 0.25em;
+@secondaryVerticalPadding: 0.5em;
+@secondaryHorizontalPadding: 1em;
+
+@secondaryVerticalMargin: 0.3em;
+
+@secondaryLinkOpacity: 0.8;
+@secondaryHeaderBorder: 0.1em solid rgba(0, 0, 0, 0.1);
+
+@secondaryActiveBackground: @transparentBlack;
+@secondaryInvertedActiveBackground: @transparentWhite;
+
+@secondaryInvertedColor: @invertedLightTextColor;
+@secondaryInvertedHoverColor: @invertedSelectedTextColor;
+
+/* Pointing */
+@secondaryPointingBorder: 3px;
+@secondaryPointingVerticalPadding: 0.6em;
+@secondaryPointingHorizontalPadding: 0.95em;
+
+@secondaryPointingBorderColor: rgba(0, 0, 0, 0.2);
+@secondaryPointingHoverTextColor: @textColor;
+
+@secondaryPointingActiveBorderColor: rgba(0, 0, 0, 0.4);
+@secondaryPointingActiveTextColor: @selectedTextColor;
+
+@secondaryPointingHeaderColor: @selectedTextColor;
 
 /* Tiered */
 @tieredBackgroundColor: @subtleTransparentBlack;
-@tieredInvertedSubMenuColor: rgba(0, 0, 0, 0.2);
+@tieredBorderColor: #FDFDFD;
+@tieredBorderWidth: 2px;
+
+@tieredSubMenuTextTransform: normal;
+@tieredSubMenuFontWeight: normal;
+
+@tieredInvertedSubMenuBackground: rgba(0, 0, 0, 0.2);
+@tieredSubMenuColor: @lightTextColor;
+@tieredSubMenuActiveColor: @selectedTextColor;
 
 /* Tabular */
 @tabularInvisibleBorder: #DCDDDE;
@@ -103,3 +184,10 @@
 /* Pagination */
 @paginationMinWidth: 3em;
 @paginationActiveBackground: @activeBackground;
+
+/*--------------
+   Variations
+---------------*/
+
+/* Fixed */
+@fixedGridMargin: 2.75rem;

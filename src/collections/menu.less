@@ -108,7 +108,8 @@
   position: relative;
   display: inline-block;
   padding: @verticalPadding @horizontalPadding;
-  border-top: 0em solid rgba(0, 0, 0, 0);
+  border-top: @borderSize solid rgba(0, 0, 0, 0);
+
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   user-select: none;
 }
@@ -171,13 +172,13 @@
 
 .ui.menu:not(.vertical) .item > .button {
   position: relative;
-  top: -0.05em;
+  top: @buttonOffset;
 
-  margin: -0.55em 0;
-  padding-bottom: 0.55em;
-  padding-top: 0.55em;
+  margin: -@buttonVerticalPadding 0;
+  padding-bottom: @buttonVerticalPadding;
+  padding-top: @buttonVerticalPadding;
 
-  font-size: 0.875em;
+  font-size: @buttonSize;
 }
 
 
@@ -186,33 +187,38 @@
 ---------------*/
 
 .ui.menu:not(.vertical) .item > .input {
-  margin-top: -@verticalPadding;
-  margin-bottom: -@verticalPadding;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
+  position: relative;
+  top: @inputOffset;
+
+  margin: @inputMargin 0em;
+
+  padding-top: (@inputVerticalPadding / 2);
+  padding-bottom: (@inputVerticalPadding / 2);
+
   width: 100%;
-  vertical-align: top;
 }
 .ui.menu .item > .input input {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: @inputVerticalPadding;
+  padding-bottom: @inputVerticalPadding;
 }
 .ui.vertical.menu .item > .input input {
   margin: 0em;
-  padding-top: 0.63em;
-  padding-bottom: 0.63em;
+  padding-top: @inputVerticalPadding;
+  padding-bottom: @inputVerticalPadding;
 }
 .ui.vertical.menu .ui.input > .icon {
-  padding-top: 0.63em;
+  padding-top: @inputVerticalPadding;
+}
+
+/* Labeled Button */
+.ui.menu:not(.vertical) .item > .labeled.button > .icon {
+  padding-top: @labeledButtonPadding;
 }
 
 /* Action Input */
-.ui.menu:not(.vertical) .item > .button.labeled > .icon {
-  padding-top: 0.6em;
-}
 .ui.menu:not(.vertical) .item .action.input > .button {
   font-size: 0.8em;
-  padding: 0.55em 0.8em;
+  padding: @buttonVerticalPadding 0.8em;
 }
 
 /* Resizes */
@@ -225,6 +231,7 @@
   padding-bottom: 0.6em;
   padding-top: 0.6em;
 }
+
 .ui.large.menu:not(.vertical) .item .action.input > .button {
   font-size: 0.8em;
   padding: 0.9em;
@@ -238,11 +245,13 @@
 ---------------*/
 
 .ui.menu .header.item {
-  background-color: rgba(0, 0, 0, 0.04);
+  background: @headerBackground;
   margin: 0em;
+  font-size: @headerFontSize;
+  text-transform: @headerTextTransform;
 }
 .ui.vertical.menu .header.item {
-  font-weight: bold;
+  font-weight: @headerWeight;
 }
 
 
@@ -254,14 +263,14 @@
   left: 1px;
   margin: 0px;
   min-width: calc(100% - 1px);
-  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: @dropdownBoxShadow;
 }
 .ui.secondary.menu .dropdown.item .menu {
   left: 0px;
   min-width: 100%;
 }
 .ui.menu .pointing.dropdown.item .menu {
-  margin-top: 0.75em;
+  margin-top: @dropdownPointingDistance;
 }
 .ui.menu .simple.dropdown.item .menu {
   margin: 0px !important;
@@ -277,24 +286,28 @@
   display: none;
 }
 
+/* Secondary */
+.ui.secondary.menu > .menu > .active.dropdown.item {
+  background-color: transparent;
+}
 
 /*--------------
      Labels
 ---------------*/
 
 .ui.menu .item > .label {
-  background-color: rgba(0, 0, 0, 0.35);
-  color: #FFFFFF;
-  margin: -0.15em 0em -0.15em 0.5em;
-  padding: 0.3em 0.8em;
+  background: @labelBackground;
+  color: @labelTextColor;
+  margin: @labelOffset 0em @labelOffset @labelTextMargin;
+  padding: @labelVerticalPadding @labelHorizontalPadding;
   vertical-align: baseline;
 }
 .ui.menu .item > .floating.label {
-  padding: 0.3em 0.8em;
+  padding: @labelVerticalPadding @labelHorizontalPadding;
 }
 
 /*--------------
-      Images
+     Images
 ---------------*/
 
 .ui.menu .item > img:only-child {
@@ -404,7 +417,7 @@
 
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url("@{imagePath}/loader-large.gif") no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) url("@{loadingImage}") no-repeat @loadingPosition;
   visibility: visible;
 }
 
@@ -421,7 +434,7 @@
   display: block;
   height: auto !important;
   border-top: none;
-  border-left: 0em solid rgba(0, 0, 0, 0);
+  border-left: @borderSize solid rgba(0, 0, 0, 0);
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
@@ -453,13 +466,8 @@
   left: 0px;
   width: 100%;
   height: @dividerSize;
-  background-image: @verticalDividerBackground;
+  background: @verticalDividerBackground;
   height: 1px;
-  background-image: linear-gradient(to right,
-    rgba(0, 0, 0, 0.03) 0%,
-    rgba(0, 0, 0, 0.1) 1.5em,
-    rgba(0, 0, 0, 0.03) 100%)
-  ;
 }
 
 .ui.vertical.menu .item:first-child:before {
@@ -474,8 +482,8 @@
 .ui.vertical.menu .dropdown.item .menu {
   top: 0% !important;
   left: 100%;
-  margin: 0px 0px 0px 1px;
-  box-shadow: 0 0px 1px 1px @solidBorderColor;
+  margin: 0px 0px 0px @dropdownMenuOffset;
+  box-shadow: @dropdownVerticalBoxShadow;
 }
 .ui.vertical.menu .dropdown.item.active {
   border-top-right-radius: 0em;
@@ -508,12 +516,9 @@
      Tiered
 ---------------*/
 
-.ui.tiered.menu > .sub.menu > .item {
-  color: rgba(0, 0, 0, 0.4);
-}
 .ui.tiered.menu > .menu > .item:hover,
 .ui.tiered.menu > .menu > .item.hover {
-  color: rgba(0, 0, 0, 0.8);
+  color: @tieredSubMenuActiveColor;
 }
 .ui.tiered.menu .item.active {
   color: rgba(0, 0, 0, 0.8);
@@ -526,22 +531,30 @@
   left: 0px;
 
   width: 100%;
-  height: 2px;
-  background-color: #FBFBFB;
+  height: @tieredBorderWidth;
+  background-color: @tieredBorderColor;
 }
+
+/* Sub Menu */
 .ui.tiered.menu .sub.menu {
   background-color: @subtleTransparentBlack;
   border-radius: 0em;
   border-top: 1px solid @borderColor;
   box-shadow: none;
-  color: #FFFFFF;
 }
-.ui.tiered.menu .sub.menu .item {
+.ui.tiered.menu > .sub.menu > .item {
+  color: @tieredSubMenuColor;
+  font-weight: @tieredSubMenuFontWeight;
+  text-transform: @tieredSubMenuTextTransform;
   font-size: @subMenuFontSize;
 }
+
+/* Sub Menu Divider */
 .ui.tiered.menu .sub.menu .item:before {
   background-image: none;
 }
+
+/* Sub Menu Active */
 .ui.tiered.menu .sub.menu .active.item {
   padding-top: @verticalPadding;
   background-color: transparent;
@@ -559,7 +572,7 @@
   color: @invertedUnselectedTextColor;
 }
 .ui.inverted.tiered.menu .sub.menu {
-  background-color: @tieredInvertedSubMenuColor;
+  background-color: @tieredInvertedSubMenuBackground;
 }
 .ui.inverted.tiered.menu .sub.menu .item {
   color: @invertedLightTextColor;
@@ -690,8 +703,8 @@
   border: none;
   height: auto !important;
 
-  margin: 0em 0.25em;
-  padding: 0.5em 1em;
+  margin: 0em @secondaryMargin;
+  padding: @secondaryVerticalPadding @secondaryHorizontalPadding;
 
   border-radius: 0.3125em;
 }
@@ -704,52 +717,50 @@
   background-color: transparent;
   border: none;
 }
+
 .ui.secondary.menu .link.item,
 .ui.secondary.menu a.item {
-  opacity: 0.8;
+  opacity: @secondaryLinkOpacity;
   transition: none;
 }
 .ui.secondary.menu .header.item {
-  border-right: 0.1em solid rgba(0, 0, 0, 0.1);
+  border-right: @secondaryHeaderBorder;
   background-color: transparent;
-
-  -webkit-border-radius: 0em;
-  -moz-border-radius: 0em;
   border-radius: 0em;
 }
 
-/* hover */
+/* Hover */
 .ui.secondary.menu .link.item:hover,
 .ui.secondary.menu a.item:hover {
   opacity: 1;
 }
 
-/* active */
+/* Active */
 .ui.secondary.menu > .menu > .active.item,
 .ui.secondary.menu > .active.item {
-  background-color: rgba(0, 0, 0, 0.08);
+  background: @secondaryActiveBackground;
   opacity: 1;
   box-shadow: none;
 }
 .ui.secondary.vertical.menu > .active.item {
-  border-radius: 0.3125em;
+  border-radius: @secondaryBorderRadius;
 }
 
-/* inverted */
+/* Inverted */
 .ui.secondary.inverted.menu .link.item,
 .ui.secondary.inverted.menu a.item {
-  color: rgba(255, 255, 255, 0.5);
+  color: @secondaryInvertedColor;
 }
 .ui.secondary.inverted.menu .link.item:hover,
 .ui.secondary.inverted.menu a.item:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: @secondaryInvertedHoverColor;
 }
 .ui.secondary.inverted.menu .active.item {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: @secondaryInvertedActiveBackground;
 }
 
 
-/* disable variations */
+/* Disable variations */
 .ui.secondary.item.menu > .item {
   margin: 0em;
 }
@@ -757,120 +768,27 @@
   box-shadow: none;
 }
 
-/*---------------------
-   Secondary Pointing
------------------------*/
-
-.ui.secondary.pointing.menu {
-  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
-}
-
-.ui.secondary.pointing.menu > .menu > .item,
-.ui.secondary.pointing.menu > .item {
-  margin: 0em 0em -3px;
-  padding: 0.6em @horizontalPadding;
-  border-bottom: 3px solid rgba(0, 0, 0, 0);
-  border-radius: 0em;
-  transition:
-    color 0.2s
-  ;
-}
-
-/* Item Types */
-.ui.secondary.pointing.menu .header.item {
-  margin-bottom: -3px;
-  background-color: transparent !important;
-  border-right-width: 0px !important;
-  font-weight: bold !important;
-  color: rgba(0, 0, 0, 0.8) !important;
-}
-.ui.secondary.pointing.menu .text.item {
-  box-shadow: none !important;
-}
-.ui.secondary.pointing.menu > .menu > .item:after,
-.ui.secondary.pointing.menu > .item:after {
-  display: none;
-}
-
-/* Hover */
-.ui.secondary.pointing.menu > .menu > .link.item:hover,
-.ui.secondary.pointing.menu > .link.item:hover,
-.ui.secondary.pointing.menu > .menu > a.item:hover,
-.ui.secondary.pointing.menu > a.item:hover {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-/* Down */
-.ui.secondary.pointing.menu > .menu > .link.item:active,
-.ui.secondary.pointing.menu > .link.item:active,
-.ui.secondary.pointing.menu > .menu > a.item:active,
-.ui.secondary.pointing.menu > a.item:active {
-  background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-/* Active */
-.ui.secondary.pointing.menu > .menu > .item.active,
-.ui.secondary.pointing.menu > .item.active {
-  background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.4);
-  box-shadow: none;
-}
 
 /*---------------------
    Secondary Vertical
 -----------------------*/
 
-.ui.secondary.vertical.pointing.menu {
-  border: none;
-  border-right: 3px solid rgba(0, 0, 0, 0.1);
-}
 .ui.secondary.vertical.menu > .item {
   border: none;
-  margin: 0em 0em 0.3em;
-  padding: 0.6em 0.8em;
+  margin: 0em 0em @secondaryVerticalMargin;
   border-radius: @borderRadius;
 }
 .ui.secondary.vertical.menu > .header.item {
   border-radius: 0em;
 }
-.ui.secondary.vertical.pointing.menu > .item {
-  margin: 0em -3px 0em 0em;
-  border-bottom: none;
-  border-right: 3px solid transparent;
-  border-radius: 0em;
-}
-/* Hover */
-.ui.secondary.vertical.pointing.menu > .item.hover,
-.ui.secondary.vertical.pointing.menu > .item:hover {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.7);
-}
 
-/* Down */
-.ui.secondary.vertical.pointing.menu > .item:active {
-  background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-/* Active */
-.ui.secondary.vertical.pointing.menu > .item.active {
-  background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.4);
-  color: rgba(0, 0, 0, 0.85);
-}
-
-/*--------------
-    Inverted
----------------*/
-
+/* Inverted */
 .ui.secondary.inverted.menu {
   background-color: transparent;
 }
 
 .ui.secondary.inverted.pointing.menu {
-  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+  border-bottom: @secondaryPointingBorder solid rgba(255, 255, 255, 0.1);
 }
 .ui.secondary.inverted.pointing.menu > .item {
   color: rgba(255, 255, 255, 0.7);
@@ -898,14 +816,107 @@
   color: rgba(255, 255, 255, 1);
 }
 
-/*---------------------
-   Inverted Vertical
-----------------------*/
 
+/*---------------------
+   Secondary Pointing
+-----------------------*/
+
+.ui.secondary.pointing.menu {
+  border-bottom: @secondaryPointingBorder solid rgba(0, 0, 0, 0.1);
+}
+
+.ui.secondary.pointing.menu > .menu > .item,
+.ui.secondary.pointing.menu > .item {
+  margin: 0em 0em -@secondaryPointingBorder;
+  padding: @secondaryPointingVerticalPadding @secondaryPointingHorizontalPadding;
+  border-bottom: @secondaryPointingBorder solid rgba(0, 0, 0, 0);
+  border-radius: 0em;
+  transition:
+    color 0.2s
+  ;
+}
+
+/* Item Types */
+.ui.secondary.pointing.menu .header.item {
+  margin-bottom: -@secondaryPointingBorder;
+  background-color: transparent !important;
+  border-right-width: 0px !important;
+  font-weight: bold !important;
+  color: @secondaryPointingHeaderColor !important;
+}
+.ui.secondary.pointing.menu .text.item {
+  box-shadow: none !important;
+}
+.ui.secondary.pointing.menu > .menu > .item:after,
+.ui.secondary.pointing.menu > .item:after {
+  display: none;
+}
+
+/* Hover */
+.ui.secondary.pointing.menu > .menu > .link.item:hover,
+.ui.secondary.pointing.menu > .link.item:hover,
+.ui.secondary.pointing.menu > .menu > a.item:hover,
+.ui.secondary.pointing.menu > a.item:hover {
+  background-color: transparent;
+  color: @secondaryPointingHoverTextColor;
+}
+
+/* Down */
+.ui.secondary.pointing.menu > .menu > .link.item:active,
+.ui.secondary.pointing.menu > .link.item:active,
+.ui.secondary.pointing.menu > .menu > a.item:active,
+.ui.secondary.pointing.menu > a.item:active {
+  background-color: transparent;
+  border-color: @secondaryPointingBorderColor;
+}
+
+/* Active */
+.ui.secondary.pointing.menu > .menu > .item.active,
+.ui.secondary.pointing.menu > .item.active {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.4);
+  box-shadow: none;
+  color: @secondaryPointingActiveTextColor;
+}
+
+/* Secondary Vertical Pointing */
+.ui.secondary.vertical.pointing.menu {
+  border: none;
+  border-right: @secondaryPointingBorder solid rgba(0, 0, 0, 0.1);
+}
+.ui.secondary.vertical.pointing.menu > .item {
+  margin: 0em -@secondaryPointingBorder 0em 0em;
+  border-bottom: none;
+  border-right: @secondaryPointingBorder solid transparent;
+  border-radius: 0em;
+}
+
+/* Hover */
+.ui.secondary.vertical.pointing.menu > .item.hover,
+.ui.secondary.vertical.pointing.menu > .item:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Down */
+.ui.secondary.vertical.pointing.menu > .item:active {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Active */
+.ui.secondary.vertical.pointing.menu > .item.active {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Inverted Vertical Pointing Secondary */
 .ui.secondary.inverted.vertical.pointing.menu {
-  border-right: 3px solid rgba(255, 255, 255, 0.1);
+  border-right: @secondaryPointingBorder solid rgba(255, 255, 255, 0.1);
   border-bottom: none;
 }
+
 
 /*--------------
     Text Menu
@@ -1073,36 +1084,47 @@
 ---------------*/
 
 /*--- Light Colors  ---*/
-.ui.menu .green.active.item,
-.ui.green.menu .active.item {
-  border-color: #A1CF64 !important;
-  color: #A1CF64 !important;
-}
-.ui.menu .red.active.item,
-.ui.red.menu .active.item {
-  border-color: #D95C5C !important;
-  color: #D95C5C !important;
-}
 .ui.menu .blue.active.item,
 .ui.blue.menu .active.item {
-  border-color: #6ECFF5 !important;
-  color: #6ECFF5 !important;
+  border-color: @blue !important;
+  color: @blue !important;
 }
-.ui.menu .purple.active.item,
-.ui.purple.menu .active.item {
-  border-color: #564F8A !important;
-  color: #564F8A !important;
+.ui.menu .green.active.item,
+.ui.green.menu .active.item {
+  border-color: @green !important;
+  color: @green !important;
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
-  border-color: #F05940 !important;
-  color: #F05940 !important;
+  border-color: @orange !important;
+  color: @orange !important;
+}
+.ui.menu .pink.active.item,
+.ui.pink.menu .active.item {
+  border-color: @pink !important;
+  color: @pink !important;
+}
+.ui.menu .purple.active.item,
+.ui.purple.menu .active.item {
+  border-color: @purple !important;
+  color: @purple !important;
+}
+.ui.menu .red.active.item,
+.ui.red.menu .active.item {
+  border-color: @red !important;
+  color: @red !important;
 }
 .ui.menu .teal.active.item,
 .ui.teal.menu .active.item {
-  border-color: #00B5AD !important;
-  color: #00B5AD !important;
+  border-color: @teal !important;
+  color: @teal !important;
 }
+.ui.menu .yellow.active.item,
+.ui.yellow.menu .active.item {
+  border-color: @yellow !important;
+  color: @yellow !important;
+}
+
 
 
 /*--------------
@@ -1256,46 +1278,62 @@
 }
 
 /*--- Inverted Colors  ---*/
+
+/* Blue */
+.ui.inverted.blue.menu {
+  background-color: @blue;
+}
+.ui.inverted.blue.pointing.menu .active.item:after {
+  background-color: @blue;
+}
+/* Green */
 .ui.inverted.green.menu {
-  background-color: #A1CF64;
+  background-color: @green;
 }
 .ui.inverted.green.pointing.menu .active.item:after {
-  background-color: #A1CF64;
+  background-color: @green;
 }
-
+/* Orange */
+.ui.inverted.orange.menu {
+  background-color: @orange;
+}
+.ui.inverted.orange.pointing.menu .active.item:after {
+  background-color: @orange;
+}
+/* Pink */
+.ui.inverted.pink.menu {
+  background-color: @pink;
+}
+.ui.inverted.pink.pointing.menu .active.item:after {
+  background-color: @pink;
+}
+/* Purple */
+.ui.inverted.purple.menu {
+  background-color: @purple;
+}
+.ui.inverted.purple.pointing.menu .active.item:after {
+  background-color: @purple;
+}
+/* Red */
 .ui.inverted.red.menu {
-  background-color: #D95C5C;
+  background-color: @red;
 }
 .ui.inverted.red.pointing.menu .active.item:after {
   background-color: #F16883;
 }
-
-.ui.inverted.blue.menu {
-  background-color: #6ECFF5;
-}
-.ui.inverted.blue.pointing.menu .active.item:after {
-  background-color: #6ECFF5;
-}
-
-.ui.inverted.purple.menu {
-  background-color: #564F8A;
-}
-.ui.inverted.purple.pointing.menu .active.item:after {
-  background-color: #564F8A;
-}
-
-.ui.inverted.orange.menu {
-  background-color: #F05940;
-}
-.ui.inverted.orange.pointing.menu .active.item:after {
-  background-color: #F05940;
-}
-
+/* Teal */
 .ui.inverted.teal.menu {
-  background-color: #00B5AD;
+  background-color: @teal;
 }
 .ui.inverted.teal.pointing.menu .active.item:after {
-  background-color: #00B5AD;
+  background-color: @teal;
+}
+/* Yellow */
+.ui.inverted.yellow.menu {
+  background-color: @yellow;
+}
+.ui.inverted.yellow.pointing.menu .active.item:after {
+  background-color: @yellow;
 }
 
 
@@ -1452,7 +1490,7 @@
 
 /* Coupling with Grid */
 .ui.fixed.menu + .ui.grid {
-  padding-top: 2.75rem;
+  padding-top: @fixedGridMargin;
 }
 
 /*-------------------
@@ -1461,17 +1499,17 @@
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
-  bottom: -0.3em;
+  bottom: @secondaryArrowOffset;
   left: 50%;
   content: "";
 
-  margin-left: -0.3em;
-  width: 0.6em;
-  height: 0.6em;
+  margin-left: @secondaryArrowOffset;
+  width: @secondaryArrowSize;
+  height: @secondaryArrowSize;
 
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: @secondaryArrowBorder;
+  border-right: @secondaryArrowBorder;
 
   background-image: none;
   transform: rotate(45deg);
