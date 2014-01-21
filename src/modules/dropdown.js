@@ -282,6 +282,16 @@ $.fn.dropdown = function(parameters) {
             module.hide();
           },
 
+          select: function(text, value) {
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
+            module.set.selected(value);
+            module.set.value(value);
+            module.hide();
+          },
+
           activate: function(text, value) {
             value = (value !== undefined)
               ? value
@@ -429,7 +439,7 @@ $.fn.dropdown = function(parameters) {
                 .text(text)
               ;
             }
-            else {
+            else if(settings.action !== 'select') {
               module.debug('Changing text', text, $text);
               $text.removeClass(className.placeholder);
               $text.text(text);
