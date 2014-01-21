@@ -34,8 +34,8 @@
         </div>
       </div>
       <div class="ui primary button">
-        Download
-        <i class="download icon"></i>
+        Add to Download Package
+        <i class="add icon"></i>
       </div>
       <% end %>
     </div>

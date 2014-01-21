@@ -109,7 +109,6 @@ semantic.ready = function() {
           name,
           value
         ;
-        console.log(lines);
         $.each(lines, function(index, line) {
           // clear whitespace
           line = $.trim(line);
@@ -128,31 +127,48 @@ semantic.ready = function() {
       },
 
       changeTheme: function(theme) {
-        if(theme === 'customize') {
-          // placeholder
-        }
-        else {
-          $.api({
-            url      : '/build/less/themes/{$theme}/{$type}s/{$element}.variables',
+        var
+          variableURL = '/build/less/themes/{$theme}/{$type}s/{$element}.variables',
+          overrideURL = '/build/less/themes/{$theme}/{$type}s/{$element}.overrides',
+          urlData     = {
+            theme   : theme,
+            type    : $themeDropdown.data('type'),
+            element : $themeDropdown.data('element')
+          }
+        ;
+        $themeDropdown
+          .api({
+            on       : 'now',
+            url      : variableURL,
             dataType : 'text',
-            urlData  : {
-              theme   : theme,
-              type    : $themeDropdown.data('type'),
-              element : $themeDropdown.data('element')
-            },
+            urlData  : urlData,
             success: function(content) {
               less.modifyVars( handler.less.parseFile(content) );
+              $themeDropdown
+                .api({
+                  on       : 'now',
+                  url      : overrideURL,
+                  dataType : 'text',
+                  urlData  : urlData,
+                  success: function(content) {
+                    if( $('style.override').size() > 0 ) {
+                      $('style.override').remove();
+                    }
+                    $('<style>' + content + '</style>')
+                      .addClass('override')
+                      .appendTo('body')
+                    ;
+                  }
+                })
+              ;
             }
-          });
-        }
+          })
+        ;
       }
 
     },
 
     create: {
-      tick: function() {
-
-      },
       examples: function(json) {
         var
           types      = json['Types'],
