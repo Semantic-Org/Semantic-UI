@@ -42,7 +42,7 @@
 --------------------*/
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 /*-------------------
@@ -203,7 +203,7 @@
 
 .ui.menu {
   margin: 1rem 0rem;
-  background-color: #ffffff;
+  background: #ffffff;
   font-size: 0px;
   font-weight: normal;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -575,6 +575,7 @@
 .ui.menu .active.item {
   background-color: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.85);
+  font-weight: normal;
   -webkit-box-shadow: 0em 0.2em 0em inset;
   box-shadow: 0em 0.2em 0em inset;
 }
@@ -950,7 +951,7 @@
 ---------------*/
 
 .ui.secondary.menu {
-  background-color: transparent;
+  background: none;
   border-radius: 0px;
   -webkit-box-shadow: none;
   box-shadow: none;

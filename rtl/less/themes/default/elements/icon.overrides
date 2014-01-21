@@ -390,7 +390,7 @@ i.icon.star {
 /* left side icons */
 i.icon.left {
   width: auto;
-  margin: 0em @directionMargin 0em 0em !important;
+  margin: 0em @directionMargin 0em 0em;
 }
 
 /* right side icons */
@@ -398,5 +398,5 @@ i.icon.download,
 i.icon.search,
 i.icon.right {
   width: auto;
-  margin: 0em 0em 0em @directionMargin !important;
+  margin: 0em 0em 0em @directionMargin;
 }

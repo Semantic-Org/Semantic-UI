@@ -11,121 +11,280 @@
 
 ;(function ( $, window, document, undefined ) {
 
-  $.api = $.fn.api = function(parameters) {
+$.api = $.fn.api = function(parameters) {
 
-    var
-      settings       = $.extend(true, {}, $.api.settings, parameters),
+  var
+    // use window context if none specified
+    $allModules     = $.isFunction(this)
+        ? $(window)
+        : $(this),
+    moduleSelector  = $allModules.selector || '',
+    time            = new Date().getTime(),
+    performance     = [],
 
-      // if this keyword isn't a jQuery object, create one
-      context        = (typeof this != 'function')
-        ? this
-        : $('<div/>'),
-      // context defines the element used for loading/error state
-      $context       = (settings.stateContext)
-        ? $(settings.stateContext)
-        : $(context),
-      // module is the thing that initiates the api action, can be independent of context
-      $module = typeof this == 'object'
-        ? $(context)
-        : $context,
+    query           = arguments[0],
+    methodInvoked   = (typeof query == 'string'),
+    queryArguments  = [].slice.call(arguments, 1),
+    returnedValue
+  ;
 
-      element         = this,
-      time            = new Date().getTime(),
-      performance     = [],
+  $allModules
+    .each(function() {
+      var
+        settings        = $.extend(true, {}, $.fn.api.settings, parameters),
 
-      moduleSelector  = $module.selector || '',
-      moduleNamespace = settings.namespace + '-module',
+        // internal aliases
+        namespace       = settings.namespace,
+        metadata        = settings.metadata,
+        selector        = settings.selector,
+        error           = settings.error,
+        className       = settings.className,
 
-      className       = settings.className,
-      metadata        = settings.metadata,
-      error           = settings.error,
+        // define namespaces for modules
+        eventNamespace  = '.' + namespace,
+        moduleNamespace = 'module-' + namespace,
 
-      instance        = $module.data(moduleNamespace),
+        // element that creates request
+        $module         = $(this),
+        $form           = $module.closest(selector.form),
 
-      query           = arguments[0],
-      methodInvoked   = (instance !== undefined && typeof query == 'string'),
-      queryArguments  = [].slice.call(arguments, 1),
+        // context used for state
+        $context        = (settings.stateContext)
+          ? $(settings.stateContext)
+          : $module,
 
-      module,
-      returnedValue
-    ;
+        // request details
+        ajaxSettings,
+        requestSettings,
+        url,
+        data,
 
-    module = {
-      initialize: function() {
-        var
-          runSettings,
+        // standard module
+        element         = this,
+        instance        = $module.data(moduleNamespace),
+        module
+      ;
 
-          loadingTimer   = new Date().getTime(),
-          loadingDelay,
+      module = {
 
-          promise,
-          url,
+        initialize: function() {
+          var
+            triggerEvent = module.get.event()
+          ;
+          if(!methodInvoked) {
+            if( triggerEvent ) {
+              module.debug('Attaching API events to element', triggerEvent);
+              $module
+                .on(triggerEvent + eventNamespace, module.query)
+              ;
+            }
+            else {
+              module.query();
+            }
+          }
+          module.instantiate();
+        },
 
-          formData       = {},
-          data,
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
+          instance = module;
+          $module
+            .data(moduleNamespace, instance)
+          ;
+        },
 
-          ajaxSettings   = {},
-          xhr
-        ;
+        destroy: function() {
+          module.verbose('Destroying previous module for', element);
+          $module
+            .removeData(moduleNamespace)
+            .off(eventNamespace)
+          ;
+        },
 
-        // serialize parent form if requested!
-        if(settings.serializeForm && $(this).toJSON() !== undefined) {
-          formData = module.get.formData();
-          module.debug('Adding form data to API Request', formData);
-          $.extend(true, settings.data, formData);
-        }
+        query: function() {
 
-        // let beforeSend change settings object
-        runSettings = $.proxy(settings.beforeSend, $module)(settings);
+          // determine if an api event already occurred
+          if(module.is.loading() && !settings.allowMultiple) {
+            module.debug('Request cancelled previous request is still pending');
+            return;
+          }
 
-        // check for exit conditions
-        if(runSettings !== undefined && !runSettings) {
-          module.error(error.beforeSend);
-          module.reset();
-          return;
-        }
+          // pass element metadata to url (value, text)
+          if(settings.defaultData) {
+            $.extend(true, settings.urlData, module.get.defaultData());
+          }
 
-        // get real url from template
-        url = module.get.url( module.get.templateURL() );
+          // Add form content
+          if(settings.serializeForm) {
+            $.extend(true, settings.data, module.get.formData());
+          }
 
-        // exit conditions reached from missing url parameters
-        if( !url ) {
-          module.error(error.missingURL);
-          module.reset();
-          return;
-        }
+          // call beforesend and get any settings changes
+          requestSettings = module.get.settings();
 
-        // promise handles notification on api request, so loading min. delay can occur for all notifications
-        promise =
-          $.Deferred()
-            .always(function() {
-              if(settings.stateContext) {
-                $context
-                  .removeClass(className.loading)
-                ;
+          // check if beforesend cancelled request
+          if(requestSettings === false) {
+            module.error(error.beforeSend);
+            return;
+          }
+
+          if(settings.url) {
+            // override with url if specified
+            module.debug('Using specified url', url);
+            url = module.add.urlData( settings.url );
+          }
+          else {
+            // otherwise find url from api endpoints
+            url = module.add.urlData( module.get.templateURL() );
+            module.debug('API url resolved to', url);
+          }
+
+          // exit conditions reached, missing url parameters
+          if( !url ) {
+            module.error(error.missingURL);
+            return;
+          }
+
+          // add loading state
+          module.set.loading();
+
+          // look for jQuery ajax parameters in settings
+          ajaxSettings = $.extend(true, {}, settings, {
+            type       : settings.method || settings.type,
+            data       : data,
+            url        : url,
+            beforeSend : settings.beforeXHR,
+            success    : function() {},
+            failure    : function() {},
+            complete   : function() {}
+          });
+
+          module.verbose('Creating AJAX request with settings', ajaxSettings);
+
+          // request provides a wrapper around xhr
+          module.request = module.create.request();
+          module.xhr = module.create.xhr();
+
+        },
+
+
+        is: {
+          loading: function() {
+            return (module.request && module.request.state() == 'pending');
+          }
+        },
+
+        was: {
+          succesful: function() {
+            return (module.request && module.request.state() == 'resolved');
+          },
+          failure: function() {
+            return (module.request && module.request.state() == 'rejected');
+          },
+          complete: function() {
+            return (module.request && (module.request.state() == 'resolved' || module.request.state() == 'rejected') );
+          }
+        },
+
+        add: {
+          urlData: function(url, urlData) {
+            var
+              urlVariables
+            ;
+            if(url) {
+              urlVariables = url.match(settings.regExpTemplate);
+              urlData      = urlData || settings.urlData;
+
+              if(urlVariables) {
+                module.debug('Looking for URL variables', urlVariables);
+                $.each(urlVariables, function(index, templateValue){
+                  var
+                    term      = templateValue.substr( 2, templateValue.length - 3),
+                    termValue = ($.isPlainObject(urlData) && urlData[term] !== undefined)
+                      ? urlData[term]
+                      : ($module.data(term) !== undefined)
+                        ? $module.data(term)
+                        : urlData[term]
+                  ;
+                  module.verbose('Looking for variable', term);
+                  // remove optional value
+                  if(termValue === false) {
+                    module.debug('Removing variable from URL', urlVariables);
+                    url = url.replace('/' + templateValue, '');
+                  }
+                  // undefined condition
+                  else if(termValue === undefined || !termValue) {
+                    module.error(error.missingParameter, term, url);
+                    url = false;
+                    return false;
+                  }
+                  else {
+                    url = url.replace(templateValue, termValue);
+                  }
+                });
               }
-              $.proxy(settings.complete, $module)();
-            })
-            .done(function(response) {
-              module.debug('API request successful');
-              // take a stab at finding success state if json
+            }
+            return url;
+          }
+        },
+
+        event: {
+          xhr: {
+            always: function() {
+              // calculate if loading time was below minimum threshold
+            },
+            done: function(response) {
+              var
+                context      = this,
+                elapsedTime  = (new Date().getTime() - time),
+                loadingDelay = (settings.loadingDuration - elapsedTime >= 0)
+                  ? settings.loadingDuration - elapsedTime
+                  : 0
+              ;
+              setTimeout(function(){
+                module.request.resolveWith(context, [response]);
+              }, loadingDelay);
+            },
+            fail: function(xhr, status, httpMessage) {
+              var
+                context      = this,
+                elapsedTime  = (new Date().getTime() - time),
+                loadingDelay = (settings.loadingDuration - elapsedTime >= 0)
+                  ? settings.loadingDuration - elapsedTime
+                  : 0
+              ;
+              // page triggers abort on navigation, dont show error
+              if(status !== 'abort') {
+                setTimeout(function(){
+                  module.request.rejectWith(context, [xhr, status, httpMessage]);
+                }, settings.loadingDelay);
+              }
+              else {
+                module.reset();
+              }
+            }
+          },
+          request: {
+            complete: function() {
+              module.remove.loading();
+              $.proxy(settings.complete, $context)();
+            },
+            done: function(response) {
+              module.debug('API request received', response);
               if(settings.dataType == 'json') {
-                if (response.error !== undefined) {
-                  $.proxy(settings.failure, $context)(response.error, settings, $module);
-                }
-                else if ($.isArray(response.errors)) {
-                  $.proxy(settings.failure, $context)(response.errors[0], settings, $module);
+                module.debug('Checking JSON', settings.successTest, response);
+                if( $.isFunction(settings.successTest) && settings.success(response) ) {
+                  $.proxy(settings.success, $context)(response, $module);
                 }
                 else {
-                  $.proxy(settings.success, $context)(response, settings, $module);
+                  $.proxy(settings.failure, $context)(response, $module);
                 }
               }
-              // otherwise
               else {
-                $.proxy(settings.success, $context)(response, settings, $module);
+                $.proxy(settings.success, $context)(response, $module);
               }
-            })
-            .fail(function(xhr, status, httpMessage) {
+            },
+            error: function(xhr, status, httpMessage) {
               var
                 errorMessage = (settings.error[status] !== undefined)
                   ? settings.error[status]
@@ -149,486 +308,406 @@
                           errorMessage = response.error;
                         }
                       }
-                      catch(error) {
+                      catch(er) {
                         module.error(error.JSONParse);
                       }
                     }
                   }
-                  $context
-                    .removeClass(className.loading)
-                    .addClass(className.error)
-                  ;
+                  module.remove.loading();
+                  module.set.error();
                   // show error state only for duration specified in settings
-                  if(settings.errorLength > 0) {
-                    setTimeout(function(){
-                      $context
-                        .removeClass(className.error)
-                      ;
-                    }, settings.errorLength);
+                  if(settings.errorDuration) {
+                    setTimeout(module.remove.error, settings.errorDuration);
                   }
                   module.debug('API Request error:', errorMessage);
-                  $.proxy(settings.failure, $context)(errorMessage, settings, this);
+                  $.proxy(settings.failure, $context)(errorMessage, this);
                 }
                 else {
                   module.debug('Request Aborted (Most likely caused by page change)');
                 }
               }
-            })
-        ;
-
-        // look for params in data
-        $.extend(true, ajaxSettings, settings, {
-          success    : function(){},
-          failure    : function(){},
-          complete   : function(){},
-          type       : settings.method || settings.type,
-          data       : data,
-          url        : url,
-          beforeSend : settings.beforeXHR
-        });
-
-        if(settings.stateContext) {
-          $context
-            .addClass(className.loading)
-          ;
-        }
-
-        if(settings.progress) {
-          module.verbose('Adding progress events');
-          $.extend(true, ajaxSettings, {
-            xhr: function() {
-              var
-                xhr = new window.XMLHttpRequest()
-              ;
-              xhr.upload.addEventListener('progress', function(event) {
-                var
-                  percentComplete
-                ;
-                if (event.lengthComputable) {
-                  percentComplete = Math.round(event.loaded / event.total * 10000) / 100 + '%';
-                  $.proxy(settings.progress, $context)(percentComplete, event);
-                }
-              }, false);
-              xhr.addEventListener('progress', function(event) {
-                var
-                  percentComplete
-                ;
-                if (event.lengthComputable) {
-                  percentComplete = Math.round(event.loaded / event.total * 10000) / 100 + '%';
-                  $.proxy(settings.progress, $context)(percentComplete, event);
-                }
-              }, false);
-              return xhr;
             }
-          });
-        }
+          }
+        },
 
-        module.verbose('Creating AJAX request with settings: ', ajaxSettings);
-        xhr =
-          $.ajax(ajaxSettings)
-            .always(function() {
-              // calculate if loading time was below minimum threshold
-              loadingDelay = ( settings.loadingLength - (new Date().getTime() - loadingTimer) );
-              settings.loadingDelay = loadingDelay < 0
-                ? 0
-                : loadingDelay
-              ;
-            })
-            .done(function(response) {
-              var
-                context = this
-              ;
-              setTimeout(function(){
-                promise.resolveWith(context, [response]);
-              }, settings.loadingDelay);
-            })
-            .fail(function(xhr, status, httpMessage) {
-              var
-                context = this
-              ;
-              // page triggers abort on navigation, dont show error
-              if(status != 'abort') {
-                setTimeout(function(){
-                  promise.rejectWith(context, [xhr, status, httpMessage]);
-                }, settings.loadingDelay);
+        create: {
+          request: function() {
+            return $.Deferred()
+              .always(module.event.request.complete)
+              .done(module.event.request.done)
+              .fail(module.event.request.error)
+            ;
+          },
+          xhr: function() {
+            $.ajax(ajaxSettings)
+              .always(module.event.xhr.always)
+              .done(module.event.xhr.done)
+              .fail(module.event.xhr.fail)
+            ;
+          }
+        },
+
+        set: {
+          error: function() {
+            module.verbose('Adding error state to element', $context);
+            $context.addClass(className.error);
+          },
+          loading: function() {
+            module.verbose('Adding loading state to element', $context);
+            $context.addClass(className.loading);
+          }
+        },
+
+        remove: {
+          error: function() {
+            module.verbose('Removing error state from element', $context);
+            $context.removeClass(className.error);
+          },
+          loading: function() {
+            module.verbose('Removing loading state from element', $context);
+            $context.removeClass(className.loading);
+          }
+        },
+
+        get: {
+          request: function() {
+            return module.request;
+          },
+          xhr: function() {
+            return module.xhr;
+          },
+          settings: function() {
+            return $.proxy(settings.beforeSend, $module)(settings);
+          },
+          defaultData: function() {
+            var
+              data = {}
+            ;
+            if( !$.isWindow(element) ) {
+              if( $module.is('input') ) {
+                data.value = $module.val();
               }
               else {
-                $context
-                  .removeClass(className.error)
-                  .removeClass(className.loading)
+                data.text = $module.text();
+              }
+            }
+            return data;
+          },
+          event: function() {
+            if( $.isWindow(element) || settings.on == 'now' ) {
+              module.debug('API called without element, no events attached');
+              return false;
+            }
+            else if(settings.on == 'auto') {
+              if( $module.is('input') ) {
+                return (element.oninput !== undefined)
+                  ? 'input'
+                  : (element.onpropertychange !== undefined)
+                    ? 'propertychange'
+                    : 'keyup'
                 ;
               }
-            })
-        ;
-        if(settings.stateContext) {
-          $module
-            .data(metadata.promise, promise)
-            .data(metadata.xhr, xhr)
-          ;
-        }
-      },
-
-      get: {
-        formData: function() {
-          return $module
-            .closest('form')
-              .toJSON()
-          ;
-        },
-        templateURL: function() {
-          var
-            action = $module.data(settings.metadata.action) || settings.action || false,
-            url
-          ;
-          if(action) {
-            module.debug('Creating url for: ', action);
-            if(settings.api[action] !== undefined) {
-              url = settings.api[action];
+              else {
+                return 'click';
+              }
             }
             else {
-              module.error(error.missingAction);
-            }
-          }
-          // override with url if specified
-          if(settings.url) {
-            url = settings.url;
-            module.debug('Getting url', url);
-          }
-          return url;
-        },
-        url: function(url, urlData) {
-          var
-            urlVariables
-          ;
-          if(url) {
-            urlVariables = url.match(settings.regExpTemplate);
-            urlData      = urlData || settings.urlData;
-
-            if(urlVariables) {
-              module.debug('Looking for URL variables', urlVariables);
-              $.each(urlVariables, function(index, templateValue){
-                var
-                  term      = templateValue.substr( 2, templateValue.length - 3),
-                  termValue = ($.isPlainObject(urlData) && urlData[term] !== undefined)
-                    ? urlData[term]
-                    : ($module.data(term) !== undefined)
-                      ? $module.data(term)
-                      : urlData[term]
-                ;
-                module.verbose('Looking for variable', term, $module, $module.data(term), urlData[term]);
-                // remove optional value
-                if(termValue === false) {
-                  module.debug('Removing variable from URL', urlVariables);
-                  url = url.replace('/' + templateValue, '');
-                }
-                // undefined condition
-                else if(termValue === undefined || !termValue) {
-                  module.error(error.missingParameter + term);
-                  url = false;
-                  return false;
-                }
-                else {
-                  url = url.replace(templateValue, termValue);
-                }
-              });
-            }
-          }
-          return url;
-        }
-      },
-
-      // reset api request
-      reset: function() {
-        $module
-          .data(metadata.promise, false)
-          .data(metadata.xhr, false)
-        ;
-        $context
-          .removeClass(className.error)
-          .removeClass(className.loading)
-        ;
-      },
-
-      setting: function(name, value) {
-        if( $.isPlainObject(name) ) {
-          $.extend(true, settings, name);
-        }
-        else if(value !== undefined) {
-          settings[name] = value;
-        }
-        else {
-          return settings[name];
-        }
-      },
-      internal: function(name, value) {
-        if( $.isPlainObject(name) ) {
-          $.extend(true, module, name);
-        }
-        else if(value !== undefined) {
-          module[name] = value;
-        }
-        else {
-          return module[name];
-        }
-      },
-      debug: function() {
-        if(settings.debug) {
-          if(settings.performance) {
-            module.performance.log(arguments);
-          }
-          else {
-            module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
-            module.debug.apply(console, arguments);
-          }
-        }
-      },
-      verbose: function() {
-        if(settings.verbose && settings.debug) {
-          if(settings.performance) {
-            module.performance.log(arguments);
-          }
-          else {
-            module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
-            module.verbose.apply(console, arguments);
-          }
-        }
-      },
-      error: function() {
-        module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-        module.error.apply(console, arguments);
-      },
-      performance: {
-        log: function(message) {
-          var
-            currentTime,
-            executionTime,
-            previousTime
-          ;
-          if(settings.performance) {
-            currentTime   = new Date().getTime();
-            previousTime  = time || currentTime;
-            executionTime = currentTime - previousTime;
-            time          = currentTime;
-            performance.push({
-              'Element'        : element,
-              'Name'           : message[0],
-              'Arguments'      : [].slice.call(message, 1) || '',
-              'Execution Time' : executionTime
-            });
-          }
-          clearTimeout(module.performance.timer);
-          module.performance.timer = setTimeout(module.performance.display, 100);
-        },
-        display: function() {
-          var
-            title = settings.name + ':',
-            totalTime = 0
-          ;
-          time = false;
-          clearTimeout(module.performance.timer);
-          $.each(performance, function(index, data) {
-            totalTime += data['Execution Time'];
-          });
-          title += ' ' + totalTime + 'ms';
-          if(moduleSelector) {
-            title += ' \'' + moduleSelector + '\'';
-          }
-          if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
-            console.groupCollapsed(title);
-            if(console.table) {
-              console.table(performance);
-            }
-            else {
-              $.each(performance, function(index, data) {
-                console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
-              });
-            }
-            console.groupEnd();
-          }
-          performance = [];
-        }
-      },
-      invoke: function(query, passedArguments, context) {
-        var
-          object = instance,
-          maxDepth,
-          found,
-          response
-        ;
-        passedArguments = passedArguments || queryArguments;
-        context         = element         || context;
-        if(typeof query == 'string' && object !== undefined) {
-          query    = query.split(/[\. ]/);
-          maxDepth = query.length - 1;
-          $.each(query, function(depth, value) {
-            var camelCaseValue = (depth != maxDepth)
-              ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
-              : query
-            ;
-            if( $.isPlainObject( object[camelCaseValue] ) && (depth != maxDepth) ) {
-              object = object[camelCaseValue];
-            }
-            else if( object[camelCaseValue] !== undefined ) {
-              found = object[camelCaseValue];
-              return false;
-            }
-            else if( $.isPlainObject( object[value] ) && (depth != maxDepth) ) {
-              object = object[value];
-            }
-            else if( object[value] !== undefined ) {
-              found = object[value];
-              return false;
-            }
-            else {
-              return false;
-            }
-          });
-        }
-        if ( $.isFunction( found ) ) {
-          response = found.apply(context, passedArguments);
-        }
-        else if(found !== undefined) {
-          response = found;
-        }
-        if($.isArray(returnedValue)) {
-          returnedValue.push(response);
-        }
-        else if(returnedValue !== undefined) {
-          returnedValue = [returnedValue, response];
-        }
-        else if(response !== undefined) {
-          returnedValue = response;
-        }
-        return found;
-      }
-    };
-
-    if(methodInvoked) {
-      if(instance === undefined) {
-        module.initialize();
-      }
-      module.invoke(query);
-    }
-    else {
-      if(instance !== undefined) {
-        module.destroy();
-      }
-      module.initialize();
-    }
-
-    return (returnedValue !== undefined)
-      ? returnedValue
-      : this
-    ;
-  };
-
-  // handle DOM attachment to API functionality
-  $.fn.apiButton = function(parameters) {
-    $(this)
-      .each(function(){
-        var
-          // if only function passed it is success callback
-          $module  = $(this),
-          selector = $(this).selector || '',
-
-          settings = ( $.isFunction(parameters) )
-            ? $.extend(true, {}, $.api.settings, $.fn.apiButton.settings, { stateContext: this, success: parameters })
-            : $.extend(true, {}, $.api.settings, $.fn.apiButton.settings, { stateContext: this}, parameters),
-          module
-        ;
-        module = {
-          initialize: function() {
-            if(settings.context && selector !== '') {
-              $(settings.context)
-                .on(selector, 'click.' + settings.namespace, module.click)
-              ;
-            }
-            else {
-              $module
-                .on('click.' + settings.namespace, module.click)
-              ;
+              return settings.on;
             }
           },
-          click: function() {
-            if(!settings.filter || $(this).filter(settings.filter).size() === 0) {
-              $.proxy( $.api, this )(settings);
+          formData: function() {
+            var
+              formData
+            ;
+            if( $(this).toJSON() === undefined ) {
+              module.error(error.missingSerialize);
+              return;
+            }
+            formData = $form.toJSON();
+            module.debug('Retrieving form data', formData);
+            return $form.toJSON();
+          },
+          templateURL: function(action) {
+            var
+              url
+            ;
+            action = action || $module.data(settings.metadata.action) || settings.action || false;
+            if(action) {
+              module.debug('Looking up url for action', action);
+              if(settings.api[action] !== undefined) {
+                url = settings.api[action];
+                module.debug('Found template url', url);
+              }
+              else {
+                module.error(error.missingAction, settings.action);
+              }
+            }
+            return url;
+          }
+        },
+
+        // reset state
+        reset: function() {
+          module.remove.error();
+          module.remove.loading();
+        },
+
+        setting: function(name, value) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, settings, name);
+          }
+          else if(value !== undefined) {
+            settings[name] = value;
+          }
+          else {
+            return settings[name];
+          }
+        },
+        internal: function(name, value) {
+          if( $.isPlainObject(name) ) {
+            $.extend(true, module, name);
+          }
+          else if(value !== undefined) {
+            module[name] = value;
+          }
+          else {
+            return module[name];
+          }
+        },
+        debug: function() {
+          if(settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.debug = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              module.debug.apply(console, arguments);
             }
           }
-        };
+        },
+        verbose: function() {
+          if(settings.verbose && settings.debug) {
+            if(settings.performance) {
+              module.performance.log(arguments);
+            }
+            else {
+              module.verbose = Function.prototype.bind.call(console.info, console, settings.name + ':');
+              module.verbose.apply(console, arguments);
+            }
+          }
+        },
+        error: function() {
+          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+          module.error.apply(console, arguments);
+        },
+        performance: {
+          log: function(message) {
+            var
+              currentTime,
+              executionTime,
+              previousTime
+            ;
+            if(settings.performance) {
+              currentTime   = new Date().getTime();
+              previousTime  = time || currentTime;
+              executionTime = currentTime - previousTime;
+              time          = currentTime;
+              performance.push({
+                'Element'        : element,
+                'Name'           : message[0],
+                'Arguments'      : [].slice.call(message, 1) || '',
+                'Execution Time' : executionTime
+              });
+            }
+            clearTimeout(module.performance.timer);
+            module.performance.timer = setTimeout(module.performance.display, 100);
+          },
+          display: function() {
+            var
+              title = settings.name + ':',
+              totalTime = 0
+            ;
+            time = false;
+            clearTimeout(module.performance.timer);
+            $.each(performance, function(index, data) {
+              totalTime += data['Execution Time'];
+            });
+            title += ' ' + totalTime + 'ms';
+            if(moduleSelector) {
+              title += ' \'' + moduleSelector + '\'';
+            }
+            if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
+              console.groupCollapsed(title);
+              if(console.table) {
+                console.table(performance);
+              }
+              else {
+                $.each(performance, function(index, data) {
+                  console.log(data['Name'] + ': ' + data['Execution Time']+'ms');
+                });
+              }
+              console.groupEnd();
+            }
+            performance = [];
+          }
+        },
+        invoke: function(query, passedArguments, context) {
+          var
+            maxDepth,
+            found,
+            response
+          ;
+          passedArguments = passedArguments || queryArguments;
+          context         = element         || context;
+          if(typeof query == 'string' && instance !== undefined) {
+            query    = query.split(/[\. ]/);
+            maxDepth = query.length - 1;
+            $.each(query, function(depth, value) {
+              var camelCaseValue = (depth != maxDepth)
+                ? value + query[depth + 1].charAt(0).toUpperCase() + query[depth + 1].slice(1)
+                : query
+              ;
+              if( $.isPlainObject( instance[value] ) && (depth != maxDepth) ) {
+                instance = instance[value];
+              }
+              else if( $.isPlainObject( instance[camelCaseValue] ) && (depth != maxDepth) ) {
+                instance = instance[camelCaseValue];
+              }
+              else if( instance[value] !== undefined ) {
+                found = instance[value];
+                return false;
+              }
+              else if( instance[camelCaseValue] !== undefined ) {
+                found = instance[camelCaseValue];
+                return false;
+              }
+              else {
+                module.error(error.method, query);
+                return false;
+              }
+            });
+          }
+          if ( $.isFunction( found ) ) {
+            response = found.apply(context, passedArguments);
+          }
+          else if(found !== undefined) {
+            response = found;
+          }
+          if($.isArray(returnedValue)) {
+            returnedValue.push(response);
+          }
+          else if(returnedValue !== undefined) {
+            returnedValue = [returnedValue, response];
+          }
+          else if(response !== undefined) {
+            returnedValue = response;
+          }
+          return found;
+        }
+      };
+
+      if(methodInvoked) {
+        if(instance === undefined) {
+          module.initialize();
+        }
+        module.invoke(query);
+      }
+      else {
+        if(instance !== undefined) {
+          module.destroy();
+        }
         module.initialize();
-      })
-    ;
-    return this;
-  };
+      }
+    })
+  ;
 
-  $.api.settings = {
+  return (returnedValue !== undefined)
+    ? returnedValue
+    : this
+  ;
+};
 
-    name        : 'API',
-    namespace   : 'api',
+$.api.settings = {
 
-    debug       : true,
-    verbose     : true,
-    performance : true,
+  name            : 'API',
+  namespace       : 'api',
 
-    api         : {},
+  debug           : true,
+  verbose         : true,
+  performance     : true,
 
-    beforeSend  : function(settings) {
-      return settings;
-    },
-    beforeXHR   : function(xhr) {},
-    success     : function(response) {},
-    complete    : function(response) {},
-    failure     : function(errorCode) {},
-    progress    : false,
+  // event binding
+  on              : 'auto',
+  filter          : '.disabled, .loading',
+  context         : false,
+  stateContext    : false,
 
-    error : {
-      missingAction    : 'API action used but no url was defined',
-      missingURL       : 'URL not specified for the API action',
-      missingParameter : 'Missing an essential URL parameter: ',
+  // templating
+  action          : false,
+  regExpTemplate  : /\{\$([A-z]+)\}/g,
 
-      timeout          : 'Your request timed out',
-      error            : 'There was an error with your request',
-      parseError       : 'There was an error parsing your request',
-      JSONParse        : 'JSON could not be parsed during error handling',
-      statusMessage    : 'Server gave an error: ',
-      beforeSend       : 'The before send function has aborted the request',
-      exitConditions   : 'API Request Aborted. Exit conditions met'
-    },
+  // data
+  url             : false,
+  urlData         : false,
+  serializeForm   : false,
 
-    className: {
-      loading : 'loading',
-      error   : 'error'
-    },
+  // ui
+  defaultData     : true,
+  throttle        : 100,
+  allowMultiple   : false,
 
-    metadata: {
-      action  : 'action',
-      promise : 'promise',
-      xhr     : 'xhr'
-    },
+  // state
+  loadingDuration : 1000,
+  errorDuration   : 2000,
 
-    regExpTemplate: /\{\$([A-z]+)\}/g,
+  // jQ ajax
+  method          : 'get',
+  data            : {},
+  dataType        : 'json',
+  cache         : true,
 
-    action        : false,
-    url           : false,
-    urlData       : false,
-    serializeForm : false,
+  // callbacks
+  beforeSend   : function(settings) { return settings; },
+  beforeXHR    : function(xhr) {},
 
-    stateContext  : false,
+  success      : function(response) {},
+  successText  : function(response) { return true; },
+  complete     : function(response) {},
+  failure      : function(response) {},
 
-    method        : 'get',
-    data          : {},
-    dataType      : 'json',
-    cache         : true,
+  // errors
+  error : {
+    beforeSend       : 'The before send function has aborted the request',
+    error            : 'There was an error with your request',
+    exitConditions   : 'API Request Aborted. Exit conditions met',
+    JSONParse        : 'JSON could not be parsed during error handling',
+    missingSerialize : 'Serializing a Form requires toJSON to be included',
+    missingAction    : 'API action used but no url was defined',
+    missingParameter : 'Missing an essential URL parameter: ',
+    missingURL       : 'No URL specified for api event',
+    parseError       : 'There was an error parsing your request',
+    statusMessage    : 'Server gave an error: ',
+    timeout          : 'Your request timed out'
+  },
 
-    loadingLength : 200,
-    errorLength   : 2000
+  className: {
+    loading : 'loading',
+    error   : 'error'
+  },
 
-  };
+  selector: {
+    form: 'form'
+  },
 
-  $.fn.apiButton.settings = {
-    filter       : '.disabled, .loading',
-    context      : false,
-    stateContext : false
-  };
+  metadata: {
+    action  : 'action',
+    request : 'request',
+    xhr     : 'xhr'
+  }
+};
+
+
+$.api.settings.api = {};
+
 
 })( jQuery, window , document );

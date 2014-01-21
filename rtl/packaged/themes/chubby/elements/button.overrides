@@ -1,11 +1,8 @@
 /*******************************
            Overrides
 *******************************/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
-.ui.button {
-  font-family: 'Open Sans Condensed', sans-serif;
-}
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {

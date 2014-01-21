@@ -28,7 +28,7 @@
 
 .ui.menu {
   margin: @margin;
-  background-color: @backgroundColor;
+  background: @background;
 
   font-size: 0px;
   font-weight: @fontWeight;
@@ -360,6 +360,7 @@
 .ui.menu .active.item  {
   background-color: @subtleTransparentBlack;
   color: @darkTextColor;
+  font-weight: @activeFontWeight;
   box-shadow: 0em @activeBorderSize 0em inset;
 }
 .ui.vertical.menu .active.item {
@@ -692,7 +693,7 @@
 ---------------*/
 
 .ui.secondary.menu {
-  background-color: transparent;
+  background: @secondaryBackground;
   border-radius: 0px;
   box-shadow: none;
 }

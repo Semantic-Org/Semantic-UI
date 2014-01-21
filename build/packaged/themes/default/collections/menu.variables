@@ -14,7 +14,7 @@
 @verticalPadding: 0.83em;
 @horizontalPadding: 0.95em;
 
-@backgroundColor: #FFFFFF;
+@background: #FFFFFF;
 @fontWeight: normal;
 @boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
@@ -114,6 +114,7 @@
 @activeBackground: @subtleTransparentBlack;
 @activeColor: @darkTextColor;
 @activeBorderSize: 0.2em;
+@activeFontWeight: normal;
 
 @subMenuActiveColor: rgba(0, 0, 0, 0.03);
 
@@ -126,6 +127,7 @@
 ---------------*/
 
 /* Secondary */
+@secondaryBackground: none;
 @secondaryArrowSize: 0.6em;
 @secondaryArrowOffset: -(@secondaryArrowSize / 2);
 @secondaryArrowBorder: 1px solid rgba(0, 0, 0, 0.1);

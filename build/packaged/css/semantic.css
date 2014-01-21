@@ -1585,7 +1585,7 @@ body > .ui.grid {
 --------------------*/
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 /*-------------------
@@ -1746,7 +1746,7 @@ body > .ui.grid {
 
 .ui.menu {
   margin: 1rem 0rem;
-  background-color: #ffffff;
+  background: #ffffff;
   font-size: 0px;
   font-weight: normal;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -2118,6 +2118,7 @@ body > .ui.grid {
 .ui.menu .active.item {
   background-color: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.85);
+  font-weight: normal;
   -webkit-box-shadow: 0em 0.2em 0em inset;
   box-shadow: 0em 0.2em 0em inset;
 }
@@ -2493,7 +2494,7 @@ body > .ui.grid {
 ---------------*/
 
 .ui.secondary.menu {
-  background-color: transparent;
+  background: none;
   border-radius: 0px;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -4506,7 +4507,7 @@ body > .ui.grid {
 --------------------*/
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 /*-------------------
@@ -6499,7 +6500,7 @@ body > .ui.grid {
 --------------------*/
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 /*-------------------
@@ -7045,7 +7046,7 @@ h5.ui.header {
 --------------------*/
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 /*-------------------
@@ -8959,7 +8960,7 @@ i.icon.star {
 
 i.icon.left {
   width: auto;
-  margin: 0em 0.5em 0em 0em !important;
+  margin: 0em 0.5em 0em 0em;
 }
 
 /* right side icons */
@@ -8968,7 +8969,7 @@ i.icon.download,
 i.icon.search,
 i.icon.right {
   width: auto;
-  margin: 0em 0em 0em 0.5em !important;
+  margin: 0em 0em 0em 0.5em;
 }
 
 /*******************************
@@ -9018,7 +9019,7 @@ i.icon.right {
 --------------------*/
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 /*-------------------
@@ -11307,7 +11308,7 @@ a.ui.teal.label:hover:before {
 --------------------*/
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 /*-------------------
@@ -16621,7 +16622,7 @@ table {
 --------------------*/
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 /*-------------------

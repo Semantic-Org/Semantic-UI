@@ -10,7 +10,7 @@
 @fontPath  : "../themes/default/fonts";
 
 /*-------------------
-       Page
+        Page
 --------------------*/
 
 @bodyBackground      : #FCFCFC;
@@ -30,7 +30,7 @@
        Fonts
 --------------------*/
 
-@fontFamily   : Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+@fontFamily : Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 
 /*-------------------
        Icons
