@@ -21,9 +21,6 @@
   margin: 0% -1.5%;
   padding: 0%;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -57,9 +54,6 @@ body > .ui.grid {
   padding-left: 1.5%;
   padding-right: 1.5%;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 
   vertical-align: top;
@@ -116,12 +110,12 @@ body > .ui.grid {
   margin-right: 0%;
 }
 
-@media only screen and (max-width : 998px) {
+@media only screen and (max-width : 991px) {
   .ui.page.grid {
     padding: 0% 4%;
   }
 }
-@media only screen and (min-width : 998px) {
+@media only screen and (min-width : 992px) {
   .ui.page.grid {
     padding: 0% 8%;
   }
@@ -378,14 +372,6 @@ body > .ui.grid {
 .ui.divided.grid > .column:not(.row),
 .ui.divided.grid > .row > .column {
   display: table-cell;
-  -webkit-box-shadow:
-    -1px 0px 0px 0px rgba(0, 0, 0, 0.1),
-    -2px 0px 0px 0px rgba(255, 255, 255, 0.8)
-  ;
-  -moz-box-shadow:
-    -1px 0px 0px 0px rgba(0, 0, 0, 0.1),
-    -2px 0px 0px 0px rgba(255, 255, 255, 0.8)
-  ;
   box-shadow:
     -1px 0px 0px 0px rgba(0, 0, 0, 0.1),
     -2px 0px 0px 0px rgba(255, 255, 255, 0.8)
@@ -396,21 +382,11 @@ body > .ui.grid {
 }
 .ui.divided.grid > .column:first-child,
 .ui.divided.grid > .row > .column:first-child {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
 /* Vertically Divided */
 .ui.vertically.divided.grid > .row {
-  -webkit-box-shadow:
-    0px -1px 0px 0px rgba(0, 0, 0, 0.1),
-    0px -2px 0px 0px rgba(255, 255, 255, 0.8) !important
-  ;
-  -moz-box-shadow:
-    0px -1px 0px 0px rgba(0, 0, 0, 0.1),
-    0px -2px 0px 0px rgba(255, 255, 255, 0.8) !important
-  ;
   box-shadow:
     0px -1px 0px 0px rgba(0, 0, 0, 0.1),
     0px -2px 0px 0px rgba(255, 255, 255, 0.8) !important
@@ -419,8 +395,6 @@ body > .ui.grid {
 .ui.vertically.divided.grid > .row > .column,
 .ui.vertically.divided.grid > .column:not(.row),
 .ui.vertically.divided.grid > .row:first-child {
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
 
@@ -434,8 +408,6 @@ body > .ui.grid {
   width: 100%;
   margin-left: 0% !important;
   margin-right: 0% !important;
-  -webkit-box-shadow: 0px 0px 0px 1px #DFDFDF;
-  -moz-box-shadow: 0px 0px 0px 1px #DFDFDF;
   box-shadow: 0px 0px 0px 1px #DFDFDF;
 }
 .ui.celled.grid > .row,
@@ -445,28 +417,20 @@ body > .ui.grid {
   width: 100%;
   margin-top: 0em;
   padding-top: 0em;
-  -webkit-box-shadow: 0px -1px 0px 0px #DFDFDF;
-  -moz-box-shadow: 0px -1px 0px 0px #DFDFDF;
   box-shadow: 0px -1px 0px 0px #DFDFDF;
 }
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
   display: table-cell;
   padding: 0.75em;
-  -webkit-box-shadow: -1px 0px 0px 0px #DFDFDF;
-  -moz-box-shadow: -1px 0px 0px 0px #DFDFDF;
   box-shadow: -1px 0px 0px 0px #DFDFDF;
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.celled.page.grid {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 
@@ -551,7 +515,7 @@ body > .ui.grid {
 -----------------------*/
 
 /* Mobile Only */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 767px) {
   .ui.mobile.only.grid,
   .ui.grid > .mobile.only.row {
     display: block !important;
@@ -587,7 +551,7 @@ body > .ui.grid {
   }
 }
 /* Tablet Only */
-@media only screen and (min-width : 768px) and (max-width : 998px) {
+@media only screen and (min-width : 768px) and (max-width : 991px) {
   .ui.tablet.only.grid,
   .ui.grid > .tablet.only.row {
     display: block !important;
@@ -614,7 +578,7 @@ body > .ui.grid {
     display: table-cell !important;
   }
 }
-@media only screen and (max-width : 768px), (min-width: 998px) {
+@media only screen and (max-width : 767px), (min-width: 992px) {
   .ui.tablet.only.grid,
   .ui.grid > .tablet.only.row,
   .ui.grid > .tablet.only.column,
@@ -623,7 +587,7 @@ body > .ui.grid {
   }
 }
 /* Computer Only */
-@media only screen and (min-width : 998px) {
+@media only screen and (min-width : 992px) {
   .ui.computer.only.grid,
   .ui.grid > .computer.only.row {
     display: block !important;
@@ -650,7 +614,7 @@ body > .ui.grid {
     display: table-cell !important;
   }
 }
-@media only screen and (max-width : 998px) {
+@media only screen and (max-width : 991px) {
   .ui.computer.only.grid,
   .ui.grid > .computer.only.row,
   .ui.grid > .computer.only.column,
@@ -665,7 +629,7 @@ body > .ui.grid {
 --------------------*/
 
 /* Mobily Only */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 767px) {
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
   .ui.grid > .two.column.doubling.row > .column {
@@ -729,7 +693,7 @@ body > .ui.grid {
 }
 
 /* Tablet Only */
-@media only screen and (min-width : 768px) and (max-width : 998px) {
+@media only screen and (min-width : 768px) and (max-width : 991px) {
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
   .ui.grid > .two.column.doubling.row > .column {
@@ -793,10 +757,10 @@ body > .ui.grid {
 }
 
 /*-------------------
-       Stackable
+      Stackable
 --------------------*/
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 767px) {
   .ui.stackable.grid {
     display: block !important;
     padding: 0em;
@@ -810,8 +774,6 @@ body > .ui.grid {
     margin: 1em 0em 0em !important;
     padding: 1em 0em 0em !important;
 
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
     box-shadow: none !important;
   }
   .ui.stackable.divided.grid .column,

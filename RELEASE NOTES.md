@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 0.12.2 - Jan 21, 2014
+
+**Enhancement**
+- **Form Validation** - Adding custom validation is now simpler, uses syntax ``$('.form').form('add prompt', identifier, 'Error message');``
+
+**Fixes**
+- **Menu** - Slightly updates input sizes inside menus
+- **Grid** - Fixes grid ``only tablet/mobile/computer`` showing both devices on exact pixel of breakpoint, i.e. 768px
+- **Icon** - Fixes ascending alphabetic inheritance
+
 ### Version 0.12.1 - Jan 15, 2014
 
 **Fixes**
