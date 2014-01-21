@@ -642,7 +642,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Responsive to Device</h4>
     <p>A grid can have its columns, or rows only show content for computer, tablet, or mobile.</p>
     <div class="ui text message info ignore">
-      <i class="icon heart"></i> Breakpoints are 768px and below for mobile, 768-998px for tablet and 998px+ for pc</i>
+      <i class="icon heart"></i> Breakpoints are 768px and below for mobile, 768-992px for tablet and 992px+ for computer</i>
     </div>
     <div class="ui grid">
       <div class="two column mobile only row">

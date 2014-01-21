@@ -40,6 +40,14 @@ module.exports = function(grunt) {
       'karma:travis'
     ],
 
+    resetTasks = [
+      // clean build directory
+      'clean:build',
+
+      // cleans previous generated release
+      'clean:release'
+    ],
+
     releaseTasks = [
       // clean build directory
       'clean:build',
@@ -641,6 +649,7 @@ module.exports = function(grunt) {
   grunt.registerTask('rtl', rtlTasks);
   grunt.registerTask('docs', docTasks);
   grunt.registerTask('build', buildTasks);
+  grunt.registerTask('reset', resetTasks);
 
   // compiles only changed less files <https://npmjs.org/package/grunt-contrib-watch>
   grunt.event.on('watch', setWatchFiles);

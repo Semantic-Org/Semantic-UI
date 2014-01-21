@@ -662,7 +662,6 @@
   padding: 0%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -696,7 +695,6 @@ body > .ui.grid {
   padding-right: 1.5%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: top;
 }
@@ -752,13 +750,13 @@ body > .ui.grid {
   margin-right: 0%;
 }
 
-@media only screen and (max-width: 998px) {
+@media only screen and (max-width: 991px) {
   .ui.page.grid {
     padding: 0% 4%;
   }
 }
 
-@media only screen and (min-width: 998px) {
+@media only screen and (min-width: 992px) {
   .ui.page.grid {
     padding: 0% 8%;
   }
@@ -1212,7 +1210,7 @@ body > .ui.grid {
 
 /* Mobile Only */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .ui.mobile.only.grid,
   .ui.grid > .mobile.only.row {
     display: block !important;
@@ -1254,7 +1252,7 @@ body > .ui.grid {
 
 /* Tablet Only */
 
-@media only screen and (min-width: 768px) and (max-width: 998px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.tablet.only.grid,
   .ui.grid > .tablet.only.row {
     display: block !important;
@@ -1285,7 +1283,7 @@ body > .ui.grid {
   }
 }
 
-@media only screen and (max-width: 768px), (min-width: 998px) {
+@media only screen and (max-width: 767px), (min-width: 992px) {
   .ui.tablet.only.grid,
   .ui.grid > .tablet.only.row,
   .ui.grid > .tablet.only.column,
@@ -1296,7 +1294,7 @@ body > .ui.grid {
 
 /* Computer Only */
 
-@media only screen and (min-width: 998px) {
+@media only screen and (min-width: 992px) {
   .ui.computer.only.grid,
   .ui.grid > .computer.only.row {
     display: block !important;
@@ -1327,7 +1325,7 @@ body > .ui.grid {
   }
 }
 
-@media only screen and (max-width: 998px) {
+@media only screen and (max-width: 991px) {
   .ui.computer.only.grid,
   .ui.grid > .computer.only.row,
   .ui.grid > .computer.only.column,
@@ -1342,7 +1340,7 @@ body > .ui.grid {
 
 /* Mobily Only */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
   .ui.grid > .two.column.doubling.row > .column {
@@ -1418,7 +1416,7 @@ body > .ui.grid {
 
 /* Tablet Only */
 
-@media only screen and (min-width: 768px) and (max-width: 998px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
   .ui.grid > .two.column.doubling.row > .column {
@@ -1493,10 +1491,10 @@ body > .ui.grid {
 }
 
 /*-------------------
-       Stackable
+      Stackable
 --------------------*/
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .ui.stackable.grid {
     display: block !important;
     padding: 0em;
@@ -1753,11 +1751,12 @@ body > .ui.grid {
 ---------------*/
 
 .ui.menu:not(.vertical) .item > .input {
-  margin-top: -0.83em;
-  margin-bottom: -0.83em;
+  margin-top: -0.85em;
+  margin-bottom: -0.85em;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
   width: 100%;
+  vertical-align: top;
 }
 
 .ui.menu .item > .input input {
@@ -2051,7 +2050,7 @@ body > .ui.grid {
   height: 1px;
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.03)), color-stop(1.5em, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.03)));
-  background-image: linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
 }
 
 .ui.vertical.menu .item:first-child:before {
@@ -2828,7 +2827,7 @@ body > .ui.grid {
 .ui.vertical.inverted.menu .item:before {
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
-  background-image: linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 /*--- Hover ---*/
@@ -8488,6 +8487,14 @@ i.icon.smile:before {
   content: "\f118";
 }
 
+i.icon.sort.ascending:before {
+  content: "\f0de";
+}
+
+i.icon.sort.descending:before {
+  content: "\f0dd";
+}
+
 i.icon.sort.alphabet.descending:before {
   content: "\f15e";
 }
@@ -8496,20 +8503,12 @@ i.icon.sort.alphabet:before {
   content: "\f15d";
 }
 
-i.icon.sort.ascending:before {
-  content: "\f0de";
-}
-
 i.icon.sort.attributes.descending:before {
   content: "\f161";
 }
 
 i.icon.sort.attributes:before {
   content: "\f160";
-}
-
-i.icon.sort.descending:before {
-  content: "\f0dd";
 }
 
 i.icon.sort.order.descending:before {
