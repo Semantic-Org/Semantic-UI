@@ -1962,14 +1962,14 @@ i.icon.signup:before {
 
 i.icon.star {
   width: auto;
-  margin: 0em;
+  margin: 0em !important;
 }
 
 /* left side icons */
 
 i.icon.left {
   width: auto;
-  margin: 0em 0em 0em 0.5em;
+  margin: 0em 0em 0em 0.5em !important;
 }
 
 /* right side icons */
@@ -1978,7 +1978,7 @@ i.icon.download,
 i.icon.search,
 i.icon.right {
   width: auto;
-  margin: 0em 0.5em 0em 0em;
+  margin: 0em 0.5em 0em 0em !important;
 }
 
 /*******************************

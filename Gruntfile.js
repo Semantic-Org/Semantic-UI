@@ -17,6 +17,8 @@ module.exports = function(grunt) {
       // copies assets and js over to docs
       'copy:srcToDocs',
 
+      'copy:themesToDocs',
+
       // copies examples over to docs
       'copy:examplesToDocs',
 
@@ -358,6 +360,20 @@ module.exports = function(grunt) {
     },
 
     copy: {
+
+      themesToDocs: {
+        files: [
+          // exact copy for less
+          {
+            expand : true,
+            cwd    : 'src/themes/',
+            src    : [
+              '**/*'
+            ],
+            dest : 'docs/build/less/themes'
+          }
+        ]
+      },
 
       srcToDocs: {
 
