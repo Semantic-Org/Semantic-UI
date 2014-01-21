@@ -608,6 +608,14 @@ type        : 'UI Module'
               <div class="description">Most likely action will be determined by type of dropdown, for example a selection dropdown will automatically use updateForm</div>
             </div>
             <div class="item">
+              <div class="header">combo</div>
+              <div class="description">changes text of previous element matching text selector</div>
+            </div>
+            <div class="item">
+              <div class="header">select</div>
+              <div class="description">activates menu item but does not change text</div>
+            </div>
+            <div class="item">
               <div class="header">nothing</div>
               <div class="description">no action occurs</div>
             </div>

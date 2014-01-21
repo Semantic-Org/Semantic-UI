@@ -24,18 +24,14 @@
       </a>
       <% end %>
       <% if @document.themes?: %>
-      <div class="ui basic floating dropdown theme button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
-        <span class="text">Theme</span>
-        <i class="dropdown icon"></i>
+      <div class="ui floating dropdown theme button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
+        <i class="settings icon"></i>
+        <span class="text">Choose Theme</span>
         <div class="menu ui transition hidden">
           <% for id, name of @document.themes: %>
             <div class="item" data-value="<%= name %>"><%= (name.charAt(0).toUpperCase() + name.slice(1)) %></div>
           <% end %>
         </div>
-      </div>
-      <div class="ui button">
-        <i class="settings icon"></i>
-        Customize
       </div>
       <div class="ui primary button">
         Download

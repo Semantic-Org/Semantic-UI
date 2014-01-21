@@ -105,45 +105,46 @@ semantic.ready = function() {
       parseFile: function(content) {
         var
           variables = {},
-          lines = content.match(/(@.*;)/g),
+          lines = content.match(/^(@[\s|\S]+?;)/gm),
           name,
           value
         ;
+        console.log(lines);
         $.each(lines, function(index, line) {
           // clear whitespace
           line = $.trim(line);
           // match variables only
           if(line[0] == '@') {
             name = line.match(/^@(.+):/);
-            value = line.match(/:(\W)(.*);/);
-            if( ($.isArray(name) && name.length >= 2) && ($.isArray(value) && value.length >= 3) ) {
+            value = line.match(/:\s*([\s|\S]+?;)/);
+            if( ($.isArray(name) && name.length >= 2) && ($.isArray(value) && value.length >= 2) ) {
               name = name[1];
-              value = value[2];
+              value = value[1];
               variables[name] = value;
             }
           }
         });
-        console.log(variables);
         return variables;
       },
 
-      parseLine: function() {
-        // clear
-      },
-
       changeTheme: function(theme) {
-        $.api({
-          url      : '/build/less/themes/{$theme}/{$type}s/{$element}.variables',
-          dataType : 'text',
-          urlData  : {
-            theme   : theme,
-            type    : $themeDropdown.data('type'),
-            element : $themeDropdown.data('element')
-          },
-          success: function(content) {
-            less.modifyVars( handler.less.parseFile(content) );
-          }
-        })
+        if(theme === 'customize') {
+          // placeholder
+        }
+        else {
+          $.api({
+            url      : '/build/less/themes/{$theme}/{$type}s/{$element}.variables',
+            dataType : 'text',
+            urlData  : {
+              theme   : theme,
+              type    : $themeDropdown.data('type'),
+              element : $themeDropdown.data('element')
+            },
+            success: function(content) {
+              less.modifyVars( handler.less.parseFile(content) );
+            }
+          });
+        }
       }
 
     },
@@ -736,6 +737,7 @@ semantic.ready = function() {
 
   $themeDropdown
     .dropdown({
+      action: 'select',
       onChange: handler.less.changeTheme
     })
   ;
