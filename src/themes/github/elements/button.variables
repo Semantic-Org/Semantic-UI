@@ -23,6 +23,11 @@
   0 0 0 1px rgba(0, 0, 0, 0.13) inset,
   0 1px 3px rgba(0, 0, 0, 0.05)
 ;
+@coloredBoxShadow:
+  0 -1px 0 0 rgba(0, 0, 0, 0.05) inset,
+  0 0 0 1px rgba(0, 0, 0, 0.1) inset,
+  0 1px 3px rgba(0, 0, 0, 0.05)
+;
 
 @hoverBackgroundColor: '';
 @hoverBackgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
@@ -33,14 +38,14 @@
 @downBoxShadow:
   0 -1px 0 0 rgba(0, 0, 0, 0.05) inset,
   0 0 0 1px rgba(0, 0, 0, 0.13) inset,
-  0 3px 5px rgba(0, 0, 0, 0.15) inset
+  0 3px 5px rgba(0, 0, 0, 0.15) inset !important
 ;
 @activeBackgroundColor: #DFDFDF;
 @activeBackgroundImage: none;
 @activeBoxShadow:
   0 -1px 0 0 rgba(0, 0, 0, 0.05) inset,
   0 0 0 1px rgba(0, 0, 0, 0.13) inset,
-  0 3px 5px rgba(0, 0, 0, 0.1) inset
+  0 3px 5px rgba(0, 0, 0, 0.1) inset !important
 ;
 
 @labeledIconBackgroundColor: transparent;
