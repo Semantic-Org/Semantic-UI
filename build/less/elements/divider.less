@@ -9,6 +9,15 @@
  *
  */
 
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'divider';
+
+@import '../semantic.config';
+
 
 /*******************************
             Divider
@@ -17,20 +26,14 @@
 .ui.divider {
   margin: 1rem 0rem;
 
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
 
   line-height: 1;
   height: 0em;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -44,12 +47,12 @@
   margin: 0em;
   background-color: transparent;
 
-  font-size: 0.875rem;
+  font-size: @medium;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
 
-  color: rgba(0, 0, 0, 0.8);
+  color: @dividerTextColor;
 }
 
 
@@ -63,9 +66,9 @@
   top: 50%;
   left: 50%;
 
-  margin: 0% 0% 0% -3%;
+  margin: 0% 0% 0% (@verticalDividerWidth / 2);
 
-  width: 6%;
+  width: @verticalDividerWidth;
   height: 50%;
 
   line-height: 0;
@@ -79,8 +82,8 @@
   content: " ";
   z-index: 3;
 
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: @shadowWidth solid @shadowColor;
+  border-right: @highlightWidth solid @highlightColor;
 
   width: 0%;
   height: 80%;
@@ -89,7 +92,6 @@
 .ui.vertical.divider:before {
   top: -100%;
 }
-
 .ui.vertical.divider:after {
   top: auto;
   bottom: 0px;
@@ -104,7 +106,7 @@
   top: 0%;
   left: 0%;
 
-  margin: 1rem 1.5rem;
+  margin: @horizontalDividerVerticalMargin @horizontalDividerHorizontalMargin;
   height: auto;
   padding: 0em;
 
@@ -115,25 +117,25 @@
 .ui.horizontal.divider:after {
   position: absolute;
   top: 50%;
-  content: " ";
+  content: '';
   z-index: 3;
 
   width: 50%;
   top: 50%;
   height: 0%;
 
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
 }
 
 .ui.horizontal.divider:before {
   left: 0%;
-  margin-left: -1.5rem;
+  margin-left: -@horizontalDividerHorizontalMargin;
 }
 .ui.horizontal.divider:after {
   left: auto;
   right: 0%;
-  margin-right: -1.5rem;
+  margin-right: -@horizontalDividerHorizontalMargin;
 }
 
 /*--------------
@@ -141,16 +143,14 @@
 ---------------*/
 
 .ui.divider > .icon {
-  margin: 0em;
-  font-size: 1rem;
+  margin: @dividerIconMargin;
+  font-size: @dividerIconSize;
   vertical-align: middle;
 }
-
 
 /*******************************
           Variations
 *******************************/
-
 
 /*--------------
     Hidden
@@ -165,20 +165,20 @@
 ---------------*/
 
 .ui.divider.inverted {
-  color: rgba(255, 255, 255, 1);
+  color: @invertedTextColor;
 }
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
-  color: rgba(255, 255, 255, 0.9);
+  color: @directionalTextColor;
 }
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(255, 255, 255, 0.15);
+  border-top-color: @invertedShadowColor;
+  border-bottom-color: @invertedHighlightColor;
 
-  border-left-color: rgba(0, 0, 0, 0.15);
-  border-right-color: rgba(255, 255, 255, 0.15);
+  border-left-color: @invertedShadowColor;
+  border-right-color: @invertedHighlightColor;
 }
 
 /*--------------
@@ -202,6 +202,8 @@
 ---------------*/
 
 .ui.section.divider {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: @sectionMargin;
+  margin-bottom: @sectionMargin;
 }
+
+.loadUIOverrides() !important;

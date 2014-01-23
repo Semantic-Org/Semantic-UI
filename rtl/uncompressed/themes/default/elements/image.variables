@@ -1,26 +1,35 @@
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-@borderColor
-
-*/
+/*******************************
+            Standard
+*******************************/
 
 /*-------------------
-      Variables
+       Image 
 --------------------*/
 
 @placeholderColor: rgba(0, 0, 0, 0.05);
 @roundedBorderRadius: 0.3125em;
 
-@imageSpacing: 0.25rem;
+@imageHorizontalMargin: 0.25rem;
+@imageVerticalMargin: 0.5em;
 
+/*******************************
+              Types
+*******************************/
+
+/* Avatar */
 @avatarSize: 2em;
+@avatarMargin: @imageHorizontalMargin;
 
+
+/*******************************
+           Variations
+*******************************/
+
+/* Floated */
 @floatedHorizontalMargin: 1em;
 @floatedVerticalMargin: 1em;
 
+/* Sizing */
 @mini: 0.7em;
 @tiny: 0.8em;
 @small: 0.875em;
@@ -30,6 +39,7 @@
 @huge: 1.375em;
 @massive: 1.5em;
 
+/* Size */
 @miniWidth: 20px;
 @tinyWidth: 80px;
 @smallWidth: 150px;

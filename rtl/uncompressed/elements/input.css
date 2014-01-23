@@ -10,6 +10,174 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Theme to load global Variables */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+        Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+      Element
+--------------------*/
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Icon */
+
+/* Circular Icon Input */
+
+/* Labeled */
+
+/*-------------------
+        States
+--------------------*/
+
+/* Placeholder */
+
+/* Down */
+
+/* Focus */
+
+/* Error */
+
+/* Loading */
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Sizing */
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
            Standard
 *******************************/
 
@@ -27,20 +195,20 @@
   width: 100%;
   font-family: "Helvetica Neue", "Helvetica", Arial;
   margin: 0em;
-  padding: 0.85em 1.2em;
-  font-size: 0.875em;
-  background-color: #FFFFFF;
+  padding: 0.65em 1em;
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.7);
   border-radius: 0.3125em;
   -webkit-transition: background-color 0.3s ease-out, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-box-shadow: none;
+  box-shadow: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 /*--------------------
@@ -50,11 +218,11 @@
 /* browsers require these rules separate */
 
 .ui.input::-webkit-input-placeholder {
-  color: #BBBBBB;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .ui.input::-moz-placeholder {
-  color: #BBBBBB;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 /*******************************
@@ -68,7 +236,10 @@
 .ui.input input:active,
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
-  background-color: #FAFAFA;
+  background: #fafafa;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /*--------------------
@@ -76,7 +247,7 @@
 ---------------------*/
 
 .ui.loading.input > .icon {
-  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
+  background: url("../images/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.loading.input > .icon:before,
@@ -91,17 +262,20 @@
 .ui.input.focus input,
 .ui.input input:focus {
   border-color: rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.85);
+  background: '';
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.input.focus input input::-webkit-input-placeholder,
 .ui.input input:focus input::-webkit-input-placeholder {
-  color: #AAAAAA;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.input.focus input input::-moz-placeholder,
 .ui.input input:focus input::-moz-placeholder {
-  color: #AAAAAA;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /*--------------------
@@ -109,9 +283,11 @@
 ---------------------*/
 
 .ui.input.error input {
-  background-color: #FFFAFA;
-  border-color: #E7BEBE;
-  color: #D95C5C;
+  background-color: #fffafa;
+  border-color: #e7bebe;
+  color: #d95c5c;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Error Placeholder */
@@ -123,6 +299,8 @@
 .ui.input.error input ::-moz-placeholder {
   color: rgba(255, 80, 80, 0.4);
 }
+
+/* Focused Error Placeholder */
 
 .ui.input.error input :focus::-webkit-input-placeholder {
   color: rgba(255, 80, 80, 0.7);
@@ -143,6 +321,8 @@
 .ui.transparent.input input {
   border: none;
   background-color: transparent;
+  padding-right: 0em;
+  padding-left: 0em;
 }
 
 /*--------------------
@@ -156,14 +336,13 @@
   top: 0px;
   left: 0px;
   margin: 0em;
-  width: 2.6em;
+  width: 2.8em;
   height: 100%;
   padding-top: 0.82em;
   text-align: center;
   border-radius: 0.3125em 0em 0em 0.3125em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
@@ -174,7 +353,7 @@
 }
 
 .ui.icon.input input {
-  padding-left: 3em !important;
+  padding-left: 2.75em !important;
 }
 
 .ui.icon.input > .circular.icon {
@@ -182,7 +361,7 @@
   left: 0.5em;
 }
 
-/* Left Side */
+/* Left Icon Input */
 
 .ui.left.icon.input > .icon {
   left: auto;
@@ -196,8 +375,8 @@
 }
 
 .ui.left.icon.input > input {
-  padding-right: 3em !important;
-  padding-left: 1.2em !important;
+  padding-right: 2.75em !important;
+  padding-left: 1em !important;
 }
 
 /* Focus */
@@ -312,3 +491,11 @@
 .ui.massive.input {
   font-size: 1.5rem;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/

@@ -1704,6 +1704,8 @@ body > .ui.grid {
 
 /* Dropdown */
 
+/* Pointing Arrow */
+
 /*--------------
      States
 ---------------*/
@@ -1711,6 +1713,8 @@ body > .ui.grid {
 /*--------------
      Types
 ---------------*/
+
+/* Vertical */
 
 /* Secondary */
 
@@ -1722,11 +1726,25 @@ body > .ui.grid {
 
 /* Pagination */
 
+/* Labeled Icon */
+
+/* Text */
+
 /*--------------
    Variations
 ---------------*/
 
+/* Inverted */
+
+/* Inverted Secondary */
+
+/* Inverted Menu Divider */
+
 /* Fixed */
+
+/* Attached */
+
+/* Sizes */
 
 /*******************************
      User Global Variables
@@ -1779,11 +1797,11 @@ body > .ui.grid {
 }
 
 .ui.menu .item {
+  background: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   vertical-align: middle;
   line-height: 1;
   text-decoration: none;
@@ -1792,6 +1810,7 @@ body > .ui.grid {
   box-sizing: border-box;
   -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
   transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /*--------------
@@ -1843,8 +1862,8 @@ body > .ui.grid {
   position: relative;
   display: inline-block;
   padding: 0.83em 0.95em;
-  border-top: 0em solid rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-top: 0em solid transparent;
+  -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1878,9 +1897,9 @@ body > .ui.grid {
   left: 0px;
   width: 1px;
   height: 100%;
-  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+  background: -webkit-gradient(linear, right top, right bottom, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+  background: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
 }
 
 .ui.menu .menu.right .item:before,
@@ -1931,13 +1950,18 @@ body > .ui.grid {
 .ui.menu:not(.vertical) .item > .input {
   position: relative;
   top: -0.05em;
-  margin: -0.75em 0em;
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
+  margin: -0.8em 0em;
+  padding-top: -0.3em;
+  padding-bottom: -0.3em;
   width: 100%;
 }
 
+.ui.menu:not(.vertical) .item > .icon.input .icon {
+  top: -0.3em;
+}
+
 .ui.menu .item > .input input {
+  font-size: 0.875em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
@@ -1961,13 +1985,14 @@ body > .ui.grid {
 /* Action Input */
 
 .ui.menu:not(.vertical) .item .action.input > .button {
-  font-size: 0.8em;
+  font-size: 0.875em;
   padding: 0.55em 0.8em;
 }
 
 /* Resizes */
 
 .ui.small.menu:not(.vertical) .item > .input input {
+  top: 0em;
   padding-top: 0.4em;
   padding-bottom: 0.4em;
 }
@@ -1979,7 +2004,6 @@ body > .ui.grid {
 }
 
 .ui.large.menu:not(.vertical) .item .action.input > .button {
-  font-size: 0.8em;
   padding: 0.9em;
 }
 
@@ -2007,8 +2031,9 @@ body > .ui.grid {
 ---------------*/
 
 .ui.menu .dropdown.item .menu {
+  background: #ffffff;
   right: 1px;
-  margin: 0px;
+  margin: 1px 0px 0px;
   min-width: -webkit-calc(99%);
   min-width: calc(99%);
   -webkit-box-shadow: 0 1px 1px 1px #dddddd;
@@ -2030,7 +2055,7 @@ body > .ui.grid {
 
 .ui.menu .dropdown.item .menu .item {
   width: 100%;
-  color: rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.menu .dropdown.item .menu .active.item {
@@ -2092,7 +2117,7 @@ body > .ui.grid {
   background: rgba(0, 0, 0, 0.01);
 }
 
-.ui.menu .ui.dropdown.active {
+.ui.menu .ui.dropdown.visible {
   background: rgba(0, 0, 0, 0.01);
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -2108,7 +2133,7 @@ body > .ui.grid {
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
 .ui.menu .ui.dropdown .menu .item:active {
-  background-color: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.01);
 }
 
 /*--------------
@@ -2116,7 +2141,7 @@ body > .ui.grid {
 ---------------*/
 
 .ui.menu .active.item {
-  background-color: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.85);
   font-weight: normal;
   -webkit-box-shadow: 0em 0.2em 0em inset;
@@ -2124,6 +2149,7 @@ body > .ui.grid {
 }
 
 .ui.vertical.menu .active.item {
+  background: rgba(0, 0, 0, 0.01);
   border-radius: 0em;
   -webkit-box-shadow: 0.2em 0em 0em inset;
   box-shadow: 0.2em 0em 0em inset;
@@ -2145,14 +2171,19 @@ body > .ui.grid {
   border-right: none;
 }
 
-.ui.vertical.menu .active.item .menu .active.item {
-  padding-right: 1.5rem;
-}
-
 .ui.vertical.menu .item .menu .active.item {
   background-color: rgba(0, 0, 0, 0.03);
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+/*--------------
+  Active Hover
+---------------*/
+
+.ui.vertical.menu .active.item:hover,
+.ui.menu .active.item:hover {
+  background-color: rgba(0, 0, 0, 0.01);
 }
 
 /*--------------
@@ -2196,11 +2227,16 @@ body > .ui.grid {
     Vertical
 ---------------*/
 
+.ui.vertical.menu {
+  background: #ffffff;
+}
+
 .ui.vertical.menu .item {
+  background: none;
   display: block;
   height: auto !important;
   border-top: none;
-  border-right: 0em solid rgba(0, 0, 0, 0);
+  border-right: 0em solid transparent;
   border-left: none;
 }
 
@@ -2286,6 +2322,7 @@ body > .ui.grid {
 }
 
 .ui.vertical.menu .item > .menu > .item {
+  background: none;
   padding: 0.5rem 1.5rem;
   font-size: 0.875rem;
 }
@@ -2303,8 +2340,8 @@ body > .ui.grid {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.tiered.menu .item.active {
-  color: rgba(0, 0, 0, 0.8);
+.ui.tiered.menu .active.item {
+  background: #fcfcfc;
 }
 
 .ui.tiered.menu > .menu .item.active:after {
@@ -2315,13 +2352,13 @@ body > .ui.grid {
   right: 0px;
   width: 100%;
   height: 2px;
-  background-color: #fdfdfd;
+  background-color: #fcfcfc;
 }
 
 /* Sub Menu */
 
 .ui.tiered.menu .sub.menu {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: #fcfcfc;
   border-radius: 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: none;
@@ -2341,11 +2378,18 @@ body > .ui.grid {
   background-image: none;
 }
 
+/* Sub Menu Hover */
+
+.ui.tiered.menu .sub.menu .item:hover {
+  background: none transparent;
+  color: rgba(0, 0, 0, 0.8);
+}
+
 /* Sub Menu Active */
 
 .ui.tiered.menu .sub.menu .active.item {
   padding-top: 0.83em;
-  background-color: transparent;
+  background: none transparent;
   border-radius: 0;
   border-top: medium none;
   -webkit-box-shadow: none;
@@ -2368,7 +2412,7 @@ body > .ui.grid {
 }
 
 .ui.inverted.tiered.menu .sub.menu .item {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ui.inverted.tiered.menu > .menu > .item:hover,
@@ -2387,7 +2431,7 @@ body > .ui.grid {
   box-shadow: none;
 }
 
-/* Tiered pointing */
+/* Tiered Pointing */
 
 .ui.pointing.tiered.menu > .menu > .item:after {
   display: none;
@@ -2479,12 +2523,12 @@ body > .ui.grid {
   display: block;
 }
 
-/* active */
+/* Active */
 
 .ui.pagination.menu .active.item {
   border-top: none;
   padding-top: 0.83em;
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.03);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -2495,7 +2539,7 @@ body > .ui.grid {
 
 .ui.secondary.menu {
   background: none;
-  border-radius: 0px;
+  border-radius: 0em;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -2530,7 +2574,7 @@ body > .ui.grid {
 
 .ui.secondary.menu .header.item {
   border-left: 0.1em solid rgba(0, 0, 0, 0.1);
-  background-color: transparent;
+  background: none transparent;
   border-radius: 0em;
 }
 
@@ -2559,7 +2603,7 @@ body > .ui.grid {
 
 .ui.secondary.inverted.menu .link.item,
 .ui.secondary.inverted.menu a.item {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ui.secondary.inverted.menu .link.item:hover,
@@ -2648,10 +2692,10 @@ body > .ui.grid {
 .ui.secondary.pointing.menu > .item {
   margin: 0em 0em -3px;
   padding: 0.6em 0.95em;
-  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  border-bottom: 3px solid transparent;
   border-radius: 0em;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 /* Item Types */
@@ -2754,7 +2798,7 @@ body > .ui.grid {
 ---------------*/
 
 .ui.text.menu {
-  background-color: transparent;
+  background: none transparent;
   margin: 1rem -1rem;
   border-radius: 0px;
   -webkit-box-shadow: none;
@@ -2917,6 +2961,10 @@ body > .ui.grid {
   text-align: center;
 }
 
+.ui.labeled.icon.menu > .item {
+  min-width: 6em;
+}
+
 .ui.labeled.icon.menu > .item > .icon {
   display: block;
   font-size: 1.5em !important;
@@ -2986,21 +3034,21 @@ body > .ui.grid {
 ---------------*/
 
 .ui.inverted.menu {
-  background-color: #333333;
+  background: none #333333;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.inverted.menu .header.item {
   margin: 0em;
-  background-color: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.inverted.menu .item,
 .ui.inverted.menu .item > a {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .ui.inverted.menu .item .item,
@@ -3010,27 +3058,27 @@ body > .ui.grid {
 
 .ui.inverted.menu .dropdown.item .menu .item,
 .ui.inverted.menu .dropdown.item .menu .item a {
-  color: rgba(0, 0, 0, 0.75) !important;
+  color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover,
 .ui.inverted.menu .item.disabled.hover {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(0, 0, 0, 0.2);
 }
 
 /*--- Border ---*/
 
 .ui.inverted.menu .item:before {
-  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background: linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 .ui.vertical.inverted.menu .item:before {
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
-  background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
+  background: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 /*--- Hover ---*/
@@ -3409,7 +3457,7 @@ body > .ui.grid {
   position: absolute;
   bottom: -0.3em;
   right: 50%;
-  content: "";
+  content: '';
   margin-right: -0.3em;
   width: 0.6em;
   height: 0.6em;
@@ -3435,7 +3483,7 @@ body > .ui.grid {
   position: absolute;
   top: 50%;
   margin-top: -0.3em;
-  left: -0.4em;
+  left: -0.3em;
   bottom: auto;
   right: auto;
   border: none;
@@ -3445,21 +3493,21 @@ body > .ui.grid {
 
 /* Colors */
 
-.ui.pointing.menu .active.item:after {
-  background-color: #FCFCFC;
-}
-
 .ui.pointing.menu .active.item.hover:after,
 .ui.pointing.menu .active.item:hover:after {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
 
-.ui.vertical.pointing.menu .menu .active.item:after {
-  background-color: #F4F4F4;
+.ui.pointing.menu .active.item:after {
+  background-color: #fcfcfc;
 }
 
-.ui.pointing.menu a.active.item:active:after {
-  background-color: #F0F0F0;
+.ui.vertical.pointing.menu .item:hover:after {
+  background-color: #fafafa;
+}
+
+.ui.vertical.pointing.menu .active.item:after {
+  background-color: #fcfcfc;
 }
 
 /*--------------
@@ -3470,21 +3518,23 @@ body > .ui.grid {
   margin: 0rem;
   border-radius: 0px;
   /* avoid rgba multiplying */
-  -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
-  box-shadow: 0px 0px 0px 1px #DDDDDD;
+  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
 }
 
 .ui.top.attached.menu {
-  border-radius: 0.1875rem 0.1875rem 0px 0px;
+  border-radius: 0.1875rem 0.1875rem 0em 0em;
 }
 
 .ui.menu.bottom.attached {
-  border-radius: 0px 0px 0.1875rem 0.1875rem;
+  border-radius: 0em 0em 0.1875rem 0.1875rem;
 }
 
 /*--------------
      Sizes
 ---------------*/
+
+/* Small */
 
 .ui.small.menu .item {
   font-size: 0.875rem;
@@ -3494,6 +3544,8 @@ body > .ui.grid {
   width: 13rem;
 }
 
+/* Medium */
+
 .ui.menu .item {
   font-size: 1rem;
 }
@@ -3501,6 +3553,8 @@ body > .ui.grid {
 .ui.vertical.menu {
   width: 15rem;
 }
+
+/* Large */
 
 .ui.large.menu .item {
   font-size: 1.125rem;
@@ -4604,9 +4658,19 @@ body > .ui.grid {
       Element
 --------------------*/
 
+/* transitions */
+
 /* Padding */
 
 /* Shadow */
+
+/* Icon */
+
+/* Loader */
+
+/*-------------------
+        Group
+--------------------*/
 
 /*-------------------
         States
@@ -4616,13 +4680,29 @@ body > .ui.grid {
         Types
 --------------------*/
 
+/* Or */
+
+/* Icon */
+
+/* Labeled Icon */
+
+/* Basic */
+
 /*-------------------
       Variations
 --------------------*/
 
-/*-------------------
-      Groups
---------------------*/
+/* Colors */
+
+/* Compact */
+
+/* Attached */
+
+/* Floated */
+
+/* Animated */
+
+/* Sizing */
 
 /*******************************
      User Global Variables
@@ -4647,7 +4727,7 @@ body > .ui.grid {
   border: none;
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.6);
-  margin: 0.25em 0em;
+  margin: 0.25em 0em 0em 0.25em;
   padding: 0.8em 1.5em 0.8em;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -4915,6 +4995,7 @@ body > .ui.grid {
   background-color: #00b5ad;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4949,6 +5030,7 @@ body > .ui.grid {
   background-color: #555555;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -4984,6 +5066,7 @@ body > .ui.grid {
   background-color: #3b579d;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5006,6 +5089,7 @@ body > .ui.grid {
   background-color: #4092cc;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5028,6 +5112,7 @@ body > .ui.grid {
   background-color: #d34836;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5070,6 +5155,7 @@ body > .ui.grid {
   background-color: #cc181e;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5092,6 +5178,7 @@ body > .ui.grid {
   background-color: #49769c;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5114,6 +5201,7 @@ body > .ui.grid {
   background-color: #00aced;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5130,23 +5218,24 @@ body > .ui.grid {
   text-shadow: none;
 }
 
-/* vk.com */
+/* VK */
 
 .ui.vk.button {
   background-color: #4D7198;
-  color: #FFFFFF;
+  color: #ffffff;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.vk.button:hover {
-  background-color: #537AA5;
-  color: #FFFFFF;
+  background-color: #567ea9;
+  color: #ffffff;
 }
 
 .ui.vk.button:active {
-  background-color: #405E7E;
-  color: #FFFFFF;
+  background-color: #415f80;
+  color: #ffffff;
 }
 
 /*--------------
@@ -5171,12 +5260,14 @@ body > .ui.grid {
 .ui.left.floated.buttons,
 .ui.left.floated.button {
   float: right;
+  margin-right: 0em;
   margin-left: 0.25em;
 }
 
 .ui.right.floated.buttons,
 .ui.right.floated.button {
   float: left;
+  margin-left: 0em;
   margin-right: 0.25em;
 }
 
@@ -5261,18 +5352,7 @@ body > .ui.grid {
   height: 1.45em;
 }
 
-/* loading */
-
-.ui.huge.loading.button:after {
-  background-image: url("../themes/default/images/loader-small.gif");
-}
-
-.ui.massive.buttons .loading.button:after,
-.ui.gigantic.buttons .loading.button:after,
-.ui.massive.loading.button:after,
-.ui.gigantic.loading.button:after {
-  background-image: url("../themes/default/images/loader-medium.gif");
-}
+/* Loading Resize */
 
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
@@ -5321,7 +5401,6 @@ body > .ui.grid {
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
-  /* padding: @verticalPadding @horizontalPadding !important; */
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
@@ -5338,23 +5417,23 @@ body > .ui.grid {
 
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
-  background-image: none;
+  background: none transparent;
   color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2);
-  box-shadow: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
 }
 
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
-  background-color: rgba(0, 0, 0, 0.02) !important;
+  background: rgba(0, 0, 0, 0.02) !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
-  background-color: rgba(0, 0, 0, 0.05) !important;
+  background: rgba(0, 0, 0, 0.05) !important;
   color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: rgba(0, 0, 0, 0.2);
   box-shadow: rgba(0, 0, 0, 0.2);
@@ -5376,8 +5455,7 @@ body > .ui.grid {
 
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
-  background-image: none;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   -webkit-box-shadow: rgba(255, 255, 255, 0.3);
   box-shadow: rgba(255, 255, 255, 0.3);
 }
@@ -5385,7 +5463,7 @@ body > .ui.grid {
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
   background-color: rgba(255, 255, 255, 0.05) !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   -webkit-box-shadow: rgba(255, 255, 255, 0.8) !important;
   box-shadow: rgba(255, 255, 255, 0.8) !important;
 }
@@ -5402,6 +5480,13 @@ body > .ui.grid {
 .ui.basic.inverted.buttons .button.active:hover,
 .ui.basic.inverted.button.active:hover {
   background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* Loading */
+
+.ui.basic.loading.button:after {
+  background-color: #ffffff;
+  border-radius: 0.25em;
 }
 
 /* Basic Group */
@@ -5564,7 +5649,7 @@ body > .ui.grid {
   top: 50%;
   right: 50%;
   content: 'or';
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   text-shadow: none;
   margin-top: -0.1em;
   margin-right: -0.9em;
@@ -5573,7 +5658,7 @@ body > .ui.grid {
   line-height: 1.55;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
   border-radius: 500em;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -5588,11 +5673,11 @@ body > .ui.grid {
   top: 0em;
   right: 0em;
   content: ' ';
-  width: 0.3em;
-  height: 1.7em;
   background-color: transparent;
-  border-top: 0.5em solid #FFFFFF;
-  border-bottom: 0.5em solid #FFFFFF;
+  width: 0.3em;
+  height: 2.1em;
+  border-top: 0.5em solid #ffffff;
+  border-bottom: 0.5em solid #ffffff;
 }
 
 /* Fluid Or */
@@ -5815,6 +5900,7 @@ body > .ui.grid {
   background-color: #555555;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5849,6 +5935,7 @@ body > .ui.grid {
   background-color: #6ecff5;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5883,6 +5970,7 @@ body > .ui.grid {
   background-color: #5bbd72;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5917,6 +6005,7 @@ body > .ui.grid {
   background-color: #e96633;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5951,6 +6040,7 @@ body > .ui.grid {
   background-color: #d9499a;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5985,6 +6075,7 @@ body > .ui.grid {
   background-color: #564f8a;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -6019,6 +6110,7 @@ body > .ui.grid {
   background-color: #d95c5c;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -6053,6 +6145,7 @@ body > .ui.grid {
   background-color: #00b5ad;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -6087,6 +6180,7 @@ body > .ui.grid {
   background-color: #ffcb08;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -6123,6 +6217,7 @@ body > .ui.grid {
   background-color: #5bbd72 !important;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -6161,6 +6256,7 @@ body > .ui.grid {
   background-color: #d95c5c !important;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -6197,6 +6293,7 @@ body > .ui.grid {
 .ui.buttons {
   display: inline-block;
   vertical-align: middle;
+  margin: 0.25em 0em 0em 0.25em;
 }
 
 .ui.buttons:after {
@@ -6280,6 +6377,160 @@ body > .ui.grid {
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Theme to load global Variables */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+        Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*******************************
+            Standard
+*******************************/
+
+/*-------------------
+       Divider 
+--------------------*/
+
+/*-------------------
+       Coupling 
+--------------------*/
+
+/* Icon */
+
+/*******************************
+         Variations
+*******************************/
+
+/* Horizontal / Vertical */
+
+/* Inverted */
+
+/* Section */
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
             Divider
 *******************************/
 
@@ -6291,7 +6542,6 @@ body > .ui.grid {
   height: 0em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -6307,11 +6557,11 @@ body > .ui.grid {
   height: 0em;
   margin: 0em;
   background-color: transparent;
-  font-size: 0.875rem;
+  font-size: 1em;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /*--------------
@@ -6323,7 +6573,7 @@ body > .ui.grid {
   z-index: 2;
   top: 50%;
   right: 50%;
-  margin: 0% -3% 0% 0%;
+  margin: 0% 3% 0% 0%;
   width: 6%;
   height: 50%;
   line-height: 0;
@@ -6368,7 +6618,7 @@ body > .ui.grid {
 .ui.horizontal.divider:before,
 .ui.horizontal.divider:after {
   position: absolute;
-  content: " ";
+  content: '';
   z-index: 3;
   width: 50%;
   top: 50%;
@@ -6393,7 +6643,7 @@ body > .ui.grid {
 ---------------*/
 
 .ui.divider > .icon {
-  margin: 0em;
+  margin: 0rem;
   font-size: 1rem;
   vertical-align: middle;
 }
@@ -6420,7 +6670,7 @@ body > .ui.grid {
 
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ui.divider.inverted,
@@ -6456,6 +6706,14 @@ body > .ui.grid {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 /*
  * # Semantic - Header
  * http://github.com/jlukic/semantic-ui/
@@ -6593,13 +6851,39 @@ body > .ui.grid {
     Globals Used
 --------------------*/
 
-/*-------------------
-   Modified Globals
---------------------*/
+/*******************************
+            Standard
+*******************************/
 
 /*-------------------
-   Header Variables
+       Header 
 --------------------*/
+
+/* HTML Headings */
+
+/* Sub Header */
+
+/*-------------------
+       Coupling 
+--------------------*/
+
+/*******************************
+           Variations
+*******************************/
+
+/* Icon Header */
+
+/* Inverted */
+
+/* Divided */
+
+/* Block */
+
+/* Attached */
+
+/* Floated */
+
+/* Sizing */
 
 /*******************************
      User Global Variables
@@ -6619,8 +6903,7 @@ body > .ui.grid {
   border: none;
   font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 1em 0em 1rem;
-  padding: 0em;
-  font-size: 1.33em;
+  padding: 0em 0em;
   font-weight: bold;
   line-height: 1.33;
 }
@@ -6675,27 +6958,22 @@ body > .ui.grid {
 
 h1.ui.header {
   min-height: 1rem;
-  line-height: 1.33;
   font-size: 2rem;
 }
 
 h2.ui.header {
-  line-height: 1.33;
   font-size: 1.75rem;
 }
 
 h3.ui.header {
-  line-height: 1.33;
   font-size: 1.33rem;
 }
 
 h4.ui.header {
-  line-height: 1.33;
   font-size: 1.1rem;
 }
 
 h5.ui.header {
-  line-height: 1.2;
   font-size: 1rem;
 }
 
@@ -6703,25 +6981,25 @@ h5.ui.header {
  Content Heading
 ---------------*/
 
-.ui.huge.header {
-  min-height: 1em;
-  font-size: 2em;
-}
-
-.ui.large.header {
-  font-size: 1.75em;
-}
-
-.ui.medium.header {
-  font-size: 1.33em;
+.ui.tiny.header {
+  font-size: 1em;
 }
 
 .ui.small.header {
   font-size: 1.1em;
 }
 
-.ui.tiny.header {
-  font-size: 1em;
+.ui.medium.header {
+  font-size: 1.33em;
+}
+
+.ui.large.header {
+  font-size: 1.75em;
+}
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 2em;
 }
 
 /*******************************
@@ -6749,7 +7027,10 @@ h5.ui.header {
   display: block;
 }
 
-.ui.icon.header .circular.icon,
+.ui.icon.header .circular.icon {
+  font-size: 2em;
+}
+
 .ui.icon.header .square.icon {
   font-size: 2em;
 }
@@ -6939,7 +7220,7 @@ h5.ui.header {
 }
 
 .ui.dividing.header .sub.header {
-  padding-bottom: 0.5em;
+  padding-bottom: 0.5rem;
 }
 
 .ui.dividing.header .icon {
@@ -6951,7 +7232,7 @@ h5.ui.header {
 --------------------*/
 
 .ui.block.header {
-  background-color: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   padding: 0.5em 1em;
 }
 
@@ -6960,9 +7241,9 @@ h5.ui.header {
 --------------------*/
 
 .ui.attached.header {
-  background-color: #F0F0F0;
+  background: #f0f0f0;
   margin: 0em;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0.75rem;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
@@ -6980,6 +7261,14 @@ h5.ui.header {
 .ui.bottom.attached.header {
   margin-top: 0em;
   border-radius: 0em 0em 0.3125em 0.3125em;
+}
+
+/*-------------------
+        Sizing
+--------------------*/
+
+.ui.header {
+  font-size: 1.33em;
 }
 
 /*******************************
@@ -9108,18 +9397,29 @@ i.icon.right {
 
 /*---  Neutrals  ---*/
 
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-@borderColor
-
-*/
+/*******************************
+            Standard
+*******************************/
 
 /*-------------------
-      Variables
+       Image 
 --------------------*/
+
+/*******************************
+              Types
+*******************************/
+
+/* Avatar */
+
+/*******************************
+           Variations
+*******************************/
+
+/* Floated */
+
+/* Sizing */
+
+/* Size */
 
 /*******************************
      User Global Variables
@@ -9304,7 +9604,7 @@ img.ui.image {
 .ui.images .image,
 .ui.images img {
   display: inline-block;
-  margin: 0em 0.25rem 0.5rem;
+  margin: 0em 0.25rem 0.5em;
 }
 
 /*******************************
@@ -9326,6 +9626,174 @@ img.ui.image {
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Theme to load global Variables */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+        Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+      Element
+--------------------*/
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Icon */
+
+/* Circular Icon Input */
+
+/* Labeled */
+
+/*-------------------
+        States
+--------------------*/
+
+/* Placeholder */
+
+/* Down */
+
+/* Focus */
+
+/* Error */
+
+/* Loading */
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Sizing */
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
            Standard
 *******************************/
 
@@ -9343,20 +9811,20 @@ img.ui.image {
   width: 100%;
   font-family: "Helvetica Neue", "Helvetica", Arial;
   margin: 0em;
-  padding: 0.85em 1.2em;
-  font-size: 0.875em;
-  background-color: #FFFFFF;
+  padding: 0.65em 1em;
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
   color: rgba(0, 0, 0, 0.7);
   border-radius: 0.3125em;
   -webkit-transition: background-color 0.3s ease-out, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-box-shadow: none;
+  box-shadow: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 /*--------------------
@@ -9366,11 +9834,11 @@ img.ui.image {
 /* browsers require these rules separate */
 
 .ui.input::-webkit-input-placeholder {
-  color: #BBBBBB;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .ui.input::-moz-placeholder {
-  color: #BBBBBB;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 /*******************************
@@ -9384,7 +9852,10 @@ img.ui.image {
 .ui.input input:active,
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
-  background-color: #FAFAFA;
+  background: #fafafa;
+  color: rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /*--------------------
@@ -9392,7 +9863,7 @@ img.ui.image {
 ---------------------*/
 
 .ui.loading.input > .icon {
-  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
+  background: url("../images/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.loading.input > .icon:before,
@@ -9407,17 +9878,20 @@ img.ui.image {
 .ui.input.focus input,
 .ui.input input:focus {
   border-color: rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.85);
+  background: '';
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .ui.input.focus input input::-webkit-input-placeholder,
 .ui.input input:focus input::-webkit-input-placeholder {
-  color: #AAAAAA;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.input.focus input input::-moz-placeholder,
 .ui.input input:focus input::-moz-placeholder {
-  color: #AAAAAA;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /*--------------------
@@ -9425,9 +9899,11 @@ img.ui.image {
 ---------------------*/
 
 .ui.input.error input {
-  background-color: #FFFAFA;
-  border-color: #E7BEBE;
-  color: #D95C5C;
+  background-color: #fffafa;
+  border-color: #e7bebe;
+  color: #d95c5c;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Error Placeholder */
@@ -9439,6 +9915,8 @@ img.ui.image {
 .ui.input.error input ::-moz-placeholder {
   color: rgba(255, 80, 80, 0.4);
 }
+
+/* Focused Error Placeholder */
 
 .ui.input.error input :focus::-webkit-input-placeholder {
   color: rgba(255, 80, 80, 0.7);
@@ -9459,6 +9937,8 @@ img.ui.image {
 .ui.transparent.input input {
   border: none;
   background-color: transparent;
+  padding-right: 0em;
+  padding-left: 0em;
 }
 
 /*--------------------
@@ -9472,14 +9952,13 @@ img.ui.image {
   top: 0px;
   left: 0px;
   margin: 0em;
-  width: 2.6em;
+  width: 2.8em;
   height: 100%;
   padding-top: 0.82em;
   text-align: center;
   border-radius: 0.3125em 0em 0em 0.3125em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
@@ -9490,7 +9969,7 @@ img.ui.image {
 }
 
 .ui.icon.input input {
-  padding-left: 3em !important;
+  padding-left: 2.75em !important;
 }
 
 .ui.icon.input > .circular.icon {
@@ -9498,7 +9977,7 @@ img.ui.image {
   left: 0.5em;
 }
 
-/* Left Side */
+/* Left Icon Input */
 
 .ui.left.icon.input > .icon {
   left: auto;
@@ -9512,8 +9991,8 @@ img.ui.image {
 }
 
 .ui.left.icon.input > input {
-  padding-right: 3em !important;
-  padding-left: 1.2em !important;
+  padding-right: 2.75em !important;
+  padding-left: 1em !important;
 }
 
 /* Focus */
@@ -9628,6 +10107,14 @@ img.ui.image {
 .ui.massive.input {
   font-size: 1.5rem;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/
 /*
  * # Semantic - Label
  * http://github.com/jlukic/semantic-ui/
@@ -11397,18 +11884,35 @@ a.ui.teal.label:hover:before {
 
 /*---  Neutrals  ---*/
 
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-@borderColor
-
-*/
+/*******************************
+            Standard
+*******************************/
 
 /*-------------------
-   Segment Variables
+       Segment 
 --------------------*/
+
+/*-------------------
+       Coupling 
+--------------------*/
+
+/* Page Grid Segment */
+
+/*******************************
+            Variations
+*******************************/
+
+/* Piled */
+
+/* Circular */
+
+/* Stacked */
+
+/* Raised */
+
+/* Colors */
+
+/* Ordinality */
 
 /*******************************
      User Global Variables
@@ -11424,7 +11928,7 @@ a.ui.teal.label:hover:before {
 
 .ui.segment {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   margin: 1em 0em;
@@ -11536,7 +12040,7 @@ a.ui.teal.label:hover:before {
 
 .ui.piled.segment:after,
 .ui.piled.segment:before {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   visibility: visible;
   content: "";
   display: block;
@@ -11706,47 +12210,47 @@ a.ui.teal.label:hover:before {
 .ui.inverted.segment,
 .ui.inverted.black.segment {
   background-color: #555555 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.blue.segment {
   background-color: #6ecff5 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.green.segment {
   background-color: #5bbd72 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.orange.segment {
   background-color: #e96633 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.pink.segment {
   background-color: #d9499a !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.purple.segment {
   background-color: #564f8a !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.red.segment {
   background-color: #d95c5c !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.teal.segment {
   background-color: #00b5ad !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.yellow.segment {
   background-color: #ffcb08 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 /*-------------------
@@ -11801,13 +12305,13 @@ a.ui.teal.label:hover:before {
 }
 
 .ui.inverted.segment .inverted.segment {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
   background-color: #555555;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /*-------------------
@@ -11834,9 +12338,7 @@ a.ui.teal.label:hover:before {
 
 .ui.tertiary.inverted.segment {
   background-color: #555555;
-  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-image: #f0f0f0;
   color: #f0f0f0;
 }
 

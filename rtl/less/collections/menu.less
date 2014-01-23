@@ -29,10 +29,9 @@
 .ui.menu {
   margin: @margin;
   background: @background;
-
   font-size: 0px;
   font-weight: @fontWeight;
-  box-shadow: 0px 0px 0px 1px @borderColor;
+  box-shadow: @boxShadow;
   border-radius: @borderRadius;
 }
 .ui.menu:first-child {
@@ -57,14 +56,16 @@
   border-radius: @borderRadius 0px 0px @borderRadius;
 }
 .ui.menu .item {
+  background: @itemBackground;
   user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  vertical-align: middle;
 
+  vertical-align: middle;
   line-height: 1;
   text-decoration: none;
   box-sizing: border-box;
   transition: @transition;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 /*--------------
@@ -108,9 +109,9 @@
   position: relative;
   display: inline-block;
   padding: @verticalPadding @horizontalPadding;
-  border-top: @borderSize solid rgba(0, 0, 0, 0);
+  border-top: @borderSize solid transparent;
 
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
 
@@ -140,7 +141,7 @@
   left: 0px;
   width: @dividerSize;
   height: 100%;
-  background-image: @dividerBackground;
+  background: @dividerBackground;
 }
 .ui.menu .menu.right .item:before,
 .ui.menu .item.right:before {
@@ -190,14 +191,18 @@
   position: relative;
   top: @inputOffset;
 
-  margin: @inputMargin 0em;
+  margin: @inputVerticalMargin 0em;
 
-  padding-top: (@inputVerticalPadding / 2);
-  padding-bottom: (@inputVerticalPadding / 2);
+  padding-top: @inputIconOffset;
+  padding-bottom: @inputIconOffset;
 
   width: 100%;
 }
+.ui.menu:not(.vertical) .item > .icon.input .icon {
+  top: @inputIconOffset;
+}
 .ui.menu .item > .input input {
+  font-size: @inputSize;
   padding-top: @inputVerticalPadding;
   padding-bottom: @inputVerticalPadding;
 }
@@ -217,23 +222,23 @@
 
 /* Action Input */
 .ui.menu:not(.vertical) .item .action.input > .button {
-  font-size: 0.8em;
-  padding: @buttonVerticalPadding 0.8em;
+  font-size: @buttonSize;
+  padding: @buttonVerticalPadding @actionButtonHorizontalPadding;
 }
 
 /* Resizes */
 .ui.small.menu:not(.vertical) .item > .input input {
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
+  top: @smallInputOffset;
+  padding-top: @smallInputVerticalPadding;
+  padding-bottom: @smallInputVerticalPadding;
 }
 .ui.large.menu:not(.vertical) .item > .input input {
-  top: -0.125em;
-  padding-bottom: 0.6em;
-  padding-top: 0.6em;
+  top: @largeInputOffset;
+  padding-bottom: @largeInputVerticalPadding;
+  padding-top: @largeInputVerticalPadding;
 }
 
 .ui.large.menu:not(.vertical) .item .action.input > .button {
-  font-size: 0.8em;
   padding: 0.9em;
 }
 .ui.large.menu:not(.vertical) .item .action.input > .button > .icon {
@@ -260,8 +265,9 @@
 ---------------*/
 
 .ui.menu .dropdown.item .menu {
+  background: @dropdownBackground;
   right: 1px;
-  margin: 0px;
+  margin: @dropdownMenuOffset 0px 0px;
   min-width: calc(100% - 1px);
   box-shadow: @dropdownBoxShadow;
 }
@@ -277,7 +283,7 @@
 }
 .ui.menu .dropdown.item .menu .item {
   width: 100%;
-  color: rgba(0, 0, 0, 0.75);
+  color: @dropdownTextColor;
 }
 .ui.menu .dropdown.item .menu .active.item {
   box-shadow: none !important;
@@ -334,7 +340,7 @@
   cursor: pointer;
   background: @hoverBackground;
 }
-.ui.menu .ui.dropdown.active {
+.ui.menu .ui.dropdown.visible {
   background: @subtleTransparentBlack;
   box-shadow: none;
   border-bottom-left-radius: 0em;
@@ -350,7 +356,7 @@
 .ui.menu .link.item:active,
 .ui.menu a.item:active,
 .ui.menu .ui.dropdown .menu .item:active {
-  background-color: @activeBackground;
+  background: @downBackground;
 }
 
 /*--------------
@@ -358,12 +364,13 @@
 ---------------*/
 
 .ui.menu .active.item  {
-  background-color: @subtleTransparentBlack;
+  background: @activeBackground;
   color: @darkTextColor;
   font-weight: @activeFontWeight;
   box-shadow: 0em @activeBorderSize 0em inset;
 }
 .ui.vertical.menu .active.item {
+  background: @activeBackground;
   border-radius: 0em;
   box-shadow: @activeBorderSize 0em 0em inset;
 }
@@ -377,16 +384,21 @@
   border-radius: @borderRadius 0em 0em @borderRadius;
 }
 
-
 .ui.vertical.menu .active.item .menu .active.item {
   border-right: none;
-}
-.ui.vertical.menu .active.item .menu .active.item {
-  padding-right: 1.5rem;
 }
 .ui.vertical.menu .item .menu .active.item {
   background-color: @subMenuActiveColor;
   box-shadow: none;
+}
+
+/*--------------
+  Active Hover
+---------------*/
+
+.ui.vertical.menu .active.item:hover,
+.ui.menu .active.item:hover {
+  background-color: @activeHoverBackground;
 }
 
 /*--------------
@@ -415,10 +427,9 @@
   top: 0%;
   right: 0%;
   content: '';
-
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url("@{loadingImage}") no-repeat @loadingPosition;
+  background: @loadingBackgroundColor url("@{loadingImage}") no-repeat @loadingPosition;
   visibility: visible;
 }
 
@@ -431,11 +442,16 @@
     Vertical
 ---------------*/
 
+.ui.vertical.menu {
+  background: @verticalBackground;
+}
+
 .ui.vertical.menu .item {
+  background: @verticalItemBackground;
   display: block;
   height: auto !important;
   border-top: none;
-  border-right: @borderSize solid rgba(0, 0, 0, 0);
+  border-right: @borderSize solid transparent;
   border-left: none;
 }
 .ui.vertical.menu > .item:first-child {
@@ -456,7 +472,7 @@
 }
 .ui.vertical.menu .item > .label + .icon {
   float: none;
-  margin: 0em (@iconMargin / 2) 0em 0em;
+  margin: 0em @iconLabelMargin 0em 0em;
 }
 
 /*--- Border ---*/
@@ -502,10 +518,11 @@
 
 /*--- Sub Menu ---*/
 .ui.vertical.menu .item > .menu {
-  margin: 0.5em -@horizontalPadding 0em;
+  margin: @subMenuMargin -@horizontalPadding 0em;
 }
 .ui.vertical.menu .item > .menu > .item {
-  padding: 0.5rem 1.5rem;
+  background: none;
+  padding: @subMenuHorizontalPadding @subMenuVerticalPadding;
   font-size: @subMenuFontSize;
 }
 .ui.vertical.menu .item > .menu > .item:before {
@@ -521,8 +538,8 @@
 .ui.tiered.menu > .menu > .item.hover {
   color: @tieredSubMenuActiveColor;
 }
-.ui.tiered.menu .item.active {
-  color: rgba(0, 0, 0, 0.8);
+.ui.tiered.menu .active.item {
+  background: @tieredActiveItemBackground;
 }
 .ui.tiered.menu > .menu .item.active:after {
   position: absolute;
@@ -532,13 +549,13 @@
   right: 0px;
 
   width: 100%;
-  height: @tieredBorderWidth;
-  background-color: @tieredBorderColor;
+  height: 2px;
+  background-color: @tieredActiveMenuBackground;
 }
 
 /* Sub Menu */
 .ui.tiered.menu .sub.menu {
-  background-color: @subtleTransparentBlack;
+  background-color: @tieredActiveMenuBackground;
   border-radius: 0em;
   border-top: 1px solid @borderColor;
   box-shadow: none;
@@ -555,14 +572,20 @@
   background-image: none;
 }
 
+/* Sub Menu Hover */
+.ui.tiered.menu .sub.menu .item:hover {
+  background: @tieredSubMenuHoverBackground;
+  color: @tieredSubMenuHoverColor;
+}
+
 /* Sub Menu Active */
 .ui.tiered.menu .sub.menu .active.item {
   padding-top: @verticalPadding;
-  background-color: transparent;
+  background: @tieredSubMenuActiveBackground;
   border-radius: 0;
   border-top: medium none;
   box-shadow: none;
-  color: @selectedTextColor !important;
+  color: @tieredSubMenuActiveColor !important;
 }
 .ui.tiered.menu .sub.menu .active.item:after {
   display: none;
@@ -591,7 +614,7 @@
   box-shadow: none;
 }
 
-/* Tiered pointing */
+/* Tiered Pointing */
 .ui.pointing.tiered.menu > .menu > .item:after {
   display: none;
 }
@@ -606,7 +629,7 @@
 
 .ui.tabular.menu {
   background-color: transparent;
-  border-bottom: @tabularBorderWidth solid @tabularInvisibleBorder;
+  border-bottom: @tabularBorderWidth solid @tabularBorderColor;
 
   border-radius: 0em;
   box-shadow: none !important;
@@ -637,13 +660,13 @@
   position: relative;
 
   background-color: @tabularMenuActiveBackground;
-  color: rgba(0, 0, 0, 0.8);
+  color: @tabularActiveColor;
 
-  border-color: @tabularInvisibleBorder;
+  border-color: @tabularBorderColor;
   font-weight: @tabularActiveWeight;
 
   margin-bottom: -@tabularBorderWidth;
-  border-bottom: @tabularBorderWidth solid #FFFFFF;
+  border-bottom: @tabularBorderWidth solid @tabularBackgroundColor;
 
   box-shadow: none;
   border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px;
@@ -680,7 +703,7 @@
   display: block;
 }
 
-/* active */
+/* Active */
 .ui.pagination.menu .active.item {
   border-top: none;
   padding-top: @verticalPadding;
@@ -694,7 +717,7 @@
 
 .ui.secondary.menu {
   background: @secondaryBackground;
-  border-radius: 0px;
+  border-radius: 0em;
   box-shadow: none;
 }
 .ui.secondary.menu > .menu > .item,
@@ -707,7 +730,7 @@
   margin: 0em @secondaryMargin;
   padding: @secondaryVerticalPadding @secondaryHorizontalPadding;
 
-  border-radius: 0.3125em;
+  border-radius: @secondaryBorderRadius;
 }
 .ui.secondary.menu > .menu > .item:before,
 .ui.secondary.menu > .item:before {
@@ -726,7 +749,7 @@
 }
 .ui.secondary.menu .header.item {
   border-left: @secondaryHeaderBorder;
-  background-color: transparent;
+  background: @secondaryHeaderBackground;
   border-radius: 0em;
 }
 
@@ -789,7 +812,7 @@
 }
 
 .ui.secondary.inverted.pointing.menu {
-  border-bottom: @secondaryPointingBorder solid rgba(255, 255, 255, 0.1);
+  border-bottom: @secondaryPointingBorderWidth solid rgba(255, 255, 255, 0.1);
 }
 .ui.secondary.inverted.pointing.menu > .item {
   color: rgba(255, 255, 255, 0.7);
@@ -823,23 +846,21 @@
 -----------------------*/
 
 .ui.secondary.pointing.menu {
-  border-bottom: @secondaryPointingBorder solid rgba(0, 0, 0, 0.1);
+  border-bottom: @secondaryPointingBorderWidth solid rgba(0, 0, 0, 0.1);
 }
 
 .ui.secondary.pointing.menu > .menu > .item,
 .ui.secondary.pointing.menu > .item {
-  margin: 0em 0em -@secondaryPointingBorder;
+  margin: 0em 0em -@secondaryPointingBorderWidth;
   padding: @secondaryPointingVerticalPadding @secondaryPointingHorizontalPadding;
-  border-bottom: @secondaryPointingBorder solid rgba(0, 0, 0, 0);
+  border-bottom: @secondaryPointingBorderWidth solid transparent;
   border-radius: 0em;
-  transition:
-    color 0.2s
-  ;
+  transition: @secondaryTransition;
 }
 
 /* Item Types */
 .ui.secondary.pointing.menu .header.item {
-  margin-bottom: -@secondaryPointingBorder;
+  margin-bottom: -@secondaryPointingBorderWidth;
   background-color: transparent !important;
   border-left-width: 0px !important;
   font-weight: bold !important;
@@ -883,12 +904,12 @@
 /* Secondary Vertical Pointing */
 .ui.secondary.vertical.pointing.menu {
   border: none;
-  border-left: @secondaryPointingBorder solid rgba(0, 0, 0, 0.1);
+  border-left: @secondaryPointingBorderWidth solid rgba(0, 0, 0, 0.1);
 }
 .ui.secondary.vertical.pointing.menu > .item {
-  margin: 0em -@secondaryPointingBorder 0em 0em;
+  margin: 0em -@secondaryPointingBorderWidth 0em 0em;
   border-bottom: none;
-  border-left: @secondaryPointingBorder solid transparent;
+  border-left: @secondaryPointingBorderWidth solid transparent;
   border-radius: 0em;
 }
 
@@ -914,7 +935,7 @@
 
 /* Inverted Vertical Pointing Secondary */
 .ui.secondary.inverted.vertical.pointing.menu {
-  border-left: @secondaryPointingBorder solid rgba(255, 255, 255, 0.1);
+  border-left: @secondaryPointingBorderWidth solid rgba(255, 255, 255, 0.1);
   border-bottom: none;
 }
 
@@ -924,7 +945,7 @@
 ---------------*/
 
 .ui.text.menu {
-  background-color: transparent;
+  background: none transparent;
 
   margin: 1rem -1rem;
   border-radius: 0px;
@@ -941,9 +962,7 @@
   border-radius: 0px;
 
   box-shadow: none;
-  transition:
-    opacity 0.2s ease
-  ;
+  transition: @textMenuTransition;
 }
 .ui.text.menu > .item:before {
   display: none !important;
@@ -1068,10 +1087,13 @@
 .ui.labeled.icon.menu {
   text-align: center;
 }
+.ui.labeled.icon.menu > .item {
+  min-width: @labeledIconMinWidth;
+}
 .ui.labeled.icon.menu > .item > .icon {
   display: block;
-  font-size: 1.5em !important;
-  margin: 0em auto 0.3em !important;
+  font-size: @labeledIconSize !important;
+  margin: 0em auto @labeledIconTextMargin !important;
 }
 
 
@@ -1133,50 +1155,41 @@
 ---------------*/
 
 .ui.inverted.menu {
-  background-color: #333333;
-  box-shadow: none;
+  background: @invertedBackground;
+  box-shadow: @invertedBoxShadow;
 }
 .ui.inverted.menu .header.item {
   margin: 0em;
-
-  background-color: rgba(0, 0, 0, 0.3);
+  background: @invertedHeaderBackground;
   box-shadow: none;
 }
 
 .ui.inverted.menu .item,
 .ui.inverted.menu .item > a {
-  color: #FFFFFF;
+  color: @invertedTextColor;
 }
 .ui.inverted.menu .item .item,
 .ui.inverted.menu .item .item > a {
-  color: rgba(255, 255, 255, 0.8);
+  color: @invertedSubMenuColor;
 }
 .ui.inverted.menu .dropdown.item .menu .item,
 .ui.inverted.menu .dropdown.item .menu .item a {
-  color: rgba(0, 0, 0, 0.75) !important;
+  color: @dropdownTextColor !important;
 }
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover,
 .ui.inverted.menu .item.disabled.hover {
-  color: rgba(255, 255, 255, 0.2);
+  color: @invertedDisabledTextColor;
 }
 
 
 
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
+  background: @invertedDividerBackground;
 }
 .ui.vertical.inverted.menu .item:before {
-  background-image: linear-gradient(to left,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.03) 100%)
-  ;
+  background: @invertedVerticalDividerBackground;
 }
 
 /*--- Hover ---*/
@@ -1500,17 +1513,17 @@
 
 .ui.pointing.menu .active.item:after {
   position: absolute;
-  bottom: @secondaryArrowOffset;
+  bottom: @arrowOffset;
   right: 50%;
-  content: "";
+  content: '';
 
-  margin-right: @secondaryArrowOffset;
-  width: @secondaryArrowSize;
-  height: @secondaryArrowSize;
+  margin-right: @arrowOffset;
+  width: @arrowSize;
+  height: @arrowSize;
 
   border: none;
-  border-bottom: @secondaryArrowBorder;
-  border-left: @secondaryArrowBorder;
+  border-bottom: @arrowBorder;
+  border-left: @arrowBorder;
 
   background-image: none;
   transform: rotate(45deg);
@@ -1529,32 +1542,32 @@
 .ui.vertical.pointing.menu .active.item:after {
   position: absolute;
   top: 50%;
-  margin-top: -0.3em;
-  left: -0.4em;
+  margin-top: @arrowOffset;
+  left: @arrowOffset;
   bottom: auto;
   right: auto;
 
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: @arrowBorder;
+  border-left: @arrowBorder;
 }
 
 /* Colors */
-.ui.pointing.menu .active.item:after {
-  background-color: #FCFCFC;
-}
 .ui.pointing.menu .active.item.hover:after,
 .ui.pointing.menu .active.item:hover:after {
-  background-color: #FAFAFA;
+  background-color: @arrowHoverColor;
+}
+.ui.pointing.menu .active.item:after {
+  background-color: @arrowActiveColor;
 }
 
-.ui.vertical.pointing.menu .menu .active.item:after {
-  background-color: #F4F4F4;
+.ui.vertical.pointing.menu .item:hover:after {
+  background-color: @arrowVerticalHoverColor;
+}
+.ui.vertical.pointing.menu .active.item:after {
+  background-color: @arrowVerticalActiveColor;
 }
 
-.ui.pointing.menu a.active.item:active:after {
-  background-color: #F0F0F0;
-}
 
 
 /*--------------
@@ -1565,45 +1578,47 @@
   margin: 0rem;
   border-radius: 0px;
   /* avoid rgba multiplying */
-  box-shadow: 0px 0px 0px 1px #DDDDDD;
+  box-shadow: @attachedBoxShadow;
 }
 .ui.top.attached.menu {
-  border-radius: @borderRadius @borderRadius 0px 0px;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.menu.bottom.attached {
-  border-radius: 0px 0px @borderRadius @borderRadius;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
 /*--------------
      Sizes
 ---------------*/
 
+/* Small */
 .ui.small.menu .item {
-  font-size: 0.875rem;
+  font-size: @small;
 }
 .ui.small.vertical.menu {
-  width: 13rem;
+  width: @smallWidth;
 }
 
+/* Medium */
 .ui.menu .item {
-  font-size: 1rem;
+  font-size: @medium;
 }
 .ui.vertical.menu {
-  width: 15rem;
+  width: @mediumWidth;
 }
 
-
+/* Large */
 .ui.large.menu .item {
-  font-size: 1.125rem;
+  font-size: @large;
 }
 .ui.large.menu .item .item {
-  font-size: 0.875rem;
+  font-size: @largeSubMenu;
 }
 .ui.large.menu .dropdown.item .item {
-  font-size: 1rem;
+  font-size: @largeDropdown;
 }
 .ui.large.vertical.menu {
-  width: 18rem;
+  width: @largeWidth;
 }
 
 .loadUIOverrides() !important;

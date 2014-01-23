@@ -131,18 +131,35 @@
 
 /*---  Neutrals  ---*/
 
-/*-------------------
-    Globals Used
---------------------*/
-
-/*
-@borderColor
-
-*/
+/*******************************
+            Standard
+*******************************/
 
 /*-------------------
-   Segment Variables
+       Segment 
 --------------------*/
+
+/*-------------------
+       Coupling 
+--------------------*/
+
+/* Page Grid Segment */
+
+/*******************************
+            Variations
+*******************************/
+
+/* Piled */
+
+/* Circular */
+
+/* Stacked */
+
+/* Raised */
+
+/* Colors */
+
+/* Ordinality */
 
 /*******************************
      User Global Variables
@@ -158,7 +175,7 @@
 
 .ui.segment {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   margin: 1em 0em;
@@ -270,7 +287,7 @@
 
 .ui.piled.segment:after,
 .ui.piled.segment:before {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   visibility: visible;
   content: "";
   display: block;
@@ -440,47 +457,47 @@
 .ui.inverted.segment,
 .ui.inverted.black.segment {
   background-color: #555555 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.blue.segment {
   background-color: #6ecff5 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.green.segment {
   background-color: #5bbd72 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.orange.segment {
   background-color: #e96633 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.pink.segment {
   background-color: #d9499a !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.purple.segment {
   background-color: #564f8a !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.red.segment {
   background-color: #d95c5c !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.teal.segment {
   background-color: #00b5ad !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .ui.inverted.yellow.segment {
   background-color: #ffcb08 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 /*-------------------
@@ -535,13 +552,13 @@
 }
 
 .ui.inverted.segment .inverted.segment {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
   background-color: #555555;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /*-------------------
@@ -568,9 +585,7 @@
 
 .ui.tertiary.inverted.segment {
   background-color: #555555;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-image: #f0f0f0;
   color: #f0f0f0;
 }
 

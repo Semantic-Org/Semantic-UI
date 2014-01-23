@@ -35,7 +35,7 @@
   background-color: @backgroundColor;
   color: @textColor;
 
-  margin: @margin;
+  margin: @verticalMargin @horizontalMargin 0em 0em;
   padding: @verticalPadding @horizontalPadding (@verticalPadding + @shadowOffset);
 
   font-family: @fontFamily;
@@ -53,13 +53,7 @@
 
   user-select: none;
   box-sizing: border-box;
-  transition:
-    opacity @transitionDuration @transitionEasing,
-    background-color @transitionDuration @transitionEasing,
-    color @transitionDuration @transitionEasing,
-    background @transitionDuration @transitionEasing,
-    box-shadow @transitionDuration @transitionEasing
-  ;
+  transition: @transition;
 }
 
 
@@ -134,7 +128,7 @@
   width: 100%;
   height: 100%;
   content: '';
-  background: transparent url("@{imagePath}/loader-mini.gif") no-repeat 50% 50%;
+  background: transparent url(@loaderPath) no-repeat 50% 50%;
 }
 .ui.labeled.icon.loading.button .icon {
   background-color: transparent;
@@ -265,6 +259,7 @@
   background-color: @primaryColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.primary.buttons .button:hover,
@@ -295,6 +290,7 @@
   background-color: @secondaryColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.secondary.buttons .button:hover,
@@ -325,6 +321,7 @@
   background-color: @facebookColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.facebook.button:hover {
@@ -343,6 +340,7 @@
   background-color: @twitterColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.twitter.button:hover {
@@ -361,6 +359,7 @@
   background-color: @googlePlusColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.google.plus.button:hover {
@@ -396,6 +395,7 @@
   background-color: @youtubeColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.youtube.button:hover {
@@ -414,6 +414,7 @@
   background-color: @instagramColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.instagram.button:hover {
@@ -432,6 +433,7 @@
   background-color: @pinterestColor;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.pinterest.button:hover {
@@ -445,20 +447,22 @@
   text-shadow: @invertedTextShadow;
 }
 
-/* vk.com */
+/* VK */
 .ui.vk.button {
   background-color: #4D7198;
-  color: #FFFFFF;
+  color: @white;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.vk.button:hover {
-  background-color: #537AA5;
-  color: #FFFFFF;
+  background-color: @vkHoverColor;
+  color: @white;
 }
 .ui.vk.button:active {
-  background-color: #405E7E;
-  color: #FFFFFF;
+  background-color: @vkDownColor;
+  color: @white;
 }
+
 /*--------------
      Icon
 ---------------*/
@@ -497,11 +501,13 @@
 .ui.left.floated.buttons,
 .ui.left.floated.button {
   float: left;
+  margin-left: 0em;
   margin-right: @floatedMargin;
 }
 .ui.right.floated.buttons,
 .ui.right.floated.button {
   float: right;
+  margin-right: 0em;
   margin-left: @floatedMargin;
 }
 
@@ -517,8 +523,6 @@
 .ui.compact.buttons .icon.button {
   padding: @compactVerticalPadding @compactVerticalPadding ( @compactHorizontalPadding + @shadowOffset );
 }
-
-
 
 /*-------------------
         Sizes
@@ -578,20 +582,10 @@
   height: 1.45em;
 }
 
-/* loading */
-.ui.huge.loading.button:after {
-  background-image: url("@{imagePath}/loader-small.gif");
-}
-.ui.massive.buttons .loading.button:after,
-.ui.gigantic.buttons .loading.button:after,
-.ui.massive.loading.button:after,
-.ui.gigantic.loading.button:after {
-  background-image: url("@{imagePath}/loader-medium.gif");
-}
-
+/* Loading Resize */
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
-  background-image: url("@{imagePath}/loader-small.gif");
+  background-image: url(@hugeLoaderPath);
 }
 .ui.massive.buttons .loading.button:after,
 .ui.gigantic.buttons .loading.button:after,
@@ -601,7 +595,7 @@
 .ui.gigantic.buttons .loading.button.active:after,
 .ui.massive.loading.button.active:after,
 .ui.gigantic.loading.button.active:after {
-  background-image: url("@{imagePath}/loader-medium.gif");
+  background-image: url(@massiveLoaderPath);
 }
 
 /*--------------
@@ -635,33 +629,32 @@
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
-  /* padding: @verticalPadding @horizontalPadding !important; */
-  box-shadow: 0px 0px 0px 1px @borderColor;
+  box-shadow: @basicBoxShadow;
 }
 .ui.basic.labeled.icon.button > .icon {
-  padding-top: (@verticalPadding + 0.05em) !important;
+  padding-top: (@verticalPadding + @basicIconOffset) !important;
 }
 .ui.basic.buttons {
-  box-shadow: 0px 0px 0px 1px @borderColor;
+  box-shadow: @basicGroupBoxShadow;
   border-radius: @borderRadius;
 }
 
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
-  background-image: none;
+  background: @basicHoverBackground;
   color: @selectedTextColor !important;
-  box-shadow: @selectedBorderColor;
+  box-shadow: @basicHoverBoxShadow;
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
-  background-color: rgba(0, 0, 0, 0.02) !important;
+  background: @basicDownBackground !important;
   color: @selectedTextColor !important;
-  box-shadow: 0px 0px 0px 1px @borderColor;
+  box-shadow: @basicDownBoxShadow;
 }
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
-  background-color: @transparentBlack !important;
-  color: @selectedTextColor;
+  background: @basicActiveBackground !important;
+  color: @basicActiveColor;
   box-shadow: @selectedBorderColor;
 }
 .ui.basic.buttons .button.active:hover,
@@ -677,14 +670,13 @@
 }
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
-  background-image: none;
-  color: #FFFFFF !important;
+  color: @white !important;
   box-shadow: @whiteBorderColor;
 }
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
   background-color: @transparentWhite !important;
-  color: #FFFFFF !important;
+  color: @white !important;
   box-shadow: @selectedWhiteBorderColor !important;
 }
 .ui.basic.inverted.buttons .button.active,
@@ -699,9 +691,15 @@
   background-color: @strongTransparentWhite;
 }
 
+/* Loading */
+.ui.basic.loading.button:after {
+  background-color: @basicLoadingColor;
+  border-radius: @borderRadius;
+}
+
 /* Basic Group */
 .ui.basic.buttons .button {
-  border-left: 1px solid @borderColor;
+  border-left: @basicGroupBorder;
   box-shadow: none;
 }
 
@@ -725,13 +723,13 @@
 
   width: @labeledIconWidth;
   height: 100%;
-  padding-top: (@verticalPadding + 0.05em);
+  padding-top: (@verticalPadding + @basicIconOffset);
   background-color: @labeledIconBackgroundColor;
   text-align: center;
 
   border-radius: @borderRadius 0px 0px @borderRadius;
   line-height: 1;
-  box-shadow: -1px 0px 0px 0px @labeledIconBorder inset;
+  box-shadow: @labeledIconLeftShadow;
 }
 
 .ui.labeled.icon.buttons .button > .icon {
@@ -768,7 +766,7 @@
   left: auto;
   right: 0em;
   border-radius: 0em @borderRadius @borderRadius 0em;
-  box-shadow: 1px 0px 0px 0px @labeledIconBorder inset;
+  box-shadow: @labeledIconRightShadow;
 }
 
 
@@ -807,7 +805,7 @@
 .ui.attached.button {
   display: block;
   margin: 0em;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: @attachedBoxShadow !important;
 }
 .ui.attached.top.button {
   border-radius: @borderRadius @borderRadius 0em 0em;
@@ -819,13 +817,13 @@
   display: inline-block;
   border-left: none;
 
-  padding-right: 0.75em;
+  padding-right: @attachedHorizontalPadding;
   text-align: right;
   border-radius: @borderRadius 0em 0em @borderRadius;
 }
 .ui.attached.right.button {
   display: inline-block;
-  padding-left: 0.75em;
+  padding-left: @attachedHorizontalPadding;
   text-align: left;
   border-radius: 0em @borderRadius @borderRadius 0em;
 }
@@ -839,8 +837,8 @@
 .ui.buttons .or {
   position: relative;
   float: left;
-  width: 0.3em;
-  height: 1.1em;
+  width: @orWidth;
+  height: @orHeight;
   z-index: 3;
 }
 .ui.buttons .or:before {
@@ -848,25 +846,24 @@
   top: 50%;
   left: 50%;
   content: 'or';
-  background-color: #FFFFFF;
+  background-color: @white;
   text-shadow: @invertedTextShadow;
 
-  margin-top: -0.1em;
-  margin-left: -0.9em;
+  margin-top: @orVerticalOffset;
+  margin-left: @orHorizontalOffset;
 
-  width: 1.8em;
-  height: 1.8em;
+  width: @orCircleSize;
+  height: @orCircleSize;
 
-  line-height: 1.55;
+  line-height: @orLineHeight;
   color: @lightTextColor;
-  font-style: normal;
-  font-weight: normal;
+
+  font-style: @orTextStyle;
+  font-weight: @orTextWeight;
   text-align: center;
 
   border-radius: 500em;
-
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-
+  box-shadow: @orBoxShadow;
   box-sizing: border-box;
 }
 .ui.buttons .or:after {
@@ -874,14 +871,12 @@
   top: 0em;
   left: 0em;
   content: ' ';
-
-  width: 0.3em;
-  height: 1.7em;
-
   background-color: transparent;
-  border-top: 0.5em solid #FFFFFF;
-  border-bottom: 0.5em solid #FFFFFF;
 
+  width: @orWidth;
+  height: (@orHeight + (@orSpacerHeight * 2));
+  border-top: @orSpacerHeight solid @orSpacerColor;
+  border-bottom: @orSpacerHeight solid @orSpacerColor;
 }
 
 /* Fluid Or */
@@ -911,7 +906,7 @@
 
 /* Bottom Side */
 .bottom.attached.ui.buttons {
-  margin-top: -1px;
+  margin-top: @attachedOffset;
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
 .bottom.attached.ui.buttons .button:first-child {
@@ -923,29 +918,29 @@
 
 /* Left Side */
 .left.attached.ui.buttons {
-  margin-left: -1px;
+  margin-left: @attachedOffset;
   border-radius: 0em @borderRadius @borderRadius 0em;
 }
 .left.attached.ui.buttons .button:first-child {
-  margin-left: -1px;
+  margin-left: @attachedOffset;
   border-radius: 0em @borderRadius 0em 0em;
 }
 .left.attached.ui.buttons .button:last-child {
-  margin-left: -1px;
+  margin-left: @attachedOffset;
   border-radius: 0em 0em @borderRadius 0em;
 }
 /* Right Side */
 .right.attached.ui.buttons,
 .right.attached.ui.buttons .button {
-  margin-right: -1px;
+  margin-right: @attachedOffset;
   border-radius: @borderRadius 0em 0em @borderRadius;
 }
 .right.attached.ui.buttons .button:first-child {
-  margin-left: -1px;
+  margin-left: @attachedOffset;
   border-radius: @borderRadius 0em 0em 0em;
 }
 .right.attached.ui.buttons .button:last-child {
-  margin-left: -1px;
+  margin-left: @attachedOffset;
   border-radius: 0em 0em 0em @borderRadius;
 }
 
@@ -1067,6 +1062,7 @@
   background-color: @black;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.black.buttons .button:hover,
@@ -1096,6 +1092,7 @@
   background-color: @blue;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.blue.buttons .button:hover,
@@ -1125,6 +1122,7 @@
   background-color: @green;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.green.buttons .button:hover,
@@ -1154,6 +1152,7 @@
   background-color: @orange;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.orange.buttons .button:hover,
@@ -1183,6 +1182,7 @@
   background-color: @pink;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.pink.buttons .button:hover,
@@ -1212,6 +1212,7 @@
   background-color: @purple;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.purple.buttons .button:hover,
@@ -1241,6 +1242,7 @@
   background-color: @red;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.red.buttons .button:hover,
@@ -1270,6 +1272,7 @@
   background-color: @teal;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.teal.buttons .button:hover,
@@ -1299,6 +1302,7 @@
   background-color: @yellow;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.yellow.buttons .button:hover,
@@ -1331,6 +1335,7 @@
   background-color: @positiveColor !important;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.positive.buttons .button:hover,
@@ -1365,6 +1370,7 @@
   background-color: @negativeColor !important;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+  background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
 }
 .ui.negative.buttons .button:hover,
@@ -1397,6 +1403,7 @@
 .ui.buttons {
   display: inline-block;
   vertical-align: middle;
+  margin: @verticalMargin @horizontalMargin 0em 0em;
 }
 .ui.buttons:after {
   content: ".";

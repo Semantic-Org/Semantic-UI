@@ -139,9 +139,19 @@
       Element
 --------------------*/
 
+/* transitions */
+
 /* Padding */
 
 /* Shadow */
+
+/* Icon */
+
+/* Loader */
+
+/*-------------------
+        Group
+--------------------*/
 
 /*-------------------
         States
@@ -151,13 +161,29 @@
         Types
 --------------------*/
 
+/* Or */
+
+/* Icon */
+
+/* Labeled Icon */
+
+/* Basic */
+
 /*-------------------
       Variations
 --------------------*/
 
-/*-------------------
-      Groups
---------------------*/
+/* Colors */
+
+/* Compact */
+
+/* Attached */
+
+/* Floated */
+
+/* Animated */
+
+/* Sizing */
 
 /*******************************
      User Global Variables
@@ -182,7 +208,7 @@
   border: none;
   background-color: #fafafa;
   color: rgba(0, 0, 0, 0.6);
-  margin: 0.25em 0em;
+  margin: 0.25em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -450,6 +476,7 @@
   background-color: #00b5ad;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -484,6 +511,7 @@
   background-color: #555555;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -519,6 +547,7 @@
   background-color: #3b579d;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -541,6 +570,7 @@
   background-color: #4092cc;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -563,6 +593,7 @@
   background-color: #d34836;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -605,6 +636,7 @@
   background-color: #cc181e;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -627,6 +659,7 @@
   background-color: #49769c;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -649,6 +682,7 @@
   background-color: #00aced;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -665,23 +699,24 @@
   text-shadow: none;
 }
 
-/* vk.com */
+/* VK */
 
 .ui.vk.button {
   background-color: #4D7198;
-  color: #FFFFFF;
+  color: #ffffff;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
 .ui.vk.button:hover {
-  background-color: #537AA5;
-  color: #FFFFFF;
+  background-color: #567ea9;
+  color: #ffffff;
 }
 
 .ui.vk.button:active {
-  background-color: #405E7E;
-  color: #FFFFFF;
+  background-color: #415f80;
+  color: #ffffff;
 }
 
 /*--------------
@@ -706,12 +741,14 @@
 .ui.left.floated.buttons,
 .ui.left.floated.button {
   float: left;
+  margin-left: 0em;
   margin-right: 0.25em;
 }
 
 .ui.right.floated.buttons,
 .ui.right.floated.button {
   float: right;
+  margin-right: 0em;
   margin-left: 0.25em;
 }
 
@@ -796,18 +833,7 @@
   height: 1.45em;
 }
 
-/* loading */
-
-.ui.huge.loading.button:after {
-  background-image: url("../themes/default/images/loader-small.gif");
-}
-
-.ui.massive.buttons .loading.button:after,
-.ui.gigantic.buttons .loading.button:after,
-.ui.massive.loading.button:after,
-.ui.gigantic.loading.button:after {
-  background-image: url("../themes/default/images/loader-medium.gif");
-}
+/* Loading Resize */
 
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
@@ -856,7 +882,6 @@
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
-  /* padding: @verticalPadding @horizontalPadding !important; */
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
@@ -873,23 +898,23 @@
 
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
-  background-image: none;
+  background: none transparent;
   color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2);
-  box-shadow: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
 }
 
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
-  background-color: rgba(0, 0, 0, 0.02) !important;
+  background: rgba(0, 0, 0, 0.02) !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
-  background-color: rgba(0, 0, 0, 0.05) !important;
+  background: rgba(0, 0, 0, 0.05) !important;
   color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: rgba(0, 0, 0, 0.2);
   box-shadow: rgba(0, 0, 0, 0.2);
@@ -911,8 +936,7 @@
 
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
-  background-image: none;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   -webkit-box-shadow: rgba(255, 255, 255, 0.3);
   box-shadow: rgba(255, 255, 255, 0.3);
 }
@@ -920,7 +944,7 @@
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
   background-color: rgba(255, 255, 255, 0.05) !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   -webkit-box-shadow: rgba(255, 255, 255, 0.8) !important;
   box-shadow: rgba(255, 255, 255, 0.8) !important;
 }
@@ -937,6 +961,13 @@
 .ui.basic.inverted.buttons .button.active:hover,
 .ui.basic.inverted.button.active:hover {
   background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* Loading */
+
+.ui.basic.loading.button:after {
+  background-color: #ffffff;
+  border-radius: 0.25em;
 }
 
 /* Basic Group */
@@ -1099,7 +1130,7 @@
   top: 50%;
   left: 50%;
   content: 'or';
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   text-shadow: none;
   margin-top: -0.1em;
   margin-left: -0.9em;
@@ -1108,7 +1139,7 @@
   line-height: 1.55;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
   border-radius: 500em;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -1123,11 +1154,11 @@
   top: 0em;
   left: 0em;
   content: ' ';
-  width: 0.3em;
-  height: 1.7em;
   background-color: transparent;
-  border-top: 0.5em solid #FFFFFF;
-  border-bottom: 0.5em solid #FFFFFF;
+  width: 0.3em;
+  height: 2.1em;
+  border-top: 0.5em solid #ffffff;
+  border-bottom: 0.5em solid #ffffff;
 }
 
 /* Fluid Or */
@@ -1350,6 +1381,7 @@
   background-color: #555555;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1384,6 +1416,7 @@
   background-color: #6ecff5;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1418,6 +1451,7 @@
   background-color: #5bbd72;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1452,6 +1486,7 @@
   background-color: #e96633;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1486,6 +1521,7 @@
   background-color: #d9499a;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1520,6 +1556,7 @@
   background-color: #564f8a;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1554,6 +1591,7 @@
   background-color: #d95c5c;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1588,6 +1626,7 @@
   background-color: #00b5ad;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1622,6 +1661,7 @@
   background-color: #ffcb08;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1658,6 +1698,7 @@
   background-color: #5bbd72 !important;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1696,6 +1737,7 @@
   background-color: #d95c5c !important;
   color: #ffffff;
   text-shadow: none;
+  background-image: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -1732,6 +1774,7 @@
 .ui.buttons {
   display: inline-block;
   vertical-align: middle;
+  margin: 0.25em 0.25em 0em 0em;
 }
 
 .ui.buttons:after {

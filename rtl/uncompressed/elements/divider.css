@@ -10,6 +10,160 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Theme to load global Variables */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+        Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*******************************
+            Standard
+*******************************/
+
+/*-------------------
+       Divider 
+--------------------*/
+
+/*-------------------
+       Coupling 
+--------------------*/
+
+/* Icon */
+
+/*******************************
+         Variations
+*******************************/
+
+/* Horizontal / Vertical */
+
+/* Inverted */
+
+/* Section */
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
             Divider
 *******************************/
 
@@ -21,7 +175,6 @@
   height: 0em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -37,11 +190,11 @@
   height: 0em;
   margin: 0em;
   background-color: transparent;
-  font-size: 0.875rem;
+  font-size: 1em;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /*--------------
@@ -53,7 +206,7 @@
   z-index: 2;
   top: 50%;
   right: 50%;
-  margin: 0% -3% 0% 0%;
+  margin: 0% 3% 0% 0%;
   width: 6%;
   height: 50%;
   line-height: 0;
@@ -98,7 +251,7 @@
 .ui.horizontal.divider:before,
 .ui.horizontal.divider:after {
   position: absolute;
-  content: " ";
+  content: '';
   z-index: 3;
   width: 50%;
   top: 50%;
@@ -123,7 +276,7 @@
 ---------------*/
 
 .ui.divider > .icon {
-  margin: 0em;
+  margin: 0rem;
   font-size: 1rem;
   vertical-align: middle;
 }
@@ -150,7 +303,7 @@
 
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ui.divider.inverted,
@@ -186,3 +339,11 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
+/*******************************
+           Overrides
+*******************************/
+
+/*******************************
+           Overrides
+*******************************/

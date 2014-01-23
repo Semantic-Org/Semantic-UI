@@ -103,9 +103,10 @@
 @lightTextColor              : rgba(0, 0, 0, 0.4);
 
 @invertedTextColor           : rgba(255, 255, 255, 1);
-@invertedLightTextColor      : rgba(255, 255, 255, 0.5);
+@invertedLightTextColor      : rgba(255, 255, 255, 0.8);
 @invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
 @invertedSelectedTextColor   : rgba(255, 255, 255, 1);
+@invertedDisabledTextColor   : rgba(0, 0, 0, 0.2);
 
 @unselectedTextColor         : rgba(0, 0, 0, 0.4);
 @selectedTextColor           : rgba(0, 0, 0, 0.8);
@@ -122,6 +123,7 @@
 @youtubeColor    : #CC181E;
 @instagramColor  : #49769C;
 @pinterestColor  : #00ACED;
+@vkColor         : #4D7198;
 
 /*-------------------
       Borders
@@ -214,6 +216,7 @@
 @youtubeHoverColor    : lighten( @youtubeColor, 5);
 @instagramHoverColor  : lighten( @instagramColor, 5);
 @pinterestHoverColor  : lighten( @pinterestColor, 5);
+@vkHoverColor         : lighten( @vkColor, 5);
 
 
 /*-------------------
@@ -263,6 +266,7 @@
 @youtubeDownColor    : darken(@youtubeColor, 7);
 @instagramDownColor  : darken(@instagramColor, 7);
 @pinterestDownColor  : darken(@pinterestColor, 7);
+@vkDownColor         : darken(@vkColor, 7);
 
 
 /*-------------------
@@ -311,3 +315,4 @@
 @youtubeActiveColor    : darken(@youtubeColor, 5);
 @instagramActiveColor  : darken(@instagramColor, 5);
 @pinterestActiveColor  : darken(@pinterestColor, 5);
+@vkActiveColor         : darken(@vkColor, 5);
