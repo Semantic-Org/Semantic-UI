@@ -56,14 +56,16 @@
   border-radius: 0px @borderRadius @borderRadius 0px;
 }
 .ui.menu .item {
+  background: @itemBackground;
   user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  vertical-align: middle;
 
+  vertical-align: middle;
   line-height: 1;
   text-decoration: none;
   box-sizing: border-box;
   transition: @transition;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 /*--------------
@@ -196,6 +198,9 @@
 
   width: 100%;
 }
+.ui.menu:not(.vertical) .item > .icon.input .icon {
+  top: @inputIconOffset;
+}
 .ui.menu .item > .input input {
   padding-top: @inputVerticalPadding;
   padding-bottom: @inputVerticalPadding;
@@ -259,8 +264,9 @@
 ---------------*/
 
 .ui.menu .dropdown.item .menu {
+  background: @dropdownBackground;
   left: 1px;
-  margin: 0px;
+  margin: @dropdownMenuOffset 0px 0px;
   min-width: calc(100% - 1px);
   box-shadow: @dropdownBoxShadow;
 }
@@ -363,6 +369,7 @@
   box-shadow: 0em @activeBorderSize 0em inset;
 }
 .ui.vertical.menu .active.item {
+  background: @activeBackground;
   border-radius: 0em;
   box-shadow: @activeBorderSize 0em 0em inset;
 }
@@ -375,7 +382,6 @@
 .ui.vertical.menu > .active.item:only-child {
   border-radius: 0em @borderRadius @borderRadius 0em;
 }
-
 
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
@@ -392,6 +398,7 @@
   Active Hover
 ---------------*/
 
+.ui.vertical.menu .active.item:hover,
 .ui.menu .active.item:hover {
   background-color: @activeHoverBackground;
 }
@@ -437,7 +444,12 @@
     Vertical
 ---------------*/
 
+.ui.vertical.menu {
+  background: @verticalBackground;
+}
+
 .ui.vertical.menu .item {
+  background: @verticalItemBackground;
   display: block;
   height: auto !important;
   border-top: none;
@@ -1076,6 +1088,9 @@
 .ui.labeled.icon.menu {
   text-align: center;
 }
+.ui.labeled.icon.menu > .item {
+  min-width: @labeledIconMinWidth;
+}
 .ui.labeled.icon.menu > .item > .icon {
   display: block;
   font-size: @labeledIconSize !important;
@@ -1547,10 +1562,10 @@
   background-color: @arrowActiveColor;
 }
 
-.ui.pointing.menu a.active.item:active:after {
+.ui.vertical.pointing.menu .item:hover:after {
   background-color: @arrowVerticalHoverColor;
 }
-.ui.vertical.pointing.menu .menu .active.item:after {
+.ui.vertical.pointing.menu .active.item:after {
   background-color: @arrowVerticalActiveColor;
 }
 

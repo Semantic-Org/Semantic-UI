@@ -15,6 +15,8 @@
 @horizontalPadding: 0.95em;
 
 @background: #FFFFFF;
+@itemBackground: none;
+
 @fontWeight: normal;
 @boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
@@ -32,11 +34,6 @@
   rgba(0, 0, 0, 0.05) 0%,
   rgba(0, 0, 0, 0.1) 50%,
   rgba(0, 0, 0, 0.05) 100%)
-;
-@verticalDividerBackground: linear-gradient(to right,
-  rgba(0, 0, 0, 0.03) 0%,
-  rgba(0, 0, 0, 0.1) 1.5em,
-  rgba(0, 0, 0, 0.03) 100%)
 ;
 
 @headerBackground: rgba(0, 0, 0, 0.04);
@@ -90,7 +87,7 @@
 @inputVerticalMargin: -0.8em;
 @inputOffset: -0.05em;
 @inputVerticalPadding: 0.5em;
-@inputIconOffset: 0.25em;
+@inputIconOffset: -0.3em;
 
 @smallInputOffset: 0em;
 @smallInputVerticalPadding: 0.4em;
@@ -108,6 +105,7 @@
 @labelHorizontalPadding: 0.8em;
 
 /* Dropdown */
+@dropdownBackground: #FFFFFF;
 @dropdownMenuOffset: 1px;
 @dropdownPointingDistance: 0.75em;
 @dropdownTextColor: @textColor;
@@ -151,6 +149,17 @@
 /*--------------
      Types
 ---------------*/
+
+/* Vertical */
+@verticalBackground: #FFFFFF;
+@verticalItemBackground: none;
+
+@verticalDividerBackground: linear-gradient(to right,
+  rgba(0, 0, 0, 0.03) 0%,
+  rgba(0, 0, 0, 0.1) 1.5em,
+  rgba(0, 0, 0, 0.03) 100%)
+;
+
 
 /* Secondary */
 @secondaryBackground: none;
@@ -221,6 +230,7 @@
 
 /* Labeled Icon */
 @labeledIconSize: 1.5em;
+@labeledIconMinWidth: 6em;
 @labeledIconTextMargin: 0.3em;
 
 /* Text */

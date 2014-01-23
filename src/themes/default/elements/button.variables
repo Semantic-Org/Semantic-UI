@@ -27,29 +27,43 @@
 
 @backgroundColor: #FAFAFA;
 @backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
-
 @boxShadow:
   0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset,
   0px -@shadowDistance 0px 0px rgba(0, 0, 0, 0.1) inset
 ;
-@coloredBoxShadow: none;
+
+/* transitions */
+@transition: 
+  opacity @transitionDuration @transitionEasing,
+  background-color @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing,
+  background @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing
+;
 
 /* Padding */
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.5em;
 
-@compactVerticalPadding: (@verticalPadding * 0.75);
-@compactHorizontalPadding: (@horizontalPadding * 0.75);
 
 /* Shadow */
 @shadowDistance: 0em;
 @shadowOffset: (@shadowDistance / 2);
 
+/* Icon */
+@iconMargin: 0.6em;
+
+/* Loader */
+@loaderPath: "@{imagePath}/loader-mini.gif";
+@hugeLoaderPath: "@{imagePath}/loader-small.gif";
+@massiveLoaderPath: "@{imagePath}/loader-medium.gif";
+
 /*-------------------
-       Group
+        Group
 --------------------*/
 
 @verticalBoxShadow: 0px 0px 0px 1px @borderColor inset;
+
 
 /*-------------------
         States
@@ -73,8 +87,24 @@
         Types
 --------------------*/
 
+/* Or */
+@orWidth: 0.3em;
+@orHeight: 1.1em;
+
+@orVerticalOffset: -0.1em;
+@orHorizontalOffset: -0.9em;
+
+@orTextStyle: normal;
+@orTextWeight: bold;
+
+@orCircleSize: 1.8em;
+@orLineHeight: 1.55;
+@orBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+
+@orSpacerHeight: 0.5em;
+@orSpacerColor: @white;
+
 /* Icon */
-@iconMargin: 0.6em;
 @iconHoverOpacity: 0.85;
 @iconButtonOpacity: 0.9;
 
@@ -107,6 +137,19 @@
 /*-------------------
       Variations
 --------------------*/
+
+/* Colors */
+@coloredBackgroundImage: none;
+@coloredBoxShadow: none;
+
+/* Compact */
+@compactVerticalPadding: (@verticalPadding * 0.75);
+@compactHorizontalPadding: (@horizontalPadding * 0.75);
+
+/* Attached */
+@attachedOffset: -1px;
+@attachedBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+@attachedHorizontalPadding: 0.75em;
 
 /* Floated */
 @floatedMargin: 0.25em;
