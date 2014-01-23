@@ -1067,6 +1067,7 @@ body.guide .main.container > * {
 }
 #example .clearing.example {
   overflow: hidden;
+  padding: 1px;
 }
 
 #example .example:first-child,

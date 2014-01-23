@@ -33,7 +33,7 @@
           <% end %>
         </div>
       </div>
-      <div class="ui button">
+      <div class="ui primary button">
         Download
         <i class="download icon"></i>
       </div>

@@ -114,6 +114,14 @@ type        : 'UI Element'
       <div class="ui icon button"><i class="search icon"></i></div>
     </div>
   </div>
+  
+  <div class="example">
+    <h4 class="ui header">Transparent</h4>
+    <p>A transparent input has no background</p>
+    <div class="ui transparent input">
+      <input type="text" placeholder="Search...">
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Fluid</h4>
@@ -122,6 +130,7 @@ type        : 'UI Element'
       <input type="text" placeholder="Search a very wide input...">
       <i class="search icon"></i>
     </div>
+    <div class="ui ignored divider"></div>
     <div class="ui fluid action input">
       <input type="text" placeholder="Search...">
       <div class="ui button">Search</div>
