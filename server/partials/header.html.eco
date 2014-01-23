@@ -24,7 +24,7 @@
       </a>
       <% end %>
       <% if @document.themes?: %>
-      <div class="ui floating dropdown theme button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
+      <div class="ui floating dropdown theme basic button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
         <i class="settings icon"></i>
         <span class="text">Choose Theme</span>
         <div class="menu ui transition hidden">
@@ -33,7 +33,7 @@
           <% end %>
         </div>
       </div>
-      <div class="ui primary button">
+      <div class="ui button">
         Download
         <i class="download icon"></i>
       </div>
