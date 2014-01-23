@@ -141,7 +141,7 @@
   right: 0px;
   width: @dividerSize;
   height: 100%;
-  background-image: @dividerBackground;
+  background: @dividerBackground;
 }
 .ui.menu .menu.right .item:before,
 .ui.menu .item.right:before {
@@ -202,6 +202,7 @@
   top: @inputIconOffset;
 }
 .ui.menu .item > .input input {
+  font-size: @inputSize;
   padding-top: @inputVerticalPadding;
   padding-bottom: @inputVerticalPadding;
 }
@@ -339,7 +340,7 @@
   cursor: pointer;
   background: @hoverBackground;
 }
-.ui.menu .ui.dropdown.active {
+.ui.menu .ui.dropdown.visible {
   background: @subtleTransparentBlack;
   box-shadow: none;
   border-bottom-right-radius: 0em;
@@ -385,9 +386,6 @@
 
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
-}
-.ui.vertical.menu .active.item .menu .active.item {
-  padding-left: 1.5rem;
 }
 .ui.vertical.menu .item .menu .active.item {
   background-color: @subMenuActiveColor;
@@ -523,6 +521,7 @@
   margin: @subMenuMargin -@horizontalPadding 0em;
 }
 .ui.vertical.menu .item > .menu > .item {
+  background: none;
   padding: @subMenuHorizontalPadding @subMenuVerticalPadding;
   font-size: @subMenuFontSize;
 }
@@ -1187,10 +1186,10 @@
 
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
-  background-image: @invertedDividerBackground;
+  background: @invertedDividerBackground;
 }
 .ui.vertical.inverted.menu .item:before {
-  background-image: @invertedVerticalDividerBackground;
+  background: @invertedVerticalDividerBackground;
 }
 
 /*--- Hover ---*/

@@ -84,6 +84,7 @@
 @labeledButtonPadding: 0.6em;
 
 /* Input */
+@inputSize: 0.875em;
 @inputVerticalMargin: -0.8em;
 @inputOffset: -0.05em;
 @inputVerticalPadding: 0.5em;
@@ -153,7 +154,6 @@
 /* Vertical */
 @verticalBackground: #FFFFFF;
 @verticalItemBackground: none;
-
 @verticalDividerBackground: linear-gradient(to right,
   rgba(0, 0, 0, 0.03) 0%,
   rgba(0, 0, 0, 0.1) 1.5em,

@@ -32,6 +32,9 @@
 @arrowVerticalHoverColor: #F4F4F4;
 @arrowVerticalActiveColor: #F4F4F4;
 
+@dividerBackground: #E8E8E8;
+@verticalDividerBackground: #E8E8E8;
+
 /*-------------------
       Elements
 --------------------*/
