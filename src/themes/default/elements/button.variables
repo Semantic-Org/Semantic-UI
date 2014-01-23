@@ -14,7 +14,8 @@
       Element
 --------------------*/
 
-@margin: 0.25em 0em;
+@verticalMargin: 0.25em;
+@horizontalMargin: 0.25em;
 @textTransform: uppercase;
 
 @fontWeight: bold;
@@ -45,6 +46,12 @@
 @shadowOffset: (@shadowDistance / 2);
 
 /*-------------------
+       Group
+--------------------*/
+
+@verticalBoxShadow: 0px 0px 0px 1px @borderColor inset;
+
+/*-------------------
         States
 --------------------*/
 
@@ -66,26 +73,51 @@
         Types
 --------------------*/
 
+/* Icon */
 @iconMargin: 0.6em;
 @iconHoverOpacity: 0.85;
 @iconButtonOpacity: 0.9;
 
+/* Labeled Icon */
 @labeledIconWidth: @iconWidth + (@verticalPadding * 2);
 @labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
 @labeledIconPadding: (@horizontalPadding + @labeledIconWidth);
 @labeledIconBorder: rgba(0, 0, 0, 0.05);
 
+@labeledIconLeftShadow: -1px 0px 0px 0px @labeledIconBorder inset;
+@labeledIconRightShadow: 1px 0px 0px 0px @labeledIconBorder inset;
+
+/* Basic */
+@basicBoxShadow: 0px 0px 0px 1px @borderColor;
+@basicIconOffset: 0.05em;
+@basicLoadingColor: #FFFFFF;
+
+@basicHoverBackground: none transparent;
+@basicHoverBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+
+@basicDownBackground: rgba(0, 0, 0, 0.02);
+@basicDownBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+
+@basicActiveBackground: @transparentBlack;
+@basicActiveColor: @selectedTextColor;
+
+@basicGroupBorder: 1px solid @borderColor;
+@basicGroupBoxShadow: 0px 0px 0px 1px @borderColor;
+
 /*-------------------
       Variations
 --------------------*/
 
+/* Floated */
 @floatedMargin: 0.25em;
 
+/* Animated */
 @animationDuration: 0.3s;
 @animationEasing: ease;
 @fadeScaleHigh: 1.5;
 @fadeScaleLow: 0.75;
 
+/* Sizing */
 @mini: 0.7rem;
 @tiny: 0.8rem;
 @small: 0.875rem;
@@ -94,10 +126,4 @@
 @big: 1.25rem;
 @huge: 1.375rem;
 @massive: 1.5rem;
-
-/*-------------------
-      Groups
---------------------*/
-
-@verticalBoxShadow: 0px 0px 0px 1px @borderColor inset;
 

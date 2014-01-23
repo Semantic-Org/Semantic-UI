@@ -1,21 +1,44 @@
 /*-------------------
-    Globals Used
---------------------*/
-
-// @textColor
-// @borderColor
-// @invertedUnselectedTextColor
-
-/*-------------------
       Collection
 --------------------*/
 
-@verticalPadding: 1em;
-@horizontalPadding: 1.25em;
+@verticalPadding       : 1em;
+@horizontalPadding     : 1.25em;
 
-@background: #FFFFFF linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
-@fontWeight: normal;
-@boxShadow:
-  0px 2px 1px 0px rgba(0, 0, 0, 0.1),
+@background            : #FFFFFF linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+@fontWeight            : normal;
+
+@activeBorderSize      : 0em;
+
+@hoverBackground       : rgba(0, 0, 0, 0.01);
+@downBackground        : rgba(0, 0, 0, 0.05);
+
+@activeBackground      : rgba(0, 0, 0, 0.03);
+@activeHoverBackground : rgba(0, 0, 0, 0.03);
+
+@boxShadow             :
+  0px 1px 2px 0px rgba(0, 0, 0, 0.15),
   0px 0px 0px 1px rgba(0, 0, 0, 0.05)
 ;
+
+@subMenuMargin: 1em;
+@subMenuFontSize: 0.9rem;
+@subMenuHorizontalPadding: 0.7em;
+
+/*-------------------
+      Elements
+--------------------*/
+
+
+@inputVerticalPadding: 0.65em;
+@inputIconOffset: 0em;
+
+
+@buttonOffset: -0.15em;
+@buttonVerticalPadding: 0.75em;
+
+/*-------------------
+      Variations
+--------------------*/
+
+@secondaryVerticalPadding: 0.75em;
