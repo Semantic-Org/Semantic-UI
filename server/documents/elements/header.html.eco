@@ -7,7 +7,7 @@ type        : 'UI Element'
 
 element     : 'header'
 elementType : 'element'
-themes      : ['default', 'bookish']
+themes      : ['default', 'bookish', 'chubby']
 ---
 
 <%- @partial('header') %>

@@ -30,6 +30,7 @@
   padding: @verticalPadding @horizontalPadding;
   font-weight: @fontWeight;
   line-height: @lineHeight;
+  text-transform: @textTransform;
 }
 
 .ui.header .sub.header {
@@ -42,6 +43,7 @@
   color: @subHeaderColor;
 }
 
+/* Icon and Content Together */
 .ui.header .icon {
   display: table-cell;
   font-size: @iconSize;
@@ -50,18 +52,19 @@
   vertical-align: @iconAlignment;
   padding-right: (@iconMargin / 2);
 }
+.ui.header .icon + .content {
+  padding-left: (@iconMargin / 2);
+  display: table-cell;
+}
+
+/* Only One */
 .ui.header .icon:only-child {
   display: inline-block;
   vertical-align: baseline;
 }
-
 .ui.header .content {
   display: inline-block;
   vertical-align: @contentAlignment;
-}
-.ui.header .icon + .content {
-  padding-left: (@iconMargin / 2);
-  display: table-cell;
 }
 
 /* Positioning */
@@ -334,7 +337,7 @@ h5.ui.header {
 --------------------*/
 
 .ui.attached.header {
-  background: @attachedColor;
+  background: @attachedBackground;
   margin: 0em;
   padding: @attachedVerticalPadding @attachedVerticalPadding;
   box-shadow: @attachedBoxShadow;

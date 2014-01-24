@@ -20,6 +20,7 @@
 
 @fontFamily : Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
 @fontWeight: bold;
+@textTransform: none;
 
 @topMargin: 1em;
 @bottomMargin: 1rem;
@@ -87,7 +88,7 @@
 @blockVerticalPadding: 0.5em;
 
 /* Attached */
-@attachedColor: #F0F0F0;
+@attachedBackground: #F0F0F0;
 @attachedVerticalPadding: 0.75rem;
 @attachedHorizontalPadding: 1rem;
 @attachedBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
