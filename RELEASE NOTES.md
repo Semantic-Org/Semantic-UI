@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.12.3 - Jan 24, 2014
+
+**Fixes**
+- **Message** - Fixes some issues with margins sometimes not appearing with ``attached message`` **thanks joltmode**
+- **Item** - Fixes color repeating to be consistent for items **thanks skysplit**
+
 ### Version 0.12.2 - Jan 21, 2014
 
 **Enhancement**

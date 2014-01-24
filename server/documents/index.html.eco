@@ -15,7 +15,7 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <div class="introduction">
-        <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/semantic-org/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.12.2</a></h1>
+        <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/semantic-org/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.12.3</a></h1>
         <h2 class="ui header">UI is the vocabulary of the web.</h2>
         <p>Semantic empowers designers and developers by creating a language for sharing UI.</p>
         <a class="ui black large labeled launch icon button"><i class="icon list layout"></i> View UI</a>
@@ -23,7 +23,12 @@ type   : 'Semantic'
       </div>
       <div class="inverted advertisement">
         <% unless 'development' in @getEnvironments(): %>
-        <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+        <div id="carbonads-container">
+          <div class="carbonad">
+            <div id="azcarbon"></div>
+            <script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+          </div>
+        </div>
         <% end %>
       </div>
     </div>
