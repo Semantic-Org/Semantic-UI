@@ -1,0 +1,32 @@
+/*-------------------
+       Header
+--------------------*/
+
+@fontFamily : 'Libre Baskerville', serif;
+@fontWeight: normal;
+
+@iconSize: 1.5em;
+@iconOffset: 0.2em;
+@iconAlignment: top;
+
+@subHeaderFontSize: 0.85rem;
+
+@dividedBorder: 1px dotted rgba(0, 0, 0, 0.2);
+
+/* Block Header */
+@blockVerticalPadding: 1.25em;
+@blockHorizontalPadding: 1em;
+
+/* HTML Headings */
+@h1: 1.5rem;
+@h2: 1.33rem;
+@h3: 1.33rem;
+@h4: 1rem;
+@h5: 0.9rem;
+
+/* Sizing */
+@tiny: 1.5em;
+@small: 1.33em;
+@medium: 1.33em;
+@large: 1em;
+@huge: 0.9em;

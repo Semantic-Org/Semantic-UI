@@ -3,7 +3,7 @@
 *******************************/
 
 /*-------------------
-       Divider 
+       Divider
 --------------------*/
 
 @highlightWidth: 1px;
@@ -15,7 +15,7 @@
 @dividerTextColor: @textColor;
 
 /*-------------------
-       Coupling 
+       Coupling
 --------------------*/
 
 /* Icon */

@@ -28,12 +28,12 @@
   font-family: @fontFamily;
   margin: @topMargin 0em @bottomMargin;
   padding: @verticalPadding @horizontalPadding;
-  font-weight: bold;
+  font-weight: @fontWeight;
   line-height: @lineHeight;
 }
 
 .ui.header .sub.header {
-  font-size: 1rem;
+  font-size: @subHeaderFontSize;
   font-weight: normal;
   margin: 0em;
   padding: 0em;
@@ -44,12 +44,15 @@
 
 .ui.header .icon {
   display: table-cell;
-  vertical-align: middle;
+  font-size: @iconSize;
+  padding-top: @iconOffset;
+
+  vertical-align: @iconAlignment;
   padding-right: (@iconMargin / 2);
 }
 .ui.header .icon:only-child {
   display: inline-block;
-  vertical-align: @iconAlignment;
+  vertical-align: baseline;
 }
 
 .ui.header .content {
