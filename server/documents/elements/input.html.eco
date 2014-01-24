@@ -4,9 +4,14 @@ css         : 'input'
 title       : 'Input'
 description : 'Inputs allow a user to enter information'
 type        : 'UI Element'
+
+element     : 'input'
+elementType : 'element'
+themes      : ['default']
 ---
 
 <%- @partial('header') %>
+<link rel="stylesheet/less" type="text/css" href="/build/less/elements/input.less" />
 
 <div class="main container">
 
@@ -114,7 +119,7 @@ type        : 'UI Element'
       <div class="ui icon button"><i class="search icon"></i></div>
     </div>
   </div>
-  
+
   <div class="example">
     <h4 class="ui header">Transparent</h4>
     <p>A transparent input has no background</p>

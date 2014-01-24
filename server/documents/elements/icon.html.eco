@@ -4,6 +4,9 @@ css         : 'icon'
 title       : 'Icon'
 description : 'An icon is a glyph used to represent another concept more simply'
 type        : 'UI Element'
+
+element     : 'icon'
+elementType : 'element'
 ---
 
 <%- @partial('header') %>

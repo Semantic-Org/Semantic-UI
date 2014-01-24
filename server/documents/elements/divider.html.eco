@@ -4,10 +4,14 @@ css         : 'divider'
 title       : 'Divider'
 description : 'A divider visually segments content into separate groups'
 type        : 'UI Element'
+
+element     : 'divider'
+elementType : 'element'
+themes      : ['default']
 ---
 
 <%- @partial('header') %>
-
+<link rel="stylesheet/less" type="text/css" href="/build/less/elements/divider.less" />
 <div class="main container">
 
   <div class="peek">

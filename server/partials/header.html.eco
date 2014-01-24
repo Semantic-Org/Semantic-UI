@@ -33,11 +33,11 @@
           <% end %>
         </div>
       </div>
+      <% end %>
       <div class="ui primary button">
         Download
         <i class="download icon"></i>
       </div>
-      <% end %>
     </div>
     <div class="advertisement">
       <% unless 'development' in @getEnvironments(): %>
