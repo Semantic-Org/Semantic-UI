@@ -195,7 +195,7 @@ type        : 'UI Module'
     <h2 class="ui dividing header">Usage</h2>
 
     <h3 class="ui header">Display</h3>
-    <p>You can display a dimmer by either invoking dimmer show on a section or a dimmer itself. If you choose to dim a dimmable section, a dimmer will automatically be created.</p>
+    <p>You can display a dimmer by either invoking .dimmer('show') on a section or a dimmer itself. If you choose to dim a dimmable section, a dimmer will automatically be created.</p>
     <div class="ignore code">
     // these two are the same
     $('.ui.dimmable)
