@@ -1796,23 +1796,6 @@ body > .ui.grid {
   border-radius: 0px 0.1875rem 0.1875rem 0px;
 }
 
-.ui.menu .item {
-  background: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  line-height: 1;
-  text-decoration: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
 /*--------------
     Colors
 ---------------*/
@@ -1863,11 +1846,20 @@ body > .ui.grid {
   display: inline-block;
   padding: 0.83em 0.95em;
   border-top: 0em solid transparent;
+  background: none;
+  vertical-align: middle;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ui.menu .menu {
@@ -6503,11 +6495,11 @@ body > .ui.grid {
 *******************************/
 
 /*-------------------
-       Divider 
+       Divider
 --------------------*/
 
 /*-------------------
-       Coupling 
+       Coupling
 --------------------*/
 
 /* Icon */
@@ -6714,6 +6706,8 @@ body > .ui.grid {
 /*******************************
            Overrides
 *******************************/
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
 /*
  * # Semantic - Header
  * http://github.com/jlukic/semantic-ui/
@@ -6856,16 +6850,20 @@ body > .ui.grid {
 *******************************/
 
 /*-------------------
-       Header 
+       Header
 --------------------*/
 
 /* HTML Headings */
 
+/* Sizing */
+
 /* Sub Header */
 
-/*-------------------
-       Coupling 
---------------------*/
+/* Icon */
+
+/* Content */
+
+/* Paragraph after Header */
 
 /*******************************
            Variations
@@ -6882,8 +6880,6 @@ body > .ui.grid {
 /* Attached */
 
 /* Floated */
-
-/* Sizing */
 
 /*******************************
      User Global Variables
@@ -6906,6 +6902,7 @@ body > .ui.grid {
   padding: 0em 0em;
   font-weight: bold;
   line-height: 1.33;
+  text-transform: none;
 }
 
 .ui.header .sub.header {
@@ -6917,11 +6914,22 @@ body > .ui.grid {
   color: rgba(0, 0, 0, 0.5);
 }
 
+/* Icon and Content Together */
+
 .ui.header .icon {
   display: table-cell;
+  font-size: 1em;
+  padding-top: 0em;
   vertical-align: middle;
   padding-right: 0.5em;
 }
+
+.ui.header .icon + .content {
+  padding-left: 0.5em;
+  display: table-cell;
+}
+
+/* Only One */
 
 .ui.header .icon:only-child {
   display: inline-block;
@@ -6931,11 +6939,6 @@ body > .ui.grid {
 .ui.header .content {
   display: inline-block;
   vertical-align: top;
-}
-
-.ui.header .icon + .content {
-  padding-left: 0.5em;
-  display: table-cell;
 }
 
 /* Positioning */

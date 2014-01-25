@@ -16,7 +16,6 @@ module.exports = function(grunt) {
 
       // copies assets and js over to docs
       'copy:srcToDocs',
-
       'copy:themesToDocs',
 
       // copies examples over to docs
@@ -203,6 +202,7 @@ module.exports = function(grunt) {
           'build/examples/**/*',
           'src/**/*.less',
           'src/**/*.variables',
+          'src/**/*.overrides',
           'src/**/*.config',
           'src/**/*.js'
         ],
@@ -381,7 +381,7 @@ module.exports = function(grunt) {
           // exact copy for less
           {
             expand : true,
-            cwd    : 'src/**/*.less',
+            cwd    : 'src/',
             src    : [
               '**/*'
             ],

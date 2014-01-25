@@ -28,12 +28,13 @@
   font-family: @fontFamily;
   margin: @topMargin 0em @bottomMargin;
   padding: @verticalPadding @horizontalPadding;
-  font-weight: bold;
+  font-weight: @fontWeight;
   line-height: @lineHeight;
+  text-transform: @textTransform;
 }
 
 .ui.header .sub.header {
-  font-size: 1rem;
+  font-size: @subHeaderFontSize;
   font-weight: normal;
   margin: 0em;
   padding: 0em;
@@ -42,23 +43,28 @@
   color: @subHeaderColor;
 }
 
+/* Icon and Content Together */
 .ui.header .icon {
   display: table-cell;
-  vertical-align: middle;
-  padding-right: (@iconMargin / 2);
-}
-.ui.header .icon:only-child {
-  display: inline-block;
-  vertical-align: @iconAlignment;
-}
+  font-size: @iconSize;
+  padding-top: @iconOffset;
 
-.ui.header .content {
-  display: inline-block;
-  vertical-align: @contentAlignment;
+  vertical-align: @iconAlignment;
+  padding-right: (@iconMargin / 2);
 }
 .ui.header .icon + .content {
   padding-left: (@iconMargin / 2);
   display: table-cell;
+}
+
+/* Only One */
+.ui.header .icon:only-child {
+  display: inline-block;
+  vertical-align: baseline;
+}
+.ui.header .content {
+  display: inline-block;
+  vertical-align: @contentAlignment;
 }
 
 /* Positioning */
@@ -331,7 +337,7 @@ h5.ui.header {
 --------------------*/
 
 .ui.attached.header {
-  background: @attachedColor;
+  background: @attachedBackground;
   margin: 0em;
   padding: @attachedVerticalPadding @attachedVerticalPadding;
   box-shadow: @attachedBoxShadow;

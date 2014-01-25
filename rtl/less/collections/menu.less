@@ -55,18 +55,6 @@
 .ui.menu > .item:last-child {
   border-radius: @borderRadius 0px 0px @borderRadius;
 }
-.ui.menu .item {
-  background: @itemBackground;
-  user-select: none;
-
-  vertical-align: middle;
-  line-height: 1;
-  text-decoration: none;
-  box-sizing: border-box;
-  transition: @transition;
-
-  -webkit-tap-highlight-color: transparent;
-}
 
 /*--------------
     Colors
@@ -111,8 +99,15 @@
   padding: @verticalPadding @horizontalPadding;
   border-top: @borderSize solid transparent;
 
+  background: @itemBackground;
+  vertical-align: middle;
+  line-height: 1;
+  text-decoration: none;
+  box-sizing: border-box;
+
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  transition: @transition;
 }
 
 .ui.menu .menu {

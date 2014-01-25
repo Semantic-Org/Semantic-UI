@@ -253,23 +253,6 @@
   border-radius: 0px 0.1875rem 0.1875rem 0px;
 }
 
-.ui.menu .item {
-  background: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  line-height: 1;
-  text-decoration: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
-  transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
 /*--------------
     Colors
 ---------------*/
@@ -320,11 +303,20 @@
   display: inline-block;
   padding: 0.83em 0.95em;
   border-top: 0em solid transparent;
+  background: none;
+  vertical-align: middle;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ui.menu .menu {

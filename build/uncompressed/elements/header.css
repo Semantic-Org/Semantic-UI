@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
 /*
  * # Semantic - Header
  * http://github.com/jlukic/semantic-ui/
@@ -140,16 +142,20 @@
 *******************************/
 
 /*-------------------
-       Header 
+       Header
 --------------------*/
 
 /* HTML Headings */
 
+/* Sizing */
+
 /* Sub Header */
 
-/*-------------------
-       Coupling 
---------------------*/
+/* Icon */
+
+/* Content */
+
+/* Paragraph after Header */
 
 /*******************************
            Variations
@@ -166,8 +172,6 @@
 /* Attached */
 
 /* Floated */
-
-/* Sizing */
 
 /*******************************
      User Global Variables
@@ -190,6 +194,7 @@
   padding: 0em 0em;
   font-weight: bold;
   line-height: 1.33;
+  text-transform: none;
 }
 
 .ui.header .sub.header {
@@ -201,11 +206,22 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
+/* Icon and Content Together */
+
 .ui.header .icon {
   display: table-cell;
+  font-size: 1em;
+  padding-top: 0em;
   vertical-align: middle;
   padding-right: 0.5em;
 }
+
+.ui.header .icon + .content {
+  padding-left: 0.5em;
+  display: table-cell;
+}
+
+/* Only One */
 
 .ui.header .icon:only-child {
   display: inline-block;
@@ -215,11 +231,6 @@
 .ui.header .content {
   display: inline-block;
   vertical-align: top;
-}
-
-.ui.header .icon + .content {
-  padding-left: 0.5em;
-  display: table-cell;
 }
 
 /* Positioning */

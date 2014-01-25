@@ -15,10 +15,12 @@
 *******************************/
 
 /*-------------------
-       Header 
+       Header
 --------------------*/
 
 @fontFamily : Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+@fontWeight: bold;
+@textTransform: none;
 
 @topMargin: 1em;
 @bottomMargin: 1rem;
@@ -34,20 +36,28 @@
 @h4: 1.1rem;
 @h5: 1rem;
 
+/* Sizing */
+@tiny: 1em;
+@small: 1.1em;
+@medium: 1.33em;
+@large: 1.75em;
+@huge: 2em;
+
 /* Sub Header */
+@subHeaderFontSize: 1rem;
 @subHeaderLineHeight: 1.2;
 @subHeaderColor: rgba(0, 0, 0, 0.5);
 
-
-/*-------------------
-       Coupling 
---------------------*/
-
+/* Icon */
+@iconSize: 1em;
+@iconOffset: 0em;
 @iconMargin: 1em;
-@iconAlignment: baseline;
+@iconAlignment: middle;
 
+/* Content */
 @contentAlignment: top;
 
+/* Paragraph after Header */
 @precedingParagraphMargin: 0em;
 
 
@@ -78,7 +88,7 @@
 @blockVerticalPadding: 0.5em;
 
 /* Attached */
-@attachedColor: #F0F0F0;
+@attachedBackground: #F0F0F0;
 @attachedVerticalPadding: 0.75rem;
 @attachedHorizontalPadding: 1rem;
 @attachedBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -86,10 +96,3 @@
 
 /* Floated */
 @floatedMargin: 0.5em;
-
-/* Sizing */
-@tiny: 1em;
-@small: 1.1em;
-@medium: 1.33em;
-@large: 1.75em;
-@huge: 2em;
