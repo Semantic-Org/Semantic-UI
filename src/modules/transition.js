@@ -549,7 +549,10 @@ $.fn.transition = function() {
           },
           occuring: function(animation) {
             animation = animation || settings.animation;
-            return ( $module.hasClass(animation) );
+
+            var classes = animation.split(' ');
+
+            return ( $(classes).filter(function(i, value) { return $module.hasClass(value); }).length == classes.length );
           },
           visible: function() {
             return $module.is(':visible');
