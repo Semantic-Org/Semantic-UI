@@ -16850,7 +16850,8 @@ body.pushed.scrolling.ui.dimmable {
   display: table;
 }
 
-.ui.horizontal.items > .item > .image .ui.items > .horizontal.item > .image {
+.ui.horizontal.items > .item > .image,
+.ui.items > .horizontal.item > .image {
   display: table-cell;
   width: 50%;
 }

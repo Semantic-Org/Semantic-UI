@@ -1650,7 +1650,7 @@ $.fn.form = function(fields, parameters) {
                 .removeClass(className.error)
                 .addClass(className.success)
               ;
-              $.proxy(settings.onSuccess, this)(event);
+              return $.proxy(settings.onSuccess, this)(event);
             }
             else {
               module.debug('Form has errors');

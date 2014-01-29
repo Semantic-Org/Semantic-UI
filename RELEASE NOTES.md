@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+### Version 0.12.4 - Jan 29, 2014
+
+**Fixes**
+- **Form** - Fixes issue with onSuccess not allowing cancellation of form submit in form validation
+- **Input** - Fixes ``ui buttons`` to work inside an ``ui action input`` **Thanks MohammadYounes **
+- **Items** - Fixes ``ui horizontal items`` to work correctly, missing comma **Thanks mishak87**
+
 ### Version 0.12.3 - Jan 24, 2014
 
 **Fixes**
