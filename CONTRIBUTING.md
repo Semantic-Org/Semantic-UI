@@ -82,6 +82,8 @@ Make sure npm does not require sudo to operate, this might cause permissions iss
 
 ```bash
 npm install -g docpad
+docpad install eco
+docpad update; docpad upgrade
 ```
 
 ```bash
@@ -92,16 +94,23 @@ npm install -g grunt-cli
 
 [Fork](https://github.com/jlukic/Semantic-UI/fork)
 
-### 4) Start Your Server
+### 4A) Build Semantic
 
-It's important to note that all server code exists inside of `/node` in the project. So all commands should be run relative to that directory.
+In order to have the current version of semantic available inside your local documentation, you will have to build it once with Grunt
 
 ```bash
-cd node
+grunt build
+```
+
+### 4B) Start Your Server
+
+```bash
 docpad run
 ```
 
 Docpad should now run an instance of semantic-ui.com locally you can access at `http://localhost:9778`
+
+Note that some asset files might be missing until you run `grunt build` once.
 
 ## Fixing Bugs
 

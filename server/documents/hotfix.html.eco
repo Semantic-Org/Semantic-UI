@@ -1,0 +1,101 @@
+---
+layout : 'default'
+css    : 'hotfix'
+
+title  : 'Test Page'
+type   : 'Library'
+---
+<%- @partial('header') %>
+<script src="/build/uncompressed/modules/behavior/form.js"></script>
+
+<script type='text/javascript'>
+$(document).ready(function(){
+  $('.ui.form.one')
+    .form({
+      name: {
+        identifier  : 'name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your full name'
+          }
+        ]
+      },
+      email: {
+        identifier  : 'email',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your email'
+          },
+          {
+              type : 'email',
+              prompt : 'please enter a proper email'
+          }
+        ]
+      },
+      username: {
+        identifier : 'username',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a username'
+          }
+        ]
+      },
+      password: {
+        identifier : 'password',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a password'
+          },
+          {
+            type   : 'length[6]',
+            prompt : 'Your password must be at least 6 characters'
+          }
+        ]
+      },
+      terms: {
+        identifier : 'terms1',
+        rules: [
+          {
+            type   : 'checked',
+            prompt : 'You must agree to the terms and conditions'
+          }
+        ]
+      }
+    }, {
+    inline : true,
+    on     : 'blur'
+  });
+
+  $('form').form('add prompt', 'username', 'that username is already taken');
+
+});
+
+</script>
+
+<div class="main container">
+    <form class="ui form one" method="post" action="/test">
+        <div class="field">
+            <input type="text" name="name" placeholder="Name" />
+        </div>
+        <div class="field">
+            <input type="text" name="email" placeholder="E-mail" />
+        </div>
+        <div class="field">
+            <input type="text" name="username" placeholder="username" />
+        </div>
+        <div class="field">
+            <input type="password" name="password"/>
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+              <input type="checkbox" id="terms1" name="terms1"/>
+                <label for="terms1">Accept terms</label>
+            </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+    </form>
+</div>

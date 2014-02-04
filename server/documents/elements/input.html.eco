@@ -122,6 +122,10 @@ type        : 'UI Element'
       <input type="text" placeholder="Search a very wide input...">
       <i class="search icon"></i>
     </div>
+    <div class="ui fluid action input">
+      <input type="text" placeholder="Search...">
+      <div class="ui button">Search</div>
+    </div>
   </div>
 
   <div class="example">

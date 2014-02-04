@@ -1,5 +1,67 @@
 ## RELEASE NOTES
 
+### Version 0.12.4 - Jan 29, 2014
+
+**Fixes**
+- **Form** - Fixes issue with onSuccess not allowing cancellation of form submit in form validation
+- **Input** - Fixes ``ui buttons`` to work inside an ``ui action input`` **Thanks MohammadYounes **
+- **Items** - Fixes ``ui horizontal items`` to work correctly, missing comma **Thanks mishak87**
+
+### Version 0.12.3 - Jan 24, 2014
+
+**Fixes**
+- **Message** - Fixes some issues with margins sometimes not appearing with ``attached message`` **thanks joltmode**
+- **Item** - Fixes color repeating to be consistent for items **thanks skysplit**
+
+### Version 0.12.2 - Jan 21, 2014
+
+**Enhancement**
+- **Form Validation** - Adding custom validation is now simpler, uses syntax ``$('.form').form('add prompt', identifier, 'Error message');``
+
+**Fixes**
+- **Menu** - Slightly updates input sizes inside menus
+- **Grid** - Fixes grid ``only tablet/mobile/computer`` showing both devices on exact pixel of breakpoint, i.e. 768px
+- **Icon** - Fixes ascending alphabetic inheritance
+
+### Version 0.12.1 - Jan 15, 2014
+
+**Fixes**
+- **LESS** - Fixes typo breaking less parsing **thanks DVSoftware**
+- **Menu** - Fixes buttons using ``<a>`` tag from inheriting link styles. **thanks joltmode**
+- **Menu** - Fixes ``action input`` to work inside menus  **thanks joltmode**
+- **Modal** - Fixes possible race conditions in animations of modal **thanks dos1**
+- **Message** - Prevents close icon from being misformatted in icon message **thanks MohammadYounes**
+
+**Docs**
+- **Icons** - Fixes some icon code samples in docs **thanks mishak87**
+Some updates to docs formatting
+
+### Version 0.12.0 - Jan 06, 2014
+
+**Major Fixes**
+- **Dropdown** - Fixes dropdowns links not working on touch devices
+- **Input** - Fixes input placeholder styles to work (accidental regex replace)
+
+**Major Updates**
+- **Transition** - Transitions will now, by default, prevent the current animation from being queued while it is actively animating the same animation
+- **Modal** - New setting ``allowMultiple`` lets you specify whether multiple modals can be shown at once
+- **Modal** - New setting ``detachable`` allows you to specify whether modal DOM element can be moved (Thanks MohammadYounes)
+
+**Updates**
+- **Dropdown** - Default value is now stored on init, and can be restored using 'restore defaults' behavior
+- **Modal** - Buttons can now use both ``cancel/deny`` or ``ok/approve``, for approve/deny events to fire (Thanks MohammadYounes)
+- **Menu** - Fixed menu now adds padding on the next element if it is a grid
+- **Progress Bar** - Adds warning color
+
+**Fixes**
+- **Icon** - Fixes unnecessary formatting on thumbs up/down
+- **Dropdown** - Fixes touchmove event not clearing on touch devices causing unnecessary overhead
+- **Input** - Action inputs can now be fluid
+- **Sidebar** - Fixes issue where top sidebar was receiving left offset
+- **Menu** - Fixes z-index on fixed menu to exist just below modals
+- **Dropdown** - Fixes issue where last match was returned, not prioritizing value over text
+- **Form** - Fixes all validation input to be trimmed for whitespace
+
 ### Version 0.11.0 - Dec 25, 2013
 
 ### Merry Christmas!

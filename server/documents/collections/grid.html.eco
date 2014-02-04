@@ -15,7 +15,7 @@ type        : 'UI Collection'
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Standard</a>
       <a class="item">Elements</a>
-      <a class="item">Types</a>
+      <!--<a class="item">Types</a>-->
       <a class="item">Variations</a>
     </div>
   </div>
@@ -438,10 +438,9 @@ type        : 'UI Collection'
           </div>
           <div class="inline field">
             <div class="ui checkbox">
-              <input type="checkbox" id="terms" />
-              <label for="terms"></label>
+              <input type="checkbox" id="conditions" />
+              <label for="conditions">I agree to the terms and conditions</label>
             </div>
-            <label>I agree to the terms and conditions</label>
           </div>
           <div class="ui blue submit button">Submit</div>
         </div>
@@ -491,9 +490,8 @@ type        : 'UI Collection'
           <div class="inline field">
             <div class="ui checkbox">
               <input type="checkbox" id="terms" />
-              <label for="terms"></label>
+              <label for="terms">I agree to the terms and conditions</label>
             </div>
-            <label>I agree to the terms and conditions</label>
           </div>
           <div class="ui blue submit button">Submit</div>
         </div>
@@ -642,7 +640,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Responsive to Device</h4>
     <p>A grid can have its columns, or rows only show content for computer, tablet, or mobile.</p>
     <div class="ui text message info ignore">
-      <i class="icon heart"></i> Breakpoints are 768px and below for mobile, 768-998px for tablet and 998px+ for pc</i>
+      <i class="icon heart"></i> Breakpoints are 768px and below for mobile, 768-992px for tablet and 992px+ for computer</i>
     </div>
     <div class="ui grid">
       <div class="two column mobile only row">

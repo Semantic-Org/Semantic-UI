@@ -1198,6 +1198,8 @@ body.guide .main.container > * {
 body.progress .ui.progress .bar {
   -webkit-animation: finish 10s ease-in-out infinite;
   -moz-animation: finish 10s ease-in-out infinite;
+  -ms-animation: finish 10s ease-in-out infinite;
+  animation: finish 10s ease-in-out infinite;
 }
 
 @-webkit-keyframes finish {

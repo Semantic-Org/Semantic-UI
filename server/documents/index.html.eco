@@ -15,7 +15,7 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <div class="introduction">
-        <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/semantic-org/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.11.0</a></h1>
+        <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/semantic-org/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.12.4</a></h1>
         <h2 class="ui header">UI is the vocabulary of the web.</h2>
         <p>Semantic empowers designers and developers by creating a language for sharing UI.</p>
         <a class="ui black large labeled launch icon button"><i class="icon list layout"></i> View UI</a>
@@ -23,7 +23,12 @@ type   : 'Semantic'
       </div>
       <div class="inverted advertisement">
         <% unless 'development' in @getEnvironments(): %>
-        <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+        <div id="carbonads-container">
+          <div class="carbonad">
+            <div id="azcarbon"></div>
+            <script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+          </div>
+        </div>
         <% end %>
       </div>
     </div>
@@ -41,7 +46,7 @@ type   : 'Semantic'
         </div>
       </h2>
       <div class="ui message">
-        Semantic is tag ambivalent meaning you can use <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list" target="_blank">any html tags</a> with UI elements.
+        Semantic is tag agnostic meaning you can use <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list" target="_blank">any html tags</a> with UI elements.
       </div>
       <div class="ui stackable two column grid">
         <div class="column">
@@ -194,8 +199,8 @@ type   : 'Semantic'
     <div class="column">
       <h2 class="ui center aligned icon header">
         <i class="circular emphasized users icon"></i>
-        <div class="content">Growing Everyday
-          <div class="sub header">New UI components are written everyday. Check back soon to see more.</div>
+        <div class="content">Growing Every Day
+          <div class="sub header">New UI components are written every day. Check back soon to see more.</div>
         </div>
       </h2>
       <div class="ui horizontal divider">

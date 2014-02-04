@@ -130,7 +130,12 @@ $.fn.transition = function() {
           }
           module.debug('Preparing animation', settings.animation);
           if(module.is.animating() && settings.queue) {
-            module.queue(settings.animation);
+            if(!settings.allowRepeats && module.has.direction() && module.is.occuring() && instance.queuing !== true) {
+              module.error(error.repeated);
+            }
+            else {
+              module.queue(settings.animation);
+            }
             return false;
           }
           if(module.can.animate) {
@@ -143,6 +148,7 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
+          $module.off(animationEnd);
           module.restore.conditions();
           module.hide();
           module.remove.animating();
@@ -154,6 +160,7 @@ $.fn.transition = function() {
           $module
             .one(animationEnd, function() {
               instance.queuing = false;
+              module.repaint();
               module.animate.apply(this, settings);
             })
           ;
@@ -540,6 +547,10 @@ $.fn.transition = function() {
           looping: function() {
             return $module.hasClass(className.looping);
           },
+          occuring: function(animation) {
+            animation = animation || settings.animation;
+            return ( $module.hasClass(animation) );
+          },
           visible: function() {
             return $module.is(':visible');
           },
@@ -750,7 +761,7 @@ $.fn.transition.settings = {
   name        : 'Transition',
 
   // debug content outputted to console
-  debug       : false,
+  debug       : true,
 
   // verbose debug output
   verbose     : true,
@@ -766,9 +777,12 @@ $.fn.transition.settings = {
   onShow      : function() {},
   onHide      : function() {},
 
+  // whether animation can occur twice in a row
+  allowRepeats : false,
+
   // animation duration
-  animation   : 'fade',
-  duration    : '700ms',
+  animation  : 'fade',
+  duration   : '700ms',
 
   // new animations will occur after previous ones
   queue       : true,
@@ -788,6 +802,7 @@ $.fn.transition.settings = {
   // possible errors
   error: {
     noAnimation : 'There is no css animation matching the one you specified.',
+    repeated    : 'That animation is already occurring, cancelling repeated animation',
     method      : 'The method you called is not defined',
     support     : 'This browser does not support CSS animations'
   }

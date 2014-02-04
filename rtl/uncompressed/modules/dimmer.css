@@ -30,10 +30,8 @@
   opacity: 0;
   line-height: 1;
   -webkit-animation-fill-mode: both;
-  -ms-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-duration: 0.5s;
-  -ms-animation-duration: 0.5s;
   animation-duration: 0.5s;
   -webkit-transition: background-color 0.5s linear;
   transition: background-color 0.5s linear;
@@ -43,7 +41,6 @@
   user-select: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   z-index: 1000;
 }

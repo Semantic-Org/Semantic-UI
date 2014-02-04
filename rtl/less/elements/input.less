@@ -53,11 +53,11 @@
 
 /* browsers require these rules separate */
 
-.ui.input::-web inputkit-input-placeholder {
+.ui.input::-webkit-input-placeholder {
   color: #BBBBBB;
 }
 
-.ui.input::-moz input-placeholder {
+.ui.input::-moz-placeholder {
   color: #BBBBBB;
 }
 
@@ -255,8 +255,7 @@
 }
 
 .ui.action.input > .button,
-.ui.action.input > .buttons,
- {
+.ui.action.input > .buttons {
   display: table-cell;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -267,6 +266,15 @@
 .ui.action.input > .buttons > .button > .icon {
   display: inline;
   vertical-align: top;
+}
+
+.ui.fluid.action.input {
+  display: table;
+  width: 100%;
+}
+
+.ui.fluid.action.input > .button {
+  width: 0.01%;
 }
 
 /*--------------------

@@ -1553,14 +1553,18 @@ $.fn.form = function(fields, parameters) {
         },
 
         add: {
-          prompt: function(field, errors) {
+          prompt: function(identifier, errors) {
             var
-              $field       = module.get.field(field.identifier),
+              $field       = module.get.field(identifier),
               $fieldGroup  = $field.closest($group),
               $prompt      = $fieldGroup.find(selector.prompt),
               promptExists = ($prompt.size() !== 0)
             ;
-            module.verbose('Adding inline error', field);
+            errors = (typeof errors == 'string')
+              ? [errors]
+              : errors
+            ;
+            module.verbose('Adding field error state', identifier);
             $fieldGroup
               .addClass(className.error)
             ;
@@ -1585,6 +1589,9 @@ $.fn.form = function(fields, parameters) {
                     .fadeIn(settings.duration)
                   ;
                 }
+              }
+              else {
+                module.verbose('Inline errors are disabled, no inline error added', identifier);
               }
             }
           },
@@ -1643,7 +1650,7 @@ $.fn.form = function(fields, parameters) {
                 .removeClass(className.error)
                 .addClass(className.success)
               ;
-              $.proxy(settings.onSuccess, this)(event);
+              return $.proxy(settings.onSuccess, this)(event);
             }
             else {
               module.debug('Form has errors');
@@ -1677,7 +1684,7 @@ $.fn.form = function(fields, parameters) {
             }
             else {
               formErrors = formErrors.concat(fieldErrors);
-              module.add.prompt(field, fieldErrors);
+              module.add.prompt(field.identifier, fieldErrors);
               $.proxy(settings.onInvalid, $field)(fieldErrors);
               return false;
             }
@@ -1689,7 +1696,7 @@ $.fn.form = function(fields, parameters) {
             var
               $field        = module.get.field(field.identifier),
               type          = validation.type,
-              value         = $field.val() + '',
+              value         = $.trim($field.val() + ''),
 
               bracketRegExp = /\[(.*?)\]/i,
               bracket       = bracketRegExp.exec(type),
@@ -4030,7 +4037,7 @@ $.fn.dimmer = function(parameters) {
               : function(){}
             ;
             module.set.dimmed();
-            if(settings.useCSS && $.fn.transition !== undefined && $module.transition('is supported')) {
+            if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
               $dimmer
                 .transition({
                   animation : settings.transition + ' in',
@@ -4065,7 +4072,7 @@ $.fn.dimmer = function(parameters) {
               ? callback
               : function(){}
             ;
-            if(settings.useCSS && $.fn.transition !== undefined && $module.transition('is supported')) {
+            if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
@@ -4529,12 +4536,12 @@ $.fn.dropdown = function(parameters) {
         initialize: function() {
           module.debug('Initializing dropdown', settings);
 
+          module.save.defaults();
           module.set.selected();
 
           if(hasTouch) {
             module.bind.touchEvents();
           }
-          // no use detecting mouse events because touch devices emulate them
           module.bind.mouseEvents();
           module.instantiate();
         },
@@ -4613,6 +4620,7 @@ $.fn.dropdown = function(parameters) {
             if(hasTouch) {
               $document
                 .off('touchstart' + eventNamespace)
+                .off('touchmove' + eventNamespace)
               ;
             }
             $document
@@ -4683,11 +4691,19 @@ $.fn.dropdown = function(parameters) {
                   : $choice.text(),
                 value   = ( $choice.data(metadata.value) !== undefined)
                   ? $choice.data(metadata.value)
-                  : text.toLowerCase()
+                  : text.toLowerCase(),
+                callback = function() {
+                  module.determine.selectAction(text, value);
+                  $.proxy(settings.onChange, element)(value, text);
+                }
               ;
               if( $choice.find(selector.menu).size() === 0 ) {
-                module.determine.selectAction(text, value);
-                $.proxy(settings.onChange, element)(value, text);
+                if(event.type == 'touchstart') {
+                  $choice.one('click', callback);
+                }
+                else {
+                  callback();
+                }
               }
             }
 
@@ -4793,7 +4809,7 @@ $.fn.dropdown = function(parameters) {
           },
           item: function(value) {
             var
-              $selectedItem
+              $selectedItem = false
             ;
             value = (value !== undefined)
               ? value
@@ -4813,9 +4829,11 @@ $.fn.dropdown = function(parameters) {
                       ? $choice.data(metadata.value)
                       : optionText.toLowerCase()
                   ;
-                  if( optionValue == value || optionText == value ) {
+                  if( optionValue == value ) {
                     $selectedItem = $(this);
-                    return false;
+                  }
+                  else if( !$selectedItem && optionText == value ) {
+                    $selectedItem = $(this);
                   }
                 })
               ;
@@ -4824,6 +4842,43 @@ $.fn.dropdown = function(parameters) {
               value = module.get.text();
             }
             return $selectedItem || false;
+          }
+        },
+
+        restore: {
+          defaults: function() {
+            module.restore.defaultText();
+            module.restore.defaultValue();
+          },
+          defaultText: function() {
+            var
+              defaultText = $module.data(metadata.defaultText)
+            ;
+            module.debug('Restoring default text', defaultText);
+            module.set.text(defaultText);
+          },
+          defaultValue: function() {
+            var
+              defaultValue = $module.data(metadata.defaultValue)
+            ;
+            if(defaultValue !== undefined) {
+              module.debug('Restoring default value', defaultValue);
+              module.set.selected(defaultValue);
+              module.set.value(defaultValue);
+            }
+          }
+        },
+
+        save: {
+          defaults: function() {
+            module.save.defaultText();
+            module.save.defaultValue();
+          },
+          defaultValue: function() {
+            $module.data(metadata.defaultValue, module.get.value() );
+          },
+          defaultText: function() {
+            $module.data(metadata.defaultText, $text.text() );
           }
         },
 
@@ -4974,12 +5029,14 @@ $.fn.dropdown = function(parameters) {
             if(module.is.visible($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
               if($.fn.transition !== undefined && $module.transition('is supported')) {
-                $currentMenu.transition({
-                  animation : settings.transition + ' out',
-                  duration  : settings.duration,
-                  complete  : callback,
-                  queue     : false
-                });
+                $currentMenu
+                  .transition({
+                    animation : settings.transition + ' out',
+                    duration  : settings.duration,
+                    complete  : callback,
+                    queue     : false
+                  })
+                ;
               }
               else if(settings.transition == 'none') {
                 callback();
@@ -5286,8 +5343,10 @@ $.fn.dropdown.settings = {
   },
 
   metadata: {
-    text    : 'text',
-    value   : 'value'
+    defaultText  : 'defaultText',
+    defaultValue : 'defaultValue',
+    text         : 'text',
+    value        : 'value'
   },
 
   selector : {
@@ -5395,8 +5454,12 @@ $.fn.modal = function(parameters) {
                 hide     : settings.duration * 1.1
               }
             })
-            .dimmer('add content', $module)
           ;
+
+          if(settings.detachable) {
+            $dimmable.dimmer('add content', $module);
+          }
+
           $dimmer = $dimmable
             .dimmer('get dimmer')
           ;
@@ -5491,7 +5554,12 @@ $.fn.modal = function(parameters) {
           click: function(event) {
             if( $(event.target).closest(selector.modal).size() === 0 ) {
               module.debug('Dimmer clicked, hiding all modals');
-              module.hideAll();
+              if(settings.allowMultiple) {
+                module.hide();
+              }
+              else {
+                module.hideAll();
+              }
               event.stopImmediatePropagation();
             }
           },
@@ -5550,7 +5618,7 @@ $.fn.modal = function(parameters) {
             module.set.position();
             module.set.type();
 
-            if( $otherModals.filter(':visible').size() > 0 ) {
+            if( $otherModals.filter(':visible').size() > 0 && !settings.allowMultiple) {
               module.debug('Other modals visible, queueing show animation');
               module.hideOthers(module.showModal);
             }
@@ -5596,7 +5664,9 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          module.hideDimmer();
+          if($allModals.filter(':visible').size() <= 1) {
+            module.hideDimmer();
+          }
           module.hideModal(callback);
         },
 
@@ -5971,29 +6041,32 @@ $.fn.modal = function(parameters) {
 
 $.fn.modal.settings = {
 
-  name        : 'Modal',
-  namespace   : 'modal',
+  name          : 'Modal',
+  namespace     : 'modal',
 
-  debug       : false,
-  verbose     : true,
-  performance : true,
+  debug         : true,
+  verbose       : true,
+  performance   : true,
 
-  closable    : true,
-  context     : 'body',
-  duration    : 500,
-  easing      : 'easeOutExpo',
-  offset      : 0,
-  transition  : 'scale',
+  allowMultiple : true,
+  detachable    : true,
+  closable      : true,
+  context       : 'body',
 
-  onShow      : function(){},
-  onHide      : function(){},
-  onApprove   : function(){ return true; },
-  onDeny      : function(){ return true; },
+  duration      : 500,
+  easing        : 'easeOutExpo',
+  offset        : 0,
+  transition    : 'scale',
+
+  onShow        : function(){},
+  onHide        : function(){},
+  onApprove     : function(){ return true; },
+  onDeny        : function(){ return true; },
 
   selector    : {
     close    : '.close, .actions .button',
-    approve  : '.actions .positive, .actions .approve',
-    deny     : '.actions .negative, .actions .cancel',
+    approve  : '.actions .positive, .actions .approve, .actions .ok',
+    deny     : '.actions .negative, .actions .deny, .actions .cancel',
     modal    : '.ui.modal'
   },
   error : {
@@ -6008,6 +6081,7 @@ $.fn.modal.settings = {
 
 
 })( jQuery, window , document );
+
 /*
  * # Semantic - Nag
  * http://github.com/jlukic/semantic-ui/
@@ -9573,15 +9647,13 @@ $.fn.sidebar = function(parameters) {
         add: {
           bodyCSS: function(direction, distance) {
             var
-              invertDirection,
               style
             ;
             if(direction !== className.bottom) {
-              invertDirection = direction === 'right' ? -1 : 1;
               style = ''
                 + '<style title="' + namespace + '">'
                 + 'body.pushed {'
-                + '  margin-left: ' + invertDirection * distance + 'px !important;'
+                + '  margin-' + direction + ': ' + distance + 'px !important;'
                 + '}'
                 + '</style>'
               ;
@@ -10729,7 +10801,12 @@ $.fn.transition = function() {
           }
           module.debug('Preparing animation', settings.animation);
           if(module.is.animating() && settings.queue) {
-            module.queue(settings.animation);
+            if(!settings.allowRepeats && module.has.direction() && module.is.occuring() && instance.queuing !== true) {
+              module.error(error.repeated);
+            }
+            else {
+              module.queue(settings.animation);
+            }
             return false;
           }
           if(module.can.animate) {
@@ -10742,6 +10819,7 @@ $.fn.transition = function() {
 
         reset: function() {
           module.debug('Resetting animation to beginning conditions');
+          $module.off(animationEnd);
           module.restore.conditions();
           module.hide();
           module.remove.animating();
@@ -10753,6 +10831,7 @@ $.fn.transition = function() {
           $module
             .one(animationEnd, function() {
               instance.queuing = false;
+              module.repaint();
               module.animate.apply(this, settings);
             })
           ;
@@ -11139,6 +11218,10 @@ $.fn.transition = function() {
           looping: function() {
             return $module.hasClass(className.looping);
           },
+          occuring: function(animation) {
+            animation = animation || settings.animation;
+            return ( $module.hasClass(animation) );
+          },
           visible: function() {
             return $module.is(':visible');
           },
@@ -11349,7 +11432,7 @@ $.fn.transition.settings = {
   name        : 'Transition',
 
   // debug content outputted to console
-  debug       : false,
+  debug       : true,
 
   // verbose debug output
   verbose     : true,
@@ -11365,9 +11448,12 @@ $.fn.transition.settings = {
   onShow      : function() {},
   onHide      : function() {},
 
+  // whether animation can occur twice in a row
+  allowRepeats : false,
+
   // animation duration
-  animation   : 'fade',
-  duration    : '700ms',
+  animation  : 'fade',
+  duration   : '700ms',
 
   // new animations will occur after previous ones
   queue       : true,
@@ -11387,6 +11473,7 @@ $.fn.transition.settings = {
   // possible errors
   error: {
     noAnimation : 'There is no css animation matching the one you specified.',
+    repeated    : 'That animation is already occurring, cancelling repeated animation',
     method      : 'The method you called is not defined',
     support     : 'This browser does not support CSS animations'
   }
@@ -11395,6 +11482,7 @@ $.fn.transition.settings = {
 
 
 })( jQuery, window , document );
+
 /*  ******************************
   Module - Video
   Author: Jack Lukic

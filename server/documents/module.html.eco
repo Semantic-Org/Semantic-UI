@@ -26,7 +26,7 @@ type        : 'Semantic'
         <i class="check icon"></i>
         <div class="content">
           <div class="header">Human Readable Traces</div>
-          <p>Unlike other component libraries which hides explanations of behavior in inline comments which can only be read by combing the source, semantic modules provide run-time debug output to the javascript console telling you what each component is doing as it is doing it.</p>
+          <p>Unlike other component libraries that hide explanations of behavior in inline comments which can only be read by combing the source, semantic modules provide run-time debug output to the JavaScript console telling you what each component is doing as it is doing it.</p>
         </div>
       </div>
       <div class="item">

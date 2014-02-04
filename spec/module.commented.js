@@ -291,7 +291,7 @@ $.fn.example = function(parameters) {
         // Invoke is used to match internal functions to string lookups.
         // `$('.foo').example('invoke', 'set text', 'Foo')`
         // Method lookups are lazy, looking for many variations of a search string
-        // For example 'set active', will look for both `setText : function(){}`, `set: { text: function(){} }`
+        // For example 'set text', will look for both `setText : function(){}`, `set: { text: function(){} }`
         // Invoke attempts to preserve the 'this' chaining unless a value is returned.
         // If multiple values are returned an array of values matching up to the length of the selector is returned
         invoke: function(query, passedArguments, context) {
