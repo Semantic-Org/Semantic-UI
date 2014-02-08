@@ -1327,7 +1327,7 @@ body.progress .ui.progress .bar {
     width: auto;
     margin: 0% 30px 0px;
   }
-  #example
+  /*rtl:ignore*/
   #example .right.attached.launch {
     display: none;
   }
