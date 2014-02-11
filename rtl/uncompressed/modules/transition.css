@@ -28,7 +28,7 @@
 *******************************/
 
 .ui.animating.transition {
-  display: block;
+  display: block !important;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -54,7 +54,7 @@
 /* Visible */
 
 .ui.visible.transition {
-  display: block;
+  display: block !important;
   visibility: visible;
 }
 

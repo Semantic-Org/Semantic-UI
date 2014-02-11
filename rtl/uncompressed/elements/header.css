@@ -195,6 +195,7 @@
   font-weight: bold;
   line-height: 1.33;
   text-transform: none;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.header .sub.header {

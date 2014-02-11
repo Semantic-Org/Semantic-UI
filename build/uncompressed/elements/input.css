@@ -217,11 +217,11 @@
 
 /* browsers require these rules separate */
 
-.ui.input::-webkit-input-placeholder {
+.ui.input input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
 
-.ui.input::-moz-placeholder {
+.ui.input input::-moz-placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
 

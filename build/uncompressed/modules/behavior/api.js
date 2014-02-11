@@ -272,12 +272,18 @@ $.api = $.fn.api = function(parameters) {
             done: function(response) {
               module.debug('API request received', response);
               if(settings.dataType == 'json') {
-                module.debug('Checking JSON', settings.successTest, response);
-                if( $.isFunction(settings.successTest) && settings.success(response) ) {
-                  $.proxy(settings.success, $context)(response, $module);
+                if( $.isFunction(settings.successTest) ) {
+                  module.debug('Checking JSON', settings.successTest, response);
+                  if( settings.success(response) ) {
+                    $.proxy(settings.success, $context)(response, $module);
+                  }
+                  else {
+                    module.debug('JSON test specified by user and response failed', response);
+                    $.proxy(settings.failure, $context)(response, $module);
+                  }
                 }
                 else {
-                  $.proxy(settings.failure, $context)(response, $module);
+                  $.proxy(settings.success, $context)(response, $module);
                 }
               }
               else {

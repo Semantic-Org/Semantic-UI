@@ -680,6 +680,15 @@ body > .ui.grid {
 }
 
 /*-------------------
+      Inner Grid
+--------------------*/
+
+.ui.grid > .grid {
+  margin-right: 0em !important;
+  margin-left: 0em !important;
+}
+
+/*-------------------
        Columns
 --------------------*/
 
@@ -6358,6 +6367,251 @@ body > .ui.grid {
            Overrides
 *******************************/
 /*
+ * # Semantic - Container
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+/*-------------------
+        Theme
+--------------------*/
+
+/* To override a theme for an individual element
+   specify theme name below
+*/
+
+/* Theme to load global Variables */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/* Import */
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+        Page
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+      Container
+--------------------*/
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*-------------------
+      Container
+--------------------*/
+
+/*******************************
+            Container
+*******************************/
+
+.ui.container {
+  display: block;
+  margin: 0em auto;
+}
+
+/* Coupling */
+
+.ui.container > .grid {
+  margin-right: 0% !important;
+  margin-left: 0% !important;
+}
+
+/*******************************
+            Types
+*******************************/
+
+/*-------------------
+         Page
+--------------------*/
+
+@media only screen and (max-width: 991px) {
+  .ui.page.container {
+    margin-right: 4%;
+    margin-left: 4%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.page.container {
+    margin-right: 8%;
+    margin-left: 8%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .ui.page.container {
+    margin-right: 13%;
+    margin-left: 13%;
+  }
+}
+
+@media only screen and (min-width: 1750px) {
+  .ui.page.container {
+    margin-right: 18%;
+    margin-left: 18%;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .ui.page.container {
+    margin-right: 23%;
+    margin-left: 23%;
+  }
+}
+
+/* Padded */
+
+.ui.padded.page.container {
+  margin-right: 0em;
+  margin-left: 0em;
+}
+
+@media only screen and (max-width: 991px) {
+  .ui.padded.page.container {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.padded.page.container {
+    padding-right: 8%;
+    padding-left: 8%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .ui.padded.page.container {
+    padding-right: 13%;
+    padding-left: 13%;
+  }
+}
+
+@media only screen and (min-width: 1750px) {
+  .ui.padded.page.container {
+    padding-right: 18%;
+    padding-left: 18%;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .ui.padded.page.container {
+    padding-right: 23%;
+    padding-left: 23%;
+  }
+}
+/*
  * # Semantic - Divider
  * http://github.com/jlukic/semantic-ui/
  *
@@ -6903,6 +7157,7 @@ body > .ui.grid {
   font-weight: bold;
   line-height: 1.33;
   text-transform: none;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.header .sub.header {
@@ -9836,11 +10091,11 @@ img.ui.image {
 
 /* browsers require these rules separate */
 
-.ui.input::-webkit-input-placeholder {
+.ui.input input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
 
-.ui.input::-moz-placeholder {
+.ui.input input::-moz-placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -14249,19 +14504,19 @@ a.ui.teal.label:hover:before {
   box-sizing: border-box;
 }
 
-.ui.modal > .content > .right:not(.ui) {
+.ui.modal > .content > .left:not(.ui) {
   display: table-cell;
   padding-left: 1.5%;
   min-width: 25%;
 }
 
-.ui.modal > .content > .left:not(.ui) {
+.ui.modal > .content > .right:not(.ui) {
   display: table-cell;
   padding-right: 1.5%;
   vertical-align: top;
 }
 
-.ui.modal > .content > .right:not(.ui) > i.icon {
+.ui.modal > .content > .left:not(.ui) > i.icon {
   font-size: 8em;
   margin: 0em;
 }
@@ -14290,12 +14545,12 @@ a.ui.teal.label:hover:before {
 /* Mobile Only */
 
 @media only screen and (max-width: 768px) {
-  .ui.modal .content > .right:not(.ui) {
+  .ui.modal .content > .left:not(.ui) {
     display: block;
     padding: 0em 0em 1em;
   }
 
-  .ui.modal .content > .left:not(.ui) {
+  .ui.modal .content > .right:not(.ui) {
     display: block;
     padding: 1em 0em 0em;
     -webkit-box-shadow: none;
@@ -15762,7 +16017,7 @@ body.pushed.scrolling.ui.dimmable {
 *******************************/
 
 .ui.animating.transition {
-  display: block;
+  display: block !important;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -15788,7 +16043,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Visible */
 
 .ui.visible.transition {
-  display: block;
+  display: block !important;
   visibility: visible;
 }
 

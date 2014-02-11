@@ -48,7 +48,6 @@
   transition: @transition;
 
   box-shadow: @boxShadow;
-
   box-sizing: border-box;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
@@ -59,10 +58,10 @@
 ---------------------*/
 
 /* browsers require these rules separate */
-.ui.input::-webkit-input-placeholder {
+.ui.input input::-webkit-input-placeholder {
   color: @placeholderColor;
 }
-.ui.input::-moz-placeholder {
+.ui.input input::-moz-placeholder {
   color: @placeholderColor;
 }
 
@@ -308,4 +307,4 @@
   font-size: 1.5rem;
 }
 
-.loadUIOverrides() !important;
+.loadUIOverrides();
