@@ -1323,10 +1323,6 @@ body.progress .ui.progress .bar {
     width: auto;
     margin: 0% 30px 0px;
   }
-  #example
-  #example .right.attached.launch {
-    display: none;
-  }
 }
 @media only screen and (max-width : 780px) {
   pre.console {
