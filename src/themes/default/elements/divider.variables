@@ -19,7 +19,6 @@
 --------------------*/
 
 /* Icon */
-
 @dividerIconSize: 1rem;
 @dividerIconMargin: 0rem;
 

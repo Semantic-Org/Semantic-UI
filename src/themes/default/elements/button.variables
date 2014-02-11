@@ -33,7 +33,7 @@
 ;
 
 /* transitions */
-@transition:
+@transition: 
   opacity @transitionDuration @transitionEasing,
   background-color @transitionDuration @transitionEasing,
   color @transitionDuration @transitionEasing,
@@ -88,7 +88,6 @@
 --------------------*/
 
 /* Or */
-@orText: 'or';
 @orWidth: 0.3em;
 @orHeight: 1.1em;
 

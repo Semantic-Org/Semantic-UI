@@ -11,7 +11,7 @@
 
 ;(function ($, window, document, undefined) {
 
-$.fn.search = function(source, parameters) {
+$.fn.search = function(parameters) {
   var
     $allModules     = $(this),
     moduleSelector  = $allModules.selector || '',
@@ -55,9 +55,9 @@ $.fn.search = function(source, parameters) {
           module.verbose('Initializing module');
           var
             prompt = $prompt[0],
-            inputEvent   = (prompt.oninput !== undefined)
+            inputEvent   = (prompt !== undefined && prompt.oninput !== undefined)
               ? 'input'
-              : (prompt.onpropertychange !== undefined)
+              : (prompt !== undefined && prompt.onpropertychange !== undefined)
                 ? 'propertychange'
                 : 'keyup'
           ;
@@ -232,11 +232,21 @@ $.fn.search = function(source, parameters) {
             }
             else {
               module.debug("Querying for '" + searchTerm + "'");
-              if(typeof source == 'object') {
+              if($.isPlainObject(settings.source)) {
                 module.search.local(searchTerm);
               }
-              else {
+              else if(settings.apiSettings) {
                 module.search.remote(searchTerm);
+              }
+              else if($.api !== undefined && $.api.settings.api.search !== undefined) {
+                module.debug('Searching with default search API endpoint');
+                settings.apiSettings = {
+                  action: 'search'
+                };
+                module.search.remote(searchTerm);
+              }
+              else {
+                module.error(error.source);
               }
               $.proxy(settings.onSearchQuery, $module)(searchTerm);
             }
@@ -258,7 +268,7 @@ $.fn.search = function(source, parameters) {
             ;
             // iterate through search fields in array order
             $.each(searchFields, function(index, field) {
-              $.each(source, function(label, thing) {
+              $.each(settings.source, function(label, thing) {
                 if(typeof thing[field] == 'string' && ($.inArray(thing, results) == -1) && ($.inArray(thing, fullTextResults) == -1) ) {
                   if( searchRegExp.test( thing[field] ) ) {
                     results.push(thing);
@@ -282,8 +292,9 @@ $.fn.search = function(source, parameters) {
             var
               apiSettings = {
                 stateContext  : $module,
-                url           : source,
-                urlData: { query: searchTerm },
+                urlData: {
+                  query: searchTerm
+                },
                 success       : function(response) {
                   searchHTML = module.results.generate(response);
                   module.search.cache.write(searchTerm, searchHTML);
@@ -601,6 +612,8 @@ $.fn.search.settings = {
   onResultsOpen  : function(){},
   onResultsClose : function(){},
 
+  source         : false,
+
   automatic      : 'true',
   type           : 'simple',
   minCharacters  : 3,
@@ -614,9 +627,7 @@ $.fn.search.settings = {
   ],
 
   // api config
-  apiSettings: {
-
-  },
+  apiSettings: false,
 
   className: {
     active  : 'active',
@@ -627,6 +638,7 @@ $.fn.search.settings = {
   },
 
   error : {
+    source      : 'No source or api action specified',
     noResults   : 'Your search returned no results',
     logging     : 'Error in debug logging, exiting.',
     noTemplate  : 'A valid template name was not specified.',
