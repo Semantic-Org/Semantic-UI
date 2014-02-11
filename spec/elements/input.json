@@ -1,0 +1,38 @@
+{
+    "Name": "Semantic Input",
+    "Description": "Inputs allow a user to enter information",
+    "Definition": "Elements",
+    "Types": {
+        "Input": ".ui.input > ."
+    },
+    "States": {},
+    "Variations": {
+        "Icon": [
+            "icon"
+        ],
+        "Labeled": [
+            "labeled"
+        ],
+        "Action": [
+            "action"
+        ],
+        "Fluid": [
+            "fluid icon",
+            "fluid action"
+        ],
+        "Size": [
+            "mini icon"
+        ]
+    },
+    "Definitions": {
+        "Input": "A standard input",
+        "Focus": "An input field can show a user is currently interacting with it",
+        "Loading": "An icon input field can show that it is currently loading data",
+        "Error": "An input field can show the data contains errors",
+        "Icon": "An input can be formatted with an icon",
+        "Labeled": "An input can be formatted with a label",
+        "Action": "An input can be formatted to alert the user to an action they may perform",
+        "Fluid": "An input can take the size of its container",
+        "Size": "An input can vary in size"
+    }
+}

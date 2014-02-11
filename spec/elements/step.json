@@ -1,0 +1,24 @@
+{
+    "Name": "Semantic Step",
+    "Description": "Steps show the current activity in a series of consecutive activities.",
+    "Definition": "Elements",
+    "Standard": {},
+    "Groups": {},
+    "States": {},
+    "Variations": {
+        "Size": [
+            "small",
+            "large"
+        ],
+        "Step": [
+            "four"
+        ]
+    },
+    "Definitions": {
+        "Step": "Steps can be divided evenly inside their parent",
+        "Steps": "A set of step",
+        "Active": "A step can be highlighted as active",
+        "Disabled": "A step can show that it cannot be selected",
+        "Size": "Steps can have different sizes"
+    }
+}
