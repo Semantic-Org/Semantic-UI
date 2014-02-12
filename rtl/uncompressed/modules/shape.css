@@ -1,0 +1,156 @@
+/*
+ * # Semantic - Shape
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+              Shape
+*******************************/
+
+.ui.shape {
+  display: inline-block;
+  position: relative;
+  -webkit-perspective: 2000px;
+  -ms-perspective: 2000px;
+  perspective: 2000px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui.shape .sides {
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.ui.shape .side {
+  opacity: 1;
+  width: 100%;
+  margin: 0em !important;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui.shape .side {
+  display: none;
+}
+
+/*******************************
+             Types
+*******************************/
+
+.ui.cube.shape .side {
+  min-width: 15em;
+  height: 15em;
+  padding: 2em;
+  background-color: #E6E6E6;
+  color: rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ui.cube.shape .side > .content {
+  width: 100%;
+  height: 100%;
+  display: table;
+  text-align: center;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.ui.cube.shape .side > .content > div {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 2em;
+}
+
+/*******************************
+          Variations
+*******************************/
+
+.ui.text.shape.animating .sides {
+  position: static;
+}
+
+.ui.text.shape .side {
+  white-space: nowrap;
+}
+
+.ui.text.shape .side > * {
+  white-space: normal;
+}
+
+/*******************************
+             States
+*******************************/
+
+/*--------------
+    Loading
+---------------*/
+
+.ui.loading.shape {
+  position: absolute;
+  top: -9999px;
+  right: -9999px;
+}
+
+/*--------------
+    Animating
+---------------*/
+
+.ui.shape .animating.side {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 100;
+}
+
+.ui.shape .hidden.side {
+  opacity: 0.4;
+}
+
+/*--------------
+      CSS
+---------------*/
+
+.ui.shape.animating {
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.ui.shape.animating .sides {
+  position: absolute;
+}
+
+.ui.shape.animating .sides {
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.ui.shape.animating .side {
+  -webkit-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.shape .active.side {
+  display: block;
+}

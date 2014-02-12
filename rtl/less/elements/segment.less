@@ -1,0 +1,456 @@
+/*
+ * # Semantic - Segment
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Segment
+*******************************/
+
+.ui.segment {
+  position: relative;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  margin: 1em 0em;
+  padding: 1em;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui.segment:first-child {
+  margin-top: 0em;
+}
+
+.ui.segment:last-child {
+  margin-bottom: 0em;
+}
+
+.ui.segment:after {
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.ui.vertical.segment {
+  margin: 0em;
+  padding-right: 0em;
+  padding-left: 0em;
+  background-color: transparent;
+  border-radius: 0px;
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.ui.vertical.segment:first-child {
+  padding-top: 0em;
+}
+
+.ui.horizontal.segment {
+  margin: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  background-color: transparent;
+  border-radius: 0px;
+  -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.ui.horizontal.segment:first-child {
+  padding-right: 0em;
+}
+
+/*-------------------
+    Loose Coupling
+--------------------*/
+
+.ui.pointing.menu + .ui.attached.segment {
+  top: 1px;
+}
+
+.ui.page.grid.segment
+.ui.grid .ui.segment.column {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.ui.grid.segment,
+.ui.grid .ui.segment.row,
+.ui.grid .ui.segment.column {
+  border-radius: 0em;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* No padding on edge content */
+
+.ui.segment > :first-child {
+  margin-top: 0em;
+}
+
+.ui.segment > :last-child {
+  margin-bottom: 0em;
+}
+
+/*******************************
+             Types
+*******************************/
+
+/*-------------------
+        Piled
+--------------------*/
+
+.ui.piled.segment {
+  margin: 2em 0em;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.ui.piled.segment:first-child {
+  margin-top: 0em;
+}
+
+.ui.piled.segment:last-child {
+  margin-bottom: 0em;
+}
+
+.ui.piled.segment:after,
+.ui.piled.segment:before {
+  background-color: #FFFFFF;
+  visibility: visible;
+  content: "";
+  display: block;
+  height: 100%;
+  right: -1px;
+  position: absolute;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.ui.piled.segment:after {
+  -webkit-transform: rotate(1.2deg);
+  -ms-transform: rotate(1.2deg);
+  transform: rotate(1.2deg);
+  top: 0;
+  z-index: -1;
+}
+
+.ui.piled.segment:before {
+  -webkit-transform: rotate(-1.2deg);
+  -ms-transform: rotate(-1.2deg);
+  transform: rotate(-1.2deg);
+  top: 0;
+  z-index: -2;
+}
+
+/*-------------------
+       Stacked
+--------------------*/
+
+.ui.stacked.segment {
+  padding-bottom: 1.7em;
+}
+
+.ui.stacked.segment:after,
+.ui.stacked.segment:before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  right: 0%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
+  width: 100%;
+  height: 5px;
+  visibility: visible;
+}
+
+.ui.stacked.segment:before {
+  bottom: 0px;
+}
+
+/* Inverted */
+
+.ui.stacked.inverted.segment:after,
+.ui.stacked.inverted.segment:before {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/*-------------------
+       Circular
+--------------------*/
+
+.ui.circular.segment {
+  display: table-cell;
+  padding: 2em;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 500em;
+}
+
+/*-------------------
+       Raised
+--------------------*/
+
+.ui.raised.segment {
+  -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.disabled.segment {
+  opacity: 0.8;
+  color: #DDDDDD;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*-------------------
+       Basic
+--------------------*/
+
+.ui.basic.segment {
+  position: relative;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0px;
+}
+
+.ui.basic.segment:first-child {
+  padding-top: 0em;
+}
+
+.ui.basic.segment:last-child {
+  padding-bottom: 0em;
+}
+
+/*-------------------
+       Fittted
+--------------------*/
+
+.ui.fitted.segment {
+  padding: 0em;
+}
+
+/*-------------------
+       Colors
+--------------------*/
+
+.ui.blue.segment {
+  border-top: 0.2em solid #6ECFF5;
+}
+
+.ui.green.segment {
+  border-top: 0.2em solid #A1CF64;
+}
+
+.ui.red.segment {
+  border-top: 0.2em solid #D95C5C;
+}
+
+.ui.orange.segment {
+  border-top: 0.2em solid #F05940;
+}
+
+.ui.purple.segment {
+  border-top: 0.2em solid #564F8A;
+}
+
+.ui.teal.segment {
+  border-top: 0.2em solid #00B5AD;
+}
+
+/*-------------------
+   Inverted Colors
+--------------------*/
+
+.ui.inverted.black.segment {
+  background-color: #5C6166 !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.blue.segment {
+  background-color: #6ECFF5 !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.green.segment {
+  background-color: #A1CF64 !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.red.segment {
+  background-color: #D95C5C !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.orange.segment {
+  background-color: #F05940 !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.purple.segment {
+  background-color: #564F8A !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.teal.segment {
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.left.aligned.segment {
+  text-align: right;
+}
+
+.ui.right.aligned.segment {
+  text-align: left;
+}
+
+.ui.center.aligned.segment {
+  text-align: center;
+}
+
+.ui.justified.segment {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.segment,
+.ui.left.floated.segment {
+  float: right;
+}
+
+.ui.right.floated.segment {
+  float: left;
+}
+
+/*-------------------
+      Inverted
+--------------------*/
+
+.ui.inverted.segment {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ui.inverted.segment .segment {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.ui.inverted.segment .inverted.segment {
+  color: #FFFFFF;
+}
+
+.ui.inverted.segment,
+.ui.primary.inverted.segment {
+  background-color: #222222;
+  color: #FFFFFF;
+}
+
+/*-------------------
+     Ordinality
+--------------------*/
+
+.ui.primary.segment {
+  background-color: #FFFFFF;
+  color: #555555;
+}
+
+.ui.secondary.segment {
+  background-color: #FAF9FA;
+  color: #777777;
+}
+
+.ui.tertiary.segment {
+  background-color: #EBEBEB;
+  color: #B0B0B0;
+}
+
+.ui.secondary.inverted.segment {
+  background-color: #555555;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  color: #FAFAFA;
+}
+
+.ui.tertiary.inverted.segment {
+  background-color: #555555;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  color: #EEEEEE;
+}
+
+/*-------------------
+      Attached
+--------------------*/
+
+.ui.segment.attached {
+  top: -1px;
+  bottom: -1px;
+  border-radius: 0px;
+  margin: 0em;
+  -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
+  box-shadow: 0px 0px 0px 1px #DDDDDD;
+}
+
+.ui.top.attached.segment {
+  top: 0px;
+  bottom: -1px;
+  margin-top: 1em;
+  margin-bottom: 0em;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.ui.segment.top.attached:first-child {
+  margin-top: 0em;
+}
+
+.ui.segment.bottom.attached {
+  top: -1px;
+  bottom: 0px;
+  margin-top: 0em;
+  margin-bottom: 1em;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.ui.segment.bottom.attached:last-child {
+  margin-bottom: 0em;
+}
