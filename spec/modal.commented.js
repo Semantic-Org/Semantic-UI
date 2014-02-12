@@ -398,7 +398,7 @@ $.fn.modal = function(parameters) {
         // Cache context and modal size to avoid recalculation
         cacheSizes: function() {
           module.cache = {
-            height        : $module.outerHeight() + settings.offset,
+            height        : $module.outerHeight() + settings.offset + window.parseInt($module.css('marginTop')),
             contextHeight : (settings.context == 'body')
               ? $(window).height()
               : $dimmable.height()
