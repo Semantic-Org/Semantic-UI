@@ -1,11 +1,25 @@
 ## RELEASE NOTES
 
+### Version 0.12.5 - Feb 04, 2014
+
+**Enhancement**
+- **Button** - Or buttons can now have text specified using ``<div class="or" data-text"text">`` with alternate text
+
+**Fixes**
+- **Popup** - Fixes issue where popups using ``title`` attribute to store data were losing title content instead of correctly restoring it
+- **Modal** - Fixes an issue where modal may not position correctly in some cases **Thanks GianlucaGuarini**
+- **Modal** - Fixes modal throwing an error when transition is not included **Thanks robertoles**
+
 ### Version 0.12.4 - Jan 29, 2014
 
 **Fixes**
 - **Form** - Fixes issue with onSuccess not allowing cancellation of form submit in form validation
 - **Input** - Fixes ``ui buttons`` to work inside an ``ui action input`` **Thanks MohammadYounes **
 - **Items** - Fixes ``ui horizontal items`` to work correctly, missing comma **Thanks mishak87**
+
+**Project**
+- **RTL** - Adds RTL hinting for some files **Thanks MohammadYounes**
+- **Specs** - Adds additional JSON spec files for future use with generators **Thanks brigand**
 
 ### Version 0.12.3 - Jan 24, 2014
 

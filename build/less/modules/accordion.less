@@ -24,7 +24,8 @@
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
-.ui.accordion .title {
+.ui.accordion > .title,
+.ui.accordion .accordion > .title {
   cursor: pointer;
   margin: 0em;
   padding: 0.75em 1em;
@@ -34,13 +35,15 @@
   transition: background-color 0.2s ease-out;
 }
 
-.ui.accordion .title:first-child {
+.ui.accordion > .title:first-child,
+.ui.accordion .accordion > .title:first-child {
   border-top: none;
 }
 
 /* Content */
 
-.ui.accordion .content {
+.ui.accordion > .content,
+.ui.accordion .accordion > .content {
   display: none;
   margin: 0em;
   padding: 1.3em 1em;
@@ -48,7 +51,8 @@
 
 /* Arrow */
 
-.ui.accordion .title .dropdown.icon {
+.ui.accordion > .title .dropdown.icon,
+.ui.accordion .accordion > .title .dropdown.icon {
   display: inline-block;
   float: none;
   margin: 0em 0.5em 0em 0em;
@@ -61,8 +65,9 @@
   transform: rotate(0deg);
 }
 
-.ui.accordion .title .dropdown.icon:before {
-  content: '\f0da';
+.ui.accordion > .title .dropdown.icon:before,
+.ui.accordion .accordion > .title .dropdown.icon:before {
+  content: '\f0da'/*rtl:'\f0d9'*/;
 }
 
 /*--------------
@@ -75,8 +80,8 @@
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
-.ui.basic.accordion.menu .title,
-.ui.basic.accordion.menu .content {
+.ui.basic.accordion.menu > .title,
+.ui.basic.accordion.menu > .content {
   padding: 0em;
 }
 
@@ -94,19 +99,21 @@
   box-shadow: none;
 }
 
-.ui.basic.accordion .title,
-.ui.basic.accordion .title {
+.ui.basic.accordion > .title,
+.ui.basic.accordion .accordion > .title {
   background-color: transparent;
   border-top: none;
   padding-left: 0em;
   padding-right: 0em;
 }
 
-.ui.basic.accordion .content {
+.ui.basic.accordion > .content,
+.ui.basic.accordion .accordion > .content {
   padding: 0.5em 0em;
 }
 
-.ui.basic.accordion .active.title {
+.ui.basic.accordion > .active.title,
+.ui.basic.accordion .accordion > .active.title {
   background-color: transparent;
 }
 
@@ -118,8 +125,10 @@
       Hover
 ---------------*/
 
-.ui.accordion .title:hover,
-.ui.accordion .active.title {
+.ui.accordion > .title:hover,
+.ui.accordion > .active.title,
+.ui.accordion .accordion > .title:hover,
+.ui.accordion .accordion > .active.title {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -127,18 +136,21 @@
      Active
 ---------------*/
 
-.ui.accordion .active.title {
+.ui.accordion > .active.title,
+.ui.accordion .accordion > .active.title {
   background-color: rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.accordion .active.title .dropdown.icon {
+.ui.accordion > .active.title .dropdown.icon,
+.ui.accordion .accordion > .active.title .dropdown.icon {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
-.ui.accordion .active.content {
+.ui.accordion > .active.content,
+.ui.accordion .accordion > .active.content {
   display: block;
 }
 

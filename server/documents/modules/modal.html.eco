@@ -167,6 +167,17 @@ type        : 'UI Module'
     <h2 class="ui dividing header">Examples</h2>
 
     <div class="no example">
+      <h4 class="ui header">Forcing a Choice</h4>
+      <p>You can disable a modal's dimmer from being closed by click to force a user to make a choice</p>
+      <div class="code" data-demo="true">
+      $('.basic.modal')
+        .modal('setting', 'closable', false)
+        .modal('show')
+      ;
+      </div>
+    </div>
+
+    <div class="no example">
       <h4 class="ui header">Approve / Deny Callbacks</h4>
       <p>Modals will automatically tie approve deny callbacks to any positive/approve, negative/deny or ok/cancel buttons. If a callback returns false it will prevent the modal from closing</p>
       <div class="code" data-demo="true">
@@ -181,17 +192,6 @@ type        : 'UI Module'
             window.alert('Approved!');
           }
         })
-        .modal('show')
-      ;
-      </div>
-    </div>
-
-    <div class="no example">
-      <h4 class="ui header">Forcing a Choice</h4>
-      <p>You can disable a modal's dimmer from being closed by click to force a user to make a choice</p>
-      <div class="code" data-demo="true">
-      $('.basic.modal')
-        .modal('setting', 'closable', false)
         .modal('show')
       ;
       </div>

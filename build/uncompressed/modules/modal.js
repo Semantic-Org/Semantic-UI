@@ -305,9 +305,11 @@ $.fn.modal = function(parameters) {
             ;
           }
           $dimmable.dimmer('hide', function() {
-            $module
-              .transition('reset')
-            ;
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              $module
+                .transition('reset')
+              ;
+            }
             module.remove.active();
           });
         },
@@ -414,7 +416,7 @@ $.fn.modal = function(parameters) {
 
         cacheSizes: function() {
           module.cache = {
-            height        : $module.outerHeight() + settings.offset,
+            height        : $module.outerHeight() + settings.offset + parseInt($module.css('marginTop'), 10),
             contextHeight : (settings.context == 'body')
               ? $(window).height()
               : $dimmable.height()
