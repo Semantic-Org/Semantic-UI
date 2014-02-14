@@ -305,9 +305,11 @@ $.fn.modal = function(parameters) {
             ;
           }
           $dimmable.dimmer('hide', function() {
-            $module
-              .transition('reset')
-            ;
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              $module
+                .transition('reset')
+              ;
+            }
             module.remove.active();
           });
         },
