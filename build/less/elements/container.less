@@ -1,6 +1,6 @@
 /*
  * # Semantic - Container
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -38,75 +38,81 @@
             Types
 *******************************/
 
+/*-------------------
+      Centered
+--------------------*/
+
+.ui.centered.container {
+  margin: 0em auto;
+}
 
 /*-------------------
          Page
 --------------------*/
 
-@media only screen and (max-width : 991px) {
-  .ui.page.container {
-    margin-left: 4%;
-    margin-right: 4%;
-  }
-}
-@media only screen and (min-width : 992px) {
-  .ui.page.container {
-    margin-left: 8%;
-    margin-right: 8%;
-  }
-}
-@media only screen and (min-width : 1500px) {
-  .ui.page.container {
-    margin-left: 13%;
-    margin-right: 13%;
-  }
-}
-@media only screen and (min-width : 1750px) {
-  .ui.page.container {
-    margin-left: 18%;
-    margin-right: 18%;
-  }
-}
-@media only screen and (min-width : 2000px) {
-  .ui.page.container {
-    margin-left: 23%;
-    margin-right: 23%;
-  }
-}
-
-/* Padded */
-.ui.padded.page.container {
+.ui.page.container:not(.centered) {
   margin-left: 0em;
   margin-right: 0em;
 }
 @media only screen and (max-width : 991px) {
-  .ui.padded.page.container {
+  .ui.page.container:not(.centered) {
     padding-left: 4%;
     padding-right: 4%;
   }
 }
 @media only screen and (min-width : 992px) {
-  .ui.padded.page.container {
+  .ui.page.container:not(.centered) {
     padding-left: 8%;
     padding-right: 8%;
   }
 }
 @media only screen and (min-width : 1500px) {
-  .ui.padded.page.container {
+  .ui.page.container:not(.centered) {
     padding-left: 13%;
     padding-right: 13%;
   }
 }
 @media only screen and (min-width : 1750px) {
-  .ui.padded.page.container {
+  .ui.page.container:not(.centered) {
     padding-left: 18%;
     padding-right: 18%;
   }
 }
 @media only screen and (min-width : 2000px) {
-  .ui.padded.page.container {
+  .ui.page.container:not(.centered) {
     padding-left: 23%;
     padding-right: 23%;
   }
 }
 
+/* Centered Page Container */
+@media only screen and (max-width : 991px) {
+  .ui.centered.page.container {
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+}
+@media only screen and (min-width : 992px) {
+  .ui.centered.page.container {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+}
+@media only screen and (min-width : 1500px) {
+  .ui.centered.page.container {
+    margin-left: 13%;
+    margin-right: 13%;
+  }
+}
+@media only screen and (min-width : 1750px) {
+  .ui.centered.page.container {
+    margin-left: 18%;
+    margin-right: 18%;
+  }
+}
+@media only screen and (min-width : 2000px) {
+  .ui.centered.page.container {
+    margin-left: 23%;
+    margin-right: 23%;
+  }
+}

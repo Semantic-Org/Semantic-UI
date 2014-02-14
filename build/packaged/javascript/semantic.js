@@ -1,6 +1,6 @@
 /*
  * # Semantic - Accordion
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -424,7 +424,7 @@ $.extend( $.easing, {
 
 /*
  * # Semantic - API
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -1143,7 +1143,7 @@ $.api.settings.api = {};
 })( jQuery, window , document );
 /*
  * # Semantic - Colorize
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -1414,7 +1414,7 @@ $.api.settings.api = {};
 
 /*
  * # Semantic - Form Validation
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -2121,7 +2121,7 @@ $.fn.form.settings = {
 
 /*
  * # Semantic - State
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -2847,7 +2847,7 @@ $.fn.state.settings = {
 
 /*
  * # Semantic - Chatroom
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -3621,7 +3621,7 @@ $.fn.chatroom = function(parameters) {
 
 /*
  * # Semantic - Checkbox
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -3705,6 +3705,9 @@ $.fn.checkbox = function(parameters) {
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
+          ;
+          $label
+            .off(eventNamespace)
           ;
         },
 
@@ -3967,7 +3970,7 @@ $.fn.checkbox.settings = {
 
 /*
  * # Semantic - Dimmer
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -4560,7 +4563,7 @@ $.fn.dimmer.settings = {
 })( jQuery, window , document );
 /*
  * # Semantic - Dropdown
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -5494,7 +5497,7 @@ $.extend( $.easing, {
 })( jQuery, window , document );
 /*
  * # Semantic - Modal
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -6201,7 +6204,7 @@ $.fn.modal.settings = {
 
 /*
  * # Semantic - Nag
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -6745,7 +6748,7 @@ $.fn.nag.settings = {
 
 /*
  * # Semantic - Popup
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -7601,7 +7604,7 @@ $.fn.popup.settings = {
 
 /*
  * # Semantic - Rating
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -8009,7 +8012,7 @@ $.fn.rating.settings = {
 
 /*
  * # Semantic - Search
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -8787,7 +8790,7 @@ $.fn.search.settings = {
 })( jQuery, window , document );
 /*
  * # Semantic - Shape
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -9574,7 +9577,7 @@ $.fn.shape.settings = {
 })( jQuery, window , document );
 /*
  * # Semantic - Sidebar
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -10089,7 +10092,7 @@ $.fn.sidebar.settings = {
 
 /*
  * # Semantic - Tab
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  * Copyright 2013 Contributors
  * Released under the MIT license
@@ -10800,7 +10803,7 @@ $.fn.sidebar.settings = {
 
 /*
  * # Semantic - Transition
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -11561,7 +11564,7 @@ $.fn.transition.settings = {
   name        : 'Transition',
 
   // debug content outputted to console
-  debug       : true,
+  debug       : false,
 
   // verbose debug output
   verbose     : true,

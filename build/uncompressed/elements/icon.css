@@ -1,6 +1,6 @@
 /*
  * # Semantic - Icon
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -34,7 +34,9 @@
    specify theme name below
 */
 
-/* Theme to load global Variables */
+/* Theme to load site variables */
+
+/* Path to user override folder */
 
 /* Elements */
 
@@ -56,6 +58,10 @@
 
 /*-------------------
         Page
+--------------------*/
+
+/*-------------------
+     Breakpoints
 --------------------*/
 
 /*-------------------
@@ -155,6 +161,14 @@
 /*-------------------
    Icon Variables
 --------------------*/
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
 
 /*******************************
      User Global Variables

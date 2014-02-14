@@ -1,5 +1,16 @@
 ## RELEASE NOTES
 
+### Version 1.0.0 - XX XX, 2014
+
+**Breaking Changes**
+- **Form** - Standard grids now have margin on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
+
+**Enhancements**
+- **Grid** - Divided and celled grids can now be inverted for dark backgrounds
+- **Grid** - Vertically divided grid now does not include left/right gutters in divider
+- **Grid** - Fixed page grid allows for fixed pixel size containers used with a grid instead of percentage
+
+
 ### Version 0.12.2 - Jan 21, 2014
 
 **Enhancement**

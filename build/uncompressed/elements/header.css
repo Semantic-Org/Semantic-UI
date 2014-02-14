@@ -1,8 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
-
 /*
  * # Semantic - Header
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -23,7 +21,9 @@
    specify theme name below
 */
 
-/* Theme to load global Variables */
+/* Theme to load site variables */
+
+/* Path to user override folder */
 
 /* Elements */
 
@@ -45,6 +45,10 @@
 
 /*-------------------
         Page
+--------------------*/
+
+/*-------------------
+     Breakpoints
 --------------------*/
 
 /*-------------------
@@ -182,6 +186,14 @@
 *******************************/
 
 /*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
             Header
 *******************************/
 
@@ -195,7 +207,7 @@
   font-weight: bold;
   line-height: 1.33;
   text-transform: none;
-  color: rgba(0, 0, 0, 0.7);
+  color: 'inherit';
 }
 
 .ui.header .sub.header {

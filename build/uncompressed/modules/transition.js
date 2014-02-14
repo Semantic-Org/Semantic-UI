@@ -1,6 +1,6 @@
 /*
  * # Semantic - Transition
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -761,7 +761,7 @@ $.fn.transition.settings = {
   name        : 'Transition',
 
   // debug content outputted to console
-  debug       : true,
+  debug       : false,
 
   // verbose debug output
   verbose     : true,
