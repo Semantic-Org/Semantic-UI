@@ -416,7 +416,7 @@ $.fn.modal = function(parameters) {
 
         cacheSizes: function() {
           module.cache = {
-            height        : $module.outerHeight() + settings.offset,
+            height        : $module.outerHeight() + settings.offset + parseInt($module.css('marginTop'), 10),
             contextHeight : (settings.context == 'body')
               ? $(window).height()
               : $dimmable.height()
