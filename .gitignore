@@ -3,10 +3,10 @@ node_modules
 node/server.json
 test/coverage/
 coverage/
-build/**/site/
+build/**/**/site/
 src/**/site/
 src/semantic.config
-build/**/semantic.config
+build/**/**/semantic.config
 
 # Numerous always-ignore extensions
 *.diff
