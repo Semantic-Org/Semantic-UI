@@ -85,6 +85,9 @@ $.fn.checkbox = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          $label
+            .off(eventNamespace)
+          ;
         },
 
         is: {

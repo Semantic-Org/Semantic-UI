@@ -30,89 +30,83 @@
 /* Coupling */
 
 .ui.container > .grid {
-  margin-left: 0% !important;
   margin-right: 0% !important;
+  margin-left: 0% !important;
 }
 
 /*******************************
             Types
 *******************************/
 
-/*-------------------
-      Centered
---------------------*/
-
-.ui.centered.container {
-  margin: 0em auto;
-}
 
 /*-------------------
          Page
 --------------------*/
 
-.ui.page.container:not(.centered) {
-  margin-left: 0em;
-  margin-right: 0em;
-}
 @media only screen and (max-width : 991px) {
-  .ui.page.container:not(.centered) {
-    padding-left: 4%;
-    padding-right: 4%;
+  .ui.page.container {
+    margin-right: 4%;
+    margin-left: 4%;
   }
 }
 @media only screen and (min-width : 992px) {
-  .ui.page.container:not(.centered) {
-    padding-left: 8%;
-    padding-right: 8%;
+  .ui.page.container {
+    margin-right: 8%;
+    margin-left: 8%;
   }
 }
 @media only screen and (min-width : 1500px) {
-  .ui.page.container:not(.centered) {
-    padding-left: 13%;
-    padding-right: 13%;
+  .ui.page.container {
+    margin-right: 13%;
+    margin-left: 13%;
   }
 }
 @media only screen and (min-width : 1750px) {
-  .ui.page.container:not(.centered) {
-    padding-left: 18%;
-    padding-right: 18%;
+  .ui.page.container {
+    margin-right: 18%;
+    margin-left: 18%;
   }
 }
 @media only screen and (min-width : 2000px) {
-  .ui.page.container:not(.centered) {
-    padding-left: 23%;
-    padding-right: 23%;
+  .ui.page.container {
+    margin-right: 23%;
+    margin-left: 23%;
   }
 }
 
-/* Centered Page Container */
+/* Padded */
+.ui.padded.page.container {
+  margin-right: 0em;
+  margin-left: 0em;
+}
 @media only screen and (max-width : 991px) {
-  .ui.centered.page.container {
-    margin-left: 4%;
-    margin-right: 4%;
+  .ui.padded.page.container {
+    padding-right: 4%;
+    padding-left: 4%;
   }
 }
 @media only screen and (min-width : 992px) {
-  .ui.centered.page.container {
-    margin-left: 8%;
-    margin-right: 8%;
+  .ui.padded.page.container {
+    padding-right: 8%;
+    padding-left: 8%;
   }
 }
 @media only screen and (min-width : 1500px) {
-  .ui.centered.page.container {
-    margin-left: 13%;
-    margin-right: 13%;
+  .ui.padded.page.container {
+    padding-right: 13%;
+    padding-left: 13%;
   }
 }
 @media only screen and (min-width : 1750px) {
-  .ui.centered.page.container {
-    margin-left: 18%;
-    margin-right: 18%;
+  .ui.padded.page.container {
+    padding-right: 18%;
+    padding-left: 18%;
   }
 }
 @media only screen and (min-width : 2000px) {
-  .ui.centered.page.container {
-    margin-left: 23%;
-    margin-right: 23%;
+  .ui.padded.page.container {
+    padding-right: 23%;
+    padding-left: 23%;
   }
 }
+

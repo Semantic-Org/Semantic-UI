@@ -1,4 +1,5 @@
 @import "themes/default/global.variables";
+@import "themes/user/global.variables";
 @import "reset.less";
 
 /*******************************
@@ -8,6 +9,7 @@
 html,
 body {
   font-size: @fontSize;
+  height: 100%;
 }
 
 body {
@@ -15,7 +17,7 @@ body {
   font-family: @fontFamily;
   margin: 0px;
   padding: 0px;
-  color: #555555;
+  color: @textColor;
   min-width: 320px;
 }
 

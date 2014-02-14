@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.12.2
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 02/11/2014
+*/
+
+.ui.container{display:block;margin:0 auto}.ui.container>.grid{margin-right:0!important;margin-left:0!important}@media only screen and (max-width:991px){.ui.page.container{margin-right:4%;margin-left:4%}}@media only screen and (min-width:992px){.ui.page.container{margin-right:8%;margin-left:8%}}@media only screen and (min-width:1500px){.ui.page.container{margin-right:13%;margin-left:13%}}@media only screen and (min-width:1750px){.ui.page.container{margin-right:18%;margin-left:18%}}@media only screen and (min-width:2000px){.ui.page.container{margin-right:23%;margin-left:23%}}.ui.padded.page.container{margin-right:0;margin-left:0}@media only screen and (max-width:991px){.ui.padded.page.container{padding-right:4%;padding-left:4%}}@media only screen and (min-width:992px){.ui.padded.page.container{padding-right:8%;padding-left:8%}}@media only screen and (min-width:1500px){.ui.padded.page.container{padding-right:13%;padding-left:13%}}@media only screen and (min-width:1750px){.ui.padded.page.container{padding-right:18%;padding-left:18%}}@media only screen and (min-width:2000px){.ui.padded.page.container{padding-right:23%;padding-left:23%}}
