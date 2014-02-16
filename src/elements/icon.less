@@ -94,7 +94,12 @@ i.icon {
 /*******************************
 Font Awesome list
 *******************************/
-
+i.icon.square:before {
+  content: "\f0c8";
+}
+i.icon.square.outline:before {
+  content: "\f096";
+}
 i.icon.glass:before {
   content: "\f000";
 }
@@ -525,9 +530,6 @@ i.icon.lemon.outline:before {
 i.icon.phone:before {
   content: "\f095";
 }
-i.icon.square.outline:before {
-  content: "\f096";
-}
 i.icon.bookmark.outline:before {
   content: "\f097";
 }
@@ -635,9 +637,7 @@ i.icon.save:before,
 i.icon.floppy.outline:before {
   content: "\f0c7";
 }
-i.icon.square:before {
-  content: "\f0c8";
-}
+
 i.icon.bars:before {
   content: "\f0c9";
 }
@@ -1403,6 +1403,8 @@ Changed
 Removed from Font-awesome:
     i.icon.collapse:before { content: "\f117"; }
     i.icon.expand:before { content: "\f116"; }
+
+SUI 'square' class becomes 'squared'
 */
 
 i.icon.close:before, i.icon.delete:before { content: "\f00d"; }
@@ -1631,10 +1633,10 @@ i.counterclockwise.rotated.icon {
 }
 
 /*-------------------
-        Square
+        Squared
 --------------------*/
 
-i.square.icon {
+i.squared.icon {
   width: 2em;
   height: 2em;
   padding: 0.5em 0.35em !important;
@@ -1645,7 +1647,7 @@ i.square.icon {
 
   vertical-align: baseline;
 }
-i.square.inverted.icon {
+i.squared.inverted.icon {
   border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -1741,3 +1743,4 @@ i.massive.icon {
   font-size: 8em;
   vertical-align: middle;
 }
+
