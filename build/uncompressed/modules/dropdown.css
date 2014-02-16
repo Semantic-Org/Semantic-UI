@@ -72,7 +72,7 @@
 }
 
 .ui.dropdown .menu .item .dropdown.icon:before {
-  content: "\f0da";
+  content: "\f0da" /*rtl:"\f0d9"*/;
 }
 
 /*--------------
@@ -147,7 +147,7 @@
 }
 
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
-  content: "\f0da";
+  content: "\f0da" /*rtl:"\f0d9"*/;
 }
 
 .ui.dropdown.icon.button > .dropdown.icon {

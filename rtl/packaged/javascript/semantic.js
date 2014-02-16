@@ -5682,9 +5682,11 @@ $.fn.modal = function(parameters) {
             ;
           }
           $dimmable.dimmer('hide', function() {
-            $module
-              .transition('reset')
-            ;
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              $module
+                .transition('reset')
+              ;
+            }
             module.remove.active();
           });
         },
@@ -5791,7 +5793,7 @@ $.fn.modal = function(parameters) {
 
         cacheSizes: function() {
           module.cache = {
-            height        : $module.outerHeight() + settings.offset,
+            height        : $module.outerHeight() + settings.offset + parseInt($module.css('marginTop'), 10),
             contextHeight : (settings.context == 'body')
               ? $(window).height()
               : $dimmable.height()
@@ -6795,12 +6797,14 @@ $.fn.popup = function(parameters) {
             if(settings.inline) {
               module.verbose('Inserting popup element inline', $popup);
               $popup
+                .data(moduleNamespace, instance)
                 .insertAfter($module)
               ;
             }
             else {
               module.verbose('Appending popup element to body', $popup);
               $popup
+                .data(moduleNamespace, instance)
                 .appendTo( $context )
               ;
             }
@@ -6902,8 +6906,8 @@ $.fn.popup = function(parameters) {
           conditions: function() {
             if(module.cache && module.cache.title) {
               $module.attr('title', module.cache.title);
+              module.verbose('Restoring original attributes', module.cache.title);
             }
-            module.verbose('Restoring original attributes', module.cache.title);
             return true;
           }
         },
@@ -11432,7 +11436,7 @@ $.fn.transition.settings = {
   name        : 'Transition',
 
   // debug content outputted to console
-  debug       : true,
+  debug       : false,
 
   // verbose debug output
   verbose     : true,
