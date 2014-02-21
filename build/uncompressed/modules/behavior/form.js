@@ -58,6 +58,39 @@ $.fn.form = function(fields, parameters) {
 
         initialize: function() {
           module.verbose('Initializing form validation', $module, validation, settings);
+          module.bindEvents();
+          module.instantiate();
+        },
+
+        instantiate: function() {
+          module.verbose('Storing instance of module', module);
+          instance = module;
+          $module
+            .data(moduleNamespace, module)
+          ;
+        },
+
+        destroy: function() {
+          module.verbose('Destroying previous module', instance);
+          module.removeEvents();
+          $module
+            .removeData(moduleNamespace)
+          ;
+        },
+
+        refresh: function() {
+          module.verbose('Refreshing selector cache');
+          $field = $module.find(selector.field);
+        },
+
+        submit: function() {
+          module.verbose('Submitting form', $module);
+          $module
+            .submit()
+          ;
+        },
+
+        bindEvents: function() {
           if(settings.keyboardShortcuts) {
             $field
               .on('keydown' + eventNamespace, module.event.field.keydown)
@@ -73,36 +106,32 @@ $.fn.form = function(fields, parameters) {
             .on('click' + eventNamespace, module.submit)
           ;
           $field
-            .on(module.get.changeEvent() + eventNamespace, module.event.field.change)
+            .each(function() {
+              var  
+                type       = $(this).prop('type'),
+                inputEvent = module.get.changeEvent(type)
+              ;
+              if(settings.inline == true) {
+              }
+              $(this)
+                .on(inputEvent + eventNamespace, module.event.field.change)
+              ;
+            })
           ;
-          module.instantiate();
         },
 
-        instantiate: function() {
-          module.verbose('Storing instance of module', module);
-          instance = module;
-          $module
-            .data(moduleNamespace, module)
-          ;
-        },
-
-        destroy: function() {
-          module.verbose('Destroying previous module', instance);
+        removeEvents: function() {
           $module
             .off(eventNamespace)
-            .removeData(moduleNamespace)
           ;
-        },
-
-        refresh: function() {
-          module.verbose('Refreshing selector cache');
-          $field = $module.find(selector.field);
-        },
-
-        submit: function() {
-          module.verbose('Submitting form', $module);
-          $module
-            .submit()
+          $field
+            .off(eventNamespace)
+          ;
+          $submit
+            .off(eventNamespace)
+          ;
+          $field
+            .off(eventNamespace)
           ;
         },
 
@@ -171,13 +200,18 @@ $.fn.form = function(fields, parameters) {
         },
 
         get: {
-          changeEvent: function() {
-            return (document.createElement('input').oninput !== undefined)
-              ? 'input'
-              : (document.createElement('input').onpropertychange !== undefined)
-                ? 'propertychange'
-                : 'keyup'
-            ;
+          changeEvent: function(type) {
+            if(type == 'checkbox' || type == 'radio') {
+              return 'change';
+            }
+            else {
+              return (document.createElement('input').oninput !== undefined)
+                ? 'input'
+                : (document.createElement('input').onpropertychange !== undefined)
+                  ? 'propertychange'
+                  : 'keyup'
+              ;
+            }
           },
           field: function(identifier) {
             module.verbose('Finding field with identifier', identifier);

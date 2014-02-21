@@ -1,5 +1,23 @@
 ## RELEASE NOTES
 
+### Version 0.13.0 - Feb 20, 2014
+
+**Enhancements**
+- **Label** - Corner labels now are coupled to have rounded edges with components with rounded edges like input
+- **Form** - Grouped form fields now have responsive styles for mobile
+- **Modal** - Modal will now work when modal is taller than page's content
+- **Checkbox** - Checkboxes now also trigger DOM ``change`` event
+- **Accordion** - Accordions now preserve inline styles when animating
+- **Form Validation** - Form validation now rechecks on all form change events, not just input change
+
+**Fixes**
+- **Menu** - Fixes 2px border on last element in horizontal menus
+- **Menu** - Fixes dropdown formatting when used **inside* a menu item
+- **Menu** - Fixes formatting of grouped icon buttons inside menus
+- **Modal** - Fixes z-index of modal close to appear above ``relative/absolute`` modal content on mobile
+- **Dimmer** - Dimmers are less buggy when used with ``on: 'hover``
+
+
 ### Version 0.12.5 - Feb 04, 2014
 
 **Enhancement**
