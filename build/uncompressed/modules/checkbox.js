@@ -1,6 +1,6 @@
 /*
  * # Semantic - Checkbox
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -84,6 +84,9 @@ $.fn.checkbox = function(parameters) {
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
+          ;
+          $label
+            .off(eventNamespace)
           ;
         },
 

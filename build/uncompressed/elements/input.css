@@ -1,6 +1,6 @@
 /*
  * # Semantic - Input
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -21,7 +21,9 @@
    specify theme name below
 */
 
-/* Theme to load global Variables */
+/* Theme to load site variables */
+
+/* Path to user override folder */
 
 /* Elements */
 
@@ -43,6 +45,10 @@
 
 /*-------------------
         Page
+--------------------*/
+
+/*-------------------
+     Breakpoints
 --------------------*/
 
 /*-------------------
@@ -178,6 +184,14 @@
 *******************************/
 
 /*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*******************************
            Standard
 *******************************/
 
@@ -217,11 +231,11 @@
 
 /* browsers require these rules separate */
 
-.ui.input::-webkit-input-placeholder {
+.ui.input input::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
 
-.ui.input::-moz-placeholder {
+.ui.input input::-moz-placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
 

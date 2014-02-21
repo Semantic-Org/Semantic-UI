@@ -1,5 +1,22 @@
-@import "themes/default/global.variables";
+/*
+ * # Semantic - Site
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+/* Manual Import */
 @import "reset.less";
+@import "themes/default/site.variables";
+
 
 /*******************************
              Page
@@ -8,6 +25,7 @@
 html,
 body {
   font-size: @fontSize;
+  height: 100%;
 }
 
 body {
@@ -15,7 +33,7 @@ body {
   font-family: @fontFamily;
   margin: 0px;
   padding: 0px;
-  color: #555555;
+  color: @textColor;
   min-width: 320px;
 }
 

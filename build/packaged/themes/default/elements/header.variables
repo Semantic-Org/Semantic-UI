@@ -21,6 +21,7 @@
 @fontFamily : Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
 @fontWeight: bold;
 @textTransform: none;
+@textColor: 'inherit';
 
 @topMargin: 1em;
 @bottomMargin: 1rem;
@@ -77,6 +78,7 @@
 
 /* Divided */
 @dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
+@dividedColoredBorderWidth: 3px;
 
 @dividedBorderPadding: 0.2rem;
 @dividedSubHeaderPadding: 0.5rem;

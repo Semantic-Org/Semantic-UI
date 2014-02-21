@@ -52,6 +52,6 @@
     "docpad-plugin-partials": "~2.8.1",
     "docpad-plugin-ghpages": "~2.4.3",
     "docpad-plugin-eco": "~2.0.3",
-    "docpad": "~6.60.3"
+    "docpad": "~6.63.3"
   }
 }

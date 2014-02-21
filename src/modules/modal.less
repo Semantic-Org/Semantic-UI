@@ -1,6 +1,6 @@
 /*
  * # Semantic - Modal
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors

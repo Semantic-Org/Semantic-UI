@@ -51,12 +51,11 @@ type        : 'UI Collection'
     <h4 class="ui header">Page Grid</h4>
     <p>A page grid is used to layout page contents into a grid system. Page grids exists on the top level of a web site. A page grid has gutters to the left and right of its columns to center content on a page.</p>
 
-    <div class="ui text message info ignore">
-      <i class="icon heart"></i> Semantic UI's page grid by default will change the page gutters to increase at 250pixel intervals.
-    </div>
+    <h4>Standard Page Grid</h4>
+    <p>A page grid will automatically resize its gutters as a browser's width changes. This will preserve a <b>percentage of width</b> as a gutter.</p>
 
-    <div class="ui two column page grid">
-      <div class="column">
+    <div class="ui page grid">
+      <div class="eight wide column">
         <div class="ui labeled vertical fluid inverted icon menu">
           <a class="item">
             <i class="icon mail"></i>
@@ -72,41 +71,48 @@ type        : 'UI Collection'
           </a>
         </div>
       </div>
-      <div class="column">
+      <div class="eight wide column">
         <div class="ui segment">
           <b>Inbox</b>
           <p>Welcome to your inbox. Would you like to see more information?</p>
         </div>
       </div>
     </div>
+
+    <h4>Fixed Page Grid</h4>
+    <p>A fixed page grid only changes its gutter sizes once per breakpoint, this will preserve a <b>fixed grid size</b> for each screen type</p>
+
+    <div class="ui fixed page grid">
+      <div class="eight wide column">
+        <div class="ui labeled vertical fluid inverted icon menu">
+          <a class="item">
+            <i class="icon mail"></i>
+            Mail
+          </a>
+          <a class="item">
+            <i class="icon lab"></i>
+            Lab
+          </a>
+          <a class="item">
+            <i class="icon star"></i>
+            Favorites
+          </a>
+        </div>
+      </div>
+      <div class="eight wide column">
+        <div class="ui segment">
+          <b>Inbox</b>
+          <p>Welcome to your inbox. Would you like to see more information?</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="example">
     <h4 class="ui header">Divided Grid</h4>
     <p>A grid can have dividers between its columns</p>
     <div class="ui six column divided grid">
-      <div class="row">
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-        <div class="column">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-        </div>
-      </div>
       <div class="row">
         <div class="column">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
@@ -450,9 +456,76 @@ type        : 'UI Collection'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Fitted</h4>
+    <p>A fitted grid fits its outer columns against its container</p>
+
+    <h3 class="ui header">Content Outside Grid</h3>
+    <p>This paragraph of text will automatically align with the edges of the grid below because it is fitted to remove left and right margins.
+    <div class="ui two column fitted grid">
+      <div class="column">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      </div>
+      <div class="column">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Relaxed</h4>
     <p>A grid can increase its gutters to allow for more negative space</p>
     <div class="ui two column relaxed grid">
+      <div class="column">
+        <div class="ui fluid form segment">
+          <h3 class="ui header">Log-in</h3>
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password">
+          </div>
+          <div class="ui blue submit button">Login</div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid form segment">
+          <h3 class="ui header">Register</h3>
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              <input placeholder="First Name" type="text">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input placeholder="Last Name" type="text">
+            </div>
+          </div>
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password">
+          </div>
+          <div class="inline field">
+            <div class="ui checkbox">
+              <input type="checkbox" id="terms" />
+              <label for="terms"></label>
+            </div>
+            <label>I agree to the terms and conditions</label>
+          </div>
+          <div class="ui blue submit button">Submit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui two column very relaxed grid">
       <div class="column">
         <div class="ui fluid form segment">
           <h3 class="ui header">Log-in</h3>

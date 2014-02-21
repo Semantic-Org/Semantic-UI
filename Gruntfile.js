@@ -130,7 +130,7 @@ module.exports = function(grunt) {
 
     outputPath = type + 's/' + element,
 
-    buildTasks = releaseTasks.concat(rtlTasks).concat(docTasks),
+    buildTasks = releaseTasks.concat(docTasks),
 
     setWatchTests = function(action, filePath) {
       var
