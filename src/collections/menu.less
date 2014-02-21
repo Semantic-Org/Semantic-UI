@@ -181,7 +181,7 @@
   position: absolute;
   content: '';
   top: 0%;
-  right: 0px;
+  left: 0px;
   width: 1px;
   height: 100%;
   background-image: linear-gradient(
@@ -189,6 +189,10 @@
     rgba(0, 0, 0, 0.1) 50%,
     rgba(0, 0, 0, 0.05) 100%)
   ;
+}
+.ui.menu > .menu:first-child > .item:first-child:before,
+.ui.menu .item:first-child:before {
+  display: none;
 }
 .ui.menu .menu.right .item:before,
 .ui.menu .item.right:before {
