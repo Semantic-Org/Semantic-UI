@@ -20,13 +20,13 @@ type        : 'Semantic Project'
 
     <p>One of the easiest ways to support Semantic UI is to get the word out</p>
 
-    <script id='fbrob7c'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=semantic-org&button=compact&url=https%3A%2F%2Fgithub.com%2Fsemantic-org%2FSemantic-UI';f.title='Flattr';f.height=31;f.width=110;f.style.marginRight=10;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbrob7c');</script>
-
+    <script id='fbuzld8'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=jlukic&url=https%3A%2F%2Fgithub.com%2FSemantic-Org%2FSemantic-UI%2F';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbuzld8');</script>
+    <br><br><br>
     <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=watch&count=true&size=large"
     allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
 
     <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=follow&count=true&size=large"
-    allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+    allowtransparency="true" frameborder="0" scrolling="0" width="220" height="30"></iframe>
 
     <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=fork&count=true&size=large"
     allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>

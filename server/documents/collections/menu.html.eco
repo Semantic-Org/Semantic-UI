@@ -77,7 +77,7 @@ type        : 'UI Collection'
     <p>A pagination menu is specially formatted to present links to pages of content</p>
     <div class="ui pagination menu">
       <a class="icon item">
-        <i class="icon left arrow"></i>
+        <i class="left arrow icon"></i>
       </a>
       <a class="active item">
         1
@@ -95,7 +95,7 @@ type        : 'UI Collection'
         12
       </a>
       <a class="icon item">
-        <i class="icon right arrow"></i>
+        <i class="right arrow icon"></i>
       </a>
     </div>
   </div>
@@ -989,7 +989,7 @@ type        : 'UI Collection'
     <p>A menu item or menu can have no borders</p>
     <div class="ui borderless pagination menu">
       <a class="item">
-        <i class="icon left arrow"></i> Previous
+        <i class="left arrow icon"></i> Previous
       </a>
       <a class="item">1</a>
       <a class="item">2</a>

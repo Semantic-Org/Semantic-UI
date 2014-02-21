@@ -10,17 +10,74 @@ type   : 'Library'
 
 <script type='text/javascript'>
 $(document).ready(function(){
-  $('#smile').popup({on: 'click'});
-  $('#frown').popup({on: 'click'});
+  $( '#testing')
+      .sidebar({
+          overlay: true
+      })
+      .sidebar('attach events', '#left-mobile-menu')
+      .sidebar('attach events', '#close', 'hide')
+  ;
+
+  $('.ui.dropdown')
+      .dropdown()
+  ;
 });
 
 </script>
+<div class="ui left sidebar inverted vertical menu" id="testing">
+      <a class="header item" id="close">
+        <i class="close icon"></i>
+        Cerrar
+      </a>
+      <a class="item" href="{{pathFor 'home'}}">
+        <i class="home icon"></i>
+        Inicio
+      </a>
+      <a class="item" href="{{pathFor 'blogIndex'}}">
+        <i class="star icon"></i>
+        Blog
+      </a>
+      <a class="item" href="{{pathFor 'contact'}}">
+        <i class="mail icon"></i>
+        Contacto
+      </a>
 
-<div class="main container">
-  <div id="smile" class="ui labeled icon button" title="You can see this">
-      <i class="smile icon"></i>Click me first
-  </div>
-  <div id="frown" class="ui labeled icon button" title="You can't see this">
-      <i class="frown icon"></i>Then click me
-  </div>
+      <div class="ui inverted horizontal section divider">
+          <i class="green circular basic lightning icon"></i>
+      </div>
+    
+      <div class="item">
+       <div class="ui icon fluid green three buttons">
+        <div class="ui top left pointing dropdown button">
+          <i class="users icon"></i>
+          <div class="menu">
+            <div class="item"><a href="{{pathFor 'adminUsers'}}"><i class="users icon"></i>All Users</a></div>
+            <div class="item"><a href="{{pathFor 'adminUsers'}}"><i class="users icon"></i>Add Roles</a></div>
+          </div>
+        </div>
+        <div class="ui top left pointing dropdown button">
+          <i class="text file icon"></i>
+          <div class="menu">
+            <div class="item"><a href="{{pathFor 'blogAdminNew'}}"><i class="add icon"></i>New Post</a></div>
+            <div class="item"><a href="{{pathFor 'blogAdmin'}}"><i class="edit icon"></i>All Posts</a></div>
+          </div>
+        </div>
+        <div class="ui top right pointing dropdown button">
+          <i class="settings icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit Settings</div>
+          </div>
+        </div>
+      </div>
+      </div>
+
 </div>
+<div class="ui grid">
+    <div class="one column row">
+        <div id="left-mobile-menu" class="ui right floated button">
+            <i class="list layout icon"></i>
+        </div>
+    </div>
+</div>
+</body>
+
