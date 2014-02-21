@@ -14249,19 +14249,19 @@ a.ui.teal.label:hover:before {
   box-sizing: border-box;
 }
 
-.ui.modal > .content > .right:not(.ui) {
+.ui.modal > .content > .left:not(.ui) {
   display: table-cell;
   padding-left: 1.5%;
   min-width: 25%;
 }
 
-.ui.modal > .content > .left:not(.ui) {
+.ui.modal > .content > .right:not(.ui) {
   display: table-cell;
   padding-right: 1.5%;
   vertical-align: top;
 }
 
-.ui.modal > .content > .right:not(.ui) > i.icon {
+.ui.modal > .content > .left:not(.ui) > i.icon {
   font-size: 8em;
   margin: 0em;
 }
@@ -14290,12 +14290,12 @@ a.ui.teal.label:hover:before {
 /* Mobile Only */
 
 @media only screen and (max-width: 768px) {
-  .ui.modal .content > .right:not(.ui) {
+  .ui.modal .content > .left:not(.ui) {
     display: block;
     padding: 0em 0em 1em;
   }
 
-  .ui.modal .content > .left:not(.ui) {
+  .ui.modal .content > .right:not(.ui) {
     display: block;
     padding: 1em 0em 0em;
     -webkit-box-shadow: none;
