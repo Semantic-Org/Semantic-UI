@@ -140,6 +140,7 @@ $.fn.rating = function(parameters) {
         },
 
         enable: function() {
+<<<<<<< HEAD:node/src/files/build/uncompressed/modules/rating.js
           module.debug('Setting rating to interactive mode');
           $icon
             .on('mouseenter' + eventNamespace, module.event.mouseenter)
@@ -148,16 +149,29 @@ $.fn.rating = function(parameters) {
           ;
           $module
             .addClass(className.active)
+=======
+          module.debug('Enabling checkbox', $input);
+          $input
+            .prop('checked', true)
+            .trigger('change')
+>>>>>>> 3f7e69de765e045a198abb285a6e44bc29157ce8:rtl/less/modules/checkbox.js
           ;
         },
 
         disable: function() {
+<<<<<<< HEAD:node/src/files/build/uncompressed/modules/rating.js
           module.debug('Setting rating to read-only mode');
           $icon
             .off(eventNamespace)
           ;
           $module
             .removeClass(className.active)
+=======
+          module.debug('Disabling checkbox');
+          $input
+            .prop('checked', false)
+            .trigger('change')
+>>>>>>> 3f7e69de765e045a198abb285a6e44bc29157ce8:rtl/less/modules/checkbox.js
           ;
         },
 

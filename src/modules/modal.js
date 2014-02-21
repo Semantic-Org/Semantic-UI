@@ -16,6 +16,7 @@ $.fn.modal = function(parameters) {
     $allModules = $(this),
     $window     = $(window),
     $document   = $(document),
+    $body       = $('body'),
 
     time            = new Date().getTime(),
     performance     = [],
@@ -127,6 +128,7 @@ $.fn.modal = function(parameters) {
         refresh: function() {
           module.remove.scrolling();
           module.cacheSizes();
+          module.set.screenHeight();
           module.set.type();
           module.set.position();
         },
@@ -239,6 +241,7 @@ $.fn.modal = function(parameters) {
           if( !module.is.active() ) {
             module.cacheSizes();
             module.set.position();
+            module.set.screenHeight();
             module.set.type();
 
             if( $otherModals.filter(':visible').size() > 0 && !settings.allowMultiple) {
@@ -305,9 +308,12 @@ $.fn.modal = function(parameters) {
             ;
           }
           $dimmable.dimmer('hide', function() {
-            $module
-              .transition('reset')
-            ;
+            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+              $module
+                .transition('reset')
+              ;
+              module.remove.screenHeight();
+            }
             module.remove.active();
           });
         },
@@ -400,6 +406,14 @@ $.fn.modal = function(parameters) {
           active: function() {
             $module.removeClass(className.active);
           },
+          screenHeight: function() {
+            if(module.cache.height > module.cache.pageHeight) {
+              module.debug('Removing page height');
+              $body
+                .css('height', '')
+              ;
+            }
+          },
           keyboardShortcuts: function() {
             module.verbose('Removing keyboard shortcuts');
             $document
@@ -414,7 +428,8 @@ $.fn.modal = function(parameters) {
 
         cacheSizes: function() {
           module.cache = {
-            height        : $module.outerHeight() + settings.offset,
+            pageHeight    : $body.outerHeight(),
+            height        : $module.outerHeight() + settings.offset + parseInt($module.css('marginTop'), 10),
             contextHeight : (settings.context == 'body')
               ? $(window).height()
               : $dimmable.height()
@@ -439,6 +454,14 @@ $.fn.modal = function(parameters) {
         },
 
         set: {
+          screenHeight: function() {
+            if(module.cache.height > module.cache.pageHeight) {
+              module.debug('Modal is taller than page content, resizing page height');
+              $body
+                .css('height', module.cache.height + settings.padding)
+              ;
+            }
+          },
           active: function() {
             module.add.keyboardShortcuts();
             module.save.focus();
@@ -680,6 +703,8 @@ $.fn.modal.settings = {
   easing        : 'easeOutExpo',
   offset        : 0,
   transition    : 'scale',
+
+  padding       : 30,
 
   onShow        : function(){},
   onHide        : function(){},

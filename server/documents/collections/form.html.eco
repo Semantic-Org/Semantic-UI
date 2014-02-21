@@ -457,6 +457,13 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Fields</h4>
     <p>Fields can exist together side by side</p>
+    <div class="ui ignored positive icon message">
+      <i class="mobile icon"></i>
+      <div class="content">
+        <h3 class="header">Responsive Element</h3>
+        <p>Grouped fields automatically receive responsive styling, swapping to one field per row for mobile.</p>
+      </div>
+    </div>
     <div class="ui form">
       <div class="ui three fields">
         <div class="field">

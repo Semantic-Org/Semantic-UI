@@ -397,9 +397,8 @@ a.ui.label:hover:before {
   z-index: 10;
   margin: 0em;
 
-  font-size: 0.8125em;
-  width: 2rem;
-  height: 2rem;
+  width: 3em;
+  height: 3em;
   padding: 0em;
 
   text-align: center;
@@ -435,15 +434,17 @@ a.ui.label:hover:before {
 }
 
 .ui.corner.label .icon {
-  margin: 0.4em 0em 0em 0.7em;
+  font-size: 0.875em;
+  margin: 0.5em 0em 0em 1.25em;
 }
 .ui.corner.label .text {
   display: inline-block;
   font-weight: bold;
-  margin: 0.5em 0em 0em 0.6em;
-  width: 2.5em;
 
-  font-size: 0.82em;
+  margin: 0.5em 0em 0em 1em;
+  width: 2.5em;
+  font-size: 0.875em;
+
   text-align: center;
 
   -webkit-transform: rotate(45deg);
@@ -452,6 +453,31 @@ a.ui.label:hover:before {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/* Coupling */
+.ui.rounded.image > .ui.corner.label,
+.ui.input > .ui.corner.label,
+.ui.segment > .ui.corner.label {
+  overflow: hidden;
+}
+.ui.segment > .ui.corner.label {
+  top: -1px;
+  right: -1px;
+}
+.ui.segment > .ui.left.corner.label {
+  right: auto;
+  left: -1px;
+}
+.ui.input > .ui.corner.label{
+  top: 1px;
+  right: 1px;
+}
+.ui.input > .ui.right.corner.label {
+  right: auto;
+  left: 1px;
+}
+
+
 
 /* Left Corner */
 .ui.left.corner.label,
@@ -468,10 +494,10 @@ a.ui.label:hover:before {
   border-top-color: inherit;
 }
 .ui.left.corner.label .icon {
-  margin: 0.4em 0em 0em -0.7em;
+  margin: 0.5em 0em 0em -1em;
 }
 .ui.left.corner.label .text {
-  margin: 0.5em 0em 0em -0.6em;
+  margin: 0.5em 0em 0em -1em;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);

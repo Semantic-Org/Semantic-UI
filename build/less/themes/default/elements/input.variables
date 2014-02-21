@@ -25,7 +25,7 @@
 @boxShadow: none;
 
 @borderRadius: 0.3125em;
-@transition: 
+@transition:
   background-color 0.3s ease-out,
   box-shadow 0.2s ease,
   border-color 0.2s ease
@@ -49,11 +49,11 @@
 @circularIconHorizontalOffset: 0.5em;
 
 /* Labeled */
-@labelSize: 0.55em;
-@labelIconPosition: 0.4em 0em 0em 2em;
+@labelSize: 0.7em;
 
-@labelMargin: 3.25em;
-@labelIconMargin: 1.25em;
+@labeledMargin: 2.5em;
+@labeledIconInputMargin: 3.25em;
+@labeledIconMargin: 1.25em;
 
 /*-------------------
         States

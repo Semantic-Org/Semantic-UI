@@ -444,10 +444,9 @@ type        : 'UI Collection'
           </div>
           <div class="inline field">
             <div class="ui checkbox">
-              <input type="checkbox" id="terms" />
-              <label for="terms"></label>
+              <input type="checkbox" id="conditions" />
+              <label for="conditions">I agree to the terms and conditions</label>
             </div>
-            <label>I agree to the terms and conditions</label>
           </div>
           <div class="ui blue submit button">Submit</div>
         </div>
@@ -515,9 +514,8 @@ type        : 'UI Collection'
           <div class="inline field">
             <div class="ui checkbox">
               <input type="checkbox" id="terms" />
-              <label for="terms"></label>
+              <label for="terms">I agree to the terms and conditions</label>
             </div>
-            <label>I agree to the terms and conditions</label>
           </div>
           <div class="ui blue submit button">Submit</div>
         </div>

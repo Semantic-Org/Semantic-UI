@@ -220,19 +220,16 @@
   font-size: @labelSize;
   border-top-right-radius: @borderRadius;
 }
-.ui.labeled.input .corner.label > .icon {
-  margin: @labelIconPosition;
-}
 .ui.labeled.input input {
-  padding-right: 2.5em !important;
+  padding-right: @labeledMargin !important;
 }
 
 /* Spacing with corner label */
 .ui.labeled.icon.input:not(.left) > input {
-  padding-right: @labelMargin !important;
+  padding-right: @labeledIconInputMargin !important;
 }
 .ui.labeled.icon.input:not(.left) > .icon {
-  margin-right: @labelIconMargin;
+  margin-right: @labeledIconMargin;
 }
 
 
@@ -251,7 +248,7 @@
   border-right: none;
 }
 .ui.action.input > .button,
-.ui.action.input > .buttons, {
+.ui.action.input > .buttons {
   display: table-cell;
 
   border-top-left-radius: 0px;

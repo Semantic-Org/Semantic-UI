@@ -35,7 +35,7 @@ type        : 'Semantic Project'
 
   <h3 class="ui header">2. Fork Semantic</h3>
 
-  <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=fork&count=true&size=large"
+  <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=fork&count=true&size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
   <p>Fork the Semantic repo into a directory on your local machine and navigate into that directory</p>
 

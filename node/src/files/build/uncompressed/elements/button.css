@@ -599,6 +599,14 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
+<<<<<<< HEAD:node/src/files/build/uncompressed/elements/button.css
+=======
+
+.ui.buttons .or[data-text]:before {
+  content: attr(data-text);
+}
+
+>>>>>>> 3f7e69de765e045a198abb285a6e44bc29157ce8:rtl/uncompressed/elements/button.css
 .ui.buttons .or:after {
   position: absolute;
   top: 0em;

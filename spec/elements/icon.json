@@ -1,0 +1,28 @@
+{
+    "Name": "Semantic Icon",
+    "Description": "An icon is a glyph used to represent another concept more simply",
+    "Definition": "Elements",
+    "Types": {},
+    "States": {},
+    "Variations": {
+        "Size": [],
+        "Link": [],
+        "Flipped": [],
+        "Rotated": [],
+        "Circular": [],
+        "Square": [],
+        "Colors": [],
+        "Inverted": []
+    },
+    "Definitions": {
+        "Disabled": "An icon can show that it is disabled",
+        "Size": "An icon can vary in size",
+        "Link": "An icon can be formatted as a link",
+        "Flipped": "An icon can be flipped",
+        "Rotated": "An icon can be rotated",
+        "Circular": "An icon can be formatted to appear circular",
+        "Square": "An icon can be formatted to appear square",
+        "Colors": "An icon can be formatted with different colors",
+        "Inverted": "an icon can have its colors inverted for contrast"
+    }
+}

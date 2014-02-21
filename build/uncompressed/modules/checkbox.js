@@ -115,6 +115,7 @@ $.fn.checkbox = function(parameters) {
           module.debug('Enabling checkbox', $input);
           $input
             .prop('checked', true)
+            .trigger('change')
           ;
           $.proxy(settings.onChange, $input.get())();
           $.proxy(settings.onEnable, $input.get())();
@@ -124,6 +125,7 @@ $.fn.checkbox = function(parameters) {
           module.debug('Disabling checkbox');
           $input
             .prop('checked', false)
+            .trigger('change')
           ;
           $.proxy(settings.onChange, $input.get())();
           $.proxy(settings.onDisable, $input.get())();

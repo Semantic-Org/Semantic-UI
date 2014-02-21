@@ -1,5 +1,6 @@
 ## RELEASE NOTES
 
+<<<<<<< HEAD
 ### Version 1.0.0 - XX XX, 2014
 
 **Breaking Changes**
@@ -10,6 +11,52 @@
 - **Grid** - Vertically divided grid now does not include left/right gutters in divider
 - **Grid** - Fixed page grid allows for fixed pixel size containers used with a grid instead of percentage
 
+=======
+### Version 0.13.0 - Feb 20, 2014
+
+**Enhancements**
+- **Label** - Corner labels now are coupled to have rounded edges with components with rounded edges like input
+- **Form** - Grouped form fields now have responsive styles for mobile
+- **Modal** - Modal will now work when modal is taller than page's content
+- **Checkbox** - Checkboxes now also trigger DOM ``change`` event
+- **Accordion** - Accordions now preserve inline styles when animating
+- **Form Validation** - Form validation now rechecks on all form change events, not just input change
+
+**Fixes**
+- **Menu** - Fixes 2px border on last element in horizontal menus
+- **Menu** - Fixes dropdown formatting when used **inside* a menu item
+- **Menu** - Fixes formatting of grouped icon buttons inside menus
+- **Modal** - Fixes z-index of modal close to appear above ``relative/absolute`` modal content on mobile
+- **Dimmer** - Dimmers are less buggy when used with ``on: 'hover``
+
+
+### Version 0.12.5 - Feb 04, 2014
+
+**Enhancement**
+- **Button** - Or buttons can now have text specified using ``<div class="or" data-text"text">`` with alternate text *Thanks MohammadYounes*
+
+**Fixes**
+- **Popup** - Fixes issue where popups using ``title`` attribute to store data were losing title content instead of correctly restoring it
+- **Modal** - Fixes an issue where modal may not position correctly in some cases *Thanks GianlucaGuarini*
+- **Modal** - Fixes modal throwing an error when transition is not included *Thanks robertoles*
+
+### Version 0.12.4 - Jan 29, 2014
+
+**Fixes**
+- **Form** - Fixes issue with onSuccess not allowing cancellation of form submit in form validation
+- **Input** - Fixes ``ui buttons`` to work inside an ``ui action input`` **Thanks MohammadYounes **
+- **Items** - Fixes ``ui horizontal items`` to work correctly, missing comma **Thanks mishak87**
+
+**Project**
+- **RTL** - Adds RTL hinting for some files **Thanks MohammadYounes**
+- **Specs** - Adds additional JSON spec files for future use with generators **Thanks brigand**
+
+### Version 0.12.3 - Jan 24, 2014
+
+**Fixes**
+- **Message** - Fixes some issues with margins sometimes not appearing with ``attached message`` **thanks joltmode**
+- **Item** - Fixes color repeating to be consistent for items **thanks skysplit**
+>>>>>>> 3f7e69de765e045a198abb285a6e44bc29157ce8
 
 ### Version 0.12.2 - Jan 21, 2014
 
