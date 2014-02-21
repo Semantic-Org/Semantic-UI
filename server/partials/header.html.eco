@@ -34,7 +34,7 @@
         </div>
       </div>
       <% end %>
-      <div class="ui primary button">
+      <div class="ui secondary button">
         Download
         <i class="download icon"></i>
       </div>

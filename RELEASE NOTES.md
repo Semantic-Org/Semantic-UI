@@ -1,6 +1,5 @@
 ## RELEASE NOTES
 
-<<<<<<< HEAD
 ### Version 1.0.0 - XX XX, 2014
 
 **Breaking Changes**
@@ -10,8 +9,10 @@
 - **Grid** - Divided and celled grids can now be inverted for dark backgrounds
 - **Grid** - Vertically divided grid now does not include left/right gutters in divider
 - **Grid** - Fixed page grid allows for fixed pixel size containers used with a grid instead of percentage
+- **Label** - Added tag label and empty circular label style
+- **Button** - Now has compact form, used for fitting into tight spaces
+- **Label** - Now has compact form, for fitting into tight spaces
 
-=======
 ### Version 0.13.0 - Feb 20, 2014
 
 **Enhancements**

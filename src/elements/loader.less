@@ -9,6 +9,15 @@
  *
  */
 
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'loader';
+
+@import '../semantic.config';
+
 
 /*******************************
             Loader
@@ -19,15 +28,11 @@
 .ui.loader {
   display: none;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: @loaderTopOffset;
+  left: @loaderLeftOffset;
   margin: 0px;
+  text-align: center;
   z-index: 1000;
-
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
 
@@ -35,9 +40,87 @@
   display: block;
 }
 
+.ui.dimmer .ui.loader,
+.ui.inverted.loader {
+  color: @loaderTextColor
+}
+
 /*******************************
              Types
 *******************************/
+
+/*--------------
+      CSS
+---------------*/
+
+/* Flipping */
+.ui.flipping.loader {
+  width: auto;
+  height: auto;
+  background-image: none !important;
+}
+.ui.flipping.loader .shape {
+  position: relative;
+  margin: 0em auto 1em;
+  color: transparent;
+  box-shadow: 0px 0px 0px 1px;
+  animation: loaderFlipping 1s infinite ease-in-out;
+  margin-bottom: 1em;
+  transform-style: preserve-3d;
+}
+.ui.flipping.loader .shape:before,
+.ui.flipping.loader .shape:after {
+  position: absolute;
+  content: '';
+  top: 0px;
+  left: 0px;
+  box-shadow: 0px 0px 0px 1px;
+  backface-visibility: hidden;
+}
+.ui.flipping.loader .shape:before {
+  background-color: @blue;
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+.ui.flipping.loader .shape:after {
+  background-color: @red;
+  transform: rotateY(180deg);
+}
+
+/* Circular */
+.ui.flipping.circular.loader .shape,
+.ui.flipping.circular.loader .shape:before,
+.ui.flipping.circular.loader .shape:after {
+  border-radius: @circularRadius;
+}
+
+/* Sizes */
+.ui.mini.flipping.loader .shape,
+.ui.mini.flipping.loader .shape:before,
+.ui.mini.flipping.loader .shape:after {
+  width: @miniSize;
+  height: @miniSize;
+}
+.ui.flipping.loader .shape,
+.ui.flipping.loader .shape:before,
+.ui.flipping.loader .shape:after {
+  width: @mediumSize;
+  height: @mediumSize;
+}
+
+
+@keyframes loaderFlipping {
+  0% {
+    transform: perspective(6em) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(6em) rotateX(-180deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(6em) rotateX(-180deg) rotateY(-180deg);
+  }
+}
+
 
 /*-------------------
         Text
@@ -51,24 +134,20 @@
 }
 
 .ui.mini.text.loader {
-  min-width: 16px;
-  padding-top: 2em;
-  font-size: 0.875em;
+  min-width: @miniSize;
+  padding-top: (@miniSize + @textDistance);
 }
 .ui.small.text.loader {
-  min-width: 24px;
-  padding-top: 2.5em;
-  font-size: 0.875em;
+  min-width: @smallSize;
+  padding-top: (@smallSize + @textDistance);
 }
 .ui.text.loader {
-  min-width: 32px;
-  font-size: 1em;
-  padding-top: 3em;
+  min-width: @mediumSize;
+  padding-top: (@mediumSize + @textDistance);
 }
 .ui.large.text.loader {
-  min-width: 64px;
-  padding-top: 5em;
-  font-size: 1.2em;
+  min-width: @largeSize;
+  padding-top: (@largeSize + @textDistance);
 }
 
 /*******************************
@@ -79,52 +158,15 @@
 .ui.loader.visible {
   display: block;
 }
-
 .ui.loader.disabled,
 .ui.loader.hidden {
   display: none;
 }
 
-
 /*******************************
             Variations
 *******************************/
 
-/*-------------------
-       Inverted
---------------------*/
-
-.ui.dimmer .ui.text.loader,
-.ui.inverted.text.loader {
-  color: rgba(255, 255, 255, 0.8);
-}
-.ui.inverted.dimmer .ui.text.loader {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* Tiny Size */
-.ui.dimmer .mini.ui.loader,
-.ui.inverted .mini.ui.loader {
-  background-image: url(../images/loader-mini-inverted.gif);
-}
-
-/* Small Size */
-.ui.dimmer .small.ui.loader,
-.ui.inverted .small.ui.loader {
-  background-image: url(../images/loader-small-inverted.gif);
-}
-
-/* Standard Size */
-.ui.dimmer .ui.loader,
-.ui.inverted.loader  {
-  background-image: url(../images/loader-medium-inverted.gif);
-}
-
-/* Large Size */
-.ui.dimmer .large.ui.loader,
-.ui.inverted .large.ui.loader {
-  background-image: url(../images/loader-large-inverted.gif);
-}
 
 /*-------------------
         Sizes
@@ -133,35 +175,71 @@
 /* Tiny Size */
 .ui.inverted.dimmer .ui.mini.loader,
 .ui.mini.loader {
-  width: 16px;
-  height: 16px;
-  background-image: url(../images/loader-mini.gif);
+  width: @miniSize;
+  height: @miniSize;
+  font-size: @miniFontSize;
+  background-image: url(@miniLoaderPath);
 }
 
 /* Small Size */
 .ui.inverted.dimmer .ui.small.loader,
 .ui.small.loader {
-  width: 24px;
-  height: 24px;
-  background-image: url(../images/loader-small.gif);
+  width: @smallSize;
+  height: @smallSize;
+  font-size: @smallFontSize;
+  background-image: url(@smallLoaderPath);
 }
 
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
-  width: 32px;
-  height: 32px;
-  background: url(../images/loader-medium.gif) no-repeat;
-  background-position: 48% 0px;
+  width: @mediumSize;
+  height: @mediumSize;
+  font-size: @mediumFontSize;
+  background: url(@mediumLoaderPath) no-repeat;
+  background-position: 50% 0px;
 }
 
 /* Large Size */
 .ui.inverted.dimmer .ui.loader.large,
 .ui.loader.large {
-  width: 64px;
-  height: 64px;
-  background-image: url(../images/loader-large.gif);
+  width: @largeSize;
+  height: @largeSize;
+  font-size: @largeFontSize;
+  background-image: url(@largeLoaderPath);
 }
 
+
+/*-------------------
+       Inverted
+--------------------*/
+
+.ui.inverted.dimmer .ui.loader {
+  color: @invertedLoaderTextColor;
+}
+
+/* Tiny Size */
+.ui.dimmer .mini.ui.loader,
+.ui.inverted .mini.ui.loader {
+  background-image: url(@miniInvertedLoaderPath);
+}
+
+/* Small Size */
+.ui.dimmer .small.ui.loader,
+.ui.inverted .small.ui.loader {
+  background-image: url(@smallInvertedLoaderPath);
+}
+
+/* Standard Size */
+.ui.dimmer .ui.loader,
+.ui.inverted.loader  {
+  background-image: url(@mediumInvertedLoaderPath);
+}
+
+/* Large Size */
+.ui.dimmer .large.ui.loader,
+.ui.inverted .large.ui.loader {
+  background-image: url(@largeInvertedLoaderPath);
+}
 
 /*-------------------
        Inline
@@ -171,11 +249,6 @@
   position: static;
   vertical-align: middle;
   margin: 0em;
-
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
   transform: none;
 }
 

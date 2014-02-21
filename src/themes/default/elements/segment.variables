@@ -3,19 +3,20 @@
 *******************************/
 
 /*-------------------
-       Segment 
+       Segment
 --------------------*/
 
-@boxShadow: 0px 0px 0px 1px @borderColor;
+@segmentBorderWidth: 1px;
+@boxShadow: 0px 0px 0px @segmentBorderWidth @borderColor;
 
 @verticalPadding: 1em;
 @horizontalPadding: 1em;
 
 @margin: 1em;
-@borderRadius: 5px;
+@borderRadius: 0.25em;
 
 /*-------------------
-       Coupling 
+       Coupling
 --------------------*/
 
 /* Page Grid Segment */

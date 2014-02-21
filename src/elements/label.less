@@ -10,45 +10,39 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'label';
+
+@import '../semantic.config';
+
+
+/*******************************
             Label
 *******************************/
 
 .ui.label {
   display: inline-block;
   vertical-align: middle;
+  line-height: 1;
 
-  margin: -0.25em 0.25em 0em;
+  margin: @verticalMargin @horizontalMargin;
 
-  background-color: #E8E8E8;
-  border-color: #E8E8E8;
+  background-color: @backgroundColor;
+  border-color: @backgroundColor;
 
-  padding: 0.5em 0.8em;
-  color: rgba(0, 0, 0, 0.65);
+  background-image: @backgroundImage;
 
-  text-transform: uppercase;
-  font-weight: normal;
+  padding: @verticalPadding @horizontalPadding;
+  color: @labelTextColor;
 
-  -webkit-border-radius: 0.325em;
-  -moz-border-radius: 0.325em;
-  border-radius: 0.325em;
+  text-transform: @textTransform;
+  font-weight: @fontWeight;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  border-radius: @borderRadius;
   box-sizing: border-box;
-
-  -webkit-transition:
-    background 0.1s linear
-  ;
-  -moz-transition:
-    background 0.1s linear
-  ;
-  -o-transition:
-    background 0.1s linear
-  ;
-  -ms-transition:
-    background 0.1s linear
-  ;
   transition:
     background 0.1s linear
   ;
@@ -71,7 +65,7 @@ a.ui.label {
 .ui.label a {
   cursor: pointer;
   color: inherit;
-  opacity: 0.8;
+  opacity: @linkOpacity;
   transition: 0.2s opacity ease;
 }
 .ui.label a:hover {
@@ -81,9 +75,9 @@ a.ui.label {
 /* Detail */
 .ui.label .detail {
   display: inline-block;
-  margin-left: 0.5em;
+  margin-left: @detailMargin;
   font-weight: bold;
-  opacity: 0.8;
+  opacity: @detailOpacity;
 }
 
 /* Icon */
@@ -94,27 +88,15 @@ a.ui.label {
 /* Removable label */
 .ui.label .delete.icon {
   cursor: pointer;
-  margin: 0em 0em 0em 0.5em;
-  opacity: 0.7;
-
-  -webkit-transition:
-    background 0.1s linear
-  ;
-  -moz-transition:
-    background 0.1s linear
-  ;
-  -o-transition:
-    background 0.1s linear
-  ;
-  -ms-transition:
-    background 0.1s linear
-  ;
+  margin-right: 0em;
+  margin-left: @deleteMargin;
+  opacity: @linkOpacity;
   transition:
     background 0.1s linear
   ;
 }
 .ui.label .delete.icon:hover {
-  opacity: 0.99;
+  opacity: 1;
 }
 
 
@@ -124,11 +106,11 @@ a.ui.label {
 
 /* Padding on next content after a label */
 .ui.segment > .attached.label:first-child + * {
-  margin-top: 2.5em;
+  margin-top: @attachedSegmentPadding;
 }
 .ui.segment > .bottom.attached.label:first-child ~ :last-child {
   margin-top: 0em;
-  margin-bottom: 2.5em;
+  margin-bottom: @attachedSegmentPadding;
 }
 
 
@@ -137,30 +119,25 @@ a.ui.label {
 *******************************/
 
 .ui.image.label {
+  background-color: @imageLabelBackgroundColor;
   width: auto !important;
   margin-top: 0em;
   margin-bottom: 0em;
 
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
+  padding-top: @verticalPadding;
+  padding-bottom: @verticalPadding;
 
-  line-height: 1.5em;
   vertical-align: baseline;
   text-transform: none;
 
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: @imageLabelBoxShadow;
 }
 .ui.image.label img {
   display: inline-block;
-  height: 2.25em;
-  margin: -0.4em 0.8em -0.4em -0.8em;
+  height: @imageLabelImageHeight;
+  margin: -@verticalPadding @horizontalPadding -@verticalPadding -@horizontalPadding;
   vertical-align: top;
-
-  -moz-border-radius: 0.325em 0em 0em 0.325em;
-  -webkit-border-radius: 0.325em 0em 0em 0.325em;
-  border-radius: 0.325em 0em 0em 0.325em;
+  border-radius: @borderRadius 0em 0em @borderRadius;
 }
 
 /*******************************
@@ -182,14 +159,17 @@ a.ui.label {
 
 a.ui.labels .label:hover,
 a.ui.label:hover {
-  background-color: #E0E0E0;
-  border-color: #E0E0E0;
-  color: rgba(0, 0, 0, 0.7);
+  background-color: @labelHoverBackgroundColor;
+  border-color: @labelHoverBackgroundColor;
+
+  background-image: @labelHoverBackgroundImage;
+  color: @labelHoverTextColor;
 }
 .ui.labels a.label:hover:before,
 a.ui.label:hover:before {
-  background-color: #E0E0E0;
-  color: rgba(0, 0, 0, 0.7);
+  background-color: @labelHoverBackgroundColor;
+  background-image: @labelHoverBackgroundImage;
+  color: @labelHoverTextColor;
 }
 
 /*-------------------
@@ -225,41 +205,25 @@ a.ui.label:hover:before {
 .ui.tag.label {
   margin-left: 1em;
   position: relative;
-  padding: 0.33em 1.3em 0.33em 1.4em;
+  padding-left: @tagHorizontalPadding;
+  padding-right: @tagHorizontalPadding;
 
-  -webkit-border-radius: 0px 3px 3px 0px;
-  -moz-border-radius: 0px 3px 3px 0px;
-  border-radius: 0px 3px 3px 0px;
+  border-radius: 0em @borderRadius @borderRadius 0em;
 }
 .ui.tag.labels .label:before,
 .ui.tag.label:before {
     position: absolute;
-    top: 0.3em;
-    left: 0.3em;
+    top: @tagTriangleTopOffset;
+    left: @tagTriangleLeftOffset;
     content: '';
 
-    margin-left: -1em;
-    background-image: none;
+    background-color: @backgroundColor;
+    background-image: @backgroundImage;
 
-    width: 1.5em;
-    height: 1.5em;
+    width: @tagTriangleSize;
+    height: @tagTriangleSize;
 
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
     transform: rotate(45deg);
-
-    -webkit-transition:
-      background 0.1s linear
-    ;
-    -moz-transition:
-      background 0.1s linear
-    ;
-    -o-transition:
-      background 0.1s linear
-    ;
-    -ms-transition:
-      background 0.1s linear
-    ;
     transition:
       background 0.1s linear
     ;
@@ -271,20 +235,15 @@ a.ui.label:hover:before {
   position: absolute;
   content: '';
   top: 50%;
-  left: -0.25em;
+  left: -(@tagCircleSize / 2);
 
-  margin-top: -0.3em;
-  background-color: #FFFFFF;
-  width: 0.55em;
-  height: 0.55em;
+  margin-top: -(@tagCircleSize / 2);
+  background-color: @tagCircleColor;
+  width: @tagCircleSize;
+  height: @tagCircleSize;
 
-  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-
-  -moz-border-radius: 100px 100px 100px 100px;
-  -webkit-border-radius: 100px 100px 100px 100px;
-  border-radius: 100px 100px 100px 100px;
+  box-shadow: @tagCircleBoxShadow;
+  border-radius: @circularRadius;
 }
 /*-------------------
        Ribbon
@@ -292,14 +251,13 @@ a.ui.label:hover:before {
 
 .ui.ribbon.label {
   position: relative;
-  margin: 0em 0.2em;
-  left: -2rem;
-  padding-left: 2rem;
-  -webkit-border-radius: 0px 4px 4px 0px;
-  -moz-border-radius: 0px 4px 4px 0px;
-  border-radius: 0px 4px 4px 0px;
+  margin: 0em;
+  left: -@ribbonDistance;
+  padding-left: @ribbonDistance;
 
-  border-color: rgba(0, 0, 0, 0.15);
+  border-radius: 0em @borderRadius @borderRadius 0em;
+
+  border-color: @ribbonShadowColor;
 }
 
 .ui.ribbon.label:after {
@@ -310,10 +268,10 @@ a.ui.label:hover:before {
   left: 0%;
 
   border-top: 0em solid transparent;
-  border-right-width: 1em;
+  border-right-width: @ribbonTriangleSize;
   border-right-color: inherit;
   border-right-style: solid;
-  border-bottom: 1em solid transparent;
+  border-bottom: @ribbonTriangleSize solid transparent;
   border-left: 0em solid transparent;
 
   width: 0em;
@@ -332,47 +290,34 @@ a.ui.label:hover:before {
   top: 0em;
   left: 0em;
 
-  padding: 0.75em 1em;
+  padding: @attachedVerticalPadding @attachedHorizontalPadding;
 
-  -webkit-border-radius: 4px 4px 0em 0em;
-  -moz-border-radius: 4px 4px 0em 0em;
-  border-radius: 4px 4px 0em 0em;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.bottom.attached.label {
   top: auto;
   bottom: 0em;
-
-  -webkit-border-radius: 0em 0em 4px 4px;
-  -moz-border-radius: 0em 0em 4px 4px;
-  border-radius: 0em 0em 4px 4px;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
 .ui.top.left.attached.label {
   width: auto;
   margin-top: 0em !important;
-
-  -webkit-border-radius: 4px 0em 4px 0em;
-  -moz-border-radius: 4px 0em 4px 0em;
-  border-radius: 4px 0em 4px 0em;
+  border-radius: @borderRadius 0em @borderRadius 0em;
 }
 
 .ui.top.right.attached.label {
   width: auto;
   left: auto;
   right: 0em;
-
-  -webkit-border-radius: 0em 4px 0em 4px;
-  -moz-border-radius: 0em 4px 0em 4px;
-  border-radius: 0em 4px 0em 4px;
+  border-radius: 0em @borderRadius 0em @borderRadius;
 }
 .ui.bottom.left.attached.label {
   width: auto;
   top: auto;
   bottom: 0em;
 
-  -webkit-border-radius: 4px 0em 0em 4px;
-  -moz-border-radius: 4px 0em 0em 4px;
-  border-radius: 4px 0em 0em 4px;
+  border-radius: @borderRadius 0em 0em @borderRadius;
 }
 .ui.bottom.right.attached.label {
   top: auto;
@@ -380,9 +325,7 @@ a.ui.label:hover:before {
   left: auto;
   right: 0em;
   width: auto;
-  -webkit-border-radius: 4px 0em 4px 0em;
-  -moz-border-radius: 4px 0em 4px 0em;
-  border-radius: 4px 0em 4px 0em;
+  border-radius: @borderRadius 0em @borderRadius 0em;
 }
 
 /*-------------------
@@ -397,16 +340,11 @@ a.ui.label:hover:before {
   z-index: 10;
   margin: 0em;
 
-  width: 3em;
-  height: 3em;
+  width: @cornerTriangleSize;
+  height: @cornerTriangleSize;
   padding: 0em;
 
   text-align: center;
-
-  -webkit-transition: color 0.2s ease;
-  -moz-transition: color 0.2s ease;
-  -o-transition: color 0.2s ease;
-  -ms-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
 .ui.corner.label:after {
@@ -420,64 +358,37 @@ a.ui.label:hover:before {
   height: 0em;
 
   border-top: 0em solid transparent;
-  border-right: 3em solid transparent;
-  border-bottom: 3em solid transparent;
+  border-right: @cornerTriangleSize solid transparent;
+  border-bottom: @cornerTriangleSize solid transparent;
   border-left: 0em solid transparent;
 
   border-right-color: inherit;
-
-  -webkit-transition: border-color 0.2s ease;
-  -moz-transition: border-color 0.2s ease;
-  -o-transition: border-color 0.2s ease;
-  -ms-transition: border-color 0.2s ease;
   transition: border-color 0.2s ease;
 }
 
 .ui.corner.label .icon {
-  font-size: 0.875em;
-  margin: 0.5em 0em 0em 1.25em;
+  position: relative;
+  top: @cornerTopOffset;
+  left: @cornerLeftOffset;
+
+  font-size: @cornerIconSize;
+  margin: 0em;
 }
 .ui.corner.label .text {
   display: inline-block;
+
+  position: relative;
+  top: @cornerTopOffset;
+  left: @cornerLeftOffset;
+
+  margin: 0em;
+  width: @cornerTextWidth;
+  font-size: @cornerTextSize;
   font-weight: bold;
 
-  margin: 0.5em 0em 0em 1em;
-  width: 2.5em;
-  font-size: 0.875em;
-
   text-align: center;
-
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
-/* Coupling */
-.ui.rounded.image > .ui.corner.label,
-.ui.input > .ui.corner.label,
-.ui.segment > .ui.corner.label {
-  overflow: hidden;
-}
-.ui.segment > .ui.corner.label {
-  top: -1px;
-  right: -1px;
-}
-.ui.segment > .ui.left.corner.label {
-  right: auto;
-  left: -1px;
-}
-.ui.input > .ui.corner.label{
-  top: 1px;
-  right: 1px;
-}
-.ui.input > .ui.right.corner.label {
-  right: auto;
-  left: 1px;
-}
-
-
 
 /* Left Corner */
 .ui.left.corner.label,
@@ -486,23 +397,46 @@ a.ui.label:hover:before {
   left: 0em;
 }
 .ui.left.corner.label:after {
-  border-top: 3em solid transparent;
-  border-right: 3em solid transparent;
+  border-top: @cornerTriangleSize solid transparent;
+  border-right: @cornerTriangleSize solid transparent;
   border-bottom: 0em solid transparent;
   border-left: 0em solid transparent;
 
   border-top-color: inherit;
 }
 .ui.left.corner.label .icon {
-  margin: 0.5em 0em 0em -1em;
+  left: -@cornerLeftOffset;
 }
 .ui.left.corner.label .text {
-  margin: 0.5em 0em 0em -1em;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
+  left: -@cornerLeftOffset;
   transform: rotate(-45deg);
+}
+
+/* Coupling */
+.ui.rounded.image > .ui.corner.label,
+.ui.input > .ui.corner.label,
+.ui.segment > .ui.corner.label {
+  overflow: hidden;
+}
+
+/* Corner Segment Label */
+.ui.segment > .ui.corner.label {
+  top: -1px;
+  right: -1px;
+}
+.ui.segment > .ui.left.corner.label {
+  right: auto;
+  left: -1px;
+}
+
+/* Corner Input Label */
+.ui.input > .ui.corner.label{
+  top: 1px;
+  right: 1px;
+}
+.ui.input > .ui.right.corner.label {
+  right: auto;
+  left: 1px;
 }
 
 
@@ -519,9 +453,6 @@ a.ui.label:hover:before {
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -531,7 +462,7 @@ a.ui.label:hover:before {
 
 .ui.inverted.labels .label,
 .ui.inverted.label {
-  color: #FFFFFF !important;
+  color: @invertedTextColor !important;
 }
 
 /*-------------------
@@ -541,251 +472,287 @@ a.ui.label:hover:before {
 /*--- Black ---*/
 .ui.black.labels .label,
 .ui.black.label {
-  background-color: #5C6166 !important;
-  border-color: #5C6166 !important;
-  color: #FFFFFF !important;
+  background-color: @black !important;
+  border-color: @black !important;
+  color: @invertedTextColor !important;
 }
 .ui.labels .black.label:before,
 .ui.black.labels .label:before,
 .ui.black.label:before {
-  background-color: #5C6166 !important;
+  background-color: @black !important;
 }
-/* Hover */
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #333333 !important;
-  border-color: #333333 !important;
+  background-color: @blackHover !important;
+  border-color: @blackHover !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #333333 !important;
+  background-color: @blackHover !important;
 }
-
-/* Corner */
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
 }
-/* Ribbon */
 .ui.black.ribbon.label {
-  border-color: #333333 !important;
+  border-color: @blackHover !important;
 }
-
-
-/*--- Green ---*/
-.ui.green.labels .label,
-.ui.green.label {
-  background-color: #A1CF64 !important;
-  border-color: #A1CF64 !important;
-  color: #FFFFFF !important;
-}
-.ui.labels .green.label:before,
-.ui.green.labels .label:before,
-.ui.green.label:before {
-  background-color: #A1CF64 !important;
-}
-
-/* Hover */
-a.ui.green.labels .label:hover,
-a.ui.green.label:hover {
-  background-color: #89B84C !important;
-  border-color: #89B84C !important;
-}
-.ui.labels a.green.label:hover:before,
-.ui.green.labels a.label:hover:before,
-a.ui.green.label:hover:before {
-  background-color: #89B84C !important;
-}
-
-/* Corner */
-.ui.green.corner.label,
-.ui.green.corner.label:hover {
-  background-color: transparent !important;
-}
-/* Ribbon */
-.ui.green.ribbon.label {
-  border-color: #89B84C !important;
-}
-
-
-/*--- Red ---*/
-.ui.red.labels .label,
-.ui.red.label {
-  background-color: #D95C5C !important;
-  border-color: #D95C5C !important;
-  color: #FFFFFF !important;
-}
-.ui.labels .red.label:before,
-.ui.red.labels .label:before,
-.ui.red.label:before {
-  background-color: #D95C5C !important;
-}
-/* Corner */
-.ui.red.corner.label,
-.ui.red.corner.label:hover {
-  background-color: transparent !important;
-}
-
-/* Hover */
-a.ui.red.labels .label:hover,
-a.ui.red.label:hover{
-  background-color: #DE3859 !important;
-  border-color: #DE3859 !important;
-  color: #FFFFFF !important;
-}
-.ui.labels a.red.label:hover:before,
-.ui.red.labels a.label:hover:before,
-a.ui.red.label:hover:before {
-  background-color: #DE3859 !important;
-}
-/* Ribbon */
-.ui.red.ribbon.label {
-  border-color: #DE3859 !important;
-}
-
 
 /*--- Blue ---*/
 .ui.blue.labels .label,
 .ui.blue.label {
-  background-color: #6ECFF5 !important;
-  border-color: #6ECFF5 !important;
-  color: #FFFFFF !important;
+  background-color: @blue !important;
+  border-color: @blue !important;
+  color: @invertedTextColor !important;
 }
 .ui.labels .blue.label:before,
 .ui.blue.labels .label:before,
 .ui.blue.label:before {
-  background-color: #6ECFF5 !important;
+  background-color: @blue !important;
 }
-/* Hover */
 a.ui.blue.labels .label:hover,
 .ui.blue.labels a.label:hover,
 a.ui.blue.label:hover {
-  background-color: #1AB8F3 !important;
-  border-color: #1AB8F3 !important;
-  color: #FFFFFF !important;
+  background-color: @blueHover !important;
+  border-color: @blueHover !important;
+  color: @invertedTextColor !important;
 }
 .ui.labels a.blue.label:hover:before,
 .ui.blue.labels a.label:hover:before,
 a.ui.blue.label:hover:before {
-  background-color: #1AB8F3 !important;
+  background-color: @blueHover !important;
 }
-/* Corner */
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
 }
-/* Ribbon */
 .ui.blue.ribbon.label {
-  border-color: #1AB8F3 !important;
+  border-color: @blueHover !important;
 }
 
-/*--- Purple ---*/
-.ui.purple.labels .label,
-.ui.purple.label {
-  background-color: #564F8A !important;
-  border-color: #564F8A !important;
-  color: #FFFFFF !important;
+/*--- Green ---*/
+.ui.green.labels .label,
+.ui.green.label {
+  background-color: @green !important;
+  border-color: @green !important;
+  color: @invertedTextColor !important;
 }
-.ui.labels .purple.label:before,
-.ui.purple.labels .label:before,
-.ui.purple.label:before {
-  background-color: #564F8A !important;
+.ui.labels .green.label:before,
+.ui.green.labels .label:before,
+.ui.green.label:before {
+  background-color: @green !important;
 }
-/* Hover */
-a.ui.purple.labels .label:hover,
-.ui.purple.labels a.label:hover,
-a.ui.purple.label:hover {
-  background-color: #3E3773 !important;
-  border-color: #3E3773 !important;
-  color: #FFFFFF !important;
+
+a.ui.green.labels .label:hover,
+a.ui.green.label:hover {
+  background-color: @greenHover !important;
+  border-color: @greenHover !important;
 }
-.ui.labels a.purple.label:hover:before,
-.ui.purple.labels a.label:hover:before,
-a.ui.purple.label:hover:before {
-  background-color: #3E3773 !important;
+.ui.labels a.green.label:hover:before,
+.ui.green.labels a.label:hover:before,
+a.ui.green.label:hover:before {
+  background-color: @greenHover !important;
 }
-/* Corner */
-.ui.purple.corner.label,
-.ui.purple.corner.label:hover {
+
+.ui.green.corner.label,
+.ui.green.corner.label:hover {
   background-color: transparent !important;
 }
-/* Ribbon */
-.ui.purple.ribbon.label {
-  border-color: #3E3773 !important;
+.ui.green.ribbon.label {
+  border-color: @greenHover !important;
 }
 
 /*--- Orange ---*/
 .ui.orange.labels .label,
 .ui.orange.label {
-  background-color: #F05940 !important;
-  border-color: #F05940 !important;
-  color: #FFFFFF !important;
+  background-color: @orange !important;
+  border-color: @orange !important;
+  color: @invertedTextColor !important;
 }
 .ui.labels .orange.label:before,
 .ui.orange.labels .label:before,
 .ui.orange.label:before {
-  background-color: #F05940 !important;
+  background-color: @orange !important;
 }
-/* Hover */
 a.ui.orange.labels .label:hover,
 .ui.orange.labels a.label:hover,
 a.ui.orange.label:hover {
-  background-color: #FF4121 !important;
-  border-color: #FF4121 !important;
-  color: #FFFFFF !important;
+  background-color: @orangeHover !important;
+  border-color: @orangeHover !important;
+  color: @invertedTextColor !important;
 }
 .ui.labels a.orange.label:hover:before,
 .ui.orange.labels a.label:hover:before,
 a.ui.orange.label:hover:before {
-  background-color: #FF4121 !important;
+  background-color: @orangeHover !important;
 }
-/* Corner */
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
 }
-/* Ribbon */
 .ui.orange.ribbon.label {
-  border-color: #FF4121 !important;
+  border-color: @orangeHover !important;
 }
 
+/*--- Pink ---*/
+.ui.pink.labels .label,
+.ui.pink.label {
+  background-color: @pink !important;
+  border-color: @pink !important;
+  color: @invertedTextColor !important;
+}
+.ui.labels .pink.label:before,
+.ui.pink.labels .label:before,
+.ui.pink.label:before {
+  background-color: @pink !important;
+}
+a.ui.pink.labels .label:hover,
+.ui.pink.labels a.label:hover,
+a.ui.pink.label:hover {
+  background-color: @pinkHover !important;
+  border-color: @pinkHover !important;
+  color: @invertedTextColor !important;
+}
+.ui.labels a.pink.label:hover:before,
+.ui.pink.labels a.label:hover:before,
+a.ui.pink.label:hover:before {
+  background-color: @pinkHover !important;
+}
+.ui.pink.corner.label,
+.ui.pink.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.pink.ribbon.label {
+  border-color: @pinkHover !important;
+}
 
+/*--- Purple ---*/
+.ui.purple.labels .label,
+.ui.purple.label {
+  background-color: @purple !important;
+  border-color: @purple !important;
+  color: @invertedTextColor !important;
+}
+.ui.labels .purple.label:before,
+.ui.purple.labels .label:before,
+.ui.purple.label:before {
+  background-color: @purple !important;
+}
+a.ui.purple.labels .label:hover,
+.ui.purple.labels a.label:hover,
+a.ui.purple.label:hover {
+  background-color: @purpleHover !important;
+  border-color: @purpleHover !important;
+  color: @invertedTextColor !important;
+}
+.ui.labels a.purple.label:hover:before,
+.ui.purple.labels a.label:hover:before,
+a.ui.purple.label:hover:before {
+  background-color: @purpleHover !important;
+}
+.ui.purple.corner.label,
+.ui.purple.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.purple.ribbon.label {
+  border-color: @purpleHover !important;
+}
 
+/*--- Red ---*/
+.ui.red.labels .label,
+.ui.red.label {
+  background-color: @red !important;
+  border-color: @red !important;
+  color: @invertedTextColor !important;
+}
+.ui.labels .red.label:before,
+.ui.red.labels .label:before,
+.ui.red.label:before {
+  background-color: @red !important;
+}
+.ui.red.corner.label,
+.ui.red.corner.label:hover {
+  background-color: transparent !important;
+}
+
+a.ui.red.labels .label:hover,
+a.ui.red.label:hover{
+  background-color: @redHover !important;
+  border-color: @redHover !important;
+  color: @invertedTextColor !important;
+}
+.ui.labels a.red.label:hover:before,
+.ui.red.labels a.label:hover:before,
+a.ui.red.label:hover:before {
+  background-color: @redHover !important;
+}
+.ui.red.ribbon.label {
+  border-color: @redHover !important;
+}
 
 /*--- Teal ---*/
 .ui.teal.labels .label,
 .ui.teal.label {
-  background-color: #00B5AD !important;
-  border-color: #00B5AD !important;
-  color: #FFFFFF !important;
+  background-color: @teal !important;
+  border-color: @teal !important;
+  color: @invertedTextColor !important;
 }
 .ui.labels .teal.label:before,
 .ui.teal.labels .label:before,
 .ui.teal.label:before {
-  background-color: #00B5AD !important;
+  background-color: @teal !important;
 }
-/* Hover */
 a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
-  background-color: #009A93 !important;
-  border-color: #009A93 !important;
-  color: #FFFFFF !important;
+  background-color: @tealHover !important;
+  border-color: @tealHover !important;
+  color: @invertedTextColor !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
-  background-color: #009A93 !important;
+  background-color: @tealHover !important;
 }
-/* Corner */
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
 }
-/* Ribbon */
 .ui.teal.ribbon.label {
-  border-color: #009A93 !important;
+  border-color: @tealHover !important;
+}
+
+/*--- Yellow ---*/
+.ui.yellow.labels .label,
+.ui.yellow.label {
+  background-color: @yellow !important;
+  border-color: @yellow !important;
+  color: @invertedTextColor !important;
+}
+.ui.labels .yellow.label:before,
+.ui.yellow.labels .label:before,
+.ui.yellow.label:before {
+  background-color: @yellow !important;
+}
+a.ui.yellow.labels .label:hover,
+.ui.yellow.labels a.label:hover,
+a.ui.yellow.label:hover {
+  background-color: @yellowHover !important;
+  border-color: @yellowHover !important;
+  color: @invertedTextColor !important;
+}
+.ui.labels a.yellow.label:hover:before,
+.ui.yellow.labels a.label:hover:before,
+a.ui.yellow.label:hover:before {
+  background-color: @yellowHover !important;
+}
+.ui.yellow.corner.label,
+.ui.yellow.corner.label:hover {
+  background-color: transparent !important;
+}
+.ui.yellow.ribbon.label {
+  border-color: @tealHover !important;
 }
 
 /*-------------------
@@ -794,10 +761,10 @@ a.ui.teal.label:hover:before {
 
 .ui.horizontal.labels .label,
 .ui.horizontal.label {
-  margin: -0.125em 0.5em -0.125em 0em;
+  margin: 0em @horizontalLabelMargin 0em 0em;
 
-  padding: 0.35em 1em;
-  min-width: 6em;
+  padding: @horizontalLabelVerticalPadding @horizontalPadding;
+  min-width: @horizontalLabelMinWidth;
   text-align: center;
 }
 
@@ -808,17 +775,20 @@ a.ui.teal.label:hover:before {
 
 .ui.circular.labels .label,
 .ui.circular.label {
-  min-height: 1em;
-  max-height: 2em;
+  min-width: @circularMinSize;
+  min-height: @circularMinSize;
 
-  padding: 0.5em !important;
+  padding: @circularPadding !important;
 
   line-height: 1em;
   text-align: center;
-
-  -webkit-border-radius: 500rem;
-  -moz-border-radius: 500rem;
-  border-radius: 500rem;
+  border-radius: @circularRadius;
+}
+.ui.empty.circular.labels .label,
+.ui.empty.circular.label {
+  min-width: 0.5em;
+  min-height: 0.5em;
+  vertical-align: middle;
 }
 
 /*-------------------
@@ -834,37 +804,23 @@ a.ui.teal.label:hover:before {
 
 .ui.pointing.label:before {
   position: absolute;
-  content: "";
+  content: '';
 
-  width: 0.6em;
-  height: 0.6em;
+  width: @pointingTriangleSize;
+  height: @pointingTriangleSize;
 
   background-image: none;
 
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
   transform: rotate(45deg);
   z-index: 2;
-
-  -webkit-transition:
-    background 0.1s linear
-  ;
-  -moz-transition:
-    background 0.1s linear
-  ;
-  -o-transition:
-    background 0.1s linear
-  ;
-  -ms-transition:
-    background 0.1s linear
-  ;
   transition:
     background 0.1s linear
   ;
 }
 /*--- Above ---*/
 .ui.pointing.label:before {
-  background-color: #E8E8E8;
+  background-color: @backgroundColor;
+  background-image: @backgroundImage;
 }
 .ui.pointing.label,
 .ui.pointing.above.label {
@@ -872,8 +828,8 @@ a.ui.teal.label:hover:before {
 }
 .ui.pointing.label:before,
 .ui.pointing.above.label:before {
-  margin-left: -0.3em;
-  top: -0.3em;
+  margin-left: -@pointingTriangleOffset;
+  top: -@pointingTriangleOffset;
   left: 50%;
 }
 /*--- Below ---*/
@@ -882,10 +838,10 @@ a.ui.teal.label:hover:before {
   margin-bottom: 1em;
 }
 .ui.pointing.below.label:before {
-  margin-left: -0.3em;
+  margin-left: -@pointingTriangleOffset;
   top: auto;
   right: auto;
-  bottom: -0.3em;
+  bottom: -@pointingTriangleOffset;
   left: 50%;
 }
 /*--- Left ---*/
@@ -894,7 +850,7 @@ a.ui.teal.label:hover:before {
   margin-left: 1em;
 }
 .ui.pointing.left.label:before {
-  margin-top: -0.3em;
+  margin-top: -@pointingTriangleOffset;
   bottom: auto;
   right: auto;
   top: 50%;
@@ -906,8 +862,8 @@ a.ui.teal.label:hover:before {
   margin-right: 1em;
 }
 .ui.pointing.right.label:before {
-  margin-top: -0.3em;
-  right: -0.3em;
+  margin-top: -@pointingTriangleOffset;
+  right: -@pointingTriangleOffset;
   top: 50%;
   bottom: auto;
   left: auto;
@@ -920,9 +876,9 @@ a.ui.teal.label:hover:before {
 .ui.floating.label {
   position: absolute;
   z-index: 100;
-  top: -1em;
+  top: @floatingTopOffset;
   left: 100%;
-  margin: 0em 0em 0em -1.5em !important;
+  margin: 0em 0em 0em @floatingLeftOffset !important;
 }
 
 /*-------------------
@@ -931,16 +887,16 @@ a.ui.teal.label:hover:before {
 
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 0.75rem;
+  font-size: @small;
 }
 .ui.label {
-  font-size: 0.8125rem;
+  font-size: @medium;
 }
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 0.875rem;
+  font-size: @large;
 }
 .ui.huge.labels .label,
 .ui.huge.label {
-  font-size: 1rem;
+  font-size: @huge;
 }

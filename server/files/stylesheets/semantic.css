@@ -427,6 +427,9 @@ body.guide .main.container > * {
   vertical-align: top;
   width: 100%;
 }
+#example .introduction .download.icon {
+  margin: 0em 0em 0em 0.5em;
+}
 #example .introduction h1 {
   margin-bottom: 0em;
 }

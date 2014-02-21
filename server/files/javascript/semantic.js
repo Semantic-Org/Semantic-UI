@@ -137,6 +137,10 @@ semantic.ready = function() {
             element : $themeDropdown.data('element')
           }
         ;
+        if(theme == 'default') {
+          variableURL = '/build/less/themes/{$theme}/{$type}s/{$element}.variables';
+          overrideURL = '/build/less/themes/{$theme}/{$type}s/{$element}.overrides';
+        }
         $themeDropdown
           .api({
             on       : 'now',
@@ -835,7 +839,7 @@ semantic.ready = function() {
       }
     })
   ;
-  $('body')
+/*  $('body')
     .waypoint({
       handler: function(direction) {
         if(direction == 'down') {
@@ -850,7 +854,7 @@ semantic.ready = function() {
       },
       offset: 'bottom-in-view'
      })
-  ;
+  ;*/
   $peek
     .waypoint('sticky', {
       offset     : 85,

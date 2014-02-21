@@ -32,8 +32,8 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/basic.icon.css">
 
-  <link rel="stylesheet/less" type="text/css" href="/build/less/site.less" />
   <% if 'development' in @getEnvironments(): %>
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/site.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/icon.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/button.css">
@@ -76,6 +76,8 @@
   <% else: %>
   <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
   <% end %>
+
+  <!-- <link rel="stylesheet/less" type="text/css" href="/build/less/site.less" /> -->
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 
