@@ -107,12 +107,10 @@ $.fn.form = function(fields, parameters) {
           ;
           $field
             .each(function() {
-              var  
+              var
                 type       = $(this).prop('type'),
                 inputEvent = module.get.changeEvent(type)
               ;
-              if(settings.inline == true) {
-              }
               $(this)
                 .on(inputEvent + eventNamespace, module.event.field.change)
               ;
