@@ -211,14 +211,8 @@
 ---------------------*/
 
 .ui.labeled.input .corner.label {
-  top: 1px;
-  left: 1px;
-  font-size: 0.55em;
+  font-size: 0.7em;
   border-top-left-radius: 0.3125em;
-}
-
-.ui.labeled.input .corner.label > .icon {
-  margin: 0.4em 2em 0em 0em;
 }
 
 .ui.labeled.input input {

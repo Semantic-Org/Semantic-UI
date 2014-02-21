@@ -93,21 +93,19 @@
   color: rgba(30, 30, 30, 0.6);
 }
 
-.ui.menu .dropdown.item .menu .item,
-.ui.menu .dropdown.item .menu .item a:not(.button) {
+.ui.menu .dropdown .menu .item,
+.ui.menu .dropdown .menu .item a:not(.button) {
   color: rgba(0, 0, 0, 0.75);
 }
 
 /* Hover */
 
 .ui.menu .item .menu a.item:hover,
-.ui.menu .item .menu a.item.hover,
-.ui.menu .item .menu .link.item:hover,
-.ui.menu .item .menu .link.item.hover {
+.ui.menu .item .menu .link.item:hover {
   color: rgba(0, 0, 0, 0.85);
 }
 
-.ui.menu .dropdown.item .menu .item a:not(.button):hover {
+.ui.menu .dropdown .menu .item a:not(.button):hover {
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -158,13 +156,18 @@
   position: absolute;
   content: '';
   top: 0%;
-  right: 0px;
+  left: 0px;
   width: 1px;
   height: 100%;
   background-image: linear-gradient(
     rgba(0, 0, 0, 0.05) 0%,
     rgba(0, 0, 0, 0.1) 50%,
     rgba(0, 0, 0, 0.05) 100%);
+}
+
+.ui.menu > .menu:not(.right):first-child > .item:first-child:before,
+.ui.menu .item:first-child:before {
+  display: none;
 }
 
 .ui.menu .menu.right .item:before,
@@ -286,6 +289,11 @@
     Dropdowns
 ---------------*/
 
+.ui.menu .dropdown .menu .item .icon {
+  float: none;
+  margin: 0em 0.75em 0em 0em;
+}
+
 .ui.menu .dropdown.item .menu {
   left: 1px;
   margin: 0px;
@@ -357,16 +365,14 @@
 ---------------*/
 
 .ui.link.menu .item:hover,
-.ui.menu .item.hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
-.ui.menu .ui.dropdown .menu .item.hover,
 .ui.menu .ui.dropdown .menu .item:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-.ui.menu .ui.dropdown.active {
+.ui.menu .ui.dropdown.item.active {
   background-color: rgba(0, 0, 0, 0.02);
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -433,8 +439,7 @@
 ---------------*/
 
 .ui.menu .item.disabled,
-.ui.menu .item.disabled:hover,
-.ui.menu .item.disabled.hover {
+.ui.menu .item.disabled:hover {
   cursor: default;
   color: rgba(0, 0, 0, 0.2);
   background-color: transparent !important;
@@ -490,13 +495,13 @@
   text-align: center;
 }
 
-.ui.vertical.menu .item > .icon:not(.input) {
+.ui.vertical.menu .item > i.icon {
   float: right;
   width: 1.22em;
   margin: 0em 0em 0em 0.5em;
 }
 
-.ui.vertical.menu .item > .label + .icon {
+.ui.vertical.menu .item > .label + i.icon {
   float: none;
   margin: 0em 0.25em 0em 0em;
 }
@@ -548,7 +553,7 @@
   font-size: 1rem;
 }
 
-.ui.vertical.menu .dropdown.item .menu .item .icon {
+.ui.vertical.menu .dropdown.item .menu .item i.icon {
   margin-right: 0em;
 }
 
@@ -580,8 +585,7 @@
   color: rgba(0, 0, 0, 0.4);
 }
 
-.ui.tiered.menu > .menu > .item:hover,
-.ui.tiered.menu > .menu > .item.hover {
+.ui.tiered.menu > .menu > .item:hover {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -645,8 +649,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-.ui.inverted.tiered.menu > .menu > .item:hover,
-.ui.inverted.tiered.menu > .menu > .item.hover {
+.ui.inverted.tiered.menu > .menu > .item:hover {
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -745,7 +748,7 @@
   text-align: center;
 }
 
-.ui.pagination.menu .icon.item .icon {
+.ui.pagination.menu .icon.item i.icon {
   vertical-align: top;
 }
 
@@ -953,7 +956,6 @@
 
 /* Hover */
 
-.ui.secondary.vertical.pointing.menu > .item.hover,
 .ui.secondary.vertical.pointing.menu > .item:hover {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.7);
@@ -1089,7 +1091,7 @@
   margin: 0.5em 0em;
 }
 
-.ui.vertical.text.menu .item > .icon {
+.ui.vertical.text.menu .item > i.icon {
   float: none;
   margin: 0em 0.83em 0em 0em;
 }
@@ -1100,7 +1102,6 @@
 
 /*--- hover ---*/
 
-.ui.text.menu .item.hover,
 .ui.text.menu .item:hover {
   opacity: 1;
   background-color: transparent;
@@ -1272,14 +1273,13 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-.ui.inverted.menu .dropdown.item .menu .item,
-.ui.inverted.menu .dropdown.item .menu .item a {
+.ui.inverted.menu .dropdown .menu .item,
+.ui.inverted.menu .dropdown .menu .item a {
   color: rgba(0, 0, 0, 0.75) !important;
 }
 
 .ui.inverted.menu .item.disabled,
-.ui.inverted.menu .item.disabled:hover,
-.ui.inverted.menu .item.disabled.hover {
+.ui.inverted.menu .item.disabled:hover {
   color: rgba(255, 255, 255, 0.2);
 }
 
@@ -1310,21 +1310,16 @@
 /*--- Hover ---*/
 
 .ui.link.inverted.menu .item:hover,
-.ui.inverted.menu .item.hover,
 .ui.inverted.menu .link.item:hover,
 .ui.inverted.menu a.item:hover,
-.ui.inverted.menu .dropdown.item.hover,
 .ui.inverted.menu .dropdown.item:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
 .ui.inverted.menu a.item:hover,
-.ui.inverted.menu .item.hover,
 .ui.inverted.menu .item > a:hover,
 .ui.inverted.menu .item .menu a.item:hover,
-.ui.inverted.menu .item .menu a.item.hover,
-.ui.inverted.menu .item .menu .link.item:hover,
-.ui.inverted.menu .item .menu .link.item.hover {
+.ui.inverted.menu .item .menu .link.item:hover {
   color: rgba(255, 255, 255, 1);
 }
 
@@ -1691,7 +1686,6 @@
   background-color: #FCFCFC;
 }
 
-.ui.pointing.menu .active.item.hover:after,
 .ui.pointing.menu .active.item:hover:after {
   background-color: #FAFAFA;
 }
@@ -1752,7 +1746,7 @@
   font-size: 0.875rem;
 }
 
-.ui.large.menu .dropdown.item .item {
+.ui.large.menu .dropdown .item {
   font-size: 1rem;
 }
 

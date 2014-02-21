@@ -42,6 +42,7 @@
 .ui.modal > .close {
   cursor: pointer;
   position: absolute;
+  z-index: 1;
   opacity: 0.8;
   font-size: 1.25em;
   top: -1.75em;

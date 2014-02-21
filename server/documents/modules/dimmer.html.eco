@@ -163,8 +163,8 @@ type        : 'UI Module'
         <div class="ui dimmer">
           <div class="content">
             <div class="center">
-              <div class="ui green button">Vote</div>
-              <a class="ui button">View</a>
+              <div class="ui mini green button">Vote</div>
+              <a class="ui mini button">View</a>
             </div>
           </div>
         </div>

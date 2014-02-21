@@ -566,6 +566,23 @@
   padding-left: 1%;
 }
 
+/* Swap to full width on mobile */
+
+@media only screen and (max-width: 767px) {
+  .ui.form .two.fields > .fields,
+  .ui.form .two.fields > .field,
+  .ui.form .three.fields > .fields,
+  .ui.form .three.fields > .field,
+  .ui.form .four.fields > .fields,
+  .ui.form .four.fields > .field,
+  .ui.form .five.fields > .fields,
+  .ui.form .five.fields > .field {
+    width: 100%;
+    padding-right: 0%;
+    padding-left: 0%;
+  }
+}
+
 .ui.form .fields .field:first-child {
   padding-right: 0%;
 }
@@ -1632,21 +1649,19 @@ body > .ui.grid {
   color: rgba(30, 30, 30, 0.6);
 }
 
-.ui.menu .dropdown.item .menu .item,
-.ui.menu .dropdown.item .menu .item a:not(.button) {
+.ui.menu .dropdown .menu .item,
+.ui.menu .dropdown .menu .item a:not(.button) {
   color: rgba(0, 0, 0, 0.75);
 }
 
 /* Hover */
 
 .ui.menu .item .menu a.item:hover,
-.ui.menu .item .menu a.item.hover,
-.ui.menu .item .menu .link.item:hover,
-.ui.menu .item .menu .link.item.hover {
+.ui.menu .item .menu .link.item:hover {
   color: rgba(0, 0, 0, 0.85);
 }
 
-.ui.menu .dropdown.item .menu .item a:not(.button):hover {
+.ui.menu .dropdown .menu .item a:not(.button):hover {
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -1697,12 +1712,17 @@ body > .ui.grid {
   position: absolute;
   content: '';
   top: 0%;
-  left: 0px;
+  right: 0px;
   width: 1px;
   height: 100%;
   background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
   background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+.ui.menu > .menu:not(.right):first-child > .item:first-child:before,
+.ui.menu .item:first-child:before {
+  display: none;
 }
 
 .ui.menu .menu.right .item:before,
@@ -1824,6 +1844,11 @@ body > .ui.grid {
     Dropdowns
 ---------------*/
 
+.ui.menu .dropdown .menu .item .icon {
+  float: none;
+  margin: 0em 0em 0em 0.75em;
+}
+
 .ui.menu .dropdown.item .menu {
   right: 1px;
   margin: 0px;
@@ -1895,16 +1920,14 @@ body > .ui.grid {
 ---------------*/
 
 .ui.link.menu .item:hover,
-.ui.menu .item.hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover,
-.ui.menu .ui.dropdown .menu .item.hover,
 .ui.menu .ui.dropdown .menu .item:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-.ui.menu .ui.dropdown.active {
+.ui.menu .ui.dropdown.item.active {
   background-color: rgba(0, 0, 0, 0.02);
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -1971,8 +1994,7 @@ body > .ui.grid {
 ---------------*/
 
 .ui.menu .item.disabled,
-.ui.menu .item.disabled:hover,
-.ui.menu .item.disabled.hover {
+.ui.menu .item.disabled:hover {
   cursor: default;
   color: rgba(0, 0, 0, 0.2);
   background-color: transparent !important;
@@ -2028,13 +2050,13 @@ body > .ui.grid {
   text-align: center;
 }
 
-.ui.vertical.menu .item > .icon:not(.input) {
+.ui.vertical.menu .item > i.icon {
   float: left;
   width: 1.22em;
   margin: 0em 0.5em 0em 0em;
 }
 
-.ui.vertical.menu .item > .label + .icon {
+.ui.vertical.menu .item > .label + i.icon {
   float: none;
   margin: 0em 0em 0em 0.25em;
 }
@@ -2081,7 +2103,7 @@ body > .ui.grid {
   font-size: 1rem;
 }
 
-.ui.vertical.menu .dropdown.item .menu .item .icon {
+.ui.vertical.menu .dropdown.item .menu .item i.icon {
   margin-left: 0em;
 }
 
@@ -2113,8 +2135,7 @@ body > .ui.grid {
   color: rgba(0, 0, 0, 0.4);
 }
 
-.ui.tiered.menu > .menu > .item:hover,
-.ui.tiered.menu > .menu > .item.hover {
+.ui.tiered.menu > .menu > .item:hover {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -2178,8 +2199,7 @@ body > .ui.grid {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.ui.inverted.tiered.menu > .menu > .item:hover,
-.ui.inverted.tiered.menu > .menu > .item.hover {
+.ui.inverted.tiered.menu > .menu > .item:hover {
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -2278,7 +2298,7 @@ body > .ui.grid {
   text-align: center;
 }
 
-.ui.pagination.menu .icon.item .icon {
+.ui.pagination.menu .icon.item i.icon {
   vertical-align: top;
 }
 
@@ -2486,7 +2506,6 @@ body > .ui.grid {
 
 /* Hover */
 
-.ui.secondary.vertical.pointing.menu > .item.hover,
 .ui.secondary.vertical.pointing.menu > .item:hover {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.7);
@@ -2622,7 +2641,7 @@ body > .ui.grid {
   margin: 0.5em 0em;
 }
 
-.ui.vertical.text.menu .item > .icon {
+.ui.vertical.text.menu .item > i.icon {
   float: none;
   margin: 0em 0em 0em 0.83em;
 }
@@ -2633,7 +2652,6 @@ body > .ui.grid {
 
 /*--- hover ---*/
 
-.ui.text.menu .item.hover,
 .ui.text.menu .item:hover {
   opacity: 1;
   background-color: transparent;
@@ -2805,14 +2823,13 @@ body > .ui.grid {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.ui.inverted.menu .dropdown.item .menu .item,
-.ui.inverted.menu .dropdown.item .menu .item a {
+.ui.inverted.menu .dropdown .menu .item,
+.ui.inverted.menu .dropdown .menu .item a {
   color: rgba(0, 0, 0, 0.75) !important;
 }
 
 .ui.inverted.menu .item.disabled,
-.ui.inverted.menu .item.disabled:hover,
-.ui.inverted.menu .item.disabled.hover {
+.ui.inverted.menu .item.disabled:hover {
   color: rgba(255, 255, 255, 0.2);
 }
 
@@ -2833,21 +2850,16 @@ body > .ui.grid {
 /*--- Hover ---*/
 
 .ui.link.inverted.menu .item:hover,
-.ui.inverted.menu .item.hover,
 .ui.inverted.menu .link.item:hover,
 .ui.inverted.menu a.item:hover,
-.ui.inverted.menu .dropdown.item.hover,
 .ui.inverted.menu .dropdown.item:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
 .ui.inverted.menu a.item:hover,
-.ui.inverted.menu .item.hover,
 .ui.inverted.menu .item > a:hover,
 .ui.inverted.menu .item .menu a.item:hover,
-.ui.inverted.menu .item .menu a.item.hover,
-.ui.inverted.menu .item .menu .link.item:hover,
-.ui.inverted.menu .item .menu .link.item.hover {
+.ui.inverted.menu .item .menu .link.item:hover {
   color: #ffffff;
 }
 
@@ -3214,7 +3226,6 @@ body > .ui.grid {
   background-color: #FCFCFC;
 }
 
-.ui.pointing.menu .active.item.hover:after,
 .ui.pointing.menu .active.item:hover:after {
   background-color: #FAFAFA;
 }
@@ -3275,7 +3286,7 @@ body > .ui.grid {
   font-size: 0.875rem;
 }
 
-.ui.large.menu .dropdown.item .item {
+.ui.large.menu .dropdown .item {
   font-size: 1rem;
 }
 
@@ -9528,14 +9539,8 @@ img.ui.image {
 ---------------------*/
 
 .ui.labeled.input .corner.label {
-  top: 1px;
-  left: 1px;
-  font-size: 0.55em;
+  font-size: 0.7em;
   border-top-left-radius: 0.3125em;
-}
-
-.ui.labeled.input .corner.label > .icon {
-  margin: 0.4em 2em 0em 0em;
 }
 
 .ui.labeled.input input {
@@ -9944,9 +9949,8 @@ a.ui.label:hover:before {
   left: 0em;
   z-index: 10;
   margin: 0em;
-  font-size: 0.8125em;
-  width: 2rem;
-  height: 2rem;
+  width: 3em;
+  height: 3em;
   padding: 0em;
   text-align: center;
   -webkit-transition: color 0.2s ease;
@@ -9971,19 +9975,48 @@ a.ui.label:hover:before {
 }
 
 .ui.corner.label .icon {
-  margin: 0.4em 0.7em 0em 0em;
+  font-size: 0.875em;
+  margin: 0.5em 1.25em 0em 0em;
 }
 
 .ui.corner.label .text {
   display: inline-block;
   font-weight: bold;
-  margin: 0.5em 0.6em 0em 0em;
+  margin: 0.5em 1em 0em 0em;
   width: 2.5em;
-  font-size: 0.82em;
+  font-size: 0.875em;
   text-align: center;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+/* Coupling */
+
+.ui.rounded.image > .ui.corner.label,
+.ui.input > .ui.corner.label,
+.ui.segment > .ui.corner.label {
+  overflow: hidden;
+}
+
+.ui.segment > .ui.corner.label {
+  top: -1px;
+  left: -1px;
+}
+
+.ui.segment > .ui.left.corner.label {
+  left: auto;
+  right: -1px;
+}
+
+.ui.input > .ui.corner.label {
+  top: 1px;
+  left: 1px;
+}
+
+.ui.input > .ui.right.corner.label {
+  left: auto;
+  right: 1px;
 }
 
 /* Left Corner */
@@ -10003,11 +10036,11 @@ a.ui.label:hover:before {
 }
 
 .ui.left.corner.label .icon {
-  margin: 0.4em -0.7em 0em 0em;
+  margin: 0.5em -1em 0em 0em;
 }
 
 .ui.left.corner.label .text {
-  margin: 0.5em -0.6em 0em 0em;
+  margin: 0.5em -1em 0em 0em;
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -13553,6 +13586,7 @@ a.ui.teal.label:hover:before {
 .ui.modal > .close {
   cursor: pointer;
   position: absolute;
+  z-index: 1;
   opacity: 0.8;
   font-size: 1.25em;
   top: -1.75em;

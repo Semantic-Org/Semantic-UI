@@ -122,6 +122,7 @@ type        : 'UI Element'
       <input type="text" placeholder="Search a very wide input...">
       <i class="search icon"></i>
     </div>
+    <div class="ui ignored divider"></div>
     <div class="ui fluid action input">
       <input type="text" placeholder="Search...">
       <div class="ui button">Search</div>
@@ -131,6 +132,7 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>An input can vary in size</p>
+    <div class="ui ignored info message">Inputs will automatically size themselves unless you manually declare a width</div>
     <div class="ui mini icon input">
       <input type="text" placeholder="Search mini...">
       <i class="search icon"></i>
