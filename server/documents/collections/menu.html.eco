@@ -562,7 +562,7 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A menu may have its colors inverted to show greater contrast</p>
-    <div class="ui inverted menu">
+    <div class="ui mono inverted menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
@@ -660,7 +660,7 @@ type        : 'UI Collection'
   </div>
   <div class="another example">
     <p>These colors can also be inverted</p>
-    <div class="ui green inverted menu">
+    <div class="ui green mono inverted menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
@@ -672,7 +672,7 @@ type        : 'UI Collection'
       </a>
     </div>
     <br>
-    <div class="ui red inverted menu">
+    <div class="ui red mono inverted menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
@@ -684,7 +684,7 @@ type        : 'UI Collection'
       </a>
     </div>
     <br>
-    <div class="ui blue inverted menu">
+    <div class="ui blue mono inverted menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
@@ -696,7 +696,7 @@ type        : 'UI Collection'
       </a>
     </div>
     <br>
-    <div class="ui orange inverted menu">
+    <div class="ui orange mono inverted menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
@@ -708,7 +708,7 @@ type        : 'UI Collection'
       </a>
     </div>
     <br>
-    <div class="ui purple inverted menu">
+    <div class="ui purple mono inverted menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
@@ -720,7 +720,7 @@ type        : 'UI Collection'
       </a>
     </div>
     <br>
-    <div class="ui teal inverted menu">
+    <div class="ui teal mono inverted menu">
       <a class="active item">
         <i class="home icon"></i> Home
       </a>
