@@ -1,6 +1,6 @@
 /*
  * # Semantic - Popup
- * http://github.com/semantic-org/semantic-ui/
+ * http://github.com/jlukic/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -167,14 +167,12 @@ $.fn.popup = function(parameters) {
             if(settings.inline) {
               module.verbose('Inserting popup element inline', $popup);
               $popup
-                .data(moduleNamespace, instance)
                 .insertAfter($module)
               ;
             }
             else {
               module.verbose('Appending popup element to body', $popup);
               $popup
-                .data(moduleNamespace, instance)
                 .appendTo( $context )
               ;
             }
@@ -209,9 +207,10 @@ $.fn.popup = function(parameters) {
           if( !module.exists() ) {
             module.create();
           }
-          module.save.conditions();
-          module.set.position();
-          module.animate.show(callback);
+          if( module.set.position() ) {
+            module.save.conditions();
+            module.animate.show(callback);
+          }
         },
 
 
@@ -220,9 +219,9 @@ $.fn.popup = function(parameters) {
           $module
             .removeClass(className.visible)
           ;
-          module.restore.conditions();
           module.unbind.close();
           if( module.is.visible() ) {
+            module.restore.conditions();
             module.animate.hide(callback);
           }
         },
@@ -276,8 +275,8 @@ $.fn.popup = function(parameters) {
           conditions: function() {
             if(module.cache && module.cache.title) {
               $module.attr('title', module.cache.title);
-              module.verbose('Restoring original attributes', module.cache.title);
             }
+            module.verbose('Restoring original attributes', module.cache.title);
             return true;
           }
         },
@@ -463,7 +462,7 @@ $.fn.popup = function(parameters) {
               break;
               case 'top center':
                 positioning = {
-                  bottom :  parentHeight - offset.top + distanceAway,
+                  bottom : parentHeight - offset.top + distanceAway,
                   left   : offset.left + (width / 2) - (popupWidth / 2) + arrowOffset,
                   top    : 'auto',
                   right  : 'auto'
@@ -472,14 +471,14 @@ $.fn.popup = function(parameters) {
               case 'top right':
                 positioning = {
                   top    : 'auto',
-                  bottom :  parentHeight - offset.top + distanceAway,
+                  bottom : parentHeight - offset.top + distanceAway,
                   left   : offset.left + width + arrowOffset,
                   right  : 'auto'
                 };
               break;
               case 'left center':
                 positioning = {
-                  top    :  offset.top + (height / 2) - (popupHeight / 2) + arrowOffset,
+                  top    : offset.top + (height / 2) - (popupHeight / 2) + arrowOffset,
                   right  : parentWidth - offset.left + distanceAway,
                   left   : 'auto',
                   bottom : 'auto'
@@ -487,7 +486,7 @@ $.fn.popup = function(parameters) {
               break;
               case 'right center':
                 positioning = {
-                  top    :  offset.top + (height / 2) - (popupHeight / 2) + arrowOffset,
+                  top    : offset.top + (height / 2) - (popupHeight / 2) + arrowOffset,
                   left   : offset.left + width + distanceAway,
                   bottom : 'auto',
                   right  : 'auto'
@@ -495,7 +494,7 @@ $.fn.popup = function(parameters) {
               break;
               case 'bottom left':
                 positioning = {
-                  top    :  offset.top + height + distanceAway,
+                  top    : offset.top + height + distanceAway,
                   right  : parentWidth - offset.left - arrowOffset,
                   left   : 'auto',
                   bottom : 'auto'
@@ -503,7 +502,7 @@ $.fn.popup = function(parameters) {
               break;
               case 'bottom center':
                 positioning = {
-                  top    :  offset.top + height + distanceAway,
+                  top    : offset.top + height + distanceAway,
                   left   : offset.left + (width / 2) - (popupWidth / 2) + arrowOffset,
                   bottom : 'auto',
                   right  : 'auto'
@@ -511,7 +510,7 @@ $.fn.popup = function(parameters) {
               break;
               case 'bottom right':
                 positioning = {
-                  top    :  offset.top + height + distanceAway,
+                  top    : offset.top + height + distanceAway,
                   left   : offset.left + width + arrowOffset,
                   bottom : 'auto',
                   right  : 'auto'
@@ -594,10 +593,16 @@ $.fn.popup = function(parameters) {
 
         reset: function() {
           $popup
-            .attr('style', '')
-            .removeAttr('style')
+            .removeClass(className.visible)
           ;
-          if(!settings.preserve) {
+          if(settings.preserve) {
+            if($.fn.transition !== undefined) {
+              $popup
+                .transition('remove transition')
+              ;
+            }
+          }
+          else {
             module.remove();
           }
         },

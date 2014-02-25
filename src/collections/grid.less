@@ -369,6 +369,11 @@ body > .ui.grid {
   padding-right: @veryRelaxedGutterWidth;
 }
 
+.ui.vertically.divided.grid > .row:before {
+  margin-left: @relaxedGutterWidth;
+  margin-right: @relaxedGutterWidth;
+}
+
 /*----------------------
         Fitted
 -----------------------*/
@@ -382,6 +387,12 @@ body > .ui.grid {
   margin-left: -@relaxedGutterWidth;
   margin-right: -@relaxedGutterWidth;
 }
+
+.ui.vertically.divided.fitted.grid > .row:before {
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
 
 /*----------------------
        "Floated"
@@ -826,6 +837,8 @@ body > .ui.grid {
     padding: 0em;
     margin: 0em;
   }
+  .ui.stackable.grid > .row > .wide.column,
+  .ui.stackable.grid > .wide.column,
   .ui.stackable.grid > .row > .column,
   .ui.stackable.grid > .column {
     display: block !important;

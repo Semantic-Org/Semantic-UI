@@ -1,6 +1,6 @@
 /*
  * # Semantic - Transition
- * http://github.com/semantic-org/semantic-ui/
+ * http://github.com/jlukic/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -374,6 +374,13 @@ $.fn.transition = function() {
               .removeClass(className.looping)
             ;
             module.forceRepaint();
+          },
+
+          transition: function() {
+            $module
+              .removeClass(className.visible)
+              .removeClass(className.hidden)
+            ;
           }
 
         },
