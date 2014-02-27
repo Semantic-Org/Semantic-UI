@@ -6,6 +6,8 @@
        Divider
 --------------------*/
 
+@dividerMargin: 1rem;
+
 @highlightWidth: 1px;
 @highlightColor: rgba(255, 255, 255, 0.8);
 
@@ -13,6 +15,7 @@
 @shadowColor: rgba(0, 0, 0, 0.1);
 
 @dividerTextColor: @textColor;
+@dividerTextTransform: uppercase;
 
 /*-------------------
        Coupling
@@ -32,8 +35,7 @@
 @directionalTextColor: @invertedLightTextColor;
 
 @horizontalDividerVerticalMargin: 1rem;
-@horizontalDividerHorizontalMargin: 1.5rem;
-
+@horizontalDividerWidth: 40%;
 @verticalDividerWidth: 6%;
 
 /* Inverted */
