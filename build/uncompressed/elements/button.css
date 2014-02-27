@@ -1296,22 +1296,22 @@
    Transparent Black Dark
 ----------------*/
 
-.ui.transparentd.buttons .button,
-.ui.transparentd.button {
+.ui.transparentdark.buttons .button,
+.ui.transparentdark.button {
   background: rgba(0,0,0,0.75) !important;
   color: #FFFFFF;
 }
 
-.ui.transparentd.buttons .button:hover,
-.ui.transparentd.button:hover,
-.ui.transparentd.buttons .active.button,
-.ui.transparentd.button.active {
+.ui.transparentdark.buttons .button:hover,
+.ui.transparentdark.button:hover,
+.ui.transparentdark.buttons .active.button,
+.ui.transparentdark.button.active {
   background: rgba(0,0,0,0.75) !important;
   color: #FFFFFF;
 }
 
-.ui.transparentd.buttons .button:active,
-.ui.transparentd.button:active {
+.ui.transparentdark.buttons .button:active,
+.ui.transparentdark.button:active {
   background: rgba(0,0,0,0.75) !important;
   
 
@@ -1321,22 +1321,22 @@
    Transparent Black Light
 ----------------*/
 
-.ui.transparentl.buttons .button,
-.ui.transparentl.button {
+.ui.transparentlight.buttons .button,
+.ui.transparentlight.button {
   background: rgba(0,0,0,0.33) !important;
   color: #FFFFFF;
 }
 
-.ui.transparentl.buttons .button:hover,
-.ui.transparentl.button:hover,
-.ui.transparentl.buttons .active.button,
-.ui.transparentl.button.active {
+.ui.transparentlight.buttons .button:hover,
+.ui.transparentlight.button:hover,
+.ui.transparentlight.buttons .active.button,
+.ui.transparentlight.button.active {
   background: rgba(0,0,0,0.33) !important;
   color: #FFFFFF;
 }
 
-.ui.transparentl.buttons .button:active,
-.ui.transparentl.button:active {
+.ui.transparentlight.buttons .button:active,
+.ui.transparentlight.button:active {
   background: rgba(0,0,0,0.33) !important;
     color: #FFFFFF;
 }
