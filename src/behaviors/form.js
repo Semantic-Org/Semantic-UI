@@ -150,7 +150,7 @@ $.fn.form = function(fields, parameters) {
                   .blur()
                 ;
               }
-              if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) ) {
+              if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) && $field.not(selector.checkbox).size() > 0 ) {
                 module.debug('Enter key pressed, submitting form');
                 $submit
                   .addClass(className.down)
@@ -633,6 +633,7 @@ $.fn.form.settings = {
     message : '.error.message',
     field   : 'input, textarea, select',
     group   : '.field',
+    checkbox: 'input[type="checkbox"], input[type="radio"]',
     input   : 'input',
     prompt  : '.prompt',
     submit  : '.submit'
