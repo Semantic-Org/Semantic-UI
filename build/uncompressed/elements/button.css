@@ -1291,6 +1291,58 @@
   color: #FFFFFF;
 }
 
+
+/*---------------
+   Transparent Black Dark
+----------------*/
+
+.ui.transparentdark.buttons .button,
+.ui.transparentdark.button {
+  background: rgba(0,0,0,0.75) !important;
+  color: #FFFFFF;
+}
+
+.ui.transparentdark.buttons .button:hover,
+.ui.transparentdark.button:hover,
+.ui.transparentdark.buttons .active.button,
+.ui.transparentdark.button.active {
+  background: rgba(0,0,0,0.75) !important;
+  color: #FFFFFF;
+}
+
+.ui.transparentdark.buttons .button:active,
+.ui.transparentdark.button:active {
+  background: rgba(0,0,0,0.75) !important;
+  
+
+  color: #FFFFFF;
+}
+/*---------------
+   Transparent Black Light
+----------------*/
+
+.ui.transparentlight.buttons .button,
+.ui.transparentlight.button {
+  background: rgba(0,0,0,0.33) !important;
+  color: #FFFFFF;
+}
+
+.ui.transparentlight.buttons .button:hover,
+.ui.transparentlight.button:hover,
+.ui.transparentlight.buttons .active.button,
+.ui.transparentlight.button.active {
+  background: rgba(0,0,0,0.33) !important;
+  color: #FFFFFF;
+}
+
+.ui.transparentlight.buttons .button:active,
+.ui.transparentlight.button:active {
+  background: rgba(0,0,0,0.33) !important;
+    color: #FFFFFF;
+}
+
+
+
 /*---------------
     Positive
 ----------------*/
