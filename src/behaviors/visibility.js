@@ -1,6 +1,6 @@
 /*
  * # Semantic - Visibility
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -64,6 +64,8 @@ $.fn.visibility = function(parameters) {
           module.save.position();
           module.bindEvents();
           module.instantiate();
+
+          setTimeout(module.checkVisibility, settings.loadWait);
         },
 
         instantiate: function() {
@@ -87,20 +89,17 @@ $.fn.visibility = function(parameters) {
 
         bindEvents: function() {
           $window
-            .on('resize', module.event.resize)
+            .on('resize', module.event.refresh)
             .on('scroll', module.event.scroll)
           ;
         },
 
         event: {
-          resize: function() {
+          refresh: function() {
             requestAnimationFrame(module.refresh);
           },
           scroll: function() {
-            requestAnimationFrame(function() {
-              module.checkVisibility();
-              $.proxy(settings.onScroll, element)();
-            });
+            requestAnimationFrame(module.checkVisibility);
           }
         },
 
@@ -118,11 +117,129 @@ $.fn.visibility = function(parameters) {
         },
 
         checkVisibility: function() {
+          module.verbose('Updating visibility of element', module.cache.element);
           module.save.scroll();
           module.save.direction();
           module.save.screenCalculations();
           module.save.elementCalculations();
-          module.debug('Updating visibility of element', module.cache.element);
+
+          module.passed();
+          module.passing();
+          module.topVisible();
+          module.bottomVisible();
+          module.topPassed();
+          module.bottomPassed();
+        },
+
+        passing: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            screen       = module.get.screenCalculations(),
+            callback     = newCallback || settings.onPassing
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for passing', newCallback);
+            settings.onPassing = newCallback;
+          }
+          if(callback && calculations.passing) {
+            $.proxy(callback, element)(calculations, screen);
+          }
+          else {
+            return calculations.passing;
+          }
+        },
+
+        passed: function(amount, newCallback) {
+          var
+            calculations   = module.get.elementCalculations(),
+            amountInPixels
+          ;
+          // assign callback
+          if(amount !== undefined && newCallback !== undefined) {
+            settings.onPassed[amount] = newCallback;
+          }
+          else if(amount !== undefined) {
+            return (module.get.pixelsPassed(amount) > calculations.pixelsPassed);
+          }
+          else if(calculations.passing) {
+            $.each(settings.onPassed, function(amount, callback) {
+              if(calculations.bottomVisible || calculations.pixelsPassed > module.get.pixelsPassed(amount)) {
+                callback();
+              }
+            });
+          }
+        },
+
+        topVisible: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            screen       = module.get.screenCalculations(),
+            callback     = newCallback || settings.onTopVisible
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for top visible', newCallback);
+            settings.onTopVisible = newCallback;
+          }
+          if(callback && calculations.topVisible) {
+            $.proxy(callback, element)(calculations, screen);
+          }
+          else {
+            return calculations.topVisible;
+          }
+        },
+
+        bottomVisible: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            screen       = module.get.screenCalculations(),
+            callback     = newCallback || settings.onBottomVisible
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for bottom visible', newCallback);
+            settings.onBottomVisible = newCallback;
+          }
+          if(callback && calculations.bottomVisible) {
+            $.proxy(callback, element)(calculations, screen);
+          }
+          else {
+            return calculations.bottomVisible;
+          }
+        },
+
+        topPassed: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            screen       = module.get.screenCalculations(),
+            callback     = newCallback || settings.onTopPassed
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for top passed', newCallback);
+            settings.onTopPassed = newCallback;
+          }
+          if(callback && calculations.topPassed) {
+            $.proxy(callback, element)(calculations, screen);
+          }
+          else {
+            return calculations.topPassed;
+          }
+        },
+
+        bottomPassed: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            screen       = module.get.screenCalculations(),
+            callback     = newCallback || settings.onBottomPassed
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for bottom passed', newCallback);
+            settings.bottomPassed = newCallback;
+          }
+          if(callback && calculations.bottomPassed) {
+            $.proxy(callback, element)(calculations, screen);
+          }
+          else {
+            return calculations.bottomPassed;
+          }
         },
 
         save: {
@@ -184,16 +301,24 @@ $.fn.visibility = function(parameters) {
             }
             // visibility
             $.extend(module.cache.element, {
-              topVisible    : (screen.bottom > element.top),
-              topPassed     : (screen.top > element.top),
-              bottomVisible : (screen.bottom > element.bottom),
-              bottomPassed  : (screen.top > element.bottom)
+              topVisible       : (screen.bottom > element.top),
+              topPassed        : (screen.top > element.top),
+              bottomVisible    : (screen.bottom > element.bottom),
+              bottomPassed     : (screen.top > element.bottom),
+              pixelsPassed     : 0,
+              percentagePassed : 0
             });
             // meta calculations
             $.extend(module.cache.element, {
               visible : (module.cache.element.topVisible || module.cache.element.bottomVisible),
+              passing : (module.cache.element.topPassed && !module.cache.element.bottomPassed),
               hidden  : (!module.cache.element.topVisible && !module.cache.element.bottomVisible)
             });
+            if(module.cache.element.passing) {
+              module.cache.element.pixelsPassed = (screen.top - element.top);
+              module.cache.element.percentagePassed = (screen.top - element.top) / element.height;
+            }
+            module.verbose('Updated element calculations', module.cache.element);
           },
           screenCalculations: function() {
             var
@@ -222,6 +347,15 @@ $.fn.visibility = function(parameters) {
         },
 
         get: {
+          pixelsPassed: function(amount) {
+            var
+              element = module.get.elementCalculations()
+            ;
+            if(amount.search('%') > -1) {
+              return ( element.height * (parseInt(amount, 10) / 100) );
+            }
+            return parseInt(amount, 10);
+          },
           direction: function() {
             if(module.cache.direction === undefined) {
               module.save.direction();
@@ -444,23 +578,39 @@ $.fn.visibility = function(parameters) {
 
 $.fn.visibility.settings = {
 
-  name            : 'Visibility',
-  namespace       : 'visibility',
+  name              : 'Visibility',
+  namespace         : 'visibility',
 
-  verbose         : false,
-  debug           : false,
-  performance     : true,
+  verbose           : false,
+  debug             : false,
+  performance       : true,
 
-  offset          : 0,
-  includeMargin   : false,
+  loadWait          : 1000,
 
-  onTopVisible    : function(){},
-  onBottomVisible : function(){},
-  onTopPassed     : function(){},
-  onBottomPassed  : function(){},
+  watch             : true,
+  offset            : 0,
+  includeMargin     : false,
 
-  onRefresh       : function(){},
-  onScroll        : function(){},
+  // array of callbacks
+  onPassed          : {},
+
+  // standard callbacks
+  onPassing         : false,
+  onTopVisible      : false,
+  onBottomVisible   : false,
+  onTopPassed       : false,
+  onBottomPassed    : false,
+
+  // utility callbacks
+  onRefresh         : function(){},
+  onScroll          : function(){},
+
+  watchedProperties : [
+    'offsetWidth',
+    'offsetHeight',
+    'top',
+    'left'
+  ],
 
   error : {
     method   : 'The method you called is not defined.'
