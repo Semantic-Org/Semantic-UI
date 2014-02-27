@@ -22,15 +22,23 @@
              Page
 *******************************/
 
+/* UI Requires Border Box */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   font-size: @fontSize;
   height: 100%;
 }
 
+
 body {
   background: @bodyBackground;
-  font-family: @fontFamily;
+  font-family: @pageFont;
   margin: 0px;
   padding: 0px;
   color: @textColor;

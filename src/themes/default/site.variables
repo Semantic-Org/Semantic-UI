@@ -14,7 +14,7 @@
 --------------------*/
 
 @bodyBackground      : #FCFCFC;
-@fontSize            : 15px;
+@fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.7);
 
 @paragraphMargin     : 1em 0em;
@@ -40,7 +40,7 @@
        Fonts
 --------------------*/
 
-@fontFamily : Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+@pageFont : Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 
 /*-------------------
        Icons

@@ -2,7 +2,7 @@
        Header
 --------------------*/
 
-@fontFamily : 'Libre Baskerville', serif;
+@pageFont : 'Libre Baskerville', serif;
 @fontWeight: normal;
 
 @iconSize: 1.5em;
