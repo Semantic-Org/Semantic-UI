@@ -2,7 +2,7 @@
 
 1) You must rename your user folder from ``/themes/_site`` to ``themes/site`` to avoid library updates modifying your site's settings
 
-2) Rename your semantic config file from 'semantic.config.example' to 'semantic.config'
+2) Rename your semantic config file from ``semantic.config.example`` to ``semantic.config``
 
 3) Use ``grunt build`` to output your project files, you can configure the paths used in ``grunt.config``. 
 
