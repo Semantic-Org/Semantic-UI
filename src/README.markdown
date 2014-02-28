@@ -1,6 +1,6 @@
-## Quick and Dirty
+## Quick and Dirty Set-up
 
-1) You must rename your user folder from ``/themes/_site`` to ``themes/site`` to avoid library updates modifying your site's settings
+1) Rename the site configuration folder from ``/themes/_site`` to ``themes/site`` to avoid library updates modifying your site's settings.
 
 2) Rename your semantic config file from ``semantic.config.example`` to ``semantic.config``
 
@@ -18,7 +18,7 @@ To make development easier, Semantic has a built in grunt config for building yo
 
 You can also build the source files with any processor for LESS. Just keep in mind to customize ``site.variables`` with your asset paths for images and fonts.
 
-For information on installing grunt (see their guide)[http://gruntjs.com/installing-grunt]
+For information on installing grunt [see their guide](http://gruntjs.com/installing-grunt)
 
 ## Customizing Semantic
 
