@@ -1,15 +1,24 @@
-## Installing Semantic
+## Quick and Dirty
 
 1) You must rename your user folder from ``/themes/_site`` to ``themes/site`` to avoid library updates modifying your site's settings
 
 2) Rename your semantic config file from 'semantic.config.example' to 'semantic.config'
 
-3) Use ``grunt build`` to output your project files, you can configure the paths used in ``grunt.config``
+3) Use ``grunt build`` to output your project files, you can configure the paths used in ``grunt.config``. 
 
 ## Overview
-* ``themes/default`` are the default UI styling of an element
+* ``definitions/`` - contain all UI definitions
+* ``themes/packaged/default`` are the default UI styling of an element
 * ``themes/packaged`` are downloaded from the web or a package manager and provide preset overrides
 * ``themes/user`` are the only files you should modify, these are your site's overrides for LESS and variables
+
+## Building CSS
+
+To make development easier, Semantic has a built in grunt config for building your project. Simply modify the **grunt.config** with the directories you need.
+
+You can also build the source files with any processor for LESS. Just keep in mind to customize ``site.variables`` with your asset paths for images and fonts.
+
+For information on installing grunt (see their guide)[http://gruntjs.com/installing-grunt]
 
 ## Customizing Semantic
 
