@@ -163,6 +163,8 @@
 
 /* Secondary */
 @secondaryBackground: none;
+@secondaryItemBackground: none;
+
 @secondaryTransition: color 0.2s ease;
 
 @secondaryBorderRadius: 0.3125em;

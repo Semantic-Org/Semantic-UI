@@ -78,7 +78,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/definitions/css/semantic.min.css">
   <% end %>
 
-  <!-- <link rel="stylesheet/less" type="text/css" href="build/less/definitions/site.less" /> -->
+  <!-- <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/site.less" /> -->
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 
