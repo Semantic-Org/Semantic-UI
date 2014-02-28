@@ -18,10 +18,9 @@
        Header
 --------------------*/
 
-@fontFamily : Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+@pageFont : Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
 @fontWeight: bold;
 @textTransform: none;
-@textColor: 'inherit';
 
 @topMargin: 1em;
 @bottomMargin: 1rem;

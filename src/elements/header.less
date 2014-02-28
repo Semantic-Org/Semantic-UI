@@ -25,7 +25,7 @@
 /* Standard */
 .ui.header {
   border: none;
-  font-family: @fontFamily;
+  font-family: @pageFont;
   margin: @topMargin 0em @bottomMargin;
   padding: @verticalPadding @horizontalPadding;
   font-weight: @fontWeight;
@@ -61,7 +61,8 @@
 /* Only One */
 .ui.header .icon:only-child {
   display: inline-block;
-  vertical-align: baseline;
+  padding: 0em;
+  vertical-align: middle;
 }
 .ui.header .content {
   display: inline-block;

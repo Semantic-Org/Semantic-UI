@@ -24,7 +24,7 @@
 *******************************/
 
 .ui.divider {
-  margin: 1rem 0rem;
+  margin: @dividerMargin 0rem;
 
   border-top: @shadowWidth solid @shadowColor;
   border-bottom: @highlightWidth solid @highlightColor;
@@ -50,7 +50,7 @@
   font-size: @medium;
   font-weight: bold;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: @dividerTextTransform;
 
   color: @dividerTextColor;
 }
@@ -106,7 +106,7 @@
   top: 0%;
   left: 0%;
 
-  margin: @horizontalDividerVerticalMargin @horizontalDividerHorizontalMargin;
+  margin: @horizontalDividerVerticalMargin 0em;
   height: auto;
   padding: 0em;
 
@@ -120,7 +120,7 @@
   content: '';
   z-index: 3;
 
-  width: 50%;
+  width: @horizontalDividerWidth;
   top: 50%;
   height: 0%;
 
@@ -130,12 +130,10 @@
 
 .ui.horizontal.divider:before {
   left: 0%;
-  margin-left: -@horizontalDividerHorizontalMargin;
 }
 .ui.horizontal.divider:after {
   left: auto;
   right: 0%;
-  margin-right: -@horizontalDividerHorizontalMargin;
 }
 
 /*--------------

@@ -1,6 +1,6 @@
 /*
  * # Semantic - Sticky
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -68,8 +68,8 @@ $.fn.sticky = function(parameters) {
           }
 
           $window
-            .on('resize', module.event.resize)
-            .on('scroll', module.event.scroll)
+            .on('resize' + eventNamespace, module.event.resize)
+            .on('scroll' + eventNamespace, module.event.scroll)
           ;
 
           module.save.positions();
@@ -88,27 +88,27 @@ $.fn.sticky = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous module');
           module.reset();
-          $window
-            .off(eventNamespace)
-          ;
           $module
-            .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
         },
 
         event: {
           resize: function() {
-            requestAnimationFrame(function() {
-              module.reset();
-              module.save.positions();
-            });
+            requestAnimationFrame(module.refresh);
           },
           scroll: function() {
             requestAnimationFrame(function() {
               module.stick();
+              $.proxy(settings.onScroll, element)();
             });
           }
+        },
+
+        refresh: function() {
+          module.reset();
+          module.save.positions();
+          $.proxy(settings.onReposition, element)();
         },
 
         save: {
@@ -200,8 +200,13 @@ $.fn.sticky = function(parameters) {
 
         set: {
           containerSize: function() {
-            module.debug('Settings container size', module.cache.context.height);
-            $container.height(module.cache.context.height);
+            if($module.is(':visible') && $container.get(0).tagName === 'HTML') {
+              module.error(error.container);
+            }
+            else {
+              module.debug('Settings container size', module.cache.context.height);
+              $container.height(module.cache.context.height);
+            }
           },
           size: function() {
             $module
@@ -275,9 +280,8 @@ $.fn.sticky = function(parameters) {
                 module.bindBottom();
               }
               else if(elementPassed) {
-                console.log(currentOffset);
                 if(module.is.top() && direction == 'down') {
-                  module.debug('Misfitting element at bottom edge');
+                  module.debug('Stuck content at bottom edge');
                   if(newOffset >= (element.height - window.height)) {
                     $module
                       .css('top', '')
@@ -291,7 +295,7 @@ $.fn.sticky = function(parameters) {
                   }
                 }
                 if(module.is.bottom() && direction == 'up') {
-                  module.debug('Misfitting element at topp edge');
+                  module.debug('Stuck content at top edge');
                   if(newOffset >= (element.height - window.height)) {
                     $module
                       .css('bottom', '')
@@ -314,11 +318,18 @@ $.fn.sticky = function(parameters) {
             if(fits) {
               // fix to bottom of screen on way back up
               if(module.is.bottom() ) {
-                if( module.is.bound() && screen.bottom < context.bottom ) {
-                  module.stickBottom();
+                if(settings.pushing) {
+                  if(module.is.bound() && screen.bottom < context.bottom ) {
+                    module.stickBottom();
+                  }
+                }
+                else {
+                  if(module.is.bound() && screen.top < context.bottom - element.height) {
+                    module.stickTop();
+                  }
                 }
               }
-              else if(screen.top > element.top && screen.bottom < context.bottom) {
+              else if(screen.top > element.top && screen.top < context.bottom - element.height) {
                 module.stickTop();
               }
             }
@@ -339,6 +350,8 @@ $.fn.sticky = function(parameters) {
             .addClass(className.bound)
             .addClass(className.top)
           ;
+          $.proxy(settings.onTop, element)();
+          $.proxy(settings.onUnstick, element)();
         },
         bindBottom: function() {
           module.debug('Binding element to bottom of parent container');
@@ -348,6 +361,8 @@ $.fn.sticky = function(parameters) {
             .addClass(className.bound)
             .addClass(className.bottom)
           ;
+          $.proxy(settings.onBottom, element)();
+          $.proxy(settings.onUnstick, element)();
         },
 
         stickTop: function() {
@@ -358,6 +373,7 @@ $.fn.sticky = function(parameters) {
             .addClass(className.fixed)
             .addClass(className.top)
           ;
+          $.proxy(settings.onStick, element)();
         },
 
         stickBottom: function() {
@@ -368,6 +384,7 @@ $.fn.sticky = function(parameters) {
             .addClass(className.fixed)
             .addClass(className.bottom)
           ;
+          $.proxy(settings.onStick, element)();
         },
 
         unbind: function() {
@@ -386,6 +403,7 @@ $.fn.sticky = function(parameters) {
             .removeClass(className.top)
             .removeClass(className.bottom)
           ;
+          $.proxy(settings.onUnstick, this)();
         },
 
         reset: function() {
@@ -579,24 +597,27 @@ $.fn.sticky = function(parameters) {
 
 $.fn.sticky.settings = {
 
-  name        : 'Sticky',
-  namespace   : 'sticky',
+  name         : 'Sticky',
+  namespace    : 'sticky',
 
-  verbose     : true,
-  debug       : true,
-  performance : true,
+  verbose      : true,
+  debug        : true,
+  performance  : true,
 
-  context     : false,
-  offset      : 0,
+  pushing      : false,
 
-  onReposition: function(){},
-  onChange    : function(){},
-  onStick     : function(){},
-  onUnstick   : function(){},
-  onTop       : function(){},
-  onBottom    : function(){},
+  context      : false,
+  offset       : 0,
+
+  onReposition : function(){},
+  onScroll     : function(){},
+  onStick      : function(){},
+  onUnstick    : function(){},
+  onTop        : function(){},
+  onBottom     : function(){},
 
   error     : {
+    container: 'Sticky element must be inside a relative container',
     method   : 'The method you called is not defined.'
   },
 

@@ -1,4 +1,4 @@
-/*
+ /*
  * # Semantic - Button
  * http://github.com/semantic-org/semantic-ui/
  *
@@ -38,7 +38,7 @@
   margin: @verticalMargin @horizontalMargin 0em 0em;
   padding: @verticalPadding @horizontalPadding (@verticalPadding + @shadowOffset);
 
-  font-family: @fontFamily;
+  font-family: @pageFont;
   text-transform: @textTransform;
   text-shadow: @textShadow;
   font-weight: @fontWeight;
@@ -71,9 +71,22 @@
   color: @selectedTextColor;
 }
 
-.ui.button:hover .icon,
-.ui.button.hover .icon {
+.ui.button:hover .icon {
   opacity: @iconHoverOpacity;
+}
+
+/*--------------
+      Focus
+---------------*/
+
+.ui.button:focus {
+  background-color: @focusBackgroundColor;
+  background-image: @focusBackgroundImage;
+  color: @selectedTextColor;
+}
+
+.ui.button:focus .icon {
+  opacity: @iconFocusOpacity;
 }
 
 /*--------------
@@ -865,9 +878,6 @@
   border-radius: 500em;
   box-shadow: @orBoxShadow;
   box-sizing: border-box;
-}
-.ui.buttons .or[data-text]:before{
-    content: attr(data-text);
 }
 .ui.buttons .or:after {
   position: absolute;

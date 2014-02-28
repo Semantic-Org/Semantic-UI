@@ -64,6 +64,9 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
               .data(moduleNamespace, module)
             ;
+            $input
+              .on('keydown' + eventNamespace, module.event.keydown)
+            ;
             $label
               .on('click' + eventNamespace, module.toggle)
             ;
@@ -90,20 +93,41 @@ $.fn.checkbox = function(parameters) {
           ;
         },
 
+        event: {
+          keydown: function(event) {
+            var
+              key     = event.which,
+              keyCode = {
+                enter  : 13,
+                escape : 27
+              }
+            ;
+            if( key == keyCode.escape) {
+              module.verbose('Escape key pressed blurring field');
+              $module
+                .blur()
+              ;
+            }
+            if(!event.ctrlKey && key == keyCode.enter) {
+              $.proxy(module.toggle, this)();
+            }
+          }
+        },
+
         is: {
           radio: function() {
             return $module.hasClass(className.radio);
           },
-          enabled: function() {
+          checked: function() {
             return $input.prop('checked') !== undefined && $input.prop('checked');
           },
-          disabled: function() {
-            return !module.is.enabled();
+          unchecked: function() {
+            return !module.is.checked();
           }
         },
 
         can: {
-          disable: function() {
+          uncheck: function() {
             return (typeof settings.required === 'boolean')
               ? settings.required
               : !module.is.radio()
@@ -111,33 +135,33 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
-        enable: function() {
+        check: function() {
           module.debug('Enabling checkbox', $input);
           $input
             .prop('checked', true)
             .trigger('change')
           ;
           $.proxy(settings.onChange, $input.get())();
-          $.proxy(settings.onEnable, $input.get())();
+          $.proxy(settings.onChecked, $input.get())();
         },
 
-        disable: function() {
+        uncheck: function() {
           module.debug('Disabling checkbox');
           $input
             .prop('checked', false)
             .trigger('change')
           ;
           $.proxy(settings.onChange, $input.get())();
-          $.proxy(settings.onDisable, $input.get())();
+          $.proxy(settings.onUnchecked, $input.get())();
         },
 
         toggle: function(event) {
           module.verbose('Determining new checkbox state');
-          if( module.is.disabled() ) {
-            module.enable();
+          if( module.is.unchecked() ) {
+            module.check();
           }
-          else if( module.is.enabled() && module.can.disable() ) {
-            module.disable();
+          else if( module.is.checked() && module.can.uncheck() ) {
+            module.uncheck();
           }
         },
         setting: function(name, value) {
@@ -329,8 +353,8 @@ $.fn.checkbox.settings = {
   required    : 'auto',
 
   onChange    : function(){},
-  onEnable    : function(){},
-  onDisable   : function(){},
+  onChecked   : function(){},
+  onUnchecked : function(){},
 
   error     : {
     method   : 'The method you called is not defined.'

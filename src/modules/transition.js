@@ -374,6 +374,13 @@ $.fn.transition = function() {
               .removeClass(className.looping)
             ;
             module.forceRepaint();
+          },
+
+          transition: function() {
+            $module
+              .removeClass(className.visible)
+              .removeClass(className.hidden)
+            ;
           }
 
         },

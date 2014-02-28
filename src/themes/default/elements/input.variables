@@ -13,7 +13,7 @@
       Element
 --------------------*/
 
-@fontFamily: "Helvetica Neue", "Helvetica", Arial;
+@pageFont: "Helvetica Neue", "Helvetica", Arial;
 
 @verticalPadding: 0.65em;
 @horizontalPadding: 1em;
