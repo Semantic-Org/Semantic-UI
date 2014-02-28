@@ -11,7 +11,7 @@ themes      : ['default', 'bookish', 'chubby']
 ---
 
 <%- @partial('header') %>
-<link rel="stylesheet/less" type="text/css" href="/build/less/elements/header.less" />
+<link rel="stylesheet/less" type="text/css" href="build/less/definitions/elements/header.less" />
 <div class="main container">
 
   <div class="peek">

@@ -33,51 +33,52 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/basic.icon.css">
 
   <% if 'development' in @getEnvironments(): %>
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/site.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/icon.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/globals/reset.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/globals/site.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/icon.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/button.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/button.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/divider.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/header.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/image.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/input.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/label.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/loader.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/reveal.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/progress.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/segment.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/elements/step.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/divider.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/header.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/image.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/input.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/loader.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/reveal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/progress.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/segment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/step.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/breadcrumb.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/form.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/grid.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/menu.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/message.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/collections/table.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/breadcrumb.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/form.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/grid.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/menu.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/message.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/table.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/comment.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/list.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/feed.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/item.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/views/statistic.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/comment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/list.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/feed.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/item.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/statistic.css">
 
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/modal.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/accordion.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dropdown.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/popup.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/rating.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/sidebar.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/shape.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/tab.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/checkbox.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/dimmer.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/modules/transition.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/modal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/accordion.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/dropdown.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/popup.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/rating.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/sidebar.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/shape.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/tab.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/checkbox.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/dimmer.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/transition.css">
   <% else: %>
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/definitions/css/semantic.min.css">
   <% end %>
 
-  <!-- <link rel="stylesheet/less" type="text/css" href="/build/less/site.less" /> -->
+  <!-- <link rel="stylesheet/less" type="text/css" href="build/less/definitions/site.less" /> -->
 
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 
@@ -115,21 +116,21 @@
   <script src="/javascript/library/waypoints.js"></script>
 
   <% if 'development' in @getEnvironments(): %>
-  <script src="/build/uncompressed/modules/behavior/api.js"></script>
-  <script src="/build/uncompressed/modules/behavior/state.js"></script>
-  <script src="/build/uncompressed/modules/accordion.js"></script>
-  <script src="/build/uncompressed/modules/checkbox.js"></script>
-  <script src="/build/uncompressed/modules/dimmer.js"></script>
-  <script src="/build/uncompressed/modules/dropdown.js"></script>
-  <script src="/build/uncompressed/modules/modal.js"></script>
-  <script src="/build/uncompressed/modules/popup.js"></script>
-  <script src="/build/uncompressed/modules/rating.js"></script>
-  <script src="/build/uncompressed/modules/shape.js"></script>
-  <script src="/build/uncompressed/modules/sidebar.js"></script>
-  <script src="/build/uncompressed/modules/tab.js"></script>
-  <script src="/build/uncompressed/modules/transition.js"></script>
+  <script src="/build/uncompressed/definitions/behaviors/api.js"></script>
+  <script src="/build/uncompressed/definitions/behaviors/state.js"></script>
+  <script src="/build/uncompressed/definitions/modules/accordion.js"></script>
+  <script src="/build/uncompressed/definitions/modules/checkbox.js"></script>
+  <script src="/build/uncompressed/definitions/modules/dimmer.js"></script>
+  <script src="/build/uncompressed/definitions/modules/dropdown.js"></script>
+  <script src="/build/uncompressed/definitions/modules/modal.js"></script>
+  <script src="/build/uncompressed/definitions/modules/popup.js"></script>
+  <script src="/build/uncompressed/definitions/modules/rating.js"></script>
+  <script src="/build/uncompressed/definitions/modules/shape.js"></script>
+  <script src="/build/uncompressed/definitions/modules/sidebar.js"></script>
+  <script src="/build/uncompressed/definitions/modules/tab.js"></script>
+  <script src="/build/uncompressed/definitions/modules/transition.js"></script>
   <% else: %>
-  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  <script src="/build/packaged/definitions/javascript/semantic.min.js"></script>
   <% end %>
 
   <script src="/javascript/semantic.js"></script>
@@ -152,24 +153,6 @@
     <a class="item" href="/build/semantic.zip">
       <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
     </a>
-    <div class="item">
-      <a href="/">
-        <b>Introduction</b>
-      </a>
-      <div class="menu">
-        <% for element in uiIntroduction: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-    <div class="item">
-      <b>Project</b>
-      <div class="menu">
-        <% for element in uiProject: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
     <div class="item">
       <a href="/element.html"><b>Elements</b></a>
       <div class="menu">
@@ -210,22 +193,6 @@
         <% end %>
       </div>
     </div>
-    <div class="item">
-      <b>Style Guide</b>
-      <div class="menu">
-        <% for element in uiGuide: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div>
-<!--     <div class="item">
-      <b>Specification</b>
-      <div class="menu">
-        <% for element in uiSpecification: %>
-          <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
-        <% end %>
-      </div>
-    </div> -->
   </div>
 
   <div class="ui fixed transparent inverted main menu">

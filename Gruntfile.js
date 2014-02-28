@@ -88,14 +88,6 @@ module.exports = function(grunt) {
 
     ],
 
-    rtlTasks = [
-      // copies assets to rtl
-      'copy:buildToRTL',
-
-      // create rtl release
-      'cssjanus:rtl'
-    ],
-
     docTasks = [
 
       // copies examples over to docs
@@ -114,21 +106,9 @@ module.exports = function(grunt) {
       'copy:specToDocs'
     ],
 
-    outputTasks = [
-      // compiles less to docs
-      'less:outputCSS',
-
-      // auto prefix doc files
-      'autoprefixer:prefixOutput',
-
-      // copies assets and js over to docs
-      'copy:outputAssets',
-    ],
-
     type       = type    || 'element',
     element    = element || 'button',
 
-    outputPath = type + 's/' + element,
 
     buildTasks = releaseTasks.concat(docTasks),
 
@@ -141,7 +121,7 @@ module.exports = function(grunt) {
         specFile     = (isSpec)
           ? filePath
           : filePath
-              .replace('src/', 'test/')
+              .replace('src/definitions/', 'test/')
               .replace('.js', '.spec.js')
       ;
       if(isJavascript && (isSpec || isModule) ) {
@@ -152,7 +132,10 @@ module.exports = function(grunt) {
 
     setWatchFiles = function(action, filePath) {
       var
-        buildPath = filePath.replace('src/', 'docs/build/uncompressed/').replace('less', 'css')
+        buildPath = filePath.replace(
+          'src/definitions/',
+          'docs/build/uncompressed/definitions/'
+        ).replace('less', 'css')
       ;
       if(filePath.search('.less') !== -1) {
         grunt.config('less.buildDocsCSS.src', filePath);
@@ -193,18 +176,18 @@ module.exports = function(grunt) {
       scripts: {
         files: [
           'test/**/*.js',
-          'src/**/*.js'
+          'src/definitions/**/*.js'
         ],
         tasks : testWatchTasks
       },
       src: {
         files: [
           'build/examples/**/*',
-          'src/**/*.less',
-          'src/**/*.variables',
-          'src/**/*.overrides',
-          'src/**/*.config',
-          'src/**/*.js'
+          'src/semantic.config',
+          'src/definitions/**/*.less',
+          'src/definitions/**/*.js',
+          'src/themes/**/*.variables',
+          'src/themes/**/*.overrides'
         ],
         tasks : watchTasks
       }
@@ -278,8 +261,7 @@ module.exports = function(grunt) {
         'build/uncompressed'
       ],
       release : [
-        'docs/build',
-        'rtl'
+        'docs/build'
       ]
     },
 
@@ -301,18 +283,6 @@ module.exports = function(grunt) {
       }
     },
 
-    cssjanus: {
-      rtl: {
-        expand : true,
-        cwd    : 'build/',
-        src    : [
-          '**/*.less',
-          '**/*.css',
-        ],
-        dest   : 'rtl'
-      },
-    },
-
     less: {
 
       options: {
@@ -323,16 +293,16 @@ module.exports = function(grunt) {
 
       // optimized for watch, src is built on watch task using callbacks
       buildDocsCSS: {
-        src    : 'src',
+        src    : 'src/definitions',
         dest   : 'docs/build/uncompressed/',
         rename : preserveFileExtensions
       },
 
       buildTestCSS: {
         expand : true,
-        cwd    : 'src',
+        cwd    : 'src/',
         src    : [
-          '**/*.less'
+          'definitions/**/*.less'
         ],
         dest : 'docs/build/uncompressed/',
         rename: preserveFileExtensions
@@ -340,81 +310,66 @@ module.exports = function(grunt) {
 
       buildCSS: {
         expand : true,
-        cwd    : 'src',
+        cwd    : 'src/',
         src    : [
-          '**/*.less'
+          'definitions/**/*.less'
         ],
         dest : 'build/uncompressed/',
         rename: preserveFileExtensions
       },
-
-      outputCSS: {
-        cwd    : 'src',
-        src    :  outputPath + '.less',
-        dest   : 'build/uncompressed/' + outputPath + '.css' ,
-        variables : {
-
-        },
-        rename: preserveFileExtensions
-      }
     },
 
     copy: {
 
+
+      // used in watch to copy assets
       themesToDocs: {
         files: [
           // exact copy for less
           {
             expand : true,
-            cwd    : 'src/themes/',
+            cwd    : 'src',
             src    : [
-              '**/*'
+              'semantic.config',
+              '/themes/**/*'
             ],
-            dest : 'docs/build/less/themes'
+            dest : 'docs/build/less'
+          },
+          // assets for rest
+          {
+            expand : true,
+            cwd    : 'src/',
+            src    : [
+              'themes/**/assets/**/*'
+            ],
+            dest : 'docs/build/uncompressed/'
           }
         ]
       },
 
+      // used in watch to copy files
       srcToDocs: {
-
         files: [
           // exact copy for less
           {
             expand : true,
             cwd    : 'src/',
             src    : [
-              '**/*'
+              'semantic.config',
+              'definitions/**/*',
+              'themes/**/*'
             ],
-            dest : 'docs/build/less'
+            dest : 'docs/build/less/'
           },
-          // copy everything but less files for uncompressed release
+          // copy assets and js for uncompressed
           {
             expand : true,
             cwd    : 'src/',
             src    : [
-              '**/*.js',
+              'definitions/**/*.js',
               'themes/**/*'
             ],
             dest : 'docs/build/uncompressed'
-          },
-          // copy assets only for minified version
-          {
-            expand : true,
-            cwd    : 'src/',
-            src    : [
-              'themes/**/*'
-            ],
-            dest : 'docs/build/minified'
-          },
-
-          // copy assets only for packaged version
-          {
-            expand : true,
-            cwd    : 'src/',
-            src    : [
-              'themes/**/*'
-            ],
-            dest : 'docs/build/packaged'
           }
         ]
       },
@@ -427,17 +382,19 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              '**/*'
+              'semantic.config',
+              'definitions/**/*',
+              'themes/**/*'
             ],
             dest : 'build/less'
           },
-          // copy everything but less files for uncompressed release
+          // copy js for uncompressed
           {
             expand : true,
             cwd    : 'src/',
             src    : [
-              '**/*.js',
-              'themes/**/*'
+              'definitions/**/*.js',
+              'themes/**/assets/**/*'
             ],
             dest : 'build/uncompressed'
           },
@@ -446,7 +403,7 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'themes/**/*'
+              'themes/**/assets/**/*'
             ],
             dest : 'build/minified'
           },
@@ -456,23 +413,9 @@ module.exports = function(grunt) {
             expand : true,
             cwd    : 'src/',
             src    : [
-              'themes/**/*'
+              'themes/**/assets/**/*'
             ],
             dest : 'build/packaged'
-          }
-        ]
-      },
-
-      // create new rtl assets
-      buildToRTL: {
-        files: [
-          {
-            expand : true,
-            cwd    : 'build/',
-            src    : [
-              '**'
-            ],
-            dest   : 'rtl'
           }
         ]
       },
@@ -544,19 +487,19 @@ module.exports = function(grunt) {
       },
       createCSSPackage: {
         src: ['build/uncompressed/**/*.css'],
-        dest: 'build/packaged/css/semantic.css'
+        dest: 'build/packaged/definitions/css/semantic.css'
       },
       createJSPackage: {
         src: ['build/uncompressed/**/*.js'],
-        dest: 'build/packaged/javascript/semantic.js'
+        dest: 'build/packaged/definitions/javascript/semantic.js'
       },
       createDocsCSSPackage: {
         src: ['docs/build/uncompressed/**/*.css'],
-        dest: 'docs/build/packaged/css/semantic.css'
+        dest: 'docs/build/packaged/definitions/css/semantic.css'
       },
       createDocsJSPackage: {
         src: ['docs/build/uncompressed/**/*.js'],
-        dest: 'docs/build/packaged/javascript/semantic.js'
+        dest: 'docs/build/packaged/definitions/javascript/semantic.js'
       },
     },
 
@@ -593,7 +536,7 @@ module.exports = function(grunt) {
       // add comment banner to css release
       createMinCSSPackage: {
         files: {
-          'build/packaged/css/semantic.min.css': [
+          'build/packaged/definitions/css/semantic.min.css': [
             'build/uncompressed/**/*.css'
           ]
         }
@@ -644,7 +587,7 @@ module.exports = function(grunt) {
             '*/\n'
         },
         files: {
-          'build/packaged/javascript/semantic.min.js': [
+          'build/packaged/definitions/javascript/semantic.min.js': [
             'build/uncompressed/**/*.js'
           ]
         }
@@ -671,7 +614,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-docco-multi');
-  grunt.loadNpmTasks('grunt-cssjanus');
   grunt.loadNpmTasks('grunt-clear');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-karma-coveralls');
@@ -682,7 +624,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', testTasks);
 
   grunt.registerTask('release', releaseTasks);
-  grunt.registerTask('rtl', rtlTasks);
   grunt.registerTask('docs', docTasks);
   grunt.registerTask('build', buildTasks);
   grunt.registerTask('reset', resetTasks);

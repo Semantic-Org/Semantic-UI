@@ -11,7 +11,7 @@ themes      : ['default']
 ---
 
 <%- @partial('header') %>
-<link rel="stylesheet/less" type="text/css" href="/build/less/elements/divider.less" />
+<link rel="stylesheet/less" type="text/css" href="build/less/definitions/elements/divider.less" />
 <div class="main container">
 
   <div class="peek">

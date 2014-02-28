@@ -129,18 +129,14 @@ semantic.ready = function() {
 
       changeTheme: function(theme) {
         var
-          variableURL = '/build/less/themes/packaged/{$theme}/{$type}s/{$element}.variables',
-          overrideURL = '/build/less/themes/packaged/{$theme}/{$type}s/{$element}.overrides',
+          variableURL = '/build/less/themes/packages/{$theme}/{$type}s/{$element}.variables',
+          overrideURL = '/build/less/themes/packages/{$theme}/{$type}s/{$element}.overrides',
           urlData     = {
             theme   : theme,
             type    : $themeDropdown.data('type'),
             element : $themeDropdown.data('element')
           }
         ;
-        if(theme == 'default') {
-          variableURL = '/build/less/themes/{$theme}/{$type}s/{$element}.variables';
-          overrideURL = '/build/less/themes/{$theme}/{$type}s/{$element}.overrides';
-        }
         $themeDropdown
           .api({
             on       : 'now',

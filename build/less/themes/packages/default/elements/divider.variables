@@ -1,0 +1,49 @@
+/*******************************
+            Standard
+*******************************/
+
+/*-------------------
+       Divider
+--------------------*/
+
+@dividerMargin: 1rem;
+
+@highlightWidth: 1px;
+@highlightColor: rgba(255, 255, 255, 0.8);
+
+@shadowWidth: 1px;
+@shadowColor: rgba(0, 0, 0, 0.1);
+
+@dividerTextColor: @textColor;
+@dividerTextTransform: uppercase;
+
+/*-------------------
+       Coupling
+--------------------*/
+
+/* Icon */
+@dividerIconSize: 1rem;
+@dividerIconMargin: 0rem;
+
+
+/*******************************
+         Variations
+*******************************/
+
+/* Horizontal / Vertical */
+@directionalFontSize: 0.875rem;
+@directionalTextColor: @invertedLightTextColor;
+
+@horizontalDividerVerticalMargin: 1rem;
+@horizontalDividerWidth: 40%;
+@verticalDividerWidth: 6%;
+
+/* Inverted */
+@invertedTextColor: @white;
+
+@invertedHighlightColor: rgba(255, 255, 255, 0.15);
+@invertedShadowColor: rgba(0, 0, 0, 0.15);
+
+/* Section */
+@sectionMargin: 2rem;
+

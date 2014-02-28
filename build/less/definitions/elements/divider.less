@@ -1,0 +1,207 @@
+/*
+ * # Semantic - Divider
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'divider';
+
+@import '../../semantic.config';
+
+
+/*******************************
+            Divider
+*******************************/
+
+.ui.divider {
+  margin: @dividerMargin 0rem;
+
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
+
+  line-height: 1;
+  height: 0em;
+
+  box-sizing: border-box;
+
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ui.vertical.divider,
+.ui.horizontal.divider {
+  position: absolute;
+
+  border: none;
+  height: 0em;
+  margin: 0em;
+  background-color: transparent;
+
+  font-size: @medium;
+  font-weight: bold;
+  text-align: center;
+  text-transform: @dividerTextTransform;
+
+  color: @dividerTextColor;
+}
+
+
+/*--------------
+    Vertical
+---------------*/
+
+.ui.vertical.divider {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+
+  margin: 0% 0% 0% (@verticalDividerWidth / 2);
+
+  width: @verticalDividerWidth;
+  height: 50%;
+
+  line-height: 0;
+  padding: 0em;
+}
+
+.ui.vertical.divider:before,
+.ui.vertical.divider:after {
+  position: absolute;
+  left: 50%;
+  content: " ";
+  z-index: 3;
+
+  border-left: @shadowWidth solid @shadowColor;
+  border-right: @highlightWidth solid @highlightColor;
+
+  width: 0%;
+  height: 80%;
+}
+
+.ui.vertical.divider:before {
+  top: -100%;
+}
+.ui.vertical.divider:after {
+  top: auto;
+  bottom: 0px;
+}
+
+/*--------------
+    Horizontal
+---------------*/
+
+.ui.horizontal.divider {
+  position: relative;
+  top: 0%;
+  left: 0%;
+
+  margin: @horizontalDividerVerticalMargin 0em;
+  height: auto;
+  padding: 0em;
+
+  line-height: 1;
+}
+
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
+  position: absolute;
+  top: 50%;
+  content: '';
+  z-index: 3;
+
+  width: @horizontalDividerWidth;
+  top: 50%;
+  height: 0%;
+
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
+}
+
+.ui.horizontal.divider:before {
+  left: 0%;
+}
+.ui.horizontal.divider:after {
+  left: auto;
+  right: 0%;
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.divider > .icon {
+  margin: @dividerIconMargin;
+  font-size: @dividerIconSize;
+  vertical-align: middle;
+}
+
+/*******************************
+          Variations
+*******************************/
+
+/*--------------
+    Hidden
+---------------*/
+
+.ui.hidden.divider {
+  border-color: transparent;
+}
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.divider.inverted {
+  color: @invertedTextColor;
+}
+.ui.vertical.inverted.divider,
+.ui.horizontal.inverted.divider {
+  color: @directionalTextColor;
+}
+.ui.divider.inverted,
+.ui.divider.inverted:after,
+.ui.divider.inverted:before {
+  border-top-color: @invertedShadowColor;
+  border-bottom-color: @invertedHighlightColor;
+
+  border-left-color: @invertedShadowColor;
+  border-right-color: @invertedHighlightColor;
+}
+
+/*--------------
+    Fitted
+---------------*/
+
+.ui.fitted.divider {
+  margin: 0em;
+}
+
+/*--------------
+    Clearing
+---------------*/
+
+.ui.clearing.divider {
+  clear: both;
+}
+
+/*--------------
+    Section
+---------------*/
+
+.ui.section.divider {
+  margin-top: @sectionMargin;
+  margin-bottom: @sectionMargin;
+}
+
+.loadUIOverrides();

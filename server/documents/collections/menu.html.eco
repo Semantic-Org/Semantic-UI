@@ -10,7 +10,7 @@ element     : 'menu'
 elementType : 'collection'
 themes      : ['default', 'github']
 ---
-<link rel="stylesheet/less" type="text/css" href="/build/less/collections/menu.less" />
+<link rel="stylesheet/less" type="text/css" href="build/less/definitions/collections/menu.less" />
 <script src="/javascript/menu.js"></script>
 
 <%- @partial('header') %>
