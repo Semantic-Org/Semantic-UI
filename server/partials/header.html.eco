@@ -4,24 +4,40 @@
   <div class="container">
     <div class="introduction">
 
-      <h1 class="ui dividing header">
+      <h1 class="ui header">
         <%=@document.title %>
         <% if @document.status?: %><span class="ui label"><%= @document.status %></span><% end %>
       </h1>
 
       <p><%=@document.description %></p>
       <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection': %>
-      <div class="ui basic labeled icon toggle overview button">
+      <div class="ui divider"></div>
+      <div class="ui right floated basic labeled icon toggle overview button">
         Definition Mode
         <i class="book icon"></i>
       </div>
       <% end %>
       <% if @document.type is 'UI Module': %>
-      <a href="/module.html" class="ui basic labeled icon button">
+      <a href="/module.html" class="ui right floated basic labeled icon button">
         Learn about Modules
         <i class="help icon"></i>
       </a>
       <% end %>
+      <% if @document.themes?: %>
+      <div class="ui floating dropdown theme basic button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
+        <i class="settings icon"></i>
+        <span class="text">Choose Theme</span>
+        <div class="menu ui transition hidden">
+          <% for id, name of @document.themes: %>
+            <div class="item" data-value="<%= name %>"><%= (name.charAt(0).toUpperCase() + name.slice(1)) %></div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+      <div class="ui secondary button">
+        Download
+        <i class="download icon"></i>
+      </div>
     </div>
     <div class="advertisement">
       <% unless 'development' in @getEnvironments(): %>

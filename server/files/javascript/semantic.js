@@ -32,6 +32,8 @@ semantic.ready = function() {
     $peekSubItem      = $peek.find('.item .menu .item'),
     $sortableTables   = $('.sortable.table'),
 
+    $themeDropdown    = $('.theme.dropdown'),
+
     $ui               = $('.ui').not('.hover, .down'),
     $swap             = $('.theme.menu .item'),
     $menu             = $('#menu'),
@@ -98,10 +100,76 @@ semantic.ready = function() {
       }
     },
 
-    create: {
-      tick: function() {
+    less: {
 
+      parseFile: function(content) {
+        var
+          variables = {},
+          lines = content.match(/^(@[\s|\S]+?;)/gm),
+          name,
+          value
+        ;
+        $.each(lines, function(index, line) {
+          // clear whitespace
+          line = $.trim(line);
+          // match variables only
+          if(line[0] == '@') {
+            name = line.match(/^@(.+):/);
+            value = line.match(/:\s*([\s|\S]+?;)/);
+            if( ($.isArray(name) && name.length >= 2) && ($.isArray(value) && value.length >= 2) ) {
+              name = name[1];
+              value = value[1];
+              variables[name] = value;
+            }
+          }
+        });
+        console.log(variables);
+        return variables;
       },
+
+      changeTheme: function(theme) {
+        var
+          variableURL = '/build/less/themes/packages/{$theme}/{$type}s/{$element}.variables',
+          overrideURL = '/build/less/themes/packages/{$theme}/{$type}s/{$element}.overrides',
+          urlData     = {
+            theme   : theme,
+            type    : $themeDropdown.data('type'),
+            element : $themeDropdown.data('element')
+          }
+        ;
+        $themeDropdown
+          .api({
+            on       : 'now',
+            url      : variableURL,
+            dataType : 'text',
+            urlData  : urlData,
+            success: function(content) {
+              less.modifyVars( handler.less.parseFile(content) );
+              $themeDropdown
+                .api({
+                  on       : 'now',
+                  url      : overrideURL,
+                  dataType : 'text',
+                  urlData  : urlData,
+                  success: function(content) {
+                    if( $('style.override').size() > 0 ) {
+                      $('style.override').remove();
+                    }
+                    $('<style>' + content + '</style>')
+                      .addClass('override')
+                      .appendTo('body')
+                    ;
+                  }
+                })
+              ;
+            }
+          })
+        ;
+      }
+
+    },
+
+    create: {
       examples: function(json) {
         var
           types      = json['Types'],
@@ -268,7 +336,7 @@ semantic.ready = function() {
         $example    = $(this).closest('.example'),
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
-        $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
+        $header     = $example.not('.another').children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
         $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         code        = ''
       ;
@@ -684,6 +752,13 @@ semantic.ready = function() {
       .on('click', handler.createCode)
   ;
 
+  $themeDropdown
+    .dropdown({
+      action: 'select',
+      onChange: handler.less.changeTheme
+    })
+  ;
+
   $shownExample
     .each(handler.createCode)
   ;
@@ -760,7 +835,7 @@ semantic.ready = function() {
       }
     })
   ;
-  $('body')
+/*  $('body')
     .waypoint({
       handler: function(direction) {
         if(direction == 'down') {
@@ -775,7 +850,7 @@ semantic.ready = function() {
       },
       offset: 'bottom-in-view'
      })
-  ;
+  ;*/
   $peek
     .waypoint('sticky', {
       offset     : 85,

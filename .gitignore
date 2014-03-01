@@ -4,6 +4,11 @@ node/server.json
 test/coverage/
 coverage/
 .idea/
+build/**/**/site/
+src/build/
+src/**/site/
+src/semantic.config
+build/**/**/semantic.config
 
 # Numerous always-ignore extensions
 *.diff

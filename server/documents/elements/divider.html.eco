@@ -4,10 +4,14 @@ css         : 'divider'
 title       : 'Divider'
 description : 'A divider visually segments content into separate groups'
 type        : 'UI Element'
+
+element     : 'divider'
+elementType : 'element'
+themes      : ['default']
 ---
 
 <%- @partial('header') %>
-
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/divider.less" />
 <div class="main container">
 
   <div class="peek">
@@ -122,6 +126,16 @@ type        : 'UI Element'
       <div class="ui fitted divider"></div>
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
     </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Hidden</h4>
+    <p>A hidden divider divides content without creating a dividing line</p>
+    <h3 class="ui header">Section One</h3>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <div class="ui hidden divider"></div>
+    <h3 class="ui header">Section Two</h3>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
   </div>
 
   <div class="example">

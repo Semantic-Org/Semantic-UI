@@ -171,7 +171,6 @@ type        : 'UI Element'
       <p>If you notice me you must be looking very hard.</p>
     </div>
   </div>
-
   <div class="example">
     <h4 class="ui header">Circular</h4>
     <p>A segment can be circular</p>
@@ -189,9 +188,6 @@ type        : 'UI Element'
       </h2>
     </div>
   </div>
-  <div class="another example">
-  </div>
-
   <div class="example">
     <h4 class="ui header">Floated</h4>
     <p>A segment cant sit to the left or right of other content</p>

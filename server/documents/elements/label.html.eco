@@ -100,6 +100,13 @@ type        : 'UI Element'
       <img src="/images/demo/highres3.jpg">
     </div>
   </div>
+  <div class="clearing example">
+    <h4 class="ui header">Tag</h4>
+    <p>A label can appear as a tag</p>
+    <a class="ui tag label">New</a>
+    <a class="ui red tag label">Upcoming</a>
+    <a class="ui teal tag label">Featured</a>
+  </div>
 
   <div class="clearing example">
     <h4 class="ui header">Ribbon</h4>
@@ -182,27 +189,14 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Colors</h4>
     <p>A label can have different colors</p>
-    <a class="ui black label">
-      First
-    </a>
-    <a class="ui green label">
-      Fun
-    </a>
-    <a class="ui red label">
-      Happy
-    </a>
-    <a class="ui blue label">
-      Smart
-    </a>
-    <a class="ui orange label">
-      Radical
-    </a>
-    <a class="ui purple label">
-      Insane
-    </a>
-    <a class="ui teal label">
-      Exciting
-    </a>
+    <a class="ui black label">Black Label</a>
+    <a class="ui yellow label">Yellow Label</a>
+    <a class="ui green label">Green Label</a>
+    <a class="ui blue label">Blue Label</a>
+    <a class="ui orange label">Orange Label</a>
+    <a class="ui purple label">Purple Label</a>
+    <a class="ui red label">Red Label</a>
+    <a class="ui teal label">Teal Label</a>
   </div>
 
   <div class="example">
@@ -251,12 +245,12 @@ type        : 'UI Element'
     </a>
   </div>
   <div class="another example">
-    <div class="ui black circular label"></div>
-    <div class="ui green circular label"></div>
-    <div class="ui red circular label"></div>
-    <div class="ui blue circular label"></div>
-    <div class="ui purple circular label"></div>
-    <div class="ui teal circular label"></div>
+    <div class="ui black empty circular label"></div>
+    <div class="ui green empty circular label"></div>
+    <div class="ui red empty circular label"></div>
+    <div class="ui blue empty circular label"></div>
+    <div class="ui purple empty circular label"></div>
+    <div class="ui teal empty circular label"></div>
   </div>
 
   <div class="example">
@@ -361,6 +355,28 @@ type        : 'UI Element'
       </a>
       <a class="ui label">
         Exciting
+      </a>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Tag</h4>
+    <p>Labels can share tag formatting</p>
+    <div class="ui tag labels">
+      <a class="ui label">
+        $10.00
+      </a>
+      <a class="ui label">
+        $19.99
+      </a>
+      <a class="ui label">
+        $24.99
+      </a>
+      <a class="ui label">
+        $30.99
+      </a>
+      <a class="ui label">
+        $10.25
       </a>
     </div>
   </div>

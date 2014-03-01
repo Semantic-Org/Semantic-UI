@@ -4,5 +4,6 @@ node_js:
 before_script:
   - npm install -g grunt-cli
   - npm update
+  - mv src/semantic.config.example src/semantic.config
 after_script:
   - grunt coveralls
