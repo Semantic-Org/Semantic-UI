@@ -429,7 +429,7 @@ $.fn.modal = function(parameters) {
         cacheSizes: function() {
           module.cache = {
             pageHeight    : $body.outerHeight(),
-            height        : $module.outerHeight() + settings.offset + parseInt($module.css('marginTop'), 10),
+            height        : $module.outerHeight() + settings.offset,
             contextHeight : (settings.context == 'body')
               ? $(window).height()
               : $dimmable.height()
@@ -490,7 +490,7 @@ $.fn.modal = function(parameters) {
             }
           },
           position: function() {
-            module.verbose('Centering modal on page', module.cache, module.cache.height / 2);
+            module.verbose('Centering modal on page', module.cache);
             if(module.can.fit()) {
               $module
                 .css({

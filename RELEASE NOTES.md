@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 0.13.1- Feb 28, 2014
+
+**Fixes**
+- **Modal** - Fixes modal positioning appearing slightly below center on second load
+- **Checkbox** - Fixes checkbox appearance inside inverted forms
+- **Input** - Fixes ui input to inherit form sizing
+- **Accordion** - Fixes issues with accordion rules being too specific, causing several common usages of accordions to break
+- **Form Validation** -  Fixes form validation regular expression matching **Thanks icefox0801**
+
+
 ### Version 0.13.0 - Feb 20, 2014
 
 **Enhancements**

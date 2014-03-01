@@ -215,7 +215,7 @@ type        : 'UI Module'
       <h3 class="ui header">Form</h3>
       <p>An accordion can be used anywhere where content can be shown or hidden. For example, to show optional form fields.</p>
       <div class="ui segment">
-        <div class="ui basic fluid accordion form">
+        <div class="ui fluid form">
           <div class="two fields">
             <div class="field">
               <label>First Name</label>
@@ -226,7 +226,7 @@ type        : 'UI Module'
               <input placeholder="Last Name" type="text">
             </div>
           </div>
-          <div class="field">
+          <div class="ui basic accordion field">
             <div class="title">
               <i class="icon dropdown"></i>
               Optional Details
