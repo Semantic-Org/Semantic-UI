@@ -4,6 +4,9 @@ css         : 'icon'
 title       : 'Icon'
 description : 'An icon is a glyph used to represent another concept more simply'
 type        : 'UI Element'
+
+element     : 'icon'
+elementType : 'element'
 ---
 
 <%- @partial('header') %>
@@ -24,7 +27,7 @@ type        : 'UI Element'
   <h4 class="ui header">Icon Set</h4>
   <p>An icon sets contains an arbitrary number of glyphs</p>
   <div class="ui ignored warning message">
-    Icons serve a very similar function to text in a page. In semantic icons receive a special tag "i" which allow for an abbreviated markup when sitting along-side text.
+    Icons serve a very similar function to text in a page. In Semantic icons receive a special tag <code>&lt;i&gt;</code> which allow for an abbreviated markup when sitting along-side text.
   </div>
 
   <div class="ui top attached tabular menu">

@@ -5,7 +5,12 @@ css         : 'menu'
 title       : 'Menu'
 description : 'A menu is a collection of elements showing related user actions'
 type        : 'UI Collection'
+
+element     : 'menu'
+elementType : 'collection'
+themes      : ['default', 'github']
 ---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/menu.less" />
 <script src="/javascript/menu.js"></script>
 
 <%- @partial('header') %>
@@ -448,7 +453,7 @@ type        : 'UI Collection'
 
     <div class="ui menu">
       <div class="item">
-        <div class="ui teal button">Sign up</div>
+        <div class="ui primary button">Sign up</div>
       </div>
       <div class="item">
         <div class="ui button">Log-in</div>
@@ -885,7 +890,7 @@ type        : 'UI Collection'
           </div>
         </div>
         <div class="item">
-            <div class="ui teal button">Sign Up</div>
+            <div class="ui primary button">Sign Up</div>
         </div>
       </div>
     </div>
@@ -914,7 +919,7 @@ type        : 'UI Collection'
           </div>
         </div>
         <div class="item">
-            <div class="ui teal button">Sign Up</div>
+            <div class="ui primary button">Sign Up</div>
         </div>
       </div>
     </div>

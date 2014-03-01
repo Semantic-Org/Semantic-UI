@@ -81,19 +81,21 @@ type        : 'UI Element'
   <div class="clearing example">
     <h4 class="ui header">Sizes</h4>
     <p>An image may be formatted to be different sizes</p>
-    <img class="ui tiny image" src="/images/demo/photo2.jpg">
-
-    <div class="ui simple ignored divider"></div>
-    <img class="ui mini image" src="/images/demo/photo2.jpg">
-
-    <div class="ui simple ignored divider"></div>
-    <img class="ui small image" src="/images/demo/photo2.jpg">
-
-    <div class="ui simple ignored divider"></div>
-    <img class="ui large image" src="/images/demo/photo.jpg">
-
-    <div class="ui simple ignored divider"></div>
-    <img class="ui huge image" src="/images/demo/photo.jpg">
+    <img class="ui mini image" src="/images/demo/highres3.jpg">
+    <div class="ui ignored divider"></div>
+    <img class="ui tiny image" src="/images/demo/highres3.jpg">
+    <div class="ui ignored divider"></div>
+    <img class="ui small image" src="/images/demo/highres3.jpg">
+    <div class="ui ignored divider"></div>
+    <img class="ui medium image" src="/images/demo/highres3.jpg">
+    <div class="ui ignored divider"></div>
+    <img class="ui large image" src="/images/demo/highres3.jpg">
+    <div class="ui ignored divider"></div>
+    <img class="ui big image" src="/images/demo/highres3.jpg">
+    <div class="ui ignored divider"></div>
+    <img class="ui huge image" src="/images/demo/highres3.jpg">
+    <div class="ui ignored divider"></div>
+    <img class="ui massive image" src="/images/demo/highres3.jpg">
   </div>
 
 

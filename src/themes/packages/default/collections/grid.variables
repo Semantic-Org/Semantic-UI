@@ -1,0 +1,120 @@
+/* Inherited From Site */
+
+// @mobileBreakpoint
+// @tabletBreakpoint
+// @computerBreakpoint
+// @largeMonitorBreakpoint
+// @widescreenMonitorBreakpoint
+
+/*******************************
+            Grid
+*******************************/
+
+@minWidth: 320px;
+@gutterWidth: 1.5%;
+
+@rowSpacing: 1rem;
+@firstRowSpacing: 0rem;
+
+@columnMaxImageWidth: 100%;
+@columnCount: 16;
+
+@oneWide        : (1 / @columnCount * 100%);
+@twoWide        : (2 / @columnCount * 100%);
+@threeWide      : (3 / @columnCount * 100%);
+@fourWide       : (4 / @columnCount * 100%);
+@fiveWide       : (5 / @columnCount * 100%);
+@sixWide        : (6 / @columnCount * 100%);
+@sevenWide      : (7 / @columnCount * 100%);
+@eightWide      : (8 / @columnCount * 100%);
+@nineWide       : (9 / @columnCount * 100%);
+@tenWide        : (10 / @columnCount * 100%);
+@elevenWide     : (11 / @columnCount * 100%);
+@twelveWide     : (12 / @columnCount * 100%);
+@thirteenWide   : (13 / @columnCount * 100%);
+@fourteenWide   : (14 / @columnCount * 100%);
+@fifteenWide    : (15 / @columnCount * 100%);
+@sixteenWide    : (16 / @columnCount * 100%);
+
+@oneColumn      : (1 / 1 * 100%);
+@twoColumn      : (1 / 2 * 100%);
+@threeColumn    : (1 / 3 * 100%);
+@fourColumn     : (1 / 4 * 100%);
+@fiveColumn     : (1 / 5 * 100%);
+@sixColumn      : (1 / 6 * 100%);
+@sevenColumn    : (1 / 7 * 100%);
+@eightColumn    : (1 / 8 * 100%);
+@nineColumn     : (1 / 9 * 100%);
+@tenColumn      : (1 / 10 * 100%);
+@elevenColumn   : (1 / 11 * 100%);
+@twelveColumn   : (1 / 12 * 100%);
+@thirteenColumn : (1 / 13 * 100%);
+@fourteenColumn : (1 / 14 * 100%);
+@fifteenColumn  : (1 / 15 * 100%);
+@sixteenColumn  : (1 / 16 * 100%);
+
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+     Page
+---------------*/
+
+/* Standard */
+@mobileGutter: 1em;
+@tabletGutter: 8%;
+@computerGutter: 13%;
+@largeMonitorGutter: 18%;
+@widescreenMonitorGutter: 23%;
+
+/* Fitted */
+
+
+/*--------------
+     Relaxed
+---------------*/
+
+@relaxedGutterWidth: 2.5%;
+@veryRelaxedGutterWidth: 4%;
+
+/*--------------
+     Divided
+---------------*/
+
+@dividedBorder:
+  -1px 0px 0px 0px rgba(0, 0, 0, 0.1),
+  -2px 0px 0px 0px rgba(255, 255, 255, 0.3)
+;
+@verticallyDividedBorder:
+  0px -1px 0px 0px rgba(0, 0, 0, 0.1),
+  0px -2px 0px 0px rgba(255, 255, 255, 0.3)
+;
+
+@dividedInvertedBorder:
+  -1px 0px 0px 0px rgba(0, 0, 0, 0.15),
+  -2px 0px 0px 0px rgba(0, 0, 0, 0.15)
+;
+@verticallyDividedInvertedBorder:
+  0px -1px 0px 0px rgba(0, 0, 0, 0.15),
+  0px -2px 0px 0px rgba(0, 0, 0, 0.15)
+;
+
+
+/*--------------
+    Celled
+---------------*/
+
+@celledWidth: 1px;
+@celledBorderColor: @solidBorderColor;
+
+
+/*--------------
+    Stackable
+---------------*/
+
+@stackableRowMargin: 1em;
+@stackableGutterWidth: 1.5em;
+
+@stackableMobileBorder: 1px dotted @borderColor;

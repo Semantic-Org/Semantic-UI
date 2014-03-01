@@ -7,7 +7,7 @@ description : 'A form validation behavior checks user input data against a set o
 type        : 'UI Behavior'
 ---
 
-<script src="/build/uncompressed/modules/behavior/form.js"></script>
+<script src="/build/uncompressed/definitions/behaviors/form.js"></script>
 <script src="/javascript/validate-form.js"></script>
 
 <%- @partial('header') %>
