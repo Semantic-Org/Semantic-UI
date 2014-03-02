@@ -17,7 +17,7 @@ coverage/
 *~
 *.sass-cache
 *.ruby-version
-src/semantic.config
+semantic.config
 
 # OS or Editor folders
 .DS_Store
