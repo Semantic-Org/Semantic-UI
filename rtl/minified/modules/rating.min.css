@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.13.1
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 02/28/2014
+*/
+
+.ui.rating{display:inline-block;font-size:0;vertical-align:middle;margin:0 0 0 .5rem}.ui.rating:last-child{margin-left:0}.ui.rating:before{display:block;content:'';visibility:hidden;clear:both;height:0}.ui.rating .icon{cursor:pointer;margin:0;width:1em;height:auto;padding:0;color:rgba(0,0,0,.15);font-weight:400;font-style:normal}.ui.rating .icon:before{content:"\2605";-webkit-transition:color .3s ease,opacity .3s ease;transition:color .3s ease,opacity .3s ease}.ui.star.rating .icon{width:1.2em}.ui.star.rating .icon:before{content:'\f006';font-family:Icons}.ui.star.rating .active.icon:before{content:'\f005';font-family:Icons}.ui.heart.rating .icon{width:1.2em}.ui.heart.rating .icon:before{content:'\f08a';font-family:Icons}.ui.heart.rating .active.icon:before{content:'\f004';font-family:Icons}.ui.heart.rating .active.icon{color:#EF404A!important}.ui.heart.rating .hover.icon,.ui.heart.rating .active.hover.icon{color:#FF2733!important}.ui.disabled.rating .icon{cursor:default}.ui.rating .active.icon{color:#FFCB08!important}.ui.rating.hover .active.icon{opacity:.5}.ui.rating .icon.hover,.ui.rating .icon.hover.active{opacity:1;color:#FFB70A!important}.ui.small.rating .icon{font-size:.75rem}.ui.rating .icon{font-size:1rem}.ui.large.rating .icon{font-size:1.5rem;vertical-align:middle}.ui.huge.rating .icon{font-size:2rem;vertical-align:middle}

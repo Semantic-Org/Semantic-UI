@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.13.1
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 02/28/2014
+*/
+
+body{-webkit-transition:margin .3s ease,-webkit-transform .3s ease;transition:margin .3s ease,transform .3s ease}.ui.sidebar{position:fixed;margin:0!important;height:100%!important;border-radius:0!important;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;-ms-overflow-y:auto;overflow-y:auto;top:0;right:0;z-index:999;-webkit-transition:margin-right .3s ease,margin-top .3s ease;transition:margin-right .3s ease,margin-top .3s ease}body.pushed.scrolling.ui.dimmable{position:static}.ui.right.very.thin.sidebar,.ui.right.thin.sidebar,.ui.right.sidebar,.ui.right.wide.sidebar,.ui.right.very.wide.sidebar{right:100%;margin:0!important}.ui.top.sidebar{width:100%!important}.ui.bottom.sidebar{width:100%!important;top:100%;margin:0!important}.ui.active.sidebar{margin-right:0!important}.ui.active.top.sidebar,.ui.active.bottom.sidebar{margin-top:0!important}.ui.styled.sidebar{padding:1em 1.5em;background-color:#FFF;-webkit-box-shadow:1px 0 0 rgba(0,0,0,.1);box-shadow:1px 0 0 rgba(0,0,0,.1)}.ui.styled.very.thin.sidebar{padding:.5em}.ui.styled.thin.sidebar{padding:1em}.ui.floating.sidebar{-webkit-box-shadow:2px 0 2px rgba(0,0,0,.2);box-shadow:2px 0 2px rgba(0,0,0,.2)}.ui.right.floating.sidebar{-webkit-box-shadow:-2px 0 2px rgba(0,0,0,.2);box-shadow:-2px 0 2px rgba(0,0,0,.2)}.ui.top.floating.sidebar{-webkit-box-shadow:0 4px 4px rgba(0,0,0,.2);box-shadow:0 4px 4px rgba(0,0,0,.2)}.ui.bottom.floating.sidebar{-webkit-box-shadow:0 -4px 4px rgba(0,0,0,.2);box-shadow:0 -4px 4px rgba(0,0,0,.2)}.ui.very.thin.sidebar{width:60px!important;margin-right:-60px!important}.ui.active.very.thin.sidebar{margin-right:0!important}.ui.active.right.very.thin.sidebar{margin-right:-60px!important}.ui.thin.sidebar{width:200px!important;margin-right:-200px!important}.ui.active.thin.sidebar{margin-right:0!important}.ui.active.right.thin.sidebar{margin-right:-200px!important}.ui.sidebar{width:275px!important;margin-right:-275px!important}.ui.active.sidebar{margin-right:0!important}.ui.active.right.sidebar{margin-right:-275px!important}.ui.wide.sidebar{width:350px!important;margin-right:-350px!important}.ui.active.wide.sidebar{margin-right:0!important}.ui.active.right.wide.sidebar{margin-right:-350px!important}.ui.very.wide.sidebar{width:475px!important;margin-right:-475px!important}.ui.active.very.wide.sidebar{margin-right:0!important}.ui.active.right.very.wide.sidebar{margin-right:-475px!important}.ui.top.sidebar{margin:-40px 0 0 0!important}.ui.top.sidebar,.ui.bottom.sidebar{height:40px!important}.ui.active.bottom.sidebar{margin-top:-40px!important}

@@ -1391,7 +1391,7 @@ $.fn.form = function(fields, parameters) {
               type          = validation.type,
               value         = $.trim($field.val() + ''),
 
-              bracketRegExp = /\[(.*?)\]/i,
+              bracketRegExp = /\[(.*)\]/i,
               bracket       = bracketRegExp.exec(type),
               isValid       = true,
               ancillary,
@@ -4368,6 +4368,9 @@ $.fn.checkbox = function(parameters) {
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
+          ;
+          $input
+            .off(eventNamespace, module.event.keydown)
           ;
           $label
             .off(eventNamespace)

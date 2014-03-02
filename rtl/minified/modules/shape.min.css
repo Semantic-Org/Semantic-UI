@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.13.1
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 02/28/2014
+*/
+
+.ui.shape{display:inline-block;position:relative;-webkit-perspective:2000px;-ms-perspective:2000px;perspective:2000px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}.ui.shape .sides{-webkit-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}.ui.shape .side{opacity:1;width:100%;margin:0!important;-webkit-backface-visibility:hidden;-ms-backface-visibility:hidden;backface-visibility:hidden;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}.ui.shape .side{display:none}.ui.cube.shape .side{min-width:15em;height:15em;padding:2em;background-color:#E6E6E6;color:rgba(0,0,0,.6);-webkit-box-shadow:0 0 2px rgba(0,0,0,.3);box-shadow:0 0 2px rgba(0,0,0,.3)}.ui.cube.shape .side>.content{width:100%;height:100%;display:table;text-align:center;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text}.ui.cube.shape .side>.content>div{display:table-cell;vertical-align:middle;font-size:2em}.ui.text.shape.animating .sides{position:static}.ui.text.shape .side{white-space:nowrap}.ui.text.shape .side>*{white-space:normal}.ui.loading.shape{position:absolute;top:-9999px;right:-9999px}.ui.shape .animating.side{position:absolute;top:0;right:0;z-index:100}.ui.shape .hidden.side{opacity:.4}.ui.shape.animating{-webkit-transition:all .6s ease-in-out;transition:all .6s ease-in-out}.ui.shape.animating .sides{position:absolute}.ui.shape.animating .sides{-webkit-transition:all .6s ease-in-out;transition:all .6s ease-in-out}.ui.shape.animating .side{-webkit-transition:opacity .6s ease-in-out;transition:opacity .6s ease-in-out}.ui.shape .active.side{display:block}

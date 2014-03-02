@@ -508,7 +508,8 @@
      Header
 ---------------*/
 
-.ui.menu .header.item {
+.ui.menu .header.item,
+.ui.vertical.menu .header.item {
   background: rgba(0, 0, 0, 0.04);
   margin: 0em;
   font-size: 1rem;
@@ -1074,6 +1075,7 @@
   box-shadow: none;
   border: none;
   height: auto !important;
+  background: none;
   margin: 0em 0.25em;
   padding: 0.5em 1em;
   border-radius: 0.3125em;
@@ -1585,7 +1587,7 @@
 
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /*--- Border ---*/

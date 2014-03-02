@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.13.1
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 02/28/2014
+*/
+
+.ui.loader{display:none;position:absolute;top:50%;right:50%;margin:0;z-index:1000;-webkit-transform:translateX(-50%) translateY(-50%);-ms-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}.ui.dimmer .loader{display:block}.ui.text.loader{width:auto!important;height:auto!important;text-align:center;font-style:normal}.ui.mini.text.loader{min-width:16px;padding-top:2em;font-size:.875em}.ui.small.text.loader{min-width:24px;padding-top:2.5em;font-size:.875em}.ui.text.loader{min-width:32px;font-size:1em;padding-top:3em}.ui.large.text.loader{min-width:64px;padding-top:5em;font-size:1.2em}.ui.loader.active,.ui.loader.visible{display:block}.ui.loader.disabled,.ui.loader.hidden{display:none}.ui.dimmer .ui.text.loader,.ui.inverted.text.loader{color:rgba(255,255,255,.8)}.ui.inverted.dimmer .ui.text.loader{color:rgba(0,0,0,.8)}.ui.dimmer .mini.ui.loader,.ui.inverted .mini.ui.loader{background-image:url(../images/loader-mini-inverted.gif)}.ui.dimmer .small.ui.loader,.ui.inverted .small.ui.loader{background-image:url(../images/loader-small-inverted.gif)}.ui.dimmer .ui.loader,.ui.inverted.loader{background-image:url(../images/loader-medium-inverted.gif)}.ui.dimmer .large.ui.loader,.ui.inverted .large.ui.loader{background-image:url(../images/loader-large-inverted.gif)}.ui.inverted.dimmer .ui.mini.loader,.ui.mini.loader{width:16px;height:16px;background-image:url(../images/loader-mini.gif)}.ui.inverted.dimmer .ui.small.loader,.ui.small.loader{width:24px;height:24px;background-image:url(../images/loader-small.gif)}.ui.inverted.dimmer .ui.loader,.ui.loader{width:32px;height:32px;background:url(../images/loader-medium.gif) no-repeat;background-position:52% 0}.ui.inverted.dimmer .ui.loader.large,.ui.loader.large{width:64px;height:64px;background-image:url(../images/loader-large.gif)}.ui.inline.loader{position:static;vertical-align:middle;margin:0;-webkit-transform:none;-ms-transform:none;transform:none}.ui.inline.loader.active,.ui.inline.loader.visible{display:inline-block}

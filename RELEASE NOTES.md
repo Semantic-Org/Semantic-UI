@@ -1,5 +1,6 @@
 ## RELEASE NOTES
 
+<<<<<<< HEAD
 ### Version 1.0.0 - XX XX, 2014
 
 **Breaking Changes**
@@ -12,6 +13,17 @@
 - **Label** - Added tag label and empty circular label style
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Label** - Now has compact form, for fitting into tight spaces
+=======
+### Version 0.13.1- Feb 28, 2014
+
+**Fixes**
+- **Modal** - Fixes modal positioning appearing slightly below center on second load
+- **Checkbox** - Fixes checkbox appearance inside inverted forms
+- **Input** - Fixes ui input to inherit form sizing
+- **Accordion** - Fixes issues with accordion rules being too specific, causing several common usages of accordions to break
+- **Form Validation** -  Fixes form validation regular expression matching **Thanks icefox0801**
+
+>>>>>>> 237fe655765a90411d2fc299528cff0399b49bba
 
 ### Version 0.13.0 - Feb 20, 2014
 

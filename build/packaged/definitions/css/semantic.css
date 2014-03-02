@@ -485,6 +485,15 @@
   background-color: #FFCCCC;
 }
 
+.ui.inverted.form .ui.checkbox label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ui.inverted.form .ui.checkbox label:hover,
+.ui.inverted.form .ui.checkbox .box:hover {
+  color: #FFFFFF;
+}
+
 /*--------------------
      Field Groups
 ---------------------*/
@@ -820,6 +829,10 @@
 
 /*---  Neutrals  ---*/
 
+/*------------------
+     Load Theme
+-------------------*/
+
 /* Inherited From Site */
 
 /*******************************
@@ -853,10 +866,6 @@
 /*--------------
     Stackable
 ---------------*/
-
-/*------------------
-     Load Theme
--------------------*/
 
 /*------------------
      Load Site
@@ -2356,7 +2365,8 @@ body > .ui.grid {
      Header
 ---------------*/
 
-.ui.menu .header.item {
+.ui.menu .header.item,
+.ui.vertical.menu .header.item {
   background: rgba(0, 0, 0, 0.04);
   margin: 0em;
   font-size: 1rem;
@@ -2922,6 +2932,7 @@ body > .ui.grid {
   box-shadow: none;
   border: none;
   height: auto !important;
+  background: none;
   margin: 0em 0.25em;
   padding: 0.5em 1em;
   border-radius: 0.3125em;
@@ -3433,7 +3444,7 @@ body > .ui.grid {
 
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /*--- Border ---*/
@@ -4951,6 +4962,64 @@ body > .ui.grid {
      Load Default
 -------------------*/
 
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+       Button
+--------------------*/
+
+/* transitions */
+
+/* Padding */
+
+/* Shadow */
+
+/* Icon */
+
+/* Loader */
+
+/*-------------------
+        Group
+--------------------*/
+
+/*-------------------
+        States
+--------------------*/
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Or */
+
+/* Icon */
+
+/* Labeled Icon */
+
+/* Basic */
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Colors */
+
+/* Compact */
+
+/* Attached */
+
+/* Floated */
+
+/* Animated */
+
+/* Sizing */
+
+/*------------------
+     Load Theme
+-------------------*/
+
 /*******************************
         Global Variables
 *******************************/
@@ -5053,64 +5122,6 @@ body > .ui.grid {
 
 /*---  Neutrals  ---*/
 
-/*-------------------
-    Globals Used
---------------------*/
-
-/*-------------------
-       Button
---------------------*/
-
-/* transitions */
-
-/* Padding */
-
-/* Shadow */
-
-/* Icon */
-
-/* Loader */
-
-/*-------------------
-        Group
---------------------*/
-
-/*-------------------
-        States
---------------------*/
-
-/*-------------------
-        Types
---------------------*/
-
-/* Or */
-
-/* Icon */
-
-/* Labeled Icon */
-
-/* Basic */
-
-/*-------------------
-      Variations
---------------------*/
-
-/* Colors */
-
-/* Compact */
-
-/* Attached */
-
-/* Floated */
-
-/* Animated */
-
-/* Sizing */
-
-/*------------------
-     Load Theme
--------------------*/
-
 /*------------------
      Load Site
 -------------------*/
@@ -5141,7 +5152,7 @@ body > .ui.grid {
   outline: none;
   border: none;
   background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
   margin: 0.25em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -5227,7 +5238,7 @@ body > .ui.grid {
   background-image: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .ui.button.active:hover {
@@ -5722,48 +5733,48 @@ body > .ui.grid {
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7rem;
+  font-size: 0.7em;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
 .ui.buttons .button,
 .ui.button {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.125rem;
+  font-size: 1.125em;
 }
 
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.25rem;
+  font-size: 1.25em;
 }
 
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.375rem;
+  font-size: 1.375em;
 }
 
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 /* Or resize */
@@ -5827,7 +5838,7 @@ body > .ui.grid {
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: rgba(0, 0, 0, 0.6) !important;
+  color: rgba(0, 0, 0, 0.7) !important;
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
@@ -9895,6 +9906,34 @@ i.icon.right {
 -------------------*/
 
 /*******************************
+            Standard
+*******************************/
+
+/*-------------------
+       Image 
+--------------------*/
+
+/*******************************
+              Types
+*******************************/
+
+/* Avatar */
+
+/*******************************
+           Variations
+*******************************/
+
+/* Floated */
+
+/* Sizing */
+
+/* Size */
+
+/*------------------
+     Load Theme
+-------------------*/
+
+/*******************************
         Global Variables
 *******************************/
 
@@ -9995,34 +10034,6 @@ i.icon.right {
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
-
-/*******************************
-            Standard
-*******************************/
-
-/*-------------------
-       Image 
---------------------*/
-
-/*******************************
-              Types
-*******************************/
-
-/* Avatar */
-
-/*******************************
-           Variations
-*******************************/
-
-/* Floated */
-
-/* Sizing */
-
-/* Size */
-
-/*------------------
-     Load Theme
--------------------*/
 
 /*------------------
      Load Site
@@ -10731,27 +10742,27 @@ img.ui.image {
 ---------------------*/
 
 .ui.mini.input {
-  font-size: 0.8125rem;
+  font-size: 0.8125em;
 }
 
 .ui.small.input {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
 .ui.input {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 .ui.large.input {
-  font-size: 1.125rem;
+  font-size: 1.125em;
 }
 
 .ui.big.input {
-  font-size: 1.25rem;
+  font-size: 1.25em;
 }
 
 .ui.huge.input {
-  font-size: 1.375rem;
+  font-size: 1.375em;
 }
 
 .ui.massive.input {
@@ -15132,7 +15143,7 @@ a:hover {
 *******************************/
 /*
  * # Semantic - Accordion
- * http://github.com/semantic-org/semantic-ui/
+ * http://github.com/jlukic/semantic-ui/
  *
  *
  * Copyright 2013 Contributors
@@ -15156,8 +15167,8 @@ a:hover {
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
-.ui.accordion > .title,
-.ui.accordion .accordion > .title {
+.ui.accordion .title,
+.ui.accordion .accordion .title {
   cursor: pointer;
   margin: 0em;
   padding: 0.75em 1em;
@@ -15167,15 +15178,15 @@ a:hover {
   transition: background-color 0.2s ease-out;
 }
 
-.ui.accordion > .title:first-child,
-.ui.accordion .accordion > .title:first-child {
+.ui.accordion .title:first-child,
+.ui.accordion .accordion .title:first-child {
   border-top: none;
 }
 
 /* Content */
 
-.ui.accordion > .content,
-.ui.accordion .accordion > .content {
+.ui.accordion .content,
+.ui.accordion .accordion .content {
   display: none;
   margin: 0em;
   padding: 1.3em 1em;
@@ -15183,8 +15194,8 @@ a:hover {
 
 /* Arrow */
 
-.ui.accordion > .title .dropdown.icon,
-.ui.accordion .accordion > .title .dropdown.icon {
+.ui.accordion .title .dropdown.icon,
+.ui.accordion .accordion .title .dropdown.icon {
   display: inline-block;
   float: none;
   margin: 0em 0.5em 0em 0em;
@@ -15196,8 +15207,8 @@ a:hover {
   transform: rotate(0deg);
 }
 
-.ui.accordion > .title .dropdown.icon:before,
-.ui.accordion .accordion > .title .dropdown.icon:before {
+.ui.accordion .title .dropdown.icon:before,
+.ui.accordion .accordion .title .dropdown.icon:before {
   content: '\f0da' /*rtl:'\f0d9'*/;
 }
 
@@ -15211,8 +15222,8 @@ a:hover {
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
-.ui.basic.accordion.menu > .title,
-.ui.basic.accordion.menu > .content {
+.ui.basic.accordion.menu .title,
+.ui.basic.accordion.menu .content {
   padding: 0em;
 }
 
@@ -15230,21 +15241,21 @@ a:hover {
   box-shadow: none;
 }
 
-.ui.basic.accordion > .title,
-.ui.basic.accordion .accordion > .title {
+.ui.basic.accordion .title,
+.ui.basic.accordion .accordion .title {
   background-color: transparent;
   border-top: none;
   padding-left: 0em;
   padding-right: 0em;
 }
 
-.ui.basic.accordion > .content,
-.ui.basic.accordion .accordion > .content {
+.ui.basic.accordion .content,
+.ui.basic.accordion .accordion .content {
   padding: 0.5em 0em;
 }
 
-.ui.basic.accordion > .active.title,
-.ui.basic.accordion .accordion > .active.title {
+.ui.basic.accordion .active.title,
+.ui.basic.accordion .accordion .active.title {
   background-color: transparent;
 }
 
@@ -15256,10 +15267,10 @@ a:hover {
       Hover
 ---------------*/
 
-.ui.accordion > .title:hover,
-.ui.accordion > .active.title,
-.ui.accordion .accordion > .title:hover,
-.ui.accordion .accordion > .active.title {
+.ui.accordion .title:hover,
+.ui.accordion .active.title,
+.ui.accordion .accordion .title:hover,
+.ui.accordion .accordion .active.title {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -15267,21 +15278,21 @@ a:hover {
      Active
 ---------------*/
 
-.ui.accordion > .active.title,
-.ui.accordion .accordion > .active.title {
+.ui.accordion .active.title,
+.ui.accordion .accordion .active.title {
   background-color: rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.accordion > .active.title .dropdown.icon,
-.ui.accordion .accordion > .active.title .dropdown.icon {
+.ui.accordion .active.title .dropdown.icon,
+.ui.accordion .accordion .active.title .dropdown.icon {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
-.ui.accordion > .active.content,
-.ui.accordion .accordion > .active.content {
+.ui.accordion .active.content,
+.ui.accordion .accordion .active.content {
   display: block;
 }
 

@@ -420,6 +420,12 @@ type        : 'UI Collection'
             <input placeholder="Last Name" type="text">
           </div>
         </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" />
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
         <div class="ui blue submit button">Submit</div>
       </div>
     </div>

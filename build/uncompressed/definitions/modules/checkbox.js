@@ -88,6 +88,9 @@ $.fn.checkbox = function(parameters) {
             .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
+          $input
+            .off(eventNamespace, module.event.keydown)
+          ;
           $label
             .off(eventNamespace)
           ;
