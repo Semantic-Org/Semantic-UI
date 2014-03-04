@@ -61,24 +61,6 @@ $.fn.state = function(parameters) {
 
           // bind events with delegated events
           if(settings.context && moduleSelector !== '') {
-            if( module.allows('hover') ) {
-              $(element, settings.context)
-                .on(moduleSelector, 'mouseenter' + eventNamespace, module.enable.hover)
-                .on(moduleSelector, 'mouseleave' + eventNamespace, module.disable.hover)
-              ;
-            }
-            if( module.allows('down') ) {
-              $(element, settings.context)
-                .on(moduleSelector, 'mousedown' + eventNamespace, module.enable.down)
-                .on(moduleSelector, 'mouseup'   + eventNamespace, module.disable.down)
-              ;
-            }
-            if( module.allows('focus') ) {
-              $(element, settings.context)
-                .on(moduleSelector, 'focus' + eventNamespace, module.enable.focus)
-                .on(moduleSelector, 'blur'  + eventNamespace, module.disable.focus)
-              ;
-            }
             $(settings.context)
               .on(moduleSelector, 'mouseenter' + eventNamespace, module.change.text)
               .on(moduleSelector, 'mouseleave' + eventNamespace, module.reset.text)
@@ -86,24 +68,6 @@ $.fn.state = function(parameters) {
             ;
           }
           else {
-            if( module.allows('hover') ) {
-              $module
-                .on('mouseenter' + eventNamespace, module.enable.hover)
-                .on('mouseleave' + eventNamespace, module.disable.hover)
-              ;
-            }
-            if( module.allows('down') ) {
-              $module
-                .on('mousedown' + eventNamespace, module.enable.down)
-                .on('mouseup'   + eventNamespace, module.disable.down)
-              ;
-            }
-            if( module.allows('focus') ) {
-              $module
-                .on('focus' + eventNamespace, module.enable.focus)
-                .on('blur'  + eventNamespace, module.disable.focus)
-              ;
-            }
             $module
               .on('mouseenter' + eventNamespace, module.change.text)
               .on('mouseleave' + eventNamespace, module.reset.text)
@@ -194,55 +158,41 @@ $.fn.state = function(parameters) {
           return states[state] || false;
         },
 
-        enable: {
-          state: function(state) {
-            if(module.allows(state)) {
-              $module.addClass( className[state] );
-            }
-          },
-          // convenience
-          focus: function() {
-            $module.addClass(className.focus);
-          },
-          hover: function() {
-            $module.addClass(className.hover);
-          },
-          down: function() {
-            $module.addClass(className.down);
-          },
+        enable: function() {
+          $module.removeClass(className.disabled);
         },
 
-        disable: {
-          state: function(state) {
-            if(module.allows(state)) {
-              $module.removeClass( className[state] );
-            }
-          },
-          // convenience
-          focus: function() {
-            $module.removeClass(className.focus);
-          },
-          hover: function() {
-            $module.removeClass(className.hover);
-          },
-          down: function() {
-            $module.removeClass(className.down);
-          },
+        disable: function() {
+          $module.addClass(className.disabled);
+        },
+
+        enableState: function(state) {
+          if(module.allows(state)) {
+            $module.addClass( className[state] );
+          }
+        },
+
+        disableState: function(state) {
+          if(module.allows(state)) {
+            $module.removeClass( className[state] );
+          }
         },
 
         toggle: {
           state: function() {
             var
-              apiRequest = $module.data(metadata.promise)
+              apiRequest
             ;
             if( module.allows('active') && module.is.enabled() ) {
               module.refresh();
-              if(apiRequest !== undefined) {
-                module.listenTo(apiRequest);
+              if($.fn.api !== undefined) {
+                apiRequest = $module.api('get request');
+                if(apiRequest) {
+                  module.listenTo(apiRequest);
+                  return;
+                }
               }
-              else {
-                module.change.state();
-              }
+              module.change.state();
             }
           }
         },
@@ -672,11 +622,9 @@ $.fn.state.settings = {
 
   // change class on state
   className: {
-    focus   : 'focus',
-    hover   : 'hover',
-    down    : 'down',
-    active  : 'active',
-    loading : 'loading'
+    active   : 'active',
+    disabled : 'disabled',
+    loading  : 'loading'
   },
 
   selector: {
@@ -686,27 +634,21 @@ $.fn.state.settings = {
 
   defaults : {
     input: {
-      hover   : true,
-      focus   : true,
-      down    : true,
-      loading : false,
-      active  : false
+      disabled : true,
+      loading  : true,
+      active   : true
     },
     button: {
-      hover   : true,
-      focus   : false,
-      down    : true,
-      active  : true,
-      loading : true
+      disabled : true,
+      loading  : true,
+      active   : true
     }
   },
 
   states     : {
-    hover   : true,
-    focus   : true,
-    down    : true,
-    loading : false,
-    active  : false
+    disabled: true,
+    loading : true,
+    active  : true
   },
 
   text     : {
