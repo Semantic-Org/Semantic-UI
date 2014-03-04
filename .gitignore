@@ -3,6 +3,7 @@ node_modules
 node/server.json
 test/coverage/
 coverage/
+semantic.config
 
 # Numerous always-ignore extensions
 *.diff
@@ -17,7 +18,6 @@ coverage/
 *~
 *.sass-cache
 *.ruby-version
-src/semantic.config
 
 # OS or Editor folders
 .DS_Store
