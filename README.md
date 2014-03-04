@@ -78,3 +78,7 @@ If you'd like to start a conversation about Semantic feel free to reach out by e
 * [Features Missing for 1.0](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&milestone=1&page=1&sort=updated&state=open)
 * [Planned Updates for 1.X](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&milestone=2&page=1&sort=updated&state=open)
 * [Additional Components Scoped for 2.0](https://github.com/Semantic-Org/Semantic-UI/issues?direction=desc&labels=&milestone=3&page=1&sort=updated&state=open)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Semantic-Org/semantic-ui/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
