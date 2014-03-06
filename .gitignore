@@ -3,6 +3,7 @@ node_modules
 node/server.json
 test/coverage/
 coverage/
+build/
 
 # Numerous always-ignore extensions
 *.diff
@@ -17,6 +18,7 @@ coverage/
 *~
 *.sass-cache
 *.ruby-version
+*.node-version
 src/semantic.config
 
 # OS or Editor folders

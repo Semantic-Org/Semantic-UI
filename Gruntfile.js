@@ -295,39 +295,29 @@ module.exports = function(grunt) {
       },
     },
 
-    less: {
-
-      options: {
-        paths        : ['src'],
-        compress     : false,
-        optimization : 2
-      },
+    sass: {
 
       // optimized for watch, src is built on watch task using callbacks
       buildDocsCSS: {
-        src    : 'src',
-        dest   : 'docs/build/uncompressed/',
+				src: 'src/**/*.scss',
+				dest: 'docs/build/uncompressed/',
+				expand: true,
+				ext: '.css',
         rename : preserveFileExtensions
       },
-
       buildTestCSS: {
-        expand : true,
-        cwd    : 'src',
-        src    : [
-          '**/*.less'
-        ],
-        dest : 'docs/build/uncompressed/',
-        rename: preserveFileExtensions
+        src: 'src/**/*.scss',
+        dest: 'docs/build/uncompressed/',
+        expand: true,
+        ext: '.css',
+        rename : preserveFileExtensions
       },
-
       buildCSS: {
-        expand : true,
-        cwd    : 'src',
-        src    : [
-          '**/*.less'
-        ],
-        dest : 'build/uncompressed/',
-        rename: preserveFileExtensions
+        src: 'src/**/*.scss',
+        dest: 'build/uncompressed/',
+        expand: true,
+        ext: '.css',
+        rename : preserveFileExtensions
       }
     },
 
@@ -629,7 +619,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
