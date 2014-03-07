@@ -9,6 +9,15 @@
  *
  */
 
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'collection';
+@element : 'form';
+
+@import '../../semantic.config';
+
 
 /*******************************
            Standard
@@ -28,7 +37,7 @@
 ---------------------*/
 
 .ui.form > p {
-  margin: 1em 0;
+  margin: @paragraphMargin;
 }
 
 /*--------------------
@@ -37,7 +46,7 @@
 
 .ui.form .field {
   clear: both;
-  margin: 0em 0em 1em;
+  margin: @fieldMargin;
 }
 
 /*--------------------
@@ -45,11 +54,11 @@
 ---------------------*/
 
 .ui.form .field > label {
-  margin: 0em 0em 0.3em;
+  margin: @labelMargin;
   display: block;
 
-  color: #111111;
-  font-size: 0.875em;
+  color: @labelColor;
+  font-size: @labelFontSize;
 }
 
 /*--------------------
@@ -77,74 +86,58 @@
 .ui.form input[type="number"],
 .ui.form input[type="url"],
 .ui.form input[type="tel"] {
-
   margin: 0em;
-  padding: 0.65em 1em;
-  font-size: 1em;
+  padding: @inputVerticalPadding @inputHorizontalPadding;
+  font-size: @inputFontSize;
 
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: @inputBackground;
+  border: @inputBorder;
   outline: none;
 
-
   color: rgba(0, 0, 0, 0.7);
-
-  -webkit-border-radius: 0.3125em;
-  -moz-border-radius: 0.3125em;
   border-radius: 0.3125em;
-
-  -webkit-transition:
-    background-color 0.3s ease-out,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease
-  ;
-  -moz-transition:
-    background-color 0.3s ease-out,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease
-  ;
-  -o-transition:
-    background-color 0.3s ease-out,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease
-  ;
-  -ms-transition:
-    background-color 0.3s ease-out,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease
-  ;
-  transition:
-    background-color 0.3s ease-out,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease
-  ;
-
-  -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
-  -moz-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
-  box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  box-shadow: @inputBoxShadow;
 
   -webkit-appearance: none;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
+  transition: @inputTransition;
 }
 
 .ui.textarea,
 .ui.form textarea {
-  line-height: 1.33;
-  min-height: 8em;
-  height: 12em;
-  max-height: 24em;
-  resize: vertical;
+  font-size: @textAreaFontSize;
+
+  height: @textAreaHeight;
+  min-height: @textAreaMinHeight;
+  max-height: @textAreaMaxHeight;
+  line-height: @textAreaLineHeight;
+  resize: @textAreaResize;
 }
 
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
-  vertical-align: top;
+  vertical-align: @checkboxVerticalAlign;
 }
+
+/*--------------------
+       Dropdown
+---------------------*/
+
+.ui.form .field > .selection.dropdown {
+  width: 100%;
+}
+.ui.form .field > .selection.dropdown > .dropdown.icon {
+  float: right;
+}
+
+.ui.form .inline.field > .selection.dropdown {
+  width: auto;
+}
+.ui.form .inline.field > .selection.dropdown > .dropdown.icon {
+  float: none;
+}
+
 
 /*--------------------
        Dividers
@@ -152,7 +145,7 @@
 
 .ui.form .divider {
   clear: both;
-  margin: 1em 0em;
+  margin: @dividerMargin;
 }
 
 
@@ -179,11 +172,10 @@
   white-space: nowrap;
 }
 .ui.form .inline.field .prompt {
-  margin-top: 0em;
-  margin-left: 1em;
+  margin: @validationMargin;
 }
 .ui.form .inline.field .prompt:before {
-  margin-top: -0.3em;
+  margin-top: @validationArrowOffset;
   bottom: auto;
   right: auto;
   top: 50%;
@@ -197,6 +189,38 @@
 
 
 /*--------------------
+      Placeholder
+---------------------*/
+
+/* browsers require these rules separate */
+.ui.form ::-webkit-input-placeholder {
+  color: @inputPlaceholderColor;
+}
+.ui.form ::-moz-placeholder {
+  color: @inputPlaceholderColor;
+}
+.ui.form :focus::-webkit-input-placeholder {
+  color: @inputPlaceholderFocusColor;
+}
+.ui.form :focus::-moz-placeholder {
+  color: @inputPlaceholderFocusColor;
+}
+
+/* Error Placeholder */
+.ui.form .error ::-webkit-input-placeholder {
+  color: @inputErrorPlaceholderColor;
+}
+.ui.form .error ::-moz-placeholder {
+  color: @inputErrorPlaceholderColor;
+}
+.ui.form .error :focus::-webkit-input-placeholder {
+  color: @inputErrorPlaceholderFocusColor;
+}
+.ui.form .error :focus::-moz-placeholder {
+  color: @inputErrorPlaceholderFocusColor;
+}
+
+/*--------------------
         Focus
 ---------------------*/
 
@@ -208,16 +232,12 @@
 .ui.form input[type="url"]:focus,
 .ui.form input[type="tel"]:focus,
 .ui.form textarea:focus{
-  color: rgba(0, 0, 0, 0.85);
-  border-color: rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-
+  color: @inputFocusColor;
+  border-color: @inputFocusBorderColor;
+  border-radius: @inputFocusBorderRadius;
+  background: @inputFocusBackground;
+  box-shadow: @inputFocusBoxShadow;
   -webkit-appearance: none;
-
-  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
-  -moz-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
 }
 
 /*--------------------
@@ -243,13 +263,13 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #D95C5C;
+  color: @formErrorColor;
 }
 
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #D95C5C;
-  color: #FFFFFF;
+  border-color: @formErrorColor;
+  color: @white;
 }
 
 .ui.form .fields.error .field textarea,
@@ -268,19 +288,11 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background-color: #FFFAFA;
-  border-color: #E7BEBE;
-  border-left: none;
-
-  color: #D95C5C;
-  padding-left: 1.2em;
-
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-
-  -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
-  -moz-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
-  box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+  background: @formErrorBackground;
+  border-color: @formErrorBorder;
+  color: @formErrorColor;
+  border-radius: @inputErrorBorderRadius;
+  box-shadow: @inputErrorBoxShadow;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -290,85 +302,61 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus{
-  border-color: rgba(255, 80, 80, 1);
-  color: rgba(255, 80, 80, 1);
+  border-color: @formErrorFocusBorder;
+  color: @formErrorFocusColor;
 
   -webkit-appearance: none;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
-  -moz-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
-  box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  box-shadow: @inputErrorFocusBoxShadow;
 }
-
-/*----------------------------
-  Dropdown Selection Warning
------------------------------*/
+/*------------------
+    Dropdown Error
+--------------------*/
 
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .fields.error .field .ui.dropdown .item,
 .ui.form .field.error .ui.dropdown,
+.ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background-color: #FFFAFA;
-  color: #D95C5C;
+  background: @formErrorBackground;
+  color: @formErrorColor;
 }
-
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
-  box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+  box-shadow: 0px 0px 0px 1px @formErrorBorder !important;
 }
-
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
-  box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+  box-shadow: 0px 0px 0px 1px @formErrorBorder !important;
 }
-
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #E7BEBE;
-  box-shadow: 0px 1px 0px 1px #E7BEBE;
+  box-shadow: 0px 1px 0px 1px @formErrorBorder;
 }
-
+/* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
-  background-color: #FFF2F2;
+  background-color: @dropdownErrorHoverBackground;
 }
-
+/* Active */
 .ui.form .fields.error .field .ui.dropdown .menu .active.item,
 .ui.form .field.error .ui.dropdown .menu .active.item {
-  background-color: #FDCFCF !important;
+  background-color: @dropdownErrorActiveBackground !important;
 }
 
 /*--------------------
-  Empty (Placeholder)
+    Checkbox Error
 ---------------------*/
-
-/* browsers require these rules separate */
-.ui.form ::-webkit-input-placeholder {
-  color: #AAAAAA;
+.ui.form .fields.error .field .checkbox label,
+.ui.form .field.error .checkbox label,
+.ui.form .fields.error .field .checkbox .box,
+.ui.form .field.error .checkbox .box {
+  color: @formErrorColor;
 }
-.ui.form ::-moz-placeholder {
-  color: #AAAAAA;
-}
-.ui.form :focus::-webkit-input-placeholder {
-  color: #999999;
-}
-.ui.form :focus::-moz-placeholder {
-  color: #999999;
-}
-
-/* Error Placeholder */
-.ui.form .error ::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.4);
-}
-.ui.form .error ::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.4);
-}
-.ui.form .error :focus::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.7);
-}
-.ui.form .error :focus::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.form .fields.error .field .checkbox label:before,
+.ui.form .field.error .checkbox label:before,
+.ui.form .fields.error .field .checkbox .box:before,
+.ui.form .field.error .checkbox .box:before {
+  border-color: @formErrorBorder;
 }
 
 /*--------------------
@@ -403,7 +391,7 @@
 
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
+  background: @formLoaderDimmerColor @formLoaderPath no-repeat @formLoaderPosition;
   visibility: visible;
 }
 
@@ -419,9 +407,6 @@
 
 .ui.form.fluid {
   width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -514,9 +499,6 @@
 .ui.form .fields > .field {
   clear: none;
   float: left;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 .ui.form .fields > .field:first-child {

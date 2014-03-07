@@ -85,8 +85,6 @@
 @tertiaryColor  : @orange;
 
 /*---  Emotive  ---*/
-@positiveColor  : @green;
-@negativeColor  : @red;
 
 @infoColor      : #E6F4F9;
 @warningColor   : #96904D;
@@ -104,6 +102,17 @@
 @white          : #FFFFFF;
 @offWhite       : #FAFAFA;
 @darkWhite      : #F0F0F0;
+
+/*-------------------
+      Emotive
+--------------------*/
+@positiveColor           : @green;
+@positiveBorderColor     : #FFFAFA;
+@positiveBackgroundColor : #E7BEBE;
+
+@negativeColor           : @red;
+@negativeBorderColor     : lighten(@red, 25);
+@negativeBackgroundColor : lighten(@red, 38);
 
 /*-------------------
      Text Colors

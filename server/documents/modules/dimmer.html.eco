@@ -151,7 +151,7 @@ type        : 'UI Module'
         <div class="ui dimmer">
           <div class="content">
             <div class="center">
-              <h2 class="ui header">Puppy</h2>
+              <h2 class="ui inverted header">Puppy</h2>
               <div class="ui green button">Vote</div>
               <a class="ui button">View</a>
             </div>

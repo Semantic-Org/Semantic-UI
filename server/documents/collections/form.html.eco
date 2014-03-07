@@ -211,8 +211,8 @@ type        : 'UI Collection'
       </div>
       <div class="field">
         <label>Gender</label>
-        <div class="ui fluid selection dropdown">
-          <div class="text">Select</div>
+        <div class="ui selection dropdown">
+          <div class="default text">Select</div>
           <i class="dropdown icon"></i>
           <input type="hidden" name="gender">
           <div class="menu">
@@ -259,7 +259,7 @@ type        : 'UI Collection'
       </div>
       <div class="field">
         <label>Gender</label>
-        <div class="ui fluid selection dropdown">
+        <div class="ui selection dropdown">
           <div class="text">Select</div>
           <i class="dropdown icon"></i>
           <input type="hidden" name="gender">
@@ -299,16 +299,14 @@ type        : 'UI Collection'
           <li>And also your <b>last name</b></li>
         </ul>
       </div>
-      <div class="two error fields">
+      <div class="twofields">
         <div class="field">
           <label>First Name</label>
           <input placeholder="First Name" type="text">
-          <div class="ui red pointing above ui label">Enter a first name</div>
         </div>
         <div class="field">
           <label>Last Name</label>
           <input placeholder="Last Name" type="text">
-          <div class="ui red pointing above ui label">Enter a last name</div>
         </div>
       </div>
       <div class="field">
@@ -348,14 +346,20 @@ type        : 'UI Collection'
       </div>
       <div class="field error">
         <label>Gender</label>
-        <div class="ui fluid selection dropdown">
-          <div class="text">Select</div>
+        <div class="ui selection dropdown">
+          <div class="default text">Select</div>
           <i class="dropdown icon"></i>
           <input type="hidden" name="gender">
           <div class="menu">
             <div class="item" data-value="male">Male</div>
             <div class="item" data-value="female">Female</div>
           </div>
+        </div>
+      </div>
+      <div class="inline error field">
+        <div class="ui checkbox">
+          <input type="checkbox" />
+          <label>I agree to the Terms and Conditions</label>
         </div>
       </div>
     </div>
