@@ -37,30 +37,24 @@ type        : 'UI Collection'
       <p>This example uses a <a href="/elements/segment.html">ui segment</a> to add the padding and background color. This is not required.</p>
     </div>
     <div class="ui form segment">
-      <div class="field">
+      <div class="required field">
         <label>Username</label>
         <div class="ui left labeled icon input">
           <input type="text" placeholder="Username">
           <i class="user icon"></i>
-          <div class="ui corner label">
-            <i class="icon asterisk"></i>
-          </div>
         </div>
       </div>
-      <div class="field">
+      <div class="required field">
         <label>Password</label>
         <div class="ui left labeled icon input">
           <input type="password">
           <i class="lock icon"></i>
-          <div class="ui corner label">
-            <i class="icon asterisk"></i>
-          </div>
         </div>
       </div>
       <div class="ui error message">
         <div class="header">We noticed some issues</div>
       </div>
-      <div class="ui blue submit button">Login</div>
+      <div class="ui submit button">Login</div>
     </div>
   </div>
 
@@ -147,7 +141,33 @@ type        : 'UI Collection'
     ;
     </div>
     <div class="ui form">
-      <div class="grouped inline fields">
+      <div class="inline fields">
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" checked />
+            <label>Apples</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label>Oranges</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label>Pears</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="fruit" />
+            <label>Grapefruit</label>
+          </div>
+        </div>
+      </div>
+      <div class="grouped fields">
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" checked />
@@ -235,7 +255,7 @@ type        : 'UI Collection'
           <label>I agree to the terms and conditions</label>
         </div>
       </div>
-      <div class="ui blue submit button">Submit</div>
+      <div class="ui submit button">Submit</div>
     </div>
   </div>
 
@@ -260,7 +280,7 @@ type        : 'UI Collection'
       <div class="field">
         <label>Gender</label>
         <div class="ui selection dropdown">
-          <div class="text">Select</div>
+          <div class="default text">Select Gender</div>
           <i class="dropdown icon"></i>
           <input type="hidden" name="gender">
           <div class="menu">
@@ -283,7 +303,7 @@ type        : 'UI Collection'
           <label>I agree to the Terms and Conditions</label>
         </div>
       </div>
-      <div class="ui blue submit button">Submit</div>
+      <div class="ui submit button">Submit</div>
     </div>
   </div>
 
@@ -299,7 +319,7 @@ type        : 'UI Collection'
           <li>And also your <b>last name</b></li>
         </ul>
       </div>
-      <div class="twofields">
+      <div class="two fields">
         <div class="field">
           <label>First Name</label>
           <input placeholder="First Name" type="text">
@@ -323,7 +343,7 @@ type        : 'UI Collection'
           <label>I agree to the Terms and Conditions</label>
         </div>
       </div>
-      <div class="ui blue submit button">Submit</div>
+      <div class="ui submit button">Submit</div>
     </div>
   </div>
 
@@ -401,7 +421,7 @@ type        : 'UI Collection'
           <input placeholder="Last Name" type="text">
         </div>
       </div>
-      <div class="ui blue submit button">Submit</div>
+      <div class="ui submit button">Submit</div>
     </div>
   </div>
 
@@ -419,7 +439,7 @@ type        : 'UI Collection'
           <input placeholder="Last Name" type="text">
         </div>
       </div>
-      <div class="ui blue small submit button">Submit</div>
+      <div class="ui submit button">Submit</div>
     </div>
     <br><br>
     <div class="ui large form segment">
@@ -433,7 +453,7 @@ type        : 'UI Collection'
           <input placeholder="Last Name" type="text">
         </div>
       </div>
-      <div class="ui blue submit button">Submit</div>
+      <div class="ui submit button">Submit</div>
     </div>
   </div>
 
@@ -441,7 +461,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Inverted</h4>
     <p>A form on a dark background may have to invert its color scheme</p>
 
-    <div style="background-color: #333333; padding: 15px;">
+    <div style="background-color: #000; padding: 15px;">
       <div class="ui inverted form">
         <div class="ui info message">
           <div class="header">We had some issues</div>
@@ -466,7 +486,7 @@ type        : 'UI Collection'
             <label>I agree to the terms and conditions</label>
           </div>
         </div>
-        <div class="ui blue submit button">Submit</div>
+        <div class="ui submit button">Submit</div>
       </div>
     </div>
   </div>
@@ -481,6 +501,23 @@ type        : 'UI Collection'
         <div class="inline field">
           <label>Last name</label>
           <input type="text" placeholder="Full Name">
+        </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Required</h4>
+    <p>A field can format itself to show that an input is mandatory</p>
+    <div class="ui form">
+        <div class="required field">
+          <label>Last name</label>
+          <input type="text" placeholder="Full Name">
+        </div>
+        <div class="required inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" />
+            <label>I agree to the terms and conditions</label>
+          </div>
         </div>
     </div>
   </div>
@@ -507,7 +544,7 @@ type        : 'UI Collection'
       <i class="mobile icon"></i>
       <div class="content">
         <h3 class="header">Responsive Element</h3>
-        <p>Grouped fields automatically receive responsive styling, swapping to one field per row for mobile.</p>
+        <p>Split Width Fields automatically receive responsive styling, swapping to one field per row for mobile.</p>
       </div>
     </div>
     <div class="ui form">
@@ -532,34 +569,30 @@ type        : 'UI Collection'
     <h4 class="ui header">Grouped Fields</h4>
     <p>Fields can be grouped to show related choices</p>
     <div class="ui form">
-      <div class="grouped inline fields">
+      <div class="grouped fields">
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
-            <label></label>
+            <label>Apples</label>
           </div>
-          <label> Apples</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
-            <label></label>
+            <label>Oranges</label>
           </div>
-          <label> Oranges</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
-            <label></label>
+            <label>Pears</label>
           </div>
-          <label> Pears</label>
         </div>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" />
-            <label></label>
+            <label>Grapefruit</label>
           </div>
-          <label> Grapefruit</label>
         </div>
       </div>
     </div>

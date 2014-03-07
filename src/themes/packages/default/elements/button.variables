@@ -14,7 +14,7 @@
        Button
 --------------------*/
 
-@verticalMargin: 0.25em;
+@verticalMargin: 0em;
 @horizontalMargin: 0.25em;
 @textTransform: uppercase;
 
@@ -26,9 +26,9 @@
 @borderRadius: 0.25em;
 
 @backgroundColor: #FAFAFA;
-@backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+@backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
 @boxShadow:
-  0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset,
+  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
   0px -@shadowDistance 0px 0px rgba(0, 0, 0, 0.1) inset
 ;
 
@@ -70,12 +70,12 @@
 --------------------*/
 
 @hoverBackgroundColor: '';
-@hoverBackgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+@hoverBackgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
 @hoverBoxShadow: '';
 @iconHoverOpacity: 0.85;
 
 @focusBackgroundColor: '';
-@focusBackgroundImage: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+@focusBackgroundImage: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.11));
 @focusBoxShadow: '';
 @iconFocusOpacity: 0.85;
 
@@ -144,7 +144,7 @@
 --------------------*/
 
 /* Colors */
-@coloredBackgroundImage: none;
+@coloredBackgroundImage: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 @coloredBoxShadow: none;
 
 /* Compact */

@@ -105,6 +105,10 @@
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -241,7 +245,7 @@
   border-color: #e8e8e8;
   background-image: none;
   padding: 0.8em 0.8em;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
   font-weight: normal;
   border-radius: 0.325em;

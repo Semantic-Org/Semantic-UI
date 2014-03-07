@@ -35,7 +35,7 @@
   background-color: @backgroundColor;
   color: @textColor;
 
-  margin: @verticalMargin @horizontalMargin 0em 0em;
+  margin: 0em @horizontalMargin @verticalMargin 0em;
   padding: @verticalPadding @horizontalPadding (@verticalPadding + @shadowOffset);
 
   font-family: @pageFont;
@@ -260,6 +260,23 @@
   right: auto;
   opacity: 1;
   transform: scale(1);
+}
+
+/*-------------------
+       Inverted
+--------------------*/
+
+.ui.inverted.button {
+  box-shadow: 0px 0px 0px 2px @white inset !important;
+  background: transparent none;
+  color: @white;
+  text-shadow: none !important;
+}
+
+.ui.inverted.button:hover {
+  background: @white none;
+  box-shadow: 0px 0px 0px 2px @white inset !important;
+  color: @textColor;
 }
 
 
@@ -793,6 +810,7 @@
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
   background-color: @positiveColor !important;
+  box-shadow: none !important;
   text-shadow: @invertedTextShadow;
   color: @invertedTextColor !important;
 }
@@ -1098,6 +1116,19 @@
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
 }
+.ui.inverted.black.buttons .button,
+.ui.inverted.black.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightBlack inset !important;
+  color: @lightBlack;
+}
+.ui.inverted.black.buttons .button:hover,
+.ui.inverted.black.button:hover {
+  box-shadow: 0px 0px 0px 2px @black inset !important;
+  background-color: @black;
+  color: @white;
+}
+
 
 /*--- Blue ---*/
 .ui.blue.buttons .button,
@@ -1127,6 +1158,20 @@
   background-color: @blueActive;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+}
+
+/* Inverted */
+.ui.inverted.blue.buttons .button,
+.ui.inverted.blue.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightBlue inset !important;
+  color: @lightBlue;
+}
+.ui.inverted.blue.buttons .button:hover,
+.ui.inverted.blue.button:hover {
+  box-shadow: 0px 0px 0px 2px @blue inset !important;
+  background-color: @blue;
+  color: @white;
 }
 
 /*--- Green ---*/
@@ -1159,6 +1204,20 @@
   text-shadow: @invertedTextShadow;
 }
 
+/* Inverted */
+.ui.inverted.green.buttons .button,
+.ui.inverted.green.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightGreen inset !important;
+  color: @lightGreen;
+}
+.ui.inverted.green.buttons .button:hover,
+.ui.inverted.green.button:hover {
+  box-shadow: 0px 0px 0px 2px @green inset !important;
+  background-color: @green;
+  color: @white;
+}
+
 /*--- Orange ---*/
 .ui.orange.buttons .button,
 .ui.orange.button {
@@ -1187,6 +1246,19 @@
   background-color: @blackActive;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+}
+/* Inverted */
+.ui.inverted.orange.buttons .button,
+.ui.inverted.orange.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightOrange inset !important;
+  color: @lightOrange;
+}
+.ui.inverted.orange.buttons .button:hover,
+.ui.inverted.orange.button:hover {
+  box-shadow: 0px 0px 0px 2px @lightOrange inset !important;
+  background-color: @lightOrange;
+  color: @white;
 }
 
 /*--- Pink ---*/
@@ -1218,6 +1290,19 @@
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
 }
+/* Inverted */
+.ui.inverted.pink.buttons .button,
+.ui.inverted.pink.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightPink inset !important;
+  color: @lightPink;
+}
+.ui.inverted.pink.buttons .button:hover,
+.ui.inverted.pink.button:hover {
+  box-shadow: 0px 0px 0px 2px @lightPink inset !important;
+  background-color: @lightPink;
+  color: @white;
+}
 
 /*--- Purple ---*/
 .ui.purple.buttons .button,
@@ -1247,6 +1332,19 @@
   background-color: @purpleActive;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+}
+/* Inverted */
+.ui.inverted.purple.buttons .button,
+.ui.inverted.purple.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightPurple inset !important;
+  color: @lightPurple;
+}
+.ui.inverted.purple.buttons .button:hover,
+.ui.inverted.purple.button:hover {
+  box-shadow: 0px 0px 0px 2px @lightPurple inset !important;
+  background-color: @lightPurple;
+  color: @white;
 }
 
 /*--- Red ---*/
@@ -1278,6 +1376,19 @@
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
 }
+/* Inverted */
+.ui.inverted.red.buttons .button,
+.ui.inverted.red.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightRed inset !important;
+  color: @lightRed;
+}
+.ui.inverted.red.buttons .button:hover,
+.ui.inverted.red.button:hover {
+  box-shadow: 0px 0px 0px 2px @lightRed inset !important;
+  background-color: @lightRed;
+  color: @white;
+}
 
 /*--- Teal ---*/
 .ui.teal.buttons .button,
@@ -1308,6 +1419,19 @@
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
 }
+/* Inverted */
+.ui.inverted.teal.buttons .button,
+.ui.inverted.teal.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightTeal inset !important;
+  color: @lightTeal;
+}
+.ui.inverted.teal.buttons .button:hover,
+.ui.inverted.teal.button:hover {
+  box-shadow: 0px 0px 0px 2px @lightTeal inset !important;
+  background-color: @lightTeal;
+  color: @white;
+}
 
 /*--- Yellow ---*/
 .ui.yellow.buttons .button,
@@ -1337,6 +1461,19 @@
   background-color: @yellowActive;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
+}
+/* Inverted */
+.ui.inverted.yellow.buttons .button,
+.ui.inverted.yellow.button {
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px @lightYellow inset !important;
+  color: @lightYellow;
+}
+.ui.inverted.yellow.buttons .button:hover,
+.ui.inverted.yellow.button:hover {
+  box-shadow: 0px 0px 0px 2px @lightYellow inset !important;
+  background-color: @lightYellow;
+  color: @white;
 }
 
 /*---------------
@@ -1433,6 +1570,7 @@
   margin: 0em;
   float: left;
   border-radius: 0em;
+  margin: 0px 0px 0px -1px;
 }
 .ui.buttons .button:first-child  {
   margin-left: 0em;
@@ -1452,6 +1590,7 @@
 .ui.vertical.buttons .button {
   display: block;
   float: none;
+  margin: 0px 0px -1px 0px;
   box-shadow: @verticalBoxShadow;
 }
 .ui.vertical.buttons .button:first-child,
@@ -1460,7 +1599,6 @@
 .ui.vertical.buttons .small.button:first-child,
 .ui.vertical.buttons .massive.button:first-child,
 .ui.vertical.buttons .huge.button:first-child {
-  margin-top: 0px;
   border-radius: @borderRadius @borderRadius 0px 0px;
 }
 .ui.vertical.buttons .button:last-child,
@@ -1470,6 +1608,7 @@
 .ui.vertical.buttons .massive.button:last-child,
 .ui.vertical.buttons .huge.button:last-child,
 .ui.vertical.buttons .gigantic.button:last-child {
+  margin-bottom: 0px;
   border-radius: 0px 0px @borderRadius @borderRadius;
 }
 

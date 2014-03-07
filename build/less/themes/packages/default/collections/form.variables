@@ -21,7 +21,7 @@
 
 /* Form Label */
 @labelFontSize: 0.875em;
-@labelMargin: 0em 0em 0.3em;
+@labelMargin: 0.3em;
 @labelColor: @textColor;
 
 /* Input */
@@ -34,11 +34,12 @@
 @inputBorderRadius: 0.3125em;
 @inputColor: @textColor;
 @inputTransition:
-  background-color 0.3s ease-out,
+  background-color 0.2s ease,
+  color 0.2s ease,
   box-shadow 0.2s ease,
   border-color 0.2s ease
 ;
-@inputBoxShadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+@inputBoxShadow: 0em 0em 0em 0em transparent inset;
 
 @textAreaFontSize: @inputFontSize;
 @textAreaHeight: 12em;
@@ -62,22 +63,60 @@
         States
 --------------------*/
 
+/* Disabled */
+
 /* Focus */
+@inputFocusPointerSize: 0.3em;
+/* Input Focus */
 @inputFocusBackground: #FFFFFF;
 @inputFocusBorderColor: @selectedBorderColor;
 @inputFocusColor: rgba(0, 0, 0, 0.85);
-@inputFocusBoxShadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+@inputFocusBoxShadow: @inputFocusPointerSize 0em 0em 0em @selectedBorderColor inset;
 @inputFocusBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
 
 /* Error */
+@formErrorColor: @negativeColor;
+@formErrorBorder: @negativeBorderColor;
+@formErrorBackground: @negativeBackgroundColor;
+/* Input Error */
+@inputErrorBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
+@inputErrorBoxShadow: @inputFocusPointerSize 0em 0em 0em @formErrorColor inset;
+/* Dropdown Error */
+@dropdownErrorHoverBackground: #FFF2F2;
+@dropdownErrorActiveBackground: #FDCFCF;
 
+/* Focused Error */
+@formErrorFocusColor: @negativeColorHover;
+@formErrorFocusBorder: @negativeBorderColor;
+@formErrorFocusBackground: @negativeBackgroundColor;
+/* Input Focused Error */
+@inputErrorFocusBoxShadow: @inputFocusPointerSize 0em 0em 0em @negativeColorHover inset;
 
+/* Placeholder */
+@inputPlaceholderColor: lighten(@inputColor, 70);
+@inputPlaceholderFocusColor: lighten(@inputColor, 55);
+@inputErrorPlaceholderColor: lighten(@formErrorColor, 10);
+@inputErrorPlaceholderFocusColor: lighten(@formErrorColor, 5);
 
+/* Loading */
+@formLoaderDimmerColor: rgba(255, 255, 255, 0.8);
+@formLoaderPath: "@{imagePath}/loader-large.gif";
+@formLoaderPosition: 50% 1em;
 
 /*-------------------
         Types
 --------------------*/
 
+@requiredColor: @negativeColor;
+@requiredVerticalOffset: -0.2em;
+
 /*-------------------
       Variations
 --------------------*/
+
+
+/*-------------------
+       Groups
+--------------------*/
+
+@inlineFieldsMargin: 0em 1em 0em 0em;

@@ -1,11 +1,10 @@
 ## RELEASE NOTES
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ### Version 1.0.0 - XX XX, 2014
 
 **Breaking Changes**
-- **Form** - Standard grids now have margin on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
+- **Form** - Standard grids now have gutters on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
+- **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 
 **Enhancements**
 - **Grid** - Divided and celled grids can now be inverted for dark backgrounds
@@ -14,8 +13,11 @@
 - **Label** - Added tag label and empty circular label style
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Label** - Now has compact form, for fitting into tight spaces
-=======
-=======
+- **Form** - New field type ``required`` formats labels to show filling out field is mandatory
+- **Form** - Inverted form now properly styles loader
+- **Form** - Inputs now use 1em font size and correctly match selection dropdown height
+
+
 ### Version 0.14.0- Mar 03, 2014
 
 **Enhancements**

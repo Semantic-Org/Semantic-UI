@@ -105,6 +105,10 @@
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -236,7 +240,7 @@
   font-weight: bold;
   line-height: 1.33;
   text-transform: none;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.header .sub.header {

@@ -91,6 +91,245 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+
+/*******************************
+           Folders
+*******************************/
+
+/* Path to theme packages */
+
+/* Path to site override folder */
+
+/*******************************
+            Themes
+*******************************/
+
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+
+/* Global */
+
+/* Elements */
+
+/* Collections */
+
+/* Modules */
+
+/* Views */
+
+/*******************************
+        Import Directives
+*******************************/
+
+/*------------------
+     Load Default
+-------------------*/
+
+/*******************************
+        Global Variables
+*******************************/
+
+/*-------------------
+        Paths
+--------------------*/
+
+/*-------------------
+        Page
+--------------------*/
+
+/*-------------------
+     Breakpoints
+--------------------*/
+
+/*-------------------
+       Fonts
+--------------------*/
+
+/*-------------------
+       Icons
+--------------------*/
+
+/* Width of largest icon */
+
+/*******************************
+           BG Colors
+*******************************/
+
+/*******************************
+             Colors
+*******************************/
+
+/*-------------------
+     Background
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
+     Text Colors
+--------------------*/
+
+/*-------------------
+     Brand Colors
+--------------------*/
+
+/*-------------------
+      Borders
+--------------------*/
+
+/*-------------------
+        Sizes
+--------------------*/
+
+/*-------------------
+     Transitions
+--------------------*/
+
+/*******************************
+           States
+*******************************/
+
+/*-------------------
+      Disabled
+--------------------*/
+
+/*-------------------
+        Hover
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Down (:active)
+--------------------*/
+
+/*---  Colors  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+        Active
+--------------------*/
+
+/*---  Standard  ---*/
+
+/*---  Emotive  ---*/
+
+/*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+         Form
+--------------------*/
+
+/*-------------------
+       Elements
+--------------------*/
+
+/* Text */
+
+/* Field */
+
+/* Form Label */
+
+/* Input */
+
+/* Checkbox */
+
+/* Divider */
+
+/* Validation Prompt */
+
+/*-------------------
+        States
+--------------------*/
+
+/* Disabled */
+
+/* Focus */
+
+/* Input Focus */
+
+/* Error */
+
+/* Input Error */
+
+/* Dropdown Error */
+
+/* Focused Error */
+
+/* Input Focused Error */
+
+/* Placeholder */
+
+/* Loading */
+
+/*-------------------
+        Types
+--------------------*/
+
+/*-------------------
+      Variations
+--------------------*/
+
+/*-------------------
+       Groups
+--------------------*/
+
+/*------------------
+     Load Theme
+-------------------*/
+
+/*------------------
+     Load Site
+-------------------*/
+
+/*******************************
+     User Global Variables
+*******************************/
+
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*------------------
+ Override Mix-in
+-------------------*/
+
+/*******************************
            Standard
 *******************************/
 
@@ -108,7 +347,7 @@
 ---------------------*/
 
 .ui.form > p {
-  margin: 1em 0;
+  margin: 1em 0em;
 }
 
 /*--------------------
@@ -125,9 +364,9 @@
 ---------------------*/
 
 .ui.form .field > label {
-  margin: 0em 0em 0.3em;
+  margin: 0em 0em 0.3em 0em;
   display: block;
-  color: #111111;
+  color: rgba(0, 0, 0, 0.8);
   font-size: 0.875em;
 }
 
@@ -158,35 +397,55 @@
   margin: 0em;
   padding: 0.65em 1em;
   font-size: 1em;
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   outline: none;
   color: rgba(0, 0, 0, 0.7);
   border-radius: 0.3125em;
-  -webkit-transition: background-color 0.3s ease-out, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
-  -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
-  box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
+  box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .ui.textarea,
 .ui.form textarea {
-  line-height: 1.33;
-  min-height: 8em;
+  font-size: 1em;
   height: 12em;
+  min-height: 8em;
   max-height: 24em;
+  line-height: 1.33;
   resize: vertical;
 }
 
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
   vertical-align: top;
+}
+
+/*--------------------
+       Dropdown
+---------------------*/
+
+.ui.form .field > .selection.dropdown {
+  width: 100%;
+}
+
+.ui.form .field > .selection.dropdown > .dropdown.icon {
+  float: right;
+}
+
+.ui.form .inline.field > .selection.dropdown {
+  width: auto;
+}
+
+.ui.form .inline.field > .selection.dropdown > .dropdown.icon {
+  float: none;
 }
 
 /*--------------------
@@ -223,8 +482,7 @@
 }
 
 .ui.form .inline.field .prompt {
-  margin-top: 0em;
-  margin-left: 1em;
+  margin: 0em 0em 0em 1em;
 }
 
 .ui.form .inline.field .prompt:before {
@@ -240,6 +498,46 @@
 *******************************/
 
 /*--------------------
+      Placeholder
+---------------------*/
+
+/* browsers require these rules separate */
+
+.ui.form ::-webkit-input-placeholder {
+  color: rgba(179, 179, 179, 0.8);
+}
+
+.ui.form ::-moz-placeholder {
+  color: rgba(179, 179, 179, 0.8);
+}
+
+.ui.form :focus::-webkit-input-placeholder {
+  color: rgba(140, 140, 140, 0.8);
+}
+
+.ui.form :focus::-moz-placeholder {
+  color: rgba(140, 140, 140, 0.8);
+}
+
+/* Error Placeholder */
+
+.ui.form .error ::-webkit-input-placeholder {
+  color: #e38585;
+}
+
+.ui.form .error ::-moz-placeholder {
+  color: #e38585;
+}
+
+.ui.form .error :focus::-webkit-input-placeholder {
+  color: #de7171;
+}
+
+.ui.form .error :focus::-moz-placeholder {
+  color: #de7171;
+}
+
+/*--------------------
         Focus
 ---------------------*/
 
@@ -253,11 +551,11 @@
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  -webkit-appearance: none;
+  border-radius: 0em 0.3125em 0.3125em 0em;
+  background: #ffffff;
   -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  -webkit-appearance: none;
 }
 
 /*--------------------
@@ -286,13 +584,13 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #D95C5C;
+  color: #d95c5c;
 }
 
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #D95C5C;
-  color: #FFFFFF;
+  border-color: #d95c5c;
+  color: #ffffff;
 }
 
 .ui.form .fields.error .field textarea,
@@ -311,15 +609,12 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background-color: #FFFAFA;
-  border-color: #E7BEBE;
-  border-left: none;
-  color: #D95C5C;
-  padding-left: 1.2em;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
-  box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+  background: #fef9f9;
+  border-color: #f1c3c3;
+  color: #d95c5c;
+  border-radius: 0em 0.3125em 0.3125em 0em;
+  -webkit-box-shadow: 0.3em 0em 0em 0em #d95c5c inset;
+  box-shadow: 0.3em 0em 0em 0em #d95c5c inset;
 }
 
 .ui.form .field.error textarea:focus,
@@ -330,91 +625,82 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus {
-  border-color: #ff5050;
-  color: #ff5050;
+  border-color: #f1c3c3;
+  color: #de7171;
   -webkit-appearance: none;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
-  box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  -webkit-box-shadow: 0.3em 0em 0em 0em #de7171 inset;
+  box-shadow: 0.3em 0em 0em 0em #de7171 inset;
 }
 
-/*----------------------------
-  Dropdown Selection Warning
------------------------------*/
+/*------------------
+    Dropdown Error
+--------------------*/
 
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .fields.error .field .ui.dropdown .item,
 .ui.form .field.error .ui.dropdown,
+.ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background-color: #FFFAFA;
-  color: #D95C5C;
+  background: #fef9f9;
+  color: #d95c5c;
 }
 
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
-  box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #f1c3c3 !important;
+  box-shadow: 0px 0px 0px 1px #f1c3c3 !important;
 }
 
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
-  box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #f1c3c3 !important;
+  box-shadow: 0px 0px 0px 1px #f1c3c3 !important;
 }
 
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #E7BEBE;
-  box-shadow: 0px 1px 0px 1px #E7BEBE;
+  -webkit-box-shadow: 0px 1px 0px 1px #f1c3c3;
+  box-shadow: 0px 1px 0px 1px #f1c3c3;
 }
+
+/* Hover */
 
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
-  background-color: #FFF2F2;
+  background-color: #fff2f2;
 }
+
+/* Active */
 
 .ui.form .fields.error .field .ui.dropdown .menu .active.item,
 .ui.form .field.error .ui.dropdown .menu .active.item {
-  background-color: #FDCFCF !important;
+  background-color: #fdcfcf !important;
 }
 
 /*--------------------
-  Empty (Placeholder)
+    Checkbox Error
 ---------------------*/
 
-/* browsers require these rules separate */
-
-.ui.form ::-webkit-input-placeholder {
-  color: #AAAAAA;
+.ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label,
+.ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
+.ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
+.ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
+  color: #d95c5c;
 }
 
-.ui.form ::-moz-placeholder {
-  color: #AAAAAA;
+.ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
+.ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
+.ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
+.ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
+  background: #fef9f9;
+  border-color: #f1c3c3;
 }
 
-.ui.form :focus::-webkit-input-placeholder {
-  color: #999999;
-}
-
-.ui.form :focus::-moz-placeholder {
-  color: #999999;
-}
-
-/* Error Placeholder */
-
-.ui.form .error ::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.4);
-}
-
-.ui.form .error ::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.4);
-}
-
-.ui.form .error :focus::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.7);
-}
-
-.ui.form .error :focus::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.form .fields.error .field .checkbox label:after,
+.ui.form .field.error .checkbox label:after,
+.ui.form .fields.error .field .checkbox .box:after,
+.ui.form .field.error .checkbox .box:after {
+  color: #d95c5c;
 }
 
 /*--------------------
@@ -451,32 +737,24 @@
   content: '';
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
+  background: rgba(255, 255, 255, 0.8) "../../themes/packages/default/assets/images/loader-large.gif" no-repeat 50% 1em;
   visibility: visible;
 }
 
 /*******************************
-           Variations
+         Element Types
 *******************************/
 
 /*--------------------
-      Fluid Width
+     Required Field
 ---------------------*/
 
-.ui.form.fluid {
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/*--------------------------
-  Input w/ attached Button
----------------------------*/
-
-.ui.form input.attached {
-  width: auto;
+.ui.form .required.field > label:after,
+.ui.form .required.field > .checkbox:after {
+  margin: -0.2em 0em 0em 0.2em;
+  vertical-align: top;
+  content: '*';
+  color: #d95c5c;
 }
 
 /*--------------------
@@ -496,6 +774,18 @@
   font-size: 1.2em;
   font-weight: normal;
   color: #CCCCCC;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------------------
+  Input w/ attached Button
+---------------------------*/
+
+.ui.form input.attached {
+  width: auto;
 }
 
 /*--------------------
@@ -567,8 +857,9 @@
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 .ui.form .fields > .field:first-child {
@@ -582,29 +873,21 @@
 .ui.form .two.fields > .fields,
 .ui.form .two.fields > .field {
   width: 50%;
-  padding-left: 1%;
-  padding-right: 1%;
 }
 
 .ui.form .three.fields > .fields,
 .ui.form .three.fields > .field {
   width: 33.333%;
-  padding-left: 1%;
-  padding-right: 1%;
 }
 
 .ui.form .four.fields > .fields,
 .ui.form .four.fields > .field {
   width: 25%;
-  padding-left: 1%;
-  padding-right: 1%;
 }
 
 .ui.form .five.fields > .fields,
 .ui.form .five.fields > .field {
   width: 20%;
-  padding-left: 1%;
-  padding-right: 1%;
 }
 
 /* Swap to full width on mobile */
@@ -637,8 +920,7 @@
 ---------------------*/
 
 .ui.form .inline.fields .field {
-  min-height: 1.3em;
-  margin-right: 0.5em;
+  margin: 0em 1em 0em 0em;
 }
 
 .ui.form .inline.fields .field > label,
@@ -657,12 +939,14 @@
 
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > input {
-  font-size: 0.875em;
+  font-size: 1em;
 }
+
+/* Label */
 
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em 0.5em 0em 0em;
+  margin: 0em 0.3em 0em 0em;
 }
 
 .ui.form .inline.fields .field > :only-child,
@@ -678,18 +962,6 @@
 
 .ui.small.form {
   font-size: 0.875em;
-}
-
-.ui.small.form textarea,
-.ui.small.form input[type="text"],
-.ui.small.form input[type="email"],
-.ui.small.form input[type="date"],
-.ui.small.form input[type="password"],
-.ui.small.form input[type="number"],
-.ui.small.form input[type="url"],
-.ui.small.form input[type="tel"],
-.ui.small.form label {
-  font-size: 1em;
 }
 
 /* Large */
@@ -802,6 +1074,10 @@
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
+
+/*-------------------
+      Emotive
+--------------------*/
 
 /*-------------------
      Text Colors
@@ -1994,6 +2270,10 @@ body > .ui.grid {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -2193,12 +2473,12 @@ body > .ui.grid {
 
 .ui.menu .item,
 .ui.menu .item > a:not(.button) {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.menu .item .item,
 .ui.menu .item .item > a:not(.button) {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Hover */
@@ -2300,7 +2580,7 @@ body > .ui.grid {
   -ms-user-select: text;
   user-select: text;
   line-height: 1.3;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.menu .item > p:first-child {
@@ -2450,7 +2730,7 @@ body > .ui.grid {
 .ui.menu .dropdown .menu .item {
   width: 100%;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Hover */
@@ -2873,7 +3153,7 @@ body > .ui.grid {
   border-top: 1px solid transparent;
   padding-left: 1.4em;
   padding-right: 1.4em;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.tabular.menu .item:before {
@@ -3139,7 +3419,7 @@ body > .ui.grid {
 .ui.secondary.pointing.menu > .menu > a.item:hover,
 .ui.secondary.pointing.menu > a.item:hover {
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Down */
@@ -3475,7 +3755,7 @@ body > .ui.grid {
 }
 
 .ui.inverted.menu .dropdown .menu .item {
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .ui.inverted.menu .item.disabled,
@@ -5040,6 +5320,10 @@ body > .ui.grid {
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
+
+/*-------------------
+      Emotive
+--------------------*/
 
 /*-------------------
      Text Colors
@@ -6948,6 +7232,10 @@ body > .ui.grid {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -7080,7 +7368,7 @@ body > .ui.grid {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /*--------------
@@ -7338,6 +7626,10 @@ body > .ui.grid {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -7469,7 +7761,7 @@ body > .ui.grid {
   font-weight: bold;
   line-height: 1.33;
   text-transform: none;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.header .sub.header {
@@ -7967,6 +8259,10 @@ h5.ui.header {
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
+
+/*-------------------
+      Emotive
+--------------------*/
 
 /*-------------------
      Text Colors
@@ -9985,6 +10281,10 @@ i.icon.right {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -10378,6 +10678,10 @@ img.ui.image {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -10504,7 +10808,7 @@ img.ui.image {
 .ui.input {
   display: inline-block;
   position: relative;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.input input {
@@ -10515,7 +10819,7 @@ img.ui.image {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
   -webkit-transition: background-color 0.3s ease-out, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
   transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -10553,7 +10857,7 @@ img.ui.image {
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
   background: #fafafa;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -10586,12 +10890,12 @@ img.ui.image {
 
 .ui.input.focus input input::-webkit-input-placeholder,
 .ui.input input:focus input::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.input.focus input input::-moz-placeholder,
 .ui.input input:focus input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /*--------------------
@@ -10918,6 +11222,10 @@ img.ui.image {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -11054,7 +11362,7 @@ img.ui.image {
   border-color: #e8e8e8;
   background-image: none;
   padding: 0.8em 0.8em;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
   font-weight: normal;
   border-radius: 0.325em;
@@ -12105,6 +12413,10 @@ a.ui.yellow.label:hover:before {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -12450,7 +12762,7 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 
 .ui.inverted.dimmer .ui.loader {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Tiny Size */
@@ -13194,6 +13506,10 @@ a.ui.yellow.label:hover:before {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -13680,7 +13996,7 @@ a.ui.yellow.label:hover:before {
 }
 
 .ui.inverted.segment .segment {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.inverted.segment .inverted.segment {
@@ -13699,7 +14015,7 @@ a.ui.yellow.label:hover:before {
 
 .ui.secondary.segment {
   background-color: #faf9fa;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.tertiary.segment {
@@ -14175,6 +14491,10 @@ a.ui.yellow.label:hover:before {
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
+
+/*-------------------
+      Emotive
+--------------------*/
 
 /*-------------------
      Text Colors
@@ -14964,6 +15284,10 @@ table {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -15062,7 +15386,7 @@ body {
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0px;
   padding: 0px;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   min-width: 320px;
 }
 
@@ -15110,17 +15434,17 @@ a:hover {
 
 ::-webkit-selection {
   background-color: #ffffcc;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 ::-moz-selection {
   background-color: #ffffcc;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 ::selection {
   background-color: #ffffcc;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /*******************************
@@ -15801,6 +16125,10 @@ a:hover {
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -15971,7 +16299,7 @@ a:hover {
   top: 0em;
   left: 0em;
   opacity: 0;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
@@ -15985,7 +16313,7 @@ a:hover {
 .ui.checkbox label,
 .ui.checkbox + label {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   -webkit-transition: color 0.2s ease;
   transition: color 0.2s ease;
   -webkit-user-select: none;
@@ -16727,12 +17055,12 @@ a:hover {
 
 .ui.dropdown > .default.text,
 .ui.default.dropdown > .text {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(179, 179, 179, 0.7);
 }
 
 .ui.dropdown:hover > .default.text,
 .ui.default.dropdown:hover > .text {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(140, 140, 140, 0.7);
 }
 
 /*--------------------
@@ -16842,6 +17170,8 @@ a:hover {
   display: inline-block;
   word-wrap: break-word;
   white-space: normal;
+  /* Matches selection dropdown height to input height */
+  border-top: 1px solid transparent;
   background-color: #FFFFFF;
   padding: 0.65em 1em;
   line-height: 1.33;

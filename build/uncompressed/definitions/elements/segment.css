@@ -105,6 +105,10 @@
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -591,7 +595,7 @@
 }
 
 .ui.inverted.segment .segment {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.inverted.segment .inverted.segment {
@@ -610,7 +614,7 @@
 
 .ui.secondary.segment {
   background-color: #faf9fa;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.tertiary.segment {

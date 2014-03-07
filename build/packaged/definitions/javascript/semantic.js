@@ -12372,14 +12372,14 @@ $.fn.transition = function() {
 
           display: function() {
             var
-              displayType = module.get.displayType()
+              style         = $module.css('style'),
+              displayType   = module.get.displayType(),
+              overrideStyle = style + ';display: ' + displayType + ' !important;'
             ;
             if(displayType !== 'block') {
               module.verbose('Setting final visibility to', displayType);
               $module
-                .css({
-                  display: displayType
-                })
+                .attr('style', overrideStyle)
               ;
             }
           },

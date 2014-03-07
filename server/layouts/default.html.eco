@@ -116,6 +116,7 @@
 
   <% if 'development' in @getEnvironments(): %>
   <script src="/build/uncompressed/definitions/behaviors/api.js"></script>
+  <script src="/build/uncompressed/definitions/behaviors/visibility.js"></script>
   <script src="/build/uncompressed/definitions/behaviors/state.js"></script>
   <script src="/build/uncompressed/definitions/modules/accordion.js"></script>
   <script src="/build/uncompressed/definitions/modules/checkbox.js"></script>

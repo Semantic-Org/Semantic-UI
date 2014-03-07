@@ -105,6 +105,10 @@
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -275,7 +279,7 @@
   top: 0em;
   left: 0em;
   opacity: 0;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
@@ -289,7 +293,7 @@
 .ui.checkbox label,
 .ui.checkbox + label {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   -webkit-transition: color 0.2s ease;
   transition: color 0.2s ease;
   -webkit-user-select: none;

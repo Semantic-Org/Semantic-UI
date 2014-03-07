@@ -105,6 +105,10 @@
 /*---  Neutrals  ---*/
 
 /*-------------------
+      Emotive
+--------------------*/
+
+/*-------------------
      Text Colors
 --------------------*/
 
@@ -203,7 +207,7 @@ body {
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0px;
   padding: 0px;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   min-width: 320px;
 }
 
@@ -251,17 +255,17 @@ a:hover {
 
 ::-webkit-selection {
   background-color: #ffffcc;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 ::-moz-selection {
   background-color: #ffffcc;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 ::selection {
   background-color: #ffffcc;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /*******************************

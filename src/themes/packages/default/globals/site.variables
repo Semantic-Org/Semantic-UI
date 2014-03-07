@@ -15,7 +15,7 @@
 
 @bodyBackground      : #FCFCFC;
 @fontSize            : 14px;
-@textColor           : rgba(0, 0, 0, 0.7);
+@textColor           : rgba(0, 0, 0, 0.8);
 
 @paragraphMargin     : 1em 0em;
 
@@ -71,14 +71,23 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@blue           : #6ECFF5;
-@green          : #5BBD72;
-@orange         : #E96633;
+@blue           : #0074D9;
+@green          : #2ECC40;
+@orange         : #FF851B;
 @pink           : #D9499A;
 @purple         : #564F8A;
-@red            : #D95C5C;
-@teal           : #00B5AD;
+@red            : #FF4136;
+@teal           : #39CCCC;
 @yellow         : #FFCB08;
+
+@lightBlue      : #54C8FF;
+@lightGreen     : #2ECC40;
+@lightOrange    : #FF851B;
+@lightPink      : #FF8EDF;
+@lightPurple    : #CDC6FF;
+@lightRed       : #FF695E;
+@lightTeal      : #6DFFFF;
+@lightYellow    : #FFE21F;
 
 @primaryColor   : @teal;
 @secondaryColor : @black;
