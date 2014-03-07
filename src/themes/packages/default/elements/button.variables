@@ -83,7 +83,7 @@
 @downBackgroundImage: '';
 @downBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
 
-@activeBackgroundColor: #EAEAEA;
+@activeBackgroundColor: #DDDDDD;
 @activeBackgroundImage: none;
 @activeBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
 

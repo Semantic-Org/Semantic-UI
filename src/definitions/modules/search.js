@@ -98,6 +98,8 @@ $.fn.search = function(parameters) {
             $module
               .addClass(className.focus)
             ;
+            clearTimeout(module.timer);
+            module.search.throttle();
             module.results.show();
           },
           blur: function() {
@@ -105,7 +107,7 @@ $.fn.search = function(parameters) {
             $module
               .removeClass(className.focus)
             ;
-            module.results.hide();
+            module.timer = setTimeout(module.results.hide, settings.hideDelay);
           }
         },
         handleKeyboard: function(event) {
@@ -137,8 +139,8 @@ $.fn.search = function(parameters) {
           if($results.filter(':visible').size() > 0) {
             if(keyCode == keys.enter) {
               module.verbose('Enter key pressed, selecting active result');
-              if( $result.filter('.' + activeClass).exists() ) {
-                $.proxy(module.results.select, $result.filter('.' + activeClass) )();
+              if( $result.filter('.' + activeClass).size() > 0 ) {
+                $.proxy(module.results.select, $result.filter('.' + activeClass) )(event);
                 event.preventDefault();
                 return false;
               }
@@ -400,9 +402,6 @@ $.fn.search = function(parameters) {
                 target = $link.attr('target') || false
               ;
               module.results.hide();
-              $prompt
-                .val(title)
-              ;
               if(href) {
                 if(target == '_blank' || event.ctrlKey) {
                   window.open(href);
@@ -413,6 +412,13 @@ $.fn.search = function(parameters) {
               }
             }
           }
+        },
+
+        // displays mesage visibly in search results
+        message: function(text, type) {
+          type = type || 'standard';
+          module.results.add( settings.templates.message(text, type) );
+          return settings.templates.message(text, type);
         },
 
         setting: function(name, value) {
@@ -616,6 +622,7 @@ $.fn.search.settings = {
 
   automatic      : 'true',
   type           : 'simple',
+  hideDelay      : 600,
   minCharacters  : 3,
   searchThrottle : 300,
   maxResults     : 7,

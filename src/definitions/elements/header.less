@@ -45,7 +45,7 @@
 }
 
 /* Icon and Content Together */
-.ui.header .icon {
+.ui.header > .icon {
   display: table-cell;
   font-size: @iconSize;
   padding-top: @iconOffset;
@@ -53,7 +53,7 @@
   vertical-align: @iconAlignment;
   padding-right: (@iconMargin / 2);
 }
-.ui.header .icon + .content {
+.ui.header > .icon + .content {
   padding-left: (@iconMargin / 2);
   display: table-cell;
 }
@@ -70,6 +70,12 @@
 }
 
 /* Positioning */
+.ui.header:first-child {
+  margin-top: 0em;
+}
+.ui.header:last-child {
+  margin-bottom: 0em;
+}
 .ui.header + p {
   margin-top: @precedingParagraphMargin;
 }

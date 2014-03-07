@@ -301,7 +301,6 @@
   content: '';
 
   top: @toggleSwitchVerticalOffset;
-  left: 0em;
   z-index: 1;
   border: none;
 
@@ -334,6 +333,18 @@
   ;
 }
 
+/* Off */
+/*
+.ui.toggle.checkbox input + .box:before,
+.ui.toggle.checkbox input + label:before {
+  background-color: @negativeCheckbox;
+}
+*/
+.ui.toggle.checkbox input + .box:after,
+.ui.toggle.checkbox input + label:after {
+  left: @toggleOffOffset;
+}
+
 /* Focus */
 .ui.toggle.checkbox input:focus + .box:before,
 .ui.toggle.checkbox input:focus + label:before {
@@ -342,13 +353,17 @@
 }
 
 /* Active */
+.ui.toggle.checkbox input:checked + .box,
+.ui.toggle.checkbox input:checked + label {
+  color: @positiveCheckbox;
+}
 .ui.toggle.checkbox input:checked + .box:before,
 .ui.toggle.checkbox input:checked + label:before {
   background-color: @positiveCheckbox;
 }
 .ui.toggle.checkbox input:checked + .box:after,
 .ui.toggle.checkbox input:checked + label:after {
-  left: 1em;
+  left: @toggleOnOffset;
 }
 
 

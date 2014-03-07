@@ -246,7 +246,11 @@ $.fn.state = function(parameters) {
 
           text: function() {
             if( module.is.textEnabled() ) {
-              if( module.is.active() ) {
+              if(module.is.disabled() ) {
+                module.verbose('Changing text to disabled text', text.hover);
+                module.update.text(text.disabled);
+              }
+              else if( module.is.active() ) {
                 if(text.hover) {
                   module.verbose('Changing text to hover text', text.hover);
                   module.update.text(text.hover);
@@ -321,16 +325,18 @@ $.fn.state = function(parameters) {
         },
 
         flash: {
-          text: function(text, duration) {
+          text: function(text, duration, callback) {
             var
               previousText = module.get.text()
             ;
             module.debug('Flashing text message', text, duration);
             text     = text     || settings.text.flash;
             duration = duration || settings.flashDuration;
+            callback = callback || function() {};
             module.update.text(text);
             setTimeout(function(){
               module.update.text(previousText);
+              $.proxy(callback, element)();
             }, duration);
           }
         },
@@ -652,6 +658,7 @@ $.fn.state.settings = {
   },
 
   text     : {
+    disabled : false,
     flash    : false,
     hover    : false,
     active   : false,
