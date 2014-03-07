@@ -6913,7 +6913,6 @@ $.fn.modal.settings = {
 
 
 })( jQuery, window , document );
-
 /*
  * # Semantic - Nag
  * http://github.com/semantic-org/semantic-ui/

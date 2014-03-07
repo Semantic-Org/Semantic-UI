@@ -162,10 +162,6 @@
 
 /*---  Neutrals  ---*/
 
-/*------------------
-     Load Theme
--------------------*/
-
 /* Inherited From Site */
 
 /*******************************
@@ -199,6 +195,10 @@
 /*--------------
     Stackable
 ---------------*/
+
+/*------------------
+     Load Theme
+-------------------*/
 
 /*------------------
      Load Site
@@ -272,8 +272,8 @@ body > .ui.grid {
 .ui.grid > .row {
   display: block;
   width: 100% !important;
-  margin-top: 1rem;
-  padding: 1rem 0% 0%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0% 0%;
   font-size: 0rem;
 }
 

@@ -491,7 +491,6 @@
   position: absolute;
   content: '';
   top: -0.125em;
-  left: 0em;
   z-index: 1;
   border: none;
   background-color: rgba(0, 0, 0, 0.05);
@@ -525,6 +524,13 @@
     left 0.3s ease 0s;
 }
 
+/* Off */
+
+.ui.toggle.checkbox input + .box:after,
+.ui.toggle.checkbox input + label:after {
+  left: -0.15em;
+}
+
 /* Focus */
 
 .ui.toggle.checkbox input:focus + .box:before,
@@ -534,6 +540,11 @@
 }
 
 /* Active */
+
+.ui.toggle.checkbox input:checked + .box,
+.ui.toggle.checkbox input:checked + label {
+  color: #5bbd72;
+}
 
 .ui.toggle.checkbox input:checked + .box:before,
 .ui.toggle.checkbox input:checked + label:before {

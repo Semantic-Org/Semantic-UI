@@ -88,6 +88,10 @@ $.fn.sticky = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous module');
           module.reset();
+          $window
+            .off('resize', module.event.resize)
+            .off('scroll', module.event.scroll)
+          ;
           $module
             .removeData(moduleNamespace)
           ;
@@ -201,7 +205,7 @@ $.fn.sticky = function(parameters) {
         set: {
           containerSize: function() {
             if($module.is(':visible') && $container.get(0).tagName === 'HTML') {
-              module.error(error.container);
+              module.error(error.container, $container.get(0), $container.get(0).tagName);
             }
             else {
               module.debug('Settings container size', module.cache.context.height);
@@ -259,6 +263,10 @@ $.fn.sticky = function(parameters) {
                 if( screen.top < element.top ) {
                   module.unfix();
                 }
+                else if( bottomEdge > context.bottom ) {
+                  module.debug('Top attached rail has reached bottom of container');
+                  module.bindBottom();
+                }
               }
               if(module.is.bottom() ) {
                 // top edge
@@ -267,10 +275,10 @@ $.fn.sticky = function(parameters) {
                 }
                 // bottom edge
                 else if(screen.bottom > context.bottom) {
+                  module.debug('Bottom attached rail has reached bottom of container');
                   module.bindBottom();
                 }
               }
-              // exit bottom of container
               if( bottomEdge > context.bottom ) {
                 module.bindBottom();
               }

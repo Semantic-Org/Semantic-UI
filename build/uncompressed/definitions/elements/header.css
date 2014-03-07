@@ -250,7 +250,7 @@
 
 /* Icon and Content Together */
 
-.ui.header .icon {
+.ui.header > .icon {
   display: table-cell;
   font-size: 1em;
   padding-top: 0em;
@@ -258,7 +258,7 @@
   padding-right: 0.5em;
 }
 
-.ui.header .icon + .content {
+.ui.header > .icon + .content {
   padding-left: 0.5em;
   display: table-cell;
 }

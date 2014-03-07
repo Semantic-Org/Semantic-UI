@@ -103,6 +103,10 @@ $.api = $.fn.api = function(parameters) {
 
         query: function() {
 
+          if(module.is.disabled()) {
+            module.debug('Element is disabled API request aborted');
+            return;
+          }
           // determine if an api event already occurred
           if(module.is.loading() && !settings.allowMultiple) {
             module.debug('Request cancelled previous request is still pending');
@@ -169,6 +173,9 @@ $.api = $.fn.api = function(parameters) {
 
 
         is: {
+          disabled: function() {
+            return ($module.filter(settings.filter).size() > 0);
+          },
           loading: function() {
             return (module.request && module.request.state() == 'pending');
           }
@@ -204,7 +211,9 @@ $.api = $.fn.api = function(parameters) {
                       ? urlData[term]
                       : ($module.data(term) !== undefined)
                         ? $module.data(term)
-                        : urlData[term]
+                        : ($context.data(term) !== undefined)
+                          ? $context.data(term)
+                          : urlData[term]
                   ;
                   module.verbose('Looking for variable', term);
                   // remove optional value
@@ -377,10 +386,10 @@ $.api = $.fn.api = function(parameters) {
 
         get: {
           request: function() {
-            return module.request;
+            return module.request || false;
           },
           xhr: function() {
-            return module.xhr;
+            return module.xhr || false;
           },
           settings: function() {
             return $.proxy(settings.beforeSend, $module)(settings);
@@ -425,13 +434,18 @@ $.api = $.fn.api = function(parameters) {
             var
               formData
             ;
-            if( $(this).toJSON() === undefined ) {
-              module.error(error.missingSerialize);
-              return;
+            if(settings.serializeForm == 'json') {
+              if($(this).toJSON === undefined ) {
+                module.error(error.missingSerialize);
+                return;
+              }
+              formData = $form.toJSON();
             }
-            formData = $form.toJSON();
+            else {
+              formData = $form.serialize();
+            }
             module.debug('Retrieving form data', formData);
-            return $form.toJSON();
+            return formData;
           },
           templateURL: function(action) {
             var
@@ -663,14 +677,14 @@ $.api.settings = {
   allowMultiple   : false,
 
   // state
-  loadingDuration : 1000,
+  loadingDuration : 500,
   errorDuration   : 2000,
 
   // jQ ajax
   method          : 'get',
   data            : {},
   dataType        : 'json',
-  cache         : true,
+  cache           : true,
 
   // callbacks
   beforeSend   : function(settings) { return settings; },

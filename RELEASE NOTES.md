@@ -1,6 +1,7 @@
 ## RELEASE NOTES
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Version 1.0.0 - XX XX, 2014
 
 **Breaking Changes**
@@ -14,6 +15,22 @@
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Label** - Now has compact form, for fitting into tight spaces
 =======
+=======
+### Version 0.14.0- Mar 03, 2014
+
+**Enhancements**
+- **Modal** - Modal now uses requestAnimationFrame instead of debounced callback
+- **Dropdown** - Dropdown now has error state **Thanks Musatov**
+- **Form** - Form fields with errors will now properly style dropdown elements **Thanks Musatov**
+- **Step** - Steps can now appear vertically
+
+**Fixes**
+- **List** - Bulleted and horizontal lists now appear correctly in IE10-11
+
+**Project**
+- **NPM** - Docpad is now moved to a dev dependency **Thanks kapouer**
+
+>>>>>>> 50405e50d9f77a12b0f564484d97aff5634686fe
 ### Version 0.13.1- Feb 28, 2014
 
 **Fixes**

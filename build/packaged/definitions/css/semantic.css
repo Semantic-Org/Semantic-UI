@@ -345,6 +345,46 @@
   box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
 }
 
+/*----------------------------
+  Dropdown Selection Warning
+-----------------------------*/
+
+.ui.form .fields.error .field .ui.dropdown,
+.ui.form .fields.error .field .ui.dropdown .item,
+.ui.form .field.error .ui.dropdown,
+.ui.form .field.error .ui.dropdown .item {
+  background-color: #FFFAFA;
+  color: #D95C5C;
+}
+
+.ui.form .fields.error .field .ui.dropdown,
+.ui.form .field.error .ui.dropdown {
+  -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+  box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+}
+
+.ui.form .fields.error .field .ui.dropdown:hover,
+.ui.form .field.error .ui.dropdown:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+  box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+}
+
+.ui.form .fields.error .field .ui.dropdown:hover .menu,
+.ui.form .field.error .ui.dropdown:hover .menu {
+  -webkit-box-shadow: 0px 1px 0px 1px #E7BEBE;
+  box-shadow: 0px 1px 0px 1px #E7BEBE;
+}
+
+.ui.form .fields.error .field .ui.dropdown .menu .item:hover,
+.ui.form .field.error .ui.dropdown .menu .item:hover {
+  background-color: #FFF2F2;
+}
+
+.ui.form .fields.error .field .ui.dropdown .menu .active.item,
+.ui.form .field.error .ui.dropdown .menu .active.item {
+  background-color: #FDCFCF !important;
+}
+
 /*--------------------
   Empty (Placeholder)
 ---------------------*/
@@ -14980,6 +15020,7 @@ body {
 }
 
 /*******************************
+<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
              Text
 *******************************/
 
@@ -14990,6 +15031,67 @@ h4,
 h5 {
   margin: 1em 0em 1rem;
   padding: 0em;
+=======
+            Types
+*******************************/
+
+.ui.vertical.steps {
+  overflow: visible;
+}
+
+.ui.vertical.steps .step {
+  display: block;
+  border-radius: 0em;
+  padding: 1em 2em;
+}
+
+.ui.vertical.steps .step:first-child {
+  padding: 1em 2em;
+  border-top-left-radius: 0.3125rem;
+  border-top-right-radius: 0.3125rem;
+}
+
+.ui.vertical.steps .step:last-child {
+  border-bottom-left-radius: 0.3125rem;
+  border-bottom-right-radius: 0.3125rem;
+}
+
+/* Arrow */
+
+.ui.vertical.steps .step:after {
+  display: none;
+}
+
+/* Disabled */
+
+.ui.vertical.steps .disabled.step:after {
+  padding: 1em 2em;
+}
+
+/* Active Arrow */
+
+.ui.vertical.steps .active.step:after {
+  display: block;
+}
+
+/*******************************
+            Group
+*******************************/
+
+.ui.steps {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0em;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 0.3125rem;
+>>>>>>> 50405e50d9f77a12b0f564484d97aff5634686fe:build/packaged/css/semantic.css
 }
 
 p {
@@ -16596,12 +16698,20 @@ a:hover {
   display: block;
 }
 
+/*--------------------
+        Hover
+----------------------*/
+
 /* Menu Item Hover */
 
 .ui.dropdown .menu .item:hover {
   background-color: rgba(0, 0, 0, 0.02);
   z-index: 12;
 }
+
+/*--------------------
+        Active
+----------------------*/
 
 /* Menu Item Active */
 
@@ -16615,7 +16725,9 @@ a:hover {
   z-index: 12;
 }
 
-/* Default Text */
+/*--------------------
+     Default Text
+----------------------*/
 
 .ui.dropdown > .default.text,
 .ui.default.dropdown > .text {
@@ -16625,6 +16737,43 @@ a:hover {
 .ui.dropdown:hover > .default.text,
 .ui.default.dropdown:hover > .text {
   color: rgba(0, 0, 0, 0.8);
+}
+
+/*--------------------
+        Error
+----------------------*/
+
+.ui.dropdown.error,
+.ui.dropdown.error .item {
+  color: #D95C5C !important;
+}
+
+.ui.selection.dropdown.error {
+  background-color: #FFFAFA;
+  -webkit-box-shadow: 0px 0px 0px 1px #e7bebe !important;
+  box-shadow: 0px 0px 0px 1px #e7bebe !important;
+}
+
+.ui.selection.dropdown.error:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px #e7bebe !important;
+  box-shadow: 0px 0px 0px 1px #e7bebe !important;
+}
+
+.ui.dropdown.error .menu {
+  -webkit-box-shadow: 0px 0px 1px 1px #E7BEBE !important;
+  box-shadow: 0px 0px 1px 1px #E7BEBE !important;
+}
+
+/* Item Hover */
+
+.ui.dropdown.error .menu .item:hover {
+  background-color: #FFF2F2 !important;
+}
+
+/* Item Active */
+
+.ui.dropdown.error .menu .active.item {
+  background-color: #FDCFCF !important;
 }
 
 /*******************************
@@ -16743,22 +16892,6 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
   margin-right: 0.5em;
-}
-
-/* Hover */
-
-.ui.selection.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
-}
-
-.ui.selection.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
-  box-shadow: 0px 1px 0px 1px #D3D3D3;
-}
-
-.ui.selection.dropdown:hover > .dropdown.icon {
-  opacity: 1;
 }
 
 /* Visible */
@@ -20612,7 +20745,7 @@ ol.ui.list li,
   list-style-type: none;
   list-style-position: inside;
   padding: 0.3em 0em;
-  line-height: 1.2;
+  line-height: 1.2em;
 }
 
 .ui.list .item:after {
@@ -20667,7 +20800,7 @@ ol.ui.list li,
 .ui.list .item > .content {
   display: inline-block;
   vertical-align: middle;
-  line-height: 1.2;
+  line-height: 1.2em;
 }
 
 .ui.list .item > .icon + .content {
@@ -20899,8 +21032,6 @@ ul.ui.list li:before,
   position: absolute;
   left: -1.5em;
   content: '•';
-  line-height: 1.2rem;
-  vertical-align: top;
 }
 
 ul.ui.list ul,
@@ -20984,6 +21115,7 @@ ol.ui.horizontal.list,
 ol.ui.horizontal.list li:before,
 .ui.ordered.horizontal.list .item:before {
   position: static;
+  left: 0em;
   margin: 0em 0.5em 0em 0em;
 }
 
@@ -21068,7 +21200,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  line-height: 0.6;
+  line-height: 0.6em;
 }
 
 .ui.horizontal.divided.list > .item:first-child {
@@ -21163,7 +21295,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  line-height: 0.6;
+  line-height: 0.6em;
 }
 
 .ui.horizontal.celled.list .item:last-child {

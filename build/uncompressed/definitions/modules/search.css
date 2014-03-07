@@ -77,19 +77,18 @@
   float: left;
   overflow: hidden;
   border-radius: 3px;
-  width: 38px;
-  height: 38px;
+  height: 30px;
 }
 
 .ui.search .result .image img {
   display: block;
-  width: 38px;
-  height: 38px;
+  width: 73px;
+  height: 30px;
 }
 
 .ui.search .result .image ~ .info {
   float: none;
-  margin-left: 50px;
+  margin-left: 80px;
 }
 
 .ui.search .result .info {
@@ -159,6 +158,7 @@
   background-color: #FFFFFF;
   margin-left: 80px;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* View All Results */
@@ -196,7 +196,7 @@
 ---------------*/
 
 .ui.search.loading .input .icon {
-  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
+  background: url(../../themes/packages/default/assets/images/loader-mini.gif) no-repeat 50% 50%;
 }
 
 .ui.search.loading .input .icon:before,

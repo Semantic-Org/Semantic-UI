@@ -10,8 +10,11 @@
       Standard
 --------------------*/
 
-@verticalMargin: -0.25em;
+@verticalMargin: 0.25em;
 @horizontalMargin: 0.125em;
+
+@groupVerticalMargin: 0.75em;
+@groupHorizontalMargin: 0.5em;
 
 @backgroundColor: #E8E8E8;
 @backgroundImage: none;

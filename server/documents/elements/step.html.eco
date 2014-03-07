@@ -14,6 +14,7 @@ type        : 'UI Element'
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Element</a>
       <a class="item">Groups</a>
+      <a class="item">Types</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
     </div>
@@ -35,6 +36,27 @@ type        : 'UI Element'
     <h4 class="ui header">Steps</h4>
     <p>A set of step</p>
     <div class="ui steps">
+      <div class="ui step">
+        Shipping
+      </div>
+      <div class="ui active step">
+        Billing
+      </div>
+      <div class="ui disabled step">
+        Confirm Order
+      </div>
+      <div class="ui disabled step">
+        Complete
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Vertical</h4>
+    <p>Vertical steps display each step stacked vertically</p>
+    <div class="ui vertical steps">
       <div class="ui step">
         Shipping
       </div>

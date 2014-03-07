@@ -432,6 +432,20 @@ $.fn.dropdown = function(parameters) {
         },
 
         set: {
+          scrollPosition: function() {
+            var
+              $activeItem  = module.get.item(),
+              activeOffset = ($activeItem.size() > 0)
+                ? $activeItem.position().top
+                : false
+            ;
+            if(activeOffset) {
+              module.debug('Scrolling to active item');
+              $menu
+                .scrollTop(activeOffset)
+              ;
+            }
+          },
           text: function(text) {
             if(settings.action == 'combo') {
               module.debug('Changing combo button text', text, $combo);

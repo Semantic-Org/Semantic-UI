@@ -60,64 +60,6 @@
      Load Default
 -------------------*/
 
-/*-------------------
-    Globals Used
---------------------*/
-
-/*-------------------
-       Button
---------------------*/
-
-/* transitions */
-
-/* Padding */
-
-/* Shadow */
-
-/* Icon */
-
-/* Loader */
-
-/*-------------------
-        Group
---------------------*/
-
-/*-------------------
-        States
---------------------*/
-
-/*-------------------
-        Types
---------------------*/
-
-/* Or */
-
-/* Icon */
-
-/* Labeled Icon */
-
-/* Basic */
-
-/*-------------------
-      Variations
---------------------*/
-
-/* Colors */
-
-/* Compact */
-
-/* Attached */
-
-/* Floated */
-
-/* Animated */
-
-/* Sizing */
-
-/*------------------
-     Load Theme
--------------------*/
-
 /*******************************
         Global Variables
 *******************************/
@@ -220,6 +162,64 @@
 
 /*---  Neutrals  ---*/
 
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+       Button
+--------------------*/
+
+/* transitions */
+
+/* Padding */
+
+/* Shadow */
+
+/* Icon */
+
+/* Loader */
+
+/*-------------------
+        Group
+--------------------*/
+
+/*-------------------
+        States
+--------------------*/
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Or */
+
+/* Icon */
+
+/* Labeled Icon */
+
+/* Basic */
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Colors */
+
+/* Compact */
+
+/* Attached */
+
+/* Floated */
+
+/* Animated */
+
+/* Sizing */
+
+/*------------------
+     Load Theme
+-------------------*/
+
 /*------------------
      Load Site
 -------------------*/
@@ -250,7 +250,7 @@
   outline: none;
   border: none;
   background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.6);
   margin: 0.25em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -332,20 +332,20 @@
 ---------------*/
 
 .ui.active.button {
-  background-color: #eaeaea;
+  background-color: #dddddd;
   background-image: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .ui.button.active:hover {
-  background-color: #eaeaea;
+  background-color: #dddddd;
   background-image: none;
 }
 
 .ui.button.active:active {
-  background-color: #eaeaea;
+  background-color: #dddddd;
   background-image: none;
 }
 
@@ -831,48 +831,48 @@
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 .ui.buttons .button,
 .ui.button {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.125em;
+  font-size: 1.125rem;
 }
 
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.375em;
+  font-size: 1.375rem;
 }
 
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 /* Or resize */
@@ -936,7 +936,7 @@
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;

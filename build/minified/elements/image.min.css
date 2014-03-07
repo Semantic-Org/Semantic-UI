@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.14.0
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 03/04/2014
+*/
+
+.ui.image{position:relative;display:inline-block;vertical-align:middle;max-width:100%;background-color:rgba(0,0,0,.05)}img.ui.image{display:block;background:0 0}.ui.image img{display:block;max-width:100%;height:auto}.ui.disabled.image{cursor:default;opacity:.3}.ui.rounded.images .image,.ui.rounded.images img,.ui.rounded.image img,.ui.rounded.image{border-radius:.3125em}.ui.circular.images .image,.ui.circular.images img,.ui.circular.image img,.ui.circular.image{border-radius:500rem}.ui.fluid.images,.ui.fluid.image,.ui.fluid.images img,.ui.fluid.image img{display:block;width:100%}.ui.avatar.images .image,.ui.avatar.images img,.ui.avatar.image img,.ui.avatar.image{margin-right:.5em;display:inline-block;width:2em;height:2em;border-radius:500rem}.ui.floated.image,.ui.floated.images{float:left;margin-right:1em;margin-bottom:1em}.ui.right.floated.images,.ui.right.floated.image{float:right;margin-bottom:1em;margin-left:1em}.ui.tiny.images .image,.ui.tiny.images img,.ui.tiny.image{width:20px;font-size:.7rem}.ui.mini.images .image,.ui.mini.images img,.ui.mini.image{width:35px;font-size:.8rem}.ui.small.images .image,.ui.small.images img,.ui.small.image{width:80px;font-size:.9rem}.ui.medium.images .image,.ui.medium.images img,.ui.medium.image{width:300px;font-size:1rem}.ui.large.images .image,.ui.large.images img,.ui.large.image{width:450px;font-size:1.1rem}.ui.huge.images .image,.ui.huge.images img,.ui.huge.image{width:600px;font-size:1.2rem}.ui.images{font-size:0;margin:0 -.25rem 0rem}.ui.images .image,.ui.images img{display:inline-block;margin:0 .25em .5em}

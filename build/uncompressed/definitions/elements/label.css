@@ -236,7 +236,7 @@
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
-  margin: -0.25em 0.125em;
+  margin: 0.25em 0.125em;
   background-color: #e8e8e8;
   border-color: #e8e8e8;
   background-image: none;
@@ -308,6 +308,14 @@ a.ui.label {
 
 .ui.label .delete.icon:hover {
   opacity: 1;
+}
+
+/*-------------------
+       Group
+--------------------*/
+
+.ui.labels .label {
+  margin: 0em 0.5em 0.75em 0em;
 }
 
 /*-------------------

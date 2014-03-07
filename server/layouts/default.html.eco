@@ -29,7 +29,6 @@
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
   <link href='Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/library/basic.icon.css">
 
   <% if 'development' in @getEnvironments(): %>

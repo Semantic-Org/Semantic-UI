@@ -85,7 +85,7 @@
 @errorBoxShadow: none;
 
 /* Loading */
-@loadingImage: "../images/loader-mini.gif";
+@loadingImage: "@{imagePath}/loader-mini.gif";
 
 /*-------------------
       Variations

@@ -68,11 +68,12 @@
 @toggleSwitchVerticalOffset: (1em - @toggleSwitchHeight) / 2;
 
 @toggleFocusColor: @strongTransparentBlack;
-
 @toggleHandleOffset: (1em - @handleSize) / 2;
 @toggleTravelDistance: @toggleSwitchWidth - @handleSize;
 @toggleLabelDistance: @toggleSwitchWidth + 1em;
 
+@toggleOffOffset: -0.15em;
+@toggleOnOffset: 1em;
 
 
 

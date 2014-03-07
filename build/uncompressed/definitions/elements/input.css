@@ -290,7 +290,7 @@
 ---------------------*/
 
 .ui.loading.input > .icon {
-  background: url("../images/loader-mini.gif") no-repeat 50% 50%;
+  background: url("../../themes/packages/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.loading.input > .icon:before,

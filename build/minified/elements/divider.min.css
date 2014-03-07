@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.14.0
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 03/04/2014
+*/
+
+.ui.divider{margin:1rem 0rem;border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(255,255,255,.8);line-height:1;height:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}.ui.vertical.divider,.ui.horizontal.divider{position:absolute;border:0;height:0;margin:0;background-color:transparent;font-size:.875rem;font-weight:700;text-align:center;text-transform:uppercase;color:rgba(0,0,0,.8)}.ui.vertical.divider{position:absolute;z-index:2;top:50%;left:50%;margin:0 0 0 -3%;width:6%;height:50%;line-height:0;padding:0}.ui.vertical.divider:before,.ui.vertical.divider:after{position:absolute;left:50%;content:" ";z-index:3;border-left:1px solid rgba(0,0,0,.1);border-right:1px solid rgba(255,255,255,.8);width:0;height:80%}.ui.vertical.divider:before{top:-100%}.ui.vertical.divider:after{top:auto;bottom:0}.ui.horizontal.divider{position:relative;top:0;left:0;margin:1rem 1.5rem;height:auto;padding:0;line-height:1}.ui.horizontal.divider:before,.ui.horizontal.divider:after{position:absolute;content:" ";z-index:3;width:50%;top:50%;height:0;border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(255,255,255,.8)}.ui.horizontal.divider:before{left:0;margin-left:-1.5rem}.ui.horizontal.divider:after{left:auto;right:0;margin-right:-1.5rem}.ui.divider>.icon{margin:0;font-size:1rem;vertical-align:middle}.ui.divider.inverted{color:#fff}.ui.vertical.inverted.divider,.ui.horizontal.inverted.divider{color:rgba(255,255,255,.9)}.ui.divider.inverted,.ui.divider.inverted:after,.ui.divider.inverted:before{border-top-color:rgba(0,0,0,.15);border-bottom-color:rgba(255,255,255,.15);border-left-color:rgba(0,0,0,.15);border-right-color:rgba(255,255,255,.15)}.ui.fitted.divider{margin:0}.ui.clearing.divider{clear:both}.ui.section.divider{margin-top:2rem;margin-bottom:2rem}
