@@ -1,0 +1,83 @@
+/*-------------------
+    Globals Used
+--------------------*/
+
+
+/*-------------------
+         Form
+--------------------*/
+
+
+/*-------------------
+       Elements
+--------------------*/
+
+
+/* Text */
+@paragraphMargin: 1em 0em;
+
+/* Field */
+@fieldMargin: 0em 0em 1em;
+
+/* Form Label */
+@labelFontSize: 0.875em;
+@labelMargin: 0em 0em 0.3em;
+@labelColor: @textColor;
+
+/* Input */
+@inputFontSize: 1em;
+@inputWidth: 100%;
+@inputVerticalPadding: 0.65em;
+@inputHorizontalPadding: 1em;
+@inputBackground: #FFFFFF;
+@inputBorder: 1px solid @borderColor;
+@inputBorderRadius: 0.3125em;
+@inputColor: @textColor;
+@inputTransition:
+  background-color 0.3s ease-out,
+  box-shadow 0.2s ease,
+  border-color 0.2s ease
+;
+@inputBoxShadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+
+@textAreaFontSize: @inputFontSize;
+@textAreaHeight: 12em;
+@textAreaResize: vertical;
+@textAreaLineHeight: 1.33;
+@textAreaMinHeight: 8em;
+@textAreaMaxHeight: 24em;
+
+/* Checkbox */
+@checkboxVerticalAlign: top;
+
+/* Divider */
+@dividerMargin: 1em 0em;
+
+/* Validation Prompt */
+@validationMargin: 0em 0em 0em 1em;
+@validationArrowOffset: -0.3em;
+
+
+/*-------------------
+        States
+--------------------*/
+
+/* Focus */
+@inputFocusBackground: #FFFFFF;
+@inputFocusBorderColor: @selectedBorderColor;
+@inputFocusColor: rgba(0, 0, 0, 0.85);
+@inputFocusBoxShadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+@inputFocusBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
+
+/* Error */
+
+
+
+
+/*-------------------
+        Types
+--------------------*/
+
+/*-------------------
+      Variations
+--------------------*/

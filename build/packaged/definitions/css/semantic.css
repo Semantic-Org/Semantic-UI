@@ -103,14 +103,6 @@
   max-width: 100%;
 }
 
-.ui.form :first-child {
-  margin-top: 0em;
-}
-
-.ui.form :last-child {
-  margin-bottom: 0em;
-}
-
 /*--------------------
         Content
 ---------------------*/
@@ -135,7 +127,7 @@
 .ui.form .field > label {
   margin: 0em 0em 0.3em;
   display: block;
-  color: #555555;
+  color: #111111;
   font-size: 0.875em;
 }
 
@@ -164,8 +156,8 @@
 .ui.form input[type="url"],
 .ui.form input[type="tel"] {
   margin: 0em;
-  padding: 0.85em 1.2em;
-  font-size: 0.875em;
+  padding: 0.65em 1em;
+  font-size: 1em;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
@@ -869,10 +861,6 @@
 
 /*---  Neutrals  ---*/
 
-/*------------------
-     Load Theme
--------------------*/
-
 /* Inherited From Site */
 
 /*******************************
@@ -906,6 +894,10 @@
 /*--------------
     Stackable
 ---------------*/
+
+/*------------------
+     Load Theme
+-------------------*/
 
 /*------------------
      Load Site
@@ -979,8 +971,8 @@ body > .ui.grid {
 .ui.grid > .row {
   display: block;
   width: 100% !important;
-  margin-top: 1rem;
-  padding: 1rem 0% 0%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0% 0%;
   font-size: 0rem;
 }
 
@@ -2225,8 +2217,7 @@ body > .ui.grid {
 
 /* Active */
 
-.ui.menu .active.item,
-.ui.menu .active.item a:not(.button) {
+.ui.menu .active.item {
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -3253,6 +3244,12 @@ body > .ui.grid {
   font-weight: bold;
 }
 
+.ui.text.menu .text.item {
+  opacity: 1;
+  color: rgba(50, 50, 50, 0.8);
+  font-weight: bold;
+}
+
 /*--- fluid text ---*/
 
 .ui.text.item.menu .item {
@@ -3477,8 +3474,7 @@ body > .ui.grid {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.ui.inverted.menu .dropdown .menu .item,
-.ui.inverted.menu .dropdown .menu .item a {
+.ui.inverted.menu .dropdown .menu .item {
   color: rgba(0, 0, 0, 0.7) !important;
 }
 
@@ -3534,8 +3530,7 @@ body > .ui.grid {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.ui.inverted.menu .active.item,
-.ui.inverted.menu .active.item a {
+.ui.inverted.menu .active.item {
   color: #ffffff !important;
 }
 
@@ -5002,64 +4997,6 @@ body > .ui.grid {
      Load Default
 -------------------*/
 
-/*-------------------
-    Globals Used
---------------------*/
-
-/*-------------------
-       Button
---------------------*/
-
-/* transitions */
-
-/* Padding */
-
-/* Shadow */
-
-/* Icon */
-
-/* Loader */
-
-/*-------------------
-        Group
---------------------*/
-
-/*-------------------
-        States
---------------------*/
-
-/*-------------------
-        Types
---------------------*/
-
-/* Or */
-
-/* Icon */
-
-/* Labeled Icon */
-
-/* Basic */
-
-/*-------------------
-      Variations
---------------------*/
-
-/* Colors */
-
-/* Compact */
-
-/* Attached */
-
-/* Floated */
-
-/* Animated */
-
-/* Sizing */
-
-/*------------------
-     Load Theme
--------------------*/
-
 /*******************************
         Global Variables
 *******************************/
@@ -5162,6 +5099,64 @@ body > .ui.grid {
 
 /*---  Neutrals  ---*/
 
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+       Button
+--------------------*/
+
+/* transitions */
+
+/* Padding */
+
+/* Shadow */
+
+/* Icon */
+
+/* Loader */
+
+/*-------------------
+        Group
+--------------------*/
+
+/*-------------------
+        States
+--------------------*/
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Or */
+
+/* Icon */
+
+/* Labeled Icon */
+
+/* Basic */
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Colors */
+
+/* Compact */
+
+/* Attached */
+
+/* Floated */
+
+/* Animated */
+
+/* Sizing */
+
+/*------------------
+     Load Theme
+-------------------*/
+
 /*------------------
      Load Site
 -------------------*/
@@ -5192,7 +5187,7 @@ body > .ui.grid {
   outline: none;
   border: none;
   background-color: #fafafa;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.6);
   margin: 0.25em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -5274,20 +5269,20 @@ body > .ui.grid {
 ---------------*/
 
 .ui.active.button {
-  background-color: #eaeaea;
+  background-color: #dddddd;
   background-image: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .ui.button.active:hover {
-  background-color: #eaeaea;
+  background-color: #dddddd;
   background-image: none;
 }
 
 .ui.button.active:active {
-  background-color: #eaeaea;
+  background-color: #dddddd;
   background-image: none;
 }
 
@@ -5773,48 +5768,48 @@ body > .ui.grid {
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 
 .ui.tiny.buttons .button,
 .ui.tiny.buttons .or,
 .ui.tiny.button {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 .ui.small.buttons .button,
 .ui.small.buttons .or,
 .ui.small.button {
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 .ui.buttons .button,
 .ui.button {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.buttons .button,
 .ui.large.buttons .or,
 .ui.large.button {
-  font-size: 1.125em;
+  font-size: 1.125rem;
 }
 
 .ui.big.buttons .button,
 .ui.big.buttons .or,
 .ui.big.button {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 .ui.huge.buttons .button,
 .ui.huge.buttons .or,
 .ui.huge.button {
-  font-size: 1.375em;
+  font-size: 1.375rem;
 }
 
 .ui.massive.buttons .button,
 .ui.massive.buttons .or,
 .ui.massive.button {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 /* Or resize */
@@ -5878,7 +5873,7 @@ body > .ui.grid {
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: rgba(0, 0, 0, 0.7) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
@@ -7488,7 +7483,7 @@ body > .ui.grid {
 
 /* Icon and Content Together */
 
-.ui.header .icon {
+.ui.header > .icon {
   display: table-cell;
   font-size: 1em;
   padding-top: 0em;
@@ -7496,7 +7491,7 @@ body > .ui.grid {
   padding-right: 0.5em;
 }
 
-.ui.header .icon + .content {
+.ui.header > .icon + .content {
   padding-left: 0.5em;
   display: table-cell;
 }
@@ -9946,34 +9941,6 @@ i.icon.right {
 -------------------*/
 
 /*******************************
-            Standard
-*******************************/
-
-/*-------------------
-       Image 
---------------------*/
-
-/*******************************
-              Types
-*******************************/
-
-/* Avatar */
-
-/*******************************
-           Variations
-*******************************/
-
-/* Floated */
-
-/* Sizing */
-
-/* Size */
-
-/*------------------
-     Load Theme
--------------------*/
-
-/*******************************
         Global Variables
 *******************************/
 
@@ -10074,6 +10041,34 @@ i.icon.right {
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
+
+/*******************************
+            Standard
+*******************************/
+
+/*-------------------
+       Image 
+--------------------*/
+
+/*******************************
+              Types
+*******************************/
+
+/* Avatar */
+
+/*******************************
+           Variations
+*******************************/
+
+/* Floated */
+
+/* Sizing */
+
+/* Size */
+
+/*------------------
+     Load Theme
+-------------------*/
 
 /*------------------
      Load Site
@@ -10568,7 +10563,7 @@ img.ui.image {
 ---------------------*/
 
 .ui.loading.input > .icon {
-  background: url("../images/loader-mini.gif") no-repeat 50% 50%;
+  background: url("../../themes/packages/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
 }
 
 .ui.loading.input > .icon:before,
@@ -11054,7 +11049,7 @@ img.ui.image {
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
-  margin: -0.25em 0.125em;
+  margin: 0.25em 0.125em;
   background-color: #e8e8e8;
   border-color: #e8e8e8;
   background-image: none;
@@ -11126,6 +11121,14 @@ a.ui.label {
 
 .ui.label .delete.icon:hover {
   opacity: 1;
+}
+
+/*-------------------
+       Group
+--------------------*/
+
+.ui.labels .label {
+  margin: 0em 0.5em 0.75em 0em;
 }
 
 /*-------------------
@@ -13813,6 +13816,49 @@ a.ui.yellow.label:hover:before {
 }
 
 /*******************************
+            Types
+*******************************/
+
+.ui.vertical.steps {
+  overflow: visible;
+}
+
+.ui.vertical.steps .step {
+  display: block;
+  border-radius: 0em;
+  padding: 1em 2em;
+}
+
+.ui.vertical.steps .step:first-child {
+  padding: 1em 2em;
+  border-top-left-radius: 0.3125rem;
+  border-top-right-radius: 0.3125rem;
+}
+
+.ui.vertical.steps .step:last-child {
+  border-bottom-left-radius: 0.3125rem;
+  border-bottom-right-radius: 0.3125rem;
+}
+
+/* Arrow */
+
+.ui.vertical.steps .step:after {
+  display: none;
+}
+
+/* Disabled */
+
+.ui.vertical.steps .disabled.step:after {
+  padding: 1em 2em;
+}
+
+/* Active Arrow */
+
+.ui.vertical.steps .active.step:after {
+  display: block;
+}
+
+/*******************************
             Group
 *******************************/
 
@@ -13820,6 +13866,7 @@ a.ui.yellow.label:hover:before {
   cursor: pointer;
   display: inline-block;
   font-size: 0em;
+  overflow: hidden;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   line-height: 1;
@@ -15020,7 +15067,6 @@ body {
 }
 
 /*******************************
-<<<<<<< HEAD:build/packaged/definitions/css/semantic.css
              Text
 *******************************/
 
@@ -15031,67 +15077,6 @@ h4,
 h5 {
   margin: 1em 0em 1rem;
   padding: 0em;
-=======
-            Types
-*******************************/
-
-.ui.vertical.steps {
-  overflow: visible;
-}
-
-.ui.vertical.steps .step {
-  display: block;
-  border-radius: 0em;
-  padding: 1em 2em;
-}
-
-.ui.vertical.steps .step:first-child {
-  padding: 1em 2em;
-  border-top-left-radius: 0.3125rem;
-  border-top-right-radius: 0.3125rem;
-}
-
-.ui.vertical.steps .step:last-child {
-  border-bottom-left-radius: 0.3125rem;
-  border-bottom-right-radius: 0.3125rem;
-}
-
-/* Arrow */
-
-.ui.vertical.steps .step:after {
-  display: none;
-}
-
-/* Disabled */
-
-.ui.vertical.steps .disabled.step:after {
-  padding: 1em 2em;
-}
-
-/* Active Arrow */
-
-.ui.vertical.steps .active.step:after {
-  display: block;
-}
-
-/*******************************
-            Group
-*******************************/
-
-.ui.steps {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 0em;
-  overflow: hidden;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  line-height: 1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 0.3125rem;
->>>>>>> 50405e50d9f77a12b0f564484d97aff5634686fe:build/packaged/css/semantic.css
 }
 
 p {
@@ -16202,7 +16187,6 @@ a:hover {
   position: absolute;
   content: '';
   top: -0.125em;
-  left: 0em;
   z-index: 1;
   border: none;
   background-color: rgba(0, 0, 0, 0.05);
@@ -16236,6 +16220,13 @@ a:hover {
     left 0.3s ease 0s;
 }
 
+/* Off */
+
+.ui.toggle.checkbox input + .box:after,
+.ui.toggle.checkbox input + label:after {
+  left: -0.15em;
+}
+
 /* Focus */
 
 .ui.toggle.checkbox input:focus + .box:before,
@@ -16245,6 +16236,11 @@ a:hover {
 }
 
 /* Active */
+
+.ui.toggle.checkbox input:checked + .box,
+.ui.toggle.checkbox input:checked + label {
+  color: #5bbd72;
+}
 
 .ui.toggle.checkbox input:checked + .box:before,
 .ui.toggle.checkbox input:checked + label:before {
@@ -16764,13 +16760,13 @@ a:hover {
   box-shadow: 0px 0px 1px 1px #E7BEBE !important;
 }
 
-/* Item Hover */
+/* Hover */
 
 .ui.dropdown.error .menu .item:hover {
   background-color: #FFF2F2 !important;
 }
 
-/* Item Active */
+/* Active */
 
 .ui.dropdown.error .menu .active.item {
   background-color: #FDCFCF !important;
@@ -16847,7 +16843,7 @@ a:hover {
   word-wrap: break-word;
   white-space: normal;
   background-color: #FFFFFF;
-  padding: 0.5em 1em;
+  padding: 0.65em 1em;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
@@ -16892,6 +16888,22 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
   margin-right: 0.5em;
+}
+
+/* Hover */
+
+.ui.selection.dropdown:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.ui.selection.dropdown:hover .menu {
+  -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
+  box-shadow: 0px 1px 0px 1px #D3D3D3;
+}
+
+.ui.selection.dropdown:hover > .dropdown.icon {
+  opacity: 1;
 }
 
 /* Visible */
@@ -18016,19 +18028,18 @@ a.ui.nag {
   float: left;
   overflow: hidden;
   border-radius: 3px;
-  width: 38px;
-  height: 38px;
+  height: 30px;
 }
 
 .ui.search .result .image img {
   display: block;
-  width: 38px;
-  height: 38px;
+  width: 73px;
+  height: 30px;
 }
 
 .ui.search .result .image ~ .info {
   float: none;
-  margin-left: 50px;
+  margin-left: 80px;
 }
 
 .ui.search .result .info {
@@ -18098,6 +18109,7 @@ a.ui.nag {
   background-color: #FFFFFF;
   margin-left: 80px;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* View All Results */
@@ -18135,7 +18147,7 @@ a.ui.nag {
 ---------------*/
 
 .ui.search.loading .input .icon {
-  background: url(../images/loader-mini.gif) no-repeat 50% 50%;
+  background: url(../../themes/packages/default/assets/images/loader-mini.gif) no-repeat 50% 50%;
 }
 
 .ui.search.loading .input .icon:before,
@@ -18646,7 +18658,6 @@ body.pushed.scrolling.ui.dimmable {
   overflow: hidden;
   display: block;
   min-height: 250px;
-  text-indent: -10000px;
 }
 
 .ui.tab.loading * {
@@ -18655,17 +18666,18 @@ body.pushed.scrolling.ui.dimmable {
 }
 
 .ui.tab.loading:after {
+  border: none;
   position: absolute;
   top: 50px;
   left: 50%;
   content: 'Loading...';
   margin-left: -32px;
-  text-indent: 5px;
+  text-indent: 10px;
   color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
-  padding-top: 75px;
-  background: url(../images/loader-large.gif) no-repeat 0px 0px;
+  padding-top: 80px;
+  background: url(../../themes/packages/default/assets/images/loader-large.gif) no-repeat 0px 0px;
   visibility: visible;
 }
 /*******************************

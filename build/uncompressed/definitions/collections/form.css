@@ -22,14 +22,6 @@
   max-width: 100%;
 }
 
-.ui.form :first-child {
-  margin-top: 0em;
-}
-
-.ui.form :last-child {
-  margin-bottom: 0em;
-}
-
 /*--------------------
         Content
 ---------------------*/
@@ -54,7 +46,7 @@
 .ui.form .field > label {
   margin: 0em 0em 0.3em;
   display: block;
-  color: #555555;
+  color: #111111;
   font-size: 0.875em;
 }
 
@@ -83,8 +75,8 @@
 .ui.form input[type="url"],
 .ui.form input[type="tel"] {
   margin: 0em;
-  padding: 0.85em 1.2em;
-  font-size: 0.875em;
+  padding: 0.65em 1em;
+  font-size: 1em;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;

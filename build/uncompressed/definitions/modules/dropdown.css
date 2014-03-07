@@ -230,13 +230,13 @@
   box-shadow: 0px 0px 1px 1px #E7BEBE !important;
 }
 
-/* Item Hover */
+/* Hover */
 
 .ui.dropdown.error .menu .item:hover {
   background-color: #FFF2F2 !important;
 }
 
-/* Item Active */
+/* Active */
 
 .ui.dropdown.error .menu .active.item {
   background-color: #FDCFCF !important;
@@ -313,7 +313,7 @@
   word-wrap: break-word;
   white-space: normal;
   background-color: #FFFFFF;
-  padding: 0.5em 1em;
+  padding: 0.65em 1em;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
@@ -358,6 +358,22 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 0.5em;
+}
+
+/* Hover */
+
+.ui.selection.dropdown:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.ui.selection.dropdown:hover .menu {
+  -webkit-box-shadow: 0px 1px 0px 1px #D3D3D3;
+  box-shadow: 0px 1px 0px 1px #D3D3D3;
+}
+
+.ui.selection.dropdown:hover > .dropdown.icon {
+  opacity: 1;
 }
 
 /* Visible */

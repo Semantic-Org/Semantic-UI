@@ -103,6 +103,10 @@ $.api = $.fn.api = function(parameters) {
 
         query: function() {
 
+          if(module.is.disabled()) {
+            module.debug('Element is disabled API request aborted');
+            return;
+          }
           // determine if an api event already occurred
           if(module.is.loading() && !settings.allowMultiple) {
             module.debug('Request cancelled previous request is still pending');
@@ -169,6 +173,9 @@ $.api = $.fn.api = function(parameters) {
 
 
         is: {
+          disabled: function() {
+            return ($module.filter(settings.filter).size() > 0);
+          },
           loading: function() {
             return (module.request && module.request.state() == 'pending');
           }
@@ -204,7 +211,9 @@ $.api = $.fn.api = function(parameters) {
                       ? urlData[term]
                       : ($module.data(term) !== undefined)
                         ? $module.data(term)
-                        : urlData[term]
+                        : ($context.data(term) !== undefined)
+                          ? $context.data(term)
+                          : urlData[term]
                   ;
                   module.verbose('Looking for variable', term);
                   // remove optional value
@@ -377,10 +386,10 @@ $.api = $.fn.api = function(parameters) {
 
         get: {
           request: function() {
-            return module.request;
+            return module.request || false;
           },
           xhr: function() {
-            return module.xhr;
+            return module.xhr || false;
           },
           settings: function() {
             return $.proxy(settings.beforeSend, $module)(settings);
@@ -425,13 +434,18 @@ $.api = $.fn.api = function(parameters) {
             var
               formData
             ;
-            if( $(this).toJSON() === undefined ) {
-              module.error(error.missingSerialize);
-              return;
+            if(settings.serializeForm == 'json') {
+              if($(this).toJSON === undefined ) {
+                module.error(error.missingSerialize);
+                return;
+              }
+              formData = $form.toJSON();
             }
-            formData = $form.toJSON();
+            else {
+              formData = $form.serialize();
+            }
             module.debug('Retrieving form data', formData);
-            return $form.toJSON();
+            return formData;
           },
           templateURL: function(action) {
             var
@@ -663,14 +677,14 @@ $.api.settings = {
   allowMultiple   : false,
 
   // state
-  loadingDuration : 1000,
+  loadingDuration : 500,
   errorDuration   : 2000,
 
   // jQ ajax
   method          : 'get',
   data            : {},
   dataType        : 'json',
-  cache         : true,
+  cache           : true,
 
   // callbacks
   beforeSend   : function(settings) { return settings; },
@@ -1791,24 +1805,6 @@ $.fn.state = function(parameters) {
 
           // bind events with delegated events
           if(settings.context && moduleSelector !== '') {
-            if( module.allows('hover') ) {
-              $(element, settings.context)
-                .on(moduleSelector, 'mouseenter' + eventNamespace, module.enable.hover)
-                .on(moduleSelector, 'mouseleave' + eventNamespace, module.disable.hover)
-              ;
-            }
-            if( module.allows('down') ) {
-              $(element, settings.context)
-                .on(moduleSelector, 'mousedown' + eventNamespace, module.enable.down)
-                .on(moduleSelector, 'mouseup'   + eventNamespace, module.disable.down)
-              ;
-            }
-            if( module.allows('focus') ) {
-              $(element, settings.context)
-                .on(moduleSelector, 'focus' + eventNamespace, module.enable.focus)
-                .on(moduleSelector, 'blur'  + eventNamespace, module.disable.focus)
-              ;
-            }
             $(settings.context)
               .on(moduleSelector, 'mouseenter' + eventNamespace, module.change.text)
               .on(moduleSelector, 'mouseleave' + eventNamespace, module.reset.text)
@@ -1816,24 +1812,6 @@ $.fn.state = function(parameters) {
             ;
           }
           else {
-            if( module.allows('hover') ) {
-              $module
-                .on('mouseenter' + eventNamespace, module.enable.hover)
-                .on('mouseleave' + eventNamespace, module.disable.hover)
-              ;
-            }
-            if( module.allows('down') ) {
-              $module
-                .on('mousedown' + eventNamespace, module.enable.down)
-                .on('mouseup'   + eventNamespace, module.disable.down)
-              ;
-            }
-            if( module.allows('focus') ) {
-              $module
-                .on('focus' + eventNamespace, module.enable.focus)
-                .on('blur'  + eventNamespace, module.disable.focus)
-              ;
-            }
             $module
               .on('mouseenter' + eventNamespace, module.change.text)
               .on('mouseleave' + eventNamespace, module.reset.text)
@@ -1924,55 +1902,41 @@ $.fn.state = function(parameters) {
           return states[state] || false;
         },
 
-        enable: {
-          state: function(state) {
-            if(module.allows(state)) {
-              $module.addClass( className[state] );
-            }
-          },
-          // convenience
-          focus: function() {
-            $module.addClass(className.focus);
-          },
-          hover: function() {
-            $module.addClass(className.hover);
-          },
-          down: function() {
-            $module.addClass(className.down);
-          },
+        enable: function() {
+          $module.removeClass(className.disabled);
         },
 
-        disable: {
-          state: function(state) {
-            if(module.allows(state)) {
-              $module.removeClass( className[state] );
-            }
-          },
-          // convenience
-          focus: function() {
-            $module.removeClass(className.focus);
-          },
-          hover: function() {
-            $module.removeClass(className.hover);
-          },
-          down: function() {
-            $module.removeClass(className.down);
-          },
+        disable: function() {
+          $module.addClass(className.disabled);
+        },
+
+        enableState: function(state) {
+          if(module.allows(state)) {
+            $module.addClass( className[state] );
+          }
+        },
+
+        disableState: function(state) {
+          if(module.allows(state)) {
+            $module.removeClass( className[state] );
+          }
         },
 
         toggle: {
           state: function() {
             var
-              apiRequest = $module.data(metadata.promise)
+              apiRequest
             ;
             if( module.allows('active') && module.is.enabled() ) {
               module.refresh();
-              if(apiRequest !== undefined) {
-                module.listenTo(apiRequest);
+              if($.fn.api !== undefined) {
+                apiRequest = $module.api('get request');
+                if(apiRequest) {
+                  module.listenTo(apiRequest);
+                  return;
+                }
               }
-              else {
-                module.change.state();
-              }
+              module.change.state();
             }
           }
         },
@@ -2026,7 +1990,11 @@ $.fn.state = function(parameters) {
 
           text: function() {
             if( module.is.textEnabled() ) {
-              if( module.is.active() ) {
+              if(module.is.disabled() ) {
+                module.verbose('Changing text to disabled text', text.hover);
+                module.update.text(text.disabled);
+              }
+              else if( module.is.active() ) {
                 if(text.hover) {
                   module.verbose('Changing text to hover text', text.hover);
                   module.update.text(text.hover);
@@ -2101,16 +2069,18 @@ $.fn.state = function(parameters) {
         },
 
         flash: {
-          text: function(text, duration) {
+          text: function(text, duration, callback) {
             var
               previousText = module.get.text()
             ;
             module.debug('Flashing text message', text, duration);
             text     = text     || settings.text.flash;
             duration = duration || settings.flashDuration;
+            callback = callback || function() {};
             module.update.text(text);
             setTimeout(function(){
               module.update.text(previousText);
+              $.proxy(callback, element)();
             }, duration);
           }
         },
@@ -2402,11 +2372,9 @@ $.fn.state.settings = {
 
   // change class on state
   className: {
-    focus   : 'focus',
-    hover   : 'hover',
-    down    : 'down',
-    active  : 'active',
-    loading : 'loading'
+    active   : 'active',
+    disabled : 'disabled',
+    loading  : 'loading'
   },
 
   selector: {
@@ -2416,30 +2384,25 @@ $.fn.state.settings = {
 
   defaults : {
     input: {
-      hover   : true,
-      focus   : true,
-      down    : true,
-      loading : false,
-      active  : false
+      disabled : true,
+      loading  : true,
+      active   : true
     },
     button: {
-      hover   : true,
-      focus   : false,
-      down    : true,
-      active  : true,
-      loading : true
+      disabled : true,
+      loading  : true,
+      active   : true
     }
   },
 
   states     : {
-    hover   : true,
-    focus   : true,
-    down    : true,
-    loading : false,
-    active  : false
+    disabled: true,
+    loading : true,
+    active  : true
   },
 
   text     : {
+    disabled : false,
     flash    : false,
     hover    : false,
     active   : false,
@@ -5684,6 +5647,20 @@ $.fn.dropdown = function(parameters) {
         },
 
         set: {
+          scrollPosition: function() {
+            var
+              $activeItem  = module.get.item(),
+              activeOffset = ($activeItem.size() > 0)
+                ? $activeItem.position().top
+                : false
+            ;
+            if(activeOffset) {
+              module.debug('Scrolling to active item');
+              $menu
+                .scrollTop(activeOffset)
+              ;
+            }
+          },
           text: function(text) {
             if(settings.action == 'combo') {
               module.debug('Changing combo button text', text, $combo);
@@ -6913,6 +6890,7 @@ $.fn.modal.settings = {
 
 
 })( jQuery, window , document );
+
 /*
  * # Semantic - Nag
  * http://github.com/semantic-org/semantic-ui/
@@ -8828,6 +8806,8 @@ $.fn.search = function(parameters) {
             $module
               .addClass(className.focus)
             ;
+            clearTimeout(module.timer);
+            module.search.throttle();
             module.results.show();
           },
           blur: function() {
@@ -8835,7 +8815,7 @@ $.fn.search = function(parameters) {
             $module
               .removeClass(className.focus)
             ;
-            module.results.hide();
+            module.timer = setTimeout(module.results.hide, settings.hideDelay);
           }
         },
         handleKeyboard: function(event) {
@@ -8867,8 +8847,8 @@ $.fn.search = function(parameters) {
           if($results.filter(':visible').size() > 0) {
             if(keyCode == keys.enter) {
               module.verbose('Enter key pressed, selecting active result');
-              if( $result.filter('.' + activeClass).exists() ) {
-                $.proxy(module.results.select, $result.filter('.' + activeClass) )();
+              if( $result.filter('.' + activeClass).size() > 0 ) {
+                $.proxy(module.results.select, $result.filter('.' + activeClass) )(event);
                 event.preventDefault();
                 return false;
               }
@@ -9130,9 +9110,6 @@ $.fn.search = function(parameters) {
                 target = $link.attr('target') || false
               ;
               module.results.hide();
-              $prompt
-                .val(title)
-              ;
               if(href) {
                 if(target == '_blank' || event.ctrlKey) {
                   window.open(href);
@@ -9143,6 +9120,13 @@ $.fn.search = function(parameters) {
               }
             }
           }
+        },
+
+        // displays mesage visibly in search results
+        message: function(text, type) {
+          type = type || 'standard';
+          module.results.add( settings.templates.message(text, type) );
+          return settings.templates.message(text, type);
         },
 
         setting: function(name, value) {
@@ -9346,6 +9330,7 @@ $.fn.search.settings = {
 
   automatic      : 'true',
   type           : 'simple',
+  hideDelay      : 600,
   minCharacters  : 3,
   searchThrottle : 300,
   maxResults     : 7,
@@ -10898,6 +10883,10 @@ $.fn.sticky = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous module');
           module.reset();
+          $window
+            .off('resize', module.event.resize)
+            .off('scroll', module.event.scroll)
+          ;
           $module
             .removeData(moduleNamespace)
           ;
@@ -11011,7 +11000,7 @@ $.fn.sticky = function(parameters) {
         set: {
           containerSize: function() {
             if($module.is(':visible') && $container.get(0).tagName === 'HTML') {
-              module.error(error.container);
+              module.error(error.container, $container.get(0), $container.get(0).tagName);
             }
             else {
               module.debug('Settings container size', module.cache.context.height);
@@ -11069,6 +11058,10 @@ $.fn.sticky = function(parameters) {
                 if( screen.top < element.top ) {
                   module.unfix();
                 }
+                else if( bottomEdge > context.bottom ) {
+                  module.debug('Top attached rail has reached bottom of container');
+                  module.bindBottom();
+                }
               }
               if(module.is.bottom() ) {
                 // top edge
@@ -11077,10 +11070,10 @@ $.fn.sticky = function(parameters) {
                 }
                 // bottom edge
                 else if(screen.bottom > context.bottom) {
+                  module.debug('Bottom attached rail has reached bottom of container');
                   module.bindBottom();
                 }
               }
-              // exit bottom of container
               if( bottomEdge > context.bottom ) {
                 module.bindBottom();
               }
