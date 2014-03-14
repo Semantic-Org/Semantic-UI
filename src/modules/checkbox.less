@@ -105,17 +105,17 @@
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.checkbox input:focus + label {
+.ui.checkbox input:focus ~ label {
   color: rgba(0, 0, 0, 0.8);
 }
 
 /*--- Outside Label  ---*/
-.ui.checkbox + label {
+.ui.checkbox ~ label {
   cursor: pointer;
   opacity: 0.85;
   vertical-align: middle;
 }
-.ui.checkbox + label:hover {
+.ui.checkbox ~ label:hover {
   opacity: 1;
 }
 
@@ -138,24 +138,24 @@
 }
 
 /*--- Focus ---*/
-.ui.checkbox input:focus + .box:before,
-.ui.checkbox input:focus + label:before {
+.ui.checkbox input:focus ~ .box:before,
+.ui.checkbox input:focus ~ label:before {
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.3);
 }
 
 /*--- Active ---*/
-.ui.checkbox input:checked + .box:after,
-.ui.checkbox input:checked + label:after {
+.ui.checkbox input:checked ~ .box:after,
+.ui.checkbox input:checked ~ label:after {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
   opacity: 1;
 }
 
 /*--- Disabled ---*/
-.ui.disabled.checkbox + .box:after,
-.ui.checkbox input[disabled] + .box:after,
+.ui.disabled.checkbox ~ .box:after,
+.ui.checkbox input[disabled] ~ .box:after,
 .ui.disabled.checkbox label,
-.ui.checkbox input[disabled] + label {
+.ui.checkbox input[disabled] ~ label {
   opacity: 0.4;
   color: rgba(0, 0, 0, 0.3);
 }
@@ -267,10 +267,10 @@
 }
 
 /* Selected Slider Toggle */
-.ui.slider.checkbox input:checked + .box:before,
-.ui.slider.checkbox input:checked + label:before,
-.ui.slider.checkbox input:checked + .box:after,
-.ui.slider.checkbox input:checked + label:after {
+.ui.slider.checkbox input:checked ~ .box:before,
+.ui.slider.checkbox input:checked ~ label:before,
+.ui.slider.checkbox input:checked ~ .box:after,
+.ui.slider.checkbox input:checked ~ label:after {
   left: 1.75em;
 }
 
@@ -281,8 +281,8 @@
 }
 
 /* On Color */
-.ui.slider.checkbox input:checked + .box:after,
-.ui.slider.checkbox input:checked + label:after {
+.ui.slider.checkbox input:checked ~ .box:after,
+.ui.slider.checkbox input:checked ~ label:after {
   background-color: #89B84C;
 }
 
@@ -357,8 +357,8 @@
 }
 
 /* Active */
-.ui.toggle.checkbox input:checked + .box:after,
-.ui.toggle.checkbox input:checked + label:after {
+.ui.toggle.checkbox input:checked ~ .box:after,
+.ui.toggle.checkbox input:checked ~ label:after {
   left: 1.75em;
   background-color: #89B84C;
 }
