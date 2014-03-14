@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.15.1 - Mar 14, 2014
+
+**Critical Fixes**
+- **Dropdown** - Typo in dropdown css was causing selection dropdowns not to appear
+
 ### Version 0.15.0 - Mar 14, 2014
 
 **Enhancements**

@@ -344,10 +344,13 @@ $.fn.dropdown = function(parameters) {
                 ? module.get.value()
                 : module.get.text()
             ;
-            strict = (value === '')
-              ? true
-              : strict || false
-            ;
+            if(strict === undefined && value === '') {
+              module.debug('Ambiguous dropdown value using strict type check', value);
+              strict = true;
+            }
+            else {
+              strict = strict || false;
+            }
             if(value !== undefined) {
               $item
                 .each(function() {
@@ -363,7 +366,6 @@ $.fn.dropdown = function(parameters) {
                         : optionText
                   ;
                   if(strict) {
-                    module.debug('Ambiguous dropdown value using strict type check', value);
                     if( optionValue === value ) {
                       $selectedItem = $(this);
                     }

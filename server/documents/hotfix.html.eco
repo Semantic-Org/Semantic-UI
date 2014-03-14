@@ -8,23 +8,19 @@ type   : 'Library'
 <%- @partial('header') %>
 
 <script type='text/javascript'>
-$(document).ready(function() {
-    $('.dropdown').dropdown();
+$(function () {
+    $('.ui.selection.dropdown').dropdown();
 });
 </script>
 
-<div>Show me posts trending
-    <div class="ui inline dropdown">
-      <div class="text">today</div>
-      <i class="dropdown icon"></i>
-      <input type="hidden" name="trending">
-      <div class="menu">
-        <div class="item" data-text="1">Today</div>
-        <div class="item" data-text="2">This Week</div>
-        <div class="item" data-text="this month">This Month</div>
-      </div>
+<div class="ui selection dropdown">
+    <input id="credit_card_exp_month" name="credit_card[exp_month]" type="hidden" />
+    <div class="default text">Select Option</div>
+    <div class="menu">
+        <div class="item"></div>
+        <div class="item" data-value="option1">Option 1</div>
+        <div class="item" data-value="option2">Option 2</div>
     </div>
 </div>
-
 </body>
 
