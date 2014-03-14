@@ -216,7 +216,9 @@ $.fn.dropdown = function(parameters) {
                   : $choice.text(),
                 value   = ( $choice.data(metadata.value) !== undefined)
                   ? $choice.data(metadata.value)
-                  : text.toLowerCase(),
+                  : (typeof text === 'string')
+                      ? text.toLowerCase()
+                      : text,
                 callback = function() {
                   module.determine.selectAction(text, value);
                   $.proxy(settings.onChange, element)(value, text);
@@ -332,7 +334,7 @@ $.fn.dropdown = function(parameters) {
               : $module.data(metadata.value)
             ;
           },
-          item: function(value) {
+          item: function(value, strict) {
             var
               $selectedItem = false
             ;
@@ -341,6 +343,10 @@ $.fn.dropdown = function(parameters) {
               : ( module.get.value() !== undefined)
                 ? module.get.value()
                 : module.get.text()
+            ;
+            strict = (value === '')
+              ? true
+              : strict || false
             ;
             if(value !== undefined) {
               $item
@@ -352,13 +358,26 @@ $.fn.dropdown = function(parameters) {
                       : $choice.text(),
                     optionValue   = ( $choice.data(metadata.value) !== undefined )
                       ? $choice.data(metadata.value)
-                      : optionText.toLowerCase()
+                      : (typeof optionText === 'string')
+                        ? optionText.toLowerCase()
+                        : optionText
                   ;
-                  if( optionValue == value ) {
-                    $selectedItem = $(this);
+                  if(strict) {
+                    module.debug('Ambiguous dropdown value using strict type check', value);
+                    if( optionValue === value ) {
+                      $selectedItem = $(this);
+                    }
+                    else if( !$selectedItem && optionText === value ) {
+                      $selectedItem = $(this);
+                    }
                   }
-                  else if( !$selectedItem && optionText == value ) {
-                    $selectedItem = $(this);
+                  else {
+                    if( optionValue == value ) {
+                      $selectedItem = $(this);
+                    }
+                    else if( !$selectedItem && optionText == value ) {
+                      $selectedItem = $(this);
+                    }
                   }
                 })
               ;
@@ -416,7 +435,10 @@ $.fn.dropdown = function(parameters) {
           value: function(value) {
             module.debug('Adding selected value to hidden input', value, $input);
             if($input.size() > 0) {
-              $input.val(value);
+              $input
+                .val(value)
+                .trigger('change')
+              ;
             }
             else {
               $module.data(metadata.value, value);

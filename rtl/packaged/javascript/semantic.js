@@ -1441,12 +1441,10 @@ $.fn.form = function(fields, parameters) {
           ;
           $field
             .each(function() {
-              var  
+              var
                 type       = $(this).prop('type'),
                 inputEvent = module.get.changeEvent(type)
               ;
-              if(settings.inline == true) {
-              }
               $(this)
                 .on(inputEvent + eventNamespace, module.event.field.change)
               ;
@@ -1535,7 +1533,7 @@ $.fn.form = function(fields, parameters) {
 
         get: {
           changeEvent: function(type) {
-            if(type == 'checkbox' || type == 'radio') {
+            if(type == 'checkbox' || type == 'radio' || type == 'hidden') {
               return 'change';
             }
             else {
@@ -4732,7 +4730,9 @@ $.fn.dropdown = function(parameters) {
                   : $choice.text(),
                 value   = ( $choice.data(metadata.value) !== undefined)
                   ? $choice.data(metadata.value)
-                  : text.toLowerCase(),
+                  : (typeof text === 'string')
+                      ? text.toLowerCase()
+                      : text,
                 callback = function() {
                   module.determine.selectAction(text, value);
                   $.proxy(settings.onChange, element)(value, text);
@@ -4848,7 +4848,7 @@ $.fn.dropdown = function(parameters) {
               : $module.data(metadata.value)
             ;
           },
-          item: function(value) {
+          item: function(value, strict) {
             var
               $selectedItem = false
             ;
@@ -4857,6 +4857,10 @@ $.fn.dropdown = function(parameters) {
               : ( module.get.value() !== undefined)
                 ? module.get.value()
                 : module.get.text()
+            ;
+            strict = (value === '')
+              ? true
+              : strict || false
             ;
             if(value !== undefined) {
               $item
@@ -4868,13 +4872,26 @@ $.fn.dropdown = function(parameters) {
                       : $choice.text(),
                     optionValue   = ( $choice.data(metadata.value) !== undefined )
                       ? $choice.data(metadata.value)
-                      : optionText.toLowerCase()
+                      : (typeof optionText === 'string')
+                        ? optionText.toLowerCase()
+                        : optionText
                   ;
-                  if( optionValue == value ) {
-                    $selectedItem = $(this);
+                  if(strict) {
+                    module.debug('Ambiguous dropdown value using strict type check', value);
+                    if( optionValue === value ) {
+                      $selectedItem = $(this);
+                    }
+                    else if( !$selectedItem && optionText === value ) {
+                      $selectedItem = $(this);
+                    }
                   }
-                  else if( !$selectedItem && optionText == value ) {
-                    $selectedItem = $(this);
+                  else {
+                    if( optionValue == value ) {
+                      $selectedItem = $(this);
+                    }
+                    else if( !$selectedItem && optionText == value ) {
+                      $selectedItem = $(this);
+                    }
                   }
                 })
               ;
@@ -4932,7 +4949,10 @@ $.fn.dropdown = function(parameters) {
           value: function(value) {
             module.debug('Adding selected value to hidden input', value, $input);
             if($input.size() > 0) {
-              $input.val(value);
+              $input
+                .val(value)
+                .trigger('change')
+              ;
             }
             else {
               $module.data(metadata.value, value);
@@ -5443,6 +5463,12 @@ $.fn.modal = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
     returnedValue
   ;
 
@@ -5665,10 +5691,12 @@ $.fn.modal = function(parameters) {
               module.hideOthers(module.showModal);
             }
             else {
+              $.proxy(settings.onShow, element)();
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
                 $module
                   .transition(settings.transition + ' in', settings.duration, function() {
+                    $.proxy(settings.onVisible, element)();
                     module.set.active();
                     callback();
                   })
@@ -5678,12 +5706,12 @@ $.fn.modal = function(parameters) {
                 module.debug('Showing modal with javascript');
                 $module
                   .fadeIn(settings.duration, settings.easing, function() {
+                    $.proxy(settings.onVisible, element)();
                     module.set.active();
                     callback();
                   })
                 ;
               }
-              $.proxy(settings.onShow, element)();
             }
           }
           else {
@@ -5745,9 +5773,11 @@ $.fn.modal = function(parameters) {
           }
           module.debug('Hiding modal');
           module.remove.keyboardShortcuts();
+          $.proxy(settings.onHide, element)();
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition(settings.transition + ' out', settings.duration, function() {
+                $.proxy(settings.onHidden, element)();
                 module.remove.active();
                 module.restore.focus();
                 callback();
@@ -5757,13 +5787,13 @@ $.fn.modal = function(parameters) {
           else {
             $module
               .fadeOut(settings.duration, settings.easing, function() {
+                $.proxy(settings.onHidden, element)();
                 module.remove.active();
                 module.restore.focus();
                 callback();
               })
             ;
           }
-          $.proxy(settings.onHide, element)();
         },
 
         hideAll: function(callback) {
@@ -6124,6 +6154,10 @@ $.fn.modal.settings = {
 
   onShow        : function(){},
   onHide        : function(){},
+
+  onVisible     : function(){},
+  onHidden      : function(){},
+
   onApprove     : function(){ return true; },
   onDeny        : function(){ return true; },
 

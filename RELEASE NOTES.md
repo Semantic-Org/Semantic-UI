@@ -1,5 +1,30 @@
 ## RELEASE NOTES
 
+### Version 0.15.0- Mar 14, 2014
+
+**Enhancements**
+- **Step** - Vertical Steps now have option to have two line items
+- **Form** - Forms, Dropdowns, and Inputs now have matching padding size, and use 1em font size to appear same size as surrounding text
+- **Icon** - Icons on dark backgrounds should render better in OSX
+- **Modal** - Modals now have an onVisible and onHidden callback for after animation ends
+- **Form Validation** - Form validation now automatically revalidates a selection dropdown on change when invalid
+
+**Critical Fixes**
+- **Modal** - Browsers without RequestAnimationFrame (Opera) were erroring on modal show
+- **Dropdown** - Element's with numeric ``data-text`` values were erroring when selected
+
+**Fixes**
+- **Modal** - Modal onShow and onHide occurs before transition starts, allowing for class name changes not to be reset
+- **Dropdown** - Default selection text was not appearing when a dropdown had a value that was ``false`` or ``0``
+- **Input** - Fixes slight error in corner label rounding **Thanks MohammadYounes**
+- **Reveal** - Reveals will now show on active, for touch devices **Thanks Illyism**
+- **Table** - Fixes rounding on tables with multiple tfoot elements **Thanks webdesserts**
+- **Icon** - Hide and unhide icon were accidentally given opposite names
+- **Checkbox** - Checkboxes can now have multiple inputs inside, for use with .NET and other languages that insert their own hidden inputs
+
+**Project**
+- **iOS** - Active styles, for example pressed in buttons, now appear in docs on touch devices
+
 ### Version 0.14.0- Mar 03, 2014
 
 **Enhancements**

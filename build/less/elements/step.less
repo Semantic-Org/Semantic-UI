@@ -32,22 +32,28 @@
   position: absolute;
   z-index: 2;
   content: '';
-  top: 0em;
-  right: -1.45em;
-  border-bottom: 1.5em solid transparent;
-  border-left: 1.5em solid #FFFFFF;
-  border-top: 1.5em solid transparent;
-  width: 0em;
-  height: 0em;
+  top: 0.42em;
+  right: -1em;
+  border: medium none;
+  background-color: #FFFFFF;
+  width: 2.2em;
+  height: 2.2em;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.15) inset;
+  box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.15) inset;
 }
 
 .ui.step,
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition: opacity 0.1s ease,
+  -webkit-transition: background-color 0.1s ease,
+    opacity 0.1s ease,
     color 0.1s ease,
     -webkit-box-shadow 0.1s ease;
-  transition: opacity 0.1s ease,
+  transition: background-color 0.1s ease,
+    opacity 0.1s ease,
     color 0.1s ease,
     box-shadow 0.1s ease;
 }
@@ -55,6 +61,8 @@
 /*******************************
             Types
 *******************************/
+
+/* Vertical */
 
 .ui.vertical.steps {
   overflow: visible;
@@ -83,16 +91,33 @@
   display: none;
 }
 
-/* Disabled */
-
-.ui.vertical.steps .disabled.step:after {
-  padding: 1em 2em;
-}
-
 /* Active Arrow */
 
 .ui.vertical.steps .active.step:after {
   display: block;
+}
+
+/* Two Line */
+
+.ui.vertical.steps .two.line.step {
+  line-height: 1.3;
+}
+
+.ui.vertical.steps .two.line.active.step:after {
+  position: absolute;
+  z-index: 2;
+  content: '';
+  top: 0em;
+  right: -1.45em;
+  background-color: transparent;
+  border-bottom: 2.35em solid transparent;
+  border-left: 1.55em solid #555555;
+  border-top: 2.35em solid transparent;
+  width: 0em;
+  height: 0em;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
 /*******************************
@@ -151,7 +176,7 @@
 .ui.steps .step:hover:after,
 .ui.step:hover,
 .ui.step.hover::after {
-  border-left-color: #F7F7F7;
+  background-color: #F7F7F7;
 }
 
 /* Hover */
@@ -167,7 +192,7 @@
 .ui.steps .step:active:after,
 .ui.steps.down::after,
 .ui.steps:active::after {
-  border-left-color: #F0F0F0;
+  background-color: #F0F0F0;
 }
 
 /* Active */
@@ -182,7 +207,9 @@
 
 .ui.steps .step.active:after,
 .ui.active.steps:after {
-  border-left-color: #555555;
+  background-color: #555555;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Disabled */
@@ -194,18 +221,9 @@
   color: #CBCBCB;
 }
 
+.ui.steps .disabled.step:after,
 .ui.disabled.step:after {
-  border: none;
   background-color: #FFFFFF;
-  top: 0.42em;
-  right: -1em;
-  width: 2.15em;
-  height: 2.15em;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -webkit-box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 
 /*******************************

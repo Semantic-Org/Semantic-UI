@@ -107,12 +107,10 @@ $.fn.form = function(fields, parameters) {
           ;
           $field
             .each(function() {
-              var  
+              var
                 type       = $(this).prop('type'),
                 inputEvent = module.get.changeEvent(type)
               ;
-              if(settings.inline == true) {
-              }
               $(this)
                 .on(inputEvent + eventNamespace, module.event.field.change)
               ;
@@ -201,7 +199,7 @@ $.fn.form = function(fields, parameters) {
 
         get: {
           changeEvent: function(type) {
-            if(type == 'checkbox' || type == 'radio') {
+            if(type == 'checkbox' || type == 'radio' || type == 'hidden') {
               return 'change';
             }
             else {

@@ -164,8 +164,8 @@
 .ui.form input[type="url"],
 .ui.form input[type="tel"] {
   margin: 0em;
-  padding: 0.85em 1.2em;
-  font-size: 0.875em;
+  padding: 0.65em 1em;
+  font-size: 1em;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
@@ -1829,18 +1829,14 @@ body > .ui.grid {
 }
 
 .ui.menu .item > .input input {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.35em;
+  padding-bottom: 0.35em;
 }
 
 .ui.vertical.menu .item > .input input {
   margin: 0em;
   padding-top: 0.63em;
   padding-bottom: 0.63em;
-}
-
-.ui.vertical.menu .ui.input > .icon {
-  padding-top: 0.63em;
 }
 
 /* Action Input */
@@ -3720,6 +3716,10 @@ body > .ui.grid {
   border-radius: 0px 0px 0px 5px;
 }
 
+.ui.table tfoot th:only-child {
+  border-radius: 0px 0px 5px 5px;
+}
+
 /* Table Cells */
 
 .ui.table td {
@@ -4758,16 +4758,16 @@ i.basic.icon.export:before {
 /* '' */
 
 i.basic.icon.hide:before {
-  content: '\e80f';
-}
-
-/* '' */
-
-i.basic.icon.unhide:before {
   content: '\e70b';
 }
 
 /* '' */
+
+i.basic.icon.unhide:before {
+  content: '\e80f';
+}
+
+/* '' */
 
 i.basic.icon.facebook:before {
   content: '\f301';
@@ -9106,6 +9106,7 @@ i.square.inverted.icon {
 i.inverted.icon {
   background-color: #222222;
   color: #FFFFFF;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /*-------------------
@@ -9404,8 +9405,8 @@ img.ui.image {
   width: 100%;
   font-family: "Helvetica Neue", "Helvetica", Arial;
   margin: 0em;
-  padding: 0.85em 1.2em;
-  font-size: 0.875em;
+  padding: 0.65em 1em;
+  font-size: 1em;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
@@ -9589,7 +9590,11 @@ img.ui.image {
 
 .ui.labeled.input .corner.label {
   font-size: 0.7em;
-  border-top-left-radius: 0.3125em;
+  border-radius: 0.3125em 0;
+}
+
+.ui.labeled.input .left.corner.label {
+  border-radius: 0 0.3125em;
 }
 
 .ui.labeled.input input {
@@ -11122,11 +11127,13 @@ a.ui.teal.label:hover:before {
   width: 100% !important;
 }
 
-.ui.slide.reveal:hover > .visible.content {
+.ui.slide.reveal:hover > .visible.content,
+.ui.slide.reveal:focus > .visible.content {
   right: -100% !important;
 }
 
-.ui.slide.reveal:hover > .hidden.content {
+.ui.slide.reveal:hover > .hidden.content,
+.ui.slide.reveal:focus > .hidden.content {
   right: 0% !important;
 }
 
@@ -11139,12 +11146,14 @@ a.ui.teal.label:hover:before {
   left: 100% !important;
 }
 
-.ui.right.slide.reveal:hover > .visible.content {
+.ui.right.slide.reveal:hover > .visible.content,
+.ui.right.slide.reveal:focus > .visible.content {
   right: 100% !important;
   left: auto !important;
 }
 
-.ui.right.slide.reveal:hover > .hidden.content {
+.ui.right.slide.reveal:hover > .hidden.content,
+.ui.right.slide.reveal:focus > .hidden.content {
   right: auto !important;
   left: 0% !important;
 }
@@ -11163,12 +11172,14 @@ a.ui.teal.label:hover:before {
   bottom: auto !important;
 }
 
-.ui.slide.up.reveal:hover > .visible.content {
+.ui.slide.up.reveal:hover > .visible.content,
+.ui.slide.up.reveal:focus > .visible.content {
   top: -100% !important;
   right: 0% !important;
 }
 
-.ui.slide.up.reveal:hover > .hidden.content {
+.ui.slide.up.reveal:hover > .hidden.content,
+.ui.slide.up.reveal:focus > .hidden.content {
   top: 0% !important;
   right: 0% !important;
 }
@@ -11187,12 +11198,14 @@ a.ui.teal.label:hover:before {
   right: 0% !important;
 }
 
-.ui.slide.down.reveal:hover > .visible.content {
+.ui.slide.down.reveal:hover > .visible.content,
+.ui.slide.down.reveal:focus > .visible.content {
   right: 0% !important;
   bottom: -100% !important;
 }
 
-.ui.slide.down.reveal:hover > .hidden.content {
+.ui.slide.down.reveal:hover > .hidden.content,
+.ui.slide.down.reveal:focus > .hidden.content {
   right: 0% !important;
   bottom: 0% !important;
 }
@@ -11205,7 +11218,8 @@ a.ui.teal.label:hover:before {
   opacity: 1;
 }
 
-.ui.fade.reveal:hover > .visible.content {
+.ui.fade.reveal:hover > .visible.content,
+.ui.fade.reveal:focus > .visible.content {
   opacity: 0;
 }
 
@@ -11222,7 +11236,9 @@ a.ui.teal.label:hover:before {
 }
 
 .ui.move.reveal:hover > .visible.content,
-.ui.move.left.reveal:hover > .visible.content {
+.ui.move.left.reveal:hover > .visible.content,
+.ui.move.reveal:focus > .visible.content,
+.ui.move.left.reveal:focus > .visible.content {
   left: 100% !important;
 }
 
@@ -11233,7 +11249,8 @@ a.ui.teal.label:hover:before {
   right: 0% !important;
 }
 
-.ui.move.right.reveal:hover > .visible.content {
+.ui.move.right.reveal:hover > .visible.content,
+.ui.move.right.reveal:focus > .visible.content {
   right: 100% !important;
 }
 
@@ -11244,7 +11261,8 @@ a.ui.teal.label:hover:before {
   bottom: 0% !important;
 }
 
-.ui.move.up.reveal:hover > .visible.content {
+.ui.move.up.reveal:hover > .visible.content,
+.ui.move.up.reveal:focus > .visible.content {
   bottom: 100% !important;
 }
 
@@ -11255,7 +11273,8 @@ a.ui.teal.label:hover:before {
   bottom: auto !important;
 }
 
-.ui.move.down.reveal:hover > .visible.content {
+.ui.move.down.reveal:hover > .visible.content,
+.ui.move.down.reveal:focus > .visible.content {
   top: 100% !important;
 }
 
@@ -11279,7 +11298,9 @@ a.ui.teal.label:hover:before {
 }
 
 .ui.rotate.reveal:hover > .visible.content,
-.ui.rotate.right.reveal:hover > .visible.content {
+.ui.rotate.right.reveal:hover > .visible.content,
+.ui.rotate.reveal:focus > .visible.content,
+.ui.rotate.right.reveal:focus > .visible.content {
   -webkit-transform: rotate(110deg);
   -ms-transform: rotate(110deg);
   transform: rotate(110deg);
@@ -11291,7 +11312,8 @@ a.ui.teal.label:hover:before {
   transform-origin: bottom right;
 }
 
-.ui.rotate.left.reveal:hover > .visible.content {
+.ui.rotate.left.reveal:hover > .visible.content,
+.ui.rotate.left.reveal:focus > .visible.content {
   -webkit-transform: rotate(-110deg);
   -ms-transform: rotate(-110deg);
   transform: rotate(-110deg);
@@ -11310,7 +11332,8 @@ a.ui.teal.label:hover:before {
   transition: none !important;
 }
 
-.ui.disabled.reveal:hover > .visible.content {
+.ui.disabled.reveal:hover > .visible.content,
+.ui.disabled.reveal:focus > .visible.content {
   position: static !important;
   display: block !important;
   opacity: 1 !important;
@@ -11323,7 +11346,8 @@ a.ui.teal.label:hover:before {
   transform: none !important;
 }
 
-.ui.disabled.reveal:hover > .hidden.content {
+.ui.disabled.reveal:hover > .hidden.content,
+.ui.disabled.reveal:focus > .hidden.content {
   display: none !important;
 }
 
@@ -11836,25 +11860,31 @@ a.ui.teal.label:hover:before {
   position: absolute;
   z-index: 2;
   content: '';
-  top: 0em;
-  left: -1.45em;
-  border-bottom: 1.5em solid transparent;
-  border-right: 1.5em solid #FFFFFF;
-  border-top: 1.5em solid transparent;
-  width: 0em;
-  height: 0em;
+  top: 0.42em;
+  left: -1em;
+  border: medium none;
+  background-color: #FFFFFF;
+  width: 2.2em;
+  height: 2.2em;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.15) inset;
+  box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.15) inset;
 }
 
 .ui.step,
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition: opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
 }
 
 /*******************************
             Types
 *******************************/
+
+/* Vertical */
 
 .ui.vertical.steps {
   overflow: visible;
@@ -11883,16 +11913,33 @@ a.ui.teal.label:hover:before {
   display: none;
 }
 
-/* Disabled */
-
-.ui.vertical.steps .disabled.step:after {
-  padding: 1em 2em;
-}
-
 /* Active Arrow */
 
 .ui.vertical.steps .active.step:after {
   display: block;
+}
+
+/* Two Line */
+
+.ui.vertical.steps .two.line.step {
+  line-height: 1.3;
+}
+
+.ui.vertical.steps .two.line.active.step:after {
+  position: absolute;
+  z-index: 2;
+  content: '';
+  top: 0em;
+  left: -1.45em;
+  background-color: transparent;
+  border-bottom: 2.35em solid transparent;
+  border-right: 1.55em solid #555555;
+  border-top: 2.35em solid transparent;
+  width: 0em;
+  height: 0em;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
 }
 
 /*******************************
@@ -11951,7 +11998,7 @@ a.ui.teal.label:hover:before {
 .ui.steps .step:hover:after,
 .ui.step:hover,
 .ui.step.hover::after {
-  border-right-color: #F7F7F7;
+  background-color: #F7F7F7;
 }
 
 /* Hover */
@@ -11967,7 +12014,7 @@ a.ui.teal.label:hover:before {
 .ui.steps .step:active:after,
 .ui.steps.down::after,
 .ui.steps:active::after {
-  border-right-color: #F0F0F0;
+  background-color: #F0F0F0;
 }
 
 /* Active */
@@ -11982,7 +12029,9 @@ a.ui.teal.label:hover:before {
 
 .ui.steps .step.active:after,
 .ui.active.steps:after {
-  border-right-color: #555555;
+  background-color: #555555;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Disabled */
@@ -11994,18 +12043,9 @@ a.ui.teal.label:hover:before {
   color: #CBCBCB;
 }
 
+.ui.steps .disabled.step:after,
 .ui.disabled.step:after {
-  border: none;
   background-color: #FFFFFF;
-  top: 0.42em;
-  left: -1em;
-  width: 2.15em;
-  height: 2.15em;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -webkit-box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 
 /*******************************
@@ -12674,19 +12714,19 @@ a.ui.teal.label:hover:before {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.checkbox input:focus + label {
+.ui.checkbox input:focus ~ label {
   color: rgba(0, 0, 0, 0.8);
 }
 
 /*--- Outside Label  ---*/
 
-.ui.checkbox + label {
+.ui.checkbox ~ label {
   cursor: pointer;
   opacity: 0.85;
   vertical-align: middle;
 }
 
-.ui.checkbox + label:hover {
+.ui.checkbox ~ label:hover {
   opacity: 1;
 }
 
@@ -12711,16 +12751,16 @@ a.ui.teal.label:hover:before {
 
 /*--- Focus ---*/
 
-.ui.checkbox input:focus + .box:before,
-.ui.checkbox input:focus + label:before {
+.ui.checkbox input:focus ~ .box:before,
+.ui.checkbox input:focus ~ label:before {
   -webkit-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.3);
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.3);
 }
 
 /*--- Active ---*/
 
-.ui.checkbox input:checked + .box:after,
-.ui.checkbox input:checked + label:after {
+.ui.checkbox input:checked ~ .box:after,
+.ui.checkbox input:checked ~ label:after {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
   opacity: 1;
@@ -12728,10 +12768,10 @@ a.ui.teal.label:hover:before {
 
 /*--- Disabled ---*/
 
-.ui.disabled.checkbox + .box:after,
-.ui.checkbox input[disabled] + .box:after,
+.ui.disabled.checkbox ~ .box:after,
+.ui.checkbox input[disabled] ~ .box:after,
 .ui.disabled.checkbox label,
-.ui.checkbox input[disabled] + label {
+.ui.checkbox input[disabled] ~ label {
   opacity: 0.4;
   color: rgba(0, 0, 0, 0.3);
 }
@@ -12842,10 +12882,10 @@ a.ui.teal.label:hover:before {
 
 /* Selected Slider Toggle */
 
-.ui.slider.checkbox input:checked + .box:before,
-.ui.slider.checkbox input:checked + label:before,
-.ui.slider.checkbox input:checked + .box:after,
-.ui.slider.checkbox input:checked + label:after {
+.ui.slider.checkbox input:checked ~ .box:before,
+.ui.slider.checkbox input:checked ~ label:before,
+.ui.slider.checkbox input:checked ~ .box:after,
+.ui.slider.checkbox input:checked ~ label:after {
   right: 1.75em;
 }
 
@@ -12858,8 +12898,8 @@ a.ui.teal.label:hover:before {
 
 /* On Color */
 
-.ui.slider.checkbox input:checked + .box:after,
-.ui.slider.checkbox input:checked + label:after {
+.ui.slider.checkbox input:checked ~ .box:after,
+.ui.slider.checkbox input:checked ~ label:after {
   background-color: #89B84C;
 }
 
@@ -12931,8 +12971,8 @@ a.ui.teal.label:hover:before {
 
 /* Active */
 
-.ui.toggle.checkbox input:checked + .box:after,
-.ui.toggle.checkbox input:checked + label:after {
+.ui.toggle.checkbox input:checked ~ .box:after,
+.ui.toggle.checkbox input:checked ~ label:after {
   right: 1.75em;
   background-color: #89B84C;
 }
@@ -13342,7 +13382,8 @@ a.ui.teal.label:hover:before {
 ----------------------*/
 
 .ui.dropdown.error,
-.ui.dropdown.error .item {
+.ui.dropdown.error > .text,
+.ui.dropdown.error > .default.text {
   color: #D95C5C !important;
 }
 
@@ -13357,20 +13398,25 @@ a.ui.teal.label:hover:before {
   box-shadow: 0px 0px 0px 1px #e7bebe !important;
 }
 
-.ui.dropdown.error .menu {
+.ui.dropdown.error > .menu,
+.ui.dropdown.error > .menu .menu {
   -webkit-box-shadow: 0px 0px 1px 1px #E7BEBE !important;
   box-shadow: 0px 0px 1px 1px #E7BEBE !important;
 }
 
+.ui.dropdown.error > .menu .item {
+  color: #D95C5C !important;
+}
+
 /* Item Hover */
 
-.ui.dropdown.error .menu .item:hover {
+.ui.dropdown.error > .menu .item:hover {
   background-color: #FFF2F2 !important;
 }
 
 /* Item Active */
 
-.ui.dropdown.error .menu .active.item {
+.ui.dropdown.error > .menu .active.item {
   background-color: #FDCFCF !important;
 }
 
@@ -13445,7 +13491,7 @@ a.ui.teal.label:hover:before {
   word-wrap: break-word;
   white-space: normal;
   background-color: #FFFFFF;
-  padding: 0.5em 1em;
+  padding: 0.65em 1em;
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
@@ -14961,9 +15007,10 @@ a.ui.nag {
 *******************************/
 
 body {
-  -webkit-transition: margin 0.3s ease, -webkit-transform 0.3s ease;
-  transition: margin 0.3s ease,
-    transform 0.3s ease;
+  -webkit-transition: margin 0.3s ease, -webkit-transform 0.3s ease /*rtl:append:,
+    padding 0.3s ease*/;
+  transition: margin 0.3s ease, transform 0.3s ease /*rtl:append:,
+    padding 0.3s ease*/;
 }
 
 .ui.sidebar {

@@ -27,8 +27,8 @@
   width: 100%;
   font-family: "Helvetica Neue", "Helvetica", Arial;
   margin: 0em;
-  padding: 0.85em 1.2em;
-  font-size: 0.875em;
+  padding: 0.65em 1em;
+  font-size: 1em;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
@@ -212,7 +212,11 @@
 
 .ui.labeled.input .corner.label {
   font-size: 0.7em;
-  border-top-left-radius: 0.3125em;
+  border-radius: 0.3125em 0;
+}
+
+.ui.labeled.input .left.corner.label {
+  border-radius: 0 0.3125em;
 }
 
 .ui.labeled.input input {
