@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.15.0- Mar 14, 2014
+### Version 0.15.0 - Mar 14, 2014
 
 **Enhancements**
 - **Step** - Vertical Steps now have option to have two line items
@@ -25,7 +25,7 @@
 **Project**
 - **iOS** - Active styles, for example pressed in buttons, now appear in docs on touch devices
 
-### Version 0.14.0- Mar 03, 2014
+### Version 0.14.0 - Mar 03, 2014
 
 **Enhancements**
 - **Modal** - Modal now uses requestAnimationFrame instead of debounced callback
@@ -39,7 +39,7 @@
 **Project**
 - **NPM** - Docpad is now moved to a dev dependency **Thanks kapouer**
 
-### Version 0.13.1- Feb 28, 2014
+### Version 0.13.1 - Feb 28, 2014
 
 **Fixes**
 - **Modal** - Fixes modal positioning appearing slightly below center on second load
