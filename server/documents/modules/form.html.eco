@@ -114,6 +114,58 @@ type        : 'UI Behavior'
       <div class="ui blue submit button">Submit</div>
     </div>
   </div>
+  <div class="dropdown example">
+    <h3 class="ui header">Validating Dropdowns</h3>
+    <p><a href="/modules/dropdown.html">Dropdowns</a> can also be validated like other form fields. Simply match the validation rule to the hidden input associated with the dropdown</p>
+    <div class="ignored  code">
+    $('.ui.dropdown')
+      .dropdown()
+    ;
+    $('.ui.form')
+      .form({
+        gender: {
+          identifier  : 'gender',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter a gender'
+            }
+          ]
+        },
+        name: {
+          identifier  : 'name',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter your name'
+            }
+          ]
+        },
+      })
+    ;
+    </div>
+    <div class="ui form">
+      <div class="two fields">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="name">
+        </div>
+        <div class="field">
+          <label>Gender</label>
+          <div class="ui fluid selection dropdown">
+            <input type="hidden" name="gender">
+            <div class="default text">Gender</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="1">Male</div>
+              <div class="item" data-value="0">Female</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui blue submit button">Submit</div>
+    </div>
+  </div>
 
   <div class="example">
     <h3 class="ui header">Validation with Message</h3>

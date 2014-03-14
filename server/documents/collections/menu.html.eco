@@ -64,7 +64,7 @@ type        : 'UI Collection'
         <div class="ui label">1</div>
       </a>
       <div class="item">
-        <div class="ui icon input">
+        <div class="ui small icon input">
           <input type="text" placeholder="Search mail...">
           <i class="search icon"></i>
         </div>
