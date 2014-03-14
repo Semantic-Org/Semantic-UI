@@ -36,7 +36,6 @@
       <% end %>
       <div class="ui secondary button">
         Download
-        <i class="download icon"></i>
       </div>
     </div>
     <div class="advertisement">

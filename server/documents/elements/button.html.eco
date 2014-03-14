@@ -47,24 +47,6 @@ themes      : ['default', 'basic', 'chubby', 'github']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Inverted</h4>
-    <p>A button can be formatted to appear on dark backgrounds</p>
-    <div class="ui inverted segment">
-      <div class="ui inverted button">Standard</div>
-      <div class="ui inverted black button">Black</div>
-      <div class="ui inverted yellow button">Yellow</div>
-      <div class="ui inverted green button">Green</div>
-      <div class="ui inverted blue button">Blue</div>
-      <div class="ui inverted orange button">Orange</div>
-      <div class="ui inverted purple button">Purple</div>
-      <div class="ui inverted pink button">Pink</div>
-      <div class="ui inverted red button">Red</div>
-      <div class="ui inverted teal button">Teal</div>
-    </div>
-
-  </div>
-
-  <div class="example">
     <h4 class="ui header">Animated</h4>
     <p>A button can animate to show hidden content</p>
     <div class="ui ignored message">The button will be automatically sized according to the visible content size. Make sure there is enough room for the hidden content to show</div>
@@ -110,6 +92,25 @@ themes      : ['default', 'basic', 'chubby', 'github']
       Next
     </div>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Inverted</h4>
+    <p>A button can be formatted to appear on dark backgrounds</p>
+    <div class="ui inverted segment">
+      <div class="ui inverted button">Standard</div>
+      <div class="ui inverted black button">Black</div>
+      <div class="ui inverted yellow button">Yellow</div>
+      <div class="ui inverted green button">Green</div>
+      <div class="ui inverted blue button">Blue</div>
+      <div class="ui inverted orange button">Orange</div>
+      <div class="ui inverted purple button">Purple</div>
+      <div class="ui inverted pink button">Pink</div>
+      <div class="ui inverted red button">Red</div>
+      <div class="ui inverted teal button">Teal</div>
+    </div>
+
+  </div>
+
   <h2 class="ui dividing header">Groups</h2>
 
   <div class="example">

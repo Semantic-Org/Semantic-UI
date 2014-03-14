@@ -5,6 +5,11 @@ docpadConfig = {
 	srcPath : './server'
 	outPath: './docs'
 
+	plugins:
+    ghpages:
+        deployRemote: 'docs'
+        deployBranch: 'gh-pages'
+
 	# =================================
 	# Template Data
 	# These are variables that will be accessible via our templates
