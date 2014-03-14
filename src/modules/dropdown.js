@@ -334,7 +334,7 @@ $.fn.dropdown = function(parameters) {
               : $module.data(metadata.value)
             ;
           },
-          item: function(value) {
+          item: function(value, strict) {
             var
               $selectedItem = false
             ;
@@ -343,6 +343,10 @@ $.fn.dropdown = function(parameters) {
               : ( module.get.value() !== undefined)
                 ? module.get.value()
                 : module.get.text()
+            ;
+            strict = (value === '')
+              ? true
+              : strict || false
             ;
             if(value !== undefined) {
               $item
@@ -358,11 +362,22 @@ $.fn.dropdown = function(parameters) {
                         ? optionText.toLowerCase()
                         : optionText
                   ;
-                  if( optionValue == value ) {
-                    $selectedItem = $(this);
+                  if(strict) {
+                    module.debug('Ambiguous dropdown value using strict type check', value);
+                    if( optionValue === value ) {
+                      $selectedItem = $(this);
+                    }
+                    else if( !$selectedItem && optionText === value ) {
+                      $selectedItem = $(this);
+                    }
                   }
-                  else if( !$selectedItem && optionText == value ) {
-                    $selectedItem = $(this);
+                  else {
+                    if( optionValue == value ) {
+                      $selectedItem = $(this);
+                    }
+                    else if( !$selectedItem && optionText == value ) {
+                      $selectedItem = $(this);
+                    }
                   }
                 })
               ;
