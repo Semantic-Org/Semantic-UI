@@ -62,13 +62,13 @@ type        : 'UI Element'
         Shipping
       </div>
       <div class="ui active two line step">
-        Billing & <br> Order Confirmation
+        Billing & Order <br> Confirmation
       </div>
       <div class="ui disabled step">
-        Confirm Order
+        Review
       </div>
       <div class="ui disabled step">
-        Complete
+        Receipt
       </div>
     </div>
   </div>
