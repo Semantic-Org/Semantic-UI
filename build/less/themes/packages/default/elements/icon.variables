@@ -1,0 +1,39 @@
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*
+  @disabledOpacity
+*/
+
+/*-------------------
+   Icon Variables
+--------------------*/
+
+@fontName: 'icons';
+
+@opacity: 0.75;
+@width: 1.23em;
+@height: 1em;
+
+@margin: 0.25em;
+@directionMargin: 0.5em;
+
+@linkDuration: 0.3s;
+@loadingDuration: 2s;
+
+@circularSize: 2em;
+@circularPadding: 0.5em 0.35em;
+@circularShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+
+@squareSize: 2em;
+@squarePadding: 0.5em 0.35em;
+@squareShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+
+@small: 0.875em;
+@medium: 1em;
+@large: 1.5em;
+@big: 2em;
+@huge: 4em;
+@massive: 8em;

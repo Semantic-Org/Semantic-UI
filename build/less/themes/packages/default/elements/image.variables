@@ -1,0 +1,50 @@
+/*******************************
+            Standard
+*******************************/
+
+/*-------------------
+       Image 
+--------------------*/
+
+@placeholderColor: rgba(0, 0, 0, 0.05);
+@roundedBorderRadius: 0.3125em;
+
+@imageHorizontalMargin: 0.25rem;
+@imageVerticalMargin: 0.5em;
+
+/*******************************
+              Types
+*******************************/
+
+/* Avatar */
+@avatarSize: 2em;
+@avatarMargin: @imageHorizontalMargin;
+
+
+/*******************************
+           Variations
+*******************************/
+
+/* Floated */
+@floatedHorizontalMargin: 1em;
+@floatedVerticalMargin: 1em;
+
+/* Sizing */
+@mini: 0.7em;
+@tiny: 0.8em;
+@small: 0.875em;
+@medium: 1em;
+@large: 1.125em;
+@big: 1.25em;
+@huge: 1.375em;
+@massive: 1.5em;
+
+/* Size */
+@miniWidth: 20px;
+@tinyWidth: 80px;
+@smallWidth: 150px;
+@mediumWidth: 300px;
+@largeWidth: 450px;
+@bigWidth: 600px;
+@hugeWidth: 800px;
+@massiveWidth: 960px;
