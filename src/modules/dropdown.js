@@ -435,7 +435,10 @@ $.fn.dropdown = function(parameters) {
           value: function(value) {
             module.debug('Adding selected value to hidden input', value, $input);
             if($input.size() > 0) {
-              $input.val(value);
+              $input
+                .val(value)
+                .trigger('change')
+              ;
             }
             else {
               $module.data(metadata.value, value);
