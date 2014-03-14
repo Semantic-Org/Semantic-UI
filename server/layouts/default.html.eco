@@ -139,7 +139,7 @@
 
   </script>
 </head>
-<body id="example" class="<%= @document.css %>">
+<body id="example" class="<%= @document.css %>" ontouchstart="">
   <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
     <a class="hide item">
       <i class="close icon"></i> Close Menu
