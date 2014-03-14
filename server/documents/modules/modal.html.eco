@@ -440,12 +440,22 @@ type        : 'UI Module'
         <tr>
           <td>onShow</td>
           <td>Modal</td>
-          <td>Is called after a modal is shown.</td>
+          <td>Is called when a modal starts to show.</td>
+        </tr>
+        <tr>
+          <td>onVisible</td>
+          <td>Modal</td>
+          <td>Is called after a modal has finished showing animating.</td>
         </tr>
         <tr>
           <td>onHide</td>
           <td>Modal</td>
-          <td>Is called after a modal is hidden.</td>
+          <td>Is called after a modal starts to hide.</td>
+        </tr>
+        <tr>
+          <td>onHidden</td>
+          <td>Modal</td>
+          <td>Is called after a modal has finished hiding animation.</td>
         </tr>
         <tr>
           <td>onApprove</td>

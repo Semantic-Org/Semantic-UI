@@ -253,10 +253,12 @@ $.fn.modal = function(parameters) {
               module.hideOthers(module.showModal);
             }
             else {
+              $.proxy(settings.onShow, element)();
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
                 $module
                   .transition(settings.transition + ' in', settings.duration, function() {
+                    $.proxy(settings.onVisible, element)();
                     module.set.active();
                     callback();
                   })
@@ -266,12 +268,12 @@ $.fn.modal = function(parameters) {
                 module.debug('Showing modal with javascript');
                 $module
                   .fadeIn(settings.duration, settings.easing, function() {
+                    $.proxy(settings.onVisible, element)();
                     module.set.active();
                     callback();
                   })
                 ;
               }
-              $.proxy(settings.onShow, element)();
             }
           }
           else {
@@ -333,9 +335,11 @@ $.fn.modal = function(parameters) {
           }
           module.debug('Hiding modal');
           module.remove.keyboardShortcuts();
+          $.proxy(settings.onHide, element)();
           if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
             $module
               .transition(settings.transition + ' out', settings.duration, function() {
+                $.proxy(settings.onHidden, element)();
                 module.remove.active();
                 module.restore.focus();
                 callback();
@@ -345,13 +349,13 @@ $.fn.modal = function(parameters) {
           else {
             $module
               .fadeOut(settings.duration, settings.easing, function() {
+                $.proxy(settings.onHidden, element)();
                 module.remove.active();
                 module.restore.focus();
                 callback();
               })
             ;
           }
-          $.proxy(settings.onHide, element)();
         },
 
         hideAll: function(callback) {
@@ -712,6 +716,10 @@ $.fn.modal.settings = {
 
   onShow        : function(){},
   onHide        : function(){},
+
+  onVisible     : function(){},
+  onHidden      : function(){},
+
   onApprove     : function(){ return true; },
   onDeny        : function(){ return true; },
 
