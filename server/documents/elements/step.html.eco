@@ -56,18 +56,19 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Vertical</h4>
     <p>Vertical steps display each step stacked vertically</p>
+    <div class="ui ignored info message">Vertical steps items can include a <code>two line</code> variation to allow for long names or names with line breaks</div>
     <div class="ui vertical steps">
       <div class="ui step">
         Shipping
       </div>
-      <div class="ui active step">
-        Billing
+      <div class="ui active two line step">
+        Billing & Order <br> Confirmation
       </div>
       <div class="ui disabled step">
-        Confirm Order
+        Review
       </div>
       <div class="ui disabled step">
-        Complete
+        Receipt
       </div>
     </div>
   </div>

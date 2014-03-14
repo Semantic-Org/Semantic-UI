@@ -148,11 +148,11 @@
       Focus
 ---------------*/
 
-.ui.checkbox input:focus + .box:before,
-.ui.checkbox input:focus + label:before {
+.ui.checkbox input:focus ~ .box:before,
+.ui.checkbox input:focus ~ label:before {
   border: 1px solid @selectedBorderColor;
 }
-.ui.checkbox input:focus + label {
+.ui.checkbox input:focus ~ label {
   color: @labelSelectedColor;
 }
 
@@ -161,8 +161,8 @@
      Active
 ---------------*/
 
-.ui.checkbox input:checked + .box:after,
-.ui.checkbox input:checked + label:after {
+.ui.checkbox input:checked ~ .box:after,
+.ui.checkbox input:checked ~ label:after {
   opacity: 1;
 }
 
@@ -170,10 +170,10 @@
      Disabled
 ---------------*/
 
-.ui.disabled.checkbox + .box:after,
-.ui.checkbox input[disabled] + .box:after,
+.ui.disabled.checkbox .box:after,
 .ui.disabled.checkbox label,
-.ui.checkbox input[disabled] + label {
+.ui.checkbox input[disabled] ~ .box:after,
+.ui.checkbox input[disabled] ~ label {
   opacity: 0.4;
   color: rgba(0, 0, 0, 0.3);
 }
@@ -261,19 +261,19 @@
 }
 
 /* Focus */
-.ui.slider.checkbox input:focus + .box:before,
-.ui.slider.checkbox input:focus + label:before {
+.ui.slider.checkbox input:focus ~ .box:before,
+.ui.slider.checkbox input:focus ~ label:before {
   background-color: @toggleFocusColor;
   border: none;
 }
 
 /* Active */
-.ui.slider.checkbox input:checked + .box:before,
-.ui.slider.checkbox input:checked + label:before {
+.ui.slider.checkbox input:checked ~ .box:before,
+.ui.slider.checkbox input:checked ~ label:before {
   background-color: @positiveCheckbox;
 }
-.ui.slider.checkbox input:checked + .box:after,
-.ui.slider.checkbox input:checked + label:after {
+.ui.slider.checkbox input:checked ~ .box:after,
+.ui.slider.checkbox input:checked ~ label:after {
   left: @sliderTravelDistance;
 }
 
@@ -335,34 +335,34 @@
 
 /* Off */
 /*
-.ui.toggle.checkbox input + .box:before,
-.ui.toggle.checkbox input + label:before {
+.ui.toggle.checkbox input ~ .box:before,
+.ui.toggle.checkbox input ~ label:before {
   background-color: @negativeCheckbox;
 }
 */
-.ui.toggle.checkbox input + .box:after,
-.ui.toggle.checkbox input + label:after {
+.ui.toggle.checkbox input ~ .box:after,
+.ui.toggle.checkbox input ~ label:after {
   left: @toggleOffOffset;
 }
 
 /* Focus */
-.ui.toggle.checkbox input:focus + .box:before,
-.ui.toggle.checkbox input:focus + label:before {
+.ui.toggle.checkbox input:focus ~ .box:before,
+.ui.toggle.checkbox input:focus ~ label:before {
   background-color: @toggleFocusColor;
   border: none;
 }
 
 /* Active */
-.ui.toggle.checkbox input:checked + .box,
-.ui.toggle.checkbox input:checked + label {
+.ui.toggle.checkbox input:checked ~ .box,
+.ui.toggle.checkbox input:checked ~ label {
   color: @positiveCheckbox;
 }
-.ui.toggle.checkbox input:checked + .box:before,
-.ui.toggle.checkbox input:checked + label:before {
+.ui.toggle.checkbox input:checked ~ .box:before,
+.ui.toggle.checkbox input:checked ~ label:before {
   background-color: @positiveCheckbox;
 }
-.ui.toggle.checkbox input:checked + .box:after,
-.ui.toggle.checkbox input:checked + label:after {
+.ui.toggle.checkbox input:checked ~ .box:after,
+.ui.toggle.checkbox input:checked ~ label:after {
   left: @toggleOnOffset;
 }
 

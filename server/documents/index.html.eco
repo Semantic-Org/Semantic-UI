@@ -15,8 +15,13 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="column">
       <div class="introduction">
+<<<<<<< HEAD
         <h1 class="ui inverted header">Semantic UI <a class="ui black label" href="https://github.com/semantic-org/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.14.0</a></h1>
         <h2 class="ui inverted header">UI is the vocabulary of the web.</h2>
+=======
+        <h1 class="ui header">Semantic UI <a class="ui black label" href="https://github.com/semantic-org/Semantic-UI/blob/master/RELEASE%20NOTES.md">0.15.0</a></h1>
+        <h2 class="ui header">UI is the vocabulary of the web.</h2>
+>>>>>>> 3cd5cee3273bb2821ece8fc0e0ec199106f9c6bf
         <p>Semantic empowers designers and developers by creating a language for sharing UI.</p>
         <a class="ui black large labeled launch icon button"><i class="icon list layout"></i> View UI</a>
         <a class="ui red large labeled icon button" href="build/semantic.zip"><i class="awesome download cloud icon"></i> Download</a>

@@ -7,9 +7,23 @@ type   : 'Library'
 ---
 <%- @partial('header') %>
 
-<script type='text/javascript'>
+<div class="main container">
+$(document).ready(function() {
+    $('.dropdown').dropdown();
+});
 </script>
 
-<div class="main container">
+<div>Show me posts trending
+    <div class="ui inline dropdown">
+      <div class="text">today</div>
+      <i class="dropdown icon"></i>
+      <input type="hidden" name="trending">
+      <div class="menu">
+        <div class="item" data-text="1">Today</div>
+        <div class="item" data-text="2">This Week</div>
+        <div class="item" data-text="this month">This Month</div>
+      </div>
+    </div>
 </div>
+
 </body>

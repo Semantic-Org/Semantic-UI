@@ -5,11 +5,11 @@ semantic.validateForm.ready = function() {
 
   // selector cache
   var
-    $dogForm    = $('.dog.example .ui.form'),
-    $inlineForm = $('.inline.example .ui.form'),
-    $form       = $('.ui.form').not($dogForm).not($inlineForm),
-    $checkbox   = $('.example .ui.checkbox'),
-    $dropdown   = $('.example .ui.dropdown'),
+    $dogForm      = $('.dog.example .ui.form'),
+    $dropdownForm = $('.dropdown.example .ui.form'),
+    $inlineForm   = $('.inline.example .ui.form'),
+    $form         = $('.ui.form').not($dogForm).not($inlineForm).not($dropdownForm),
+    $checkbox     = $('.ui.checkbox'),
     // alias
     handler
   ;
@@ -128,6 +128,31 @@ semantic.validateForm.ready = function() {
       inline : true,
       on: 'blur'
     })
+  ;
+
+  $dropdownForm
+    .form({
+      gender: {
+        identifier  : 'gender',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a gender'
+          }
+        ]
+      },
+      name: {
+        identifier  : 'name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your name'
+          }
+        ]
+      },
+    })
+    .find('.dropdown')
+      .dropdown()
   ;
 
 
