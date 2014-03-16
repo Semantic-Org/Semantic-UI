@@ -3,12 +3,16 @@ node_modules
 node/server.json
 test/coverage/
 coverage/
+<<<<<<< HEAD
 .idea/
 build/**/**/site/
 src/build/
 src/**/site/
 src/semantic.config
 build/**/**/semantic.config
+=======
+semantic.config
+>>>>>>> upstream/master
 
 # Numerous always-ignore extensions
 *.diff

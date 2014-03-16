@@ -197,11 +197,19 @@
   display: block;
 }
 
+/*--------------------
+        Hover
+----------------------*/
+
 /* Menu Item Hover */
 .ui.dropdown .menu .item:hover {
   background-color: rgba(0, 0, 0, 0.02);
   z-index: 12;
 }
+
+/*--------------------
+        Active
+----------------------*/
 
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
@@ -216,7 +224,14 @@
   z-index: 12;
 }
 
+<<<<<<< HEAD:src/definitions/modules/dropdown.less
 /* Default Text */
+=======
+/*--------------------
+     Default Text
+----------------------*/
+
+>>>>>>> upstream/master:build/less/modules/dropdown.less
 .ui.dropdown > .default.text,
 .ui.default.dropdown > .text {
   color: rgba(0, 0, 0, 0.5);
@@ -226,6 +241,45 @@
   color: rgba(0, 0, 0, 0.8);
 }
 
+<<<<<<< HEAD:src/definitions/modules/dropdown.less
+=======
+/*--------------------
+        Error
+----------------------*/
+
+.ui.dropdown.error,
+.ui.dropdown.error .item {
+  color: #D95C5C !important;
+}
+
+.ui.selection.dropdown.error {
+  background-color: #FFFAFA;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(231, 190, 190, 1) !important;
+  box-shadow: 0px 0px 0px 1px rgba(231, 190, 190, 1) !important;
+}
+
+.ui.selection.dropdown.error:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(231, 190, 190, 1) !important;
+  box-shadow: 0px 0px 0px 1px rgba(231, 190, 190, 1) !important;
+}
+
+.ui.dropdown.error .menu {
+  -webkit-box-shadow: 0px 0px 1px 1px #E7BEBE !important;
+  box-shadow: 0px 0px 1px 1px #E7BEBE !important;
+}
+
+/* Item Hover */
+
+.ui.dropdown.error .menu .item:hover {
+  background-color: #FFF2F2 !important;
+}
+
+/* Item Active */
+
+.ui.dropdown.error .menu .active.item {
+  background-color: #FDCFCF !important;
+}
+>>>>>>> upstream/master:build/less/modules/dropdown.less
 
 /*******************************
            Variations
@@ -361,6 +415,7 @@
   margin-right: 0.5em;
 }
 
+<<<<<<< HEAD:src/definitions/modules/dropdown.less
 /* Hover */
 .ui.selection.dropdown:hover {
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
@@ -376,6 +431,8 @@
   opacity: 1;
 }
 
+=======
+>>>>>>> upstream/master:build/less/modules/dropdown.less
 /* Visible */
 .ui.visible.selection.dropdown {
   border-bottom-left-radius: 0em !important;
@@ -392,8 +449,11 @@
 .ui.active.selection.dropdown > .dropdown.icon {
   opacity: 1;
 }
+<<<<<<< HEAD:src/definitions/modules/dropdown.less
 .ui.active.selection.dropdown .menu {
 }
+=======
+>>>>>>> upstream/master:build/less/modules/dropdown.less
 
 /*--------------
       Fluid

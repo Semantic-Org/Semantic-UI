@@ -1,5 +1,23 @@
 ## RELEASE NOTES
 
+<<<<<<< HEAD
+=======
+### Version 0.14.0- Mar 03, 2014
+
+**Enhancements**
+- **Modal** - Modal now uses requestAnimationFrame instead of debounced callback
+- **Dropdown** - Dropdown now has error state **Thanks Musatov**
+- **Form** - Form fields with errors will now properly style dropdown elements **Thanks Musatov**
+- **Step** - Steps can now appear vertically
+
+**Fixes**
+- **List** - Bulleted and horizontal lists now appear correctly in IE10-11
+
+**Project**
+- **NPM** - Docpad is now moved to a dev dependency **Thanks kapouer**
+
+### Version 0.13.1- Feb 28, 2014
+>>>>>>> upstream/master
 
 ### Version 1.0.0 - XX XX, 2014
 

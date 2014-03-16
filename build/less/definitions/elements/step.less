@@ -75,6 +75,46 @@
 }
 
 /*******************************
+            Types
+*******************************/
+
+.ui.vertical.steps {
+  overflow: visible;
+}
+.ui.vertical.steps .step {
+  display: block;
+  border-radius: 0em;
+  padding: 1em 2em;
+}
+.ui.vertical.steps .step:first-child {
+  padding: 1em 2em;
+  border-top-left-radius: 0.3125rem;
+  border-top-right-radius: 0.3125rem;
+}
+.ui.vertical.steps .step:last-child {
+  border-bottom-left-radius: 0.3125rem;
+  border-bottom-right-radius: 0.3125rem;
+}
+
+/* Arrow */
+.ui.vertical.steps .step:after {
+  display: none;
+}
+
+/* Disabled */
+.ui.vertical.steps .disabled.step:after {
+  padding: 1em 2em;
+}
+
+
+/* Active Arrow */
+.ui.vertical.steps .active.step:after {
+  display: block;
+}
+
+
+
+/*******************************
             Group
 *******************************/
 
@@ -82,6 +122,7 @@
   cursor: pointer;
   display: inline-block;
   font-size: 0em;
+  overflow: hidden;
 
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
