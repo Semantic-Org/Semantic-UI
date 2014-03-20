@@ -1,5 +1,5 @@
 {
-  "name": "semanticui",
+  "name": "semantic",
   "version": "0.15.1",
   "title": "Semantic UI",
   "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
@@ -14,14 +14,14 @@
     "url": "git://github.com/Semantic-Org/Semantic-UI.git"
   },
   "dependencies": {
-    "jquery": "*"
+    "jquery": "1.*"
   },
   "devDependencies": {
     "docpad": "~6.63.3",
     "docpad-plugin-eco": "~2.0.3",
-    "docpad-plugin-ghpages": "~2.4.2",
+    "docpad-plugin-ghpages": "~2.4.1",
     "docpad-plugin-partials": "~2.8.1",
-    "grunt": "~0.4.4",
+    "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-uglify": "~0.2.2",
@@ -33,6 +33,7 @@
     "grunt-css": "~0.5.4",
     "grunt-contrib-compress": "~0.5.2",
     "grunt-contrib-concat": "~0.3.0",
+    "grunt-replace": "~0.7.3",
     "grunt-docco-multi": "0.0.2",
     "grunt-cssjanus": "~0.1.1",
     "karma": "~0.10.2",
@@ -42,6 +43,9 @@
     "grunt-autoprefixer": "~0.4.0",
     "grunt-karma-coveralls": "~2.2.0",
     "karma-coverage": "~0.1.4",
-    "grunt-replace": "~0.7.3"
+    "docpad-plugin-partials": "~2.8.1",
+    "docpad-plugin-ghpages": "~2.4.2",
+    "docpad-plugin-eco": "~2.0.3",
+    "docpad": "~6.63.3"
   }
 }
