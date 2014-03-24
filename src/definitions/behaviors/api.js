@@ -473,6 +473,7 @@ $.api = $.fn.api = function(parameters) {
         },
 
         setting: function(name, value) {
+          module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
           }
@@ -701,6 +702,7 @@ $.api.settings = {
     error            : 'There was an error with your request',
     exitConditions   : 'API Request Aborted. Exit conditions met',
     JSONParse        : 'JSON could not be parsed during error handling',
+    method           : 'The method you called is not defined.',
     missingSerialize : 'Serializing a Form requires toJSON to be included',
     missingAction    : 'API action used but no url was defined',
     missingParameter : 'Missing an essential URL parameter: ',

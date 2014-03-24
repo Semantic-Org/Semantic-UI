@@ -211,9 +211,9 @@
         <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
         <div class="menu">
           <% for element, index in currentCollection: %>
-            <div class="<%= if element.id is @document.id then 'active ' %>item">
-              <a href="<%= element.url %>"><%= (index+1) %>. <%= element.title %></a>
-            </div>
+            <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+              <%= (index+1) %>. <%= element.title %>
+            </a>
           <% end %>
         </div>
       </div>

@@ -31,6 +31,7 @@ semantic.ready = function() {
     $peekItem         = $peek.children('.menu').children('a.item'),
     $peekSubItem      = $peek.find('.item .menu .item'),
     $sortableTables   = $('.sortable.table'),
+    $stuckColumn      = $('.fixed.column > .image, .fixed.column > .content'),
 
     $themeDropdown    = $('.theme.dropdown'),
 
@@ -731,6 +732,7 @@ semantic.ready = function() {
   if( $pageTabs.size() > 0 ) {
     $pageTabs
       .tab({
+        context   : '.main.container',
         onTabInit : handler.makeCode,
         onTabLoad : function() {
           $.proxy(handler.makeStickyColumns, this)();

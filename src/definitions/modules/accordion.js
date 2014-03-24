@@ -207,6 +207,7 @@ $.fn.accordion = function(parameters) {
         },
 
         setting: function(name, value) {
+          module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
           }

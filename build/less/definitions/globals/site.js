@@ -10,7 +10,7 @@
  */
 ;(function ( $, window, document, undefined ) {
 
-$.fn.site = function(parameters) {
+$.site = $.fn.site = function(parameters) {
   var
     time           = new Date().getTime(),
     performance    = [],
@@ -20,8 +20,8 @@ $.fn.site = function(parameters) {
     queryArguments = [].slice.call(arguments, 1),
 
     settings        = ( $.isPlainObject(parameters) )
-      ? $.extend(true, {}, $.fn.site.settings, parameters)
-      : $.extend({}, $.fn.site.settings),
+      ? $.extend(true, {}, $.site.settings, parameters)
+      : $.extend({}, $.site.settings),
 
     namespace       = settings.namespace,
     error           = settings.error,
@@ -30,14 +30,13 @@ $.fn.site = function(parameters) {
     moduleNamespace = 'module-' + namespace,
 
     $document       = $(document),
-    $module         = $(this),
+    $module         = $document,
     element         = this,
     instance        = $module.data(moduleNamespace),
 
     module,
     returnedValue
   ;
-
   module = {
 
     initialize: function() {
@@ -55,9 +54,7 @@ $.fn.site = function(parameters) {
     normalize: function() {
       module.debug('Normalizing JS APIs');
       module.fix.console();
-      if(settings.siteNamespace) {
-        module.createNamespace();
-      }
+      module.fix.requestAnimationFrame();
     },
 
     createSite: function(name) {
@@ -128,7 +125,9 @@ $.fn.site = function(parameters) {
           module.debug('Changing setting', setting, value, modules);
         }
         $.each(settings.modules, function(index, name) {
-          $.fn[name][setting] = value;
+          if($.fn[name] !== undefined) {
+            $.fn[name][setting] = value;
+          }
         });
       },
       settings: function(modules, settings, value, alert) {
@@ -374,14 +373,13 @@ $.fn.site = function(parameters) {
     }
     module.initialize();
   }
-
   return (returnedValue)
     ? returnedValue
     : this
   ;
 };
 
-$.fn.site.settings = {
+$.site.settings = {
 
   name        : 'Site',
   namespace   : 'site',
@@ -390,12 +388,13 @@ $.fn.site.settings = {
     console : 'Console cannot be restored, most likely it was overwritten outside of module'
   },
 
-  verbose     : false,
-  debug       : false,
-  performance : false,
+  verbose     : true,
+  debug       : true,
+  performance : true,
 
   modules: [
     'accordion',
+    'api',
     'checkbox',
     'dimmer',
     'dropdown',
@@ -407,6 +406,7 @@ $.fn.site.settings = {
     'shape',
     'sidebar',
     'site',
+    'state',
     'sticky',
     'tab',
     'transition',

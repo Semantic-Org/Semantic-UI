@@ -589,7 +589,7 @@ $.fn.chatroom = function(parameters) {
   })
 ;
 
-  return (returnedValue)
+  return (returnedValue !== undefined)
     ? returnedValue
     : this
   ;

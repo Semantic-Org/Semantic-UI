@@ -78,8 +78,8 @@ $.fn.transition = function() {
           // no internal method was found matching query or query not made
           if(methodInvoked === false) {
             module.animate();
+            module.instantiate();
           }
-          module.instantiate();
         },
 
         instantiate: function() {
@@ -596,6 +596,7 @@ $.fn.transition = function() {
         },
 
         setting: function(name, value) {
+          module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
           }

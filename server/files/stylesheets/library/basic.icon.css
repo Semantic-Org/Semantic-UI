@@ -245,47 +245,47 @@ i.yellow.icon {
    Inverted Colors
 --------------------*/
 
-i.black.icon {
+i.inverted.black.icon {
   background-color: #555555 !important;
   color: #FFFFFF !important;
 }
 
-i.blue.icon {
+i.inverted.blue.icon {
   background-color: #6ecff5 !important;
   color: #FFFFFF !important;
 }
 
-i.green.icon {
+i.inverted.green.icon {
   background-color: #5bbd72 !important;
   color: #FFFFFF !important;
 }
 
-i.orange.icon {
+i.inverted.orange.icon {
   background-color: #e96633 !important;
   color: #FFFFFF !important;
 }
 
-i.pink.icon {
+i.inverted.pink.icon {
   background-color: #d9499a !important;
   color: #FFFFFF !important;
 }
 
-i.purple.icon {
+i.inverted.purple.icon {
   background-color: #564f8a !important;
   color: #FFFFFF !important;
 }
 
-i.red.icon {
+i.inverted.red.icon {
   background-color: #d95c5c !important;
   color: #FFFFFF !important;
 }
 
-i.teal.icon {
+i.inverted.teal.icon {
   background-color: #00b5ad !important;
   color: #FFFFFF !important;
 }
 
-i.yellow.icon {
+i.inverted.yellow.icon {
   background-color: #ffcb08 !important;
   color: #FFFFFF !important;
 }

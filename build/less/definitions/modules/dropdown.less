@@ -143,7 +143,6 @@
 .ui.dropdown .menu .item {
   cursor: pointer;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
   height: auto;
 
   font-size: 0.875em;
@@ -203,7 +202,7 @@
 
 /* Menu Item Hover */
 .ui.dropdown .menu .item:hover {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.03);
   z-index: 12;
 }
 
@@ -214,8 +213,9 @@
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
   box-shadow: none;
-  background-color: rgba(0, 0, 0, 0.06) !important;
+  font-weight: bold;
   border-left: none;
+  background-color: rgba(0, 0, 0, 0.03);
   border-color: transparent !important;
 
   -webkit-box-shadow: none;

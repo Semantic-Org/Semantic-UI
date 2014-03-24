@@ -304,7 +304,7 @@ body.guide .main.container > * {
   overflow: hidden;
   background-color: #00B5AD;
   text-align: center;
-  margin-top: 38px;
+  margin-top: 36px;
   padding: 50px 0px;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
@@ -1515,6 +1515,7 @@ body.progress .ui.progress .bar {
   }
   #example .examples {
     margin-right: 400px;
+    padding: 1px;
   }
   #example .fixed.column,
   #example .fixed.column .fixed {
