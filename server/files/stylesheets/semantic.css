@@ -714,6 +714,7 @@ body.guide .main.container > * {
   transition:
     all 0.2s ease-out
   ;
+  -webkit-backface-visibility: hidden;
 }
 #example .icon.example .grid .column:hover .icon {
   color: #009FDA;
