@@ -317,8 +317,8 @@ $.fn.checkbox.settings = {
   name        : 'Checkbox',
   namespace   : 'checkbox',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   // delegated event context

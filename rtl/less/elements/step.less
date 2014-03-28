@@ -76,13 +76,23 @@
 
 .ui.vertical.steps .step:first-child {
   padding: 1em 2em;
+  border-radius: 0em;
   border-top-right-radius: 0.3125rem;
   border-top-left-radius: 0.3125rem;
 }
 
+.ui.vertical.steps .active.step:first-child {
+  border-top-left-radius: 0rem;
+}
+
 .ui.vertical.steps .step:last-child {
+  border-radius: 0em;
   border-bottom-right-radius: 0.3125rem;
   border-bottom-left-radius: 0.3125rem;
+}
+
+.ui.vertical.steps .active.step:last-child {
+  border-bottom-left-radius: 0rem;
 }
 
 /* Arrow */

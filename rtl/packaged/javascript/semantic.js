@@ -386,7 +386,7 @@ $.fn.accordion.settings = {
   name        : 'Accordion',
   namespace   : 'accordion',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 
@@ -3387,8 +3387,7 @@ $.fn.chatroom = function(parameters) {
     }
   })
 ;
-
-  return (returnedValue)
+  return (returnedValue !== undefined)
     ? returnedValue
     : this
   ;
@@ -3890,8 +3889,8 @@ $.fn.checkbox.settings = {
   name        : 'Checkbox',
   namespace   : 'checkbox',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   // delegated event context
@@ -4464,7 +4463,7 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 
@@ -5368,7 +5367,7 @@ $.fn.dropdown = function(parameters) {
     })
   ;
 
-  return (returnedValue)
+  return (returnedValue !== undefined)
     ? returnedValue
     : this
   ;
@@ -5379,8 +5378,8 @@ $.fn.dropdown.settings = {
   name        : 'Dropdown',
   namespace   : 'dropdown',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   on          : 'click',
@@ -6138,7 +6137,7 @@ $.fn.modal.settings = {
   name          : 'Modal',
   namespace     : 'modal',
 
-  debug         : true,
+  debug         : false,
   verbose       : true,
   performance   : true,
 
@@ -6665,8 +6664,8 @@ $.fn.nag.settings = {
 
   name        : 'Nag',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   namespace   : 'Nag',
@@ -7507,7 +7506,7 @@ $.fn.popup = function(parameters) {
 $.fn.popup.settings = {
 
   name           : 'Popup',
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
   namespace      : 'popup',
@@ -7959,7 +7958,7 @@ $.fn.rating.settings = {
   namespace     : 'rating',
 
   verbose       : true,
-  debug         : true,
+  debug         : false,
   performance   : true,
 
   initialRating : 0,
@@ -8580,7 +8579,7 @@ $.fn.search.settings = {
   name           : 'Search Module',
   namespace      : 'search',
 
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
 
@@ -9502,7 +9501,7 @@ $.fn.shape.settings = {
   name : 'Shape',
 
   // debug content outputted to console
-  debug      : true,
+  debug      : false,
 
   // verbose debug output
   verbose    : true,
@@ -10024,8 +10023,8 @@ $.fn.sidebar.settings = {
   name        : 'Sidebar',
   namespace   : 'sidebar',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   useCSS      : true,
@@ -10708,8 +10707,8 @@ $.fn.sidebar.settings = {
   $.fn.tab.settings = {
 
     name        : 'Tab',
+    debug       : false,
     verbose     : true,
-    debug       : true,
     performance : true,
     namespace   : 'tab',
 
@@ -11998,7 +11997,7 @@ $.fn.video.settings = {
   name        : 'Video',
   namespace   : 'video',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 

@@ -743,7 +743,7 @@ $.fn.shape.settings = {
   name : 'Shape',
 
   // debug content outputted to console
-  debug      : true,
+  debug      : false,
 
   // verbose debug output
   verbose    : true,

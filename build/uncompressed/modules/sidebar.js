@@ -478,8 +478,8 @@ $.fn.sidebar.settings = {
   name        : 'Sidebar',
   namespace   : 'sidebar',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   useCSS      : true,

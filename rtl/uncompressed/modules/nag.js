@@ -482,8 +482,8 @@ $.fn.nag.settings = {
 
   name        : 'Nag',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   namespace   : 'Nag',

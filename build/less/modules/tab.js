@@ -647,8 +647,8 @@
   $.fn.tab.settings = {
 
     name        : 'Tab',
+    debug       : false,
     verbose     : true,
-    debug       : true,
     performance : true,
     namespace   : 'tab',
 

@@ -386,7 +386,7 @@ $.fn.accordion.settings = {
   name        : 'Accordion',
   namespace   : 'accordion',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 

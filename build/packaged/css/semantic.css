@@ -9133,6 +9133,10 @@ i.purple.icon {
   color: #564F8A !important;
 }
 
+i.orange.icon {
+  color: #F05940 !important;
+}
+
 i.teal.icon {
   color: #00B5AD !important;
 }
@@ -9163,6 +9167,11 @@ i.inverted.red.icon {
 
 i.inverted.purple.icon {
   background-color: #564F8A !important;
+  color: #FFFFFF !important;
+}
+
+i.inverted.orange.icon {
+  background-color: #F05940 !important;
   color: #FFFFFF !important;
 }
 
@@ -11448,7 +11457,7 @@ a.ui.teal.label:hover:before {
     Loose Coupling
 --------------------*/
 
-.ui.pointing.menu + .ui.attached.segment {
+.ui.pointing.menu ~ .ui.attached.segment {
   top: 1px;
 }
 
@@ -11898,13 +11907,23 @@ a.ui.teal.label:hover:before {
 
 .ui.vertical.steps .step:first-child {
   padding: 1em 2em;
+  border-radius: 0em;
   border-top-left-radius: 0.3125rem;
   border-top-right-radius: 0.3125rem;
 }
 
+.ui.vertical.steps .active.step:first-child {
+  border-top-right-radius: 0rem;
+}
+
 .ui.vertical.steps .step:last-child {
+  border-radius: 0em;
   border-bottom-left-radius: 0.3125rem;
   border-bottom-right-radius: 0.3125rem;
+}
+
+.ui.vertical.steps .active.step:last-child {
+  border-bottom-right-radius: 0rem;
 }
 
 /* Arrow */

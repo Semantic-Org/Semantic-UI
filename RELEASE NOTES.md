@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 0.15.2 - Mar 28, 2014
+
+**Changes**
+- **All Modules** - Debug is now disabled by default
+
+**Fixes**
+- **Step** - Fixes issue with border radius on vertical steps
+- **Icon** - Orange color is now available for icon
+- **Menu** - Fixes formatting of attached segments with menus
+
 ### Version 0.15.1 - Mar 14, 2014
 
 **Critical Fixes**
