@@ -158,8 +158,6 @@ $.fn.form = function(fields, parameters) {
                 $field
                   .one('keyup' + eventNamespace, module.event.field.keyup)
                 ;
-                event.preventDefault();
-                return false;
               }
             },
             keyup: function() {
@@ -199,7 +197,7 @@ $.fn.form = function(fields, parameters) {
 
         get: {
           changeEvent: function(type) {
-            if(type == 'checkbox' || type == 'radio' || type == 'hidden') {
+            if(type == 'checkbox' || type == 'radio') {
               return 'change';
             }
             else {
@@ -422,7 +420,6 @@ $.fn.form = function(fields, parameters) {
         },
 
         setting: function(name, value) {
-          module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
           }
@@ -605,7 +602,7 @@ $.fn.form.settings = {
   name              : 'Form',
   namespace         : 'form',
 
-  debug             : true,
+  debug             : false,
   verbose           : true,
   performance       : true,
 

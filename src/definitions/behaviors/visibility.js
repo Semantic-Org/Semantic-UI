@@ -402,7 +402,6 @@ $.fn.visibility = function(parameters) {
         },
 
         setting: function(name, value) {
-          module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
           }
@@ -582,8 +581,8 @@ $.fn.visibility.settings = {
   name              : 'Visibility',
   namespace         : 'visibility',
 
-  verbose           : false,
   debug             : false,
+  verbose           : false,
   performance       : true,
 
   loadWait          : 1000,

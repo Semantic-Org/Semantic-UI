@@ -578,7 +578,7 @@ $.fn.state.settings = {
   name : 'State',
 
   // debug output
-  debug      : true,
+  debug      : false,
 
   // verbose debug output
   verbose    : true,

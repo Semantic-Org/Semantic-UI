@@ -199,7 +199,7 @@ $.api = $.fn.api = function(parameters) {
               urlVariables
             ;
             if(url) {
-              urlVariables = url.match(settings.regExpTemplate);
+              urlVariables = url.match(settings.regExp.required);
               urlData      = urlData || settings.urlData;
 
               if(urlVariables) {
@@ -473,7 +473,6 @@ $.api = $.fn.api = function(parameters) {
         },
 
         setting: function(name, value) {
-          module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
           }
@@ -665,7 +664,10 @@ $.api.settings = {
 
   // templating
   action          : false,
-  regExpTemplate  : /\{\$([A-z]+)\}/g,
+
+  regExp  : {
+    required: /\{\$([A-z]+)\}/g
+  },
 
   // data
   url             : false,
@@ -702,7 +704,6 @@ $.api.settings = {
     error            : 'There was an error with your request',
     exitConditions   : 'API Request Aborted. Exit conditions met',
     JSONParse        : 'JSON could not be parsed during error handling',
-    method           : 'The method you called is not defined.',
     missingSerialize : 'Serializing a Form requires toJSON to be included',
     missingAction    : 'API action used but no url was defined',
     missingParameter : 'Missing an essential URL parameter: ',
