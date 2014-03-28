@@ -137,6 +137,9 @@ type   : 'Semantic'
           <p>Semantic provides tracing for javascript behavior so your components can tell you what they're doing as they do it.</p>
           <div class="code" data-type="javascript" data-demo="true">
           $('.kitten.image')
+            .transition({
+              debug: true
+            })
             .transition('scale in')
             .transition('tada', '800ms')
           ;
