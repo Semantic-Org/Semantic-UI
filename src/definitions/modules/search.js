@@ -422,7 +422,6 @@ $.fn.search = function(parameters) {
         },
 
         setting: function(name, value) {
-          module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
           }
@@ -708,7 +707,7 @@ $.fn.search.settings = {
                   + '</div>'
                 ;
               }
-              html += '<div class="info">';
+              html += '<div class="content">';
               if(result.price !== undefined) {
                 html+= '<div class="price">' + result.price + '</div>';
               }
@@ -754,7 +753,7 @@ $.fn.search.settings = {
               + '</div>'
             ;
           }
-          html += '<div class="info">';
+          html += '<div class="content">';
           if(result.price !== undefined) {
             html+= '<div class="price">' + result.price + '</div>';
           }
