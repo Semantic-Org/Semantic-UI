@@ -52,34 +52,13 @@ $.site = $.fn.site = function(parameters) {
     },
 
     normalize: function() {
-      module.debug('Normalizing JS APIs');
       module.fix.console();
       module.fix.requestAnimationFrame();
     },
 
-    createSite: function(name) {
-      module.debug('Creating site namespace');
-      name = name || settings.siteNamespace;
-      if(window[name] === undefined) {
-        window[name] = settings.namespaceStub;
-      }
-      else {
-        $.extend(true, window[name], settings.namespaceStub);
-      }
-    },
-
-    initializeSite: function(name) {
-      name = name || settings.siteNamespace;
-      if(window[name] === undefined) {
-        module.create.site(name);
-      }
-      $document
-        .ready(module.dispatchReady)
-      ;
-    },
-
     fix: {
       console: function() {
+        module.debug('Normalizing window.console');
         if (console === undefined || console.log === undefined) {
           module.verbose('Console not available, normalizing events');
           module.disable.console();
@@ -100,6 +79,7 @@ $.site = $.fn.site = function(parameters) {
         window.console.clear = function() {};
       },
       requestAnimationFrame: function() {
+        module.debug('Normalizing requestAnimationFrame');
         if(window.requestAnimationFrame === undefined) {
           module.debug('RequestAnimationFrame not available, normailizing event');
           window.requestAnimationFrame = window.requestAnimationFrame
@@ -112,35 +92,96 @@ $.site = $.fn.site = function(parameters) {
       }
     },
 
+    moduleExists: function(name) {
+      return ($.fn[name] !== undefined && $.fn[name].settings !== undefined);
+    },
+
+    enabled: {
+      modules: function(modules) {
+        var
+          enabledModules = []
+        ;
+        modules = modules || settings.modules;
+        $.each(modules, function(index, name) {
+          if(module.moduleExists(name)) {
+            enabledModules.push(name);
+          }
+        });
+        return enabledModules;
+      }
+    },
+
+    disabled: {
+      modules: function(modules) {
+        var
+          disabledModules = []
+        ;
+        modules = modules || settings.modules;
+        $.each(modules, function(index, name) {
+          if(!module.moduleExists(name)) {
+            disabledModules.push(name);
+          }
+        });
+        return disabledModules;
+      }
+    },
+
     change: {
-      setting: function(setting, value, modules, alert) {
+      setting: function(setting, value, modules, modifyExisting) {
         modules = (typeof modules === 'string')
           ? (modules === 'all')
             ? settings.modules
             : [modules]
           : modules || settings.modules
         ;
-        alert = alert || true;
-        if(alert) {
-          module.debug('Changing setting', setting, value, modules);
-        }
-        $.each(settings.modules, function(index, name) {
-          if($.fn[name] !== undefined) {
-            $.fn[name][setting] = value;
+        modifyExisting = (modifyExisting !== undefined)
+          ? modifyExisting
+          : true
+        ;
+        $.each(modules, function(index, name) {
+          var
+            namespace = (module.moduleExists(name))
+              ? $.fn[name].settings.namespace || false
+              : true,
+            $existingModules
+          ;
+          if(module.moduleExists(name)) {
+            module.verbose('Changing default setting', setting, value, name);
+            $.fn[name].settings[setting] = value;
+            if(modifyExisting && namespace) {
+              $existingModules = $(':data(module-' + namespace + ')');
+              if($existingModules.size() > 0) {
+                module.verbose('Modifying existing settings', $existingModules);
+                $existingModules[name]('setting', setting, value);
+              }
+            }
           }
         });
       },
-      settings: function(modules, settings, value, alert) {
+      settings: function(newSettings, modules, modifyExisting) {
         modules = (typeof modules === 'string')
           ? [modules]
           : modules || settings.modules
         ;
-        alert = alert || true;
-        if(alert) {
-          module.debug('Changing setting', settings, value, modules);
-        }
-        $.each(settings.modules, function(index, name) {
-          $.extend(true, $.fn[name], settings);
+        modifyExisting = (modifyExisting !== undefined)
+          ? modifyExisting
+          : true
+        ;
+        $.each(modules, function(index, name) {
+          var
+            $existingModules
+          ;
+          if(module.moduleExists(name)) {
+            module.verbose('Changing default setting', newSettings, name);
+            $.extend(true, $.fn[name].settings, newSettings);
+            if(modifyExisting && namespace) {
+              $existingModules = $(':data(module-' + namespace + ')');
+              if($existingModules.size() > 0) {
+                module.verbose('Modifying existing settings', $existingModules);
+                $existingModules[name]('setting', newSettings);
+              }
+            }
+          }
         });
       }
     },
@@ -149,45 +190,45 @@ $.site = $.fn.site = function(parameters) {
       console: function() {
         module.console(true);
       },
-      debug: function(modules) {
+      debug: function(modules, modifyExisting) {
+        modules = modules || settings.modules;
         module.debug('Enabling debug for modules', modules);
-        modules = modules || settings.modules;
-        module.change.setting(modules, 'debug', true, false);
+        module.change.setting('debug', true, modules, modifyExisting);
       },
-      verbose: function(modules) {
-        module.debug('Enabling verbose debug for modules', modules);
+      verbose: function(modules, modifyExisting) {
         modules = modules || settings.modules;
-        module.change.setting(modules, 'verbose', true, modules, false);
+        module.debug('Enabling verbose debug for modules', modules);
+        module.change.setting('verbose', true, modules, modifyExisting);
       }
     },
     disable: {
       console: function() {
         module.console(false);
       },
-      debug: function(modules) {
+      debug: function(modules, modifyExisting) {
+        modules = modules || settings.modules;
         module.debug('Disabling debug for modules', modules);
-        modules = modules || settings.modules;
-        module.change.setting(modules, 'debug', false, false);
+        module.change.setting('debug', false, modules, modifyExisting);
       },
-      verbose: function(modules) {
-        module.debug('Disabling verbose debug for modules', modules);
+      verbose: function(modules, modifyExisting) {
         modules = modules || settings.modules;
-        module.change.setting(modules, 'verbose', false, modules, false);
+        module.debug('Disabling verbose debug for modules', modules);
+        module.change.setting('verbose', false, modules, modifyExisting);
       }
     },
 
     console: function(enable) {
       if(enable) {
-        if(instance.console === undefined) {
+        if(instance.cache.console === undefined) {
           module.error(error.console);
           return;
         }
         module.debug('Restoring console function');
-        window.console = instance.console;
+        window.console = instance.cache.console;
       }
       else {
         module.debug('Disabling console function');
-        instance.console = window.console;
+        instance.cache.console = window.console;
         window.console = {
           clear          : function(){},
           error          : function(){},
@@ -208,6 +249,8 @@ $.site = $.fn.site = function(parameters) {
         .removeData(moduleNamespace)
       ;
     },
+
+    cache: {},
 
     setting: function(name, value) {
       if( $.isPlainObject(name) ) {
@@ -373,7 +416,7 @@ $.site = $.fn.site = function(parameters) {
     }
     module.initialize();
   }
-  return (returnedValue)
+  return (returnedValue !== undefined)
     ? returnedValue
     : this
   ;
@@ -392,6 +435,10 @@ $.site.settings = {
   debug       : true,
   performance : true,
 
+  error: {
+    method : 'The method you called is not defined.'
+  },
+
   modules: [
     'accordion',
     'api',
@@ -405,7 +452,6 @@ $.site.settings = {
     'rating',
     'shape',
     'sidebar',
-    'site',
     'state',
     'sticky',
     'tab',
@@ -424,6 +470,20 @@ $.site.settings = {
   }
 
 };
+
+// allows for selection of elements with data attributes
+$.extend($.expr[ ":" ], {
+  data: ($.expr.createPseudo)
+    ? $.expr.createPseudo(function(dataName) {
+        return function(elem) {
+          return !!$.data(elem, dataName);
+        };
+      })
+    : function(elem, i, match) {
+      // support: jQuery < 1.8
+      return !!$.data(elem, match[ 3 ]);
+    }
+});
 
 
 })( jQuery, window , document );

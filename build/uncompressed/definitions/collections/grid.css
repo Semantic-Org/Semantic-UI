@@ -182,8 +182,6 @@
 
 /* Standard */
 
-/* Fitted */
-
 /*--------------
      Relaxed
 ---------------*/
@@ -982,6 +980,10 @@ body > .ui.grid {
 /* Mobily Only */
 
 @media only screen and (max-width: 767px) {
+  .ui.doubling.grid > .row {
+    display: inline;
+  }
+
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
   .ui.grid > .two.column.doubling.row > .column {
@@ -991,19 +993,19 @@ body > .ui.grid {
   .ui.three.column.doubling.grid > .row > .column,
   .ui.three.column.doubling.grid > .column,
   .ui.grid > .three.column.doubling.row > .column {
-    width: 100%;
+    width: 50%;
   }
 
   .ui.four.column.doubling.grid > .row > .column,
   .ui.four.column.doubling.grid > .column,
   .ui.grid > .four.column.doubling.row > .column {
-    width: 100%;
+    width: 50%;
   }
 
   .ui.five.column.doubling.grid > .row > .column,
   .ui.five.column.doubling.grid > .column,
   .ui.grid > .five.column.doubling.row > .column {
-    width: 100%;
+    width: 50%;
   }
 
   .ui.six.column.doubling.grid > .row > .column,
@@ -1015,37 +1017,37 @@ body > .ui.grid {
   .ui.seven.column.doubling.grid > .row > .column,
   .ui.seven.column.doubling.grid > .column,
   .ui.grid > .seven.column.doubling.row > .column {
-    width: 50%;
+    width: 33.33333333333333%;
   }
 
   .ui.eight.column.doubling.grid > .row > .column,
   .ui.eight.column.doubling.grid > .column,
   .ui.grid > .eight.column.doubling.row > .column {
-    width: 50%;
+    width: 33.33333333333333%;
   }
 
   .ui.nine.column.doubling.grid > .row > .column,
   .ui.nine.column.doubling.grid > .column,
   .ui.grid > .nine.column.doubling.row > .column {
-    width: 50%;
+    width: 33.33333333333333%;
   }
 
   .ui.ten.column.doubling.grid > .row > .column,
   .ui.ten.column.doubling.grid > .column,
   .ui.grid > .ten.column.doubling.row > .column {
-    width: 50%;
+    width: 33.33333333333333%;
   }
 
   .ui.twelve.column.doubling.grid > .row > .column,
   .ui.twelve.column.doubling.grid > .column,
   .ui.grid > .twelve.column.doubling.row > .column {
-    width: 33.33333333333333%;
+    width: 25%;
   }
 
   .ui.fourteen.column.doubling.grid > .row > .column,
   .ui.fourteen.column.doubling.grid > .column,
   .ui.grid > .fourteen.column.doubling.row > .column {
-    width: 33.33333333333333%;
+    width: 25%;
   }
 
   .ui.sixteen.column.doubling.grid > .row > .column,
@@ -1058,6 +1060,10 @@ body > .ui.grid {
 /* Tablet Only */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.doubling.grid > .row {
+    display: inline;
+  }
+
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
   .ui.grid > .two.column.doubling.row > .column {

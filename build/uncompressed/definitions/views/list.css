@@ -54,7 +54,7 @@ ol.ui.list li,
   list-style-type: none;
   list-style-position: inside;
   padding: 0.3em 0em;
-  line-height: 1.2em;
+  line-height: 1.2;
 }
 
 .ui.list .item:after {
@@ -109,7 +109,7 @@ ol.ui.list li,
 .ui.list .item > .content {
   display: inline-block;
   vertical-align: middle;
-  line-height: 1.2em;
+  line-height: 1.2;
 }
 
 .ui.list .item > .icon + .content {
@@ -323,6 +323,20 @@ ol.ui.list li,
 }
 
 /*-------------------
+       Fitted
+--------------------*/
+
+.ui.fitted.list:not(.selection) .item {
+  padding-left: 0em;
+  padding-right: 0em;
+}
+
+.ui.fitted.selection.list .item {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+
+/*-------------------
       Bulleted
 --------------------*/
 
@@ -341,6 +355,8 @@ ul.ui.list li:before,
   position: absolute;
   left: -1.5em;
   content: '•';
+  line-height: 1.2rem;
+  vertical-align: top;
 }
 
 ul.ui.list ul,
@@ -424,7 +440,6 @@ ol.ui.horizontal.list,
 ol.ui.horizontal.list li:before,
 .ui.ordered.horizontal.list .item:before {
   position: static;
-  left: 0em;
   margin: 0em 0.5em 0em 0em;
 }
 
@@ -435,8 +450,6 @@ ol.ui.horizontal.list li:before,
 .ui.divided.list > .item,
 .ui.divided.list:not(.horizontal) > .list {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-left: 0.5em;
-  padding-right: 0.5em;
 }
 
 .ui.divided.list .item .menu .item {
@@ -509,7 +522,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  line-height: 0.6em;
+  line-height: 0.6;
 }
 
 .ui.horizontal.divided.list > .item:first-child {
@@ -604,7 +617,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  line-height: 0.6em;
+  line-height: 0.6;
 }
 
 .ui.horizontal.celled.list .item:last-child {

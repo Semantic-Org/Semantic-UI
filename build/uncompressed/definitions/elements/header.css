@@ -166,10 +166,6 @@
 
 /*---  Neutrals  ---*/
 
-/*------------------
-     Load Theme
--------------------*/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -211,6 +207,10 @@
 /* Floated */
 
 /*------------------
+     Load Theme
+-------------------*/
+
+/*------------------
      Load Site
 -------------------*/
 
@@ -234,7 +234,7 @@
 
 .ui.header {
   border: none;
-  font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;

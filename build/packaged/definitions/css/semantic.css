@@ -1147,8 +1147,6 @@
 
 /* Standard */
 
-/* Fitted */
-
 /*--------------
      Relaxed
 ---------------*/
@@ -1947,6 +1945,10 @@ body > .ui.grid {
 /* Mobily Only */
 
 @media only screen and (max-width: 767px) {
+  .ui.doubling.grid > .row {
+    display: inline;
+  }
+
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
   .ui.grid > .two.column.doubling.row > .column {
@@ -1956,19 +1958,19 @@ body > .ui.grid {
   .ui.three.column.doubling.grid > .row > .column,
   .ui.three.column.doubling.grid > .column,
   .ui.grid > .three.column.doubling.row > .column {
-    width: 100%;
+    width: 50%;
   }
 
   .ui.four.column.doubling.grid > .row > .column,
   .ui.four.column.doubling.grid > .column,
   .ui.grid > .four.column.doubling.row > .column {
-    width: 100%;
+    width: 50%;
   }
 
   .ui.five.column.doubling.grid > .row > .column,
   .ui.five.column.doubling.grid > .column,
   .ui.grid > .five.column.doubling.row > .column {
-    width: 100%;
+    width: 50%;
   }
 
   .ui.six.column.doubling.grid > .row > .column,
@@ -1980,37 +1982,37 @@ body > .ui.grid {
   .ui.seven.column.doubling.grid > .row > .column,
   .ui.seven.column.doubling.grid > .column,
   .ui.grid > .seven.column.doubling.row > .column {
-    width: 50%;
+    width: 33.33333333333333%;
   }
 
   .ui.eight.column.doubling.grid > .row > .column,
   .ui.eight.column.doubling.grid > .column,
   .ui.grid > .eight.column.doubling.row > .column {
-    width: 50%;
+    width: 33.33333333333333%;
   }
 
   .ui.nine.column.doubling.grid > .row > .column,
   .ui.nine.column.doubling.grid > .column,
   .ui.grid > .nine.column.doubling.row > .column {
-    width: 50%;
+    width: 33.33333333333333%;
   }
 
   .ui.ten.column.doubling.grid > .row > .column,
   .ui.ten.column.doubling.grid > .column,
   .ui.grid > .ten.column.doubling.row > .column {
-    width: 50%;
+    width: 33.33333333333333%;
   }
 
   .ui.twelve.column.doubling.grid > .row > .column,
   .ui.twelve.column.doubling.grid > .column,
   .ui.grid > .twelve.column.doubling.row > .column {
-    width: 33.33333333333333%;
+    width: 25%;
   }
 
   .ui.fourteen.column.doubling.grid > .row > .column,
   .ui.fourteen.column.doubling.grid > .column,
   .ui.grid > .fourteen.column.doubling.row > .column {
-    width: 33.33333333333333%;
+    width: 25%;
   }
 
   .ui.sixteen.column.doubling.grid > .row > .column,
@@ -2023,6 +2025,10 @@ body > .ui.grid {
 /* Tablet Only */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.doubling.grid > .row {
+    display: inline;
+  }
+
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
   .ui.grid > .two.column.doubling.row > .column {
@@ -2625,10 +2631,6 @@ body > .ui.grid {
   margin: 0em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-}
-
-.ui.vertical.menu .ui.input > .icon {
-  padding-top: 0.5em;
 }
 
 /* Labeled Button */
@@ -7404,10 +7406,6 @@ body > .ui.grid {
      Load Default
 -------------------*/
 
-/*------------------
-     Load Theme
--------------------*/
-
 /*******************************
         Global Variables
 *******************************/
@@ -7537,6 +7535,10 @@ body > .ui.grid {
 /* Inverted */
 
 /* Section */
+
+/*------------------
+     Load Theme
+-------------------*/
 
 /*------------------
      Load Site
@@ -7904,10 +7906,6 @@ body > .ui.grid {
 
 /*---  Neutrals  ---*/
 
-/*------------------
-     Load Theme
--------------------*/
-
 /*-------------------
     Globals Used
 --------------------*/
@@ -7949,6 +7947,10 @@ body > .ui.grid {
 /* Floated */
 
 /*------------------
+     Load Theme
+-------------------*/
+
+/*------------------
      Load Site
 -------------------*/
 
@@ -7972,7 +7974,7 @@ body > .ui.grid {
 
 .ui.header {
   border: none;
-  font-family: Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -12585,34 +12587,6 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 
-/*-------------------
-    Globals Used
---------------------*/
-
-/*-------------------
-      Standard
---------------------*/
-
-/*-------------------
-        Types
---------------------*/
-
-/* Image */
-
-/* Text */
-
-/*-------------------
-        States
---------------------*/
-
-/*-------------------
-      Variations
---------------------*/
-
-/*------------------
-     Load Theme
--------------------*/
-
 /*******************************
         Global Variables
 *******************************/
@@ -12718,6 +12692,34 @@ a.ui.yellow.label:hover:before {
 /*---  Emotive  ---*/
 
 /*---  Neutrals  ---*/
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+/*-------------------
+      Standard
+--------------------*/
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Image */
+
+/* Text */
+
+/*-------------------
+        States
+--------------------*/
+
+/*-------------------
+      Variations
+--------------------*/
+
+/*------------------
+     Load Theme
+-------------------*/
 
 /*------------------
      Load Site
@@ -14237,7 +14239,7 @@ a.ui.yellow.label:hover:before {
 
 .ui.tertiary.segment {
   background-color: #ebebeb;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .ui.secondary.inverted.segment {
@@ -21326,7 +21328,7 @@ ol.ui.list li,
   list-style-type: none;
   list-style-position: inside;
   padding: 0.3em 0em;
-  line-height: 1.2em;
+  line-height: 1.2;
 }
 
 .ui.list .item:after {
@@ -21381,7 +21383,7 @@ ol.ui.list li,
 .ui.list .item > .content {
   display: inline-block;
   vertical-align: middle;
-  line-height: 1.2em;
+  line-height: 1.2;
 }
 
 .ui.list .item > .icon + .content {
@@ -21595,6 +21597,20 @@ ol.ui.list li,
 }
 
 /*-------------------
+       Fitted
+--------------------*/
+
+.ui.fitted.list:not(.selection) .item {
+  padding-left: 0em;
+  padding-right: 0em;
+}
+
+.ui.fitted.selection.list .item {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+
+/*-------------------
       Bulleted
 --------------------*/
 
@@ -21613,6 +21629,8 @@ ul.ui.list li:before,
   position: absolute;
   left: -1.5em;
   content: '•';
+  line-height: 1.2rem;
+  vertical-align: top;
 }
 
 ul.ui.list ul,
@@ -21696,7 +21714,6 @@ ol.ui.horizontal.list,
 ol.ui.horizontal.list li:before,
 .ui.ordered.horizontal.list .item:before {
   position: static;
-  left: 0em;
   margin: 0em 0.5em 0em 0em;
 }
 
@@ -21707,8 +21724,6 @@ ol.ui.horizontal.list li:before,
 .ui.divided.list > .item,
 .ui.divided.list:not(.horizontal) > .list {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-left: 0.5em;
-  padding-right: 0.5em;
 }
 
 .ui.divided.list .item .menu .item {
@@ -21781,7 +21796,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  line-height: 0.6em;
+  line-height: 0.6;
 }
 
 .ui.horizontal.divided.list > .item:first-child {
@@ -21876,7 +21891,7 @@ ol.ui.horizontal.list li:before,
   margin: 0em;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  line-height: 0.6em;
+  line-height: 0.6;
 }
 
 .ui.horizontal.celled.list .item:last-child {

@@ -581,8 +581,8 @@ $.fn.visibility.settings = {
   name              : 'Visibility',
   namespace         : 'visibility',
 
-  verbose           : false,
   debug             : false,
+  verbose           : false,
   performance       : true,
 
   loadWait          : 1000,

@@ -199,7 +199,7 @@ $.api = $.fn.api = function(parameters) {
               urlVariables
             ;
             if(url) {
-              urlVariables = url.match(settings.regExpTemplate);
+              urlVariables = url.match(settings.regExp.required);
               urlData      = urlData || settings.urlData;
 
               if(urlVariables) {
@@ -664,7 +664,10 @@ $.api.settings = {
 
   // templating
   action          : false,
-  regExpTemplate  : /\{\$([A-z]+)\}/g,
+
+  regExp  : {
+    required: /\{\$([A-z]+)\}/g
+  },
 
   // data
   url             : false,

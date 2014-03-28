@@ -707,7 +707,7 @@ $.fn.search.settings = {
                   + '</div>'
                 ;
               }
-              html += '<div class="info">';
+              html += '<div class="content">';
               if(result.price !== undefined) {
                 html+= '<div class="price">' + result.price + '</div>';
               }
@@ -753,7 +753,7 @@ $.fn.search.settings = {
               + '</div>'
             ;
           }
-          html += '<div class="info">';
+          html += '<div class="content">';
           if(result.price !== undefined) {
             html+= '<div class="price">' + result.price + '</div>';
           }

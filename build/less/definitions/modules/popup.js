@@ -517,6 +517,9 @@ $.fn.popup = function(parameters) {
                 };
               break;
             }
+            if(positioning === undefined) {
+              module.error(error.invalidPosition);
+            }
             // tentatively place on stage
             $popup
               .css(positioning)
@@ -785,7 +788,7 @@ $.fn.popup = function(parameters) {
 $.fn.popup.settings = {
 
   name           : 'Popup',
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
   namespace      : 'popup',
@@ -818,9 +821,10 @@ $.fn.popup.settings = {
   maxSearchDepth : 10,
 
   error: {
-    content   : 'Your popup has no content specified',
-    method    : 'The method you called is not defined.',
-    recursion : 'Popup attempted to reposition element to fit, but could not find an adequate position.'
+    content         : 'Your popup has no content specified',
+    invalidPosition : 'The position you specified is not a valid position',
+    method          : 'The method you called is not defined.',
+    recursion       : 'Popup attempted to reposition element to fit, but could not find an adequate position.'
   },
 
   metadata: {

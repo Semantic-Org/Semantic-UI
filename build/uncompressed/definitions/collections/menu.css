@@ -468,10 +468,6 @@
   padding-bottom: 0.5em;
 }
 
-.ui.vertical.menu .ui.input > .icon {
-  padding-top: 0.5em;
-}
-
 /* Labeled Button */
 
 .ui.menu:not(.vertical) .item > .labeled.button > .icon {

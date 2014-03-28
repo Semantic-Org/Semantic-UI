@@ -58,7 +58,6 @@ $.fn.sticky = function(parameters) {
       module      = {
 
         initialize: function() {
-          module.verbose('Initializing sticky', settings);
 
           if(settings.context) {
             $context = $(settings.context);
@@ -66,6 +65,13 @@ $.fn.sticky = function(parameters) {
           else {
             $context = $container;
           }
+
+          if($context.size() === 0) {
+            module.error(error.invalidContext, settings.context, $module);
+            return;
+          }
+
+          module.verbose('Initializing sticky', settings, $container);
 
           $window
             .on('resize' + eventNamespace, module.event.resize)
@@ -109,10 +115,13 @@ $.fn.sticky = function(parameters) {
           }
         },
 
-        refresh: function() {
+        refresh: function(hardRefresh) {
           module.reset();
           module.save.positions();
           $.proxy(settings.onReposition, element)();
+          if(hardRefresh) {
+            $container = $module.offsetParent();
+          }
         },
 
         save: {
@@ -204,8 +213,10 @@ $.fn.sticky = function(parameters) {
 
         set: {
           containerSize: function() {
-            if($module.is(':visible') && $container.get(0).tagName === 'HTML') {
-              module.error(error.container, $container.get(0), $container.get(0).tagName);
+            if($container.get(0).tagName === 'HTML') {
+              if($module.is(':visible')) {
+                module.error(error.container, $container.get(0).tagName, $module);
+              }
             }
             else {
               module.debug('Settings container size', module.cache.context.height);
@@ -609,7 +620,7 @@ $.fn.sticky.settings = {
   namespace    : 'sticky',
 
   verbose      : true,
-  debug        : true,
+  debug        : false,
   performance  : true,
 
   pushing      : false,
@@ -625,8 +636,9 @@ $.fn.sticky.settings = {
   onBottom     : function(){},
 
   error     : {
-    container: 'Sticky element must be inside a relative container',
-    method   : 'The method you called is not defined.'
+    container      : 'Sticky element must be inside a relative container',
+    method         : 'The method you called is not defined.',
+    invalidContext : 'Context specified does not exist'
   },
 
   className : {
