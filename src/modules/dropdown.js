@@ -854,7 +854,7 @@ $.fn.dropdown = function(parameters) {
     })
   ;
 
-  return (returnedValue)
+  return (returnedValue !== undefined)
     ? returnedValue
     : this
   ;
@@ -865,8 +865,8 @@ $.fn.dropdown.settings = {
   name        : 'Dropdown',
   namespace   : 'dropdown',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   on          : 'click',

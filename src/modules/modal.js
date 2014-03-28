@@ -698,7 +698,7 @@ $.fn.modal.settings = {
   name          : 'Modal',
   namespace     : 'modal',
 
-  debug         : true,
+  debug         : false,
   verbose       : true,
   performance   : true,
 
