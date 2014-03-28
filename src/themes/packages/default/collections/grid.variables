@@ -69,8 +69,6 @@
 @largeMonitorGutter: 18%;
 @widescreenMonitorGutter: 23%;
 
-/* Fitted */
-
 
 /*--------------
      Relaxed
