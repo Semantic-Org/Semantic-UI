@@ -1,5 +1,5 @@
 {
-  "name": "semantic",
+  "name": "semanticui",
   "version": "0.15.1",
   "title": "Semantic UI",
   "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
@@ -13,7 +13,9 @@
     "type": "git",
     "url": "git://github.com/Semantic-Org/Semantic-UI.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "1.*"
+  },
   "devDependencies": {
     "docpad": "~6.63.3",
     "docpad-plugin-eco": "~2.0.3",
@@ -31,6 +33,7 @@
     "grunt-css": "~0.5.4",
     "grunt-contrib-compress": "~0.5.2",
     "grunt-contrib-concat": "~0.3.0",
+    "grunt-replace": "~0.7.3",
     "grunt-docco-multi": "0.0.2",
     "grunt-cssjanus": "~0.1.1",
     "karma": "~0.10.2",
