@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.15.4 - April 04, 2014
+
+**Fixes**
+- **Rating** - Fixes issue where rating was behaving erratically in Chrome
+
 ### Version 0.15.3 - April 04, 2014
 
 **Changes**

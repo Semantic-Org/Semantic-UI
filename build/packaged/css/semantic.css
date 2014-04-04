@@ -14638,12 +14638,6 @@ a.ui.nag {
 
 .ui.rating .icon:before {
   content: "\2605";
-  -webkit-transition: color 0.3s ease,
-    opacity 0.3s ease;
-  -moz-transition: color 0.3s ease,
-    opacity 0.3s ease;
-  transition: color 0.3s ease,
-    opacity 0.3s ease;
 }
 
 /*******************************
