@@ -224,7 +224,7 @@ module.exports = function(grunt) {
           'safari 6',
           'ie 9',
           'bb 10',
-          'android 4'
+          'android 3'
         ]
       },
       prefixBuild: {
