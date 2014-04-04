@@ -88,9 +88,10 @@ type        : 'UI Collection'
     </div>
   </div>
 
-  <div class="no example">
-    <h4 class="ui header">Checkbox</h4>
-    <p><a href="/modules/checkbox.html">UI Checkboxes</a> are styled forms of standard form checkboxes.</p>
+  <div class="example">
+    <h4 class="ui header">Javascript Checkbox</h4>
+    <p><a href="/modules/checkbox.html">UI Checkboxes</a> allow a user to select individual options in a form</p>
+
     <div class="evaluated code" data-type="javascript" data-label="true">
     $('.ui.checkbox')
       .checkbox()
@@ -117,30 +118,39 @@ type        : 'UI Collection'
         </div>
       </div>
     </div>
+
   </div>
 
-  <div class="no form example">
-    <h4 class="ui header">Select</h4>
-    <p>A selection dropdown, a type of <a href="/modules/dropdown.html">ui dropdown</a> can be used to allow for a selection from multiple choices</p>
-    <div class="evaluated code" data-type="javascript" data-label="true">
-    $('.ui.selection.dropdown')
-      .dropdown()
-    ;
-    </div>
-    <div class="ui selection dropdown">
-      <input type="hidden" name="gender">
-      <div class="default text">Gender</div>
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item" data-value="male">Male</div>
-        <div class="item" data-value="female">Female</div>
+  <div class="example">
+    <a id="html-checkbox"></a>
+    <h4 class="ui header">HTML Only Checkbox</h4>
+    <p>Using checkboxes with HTML only, you must match the <code>for</code> attribute of your label to the <code>id</code> attribute of your checkbox.
+    <div class="ui form">
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input id="check1" type="checkbox" />
+          <label for="check1">Checkbox</label>
+        </div>
+      </div>
+      <div class="inline field">
+        <div class="ui slider checkbox">
+          <input id="check2" type="checkbox" />
+          <label for="check2">Slider</label>
+        </div>
+        <label></label>
+      </div>
+      <div class="inline field">
+        <div class="ui toggle checkbox">
+          <input id="check3" type="checkbox" />
+          <label for="check3">Toggle</label>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="no example">
+  <div class="example">
     <h4 class="ui header">Radio Box</h4>
-    <p>Radio boxes are styled forms of standard form radio controls.</p>
+    <p>Radio boxes are a type of <a href="/modules/checkbox.html">UI Checkboxes</a> allowing only exclusive choice of options</p>
     <div class="evaluated code" data-type="javascript" data-label="true">
     $('.ui.radio.checkbox')
       .checkbox()
@@ -176,6 +186,58 @@ type        : 'UI Collection'
     </div>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">HTML Only Radio Box</h4>
+    <p>Using checkboxes with HTML only, you must match the <code>for</code> attribute of your label to the <code>id</code> attribute of your checkbox.
+    <div class="ui form">
+      <div class="grouped inline fields">
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input id="choice-1" type="radio" name="fruit" checked />
+            <label for="choice-1">Apples</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input id="choice-2" type="radio" name="fruit" />
+            <label for="choice-2">Oranges</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input id="choice-3" type="radio" name="fruit" />
+            <label for="choice-3">Pears</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input id="choice-4" type="radio" name="fruit" />
+            <label for="choice-4">Grapefruit</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="no form example">
+    <h4 class="ui header">Select</h4>
+    <p>A selection dropdown, a type of <a href="/modules/dropdown.html">ui dropdown</a> can be used to allow for a selection from multiple choices</p>
+    <div class="evaluated code" data-type="javascript" data-label="true">
+    $('.ui.selection.dropdown')
+      .dropdown()
+    ;
+    </div>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <div class="default text">Gender</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item" data-value="male">Male</div>
+        <div class="item" data-value="female">Female</div>
+      </div>
+    </div>
+  </div>
   <div class="example">
     <h4 class="ui header">Text Block</h4>
     <p>Text blocks have special meaning inside a form tag. Any info, error, or warning message blocks found inside a form are hidden by default.</p>

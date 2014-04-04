@@ -50,8 +50,6 @@ type        : 'UI Module'
       </div>
     </div>
 
-
-
     <div class="example">
       <h4 class="ui header">Radio Box</h4>
       <p>A checkbox can be formatted as a radio element. This means it is an exclusive option.</p>
@@ -80,6 +78,32 @@ type        : 'UI Module'
               <input type="radio" name="fruit" />
               <label>Grapefruit</label>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">HTML Only Checkbox</h4>
+      <p>Using checkboxes with HTML only, you must match the <code>for</code> attribute of your label to the <code>id</code> attribute of your checkbox.
+      <div class="ui form">
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input id="check1" type="checkbox" />
+            <label for="check1">Checkbox</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui slider checkbox">
+            <input id="check2" type="checkbox" />
+            <label for="check2">Slider</label>
+          </div>
+          <label></label>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input id="check3" type="checkbox" />
+            <label for="check3">Toggle</label>
           </div>
         </div>
       </div>
