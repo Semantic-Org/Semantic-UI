@@ -22,13 +22,13 @@ type        : 'Semantic Project'
 
     <script id='fbuzld8'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=jlukic&url=https%3A%2F%2Fgithub.com%2FSemantic-Org%2FSemantic-UI%2F';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbuzld8');</script>
     <br><br><br>
-    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=watch&count=true&size=large"
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true&size=large"
     allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
 
-    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=follow&count=true&size=large"
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=follow&count=true&size=large"
     allowtransparency="true" frameborder="0" scrolling="0" width="220" height="30"></iframe>
 
-    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic=ui&type=fork&count=true&size=large"
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=fork&count=true&size=large"
     allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
 
     <a href="https://twitter.com/intent/tweet?button_hashtag=semanticui" class="twitter-hashtag-button" data-size="large" data-url="http://www.semantic-ui.com"></a>
