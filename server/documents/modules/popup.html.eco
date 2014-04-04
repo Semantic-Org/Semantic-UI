@@ -90,7 +90,6 @@ type        : 'UI Module'
             <li><code>data-variation</code>: the popup variation to use </li>
             <li><code>data-offset</code>: a pixel offset correction for popup</li>
             <li><code>data-position</code>: the side to position popup on</li>
-            <li><code>data-variation</code>: the popup variation to use </li>
           </ul>
         </div>
       </div>
