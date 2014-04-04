@@ -8,19 +8,44 @@ type   : 'Library'
 <%- @partial('header') %>
 
 <script type='text/javascript'>
-$(function () {
-    $('.ui.selection.dropdown').dropdown();
+$(function(){
+    $('.dropdown').dropdown({
+        onChange: function (val) {
+            alert(val);
+        }
+    });
 });
 </script>
 
-<div class="ui selection dropdown">
-    <input id="credit_card_exp_month" name="credit_card[exp_month]" type="hidden" />
-    <div class="default text">Select Option</div>
-    <div class="menu">
-        <div class="item"></div>
-        <div class="item" data-value="option1">Option 1</div>
-        <div class="item" data-value="option2">Option 2</div>
-    </div>
+<div class="ui dropdown">
+    <input type="hidden" name="gender"/>
+    <div class="text">Gender</div>
+    <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item" data-value="0">Male</div>
+        <div class="item">
+            <i class="dropdown icon"></i>
+            SEcond
+              <div class="menu">
+             <div class="item" data-value="1">Female</div>
+             <div class="item">
+                  <i class="dropdown icon"></i>
+                  Third
+                  <div class="menu">
+                     <div class="item" data-value="3">Nothing</div>
+                  </div>
+            </div>
+                   <div class="item">
+                  <i class="dropdown icon"></i>
+                  Fourth
+                  <div class="menu">
+                     <div class="item" data-value="4">Something</div>
+                  </div>
+            </div>
+         </div>
+        
 </div>
+
+
 </body>
 
