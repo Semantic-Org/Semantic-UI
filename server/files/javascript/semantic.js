@@ -308,7 +308,7 @@ semantic.ready = function() {
         ;
       }
 
-      if( $example.find('.ace_editor').size() === 0) {
+      if( $annotation.find('.ace_editor').size() === 0) {
         $code = $('<div/>')
           .data('type', 'html')
           .addClass('code')
@@ -460,14 +460,14 @@ semantic.ready = function() {
       // add label
       if(title) {
         $('<div>')
-          .addClass('ui attached top label')
+          .addClass('ui ignored attached top label')
           .html('<span class="title">' + title + '</span>' + '<em>' + (displayType[contentType] || contentType) + '</em>')
           .prependTo( $(this).parent() )
         ;
       }
       if(label) {
         $('<div>')
-          .addClass('ui pointing below label')
+          .addClass('ui ignored pointing below label')
           .html(displayType[contentType] || contentType)
           .insertBefore ( $(this).parent() )
         ;
@@ -475,7 +475,7 @@ semantic.ready = function() {
       // add run code button
       if(demo) {
         $('<a>')
-          .addClass('ui pointing below black label')
+          .addClass('ui ignored pointing below black label')
           .html('Run Code')
           .on('click', function() {
             eval(code);
