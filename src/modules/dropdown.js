@@ -187,9 +187,10 @@ $.fn.dropdown = function(parameters) {
               if($currentMenu.length > 0  || $otherMenus.length > 0) {
                 clearTimeout(module.itemTimer);
                   module.itemTimer = setTimeout(function() {
-                  if($otherMenus.length > 0)
+                  if($otherMenus.length > 0) {
                     module.animate.hide(false, $otherMenus.filter(':visible'));
-                  if ($currentMenu.length > 0) {
+                  }
+                  if($currentMenu.length > 0) {
                     module.verbose('Showing sub-menu', $currentMenu);
                     module.animate.show(false, $currentMenu);
                   }
