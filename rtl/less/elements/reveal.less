@@ -26,6 +26,7 @@
 
 .ui.reveal > .visible.content {
   -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s;
+  -moz-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s;
   transition: all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s;
 }
 
@@ -35,6 +36,7 @@
   right: 0em !important;
   z-index: 4 !important;
   -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s;
+  -moz-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s;
   transition: all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s;
 }
 
@@ -75,6 +77,10 @@
   box-sizing: border-box;
   margin: 0em;
   -webkit-transition: top 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s,
+    right 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s,
+    left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s,
+    bottom 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s;
+  -moz-transition: top 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s,
     right 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s,
     left 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s,
     bottom 0.8s cubic-bezier(0.175, 0.885, 0.320, 1) 0.15s;
@@ -253,8 +259,10 @@
 
 .ui.rotate.reveal > .visible.content {
   -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
   transition-duration: 0.8s;
   -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
@@ -262,6 +270,7 @@
 .ui.rotate.reveal > .visible.content,
 .ui.rotate.right.reveal > .visible.content {
   -webkit-transform-origin: bottom left;
+  -moz-transform-origin: bottom left;
   -ms-transform-origin: bottom left;
   transform-origin: bottom left;
 }
@@ -271,12 +280,14 @@
 .ui.rotate.reveal:focus > .visible.content,
 .ui.rotate.right.reveal:focus > .visible.content {
   -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
   -ms-transform: rotate(110deg);
   transform: rotate(110deg);
 }
 
 .ui.rotate.left.reveal > .visible.content {
   -webkit-transform-origin: bottom right;
+  -moz-transform-origin: bottom right;
   -ms-transform-origin: bottom right;
   transform-origin: bottom right;
 }
@@ -284,6 +295,7 @@
 .ui.rotate.left.reveal:hover > .visible.content,
 .ui.rotate.left.reveal:focus > .visible.content {
   -webkit-transform: rotate(-110deg);
+  -moz-transform: rotate(-110deg);
   -ms-transform: rotate(-110deg);
   transform: rotate(-110deg);
 }
@@ -298,6 +310,7 @@
 
 .ui.disabled.reveal > .content {
   -webkit-transition: none !important;
+  -moz-transition: none !important;
   transition: none !important;
 }
 
@@ -311,6 +324,7 @@
   left: auto !important;
   bottom: auto !important;
   -webkit-transform: none !important;
+  -moz-transform: none !important;
   -ms-transform: none !important;
   transform: none !important;
 }
@@ -338,5 +352,6 @@
 
 .ui.instant.reveal > .content {
   -webkit-transition-delay: 0s !important;
+  -moz-transition-delay: 0s !important;
   transition-delay: 0s !important;
 }

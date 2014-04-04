@@ -181,17 +181,22 @@ $.fn.dropdown = function(parameters) {
 
             mouseenter: function(event) {
               var
-                $currentMenu = $(this).find(selector.menu),
+                $currentMenu = $(this).find(selector.submenu),
                 $otherMenus  = $(this).siblings(selector.item).children(selector.menu)
               ;
-              if( $currentMenu.size() > 0 ) {
+              if($currentMenu.length > 0  || $otherMenus.length > 0) {
                 clearTimeout(module.itemTimer);
-                module.itemTimer = setTimeout(function() {
-                  module.animate.hide(false, $otherMenus);
-                  module.verbose('Showing sub-menu', $currentMenu);
-                  module.animate.show(false,  $currentMenu);
+                  module.itemTimer = setTimeout(function() {
+                  if($otherMenus.length > 0) {
+                    module.animate.hide(false, $otherMenus.filter(':visible'));
+                  }
+                  if($currentMenu.length > 0) {
+                    module.verbose('Showing sub-menu', $currentMenu);
+                    module.animate.show(false, $currentMenu);
+                  }
                 }, settings.delay.show * 2);
                 event.preventDefault();
+                event.stopPropagation();
               }
             },
 
@@ -899,10 +904,11 @@ $.fn.dropdown.settings = {
   },
 
   selector : {
-    menu  : '.menu',
-    item  : '.menu > .item',
-    text  : '> .text',
-    input : '> input[type="hidden"]'
+    menu    : '.menu',
+    submenu : '> .menu',
+    item    : '.menu > .item',
+    text    : '> .text',
+    input   : '> input[type="hidden"]'
   },
 
   className : {

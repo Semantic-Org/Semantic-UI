@@ -39,6 +39,7 @@
   width: 2.2em;
   height: 2.2em;
   -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.15) inset;
@@ -52,6 +53,10 @@
     opacity 0.1s ease,
     color 0.1s ease,
     -webkit-box-shadow 0.1s ease;
+  -moz-transition: background-color 0.1s ease,
+    opacity 0.1s ease,
+    color 0.1s ease,
+    box-shadow 0.1s ease;
   transition: background-color 0.1s ease,
     opacity 0.1s ease,
     color 0.1s ease,
@@ -126,6 +131,7 @@
   width: 0em;
   height: 0em;
   -webkit-transform: none;
+  -moz-transform: none;
   -ms-transform: none;
   transform: none;
 }

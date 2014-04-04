@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 0.15.3 - April 04, 2014
+
+**Changes**
+- **Transition** - CSS Transitions now work in legacy FF (FF > 12)
+- **All UI** - Adds support for legacy FF vendor prefixes (FF > 12)
+
+**Docs**
+- Adds more examples for static checkbox/radio boxes with HTML only
+- Fixes a variety of issues with malformed examples (thanks community)
+
 ### Version 0.15.2 - Mar 28, 2014
 
 **Changes**

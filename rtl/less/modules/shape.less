@@ -17,6 +17,7 @@
   display: inline-block;
   position: relative;
   -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
   -ms-perspective: 2000px;
   perspective: 2000px;
   -webkit-box-sizing: border-box;
@@ -27,6 +28,7 @@
 
 .ui.shape .sides {
   -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
@@ -36,6 +38,7 @@
   width: 100%;
   margin: 0em !important;
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-box-sizing: border-box;
@@ -130,6 +133,7 @@
 
 .ui.shape.animating {
   -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
 
@@ -139,11 +143,13 @@
 
 .ui.shape.animating .sides {
   -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
 
 .ui.shape.animating .side {
   -webkit-transition: opacity 0.6s ease-in-out;
+  -moz-transition: opacity 0.6s ease-in-out;
   transition: opacity 0.6s ease-in-out;
 }
 

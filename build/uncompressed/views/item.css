@@ -63,6 +63,7 @@
   border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
   border-radius: 0.33em;
   -webkit-transition: -webkit-box-shadow 0.2s ease;
+  -moz-transition: box-shadow 0.2s ease;
   transition: box-shadow 0.2s ease;
   padding: 0.5em;
 }
@@ -224,6 +225,7 @@
   height: 1.5em;
   color: rgba(0, 0, 0, 0.25);
   -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
 

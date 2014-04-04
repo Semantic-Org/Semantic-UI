@@ -33,6 +33,8 @@
   border-radius: 3px;
   -webkit-transition: width 1s ease-in-out,
     background-color 1s ease-out;
+  -moz-transition: width 1s ease-in-out,
+    background-color 1s ease-out;
   transition: width 1s ease-in-out,
     background-color 1s ease-out;
 }
@@ -52,6 +54,7 @@
 .ui.successful.progress .bar,
 .ui.successful.progress .bar::after {
   -webkit-animation: none !important;
+  -moz-animation: none !important;
   animation: none !important;
 }
 
@@ -62,6 +65,7 @@
 .ui.warning.progress .bar,
 .ui.warning.progress .bar::after {
   -webkit-animation: none !important;
+  -moz-animation: none !important;
   animation: none !important;
 }
 
@@ -76,6 +80,7 @@
 .ui.failed.progress .bar,
 .ui.failed.progress .bar::after {
   -webkit-animation: none !important;
+  -moz-animation: none !important;
   animation: none !important;
 }
 
@@ -98,6 +103,7 @@
   background: #FFFFFF;
   border-radius: 3px;
   -webkit-animation: progress-active 2s ease-out infinite;
+  -moz-animation: progress-active 2s ease-out infinite;
   animation: progress-active 2s ease-out infinite;
 }
 
@@ -114,6 +120,22 @@
   100% {
     opacity: 0;
     width: 95%;
+  }
+}
+
+@-moz-keyframes progress-active {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0;
+    width: 100%;
   }
 }
 
@@ -144,6 +166,7 @@
 .ui.disabled.progress .bar,
 .ui.disabled.progress .bar::after {
   -webkit-animation: none !important;
+  -moz-animation: none !important;
   animation: none !important;
 }
 
@@ -233,6 +256,11 @@
       transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
       transparent 75%, transparent
     );
+  background-image: -moz-linear-gradient(
+      135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+      transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+      transparent 75%, transparent
+    );
   background-image: linear-gradient(
       135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
       transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
@@ -242,16 +270,28 @@
 
 .ui.progress.active.striped .bar:after {
   -webkit-animation: none;
+  -moz-animation: none;
   -ms-animation: none;
   animation: none;
 }
 
 .ui.progress.active.striped .bar {
   -webkit-animation: progress-striped 3s linear infinite;
+  -moz-animation: progress-striped 3s linear infinite;
   animation: progress-striped 3s linear infinite;
 }
 
 @-webkit-keyframes progress-striped {
+  0% {
+    background-position: 0px 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes progress-striped {
   0% {
     background-position: 0px 0;
   }

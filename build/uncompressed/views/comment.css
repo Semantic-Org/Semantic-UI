@@ -199,8 +199,10 @@
 .ui.minimal.comments .comment .actions {
   opacity: 0;
   -webkit-transition: opacity 0.1s ease-out;
+  -moz-transition: opacity 0.1s ease-out;
   transition: opacity 0.1s ease-out;
   -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 

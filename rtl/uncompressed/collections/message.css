@@ -23,6 +23,7 @@
   line-height: 1.33;
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -moz-transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -117,6 +118,7 @@
   left: 0.5em;
   opacity: 0.7;
   -webkit-transition: opacity 0.1s linear;
+  -moz-transition: opacity 0.1s linear;
   transition: opacity 0.1s linear;
 }
 

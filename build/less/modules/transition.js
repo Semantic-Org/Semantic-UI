@@ -460,7 +460,7 @@ $.fn.transition = function() {
               animations  = {
                 'animation'       :'animationend',
                 'OAnimation'      :'oAnimationEnd',
-                'MozAnimation'    :'mozAnimationEnd',
+                'MozAnimation'    :'animationend',
                 'WebkitAnimation' :'webkitAnimationEnd'
               },
               animation

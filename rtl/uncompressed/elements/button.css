@@ -35,6 +35,7 @@
   text-decoration: none;
   background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   border-radius: 0.25em;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08) inset;
@@ -49,6 +50,7 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, -webkit-box-shadow 0.25s ease;
+  -moz-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -76,6 +78,7 @@
 .ui.button:hover {
   background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.08)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
   color: rgba(0, 0, 0, 0.7);
 }
@@ -111,6 +114,7 @@
   background-color: #FFFFFF !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
+  -moz-transition: all 0s linear;
   transition: all 0s linear;
 }
 
@@ -173,6 +177,7 @@
 .ui.animated.button .visible.content,
 .ui.animated.button .hidden.content {
   -webkit-transition: left 0.3s ease 0s;
+  -moz-transition: left 0.3s ease 0s;
   transition: left 0.3s ease 0s;
 }
 
@@ -203,11 +208,13 @@
 .ui.vertical.animated.button .visible.content,
 .ui.vertical.animated.button .hidden.content {
   -webkit-transition: top 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  -moz-transition: top 0.3s ease 0s, -moz-transform 0.3s ease 0s;
   transition: top 0.3s ease 0s, transform 0.3s ease 0s;
 }
 
 .ui.vertical.animated.button .visible.content {
   -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
   -ms-transform: translateY(0%);
   transform: translateY(0%);
   left: auto;
@@ -221,6 +228,7 @@
 
 .ui.vertical.animated.button:hover .visible.content {
   -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
   -ms-transform: translateY(200%);
   transform: translateY(200%);
   left: auto;
@@ -236,6 +244,7 @@
 .ui.fade.animated.button .visible.content,
 .ui.fade.animated.button .hidden.content {
   -webkit-transition: opacity 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  -moz-transition: opacity 0.3s ease 0s, -moz-transform 0.3s ease 0s;
   transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
 }
 
@@ -244,6 +253,7 @@
   left: auto;
   opacity: 1;
   -webkit-transform: scale(1);
+  -moz-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
 }
@@ -253,6 +263,7 @@
   right: 0%;
   left: auto;
   -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
 }
@@ -262,6 +273,7 @@
   left: auto;
   opacity: 0;
   -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
   -ms-transform: scale(0.7);
   transform: scale(0.7);
 }
@@ -271,6 +283,7 @@
   left: auto;
   opacity: 1;
   -webkit-transform: scale(1);
+  -moz-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
 }
@@ -471,6 +484,7 @@
   margin-left: 0.6em;
   line-height: 1;
   -webkit-transition: opacity 0.1s ease;
+  -moz-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
 

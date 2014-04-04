@@ -20,7 +20,7 @@ Special RTL versions are maintained with the Arabic translation of Semantic.
 
 * Tradução em Português - [GitHub](https://github.com/Semantic-Org/Semantic-UI-pt-br)
 
-We need people who can contribute to translations of Semantic UI's documentation. 
+We need people who can contribute to translations of Semantic UI's documentation.
 
 Please [reach out by e-mail](mailto:jack@semantic-ui.com) if you can help.
 
@@ -35,7 +35,7 @@ To download the entire library
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
     http://semantic-ui.com/build/semantic.zip
-    
+
 Semantic is also available from CDN
 
 * [Hosted on CloudFlare CDN](http://cdnjs.com/libraries/semantic-ui/)
@@ -65,8 +65,9 @@ If you need help, come hang out in `#semantic-ui` on *irc.freenode.net*.  Click 
 
 * Last 2 Versions FF, Chrome, IE (aka 10+)
 * Safari 6
+* Firefox 12
 * IE 9+ (Browser prefix only)
-* Android 4
+* Android 3
 * Blackberry 10
 
 ### Reaching Out
