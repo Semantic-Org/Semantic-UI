@@ -220,6 +220,7 @@ module.exports = function(grunt) {
           'last 2 version',
           '> 1%',
           'opera 12.1',
+          'ff >= 10',
           'safari 6',
           'ie 9',
           'bb 10',
