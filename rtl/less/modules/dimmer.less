@@ -22,34 +22,53 @@
   position: absolute;
   top: 0em !important;
   right: 0em !important;
+
   width: 0%;
   height: 0%;
+
   text-align: center;
   vertical-align: middle;
+
   background-color: rgba(0, 0, 0, 0.85);
   opacity: 0;
   line-height: 1;
+
   -webkit-animation-fill-mode: both;
+
   -moz-animation-fill-mode: both;
+
   animation-fill-mode: both;
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
   animation-duration: 0.5s;
-  -webkit-transition: background-color 0.5s linear;
-  -moz-transition: background-color 0.5s linear;
-  transition: background-color 0.5s linear;
+
+  -webkit-transition:
+    background-color 0.5s linear
+  ;
+
+  -moz-transition:
+    background-color 0.5s linear
+  ;
+
+  transition:
+    background-color 0.5s linear
+  ;
+
   -webkit-user-select: none;
+
   -moz-user-select: none;
+
   -ms-user-select: none;
+
   user-select: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
   z-index: 1000;
 }
 
 /* Dimmer Content */
-
 .ui.dimmer > .content {
   width: 100%;
   height: 100%;
@@ -59,19 +78,17 @@
   -ms-user-select: text;
   user-select: text;
 }
-
 .ui.dimmer > .content > div {
   display: table-cell;
   vertical-align: middle;
   color: #FFFFFF;
 }
 
-/* Loose Coupling */
 
+/* Loose Coupling */
 .ui.segment > .ui.dimmer {
   border-radius: 5px;
 }
-
 .ui.horizontal.segment > .ui.dimmer,
 .ui.vertical.segment > .ui.dimmer {
   border-radius: 5px;
@@ -109,9 +126,13 @@
 
 .ui.page.dimmer {
   position: fixed;
+
   -webkit-transform-style: preserve-3d;
+
   -moz-transform-style: preserve-3d;
+
   -ms-transform-style: preserve-3d;
+
   transform-style: preserve-3d;
   -webkit-perspective: 2000px;
   -moz-perspective: 2000px;
@@ -128,6 +149,12 @@
   position: absolute;
 }
 
+/* Blurred Background
+body.ui.dimmed.dimmable > :not(.dimmer){
+  filter: ~"blur(15px) grayscale(0.7)";
+}
+*/
+
 /*--------------
     Aligned
 ---------------*/
@@ -135,7 +162,6 @@
 .ui.dimmer > .top.aligned.content > * {
   vertical-align: top;
 }
-
 .ui.dimmer > .bottom.aligned.content > * {
   vertical-align: bottom;
 }
@@ -147,7 +173,6 @@
 .ui.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0.85);
 }
-
 .ui.inverted.dimmer > .content > * {
   color: rgba(0, 0, 0, 0.8);
 }
@@ -155,7 +180,6 @@
 /*--------------
      Simple
 ---------------*/
-
 /* Displays without javascript */
 
 .ui.simple.dimmer {
@@ -165,7 +189,6 @@
   z-index: -100;
   background-color: rgba(0, 0, 0, 0);
 }
-
 .ui.dimmed.dimmable > .ui.simple.dimmer {
   overflow: visible;
   opacity: 1;
@@ -178,7 +201,6 @@
 .ui.simple.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0);
 }
-
 .ui.dimmed.dimmable > .ui.simple.inverted.dimmer {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.85)
 }

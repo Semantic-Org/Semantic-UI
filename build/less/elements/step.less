@@ -18,15 +18,16 @@
   display: inline-block;
   position: relative;
   padding: 1em 2em 1em 3em;
+
   vertical-align: top;
   background-color: #FFFFFF;
   color: #888888;
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .ui.step:after,
 .ui.steps .step:after {
   position: absolute;
@@ -49,18 +50,23 @@
 .ui.step,
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition: background-color 0.1s ease,
+  -webkit-transition:
+    background-color 0.1s ease,
     opacity 0.1s ease,
     color 0.1s ease,
     -webkit-box-shadow 0.1s ease;
-  -moz-transition: background-color 0.1s ease,
+  -moz-transition:
+    background-color 0.1s ease,
     opacity 0.1s ease,
     color 0.1s ease,
-    box-shadow 0.1s ease;
-  transition: background-color 0.1s ease,
+    box-shadow 0.1s ease
+  ;
+  transition:
+    background-color 0.1s ease,
     opacity 0.1s ease,
     color 0.1s ease,
-    box-shadow 0.1s ease;
+    box-shadow 0.1s ease
+  ;
 }
 
 /*******************************
@@ -68,66 +74,59 @@
 *******************************/
 
 /* Vertical */
-
 .ui.vertical.steps {
   overflow: visible;
 }
-
 .ui.vertical.steps .step {
   display: block;
   border-radius: 0em;
   padding: 1em 2em;
 }
-
 .ui.vertical.steps .step:first-child {
   padding: 1em 2em;
-  border-radius: 0em;
+  border-radius:0em;
   border-top-left-radius: 0.3125rem;
   border-top-right-radius: 0.3125rem;
 }
-
 .ui.vertical.steps .active.step:first-child {
   border-top-right-radius: 0rem;
 }
-
 .ui.vertical.steps .step:last-child {
-  border-radius: 0em;
+  border-radius:0em;
   border-bottom-left-radius: 0.3125rem;
   border-bottom-right-radius: 0.3125rem;
 }
-
 .ui.vertical.steps .active.step:last-child {
   border-bottom-right-radius: 0rem;
 }
 
-/* Arrow */
 
+/* Arrow */
 .ui.vertical.steps .step:after {
   display: none;
 }
 
 /* Active Arrow */
-
 .ui.vertical.steps .active.step:after {
   display: block;
 }
 
 /* Two Line */
-
 .ui.vertical.steps .two.line.step {
   line-height: 1.3;
 }
-
 .ui.vertical.steps .two.line.active.step:after {
   position: absolute;
   z-index: 2;
   content: '';
   top: 0em;
   right: -1.45em;
+
   background-color: transparent;
   border-bottom: 2.35em solid transparent;
   border-left: 1.55em solid #555555;
   border-top: 2.35em solid transparent;
+
   width: 0em;
   height: 0em;
   -webkit-transform: none;
@@ -135,6 +134,9 @@
   -ms-transform: none;
   transform: none;
 }
+
+
+
 
 /*******************************
             Group
@@ -147,7 +149,9 @@
   overflow: hidden;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+
   line-height: 1;
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -159,11 +163,9 @@
   padding-left: 1.35em;
   border-radius: 0.3125em 0em 0em 0.3125em;
 }
-
 .ui.steps .step:last-child {
   border-radius: 0em 0.3125em 0.3125em 0em;
 }
-
 .ui.steps .step:only-child {
   border-radius: 0.3125em;
 }
@@ -171,23 +173,21 @@
 .ui.steps .step:last-child {
   margin-right: 0em;
 }
-
 .ui.steps .step:last-child:after {
   display: none;
 }
+
 
 /*******************************
              States
 *******************************/
 
 /* Hover */
-
 .ui.step:hover,
 .ui.step.hover {
   background-color: #F7F7F7;
   color: rgba(0, 0, 0, 0.8);
 }
-
 .ui.steps .step.hover:after,
 .ui.steps .step:hover:after,
 .ui.step:hover,
@@ -196,14 +196,12 @@
 }
 
 /* Hover */
-
 .ui.steps .step.down,
 .ui.steps .step:active,
 .ui.step.down,
-.ui.step:active {
+.ui.step:active  {
   background-color: #F0F0F0;
 }
-
 .ui.steps .step.down:after,
 .ui.steps .step:active:after,
 .ui.steps.down::after,
@@ -212,15 +210,14 @@
 }
 
 /* Active */
-
 .ui.steps .step.active,
 .ui.active.step {
   cursor: auto;
   background-color: #555555;
+
   color: #FFFFFF;
   font-weight: bold;
 }
-
 .ui.steps .step.active:after,
 .ui.active.steps:after {
   background-color: #555555;
@@ -229,55 +226,48 @@
 }
 
 /* Disabled */
-
 .ui.steps .disabled.step,
 .ui.disabled.step {
   cursor: auto;
   background-color: #FFFFFF;
   color: #CBCBCB;
 }
-
 .ui.steps .disabled.step:after,
 .ui.disabled.step:after {
   background-color: #FFFFFF;
 }
+
 
 /*******************************
            Variations
 *******************************/
 
 /* Attached */
-
 .attached.ui.steps {
   margin: 0em;
   border-radius: 0.3125em 0.3125em 0em 0em;
 }
-
 .attached.ui.steps .step:first-child {
   border-radius: 0.3125em 0em 0em 0em;
 }
-
 .attached.ui.steps .step:last-child {
   border-radius: 0em 0.3125em 0em 0em;
 }
 
 /* Bottom Side */
-
 .bottom.attached.ui.steps {
   margin-top: -1px;
   border-radius: 0em 0em 0.3125em 0.3125em;
 }
-
 .bottom.attached.ui.steps .step:first-child {
   border-radius: 0em 0em 0em 0.3125em;
 }
-
 .bottom.attached.ui.steps .step:last-child {
   border-radius: 0em 0em 0.3125em 0em;
 }
 
-/* Evenly divided  */
 
+/* Evenly divided  */
 .ui.one.steps,
 .ui.two.steps,
 .ui.three.steps,
@@ -288,38 +278,32 @@
 .ui.eight.steps {
   display: block;
 }
-
 .ui.one.steps > .step {
   width: 100%;
 }
-
 .ui.two.steps > .step {
   width: 50%;
 }
-
 .ui.three.steps > .step {
   width: 33.333%;
 }
-
 .ui.four.steps > .step {
   width: 25%;
 }
-
 .ui.five.steps > .step {
   width: 20%;
 }
-
 .ui.six.steps > .step {
   width: 16.666%;
 }
-
 .ui.seven.steps > .step {
   width: 14.285%;
 }
-
 .ui.eight.steps > .step {
   width: 12.500%;
 }
+
+
 
 /*******************************
              Sizes
@@ -329,12 +313,10 @@
 .ui.small.steps .step {
   font-size: 0.8rem;
 }
-
 .ui.step,
 .ui.steps .step {
   font-size: 1rem;
 }
-
 .ui.large.step,
 .ui.large.steps .step {
   font-size: 1.25rem;

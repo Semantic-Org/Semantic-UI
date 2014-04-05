@@ -8,11 +8,9 @@
  * http://opensource.org/licenses/MIT
  *
  */
-
 /*******************************
              Nag
 *******************************/
-
 .ui.nag {
   display: none;
   opacity: 0.95;
@@ -40,17 +38,14 @@
   -moz-transition: 0.2s background;
   transition: 0.2s background;
 }
-
 a.ui.nag {
   cursor: pointer;
 }
-
 .ui.nag > .title {
   display: inline-block;
   margin: 0em 0.5em;
   color: #FFFFFF;
 }
-
 .ui.nag > .close.icon {
   cursor: pointer;
   opacity: 0.4;
@@ -63,78 +58,61 @@ a.ui.nag {
   -moz-transition: 0.1s opacity;
   transition: 0.1s opacity;
 }
-
 /*******************************
              States
 *******************************/
-
 /* Hover */
-
 .ui.nag:hover {
   opacity: 1;
 }
-
 .ui.nag .close:hover {
   opacity: 1;
 }
-
 /*******************************
            Variations
 *******************************/
-
 /*--------------
      Static
 ---------------*/
-
 .ui.overlay.nag {
   position: absolute;
   display: block;
 }
-
 /*--------------
      Fixed
 ---------------*/
-
 .ui.fixed.nag {
   position: fixed;
 }
-
 /*--------------
      Bottom
 ---------------*/
-
 .ui.bottom.nag {
   border-radius: 5px 5px 0px 0px;
 }
-
 .ui.fixed.bottom.nags,
 .ui.fixed.bottom.nag {
   top: auto;
   bottom: 0px;
 }
-
 /*--------------
      White
 ---------------*/
-
 .ui.white.nags .nag,
 .ui.white.nag {
   background-color: #F1F1F1;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
   color: #ACACAC;
 }
-
 .ui.white.nags .nag .close,
 .ui.white.nags .nag .title,
 .ui.white.nag .close,
 .ui.white.nag .title {
   color: #333333;
 }
-
 /*******************************
            Groups
 *******************************/
-
 .ui.nags .nag {
   border-radius: 0px;
 }

@@ -8,25 +8,20 @@
  *
  * Released: Aug 20, 2013
  */
-
 /*******************************
            Statistic
 *******************************/
-
 .ui.statistic {
   text-align: center;
 }
-
 /*******************************
             Content
 *******************************/
-
 .ui.statistic > .number {
   font-size: 4em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.7);
 }
-
 .ui.statistic > .description {
   opacity: 0.8;
 }

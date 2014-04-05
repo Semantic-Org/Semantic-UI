@@ -8,11 +8,9 @@
  * http://opensource.org/licenses/MIT
  *
  */
-
 /*******************************
             Popup
 *******************************/
-
 .ui.popup {
   display: none;
   position: absolute;
@@ -31,14 +29,12 @@
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .ui.popup .header {
   padding: 0em 0em 0.5em;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
 }
-
 .ui.popup:before {
   position: absolute;
   content: "";
@@ -58,49 +54,37 @@
   -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
-
 .ui.popup .ui.button {
   width: 100%;
 }
-
 /*******************************
             Types
 *******************************/
-
 /*--------------
      Spacing
 ---------------*/
-
 .ui.popup {
   margin: 0em;
 }
-
 .ui.popup.bottom {
   margin: 0.75em 0em 0em;
 }
-
 .ui.popup.top {
   margin: 0em 0em 0.75em;
 }
-
 .ui.popup.left.center {
   margin: 0em 0.75em 0em 0em;
 }
-
 .ui.popup.right.center {
   margin: 0em 0em 0em 0.75em;
 }
-
 .ui.popup.center {
   margin-left: -1.25em;
 }
-
 /*--------------
      Pointer
 ---------------*/
-
 /*--- Below ---*/
-
 .ui.bottom.center.popup:before {
   margin-left: -0.4em;
   top: -0.4em;
@@ -110,11 +94,9 @@
   -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
-
 .ui.bottom.left.popup {
   margin-right: -2em;
 }
-
 .ui.bottom.left.popup:before {
   top: -0.4em;
   right: 1em;
@@ -124,11 +106,9 @@
   -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
-
 .ui.bottom.right.popup {
   margin-left: -2em;
 }
-
 .ui.bottom.right.popup:before {
   top: -0.4em;
   left: 1em;
@@ -138,9 +118,7 @@
   -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
-
 /*--- Above ---*/
-
 .ui.top.center.popup:before {
   top: auto;
   right: auto;
@@ -148,11 +126,9 @@
   left: 50%;
   margin-left: -0.4em;
 }
-
 .ui.top.left.popup {
   margin-right: -2em;
 }
-
 .ui.top.left.popup:before {
   bottom: -0.4em;
   right: 1em;
@@ -160,11 +136,9 @@
   left: auto;
   margin-left: 0em;
 }
-
 .ui.top.right.popup {
   margin-left: -2em;
 }
-
 .ui.top.right.popup:before {
   bottom: -0.4em;
   left: 1em;
@@ -172,9 +146,7 @@
   right: auto;
   margin-left: 0em;
 }
-
 /*--- Left Center ---*/
-
 .ui.left.center.popup:before {
   top: 50%;
   right: -0.35em;
@@ -184,9 +156,7 @@
   -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
-
 /*--- Right Center  ---*/
-
 .ui.right.center.popup:before {
   top: 50%;
   left: -0.35em;
@@ -196,43 +166,33 @@
   -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
 }
-
 /*******************************
             States
 *******************************/
-
 .ui.loading.popup {
   display: block;
   visibility: hidden;
 }
-
 .ui.animating.popup,
 .ui.visible.popup {
   display: block;
 }
-
 /*******************************
             Variations
 *******************************/
-
 /*--------------
       Size
 ---------------*/
-
 .ui.small.popup {
   font-size: 0.75rem;
 }
-
 .ui.large.popup {
   font-size: 1rem;
 }
-
 /*--------------
      Colors
 ---------------*/
-
 /* Inverted colors  */
-
 .ui.inverted.popup {
   background-color: #333333;
   border: none;
@@ -240,12 +200,10 @@
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 .ui.inverted.popup .header {
   background-color: rgba(0, 0, 0, 0.2);
   color: #FFFFFF;
 }
-
 .ui.inverted.popup:before {
   background-color: #333333;
   -webkit-box-shadow: none;
