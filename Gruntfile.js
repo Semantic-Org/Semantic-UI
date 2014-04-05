@@ -82,6 +82,12 @@ module.exports = function(grunt) {
       // creates custom license in header
       'cssmin:createMinCSSPackage',
 
+      // create npm package
+      'copy:npm',
+
+      // replace $.fn.xyz with module.exports and require('jquery')
+      'replace:npm',
+
       // cleans previous generated release
       'clean:release'
 
@@ -428,6 +434,24 @@ module.exports = function(grunt) {
         ]
       },
 
+
+      npm: {
+        files: [
+          {
+            expand : true,
+            cwd    : 'build/uncompressed',
+            src    : [
+              '**/*'
+            ],
+            dest: 'npm'
+          },
+          {
+            src: 'package.json',
+            dest: 'npm/package.json'
+          }
+        ]
+      },
+
       // create new rtl assets
       buildToRTL: {
         files: [
@@ -565,6 +589,31 @@ module.exports = function(grunt) {
       }
     },
 
+    replace: {
+      npm: {
+        options: {
+          patterns: [
+            {
+              match: /\$.fn.\w+/g,
+              replacement: 'module.exports'
+            },
+            {
+              match: /jQuery/g,
+              replacement: 'require("jquery")'
+            }
+          ]
+        },
+        files: [
+          {
+            expand : true, 
+            src    : '**/*.js', 
+            cwd    : 'build/uncompressed',
+            dest   : 'npm'
+          }
+        ]
+      }
+    },
+
     uglify: {
 
       minifyJS: {
@@ -631,6 +680,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-replace');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
