@@ -34,8 +34,9 @@
 
   height: @checkboxHeight;
 
-  min-width: 1em;
-  line-height: 1em;
+  min-width: @checkboxSize;
+  line-height: @checkboxHeight;
+  backface-visibility: hidden;
 
   outline: none;
   vertical-align: middle;
@@ -46,6 +47,7 @@
   left: 0px;
   opacity: 0;
   outline: none;
+  z-index: -1;
 }
 
 
@@ -66,20 +68,16 @@
   position: absolute;
 
   line-height: 1;
-  width: 1.25em;
-  height: 1.25em;
-  top: @boxOffset;
+  width: @checkboxSize;
+  height: @checkboxSize;
+  top: 0em;
   left: 0em;
   content: '';
 
-  background: #FFFFFF;
-  border-radius: 0.25em;
+  background: @checkboxBackground;
+  border-radius: @checkboxBorderRadius;
 
-  transition:
-    background-color 0.3s ease,
-    border 0.3s ease,
-    box-shadow 0.3s ease
-  ;
+  transition: @checkboxTransition;
   border: @checkboxBorder;
 }
 
@@ -90,8 +88,10 @@
 .ui.checkbox .box:after,
 .ui.checkbox label:after {
   position: absolute;
-  top: 0em;
-  left: -@boxOffset;
+  top: @checkboxCheckOffset;
+  left: 0px;
+  width: @checkboxSize;
+  text-align: center;
 
   opacity: 0;
   color: @checkboxColor;
@@ -128,7 +128,8 @@
 
 .ui.checkbox .box:hover::before,
 .ui.checkbox label:hover::before {
-  border: 1px solid @selectedBorderColor;
+  background: @checkboxHoverBackground;
+  border: @checkboxHoverBorder;
 }
 .ui.checkbox label:hover,
 .ui.checkbox + label:hover {
@@ -141,7 +142,11 @@
 
 .ui.checkbox .box:active::before,
 .ui.checkbox label:active::before {
-  background-color: #F5F5F5;
+  background: @checkboxSelectedBackground;
+  border: 1px solid @checkboxSelectedBorder;
+}
+.ui.checkbox input:active ~ label {
+  color: @labelSelectedColor;
 }
 
 /*--------------
@@ -150,7 +155,8 @@
 
 .ui.checkbox input:focus ~ .box:before,
 .ui.checkbox input:focus ~ label:before {
-  border: 1px solid @selectedBorderColor;
+  background: @checkboxSelectedBackground;
+  border: 1px solid @checkboxSelectedBorder;
 }
 .ui.checkbox input:focus ~ label {
   color: @labelSelectedColor;
@@ -174,13 +180,13 @@
 .ui.disabled.checkbox label,
 .ui.checkbox input[disabled] ~ .box:after,
 .ui.checkbox input[disabled] ~ label {
-  opacity: 0.4;
-  color: rgba(0, 0, 0, 0.3);
+  opacity: @disabledCheckboxOpacity;
+  color: @disabledCheckboxLabelColor;
 }
 
 
 /*******************************
-          Variations
+             Types
 *******************************/
 
 
@@ -199,6 +205,9 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
+  top: @checkboxRadioOffset;
+  left: 0em;
+  font-size: @checkboxRadioCircleSize;
 }
 
 /*--------------
@@ -333,13 +342,6 @@
   ;
 }
 
-/* Off */
-/*
-.ui.toggle.checkbox input ~ .box:before,
-.ui.toggle.checkbox input ~ label:before {
-  background-color: @negativeCheckbox;
-}
-*/
 .ui.toggle.checkbox input ~ .box:after,
 .ui.toggle.checkbox input ~ label:after {
   left: @toggleOffOffset;
@@ -366,20 +368,5 @@
   left: @toggleOnOffset;
 }
 
-
-
-/*--------------
-     Sizes
----------------*/
-
-.ui.checkbox {
-  font-size: 1em;
-}
-.ui.large.checkbox {
-  font-size: 1.25em;
-}
-.ui.huge.checkbox {
-  font-size: 1.5em;
-}
 
 .loadUIOverrides();

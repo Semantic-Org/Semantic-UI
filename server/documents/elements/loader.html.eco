@@ -22,7 +22,7 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Loader</h4>
     <p>A loader</p>
-    <div class="ui ignored info message">The default loader uses images, this ensures maximum compatability with other components.</div>
+    <div class="ui ignored info message">A standard loader uses images, this ensures maximum compatability with other components.</div>
     <div class="ui ignored info message">Loaders by default are hidden unless inside of a dimmer.</div>
     <div class="ui segment">
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>

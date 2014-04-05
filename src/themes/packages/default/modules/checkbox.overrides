@@ -22,9 +22,12 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   content: '\e801'; /* '' */
-  top: 0em;
-  left: 0.28em;
-  font-size: 0.68em;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .ui.radio.checkbox .box:after,
+  .ui.radio.checkbox label:after {
+    top: @checkboxRadioOffset + 1px;
+  }
 }
 
 .icon-check:before { content: '\e800'; }

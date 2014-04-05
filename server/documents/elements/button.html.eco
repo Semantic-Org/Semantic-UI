@@ -100,12 +100,15 @@ themes      : ['default', 'basic', 'chubby', 'github']
       <div class="ui inverted button">Standard</div>
       <div class="ui inverted black button">Black</div>
       <div class="ui inverted yellow button">Yellow</div>
+      <br><br>
       <div class="ui inverted green button">Green</div>
       <div class="ui inverted blue button">Blue</div>
       <div class="ui inverted orange button">Orange</div>
+      <br><br>
       <div class="ui inverted purple button">Purple</div>
       <div class="ui inverted pink button">Pink</div>
       <div class="ui inverted red button">Red</div>
+      <br><br>
       <div class="ui inverted teal button">Teal</div>
     </div>
 
@@ -280,7 +283,7 @@ themes      : ['default', 'basic', 'chubby', 'github']
   <div class="example">
     <h4 class="ui header">Colors</h4>
     <p>A button can have different colors:</p>
-    <div class="ui black button">Black</divFF8EDF>
+    <div class="ui black button">Black</div>
     <div class="ui yellow button">Yellow</div>
     <div class="ui green button">Green</div>
     <div class="ui blue button">Blue</div>

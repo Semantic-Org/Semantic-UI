@@ -1,11 +1,16 @@
 ---
 layout      : 'default'
 css         : 'segment'
+element     : 'segment'
+elementType : 'element'
+
 title       : 'Segment'
 description : 'A segment is used to create a grouping of related content.'
 type        : 'UI Element'
+themes      : ['default', 'GitHub']
 ---
 <%- @partial('header') %>
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/segment.less" />
 
 <div class="main container">
 
@@ -22,20 +27,6 @@ type        : 'UI Element'
     <h4 class="ui header">Segment</h4>
     <p>A segment of content</p>
     <div class="ui segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-    </div>
-  </div>
-  <div class="example">
-    <h4 class="ui header">Vertical Segment</h4>
-    <p>A vertical segment divides content vertically</p>
-    <div class="ui vertical segment">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-    </div>
-  </div>
-  <div class="example">
-    <h4 class="ui header">Horizontal Segment</h4>
-    <p>A horizontal segment divides content horizontally</p>
-    <div class="ui horizontal segment">
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
     </div>
   </div>
@@ -61,7 +52,21 @@ type        : 'UI Element'
     </div>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Vertical Segment</h4>
+    <p>A vertical segment divides content vertically</p>
+    <div class="ui vertical segment">
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+  </div>
 
+  <div class="example">
+    <h4 class="ui header">Horizontal Segment</h4>
+    <p>A horizontal segment divides content horizontally</p>
+    <div class="ui horizontal segment">
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    </div>
+  </div>
 
   <h2 class="ui dividing header">States</h2>
 
@@ -82,6 +87,22 @@ type        : 'UI Element'
       <p>I'm here to tell you something, and you will probably read me first.</p>
     </div>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Attached</h4>
+    <p>A segment can be attached to other content on a page</p>
+
+    <div class="ui top attached segment">
+      <p>This segment is on top</p>
+    </div>
+    <div class="ui attached segment">
+      <p>This segment is attached on both sides</p>
+    </div>
+    <div class="ui bottom attached segment">
+      <p>This segment is on bottom</p>
+    </div>
+  </div>
+
 
   <div class="example">
     <h4 class="ui header">Raised</h4>
@@ -223,20 +244,5 @@ type        : 'UI Element'
       <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
     </div>
   </div>
-  <div class="example">
-    <h4 class="ui header">Attached</h4>
-    <p>A segment can be attached to other content on a page</p>
-
-    <div class="ui top attached segment">
-      <p>This segment is on top</p>
-    </div>
-    <div class="ui attached segment">
-      <p>This segment is attached on both sides</p>
-    </div>
-    <div class="ui bottom attached segment">
-      <p>This segment is on bottom</p>
-    </div>
-  </div>
-
 
 </div>

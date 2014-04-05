@@ -59,6 +59,7 @@
 
   color: @labelColor;
   font-size: @labelFontSize;
+  font-weight: @labelFontWeight;
 }
 
 /*--------------------
@@ -472,7 +473,8 @@
 .ui.form .grouped.fields {
   margin: 0em 0em 1em;
 }
-.ui.form .grouped.fields .field {
+.ui.form .grouped.fields .field,
+.ui.form .grouped.inline.fields .field {
   display: block;
   float: none;
   margin: 0.5em 0em;

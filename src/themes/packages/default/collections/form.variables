@@ -1,12 +1,6 @@
-/*-------------------
-    Globals Used
---------------------*/
-
-
-/*-------------------
-         Form
---------------------*/
-
+/*******************************
+            Form
+*******************************/
 
 /*-------------------
        Elements
@@ -21,6 +15,7 @@
 
 /* Form Label */
 @labelFontSize: 0.875em;
+@labelFontWeight: normal;
 @labelMargin: 0.3em;
 @labelColor: @textColor;
 

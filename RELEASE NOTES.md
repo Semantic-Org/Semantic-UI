@@ -7,6 +7,7 @@
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 
 **Enhancements**
+- **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
 - **Grid** - Divided and celled grids can now be inverted for dark backgrounds
 - **Grid** - Vertically divided grid now does not include left/right gutters in divider
 - **Grid** - Fixed page grid allows for fixed pixel size containers used with a grid instead of percentage

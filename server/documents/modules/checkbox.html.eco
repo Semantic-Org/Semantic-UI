@@ -1,10 +1,14 @@
 ---
 layout      : 'default'
 css         : 'checkbox'
+element     : 'checkbox'
+elementType : 'module'
+
 
 title       : 'Checkbox'
 description : "A checkbox visually indicates the status of a user's selection"
 type        : 'UI Module'
+themes      : ['default', 'GitHub']
 ---
 <script src="/javascript/checkbox.js"></script>
 
@@ -85,22 +89,6 @@ type        : 'UI Module'
       </div>
     </div>
 
-    <h2 class="ui dividing header">Variations</h2>
-
-    <div class="example">
-      <h4 class="ui header">Size</h4>
-      <p>A checkbox can be a different size.</p>
-      <div class="ui large checkbox">
-        <input type="checkbox" />
-        <label>Add a pro membership</label>
-      </div>
-    </div>
-    <div class="another example">
-      <div class="ui huge checkbox">
-        <input type="checkbox" />
-        <label>Signup for our mailing list</label>
-      </div>
-    </div>
 
   </div>
 
@@ -156,19 +144,19 @@ type        : 'UI Module'
     <div class="example">
       <p>Example of using checkbox states to alter multiple checkboxes</p>
       <div class="evaluated code">
-      $('.enable.button')
+      $('.check.button')
         .on('click', function() {
           $(this)
             .nextAll('.checkbox')
-              .checkbox('enable')
+              .checkbox('check')
           ;
         })
       ;
-      $('.disable.button')
+      $('.uncheck.button')
         .on('click', function() {
           $(this)
             .nextAll('.checkbox')
-              .checkbox('disable')
+              .checkbox('uncheck')
           ;
         })
       ;
@@ -182,8 +170,8 @@ type        : 'UI Module'
       ;
       </div>
       <div class="ui toggle button">Toggle</div>
-      <div class="ui positive enable button">Enable</div>
-      <div class="ui negative disable button">Disable</div>
+      <div class="ui positive check button">Check</div>
+      <div class="ui negative uncheck button">Uncheck</div>
       <br><br>
       <div class="ui slider checkbox">
         <input type="checkbox" />

@@ -133,7 +133,9 @@ semantic.ready = function() {
           variableURL = '/build/less/themes/packages/{$theme}/{$type}s/{$element}.variables',
           overrideURL = '/build/less/themes/packages/{$theme}/{$type}s/{$element}.overrides',
           urlData     = {
-            theme   : theme,
+            theme   : typeof(theme === 'string')
+              ? theme.toLowerCase()
+              : theme,
             type    : $themeDropdown.data('type'),
             element : $themeDropdown.data('element')
           }

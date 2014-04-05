@@ -7,6 +7,7 @@
 --------------------*/
 
 @segmentBorderWidth: 1px;
+@border: none;
 @boxShadow: 0px 0px 0px @segmentBorderWidth @borderColor;
 
 @verticalPadding: 1em;
@@ -44,6 +45,7 @@
 
 /* Colors */
 @coloredBorderSize: 0.2em;
+@coloredBorderRadius: 0em;
 
 /* Ordinality */
 @secondaryBackground: #FAF9FA;
