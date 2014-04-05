@@ -29,6 +29,7 @@ module.exports = function(grunt) {
 
     testWatchTasks = [
       'clear',
+
       'karma:watch:run'
     ],
 
@@ -119,7 +120,8 @@ module.exports = function(grunt) {
       'copy:specToDocs'
     ],
 
-    buildTasks = releaseTasks.concat(rtlTasks).concat(docTasks),
+    buildTasks     = releaseTasks.concat(rtlTasks).concat(docTasks),
+    testWatchTasks = testTasks.concat(watchTasks),
 
     setWatchTests = function(action, filePath) {
       var
@@ -605,8 +607,8 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            expand : true, 
-            src    : '**/*.js', 
+            expand : true,
+            src    : '**/*.js',
             cwd    : 'build/uncompressed',
             dest   : 'npm'
           }
