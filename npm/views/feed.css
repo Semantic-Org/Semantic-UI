@@ -1,0 +1,127 @@
+/*
+ * # Activity Feed View
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ * Released: May 22, 2013
+ */
+/*******************************
+         Activity Feed
+*******************************/
+.ui.feed a {
+  cursor: pointer;
+}
+.ui.feed,
+.ui.feed .event,
+.ui.feed .label,
+.ui.feed .content,
+.ui.feed .extra {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*******************************
+            Content
+*******************************/
+/* Event */
+.ui.feed .event {
+  width: 100%;
+  display: table;
+  padding: 1em;
+}
+.ui.feed .event:first-child {
+  border-top: 0px;
+}
+.ui.feed .event:last-child {
+  margin-bottom: 1em;
+}
+/* Event Label */
+.ui.feed .label {
+  width: 3em;
+  display: table-cell;
+  vertical-align: top;
+  text-align: left;
+}
+.ui.feed .label .icon {
+  font-size: 1.5em;
+  padding: 0.5em;
+  margin: 0em;
+}
+.ui.feed .label img {
+  width: 3em;
+  margin: 0em;
+  border-radius: 50em;
+}
+.ui.feed .label + .content {
+  padding: 0.75em 1em 0em;
+}
+/* Content */
+.ui.feed .content {
+  display: table-cell;
+  vertical-align: top;
+  text-align: left;
+  word-wrap: break-word;
+}
+/* Date */
+.ui.feed .content .date {
+  float: right;
+  padding-left: 1em;
+  color: rgba(0, 0, 0, 0.4);
+}
+/* Summary */
+.ui.feed .content .summary {
+  color: rgba(0, 0, 0, 0.75);
+}
+.ui.feed .content .summary img {
+  display: inline-block;
+  margin-right: 0.25em;
+  width: 4em;
+  border-radius: 500px;
+}
+/* Additional Information */
+.ui.feed .content .extra {
+  margin: 1em 0em 0em;
+  padding: 0.5em 0em 0em;
+  color: rgba(0, 0, 0, 0.5);
+}
+.ui.feed .content .extra.images img {
+  display: inline-block;
+  margin-right: 0.25em;
+  width: 6em;
+}
+.ui.feed .content .extra.text {
+  padding: 0.5em 1em;
+  border-left: 0.2em solid rgba(0, 0, 0, 0.1);
+}
+/*******************************
+            Variations
+*******************************/
+.ui.small.feed {
+  font-size: 0.875em;
+}
+.ui.small.feed .label img {
+  width: 2.5em;
+}
+.ui.small.feed .label .icon {
+  font-size: 1.25em;
+}
+.ui.feed .event {
+  padding: 0.75em 0em;
+}
+.ui.small.feed .label + .content {
+  padding: 0.5em 0.5em 0;
+}
+.ui.small.feed .content .extra.images img {
+  width: 5em;
+}
+.ui.small.feed .content .extra {
+  margin: 0.5em 0em 0em;
+}
+.ui.small.feed .content .extra.text {
+  padding: 0.25em 0.5em;
+}
