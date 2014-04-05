@@ -442,11 +442,11 @@ module.exports = function(grunt) {
             src    : [
               '**/*'
             ],
-            dest: 'semanticui'
+            dest: 'npm'
           },
           {
             src: 'package.json',
-            dest: 'semanticui/package.json'
+            dest: 'npm/package.json'
           }
         ]
       },
@@ -607,7 +607,7 @@ module.exports = function(grunt) {
             expand : true, 
             src    : '**/*.js', 
             cwd    : 'build/uncompressed',
-            dest   : 'semanticui'
+            dest   : 'npm'
           }
         ]
       }
