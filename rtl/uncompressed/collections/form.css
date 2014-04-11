@@ -8,60 +8,47 @@
  * http://opensource.org/licenses/MIT
  *
  */
-
 /*******************************
            Standard
 *******************************/
-
 /*--------------------
         Form
 ---------------------*/
-
 .ui.form {
   position: relative;
   max-width: 100%;
 }
-
 .ui.form :first-child {
   margin-top: 0em;
 }
-
 .ui.form :last-child {
   margin-bottom: 0em;
 }
-
 /*--------------------
         Content
 ---------------------*/
-
 .ui.form > p {
   margin: 1em 0;
 }
-
 /*--------------------
         Field
 ---------------------*/
-
 .ui.form .field {
   clear: both;
   margin: 0em 0em 1em;
 }
-
 /*--------------------
         Labels
 ---------------------*/
-
 .ui.form .field > label {
   margin: 0em 0em 0.3em;
   display: block;
   color: #555555;
   font-size: 0.875em;
 }
-
 /*--------------------
     Standard Inputs
 ---------------------*/
-
 .ui.form textarea,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
@@ -73,7 +60,6 @@
 .ui.form .ui.input {
   width: 100%;
 }
-
 .ui.form textarea,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
@@ -102,7 +88,6 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .ui.textarea,
 .ui.form textarea {
   line-height: 1.33;
@@ -111,50 +96,39 @@
   max-height: 24em;
   resize: vertical;
 }
-
 .ui.form textarea,
 .ui.form input[type="checkbox"] {
   vertical-align: top;
 }
-
 /*--------------------
        Dividers
 ---------------------*/
-
 .ui.form .divider {
   clear: both;
   margin: 1em 0em;
 }
-
 /*--------------------
    Types of Messages
 ---------------------*/
-
 .ui.form .info.message,
 .ui.form .warning.message,
 .ui.form .error.message {
   display: none;
 }
-
 /* Assumptions */
-
 .ui.form .message:first-child {
   margin-top: 0px;
 }
-
 /*--------------------
    Validation Prompt
 ---------------------*/
-
 .ui.form .field .prompt.label {
   white-space: nowrap;
 }
-
 .ui.form .inline.field .prompt {
   margin-top: 0em;
   margin-right: 1em;
 }
-
 .ui.form .inline.field .prompt:before {
   margin-top: -0.3em;
   bottom: auto;
@@ -162,15 +136,12 @@
   top: 50%;
   right: 0em;
 }
-
 /*******************************
             States
 *******************************/
-
 /*--------------------
         Focus
 ---------------------*/
-
 .ui.form input[type="text"]:focus,
 .ui.form input[type="email"]:focus,
 .ui.form input[type="date"]:focus,
@@ -187,42 +158,32 @@
   -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
 }
-
 /*--------------------
         Error
 ---------------------*/
-
 /* On Form */
-
 .ui.form.warning .warning.message {
   display: block;
 }
-
 /*--------------------
         Warning
 ---------------------*/
-
 /* On Form */
-
 .ui.form.error .error.message {
   display: block;
 }
-
 /* On Field(s) */
-
 .ui.form .fields.error .field label,
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
   color: #D95C5C;
 }
-
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
   border-color: #D95C5C;
   color: #FFFFFF;
 }
-
 .ui.form .fields.error .field textarea,
 .ui.form .fields.error .field input[type="text"],
 .ui.form .fields.error .field input[type="email"],
@@ -249,7 +210,6 @@
   -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
   box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
 }
-
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
 .ui.form .field.error input[type="email"]:focus,
@@ -264,11 +224,9 @@
   -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
   box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
 }
-
 /*----------------------------
   Dropdown Selection Warning
 -----------------------------*/
-
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .fields.error .field .ui.dropdown .item,
 .ui.form .field.error .ui.dropdown,
@@ -276,102 +234,78 @@
   background-color: #FFFAFA;
   color: #D95C5C;
 }
-
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
   -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
   box-shadow: 0px 0px 0px 1px #E7BEBE !important;
 }
-
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
   -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
   box-shadow: 0px 0px 0px 1px #E7BEBE !important;
 }
-
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
   -webkit-box-shadow: 0px 1px 0px 1px #E7BEBE;
   box-shadow: 0px 1px 0px 1px #E7BEBE;
 }
-
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
   background-color: #FFF2F2;
 }
-
 .ui.form .fields.error .field .ui.dropdown .menu .active.item,
 .ui.form .field.error .ui.dropdown .menu .active.item {
   background-color: #FDCFCF !important;
 }
-
 /*--------------------
   Empty (Placeholder)
 ---------------------*/
-
 /* browsers require these rules separate */
-
 .ui.form ::-webkit-input-placeholder {
   color: #AAAAAA;
 }
-
 .ui.form ::-moz-placeholder {
   color: #AAAAAA;
 }
-
 .ui.form :focus::-webkit-input-placeholder {
   color: #999999;
 }
-
 .ui.form :focus::-moz-placeholder {
   color: #999999;
 }
-
 /* Error Placeholder */
-
 .ui.form .error ::-webkit-input-placeholder {
   color: rgba(255, 80, 80, 0.4);
 }
-
 .ui.form .error ::-moz-placeholder {
   color: rgba(255, 80, 80, 0.4);
 }
-
 .ui.form .error :focus::-webkit-input-placeholder {
   color: rgba(255, 80, 80, 0.7);
 }
-
 .ui.form .error :focus::-moz-placeholder {
   color: rgba(255, 80, 80, 0.7);
 }
-
 /*--------------------
        Disabled
 ---------------------*/
-
 .ui.form .field :disabled,
 .ui.form .field.disabled {
   opacity: 0.5;
 }
-
 .ui.form .field.disabled label {
   opacity: 0.5;
 }
-
 .ui.form .field.disabled :disabled {
   opacity: 1;
 }
-
 /*--------------------
      Loading State
 ---------------------*/
-
 /* On Form */
-
 .ui.form.loading {
   position: relative;
 }
-
 .ui.form.loading:after {
   position: absolute;
   top: 0%;
@@ -382,15 +316,12 @@
   background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
   visibility: visible;
 }
-
 /*******************************
            Variations
 *******************************/
-
 /*--------------------
       Fluid Width
 ---------------------*/
-
 .ui.form.fluid {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -398,23 +329,18 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 /*--------------------------
   Input w/ attached Button
 ---------------------------*/
-
 .ui.form input.attached {
   width: auto;
 }
-
 /*--------------------
       Date Input
 ---------------------*/
-
 .ui.form .date.field > label {
   position: relative;
 }
-
 .ui.form .date.field > label:after {
   position: absolute;
   top: 2em;
@@ -425,15 +351,12 @@
   font-weight: normal;
   color: #CCCCCC;
 }
-
 /*--------------------
     Inverted Colors
 ---------------------*/
-
 .ui.inverted.form label {
   color: #FFFFFF;
 }
-
 .ui.inverted.form .field.error textarea,
 .ui.inverted.form .field.error input[type="text"],
 .ui.inverted.form .field.error input[type="email"],
@@ -444,43 +367,33 @@
 .ui.inverted.form .field.error input[type="tel"] {
   background-color: #FFCCCC;
 }
-
 .ui.inverted.form .ui.checkbox label {
   color: rgba(255, 255, 255, 0.8);
 }
-
 .ui.inverted.form .ui.checkbox label:hover,
 .ui.inverted.form .ui.checkbox .box:hover {
   color: #FFFFFF;
 }
-
 /*--------------------
      Field Groups
 ---------------------*/
-
 /* Grouped Vertically */
-
 .ui.form .grouped.fields {
   margin: 0em 0em 1em;
 }
-
 .ui.form .grouped.fields .field {
   display: block;
   float: none;
   margin: 0.5em 0em;
   padding: 0em;
 }
-
 /*--------------------
           Fields
 ---------------------*/
-
 /* Split fields */
-
 .ui.form .fields {
   clear: both;
 }
-
 .ui.form .fields:after {
   content: ' ';
   display: block;
@@ -489,7 +402,6 @@
   line-height: 0;
   height: 0;
 }
-
 .ui.form .fields > .field {
   clear: none;
   float: right;
@@ -498,45 +410,37 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .ui.form .fields > .field:first-child {
   border-right: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 /* Other Combinations */
-
 .ui.form .two.fields > .fields,
 .ui.form .two.fields > .field {
   width: 50%;
   padding-right: 1%;
   padding-left: 1%;
 }
-
 .ui.form .three.fields > .fields,
 .ui.form .three.fields > .field {
   width: 33.333%;
   padding-right: 1%;
   padding-left: 1%;
 }
-
 .ui.form .four.fields > .fields,
 .ui.form .four.fields > .field {
   width: 25%;
   padding-right: 1%;
   padding-left: 1%;
 }
-
 .ui.form .five.fields > .fields,
 .ui.form .five.fields > .field {
   width: 20%;
   padding-right: 1%;
   padding-left: 1%;
 }
-
 /* Swap to full width on mobile */
-
 @media only screen and (max-width: 767px) {
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
@@ -551,24 +455,19 @@
     padding-left: 0%;
   }
 }
-
 .ui.form .fields .field:first-child {
   padding-right: 0%;
 }
-
 .ui.form .fields .field:last-child {
   padding-left: 0%;
 }
-
 /*--------------------
     Inline Fields
 ---------------------*/
-
 .ui.form .inline.fields .field {
   min-height: 1.3em;
   margin-left: 0.5em;
 }
-
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
@@ -582,32 +481,25 @@
   vertical-align: middle;
   font-size: 1em;
 }
-
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > input {
   font-size: 0.875em;
 }
-
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
   margin: 0em 0em 0em 0.5em;
 }
-
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
   margin: 0em;
 }
-
 /*--------------------
         Sizes
 ---------------------*/
-
 /* Standard */
-
 .ui.small.form {
   font-size: 0.875em;
 }
-
 .ui.small.form textarea,
 .ui.small.form input[type="text"],
 .ui.small.form input[type="email"],
@@ -619,9 +511,7 @@
 .ui.small.form label {
   font-size: 1em;
 }
-
 /* Large */
-
 .ui.large.form {
   font-size: 1.125em;
 }

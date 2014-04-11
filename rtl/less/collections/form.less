@@ -9,6 +9,7 @@
  *
  */
 
+
 /*******************************
            Standard
 *******************************/
@@ -21,11 +22,9 @@
   position: relative;
   max-width: 100%;
 }
-
 .ui.form :first-child {
   margin-top: 0em;
 }
-
 .ui.form :last-child {
   margin-bottom: 0em;
 }
@@ -54,6 +53,7 @@
 .ui.form .field > label {
   margin: 0em 0em 0.3em;
   display: block;
+
   color: #555555;
   font-size: 0.875em;
 }
@@ -61,6 +61,7 @@
 /*--------------------
     Standard Inputs
 ---------------------*/
+
 
 .ui.form textarea,
 .ui.form input[type="text"],
@@ -82,27 +83,40 @@
 .ui.form input[type="number"],
 .ui.form input[type="url"],
 .ui.form input[type="tel"] {
+
   margin: 0em;
   padding: 0.65em 1em;
   font-size: 1em;
+
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   outline: none;
+
+
   color: rgba(0, 0, 0, 0.7);
   border-radius: 0.3125em;
-  -webkit-transition: background-color 0.3s ease-out,
+
+  -webkit-transition:
+    background-color 0.3s ease-out,
     -webkit-box-shadow 0.2s ease,
     border-color 0.2s ease;
-  -moz-transition: background-color 0.3s ease-out,
+  -moz-transition:
+    background-color 0.3s ease-out,
     box-shadow 0.2s ease,
-    border-color 0.2s ease;
-  transition: background-color 0.3s ease-out,
+    border-color 0.2s ease
+  ;
+  transition:
+    background-color 0.3s ease-out,
     box-shadow 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease
+  ;
+
   -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
   box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+
   -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -132,6 +146,7 @@
   margin: 1em 0em;
 }
 
+
 /*--------------------
    Types of Messages
 ---------------------*/
@@ -143,7 +158,6 @@
 }
 
 /* Assumptions */
-
 .ui.form .message:first-child {
   margin-top: 0px;
 }
@@ -155,12 +169,10 @@
 .ui.form .field .prompt.label {
   white-space: nowrap;
 }
-
 .ui.form .inline.field .prompt {
   margin-top: 0em;
   margin-right: 1em;
 }
-
 .ui.form .inline.field .prompt:before {
   margin-top: -0.3em;
   bottom: auto;
@@ -169,9 +181,11 @@
   right: 0em;
 }
 
+
 /*******************************
             States
 *******************************/
+
 
 /*--------------------
         Focus
@@ -184,12 +198,14 @@
 .ui.form input[type="number"]:focus,
 .ui.form input[type="url"]:focus,
 .ui.form input[type="tel"]:focus,
-.ui.form textarea:focus {
+.ui.form textarea:focus{
   color: rgba(0, 0, 0, 0.85);
   border-color: rgba(0, 0, 0, 0.2);
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
+
   -webkit-appearance: none;
+
   -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
 }
@@ -199,7 +215,6 @@
 ---------------------*/
 
 /* On Form */
-
 .ui.form.warning .warning.message {
   display: block;
 }
@@ -209,13 +224,11 @@
 ---------------------*/
 
 /* On Form */
-
 .ui.form.error .error.message {
   display: block;
 }
 
 /* On Field(s) */
-
 .ui.form .fields.error .field label,
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
@@ -248,10 +261,13 @@
   background-color: #FFFAFA;
   border-color: #E7BEBE;
   border-right: none;
+
   color: #D95C5C;
   padding-right: 1.2em;
+
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
+
   -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
   box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
 }
@@ -263,9 +279,10 @@
 .ui.form .field.error input[type="password"]:focus,
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
-.ui.form .field.error input[type="tel"]:focus {
+.ui.form .field.error input[type="tel"]:focus{
   border-color: rgba(255, 80, 80, 1);
   color: rgba(255, 80, 80, 1);
+
   -webkit-appearance: none;
   -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
   box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
@@ -294,13 +311,11 @@
   -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
   box-shadow: 0px 0px 0px 1px #E7BEBE !important;
 }
-
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
   -webkit-box-shadow: 0px 1px 0px 1px #E7BEBE;
   box-shadow: 0px 1px 0px 1px #E7BEBE;
 }
-
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
   background-color: #FFF2F2;
@@ -316,37 +331,29 @@
 ---------------------*/
 
 /* browsers require these rules separate */
-
 .ui.form ::-webkit-input-placeholder {
   color: #AAAAAA;
 }
-
 .ui.form ::-moz-placeholder {
   color: #AAAAAA;
 }
-
 .ui.form :focus::-webkit-input-placeholder {
   color: #999999;
 }
-
 .ui.form :focus::-moz-placeholder {
   color: #999999;
 }
 
 /* Error Placeholder */
-
 .ui.form .error ::-webkit-input-placeholder {
   color: rgba(255, 80, 80, 0.4);
 }
-
 .ui.form .error ::-moz-placeholder {
   color: rgba(255, 80, 80, 0.4);
 }
-
 .ui.form .error :focus::-webkit-input-placeholder {
   color: rgba(255, 80, 80, 0.7);
 }
-
 .ui.form .error :focus::-moz-placeholder {
   color: rgba(255, 80, 80, 0.7);
 }
@@ -359,39 +366,39 @@
 .ui.form .field.disabled {
   opacity: 0.5;
 }
-
 .ui.form .field.disabled label {
   opacity: 0.5;
 }
-
 .ui.form .field.disabled :disabled {
   opacity: 1;
 }
+
 
 /*--------------------
      Loading State
 ---------------------*/
 
 /* On Form */
-
 .ui.form.loading {
   position: relative;
 }
-
 .ui.form.loading:after {
   position: absolute;
   top: 0%;
   right: 0%;
   content: '';
+
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
   visibility: visible;
 }
 
+
 /*******************************
            Variations
 *******************************/
+
 
 /*--------------------
       Fluid Width
@@ -404,6 +411,7 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 
 /*--------------------------
   Input w/ attached Button
@@ -420,7 +428,6 @@
 .ui.form .date.field > label {
   position: relative;
 }
-
 .ui.form .date.field > label:after {
   position: absolute;
   top: 2em;
@@ -432,6 +439,7 @@
   color: #CCCCCC;
 }
 
+
 /*--------------------
     Inverted Colors
 ---------------------*/
@@ -439,7 +447,6 @@
 .ui.inverted.form label {
   color: #FFFFFF;
 }
-
 .ui.inverted.form .field.error textarea,
 .ui.inverted.form .field.error input[type="text"],
 .ui.inverted.form .field.error input[type="email"],
@@ -447,14 +454,13 @@
 .ui.inverted.form .field.error input[type="password"],
 .ui.inverted.form .field.error input[type="number"],
 .ui.inverted.form .field.error input[type="url"],
-.ui.inverted.form .field.error input[type="tel"] {
+.ui.inverted.form .field.error input[type="tel"]{
   background-color: #FFCCCC;
 }
 
 .ui.inverted.form .ui.checkbox label {
   color: rgba(255, 255, 255, 0.8);
 }
-
 .ui.inverted.form .ui.checkbox label:hover,
 .ui.inverted.form .ui.checkbox .box:hover {
   color: #FFFFFF;
@@ -465,11 +471,9 @@
 ---------------------*/
 
 /* Grouped Vertically */
-
 .ui.form .grouped.fields {
   margin: 0em 0em 1em;
 }
-
 .ui.form .grouped.fields .field {
   display: block;
   float: none;
@@ -477,16 +481,15 @@
   padding: 0em;
 }
 
+
 /*--------------------
           Fields
 ---------------------*/
 
 /* Split fields */
-
 .ui.form .fields {
   clear: both;
 }
-
 .ui.form .fields:after {
   content: ' ';
   display: block;
@@ -495,7 +498,6 @@
   line-height: 0;
   height: 0;
 }
-
 .ui.form .fields > .field {
   clear: none;
   float: right;
@@ -504,7 +506,6 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .ui.form .fields > .field:first-child {
   border-right: none;
   -webkit-box-shadow: none;
@@ -512,28 +513,24 @@
 }
 
 /* Other Combinations */
-
 .ui.form .two.fields > .fields,
 .ui.form .two.fields > .field {
   width: 50%;
   padding-right: 1%;
   padding-left: 1%;
 }
-
 .ui.form .three.fields > .fields,
 .ui.form .three.fields > .field {
   width: 33.333%;
   padding-right: 1%;
   padding-left: 1%;
 }
-
 .ui.form .four.fields > .fields,
 .ui.form .four.fields > .field {
   width: 25%;
   padding-right: 1%;
   padding-left: 1%;
 }
-
 .ui.form .five.fields > .fields,
 .ui.form .five.fields > .field {
   width: 20%;
@@ -542,7 +539,6 @@
 }
 
 /* Swap to full width on mobile */
-
 @media only screen and (max-width : 767px) {
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
@@ -561,10 +557,10 @@
 .ui.form .fields .field:first-child {
   padding-right: 0%;
 }
-
 .ui.form .fields .field:last-child {
   padding-left: 0%;
 }
+
 
 /*--------------------
     Inline Fields
@@ -574,21 +570,22 @@
   min-height: 1.3em;
   margin-left: 0.5em;
 }
-
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > label,
 .ui.form .inline.field > p,
 .ui.form .inline.field > input {
+
   display: inline-block;
   width: auto;
+
   margin-top: 0em;
   margin-bottom: 0em;
+
   vertical-align: middle;
   font-size: 1em;
 }
-
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > input {
   font-size: 0.875em;
@@ -598,22 +595,20 @@
 .ui.form .inline.field > :first-child {
   margin: 0em 0em 0em 0.5em;
 }
-
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
   margin: 0em;
 }
+
 
 /*--------------------
         Sizes
 ---------------------*/
 
 /* Standard */
-
 .ui.small.form {
   font-size: 0.875em;
 }
-
 .ui.small.form textarea,
 .ui.small.form input[type="text"],
 .ui.small.form input[type="email"],
@@ -622,12 +617,12 @@
 .ui.small.form input[type="number"],
 .ui.small.form input[type="url"],
 .ui.small.form input[type="tel"],
-.ui.small.form label {
+.ui.small.form label{
   font-size: 1em;
 }
 
 /* Large */
-
 .ui.large.form {
   font-size: 1.125em;
 }
+
