@@ -55,7 +55,6 @@
 @validationMargin: 0em 0em 0em 1em;
 @validationArrowOffset: -0.3em;
 
-
 /*-------------------
         States
 --------------------*/
@@ -64,6 +63,7 @@
 
 /* Focus */
 @inputFocusPointerSize: 0.3em;
+
 /* Input Focus */
 @inputFocusBackground: #FFFFFF;
 @inputFocusBorderColor: @selectedBorderColor;
@@ -75,9 +75,12 @@
 @formErrorColor: @negativeColor;
 @formErrorBorder: @negativeBorderColor;
 @formErrorBackground: @negativeBackgroundColor;
+
 /* Input Error */
+@inputErrorPointerSize: 0.3em;
 @inputErrorBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
-@inputErrorBoxShadow: @inputFocusPointerSize 0em 0em 0em @formErrorColor inset;
+@inputErrorBoxShadow: @inputErrorPointerSize 0em 0em 0em @formErrorColor inset;
+
 /* Dropdown Error */
 @dropdownErrorHoverBackground: #FFF2F2;
 @dropdownErrorActiveBackground: #FDCFCF;
@@ -86,6 +89,7 @@
 @formErrorFocusColor: @negativeColorHover;
 @formErrorFocusBorder: @negativeBorderColor;
 @formErrorFocusBackground: @negativeBackgroundColor;
+
 /* Input Focused Error */
 @inputErrorFocusBoxShadow: @inputFocusPointerSize 0em 0em 0em @negativeColorHover inset;
 
@@ -99,6 +103,7 @@
 @formLoaderDimmerColor: rgba(255, 255, 255, 0.6);
 @formLoaderPath: "@{imagePath}/loader-large.gif";
 @formLoaderPosition: 50% 50%;
+
 
 /*-------------------
         Types
