@@ -174,12 +174,15 @@
             States
 *******************************/
 
-.ui.message.visible,
-.ui.header.visible {
+.ui.message.visible {
   display: block !important;
 }
-.ui.message.hidden,
-.ui.header.hidden {
+.ui.icon.message.animating,
+.ui.icon.message.visible {
+  display: table !important;
+}
+
+.ui.message.hidden {
   display: none !important;
 }
 
