@@ -240,7 +240,7 @@
 
   createMatcher = function(sinonName, jasmineName) {
     var original;
-    if(jasmineRequire === undefined) {
+    if(typeof jasmineRequire !== 'object') {
       return;
     }
     original = jasmineRequire[jasmineName];
