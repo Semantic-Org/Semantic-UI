@@ -598,8 +598,9 @@ $.fn.chatroom = function(parameters) {
   $.fn.chatroom.settings = {
 
     name            : 'Chat',
-    debug           : false,
     namespace       : 'chat',
+
+    debug           : false,
 
     channel         : 'present-chat',
 

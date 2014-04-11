@@ -82,7 +82,6 @@
 .ui.button:focus {
   background-color: @focusBackgroundColor;
   background-image: @focusBackgroundImage;
-  box-shadow: @focusBoxShadow;
   color: @selectedTextColor;
 }
 
@@ -552,7 +551,7 @@
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.buttons .icon.button {
-  padding: @compactVerticalPadding @compactVerticalPadding ( @compactHorizontalPadding + @shadowOffset );
+  padding: @compactVerticalPadding @compactVerticalPadding ( @compactVerticalPadding + @shadowOffset );
 }
 
 /*-------------------
@@ -872,7 +871,6 @@
   width: @orWidth;
   height: @orHeight;
   z-index: 3;
-  text-shadow: none;
 }
 .ui.buttons .or:before {
   position: absolute;

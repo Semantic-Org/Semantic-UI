@@ -374,8 +374,8 @@ $.fn.rating.settings = {
   name          : 'Rating',
   namespace     : 'rating',
 
-  verbose       : true,
   debug         : true,
+  verbose       : true,
   performance   : true,
 
   initialRating : 0,

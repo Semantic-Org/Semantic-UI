@@ -428,16 +428,13 @@ $.site.settings = {
   namespace   : 'site',
 
   error : {
-    console : 'Console cannot be restored, most likely it was overwritten outside of module'
-  },
-
-  verbose     : true,
-  debug       : true,
-  performance : true,
-
-  error: {
+    console : 'Console cannot be restored, most likely it was overwritten outside of module',
     method : 'The method you called is not defined.'
   },
+
+  debug       : false,
+  verbose     : true,
+  performance : true,
 
   modules: [
     'accordion',

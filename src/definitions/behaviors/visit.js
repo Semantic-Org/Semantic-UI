@@ -13,7 +13,9 @@
 
 $.visit = $.fn.visit = function(parameters) {
   var
-    $allModules     = $(this),
+    $allModules     = $.isFunction(this)
+        ? $(window)
+        : $(this),
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -24,7 +26,7 @@ $.visit = $.fn.visit = function(parameters) {
     queryArguments  = [].slice.call(arguments, 1),
     returnedValue
   ;
-  $(this)
+  $allModules
     .each(function() {
       var
         settings        = $.extend(true, {}, $.fn.visit.settings, parameters),
@@ -153,6 +155,15 @@ $.visit = $.fn.visit = function(parameters) {
 
         },
 
+        set: {
+          count: function(value) {
+            module.store(settings.key.count, value);
+          },
+          ids: function(value) {
+            module.store(settings.key.ids, value);
+          }
+        },
+
         reset: function() {
           module.store(settings.key.count, 0);
           module.store(settings.key.ids, '');
@@ -182,9 +193,12 @@ $.visit = $.fn.visit = function(parameters) {
             var
               $element = $(selector)
             ;
-            if($element.size() > 0) {
+            if($element.size() > 0 && !$.isWindow($element[0])) {
               module.debug('Updating visit count for element', $element);
-              $displays = $displays.add($element);
+              $displays = ($displays.size() > 0)
+                ? $displays.add($element)
+                : $element
+              ;
             }
             module.update.display();
           }
@@ -448,7 +462,7 @@ $.fn.visit.settings = {
 
   name          : 'Visit',
 
-  debug         : true,
+  debug         : false,
   verbose       : true,
   performance   : true,
 

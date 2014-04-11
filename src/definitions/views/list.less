@@ -373,7 +373,7 @@ ul.ui.horizontal.bulleted.list li:first-child::before,
 ol.ui.list,
 .ui.ordered.list {
   counter-reset: ordered;
-  margin-left: 2em;
+  margin-left: 1em;
   list-style-type: none;
 }
 ol.ui.list li,
@@ -384,14 +384,14 @@ ol.ui.list li,
 ol.ui.list li:before,
 .ui.ordered.list .item:before {
   position: absolute;
-  left: -2em;
+  left: -1em;
 
   counter-increment: ordered;
   content: counters(ordered, ".");
 
   text-align: right;
   vertical-align: top;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 
 ol.ui.list ol,
@@ -402,7 +402,7 @@ ol.ui.list ol,
 
 ol.ui.list ol li:before,
 .ui.ordered.list .list .item:before {
-  left: -2.5em;
+  left: -2em;
 }
 
 /* Horizontal Ordered */
@@ -421,9 +421,12 @@ ol.ui.horizontal.list li:before,
        Divided
 --------------------*/
 
-.ui.divided.list > .item,
-.ui.divided.list:not(.horizontal) > .list {
+.ui.divided.list  .item,
+.ui.divided.list:not(.horizontal) .list {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ui.divided.list .list .item {
+  border-top: none;
 }
 .ui.divided.list .item .menu .item {
   border-width: 0px;

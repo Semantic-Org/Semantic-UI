@@ -9,9 +9,6 @@
  *
  */
 
-
-
-
 /*******************************
             Theme
 *******************************/
@@ -20,7 +17,6 @@
 @element : 'image';
 
 @import '../../semantic.config';
-
 
 /*******************************
              Image
@@ -128,10 +124,17 @@ img.ui.image {
 .ui.right.floated.images,
 .ui.right.floated.image {
   float: right;
+  margin-right: 0em;
   margin-bottom: @floatedVerticalMargin;
   margin-left: @floatedHorizontalMargin;
 }
 
+
+.ui.centered.images,
+.ui.centered.image {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /*--------------
      Sizes
