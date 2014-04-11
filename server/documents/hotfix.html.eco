@@ -8,44 +8,26 @@ type   : 'Library'
 <%- @partial('header') %>
 
 <script type='text/javascript'>
-$(function(){
-    $('.dropdown').dropdown({
-        onChange: function (val) {
-            alert(val);
-        }
-    });
+$(document).ready(function() {
+  $('#show-message').hide();
+
+  $('.message .close').click(function () {
+      $(this).closest('.message').transition('fade out');
+      $('#show-message').show();
+  });
+
+
+  $('#show-message').click(function () {
+      $('.message').transition('fade in');
+  });
 });
 </script>
 
-<div class="ui dropdown">
-    <input type="hidden" name="gender"/>
-    <div class="text">Gender</div>
-    <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item" data-value="0">Male</div>
-        <div class="item">
-            <i class="dropdown icon"></i>
-            SEcond
-              <div class="menu">
-             <div class="item" data-value="1">Female</div>
-             <div class="item">
-                  <i class="dropdown icon"></i>
-                  Third
-                  <div class="menu">
-                     <div class="item" data-value="3">Nothing</div>
-                  </div>
-            </div>
-                   <div class="item">
-                  <i class="dropdown icon"></i>
-                  Fourth
-                  <div class="menu">
-                     <div class="item" data-value="4">Something</div>
-                  </div>
-            </div>
-         </div>
-        
+<div class="ui button" id="show-message">Show message</div>
+<div class="ui icon message">
+    <i class="smile icon"></i>
+    <i class="close icon"></i>
+    <div class="content">
+        <div class="header">My text</div>
+    </div>
 </div>
-
-
-</body>
-

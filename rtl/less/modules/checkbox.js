@@ -130,11 +130,13 @@ $.fn.checkbox = function(parameters) {
 
         toggle: function(event) {
           module.verbose('Determining new checkbox state');
-          if( module.is.disabled() ) {
-            module.enable();
-          }
-          else if( module.is.enabled() && module.can.disable() ) {
-            module.disable();
+          if( !$input.prop('disabled') ) {
+            if( module.is.disabled() ) {
+              module.enable();
+            }
+            else if( module.is.enabled() && module.can.disable() ) {
+              module.disable();
+            }
           }
         },
         setting: function(name, value) {

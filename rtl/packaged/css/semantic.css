@@ -2833,15 +2833,20 @@ body > .ui.grid {
 .ui.message > .close.icon {
   cursor: pointer;
   position: absolute;
-  top: 1em;
-  left: 0.5em;
+  left: 0em;
+  top: 0em;
+  width: 2.5em;
+  height: 2.5em;
   opacity: 0.7;
+  padding: 0.75em 0.75em 0em 0em;
+  z-index: 2;
   -webkit-transition: opacity 0.1s linear
   ;
   -moz-transition: opacity 0.1s linear
   ;
   transition: opacity 0.1s linear
   ;
+  z-index: 10;
 }
 .ui.message > .close.icon:hover {
   opacity: 1;
@@ -2849,13 +2854,15 @@ body > .ui.grid {
 /*******************************
             States
 *******************************/
-.ui.message.visible,
-.ui.header.visible {
+.ui.message.visible {
   display: block !important;
 }
-.ui.message.hidden,
-.ui.header.hidden {
-  display: none;
+.ui.icon.message.animating,
+.ui.icon.message.visible {
+  display: table !important;
+}
+.ui.message.hidden {
+  display: none !important;
 }
 /*******************************
             Variations
@@ -8930,6 +8937,9 @@ a.ui.teal.label:hover:before {
 .ui.reveal > .hidden.content {
   position: relative !important;
   z-index: 3 !important;
+}
+.ui.reveal:hover > .hidden.content {
+  z-index: 5 !important;
 }
 /*------------------
    Loose Coupling

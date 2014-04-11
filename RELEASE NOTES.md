@@ -1,5 +1,16 @@
 ## RELEASE NOTES
 
+### Version 0.15.5 - April 11, 2014
+
+**Critical Fixes**
+- **Checkbox** - Fixes ``ui checkbox`` to obey ``disabled`` property of input
+
+**Fixes**
+- **Reveal** - Hidden content now can be selected on reveal
+- **Message** - Fixes hidden/visible class to work with animations
+- **Message** - Fixes hidden/visible class to set proper display on ``ui icon message``
+- **Message** - Fixes hitbox/position of ``close icon`` inside message
+
 ### Version 0.15.4 - April 04, 2014
 
 **Fixes**
