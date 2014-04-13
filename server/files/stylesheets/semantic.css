@@ -765,6 +765,9 @@ body.guide .main.container > * {
 #example .example > p {
   color: #888888;
 }
+#example .example div.code[data-demo] {
+  color: transparent;
+}
 
 #example .peek .menu .active:nth-child(1) {
   border-right-color: #00B9F0;

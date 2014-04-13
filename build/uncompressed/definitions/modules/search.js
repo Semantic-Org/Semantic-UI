@@ -604,7 +604,7 @@ $.fn.search.settings = {
   name           : 'Search Module',
   namespace      : 'search',
 
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
 

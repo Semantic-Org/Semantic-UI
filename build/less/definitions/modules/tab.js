@@ -665,7 +665,7 @@ $.fn.tab.settings = {
   namespace   : 'tab',
 
   verbose     : true,
-  debug       : true,
+  debug       : false,
   performance : true,
 
   // only called first time a tab's content is loaded (when remote source)
@@ -684,7 +684,7 @@ $.fn.tab.settings = {
   historyType     : 'hash',
   path            : false,
 
-  context         : 'body',
+  context         : false,
 
   // max depth a tab can be nested
   maxDepth        : 25,

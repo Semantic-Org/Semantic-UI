@@ -124,17 +124,30 @@ $.fn.popup = function(parameters) {
 
         event: {
           start:  function(event) {
-            module.timer = setTimeout(function() {
+            var
+              delay = ($.isPlainObject(settings.delay))
+                ? settings.delay.show
+                : settings.delay
+            ;
+            clearTimeout(module.hideTimer);
+            module.showTimer = setTimeout(function() {
               if( module.is.hidden() ) {
                 module.show();
               }
-            }, settings.delay);
+            }, delay);
           },
           end:  function() {
-            clearTimeout(module.timer);
-            if( module.is.visible() ) {
-              module.hide();
-            }
+            var
+              delay = ($.isPlainObject(settings.delay))
+                ? settings.delay.hide
+                : settings.delay
+            ;
+            clearTimeout(module.showTimer);
+            module.hideTimer = setTimeout(function() {
+              if( module.is.visible() ) {
+                module.hide();
+              }
+            }, delay);
           },
           resize: function() {
             if( module.is.visible() ) {
@@ -788,7 +801,8 @@ $.fn.popup = function(parameters) {
 $.fn.popup.settings = {
 
   name           : 'Popup',
-  debug          : false,
+
+  debug          : true,
   verbose        : true,
   performance    : true,
   namespace      : 'popup',
@@ -808,7 +822,10 @@ $.fn.popup.settings = {
 
   context        : 'body',
   position       : 'top center',
-  delay          : 150,
+  delay          : {
+    show : 300,
+    hide : 150
+  },
   inline         : false,
   preserve       : false,
 

@@ -1,10 +1,14 @@
 ---
 layout      : 'default'
-css         : 'modal-demo'
+css         : 'modal-page'
+element     : 'modal'
+elementType : 'module'
 
 title       : 'Modal'
 description : 'A modal displays content that temporarily blocks interactions with a web site'
 type        : 'UI Module'
+
+themes      : ['default', 'fixed-width']
 ---
 <script src="/javascript/modal.js"></script>
 
@@ -17,10 +21,10 @@ type        : 'UI Module'
       Change Your Homepage
     </div>
     <div class="content">
-      <div class="left">
+      <div class="image">
         <i class="home icon"></i>
       </div>
-      <div class="right">
+      <div class="description">
         <p>Are you sure you want to change your homepage to <b>Poodle.com</b>?</p>
       </div>
     </div>
@@ -82,10 +86,10 @@ type        : 'UI Module'
       Profile Picture
     </div>
     <div class="content">
-      <div class="left">
+      <div class="image">
         <img class="ui medium image" src="/images/demo/avatar2.jpg">
       </div>
-      <div class="right">
+      <div class="description">
         <div class="ui header">Are you sure you want to upload that?</div>
         <p>I mean it's not really the best profile photo.</p>
         <p>It's resampled to like two times the size it's suppose to be. Our image detection software also says it might even be inappropriate.</p>
@@ -262,11 +266,11 @@ type        : 'UI Module'
           Modal Title
         </div>
         <div class="content">
-          <div class="left">
-            Content can appear on left
+          <div class="image">
+            An image can appear on left or an icon
           </div>
-          <div class="right">
-            Content can appear on right
+          <div class="description">
+            A description can appear on the right
           </div>
         </div>
         <div class="actions">
@@ -561,3 +565,5 @@ type        : 'UI Module'
   </div>
 
 </div>
+
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/modal.less" />

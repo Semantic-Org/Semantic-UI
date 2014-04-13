@@ -2,8 +2,10 @@
       Checkbox
 --------------------*/
 
-@checkboxHeight: 1.25em;
+@checkboxHeight: 1em;
 @checkboxColor: @textColor;
+
+/* Label */
 @labelPadding: 2em;
 
 @neutralCheckbox: @transparentBlack;
@@ -11,11 +13,23 @@
 @negativeCheckbox: @negativeColor;
 
 /* Checkbox */
-@boxSize: 1.25em;
-@boxOffset: (1em - @boxSize) / 2;
-@backgroundColor: @white;
+@checkboxSize: 16px;
+@checkboxBackground: @white;
 @checkboxBorder: 1px solid @borderColor;
-@borderRadius: 0.25em;
+@checkboxBorderRadius: 0.25em;
+@checkboxTransition:
+  background-color 0.3s ease,
+  border 0.3s ease,
+  box-shadow 0.3s ease
+;
+
+/* Checkmark */
+@checkboxCheckOffset: 1px;
+
+
+/* Radio */
+@checkboxRadioOffset: 0px;
+@checkboxRadioCircleSize: 9px;
 
 /* Slider & Toggle Handle */
 @handleBackground: #FFFFFF linear-gradient(transparent, rgba(0, 0, 0, 0.1));
@@ -23,16 +37,13 @@
   0px 2px 2px 0px rgba(0, 0, 0, 0.1),
   0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset
 ;
-@handleSize: 1.3em;
+@handleSize: 1.25em;
 
 /*-------------------
       Coupling
 --------------------*/
 
 @labelColor: @textColor;
-@labelHoverColor: @selectedTextColor;
-@labelSelectedColor: @selectedTextColor;
-
 
 @labelOpacity: 0.6;
 @labelHoverOpacity: 0.8;
@@ -42,9 +53,17 @@
         States
 --------------------*/
 
+@checkboxHoverBackground: @checkboxBackground;
 @checkboxHoverBorder: 1px solid @selectedBorderColor;
-@checkboxSelectedBorder: 1px solid @selectedBorderColor;
+@labelHoverColor: @selectedTextColor;
 
+@checkboxSelectedBackground: #F5F5F5;
+@checkboxSelectedBorder: 1px solid @selectedBorderColor;
+@labelSelectedColor: @selectedTextColor;
+
+/* Disabled */
+@disabledCheckboxOpacity: @disabledOpacity;
+@disabledCheckboxLabelColor: rgba(0, 0, 0, 0.3);
 
 /*-------------------
         Types
@@ -72,8 +91,8 @@
 @toggleTravelDistance: @toggleSwitchWidth - @handleSize;
 @toggleLabelDistance: @toggleSwitchWidth + 1em;
 
-@toggleOffOffset: -0.15em;
-@toggleOnOffset: 1em;
+@toggleOffOffset: -0.2em;
+@toggleOnOffset: 1.2em;
 
 
 

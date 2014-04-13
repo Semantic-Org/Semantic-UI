@@ -8,11 +8,9 @@
  * http://opensource.org/licenses/MIT
  *
  */
-
 /*******************************
             Theme
 *******************************/
-
 /*
 
 ███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
@@ -23,203 +21,140 @@
 ╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
 
 */
-
 /*******************************
            Folders
 *******************************/
-
 /* Path to theme packages */
-
 /* Path to site override folder */
-
 /*******************************
             Themes
 *******************************/
-
 /* To override a theme for an individual element
    specify theme name below
 
    Be sure to update the user folder name (see README)
 */
-
 /* Global */
-
 /* Elements */
-
 /* Collections */
-
 /* Modules */
-
 /* Views */
-
 /*******************************
         Import Directives
 *******************************/
-
 /*------------------
      Load Default
 -------------------*/
-
 /*******************************
         Global Variables
 *******************************/
-
 /*-------------------
         Paths
 --------------------*/
-
 /*-------------------
         Page
 --------------------*/
-
 /*-------------------
      Breakpoints
 --------------------*/
-
 /*-------------------
        Fonts
 --------------------*/
-
 /*-------------------
        Icons
 --------------------*/
-
 /* Width of largest icon */
-
 /*******************************
            BG Colors
 *******************************/
-
 /*******************************
              Colors
 *******************************/
-
 /*-------------------
      Background
 --------------------*/
-
 /*---  Colors  ---*/
-
 /*---  Emotive  ---*/
-
 /*---  Neutrals  ---*/
-
 /*-------------------
       Emotive
 --------------------*/
-
 /*-------------------
      Text Colors
 --------------------*/
-
 /*-------------------
      Brand Colors
 --------------------*/
-
 /*-------------------
       Borders
 --------------------*/
-
 /*-------------------
         Sizes
 --------------------*/
-
 /*-------------------
      Transitions
 --------------------*/
-
 /*******************************
            States
 *******************************/
-
 /*-------------------
       Disabled
 --------------------*/
-
 /*-------------------
         Hover
 --------------------*/
-
 /*---  Colors  ---*/
-
 /*---  Emotive  ---*/
-
 /*---  Neutrals  ---*/
-
 /*-------------------
     Down (:active)
 --------------------*/
-
 /*---  Colors  ---*/
-
 /*---  Emotive  ---*/
-
 /*---  Neutrals  ---*/
-
 /*-------------------
         Active
 --------------------*/
-
 /*---  Standard  ---*/
-
 /*---  Emotive  ---*/
-
 /*---  Neutrals  ---*/
-
 /*******************************
             Standard
 *******************************/
-
 /*-------------------
        Segment
 --------------------*/
-
 /*-------------------
        Coupling
 --------------------*/
-
 /* Page Grid Segment */
-
 /*******************************
             Variations
 *******************************/
-
 /* Piled */
-
 /* Circular */
-
 /* Stacked */
-
 /* Raised */
-
 /* Colors */
-
 /* Ordinality */
-
 /*------------------
      Load Theme
 -------------------*/
-
 /*------------------
      Load Site
 -------------------*/
-
 /*******************************
      User Global Variables
 *******************************/
-
 /*******************************
     User Variable Overrides
 *******************************/
-
 /*------------------
  Override Mix-in
 -------------------*/
-
 /*******************************
             Segment
 *******************************/
-
 .ui.segment {
   position: relative;
   background-color: #ffffff;
@@ -228,19 +163,17 @@
   margin: 1em 0em;
   padding: 1em 1em;
   border-radius: 0.25em;
+  border: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .ui.segment:first-child {
   margin-top: 0em;
 }
-
 .ui.segment:last-child {
   margin-bottom: 0em;
 }
-
 .ui.segment:after {
   content: '';
   display: block;
@@ -248,49 +181,43 @@
   clear: both;
   visibility: hidden;
 }
-
 .ui.vertical.segment {
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
   background-color: transparent;
   border-radius: 0px;
+  border: none;
   -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
-
 .ui.vertical.segment:first-child {
   padding-top: 0em;
 }
-
 .ui.horizontal.segment {
   margin: 0em;
   padding-top: 0em;
   padding-bottom: 0em;
   background-color: transparent;
   border-radius: 0px;
+  border: none;
   -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
-
 .ui.horizontal.segment:first-child {
   padding-left: 0em;
 }
-
 /*-------------------
     Loose Coupling
 --------------------*/
-
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
 }
-
 .ui.page.grid.segment,
 .ui.grid .ui.segment.column {
   padding-top: 2em;
   padding-bottom: 2em;
 }
-
 .ui.grid.segment,
 .ui.grid .ui.segment.row,
 .ui.grid .ui.segment.column {
@@ -299,39 +226,30 @@
   box-shadow: none;
   border: none;
 }
-
 /* No padding on edge content */
-
 .ui.segment > :first-child {
   margin-top: 0em;
 }
-
 .ui.segment > :last-child {
   margin-bottom: 0em;
 }
-
 /*******************************
              Types
 *******************************/
-
 /*-------------------
         Piled
 --------------------*/
-
 .ui.piled.segment {
   margin: 2em 0em;
   -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
-
 .ui.piled.segment:first-child {
   margin-top: 0em;
 }
-
 .ui.piled.segment:last-child {
   margin-bottom: 0em;
 }
-
 .ui.piled.segment:after,
 .ui.piled.segment:before {
   background-color: #ffffff;
@@ -345,7 +263,6 @@
   -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
-
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
   -ms-transform: rotate(1.2deg);
@@ -353,7 +270,6 @@
   top: 0;
   z-index: -1;
 }
-
 .ui.piled.segment:before {
   -webkit-transform: rotate(-1.2deg);
   -ms-transform: rotate(-1.2deg);
@@ -361,15 +277,12 @@
   top: 0;
   z-index: -2;
 }
-
 /*-------------------
        Stacked
 --------------------*/
-
 .ui.stacked.segment {
   padding-bottom: 1.7em;
 }
-
 .ui.stacked.segment:after,
 .ui.stacked.segment:before {
   content: '';
@@ -382,23 +295,18 @@
   height: 5px;
   visibility: visible;
 }
-
 .ui.stacked.segment:before {
   bottom: 0px;
 }
-
 /* Inverted */
-
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
   background-color: rgba(0, 0, 0, 0.01);
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
-
 /*-------------------
        Circular
 --------------------*/
-
 .ui.circular.segment {
   display: table-cell;
   padding: 2em;
@@ -406,33 +314,26 @@
   vertical-align: middle;
   border-radius: 500em;
 }
-
 /*-------------------
        Raised
 --------------------*/
-
 .ui.raised.segment {
   -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
 }
-
 /*******************************
             States
 *******************************/
-
 .ui.disabled.segment {
   opacity: 0.3;
   color: rgba(0, 0, 0, 0.2);
 }
-
 /*******************************
            Variations
 *******************************/
-
 /*-------------------
        Basic
 --------------------*/
-
 .ui.basic.segment {
   position: relative;
   background-color: transparent;
@@ -440,129 +341,109 @@
   box-shadow: none;
   border-radius: 0px;
 }
-
 .ui.basic.segment:first-child {
   padding-top: 0em;
 }
-
 .ui.basic.segment:last-child {
   padding-bottom: 0em;
 }
-
 /*-------------------
        Fittted
 --------------------*/
-
 .ui.fitted.segment {
   padding: 0em;
 }
-
 /*-------------------
        Colors
 --------------------*/
-
 .ui.black.segment {
   border-top: 0.2em solid #555555;
+  border-radius: 0em;
 }
-
 .ui.blue.segment {
   border-top: 0.2em solid #0074d9;
+  border-radius: 0em;
 }
-
 .ui.green.segment {
   border-top: 0.2em solid #2ecc40;
+  border-radius: 0em;
 }
-
 .ui.orange.segment {
   border-top: 0.2em solid #ff851b;
+  border-radius: 0em;
 }
-
 .ui.pink.segment {
   border-top: 0.2em solid #d9499a;
+  border-radius: 0em;
 }
-
 .ui.purple.segment {
   border-top: 0.2em solid #564f8a;
+  border-radius: 0em;
 }
-
 .ui.red.segment {
   border-top: 0.2em solid #ff4136;
+  border-radius: 0em;
 }
-
 .ui.teal.segment {
   border-top: 0.2em solid #39cccc;
+  border-radius: 0em;
 }
-
 .ui.yellow.segment {
   border-top: 0.2em solid #ffcb08;
+  border-radius: 0em;
 }
-
 /*-------------------
    Inverted Colors
 --------------------*/
-
 .ui.inverted.segment,
 .ui.inverted.black.segment {
   background-color: #555555 !important;
   color: #ffffff !important;
 }
-
 .ui.inverted.blue.segment {
   background-color: #0074d9 !important;
   color: #ffffff !important;
 }
-
 .ui.inverted.green.segment {
   background-color: #2ecc40 !important;
   color: #ffffff !important;
 }
-
 .ui.inverted.orange.segment {
   background-color: #ff851b !important;
   color: #ffffff !important;
 }
-
 .ui.inverted.pink.segment {
   background-color: #d9499a !important;
   color: #ffffff !important;
 }
-
 .ui.inverted.purple.segment {
   background-color: #564f8a !important;
   color: #ffffff !important;
 }
-
 .ui.inverted.red.segment {
   background-color: #ff4136 !important;
   color: #ffffff !important;
 }
-
 .ui.inverted.teal.segment {
   background-color: #39cccc !important;
   color: #ffffff !important;
 }
-
 .ui.inverted.yellow.segment {
   background-color: #ffcb08 !important;
   color: #ffffff !important;
 }
-
 /*-------------------
        Aligned
 --------------------*/
-
 .ui.left.aligned.segment {
   text-align: left;
 }
-
 .ui.right.aligned.segment {
   text-align: right;
 }
-
 .ui.center.aligned.segment {
   text-align: center;
 }
-
 .ui.justified.segment {
   text-align: justify;
   -webkit-hyphens: auto;
@@ -570,58 +451,46 @@
   -ms-hyphens: auto;
   hyphens: auto;
 }
-
 /*-------------------
        Floated
 --------------------*/
-
 .ui.floated.segment,
 .ui.left.floated.segment {
   float: left;
 }
-
 .ui.right.floated.segment {
   float: right;
 }
-
 /*-------------------
       Inverted
 --------------------*/
-
 .ui.inverted.segment {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
 .ui.inverted.segment .segment {
   color: rgba(0, 0, 0, 0.8);
 }
-
 .ui.inverted.segment .inverted.segment {
   color: #ffffff;
 }
-
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
   background-color: #555555;
   color: #ffffff;
 }
-
 /*-------------------
      Ordinality
 --------------------*/
-
 .ui.secondary.segment {
   background-color: #faf9fa;
   color: rgba(0, 0, 0, 0.8);
 }
-
 .ui.tertiary.segment {
   background-color: #ebebeb;
   color: rgba(0, 0, 0, 0.8);
 }
-
 .ui.secondary.inverted.segment {
   background-color: #555555;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
@@ -629,17 +498,14 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #fafafa;
 }
-
 .ui.tertiary.inverted.segment {
   background-color: #555555;
   background-image: #f0f0f0;
   color: #f0f0f0;
 }
-
 /*-------------------
       Attached
 --------------------*/
-
 .ui.segment.attached {
   top: -1px;
   bottom: -1px;
@@ -648,7 +514,6 @@
   -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
   box-shadow: 0px 0px 0px 1px #dddddd;
 }
-
 .ui.top.attached.segment {
   top: 0px;
   bottom: -1px;
@@ -656,11 +521,9 @@
   margin-bottom: 0em;
   border-radius: 0.25em 0.25em 0em 0em;
 }
-
 .ui.segment.top.attached:first-child {
   margin-top: 0em;
 }
-
 .ui.segment.bottom.attached {
   top: -1px;
   bottom: 0px;
@@ -668,15 +531,12 @@
   margin-bottom: 1em;
   border-radius: 0px 0px 0.25em 0.25em;
 }
-
 .ui.segment.bottom.attached:last-child {
   margin-bottom: 0em;
 }
-
 /*******************************
            Overrides
 *******************************/
-
 /*******************************
            Overrides
 *******************************/

@@ -75,7 +75,7 @@ $.api = $.fn.api = function(parameters) {
             if( triggerEvent ) {
               module.debug('Attaching API events to element', triggerEvent);
               $module
-                .on(triggerEvent + eventNamespace, module.query)
+                .on(triggerEvent + eventNamespace, module.event.trigger)
               ;
             }
             else {
@@ -119,8 +119,13 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // Add form content
-          if(settings.serializeForm) {
-            $.extend(true, settings.data, module.get.formData());
+          if(settings.serializeForm !== false || $module.is('form') && settings.method == 'POST') {
+            if(settings.serializeForm == 'json') {
+              $.extend(true, settings.data, module.get.formData());
+            }
+            else {
+              settings.data = module.get.formData();
+            }
           }
 
           // call beforesend and get any settings changes
@@ -238,6 +243,12 @@ $.api = $.fn.api = function(parameters) {
         },
 
         event: {
+          trigger: function(event) {
+            module.query();
+            if(event.type == 'submit' || event.type == 'click') {
+              event.preventDefault();
+            }
+          },
           xhr: {
             always: function() {
               // calculate if loading time was below minimum threshold
@@ -402,6 +413,9 @@ $.api = $.fn.api = function(parameters) {
               if( $module.is('input') ) {
                 data.value = $module.val();
               }
+              else if( $module.is('form') ) {
+
+              }
               else {
                 data.text = $module.text();
               }
@@ -421,6 +435,9 @@ $.api = $.fn.api = function(parameters) {
                     ? 'propertychange'
                     : 'keyup'
                 ;
+              }
+              else if( $module.is('form') ) {
+                return 'submit';
               }
               else {
                 return 'click';

@@ -5,6 +5,7 @@
 **Breaking Changes**
 - **Form** - Standard grids now have gutters on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
+- **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 
 **Enhancements**
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.

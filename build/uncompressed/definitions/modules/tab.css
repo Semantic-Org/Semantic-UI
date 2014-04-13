@@ -8,44 +8,35 @@
  * http://opensource.org/licenses/MIT
  *
  */
-
 /*******************************
            UI Tabs
 *******************************/
-
 .ui.tab {
   display: none;
 }
-
 /*******************************
              States
 *******************************/
-
 /*--------------------
        Active
 ---------------------*/
-
 .ui.tab.active,
 .ui.tab.open {
   display: block;
 }
-
 /*--------------------
        Loading
 ---------------------*/
-
 .ui.tab.loading {
   position: relative;
   overflow: hidden;
   display: block;
   min-height: 250px;
 }
-
 .ui.tab.loading * {
   position: relative !important;
   left: -10000px !important;
 }
-
 .ui.tab.loading:after {
   border: none;
   position: absolute;

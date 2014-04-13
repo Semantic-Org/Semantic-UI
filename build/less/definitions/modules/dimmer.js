@@ -544,7 +544,7 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 

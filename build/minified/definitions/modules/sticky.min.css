@@ -1,6 +1,6 @@
 /*
 * # Semantic UI
-* Version: 0.15.0
+* Version: 0.15.4
 * http://github.com/jlukic/semantic-ui
 *
 *
@@ -8,7 +8,7 @@
 * Released under the MIT license
 * http://opensource.org/licenses/MIT
 *
-* Released: 03/28/2014
+* Released: 04/12/2014
 */
 
 .ui.sticky{position:static}.ui.sticky.bound{position:absolute;left:auto;right:auto}.ui.sticky.fixed{position:fixed;left:auto;right:auto}.ui.sticky.bound.top,.ui.sticky.fixed.top{top:0;bottom:auto}.ui.sticky.bound.bottom,.ui.sticky.fixed.bottom{top:auto;bottom:0}

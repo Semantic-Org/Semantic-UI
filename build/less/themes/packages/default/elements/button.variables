@@ -16,7 +16,7 @@
 
 @verticalMargin: 0em;
 @horizontalMargin: 0.25em;
-@textTransform: uppercase;
+@textTransform: none;
 
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
@@ -75,8 +75,8 @@
 @iconHoverOpacity: 0.85;
 
 @focusBackgroundColor: '';
-@focusBackgroundImage: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.11));
-@focusBoxShadow: '';
+@focusBackgroundImage: '';
+@focusBoxShadow: 0 0 1px rgba(81, 167, 232, 0.8) inset, 0 0 3px 2px rgba(81, 167, 232, 0.8);
 @iconFocusOpacity: 0.85;
 
 @downBackgroundColor: #F1F1F1;
@@ -104,7 +104,7 @@
 @orTextWeight: bold;
 
 @orCircleSize: 1.8em;
-@orLineHeight: 1.55;
+@orLineHeight: 1.6;
 @orBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
 @orSpacerHeight: 0.5em;

@@ -351,27 +351,31 @@ body > .ui.grid {
   width: @oneColumn;
 }
 
+/*----------------------
+        Centered
+-----------------------*/
+
+.ui.centered.grid,
+.ui.centered.grid > .row,
+.ui.grid .centered.row {
+  text-align: center;
+}
 
 
 /*----------------------
         Relaxed
 -----------------------*/
 
-.ui.relaxed.grid > .column,
+.ui.relaxed.grid > .column:not(.row),
 .ui.relaxed.grid > .row > .column {
   padding-left: @relaxedGutterWidth;
   padding-right: @relaxedGutterWidth;
 }
 
-.ui.very.relaxed.grid > .column,
+.ui.very.relaxed.grid > .column:not(.row),
 .ui.very.relaxed.grid > .row > .column {
   padding-left: @veryRelaxedGutterWidth;
   padding-right: @veryRelaxedGutterWidth;
-}
-
-.ui.vertically.divided.grid > .row:before {
-  margin-left: @relaxedGutterWidth;
-  margin-right: @relaxedGutterWidth;
 }
 
 /*----------------------
@@ -382,15 +386,13 @@ body > .ui.grid {
   margin-left: -@gutterWidth;
   margin-right: -@gutterWidth;
 }
-
 .ui.relaxed.fitted.grid {
   margin-left: -@relaxedGutterWidth;
   margin-right: -@relaxedGutterWidth;
 }
-
-.ui.vertically.divided.fitted.grid > .row:before {
-  margin-left: 0%;
-  margin-right: 0%;
+.ui.very.relaxed.fitted.grid {
+  margin-left: -@veryRelaxedGutterWidth;
+  margin-right: -@veryRelaxedGutterWidth;
 }
 
 
@@ -410,14 +412,8 @@ body > .ui.grid {
         Divided
 -----------------------*/
 
-.ui.divided.grid:not(.vertically),
-.ui.divided.grid:not(.vertically) > .row {
-  display: table;
-  max-width: 100%;
-}
 .ui.divided.grid:not(.vertically) > .column:not(.row),
 .ui.divided.grid:not(.vertically) > .row > .column {
-  display: table-cell;
   box-shadow: @dividedBorder;
 }
 .ui.divided.grid:not(.vertically) > .column.row {
@@ -430,11 +426,7 @@ body > .ui.grid {
 }
 
 /* Divided Row */
-.ui.grid > .divided.row {
-  display: table;
-}
 .ui.grid > .divided.row > .column {
-  display: table-cell;
   box-shadow: @dividedBorder;
 }
 .ui.grid > .divided.row > .column:first-child {
@@ -451,7 +443,7 @@ body > .ui.grid {
   top: 0px;
   left: 0px;
 
-  width: 100%;
+  width: (100% - (@gutterWidth * 2));
   height: 1px;
 
   margin: 0% @gutterWidth;
@@ -467,6 +459,24 @@ body > .ui.grid {
 }
 .ui.inverted.vertically.divided.grid > .row {
   box-shadow: @verticallyDividedInvertedBorder;
+}
+
+/* Relaxed */
+.ui.relaxed.vertically.divided.grid > .row:before {
+  margin-left: @relaxedGutterWidth;
+  margin-right: @relaxedGutterWidth;
+  width: (100% - (@relaxedGutterWidth * 2));
+}
+.ui.very.relaxed.vertically.divided.grid > .row:before {
+  margin-left: @veryRelaxedGutterWidth;
+  margin-right: @veryRelaxedGutterWidth;
+  width: (100% - (@veryRelaxedGutterWidth * 2));
+}
+
+/* Fitted */
+.ui.vertically.divided.fitted.grid > .row:before {
+  margin-left: 0%;
+  margin-right: 0%;
 }
 
 

@@ -90,7 +90,18 @@ $.fn.form = function(fields, parameters) {
           ;
         },
 
+        attachEvents: function(selector, action) {
+          action = action || 'submit';
+          $(selector)
+            .on('click', function(event) {
+              module[action]();
+              event.preventDefault();
+            })
+          ;
+        },
+
         bindEvents: function() {
+
           if(settings.keyboardShortcuts) {
             $field
               .on('keydown' + eventNamespace, module.event.field.keydown)
@@ -102,9 +113,9 @@ $.fn.form = function(fields, parameters) {
           $field
             .on('blur' + eventNamespace, module.event.field.blur)
           ;
-          $submit
-            .on('click' + eventNamespace, module.submit)
-          ;
+          // attach submit events
+          module.attachEvents($submit, 'submit');
+
           $field
             .each(function() {
               var

@@ -75,7 +75,7 @@ $.api = $.fn.api = function(parameters) {
             if( triggerEvent ) {
               module.debug('Attaching API events to element', triggerEvent);
               $module
-                .on(triggerEvent + eventNamespace, module.query)
+                .on(triggerEvent + eventNamespace, module.event.trigger)
               ;
             }
             else {
@@ -119,8 +119,13 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // Add form content
-          if(settings.serializeForm) {
-            $.extend(true, settings.data, module.get.formData());
+          if(settings.serializeForm !== false || $module.is('form') && settings.method == 'POST') {
+            if(settings.serializeForm == 'json') {
+              $.extend(true, settings.data, module.get.formData());
+            }
+            else {
+              settings.data = module.get.formData();
+            }
           }
 
           // call beforesend and get any settings changes
@@ -238,6 +243,12 @@ $.api = $.fn.api = function(parameters) {
         },
 
         event: {
+          trigger: function(event) {
+            module.query();
+            if(event.type == 'submit' || event.type == 'click') {
+              event.preventDefault();
+            }
+          },
           xhr: {
             always: function() {
               // calculate if loading time was below minimum threshold
@@ -402,6 +413,9 @@ $.api = $.fn.api = function(parameters) {
               if( $module.is('input') ) {
                 data.value = $module.val();
               }
+              else if( $module.is('form') ) {
+
+              }
               else {
                 data.text = $module.text();
               }
@@ -421,6 +435,9 @@ $.api = $.fn.api = function(parameters) {
                     ? 'propertychange'
                     : 'keyup'
                 ;
+              }
+              else if( $module.is('form') ) {
+                return 'submit';
               }
               else {
                 return 'click';
@@ -1097,7 +1114,18 @@ $.fn.form = function(fields, parameters) {
           ;
         },
 
+        attachEvents: function(selector, action) {
+          action = action || 'submit';
+          $(selector)
+            .on('click', function(event) {
+              module[action]();
+              event.preventDefault();
+            })
+          ;
+        },
+
         bindEvents: function() {
+
           if(settings.keyboardShortcuts) {
             $field
               .on('keydown' + eventNamespace, module.event.field.keydown)
@@ -1109,9 +1137,9 @@ $.fn.form = function(fields, parameters) {
           $field
             .on('blur' + eventNamespace, module.event.field.blur)
           ;
-          $submit
-            .on('click' + eventNamespace, module.submit)
-          ;
+          // attach submit events
+          module.attachEvents($submit, 'submit');
+
           $field
             .each(function() {
               var
@@ -3055,7 +3083,9 @@ $.fn.visibility.settings = {
 
 $.visit = $.fn.visit = function(parameters) {
   var
-    $allModules     = $(this),
+    $allModules     = $.isFunction(this)
+        ? $(window)
+        : $(this),
     moduleSelector  = $allModules.selector || '',
 
     time            = new Date().getTime(),
@@ -3066,7 +3096,7 @@ $.visit = $.fn.visit = function(parameters) {
     queryArguments  = [].slice.call(arguments, 1),
     returnedValue
   ;
-  $(this)
+  $allModules
     .each(function() {
       var
         settings        = $.extend(true, {}, $.fn.visit.settings, parameters),
@@ -3195,6 +3225,15 @@ $.visit = $.fn.visit = function(parameters) {
 
         },
 
+        set: {
+          count: function(value) {
+            module.store(settings.key.count, value);
+          },
+          ids: function(value) {
+            module.store(settings.key.ids, value);
+          }
+        },
+
         reset: function() {
           module.store(settings.key.count, 0);
           module.store(settings.key.ids, '');
@@ -3224,9 +3263,12 @@ $.visit = $.fn.visit = function(parameters) {
             var
               $element = $(selector)
             ;
-            if($element.size() > 0) {
+            if($element.size() > 0 && !$.isWindow($element[0])) {
               module.debug('Updating visit count for element', $element);
-              $displays = $displays.add($element);
+              $displays = ($displays.size() > 0)
+                ? $displays.add($element)
+                : $element
+              ;
             }
             module.update.display();
           }
@@ -3490,7 +3532,7 @@ $.fn.visit.settings = {
 
   name          : 'Visit',
 
-  debug         : true,
+  debug         : false,
   verbose       : true,
   performance   : true,
 
@@ -3956,16 +3998,13 @@ $.site.settings = {
   namespace   : 'site',
 
   error : {
-    console : 'Console cannot be restored, most likely it was overwritten outside of module'
-  },
-
-  verbose     : true,
-  debug       : true,
-  performance : true,
-
-  error: {
+    console : 'Console cannot be restored, most likely it was overwritten outside of module',
     method : 'The method you called is not defined.'
   },
+
+  debug       : false,
+  verbose     : true,
+  performance : true,
 
   modules: [
     'accordion',
@@ -4404,7 +4443,7 @@ $.fn.accordion.settings = {
   name        : 'Accordion',
   namespace   : 'accordion',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 
@@ -5045,8 +5084,9 @@ $.fn.chatroom = function(parameters) {
   $.fn.chatroom.settings = {
 
     name            : 'Chat',
-    debug           : false,
     namespace       : 'chat',
+
+    debug           : false,
 
     channel         : 'present-chat',
 
@@ -6144,7 +6184,7 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 
@@ -7104,8 +7144,8 @@ $.fn.dropdown.settings = {
   name        : 'Dropdown',
   namespace   : 'dropdown',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   on          : 'click',
@@ -7864,7 +7904,7 @@ $.fn.modal.settings = {
   name          : 'Modal',
   namespace     : 'modal',
 
-  debug         : true,
+  debug         : false,
   verbose       : true,
   performance   : true,
 
@@ -8393,8 +8433,8 @@ $.fn.nag.settings = {
 
   name        : 'Nag',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   namespace   : 'Nag',
@@ -8579,17 +8619,30 @@ $.fn.popup = function(parameters) {
 
         event: {
           start:  function(event) {
-            module.timer = setTimeout(function() {
+            var
+              delay = ($.isPlainObject(settings.delay))
+                ? settings.delay.show
+                : settings.delay
+            ;
+            clearTimeout(module.hideTimer);
+            module.showTimer = setTimeout(function() {
               if( module.is.hidden() ) {
                 module.show();
               }
-            }, settings.delay);
+            }, delay);
           },
           end:  function() {
-            clearTimeout(module.timer);
-            if( module.is.visible() ) {
-              module.hide();
-            }
+            var
+              delay = ($.isPlainObject(settings.delay))
+                ? settings.delay.hide
+                : settings.delay
+            ;
+            clearTimeout(module.showTimer);
+            module.hideTimer = setTimeout(function() {
+              if( module.is.visible() ) {
+                module.hide();
+              }
+            }, delay);
           },
           resize: function() {
             if( module.is.visible() ) {
@@ -9243,7 +9296,8 @@ $.fn.popup = function(parameters) {
 $.fn.popup.settings = {
 
   name           : 'Popup',
-  debug          : false,
+
+  debug          : true,
   verbose        : true,
   performance    : true,
   namespace      : 'popup',
@@ -9263,7 +9317,10 @@ $.fn.popup.settings = {
 
   context        : 'body',
   position       : 'top center',
-  delay          : 150,
+  delay          : {
+    show : 300,
+    hide : 150
+  },
   inline         : false,
   preserve       : false,
 
@@ -9696,8 +9753,8 @@ $.fn.rating.settings = {
   name          : 'Rating',
   namespace     : 'rating',
 
-  verbose       : true,
   debug         : true,
+  verbose       : true,
   performance   : true,
 
   initialRating : 0,
@@ -10335,7 +10392,7 @@ $.fn.search.settings = {
   name           : 'Search Module',
   namespace      : 'search',
 
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
 
@@ -11260,7 +11317,7 @@ $.fn.shape.settings = {
   name : 'Shape',
 
   // debug content outputted to console
-  debug      : true,
+  debug      : false,
 
   // verbose debug output
   verbose    : true,
@@ -11783,8 +11840,8 @@ $.fn.sidebar.settings = {
   name        : 'Sidebar',
   namespace   : 'sidebar',
 
+  debug       : false,
   verbose     : true,
-  debug       : true,
   performance : true,
 
   useCSS      : true,
@@ -13139,7 +13196,7 @@ $.fn.tab.settings = {
   namespace   : 'tab',
 
   verbose     : true,
-  debug       : true,
+  debug       : false,
   performance : true,
 
   // only called first time a tab's content is loaded (when remote source)
@@ -13158,7 +13215,7 @@ $.fn.tab.settings = {
   historyType     : 'hash',
   path            : false,
 
-  context         : 'body',
+  context         : false,
 
   // max depth a tab can be nested
   maxDepth        : 25,
@@ -14436,7 +14493,7 @@ $.fn.video.settings = {
   name        : 'Video',
   namespace   : 'video',
 
-  debug       : true,
+  debug       : false,
   verbose     : true,
   performance : true,
 
