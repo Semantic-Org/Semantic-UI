@@ -78,7 +78,7 @@ $.fn.modal = function(parameters) {
           $dimmable = $context
             .dimmer({
               closable : false,
-              useCSS   : false,
+              useCSS   : true,
               duration : {
                 show     : settings.duration * 0.9,
                 hide     : settings.duration * 1.1
