@@ -13991,6 +13991,152 @@ body.ui.dimmed.dimmable > :not(.dimmer){
  *
  */
 /*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+        Global Variables
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+       Icons
+--------------------*/
+/* Width of largest icon */
+/*******************************
+           BG Colors
+*******************************/
+/*******************************
+             Colors
+*******************************/
+/*-------------------
+     Background
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+      Emotive
+--------------------*/
+/*-------------------
+     Text Colors
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+       Modal
+--------------------*/
+/* Close Icon */
+/* Header */
+/* Content */
+/* Left / Right */
+/* Modal Actions */
+/* Mobile Positions */
+/* Inner Close Position (Responsive) */
+/* Responsive Widths */
+/*-------------------
+        Types
+--------------------*/
+/* Basic */
+/* Scrolling Margin */
+/*-------------------
+      Variations
+--------------------*/
+/* Sizes */
+/* Derived Responsive Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+           Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
              Modal
 *******************************/
 .ui.modal {
@@ -14004,7 +14150,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   margin-left: -45%;
   background-color: #FFFFFF;
   border: 1px solid #DDDDDD;
-  border-radius: 5px;
+  border-radius: 0.25em;
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
@@ -14019,12 +14165,15 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.modal > .close {
   cursor: pointer;
   position: absolute;
+  top: -2.5em;
+  right: -2.5em;
   z-index: 1;
   opacity: 0.8;
   font-size: 1.25em;
-  top: -1.75em;
-  right: -1.75em;
-  color: #FFFFFF;
+  color: #ffffff;
+  width: 2.25em;
+  height: 2.25em;
+  padding: 0.625em 0em 0em 0em;
 }
 .ui.modal > .close:hover {
   opacity: 1;
@@ -14033,43 +14182,41 @@ body.ui.dimmed.dimmable > :not(.dimmer){
      Header
 ---------------*/
 .ui.modal > .header {
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
   font-weight: bold;
-  border-radius: 0.325em 0.325em 0px 0px;
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
 }
 /*--------------
      Content
 ---------------*/
 .ui.modal > .content {
+  position: relative;
   display: table;
   width: 100%;
-  position: relative;
-  padding: 2em;
-  background-color: #F4F4F4;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
+  font-size: 1em;
+  line-height: 1.4;
+  padding: 2rem;
+  background: #f4f4f4;
 }
-.ui.modal > .content > .left:not(.ui) {
+.ui.modal > .content > .image {
   display: table-cell;
-  padding-right: 1.5%;
+  padding-right: 1em;
   min-width: 25%;
 }
-.ui.modal > .content > .right:not(.ui) {
+.ui.modal > .content > .description {
   display: table-cell;
-  padding-left: 1.5%;
   vertical-align: top;
+  padding-left: 1em;
+  min-width: '';
 }
 /*rtl:ignore*/
-.ui.modal > .content > .left:not(.ui) > i.icon {
-  font-size: 8em;
+.ui.modal > .content > .image > i.icon {
+  font-size: 8rem;
   margin: 0em;
-}
-.ui.modal > .content p {
-  line-height: 1.6;
 }
 /*--------------
      Actions
@@ -14082,19 +14229,50 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   margin-left: 0.75em;
 }
 /*-------------------
-       Sizing
+       Responsive
 --------------------*/
-/* Mobile Only */
-@media only screen and (max-width: 768px) {
+/* Modal Width */
+@media only screen and (max-width: 767px) {
+  .ui.modal {
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .ui.modal {
+    width: 88%;
+    margin: 0em 0em 0em -44%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui.modal {
+    width: 74%;
+    margin: 0em 0em 0em -37%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .ui.modal {
+    width: 56%;
+    margin: 0em 0em 0em -28%;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .ui.modal {
+    width: 42%;
+    margin: 0em 0em 0em -21%;
+  }
+}
+/* Position Adjustments */
+@media only screen and (max-width: 767px) {
   /*rtl:ignore*/
-  .ui.modal .content > .left:not(.ui) {
+  .ui.modal .content > .image {
     display: block;
     padding: 0em 0em 1em;
   }
   /*rtl:ignore*/
-  .ui.modal .content > .right:not(.ui) {
+  .ui.modal .content > .description {
     display: block;
-    padding: 1em 0em 0em;
+    padding: 0em 0em 1em;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
@@ -14111,40 +14289,11 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   }
 }
 /* Tablet and Mobile */
-@media only screen and (max-width: 998px) {
-  .ui.modal {
-    width: 92%;
-    margin-left: -46%;
-  }
+@media only screen and (max-width: 992px) {
   .ui.modal > .close {
-    color: rgba(0, 0, 0, 0.8);
     top: 1.5rem;
     right: 1rem;
-  }
-}
-/* Computer / Responsive */
-@media only screen and (min-width: 998px) {
-  .ui.modal {
-    width: 74%;
-    margin-left: -37%;
-  }
-}
-@media only screen and (min-width: 1500px) {
-  .ui.modal {
-    width: 56%;
-    margin-left: -28%;
-  }
-}
-@media only screen and (min-width: 1750px) {
-  .ui.modal {
-    width: 42%;
-    margin-left: -21%;
-  }
-}
-@media only screen and (min-width: 2000px) {
-  .ui.modal {
-    width: 36%;
-    margin-left: -18%;
+    color: rgba(0, 0, 0, 0.8);
   }
 }
 /*******************************
@@ -14153,7 +14302,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.basic.modal {
   background-color: transparent;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .ui.basic.modal > .close {
   top: 1.5rem;
@@ -14168,7 +14317,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 /* A modal that cannot fit on the page */
 .ui.modal.scrolling {
   position: absolute;
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 /*******************************
               States
@@ -14183,55 +14332,77 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.small.modal > .header {
   font-size: 1.3em;
 }
-@media only screen and (min-width: 998px) {
+/* Small Modal Width */
+@media only screen and (max-width: 767px) {
   .ui.small.modal {
-    width: 58%;
-    margin-left: -29%;
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
   }
 }
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: 768px) {
   .ui.small.modal {
-    width: 40%;
-    margin-left: -20%;
+    width: 52.8%;
+    margin: 0em 0em 0em -26.4%;
   }
 }
-@media only screen and (min-width: 1750px) {
+@media only screen and (min-width: 992px) {
   .ui.small.modal {
-    width: 26%;
-    margin-left: -13%;
+    width: 44.4%;
+    margin: 0em 0em 0em -22.2%;
   }
 }
-@media only screen and (min-width: 2000px) {
+@media only screen and (min-width: 1400px) {
   .ui.small.modal {
-    width: 20%;
-    margin-left: -10%;
+    width: 33.6%;
+    margin: 0em 0em 0em -16.8%;
   }
 }
-/* Large */
-@media only screen and (min-width: 998px) {
+@media only screen and (min-width: 1900px) {
+  .ui.small.modal {
+    width: 25.2%;
+    margin: 0em 0em 0em -12.6%;
+  }
+}
+/* Large Modal Width */
+.ui.large.modal > .header {
+  font-size: 1.6em;
+}
+@media only screen and (max-width: 767px) {
   .ui.large.modal {
-    width: 74%;
-    margin-left: -37%;
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
   }
 }
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: 768px) {
   .ui.large.modal {
-    width: 64%;
-    margin-left: -32%;
+    width: 88%;
+    margin: 0em 0em 0em -44%;
   }
 }
-@media only screen and (min-width: 1750px) {
+@media only screen and (min-width: 992px) {
   .ui.large.modal {
-    width: 54%;
-    margin-left: -27%;
+    width: 88.8%;
+    margin: 0em 0em 0em -44.4%;
   }
 }
-@media only screen and (min-width: 2000px) {
+@media only screen and (min-width: 1400px) {
   .ui.large.modal {
-    width: 44%;
-    margin-left: -22%;
+    width: 67.2%;
+    margin: 0em 0em 0em -33.6%;
   }
 }
+@media only screen and (min-width: 1900px) {
+  .ui.large.modal {
+    width: 50.4%;
+    margin: 0em 0em 0em -25.2%;
+  }
+}
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+           Overrides
+*******************************/
 
 /*
  * # Semantic - Nag

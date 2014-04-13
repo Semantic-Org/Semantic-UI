@@ -7,8 +7,8 @@ docpadConfig = {
 
 	plugins:
     ghpages:
-        deployRemote: 'docs'
-        deployBranch: 'gh-pages'
+      deployRemote: 'docs'
+      deployBranch: 'gh-pages'
 
 	# =================================
 	# Template Data
