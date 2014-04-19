@@ -587,6 +587,27 @@ type        : 'UI Collection'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Fields Grid</h4>
+    <p>Fields can be aligned to 16-columns grid</p>
+    <div class="ui form">
+      <div class="fields grid">
+        <div class="four wide field">
+          <label>First name</label>
+          <input type="text" placeholder="First Name">
+        </div>
+        <div class="four wide field">
+          <label>Middle name</label>
+          <input type="text" placeholder="Middle Name">
+        </div>
+        <div class="eight wide field">
+          <label>Last name</label>
+          <input type="text" placeholder="Last Name">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Grouped Fields</h4>
     <p>Fields can be grouped to show related choices</p>
     <div class="ui form">
