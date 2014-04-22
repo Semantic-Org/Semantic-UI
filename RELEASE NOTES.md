@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 0.16.1 - April 22, 2014
+
+**Fixes**
+- **Transition** - Fixes bug where transition could accidentally hide element on show due to error when determining original display type
+
 ### Version 0.16.0 - April 22, 2014
 
 **Enhancements**

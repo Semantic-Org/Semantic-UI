@@ -9,39 +9,49 @@ type   : 'Library'
 
 <script type='text/javascript'>
 $(document).ready(function() {
-  $('.ui.radio.checkbox')
-    .checkbox()
-  ;
+
+$('#title').dropdown({
+        onChange: function (val) {
+            console.log(val);
+            if(val === 'Other') {
+                console.log($(this).parent().next());
+                $(this).parent().next().transition({
+                    duration  : 500
+                });
+            }else {
+                $(this).parent().next().removeClass('visible').addClass('hidden');
+            }
+
+        }
+    });
+
 });
 </script>
 <div class="main container">
-  <div class="ui form stacked segment">
-    <div class="grouped inline fields">
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" name="fruit" checked="">
-          <label>Apples</label>
+<div id="personal_particulars" class="ui form">
+    <div class="two fields">
+    <div class="field">
+        <label for="title">Title</label>
+        <div class="ui fluid selection dropdown" id="title">
+            <div class="text">Select</div>
+            <i class="dropdown icon"></i>
+            <input type="hidden" name="title">
+            <div class="menu">
+                <div class="item" data-value="Ar">Ar</div>
+                <div class="item" data-value="Ir">Ir</div>
+                <div class="item" data-value="Sr">Sr</div>
+                <div class="item" data-value="Mr">Mr</div>
+                <div class="item" data-value="Ms">Ms</div>
+                <div class="item" data-value="Other">Other</div>
+            </div>
         </div>
-      </div>
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" name="fruit">
-          <label> Recognized degree in architecture, engineering, quantity surveying or other building related disciplines and a minimum of 3 years relevant working experience.
-  </label>
-        </div>
-      </div>
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" name="fruit">
-          <label>Pears</label>
-        </div>
-      </div>
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" name="fruit">
-          <label>Grapefruit</label>
-        </div>
-      </div>
     </div>
-  </div>
+    <div class="field ui transition hidden">
+        <label for="o_title">Other Title</label>
+        <input name="o_title" type="text" id="o_title">
+    </div>
+</div>
+
+<div class="blue ui submit button">Save and continue</div>
+
 </div>
