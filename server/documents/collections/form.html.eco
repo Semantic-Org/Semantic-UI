@@ -588,9 +588,9 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Fields Grid</h4>
-    <p>Fields can be aligned to 16-columns grid</p>
+    <p>Fields can be aligned to a <a href="/collections/grid.html">ui grid</a></p>
     <div class="ui form">
-      <div class="fields grid">
+      <div class="fields">
         <div class="four wide field">
           <label>First name</label>
           <input type="text" placeholder="First Name">
