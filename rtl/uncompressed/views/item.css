@@ -357,7 +357,7 @@
   .ui.stackable.items > .row > .item {
     display: block !important;
     height: auto !important;
-    width: auto !important;
+    width: 100% !important;
     padding: 0% !important;
   }
 }

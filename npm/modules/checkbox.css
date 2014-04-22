@@ -19,7 +19,7 @@
   position: relative;
   display: inline-block;
   min-width: 1em;
-  height: 1.25em;
+  min-height: 1.25em;
   line-height: 1em;
   outline: none;
   vertical-align: middle;
@@ -81,6 +81,7 @@
 }
 /*--- Inside Label ---*/
 .ui.checkbox label {
+  display: block;
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: color 0.2s ease;
   -moz-transition: color 0.2s ease;

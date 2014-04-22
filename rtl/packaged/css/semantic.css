@@ -506,6 +506,72 @@
   padding-right: 1%;
   padding-left: 1%;
 }
+.ui.form .fields .field:first-child {
+  padding-right: 0%;
+}
+.ui.form .fields .field:last-child {
+  padding-left: 0%;
+}
+/* Fields grid support */
+.ui.form .fields .wide.field {
+  width: 6.25%;
+  padding-right: 1%;
+  padding-left: 1%;
+}
+.ui.form .fields .wide.field:first-child {
+  padding-right: 0%;
+}
+.ui.form .fields .wide.field:last-child {
+  padding-left: 0%;
+}
+.ui.form .fields > .one.wide.field {
+  width: 6.25%;
+}
+.ui.form .fields > .two.wide.field {
+  width: 12.5%;
+}
+.ui.form .fields > .three.wide.field {
+  width: 18.75%;
+}
+.ui.form .fields > .four.wide.field {
+  width: 25%;
+}
+.ui.form .fields > .five.wide.field {
+  width: 31.25%;
+}
+.ui.form .fields > .six.wide.field {
+  width: 37.5%;
+}
+.ui.form .fields > .seven.wide.field {
+  width: 43.75%;
+}
+.ui.form .fields > .eight.wide.field {
+  width: 50%;
+}
+.ui.form .fields > .nine.wide.field {
+  width: 56.25%;
+}
+.ui.form .fields > .ten.wide.field {
+  width: 62.5%;
+}
+.ui.form .fields > .eleven.wide.field {
+  width: 68.75%;
+}
+.ui.form .fields > .twelve.wide.field {
+  width: 75%;
+}
+.ui.form .fields > .thirteen.wide.field {
+  width: 81.25%;
+}
+.ui.form .fields > .fourteen.wide.field {
+  width: 87.5%;
+}
+.ui.form .fields > .fifteen.wide.field {
+  width: 93.75%;
+}
+.ui.form .fields > .sixteen.wide.field {
+  width: 100%;
+}
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {
   .ui.form .two.fields > .fields,
@@ -515,17 +581,26 @@
   .ui.form .four.fields > .fields,
   .ui.form .four.fields > .field,
   .ui.form .five.fields > .fields,
-  .ui.form .five.fields > .field {
+  .ui.form .five.fields > .field,
+  .ui.form .fields > .two.wide.field,
+  .ui.form .fields > .three.wide.field,
+  .ui.form .fields > .four.wide.field,
+  .ui.form .fields > .five.wide.field,
+  .ui.form .fields > .six.wide.field,
+  .ui.form .fields > .seven.wide.field,
+  .ui.form .fields > .eight.wide.field,
+  .ui.form .fields > .nine.wide.field,
+  .ui.form .fields > .ten.wide.field,
+  .ui.form .fields > .eleven.wide.field,
+  .ui.form .fields > .twelve.wide.field,
+  .ui.form .fields > .thirteen.wide.field,
+  .ui.form .fields > .fourteen.wide.field,
+  .ui.form .fields > .fifteen.wide.field,
+  .ui.form .fields > .sixteen.wide.field {
     width: 100%;
     padding-right: 0%;
     padding-left: 0%;
   }
-}
-.ui.form .fields .field:first-child {
-  padding-right: 0%;
-}
-.ui.form .fields .field:last-child {
-  padding-left: 0%;
 }
 /*--------------------
     Inline Fields
@@ -8938,9 +9013,6 @@ a.ui.teal.label:hover:before {
   position: relative !important;
   z-index: 3 !important;
 }
-.ui.reveal:hover > .hidden.content {
-  z-index: 5 !important;
-}
 /*------------------
    Loose Coupling
 -------------------*/
@@ -9051,12 +9123,17 @@ a.ui.teal.label:hover:before {
 /*--------------
       Fade
 ---------------*/
-.ui.fade.reveal > .visible.content {
-  opacity: 1;
+.ui.fade.reveal > .hidden.content {
+  -webkit-transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -moz-transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
 }
-.ui.fade.reveal:hover > .visible.content,
-.ui.fade.reveal:focus > .visible.content {
+.ui.fade.reveal > .hidden.content {
+  z-index: 5 !important;
   opacity: 0;
+}
+.ui.fade.reveal:hover > .hidden.content {
+  opacity: 1;
 }
 /*--------------
       Move
@@ -10252,7 +10329,7 @@ a.ui.teal.label:hover:before {
   position: relative;
   display: inline-block;
   min-width: 1em;
-  height: 1.25em;
+  min-height: 1.25em;
   line-height: 1em;
   outline: none;
   vertical-align: middle;
@@ -10314,6 +10391,7 @@ a.ui.teal.label:hover:before {
 }
 /*--- Inside Label ---*/
 .ui.checkbox label {
+  display: block;
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: color 0.2s ease;
   -moz-transition: color 0.2s ease;
@@ -12541,7 +12619,7 @@ body.pushed.scrolling.ui.dimmable {
 }
 /* Hidden */
 .ui.hidden.transition {
-  display: none;
+  display: none !important;
 }
 /* Visible */
 .ui.visible.transition {
@@ -14285,7 +14363,7 @@ body.pushed.scrolling.ui.dimmable {
   .ui.stackable.items > .row > .item {
     display: block !important;
     height: auto !important;
-    width: auto !important;
+    width: 100% !important;
     padding: 0% !important;
   }
 }

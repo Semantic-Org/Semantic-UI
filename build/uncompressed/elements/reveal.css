@@ -38,9 +38,6 @@
   position: relative !important;
   z-index: 3 !important;
 }
-.ui.reveal:hover > .hidden.content {
-  z-index: 5 !important;
-}
 /*------------------
    Loose Coupling
 -------------------*/
@@ -151,12 +148,17 @@
 /*--------------
       Fade
 ---------------*/
-.ui.fade.reveal > .visible.content {
-  opacity: 1;
+.ui.fade.reveal > .hidden.content {
+  -webkit-transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -moz-transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
 }
-.ui.fade.reveal:hover > .visible.content,
-.ui.fade.reveal:focus > .visible.content {
+.ui.fade.reveal > .hidden.content {
+  z-index: 5 !important;
   opacity: 0;
+}
+.ui.fade.reveal:hover > .hidden.content {
+  opacity: 1;
 }
 /*--------------
       Move

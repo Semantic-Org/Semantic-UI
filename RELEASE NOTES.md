@@ -1,5 +1,19 @@
 ## RELEASE NOTES
 
+### Version 0.16.0 - April 22, 2014
+
+**Enhancements**
+- **Form** - Fields can now be aligned to a grid **Thanks seralex-vi**
+
+**Critical Fixes**
+- **Modal** - Fixes issue where position sometimes appeared too low on second show
+- **Reveal** - Fixes reveal being broken in Chrome in ``0.15.5`` due to poor fix for reveal selectability
+
+**Fixes**
+- **Transition** - Fixes issue where transition hidden was sometimes overwriten by UI styles causing the element to stay visible
+- **Checkbox** - Fixes issue where checkboxes with multiple line labels were appearing formatted incorrectly.
+
+
 ### Version 0.15.5 - April 11, 2014
 
 **Critical Fixes**

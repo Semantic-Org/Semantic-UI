@@ -9,25 +9,39 @@ type   : 'Library'
 
 <script type='text/javascript'>
 $(document).ready(function() {
-  $('#show-message').hide();
-
-  $('.message .close').click(function () {
-      $(this).closest('.message').transition('fade out');
-      $('#show-message').show();
-  });
-
-
-  $('#show-message').click(function () {
-      $('.message').transition('fade in');
-  });
+  $('.ui.radio.checkbox')
+    .checkbox()
+  ;
 });
 </script>
-
-<div class="ui button" id="show-message">Show message</div>
-<div class="ui icon message">
-    <i class="smile icon"></i>
-    <i class="close icon"></i>
-    <div class="content">
-        <div class="header">My text</div>
+<div class="main container">
+  <div class="ui form stacked segment">
+    <div class="grouped inline fields">
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="fruit" checked="">
+          <label>Apples</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="fruit">
+          <label> Recognized degree in architecture, engineering, quantity surveying or other building related disciplines and a minimum of 3 years relevant working experience.
+  </label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="fruit">
+          <label>Pears</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="fruit">
+          <label>Grapefruit</label>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
