@@ -226,7 +226,6 @@ module.exports = function() {
             var
               displayType = module.get.displayType()
             ;
-            console.log(displayType);
             if(displayType !== 'block' && displayType !== 'none') {
               module.verbose('Setting final visibility to', displayType);
               $module
