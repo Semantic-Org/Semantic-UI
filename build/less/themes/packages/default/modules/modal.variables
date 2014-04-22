@@ -1,0 +1,119 @@
+/*-------------------
+       Modal
+--------------------*/
+
+@modalBorder: 1px solid #DDDDDD;
+
+@modalWidth: 90%;
+@modalXOffset: -(@modalWidth / 2);
+@modalBorderRadius: 0.25em;
+
+/* Close Icon */
+@modalCloseOpacity: 0.8;
+@modalCloseSize: 1.25em;
+@modalCloseColor: @white;
+@modalCloseHitbox: 2.25em;
+@modalCloseDistance: 0.25em;
+
+@modalClosePadding: ( (@modalCloseHitbox - 1em) / 2) 0em 0em 0em;
+@modalCloseTop: -(@modalCloseDistance + @modalCloseHitbox);
+@modalCloseRight: -(@modalCloseDistance + @modalCloseHitbox);
+
+/* Header */
+@modalHeaderMargin: 0em;
+@modalHeaderPadding: 1.5rem 2rem;
+
+@modalHeaderFontSize: 1.6em;
+@modalHeaderFontWeight: bold;
+@modalHeaderFontFamily: @headerFont;
+
+/* Content */
+@modalContentFontSize: 1em;
+@modalContentPadding: 2rem;
+@modalContentLineHeight: 1.4;
+@modalContentBackground: #F4F4F4;
+
+/* Left / Right */
+@modalImageMinWidth: 25%;
+@modalImagePadding: 1em;
+
+@modalImageIconSize: 8rem;
+
+@modalDescriptionPadding: 1em;
+@modalDescriptionMinWidth: '';
+
+/* Modal Actions */
+@modalActionPadding: 1rem 2rem;
+@modalButtonDistance: 0.75em;
+
+/* Mobile Positions */
+@modalMobileImagePadding: 0em 0em 1em;
+@modalMobileDescriptionPadding: 0em 0em 1em;
+@modalMobileButtonDistance: 1em;
+
+/* Inner Close Position (Responsive) */
+@modalInnerCloseTop: 1.5rem;
+@modalInnerCloseRight: 1rem;
+@modalInnerCloseColor: @textColor;
+
+/* Responsive Widths */
+@modalMobileWidth: 95%;
+@modalTabletWidth: 88%;
+@modalComputerWidth: 74%;
+@modalLargeMonitorWidth: 56%;
+@modalWidescreenMonitorWidth: 42%;
+
+@modalMobileMargin: 0em 0em 0em -(@modalMobileWidth / 2);
+@modalTabletMargin: 0em 0em 0em -(@modalTabletWidth / 2);
+@modalComputerMargin: 0em 0em 0em -(@modalComputerWidth / 2);
+@modalLargeMonitorMargin: 0em 0em 0em -(@modalLargeMonitorWidth / 2);
+@modalWidescreenMonitorMargin: 0em 0em 0em -(@modalWidescreenMonitorWidth / 2);
+
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Basic */
+@basicModalColor: @white;
+@basicModalCloseTop: 1.5rem;
+@basicModalCloseRight: 1rem;
+
+/* Scrolling Margin */
+@scrollingTopMargin: 1rem;
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Sizes */
+@modalSmallRatio: 0.6;
+@modalLargeRatio: 1.2;
+
+/* Derived Responsive Sizes */
+@modalSmallHeaderSize: 1.3em;
+@modalSmallMobileWidth: @modalMobileWidth;
+@modalSmallTabletWidth: (@modalTabletWidth * @modalSmallRatio);
+@modalSmallComputerWidth: (@modalComputerWidth * @modalSmallRatio);
+@modalSmallLargeMonitorWidth: (@modalLargeMonitorWidth * @modalSmallRatio);
+@modalSmallWidescreenMonitorWidth: (@modalWidescreenMonitorWidth * @modalSmallRatio);
+
+@modalSmallMobileMargin: 0em 0em 0em -(@modalSmallMobileWidth / 2);
+@modalSmallTabletMargin: 0em 0em 0em -(@modalSmallTabletWidth / 2);
+@modalSmallComputerMargin: 0em 0em 0em -(@modalSmallComputerWidth / 2);
+@modalSmallLargeMonitorMargin: 0em 0em 0em -(@modalSmallLargeMonitorWidth / 2);
+@modalSmallWidescreenMonitorMargin: 0em 0em 0em -(@modalSmallWidescreenMonitorWidth / 2);
+
+@modalLargeHeaderSize: 1.6em;
+@modalLargeMobileWidth: @modalMobileWidth;
+@modalLargeTabletWidth: @modalTabletWidth;
+@modalLargeComputerWidth: (@modalComputerWidth * @modalLargeRatio);
+@modalLargeLargeMonitorWidth: (@modalLargeMonitorWidth * @modalLargeRatio);
+@modalLargeWidescreenMonitorWidth: (@modalWidescreenMonitorWidth * @modalLargeRatio);
+
+@modalLargeMobileMargin: 0em 0em 0em -(@modalLargeMobileWidth / 2);
+@modalLargeTabletMargin: 0em 0em 0em -(@modalLargeTabletWidth / 2);
+@modalLargeComputerMargin: 0em 0em 0em -(@modalLargeComputerWidth / 2);
+@modalLargeLargeMonitorMargin: 0em 0em 0em -(@modalLargeLargeMonitorWidth / 2);
+@modalLargeWidescreenMonitorMargin: 0em 0em 0em -(@modalLargeWidescreenMonitorWidth / 2);
