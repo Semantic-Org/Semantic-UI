@@ -219,6 +219,11 @@ $.fn.modal = function(parameters) {
           }
         },
 
+        updateModalList: function() {
+          $otherModals = $module.siblings(selector.modal);
+          $allModals   = $otherModals.add($module);
+        },
+
         toggle: function() {
           if( module.is.active() ) {
             module.hide();
@@ -243,6 +248,8 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           if( !module.is.active() ) {
+            module.updateModalList();
+
             if(module.cache === undefined) {
               module.cacheSizes();
             }
@@ -298,6 +305,8 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
+          module.updateModalList();
+
           if($allModals.filter(':visible').size() <= 1) {
             module.hideDimmer();
           }
@@ -365,6 +374,8 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
+          module.updateModalList();
+
           if( $allModals.is(':visible') ) {
             module.debug('Hiding all visible modals');
             module.hideDimmer();
@@ -380,6 +391,8 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
+          module.updateModalList();
+
           if( $otherModals.is(':visible') ) {
             module.debug('Hiding other modals');
             $otherModals
