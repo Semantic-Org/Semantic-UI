@@ -112,7 +112,6 @@ $.api = $.fn.api = function(parameters) {
             module.debug('Request cancelled previous request is still pending');
             return;
           }
-
           // pass element metadata to url (value, text)
           if(settings.defaultData) {
             $.extend(true, settings.urlData, module.get.defaultData());
@@ -201,39 +200,71 @@ $.api = $.fn.api = function(parameters) {
         add: {
           urlData: function(url, urlData) {
             var
-              urlVariables
+              requiredVariables,
+              optionalVariables
             ;
             if(url) {
-              urlVariables = url.match(settings.regExp.required);
-              urlData      = urlData || settings.urlData;
-
-              if(urlVariables) {
-                module.debug('Looking for URL variables', urlVariables);
-                $.each(urlVariables, function(index, templateValue){
+              requiredVariables = url.match(settings.regExp.required);
+              optionalVariables = url.match(settings.regExp.optional);
+              urlData           = urlData || settings.urlData;
+              if(requiredVariables) {
+                module.debug('Looking for required URL variables', requiredVariables);
+                $.each(requiredVariables, function(index, templatedString) {
                   var
-                    term      = templateValue.substr( 2, templateValue.length - 3),
-                    termValue = ($.isPlainObject(urlData) && urlData[term] !== undefined)
-                      ? urlData[term]
-                      : ($module.data(term) !== undefined)
-                        ? $module.data(term)
-                        : ($context.data(term) !== undefined)
-                          ? $context.data(term)
-                          : urlData[term]
+                    // allow legacy {$var} style
+                    variable = (templatedString.indexOf('$') !== -1)
+                      ? templatedString.substr(2, templatedString.length - 3)
+                      : templatedString.substr(1, templatedString.length - 2),
+                    value   = ($.isPlainObject(urlData) && urlData[variable] !== undefined)
+                      ? urlData[variable]
+                      : ($module.data(variable) !== undefined)
+                        ? $module.data(variable)
+                        : ($context.data(variable) !== undefined)
+                          ? $context.data(variable)
+                          : urlData[variable]
                   ;
-                  module.verbose('Looking for variable', term);
-                  // remove optional value
-                  if(termValue === false) {
-                    module.debug('Removing variable from URL', urlVariables);
-                    url = url.replace('/' + templateValue, '');
-                  }
-                  // undefined condition
-                  else if(termValue === undefined || !termValue) {
-                    module.error(error.missingParameter, term, url);
+                  // remove value
+                  if(value === undefined) {
+                    module.error(error.requiredParameter, variable, url);
                     url = false;
                     return false;
                   }
                   else {
-                    url = url.replace(templateValue, termValue);
+                    module.verbose('Found required variable', variable, value);
+                    url = url.replace(templatedString, value);
+                  }
+                });
+              }
+              if(optionalVariables) {
+                module.debug('Looking for optional URL variables', requiredVariables);
+                $.each(optionalVariables, function(index, templatedString) {
+                  var
+                    // allow legacy {/$var} style
+                    variable = (templatedString.indexOf('$') !== -1)
+                      ? templatedString.substr(3, templatedString.length - 4)
+                      : templatedString.substr(2, templatedString.length - 3),
+                    value   = ($.isPlainObject(urlData) && urlData[variable] !== undefined)
+                      ? urlData[variable]
+                      : ($module.data(variable) !== undefined)
+                        ? $module.data(variable)
+                        : ($context.data(variable) !== undefined)
+                          ? $context.data(variable)
+                          : urlData[variable]
+                  ;
+                  // optional replacement
+                  if(value !== undefined) {
+                    module.verbose('Optional variable Found', variable, value);
+                    url = url.replace(templatedString, value);
+                  }
+                  else {
+                    module.verbose('Optional variable not found', variable);
+                    // remove preceding slash if set
+                    if(url.indexOf('/' + templatedString) !== -1) {
+                      url = url.replace('/' + templatedString, '');
+                    }
+                    else {
+                      url = url.replace(templatedString, '');
+                    }
                   }
                 });
               }
@@ -683,7 +714,8 @@ $.api.settings = {
   action          : false,
 
   regExp  : {
-    required: /\{\$([A-z]+)\}/g
+    required: /\{\$*[A-z0-9]+\}/g,
+    optional: /\{\/\$*[A-z0-9]+\}/g,
   },
 
   // data
@@ -717,17 +749,17 @@ $.api.settings = {
 
   // errors
   error : {
-    beforeSend       : 'The before send function has aborted the request',
-    error            : 'There was an error with your request',
-    exitConditions   : 'API Request Aborted. Exit conditions met',
-    JSONParse        : 'JSON could not be parsed during error handling',
-    missingSerialize : 'Serializing a Form requires toJSON to be included',
-    missingAction    : 'API action used but no url was defined',
-    missingParameter : 'Missing an essential URL parameter: ',
-    missingURL       : 'No URL specified for api event',
-    parseError       : 'There was an error parsing your request',
-    statusMessage    : 'Server gave an error: ',
-    timeout          : 'Your request timed out'
+    beforeSend        : 'The before send function has aborted the request',
+    error             : 'There was an error with your request',
+    exitConditions    : 'API Request Aborted. Exit conditions met',
+    JSONParse         : 'JSON could not be parsed during error handling',
+    missingAction     : 'API action used but no url was defined',
+    missingSerialize  : 'Serializing a Form requires toJSON to be included',
+    missingURL        : 'No URL specified for api event',
+    parseError        : 'There was an error parsing your request',
+    requiredParameter : 'Missing a required URL parameter: ',
+    statusMessage     : 'Server gave an error: ',
+    timeout           : 'Your request timed out'
   },
 
   className: {
@@ -1939,13 +1971,13 @@ $.fn.state = function(parameters) {
           $module.addClass(className.disabled);
         },
 
-        enableState: function(state) {
+        setState: function(state) {
           if(module.allows(state)) {
             $module.addClass( className[state] );
           }
         },
 
-        disableState: function(state) {
+        removeState: function(state) {
           if(module.allows(state)) {
             $module.removeClass( className[state] );
           }
@@ -2513,7 +2545,11 @@ $.fn.visibility = function(parameters) {
           module.bindEvents();
           module.instantiate();
 
-          setTimeout(module.checkVisibility, settings.loadWait);
+          if(settings.type == 'image') {
+            module.setup.image();
+          }
+
+          requestAnimationFrame(module.checkVisibility);
         },
 
         instantiate: function() {
@@ -2536,6 +2572,7 @@ $.fn.visibility = function(parameters) {
         },
 
         bindEvents: function() {
+          module.verbose('Binding visibility events to scroll and resize');
           $window
             .on('resize', module.event.refresh)
             .on('scroll', module.event.scroll)
@@ -2547,25 +2584,99 @@ $.fn.visibility = function(parameters) {
             requestAnimationFrame(module.refresh);
           },
           scroll: function() {
-            requestAnimationFrame(module.checkVisibility);
+            module.verbose('Scroll position changed');
+            if(settings.throttle) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(module.checkVisibility, 200);
+            }
+            else {
+              requestAnimationFrame(module.checkVisibility);
+            }
+          }
+        },
+
+        precache: function(images, callback) {
+          if (!(images instanceof Array)) {
+            images = [images];
+          }
+          var
+            imagesLength  = images.length,
+            loadedCounter = 0,
+            cache         = [],
+            cacheImage    = document.createElement('img'),
+            handleLoad    = function() {
+              loadedCounter++;
+              if (loadedCounter >= images.length) {
+                if ($.isFunction(callback)) {
+                  callback();
+                }
+              }
+            }
+          ;
+          while (imagesLength--) {
+            cacheImage         = document.createElement('img');
+            cacheImage.onload  = handleLoad;
+            cacheImage.onerror = handleLoad;
+            cacheImage.src     = images[imagesLength];
+            cache.push(cacheImage);
+          }
+        },
+
+        setup: {
+          image: function() {
+            var
+              src = $module.data('src')
+            ;
+            if(src) {
+              module.verbose('Lazy loading image', src);
+              settings.once = true;
+              // show when top visible
+              module.topVisible(function() {
+                module.precache(src, function() {
+                  module.set.image(src);
+                  settings.onTopVisible = false;
+                });
+              });
+            }
+          }
+        },
+
+        set: {
+          image: function(src) {
+            var
+              offScreen = (module.cache.screen.bottom + settings.offset < module.cache.element.top)
+            ;
+            $module
+              .attr('src', src)
+            ;
+            if($.fn.transition !== undefined || offScreen) {
+              $module.transition(settings.transition, settings.duration);
+            }
+            else {
+              $module.fadeIn(settings.duration);
+            }
           }
         },
 
         refresh: function() {
+          module.debug('Refreshing constants (element width/height)');
+          module.reset();
           module.save.position();
           module.checkVisibility();
           $.proxy(settings.onRefresh, element)();
         },
 
         reset: function() {
+          module.verbose('Reseting all cached values');
           module.cache = {
+            occurred: {},
             screen  : {},
             element : {}
           };
         },
 
         checkVisibility: function() {
-          module.verbose('Updating visibility of element', module.cache.element);
+          module.verbose('Checking visibility of element', module.cache.element);
           module.save.scroll();
           module.save.direction();
           module.save.screenCalculations();
@@ -2577,24 +2688,6 @@ $.fn.visibility = function(parameters) {
           module.bottomVisible();
           module.topPassed();
           module.bottomPassed();
-        },
-
-        passing: function(newCallback) {
-          var
-            calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onPassing
-          ;
-          if(newCallback) {
-            module.debug('Adding callback for passing', newCallback);
-            settings.onPassing = newCallback;
-          }
-          if(callback && calculations.passing) {
-            $.proxy(callback, element)(calculations, screen);
-          }
-          else {
-            return calculations.passing;
-          }
         },
 
         passed: function(amount, newCallback) {
@@ -2612,26 +2705,54 @@ $.fn.visibility = function(parameters) {
           else if(calculations.passing) {
             $.each(settings.onPassed, function(amount, callback) {
               if(calculations.bottomVisible || calculations.pixelsPassed > module.get.pixelsPassed(amount)) {
-                callback();
+                module.execute(callback, amount);
+              }
+              else {
+                module.remove.occurred(callback, amount);
               }
             });
           }
         },
 
+        passing: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onPassing,
+            callbackName = 'passing'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for passing', newCallback);
+            settings.onPassing = newCallback;
+          }
+          if(callback && calculations.passing) {
+            module.execute(callback, callbackName);
+          }
+          else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback !== undefined) {
+            return calculations.passing;
+          }
+        },
+
+
         topVisible: function(newCallback) {
           var
             calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onTopVisible
+            callback     = newCallback || settings.onTopVisible,
+            callbackName = 'topVisible'
           ;
           if(newCallback) {
             module.debug('Adding callback for top visible', newCallback);
             settings.onTopVisible = newCallback;
           }
           if(callback && calculations.topVisible) {
-            $.proxy(callback, element)(calculations, screen);
+            module.execute(callback, callbackName);
           }
           else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
             return calculations.topVisible;
           }
         },
@@ -2639,17 +2760,20 @@ $.fn.visibility = function(parameters) {
         bottomVisible: function(newCallback) {
           var
             calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onBottomVisible
+            callback     = newCallback || settings.onBottomVisible,
+            callbackName = 'bottomVisible'
           ;
           if(newCallback) {
             module.debug('Adding callback for bottom visible', newCallback);
             settings.onBottomVisible = newCallback;
           }
           if(callback && calculations.bottomVisible) {
-            $.proxy(callback, element)(calculations, screen);
+            module.execute(callback, callbackName);
           }
           else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
             return calculations.bottomVisible;
           }
         },
@@ -2657,17 +2781,20 @@ $.fn.visibility = function(parameters) {
         topPassed: function(newCallback) {
           var
             calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onTopPassed
+            callback     = newCallback || settings.onTopPassed,
+            callbackName = 'topPassed'
           ;
           if(newCallback) {
             module.debug('Adding callback for top passed', newCallback);
             settings.onTopPassed = newCallback;
           }
           if(callback && calculations.topPassed) {
-            $.proxy(callback, element)(calculations, screen);
+            module.execute(callback, callbackName);
           }
           else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
             return calculations.topPassed;
           }
         },
@@ -2675,22 +2802,56 @@ $.fn.visibility = function(parameters) {
         bottomPassed: function(newCallback) {
           var
             calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onBottomPassed
+            callback     = newCallback || settings.onBottomPassed,
+            callbackName = 'bottomPassed'
           ;
           if(newCallback) {
             module.debug('Adding callback for bottom passed', newCallback);
             settings.bottomPassed = newCallback;
           }
           if(callback && calculations.bottomPassed) {
-            $.proxy(callback, element)(calculations, screen);
+            module.execute(callback, callbackName);
           }
           else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
             return calculations.bottomPassed;
           }
         },
 
+        execute: function(callback, callbackName) {
+          var
+            calculations = module.get.elementCalculations(),
+            screen       = module.get.screenCalculations()
+          ;
+          if(settings.once && module.get.occurred(callbackName)) {
+            // multiple callbacks are ignored when times == 'once'
+          }
+          else {
+            module.debug('Conditions met for callback', callbackName, calculations);
+            $.proxy(callback, element)(calculations, screen);
+          }
+          module.save.occurred(callbackName);
+        },
+
+        remove: {
+          occurred: function(callback) {
+            if(callback) {
+              module.cache.occurred[callback] = false;
+            }
+            else {
+              module.cache.occurred = {};
+            }
+          }
+        },
+
         save: {
+          occurred: function(callback) {
+            if(callback) {
+              module.cache.occurred[callback] = true;
+            }
+          },
           scroll: function() {
             module.cache.scroll = $window.scrollTop() + settings.offset;
           },
@@ -2777,8 +2938,8 @@ $.fn.visibility = function(parameters) {
             }
             module.save.direction();
             $.extend(module.cache.screen, {
-              top    : scroll + settings.offset,
-              bottom : scroll + settings.offset + module.cache.screen.height
+              top    : scroll - settings.offset,
+              bottom : scroll - settings.offset + module.cache.screen.height
             });
             return module.cache.screen;
           },
@@ -2803,6 +2964,12 @@ $.fn.visibility = function(parameters) {
               return ( element.height * (parseInt(amount, 10) / 100) );
             }
             return parseInt(amount, 10);
+          },
+          occurred: function(callback) {
+            return (module.cache.occurred !== undefined)
+              ? module.cache.occurred[callback] || false
+              : false
+            ;
           },
           direction: function() {
             if(module.cache.direction === undefined) {
@@ -3033,11 +3200,16 @@ $.fn.visibility.settings = {
   verbose           : false,
   performance       : true,
 
-  loadWait          : 1000,
-
-  watch             : true,
   offset            : 0,
   includeMargin     : false,
+
+  // visibility check delay in ms
+  throttle          : false,
+
+  // special visibility type
+  type              : false,
+  transition        : 'fade in',
+  duration          : 500,
 
   // array of callbacks
   onPassed          : {},
@@ -3049,10 +3221,15 @@ $.fn.visibility.settings = {
   onTopPassed       : false,
   onBottomPassed    : false,
 
+  once              : false,
+
   // utility callbacks
   onRefresh         : function(){},
   onScroll          : function(){},
 
+  // not used currently waiting for (DOM Mutations API adoption)
+  // https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#mutation-observers
+  watch             : true,
   watchedProperties : [
     'offsetWidth',
     'offsetHeight',
@@ -3117,11 +3294,11 @@ $.visit = $.fn.visit = function(parameters) {
       module = {
 
         initialize: function() {
-          if(settings.id) {
-            module.add.id(settings.id);
-          }
-          else if(settings.count) {
+          if(settings.count) {
             module.store(settings.key.count, settings.count);
+          }
+          else if(settings.id) {
+            module.add.id(settings.id);
           }
           else if(settings.increment && methodInvoked !== 'increment') {
             module.increment();
@@ -3131,7 +3308,7 @@ $.visit = $.fn.visit = function(parameters) {
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of visit', module);
+          module.verbose('Storing instance of visit module', module);
           instance = module;
           $module
             .data(moduleNamespace, module)
@@ -3150,8 +3327,8 @@ $.visit = $.fn.visit = function(parameters) {
             currentValue = module.get.count(),
             newValue     = +(currentValue) + 1
           ;
-          if(id && module.has.visited(id) ) {
-            module.debug('Unique content already visited, skipping increment', id);
+          if(id) {
+            module.add.id(id);
           }
           else {
             if(newValue > settings.limit && !settings.surpass) {
@@ -3167,8 +3344,8 @@ $.visit = $.fn.visit = function(parameters) {
             currentValue = module.get.count(),
             newValue     = +(currentValue) - 1
           ;
-          if(id && !module.has.visited(id) ) {
-            module.debug('Decrement skipped, content has not been visited', id);
+          if(id) {
+            module.remove.id(id);
           }
           else {
             module.debug('Removing visit');
@@ -3180,14 +3357,20 @@ $.visit = $.fn.visit = function(parameters) {
           count: function() {
             return +(module.retrieve(settings.key.count)) || 0;
           },
+          idCount: function(ids) {
+            ids = ids || module.get.ids();
+            return ids.length;
+          },
           ids: function(delimitedIDs) {
+            var
+              idArray = []
+            ;
             delimitedIDs = delimitedIDs || module.retrieve(settings.key.ids);
             if(typeof delimitedIDs === 'string') {
-              return delimitedIDs.split(settings.delimiter);
+              idArray = delimitedIDs.split(settings.delimiter);
             }
-            else {
-              return [];
-            }
+            module.verbose('Found visited ID list', idArray);
+            return idArray;
           },
           storageOptions: function(data) {
             var
@@ -3207,7 +3390,6 @@ $.visit = $.fn.visit = function(parameters) {
         },
 
         has: {
-
           visited: function(id, ids) {
             var
               visited = false
@@ -3222,7 +3404,6 @@ $.visit = $.fn.visit = function(parameters) {
             }
             return visited;
           }
-
         },
 
         set: {
@@ -3248,16 +3429,16 @@ $.visit = $.fn.visit = function(parameters) {
                 : currentIDs + settings.delimiter + id
             ;
             if( module.has.visited(id) ) {
-              module.debug('Unique content already visited, not adding visit', id);
+              module.debug('Unique content already visited, not adding visit', id, currentIDs);
             }
             else if(id === undefined) {
               module.debug('ID is not defined');
             }
             else {
               module.debug('Adding visit to unique content', id);
-              module.increment(id);
               module.store(settings.key.ids, newIDs);
             }
+            module.set.count( module.get.idCount() );
           },
           display: function(selector) {
             var
@@ -3270,7 +3451,6 @@ $.visit = $.fn.visit = function(parameters) {
                 : $element
               ;
             }
-            module.update.display();
           }
         },
 
@@ -3290,6 +3470,22 @@ $.visit = $.fn.visit = function(parameters) {
               newIDs = newIDs.join(settings.delimiter);
               module.store(settings.key.ids, newIDs );
             }
+            module.set.count( module.get.idCount() );
+          }
+        },
+
+        check: {
+          limit: function(value) {
+            value = value || module.get.count();
+            if(value >= settings.limit) {
+              module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
+              $.proxy(settings.onLimit, this)(value);
+            }
+            else if(settings.limit) {
+              module.debug('Limit not reached', value, settings.limit);
+            }
+            $.proxy(settings.onChange, this)(value);
+            module.update.display(value);
           }
         },
 
@@ -3300,11 +3496,6 @@ $.visit = $.fn.visit = function(parameters) {
               module.debug('Updating displayed view count', $displays);
               $displays.html(value);
             }
-            if(value >= settings.limit) {
-              module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
-              $.proxy(settings.onLimit, this)(value);
-            }
-            $.proxy(settings.onChange, this)(value);
           }
         },
 
@@ -3325,7 +3516,7 @@ $.visit = $.fn.visit = function(parameters) {
             return;
           }
           if(key == settings.key.count) {
-            module.update.display(value);
+            module.check.limit(value);
           }
         },
         retrieve: function(key, value) {
@@ -3538,7 +3729,7 @@ $.fn.visit.settings = {
 
   namespace     : 'visit',
 
-  increment     : true,
+  increment     : false,
   surpass       : false,
   count         : false,
   limit         : false,
@@ -4024,6 +4215,7 @@ $.site.settings = {
     'tab',
     'transition',
     'video',
+    'visit',
     'visibility'
   ],
 
@@ -8582,6 +8774,9 @@ $.fn.popup = function(parameters) {
           $window
             .on('resize' + eventNamespace, module.event.resize)
           ;
+          if( !module.exists() ) {
+            module.create();
+          }
           module.instantiate();
         },
 
@@ -8687,7 +8882,7 @@ $.fn.popup = function(parameters) {
             $.proxy(settings.onCreate, $popup)();
           }
           else {
-            module.error(error.content);
+            module.error(error.content, element);
           }
         },
 
@@ -9318,13 +9513,13 @@ $.fn.popup.settings = {
   context        : 'body',
   position       : 'top center',
   delay          : {
-    show : 300,
+    show : 50,
     hide : 150
   },
   inline         : false,
   preserve       : false,
 
-  duration       : 250,
+  duration       : 200,
   easing         : 'easeOutQuint',
   transition     : 'scale',
 
@@ -10135,14 +10330,12 @@ $.fn.search = function(parameters) {
               if(settings.maxResults > 0) {
                 response.results = $.makeArray(response.results).slice(0, settings.maxResults);
               }
-              if(response.results.length > 0) {
                 if($.isFunction(template)) {
                   html = template(response);
                 }
                 else {
                   module.error(error.noTemplate, false);
                 }
-              }
             }
             else {
               html = module.message(error.noResults, 'empty');
@@ -10160,19 +10353,37 @@ $.fn.search = function(parameters) {
           },
           show: function() {
             if( ($results.filter(':visible').size() === 0) && ($prompt.filter(':focus').size() > 0) && $results.html() !== '') {
-              $results
-                .stop()
-                .fadeIn(200)
-              ;
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.debug('Showing results with css animations');
+                $results
+                  .transition(settings.transition + ' in', settings.duration)
+                ;
+              }
+              else {
+                module.debug('Showing results with javascript');
+                $results
+                  .stop()
+                  .fadeIn(settings.duration, settings.easing)
+                ;
+              }
               $.proxy(settings.onResultsOpen, $results)();
             }
           },
           hide: function() {
             if($results.filter(':visible').size() > 0) {
-              $results
-                .stop()
-                .fadeOut(200)
-              ;
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.debug('Hiding results with css animations');
+                $results
+                  .transition(settings.transition + ' out', settings.duration)
+                ;
+              }
+              else {
+                module.debug('Hiding results with javascript');
+                $results
+                  .stop()
+                  .fadeIn(settings.duration, settings.easing)
+                ;
+              }
               $.proxy(settings.onResultsClose, $results)();
             }
           },
@@ -10410,7 +10621,7 @@ $.fn.search.settings = {
 
   automatic      : 'true',
   type           : 'simple',
-  hideDelay      : 600,
+  hideDelay      : 300,
   minCharacters  : 3,
   searchThrottle : 300,
   maxResults     : 7,
@@ -10420,6 +10631,10 @@ $.fn.search.settings = {
     'title',
     'description'
   ],
+
+  transition : 'scale',
+  duration   : 300,
+  easing     : 'easeOutExpo',
 
   // api config
   apiSettings: false,
@@ -11948,12 +12163,16 @@ $.fn.sticky = function(parameters) {
             return;
           }
 
-          module.verbose('Initializing sticky', settings, $container);
 
+          if(module.supports.sticky()) {
+            // needs to enable native ios support
+          }
           $window
             .on('resize' + eventNamespace, module.event.resize)
             .on('scroll' + eventNamespace, module.event.scroll)
           ;
+
+          module.verbose('Initializing sticky', settings, $container);
 
           module.save.positions();
 
@@ -11994,10 +12213,23 @@ $.fn.sticky = function(parameters) {
 
         refresh: function(hardRefresh) {
           module.reset();
-          module.save.positions();
-          $.proxy(settings.onReposition, element)();
           if(hardRefresh) {
             $container = $module.offsetParent();
+          }
+          module.save.positions();
+          $.proxy(settings.onReposition, element)();
+        },
+
+        supports: {
+          sticky: function() {
+            var
+              $element = $('<div/>'),
+              element = $element.get()
+            ;
+            $element
+              .addClass(className.supported)
+            ;
+            return($element.css('position').match('sticky'));
           }
         },
 
@@ -12090,9 +12322,13 @@ $.fn.sticky = function(parameters) {
 
         set: {
           containerSize: function() {
-            if($container.get(0).tagName === 'HTML') {
+            var
+              tagName = $container.get(0).tagName
+            ;
+            if(tagName === 'HTML' || tagName == 'body') {
               if($module.is(':visible')) {
-                module.error(error.container, $container.get(0).tagName, $module);
+                module.error(error.container, tagName, $module);
+                $container = $module.offsetParent();
               }
             }
             else {
@@ -12141,21 +12377,24 @@ $.fn.sticky = function(parameters) {
             currentOffset  = module.get.currentOffset(),
             newOffset      = module.get.newOffset(scrollTop),
             elementPassed  = (screen.bottom > element.top + element.height),
-            bottomEdge     = (cache.element.height + screen.top)
+            fixedBottom     = (cache.element.height + screen.top)
           ;
+
           module.save.scroll(scrollTop);
+
           if( module.is.fixed() ) {
             if(fits) {
-              // exit top of container
+              // if module is fixed top
               if(module.is.top()) {
                 if( screen.top < element.top ) {
                   module.unfix();
                 }
-                else if( bottomEdge > context.bottom ) {
+                else if( fixedBottom > context.bottom ) {
                   module.debug('Top attached rail has reached bottom of container');
                   module.bindBottom();
                 }
               }
+              // if module is fixed bottom
               if(module.is.bottom() ) {
                 // top edge
                 if( (screen.bottom - element.height) < element.top) {
@@ -12167,7 +12406,7 @@ $.fn.sticky = function(parameters) {
                   module.bindBottom();
                 }
               }
-              if( bottomEdge > context.bottom ) {
+              if( fixedBottom > context.bottom ) {
                 module.bindBottom();
               }
             }
@@ -12211,6 +12450,10 @@ $.fn.sticky = function(parameters) {
             }
           }
           else {
+            // determine if needs to be bound
+            if(screen.top + element.height > context.bottom) {
+              module.bindBottom();
+            }
             if(fits) {
               // fix to bottom of screen on way back up
               if(module.is.bottom() ) {
@@ -12225,7 +12468,7 @@ $.fn.sticky = function(parameters) {
                   }
                 }
               }
-              else if(screen.top > element.top && screen.top < context.bottom - element.height) {
+              else if(screen.top >= element.top && screen.top < context.bottom - element.height) {
                 module.stickTop();
               }
             }
@@ -12234,7 +12477,6 @@ $.fn.sticky = function(parameters) {
                 module.stickBottom();
               }
             }
-
           }
         },
 
@@ -12519,10 +12761,11 @@ $.fn.sticky.settings = {
   },
 
   className : {
-    bound  : 'bound',
-    fixed  : 'fixed',
-    top    : 'top',
-    bottom : 'bottom'
+    bound     : 'bound',
+    fixed     : 'fixed',
+    supported : 'native',
+    top       : 'top',
+    bottom    : 'bottom'
   }
 
 };

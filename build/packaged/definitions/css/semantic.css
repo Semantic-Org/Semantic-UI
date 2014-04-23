@@ -1028,6 +1028,128 @@ body > .ui.grid {
   }
 }
 /*-------------------
+     Column Count
+--------------------*/
+/* Grid Based */
+.ui.one.column.grid > .row > .column,
+.ui.one.column.grid > .column {
+  width: 100%;
+}
+.ui.two.column.grid > .row > .column,
+.ui.two.column.grid > .column {
+  width: 50%;
+}
+.ui.three.column.grid > .row > .column,
+.ui.three.column.grid > .column {
+  width: 33.33333333%;
+}
+.ui.four.column.grid > .row > .column,
+.ui.four.column.grid > .column {
+  width: 25%;
+}
+.ui.five.column.grid > .row > .column,
+.ui.five.column.grid > .column {
+  width: 20%;
+}
+.ui.six.column.grid > .row > .column,
+.ui.six.column.grid > .column {
+  width: 16.66666667%;
+}
+.ui.seven.column.grid > .row > .column,
+.ui.seven.column.grid > .column {
+  width: 14.28571429%;
+}
+.ui.eight.column.grid > .row > .column,
+.ui.eight.column.grid > .column {
+  width: 12.5%;
+}
+.ui.nine.column.grid > .row > .column,
+.ui.nine.column.grid > .column {
+  width: 11.11111111%;
+}
+.ui.ten.column.grid > .row > .column,
+.ui.ten.column.grid > .column {
+  width: 10%;
+}
+.ui.eleven.column.grid > .row > .column,
+.ui.eleven.column.grid > .column {
+  width: 9.09090909%;
+}
+.ui.twelve.column.grid > .row > .column,
+.ui.twelve.column.grid > .column {
+  width: 8.33333333%;
+}
+.ui.thirteen.column.grid > .row > .column,
+.ui.thirteen.column.grid > .column {
+  width: 7.69230769%;
+}
+.ui.fourteen.column.grid > .row > .column,
+.ui.fourteen.column.grid > .column {
+  width: 7.14285714%;
+}
+.ui.fifteen.column.grid > .row > .column,
+.ui.fifteen.column.grid > .column {
+  width: 6.66666667%;
+}
+.ui.sixteen.column.grid > .row > .column,
+.ui.sixteen.column.grid > .column {
+  width: 6.25%;
+}
+/* Row Based Overrides */
+.ui.grid > .one.column.row > .column {
+  width: 100% !important;
+}
+.ui.grid > .two.column.row > .column {
+  width: 50% !important;
+}
+.ui.grid > .three.column.row > .column {
+  width: 33.33333333% !important;
+}
+.ui.grid > .four.column.row > .column {
+  width: 25% !important;
+}
+.ui.grid > .five.column.row > .column {
+  width: 20% !important;
+}
+.ui.grid > .six.column.row > .column {
+  width: 16.66666667% !important;
+}
+.ui.grid > .seven.column.row > .column {
+  width: 14.28571429% !important;
+}
+.ui.grid > .eight.column.row > .column {
+  width: 12.5% !important;
+}
+.ui.grid > .nine.column.row > .column {
+  width: 11.11111111% !important;
+}
+.ui.grid > .ten.column.row > .column {
+  width: 10% !important;
+}
+.ui.grid > .eleven.column.row > .column {
+  width: 9.09090909% !important;
+}
+.ui.grid > .twelve.column.row > .column {
+  width: 8.33333333% !important;
+}
+.ui.grid > .thirteen.column.row > .column {
+  width: 7.69230769% !important;
+}
+.ui.grid > .fourteen.column.row > .column {
+  width: 7.14285714% !important;
+}
+.ui.grid > .fifteen.column.row > .column {
+  width: 6.66666667% !important;
+}
+.ui.grid > .sixteen.column.row > .column {
+  width: 6.25% !important;
+}
+/* Assume full width with one column */
+.ui.grid > .column:only-child,
+.ui.grid > .row > .column:only-child {
+  width: 100%;
+}
+/*-------------------
     Column Width
 --------------------*/
 /* Sizing Combinations */
@@ -1127,95 +1249,6 @@ body > .ui.grid {
 .ui.column.grid > .sixteen.wide.column {
   width: 100% !important;
 }
-/*-------------------
-     Column Count
---------------------*/
-/* Assume full width with one column */
-.ui.one.column.grid > .row > .column,
-.ui.one.column.grid > .column,
-.ui.grid > .one.column.row > .column {
-  width: 100%;
-}
-.ui.two.column.grid > .row > .column,
-.ui.two.column.grid > .column,
-.ui.grid > .two.column.row > .column {
-  width: 50%;
-}
-.ui.three.column.grid > .row > .column,
-.ui.three.column.grid > .column,
-.ui.grid > .three.column.row > .column {
-  width: 33.33333333%;
-}
-.ui.four.column.grid > .row > .column,
-.ui.four.column.grid > .column,
-.ui.grid > .four.column.row > .column {
-  width: 25%;
-}
-.ui.five.column.grid > .row > .column,
-.ui.five.column.grid > .column,
-.ui.grid > .five.column.row > .column {
-  width: 20%;
-}
-.ui.six.column.grid > .row > .column,
-.ui.six.column.grid > .column,
-.ui.grid > .six.column.row > .column {
-  width: 16.66666667%;
-}
-.ui.seven.column.grid > .row > .column,
-.ui.seven.column.grid > .column,
-.ui.grid > .seven.column.row > .column {
-  width: 14.28571429%;
-}
-.ui.eight.column.grid > .row > .column,
-.ui.eight.column.grid > .column,
-.ui.grid > .eight.column.row > .column {
-  width: 12.5%;
-}
-.ui.nine.column.grid > .row > .column,
-.ui.nine.column.grid > .column,
-.ui.grid > .nine.column.row > .column {
-  width: 11.11111111%;
-}
-.ui.ten.column.grid > .row > .column,
-.ui.ten.column.grid > .column,
-.ui.grid > .ten.column.row > .column {
-  width: 10%;
-}
-.ui.eleven.column.grid > .row > .column,
-.ui.eleven.column.grid > .column,
-.ui.grid > .eleven.column.row > .column {
-  width: 9.09090909%;
-}
-.ui.twelve.column.grid > .row > .column,
-.ui.twelve.column.grid > .column,
-.ui.grid > .twelve.column.row > .column {
-  width: 8.33333333%;
-}
-.ui.thirteen.column.grid > .row > .column,
-.ui.thirteen.column.grid > .column,
-.ui.grid > .thirteen.column.row > .column {
-  width: 7.69230769%;
-}
-.ui.fourteen.column.grid > .row > .column,
-.ui.fourteen.column.grid > .column,
-.ui.grid > .fourteen.column.row > .column {
-  width: 7.14285714%;
-}
-.ui.fifteen.column.grid > .row > .column,
-.ui.fifteen.column.grid > .column,
-.ui.grid > .fifteen.column.row > .column {
-  width: 6.66666667%;
-}
-.ui.sixteen.column.grid > .row > .column,
-.ui.sixteen.column.grid > .column,
-.ui.grid > .sixteen.column.row > .column {
-  width: 6.25%;
-}
-/* Assume full width with one column */
-.ui.grid > .column:only-child,
-.ui.grid > .row > .column:only-child {
-  width: 100%;
-}
 /*----------------------
         Centered
 -----------------------*/
@@ -1268,9 +1301,6 @@ body > .ui.grid {
 .ui.divided.grid:not(.vertically) > .row > .column {
   -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
   box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
-}
-.ui.divided.grid:not(.vertically) > .column.row {
-  display: table;
 }
 .ui.divided.grid:not(.vertically) > .column:first-child,
 .ui.divided.grid:not(.vertically) > .row > .column:first-child {
@@ -1326,16 +1356,21 @@ body > .ui.grid {
   width: 92%;
 }
 /* Fitted */
+/*
 .ui.vertically.divided.fitted.grid > .row:before {
   margin-left: 0%;
   margin-right: 0%;
+  width: 100%;
 }
+*/
 /*----------------------
          Celled
 -----------------------*/
 .ui.celled.grid {
   display: table;
   max-width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
   -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
   box-shadow: 0px 0px 0px 1px #dddddd;
 }
@@ -1448,21 +1483,15 @@ body > .ui.grid {
   .ui.grid > .row > .mobile.only.column {
     display: inline-block !important;
   }
-  .ui.divided.mobile.only.grid,
   .ui.celled.mobile.only.grid,
-  .ui.divided.mobile.only.grid .row,
   .ui.celled.mobile.only.grid .row,
-  .ui.divided.grid .mobile.only.row,
   .ui.celled.grid .mobile.only.row,
   .ui.grid .mobile.only.equal.height.row,
   .ui.mobile.only.grid .equal.height.row {
     display: table !important;
   }
-  .ui.divided.grid > .row > .mobile.only.column,
   .ui.celled.grid > .row > .mobile.only.column,
-  .ui.divided.mobile.only.grid > .row > .column,
   .ui.celled.mobile.only.grid > .row > .column,
-  .ui.divided.mobile.only.grid > .column,
   .ui.celled.mobile.only.grid > .column {
     display: table-cell !important;
   }
@@ -1484,21 +1513,15 @@ body > .ui.grid {
   .ui.grid > .row > .tablet.only.column {
     display: inline-block !important;
   }
-  .ui.divided.tablet.only.grid,
   .ui.celled.tablet.only.grid,
-  .ui.divided.tablet.only.grid .row,
   .ui.celled.tablet.only.grid .row,
-  .ui.divided.grid .tablet.only.row,
   .ui.celled.grid .tablet.only.row,
   .ui.grid .tablet.only.equal.height.row,
   .ui.tablet.only.grid .equal.height.row {
     display: table !important;
   }
-  .ui.divided.grid > .row > .tablet.only.column,
   .ui.celled.grid > .row > .tablet.only.column,
-  .ui.divided.tablet.only.grid > .row > .column,
   .ui.celled.tablet.only.grid > .row > .column,
-  .ui.divided.tablet.only.grid > .column,
   .ui.celled.tablet.only.grid > .column {
     display: table-cell !important;
   }
@@ -1520,21 +1543,15 @@ body > .ui.grid {
   .ui.grid > .row > .computer.only.column {
     display: inline-block !important;
   }
-  .ui.divided.computer.only.grid,
   .ui.celled.computer.only.grid,
-  .ui.divided.computer.only.grid .row,
   .ui.celled.computer.only.grid .row,
-  .ui.divided.grid .computer.only.row,
   .ui.celled.grid .computer.only.row,
   .ui.grid .computer.only.equal.height.row,
   .ui.computer.only.grid .equal.height.row {
     display: table !important;
   }
-  .ui.divided.grid > .row > .computer.only.column,
   .ui.celled.grid > .row > .computer.only.column,
-  .ui.divided.computer.only.grid > .row > .column,
   .ui.celled.computer.only.grid > .row > .column,
-  .ui.divided.computer.only.grid > .column,
   .ui.celled.computer.only.grid > .column {
     display: table-cell !important;
   }
@@ -1554,6 +1571,9 @@ body > .ui.grid {
 @media only screen and (max-width: 767px) {
   .ui.doubling.grid > .row {
     display: inline;
+  }
+  .ui.doubling.grid > .row > .column {
+    margin-bottom: 1em;
   }
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
@@ -1689,7 +1709,7 @@ body > .ui.grid {
   .ui.stackable.grid {
     display: block !important;
     padding: 0em;
-    margin: 0em;
+    margin: 0em !important;
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
@@ -3571,7 +3591,7 @@ body > .ui.grid {
 .ui.yellow.message,
 .ui.warning.message {
   background-color: #F6F3D5;
-  color: #96904D;
+  color: #352F00;
 }
 /* Red Text Block */
 .ui.red.message {
@@ -6535,40 +6555,40 @@ h5.ui.header {
    Inverted Colors
 --------------------*/
 .ui.inverted.black.header {
-  background-color: #ffffff !important;
-  color: #555555 !important;
+  background-color: #555555 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.blue.header {
-  background-color: #ffffff !important;
-  color: #0074d9 !important;
+  background-color: #0074d9 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.green.header {
-  background-color: #ffffff !important;
-  color: #2ecc40 !important;
+  background-color: #2ecc40 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.orange.header {
-  background-color: #ffffff !important;
-  color: #ff851b !important;
+  background-color: #ff851b !important;
+  color: #ffffff !important;
 }
 .ui.inverted.pink.header {
-  background-color: #ffffff !important;
-  color: #d9499a !important;
+  background-color: #d9499a !important;
+  color: #ffffff !important;
 }
 .ui.inverted.purple.header {
-  background-color: #ffffff !important;
-  color: #564f8a !important;
+  background-color: #564f8a !important;
+  color: #ffffff !important;
 }
 .ui.inverted.red.header {
-  background-color: #ffffff !important;
-  color: #ff4136 !important;
+  background-color: #ff4136 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.teal.header {
-  background-color: #ffffff !important;
-  color: #39cccc !important;
+  background-color: #39cccc !important;
+  color: #ffffff !important;
 }
 .ui.inverted.yellow.header {
-  background-color: #ffffff !important;
-  color: #ffcb08 !important;
+  background-color: #ffcb08 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;
@@ -8187,6 +8207,9 @@ i.icon.plus:before {
 }
 i.icon.signup:before {
   content: "\f044";
+}
+i.icon.list.layout:before {
+  content: "\f0c9";
 }
 /*--------------
    Spacing Fix
@@ -11696,76 +11719,9 @@ a.ui.yellow.label:hover:before {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-        Global Variables
-*******************************/
 /*-------------------
-        Paths
+        Reset
 --------------------*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-       Icons
---------------------*/
-/* Width of largest icon */
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*-------------------
-     Background
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-     Text Colors
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
 /*------------------
      Load Theme
 -------------------*/
@@ -12103,75 +12059,17 @@ table {
   border-spacing: 0;
 }
 /*******************************
-        Global Variables
+           Overrides
 *******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-       Icons
---------------------*/
-/* Width of largest icon */
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*-------------------
-     Background
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-     Text Colors
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
+/* Remove iPad input shadows */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
+  -webkit-appearance: caret;
+  -moz-appearance: caret;
+  /* mobile firefox too! */
+}
 /*******************************
            Overrides
 *******************************/
@@ -14874,6 +14772,152 @@ a.ui.nag {
  *
  */
 /*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+        Global Variables
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+       Icons
+--------------------*/
+/* Width of largest icon */
+/*******************************
+           BG Colors
+*******************************/
+/*******************************
+             Colors
+*******************************/
+/*-------------------
+     Background
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+      Emotive
+--------------------*/
+/*-------------------
+     Text Colors
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Search
+*******************************/
+/* Result Box */
+/* Result */
+/* Result Image */
+/* Result Content */
+/* Special Message */
+/* All Results Link */
+/*******************************
+            States
+*******************************/
+/* Hover */
+/* Loading */
+/* Active Category */
+/* Active Result */
+/*******************************
+            Types
+*******************************/
+/* Category */
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+           Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
              Search
 *******************************/
 .ui.search {
@@ -14886,17 +14930,10 @@ a.ui.nag {
   border-radius: 500rem;
 }
 /*--------------
-     Button
+     Icon
 ---------------*/
-.ui.search > .button {
-  position: relative;
-  z-index: 2;
-  float: right;
-  margin: 0px 0px 0px -15px;
-  padding: 6px 15px 7px;
-  border-radius: 0px 15px 15px 0px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+.ui.search .prompt ~ .search.icon {
+  cursor: pointer;
 }
 /*--------------
     Results
@@ -14904,110 +14941,89 @@ a.ui.nag {
 .ui.search .results {
   display: none;
   position: absolute;
-  z-index: 999;
+  z-index: 998;
   top: 100%;
-  left: 0px;
+  left: 0%;
   overflow: hidden;
-  background-color: #FFFFFF;
+  background: #ffffff;
   margin-top: 0.5em;
   width: 380px;
-  font-size: 0.875em;
-  line-height: 1.2;
-  color: #555555;
-  border-radius: 3px;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 0.25em;
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
+/*--------------
+    Result
+---------------*/
 .ui.search .result {
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   cursor: pointer;
   overflow: hidden;
+  font-size: 0.9em;
   padding: 0.5em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 1.33;
 }
 .ui.search .result:first-child {
   border-top: none;
 }
+/* Image */
 .ui.search .result .image {
-  background: #F0F0F0;
-  margin-right: 10px;
-  float: left;
+  float: right;
   overflow: hidden;
-  border-radius: 3px;
-  height: 30px;
+  background: none;
+  width: 5em;
+  height: 3em;
+  border-radius: 0.25em;
 }
 .ui.search .result .image img {
   display: block;
-  width: 73px;
-  height: 30px;
+  width: auto;
+  height: 100%;
 }
-.ui.search .result .image ~ .info {
-  float: none;
-  margin-left: 80px;
-}
-.ui.search .result .info {
-  float: left;
+/*--------------
+      Info
+---------------*/
+.ui.search .result .image + .content {
+  margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.85);
 }
 .ui.search .result .description {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.search .result .price {
   float: right;
-  color: #5BBD72;
-  font-weight: bold;
+  color: #2ecc40;
 }
 /*--------------
     Message
 ---------------*/
 .ui.search .message {
-  padding: 1em;
+  padding: 1em 1em;
 }
-.ui.search .message .text .title {
-  margin: 0em 0em 0.5rem;
-  font-size: 1.25rem;
+.ui.search .message .header {
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
-.ui.search .message .text .description {
-  margin: 0em;
+.ui.search .message .description {
+  margin-top: 0.25rem;
   font-size: 1rem;
-  color: rgba(0, 0, 0, 0.5);
-}
-/*--------------
-    Categories
----------------*/
-.ui.search .results .category {
-  background-color: #FAFAFA;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-transition: background 0.2s ease-in;
-  transition: background 0.2s ease-in;
-}
-.ui.search .results .category:first-child {
-  border-top: none;
-}
-.ui.search .results .category > .name {
-  float: left;
-  padding: 12px 0px 0px 8px;
-  font-weight: bold;
-  color: #777777;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
-}
-.ui.search .results .category .result {
-  background-color: #FFFFFF;
-  margin-left: 80px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
 }
 /* View All Results */
 .ui.search .all {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #FAFAFA;
+  background-color: #f0f0f0;
   height: 2em;
   line-height: 2em;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
   text-align: center;
 }
@@ -15018,17 +15034,17 @@ a.ui.nag {
       Hover
 ---------------*/
 .ui.search .result:hover,
-.ui.search .category .result:hover {
-  background-color: #F8F8F8;
+.ui.search .results .category .result:hover {
+  background: #fafafa;
 }
 .ui.search .all:hover {
-  background-color: #F0F0F0;
+  background: #fafafa;
 }
 /*--------------
      Loading
 ---------------*/
 .ui.search.loading .input .icon {
-  background: url(../../themes/packages/default/assets/images/loader-mini.gif) no-repeat 50% 50%;
+  background: url("../../themes/packages/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
 }
 .ui.search.loading .input .icon:before,
 .ui.search.loading .input .icon:after {
@@ -15038,39 +15054,81 @@ a.ui.nag {
       Active
 ---------------*/
 .ui.search .results .category.active {
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
 }
 .ui.search .results .category.active > .name {
-  color: #333333;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.search .result.active,
-.ui.search .category .result.active {
-  background-color: #FBFBFB;
+.ui.search .results .category .result.active {
+  border-left-color: transparent;
+  background-color: #f0f0f0;
+  -webkit-box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
 }
 .ui.search .result.active .title {
-  color: #000000;
+  color: rgba(0, 0, 0, 0.85);
 }
 .ui.search .result.active .description {
-  color: #555555;
+  color: rgba(0, 0, 0, 0.85);
+}
+/*******************************
+           Types
+*******************************/
+/*-------------------
+     Left / Right
+--------------------*/
+.ui.right.aligned.search .results {
+  right: 0%;
+  left: auto;
+}
+/*--------------
+    Categories
+---------------*/
+.ui.search .results .category {
+  background: #f0f0f0;
+  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.search .results .category,
+.ui.search .results .category .result {
+  position: relative;
+  -webkit-transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.ui.search .results .category:first-child {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ui.search .results .category > .name {
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  float: 0.9em;
+  float: left;
+  padding: 0.4em 0em 0em 1em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.search .results .category .result {
+  background-color: #ffffff;
+  margin-left: 100px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*******************************
            Variations
 *******************************/
-/* Large */
-.ui.search .large.result .image,
-.ui.search .large.result .image img {
-  width: 50px;
-  height: 50px;
+.ui.search {
+  font-size: 1em;
 }
-.ui.search .large.results .indented.info {
-  margin-left: 65px;
+.ui.large.search {
+  font-size: 1.1em;
 }
-.ui.search .large.results .info .title {
-  font-size: 16px;
-}
-.ui.search .large.results .info .description {
-  font-size: 11px;
-}
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+           Overrides
+*******************************/
 
 /*
  * # Semantic - Shape
@@ -15387,19 +15445,166 @@ body.pushed.scrolling.ui.dimmable {
   margin-top: -40px !important;
 }
 
+/*
+ * # Semantic - Sticky
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+        Global Variables
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+       Icons
+--------------------*/
+/* Width of largest icon */
+/*******************************
+           BG Colors
+*******************************/
+/*******************************
+             Colors
+*******************************/
+/*-------------------
+     Background
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+      Emotive
+--------------------*/
+/*-------------------
+     Text Colors
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Sticky
+*******************************/
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+           Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
+            Sticky
+*******************************/
 .ui.sticky {
   position: static;
 }
+/*******************************
+            States
+*******************************/
+/* Bound */
 .ui.sticky.bound {
   position: absolute;
   left: auto;
   right: auto;
 }
+/* Fixed */
 .ui.sticky.fixed {
   position: fixed;
   left: auto;
   right: auto;
 }
+/* Bound/Fixed Position */
 .ui.sticky.bound.top,
 .ui.sticky.fixed.top {
   top: 0px;
@@ -15409,6 +15614,16 @@ body.pushed.scrolling.ui.dimmable {
 .ui.sticky.fixed.bottom {
   top: auto;
   bottom: 0px;
+}
+/*******************************
+            Types
+*******************************/
+.ui.native.sticky {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
 }
 
 /*
@@ -17446,6 +17661,7 @@ ol.ui.list,
 .ui.ordered.list {
   counter-reset: ordered;
   margin-left: 1em;
+  margin-right: 1em;
   list-style-type: none;
 }
 ol.ui.list li,

@@ -87,6 +87,9 @@ $.fn.popup = function(parameters) {
           $window
             .on('resize' + eventNamespace, module.event.resize)
           ;
+          if( !module.exists() ) {
+            module.create();
+          }
           module.instantiate();
         },
 
@@ -192,7 +195,7 @@ $.fn.popup = function(parameters) {
             $.proxy(settings.onCreate, $popup)();
           }
           else {
-            module.error(error.content);
+            module.error(error.content, element);
           }
         },
 
@@ -823,13 +826,13 @@ $.fn.popup.settings = {
   context        : 'body',
   position       : 'top center',
   delay          : {
-    show : 300,
+    show : 50,
     hide : 150
   },
   inline         : false,
   preserve       : false,
 
-  duration       : 250,
+  duration       : 200,
   easing         : 'easeOutQuint',
   transition     : 'scale',
 

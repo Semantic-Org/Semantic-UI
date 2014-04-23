@@ -315,6 +315,7 @@ ol.ui.list,
 .ui.ordered.list {
   counter-reset: ordered;
   margin-left: 1em;
+  margin-right: 1em;
   list-style-type: none;
 }
 ol.ui.list li,

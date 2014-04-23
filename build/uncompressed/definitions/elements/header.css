@@ -362,40 +362,40 @@ h5.ui.header {
    Inverted Colors
 --------------------*/
 .ui.inverted.black.header {
-  background-color: #ffffff !important;
-  color: #555555 !important;
+  background-color: #555555 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.blue.header {
-  background-color: #ffffff !important;
-  color: #0074d9 !important;
+  background-color: #0074d9 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.green.header {
-  background-color: #ffffff !important;
-  color: #2ecc40 !important;
+  background-color: #2ecc40 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.orange.header {
-  background-color: #ffffff !important;
-  color: #ff851b !important;
+  background-color: #ff851b !important;
+  color: #ffffff !important;
 }
 .ui.inverted.pink.header {
-  background-color: #ffffff !important;
-  color: #d9499a !important;
+  background-color: #d9499a !important;
+  color: #ffffff !important;
 }
 .ui.inverted.purple.header {
-  background-color: #ffffff !important;
-  color: #564f8a !important;
+  background-color: #564f8a !important;
+  color: #ffffff !important;
 }
 .ui.inverted.red.header {
-  background-color: #ffffff !important;
-  color: #ff4136 !important;
+  background-color: #ff4136 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.teal.header {
-  background-color: #ffffff !important;
-  color: #39cccc !important;
+  background-color: #39cccc !important;
+  color: #ffffff !important;
 }
 .ui.inverted.yellow.header {
-  background-color: #ffffff !important;
-  color: #ffcb08 !important;
+  background-color: #ffcb08 !important;
+  color: #ffffff !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;

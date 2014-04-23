@@ -375,6 +375,7 @@ i.icon.delete:before { content: "\f00d"; }
 i.icon.like:before { content: "\f004"; }
 i.icon.plus:before { content: "\f067"; }
 i.icon.signup:before { content: "\f044"; }
+i.icon.list.layout:before { content: "\f0c9"; }
 
 
 /*--------------

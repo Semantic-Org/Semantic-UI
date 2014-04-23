@@ -166,13 +166,13 @@ $.fn.state = function(parameters) {
           $module.addClass(className.disabled);
         },
 
-        enableState: function(state) {
+        setState: function(state) {
           if(module.allows(state)) {
             $module.addClass( className[state] );
           }
         },
 
-        disableState: function(state) {
+        removeState: function(state) {
           if(module.allows(state)) {
             $module.removeClass( className[state] );
           }

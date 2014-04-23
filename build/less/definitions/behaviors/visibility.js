@@ -65,7 +65,11 @@ $.fn.visibility = function(parameters) {
           module.bindEvents();
           module.instantiate();
 
-          setTimeout(module.checkVisibility, settings.loadWait);
+          if(settings.type == 'image') {
+            module.setup.image();
+          }
+
+          requestAnimationFrame(module.checkVisibility);
         },
 
         instantiate: function() {
@@ -88,6 +92,7 @@ $.fn.visibility = function(parameters) {
         },
 
         bindEvents: function() {
+          module.verbose('Binding visibility events to scroll and resize');
           $window
             .on('resize', module.event.refresh)
             .on('scroll', module.event.scroll)
@@ -99,25 +104,99 @@ $.fn.visibility = function(parameters) {
             requestAnimationFrame(module.refresh);
           },
           scroll: function() {
-            requestAnimationFrame(module.checkVisibility);
+            module.verbose('Scroll position changed');
+            if(settings.throttle) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(module.checkVisibility, 200);
+            }
+            else {
+              requestAnimationFrame(module.checkVisibility);
+            }
+          }
+        },
+
+        precache: function(images, callback) {
+          if (!(images instanceof Array)) {
+            images = [images];
+          }
+          var
+            imagesLength  = images.length,
+            loadedCounter = 0,
+            cache         = [],
+            cacheImage    = document.createElement('img'),
+            handleLoad    = function() {
+              loadedCounter++;
+              if (loadedCounter >= images.length) {
+                if ($.isFunction(callback)) {
+                  callback();
+                }
+              }
+            }
+          ;
+          while (imagesLength--) {
+            cacheImage         = document.createElement('img');
+            cacheImage.onload  = handleLoad;
+            cacheImage.onerror = handleLoad;
+            cacheImage.src     = images[imagesLength];
+            cache.push(cacheImage);
+          }
+        },
+
+        setup: {
+          image: function() {
+            var
+              src = $module.data('src')
+            ;
+            if(src) {
+              module.verbose('Lazy loading image', src);
+              settings.once = true;
+              // show when top visible
+              module.topVisible(function() {
+                module.precache(src, function() {
+                  module.set.image(src);
+                  settings.onTopVisible = false;
+                });
+              });
+            }
+          }
+        },
+
+        set: {
+          image: function(src) {
+            var
+              offScreen = (module.cache.screen.bottom + settings.offset < module.cache.element.top)
+            ;
+            $module
+              .attr('src', src)
+            ;
+            if($.fn.transition !== undefined || offScreen) {
+              $module.transition(settings.transition, settings.duration);
+            }
+            else {
+              $module.fadeIn(settings.duration);
+            }
           }
         },
 
         refresh: function() {
+          module.debug('Refreshing constants (element width/height)');
+          module.reset();
           module.save.position();
           module.checkVisibility();
           $.proxy(settings.onRefresh, element)();
         },
 
         reset: function() {
+          module.verbose('Reseting all cached values');
           module.cache = {
+            occurred: {},
             screen  : {},
             element : {}
           };
         },
 
         checkVisibility: function() {
-          module.verbose('Updating visibility of element', module.cache.element);
+          module.verbose('Checking visibility of element', module.cache.element);
           module.save.scroll();
           module.save.direction();
           module.save.screenCalculations();
@@ -129,24 +208,6 @@ $.fn.visibility = function(parameters) {
           module.bottomVisible();
           module.topPassed();
           module.bottomPassed();
-        },
-
-        passing: function(newCallback) {
-          var
-            calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onPassing
-          ;
-          if(newCallback) {
-            module.debug('Adding callback for passing', newCallback);
-            settings.onPassing = newCallback;
-          }
-          if(callback && calculations.passing) {
-            $.proxy(callback, element)(calculations, screen);
-          }
-          else {
-            return calculations.passing;
-          }
         },
 
         passed: function(amount, newCallback) {
@@ -164,26 +225,54 @@ $.fn.visibility = function(parameters) {
           else if(calculations.passing) {
             $.each(settings.onPassed, function(amount, callback) {
               if(calculations.bottomVisible || calculations.pixelsPassed > module.get.pixelsPassed(amount)) {
-                callback();
+                module.execute(callback, amount);
+              }
+              else {
+                module.remove.occurred(callback, amount);
               }
             });
           }
         },
 
+        passing: function(newCallback) {
+          var
+            calculations = module.get.elementCalculations(),
+            callback     = newCallback || settings.onPassing,
+            callbackName = 'passing'
+          ;
+          if(newCallback) {
+            module.debug('Adding callback for passing', newCallback);
+            settings.onPassing = newCallback;
+          }
+          if(callback && calculations.passing) {
+            module.execute(callback, callbackName);
+          }
+          else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback !== undefined) {
+            return calculations.passing;
+          }
+        },
+
+
         topVisible: function(newCallback) {
           var
             calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onTopVisible
+            callback     = newCallback || settings.onTopVisible,
+            callbackName = 'topVisible'
           ;
           if(newCallback) {
             module.debug('Adding callback for top visible', newCallback);
             settings.onTopVisible = newCallback;
           }
           if(callback && calculations.topVisible) {
-            $.proxy(callback, element)(calculations, screen);
+            module.execute(callback, callbackName);
           }
           else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
             return calculations.topVisible;
           }
         },
@@ -191,17 +280,20 @@ $.fn.visibility = function(parameters) {
         bottomVisible: function(newCallback) {
           var
             calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onBottomVisible
+            callback     = newCallback || settings.onBottomVisible,
+            callbackName = 'bottomVisible'
           ;
           if(newCallback) {
             module.debug('Adding callback for bottom visible', newCallback);
             settings.onBottomVisible = newCallback;
           }
           if(callback && calculations.bottomVisible) {
-            $.proxy(callback, element)(calculations, screen);
+            module.execute(callback, callbackName);
           }
           else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
             return calculations.bottomVisible;
           }
         },
@@ -209,17 +301,20 @@ $.fn.visibility = function(parameters) {
         topPassed: function(newCallback) {
           var
             calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onTopPassed
+            callback     = newCallback || settings.onTopPassed,
+            callbackName = 'topPassed'
           ;
           if(newCallback) {
             module.debug('Adding callback for top passed', newCallback);
             settings.onTopPassed = newCallback;
           }
           if(callback && calculations.topPassed) {
-            $.proxy(callback, element)(calculations, screen);
+            module.execute(callback, callbackName);
           }
           else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
             return calculations.topPassed;
           }
         },
@@ -227,22 +322,56 @@ $.fn.visibility = function(parameters) {
         bottomPassed: function(newCallback) {
           var
             calculations = module.get.elementCalculations(),
-            screen       = module.get.screenCalculations(),
-            callback     = newCallback || settings.onBottomPassed
+            callback     = newCallback || settings.onBottomPassed,
+            callbackName = 'bottomPassed'
           ;
           if(newCallback) {
             module.debug('Adding callback for bottom passed', newCallback);
             settings.bottomPassed = newCallback;
           }
           if(callback && calculations.bottomPassed) {
-            $.proxy(callback, element)(calculations, screen);
+            module.execute(callback, callbackName);
           }
           else {
+            module.remove.occurred(callbackName);
+          }
+          if(newCallback === undefined) {
             return calculations.bottomPassed;
           }
         },
 
+        execute: function(callback, callbackName) {
+          var
+            calculations = module.get.elementCalculations(),
+            screen       = module.get.screenCalculations()
+          ;
+          if(settings.once && module.get.occurred(callbackName)) {
+            // multiple callbacks are ignored when times == 'once'
+          }
+          else {
+            module.debug('Conditions met for callback', callbackName, calculations);
+            $.proxy(callback, element)(calculations, screen);
+          }
+          module.save.occurred(callbackName);
+        },
+
+        remove: {
+          occurred: function(callback) {
+            if(callback) {
+              module.cache.occurred[callback] = false;
+            }
+            else {
+              module.cache.occurred = {};
+            }
+          }
+        },
+
         save: {
+          occurred: function(callback) {
+            if(callback) {
+              module.cache.occurred[callback] = true;
+            }
+          },
           scroll: function() {
             module.cache.scroll = $window.scrollTop() + settings.offset;
           },
@@ -329,8 +458,8 @@ $.fn.visibility = function(parameters) {
             }
             module.save.direction();
             $.extend(module.cache.screen, {
-              top    : scroll + settings.offset,
-              bottom : scroll + settings.offset + module.cache.screen.height
+              top    : scroll - settings.offset,
+              bottom : scroll - settings.offset + module.cache.screen.height
             });
             return module.cache.screen;
           },
@@ -355,6 +484,12 @@ $.fn.visibility = function(parameters) {
               return ( element.height * (parseInt(amount, 10) / 100) );
             }
             return parseInt(amount, 10);
+          },
+          occurred: function(callback) {
+            return (module.cache.occurred !== undefined)
+              ? module.cache.occurred[callback] || false
+              : false
+            ;
           },
           direction: function() {
             if(module.cache.direction === undefined) {
@@ -585,11 +720,16 @@ $.fn.visibility.settings = {
   verbose           : false,
   performance       : true,
 
-  loadWait          : 1000,
-
-  watch             : true,
   offset            : 0,
   includeMargin     : false,
+
+  // visibility check delay in ms
+  throttle          : false,
+
+  // special visibility type
+  type              : false,
+  transition        : 'fade in',
+  duration          : 500,
 
   // array of callbacks
   onPassed          : {},
@@ -601,10 +741,15 @@ $.fn.visibility.settings = {
   onTopPassed       : false,
   onBottomPassed    : false,
 
+  once              : false,
+
   // utility callbacks
   onRefresh         : function(){},
   onScroll          : function(){},
 
+  // not used currently waiting for (DOM Mutations API adoption)
+  // https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#mutation-observers
+  watch             : true,
   watchedProperties : [
     'offsetWidth',
     'offsetHeight',

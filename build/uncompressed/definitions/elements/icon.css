@@ -1518,6 +1518,9 @@ i.icon.plus:before {
 i.icon.signup:before {
   content: "\f044";
 }
+i.icon.list.layout:before {
+  content: "\f0c9";
+}
 /*--------------
    Spacing Fix
 ---------------*/

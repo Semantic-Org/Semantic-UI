@@ -69,6 +69,7 @@
 @search      : 'default';
 @shape       : 'default';
 @sidebar     : 'default';
+@sticky      : 'default';
 @tab         : 'default';
 @transition  : 'default';
 @video       : 'default';
