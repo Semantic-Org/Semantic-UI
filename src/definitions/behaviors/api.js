@@ -112,7 +112,6 @@ $.api = $.fn.api = function(parameters) {
             module.debug('Request cancelled previous request is still pending');
             return;
           }
-
           // pass element metadata to url (value, text)
           if(settings.defaultData) {
             $.extend(true, settings.urlData, module.get.defaultData());
@@ -201,39 +200,71 @@ $.api = $.fn.api = function(parameters) {
         add: {
           urlData: function(url, urlData) {
             var
-              urlVariables
+              requiredVariables,
+              optionalVariables
             ;
             if(url) {
-              urlVariables = url.match(settings.regExp.required);
-              urlData      = urlData || settings.urlData;
-
-              if(urlVariables) {
-                module.debug('Looking for URL variables', urlVariables);
-                $.each(urlVariables, function(index, templateValue){
+              requiredVariables = url.match(settings.regExp.required);
+              optionalVariables = url.match(settings.regExp.optional);
+              urlData           = urlData || settings.urlData;
+              if(requiredVariables) {
+                module.debug('Looking for required URL variables', requiredVariables);
+                $.each(requiredVariables, function(index, templatedString) {
                   var
-                    term      = templateValue.substr( 2, templateValue.length - 3),
-                    termValue = ($.isPlainObject(urlData) && urlData[term] !== undefined)
-                      ? urlData[term]
-                      : ($module.data(term) !== undefined)
-                        ? $module.data(term)
-                        : ($context.data(term) !== undefined)
-                          ? $context.data(term)
-                          : urlData[term]
+                    // allow legacy {$var} style
+                    variable = (templatedString.indexOf('$') !== -1)
+                      ? templatedString.substr(2, templatedString.length - 3)
+                      : templatedString.substr(1, templatedString.length - 2),
+                    value   = ($.isPlainObject(urlData) && urlData[variable] !== undefined)
+                      ? urlData[variable]
+                      : ($module.data(variable) !== undefined)
+                        ? $module.data(variable)
+                        : ($context.data(variable) !== undefined)
+                          ? $context.data(variable)
+                          : urlData[variable]
                   ;
-                  module.verbose('Looking for variable', term);
-                  // remove optional value
-                  if(termValue === false) {
-                    module.debug('Removing variable from URL', urlVariables);
-                    url = url.replace('/' + templateValue, '');
-                  }
-                  // undefined condition
-                  else if(termValue === undefined || !termValue) {
-                    module.error(error.missingParameter, term, url);
+                  // remove value
+                  if(value === undefined) {
+                    module.error(error.requiredParameter, variable, url);
                     url = false;
                     return false;
                   }
                   else {
-                    url = url.replace(templateValue, termValue);
+                    module.verbose('Found required variable', variable, value);
+                    url = url.replace(templatedString, value);
+                  }
+                });
+              }
+              if(optionalVariables) {
+                module.debug('Looking for optional URL variables', requiredVariables);
+                $.each(optionalVariables, function(index, templatedString) {
+                  var
+                    // allow legacy {/$var} style
+                    variable = (templatedString.indexOf('$') !== -1)
+                      ? templatedString.substr(3, templatedString.length - 4)
+                      : templatedString.substr(2, templatedString.length - 3),
+                    value   = ($.isPlainObject(urlData) && urlData[variable] !== undefined)
+                      ? urlData[variable]
+                      : ($module.data(variable) !== undefined)
+                        ? $module.data(variable)
+                        : ($context.data(variable) !== undefined)
+                          ? $context.data(variable)
+                          : urlData[variable]
+                  ;
+                  // optional replacement
+                  if(value !== undefined) {
+                    module.verbose('Optional variable Found', variable, value);
+                    url = url.replace(templatedString, value);
+                  }
+                  else {
+                    module.verbose('Optional variable not found', variable);
+                    // remove preceding slash if set
+                    if(url.indexOf('/' + templatedString) !== -1) {
+                      url = url.replace('/' + templatedString, '');
+                    }
+                    else {
+                      url = url.replace(templatedString, '');
+                    }
                   }
                 });
               }
@@ -683,7 +714,8 @@ $.api.settings = {
   action          : false,
 
   regExp  : {
-    required: /\{\$([A-z]+)\}/g
+    required: /\{\$*[A-z0-9]+\}/g,
+    optional: /\{\/\$*[A-z0-9]+\}/g,
   },
 
   // data
@@ -717,17 +749,17 @@ $.api.settings = {
 
   // errors
   error : {
-    beforeSend       : 'The before send function has aborted the request',
-    error            : 'There was an error with your request',
-    exitConditions   : 'API Request Aborted. Exit conditions met',
-    JSONParse        : 'JSON could not be parsed during error handling',
-    missingSerialize : 'Serializing a Form requires toJSON to be included',
-    missingAction    : 'API action used but no url was defined',
-    missingParameter : 'Missing an essential URL parameter: ',
-    missingURL       : 'No URL specified for api event',
-    parseError       : 'There was an error parsing your request',
-    statusMessage    : 'Server gave an error: ',
-    timeout          : 'Your request timed out'
+    beforeSend        : 'The before send function has aborted the request',
+    error             : 'There was an error with your request',
+    exitConditions    : 'API Request Aborted. Exit conditions met',
+    JSONParse         : 'JSON could not be parsed during error handling',
+    missingAction     : 'API action used but no url was defined',
+    missingSerialize  : 'Serializing a Form requires toJSON to be included',
+    missingURL        : 'No URL specified for api event',
+    parseError        : 'There was an error parsing your request',
+    requiredParameter : 'Missing a required URL parameter: ',
+    statusMessage     : 'Server gave an error: ',
+    timeout           : 'Your request timed out'
   },
 
   className: {

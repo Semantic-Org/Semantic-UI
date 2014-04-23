@@ -47,11 +47,11 @@ $.visit = $.fn.visit = function(parameters) {
       module = {
 
         initialize: function() {
-          if(settings.id) {
-            module.add.id(settings.id);
-          }
-          else if(settings.count) {
+          if(settings.count) {
             module.store(settings.key.count, settings.count);
+          }
+          else if(settings.id) {
+            module.add.id(settings.id);
           }
           else if(settings.increment && methodInvoked !== 'increment') {
             module.increment();
@@ -61,7 +61,7 @@ $.visit = $.fn.visit = function(parameters) {
         },
 
         instantiate: function() {
-          module.verbose('Storing instance of visit', module);
+          module.verbose('Storing instance of visit module', module);
           instance = module;
           $module
             .data(moduleNamespace, module)
@@ -80,8 +80,8 @@ $.visit = $.fn.visit = function(parameters) {
             currentValue = module.get.count(),
             newValue     = +(currentValue) + 1
           ;
-          if(id && module.has.visited(id) ) {
-            module.debug('Unique content already visited, skipping increment', id);
+          if(id) {
+            module.add.id(id);
           }
           else {
             if(newValue > settings.limit && !settings.surpass) {
@@ -97,8 +97,8 @@ $.visit = $.fn.visit = function(parameters) {
             currentValue = module.get.count(),
             newValue     = +(currentValue) - 1
           ;
-          if(id && !module.has.visited(id) ) {
-            module.debug('Decrement skipped, content has not been visited', id);
+          if(id) {
+            module.remove.id(id);
           }
           else {
             module.debug('Removing visit');
@@ -110,14 +110,20 @@ $.visit = $.fn.visit = function(parameters) {
           count: function() {
             return +(module.retrieve(settings.key.count)) || 0;
           },
+          idCount: function(ids) {
+            ids = ids || module.get.ids();
+            return ids.length;
+          },
           ids: function(delimitedIDs) {
+            var
+              idArray = []
+            ;
             delimitedIDs = delimitedIDs || module.retrieve(settings.key.ids);
             if(typeof delimitedIDs === 'string') {
-              return delimitedIDs.split(settings.delimiter);
+              idArray = delimitedIDs.split(settings.delimiter);
             }
-            else {
-              return [];
-            }
+            module.verbose('Found visited ID list', idArray);
+            return idArray;
           },
           storageOptions: function(data) {
             var
@@ -137,7 +143,6 @@ $.visit = $.fn.visit = function(parameters) {
         },
 
         has: {
-
           visited: function(id, ids) {
             var
               visited = false
@@ -152,7 +157,6 @@ $.visit = $.fn.visit = function(parameters) {
             }
             return visited;
           }
-
         },
 
         set: {
@@ -178,16 +182,16 @@ $.visit = $.fn.visit = function(parameters) {
                 : currentIDs + settings.delimiter + id
             ;
             if( module.has.visited(id) ) {
-              module.debug('Unique content already visited, not adding visit', id);
+              module.debug('Unique content already visited, not adding visit', id, currentIDs);
             }
             else if(id === undefined) {
               module.debug('ID is not defined');
             }
             else {
               module.debug('Adding visit to unique content', id);
-              module.increment(id);
               module.store(settings.key.ids, newIDs);
             }
+            module.set.count( module.get.idCount() );
           },
           display: function(selector) {
             var
@@ -200,7 +204,6 @@ $.visit = $.fn.visit = function(parameters) {
                 : $element
               ;
             }
-            module.update.display();
           }
         },
 
@@ -220,6 +223,22 @@ $.visit = $.fn.visit = function(parameters) {
               newIDs = newIDs.join(settings.delimiter);
               module.store(settings.key.ids, newIDs );
             }
+            module.set.count( module.get.idCount() );
+          }
+        },
+
+        check: {
+          limit: function(value) {
+            value = value || module.get.count();
+            if(value >= settings.limit) {
+              module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
+              $.proxy(settings.onLimit, this)(value);
+            }
+            else if(settings.limit) {
+              module.debug('Limit not reached', value, settings.limit);
+            }
+            $.proxy(settings.onChange, this)(value);
+            module.update.display(value);
           }
         },
 
@@ -230,11 +249,6 @@ $.visit = $.fn.visit = function(parameters) {
               module.debug('Updating displayed view count', $displays);
               $displays.html(value);
             }
-            if(value >= settings.limit) {
-              module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
-              $.proxy(settings.onLimit, this)(value);
-            }
-            $.proxy(settings.onChange, this)(value);
           }
         },
 
@@ -255,7 +269,7 @@ $.visit = $.fn.visit = function(parameters) {
             return;
           }
           if(key == settings.key.count) {
-            module.update.display(value);
+            module.check.limit(value);
           }
         },
         retrieve: function(key, value) {
@@ -468,7 +482,7 @@ $.fn.visit.settings = {
 
   namespace     : 'visit',
 
-  increment     : true,
+  increment     : false,
   surpass       : false,
   count         : false,
   limit         : false,
