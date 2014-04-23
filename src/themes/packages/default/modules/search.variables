@@ -37,10 +37,10 @@
 /* Special Message */
 @messageVerticalPadding: 1em;
 @messageHorizontalPadding: 1em;
-@messageTitleFontSize: 1.25em;
-@messageTitleFontWeight: bold;
-@messageTitleColor: @textColor;
-@messageDescriptionDistance: 0.5rem;
+@messageHeaderFontSize: 1.2em;
+@messageHeaderFontWeight: bold;
+@messageHeaderColor: @textColor;
+@messageDescriptionDistance: 0.25rem;
 @messageDescriptionFontSize: 1rem;
 @messageDescriptionColor: @textColor;
 
@@ -88,7 +88,7 @@
 @categoryNameFont: @pageFont;
 @categoryNameFontSize: 0.9em;
 @categoryNameFloat: left;
-@categoryNamePadding: 0.5em 0em 0em 1em;
+@categoryNamePadding: 0.4em 0em 0em 1em;
 @categoryNameFontWeight: bold;
 @categoryNameColor: @lightTextColor;
 

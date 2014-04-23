@@ -347,14 +347,12 @@ $.fn.search = function(parameters) {
               if(settings.maxResults > 0) {
                 response.results = $.makeArray(response.results).slice(0, settings.maxResults);
               }
-              if(response.results.length > 0) {
                 if($.isFunction(template)) {
                   html = template(response);
                 }
                 else {
                   module.error(error.noTemplate, false);
                 }
-              }
             }
             else {
               html = module.message(error.noResults, 'empty');
@@ -372,19 +370,37 @@ $.fn.search = function(parameters) {
           },
           show: function() {
             if( ($results.filter(':visible').size() === 0) && ($prompt.filter(':focus').size() > 0) && $results.html() !== '') {
-              $results
-                .stop()
-                .fadeIn(200)
-              ;
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.debug('Showing results with css animations');
+                $results
+                  .transition(settings.transition + ' in', settings.duration)
+                ;
+              }
+              else {
+                module.debug('Showing results with javascript');
+                $results
+                  .stop()
+                  .fadeIn(settings.duration, settings.easing)
+                ;
+              }
               $.proxy(settings.onResultsOpen, $results)();
             }
           },
           hide: function() {
             if($results.filter(':visible').size() > 0) {
-              $results
-                .stop()
-                .fadeOut(200)
-              ;
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.debug('Hiding results with css animations');
+                $results
+                  .transition(settings.transition + ' out', settings.duration)
+                ;
+              }
+              else {
+                module.debug('Hiding results with javascript');
+                $results
+                  .stop()
+                  .fadeIn(settings.duration, settings.easing)
+                ;
+              }
               $.proxy(settings.onResultsClose, $results)();
             }
           },
@@ -622,7 +638,7 @@ $.fn.search.settings = {
 
   automatic      : 'true',
   type           : 'simple',
-  hideDelay      : 600,
+  hideDelay      : 300,
   minCharacters  : 3,
   searchThrottle : 300,
   maxResults     : 7,
@@ -632,6 +648,10 @@ $.fn.search.settings = {
     'title',
     'description'
   ],
+
+  transition : 'scale',
+  duration   : 300,
+  easing     : 'easeOutExpo',
 
   // api config
   apiSettings: false,

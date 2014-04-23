@@ -71,12 +71,16 @@ $.fn.sticky = function(parameters) {
             return;
           }
 
-          module.verbose('Initializing sticky', settings, $container);
 
+          if(module.supports.sticky()) {
+            // needs to enable native ios support
+          }
           $window
             .on('resize' + eventNamespace, module.event.resize)
             .on('scroll' + eventNamespace, module.event.scroll)
           ;
+
+          module.verbose('Initializing sticky', settings, $container);
 
           module.save.positions();
 
@@ -117,10 +121,23 @@ $.fn.sticky = function(parameters) {
 
         refresh: function(hardRefresh) {
           module.reset();
-          module.save.positions();
-          $.proxy(settings.onReposition, element)();
           if(hardRefresh) {
             $container = $module.offsetParent();
+          }
+          module.save.positions();
+          $.proxy(settings.onReposition, element)();
+        },
+
+        supports: {
+          sticky: function() {
+            var
+              $element = $('<div/>'),
+              element = $element.get()
+            ;
+            $element
+              .addClass(className.supported)
+            ;
+            return($element.css('position').match('sticky'));
           }
         },
 
@@ -213,9 +230,13 @@ $.fn.sticky = function(parameters) {
 
         set: {
           containerSize: function() {
-            if($container.get(0).tagName === 'HTML') {
+            var
+              tagName = $container.get(0).tagName
+            ;
+            if(tagName === 'HTML' || tagName == 'body') {
               if($module.is(':visible')) {
-                module.error(error.container, $container.get(0).tagName, $module);
+                module.error(error.container, tagName, $module);
+                $container = $module.offsetParent();
               }
             }
             else {
@@ -264,21 +285,24 @@ $.fn.sticky = function(parameters) {
             currentOffset  = module.get.currentOffset(),
             newOffset      = module.get.newOffset(scrollTop),
             elementPassed  = (screen.bottom > element.top + element.height),
-            bottomEdge     = (cache.element.height + screen.top)
+            fixedBottom     = (cache.element.height + screen.top)
           ;
+
           module.save.scroll(scrollTop);
+
           if( module.is.fixed() ) {
             if(fits) {
-              // exit top of container
+              // if module is fixed top
               if(module.is.top()) {
                 if( screen.top < element.top ) {
                   module.unfix();
                 }
-                else if( bottomEdge > context.bottom ) {
+                else if( fixedBottom > context.bottom ) {
                   module.debug('Top attached rail has reached bottom of container');
                   module.bindBottom();
                 }
               }
+              // if module is fixed bottom
               if(module.is.bottom() ) {
                 // top edge
                 if( (screen.bottom - element.height) < element.top) {
@@ -290,7 +314,7 @@ $.fn.sticky = function(parameters) {
                   module.bindBottom();
                 }
               }
-              if( bottomEdge > context.bottom ) {
+              if( fixedBottom > context.bottom ) {
                 module.bindBottom();
               }
             }
@@ -334,6 +358,10 @@ $.fn.sticky = function(parameters) {
             }
           }
           else {
+            // determine if needs to be bound
+            if(screen.top + element.height > context.bottom) {
+              module.bindBottom();
+            }
             if(fits) {
               // fix to bottom of screen on way back up
               if(module.is.bottom() ) {
@@ -348,7 +376,7 @@ $.fn.sticky = function(parameters) {
                   }
                 }
               }
-              else if(screen.top > element.top && screen.top < context.bottom - element.height) {
+              else if(screen.top >= element.top && screen.top < context.bottom - element.height) {
                 module.stickTop();
               }
             }
@@ -357,7 +385,6 @@ $.fn.sticky = function(parameters) {
                 module.stickBottom();
               }
             }
-
           }
         },
 
@@ -642,10 +669,11 @@ $.fn.sticky.settings = {
   },
 
   className : {
-    bound  : 'bound',
-    fixed  : 'fixed',
-    top    : 'top',
-    bottom : 'bottom'
+    bound     : 'bound',
+    fixed     : 'fixed',
+    supported : 'native',
+    top       : 'top',
+    bottom    : 'bottom'
   }
 
 };
