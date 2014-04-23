@@ -1,11 +1,11 @@
 /*!
 Jasmine-jQuery: a set of jQuery helpers for Jasmine tests.
 
-Version 2.1.0
+Version 1.5.91
 
 https://github.com/velesin/jasmine-jquery
 
-Copyright (c) 2010-2014 Wojciech Zawistowski, Travis Jeffery
+Copyright (c) 2010-2013 Wojciech Zawistowski, Travis Jeffery
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -27,7 +27,7 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-+function (window, jasmine, $) { "use strict";
++function (jasmine, $) { "use strict";
 
   jasmine.spiedEventsKey = function (selector, eventName) {
     return [$(selector).selector, eventName].toString()
@@ -104,8 +104,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   jasmine.Fixtures.prototype.addToContainer_ = function (html){
     var container = $(document.body).find('#'+this.containerId).append(html)
-
-    if (!container.length) {
+    if(!container.length){
       this.createContainer_(html)
     }
   }
@@ -120,36 +119,17 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   jasmine.Fixtures.prototype.loadFixtureIntoCache_ = function (relativeUrl) {
     var self = this
       , url = this.makeFixtureUrl_(relativeUrl)
-      , htmlText = ''
       , request = $.ajax({
         async: false, // must be synchronous to guarantee that no tests are run before fixture is loaded
         cache: false,
         url: url,
         success: function (data, status, $xhr) {
-          htmlText = $xhr.responseText
+          self.fixturesCache_[relativeUrl] = $xhr.responseText
+        },
+        error: function (jqXHR, status, errorThrown) {
+          throw new Error('Fixture could not be loaded: ' + url + ' (status: ' + status + ', message: ' + errorThrown.message + ')')
         }
-      }).fail(function ($xhr, status, err) {
-          throw new Error('Fixture could not be loaded: ' + url + ' (status: ' + status + ', message: ' + err.message + ')')
       })
-
-      var scripts = $($.parseHTML(htmlText, true)).find('script[src]') || [];
-
-      scripts.each(function(){
-        $.ajax({
-            async: false, // must be synchronous to guarantee that no tests are run before fixture is loaded
-            cache: false,
-            dataType: 'script',
-            url: $(this).attr('src'),
-            success: function (data, status, $xhr) {
-                htmlText += '<script>' + $xhr.responseText + '</script>'
-            },
-            error: function ($xhr, status, err) {
-                throw new Error('Script could not be loaded: ' + scriptSrc + ' (status: ' + status + ', message: ' + err.message + ')')
-            }
-        });
-      })
-
-      self.fixturesCache_[relativeUrl] = htmlText;
   }
 
   jasmine.Fixtures.prototype.makeFixtureUrl_ = function (relativeUrl){
@@ -255,8 +235,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       success: function (data) {
         self.fixturesCache_[relativeUrl] = data
       },
-      error: function ($xhr, status, err) {
-        throw new Error('JSONFixture could not be loaded: ' + url + ' (status: ' + status + ', message: ' + err.message + ')')
+      error: function (jqXHR, status, errorThrown) {
+        throw new Error('JSONFixture could not be loaded: ' + url + ' (status: ' + status + ', message: ' + errorThrown.message + ')')
       }
     })
   }
@@ -265,548 +245,461 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     return this[methodName].apply(this, passedArguments)
   }
 
-  jasmine.jQuery = function () {}
+  jasmine.JQuery = function () {}
 
-  jasmine.jQuery.browserTagCaseIndependentHtml = function (html) {
+  jasmine.JQuery.browserTagCaseIndependentHtml = function (html) {
     return $('<div/>').append(html).html()
   }
 
-  jasmine.jQuery.elementToString = function (element) {
-    return $(element).map(function () { return this.outerHTML; }).toArray().join(', ')
+  jasmine.JQuery.elementToString = function (element) {
+    var domEl = $(element).get(0)
+
+    if (domEl === undefined || domEl.cloneNode)
+      return $('<div />').append($(element).clone()).html()
+    else
+      return element.toString()
   }
 
-  var data = {
-      spiedEvents: {}
-    , handlers:    []
-  }
+  jasmine.JQuery.matchersClass = {}
 
-  jasmine.jQuery.events = {
-    spyOn: function (selector, eventName) {
-      var handler = function (e) {
-        data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)] = jasmine.util.argsToArray(arguments)
-      }
-
-      $(selector).on(eventName, handler)
-      data.handlers.push(handler)
-
-      return {
-        selector: selector,
-        eventName: eventName,
-        handler: handler,
-        reset: function (){
-          delete data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)]
-        }
-      }
-    },
-
-    args: function (selector, eventName) {
-      var actualArgs = data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)]
-
-      if (!actualArgs) {
-        throw "There is no spy for " + eventName + " on " + selector.toString() + ". Make sure to create a spy using spyOnEvent."
-      }
-
-      return actualArgs
-    },
-
-    wasTriggered: function (selector, eventName) {
-      return !!(data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)])
-    },
-
-    wasTriggeredWith: function (selector, eventName, expectedArgs, util, customEqualityTesters) {
-      var actualArgs = jasmine.jQuery.events.args(selector, eventName).slice(1)
-
-      if (Object.prototype.toString.call(expectedArgs) !== '[object Array]')
-        actualArgs = actualArgs[0]
-
-      return util.equals(expectedArgs, actualArgs, customEqualityTesters)
-    },
-
-    wasPrevented: function (selector, eventName) {
-      var args = data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)]
-        , e = args ? args[0] : undefined
-
-      return e && e.isDefaultPrevented()
-    },
-
-    wasStopped: function (selector, eventName) {
-      var args = data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)]
-        , e = args ? args[0] : undefined
-      return e && e.isPropagationStopped()
-    },
-
-    cleanUp: function () {
-      data.spiedEvents = {}
-      data.handlers    = []
+  !function (namespace) {
+    var data = {
+        spiedEvents: {}
+      , handlers:    []
     }
-  }
 
-  var hasProperty = function (actualValue, expectedValue) {
-    if (expectedValue === undefined)
-      return actualValue !== undefined
+    namespace.events = {
+      spyOn: function (selector, eventName) {
+        var handler = function (e) {
+          data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)] = jasmine.util.argsToArray(arguments)
+        }
 
-    return actualValue === expectedValue
-  }
+        $(selector).on(eventName, handler)
+        data.handlers.push(handler)
 
-  beforeEach(function () {
-    jasmine.addMatchers({
-      toHaveClass: function () {
         return {
-          compare: function (actual, className) {
-            return { pass: $(actual).hasClass(className) }
+          selector: selector,
+          eventName: eventName,
+          handler: handler,
+          reset: function (){
+            delete data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)]
           }
         }
       },
 
-      toHaveCss: function () {
-        return {
-          compare: function (actual, css) {
-            for (var prop in css){
-              var value = css[prop]
-              // see issue #147 on gh
-              ;if (value === 'auto' && $(actual).get(0).style[prop] === 'auto') continue
-              if ($(actual).css(prop) !== value) return { pass: false }
-            }
-            return { pass: true }
-          }
+      args: function (selector, eventName) {
+        var actualArgs = data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)]
+
+        if (!actualArgs) {
+          throw "There is no spy for " + eventName + " on " + selector.toString() + ". Make sure to create a spy using spyOnEvent."
         }
+
+        return actualArgs
+      },
+
+      wasTriggered: function (selector, eventName) {
+        return !!(data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)])
+      },
+
+      wasTriggeredWith: function (selector, eventName, expectedArgs, env) {
+        var actualArgs = jasmine.JQuery.events.args(selector, eventName).slice(1)
+        if (Object.prototype.toString.call(expectedArgs) !== '[object Array]') {
+          actualArgs = actualArgs[0]
+        }
+        return env.equals_(expectedArgs, actualArgs)
+      },
+
+      wasPrevented: function (selector, eventName) {
+        var args = data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)]
+          , e = args ? args[0] : undefined
+
+        return e && e.isDefaultPrevented()
+      },
+
+      wasStopped: function (selector, eventName) {
+        var args = data.spiedEvents[jasmine.spiedEventsKey(selector, eventName)]
+          , e = args ? args[0] : undefined
+        return e && e.isPropagationStopped()
+      },
+
+      cleanUp: function () {
+        data.spiedEvents = {}
+        data.handlers    = []
+      }
+    }
+  }(jasmine.JQuery)
+
+  !function (){
+    var jQueryMatchers = {
+      toHaveClass: function (className) {
+        return this.actual.hasClass(className)
+      },
+
+      toHaveCss: function (css){
+        for (var prop in css){
+          var value = css[prop]
+          // see issue #147 on gh
+          ;if (value === 'auto' && this.actual.get(0).style[prop] === 'auto') continue
+          if (this.actual.css(prop) !== value) return false
+        }
+        return true
       },
 
       toBeVisible: function () {
-        return {
-          compare: function (actual) {
-            return { pass: $(actual).is(':visible') }
-          }
-        }
+        return this.actual.is(':visible')
       },
 
       toBeHidden: function () {
-        return {
-          compare: function (actual) {
-            return { pass: $(actual).is(':hidden') }
-          }
-        }
+        return this.actual.is(':hidden')
       },
 
       toBeSelected: function () {
-        return {
-          compare: function (actual) {
-            return { pass: $(actual).is(':selected') }
-          }
-        }
+        return this.actual.is(':selected')
       },
 
       toBeChecked: function () {
-        return {
-          compare: function (actual) {
-            return { pass: $(actual).is(':checked') }
-          }
-        }
+        return this.actual.is(':checked')
       },
 
       toBeEmpty: function () {
-        return {
-          compare: function (actual) {
-            return { pass: $(actual).is(':empty') }
-          }
-        }
-      },
-
-      toBeInDOM: function () {
-        return {
-          compare: function (actual) {
-            return { pass: $.contains(document.documentElement, $(actual)[0]) }
-          }
-        }
+        return this.actual.is(':empty')
       },
 
       toExist: function () {
-        return {
-          compare: function (actual) {
-            return { pass: $(actual).length }
-          }
+        return this.actual.length
+      },
+
+      toHaveLength: function (length) {
+        return this.actual.length === length
+      },
+
+      toHaveAttr: function (attributeName, expectedAttributeValue) {
+        return hasProperty(this.actual.attr(attributeName), expectedAttributeValue)
+      },
+
+      toHaveProp: function (propertyName, expectedPropertyValue) {
+        return hasProperty(this.actual.prop(propertyName), expectedPropertyValue)
+      },
+
+      toHaveId: function (id) {
+        return this.actual.attr('id') == id
+      },
+
+      toHaveHtml: function (html) {
+        return this.actual.html() == jasmine.JQuery.browserTagCaseIndependentHtml(html)
+      },
+
+      toContainHtml: function (html){
+        var actualHtml = this.actual.html()
+          , expectedHtml = jasmine.JQuery.browserTagCaseIndependentHtml(html)
+
+        return (actualHtml.indexOf(expectedHtml) >= 0)
+      },
+
+      toHaveText: function (text) {
+        var trimmedText = $.trim(this.actual.text())
+
+        if (text && $.isFunction(text.test)) {
+          return text.test(trimmedText)
+        } else {
+          return trimmedText == text
         }
       },
 
-      toHaveLength: function () {
-        return {
-          compare: function (actual, length) {
-            return { pass: $(actual).length === length }
-          }
+      toContainText: function (text) {
+        var trimmedText = $.trim(this.actual.text())
+
+        if (text && $.isFunction(text.test)) {
+          return text.test(trimmedText)
+        } else {
+          return trimmedText.indexOf(text) != -1
         }
       },
 
-      toHaveAttr: function () {
-        return {
-          compare: function (actual, attributeName, expectedAttributeValue) {
-            return { pass: hasProperty($(actual).attr(attributeName), expectedAttributeValue) }
-          }
-        }
+      toHaveValue: function (value) {
+        return this.actual.val() === value
       },
 
-      toHaveProp: function () {
-        return {
-          compare: function (actual, propertyName, expectedPropertyValue) {
-            return { pass: hasProperty($(actual).prop(propertyName), expectedPropertyValue) }
-          }
-        }
+      toHaveData: function (key, expectedValue) {
+        return hasProperty(this.actual.data(key), expectedValue)
       },
 
-      toHaveId: function () {
-        return {
-          compare: function (actual, id) {
-            return { pass: $(actual).attr('id') == id }
-          }
-        }
+      toBe: function (selector) {
+        return this.actual.is(selector)
       },
 
-      toHaveHtml: function () {
-        return {
-          compare: function (actual, html) {
-            return { pass: $(actual).html() == jasmine.jQuery.browserTagCaseIndependentHtml(html) }
-          }
-        }
+      toContain: function (selector) {
+        return this.actual.find(selector).length
       },
 
-      toContainHtml: function () {
-        return {
-          compare: function (actual, html) {
-            var actualHtml = $(actual).html()
-              , expectedHtml = jasmine.jQuery.browserTagCaseIndependentHtml(html)
-
-            return { pass: (actualHtml.indexOf(expectedHtml) >= 0) }
-          }
-        }
+      toBeMatchedBy: function (selector) {
+        return this.actual.filter(selector).length
       },
 
-      toHaveText: function () {
-        return {
-          compare: function (actual, text) {
-            var trimmedText = $.trim($(actual).text())
-
-            if (text && $.isFunction(text.test)) {
-              return { pass: text.test(trimmedText) }
-            } else {
-              return { pass: trimmedText == text }
-            }
-          }
-        }
-      },
-
-      toContainText: function () {
-        return {
-          compare: function (actual, text) {
-            var trimmedText = $.trim($(actual).text())
-
-            if (text && $.isFunction(text.test)) {
-              return { pass: text.test(trimmedText) }
-            } else {
-              return { pass: trimmedText.indexOf(text) != -1 }
-            }
-          }
-        }
-      },
-
-      toHaveValue: function () {
-        return {
-          compare: function (actual, value) {
-            return { pass: $(actual).val() === value }
-          }
-        }
-      },
-
-      toHaveData: function () {
-        return {
-          compare: function (actual, key, expectedValue) {
-            return { pass: hasProperty($(actual).data(key), expectedValue) }
-          }
-        }
-      },
-
-      toContainElement: function () {
-        return {
-          compare: function (actual, selector) {
-            if (window.debug) debugger
-            return { pass: $(actual).find(selector).length }
-          }
-        }
-      },
-
-      toBeMatchedBy: function () {
-        return {
-          compare: function (actual, selector) {
-            return { pass: $(actual).filter(selector).length }
-          }
-        }
-      },
-
-      toBeDisabled: function () {
-        return {
-          compare: function (actual, selector) {
-            return { pass: $(actual).is(':disabled') }
-          }
-        }
+      toBeDisabled: function (selector){
+        return this.actual.is(':disabled')
       },
 
       toBeFocused: function (selector) {
-        return {
-          compare: function (actual, selector) {
-            return { pass: $(actual)[0] === $(actual)[0].ownerDocument.activeElement }
-          }
-        }
+        return this.actual[0] === this.actual[0].ownerDocument.activeElement
       },
 
-      toHandle: function () {
-        return {
-          compare: function (actual, event) {
-            var events = $._data($(actual).get(0), "events")
+      toHandle: function (event) {
+        var events = $._data(this.actual.get(0), "events")
 
-            if (!events || !event || typeof event !== "string") {
-              return { pass: false }
+        if(!events || !event || typeof event !== "string") {
+          return false
+        }
+
+        var namespaces = event.split(".")
+          , eventType = namespaces.shift()
+          , sortedNamespaces = namespaces.slice(0).sort()
+          , namespaceRegExp = new RegExp("(^|\\.)" + sortedNamespaces.join("\\.(?:.*\\.)?") + "(\\.|$)")
+
+        if(events[eventType] && namespaces.length) {
+          for(var i = 0; i < events[eventType].length; i++) {
+            var namespace = events[eventType][i].namespace
+
+            if(namespaceRegExp.test(namespace)) {
+              return true
             }
-
-            var namespaces = event.split(".")
-              , eventType = namespaces.shift()
-              , sortedNamespaces = namespaces.slice(0).sort()
-              , namespaceRegExp = new RegExp("(^|\\.)" + sortedNamespaces.join("\\.(?:.*\\.)?") + "(\\.|$)")
-
-            if (events[eventType] && namespaces.length) {
-              for (var i = 0; i < events[eventType].length; i++) {
-                var namespace = events[eventType][i].namespace
-
-                if (namespaceRegExp.test(namespace))
-                  return { pass: true }
-              }
-            } else {
-              return { pass: (events[eventType] && events[eventType].length > 0) }
-            }
-
-            return { pass: false }
           }
+        } else {
+          return events[eventType] && events[eventType].length > 0
         }
       },
 
-      toHandleWith: function () {
-        return {
-          compare: function (actual, eventName, eventHandler) {
-            var normalizedEventName = eventName.split('.')[0]
-              , stack = $._data($(actual).get(0), "events")[normalizedEventName]
+      toHandleWith: function (eventName, eventHandler) {
+        var normalizedEventName = eventName.split('.')[0]
+          , stack = $._data(this.actual.get(0), "events")[normalizedEventName]
 
-            for (var i = 0; i < stack.length; i++) {
-              if (stack[i].handler == eventHandler) return { pass: true }
-            }
-
-            return { pass: false }
-          }
+        for (var i = 0; i < stack.length; i++) {
+          if (stack[i].handler == eventHandler) return true
         }
-      },
 
-      toHaveBeenTriggeredOn: function () {
-        return {
-          compare: function (actual, selector) {
-            var result = { pass: jasmine.jQuery.events.wasTriggered(selector, actual) }
+        return false
+      }
+    }
 
-            result.message = result.pass ?
-              "Expected event " + $(actual) + " not to have been triggered on " + selector :
-              "Expected event " + $(actual) + " to have been triggered on " + selector
+    var hasProperty = function (actualValue, expectedValue) {
+      if (expectedValue === undefined) return actualValue !== undefined
 
-            return result;
-          }
-        }
-      },
+      return actualValue == expectedValue
+    }
 
-      toHaveBeenTriggered: function (){
-        return {
-          compare: function (actual) {
-            var eventName = actual.eventName
-              , selector = actual.selector
-              , result = { pass: jasmine.jQuery.events.wasTriggered(selector, eventName) }
+    var bindMatcher = function (methodName) {
+      var builtInMatcher = jasmine.Matchers.prototype[methodName]
 
-            result.message = result.pass ?
-            "Expected event " + eventName + " not to have been triggered on " + selector :
-              "Expected event " + eventName + " to have been triggered on " + selector
+      jasmine.JQuery.matchersClass[methodName] = function () {
+        if (this.actual
+          && (this.actual instanceof $
+            || jasmine.isDomNode(this.actual))) {
+              this.actual = $(this.actual)
+              var result = jQueryMatchers[methodName].apply(this, arguments)
+                , element
 
-            return result
-          }
-        }
-      },
-
-      toHaveBeenTriggeredOnAndWith: function (j$, customEqualityTesters) {
-        return {
-          compare: function (actual, selector, expectedArgs) {
-            var wasTriggered = jasmine.jQuery.events.wasTriggered(selector, actual)
-              , result = { pass: wasTriggered && jasmine.jQuery.events.wasTriggeredWith(selector, actual, expectedArgs, j$, customEqualityTesters) }
-
-              if (wasTriggered) {
-                var actualArgs = jasmine.jQuery.events.args(selector, actual, expectedArgs)[1]
-                result.message = result.pass ?
-                  "Expected event " + actual + " not to have been triggered with " + jasmine.pp(expectedArgs) + " but it was triggered with " + jasmine.pp(actualArgs) :
-                  "Expected event " + actual + " to have been triggered with " + jasmine.pp(expectedArgs) + "  but it was triggered with " + jasmine.pp(actualArgs)
-
-              } else {
-                // todo check on this
-                result.message = result.pass ?
-                  "Expected event " + actual + " not to have been triggered on " + selector :
-                  "Expected event " + actual + " to have been triggered on " + selector
-              }
+              if (this.actual.get && (element = this.actual.get()[0]) && !$.isWindow(element) && element.tagName !== "HTML")
+                this.actual = jasmine.JQuery.elementToString(this.actual)
 
               return result
-          }
+            }
+
+            if (builtInMatcher) {
+              return builtInMatcher.apply(this, arguments)
+            }
+
+            return false
+      }
+    }
+
+    for(var methodName in jQueryMatchers) {
+      bindMatcher(methodName)
+    }
+  }()
+
+  beforeEach(function () {
+    this.addMatchers(jasmine.JQuery.matchersClass)
+    this.addMatchers({
+      toHaveBeenTriggeredOn: function (selector) {
+        this.message = function () {
+          return [
+            "Expected event " + this.actual + " to have been triggered on " + selector,
+            "Expected event " + this.actual + " not to have been triggered on " + selector
+          ]
         }
-      },
-
-      toHaveBeenPreventedOn: function () {
-        return {
-          compare: function (actual, selector) {
-            var result = { pass: jasmine.jQuery.events.wasPrevented(selector, actual) }
-
-            result.message = result.pass ?
-              "Expected event " + actual + " not to have been prevented on " + selector :
-              "Expected event " + actual + " to have been prevented on " + selector
-
-            return result
-          }
-        }
-      },
-
-      toHaveBeenPrevented: function () {
-        return {
-          compare: function (actual) {
-            var eventName = actual.eventName
-              , selector = actual.selector
-              , result = { pass: jasmine.jQuery.events.wasPrevented(selector, eventName) }
-
-            result.message = result.pass ?
-              "Expected event " + eventName + " not to have been prevented on " + selector :
-              "Expected event " + eventName + " to have been prevented on " + selector
-
-            return result
-          }
-        }
-      },
-
-      toHaveBeenStoppedOn: function () {
-        return {
-          compare: function (actual, selector) {
-            var result = { pass: jasmine.jQuery.events.wasStopped(selector, actual) }
-
-            result.message = result.pass ?
-              "Expected event " + actual + " not to have been stopped on " + selector :
-              "Expected event " + actual + " to have been stopped on " + selector
-
-            return result;
-          }
-        }
-      },
-
-      toHaveBeenStopped: function () {
-        return {
-          compare: function (actual) {
-            var eventName = actual.eventName
-              , selector = actual.selector
-              , result = { pass: jasmine.jQuery.events.wasStopped(selector, eventName) }
-
-            result.message = result.pass ?
-              "Expected event " + eventName + " not to have been stopped on " + selector :
-              "Expected event " + eventName + " to have been stopped on " + selector
-
-            return result
-          }
-        }
+        return jasmine.JQuery.events.wasTriggered(selector, this.actual)
       }
     })
+    this.addMatchers({
+      toHaveBeenTriggered: function (){
+        var eventName = this.actual.eventName
+          , selector = this.actual.selector
 
-    jasmine.getEnv().addCustomEqualityTester(function(a, b) {
-     if (a && b) {
-       if (a instanceof $ || jasmine.isDomNode(a)) {
-         var $a = $(a)
+        this.message = function () {
+          return [
+            "Expected event " + eventName + " to have been triggered on " + selector,
+            "Expected event " + eventName + " not to have been triggered on " + selector
+          ]
+        }
 
-         if (b instanceof $)
-           return $a.length == b.length && a.is(b)
-
-         return $a.is(b);
-       }
-
-       if (b instanceof $ || jasmine.isDomNode(b)) {
-         var $b = $(b)
-
-         if (a instanceof jQuery)
-           return a.length == $b.length && $b.is(a)
-
-         return $(b).is(a);
-       }
-     }
+        return jasmine.JQuery.events.wasTriggered(selector, eventName)
+      }
     })
+    this.addMatchers({
+      toHaveBeenTriggeredOnAndWith: function () {
+        var selector = arguments[0]
+          , expectedArgs = arguments[1]
+          , wasTriggered = jasmine.JQuery.events.wasTriggered(selector, this.actual)
 
-    jasmine.getEnv().addCustomEqualityTester(function (a, b) {
-     if (a instanceof jQuery && b instanceof jQuery && a.size() == b.size())
-        return a.is(b)
+        this.message = function () {
+          if (wasTriggered) {
+            var actualArgs = jasmine.JQuery.events.args(selector, this.actual, expectedArgs)[1]
+            return [
+              "Expected event " + this.actual + " to have been triggered with " + jasmine.pp(expectedArgs) + "  but it was triggered with " + jasmine.pp(actualArgs),
+              "Expected event " + this.actual + " not to have been triggered with " + jasmine.pp(expectedArgs) + " but it was triggered with " + jasmine.pp(actualArgs)
+            ]
+          } else {
+            return [
+              "Expected event " + this.actual + " to have been triggered on " + selector,
+              "Expected event " + this.actual + " not to have been triggered on " + selector
+            ]
+          }
+        }
+
+        return wasTriggered && jasmine.JQuery.events.wasTriggeredWith(selector, this.actual, expectedArgs, this.env)
+      }
+    })
+    this.addMatchers({
+      toHaveBeenPreventedOn: function (selector) {
+        this.message = function () {
+          return [
+            "Expected event " + this.actual + " to have been prevented on " + selector,
+            "Expected event " + this.actual + " not to have been prevented on " + selector
+          ]
+        }
+
+        return jasmine.JQuery.events.wasPrevented(selector, this.actual)
+      }
+    })
+    this.addMatchers({
+      toHaveBeenPrevented: function () {
+        var eventName = this.actual.eventName
+          , selector = this.actual.selector
+        this.message = function () {
+          return [
+            "Expected event " + eventName + " to have been prevented on " + selector,
+            "Expected event " + eventName + " not to have been prevented on " + selector
+          ]
+        }
+
+        return jasmine.JQuery.events.wasPrevented(selector, eventName)
+      }
+    })
+    this.addMatchers({
+      toHaveBeenStoppedOn: function (selector) {
+        this.message = function () {
+          return [
+            "Expected event " + this.actual + " to have been stopped on " + selector,
+            "Expected event " + this.actual + " not to have been stopped on " + selector
+          ]
+        }
+
+        return jasmine.JQuery.events.wasStopped(selector, this.actual)
+      }
+    })
+    this.addMatchers({
+      toHaveBeenStopped: function () {
+        var eventName = this.actual.eventName
+          , selector = this.actual.selector
+        this.message = function () {
+          return [
+            "Expected event " + eventName + " to have been stopped on " + selector,
+            "Expected event " + eventName + " not to have been stopped on " + selector
+          ]
+        }
+        return jasmine.JQuery.events.wasStopped(selector, eventName)
+      }
+    })
+    jasmine.getEnv().addEqualityTester(function (a, b) {
+      if(a instanceof jQuery && b instanceof jQuery) {
+        if(a.size() != b.size()) {
+          return jasmine.undefined
+        }
+        else if(a.is(b)) {
+          return true
+        }
+      }
+
+      return jasmine.undefined
     })
   })
 
   afterEach(function () {
     jasmine.getFixtures().cleanUp()
     jasmine.getStyleFixtures().cleanUp()
-    jasmine.jQuery.events.cleanUp()
+    jasmine.JQuery.events.cleanUp()
   })
+}(window.jasmine, window.jQuery)
 
-  window.readFixtures = function () {
++function (jasmine, global) { "use strict";
+
+  global.readFixtures = function () {
     return jasmine.getFixtures().proxyCallTo_('read', arguments)
   }
 
-  window.preloadFixtures = function () {
+  global.preloadFixtures = function () {
     jasmine.getFixtures().proxyCallTo_('preload', arguments)
   }
 
-  window.loadFixtures = function () {
+  global.loadFixtures = function () {
     jasmine.getFixtures().proxyCallTo_('load', arguments)
   }
 
-  window.appendLoadFixtures = function () {
+  global.appendLoadFixtures = function () {
     jasmine.getFixtures().proxyCallTo_('appendLoad', arguments)
   }
 
-  window.setFixtures = function (html) {
+  global.setFixtures = function (html) {
     return jasmine.getFixtures().proxyCallTo_('set', arguments)
   }
 
-  window.appendSetFixtures = function () {
+  global.appendSetFixtures = function () {
     jasmine.getFixtures().proxyCallTo_('appendSet', arguments)
   }
 
-  window.sandbox = function (attributes) {
+  global.sandbox = function (attributes) {
     return jasmine.getFixtures().sandbox(attributes)
   }
 
-  window.spyOnEvent = function (selector, eventName) {
-    return jasmine.jQuery.events.spyOn(selector, eventName)
+  global.spyOnEvent = function (selector, eventName) {
+    return jasmine.JQuery.events.spyOn(selector, eventName)
   }
 
-  window.preloadStyleFixtures = function () {
+  global.preloadStyleFixtures = function () {
     jasmine.getStyleFixtures().proxyCallTo_('preload', arguments)
   }
 
-  window.loadStyleFixtures = function () {
+  global.loadStyleFixtures = function () {
     jasmine.getStyleFixtures().proxyCallTo_('load', arguments)
   }
 
-  window.appendLoadStyleFixtures = function () {
+  global.appendLoadStyleFixtures = function () {
     jasmine.getStyleFixtures().proxyCallTo_('appendLoad', arguments)
   }
 
-  window.setStyleFixtures = function (html) {
+  global.setStyleFixtures = function (html) {
     jasmine.getStyleFixtures().proxyCallTo_('set', arguments)
   }
 
-  window.appendSetStyleFixtures = function (html) {
+  global.appendSetStyleFixtures = function (html) {
     jasmine.getStyleFixtures().proxyCallTo_('appendSet', arguments)
   }
 
-  window.loadJSONFixtures = function () {
+  global.loadJSONFixtures = function () {
     return jasmine.getJSONFixtures().proxyCallTo_('load', arguments)
   }
 
-  window.getJSONFixture = function (url) {
+  global.getJSONFixture = function (url) {
     return jasmine.getJSONFixtures().proxyCallTo_('read', arguments)[url]
   }
-}(window, window.jasmine, window.jQuery);
+}(jasmine, window);
