@@ -5,6 +5,12 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 
 > Community contributed plugins and ports for Wordpress, Angular, Dart, Knockout, Rails, and more can be found on the [Integration page](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration).
 
+### Project Status
+
+Semantic is being reworked for a ``1.0`` release for Spring. Although the pre-release branch is actively being maintained ``0.x.x`` for bugs, most important features will land in ``1.0``. Beta documentation will be available soon.
+
+Please look back soon for more developments.
+
 ## Translations
 
 ##### Right-to-Left (RTL Version)
