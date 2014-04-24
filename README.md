@@ -7,7 +7,9 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 
 ### Project Status
 
-Semantic is being reworked for a ``1.0`` release for Spring. Although the pre-release branch is actively being maintained ``0.x.x`` for bugs, most important features will land in ``1.0``. Beta documentation will be available soon.
+**Semantic is being reworked for a ``1.0`` release for Spring.**
+
+Although the pre-release branch is actively being maintained ``0.x.x`` for bugs, most important features will land in ``1.0``. Beta documentation will be available soon.
 
 Please look back soon for more developments.
 
