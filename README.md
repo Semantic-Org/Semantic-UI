@@ -1,4 +1,4 @@
-# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.png)](https://travis-ci.org/Semantic-Org/Semantic-UI?branch=master)
+# Semantic [![Build Status](https://travis-ci.org/Semantic-Org/Semantic-UI.svg?branch=master)](https://travis-ci.org/Semantic-Org/Semantic-UI?branch=master)
 Semantic is a UI Component library implemented using a set of specifications designed around natural language.
 
 Semantic UI is under constant development, so **be sure to check out our [release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE%20NOTES.md) for recent changes**.
