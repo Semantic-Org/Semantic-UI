@@ -5,8 +5,12 @@ css         : 'text'
 title       : 'Message'
 description : 'Messages alert a user to information they must immediately consider before proceeding on to the normal content of the page'
 type        : 'UI Collection'
----
 
+element     : 'message'
+elementType : 'collection'
+themes      : ['default']
+---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/message.less" />
 <%- @partial('header') %>
 
 <div class="main container">

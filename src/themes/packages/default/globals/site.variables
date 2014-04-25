@@ -116,6 +116,10 @@
 /*-------------------
       Emotive
 --------------------*/
+
+@infoBackgroundColor     : #E6F4F9;
+@infoColor               : #4D8796;
+
 @positiveColor           : @green;
 @positiveBorderColor     : #FFFAFA;
 @positiveBackgroundColor : #E7BEBE;
@@ -123,6 +127,8 @@
 @negativeColor           : @red;
 @negativeBorderColor     : lighten(@red, 25);
 @negativeBackgroundColor : lighten(@red, 38);
+
+
 
 /*-------------------
      Text Colors
