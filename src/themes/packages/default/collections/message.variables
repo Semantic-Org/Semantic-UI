@@ -8,36 +8,39 @@
        Elements
 --------------------*/
 
-@position: 'relative';
 @verticalMargin: 1em;
-@verticalPadding: 1em;
-@horizontalPadding: 1em;
+@verticalPadding: 1.25em;
+@horizontalPadding: 1.25em;
 
 @background: #EFEFEF;
 @lineHeight: 1.3;
 @borderRadius: 0.3125em;
+@boxShadow: none;
 
 @transition:
-  opacity 0.1s ease,
-  color 0.1s ease,
-  background 0.1s ease,
-  box-shadow 0.1s ease
+  opacity 0.2s ease,
+  color 0.2s ease,
+  background 0.2s ease,
+  box-shadow 0.2s ease
 ;
 
 /* Header */
-@headerFontSize: 1.1em;
+@headerFontSize: 1.3em;
 @headerFontWeight: bold;
-@headerBottomMargin: 0.3em;
+@headerBottomMargin: 0.25em;
+
+@headerDisplay: block;
+@headerHorizontalDistance: 0em;
 
 /* Paragraph */
 @messageTextOpacity: 0.85;
-@messageParagraphMargin: 1em;
+@messageParagraphMargin: 0.75em;
 
 /* List */
 @listOpacity: 0.85;
 @listStylePosition: inside;
+@listMargin: 0.5em;
 @listItemIndent: 1em;
-@listMargin: 0.2em;
 @listItemMargin: 0.3em;
 
 /* Close Icon */
@@ -47,14 +50,14 @@
 
 
 /*-------------------
-        States
---------------------*/
-
-
-
-/*-------------------
         Types
 --------------------*/
+
+/* Icon Message */
+@iconSize: 2em;
+@iconOpacity: 0.8;
+@iconDistance: 1.5em;
+@iconVerticalAlign: middle;
 
 /* Attached */
 @attachedOffset: -1px;
@@ -66,16 +69,12 @@
   0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
 ;
 
-
-
-
 /*-------------------
       Variations
 --------------------*/
 
-
-
-/*-------------------
-       Groups
---------------------*/
-
+@small: 0.875rem;
+@medium: 1rem;
+@large: 1.125rem;
+@huge: 1.5rem;
+@massive: 2rem;

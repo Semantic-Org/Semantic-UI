@@ -1,0 +1,17 @@
+.ui.info.message {
+  background-image: linear-gradient(#D8EBF8, #D0E3EF);
+  border: 1px solid #97C1DA;
+  box-shadow: none;
+}
+.ui.error.message {
+  background-image: linear-gradient(#F8D8D8, #EFD0D0);
+  border: 1px solid #DA9797;
+  box-shadow: none;
+}
+.ui.warning.message {
+  background-image: linear-gradient(#FFE3C8, #F5DAC0);
+  border: 1px solid #DCA874;
+  box-shadow: none;
+}
+.ui.success.message {
+}

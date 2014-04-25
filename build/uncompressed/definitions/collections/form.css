@@ -70,15 +70,17 @@
 /*******************************
              Colors
 *******************************/
-/*-------------------
-     Background
---------------------*/
 /*---  Colors  ---*/
-/*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*--- Text Colors ---*/
+/* Preserve */
+/* Adjust for Legibility */
+/*--- Backgrounds ---*/
 /*-------------------
-      Emotive
+    Emotive Colors
 --------------------*/
+/* Yes / No */
+/* Messages */
 /*-------------------
      Text Colors
 --------------------*/
@@ -405,7 +407,7 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background: #fff8f8;
+  background: #e7bebe;
   border-color: #ffbab5;
   color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
@@ -434,7 +436,7 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #fff8f8;
+  background: #e7bebe;
   color: #ff4136;
 }
 .ui.form .fields.error .field .ui.dropdown,
@@ -475,7 +477,7 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #fff8f8;
+  background: #e7bebe;
   border-color: #ffbab5;
 }
 .ui.form .fields.error .field .checkbox label:after,

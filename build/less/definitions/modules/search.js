@@ -92,6 +92,15 @@ $.fn.search = function(parameters) {
           $module
             .removeData(moduleNamespace)
           ;
+          $prompt
+            .off(eventNamespace)
+          ;
+          $searchButton
+            .off(eventNamespace)
+          ;
+          $results
+            .off(eventNamespace)
+          ;
         },
         event: {
           focus: function() {

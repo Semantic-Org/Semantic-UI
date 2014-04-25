@@ -8,7 +8,7 @@ type        : 'UI Collection'
 
 element     : 'message'
 elementType : 'collection'
-themes      : ['default']
+themes      : ['default', 'github', 'google']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/message.less" />
 <%- @partial('header') %>
@@ -172,10 +172,15 @@ themes      : ['default']
   <div class="example">
     <h4 class="ui header">Colored</h4>
     <p>A message can be formatted to be different colors</p>
-    <div class="ui red message">Red</div>
-    <div class="ui blue message">Blue</div>
-    <div class="ui green message">Green</div>
-    <div class="ui yellow message">Yellow</div>
+      <div class="ui black message">Black</div>
+      <div class="ui yellow message">Yellow</div>
+      <div class="ui green message">Green</div>
+      <div class="ui blue message">Blue</div>
+      <div class="ui orange message">Orange</div>
+      <div class="ui purple message">Purple</div>
+      <div class="ui pink message">Pink</div>
+      <div class="ui red message">Red</div>
+      <div class="ui teal message">Teal</div>
   </div>
 
 

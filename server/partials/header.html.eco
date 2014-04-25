@@ -25,7 +25,6 @@
       <% end %>
       <% if @document.themes?: %>
       <div class="ui floating dropdown theme basic button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
-        <i class="settings icon"></i>
         <span class="text">Choose Theme</span>
         <div class="menu ui transition hidden">
           <% for id, name of @document.themes: %>

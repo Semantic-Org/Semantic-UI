@@ -8,6 +8,16 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'collection';
+@element : 'message';
+
+@import '../../semantic.config';
+
+
 
 /*******************************
             Message
@@ -15,55 +25,15 @@
 
 .ui.message {
   position: relative;
-  min-height: 18px;
-  margin: 1em 0em;
-
-  height: auto;
-  background-color: #EFEFEF;
-  padding: 1em;
-
-  line-height: 1.33;
-  color: rgba(0, 0, 0, 0.6);
-
-  -webkit-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -moz-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -o-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -ms-transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  transition:
-    opacity 0.1s ease,
-    color 0.1s ease,
-    background 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-
-  -webkit-border-radius: 0.325em 0.325em 0.325em 0.325em;
-  -moz-border-radius: 0.325em 0.325em 0.325em 0.325em;
-  border-radius: 0.325em 0.325em 0.325em 0.325em;
+  min-height: 1em;
+  margin: @verticalMargin 0em;
+  background: @background;
+  padding: @verticalPadding @horizontalPadding;
+  line-height: @lineHeight;
+  color: @textColor;
+  transition: @transition;
+  border-radius: @borderRadius;
+  box-shadow: @boxShadow;
 }
 
 .ui.message:first-child {
@@ -80,14 +50,17 @@
 
 /* block with headers */
 .ui.message .header {
-  font-size: 1.1em;
-  font-weight: bold;
+  display: @headerDisplay;
+  font-family: @headerFont;
+  font-size: @headerFontSize;
+  font-weight: @headerFontWeight;
+  margin-right: @headerHorizontalDistance;
 }
 
 /* block with paragraphs */
 .ui.message p {
-  opacity: 0.85;
-  margin: 1em 0em;
+  opacity: @messageTextOpacity;
+  margin: @messageParagraphMargin 0em;
 }
 .ui.message p:first-child {
   margin-top: 0em;
@@ -96,62 +69,40 @@
   margin-bottom: 0em;
 }
 .ui.message .header + p {
-  margin-top: 0.3em;
-}
-.ui.message > :first-child {
-  margin-top: 0em;
-}
-.ui.message > :last-child {
-  margin-bottom: 0em;
+  margin-top: @headerBottomMargin;
 }
 
-/* block with child list */
+/* Block with list */
 .ui.message ul.list {
-  opacity: 0.85;
-  list-style-position: inside;
-  margin: 0.2em 0em;
+  opacity: @listOpacity;
+  list-style-position: @listStylePosition;
+  margin: @listMargin 0em 0em;
   padding: 0em;
 }
 .ui.message ul.list li {
   position: relative;
   list-style-type: none;
-  margin: 0em 0em 0.3em 1em;
+  margin: 0em 0em @listItemMargin @listItemIndent;
   padding: 0em;
 }
 .ui.message ul.list li:before {
   position: absolute;
-  content: '\2022';
-  top: -0.05em;
-  left: -0.8em;
-
+  content: '•';
+  left: -1em;
   height: 100%;
   vertical-align: baseline;
-  opacity: 0.5;
 }
 .ui.message ul.list li:first-child {
   margin-top: 0em;
 }
 
-/* dismissable block */
+/* Close Icon */
 .ui.message > .close.icon {
   cursor: pointer;
   position: absolute;
-  top: 1em;
-  right: 0.5em;
-  opacity: 0.7;
-
-  -webkit-transition:
-    opacity 0.1s linear
-  ;
-  -moz-transition:
-    opacity 0.1s linear
-  ;
-  -o-transition:
-    opacity 0.1s linear
-  ;
-  -ms-transition:
-    opacity 0.1s linear
-  ;
+  top: @closeTopDistance;
+  right: @closeRightDistance;
+  opacity: @closeOpacity;
   transition:
     opacity 0.1s linear
   ;
@@ -160,6 +111,13 @@
   opacity: 1;
 }
 
+/* First / Last Element */
+.ui.message > :first-child {
+  margin-top: 0em;
+}
+.ui.message > :last-child {
+  margin-bottom: 0em;
+}
 
 
 /*******************************
@@ -193,37 +151,24 @@
 ---------------*/
 
 .ui.attached.message {
-  margin-left: -1px;
-  margin-right: -1px;
-  margin-bottom: -1px;
-
-  -webkit-border-radius: 0.325em 0.325em 0em 0em;
-  -moz-border-radius: 0.325em 0.325em 0em 0em;
-  border-radius: 0.325em 0.325em 0em 0em;
-
-  -webkit-box-shadow:
-    0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset
-  ;
-  -moz-box-shadow:
-    0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset
-  ;
+  margin-left: @attachedOffset;
+  margin-right: @attachedOffset;
+  margin-bottom: @attachedOffset;
+  border-radius: @borderRadius @borderRadius 0em 0em;
   box-shadow:
-    0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset
+    @attachedBoxShadow
   ;
 }
 .ui.attached + .ui.attached.message:not(.top):not(.bottom) {
-  margin-top: -1px;
+  margin-top: @attachedOffset;
   border-radius: 0em;
 }
 .ui.bottom.attached.message {
-  margin-top: -1px;
-
-  -webkit-border-radius: 0em 0em 0.325em 0.325em;
-  -moz-border-radius: 0em 0em 0.325em 0.325em;
-  border-radius: 0em 0em 0.325em 0.325em;
+  margin-top: @attachedOffset;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 .ui.bottom.attached.message:not(:last-child) {
-  margin-bottom: 1em;
+  margin-bottom: @verticalMargin;
 }
 .ui.attached.icon.message {
   display: block;
@@ -241,45 +186,24 @@
 }
 .ui.icon.message > .icon:not(.close) {
   display: table-cell;
-  vertical-align: middle;
-  font-size: 3.8em;
-  opacity: 0.5;
+  vertical-align: @iconVerticalAlign;
+  font-size: @iconSize;
+  opacity: @iconOpacity;
 }
 .ui.icon.message > .icon + .content {
-  padding-left: 1em;
+  padding-left: @iconDistance;
 }
 .ui.icon.message > .content {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: @iconVerticalAlign;
 }
-
-/*--------------
-    Inverted
----------------*/
-
-.ui.inverted.message {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.95);
-}
-
 
 /*--------------
     Floating
 ---------------*/
 
 .ui.floating.message {
-  -webkit-box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.1),
-    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
-  ;
-  -moz-box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.1),
-    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
-  ;
-  box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.1),
-    0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
-  ;
+  box-shadow: @floatingBoxShadow;
 }
 
 
@@ -288,50 +212,72 @@
 ---------------*/
 
 .ui.black.message {
-  background-color: #333333;
-  color: rgba(255, 255, 255, 0.95);
+  background-color: @black;
+  color: @invertedTextColor;
 }
-
-
 
 /*--------------
      Types
 ---------------*/
-.ui.blue.message,
+
+/* Inverted */
+.ui.inverted.message,
+.ui.black.message {
+  background-color: @black;
+  color: @invertedTextColor;
+}
+
+/* User Action */
 .ui.info.message {
-  background-color: #E6F4F9;
-  color: #4D8796;
+  background-color: @infoBackgroundColor;
+  color: @infoTextColor;
 }
-
-/* Green Text Block */
-.ui.green.message {
-  background-color: #DEFCD5;
-  color: #52A954;
-}
-
-/* Yellow Text Block */
-.ui.yellow.message,
 .ui.warning.message {
-  background-color: #F6F3D5;
-  color: #352F00;
+  background-color: @warningBackgroundColor;
+  color: @warningTextColor;
 }
-/* Red Text Block */
-.ui.red.message {
-  background-color: #F1D7D7;
-  color: #A95252;
+.ui.error.message {
+  background-color: @errorBackgroundColor;
+  color: @errorTextColor;
+}
+.ui.success.message {
+  background-color: @successBackgroundColor;
+  color: @successTextColor;
 }
 
-/* Success Text Block */
-.ui.success.message,
-.ui.positive.message {
-  background-color: #DEFCD5;
-  color: #52A954;
+
+/* Colors */
+.ui.blue.message {
+  background-color: @blueBackground;
+  color: @blueTextColor;
 }
-/* Error Text Block */
-.ui.error.message,
-.ui.negative.message {
-  background-color: #F1D7D7;
-  color: #A95252;
+.ui.green.message {
+  background-color: @greenBackground;
+  color: @greenTextColor;
+}
+.ui.orange.message {
+  background-color: @orangeBackground;
+  color: @orangeTextColor;
+}
+.ui.pink.message {
+  background-color: @pinkBackground;
+  color: @pinkTextColor;
+}
+.ui.purple.message {
+  background-color: @purpleBackground;
+  color: @purpleTextColor;
+}
+.ui.red.message {
+  background-color: @redBackground;
+  color: @redTextColor;
+}
+.ui.teal.message {
+  background-color: @tealBackground;
+  color: @tealTextColor;
+}
+.ui.yellow.message {
+  background-color: @yellowBackground;
+  color: @yellowTextColor;
 }
 
 
@@ -340,17 +286,17 @@
 ---------------*/
 
 .ui.small.message {
-  font-size: 0.875em;
+  font-size: @small;
 }
 .ui.message {
-  font-size: 1em;
+  font-size: @medium;
 }
 .ui.large.message {
-  font-size: 1.125em;
+  font-size: @large;
 }
 .ui.huge.message {
-  font-size: 1.5em;
+  font-size: @huge;
 }
 .ui.massive.message {
-  font-size: 2em;
+  font-size: @massive;
 }

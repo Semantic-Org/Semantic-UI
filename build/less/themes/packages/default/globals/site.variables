@@ -67,62 +67,96 @@
              Colors
 *******************************/
 
-/*-------------------
-     Background
---------------------*/
-
 /*---  Colors  ---*/
-@blue           : #0074D9;
-@green          : #2ECC40;
-@orange         : #FF851B;
-@pink           : #D9499A;
-@purple         : #564F8A;
-@red            : #FF4136;
-@teal           : #39CCCC;
-@yellow         : #FFCB08;
+@blue             : #0074D9;
+@green            : #2ECC40;
+@orange           : #FF851B;
+@pink             : #D9499A;
+@purple           : #564F8A;
+@red              : #FF4136;
+@teal             : #39CCCC;
+@yellow           : #FFCB08;
 
-@lightBlue      : #54C8FF;
-@lightGreen     : #2ECC40;
-@lightOrange    : #FF851B;
-@lightPink      : #FF8EDF;
-@lightPurple    : #CDC6FF;
-@lightRed       : #FF695E;
-@lightTeal      : #6DFFFF;
-@lightYellow    : #FFE21F;
+@lightBlue        : #54C8FF;
+@lightGreen       : #2ECC40;
+@lightOrange      : #FF851B;
+@lightPink        : #FF8EDF;
+@lightPurple      : #CDC6FF;
+@lightRed         : #FF695E;
+@lightTeal        : #6DFFFF;
+@lightYellow      : #FFE21F;
 
-@primaryColor   : @teal;
-@secondaryColor : @black;
-@tertiaryColor  : @orange;
-
-/*---  Emotive  ---*/
-
-@infoColor      : #E6F4F9;
-@warningColor   : #96904D;
-@errorColor     : #D95C5C;
+@primaryColor     : @teal;
+@secondaryColor   : @black;
+@tertiaryColor    : @orange;
 
 /*---  Neutrals  ---*/
-@darkBlack      : #232323;
-@black          : #555555;
-@lightBlack     : #999999;
+@darkBlack        : #232323;
+@black            : #555555;
+@lightBlack       : #999999;
 
-@darkGrey       : #AAAAAA;
-@grey           : #CCCCCC;
-@lightGrey      : #DCDDDE;
+@darkGrey         : #AAAAAA;
+@grey             : #CCCCCC;
+@lightGrey        : #DCDDDE;
 
-@white          : #FFFFFF;
-@offWhite       : #FAFAFA;
-@darkWhite      : #F0F0F0;
+@white            : #FFFFFF;
+@offWhite         : #FAFAFA;
+@darkWhite        : #F0F0F0;
+
+/*--- Text Colors ---*/
+
+/* Preserve */
+@blueTextColor    : @blue;
+@greenTextColor   : @green;
+@orangeTextColor  : @orange;
+@pinkTextColor    : @pink;
+@purpleTextColor  : @purple;
+@redTextColor     : @red;
+@tealTextColor    : @teal;
+
+/* Adjust for Legibility */
+@yellowTextColor  : #EAB600;
+
+/*--- Backgrounds ---*/
+@blueBackground   : #D3E4F3;
+@greenBackground  : #DEF2E0;
+@orangeBackground : #F7E5D6;
+@pinkBackground   : #F9CEE6;
+@purpleBackground : #E0DDF5;
+@redBackground    : #F8D5D3;
+@tealBackground   : #D2F5F5;
+@yellowBackground : #FCF5D8;
 
 /*-------------------
-      Emotive
+    Emotive Colors
 --------------------*/
-@positiveColor           : @green;
-@positiveBorderColor     : #FFFAFA;
-@positiveBackgroundColor : #E7BEBE;
 
-@negativeColor           : @red;
+/* Yes / No */
+@positiveBackgroundColor : #DFF0D8;
+@negativeBackgroundColor : #E7BEBE;
+
+@positiveBorderColor     : #D6E9C6;
 @negativeBorderColor     : lighten(@red, 25);
-@negativeBackgroundColor : lighten(@red, 38);
+
+@positiveColor           : @green;
+@negativeColor           : @red;
+
+/* Messages */
+@infoBackgroundColor     : #D9EDF7;
+@warningBackgroundColor  : #FCF8E3;
+@errorBackgroundColor    : #F2DEDE;
+@successBackgroundColor  : #DFF0D8;
+
+@infoBorderColor         : #BCE8F1;
+@warningBorderColor      : #FAEBCC;
+@errorBorderColor        : #E6F4F9;
+@successBorderColor      : #D6E9C6;
+
+@infoTextColor           : #31708F;
+@warningTextColor        : #8A6D3B;
+@errorTextColor          : #A94442;
+@successTextColor        : #3C763D;
+
 
 /*-------------------
      Text Colors
@@ -221,10 +255,6 @@
 @positiveColorHover   : lighten( @positiveColor, 5);
 @negativeColorHover   : lighten( @negativeColor, 5);
 
-@infoColorHover       : lighten( @infoColor, 5);
-@warningColorHover    : lighten( @warningColor, 5);
-@errorColorHover      : lighten( @errorColor, 5);
-
 /*---  Neutrals  ---*/
 @darkBlackHover       : lighten( @darkBlack, 5);
 @blackHover           : lighten( @black, 5);
@@ -271,10 +301,6 @@
 @positiveColorDown   : darken(@positiveColor, 7);
 @negativeColorDown   : darken(@negativeColor, 7);
 
-@infoColorDown       : darken(@infoColor, 7);
-@warningColorDown    : darken(@warningColor, 7);
-@errorColorDown      : darken(@errorColor, 7);
-
 /*---  Neutrals  ---*/
 @darkBlackDown       : darken(@darkBlack, 7);
 @blackDown           : darken(@black, 7);
@@ -319,10 +345,6 @@
 /*---  Emotive  ---*/
 @positiveColorActive   : darken(@positiveColor, 5);
 @negativeColorActive   : darken(@negativeColor, 5);
-
-@infoColorActive       : darken(@infoColor, 5);
-@warningColorActive    : darken(@warningColor, 5);
-@errorColorActive      : darken(@errorColor, 5);
 
 /*---  Neutrals  ---*/
 @darkBlackActive       : darken(@darkBlack, 5);

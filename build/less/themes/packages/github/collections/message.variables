@@ -1,0 +1,4 @@
+
+@infoTextColor: #264C72;
+@warningTextColor: #613A00;
+@errorTextColor: #991111;
