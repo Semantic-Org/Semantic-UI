@@ -10,7 +10,7 @@
 @textColor: #333333;
 
 @verticalPadding: 1.1em;
-@horizontalPadding: 2em;
+@horizontalPadding: 2.5em;
 
 @blue: #4A88CB;
 @primaryColor: @blue;

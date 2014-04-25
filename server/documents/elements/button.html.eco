@@ -8,7 +8,7 @@ title       : 'Button'
 description : 'Buttons indicate a possible user action.'
 type        : 'UI Element'
 
-themes      : ['default', 'basic', 'chubby', 'github']
+themes      : ['default', 'basic', 'chubby', 'amazon', 'github']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/button.less" />
 <script src="/javascript/button.js"></script>

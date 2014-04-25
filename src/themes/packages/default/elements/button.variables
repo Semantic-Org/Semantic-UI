@@ -31,6 +31,7 @@
   0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
   0px -@shadowDistance 0px 0px rgba(0, 0, 0, 0.1) inset
 ;
+@border: none;
 
 /* transitions */
 @transition:
@@ -118,6 +119,7 @@
 @labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
 @labeledIconPadding: (@horizontalPadding + @labeledIconWidth);
 @labeledIconBorder: rgba(0, 0, 0, 0.05);
+@labeledIconColor: '';
 
 @labeledIconLeftShadow: -1px 0px 0px 0px @labeledIconBorder inset;
 @labeledIconRightShadow: 1px 0px 0px 0px @labeledIconBorder inset;

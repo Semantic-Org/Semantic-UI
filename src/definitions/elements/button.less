@@ -50,6 +50,7 @@
   background-image: @backgroundImage;
   border-radius: @borderRadius;
   box-shadow: @boxShadow;
+  border: @border;
 
   user-select: none;
   box-sizing: border-box;
@@ -82,6 +83,7 @@
 .ui.button:focus {
   background-color: @focusBackgroundColor;
   background-image: @focusBackgroundImage;
+  box-shadow: @focusBoxShadow;
   color: @selectedTextColor;
 }
 
@@ -479,7 +481,7 @@
 
 /* VK */
 .ui.vk.button {
-  background-color: #4D7198;
+  background-color: @vkColor;
   color: @white;
   background-image: @coloredBackgroundImage;
   box-shadow: @coloredBoxShadow;
@@ -756,6 +758,7 @@
   padding-top: (@verticalPadding + @basicIconOffset);
   background-color: @labeledIconBackgroundColor;
   text-align: center;
+  color: @labeledIconColor;
 
   border-radius: @borderRadius 0px 0px @borderRadius;
   line-height: 1;

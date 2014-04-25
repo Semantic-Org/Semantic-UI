@@ -128,7 +128,10 @@ code {
   font-size: 14px;
   margin: 0.25em;
   padding: 0.125em 0.5em;
-  vertical-align: middle;
+  vertical-align: baseline;
+}
+.ui.message .code {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 pre code {
