@@ -34,10 +34,10 @@ themes      : ['default', 'GitHub']
         <a href="/modules/checkbox.html">checkboxes</a>, and <a href="/collections/message.html">message blocks</a>.
     </p>
     <p>Validation messages use <a href="/collections/message.html">messages</a> which are formatted for use inside forms.</p>
-    <div class="ui ignored warning message">
+    <div class="ui ignored warning top attached message">
       <p>If you are looking for form validation, you should check out <a href="/modules/form.html">form validation</a>.</p>
     </div>
-    <div class="ui ignored info message">
+    <div class="ui ignored bottom attached message">
       <p>This example uses a <a href="/elements/segment.html">ui segment</a> to add the padding and background color. This is not required.</p>
     </div>
     <div class="ui form segment">

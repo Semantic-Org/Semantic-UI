@@ -54,7 +54,7 @@
   font-family: @headerFont;
   font-size: @headerFontSize;
   font-weight: @headerFontWeight;
-  margin-right: @headerHorizontalDistance;
+  margin: 0em @headerHorizontalDistance 0em 0em;
 }
 
 /* block with paragraphs */
@@ -225,6 +225,16 @@
 .ui.black.message {
   background-color: @black;
   color: @invertedTextColor;
+}
+
+/* Positive / Negative */
+.ui.positive.message {
+  background-color: @positiveBackgroundColor;
+  color: @positiveTextColor;
+}
+.ui.negative.message {
+  background-color: @negativeBackgroundColor;
+  color: @negativeTextColor;
 }
 
 /* User Action */

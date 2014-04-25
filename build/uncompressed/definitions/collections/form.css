@@ -79,7 +79,7 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -335,16 +335,16 @@
 }
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #ff7169;
+  color: #c0605e;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #ff7169;
+  color: #c0605e;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #ff5950;
+  color: #b94e4c;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #ff5950;
+  color: #b94e4c;
 }
 /*--------------------
         Focus
@@ -384,11 +384,11 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #ff4136;
+  color: #a94442;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #ff4136;
+  border-color: #a94442;
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
@@ -407,12 +407,12 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background: #e7bebe;
-  border-color: #ffbab5;
-  color: #ff4136;
+  background: #fdf6f6;
+  border-color: #dc9494;
+  color: #a94442;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
-  box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
+  -webkit-box-shadow: 0.3em 0em 0em 0em #dc9494 inset;
+  box-shadow: 0.3em 0em 0em 0em #dc9494 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -422,7 +422,7 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus {
-  border-color: #ffbab5;
+  border-color: #da9797;
   color: #ff5950;
   -webkit-appearance: none;
   -webkit-box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
@@ -436,23 +436,23 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #e7bebe;
-  color: #ff4136;
+  background: #fdf6f6;
+  color: #a94442;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  -webkit-box-shadow: 0px 0px 0px 1px #ffbab5 !important;
-  box-shadow: 0px 0px 0px 1px #ffbab5 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #dc9494 !important;
+  box-shadow: 0px 0px 0px 1px #dc9494 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #ffbab5 !important;
-  box-shadow: 0px 0px 0px 1px #ffbab5 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #dc9494 !important;
+  box-shadow: 0px 0px 0px 1px #dc9494 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #ffbab5;
-  box-shadow: 0px 1px 0px 1px #ffbab5;
+  -webkit-box-shadow: 0px 1px 0px 1px #dc9494;
+  box-shadow: 0px 1px 0px 1px #dc9494;
 }
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
@@ -471,20 +471,20 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #ff4136;
+  color: #a94442;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #e7bebe;
-  border-color: #ffbab5;
+  background: #fdf6f6;
+  border-color: #dc9494;
 }
 .ui.form .fields.error .field .checkbox label:after,
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #ff4136;
+  color: #a94442;
 }
 /*--------------------
        Disabled

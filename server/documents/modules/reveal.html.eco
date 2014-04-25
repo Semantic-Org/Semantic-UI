@@ -24,7 +24,7 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Reveal</h4>
     <p>A standard reveal has no special formatting</p>
-    <div class="ui ignored red message">
+    <div class="ui ignored warning message">
       A reveal will take no action unless a type of reveal is specified.
     </div>
     <div class="ui circular reveal">

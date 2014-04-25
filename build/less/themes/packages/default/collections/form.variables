@@ -72,14 +72,14 @@
 @inputFocusBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
 
 /* Error */
-@formErrorColor: @negativeColor;
-@formErrorBorder: @negativeBorderColor;
-@formErrorBackground: @negativeBackgroundColor;
+@formErrorBackground: #FDF6F6;
+@formErrorBorder: #DC9494;
+@formErrorColor: @errorTextColor;
 
 /* Input Error */
 @inputErrorPointerSize: 0.3em;
 @inputErrorBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
-@inputErrorBoxShadow: @inputErrorPointerSize 0em 0em 0em @formErrorColor inset;
+@inputErrorBoxShadow: @inputErrorPointerSize 0em 0em 0em @formErrorBorder inset;
 
 /* Dropdown Error */
 @dropdownErrorHoverBackground: #FFF2F2;

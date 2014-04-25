@@ -131,31 +131,34 @@
     Emotive Colors
 --------------------*/
 
-/* Yes / No */
+/* Positive / Negative */
 @positiveBackgroundColor : #DFF0D8;
-@negativeBackgroundColor : #E7BEBE;
+@negativeBackgroundColor : #F2DEDE;
 
 @positiveBorderColor     : #D6E9C6;
-@negativeBorderColor     : lighten(@red, 25);
+@negativeBorderColor     : #DA9797;
 
 @positiveColor           : @green;
 @negativeColor           : @red;
 
+@positiveTextColor       : #3C763D;
+@negativeTextColor       : #A94442;
+
 /* Messages */
 @infoBackgroundColor     : #D9EDF7;
 @warningBackgroundColor  : #FCF8E3;
-@errorBackgroundColor    : #F2DEDE;
-@successBackgroundColor  : #DFF0D8;
+@successBackgroundColor  : @positiveBackgroundColor;
+@errorBackgroundColor    : @negativeBackgroundColor;
 
 @infoBorderColor         : #BCE8F1;
 @warningBorderColor      : #FAEBCC;
-@errorBorderColor        : #E6F4F9;
-@successBorderColor      : #D6E9C6;
+@successBorderColor      : @positiveBorderColor;
+@errorBorderColor        : @negativeBorderColor;
 
 @infoTextColor           : #31708F;
 @warningTextColor        : #8A6D3B;
-@errorTextColor          : #A94442;
-@successTextColor        : #3C763D;
+@successTextColor        : @positiveTextColor;
+@errorTextColor          : @negativeTextColor;
 
 
 /*-------------------

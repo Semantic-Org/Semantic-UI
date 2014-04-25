@@ -145,7 +145,7 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -401,16 +401,16 @@
 }
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #ff7169;
+  color: #c0605e;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #ff7169;
+  color: #c0605e;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #ff5950;
+  color: #b94e4c;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #ff5950;
+  color: #b94e4c;
 }
 /*--------------------
         Focus
@@ -450,11 +450,11 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #ff4136;
+  color: #a94442;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #ff4136;
+  border-color: #a94442;
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
@@ -473,12 +473,12 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background: #e7bebe;
-  border-color: #ffbab5;
-  color: #ff4136;
+  background: #fdf6f6;
+  border-color: #dc9494;
+  color: #a94442;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
-  box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
+  -webkit-box-shadow: 0.3em 0em 0em 0em #dc9494 inset;
+  box-shadow: 0.3em 0em 0em 0em #dc9494 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -488,7 +488,7 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus {
-  border-color: #ffbab5;
+  border-color: #da9797;
   color: #ff5950;
   -webkit-appearance: none;
   -webkit-box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
@@ -502,23 +502,23 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #e7bebe;
-  color: #ff4136;
+  background: #fdf6f6;
+  color: #a94442;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  -webkit-box-shadow: 0px 0px 0px 1px #ffbab5 !important;
-  box-shadow: 0px 0px 0px 1px #ffbab5 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #dc9494 !important;
+  box-shadow: 0px 0px 0px 1px #dc9494 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #ffbab5 !important;
-  box-shadow: 0px 0px 0px 1px #ffbab5 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #dc9494 !important;
+  box-shadow: 0px 0px 0px 1px #dc9494 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #ffbab5;
-  box-shadow: 0px 1px 0px 1px #ffbab5;
+  -webkit-box-shadow: 0px 1px 0px 1px #dc9494;
+  box-shadow: 0px 1px 0px 1px #dc9494;
 }
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
@@ -537,20 +537,20 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #ff4136;
+  color: #a94442;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #e7bebe;
-  border-color: #ffbab5;
+  background: #fdf6f6;
+  border-color: #dc9494;
 }
 .ui.form .fields.error .field .checkbox label:after,
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #ff4136;
+  color: #a94442;
 }
 /*--------------------
        Disabled
@@ -835,7 +835,7 @@
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -1839,7 +1839,7 @@ body > .ui.grid {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -3470,7 +3470,7 @@ body > .ui.grid {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -3553,14 +3553,14 @@ body > .ui.grid {
   min-height: 1em;
   margin: 1em 0em;
   background: #efefef;
-  padding: 1.25em 1.25em;
+  padding: 1em 1.5em;
   line-height: 1.3;
   color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
   transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 0.3125em;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  border-radius: 0.25em;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.075) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.075) inset;
 }
 .ui.message:first-child {
   margin-top: 0em;
@@ -3577,7 +3577,7 @@ body > .ui.grid {
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 1.3em;
   font-weight: bold;
-  margin-right: 0em;
+  margin: 0em 0em 0em 0em;
 }
 /* block with paragraphs */
 .ui.message p {
@@ -3665,7 +3665,7 @@ body > .ui.grid {
   margin-left: -1px;
   margin-right: -1px;
   margin-bottom: -1px;
-  border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: 0.25em 0.25em 0em 0em;
   -webkit-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
 }
@@ -3675,7 +3675,7 @@ body > .ui.grid {
 }
 .ui.bottom.attached.message {
   margin-top: -1px;
-  border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em 0.25em 0.25em;
 }
 .ui.bottom.attached.message:not(:last-child) {
   margin-bottom: 1em;
@@ -3698,7 +3698,7 @@ body > .ui.grid {
   opacity: 0.8;
 }
 .ui.icon.message > .icon + .content {
-  padding-left: 2em;
+  padding-left: 1.5em;
 }
 .ui.icon.message > .content {
   display: table-cell;
@@ -3726,6 +3726,15 @@ body > .ui.grid {
 .ui.black.message {
   background-color: #555555;
   color: #ffffff;
+}
+/* Positive / Negative */
+.ui.positive.message {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+.ui.negative.message {
+  background-color: #f2dede;
+  color: #a94442;
 }
 /* User Action */
 .ui.info.message {
@@ -3781,20 +3790,26 @@ body > .ui.grid {
      Sizes
 ---------------*/
 .ui.small.message {
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 .ui.message {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.message {
-  font-size: 1.125em;
+  font-size: 1.125rem;
 }
 .ui.huge.message {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 .ui.massive.message {
-  font-size: 2em;
+  font-size: 2rem;
 }
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
 
 /*
  * # Semantic - Table
@@ -4381,7 +4396,7 @@ body > .ui.grid {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -6136,7 +6151,7 @@ body > .ui.grid {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -6443,7 +6458,7 @@ body > .ui.grid {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -6955,7 +6970,7 @@ h5.ui.header {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -8491,7 +8506,7 @@ i.icon.right {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -8805,7 +8820,7 @@ img.ui.image {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -9221,7 +9236,7 @@ img.ui.image {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -10186,7 +10201,7 @@ a.ui.yellow.label:hover:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -11059,7 +11074,7 @@ a.ui.yellow.label:hover:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -11865,7 +11880,7 @@ a.ui.yellow.label:hover:before {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -12342,7 +12357,7 @@ input[type="password"] {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -13005,7 +13020,7 @@ a:hover {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -14150,7 +14165,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -15035,7 +15050,7 @@ a.ui.nag {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors
@@ -15721,7 +15736,7 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Yes / No */
+/* Positive / Negative */
 /* Messages */
 /*-------------------
      Text Colors

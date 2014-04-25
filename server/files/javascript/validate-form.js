@@ -10,6 +10,7 @@ semantic.validateForm.ready = function() {
     $inlineForm   = $('.inline.example .ui.form'),
     $form         = $('.ui.form').not($dogForm).not($inlineForm).not($dropdownForm),
     $checkbox     = $('.ui.checkbox'),
+    $dropdown     = $('.ui.dropdown'),
     // alias
     handler
   ;
