@@ -119,9 +119,9 @@ $.fn.dropdown = function(parameters) {
 
             $module
               .on('keydown' + eventNamespace, function (e) {
-                var isSelected = itemIndex !== -1;
+                var notSelected = itemIndex === -1;
                 // Determine selected item
-                if (itemIndex === -1 && $text.text()) {
+                if (notSelected && $text.text()) {
                   $item.each(function (collectionIndex, value) {
                     if ($(value).data(metadata.text) == $text.text()) {
                       itemIndex = collectionIndex;
@@ -133,7 +133,7 @@ $.fn.dropdown = function(parameters) {
                   if (module.is.hidden()) {
                     module.show();
                   } else {
-                    isSelected ? $($item[itemIndex]).click() : module.hide();
+                    notSelected ? module.hide() : $($item[itemIndex]).click();
                   }
                 } else if (e.which == keycodes.DownArrow) {
                   if (itemIndex < $item.length - 1) {
