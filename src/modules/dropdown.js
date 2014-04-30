@@ -104,13 +104,22 @@ $.fn.dropdown = function(parameters) {
               itemIndex = -1
             ;
 
+            var selectItem = function selectItem(item) {
+              item
+                .addClass("hovered")
+                .mouseenter()
+              ;
+            };
+            var deselectItem = function deselectItem(item) {
+              item
+                .removeClass("hovered")
+                .mouseleave()
+              ;
+            };
+
             $module
               .on('keydown' + eventNamespace, function (e) {
-                var
-                  previousItem,
-                  currentItem
-                ;
-
+                var isSelected = itemIndex !== -1;
                 // Determine selected item
                 if (itemIndex === -1 && $text.text()) {
                   $item.each(function (collectionIndex, value) {
@@ -123,35 +132,24 @@ $.fn.dropdown = function(parameters) {
                 if (e.which == keycodes.Enter) {
                   if (module.is.hidden()) {
                     module.show();
-                  } else if (itemIndex == -1) {
-                    module.hide();
                   } else {
-                    // simulate click on selected item
-                    $($item[itemIndex]).click();
+                    isSelected ? $($item[itemIndex]).click() : module.hide();
                   }
                 } else if (e.which == keycodes.DownArrow) {
                   if (itemIndex < $item.length - 1) {
                     if (itemIndex > -1) {
-                      previousItem = $($item[itemIndex]);
-                      previousItem.removeClass("hovered");
-                      previousItem.mouseleave();
+                      deselectItem($($item[itemIndex]));
                     }
                     itemIndex++;
-                    currentItem = $($item[itemIndex]);
-                    currentItem.addClass("hovered");
-                    currentItem.mouseenter();
+                    selectItem($($item[itemIndex]));
                   }
                 } else if (e.which == keycodes.UpArrow) {
                   if (itemIndex > 0 ) {
                     if (itemIndex <= $item.length - 1 ) {
-                      previousItem = $($item[itemIndex]);
-                      previousItem.removeClass("hovered");
-                      previousItem.trigger("mouseleave");
+                      deselectItem($($item[itemIndex]));
                     }
                     itemIndex--;
-                    currentItem = $($item[itemIndex]);
-                    currentItem.addClass("hovered");
-                    currentItem.trigger("mouseenter");
+                    selectItem($($item[itemIndex]));
                   }
                 }
               })
