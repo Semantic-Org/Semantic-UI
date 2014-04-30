@@ -68,6 +68,7 @@ $.fn.dropdown = function(parameters) {
             module.bind.touchEvents();
           }
           module.bind.mouseEvents();
+          module.bind.keyboardEvents();
           module.instantiate();
         },
 
@@ -91,6 +92,60 @@ $.fn.dropdown = function(parameters) {
         },
 
         bind: {
+          keyboardEvents: function() {
+            module.debug('Binding keyboard events');
+            var KEYCODE_ENTER = 13;
+            var KEYCODE_DOWN_ARROW = 40;
+            var KEYCODE_UP_ARROW = 38;
+            var itemIndex = -1;
+            $module
+              .on('keydown' + eventNamespace, function (e) {
+                // Determine selected item
+                if (itemIndex === -1 && $text.text()) {
+                  $item.each(function (collectionIndex, value) {
+                    if($(value).data(metadata.text) == $text.text()) {
+                      itemIndex = collectionIndex;
+                    }
+                  });
+                }
+
+                if(e.which == KEYCODE_ENTER) {
+                  if(module.is.hidden()) {
+                    module.show();
+                  } else if(itemIndex == -1) {
+                    module.hide();
+                  } else {
+                    // simulate click on selected item
+                    $($item[itemIndex]).click();
+                  }
+                } else if(e.which == KEYCODE_DOWN_ARROW) {
+                  if(itemIndex < $item.length - 1) {
+                    if(itemIndex > -1) {
+                      var previousItem = $($item[itemIndex]);
+                      previousItem.removeClass("hovered");
+                      previousItem.mouseleave();
+                    }
+                    itemIndex++;
+                    var currentItem = $($item[itemIndex]);
+                    currentItem.addClass("hovered");
+                    currentItem.mouseenter();
+                  }
+                } else if(e.which == KEYCODE_UP_ARROW) {
+                  if(itemIndex > 0 ) {
+                    if(itemIndex <= $item.length - 1 ) {
+                      var previousItem = $($item[itemIndex]);
+                      previousItem.removeClass("hovered");
+                      previousItem.trigger("mouseleave");
+                    }
+                    itemIndex--;
+                    var currentItem = $($item[itemIndex]);
+                    currentItem.addClass("hovered");
+                    currentItem.trigger("mouseenter");
+                  }
+                }
+              })
+            ;
+          },
           touchEvents: function() {
             module.debug('Touch device detected binding touch events');
             $module
@@ -895,7 +950,7 @@ $.fn.dropdown.settings = {
 $.extend( $.easing, {
   easeOutQuad: function (x, t, b, c, d) {
     return -c *(t/=d)*(t-2) + b;
-  },
+  }
 });
 
 
