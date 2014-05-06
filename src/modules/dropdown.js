@@ -119,6 +119,8 @@ $.fn.dropdown = function(parameters) {
 
             $module
               .on('keydown' + eventNamespace, function (e) {
+                // Reevaluate selector to deal with dynamic items
+                $item = $module.find(selector.item);
                 var notSelected = itemIndex === -1;
                 // Determine selected item
                 if (notSelected && $text.text()) {
@@ -151,6 +153,16 @@ $.fn.dropdown = function(parameters) {
                     itemIndex--;
                     selectItem($($item[itemIndex]));
                   }
+                } else {
+                  var characterToFind = String.fromCharCode(e.which);
+                  $item.each(function (collectionIndex, value) {
+                    var itemValue = $(value).data(metadata.value);
+                    if (itemValue && itemValue.charAt(0).toLowerCase() === characterToFind.toLowerCase()) {
+                      deselectItem($($item[itemIndex]));
+                      itemIndex = collectionIndex;
+                      selectItem($($item[itemIndex]));
+                    }
+                  });
                 }
               })
             ;
