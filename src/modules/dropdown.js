@@ -160,7 +160,8 @@ $.fn.dropdown = function(parameters) {
                     var itemValue = $(value).text();
 
                     if (itemValue && itemValue.charAt(0).toLowerCase() === characterToFind.toLowerCase()) {
-                      if (collectionIndex > itemIndex) {
+                      if (collectionIndex > itemIndex ||
+                        $($item[itemIndex]).text().charAt(0).toLowerCase() !== characterToFind.toLowerCase() ) {
                         console.log(itemValue);
                         deselectItem($($item[itemIndex]));
                         itemIndex = collectionIndex;
