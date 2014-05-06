@@ -155,14 +155,20 @@ $.fn.dropdown = function(parameters) {
                   }
                 } else {
                   var characterToFind = String.fromCharCode(e.which);
-                  $item.each(function (collectionIndex, value) {
-                    var itemValue = $(value).data(metadata.value);
+                  for (var collectionIndex = 0; collectionIndex < $item.length; collectionIndex ++) {
+                    var value = $item[collectionIndex];
+                    var itemValue = $(value).text();
+
                     if (itemValue && itemValue.charAt(0).toLowerCase() === characterToFind.toLowerCase()) {
-                      deselectItem($($item[itemIndex]));
-                      itemIndex = collectionIndex;
-                      selectItem($($item[itemIndex]));
+                      if (collectionIndex > itemIndex) {
+                        console.log(itemValue);
+                        deselectItem($($item[itemIndex]));
+                        itemIndex = collectionIndex;
+                        selectItem($($item[itemIndex]));
+                        break;
+                      }
                     }
-                  });
+                  }
                 }
               })
             ;
