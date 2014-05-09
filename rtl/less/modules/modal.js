@@ -94,8 +94,7 @@ $.fn.modal = function(parameters) {
             .dimmer('get dimmer')
           ;
 
-          $otherModals = $module.siblings(selector.modal);
-          $allModals   = $otherModals.add($module);
+          module.refreshSelectors();
 
           module.verbose('Attaching close events', $close);
           $close
@@ -135,6 +134,11 @@ $.fn.modal = function(parameters) {
           module.set.screenHeight();
           module.set.type();
           module.set.position();
+        },
+
+        refreshSelectors: function() {
+          $otherModals = $module.siblings(selector.modal);
+          $allModals   = $otherModals.add($module);
         },
 
         attachEvents: function(selector, event) {
@@ -237,12 +241,23 @@ $.fn.modal = function(parameters) {
           module.showModal(callback);
         },
 
+        onlyVisible: function() {
+          module.refreshSelectors();
+          return module.is.active() && $otherModals.filter(':visible').size() === 0;
+        },
+
+        othersVisible: function() {
+          module.refreshSelectors();
+          return $otherModals.filter(':visible').size() > 0;
+        },
+
         showModal: function(callback) {
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
           if( !module.is.active() ) {
+
             if(module.cache === undefined) {
               module.cacheSizes();
             }
@@ -250,7 +265,7 @@ $.fn.modal = function(parameters) {
             module.set.screenHeight();
             module.set.type();
 
-            if( $otherModals.filter(':visible').size() > 0 && !settings.allowMultiple) {
+            if(module.othersVisible()  && !settings.allowMultiple) {
               module.debug('Other modals visible, queueing show animation');
               module.hideOthers(module.showModal);
             }
@@ -298,7 +313,8 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          if($allModals.filter(':visible').size() <= 1) {
+          module.refreshSelectors();
+          if(module.onlyVisible()) {
             module.hideDimmer();
           }
           module.hideModal(callback);
@@ -365,7 +381,7 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          if( $allModals.is(':visible') ) {
+          if( $module.is(':visible') || module.othersVisible() ) {
             module.debug('Hiding all visible modals');
             module.hideDimmer();
             $allModals
@@ -380,7 +396,7 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          if( $otherModals.is(':visible') ) {
+          if( module.othersVisible() ) {
             module.debug('Hiding other modals');
             $otherModals
               .filter(':visible')
@@ -711,7 +727,7 @@ $.fn.modal.settings = {
   context       : 'body',
 
   duration      : 500,
-  easing        : 'easeOutExpo',
+  easing        : 'easeOutQuad',
   offset        : 0,
   transition    : 'scale',
 
@@ -742,5 +758,11 @@ $.fn.modal.settings = {
   }
 };
 
+// Adds easing
+$.extend( $.easing, {
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  }
+});
 
 })( jQuery, window , document );

@@ -259,6 +259,7 @@ module.exports = function(parameters) {
           $popup
             .remove()
           ;
+          $.proxy(settings.onRemove, $popup)();
         },
 
         save: {
@@ -786,6 +787,7 @@ module.exports.settings = {
   namespace      : 'popup',
 
   onCreate       : function(){},
+  onRemove       : function(){},
   onShow         : function(){},
   onHide         : function(){},
 

@@ -94,84 +94,11 @@ $.fn.dropdown = function(parameters) {
         bind: {
           keyboardEvents: function() {
             module.debug('Binding keyboard events');
-
-            var
-              keycodes = {
-                Enter: 13,
-                UpArrow: 38,
-                DownArrow: 40
-              },
-              itemIndex = -1
-            ;
-
-            var selectItem = function selectItem(item) {
-              item
-                .addClass("hovered")
-                .mouseenter()
-              ;
-            };
-            var deselectItem = function deselectItem(item) {
-              item
-                .removeClass("hovered")
-                .mouseleave()
-              ;
-            };
-
             $module
-              .on('keydown' + eventNamespace, function (e) {
-                // Reevaluate selector to deal with dynamic items
-                $item = $module.find(selector.item);
-                var notSelected = itemIndex === -1;
-                // Determine selected item
-                if (notSelected && $text.text()) {
-                  $item.each(function (collectionIndex, value) {
-                    if ($(value).data(metadata.text) == $text.text()) {
-                      itemIndex = collectionIndex;
-                    }
-                  });
-                }
-
-                if (e.which == keycodes.Enter) {
-                  if (module.is.hidden()) {
-                    module.show();
-                  } else {
-                    notSelected ? module.hide() : $($item[itemIndex]).click();
-                  }
-                } else if (e.which == keycodes.DownArrow) {
-                  if (itemIndex < $item.length - 1) {
-                    if (itemIndex > -1) {
-                      deselectItem($($item[itemIndex]));
-                    }
-                    itemIndex++;
-                    selectItem($($item[itemIndex]));
-                  }
-                } else if (e.which == keycodes.UpArrow) {
-                  if (itemIndex > 0 ) {
-                    if (itemIndex <= $item.length - 1 ) {
-                      deselectItem($($item[itemIndex]));
-                    }
-                    itemIndex--;
-                    selectItem($($item[itemIndex]));
-                  }
-                } else {
-                  var characterToFind = String.fromCharCode(e.which);
-                  for (var collectionIndex = 0; collectionIndex < $item.length; collectionIndex ++) {
-                    var value = $item[collectionIndex];
-                    var itemValue = $(value).text();
-
-                    if (itemValue && itemValue.charAt(0).toLowerCase() === characterToFind.toLowerCase()) {
-                      if (collectionIndex > itemIndex ||
-                        $($item[itemIndex]).text().charAt(0).toLowerCase() !== characterToFind.toLowerCase() ) {
-                        console.log(itemValue);
-                        deselectItem($($item[itemIndex]));
-                        itemIndex = collectionIndex;
-                        selectItem($($item[itemIndex]));
-                        break;
-                      }
-                    }
-                  }
-                }
-              })
+              .on('keydown' + eventNamespace, module.handleKeyboard)
+            ;
+            $module
+              .on('focus' + eventNamespace, module.show)
             ;
           },
           touchEvents: function() {
@@ -234,6 +161,69 @@ $.fn.dropdown = function(parameters) {
             $document
               .off('click' + eventNamespace)
             ;
+          }
+        },
+
+        handleKeyboard: function(event) {
+          var
+            $selectedItem = $item.filter('.' + className.selected),
+            pressedKey    = event.which,
+            keys          = {
+              enter     : 13,
+              escape    : 27,
+              upArrow   : 38,
+              downArrow : 40
+            },
+            selectedClass   = className.selected,
+            currentIndex    = $item.index( $selectedItem ),
+            hasSelectedItem = ($selectedItem.size() > 0),
+            resultSize      = $item.size(),
+            newIndex
+          ;
+          // close shortcuts
+          if(pressedKey == keys.escape) {
+            module.verbose('Escape key pressed, closing dropdown');
+            module.hide();
+          }
+          // result shortcuts
+          if(module.is.visible()) {
+            if(pressedKey == keys.enter && hasSelectedItem) {
+              module.verbose('Enter key pressed, choosing selected item');
+              $.proxy(module.event.item.click, $item.filter('.' + selectedClass) )(event);
+              event.preventDefault();
+              return false;
+            }
+            else if(pressedKey == keys.upArrow) {
+              module.verbose('Up key pressed, changing active item');
+              newIndex = (currentIndex - 1 < 0)
+                ? currentIndex
+                : currentIndex - 1
+              ;
+              $item
+                .removeClass(selectedClass)
+                .eq(newIndex)
+                  .addClass(selectedClass)
+              ;
+              event.preventDefault();
+            }
+            else if(pressedKey == keys.downArrow) {
+              module.verbose('Down key pressed, changing active item');
+              newIndex = (currentIndex + 1 >= resultSize)
+                ? currentIndex
+                : currentIndex + 1
+              ;
+              $item
+                .removeClass(selectedClass)
+                .eq(newIndex)
+                  .addClass(selectedClass)
+              ;
+              event.preventDefault();
+            }
+          }
+          else {
+            if(pressedKey == keys.enter) {
+              module.show();
+            }
           }
         },
 
@@ -999,6 +989,7 @@ $.fn.dropdown.settings = {
     placeholder : 'default',
     disabled    : 'disabled',
     visible     : 'visible',
+    selected    : 'selected',
     selection   : 'selection'
   }
 

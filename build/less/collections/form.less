@@ -317,12 +317,12 @@
   box-shadow: 0px 1px 0px 1px #E7BEBE;
 }
 .ui.form .fields.error .field .ui.selection.dropdown .menu .item:hover,
-.ui.form .fields.error .field .ui.selection.dropdown .menu .item.hovered
-.ui.form .field.error .ui.selection.dropdown .menu .item:hover,
-.ui.form .field.error .ui.selection.dropdown .menu .item.hovered{
+.ui.form .field.error .ui.selection.dropdown .menu .item:hover {
   background-color: #FFF2F2;
 }
 
+
+/* Currently Active Item */
 .ui.form .fields.error .field .ui.dropdown .menu .active.item,
 .ui.form .field.error .ui.dropdown .menu .active.item {
   background-color: #FDCFCF !important;
@@ -650,9 +650,11 @@
 }
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
+.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > label,
 .ui.form .inline.field > p,
+.ui.form .inline.field > .ui.input,
 .ui.form .inline.field > input {
 
   display: inline-block;
@@ -662,11 +664,6 @@
   margin-bottom: 0em;
 
   vertical-align: middle;
-  font-size: 1em;
-}
-.ui.form .inline.fields .field > input,
-.ui.form .inline.field > input {
-  font-size: 0.875em;
 }
 
 .ui.form .inline.fields .field > :first-child,
