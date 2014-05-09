@@ -618,10 +618,13 @@ body > .ui.grid {
   Equal Height Columns
 -----------------------*/
 
-.ui.grid > .equal.height.row {
+.ui.grid > .equal.height.row,
+.ui.equal.height.grid  {
   display: table;
   max-width: 100%;
 }
+.ui.equal.height.grid > .column,
+.ui.equal.height.grid > .row > .column,
 .ui.grid > .equal.height.row > .column {
   display: table-cell;
 }
@@ -734,7 +737,7 @@ body > .ui.grid {
     display: inline;
   }
   .ui.doubling.grid > .row > .column {
-    margin-bottom: @stackableRowMargin;
+    margin-bottom: @doublingRowSpacing;
   }
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
@@ -882,8 +885,8 @@ body > .ui.grid {
     display: block !important;
     width: auto !important;
 
-    margin: (@stackableRowMargin / 2) 0em 0em !important;
-    padding: (@stackableRowMargin / 2) 0em 0em !important;
+    margin: (@stackableRowSpacing / 2) 0em 0em !important;
+    padding: (@stackableRowSpacing / 2) 0em 0em !important;
 
     box-shadow: none !important;
   }
