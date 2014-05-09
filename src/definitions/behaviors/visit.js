@@ -170,7 +170,7 @@ $.visit = $.fn.visit = function(parameters) {
 
         reset: function() {
           module.store(settings.key.count, 0);
-          module.store(settings.key.ids, '');
+          module.store(settings.key.ids, null);
         },
 
         add: {
@@ -230,14 +230,14 @@ $.visit = $.fn.visit = function(parameters) {
         check: {
           limit: function(value) {
             value = value || module.get.count();
-            if(value >= settings.limit) {
-              module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
-              $.proxy(settings.onLimit, this)(value);
-            }
-            else if(settings.limit) {
+            if(settings.limit) {
+              if(value >= settings.limit) {
+                module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
+                $.proxy(settings.onLimit, this)(value);
+              }
               module.debug('Limit not reached', value, settings.limit);
+              $.proxy(settings.onChange, this)(value);
             }
-            $.proxy(settings.onChange, this)(value);
             module.update.display(value);
           }
         },
