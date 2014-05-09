@@ -557,6 +557,63 @@ type        : 'UI Module'
       </div>
     </div>
 
+    <div class="dropdown example">
+      <h3 class="ui header">Selection with error state</h3>
+      <p>A <a href="/modules/dropdown.html">dropdown</a> can have error state</p>
+      <div class="ui dropdown selection error">
+        <input type="hidden" name="gender">
+        <div class="default text">...</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="male">Male</div>
+          <div class="item" data-value="female">Female</div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown example">
+      <p>It works inside a <a href="/collections/form.html">form</a> too</p>
+      <div class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" type="text">
+          </div>
+        </div>
+        <div class="field error">
+          <label>Gender</label>
+          <div class="ui dropdown selection">
+            <input type="hidden" name="gender">
+            <div class="default text">...</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="male">Male</div>
+              <div class="item" data-value="female">Female</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h3 class="ui header">Keyboard Navigation</h3>
+      <p>A <a href="/modules/dropdown.html">dropdown</a> can be accessed with keyboard</p>
+      <div class="info message"><pre><code><div></code></pre> elements do not normally gain focus on tab unless you add <code>tabindex</code> value to your dropdown</div>
+      <div class="ui dropdown selection" tabindex="0">
+        <input type="hidden" name="gender">
+        <div class="default text">Select Gender</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="male">Male</div>
+          <div class="item" data-value="female">Female</div>
+        </div>
+      </div>
+    </div>
+
     <div class="transition example">
       <h3 class="ui header">Transitions</h3>
       <p>A dropdown can have different <a href="/modules/transition.html">transitions</a>.</p>
