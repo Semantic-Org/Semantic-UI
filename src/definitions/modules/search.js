@@ -732,7 +732,7 @@ $.fn.search.settings = {
               if(result.image !== undefined) {
                 html+= ''
                   + '<div class="image">'
-                  + ' <img src="' + result.image + '">'
+                  + ' <img src="' + result.image + '" alt="">'
                   + '</div>'
                 ;
               }
