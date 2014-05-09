@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 0.17.0 - May 9, 2014
+
+**Enhancements**
+- **Dropdown** - Dropdowns can now recieve focus and be navigated with a keyboard
+
+**Fixes**
+- **Modal** - Element does not accurately close other modals when initialized at different times **Thanks nojhamster**
+- **Modal** - Fixes javascript error for browsers that don't support CSS animations if jquery.easing is not included
+
 ### Version 0.16.1 - April 22, 2014
 
 **Fixes**

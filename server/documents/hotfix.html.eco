@@ -10,37 +10,62 @@ type   : 'Library'
 <script type='text/javascript'>
 $(document).ready(function() {
 
-$('#modal1').modal({
-    allowMultiple: false,
-    debug: true
-});
+$(document).ready(function () {
+    var settings = {
+        inline : true,
+        on : 'blur'
+    };
 
-$('#modal2').modal({
-    allowMultiple: false,
-    debug: true
-});
+    var consultantRules = {
+        required : {
+            identifier : 'required',
+            rules : [{
+                type : 'empty',
+                prompt : 'Please enter value.'
+            }]
+        }
 
-$('#modal1').modal('show');
+    };
+    $('.form').form(consultantRules, settings);
+});
 
 });
 </script>
 <div class="main container">
-<div id="modal1" class="ui modal">
-    <div class="content">
-        <p>First content</p>
-        <p>bigger</p>
-        <p>than</p>
-        <p>the</p>
-        <p>second</p>
-        <p>one</p>
-        <p><a href="#" onclick="$('#modal2').modal('show')">Jump to second modal</a></p>
-    </div>
-</div>
+without form :
+    <div class="inline field">
+                <label class="email optional" for="landing_user_Votre email">Votre email</label>
+                <div class="ui input left icon">
+                  <input id="landing_user_email" name="landing_user[email]" required="required" type="text">
+                  <i class="icon mail outline"></i>
+                </div>
 
-<div id="modal2" class="ui modal">
-    <div class="content">
-        <p>Second content</p>
-        <p><a href="#" onclick="$('#modal1').modal('show')">Jump to first modal</a></p>
+              </div>
+ <br/>   <br/>
+with ui form and with input icon:
+
+<form class='ui form'>
+    <div class="inline field">
+                <label class="email optional" for="landing_user_Votre email">Votre email</label>
+                <div class="ui input left icon">
+                  <input id="landing_user_email" name="landing_user[email]" required="required" type="text">
+                  <i class="icon mail outline"></i>
+                </div>
+
+              </div>
+</form>
+    <br/>
+     <br/>
+with ui form and without input icon
+<form class='ui form'>
+    <div class="inline field">
+                <label class="email optional" for="landing_user_Votre email">Votre email</label>
+                <input id="landing_user_email" name="landing_user[email]" required="required" type="text">
+
+
     </div>
-</div>
+</form>
+
+
+
 </div>
