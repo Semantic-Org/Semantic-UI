@@ -188,13 +188,13 @@ $.fn.dropdown = function(parameters) {
           // result shortcuts
           if(module.is.visible()) {
             if(pressedKey == keys.enter && hasSelectedItem) {
-              module.verbose('Enter key pressed, choosing selected result');
+              module.verbose('Enter key pressed, choosing selected item');
               $.proxy(module.event.item.click, $item.filter('.' + selectedClass) )(event);
               event.preventDefault();
               return false;
             }
             else if(pressedKey == keys.upArrow) {
-              module.verbose('Up key pressed, changing active result');
+              module.verbose('Up key pressed, changing active item');
               newIndex = (currentIndex - 1 < 0)
                 ? currentIndex
                 : currentIndex - 1
@@ -207,7 +207,7 @@ $.fn.dropdown = function(parameters) {
               event.preventDefault();
             }
             else if(pressedKey == keys.downArrow) {
-              module.verbose('Down key pressed, changing active result');
+              module.verbose('Down key pressed, changing active item');
               newIndex = (currentIndex + 1 >= resultSize)
                 ? currentIndex
                 : currentIndex + 1

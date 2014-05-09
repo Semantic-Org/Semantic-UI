@@ -10,48 +10,37 @@ type   : 'Library'
 <script type='text/javascript'>
 $(document).ready(function() {
 
-$('#title').dropdown({
-        onChange: function (val) {
-            console.log(val);
-            if(val === 'Other') {
-                console.log($(this).parent().next());
-                $(this).parent().next().transition({
-                    duration  : 500
-                });
-            }else {
-                $(this).parent().next().removeClass('visible').addClass('hidden');
-            }
+$('#modal1').modal({
+    allowMultiple: false,
+    debug: true
+});
 
-        }
-    });
+$('#modal2').modal({
+    allowMultiple: false,
+    debug: true
+});
+
+$('#modal1').modal('show');
 
 });
 </script>
 <div class="main container">
-<div id="personal_particulars" class="ui form">
-    <div class="two fields">
-    <div class="field">
-        <label for="title">Title</label>
-        <div class="ui fluid selection dropdown" id="title">
-            <div class="text">Select</div>
-            <i class="dropdown icon"></i>
-            <input type="hidden" name="title">
-            <div class="menu">
-                <div class="item" data-value="Ar">Ar</div>
-                <div class="item" data-value="Ir">Ir</div>
-                <div class="item" data-value="Sr">Sr</div>
-                <div class="item" data-value="Mr">Mr</div>
-                <div class="item" data-value="Ms">Ms</div>
-                <div class="item" data-value="Other">Other</div>
-            </div>
-        </div>
-    </div>
-    <div class="field ui transition hidden">
-        <label for="o_title">Other Title</label>
-        <input name="o_title" type="text" id="o_title">
+<div id="modal1" class="ui modal">
+    <div class="content">
+        <p>First content</p>
+        <p>bigger</p>
+        <p>than</p>
+        <p>the</p>
+        <p>second</p>
+        <p>one</p>
+        <p><a href="#" onclick="$('#modal2').modal('show')">Jump to second modal</a></p>
     </div>
 </div>
 
-<div class="blue ui submit button">Save and continue</div>
-
+<div id="modal2" class="ui modal">
+    <div class="content">
+        <p>Second content</p>
+        <p><a href="#" onclick="$('#modal1').modal('show')">Jump to first modal</a></p>
+    </div>
+</div>
 </div>
