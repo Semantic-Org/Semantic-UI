@@ -51,9 +51,9 @@ ol.ui.list li,
 .ui.list .item {
   display: list-item;
   list-style-type: none;
-  list-style-position: inside;
+  list-style-position: outside;
 
-  padding: 0.3em 0em;
+  padding: 0.3rem 0em;
   line-height: 1.2;
 }
 
@@ -323,7 +323,7 @@ ol.ui.list li,
 
 ul.ui.list,
 .ui.bulleted.list {
-  margin-left: 1.5em;
+  margin-left: 1.25rem;
 }
 ul.ui.list li,
 .ui.bulleted.list .item {
@@ -332,16 +332,16 @@ ul.ui.list li,
 ul.ui.list li:before,
 .ui.bulleted.list .item:before {
   position: absolute;
-  left: -1.5em;
+  left: -1.25rem;
   content: '•';
 
-  line-height: 1.2rem;
+  line-height: 1.2em;
   vertical-align: top;
 }
 
 ul.ui.list ul,
 .ui.bulleted.list .list {
-  padding-left: 1.5em;
+  padding-left: 1.25rem;
 }
 
 /* Horizontal Bulleted */
@@ -351,7 +351,7 @@ ul.ui.horizontal.bulleted.list,
 }
 ul.ui.horizontal.bulleted.list li,
 .ui.horizontal.bulleted.list .item {
-  margin-left: 1.5em;
+  margin-left: 1.5rem;
 }
 ul.ui.horizontal.bulleted.list li:before,
 .ui.horizontal.bulleted.list .item:before {
@@ -373,8 +373,7 @@ ul.ui.horizontal.bulleted.list li:first-child::before,
 ol.ui.list,
 .ui.ordered.list {
   counter-reset: ordered;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 1.5rem;
   list-style-type: none;
 }
 ol.ui.list li,
@@ -385,7 +384,7 @@ ol.ui.list li,
 ol.ui.list li:before,
 .ui.ordered.list .item:before {
   position: absolute;
-  left: -1em;
+  left: -1.5rem;
 
   counter-increment: ordered;
   content: counters(ordered, ".");
@@ -438,12 +437,12 @@ ol.ui.horizontal.list li:before,
 
 /* Sub Menu */
 .ui.divided.list:not(.horizontal) .list {
-  margin-left: -0.5em;
-  margin-right: -0.5em;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 .ui.divided.list:not(.horizontal) .list .item {
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .ui.divided.list:not(.horizontal) .list .item:first-child {
   border-top-width: 1px;
@@ -454,10 +453,10 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 .ui.divided.bulleted.list .item {
-  padding-left: 1.5em;
+  padding-left: 1.5rem;
 }
 .ui.divided.bulleted.list .item:before {
-  left: 0.5em;
+  left: 0.5rem;
 }
 
 /* Divided ordered */
@@ -465,15 +464,15 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 .ui.divided.ordered.list > .item {
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .ui.divided.ordered.list > .item:before {
-  left: 0.5em;
+  left: 0.5rem;
 }
 .ui.divided.ordered.list .item .list {
-  margin-left: -2em;
-  margin-right: -2em;
+  margin-left: -2rem;
+  margin-right: -2rem;
 }
 
 
@@ -513,8 +512,8 @@ ol.ui.horizontal.list li:before,
 .ui.celled.list > .item,
 .ui.celled.list > .list {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .ui.celled.list > .item:last-child {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -537,7 +536,7 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 .ui.celled.bulleted.list > .item {
-  padding-left: 1.5em;
+  padding-left: 1.5rem;
 }
 .ui.celled.bulleted.list > .item:before {
   left: 0.5em;
@@ -548,15 +547,15 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 .ui.celled.ordered.list .item {
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .ui.celled.ordered.list .item:before {
   left: 0.5em;
 }
 .ui.celled.ordered.list .item .list {
-  margin-left: -2em;
-  margin-right: -2em;
+  margin-left: -2rem;
+  margin-right: -2rem;
 }
 
 /* Celled Horizontal */
@@ -567,8 +566,8 @@ ol.ui.horizontal.list li:before,
   border-top: none;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0em;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 
   line-height: 0.6;
 }
@@ -593,27 +592,27 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.relaxed.list:not(.horizontal) .item {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .ui.relaxed.list .header {
-  margin-bottom: 0.25em;
+  margin-bottom: 0.25rem;
 }
 .ui.horizontal.relaxed.list .item {
-  padding-left: 1.25em;
-  padding-right: 1.25em;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .ui.very.relaxed.list:not(.horizontal) .item {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .ui.very.relaxed.list .header {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 .ui.horizontal.very.relaxed.list .item {
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 
@@ -631,7 +630,7 @@ ol.ui.horizontal.list li:before,
   font-size: 0.875rem;
 }
 .ui.list .item {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.list .item {
   font-size: 1.125rem;
