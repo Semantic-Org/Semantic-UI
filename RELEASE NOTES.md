@@ -3,7 +3,7 @@
 ### Version 0.17.0 - May 9, 2014
 
 **Enhancements**
-- **Dropdown** - Dropdowns can now receive focus and be navigated with a keyboard
+- **Dropdown** - Dropdowns can now receive focus and be navigated with a keyboard **Thanks Musatov**
 - **Popup** - Popup now has an ``onRemove`` callback after removing element from DOM
 
 **Fixes**
