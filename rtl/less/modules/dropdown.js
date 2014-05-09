@@ -68,6 +68,7 @@ $.fn.dropdown = function(parameters) {
             module.bind.touchEvents();
           }
           module.bind.mouseEvents();
+          module.bind.keyboardEvents();
           module.instantiate();
         },
 
@@ -91,6 +92,88 @@ $.fn.dropdown = function(parameters) {
         },
 
         bind: {
+          keyboardEvents: function() {
+            module.debug('Binding keyboard events');
+
+            var
+              keycodes = {
+                Enter: 13,
+                UpArrow: 38,
+                DownArrow: 40
+              },
+              itemIndex = -1
+            ;
+
+            var selectItem = function selectItem(item) {
+              item
+                .addClass("hovered")
+                .mouseenter()
+              ;
+            };
+            var deselectItem = function deselectItem(item) {
+              item
+                .removeClass("hovered")
+                .mouseleave()
+              ;
+            };
+
+            $module
+              .on('keydown' + eventNamespace, function (e) {
+                // Reevaluate selector to deal with dynamic items
+                $item = $module.find(selector.item);
+                var notSelected = itemIndex === -1;
+                // Determine selected item
+                if (notSelected && $text.text()) {
+                  $item.each(function (collectionIndex, value) {
+                    if ($(value).data(metadata.text) == $text.text()) {
+                      itemIndex = collectionIndex;
+                    }
+                  });
+                }
+
+                if (e.which == keycodes.Enter) {
+                  if (module.is.hidden()) {
+                    module.show();
+                  } else {
+                    notSelected ? module.hide() : $($item[itemIndex]).click();
+                  }
+                } else if (e.which == keycodes.DownArrow) {
+                  if (itemIndex < $item.length - 1) {
+                    if (itemIndex > -1) {
+                      deselectItem($($item[itemIndex]));
+                    }
+                    itemIndex++;
+                    selectItem($($item[itemIndex]));
+                  }
+                } else if (e.which == keycodes.UpArrow) {
+                  if (itemIndex > 0 ) {
+                    if (itemIndex <= $item.length - 1 ) {
+                      deselectItem($($item[itemIndex]));
+                    }
+                    itemIndex--;
+                    selectItem($($item[itemIndex]));
+                  }
+                } else {
+                  var characterToFind = String.fromCharCode(e.which);
+                  for (var collectionIndex = 0; collectionIndex < $item.length; collectionIndex ++) {
+                    var value = $item[collectionIndex];
+                    var itemValue = $(value).text();
+
+                    if (itemValue && itemValue.charAt(0).toLowerCase() === characterToFind.toLowerCase()) {
+                      if (collectionIndex > itemIndex ||
+                        $($item[itemIndex]).text().charAt(0).toLowerCase() !== characterToFind.toLowerCase() ) {
+                        console.log(itemValue);
+                        deselectItem($($item[itemIndex]));
+                        itemIndex = collectionIndex;
+                        selectItem($($item[itemIndex]));
+                        break;
+                      }
+                    }
+                  }
+                }
+              })
+            ;
+          },
           touchEvents: function() {
             module.debug('Touch device detected binding touch events');
             $module
@@ -925,7 +1008,7 @@ $.fn.dropdown.settings = {
 $.extend( $.easing, {
   easeOutQuad: function (x, t, b, c, d) {
     return -c *(t/=d)*(t-2) + b;
-  },
+  }
 });
 
 
