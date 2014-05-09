@@ -602,7 +602,9 @@ type        : 'UI Module'
     <div class="dropdown example">
       <h3 class="ui header">Keyboard Navigation</h3>
       <p>A <a href="/modules/dropdown.html">dropdown</a> can be accessed with keyboard</p>
-      <div class="info message"><pre><code><div></code></pre> elements do not normally gain focus on tab unless you add <code>tabindex</code> value to your dropdown</div>
+      <div class="ui info message">
+        <code>div</code> elements do not normally gain focus on tab unless you add <code>tabindex</code> value to your dropdown
+      </div>
       <div class="ui dropdown selection" tabindex="0">
         <input type="hidden" name="gender">
         <div class="default text">Select Gender</div>
