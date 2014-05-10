@@ -1,10 +1,12 @@
-# Semantic Docs
+# Documentação do *Semantic*
 
-## How to Use
+## Como usar
 
-This folder contains the templates used to generate the static website for Semantic UI
+Esta pasta contém os templates usados para gerar o site do *Semantic UI*.
 
-To create the docs yourself, run the commands in the top-level directory:
+Para criar a documentação você mesmo, rode estes comandos na raiz deste projeto (um nível acima de server):
+
+### Instalação no LINUX
 
 ```
 npm install -g docpad
@@ -12,6 +14,9 @@ docpad install eco;
 docpad update; docpad upgrade;
 ```
 
-This node project uses docpad to generate the static documentation files for Semantic UI.
 
+Este projeto do *node* usa o *docpad* para gerar os arquivos da documentação estática para o *Semantic UI*.
 
+### Instalação no WINDOWS
+
+> em breve
