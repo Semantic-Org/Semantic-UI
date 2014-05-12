@@ -7,6 +7,13 @@
 @textTransform: none;
 @textColor: #111111;
 @fontWeight: normal;
+@transition:
+  opacity @transitionDuration @transitionEasing,
+  background-color @transitionDuration @transitionEasing,
+  color @transitionDuration @transitionEasing,
+  background @transitionDuration @transitionEasing
+;
+
 
 @borderRadius: 3px;
 

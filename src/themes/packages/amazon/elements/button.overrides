@@ -36,3 +36,8 @@
   right: 0.4em;
   border-radius: 3px;
 }
+
+.ui.basic.labeled.icon.buttons .button > .icon,
+.ui.basic.labeled.icon.button > .icon {
+  padding-top: 0.4em !important;
+}
