@@ -2649,11 +2649,16 @@ $.fn.visibility = function(parameters) {
             $module
               .attr('src', src)
             ;
-            if($.fn.transition !== undefined || offScreen) {
-              $module.transition(settings.transition, settings.duration);
+            if(offScreen) {
+              $module.show();
             }
             else {
-              $module.fadeIn(settings.duration);
+              if($.fn.transition !== undefined) {
+                $module.transition(settings.transition, settings.duration);
+              }
+              else {
+                $module.fadeIn(settings.duration);
+              }
             }
           }
         },
@@ -3417,7 +3422,7 @@ $.visit = $.fn.visit = function(parameters) {
 
         reset: function() {
           module.store(settings.key.count, 0);
-          module.store(settings.key.ids, '');
+          module.store(settings.key.ids, null);
         },
 
         add: {
@@ -3477,14 +3482,14 @@ $.visit = $.fn.visit = function(parameters) {
         check: {
           limit: function(value) {
             value = value || module.get.count();
-            if(value >= settings.limit) {
-              module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
-              $.proxy(settings.onLimit, this)(value);
-            }
-            else if(settings.limit) {
+            if(settings.limit) {
+              if(value >= settings.limit) {
+                module.debug('Pages viewed exceeded limit, firing callback', value, settings.limit);
+                $.proxy(settings.onLimit, this)(value);
+              }
               module.debug('Limit not reached', value, settings.limit);
+              $.proxy(settings.onChange, this)(value);
             }
-            $.proxy(settings.onChange, this)(value);
             module.update.display(value);
           }
         },
@@ -9513,8 +9518,8 @@ $.fn.popup.settings = {
   context        : 'body',
   position       : 'top center',
   delay          : {
-    show : 50,
-    hide : 150
+    show : 100,
+    hide : 100
   },
   inline         : false,
   preserve       : false,
@@ -10715,7 +10720,7 @@ $.fn.search.settings = {
               if(result.image !== undefined) {
                 html+= ''
                   + '<div class="image">'
-                  + ' <img src="' + result.image + '">'
+                  + ' <img src="' + result.image + '" alt="">'
                   + '</div>'
                 ;
               }
@@ -12273,6 +12278,7 @@ $.fn.sticky = function(parameters) {
               element: {
                 margin : element.margin,
                 top    : element.offset.top - element.margin.top,
+                left   : element.offset.left,
                 width  : element.width,
                 height : element.height,
                 bottom : element.offset.top + element.height
@@ -12348,8 +12354,8 @@ $.fn.sticky = function(parameters) {
           size: function() {
             $module
               .css({
-                width: module.cache.element.width,
-                height: module.cache.element.height
+                width  : module.cache.element.width,
+                height : module.cache.element.height
               })
             ;
           }
@@ -12492,6 +12498,7 @@ $.fn.sticky = function(parameters) {
         bindTop: function() {
           module.debug('Binding element to top of parent container');
           $module
+            .css('left' , '')
             .removeClass(className.fixed)
             .removeClass(className.bottom)
             .addClass(className.bound)
@@ -12503,6 +12510,7 @@ $.fn.sticky = function(parameters) {
         bindBottom: function() {
           module.debug('Binding element to bottom of parent container');
           $module
+            .css('left' , '')
             .removeClass(className.fixed)
             .removeClass(className.top)
             .addClass(className.bound)
@@ -12515,6 +12523,7 @@ $.fn.sticky = function(parameters) {
         stickTop: function() {
           module.debug('Fixing element to top of page');
           $module
+            .css('left', module.cache.element.left)
             .removeClass(className.bound)
             .removeClass(className.bottom)
             .addClass(className.fixed)
@@ -12526,6 +12535,7 @@ $.fn.sticky = function(parameters) {
         stickBottom: function() {
           module.debug('Sticking element to bottom of page');
           $module
+            .css('left', module.cache.element.left)
             .removeClass(className.bound)
             .removeClass(className.top)
             .addClass(className.fixed)
@@ -12557,6 +12567,10 @@ $.fn.sticky = function(parameters) {
           module.debug('Reseting elements position');
           module.unbind();
           module.unfix();
+          module.resetCSS();
+        },
+
+        resetCSS: function() {
           $module
             .css({
               top    : '',

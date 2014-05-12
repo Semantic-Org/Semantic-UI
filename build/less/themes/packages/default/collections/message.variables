@@ -73,8 +73,8 @@
       Variations
 --------------------*/
 
-@small: 0.875rem;
-@medium: 1rem;
-@large: 1.125rem;
-@huge: 1.5rem;
-@massive: 2rem;
+@small: 0.875em;
+@medium: 1em;
+@large: 1.125em;
+@huge: 1.5em;
+@massive: 2em;

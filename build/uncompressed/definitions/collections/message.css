@@ -399,19 +399,19 @@
      Sizes
 ---------------*/
 .ui.small.message {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 .ui.message {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.large.message {
-  font-size: 1.125rem;
+  font-size: 1.125em;
 }
 .ui.huge.message {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 .ui.massive.message {
-  font-size: 2rem;
+  font-size: 2em;
 }
 /*******************************
            Overrides

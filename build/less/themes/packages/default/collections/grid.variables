@@ -112,7 +112,8 @@
     Stackable
 ---------------*/
 
-@stackableRowMargin: 1em;
+@stackableRowSpacing: @rowSpacing;
 @stackableGutterWidth: 1.5em;
+@stackableMobileBorder: 1px solid @borderColor;
 
-@stackableMobileBorder: 1px dotted @borderColor;
+@doublingRowSpacing: @rowSpacing;

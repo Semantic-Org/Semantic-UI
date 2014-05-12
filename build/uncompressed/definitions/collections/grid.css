@@ -712,10 +712,13 @@ body > .ui.grid {
 /*----------------------
   Equal Height Columns
 -----------------------*/
-.ui.grid > .equal.height.row {
+.ui.grid > .equal.height.row,
+.ui.equal.height.grid {
   display: table;
   max-width: 100%;
 }
+.ui.equal.height.grid > .column,
+.ui.equal.height.grid > .row > .column,
 .ui.grid > .equal.height.row > .column {
   display: table-cell;
 }
@@ -821,7 +824,7 @@ body > .ui.grid {
     display: inline;
   }
   .ui.doubling.grid > .row > .column {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
   }
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
@@ -965,14 +968,14 @@ body > .ui.grid {
   .ui.stackable.grid > .column {
     display: block !important;
     width: auto !important;
-    margin: 0.5em 0em 0em !important;
-    padding: 0.5em 0em 0em !important;
+    margin: 0.5rem 0em 0em !important;
+    padding: 0.5rem 0em 0em !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
   }
   .ui.stackable.divided.grid > .column,
   .ui.stackable.celled.grid > .row > .column {
-    border-top: 1px dotted rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
   .ui.stackable.grid > .row:first-child > .column:first-child,
   .ui.stackable.grid > .column:first-child {

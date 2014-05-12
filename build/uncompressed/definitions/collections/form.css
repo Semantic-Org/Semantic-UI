@@ -335,16 +335,16 @@
 }
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #c0605e;
+  color: #ff7169;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #c0605e;
+  color: #ff7169;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #b94e4c;
+  color: #ff5950;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #b94e4c;
+  color: #ff5950;
 }
 /*--------------------
         Focus
@@ -384,11 +384,11 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #a94442;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #a94442;
+  border-color: #ff4136;
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
@@ -407,12 +407,12 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background: #fdf6f6;
-  border-color: #dc9494;
-  color: #a94442;
+  background: #f2dede;
+  border-color: #da9797;
+  color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #dc9494 inset;
-  box-shadow: 0.3em 0em 0em 0em #dc9494 inset;
+  -webkit-box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
+  box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -436,23 +436,23 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #fdf6f6;
-  color: #a94442;
+  background: #f2dede;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  -webkit-box-shadow: 0px 0px 0px 1px #dc9494 !important;
-  box-shadow: 0px 0px 0px 1px #dc9494 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #dc9494 !important;
-  box-shadow: 0px 0px 0px 1px #dc9494 !important;
+  -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #dc9494;
-  box-shadow: 0px 1px 0px 1px #dc9494;
+  -webkit-box-shadow: 0px 1px 0px 1px #da9797;
+  box-shadow: 0px 1px 0px 1px #da9797;
 }
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
@@ -471,20 +471,20 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #a94442;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #fdf6f6;
-  border-color: #dc9494;
+  background: #f2dede;
+  border-color: #da9797;
 }
 .ui.form .fields.error .field .checkbox label:after,
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #a94442;
+  color: #ff4136;
 }
 /*--------------------
        Disabled

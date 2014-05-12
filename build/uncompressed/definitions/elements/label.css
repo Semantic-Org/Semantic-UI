@@ -170,7 +170,7 @@
 *******************************/
 .ui.label {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: baseline;
   line-height: 1;
   margin: 0.25em 0.125em;
   background-color: #e8e8e8;
@@ -941,10 +941,15 @@ a.ui.yellow.label:hover:before {
 /*-------------------
         Sizes
 --------------------*/
+.ui.tiny.labels .label,
+.ui.tiny.label {
+  font-size: 0.6rem;
+}
 .ui.small.labels .label,
 .ui.small.label {
   font-size: 0.75rem;
 }
+.ui.labels .label,
 .ui.label {
   font-size: 0.8125rem;
 }

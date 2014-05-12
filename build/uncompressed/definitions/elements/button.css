@@ -229,6 +229,8 @@
 .ui.button:focus {
   background-color: '';
   background-image: '';
+  -webkit-box-shadow: 0 0 1px rgba(81, 167, 232, 0.8) inset, 0 0 3px 2px rgba(81, 167, 232, 0.8);
+  box-shadow: 0 0 1px rgba(81, 167, 232, 0.8) inset, 0 0 3px 2px rgba(81, 167, 232, 0.8);
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.button:focus .icon {
@@ -888,6 +890,7 @@
   padding-top: 0.85em;
   background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
+  color: '';
   border-radius: 0.25em 0px 0px 0.25em;
   line-height: 1;
   -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;

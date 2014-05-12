@@ -169,11 +169,16 @@ $.fn.visibility = function(parameters) {
             $module
               .attr('src', src)
             ;
-            if($.fn.transition !== undefined || offScreen) {
-              $module.transition(settings.transition, settings.duration);
+            if(offScreen) {
+              $module.show();
             }
             else {
-              $module.fadeIn(settings.duration);
+              if($.fn.transition !== undefined) {
+                $module.transition(settings.transition, settings.duration);
+              }
+              else {
+                $module.fadeIn(settings.duration);
+              }
             }
           }
         },

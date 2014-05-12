@@ -64,7 +64,7 @@
   margin: 0em auto 1em;
   color: transparent;
   box-shadow: 0px 0px 0px 1px;
-  animation: loaderFlipping 1s infinite ease-in-out;
+  animation: loaderFlipping 1s infinite ease;
   margin-bottom: 1em;
   transform-style: preserve-3d;
 }
@@ -78,12 +78,12 @@
   backface-visibility: hidden;
 }
 .ui.flipping.loader .shape:before {
-  background-color: @blue;
+  background-color: @primaryColor;
   transform: rotateY(0deg);
   z-index: 2;
 }
 .ui.flipping.loader .shape:after {
-  background-color: @red;
+  background-color: @secondaryColor;
   transform: rotateY(180deg);
 }
 
@@ -114,10 +114,10 @@
     transform: perspective(6em) rotateX(0deg) rotateY(0deg);
   }
   50% {
-    transform: perspective(6em) rotateX(-180deg) rotateY(0deg);
+    transform: perspective(6em) rotateX(0deg) rotateY(-180deg);
   }
   100% {
-    transform: perspective(6em) rotateX(-180deg) rotateY(-180deg);
+    transform: perspective(6em) rotateX(0deg) rotateY(-360deg);
   }
 }
 

@@ -25,7 +25,7 @@
 
 .ui.label {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: @verticalAlign;
   line-height: 1;
 
   margin: @verticalMargin @horizontalMargin;
@@ -893,10 +893,16 @@ a.ui.yellow.label:hover:before {
         Sizes
 --------------------*/
 
+
+.ui.tiny.labels .label,
+.ui.tiny.label {
+font-size: @tiny;
+}
 .ui.small.labels .label,
 .ui.small.label {
   font-size: @small;
 }
+.ui.labels .label,
 .ui.label {
   font-size: @medium;
 }
