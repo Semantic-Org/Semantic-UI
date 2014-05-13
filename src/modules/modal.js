@@ -251,7 +251,7 @@ $.fn.modal = function(parameters) {
           return $otherModals.filter(':visible').size() > 0;
         },
 
-       showModal: function(callback) {
+        showModal: function(callback) {
           if(module.is.active()) {
             module.debug('Modal is already visible');
             return;
