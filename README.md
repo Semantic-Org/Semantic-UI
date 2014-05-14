@@ -9,6 +9,8 @@ Semantic UI is under constant development, so **be sure to check out our [releas
 
 **Semantic is being reworked for a ``1.0`` release for Spring.**
 
+Semantic may still be officially 'pre-release', but is already used in production in large sites like [Quirky](http://www.quirky.com) and [The New Republic](http://www.newrepublic.com)
+
 Although the pre-release branch ``0.x.x`` is actively being maintained, most important features like better theming support, and new components will land in ``1.0``.
 
 Beta documentation will be available soon for testers and early adopters.
