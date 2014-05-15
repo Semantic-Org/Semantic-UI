@@ -451,7 +451,7 @@ semantic.ready = function() {
 
     makeStickyColumns: function() {
       var
-        $visibleStuck = $(this).find('.fixed.column .image, .fixed.column .content'),
+        $visibleStuck = $(this).find('.fixed.column > .image, .fixed.column > .content'),
         isInitialized = ($visibleStuck.parent('.sticky-wrapper').size() !== 0)
       ;
       if(!isInitialized) {
@@ -734,9 +734,11 @@ semantic.ready = function() {
   if( $pageTabs.size() > 0 ) {
     $pageTabs
       .tab({
-        context   : '.main.container',
-        onTabInit : handler.makeCode,
-        onTabLoad : function() {
+        context      : '.main.container',
+        childrenOnly : true,
+        history      : true,
+        onTabInit    : handler.makeCode,
+        onTabLoad    : function() {
           $.proxy(handler.makeStickyColumns, this)();
           $peekItem.removeClass('active').first().addClass('active');
         }

@@ -1290,6 +1290,7 @@ body.progress .ui.progress .bar {
 }
 
 #example .fixed.column .sticky-wrapper {
+  position: relative;
   height: 0px !important;
 }
 
@@ -1297,15 +1298,20 @@ body.progress .ui.progress .bar {
 #example .fixed.segment .fixed {
   position: fixed;
   top: 65px;
-  -webkit-perspective: 2000px;
-  -moz-perspective: 2000px;
-  -ms-perspective: 2000px;
-  perspective: 2000px;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
 
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+#example .fixed.column .content > .image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 

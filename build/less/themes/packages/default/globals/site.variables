@@ -47,8 +47,15 @@
        Icons
 --------------------*/
 
-/* Width of largest icon */
+/* Max Width of Icon */
 @iconWidth : 1.23em;
+
+/*-------------------
+       Easing
+--------------------*/
+
+@defaultEasing: 'ease';
+
 
 /*******************************
            BG Colors

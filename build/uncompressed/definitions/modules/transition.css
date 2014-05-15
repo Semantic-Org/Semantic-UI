@@ -6,6 +6,142 @@
   transition module
 
 *******************************/
+/*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+        Global Variables
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*******************************
+           BG Colors
+*******************************/
+/*******************************
+             Colors
+*******************************/
+/*---  Colors  ---*/
+/*---  Neutrals  ---*/
+/*--- Text Colors ---*/
+/* Preserve */
+/* Adjust for Legibility */
+/*--- Backgrounds ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive / Negative */
+/* Messages */
+/*-------------------
+     Text Colors
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+      Transition
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
+          Transitions
+*******************************/
 /*
   Some transitions adapted from Animate CSS
   https://github.com/daneden/animate.css
@@ -15,8 +151,8 @@
   animation-iteration-count: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
+  -webkit-animation-timing-function: 'ease';
+  animation-timing-function: 'ease';
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -46,12 +182,12 @@
 .ui.visible.transition {
   display: block !important;
   visibility: visible;
-  -webkit-transform: rotateZ(0deg);
-  -ms-transform: rotateZ(0deg);
-  transform: rotateZ(0deg);
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
 }
 /* Disabled */
 .ui.disabled.transition {
@@ -67,6 +203,9 @@
 }
 /*******************************
              Types
+*******************************/
+/*******************************
+           Animations
 *******************************/
 /*--------------
     Emphasis
@@ -92,156 +231,6 @@
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
-/*--------------
-     Flips
----------------*/
-.ui.flip.transition.in,
-.ui.flip.transition.out {
-  -webkit-perspective: 2000px;
-  -ms-perspective: 2000px;
-  perspective: 2000px;
-}
-.ui.horizontal.flip.transition.in,
-.ui.horizontal.flip.transition.out {
-  -webkit-animation-name: horizontalFlip;
-  animation-name: horizontalFlip;
-}
-.ui.horizontal.flip.transition.out {
-  -webkit-animation-name: horizontalFlipOut;
-  animation-name: horizontalFlipOut;
-}
-.ui.vertical.flip.transition.in,
-.ui.vertical.flip.transition.out {
-  -webkit-animation-name: verticalFlip;
-  animation-name: verticalFlip;
-}
-.ui.vertical.flip.transition.out {
-  -webkit-animation-name: verticalFlipOut;
-  animation-name: verticalFlipOut;
-}
-/*--------------
-      Fades
----------------*/
-.ui.fade.transition.in {
-  -webkit-animation-name: fade;
-  animation-name: fade;
-}
-.ui.fade.transition.out {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
-}
-.ui.fade.up.transition.in {
-  -webkit-animation-name: fadeUp;
-  animation-name: fadeUp;
-}
-.ui.fade.up.transition.out {
-  -webkit-animation-name: fadeUpOut;
-  animation-name: fadeUpOut;
-}
-.ui.fade.down.transition.in {
-  -webkit-animation-name: fadeDown;
-  animation-name: fadeDown;
-}
-.ui.fade.down.transition.out {
-  -webkit-animation-name: fadeDownOut;
-  animation-name: fadeDownOut;
-}
-/*--------------
-      Scale
----------------*/
-.ui.scale.transition.in {
-  -webkit-animation-name: scale;
-  animation-name: scale;
-}
-.ui.scale.transition.out {
-  -webkit-animation-name: scaleOut;
-  animation-name: scaleOut;
-}
-/*--------------
-     Slide
----------------*/
-.ui.slide.down.transition.in {
-  -webkit-animation-name: slide;
-  animation-name: slide;
-  transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  -webkit-transform-origin: 50% 0%;
-}
-.ui.slide.down.transition.out {
-  -webkit-animation-name: slideOut;
-  animation-name: slideOut;
-  -webkit-transform-origin: 50% 0%;
-  -ms-transform-origin: 50% 0%;
-  transform-origin: 50% 0%;
-}
-.ui.slide.up.transition.in {
-  -webkit-animation-name: slide;
-  animation-name: slide;
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-}
-.ui.slide.up.transition.out {
-  -webkit-animation-name: slideOut;
-  animation-name: slideOut;
-  -webkit-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-}
-@keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-}
-@-webkit-keyframes slideOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-}
-@keyframes slideOut {
-  0% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-  }
-}
-/*******************************
-       Animations
-*******************************/
-/*--------------
-    Emphasis
----------------*/
 /* Flash */
 @-webkit-keyframes flash {
   0%,
@@ -440,8 +429,111 @@
   }
 }
 /*--------------
+     Slide
+---------------*/
+.ui.slide.down.transition.in {
+  -webkit-animation-name: slide;
+  animation-name: slide;
+  transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+}
+.ui.slide.down.transition.out {
+  -webkit-animation-name: slideOut;
+  animation-name: slideOut;
+  -webkit-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+}
+.ui.slide.up.transition.in {
+  -webkit-animation-name: slide;
+  animation-name: slide;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+.ui.slide.up.transition.out {
+  -webkit-animation-name: slideOut;
+  animation-name: slideOut;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+}
+@-webkit-keyframes slideOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+  }
+}
+/*--------------
      Flips
 ---------------*/
+.ui.flip.transition.in,
+.ui.flip.transition.out {
+  -webkit-perspective: 2000px;
+  -ms-perspective: 2000px;
+  perspective: 2000px;
+}
+.ui.horizontal.flip.transition.in,
+.ui.horizontal.flip.transition.out {
+  -webkit-animation-name: horizontalFlip;
+  animation-name: horizontalFlip;
+}
+.ui.horizontal.flip.transition.out {
+  -webkit-animation-name: horizontalFlipOut;
+  animation-name: horizontalFlipOut;
+}
+.ui.vertical.flip.transition.in,
+.ui.vertical.flip.transition.out {
+  -webkit-animation-name: verticalFlip;
+  animation-name: verticalFlip;
+}
+.ui.vertical.flip.transition.out {
+  -webkit-animation-name: verticalFlipOut;
+  animation-name: verticalFlipOut;
+}
 /* Horizontal */
 @-webkit-keyframes horizontalFlip {
   0% {
@@ -542,8 +634,32 @@
   }
 }
 /*--------------
-     Fades
+      Fades
 ---------------*/
+.ui.fade.transition.in {
+  -webkit-animation-name: fade;
+  animation-name: fade;
+}
+.ui.fade.transition.out {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+.ui.fade.up.transition.in {
+  -webkit-animation-name: fadeUp;
+  animation-name: fadeUp;
+}
+.ui.fade.up.transition.out {
+  -webkit-animation-name: fadeUpOut;
+  animation-name: fadeUpOut;
+}
+.ui.fade.down.transition.in {
+  -webkit-animation-name: fadeDown;
+  animation-name: fadeDown;
+}
+.ui.fade.down.transition.out {
+  -webkit-animation-name: fadeDownOut;
+  animation-name: fadeDownOut;
+}
 /* Fade */
 @-webkit-keyframes fade {
   0% {
@@ -678,6 +794,14 @@
 /*--------------
       Scale
 ---------------*/
+.ui.scale.transition.in {
+  -webkit-animation-name: scale;
+  animation-name: scale;
+}
+.ui.scale.transition.out {
+  -webkit-animation-name: scaleOut;
+  animation-name: scaleOut;
+}
 /* Scale */
 @-webkit-keyframes scale {
   0% {
@@ -727,3 +851,6 @@
     transform: scale(0.7);
   }
 }
+/*******************************
+           Overrides
+*******************************/

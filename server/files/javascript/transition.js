@@ -4,9 +4,23 @@ semantic.transition = {};
 semantic.transition.ready = function() {
 
   // selector cache
-  var 
+  var
+    $tab = $('.main.container .secondary.menu .item'),
     handler
   ;
+
+  // event handlers
+  handler = {
+
+  };
+
+
+  $tab
+    .tab({
+      context: 'parent'
+    })
+  ;
+
 };
 
 

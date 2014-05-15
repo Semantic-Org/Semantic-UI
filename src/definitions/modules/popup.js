@@ -805,7 +805,7 @@ $.fn.popup.settings = {
 
   name           : 'Popup',
 
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
   namespace      : 'popup',

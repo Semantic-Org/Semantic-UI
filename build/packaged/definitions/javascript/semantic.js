@@ -9497,7 +9497,7 @@ $.fn.popup.settings = {
 
   name           : 'Popup',
 
-  debug          : true,
+  debug          : false,
   verbose        : true,
   performance    : true,
   namespace      : 'popup',
@@ -12824,9 +12824,10 @@ $.tab = $.fn.tab = function(parameters) {
     queryArguments  = [].slice.call(arguments, 1),
     returnedValue
   ;
+
+
   $allModules
     .each(function() {
-
       var
         settings           = $.extend(true, {}, $.fn.tab.settings, parameters),
 
@@ -12845,6 +12846,7 @@ $.tab = $.fn.tab = function(parameters) {
         firstLoad          = true,
         recursionDepth     = 0,
 
+        $context,
         activeTabPath,
         parameterArray,
         historyEvent,
@@ -12860,7 +12862,7 @@ $.tab = $.fn.tab = function(parameters) {
           module.debug('Initializing tab menu item', $module);
 
           if(settings.context) {
-            $tabs = $(settings.context).children(selector.tabs);
+            module.determineTabs();
             module.debug('Using only tabs inside context', settings.context, $tabs);
           }
 
@@ -12882,6 +12884,35 @@ $.tab = $.fn.tab = function(parameters) {
 
           module.initializeHistory();
           module.instantiate();
+        },
+
+        determineTabs: function() {
+          var
+            $reference
+          ;
+          if(settings.context === 'parent') {
+            if($module.closest('.' + className.ui).size() > 0) {
+              $reference = $module.closest('.' + className.ui);
+              module.verbose('Using closest UI element for determining parent', $reference);
+            }
+            else {
+              $reference = $module;
+            }
+            $context = $reference.parent();
+            module.verbose('Determining parent element for creating context', $context);
+          }
+          else {
+            $context = $(settings.context);
+            module.verbose('Using selector for tab context', settings.context, $context);
+          }
+          if(settings.childrenOnly) {
+            $tabs = $context.children(selector.tabs);
+            module.debug('Searching tab context children for tabs', $context, $tabs);
+          }
+          else {
+            $tabs = $context.find(selector.tabs);
+            module.debug('Searching tab context for tabs', $context, $tabs);
+          }
         },
 
         initializeHistory: function() {
@@ -13443,7 +13474,6 @@ $.tab = $.fn.tab = function(parameters) {
       }
     })
   ;
-
   return (returnedValue !== undefined)
     ? returnedValue
     : this
@@ -13461,8 +13491,8 @@ $.fn.tab.settings = {
   name        : 'Tab',
   namespace   : 'tab',
 
+  debug       : true,
   verbose     : true,
-  debug       : false,
   performance : true,
 
   // only called first time a tab's content is loaded (when remote source)
@@ -13482,6 +13512,7 @@ $.fn.tab.settings = {
   path            : false,
 
   context         : false,
+  childrenOnly    : false,
 
   // max depth a tab can be nested
   maxDepth        : 25,
@@ -13512,7 +13543,8 @@ $.fn.tab.settings = {
 
   className   : {
     loading : 'loading',
-    active  : 'active'
+    active  : 'active',
+    ui      : 'ui'
   },
 
   selector    : {

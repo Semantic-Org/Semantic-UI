@@ -1,6 +1,8 @@
 ---
 layout      : 'default'
 css         : 'transition'
+element     : 'transition'
+elementType : 'module'
 
 title       : 'Transition'
 description : 'A transition is an animation usually used to move content in or out of view'
@@ -8,120 +10,151 @@ type        : 'UI Module'
 ---
 
 <%- @partial('header', { tabs: 'module' }) %>
+<script src="/javascript/transition.js"></script>
 
 <div class="main container">
 
   <div class="ui active tab" data-tab="definition">
-    <div class="fixed column">
-      <img src="/images/cat2.png" class="ui cat image">
+    <div class="ui secondary menu">
+      <a class="active item" data-tab="standard">Standard</a>
+      <a class="item" data-tab="items">Items</a>
     </div>
-    <div class="examples">
+    <div class="fixed column">
+      <div class="demo content">
+        <img src="/images/cat.png" class="ui cat image">
+        <img src="/images/dog.png" class="ui hidden transition dog image">
+      </div>
+    </div>
+    <div class="ui active tab" data-tab="standard">
+      <div class="examples">
+        <h2 class="ui dividing header">Animations</h2>
 
-      <h2 class="ui dividing header">Types</h2>
+        <h3>Emphasis</h3>
+        <div class="no example">
+          <h4 class="ui header">Flash</h4>
+          <p>An element can flash to draw attention to itself</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('flash')
+          ;
+          </div>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">Shake</h4>
+          <p>An element can shake to draw attention to its position</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('shake')
+          ;
+          </div>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">Pulse</h4>
+          <p>An element can pulse to draw attention to its visibility</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('pulse')
+          ;
+          </div>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">Tada</h4>
+          <p>An element can give user positive feedback for an action</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('tada')
+          ;
+          </div>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">Bounce</h4>
+          <p>An element can bounce to politely remind you of itself</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('bounce')
+          ;
+          </div>
+        </div>
 
-      <h3>Emphasis</h3>
-      <div class="no example">
-        <h4 class="ui header">Flash</h4>
-        <p>An element can flash to draw attention to itself</p>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('flash')
-        ;
+        <h3>Appearance</h3>
+        <div class="no example">
+          <h4 class="ui header">Flip</h4>
+          <p>An element can flip into or out of view vertically or horizontally</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('horizontal flip')
+          ;
+          </div>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('vertical flip')
+          ;
+          </div>
         </div>
-      </div>
-      <div class="no example">
-        <h4 class="ui header">Shake</h4>
-        <p>An element can shake to draw attention to its position</p>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('shake')
-        ;
+        <div class="no example">
+          <h4 class="ui header">Fade</h4>
+          <p>An element can fade into or out of view descending and ascending</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('fade')
+          ;
+          </div>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('fade up')
+          ;
+          </div>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('fade down')
+          ;
+          </div>
         </div>
-      </div>
-      <div class="no example">
-        <h4 class="ui header">Pulse</h4>
-        <p>An element can pulse to draw attention to its visibility</p>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('pulse')
-        ;
+        <div class="no example">
+          <h4 class="ui header">Scale</h4>
+          <p>An element can scale into or out of view</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('scale')
+          ;
+          </div>
         </div>
-      </div>
-      <div class="no example">
-        <h4 class="ui header">Tada</h4>
-        <p>An element can give user positive feedback for an action</p>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('tada')
-        ;
-        </div>
-      </div>
-      <div class="no example">
-        <h4 class="ui header">Bounce</h4>
-        <p>An element can bounce to politely remind you of itself</p>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('bounce')
-        ;
-        </div>
-      </div>
 
-      <h3>Appearance</h3>
-      <div class="no example">
-        <h4 class="ui header">Flip</h4>
-        <p>An element can flip into or out of view vertically or horizontally</p>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('horizontal flip')
-        ;
-        </div>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('vertical flip')
-        ;
-        </div>
-      </div>
-      <div class="no example">
-        <h4 class="ui header">Fade</h4>
-        <p>An element can fade into or out of view descending and ascending</p>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('fade')
-        ;
-        </div>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('fade up')
-        ;
-        </div>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('fade down')
-        ;
+        <div class="no example">
+          <h4 class="ui header">Slide</h4>
+          <p>An element can appear to slide in from above or below
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('slide down')
+          ;
+          </div>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('slide up')
+          ;
+          </div>
         </div>
       </div>
-      <div class="no example">
-        <h4 class="ui header">Scale</h4>
-        <p>An element can scale into or out of view</p>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('scale')
-        ;
-        </div>
-      </div>
+    </div>
+    <div class="ui tab" data-tab="items">
+      <div class="examples">
 
-      <div class="no example">
-        <h4 class="ui header">Slide</h4>
-        <p>An element can appear to slide in from above or below
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('slide down')
-        ;
+        <h3 class="ui dividing header">Items</h3>
+
+        <div class="ui info message">
+          Different animations are available as extra themes, which can be used ontop of the default Semantic packages. These themes are part of an addition <code>item</code> theme.
         </div>
-        <div class="code" data-demo="true">
-        $('.cat.image')
-          .transition('slide up')
-        ;
+
+        <div class="no example">
+          <h4 class="ui header">Browse</h4>
+          <div class="code" data-demo="true">
+          $('.demo.content .image:visible')
+            .transition('browse out left')
+          ;
+          $('.demo.content .image:hidden')
+            .transition('browse in')
+          ;
+          </div>
         </div>
       </div>
     </div>

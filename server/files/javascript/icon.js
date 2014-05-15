@@ -1,7 +1,7 @@
-semantic.shape = {};
+semantic.icon = {};
 
 // ready event
-semantic.shape.ready = function() {
+semantic.icon.ready = function() {
 
   // selector cache
   var
@@ -24,5 +24,5 @@ semantic.shape.ready = function() {
 
 // attach ready event
 $(document)
-  .ready(semantic.shape.ready)
+  .ready(semantic.icon.ready)
 ;

@@ -173,13 +173,6 @@ module.exports = function(grunt) {
       options: {
         spawn: false
       },
-      scripts: {
-        files: [
-          'test/**/*.js',
-          'src/definitions/**/*.js'
-        ],
-        tasks : testWatchTasks
-      },
       src: {
         files: [
           'build/examples/**/*',
