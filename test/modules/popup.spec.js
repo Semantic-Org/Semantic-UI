@@ -1,4 +1,4 @@
-describe("UI Popup", function() {
+xdescribe("UI Popup", function() {
 
   moduleTests({
     module  : 'popup',
