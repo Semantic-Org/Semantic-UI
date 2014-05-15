@@ -4,7 +4,7 @@
 
 @transitionDefaultEasing: @defaultEasing;
 @transitionDefaultFill: both;
-@transitionDefaultDuration: 1s;
+@transitionDefaultDuration: 500ms;
 
 @use3DAcceleration: translateZ(0);
 @backfaceVisibility: hidden;
