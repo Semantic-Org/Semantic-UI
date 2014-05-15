@@ -99,7 +99,7 @@ module.exports = function(grunt) {
       'copy:buildToRTL',
 
       // create rtl release
-      'cssjanus:rtl'
+      'rtlcss:rtl'
     ],
 
     docTasks = [
@@ -292,7 +292,7 @@ module.exports = function(grunt) {
       }
     },
 
-    cssjanus: {
+    rtlcss: {
       rtl: {
         expand : true,
         cwd    : 'build/',
@@ -688,7 +688,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-docco-multi');
-  grunt.loadNpmTasks('grunt-cssjanus');
+  grunt.loadNpmTasks('grunt-rtlcss');
   grunt.loadNpmTasks('grunt-clear');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-karma-coveralls');

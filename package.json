@@ -34,7 +34,7 @@
     "grunt-contrib-uglify": "x.x.x",
     "grunt-contrib-watch": "x.x.x",
     "grunt-css": "x.x.x",
-    "grunt-cssjanus": "x.x.x",
+    "grunt-rtlcss": "x.x.x",
     "grunt-docco": "x.x.x",
     "grunt-docco-multi": "x.x.x",
     "grunt-karma": "x.x.x",
