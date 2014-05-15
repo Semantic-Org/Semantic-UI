@@ -79,7 +79,7 @@ body {
 #feed .middle.column h2 {
   margin-top: 0em;
 }
-
+/*rtl:ignore*/
 #feed .right.column {
   padding: 1em 2em;
   background-color: #FAFAFA;
@@ -97,6 +97,7 @@ body {
 }
 
 @media only screen and (max-width : 1250px) {
+  /*rtl:ignore*/
   #feed .left.column > .menu .item {
     font-size: 1rem;
   }

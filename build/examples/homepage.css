@@ -66,7 +66,7 @@ p a {
 /*******************************
             Global
 *******************************/
-
+/*rtl:ignore*/
 .menu .right.menu > .mobile.item {
   display: none;
 }
@@ -136,11 +136,11 @@ p a {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-
+  /*rtl:ignore*/
   .menu .right.menu > .item {
     display: none;
   }
-
+  /*rtl:ignore*/
   .menu .right.menu > .mobile.item {
     display: block;
   }
@@ -182,7 +182,7 @@ p a {
   .masthead.segment .column p {
     display: none;
   }
-
+  /*rtl:ignore*/
   .selection.list .right.floated {
     display: none;
   }
