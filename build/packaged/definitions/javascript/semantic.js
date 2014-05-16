@@ -12829,7 +12829,9 @@ $.tab = $.fn.tab = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings           = $.extend(true, {}, $.fn.tab.settings, parameters),
+        settings          = ( $.isPlainObject(parameters) )
+          ? $.extend(true, {}, $.fn.tab.settings, parameters)
+          : $.extend({}, $.fn.tab.settings),
 
         className          = settings.className,
         metadata           = settings.metadata,
@@ -12985,6 +12987,7 @@ $.tab = $.fn.tab = function(parameters) {
                 tabPath   = event.pathNames.join('/') || module.get.initialPath(),
                 pageTitle = settings.templates.determineTitle(tabPath) || false
               ;
+              module.performance.display();
               module.debug('History change event', tabPath, event);
               historyEvent = event;
               if(tabPath !== undefined) {
@@ -13041,7 +13044,6 @@ $.tab = $.fn.tab = function(parameters) {
               : module.get.defaultPathArray(tabPath)
           ;
           tabPath = module.utilities.arrayToPath(pathArray);
-          module.deactivate.all();
           $.each(pathArray, function(index, tab) {
             var
               currentPathArray   = pathArray.slice(0, index + 1),
@@ -13182,14 +13184,22 @@ $.tab = $.fn.tab = function(parameters) {
               $tab = module.get.tabElement(tabPath)
             ;
             module.verbose('Showing tab content for', $tab);
-            $tab.addClass(className.active);
+            $tab
+              .addClass(className.active)
+              .siblings($tabs)
+                .removeClass(className.active + ' ' + className.loading)
+            ;
           },
           navigation: function(tabPath) {
             var
               $navigation = module.get.navElement(tabPath)
             ;
             module.verbose('Activating tab navigation for', $navigation, tabPath);
-            $navigation.addClass(className.active);
+            $navigation
+              .addClass(className.active)
+              .siblings($allModules)
+                .removeClass(className.active + ' ' + className.loading)
+            ;
           }
         },
 
@@ -13507,7 +13517,7 @@ $.fn.tab.settings = {
 
   // uses pjax style endpoints fetching content from same url with remote-content headers
   auto            : false,
-  history         : true,
+  history         : false,
   historyType     : 'hash',
   path            : false,
 
@@ -13516,12 +13526,16 @@ $.fn.tab.settings = {
 
   // max depth a tab can be nested
   maxDepth        : 25,
+
   // dont load content on first load
   ignoreFirstLoad : false,
+
   // load tab content new every tab click
   alwaysRefresh   : false,
+
   // cache the content requests to pull locally
   cache           : true,
+
   // settings for api call
   apiSettings     : false,
 
@@ -14346,7 +14360,7 @@ $.fn.transition.settings = {
 
   // animation duration
   animation  : 'fade',
-  duration   : '700ms',
+  duration   : '500ms',
 
   // new animations will occur after previous ones
   queue       : true,

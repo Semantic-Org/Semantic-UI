@@ -200,7 +200,6 @@
   animation: loaderFlipping 1s infinite ease;
   margin-bottom: 1em;
   -webkit-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 .ui.flipping.loader .shape:before,
@@ -212,20 +211,17 @@
   -webkit-box-shadow: 0px 0px 0px 1px;
   box-shadow: 0px 0px 0px 1px;
   -webkit-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 .ui.flipping.loader .shape:before {
   background-color: #39cccc;
   -webkit-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
   transform: rotateY(0deg);
   z-index: 2;
 }
 .ui.flipping.loader .shape:after {
   background-color: #555555;
   -webkit-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 /* Circular */

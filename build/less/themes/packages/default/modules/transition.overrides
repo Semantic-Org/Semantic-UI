@@ -149,7 +149,6 @@
 
 .ui.flip.transition.in,
 .ui.flip.transition.out {
-  -webkit-perspective: 2000px;
   perspective: 2000px;
 }
 .ui.horizontal.flip.transition.in,
@@ -332,5 +331,116 @@
   100% {
     opacity: 0;
     transform: scale(0.7);
+  }
+}
+
+/*--------------
+     Drop
+---------------*/
+
+.ui.drop.transition {
+  transform-origin: top center;
+  animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
+}
+.ui.drop.transition.in {
+  animation-name: dropIn;
+}
+.ui.drop.transition.out {
+  animation-name: dropOut;
+}
+
+/* Scale */
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes dropOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/*--------------
+     Browse
+---------------*/
+
+.ui.browse.transition.in {
+  animation-name: browseIn;
+  animation-timing-function: ease;
+}
+.ui.browse.transition.out.left {
+  animation-name: browseOutLeft;
+  animation-timing-function: ease;
+}
+.ui.browse.transition.out.right {
+  animation-name: browseOutRight;
+  animation-timing-function: ease;
+}
+
+@keyframes browseIn {
+  0% {
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+  }
+  10% {
+    transform: scale(0.8) translateZ(0px);
+    z-index: -1;
+    opacity: 0.7;
+  }
+  80% {
+    transform: scale(1.05) translateZ(0px);
+    opacity: 1;
+    z-index: 999;
+  }
+  100% {
+    transform: scale(1) translateZ(0px);
+    z-index: 999;
+  }
+}
+@keyframes browseOutLeft {
+  0% {
+    z-index: 999;
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    z-index: 1;
+    transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    z-index: 1;
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
+  }
+}
+@keyframes browseOutRight {
+  0% {
+    z-index: 999;
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    z-index: 1;
+    transform: translateX(105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    z-index: 1;
+    transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
+    opacity: 0;
   }
 }

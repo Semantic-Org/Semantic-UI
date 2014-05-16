@@ -191,7 +191,6 @@ i.icon {
   box-sizing: border-box;
   font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 /*******************************

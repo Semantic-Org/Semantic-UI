@@ -790,7 +790,7 @@ $.fn.transition.settings = {
 
   // animation duration
   animation  : 'fade',
-  duration   : '700ms',
+  duration   : '500ms',
 
   // new animations will occur after previous ones
   queue       : true,
