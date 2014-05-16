@@ -21,7 +21,7 @@
 @boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
 
 /* Icon */
-@iconDistance: 0.75em;
+@iconDistance: 0.5em;
 @iconSize: 2em;
 @iconVerticalAlign: middle;
 
@@ -44,7 +44,7 @@
 @arrowBackgroundColor: @backgroundColor;
 @arrowTopOffset: 50%;
 @arrowRightOffset: 0em;
-@arrowBorderColor: rgba(0, 0, 0, 0.2);
+@arrowBorderColor: rgba(0, 0, 0, 0.1);
 
 
 /*-------------------
@@ -74,7 +74,7 @@
 @activeBackgroundColor: #F0F0F0;
 @activeBackground: @activeBackgroundColor;
 
-@activeColor: @darkTextColor;
+@activeColor: @linkColor;
 @activeIconColor: @darkTextColor;
 
 /* Disabled */
