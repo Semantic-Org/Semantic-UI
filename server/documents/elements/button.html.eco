@@ -8,7 +8,7 @@ title       : 'Button'
 description : 'Buttons indicate a possible user action.'
 type        : 'UI Element'
 
-themes      : ['default', 'basic', 'chubby', 'amazon', 'github']
+themes      : ['Default', 'Basic', 'Chubby', 'Amazon', 'GitHub']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/button.less" />
 <script src="/javascript/button.js"></script>
@@ -299,6 +299,13 @@ themes      : ['default', 'basic', 'chubby', 'amazon', 'github']
     <p>A button can reduce its padding to fit into tighter spaces</p>
     <div class="compact ui button">
       Hold
+    </div>
+    <div class="ui compact icon button">
+      <i class="pause icon"></i>
+    </div>
+    <div class="ui compact labeled icon button">
+      <i class="pause icon"></i>
+      Pause
     </div>
   </div>
 

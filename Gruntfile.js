@@ -28,6 +28,19 @@ module.exports = function(grunt) {
       'concat:createDocsJSPackage'
     ],
 
+    staticWatchTasks = [
+
+      // copies assets and js over to docs
+      'copy:srcToDocs',
+      'copy:themesToDocs',
+
+      // copies examples over to docs
+      'copy:examplesToDocs',
+
+      // create concatenated js release
+      'concat:createDocsJSPackage'
+    ],
+
     testWatchTasks = [
       'clear',
       'karma:watch:run'
@@ -173,14 +186,17 @@ module.exports = function(grunt) {
       options: {
         spawn: false
       },
-      src: {
+      js: {
         files: [
-          'build/examples/**/*',
-          'src/semantic.config',
-          'src/definitions/**/*.less',
           'src/definitions/**/*.js',
           'src/themes/**/*.variables',
           'src/themes/**/*.overrides'
+        ],
+        tasks : staticWatchTasks
+      },
+      styles: {
+        files: [
+          'src/definitions/**/*.less'
         ],
         tasks : watchTasks
       }

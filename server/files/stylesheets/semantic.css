@@ -1080,16 +1080,16 @@ body.guide .main.container > * {
 }
 
 #example .example:first-child,
-#example h2 + .example,
-#example h3 + .example,
-#example h4 + .example {
+#example h2 ~ .example,
+#example h3 ~ .example,
+#example h4 ~ .example {
   margin-top: 0px;
   padding-top: 0px;
   border-top: none;
 }
-#example h2 + .example i.code,
-#example h3 + .example i.code,
-#example h4 + .example i.code {
+#example h2 ~ .example i.code,
+#example h3 ~ .example i.code,
+#example h4 ~ .example i.code {
   top: 0px;
 }
 #example .example > h4 {

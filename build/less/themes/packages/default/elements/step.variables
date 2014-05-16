@@ -1,0 +1,82 @@
+/*-------------------
+        Step
+--------------------*/
+
+@verticalPadding: 0.8em;
+@horizontalPadding: 1.75em;
+@leftPadding: @horizontalPadding + (@arrowSize /2);
+
+@transition:
+  background-color 0.1s ease,
+  opacity 0.1s ease,
+  color 0.1s ease,
+  box-shadow 0.1s ease
+;
+@borderRadius: 0.3125em;
+@lineHeight: 1.2;
+
+@backgroundColor: #FFFFFF;
+@background: @backgroundColor;
+
+@boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+
+/* Icon */
+@iconDistance: 0.75em;
+@iconSize: 2em;
+@iconVerticalAlign: middle;
+
+/* Title */
+@titleFontFamily: @headerFont;
+@titleFontWeight: bold;
+@titleFontSize: 1.1em;
+@titleColor: @darkTextColor;
+
+/* Description */
+@descriptionDistance: 0.2em;
+@descriptionFontSize: 1em;
+@descriptionFontWeight: normal;
+@descriptionColor: @textColor;
+
+
+/* Arrow */
+@arrowWidth: 1em;
+@arrowSize: 1.5em;
+@arrowBackgroundColor: @backgroundColor;
+@arrowTopOffset: 50%;
+@arrowRightOffset: 0em;
+@arrowBoxShadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+
+
+/*-------------------
+       Group
+--------------------*/
+
+@stepsBackground: '';
+@stepsBoxShadow: none;
+
+
+/*-------------------
+       States
+--------------------*/
+
+/* Hover */
+@hoverBackground: #FFFFFF;
+@hoverColor: @selectedTextColor;
+
+/* Down */
+@downBackground: #F0F0F0;
+@downColor: @selectedTextColor;
+
+/* Active */
+@activeBackgroundColor: #F0F0F0;
+@activeBackground: @activeBackgroundColor;
+@activeColor: @selectedTextColor;
+@activeFontWeight: bold;
+
+/* Disabled */
+@disabledBackground: @backgroundColor;
+@disabledColor: @disabledTextColor;
+
+@small: 0.9rem;
+@medium: 1rem;
+@large: 1.1rem;

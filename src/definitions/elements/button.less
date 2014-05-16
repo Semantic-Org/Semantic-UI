@@ -551,8 +551,16 @@
   padding: @compactVerticalPadding @compactHorizontalPadding ( @compactVerticalPadding + @shadowOffset );
 }
 .ui.compact.icon.buttons .button,
-.ui.compact.buttons .icon.button {
+.ui.compact.icon.button {
   padding: @compactVerticalPadding @compactVerticalPadding ( @compactVerticalPadding + @shadowOffset );
+}
+.ui.compact.labeled.icon.buttons .button,
+.ui.compact.labeled.icon.button {
+  padding: @compactVerticalPadding (@compactHorizontalPadding + @labeledIconWidth) ( @compactVerticalPadding + @shadowOffset );
+}
+.ui.compact.labeled.icon.buttons > .button > .icon,
+.ui.compact.labeled.icon.button > .icon {
+  padding-top: (@compactVerticalPadding + @iconOffset) !important;
 }
 
 /*-------------------
@@ -642,7 +650,9 @@
   opacity: @iconButtonOpacity;
   margin: 0em;
 }
-.ui.icon.buttons .button > .icon {
+.ui.icon.buttons .button > .icon,
+.ui.icon.button > .icon {
+  height: 0em;
   vertical-align: top;
 }
 
@@ -663,7 +673,7 @@
   box-shadow: @basicBoxShadow;
 }
 .ui.basic.labeled.icon.button > .icon {
-  padding-top: (@verticalPadding + @basicIconOffset) !important;
+  padding-top: (@verticalPadding + @iconOffset) !important;
 }
 .ui.basic.buttons {
   box-shadow: @basicGroupBoxShadow;
@@ -754,7 +764,7 @@
 
   width: @labeledIconWidth;
   height: 100%;
-  padding-top: (@verticalPadding + @basicIconOffset);
+  padding-top: (@verticalPadding + @iconOffset);
 
   background-color: @labeledIconBackgroundColor;
   text-align: center;

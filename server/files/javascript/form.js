@@ -5,7 +5,6 @@ semantic.validateForm.ready = function() {
 
   // selector cache
   var
-    $checkbox = $('.ui.checkbox'),
     // alias
     handler
   ;
@@ -14,10 +13,6 @@ semantic.validateForm.ready = function() {
   handler = {
 
   };
-
-  $checkbox
-    .checkbox()
-  ;
 
 
 };

@@ -10,95 +10,134 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'step';
+
+@import '../../semantic.config';
+
+
+/*******************************
             Step
 *******************************/
 
-.ui.step,
 .ui.steps .step {
   display: inline-block;
   position: relative;
-  padding: 1em 2em 1em 3em;
+  padding: @verticalPadding @horizontalPadding @verticalPadding @leftPadding;
 
   vertical-align: top;
-  background-color: #FFFFFF;
-  color: #888888;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
+  background: @background;
+  color: @textColor;
+  box-shadow: @boxShadow;
 }
-.ui.step:after,
 .ui.steps .step:after {
   position: absolute;
   z-index: 2;
   content: '';
-  top: 0.42em;
-  right: -1em;
+  top: @arrowTopOffset;
+  right: @arrowRightOffset;
   border: medium none;
-  background-color: #FFFFFF;
-  width: 2.2em;
-  height: 2.2em;
-  transform: rotate(-45deg);
-  box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.15) inset;
+  background-color: @arrowBackgroundColor;
+  width: @arrowSize;
+  height: @arrowSize;
+  transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  box-shadow: @arrowBoxShadow;
 }
 
-.ui.step,
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition:
-    background-color 0.1s ease,
-    opacity 0.1s ease,
-    color 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -moz-transition:
-    background-color 0.1s ease,
-    opacity 0.1s ease,
-    color 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -o-transition:
-    background-color 0.1s ease,
-    opacity 0.1s ease,
-    color 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  -ms-transition:
-    background-color 0.1s ease,
-    opacity 0.1s ease,
-    color 0.1s ease,
-    box-shadow 0.1s ease
-  ;
-  transition:
-    background-color 0.1s ease,
-    opacity 0.1s ease,
-    color 0.1s ease,
-    box-shadow 0.1s ease
-  ;
+  transition: @transition;
+}
+
+
+/*******************************
+            Content
+*******************************/
+
+/* Title */
+.ui.steps .step .title {
+  font-family: @titleFontFamily;
+  font-size: @titleFontSize;
+  font-weight: @titleFontWeight;
+}
+
+/* Description */
+.ui.steps .step .description {
+  font-weight: @descriptionFontWeight;
+  font-size: @descriptionFontSize;
+  color: @descriptionColor;
+}
+.ui.steps .step .title ~ .description {
+  margin-top: @descriptionDistance;
+}
+
+/* Icon */
+.ui.steps .step > .icon,
+.ui.steps .step > .icon ~ .content {
+  display: table-cell;
+  vertical-align: top;
+}
+.ui.steps .step > .icon {
+  font-size: @iconSize;
+  margin: 0em;
+  padding-right: @iconDistance;
+  vertical-align: @iconVerticalAlign;
+}
+
+/* Link */
+.ui.steps a.step {
+  cursor: pointer;
 }
 
 /*******************************
             Types
 *******************************/
 
-/* Vertical */
+/*--------------
+     Ordered
+---------------*/
+
+.ui.ordered.steps {
+  counter-reset: ordered;
+}
+.ui.ordered.steps .step:before {
+  display: table-cell;
+  position: static;
+  padding-right: @iconDistance;
+  font-size: @iconSize;
+  counter-increment: ordered;
+  content: counters(ordered, ".");
+}
+
+.ui.ordered.steps .step > * {
+  display: table-cell;
+  vertical-align: top;
+}
+
+
+/*--------------
+    Vertical
+---------------*/
+
 .ui.vertical.steps {
   overflow: visible;
 }
 .ui.vertical.steps .step {
   display: block;
   border-radius: 0em;
-  padding: 1em 2em;
+  padding: @verticalPadding @horizontalPadding;
 }
 .ui.vertical.steps .step:first-child {
-  padding: 1em 2em;
-  border-top-left-radius: 0.3125rem;
-  border-top-right-radius: 0.3125rem;
+  padding: @verticalPadding @horizontalPadding;
+  border-top-left-radius: @borderRadius;
+  border-top-right-radius: @borderRadius;
 }
 .ui.vertical.steps .step:last-child {
-  border-bottom-left-radius: 0.3125rem;
-  border-bottom-right-radius: 0.3125rem;
+  border-bottom-left-radius: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
 }
 
 /* Arrow */
@@ -111,71 +150,34 @@
   display: block;
 }
 
-/* Two Line */
-.ui.vertical.steps .two.line.step {
-  line-height: 1.3;
-}
-.ui.vertical.steps .two.line.active.step:after {
-  position: absolute;
-  z-index: 2;
-  content: '';
-  top: 0em;
-  right: -1.45em;
-
-  background-color: transparent;
-  border-bottom: 2.35em solid transparent;
-  border-left: 1.55em solid #555555;
-  border-top: 2.35em solid transparent;
-
-  width: 0em;
-  height: 0em;
-  transform: none;
-}
-
-
-
 
 /*******************************
             Group
 *******************************/
 
 .ui.steps {
-  cursor: pointer;
   display: inline-block;
   font-size: 0em;
-  overflow: hidden;
 
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  background: @stepsBackground;
+  box-shadow: @stepsBoxShadow;
 
-  line-height: 1;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  line-height: @lineHeight;
   box-sizing: border-box;
-
-  -moz-border-radius: 0.3125rem;
-  -webkit-border-radius: 0.3125rem;
-  border-radius: 0.3125rem;
+  border-radius: @borderRadius;
 }
 
 .ui.steps .step:first-child {
-  padding-left: 1.35em;
-  -webkit-border-radius: 0.3125em 0em 0em 0.3125em;
-  -moz-border-radius: 0.3125em 0em 0em 0.3125em;
-  border-radius: 0.3125em 0em 0em 0.3125em;
+  padding-left: @horizontalPadding;
+  border-radius: @borderRadius 0em 0em @borderRadius;
 }
 .ui.steps .step:last-child {
-  -webkit-border-radius: 0em 0.3125em 0.3125em 0em;
-  -moz-border-radius: 0em 0.3125em 0.3125em 0em;
-  border-radius: 0em 0.3125em 0.3125em 0em;
+  border-radius: 0em @borderRadius @borderRadius 0em;
 }
 .ui.steps .step:only-child {
-  -webkit-border-radius: 0.3125em;
-  -moz-border-radius: 0.3125em;
-  border-radius: 0.3125em;
+  -webkit-border-radius: @borderRadius;
+  -moz-border-radius: @borderRadius;
+  border-radius: @borderRadius;
 }
 
 .ui.steps .step:last-child {
@@ -191,57 +193,51 @@
 *******************************/
 
 /* Hover */
-.ui.step:hover,
-.ui.step.hover {
-  background-color: #F7F7F7;
-  color: rgba(0, 0, 0, 0.8);
-}
-.ui.steps .step.hover:after,
-.ui.steps .step:hover:after,
-.ui.step:hover,
-.ui.step.hover::after {
-  background-color: #F7F7F7;
+.ui.steps a.step:hover::after,
+.ui.steps a.step:hover {
+  background: @hoverBackground;
+  color: @hoverColor;
 }
 
-/* Hover */
-.ui.steps .step.down,
-.ui.steps .step:active,
-.ui.step.down,
-.ui.step:active  {
-  background-color: #F0F0F0;
-}
-.ui.steps .step.down:after,
-.ui.steps .step:active:after,
-.ui.steps.down::after,
-.ui.steps:active::after {
-  background-color: #F0F0F0;
+/* Down */
+.ui.steps a.step:active::after,
+.ui.steps a.step:active {
+  background: @downBackground;
+  color: @downColor;
 }
 
 /* Active */
 .ui.steps .step.active,
 .ui.active.step {
   cursor: auto;
-  background-color: #555555;
+  background: @activeBackground;
 
-  color: #FFFFFF;
-  font-weight: bold;
+  color: @activeColor;
+  font-weight: @activeFontWeight;
 }
 .ui.steps .step.active:after,
 .ui.active.steps:after {
-  background-color: #555555;
-  box-shadow: none;
+  background: @activeBackground;
+}
+
+/* Completed */
+.ui.steps .step.completed > .icon:before,
+.ui.ordered.steps .step.completed:before {
+  color: @positiveColor;
 }
 
 /* Disabled */
-.ui.steps .disabled.step,
-.ui.disabled.step {
+.ui.steps .disabled.step {
   cursor: auto;
-  background-color: #FFFFFF;
-  color: #CBCBCB;
+  background: @disabledBackground;
 }
-.ui.steps .disabled.step:after,
-.ui.disabled.step:after {
-  background-color: #FFFFFF;
+.ui.steps .disabled.step,
+.ui.steps .disabled.step .title,
+.ui.steps .disabled.step .description {
+  color: @disabledColor;
+}
+.ui.steps .disabled.step:after {
+  background: @disabledBackground;
 }
 
 
@@ -252,37 +248,25 @@
 /* Attached */
 .attached.ui.steps {
   margin: 0em;
-  -webkit-border-radius: 0.3125em 0.3125em 0em 0em;
-  -moz-border-radius: 0.3125em 0.3125em 0em 0em;
-  border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .attached.ui.steps .step:first-child {
-  -webkit-border-radius: 0.3125em 0em 0em 0em;
-  -moz-border-radius: 0.3125em 0em 0em 0em;
-  border-radius: 0.3125em 0em 0em 0em;
+  border-radius: @borderRadius 0em 0em 0em;
 }
 .attached.ui.steps .step:last-child {
-  -webkit-border-radius: 0em 0.3125em 0em 0em;
-  -moz-border-radius: 0em 0.3125em 0em 0em;
-  border-radius: 0em 0.3125em 0em 0em;
+  border-radius: 0em @borderRadius 0em 0em;
 }
 
 /* Bottom Side */
 .bottom.attached.ui.steps {
   margin-top: -1px;
-  -webkit-border-radius: 0em 0em 0.3125em 0.3125em;
-  -moz-border-radius: 0em 0em 0.3125em 0.3125em;
-  border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 .bottom.attached.ui.steps .step:first-child {
-  -webkit-border-radius: 0em 0em 0em 0.3125em;
-  -moz-border-radius: 0em 0em 0em 0.3125em;
-  border-radius: 0em 0em 0em 0.3125em;
+  border-radius: 0em 0em 0em @borderRadius;
 }
 .bottom.attached.ui.steps .step:last-child {
-  -webkit-border-radius: 0em 0em 0.3125em 0em;
-  -moz-border-radius: 0em 0em 0.3125em 0em;
-  border-radius: 0em 0em 0.3125em 0em;
+  border-radius: 0em 0em @borderRadius 0em;
 }
 
 
@@ -330,13 +314,15 @@
 
 .ui.small.step,
 .ui.small.steps .step {
-  font-size: 0.8rem;
+  font-size: @small;
 }
 .ui.step,
 .ui.steps .step {
-  font-size: 1rem;
+  font-size: @medium;
 }
 .ui.large.step,
 .ui.large.steps .step {
-  font-size: 1.25rem;
+  font-size: @large;
 }
+
+.loadUIOverrides();

@@ -64,6 +64,7 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
               .data(moduleNamespace, module)
             ;
+            console.log($module, $input, 'keydown');
             $input
               .on('keydown' + eventNamespace, module.event.keydown)
             ;
@@ -112,7 +113,9 @@ $.fn.checkbox = function(parameters) {
               ;
             }
             if(!event.ctrlKey && key == keyCode.enter) {
+              module.verbose('Enter key pressed, toggling checkbox');
               $.proxy(module.toggle, this)();
+              event.preventDefault();
             }
           }
         },

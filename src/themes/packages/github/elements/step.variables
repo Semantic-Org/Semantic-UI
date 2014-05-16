@@ -1,0 +1,20 @@
+/*-------------------
+   Step Variables
+--------------------*/
+
+/* Step */
+@background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+@verticalPadding: 1em;
+
+/* Group */
+@stepsBackground: #FFFFFF;
+@stepsBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
+
+/* States */
+@activeBackground: #FFFFFF;
+@activeColor: @linkColor;
+@activeIconColor: @darkTextColor;
+
+/* Arrow */
+@arrowTopOffset: 100%;
+@arrowRightOffset: 50%;

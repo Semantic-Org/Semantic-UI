@@ -112,7 +112,9 @@ $.fn.checkbox = function(parameters) {
               ;
             }
             if(!event.ctrlKey && key == keyCode.enter) {
+              module.verbose('Enter key pressed, toggling checkbox');
               $.proxy(module.toggle, this)();
+              event.preventDefault();
             }
           }
         },

@@ -125,7 +125,7 @@
 
 /* Basic */
 @basicBoxShadow: 0px 0px 0px 1px @borderColor;
-@basicIconOffset: 0.05em;
+@iconOffset: 0.05em;
 @basicLoadingColor: #FFFFFF;
 
 @basicHoverBackground: none transparent;

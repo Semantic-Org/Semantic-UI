@@ -693,8 +693,16 @@
   padding: 0.6em 1.125em 0.6em;
 }
 .ui.compact.icon.buttons .button,
-.ui.compact.buttons .icon.button {
+.ui.compact.icon.button {
   padding: 0.6em 0.6em 0.6em;
+}
+.ui.compact.labeled.icon.buttons .button,
+.ui.compact.labeled.icon.button {
+  padding: 0.6em 3.955em 0.6em;
+}
+.ui.compact.labeled.icon.buttons > .button > .icon,
+.ui.compact.labeled.icon.button > .icon {
+  padding-top: 0.65em !important;
 }
 /*-------------------
         Sizes

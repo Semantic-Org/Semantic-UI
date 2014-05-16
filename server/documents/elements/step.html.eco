@@ -1,20 +1,26 @@
 ---
 layout      : 'default'
 css         : 'steps'
+element     : 'step'
+elementType : 'element'
+
 title       : 'Step'
 description : 'Steps show the current activity in a series of consecutive activities.'
 type        : 'UI Element'
+
+themes      : ['default', 'GitHub']
 ---
 
 <%- @partial('header') %>
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/step.less" />
 
 <div class="main container">
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Element</a>
-      <a class="item">Groups</a>
       <a class="item">Types</a>
+      <a class="item">Groups</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
     </div>
@@ -25,8 +31,111 @@ type        : 'UI Element'
     <h4 class="ui header">Step</h4>
     <p>A step</p>
     <div class="ui steps">
-      <div class="ui step">
+      <div class="step">
         Shipping
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Descriptive Step</h4>
+    <p>A step can optionally contain a title and description</p>
+    <div class="ui steps">
+      <div class="step">
+        <div class="title">Shipping</div>
+        <div class="description">Choose your shipping options</div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Steps with Icons</h4>
+    <p>A step can optionally contain an icon</p>
+    <div class="ui steps">
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Linkable Steps</h4>
+    <p>A step can be clickable</p>
+    <div class="ui steps">
+      <a class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui steps">
+      <div class="link step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Ordered Steps</h4>
+    <p>A step can show a sequence of events</p>
+    <div class="ui ordered steps">
+      <div class="completed step">
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+      <div class="active step">
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Vertical</h4>
+    <p>Vertical steps display each step stacked vertically</p>
+    <div class="ui vertical steps">
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
       </div>
     </div>
   </div>
@@ -36,42 +145,28 @@ type        : 'UI Element'
     <h4 class="ui header">Steps</h4>
     <p>A set of step</p>
     <div class="ui steps">
-      <div class="ui step">
-        Shipping
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
       </div>
-      <div class="ui active step">
-        Billing
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
       </div>
-      <div class="ui disabled step">
-        Confirm Order
-      </div>
-      <div class="ui disabled step">
-        Complete
-      </div>
-    </div>
-  </div>
-
-  <h2 class="ui dividing header">Types</h2>
-
-  <div class="example">
-    <h4 class="ui header">Vertical</h4>
-    <p>Vertical steps display each step stacked vertically</p>
-    <div class="ui ignored info message">Vertical steps items can include a <code>two line</code> variation to allow for long names or names with line breaks</div>
-    <div class="ui vertical steps">
-      <div class="ui step">
-        Shipping
-      </div>
-      <div class="ui active two line step">
-        Billing & Order <br> Confirmation
-      </div>
-      <div class="ui disabled step">
-        Review
-      </div>
-      <div class="ui disabled step">
-        Receipt
+      <div class="disabled step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
       </div>
     </div>
-  </div>
 
   <h2 class="ui dividing header">States</h2>
 
@@ -79,8 +174,35 @@ type        : 'UI Element'
     <h4 class="ui header">Active</h4>
     <p>A step can be highlighted as active</p>
     <div class="ui steps">
-      <div class="ui active step">
-        Billing
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Completed</h4>
+    <p>A step can show that a user has completed it</p>
+    <div class="ui steps">
+      <div class="completed step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui ordered steps">
+      <div class="completed step">
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
       </div>
     </div>
   </div>
@@ -89,7 +211,7 @@ type        : 'UI Element'
     <h4 class="ui header">Disabled</h4>
     <p>A step can show that it cannot be selected</p>
     <div class="ui steps">
-      <div class="ui disabled step">
+      <div class="disabled step">
         Billing
       </div>
     </div>
@@ -102,32 +224,51 @@ type        : 'UI Element'
     <p>Steps can have different sizes</p>
 
     <div class="ui small steps">
-      <div class="ui active step">
-        Shipping
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
       </div>
-      <div class="ui disabled step">
-        Billing
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
       </div>
-      <div class="ui disabled step">
-        Confirm Order
-      </div>
-      <div class="ui disabled step">
-        Complete
+      <div class="disabled step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
       </div>
     </div>
-    <br><br>
+  </div>
+  <div class="another example">
     <div class="ui large steps">
-      <div class="ui active step">
-        Shipping
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
       </div>
-      <div class="ui disabled step">
-        Billing
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
       </div>
-      <div class="ui disabled step">
-        Confirm Order
-      </div>
-      <div class="ui disabled step">
-        Complete
+      <div class="disabled step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
       </div>
     </div>
   </div>
@@ -136,18 +277,45 @@ type        : 'UI Element'
   <div class="example">
     <h4 class="ui header">Step</h4>
     <p>Steps can be divided evenly inside their parent</p>
-    <div class="ui four steps">
-      <div class="ui active step">
-        Shipping
+    <div class="ui three steps">
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
       </div>
-      <div class="ui disabled step">
-        Billing
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
       </div>
-      <div class="ui disabled step">
-        Confirm Order
+      <div class="disabled step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
       </div>
-      <div class="ui disabled step">
-        Complete
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui two steps">
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
       </div>
     </div>
   </div>
