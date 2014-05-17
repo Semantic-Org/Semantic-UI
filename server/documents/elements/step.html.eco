@@ -18,11 +18,40 @@ themes      : ['default', 'GitHub']
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Element</a>
+      <a class="active item">Groups</a>
+      <a class="item">Element</a>
       <a class="item">Types</a>
-      <a class="item">Groups</a>
       <a class="item">States</a>
       <a class="item">Variations</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Groups</h2>
+  <div class="example">
+    <h4 class="ui header">Steps</h4>
+    <p>A set of step</p>
+    <div class="ui steps">
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+      <div class="active step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -139,34 +168,6 @@ themes      : ['default', 'GitHub']
       </div>
     </div>
   </div>
-
-  <h2 class="ui dividing header">Groups</h2>
-  <div class="example">
-    <h4 class="ui header">Steps</h4>
-    <p>A set of step</p>
-    <div class="ui steps">
-      <div class="step">
-        <i class="truck icon"></i>
-        <div class="content">
-          <div class="title">Shipping</div>
-          <div class="description">Choose your shipping options</div>
-        </div>
-      </div>
-      <div class="active step">
-        <i class="payment icon"></i>
-        <div class="content">
-          <div class="title">Billing</div>
-          <div class="description">Enter billing information</div>
-        </div>
-      </div>
-      <div class="disabled step">
-        <i class="info icon"></i>
-        <div class="content">
-          <div class="title">Confirm Order</div>
-          <div class="description">Verify order details</div>
-        </div>
-      </div>
-    </div>
 
   <h2 class="ui dividing header">States</h2>
 

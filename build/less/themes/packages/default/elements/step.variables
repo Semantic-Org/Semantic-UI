@@ -12,16 +12,16 @@
   color 0.1s ease,
   box-shadow 0.1s ease
 ;
-@borderRadius: 0.3125em;
+@borderRadius: 0.3125rem;
 @lineHeight: 1.2;
 
 @backgroundColor: #FFFFFF;
 @background: @backgroundColor;
 
-@boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+@boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
 
 /* Icon */
-@iconDistance: 0.75em;
+@iconDistance: 0.5em;
 @iconSize: 2em;
 @iconVerticalAlign: middle;
 
@@ -44,7 +44,7 @@
 @arrowBackgroundColor: @backgroundColor;
 @arrowTopOffset: 50%;
 @arrowRightOffset: 0em;
-@arrowBoxShadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+@arrowBorderColor: rgba(0, 0, 0, 0.1);
 
 
 /*-------------------
@@ -52,12 +52,15 @@
 --------------------*/
 
 @stepsBackground: '';
-@stepsBoxShadow: none;
+@stepsBoxShadow: '';
 
 
 /*-------------------
        States
 --------------------*/
+
+/* Completed */
+@completedColor: @positiveColor;
 
 /* Hover */
 @hoverBackground: #FFFFFF;
@@ -70,11 +73,12 @@
 /* Active */
 @activeBackgroundColor: #F0F0F0;
 @activeBackground: @activeBackgroundColor;
-@activeColor: @selectedTextColor;
-@activeFontWeight: bold;
+
+@activeColor: @linkColor;
+@activeIconColor: @darkTextColor;
 
 /* Disabled */
-@disabledBackground: @backgroundColor;
+@disabledBackground: '';
 @disabledColor: @disabledTextColor;
 
 @small: 0.9rem;

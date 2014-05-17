@@ -43,8 +43,9 @@
   background-color: @arrowBackgroundColor;
   width: @arrowSize;
   height: @arrowSize;
+  border-bottom: 1px solid @arrowBorderColor;
+  border-right: 1px solid @arrowBorderColor;
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
-  box-shadow: @arrowBoxShadow;
 }
 
 .ui.steps .step,
@@ -88,6 +89,7 @@
 }
 
 /* Link */
+.ui.steps .link.step,
 .ui.steps a.step {
   cursor: pointer;
 }
@@ -192,14 +194,18 @@
              States
 *******************************/
 
-/* Hover */
+/* Link Hover */
+.ui.steps .link.step:hover::after,
+.ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
   background: @hoverBackground;
   color: @hoverColor;
 }
 
-/* Down */
+/* Link Down */
+.ui.steps .link.step:active::after,
+.ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
   background: @downBackground;
@@ -207,23 +213,25 @@
 }
 
 /* Active */
-.ui.steps .step.active,
-.ui.active.step {
+.ui.steps .step.active {
   cursor: auto;
   background: @activeBackground;
-
-  color: @activeColor;
-  font-weight: @activeFontWeight;
 }
-.ui.steps .step.active:after,
-.ui.active.steps:after {
+.ui.steps .step.active:after {
   background: @activeBackground;
+}
+.ui.steps .step.active .title {
+  color: @activeColor;
+}
+.ui.ordered.steps .step.active:before,
+.ui.steps .active.step .icon {
+  color: @activeIconColor;
 }
 
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: @positiveColor;
+  color: @completedColor;
 }
 
 /* Disabled */

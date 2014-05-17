@@ -64,7 +64,6 @@ $.fn.checkbox = function(parameters) {
               .on('click' + eventNamespace, module.toggle)
               .data(moduleNamespace, module)
             ;
-            console.log($module, $input, 'keydown');
             $input
               .on('keydown' + eventNamespace, module.event.keydown)
             ;

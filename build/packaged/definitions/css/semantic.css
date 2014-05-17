@@ -5118,7 +5118,9 @@ body > .ui.grid {
   opacity: 0.9;
   margin: 0em;
 }
-.ui.icon.buttons .button > .icon {
+.ui.icon.buttons .button > .icon,
+.ui.icon.button > .icon {
+  height: 0em;
   vertical-align: top;
 }
 /*-------------------
@@ -11729,6 +11731,7 @@ a.ui.yellow.label:hover:before {
 /*-------------------
        States
 --------------------*/
+/* Completed */
 /* Hover */
 /* Down */
 /* Active */
@@ -11758,8 +11761,8 @@ a.ui.yellow.label:hover:before {
   vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
 }
 .ui.steps .step:after {
   position: absolute;
@@ -11771,11 +11774,11 @@ a.ui.yellow.label:hover:before {
   background-color: #ffffff;
   width: 1.5em;
   height: 1.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
   -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
-  -webkit-box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: -1px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.steps .step,
 .ui.steps .step:after {
@@ -11809,10 +11812,11 @@ a.ui.yellow.label:hover:before {
 .ui.steps .step > .icon {
   font-size: 2em;
   margin: 0em;
-  padding-right: 0.75em;
+  padding-right: 0.5em;
   vertical-align: middle;
 }
 /* Link */
+.ui.steps .link.step,
 .ui.steps a.step {
   cursor: pointer;
 }
@@ -11828,7 +11832,7 @@ a.ui.yellow.label:hover:before {
 .ui.ordered.steps .step:before {
   display: table-cell;
   position: static;
-  padding-right: 0.75em;
+  padding-right: 0.5em;
   font-size: 2em;
   counter-increment: ordered;
   content: counters(ordered, ".");
@@ -11850,12 +11854,12 @@ a.ui.yellow.label:hover:before {
 }
 .ui.vertical.steps .step:first-child {
   padding: 0.8em 1.75em;
-  border-top-left-radius: 0.3125em;
-  border-top-right-radius: 0.3125em;
+  border-top-left-radius: 0.3125rem;
+  border-top-right-radius: 0.3125rem;
 }
 .ui.vertical.steps .step:last-child {
-  border-bottom-left-radius: 0.3125em;
-  border-bottom-right-radius: 0.3125em;
+  border-bottom-left-radius: 0.3125rem;
+  border-bottom-right-radius: 0.3125rem;
 }
 /* Arrow */
 .ui.vertical.steps .step:after {
@@ -11872,23 +11876,23 @@ a.ui.yellow.label:hover:before {
   display: inline-block;
   font-size: 0em;
   background: '';
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: '';
+  box-shadow: '';
   line-height: 1.2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border-radius: 0.3125em;
+  border-radius: 0.3125rem;
 }
 .ui.steps .step:first-child {
   padding-left: 1.75em;
-  border-radius: 0.3125em 0em 0em 0.3125em;
+  border-radius: 0.3125rem 0em 0em 0.3125rem;
 }
 .ui.steps .step:last-child {
-  border-radius: 0em 0.3125em 0.3125em 0em;
+  border-radius: 0em 0.3125rem 0.3125rem 0em;
 }
 .ui.steps .step:only-child {
-  border-radius: 0.3125em;
+  border-radius: 0.3125rem;
 }
 .ui.steps .step:last-child {
   margin-right: 0em;
@@ -11899,29 +11903,36 @@ a.ui.yellow.label:hover:before {
 /*******************************
              States
 *******************************/
-/* Hover */
+/* Link Hover */
+.ui.steps .link.step:hover::after,
+.ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
 }
-/* Down */
+/* Link Down */
+.ui.steps .link.step:active::after,
+.ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
   background: #f0f0f0;
   color: rgba(0, 0, 0, 0.8);
 }
 /* Active */
-.ui.steps .step.active,
-.ui.active.step {
+.ui.steps .step.active {
   cursor: auto;
   background: #f0f0f0;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: bold;
 }
-.ui.steps .step.active:after,
-.ui.active.steps:after {
+.ui.steps .step.active:after {
   background: #f0f0f0;
+}
+.ui.steps .step.active .title {
+  color: #009fda;
+}
+.ui.ordered.steps .step.active:before,
+.ui.steps .active.step .icon {
+  color: rgba(0, 0, 0, 0.85);
 }
 /* Completed */
 .ui.steps .step.completed > .icon:before,
@@ -11931,7 +11942,7 @@ a.ui.yellow.label:hover:before {
 /* Disabled */
 .ui.steps .disabled.step {
   cursor: auto;
-  background: #ffffff;
+  background: '';
 }
 .ui.steps .disabled.step,
 .ui.steps .disabled.step .title,
@@ -11939,7 +11950,7 @@ a.ui.yellow.label:hover:before {
   color: rgba(0, 0, 0, 0.2);
 }
 .ui.steps .disabled.step:after {
-  background: #ffffff;
+  background: '';
 }
 /*******************************
            Variations
@@ -11947,24 +11958,24 @@ a.ui.yellow.label:hover:before {
 /* Attached */
 .attached.ui.steps {
   margin: 0em;
-  border-radius: 0.3125em 0.3125em 0em 0em;
+  border-radius: 0.3125rem 0.3125rem 0em 0em;
 }
 .attached.ui.steps .step:first-child {
-  border-radius: 0.3125em 0em 0em 0em;
+  border-radius: 0.3125rem 0em 0em 0em;
 }
 .attached.ui.steps .step:last-child {
-  border-radius: 0em 0.3125em 0em 0em;
+  border-radius: 0em 0.3125rem 0em 0em;
 }
 /* Bottom Side */
 .bottom.attached.ui.steps {
   margin-top: -1px;
-  border-radius: 0em 0em 0.3125em 0.3125em;
+  border-radius: 0em 0em 0.3125rem 0.3125rem;
 }
 .bottom.attached.ui.steps .step:first-child {
-  border-radius: 0em 0em 0em 0.3125em;
+  border-radius: 0em 0em 0em 0.3125rem;
 }
 .bottom.attached.ui.steps .step:last-child {
-  border-radius: 0em 0em 0.3125em 0em;
+  border-radius: 0em 0em 0.3125rem 0em;
 }
 /* Evenly divided  */
 .ui.one.steps,
