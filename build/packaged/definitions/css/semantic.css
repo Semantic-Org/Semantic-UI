@@ -3589,7 +3589,7 @@ body > .ui.grid {
 /* block with headers */
 .ui.message .header {
   display: block;
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.3em;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -4518,7 +4518,7 @@ body > .ui.grid {
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -6581,7 +6581,7 @@ body > .ui.grid {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -11757,12 +11757,14 @@ a.ui.yellow.label:hover:before {
 .ui.steps .step {
   display: inline-block;
   position: relative;
+  margin: 0em 0em;
   padding: 0.8em 1.75em 0.8em 2.5em;
   vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 0em;
 }
 .ui.steps .step:after {
   position: absolute;
@@ -11790,7 +11792,7 @@ a.ui.yellow.label:hover:before {
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -11812,7 +11814,7 @@ a.ui.yellow.label:hover:before {
 .ui.steps .step > .icon {
   font-size: 2em;
   margin: 0em;
-  padding-right: 0.5em;
+  padding-right: 0.6em;
   vertical-align: middle;
 }
 /* Link */
@@ -11832,7 +11834,7 @@ a.ui.yellow.label:hover:before {
 .ui.ordered.steps .step:before {
   display: table-cell;
   position: static;
-  padding-right: 0.5em;
+  padding-right: 0.6em;
   font-size: 2em;
   counter-increment: ordered;
   content: counters(ordered, ".");
@@ -12680,7 +12682,7 @@ body {
 }
 body {
   background: #fcfcfc;
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0px;
   padding: 0px;
   color: rgba(0, 0, 0, 0.8);
@@ -14543,7 +14545,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
      Header
 ---------------*/
 .ui.modal > .header {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
@@ -15424,7 +15426,7 @@ a.ui.nag {
     Result
 ---------------*/
 .ui.search .result {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -15456,7 +15458,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -15474,7 +15476,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -15569,7 +15571,7 @@ a.ui.nag {
   box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;

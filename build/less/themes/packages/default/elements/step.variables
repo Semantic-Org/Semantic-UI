@@ -2,6 +2,9 @@
         Step
 --------------------*/
 
+@verticalMargin: 0em;
+@horizontalMargin: 0em;
+
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.75em;
 @leftPadding: @horizontalPadding + (@arrowSize /2);
@@ -17,11 +20,12 @@
 
 @backgroundColor: #FFFFFF;
 @background: @backgroundColor;
+@borderRadius: 0em;
 
 @boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
 
 /* Icon */
-@iconDistance: 0.5em;
+@iconDistance: 0.6em;
 @iconSize: 2em;
 @iconVerticalAlign: middle;
 
@@ -51,6 +55,7 @@
        Group
 --------------------*/
 
+@stepsBorderRadius: 0.3125rem;
 @stepsBackground: '';
 @stepsBoxShadow: '';
 

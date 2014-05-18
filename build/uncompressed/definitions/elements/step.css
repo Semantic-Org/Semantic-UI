@@ -162,12 +162,14 @@
 .ui.steps .step {
   display: inline-block;
   position: relative;
+  margin: 0em 0em;
   padding: 0.8em 1.75em 0.8em 2.5em;
   vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 0em;
 }
 .ui.steps .step:after {
   position: absolute;
@@ -195,7 +197,7 @@
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -217,7 +219,7 @@
 .ui.steps .step > .icon {
   font-size: 2em;
   margin: 0em;
-  padding-right: 0.5em;
+  padding-right: 0.6em;
   vertical-align: middle;
 }
 /* Link */
@@ -237,7 +239,7 @@
 .ui.ordered.steps .step:before {
   display: table-cell;
   position: static;
-  padding-right: 0.5em;
+  padding-right: 0.6em;
   font-size: 2em;
   counter-increment: ordered;
   content: counters(ordered, ".");

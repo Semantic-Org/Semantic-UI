@@ -186,7 +186,7 @@
 /* block with headers */
 .ui.message .header {
   display: block;
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.3em;
   font-weight: bold;
   margin: 0em 0em 0em 0em;

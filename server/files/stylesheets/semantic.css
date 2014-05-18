@@ -44,7 +44,6 @@ body {
 }
 
 body#example {
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
   background: #FCFCFC url(../images/bg.jpg) repeat;
   margin: 0px;
   padding: 0px;
@@ -80,15 +79,6 @@ a {
 a:hover {
   color: #00BAFF;
 }
-
-/*
-p,
-ul,
-.ui.grid,
-li {
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size-adjust: none;
-}*/
 
 
 ul.list {

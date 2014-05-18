@@ -205,7 +205,7 @@
      Header
 ---------------*/
 .ui.modal > .header {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;

@@ -40,8 +40,8 @@
        Fonts
 --------------------*/
 
-@headerFont : Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-@pageFont   : Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+@headerFont : "Helvetica Neue", Arial, Helvetica, sans-serif;
+@pageFont   : "Helvetica Neue", Arial, Helvetica, sans-serif;
 
 /*-------------------
        Icons

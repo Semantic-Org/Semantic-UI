@@ -8,7 +8,7 @@ title       : 'Step'
 description : 'Steps show the current activity in a series of consecutive activities.'
 type        : 'UI Element'
 
-themes      : ['default', 'GitHub']
+themes      : ['default', 'Basic', 'GitHub']
 ---
 
 <%- @partial('header') %>
