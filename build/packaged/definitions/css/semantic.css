@@ -6667,6 +6667,12 @@ h5.ui.header {
   min-height: 1em;
   font-size: 2em;
 }
+/*--------------
+ Loose Coupling
+---------------*/
+.ui.header .ui.label {
+  vertical-align: middle;
+}
 /*******************************
             Types
 *******************************/

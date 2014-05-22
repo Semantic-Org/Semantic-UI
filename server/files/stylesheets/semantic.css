@@ -680,6 +680,8 @@ body.guide .main.container > * {
 }
 #example .icon.example .grid {
   margin-top: 1.5rem;
+  margin-left: -5%;
+  margin-right: -5%;
   text-align: left;
 }
 #example .icon.example .grid .code {
@@ -1116,10 +1118,6 @@ body.guide .main.container > * {
   transition: opacity 0.3s ease-out;
 }
 
-#example .example > i.code:before {
-  font-family: 'Basic Icons';
-  content: '\e714';
-}
 #example .example:hover i.code {
   opacity: 0.7;
 }

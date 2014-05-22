@@ -29,7 +29,6 @@
   <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/library/basic.icon.css">
 
   <% if 'development' in @getEnvironments(): %>
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/globals/reset.css">
