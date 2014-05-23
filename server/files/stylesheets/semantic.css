@@ -680,8 +680,6 @@ body.guide .main.container > * {
 }
 #example .icon.example .grid {
   margin-top: 1.5rem;
-  margin-left: -5%;
-  margin-right: -5%;
   text-align: left;
 }
 #example .icon.example .grid .code {

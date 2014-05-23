@@ -71,6 +71,7 @@ i.icon {
   speak: none;
   box-sizing: border-box;
   font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
 }
 
@@ -181,10 +182,10 @@ i.counterclockwise.rotated.icon {
 }
 
 /*-------------------
-        Square
+      Bordered
 --------------------*/
 
-i.square.icon {
+i.bordered.icon {
   width: @squareSize;
   height: @squareSize;
 
@@ -193,7 +194,7 @@ i.square.icon {
 
   vertical-align: baseline;
 }
-i.square.inverted.icon {
+i.bordered.inverted.icon {
   border: none;
   box-shadow: none;
 }
