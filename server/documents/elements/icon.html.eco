@@ -50,6 +50,10 @@ referencesOthers: true
         <div class="column"><i class="calendar outline icon"></i>Calendar Outline</div>
         <div class="column"><i class="cloud icon"></i>Cloud</div>
         <div class="column"><i class="code icon"></i>Code</div>
+        <div class="column"><i class="comment icon"></i>Comment</div>
+        <div class="column"><i class="comment outline icon"></i>Comment Outline</div>
+        <div class="column"><i class="comments icon"></i>Comments</div>
+        <div class="column"><i class="comments outline icon"></i>Comments Outline</div>
         <div class="column"><i class="dashboard icon"></i>Dashboard</div>
         <div class="column"><i class="external link icon"></i>External Link</div>
         <div class="column"><i class="external link square icon"></i>External Link Square</div>
@@ -63,7 +67,6 @@ referencesOthers: true
         <div class="column"><i class="mail outline icon"></i>Mail Outline</div>
         <div class="column"><i class="mail square icon"></i>Mail square</div>
         <div class="column"><i class="map icon"></i>Map</div>
-        <div class="column"><i class="options icon"></i>Options</div>
         <div class="column"><i class="payment icon"></i>Payment</div>
         <div class="column"><i class="privacy icon"></i>Privacy</div>
         <div class="column"><i class="protect icon"></i>Protect</div>
@@ -89,6 +92,10 @@ referencesOthers: true
         <i class="calendar outline icon"></i>
         <i class="cloud icon"></i>
         <i class="code icon"></i>
+        <i class="comment icon"></i>
+        <i class="comment outline icon"></i>
+        <i class="comments icon"></i>
+        <i class="comments outline icon"></i>
         <i class="dashboard icon"></i>
         <i class="external link icon"></i>
         <i class="external link square icon"></i>
@@ -132,10 +139,6 @@ referencesOthers: true
       <div class="column"><i class="call square icon"></i>Call Square</div>
       <div class="column"><i class="cloud download icon"></i>Cloud Download</div>
       <div class="column"><i class="cloud upload icon"></i>Cloud Upload</div>
-      <div class="column"><i class="comment icon"></i>Comment</div>
-      <div class="column"><i class="comment outline icon"></i>Comment Outline</div>
-      <div class="column"><i class="comments icon"></i>Comments</div>
-      <div class="column"><i class="comments outline icon"></i>Comments Outline</div>
       <div class="column"><i class="compress icon"></i>Compress</div>
       <div class="column"><i class="configure icon"></i>Configure</div>
       <div class="column"><i class="download icon"></i>Download</div>
