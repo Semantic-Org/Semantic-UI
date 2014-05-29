@@ -51,12 +51,17 @@ $.fn.popup = function(parameters) {
 
         $window         = $(window),
 
-        $offsetParent   = (settings.inline)
-          ? $target.offsetParent()
-          : $window,
-        $popup          = (settings.inline)
-          ? $target.next(settings.selector.popup)
-          : $window.children(settings.selector.popup).last(),
+        $popup          = (settings.popup)
+          ? $(settings.popup)
+          : (settings.inline)
+            ? $target.next(settings.selector.popup)
+            : $window.children(settings.selector.popup).last(),
+
+        $offsetParent   = (settings.popup)
+          ? $popup.offsetParent()
+          : (settings.inline)
+            ? $target.offsetParent()
+            : $window,
 
         searchDepth     = 0,
 
@@ -90,6 +95,9 @@ $.fn.popup = function(parameters) {
           if( !module.exists() ) {
             module.create();
           }
+          else if(settings.hoverable) {
+            module.bind.popup();
+          }
           module.instantiate();
         },
 
@@ -102,8 +110,12 @@ $.fn.popup = function(parameters) {
         },
 
         refresh: function() {
-          if(settings.inline) {
-            $popup = $target.next(selector.popup);
+          if(settings.popup) {
+            $popup        = $(settings.popup);
+            $offsetParent = $popup.offsetParent();
+          }
+          else if(settings.inline) {
+            $popup        = $target.next(selector.popup);
             $offsetParent = $target.offsetParent();
           }
           else {
@@ -192,6 +204,9 @@ $.fn.popup = function(parameters) {
                 .appendTo( $context )
               ;
             }
+            if(settings.hoverable && module.cache === undefined ) {
+              module.bind.popup();
+            }
             $.proxy(settings.onCreate, $popup)();
           }
           else {
@@ -217,7 +232,7 @@ $.fn.popup = function(parameters) {
         show: function(callback) {
           callback = callback || function(){};
           module.debug('Showing pop-up', settings.transition);
-          if(!settings.preserve) {
+          if(!settings.preserve && !settings.popup) {
             module.refresh();
           }
           if( !module.exists() ) {
@@ -574,6 +589,15 @@ $.fn.popup = function(parameters) {
         },
 
         bind: {
+          popup: function() {
+            if(settings.hoverable) {
+              module.verbose('Allowing hover events on popup to prevent closing');
+              $popup
+                .on('mouseenter', module.event.start)
+                .on('mouseleave', module.event.end)
+              ;
+            }
+          },
           close:function() {
             if(settings.on == 'click' && settings.closable) {
               module.verbose('Binding popup close event to document');
@@ -614,7 +638,7 @@ $.fn.popup = function(parameters) {
           $popup
             .removeClass(className.visible)
           ;
-          if(settings.preserve) {
+          if(settings.preserve || settings.popup) {
             if($.fn.transition !== undefined) {
               $popup
                 .transition('remove transition')
@@ -805,7 +829,7 @@ $.fn.popup.settings = {
 
   name           : 'Popup',
 
-  debug          : false,
+  debug          : true,
   verbose        : true,
   performance    : true,
   namespace      : 'popup',
@@ -820,7 +844,6 @@ $.fn.popup.settings = {
   title          : false,
 
   on             : 'hover',
-  target         : false,
   closable       : true,
 
   context        : 'body',
@@ -829,8 +852,12 @@ $.fn.popup.settings = {
     show : 100,
     hide : 100
   },
+
+  target         : false,
+  popup          : false,
   inline         : false,
   preserve       : false,
+  hoverable      : false,
 
   duration       : 200,
   easing         : 'easeOutQuint',

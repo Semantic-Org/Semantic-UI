@@ -8,6 +8,8 @@
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 
 **Enhancements**
+- **Popup** - Popup content can now be specified on initialization.
+- **Popup** - Popup can now allow itself not to be closed when hovered over
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
 - **Grid** - Divided and celled grids can now be inverted for dark backgrounds
