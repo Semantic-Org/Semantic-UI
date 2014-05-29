@@ -365,31 +365,38 @@ type        : 'UI Module'
         <tr>
           <td>detachable</td>
           <td>true</td>
-          <td>If set to false will prevent the modal from being moved to inside the dimmer</td>
+          <td>Setting to to false will prevent the modal from being removed from the DOM and appended to the dimmer</td>
         </tr>
         <tr>
           <td>allowMultiple</td>
           <td>false</td>
-          <td>If set to true will not close other visible modals when opening a new one</td>
+          <td>Setting to true will prevent closing other visible modals when opening a new one</td>
         </tr>
         <tr>
           <td>offset</td>
           <td>0</td>
-          <td>A vertical offset to allow for content outside of modal, for example a close button, to be centered.</td>
+          <td>A vertical offset to allow for content outside of the modal (close button, etc)</td>
         </tr>
         <tr>
           <td>context</td>
           <td>
           body
           </td>
-          <td>Selector or jquery object specifying the area to dim</td>
+          <td>A CSS selector or jQuery object specifying the area to dim</td>
         </tr>
         <tr>
           <td>closable</td>
           <td>
           true
           </td>
-          <td>Settings to false will not allow you to close the modal by clicking on the dimmer</td>
+          <td>Setting to false will not allow you to close the modal by clicking on the dimmer</td>
+        </tr>
+        <tr>
+          <td>autofocus</td>
+          <td>
+          true
+          </td>
+          <td>Setting to false will prevent autofocusing on the first input within the modal</td>
         </tr>
         <tr>
           <td>useCSS</td>
@@ -417,7 +424,7 @@ type        : 'UI Module'
           <td>
             easeOutExpo
           </td>
-          <td>Animation easing is only used if javascript animations are used.</td>
+          <td>Animation easing is only used if javascript animations are used</td>
         </tr>
       </tbody>
     </table>
