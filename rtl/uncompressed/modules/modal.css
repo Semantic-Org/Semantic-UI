@@ -81,7 +81,6 @@
   padding-right: 1.5%;
   vertical-align: top;
 }
-/*rtl:ignore*/
 .ui.modal > .content > .left:not(.ui) > i.icon {
   font-size: 8em;
   margin: 0em;
@@ -104,12 +103,10 @@
 --------------------*/
 /* Mobile Only */
 @media only screen and (max-width: 768px) {
-  /*rtl:ignore*/
   .ui.modal .content > .left:not(.ui) {
     display: block;
     padding: 0em 0em 1em;
   }
-  /*rtl:ignore*/
   .ui.modal .content > .right:not(.ui) {
     display: block;
     padding: 1em 0em 0em;

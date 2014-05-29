@@ -1969,7 +1969,7 @@ $.fn.form.settings = {
     group   : '.field',
     input   : 'input',
     prompt  : '.prompt',
-    submit  : '.submit'
+    submit  : '.submit:not([type="submit"])'
   },
 
   className : {
@@ -5082,8 +5082,8 @@ $.fn.dropdown = function(parameters) {
           },
           animated: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':animated') || $subMenu.transition('is animating')
-              : $menu.is(':animated') || $menu.transition('is animating')
+              ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
+              : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
             ;
           },
           visible: function($subMenu) {
@@ -5519,6 +5519,7 @@ $.extend( $.easing, {
 
 
 })( jQuery, window , document );
+
 /*
  * # Semantic - Modal
  * http://github.com/semantic-org/semantic-ui/
@@ -7640,7 +7641,7 @@ $.fn.popup.settings = {
   preserve       : false,
 
   duration       : 250,
-  easing         : 'easeOutQuint',
+  easing         : 'easeOutQuad',
   transition     : 'scale',
 
   distanceAway   : 0,
@@ -7688,6 +7689,14 @@ $.fn.popup.settings = {
   }
 
 };
+
+// Adds easing
+$.extend( $.easing, {
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  }
+});
+
 
 })( jQuery, window , document );
 

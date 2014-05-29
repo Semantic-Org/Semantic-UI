@@ -78,13 +78,13 @@ i.basic.icon.down:before { content: '\2193'; } /* '↓' */
 i.basic.icon.down.triangle:before { content: '\25be'; } /* '▾' */
 i.basic.icon.down.arrow:before { content: '\e75c'; } /* '' */
 
-i.basic.icon.left:before { content: '\2190'; } /* '←' */
-i.basic.icon.left.triangle:before { content: '\25c2'; } /* '◂' */
-i.basic.icon.left.arrow:before { content: '\e75d'; } /* '' */
+i.basic.icon.right:before { content: '\2190'; } /* '←' */
+i.basic.icon.right.triangle:before { content: '\25c2'; } /* '◂' */
+i.basic.icon.right.arrow:before { content: '\e75d'; } /* '' */
 
-i.basic.icon.right:before { content: '\2192'; } /* '→' */
-i.basic.icon.right.triangle:before { content: '\25b8'; } /* '▸' */
-i.basic.icon.right.arrow:before { content: '\e75e'; } /* '' */
+i.basic.icon.left:before { content: '\2192'; } /* '→' */
+i.basic.icon.left.triangle:before { content: '\25b8'; } /* '▸' */
+i.basic.icon.left.arrow:before { content: '\e75e'; } /* '' */
 
 i.basic.icon.up:before { content: '\2191'; } /* '↑' */
 i.basic.icon.up.triangle:before { content: '\25b4'; } /* '▴' */
@@ -297,7 +297,7 @@ i.link.basic.icon {
 --------------------*/
 
 i.circular.basic.icon {
-  border-radius: !important 500px;
+  border-radius: 500px !important;
 
   padding: 0.5em 0em !important;
 
@@ -336,16 +336,16 @@ i.horizontally.flipped.basic.icon {
 --------------------*/
 
 i.left.rotated.basic.icon {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-i.right.rotated.basic.icon {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+i.right.rotated.basic.icon {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 

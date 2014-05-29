@@ -39,11 +39,9 @@
   display: block;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
 
@@ -125,7 +123,6 @@
 .ui.flip.transition.out {
   -webkit-perspective: 2000px;
   -moz-perspective: 2000px;
-  -ms-perspective: 2000px;
   perspective: 2000px;
 }
 .ui.horizontal.flip.transition.in,
@@ -367,12 +364,12 @@
     transform: translateX(0);
   }
   10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-10px);
-    transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
     -webkit-transform: translateX(10px);
     transform: translateX(10px);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
   }
 }
 @-moz-keyframes shake {
@@ -381,12 +378,12 @@
     transform: translateX(0);
   }
   10%, 30%, 50%, 70%, 90% {
-    -moz-transform: translateX(-10px);
-    transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
     -moz-transform: translateX(10px);
     transform: translateX(10px);
+  }
+  20%, 40%, 60%, 80% {
+    -moz-transform: translateX(-10px);
+    transform: translateX(-10px);
   }
 }
 @keyframes shake {
@@ -396,14 +393,14 @@
     transform: translateX(0);
   }
   10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-10px);
-    -moz-transform: translateX(-10px);
-    transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
     -webkit-transform: translateX(10px);
     -moz-transform: translateX(10px);
     transform: translateX(10px);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(-10px);
+    -moz-transform: translateX(-10px);
+    transform: translateX(-10px);
   }
 }
 
@@ -461,16 +458,16 @@
     transform: scale(1);
   }
   10%, 20% {
-    -webkit-transform: scale(0.9) rotate(-3deg);
-    transform: scale(0.9) rotate(-3deg);
+    -webkit-transform: scale(0.9) rotate(3deg);
+    transform: scale(0.9) rotate(3deg);
   }
   30%, 50%, 70%, 90% {
-    -webkit-transform: scale(1.1) rotate(3deg);
-    transform: scale(1.1) rotate(3deg);
-  }
-  40%, 60%, 80% {
     -webkit-transform: scale(1.1) rotate(-3deg);
     transform: scale(1.1) rotate(-3deg);
+  }
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
   }
   100% {
     -webkit-transform: scale(1) rotate(0);
@@ -483,16 +480,16 @@
     transform: scale(1);
   }
   10%, 20% {
-    -moz-transform: scale(0.9) rotate(-3deg);
-    transform: scale(0.9) rotate(-3deg);
+    -moz-transform: scale(0.9) rotate(3deg);
+    transform: scale(0.9) rotate(3deg);
   }
   30%, 50%, 70%, 90% {
-    -moz-transform: scale(1.1) rotate(3deg);
-    transform: scale(1.1) rotate(3deg);
-  }
-  40%, 60%, 80% {
     -moz-transform: scale(1.1) rotate(-3deg);
     transform: scale(1.1) rotate(-3deg);
+  }
+  40%, 60%, 80% {
+    -moz-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
   }
   100% {
     -moz-transform: scale(1) rotate(0);
@@ -506,19 +503,19 @@
     transform: scale(1);
   }
   10%, 20% {
-    -webkit-transform: scale(0.9) rotate(-3deg);
-    -moz-transform: scale(0.9) rotate(-3deg);
-    transform: scale(0.9) rotate(-3deg);
+    -webkit-transform: scale(0.9) rotate(3deg);
+    -moz-transform: scale(0.9) rotate(3deg);
+    transform: scale(0.9) rotate(3deg);
   }
   30%, 50%, 70%, 90% {
-    -webkit-transform: scale(1.1) rotate(3deg);
-    -moz-transform: scale(1.1) rotate(3deg);
-    transform: scale(1.1) rotate(3deg);
-  }
-  40%, 60%, 80% {
     -webkit-transform: scale(1.1) rotate(-3deg);
     -moz-transform: scale(1.1) rotate(-3deg);
     transform: scale(1.1) rotate(-3deg);
+  }
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    -moz-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
   }
   100% {
     -webkit-transform: scale(1) rotate(0);

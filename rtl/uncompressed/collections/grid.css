@@ -337,8 +337,8 @@ body > .ui.grid {
 .ui.divided.grid > .column:not(.row),
 .ui.divided.grid > .row > .column {
   display: table-cell;
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.8);
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1), 2px 0px 0px 0px rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1), 2px 0px 0px 0px rgba(255, 255, 255, 0.8);
 }
 .ui.divided.grid > .column.row {
   display: table;
@@ -384,8 +384,8 @@ body > .ui.grid {
 .ui.celled.grid > .row > .column {
   display: table-cell;
   padding: 0.75em;
-  -webkit-box-shadow: -1px 0px 0px 0px #dfdfdf;
-  box-shadow: -1px 0px 0px 0px #dfdfdf;
+  -webkit-box-shadow: 1px 0px 0px 0px #dfdfdf;
+  box-shadow: 1px 0px 0px 0px #dfdfdf;
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {

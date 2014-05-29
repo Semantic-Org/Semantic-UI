@@ -42,17 +42,17 @@
   height: 0.75rem;
   background-image: none;
   background-color: #FFFFFF;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
   z-index: 2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .ui.button {
   width: 100%;
@@ -91,8 +91,8 @@
   right: 50%;
   left: auto;
   bottom: auto;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.left.popup {
   margin-left: -2em;
@@ -103,8 +103,8 @@
   bottom: auto;
   right: auto;
   margin-right: 0em;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.right.popup {
   margin-right: -2em;
@@ -115,8 +115,8 @@
   left: auto;
   bottom: auto;
   margin-right: 0em;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Above ---*/
 .ui.top.center.popup:before {
@@ -153,8 +153,8 @@
   bottom: auto;
   right: auto;
   margin-top: -0.4em;
-  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Right Center  ---*/
 .ui.right.center.popup:before {
@@ -163,8 +163,8 @@
   bottom: auto;
   left: auto;
   margin-top: -0.4em;
-  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 /*******************************
             States

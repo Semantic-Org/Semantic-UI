@@ -567,8 +567,8 @@ module.exports = function(parameters) {
           },
           animated: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':animated') || $subMenu.transition('is animating')
-              : $menu.is(':animated') || $menu.transition('is animating')
+              ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
+              : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
             ;
           },
           visible: function($subMenu) {

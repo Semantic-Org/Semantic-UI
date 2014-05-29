@@ -265,7 +265,7 @@ a.ui.label:hover:before {
   left: auto;
   right: 0em;
   width: auto;
-  border-radius: 4px 0em 4px 0em;
+  border-radius: 0px 4px 0px 4px;
 }
 /*-------------------
     Corner Label

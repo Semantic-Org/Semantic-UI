@@ -155,8 +155,8 @@
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   -webkit-appearance: none;
-  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: -0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  box-shadow: -0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
 }
 /*--------------------
         Error
@@ -207,8 +207,8 @@
   padding-right: 1.2em;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
-  box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+  -webkit-box-shadow: -0.3em 0em 0em 0em #D95C5C inset;
+  box-shadow: -0.3em 0em 0em 0em #D95C5C inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -221,8 +221,8 @@
   border-color: #ff5050;
   color: #ff5050;
   -webkit-appearance: none;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
-  box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  -webkit-box-shadow: -0.3em 0em 0em 0em #FF5050 inset;
+  box-shadow: -0.3em 0em 0em 0em #FF5050 inset;
 }
 /*----------------------------
   Dropdown Selection Warning

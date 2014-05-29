@@ -807,7 +807,7 @@ module.exports.settings = {
   preserve       : false,
 
   duration       : 250,
-  easing         : 'easeOutQuint',
+  easing         : 'easeOutQuad',
   transition     : 'scale',
 
   distanceAway   : 0,
@@ -855,5 +855,13 @@ module.exports.settings = {
   }
 
 };
+
+// Adds easing
+$.extend( $.easing, {
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  }
+});
+
 
 })( require("jquery"), window , document );

@@ -66,7 +66,6 @@ p a {
 /*******************************
             Global
 *******************************/
-
 .menu .right.menu > .mobile.item {
   display: none;
 }
@@ -136,11 +135,9 @@ p a {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-
   .menu .right.menu > .item {
     display: none;
   }
-
   .menu .right.menu > .mobile.item {
     display: block;
   }
@@ -182,7 +179,6 @@ p a {
   .masthead.segment .column p {
     display: none;
   }
-
   .selection.list .right.floated {
     display: none;
   }

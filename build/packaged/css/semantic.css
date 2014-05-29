@@ -1544,6 +1544,7 @@ body > .ui.grid {
   background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
   background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
 }
+/*rtl:ignore*/
 .ui.menu > .menu:not(.right):first-child > .item:first-child:before,
 .ui.menu .item:first-child:before {
   display: none;
@@ -8086,7 +8087,7 @@ a.ui.label:hover:before {
   left: auto;
   right: 0em;
   width: auto;
-  border-radius: 4px 0em 4px 0em;
+  border-radius: 0px 4px 0px 4px;
 }
 /*-------------------
     Corner Label
@@ -9949,8 +9950,8 @@ a.ui.teal.label:hover:before {
   -moz-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
 }
-.ui.accordion .title:first-child,
-.ui.accordion .accordion .title:first-child {
+.ui.accordion > .title:first-child,
+.ui.accordion .accordion > .title:first-child {
   border-top: none;
 }
 /* Content */
@@ -10742,11 +10743,9 @@ a.ui.teal.label:hover:before {
   position: fixed;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-perspective: 2000px;
   -moz-perspective: 2000px;
-  -ms-perspective: 2000px;
   perspective: 2000px;
   -webkit-transform-origin: center center;
   -moz-transform-origin: center center;
@@ -11243,7 +11242,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-  z-index: 2;
+  z-index: 12;
 }
 .ui.pointing.dropdown .menu .active.item:first-child {
   background: transparent -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
@@ -12658,11 +12657,9 @@ body.pushed.scrolling.ui.dimmable {
   display: block;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
 /* Loading */
@@ -12733,7 +12730,6 @@ body.pushed.scrolling.ui.dimmable {
 .ui.flip.transition.out {
   -webkit-perspective: 2000px;
   -moz-perspective: 2000px;
-  -ms-perspective: 2000px;
   perspective: 2000px;
 }
 .ui.horizontal.flip.transition.in,

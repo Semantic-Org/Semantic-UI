@@ -52,10 +52,10 @@ i.icon {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-i.icon.left:before {
+i.icon.right:before {
   content: "\f060";
 }
-i.icon.right:before {
+i.icon.left:before {
   content: "\f061";
 }
 i.icon.add.sign.box:before {
@@ -79,10 +79,10 @@ i.icon.align.center:before {
 i.icon.align.justify:before {
   content: "\f039";
 }
-i.icon.align.left:before {
+i.icon.align.right:before {
   content: "\f036";
 }
-i.icon.align.right:before {
+i.icon.align.left:before {
   content: "\f038";
 }
 i.icon.ambulance:before {
@@ -97,10 +97,10 @@ i.icon.android:before {
 i.icon.angle.down:before {
   content: "\f107";
 }
-i.icon.angle.left:before {
+i.icon.angle.right:before {
   content: "\f104";
 }
-i.icon.angle.right:before {
+i.icon.angle.left:before {
   content: "\f105";
 }
 i.icon.angle.up:before {
@@ -115,19 +115,19 @@ i.icon.archive:before {
 i.icon.arrow.down:before {
   content: "\f078";
 }
-i.icon.arrow.left:before {
+i.icon.arrow.right:before {
   content: "\f053";
 }
-i.icon.arrow.right:before {
+i.icon.arrow.left:before {
   content: "\f054";
 }
 i.icon.arrow.sign.down:before {
   content: "\f13a";
 }
-i.icon.arrow.sign.left:before {
+i.icon.arrow.sign.right:before {
   content: "\f137";
 }
-i.icon.arrow.sign.right:before {
+i.icon.arrow.sign.left:before {
   content: "\f138";
 }
 i.icon.arrow.sign.up:before {
@@ -193,7 +193,6 @@ i.icon.bookmark:before {
 i.icon.box.arrow.down:before {
   content: "\f150";
 }
-/*rtl:ignore*/
 i.icon.box.arrow.right:before {
   content: "\f152";
 }
@@ -233,10 +232,10 @@ i.icon.camera:before {
 i.icon.triangle.down:before {
   content: "\f0d7";
 }
-i.icon.triangle.left:before {
+i.icon.triangle.right:before {
   content: "\f0d9";
 }
-i.icon.triangle.right:before {
+i.icon.triangle.left:before {
   content: "\f0da";
 }
 i.icon.triangle.up:before {
@@ -275,10 +274,10 @@ i.icon.circle.blank:before {
 i.icon.circle.down:before {
   content: "\f0ab";
 }
-i.icon.circle.left:before {
+i.icon.circle.right:before {
   content: "\f0a8";
 }
-i.icon.circle.right:before {
+i.icon.circle.left:before {
   content: "\f0a9";
 }
 i.icon.circle.up:before {
@@ -341,10 +340,10 @@ i.icon.dollar:before {
 i.icon.double.angle.down:before {
   content: "\f103";
 }
-i.icon.double.angle.left:before {
+i.icon.double.angle.right:before {
   content: "\f100";
 }
-i.icon.double.angle.right:before {
+i.icon.double.angle.left:before {
   content: "\f101";
 }
 i.icon.double.angle.up:before {
@@ -524,10 +523,10 @@ i.icon.h.sign:before {
 i.icon.hand.down:before {
   content: "\f0a7";
 }
-i.icon.hand.left:before {
+i.icon.hand.right:before {
   content: "\f0a5";
 }
-i.icon.hand.right:before {
+i.icon.hand.left:before {
   content: "\f0a4";
 }
 i.icon.hand.up:before {
@@ -563,10 +562,10 @@ i.icon.html5:before {
 i.icon.inbox:before {
   content: "\f01c";
 }
-i.icon.indent.left:before {
+i.icon.indent.right:before {
   content: "\f03b";
 }
-i.icon.indent.right:before {
+i.icon.indent.left:before {
   content: "\f03c";
 }
 i.icon.info.letter:before {
@@ -653,10 +652,10 @@ i.icon.lock:before {
 i.icon.long.arrow.down:before {
   content: "\f175";
 }
-i.icon.long.arrow.left:before {
+i.icon.long.arrow.right:before {
   content: "\f177";
 }
-i.icon.long.arrow.right:before {
+i.icon.long.arrow.left:before {
   content: "\f178";
 }
 i.icon.long.arrow.up:before {
@@ -788,10 +787,10 @@ i.icon.qr.code:before {
 i.icon.question:before {
   content: "\f128";
 }
-i.icon.quote.left:before {
+i.icon.quote.right:before {
   content: "\f10d";
 }
-i.icon.quote.right:before {
+i.icon.quote.left:before {
   content: "\f10e";
 }
 i.icon.refresh:before {
@@ -1194,10 +1193,10 @@ i.icon.loading {
     transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }
 @-moz-keyframes icon-loading {
@@ -1206,8 +1205,8 @@ i.icon.loading {
     transform: rotate(0deg);
   }
   to {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -moz-transform: rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }
 @-webkit-keyframes icon-loading {
@@ -1216,8 +1215,8 @@ i.icon.loading {
     transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }
 @-ms-keyframes icon-loading {
@@ -1226,8 +1225,8 @@ i.icon.loading {
     transform: rotate(0deg);
   }
   to {
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
   }
 }
 /*******************************
@@ -1265,7 +1264,7 @@ i.link.icon:hover {
       Circular
 --------------------*/
 i.circular.icon {
-  border-radius: !important 500em;
+  border-radius: 500em !important;
   padding: 0.5em 0.35em !important;
   -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
@@ -1300,17 +1299,17 @@ i.vertically.flipped.icon {
 i.rotated.icon,
 i.right.rotated.icon,
 i.clockwise.rotated.icon {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-i.left.rotated.icon,
-i.counterclockwise.rotated.icon {
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
+}
+i.left.rotated.icon,
+i.counterclockwise.rotated.icon {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 /*-------------------
         Square

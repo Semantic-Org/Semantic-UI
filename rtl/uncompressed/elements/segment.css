@@ -55,8 +55,8 @@
   padding-bottom: 0em;
   background-color: transparent;
   border-radius: 0px;
-  -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.horizontal.segment:first-child {
   padding-right: 0em;
@@ -119,18 +119,18 @@
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.piled.segment:after {
-  -webkit-transform: rotate(1.2deg);
-  -moz-transform: rotate(1.2deg);
-  -ms-transform: rotate(1.2deg);
-  transform: rotate(1.2deg);
-  top: 0;
-  z-index: -1;
-}
-.ui.piled.segment:before {
   -webkit-transform: rotate(-1.2deg);
   -moz-transform: rotate(-1.2deg);
   -ms-transform: rotate(-1.2deg);
   transform: rotate(-1.2deg);
+  top: 0;
+  z-index: -1;
+}
+.ui.piled.segment:before {
+  -webkit-transform: rotate(1.2deg);
+  -moz-transform: rotate(1.2deg);
+  -ms-transform: rotate(1.2deg);
+  transform: rotate(1.2deg);
   top: 0;
   z-index: -2;
 }
@@ -328,19 +328,19 @@
 .ui.secondary.inverted.segment {
   background-color: #555555;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background-image: -webkit-linear-gradient(rgba(-255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background-image: -moz-linear-gradient(rgba(-255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(-255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
+  background-image: linear-gradient(rgba(-255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #FAFAFA;
 }
 .ui.tertiary.inverted.segment {
   background-color: #555555;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-image: -webkit-linear-gradient(rgba(-255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-image: -moz-linear-gradient(rgba(-255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background-image: -webkit-gradient(linear, right top, right bottom, from(rgba(-255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6)));
+  background-image: linear-gradient(rgba(-255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   color: #EEEEEE;
 }
 /*-------------------

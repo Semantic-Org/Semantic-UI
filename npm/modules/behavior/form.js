@@ -635,7 +635,7 @@ module.exports.settings = {
     group   : '.field',
     input   : 'input',
     prompt  : '.prompt',
-    submit  : '.submit'
+    submit  : '.submit:not([type="submit"])'
   },
 
   className : {
