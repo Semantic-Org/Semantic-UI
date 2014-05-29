@@ -807,7 +807,7 @@ $.fn.popup.settings = {
   preserve       : false,
 
   duration       : 250,
-  easing         : 'easeOutQuint',
+  easing         : 'easeOutQuad',
   transition     : 'scale',
 
   distanceAway   : 0,
@@ -855,5 +855,13 @@ $.fn.popup.settings = {
   }
 
 };
+
+// Adds easing
+$.extend( $.easing, {
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  }
+});
+
 
 })( jQuery, window , document );
