@@ -415,7 +415,7 @@ type        : 'UI Module'
         <tr>
           <td>easing</td>
           <td>
-            easeOutExpo
+            easeOutQuad
           </td>
           <td>Animation easing is only used if javascript animations are used.</td>
         </tr>
