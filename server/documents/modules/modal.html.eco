@@ -122,6 +122,30 @@ type        : 'UI Module'
         .modal('show')
       ;
       </div>
+      <div class="code" data-label="true" data-type="html">
+        <div class="ui modal">
+          <i class="close icon"></i>
+          <div class="header">
+            Header
+          </div>
+          <div class="content">
+            <div class="left">
+              Some content to the left, usually an image or icon
+            </div>
+            <div class="right">
+              Some content to the right
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui button">
+              Cancel
+            </div>
+            <div class="ui button">
+              Okay
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="no example">
@@ -131,6 +155,9 @@ type        : 'UI Module'
       $('.basic.modal')
         .modal('show')
       ;
+      </div>
+      <div class="code" data-label="true" data-type="html">
+        <div class="ui basic modal"></div>
       </div>
     </div>
 
@@ -144,16 +171,22 @@ type        : 'UI Module'
         .modal('show')
       ;
       </div>
+      <div class="code" data-label="true" data-type="html">
+        <div class="ui small modal"></div>
+      </div>
       <div class="code" data-demo="true">
       $('.large.modal')
         .modal('show')
       ;
       </div>
+      <div class="code" data-label="true" data-type="html">
+        <div class="ui large modal"></div>
+      </div>
     </div>
 
     <h2 class="ui dividing header">States</h2>
 
-    <div class="example">
+    <div class="no example">
       <h4 class="ui header">Active</h4>
       <p>An active modal is visible on the page</p>
       <div class="code" data-type="html">
