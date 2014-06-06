@@ -1,0 +1,33 @@
+ /*
+ * # Semantic - Flag
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'flag';
+
+@import '../../semantic.config';
+
+i.flag {
+  display: inline-block;
+  background: url(@spritePath) no-repeat 0px 0px;
+
+  width: @width;
+  height: @height;
+
+  line-height: @height;
+  vertical-align: @verticalAlign;
+  margin: 0em @margin 0em 0em;
+}
+
+.loadUIOverrides();
