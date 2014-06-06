@@ -63,9 +63,13 @@ body > .ui.grid {
   width: @oneWide;
   padding-left: @gutterWidth;
   padding-right: @gutterWidth;
-
   box-sizing: border-box;
   vertical-align: top;
+}
+
+.ui.grid > * {
+  padding-left: @gutterWidth;
+  padding-right: @gutterWidth;
 }
 
 /*-------------------
@@ -79,7 +83,7 @@ body > .ui.grid {
   padding: (@rowSpacing / 2) 0% 0%;
   font-size: 0rem;
 }
-.ui.grid > .row:first-child {
+.ui.grid > :first-child {
   padding-top: @firstRowSpacing;
   margin-top: @firstRowSpacing;
 }
@@ -90,7 +94,7 @@ body > .ui.grid {
 
 
 /* Vertical padding when no rows */
-.ui.grid > .column {
+.ui.grid > .column:not(.row) {
   margin-top: @rowSpacing;
   margin-bottom: @rowSpacing;
 }
@@ -108,6 +112,14 @@ body > .ui.grid {
   margin: 0em;
 }
 
+
+/*-------------------
+    Loose Coupling
+--------------------*/
+
+.ui.grid .row + .ui.divider {
+  margin: (@rowSpacing / 2) @gutterWidth;
+}
 
 /*******************************
            Variations
@@ -411,6 +423,16 @@ body > .ui.grid {
 .ui.very.relaxed.grid > .row > .column {
   padding-left: @veryRelaxedGutterWidth;
   padding-right: @veryRelaxedGutterWidth;
+}
+
+/* Coupling with UI Divider */
+.ui.relaxed.grid .row + .ui.divider {
+  margin-left: @relaxedGutterWidth;
+  margin-right: @relaxedGutterWidth;
+}
+.ui.very.relaxed.grid .row + .ui.divider {
+  margin-left: @veryRelaxedGutterWidth;
+  margin-right: @veryRelaxedGutterWidth;
 }
 
 /*----------------------
@@ -880,6 +902,7 @@ body > .ui.grid {
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
+  .ui.stackable.grid > .column.grid > .column,
   .ui.stackable.grid > .row > .column,
   .ui.stackable.grid > .column {
     display: block !important;

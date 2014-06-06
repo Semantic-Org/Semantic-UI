@@ -8,6 +8,9 @@
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 
 **Enhancements**
+- **Grid** - Elements inside a grid that are not rows or columns will now align properly
+- **Grid** - ``ui divider`` can now be used inside of row columns as well as ``vertically divided grid`` variation
+- **Image** - New ``bordered image`` variation
 - **Popup** - Popup content can now be specified on initialization.
 - **Popup** - Popup can now allow itself not to be closed when hovered over
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
