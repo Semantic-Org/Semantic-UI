@@ -207,7 +207,7 @@ semantic.ready = function() {
         $developer.removeClass('disabled').popup();
         $designer.removeClass('disabled').popup();
         $example.each(function() {
-          $(this).children().not('.ui.header:eq(0), .example p:eq(0)').show();
+          $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').show();
         });
         $example.filter('.another').show();
       }

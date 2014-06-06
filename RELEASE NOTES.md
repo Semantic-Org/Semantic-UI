@@ -1,5 +1,25 @@
 ## RELEASE NOTES
 
+### Version 0.18.0 - June 6, 2014
+
+**Enhancements**
+- **Modal** - Modals now focus on first input if available **Thanks Knotix**
+- **RTL** - RTL now uses RTLCSS instead of CSSJanus **Thanks MohammadYounes**
+
+**Fixes**
+
+- **Menu** - Fixes bug where pointing menu would sometimes appear below content **Thanks Skysplit**
+- **Dropdown** - Fixes dropdown 'is animating' with dropdowns when CSS animations were not included **Thanks nathankot**
+- **Accordion** - Accordion title does not know have to be :first-child to receive proper border **Thanks BigBlueHat**
+- **Popup** - Fixes javascript animation of popup missing easing dependency
+- **Label** - Fixes border radius on bottom left label
+
+**Docs**
+- **Modal** - Docs now have HTML examples
+- **Docs** - Fixes issue with overview mode not clearing code examples
+- **CSS Guide* - Fixes typos in css guide
+
+
 ### Version 0.17.0 - May 9, 2014
 
 **Enhancements**
