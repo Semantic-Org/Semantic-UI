@@ -199,7 +199,7 @@ semantic.ready = function() {
         $developer.addClass('disabled').popup('destroy');
         $designer.addClass('disabled').popup('destroy');
         $example.each(function() {
-          $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').hide();
+          $(this).children().not('.ui.header:eq(0), .example p:eq(0)').hide();
         });
         $example.filter('.another').hide();
       }
@@ -207,7 +207,7 @@ semantic.ready = function() {
         $developer.removeClass('disabled').popup();
         $designer.removeClass('disabled').popup();
         $example.each(function() {
-          $(this).children().not('.ui.header:eq(0), .example p:eq(0), .annotation').show();
+          $(this).children().not('.ui.header:eq(0), .example p:eq(0)').show();
         });
         $example.filter('.another').show();
       }
