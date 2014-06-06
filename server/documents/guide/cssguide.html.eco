@@ -209,7 +209,7 @@ type        : 'UI Guide'
 
     <h3 class="ui header">Centering Content with Transform</h3>
     <p>Using percentages in CSS will give you a ratio based on the size of the parent element. For example, setting content to be left 50% will set content to start at exactly halfway across its parent.</p>
-    <p>If you want content to positioned relative to its own size use transform. Percentages specified inside a transform are unique in that they are based on the current element size not its parent.</p>
+    <p>If you want content to positioned relative to its own size use CSS transform with translate. Percentages specified inside a transform are unique in that they are based on the current element size not its parent.</p>
     <div class="code" data-type="css">
 
     /* doesnt work */
@@ -218,7 +218,7 @@ type        : 'UI Guide'
       height: 500px;
       left: 50%;
       top: 50%;
-      margin: -50% 0px 0px -50%x;
+      margin: -50% 0px 0px -50%;
     }
 
     /* works with measurements */
@@ -236,7 +236,7 @@ type        : 'UI Guide'
       width: 800px;
       top: 50%;
       left: 50%;
-      transform: transformX(-50%) transformY(-50%);
+      transform: translateX(-50%) translateY(-50%);
     }
     </div>
 
