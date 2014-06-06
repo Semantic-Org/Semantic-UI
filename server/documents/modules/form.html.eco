@@ -416,7 +416,7 @@ type        : 'UI Behavior'
       </tr>
       <tr>
         <td>maxLength</td>
-        <td>value</td>
+        <td>value, maxLength</td>
         <td>Checks whether a field is less than a max length</td>
       </tr>
       <tr>
