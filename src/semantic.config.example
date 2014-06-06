@@ -39,6 +39,7 @@
 @container   : 'default';
 @icon        : 'default';
 @divider     : 'default';
+@flag        : 'default';
 @header      : 'default';
 @image       : 'default';
 @input       : 'default';
