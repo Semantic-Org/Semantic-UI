@@ -47,7 +47,7 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Vertical Menu</h4>
-    <p>A vertical menu displays elements vertically..</p>
+    <p>A vertical menu displays elements vertically.</p>
     <div class="ui ignore warning message"><i class="icon heart"></i> A vertical menu's width defaults to an arbitrary size. To have it fit your content more precisely use the fluid variation in conjunction with <a href="grid.html">ui grid</a>.</div>
 
     <div class="ui vertical menu">
@@ -188,7 +188,7 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Secondary Menu</h4>
-    <p>A secondary menu allows for a section of content on a page to be activated</p>
+    <p>A secondary menu has more subtle formatting, ideal for showing the sections of content on a page.</p>
     <div class="ui secondary  menu">
       <a class="active item">
         <i class="home icon"></i> Home
