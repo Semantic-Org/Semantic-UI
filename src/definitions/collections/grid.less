@@ -95,8 +95,8 @@ body > .ui.grid {
 
 /* Vertical padding when no rows */
 .ui.grid > .column:not(.row) {
-  margin-top: @rowSpacing;
-  margin-bottom: @rowSpacing;
+  margin-top: (@rowSpacing / 2);
+  margin-bottom: (@rowSpacing / 2);
 }
 
 /*-------------------
@@ -827,6 +827,9 @@ body > .ui.grid {
 @media only screen and (min-width : @tabletBreakpoint) and (max-width : (@computerBreakpoint - 1px)) {
   .ui.doubling.grid > .row {
     display: inline;
+  }
+  .ui.doubling.grid > .row > .column {
+    margin-bottom: @doublingRowSpacing;
   }
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
