@@ -18,7 +18,7 @@
   width: 600px;
   max-width: 100%;
 
-  font-size: 1rem;
+  font-size: 1em;
   border-radius: 0.3125em;
 
   background-color: #FFFFFF;
@@ -35,7 +35,7 @@
   margin: 0em;
   padding: 0.75em 1em;
 
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
 
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 
@@ -67,6 +67,9 @@
   display: none;
   margin: 0em;
   padding: 1.3em 1em;
+}
+.ui.accordion .accordion .content {
+  padding: 0.8em 1em;
 }
 
 /* Arrow */
@@ -147,14 +150,17 @@
   padding-right: 0em;
 }
 
-.ui.basic.accordion .content,
-.ui.basic.accordion .accordion .content {
+.ui.basic.accordion .content {
   padding: 0.5em 0em;
 }
 
 .ui.basic.accordion .active.title,
 .ui.basic.accordion .accordion .active.title {
   background-color: transparent;
+}
+.ui.basic.accordion .accordion {
+  box-shadow: none;
+  padding: 1em 0.5em;
 }
 
 
@@ -178,9 +184,12 @@
      Active
 ---------------*/
 
-.ui.accordion .active.title,
-.ui.accordion .accordion .active.title {
+.ui.accordion .active.title {
   background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.accordion .accordion .active.title {
+  background-color: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.accordion .active.title .dropdown.icon,
