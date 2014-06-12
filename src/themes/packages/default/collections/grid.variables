@@ -13,7 +13,7 @@
 @minWidth: 320px;
 @gutterWidth: 1.5%;
 
-@rowSpacing: 1rem;
+@rowSpacing: 1.5rem;
 @firstRowSpacing: 0rem;
 
 @columnMaxImageWidth: 100%;
