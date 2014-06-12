@@ -1,0 +1,55 @@
+
+/*-------------------
+    Globals Used
+--------------------*/
+
+// (Color Variables)
+// @transitionDuration
+// @transitionEasing
+// @iconWidth
+// @borderColor
+// @textColor, @invertedTextColor
+
+/*-------------------
+       List
+--------------------*/
+
+/* List */
+@listStyleType: none;
+@listStylePosition: outside;
+@margin: 0em;
+@verticalPadding: 0em;
+@horizontalPadding: 0em;
+
+/* Sub List */
+@subListVerticalPadding: 0.3em;
+@subListIndent: 1em;
+
+/* List Item */
+@itemVerticalPadding: 0.3em;
+@itemHorizontalPadding: 0em;
+@itemLineHeight: 1.2;
+
+
+/*-------------------
+      Elements
+--------------------*/
+
+/* Icon */
+@iconDistance: 1em;
+@iconAlign: top;
+@iconTransition: color 0.2s ease;
+
+/* Image */
+@imageDistance: 1em;
+@imageAlign: top;
+
+/* Content */
+@contentAlign: top;
+
+/* Link */
+@itemLinkColor: @textColor;
+@itemLinkHoverColor: @linkHoverColor;
+
+/* Linked Icon */
+@itemLinkIconColor: @lightTextColor;

@@ -1,5 +1,5 @@
 /*
- * # Semantic List - Flat
+ * # Semantic List
  * http://github.com/jlukic/semantic-ui/
  *
  *
@@ -11,21 +11,25 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+@type    : 'view';
+@element : 'list';
+
+@import '../../semantic.config';
+
+
+/*******************************
             List
 *******************************/
 
 ul.ui.list,
 ol.ui.list,
 .ui.list {
-  list-style-type: none;
-  margin: 1em 0em;
-  padding: 0em;
-}
-ul.ui.list ul,
-ol.ui.list ol,
-.ui.list .list {
-  margin: 0em;
-  padding: 0.5em 0em 0.5em 1em;
+  list-style-type: @listStyleType;
+  margin: @margin;
+  padding: @verticalPadding @horizontalPadding;
 }
 
 ul.ui.list:first-child,
@@ -42,7 +46,6 @@ ol.ui.list:last-child,
   padding-bottom: 0em;
 }
 
-
 /*******************************
             Content
 *******************************/
@@ -52,13 +55,15 @@ ul.ui.list li,
 ol.ui.list li,
 .ui.list .item {
   display: list-item;
-  list-style-type: none;
-  list-style-position: outside;
+  list-style-type: @listStyleType;
+  list-style-position: @listStylePosition;
 
-  padding: 0.3rem 0em;
-  line-height: 1.2;
+  padding: @itemVerticalPadding @itemHorizontalPadding;
+  line-height: @itemLineHeight;
 }
 
+ul.ui.list > li:first-child,
+ol.ui.list > li:first-child,
 .ui.list .item:after {
   content: '';
   display: block;
@@ -67,7 +72,6 @@ ol.ui.list li,
   visibility: hidden;
 }
 
-/* First Last Child */
 ul.ui.list > li:first-child,
 ol.ui.list > li:first-child,
 .ui.list > .item:first-child {
@@ -79,68 +83,62 @@ ol.ui.list > li:last-child,
   padding-bottom: 0em !important;
 }
 
-.ui.horizontal.list > .item:first-child,
-.ui.horizontal.list > .item:last-child,
-.ui.celled.list > .item:first-child,
-.ui.celled.list > .item:last-child {
-  padding-top: 0.3em !important;
-  padding-bottom: 0.3em !important;
-}
-
-/* Sub-List */
+/* Child List */
+ul.ui.list ul,
+ol.ui.list ol,
 .ui.list .list {
   clear: both;
+  margin: 0em;
+  padding: @subListVerticalPadding 0em @subListVerticalPadding @subListIndent;
 }
 
 /* Icon */
 .ui.list .item > .icon {
-  display: block;
-  float: left;
-  margin: 0em 1em 0em 0em;
-  padding: 0.1em 0em 0em 0em;
+  display: table-cell;
+  padding: 0em @iconDistance 0em 0em;
+  vertical-align: @iconAlign;
+  transition: @iconTransition;
 }
 .ui.list .item > .icon:only-child {
   display: inline-block;
 }
-.ui.horizontal.list .item > .icon {
-  margin: 0em;
-  padding: 0em 0.25em 0em 0em;
-}
-.ui.horizontal.list .item > .icon,
-.ui.horizontal.list .item > .icon + .content {
-  float: none;
-  display: inline-block;
-}
+
 
 /* Image */
-.ui.list .item > img {
-  display: block;
-  float: left;
-  margin-right: 1em;
-  vertical-align: middle;
+.ui.list .item > .image {
+  display: table-cell;
+  padding-right: @imageDistance;
+  vertical-align: @imageAlign;
+}
+.ui.list .item > img.image,
+.ui.list .item > .image:only-child {
+  display: inline-block;
+  padding-right: 0em;
 }
 
 /* Content */
-.ui.list .item > .content {
-  vertical-align: middle;
-  line-height: 1.2;
-}
+.ui.list .item > .image + .content,
 .ui.list .item > .icon + .content {
-  vertical-align: top;
+  display: table-cell;
+  vertical-align: @contentAlign;
+}
+.ui.list .item > img.image + .content {
+  display: inline-block;
+}
+.ui.list .item > .content > .list {
+  margin-left: 0em;
 }
 
 /* Link */
 .ui.list a {
   cursor: pointer;
+  color: @itemLinkColor;
+}
+.ui.list a:hover {
+  color: @itemLinkHoverColor;
 }
 .ui.list a .icon {
   color: rgba(0, 0, 0, 0.6);
-
-  -webkit-transition: color 0.2s ease;
-  -moz-transition: color 0.2s ease;
-  -o-transition: color 0.2s ease;
-  -ms-transition: color 0.2s ease;
-  transition: color 0.2s ease;
 }
 
 /* Header */
@@ -191,6 +189,24 @@ ol.ui.list > li:last-child,
   padding-bottom: 0em;
 }
 
+/* Padding on all elements */
+.ui.horizontal.list > .item:first-child,
+.ui.horizontal.list > .item:last-child {
+  padding-top: @itemVerticalPadding;
+  padding-bottom: @itemVerticalPadding;
+}
+
+/* Horizontal List */
+.ui.horizontal.list .item > .icon {
+  margin: 0em;
+  padding: 0em 0.25em 0em 0em;
+}
+.ui.horizontal.list .item > .icon,
+.ui.horizontal.list .item > .icon + .content {
+  float: none;
+  display: inline-block;
+}
+
 
 /*******************************
              States
@@ -220,9 +236,6 @@ ol.ui.list > li:last-child,
 .ui.inverted.list .description {
   color: rgba(255, 255, 255, 0.8);
 }
-.ui.inverted.link.list .item {
-  color: rgba(255, 255, 255, 0.4);
-}
 
 /*-------------------
        Link
@@ -249,6 +262,9 @@ ol.ui.list > li:last-child,
 }
 
 /* Inverted */
+.ui.inverted.link.list .item {
+  color: rgba(255, 255, 255, 0.4);
+}
 .ui.inverted.link.list a.item,
 .ui.inverted.link.list .item a {
   color: rgba(255, 255, 255, 0.6);
@@ -542,6 +558,13 @@ ol.ui.horizontal.list li:before,
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Padding on all elements */
+.ui.celled.list > .item:first-child,
+.ui.celled.list > .item:last-child {
+  padding-top: @itemVerticalPadding;
+  padding-bottom: @itemVerticalPadding;
+}
+
 /* Sub Menu */
 .ui.celled.list .item .list {
   margin-left: -0.5em;
@@ -667,3 +690,5 @@ ol.ui.horizontal.list li:before,
 .ui.massive.list .item {
   font-size: 1.5rem;
 }
+
+.loadUIOverrides();

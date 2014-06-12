@@ -28,27 +28,27 @@ type        : 'UI View'
         <div class="content">
           <div class="header">Schnoodle</div>
           Your new dog
-        </div>
-        <div class="list">
-          <div class="item">
-            <i class="mail outline icon"></i>
-            <div class="content">
-              <a class="header">Thanks for being my owner</a>
-              <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+          <div class="list">
+            <div class="item">
+              <i class="mail outline icon"></i>
+              <div class="content">
+                <a class="header">Thanks for being my owner</a>
+                <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+              </div>
             </div>
-          </div>
-          <div class="item">
-            <i class="mail outline icon"></i>
-            <div class="content">
-              <a class="header">What a walk</a>
-              <div class="description">Man i am so tired that walk today really was too far...</div>
+            <div class="item">
+              <i class="mail outline icon"></i>
+              <div class="content">
+                <a class="header">What a walk</a>
+                <div class="description">Man i am so tired that walk today really was too far...</div>
+              </div>
             </div>
-          </div>
-          <div class="item">
-            <i class="map icon"></i>
-            <div class="content">
-              <a class="header">Sorry about your old dog</a>
-              <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+            <div class="item">
+              <i class="map icon"></i>
+              <div class="content">
+                <a class="header">Sorry about your old dog</a>
+                <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+              </div>
             </div>
           </div>
         </div>
@@ -58,27 +58,27 @@ type        : 'UI View'
         <div class="content">
           <div class="header">Ragamuffin</div>
           Your old dog.
-        </div>
-        <div class="list">
-          <div class="item">
-            <i class="photo icon"></i>
-            <div class="content">
-              <a class="header">Was on a walk today</a>
-              <div class="description">Here's a picture of me on the farm with a cow...</div>
+          <div class="list">
+            <div class="item">
+              <i class="photo icon"></i>
+              <div class="content">
+                <a class="header">Was on a walk today</a>
+                <div class="description">Here's a picture of me on the farm with a cow...</div>
+              </div>
             </div>
-          </div>
-          <div class="item">
-            <i class="mail outline icon"></i>
-            <div class="content">
-              <a class="header">Ruff Ruff</a>
-              <div class="description">I know i usually message you in english but i wanted to see how your dog language was progressing...</div>
+            <div class="item">
+              <i class="mail outline icon"></i>
+              <div class="content">
+                <a class="header">Ruff Ruff</a>
+                <div class="description">I know i usually message you in english but i wanted to see how your dog language was progressing...</div>
+              </div>
             </div>
-          </div>
-          <div class="item">
-            <i class="mail outline icon"></i>
-            <div class="content">
-              <a class="header">Reaching Out</a>
-              <div class="description">Hey its your old dog, been a while since you sent me to the farm...</div>
+            <div class="item">
+              <i class="mail outline icon"></i>
+              <div class="content">
+                <a class="header">Reaching Out</a>
+                <div class="description">Hey its your old dog, been a while since you sent me to the farm...</div>
+              </div>
             </div>
           </div>
         </div>
