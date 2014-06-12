@@ -203,17 +203,21 @@ body > .ui.grid {
   box-sizing: border-box;
   vertical-align: top;
 }
+.ui.grid > * {
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
 /*-------------------
         Rows
 --------------------*/
 .ui.grid > .row {
   display: block;
   width: 100% !important;
-  margin-top: 0.5rem;
-  padding: 0.5rem 0% 0%;
+  margin-top: 0.75rem;
+  padding: 0.75rem 0% 0%;
   font-size: 0rem;
 }
-.ui.grid > .row:first-child {
+.ui.grid > :first-child {
   padding-top: 0rem;
   margin-top: 0rem;
 }
@@ -221,9 +225,9 @@ body > .ui.grid {
        Columns
 --------------------*/
 /* Vertical padding when no rows */
-.ui.grid > .column {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.ui.grid > .column:not(.row) {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 /*-------------------
       Content
@@ -234,6 +238,12 @@ body > .ui.grid {
 }
 .ui.grid .column > .ui.segment:only-child {
   margin: 0em;
+}
+/*-------------------
+    Loose Coupling
+--------------------*/
+.ui.grid .row + .ui.divider {
+  margin: 0.75rem 1.5%;
 }
 /*******************************
            Variations
@@ -520,6 +530,15 @@ body > .ui.grid {
 .ui.very.relaxed.grid > .row > .column {
   padding-left: 4%;
   padding-right: 4%;
+}
+/* Coupling with UI Divider */
+.ui.relaxed.grid .row + .ui.divider {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+.ui.very.relaxed.grid .row + .ui.divider {
+  margin-left: 4%;
+  margin-right: 4%;
 }
 /*----------------------
         Fitted
@@ -827,7 +846,7 @@ body > .ui.grid {
     display: inline;
   }
   .ui.doubling.grid > .row > .column {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
@@ -894,6 +913,9 @@ body > .ui.grid {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.doubling.grid > .row {
     display: inline;
+  }
+  .ui.doubling.grid > .row > .column {
+    margin-bottom: 1.5rem;
   }
   .ui.two.column.doubling.grid > .row > .column,
   .ui.two.column.doubling.grid > .column,
@@ -967,12 +989,13 @@ body > .ui.grid {
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
+  .ui.stackable.grid > .column.grid > .column,
   .ui.stackable.grid > .row > .column,
   .ui.stackable.grid > .column {
     display: block !important;
     width: auto !important;
-    margin: 0.5rem 0em 0em !important;
-    padding: 0.5rem 0em 0em !important;
+    margin: 0.75rem 0em 0em !important;
+    padding: 0.75rem 0em 0em !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
   }

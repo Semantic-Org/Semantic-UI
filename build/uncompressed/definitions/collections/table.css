@@ -57,7 +57,7 @@
 }
 /* Table Cells */
 .ui.table td {
-  padding: 0.40em 0.7em;
+  padding: 0.5em 0.7em;
   vertical-align: middle;
 }
 /* Footer */
@@ -399,6 +399,12 @@
 .ui.celled.table.segment td:last-child {
   border-right: none;
 }
+.ui.celled.table.segment tr:first-child td {
+  border-top: none;
+}
+.ui.celled.table.segment tr:last-child td {
+  border-bottom: none;
+}
 /*--------------
     Sortable
 ---------------*/
@@ -465,10 +471,10 @@
   padding: 0.5em;
 }
 .ui.basic.table tbody tr {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.basic.table td {
-  padding: 0.8em 0.5em;
+  padding: 0.8em 1em;
 }
 .ui.basic.table tbody tr:nth-child(2n) {
   background-color: transparent !important;

@@ -127,7 +127,7 @@
             Standard
 *******************************/
 /*-------------------
-       Image 
+       Image
 --------------------*/
 /*******************************
               Types
@@ -191,6 +191,15 @@ img.ui.image {
 .ui.rounded.image img,
 .ui.rounded.image {
   border-radius: 0.3125em;
+}
+/*--------------
+    Bordered
+---------------*/
+.ui.bordered.images .image,
+.ui.bordered.images img,
+.ui.bordered.image img,
+.ui.bordered.image {
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------
      Circular

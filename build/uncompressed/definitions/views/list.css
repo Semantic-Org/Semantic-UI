@@ -29,11 +29,13 @@ ul.ui.list:first-child,
 ol.ui.list:first-child,
 .ui.list:first-child {
   margin-top: 0em;
+  padding-top: 0em;
 }
 ul.ui.list:last-child,
 ol.ui.list:last-child,
 .ui.list:last-child {
   margin-bottom: 0em;
+  padding-bottom: 0em;
 }
 /*******************************
             Content
@@ -54,6 +56,24 @@ ol.ui.list li,
   height: 0;
   clear: both;
   visibility: hidden;
+}
+/* First Last Child */
+ul.ui.list > li:first-child,
+ol.ui.list > li:first-child,
+.ui.list > .item:first-child {
+  padding-top: 0em !important;
+}
+ul.ui.list > li:last-child,
+ol.ui.list > li:last-child,
+.ui.list > .item:last-child {
+  padding-bottom: 0em !important;
+}
+.ui.horizontal.list > .item:first-child,
+.ui.horizontal.list > .item:last-child,
+.ui.celled.list > .item:first-child,
+.ui.celled.list > .item:last-child {
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
 }
 /* Sub-List */
 .ui.list .list {
@@ -87,12 +107,10 @@ ol.ui.list li,
 }
 /* Content */
 .ui.list .item > .content {
-  display: inline-block;
   vertical-align: middle;
   line-height: 1.2;
 }
 .ui.list .item > .icon + .content {
-  display: table-cell;
   vertical-align: top;
 }
 /* Link */
@@ -106,10 +124,13 @@ ol.ui.list li,
 }
 /* Header */
 .ui.list .header {
+  display: block;
+  margin: 0em;
   font-weight: bold;
 }
 .ui.list .description {
-  color: rgba(0, 0, 0, 0.5);
+  display: block;
+  color: rgba(0, 0, 0, 0.8);
 }
 /* Floated Content */
 .ui.list .item > .left.floated {
