@@ -3,7 +3,7 @@
 *******************************/
 
 /*-------------------
-       Image 
+       Image
 --------------------*/
 
 @placeholderColor: rgba(0, 0, 0, 0.05);
@@ -11,6 +11,7 @@
 
 @imageHorizontalMargin: 0.25rem;
 @imageVerticalMargin: 0.5em;
+@imageBorder: 1px solid rgba(0, 0, 0, 0.1);
 
 /*******************************
               Types
