@@ -755,6 +755,9 @@ body.guide .main.container > * {
 #example .another.example i.code {
   top: 0px;
 }
+#example .another.example i.code ~ .message {
+  margin-top: 0em;
+}
 #example .example > p {
   color: #888888;
 }
@@ -1270,9 +1273,6 @@ body.progress .ui.progress .bar {
 
 #example .fixed .launch {
   display: none;
-}
-#example .designer .icon {
-  font-family: 'Basic Icons';
 }
 
 #example .fixed.column .sticky-wrapper {

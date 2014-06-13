@@ -32,12 +32,9 @@ referencesOthers: true
     Icons serve a very similar function to text in a page. In Semantic icons receive a special tag <code>&lt;i&gt;</code> which allow for an abbreviated markup when sitting along-side text.
   </div>
 
+  <div class="ui ignored message">Semantic includes a complete port of <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> designed by <a href="http://www.twitter.com/davegandy">Dave Gandy</a> for its standard icon set.</div>
+
   <div class="ui segment">
-
-    <h3 class="ui header">Standard Icon Set</h3>
-
-    <div class="ui ignored message">Semantic includes a complete port of <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> designed by <a href="http://www.twitter.com/davegandy">Dave Gandy</a> for its standard icon set.</div>
-
     <div class="icon example">
       <h4 class="ui header">Web Content</h4>
       <p>Icons can represent types of content found on websites</p>
@@ -971,8 +968,8 @@ referencesOthers: true
         <div class="column"><i class="stack overflow icon"></i>Stack Overflow</div>
         <div class="column"><i class="steam icon"></i>Steam</div>
         <div class="column"><i class="steam square icon"></i>Steam Square</div>
-        <div class="column"><i class="stumbleupon circle icon"></i>Stumbleupon Circle</div>
-        <div class="column"><i class="stumbleupon icon"></i>Stumbleupon</div>
+        <div class="column"><i class="stumbleupon circle icon"></i>StumbleUpon Circle</div>
+        <div class="column"><i class="stumbleupon icon"></i>StumbleUpon</div>
         <div class="column"><i class="tencent weibo icon"></i>Tencent Weibo</div>
         <div class="column"><i class="trello icon"></i>Trello</div>
         <div class="column"><i class="tumblr icon"></i>Tumblr</div>
@@ -989,9 +986,9 @@ referencesOthers: true
         <div class="column"><i class="xing icon"></i>Xing</div>
         <div class="column"><i class="xing square icon"></i>Xing Square</div>
         <div class="column"><i class="yahoo icon"></i>Yahoo</div>
-        <div class="column"><i class="youtube icon"></i>Youtube</div>
-        <div class="column"><i class="youtube play icon"></i>Youtube Play</div>
-        <div class="column"><i class="youtube square icon"></i>Youtube Square</div>
+        <div class="column"><i class="youtube icon"></i>YouTube</div>
+        <div class="column"><i class="youtube play icon"></i>YouTube Play</div>
+        <div class="column"><i class="youtube square icon"></i>YouTube Square</div>
       </div>
       <div class="existing code">
         <i class="adn icon"></i>

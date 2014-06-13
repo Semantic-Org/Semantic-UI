@@ -28,6 +28,15 @@ themes      : ['Default']
     <h4 class="ui header">List</h4>
     <p>A standard list</p>
     <div class="ui list">
+      <div class="item">Apples</div>
+      <div class="item">Pears</div>
+      <div class="item">Oranges</div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">List</h4>
+    <p>A list using all optional content types</p>
+    <div class="ui list">
       <div class="item">
         <img class="ui avatar image" src="/images/demo/avatar2.jpg">
         <div class="content">
@@ -137,7 +146,7 @@ themes      : ['Default']
     </div>
   </div>
   <div class="another example">
-    <div class="ignored ui info message">For convenience, a simple ordered list can also use the <code>ol</code> tag</div>
+    <div class="ignored ui info message">An ordered list can also use the <code>ol</code> tag</div>
     <ol class="ui list">
       <li>Cats</li>
       <li>Horses</li>
@@ -390,6 +399,9 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Animated</h4>
     <p>A list can animate to set the current item apart from the list</p>
+    <div class="ui info message">
+      Be sure content can fit on one line when using the animated variation, otherwise the content will create a new line break as the animated content adjusts to its new size.
+    </div>
     <div class="ui animated list">
       <div class="item">
         <img class="ui avatar image" src="/images/demo/avatar.jpg">
@@ -534,6 +546,17 @@ themes      : ['Default']
         <div class="content">
           <div class="header">Poodle</div>
           A poodle, its pretty basic
+          <div class="list">
+            <div class="item">
+              Can be quite caring
+            </div>
+            <div class="item">
+              Knows how to have fun in water
+            </div>
+            <div class="item">
+              Does not get tired of fetch
+            </div>
+          </div>
         </div>
       </div>
       <div class="item">
@@ -541,6 +564,19 @@ themes      : ['Default']
         <div class="content">
           <div class="header">Paulo</div>
           He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui divided ordered list">
+      <div class="item">Cats</div>
+      <div class="item">Horses</div>
+      <div class="item">Dogs
+        <div class="list">
+          <div class="item">Labradoodles</div>
+          <div class="item">Shiba Inu</div>
+          <div class="item">Mastiff</div>
         </div>
       </div>
     </div>
@@ -591,165 +627,128 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Sizes</h4>
     <p>A list can vary in size</p>
-
-    <div class="ui mini list">
+    <div class="ui mini bulleted horizontal list">
       <div class="item">
-        <i class="mail outline icon"></i>
-        <div class="content">
-          <a class="header">Thanks for being my owner</a>
-          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
-        </div>
+        Apples
       </div>
       <div class="item">
-        <i class="mail outline icon"></i>
-        <div class="content">
-          <a class="header">What a walk</a>
-          <div class="description">Man i am so tired that walk today really was too far...</div>
-        </div>
+        Oranges
       </div>
       <div class="item">
-        <i class="map icon"></i>
-        <div class="content">
-          <a class="header">Sorry about your old dog</a>
-          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
-        </div>
+        Pinapples
       </div>
     </div>
-    <div class="ui tiny list">
+  </div>
+  <div class="another example">
+    <div class="ui tiny bulleted horizontal list">
       <div class="item">
-        <i class="mail outline icon"></i>
-        <div class="content">
-          <a class="header">Thanks for being my owner</a>
-          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
-        </div>
+        Apples
       </div>
       <div class="item">
-        <i class="mail outline icon"></i>
-        <div class="content">
-          <a class="header">What a walk</a>
-          <div class="description">Man i am so tired that walk today really was too far...</div>
-        </div>
+        Oranges
       </div>
       <div class="item">
-        <i class="map icon"></i>
-        <div class="content">
-          <a class="header">Sorry about your old dog</a>
-          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
-        </div>
+        Pinapples
       </div>
     </div>
-    <div class="ui small list">
+  </div>
+  <div class="another example">
+    <div class="ui small bulleted horizontal list">
       <div class="item">
-        <i class="mail outline icon"></i>
-        <div class="content">
-          <a class="header">Thanks for being my owner</a>
-          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
-        </div>
+        Apples
       </div>
       <div class="item">
-        <i class="mail outline icon"></i>
-        <div class="content">
-          <a class="header">What a walk</a>
-          <div class="description">Man i am so tired that walk today really was too far...</div>
-        </div>
+        Oranges
       </div>
       <div class="item">
-        <i class="map icon"></i>
-        <div class="content">
-          <a class="header">Sorry about your old dog</a>
-          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
-        </div>
+        Pinapples
       </div>
     </div>
+  </div>
+  <div class="another example">
     <div class="ui large list">
       <div class="item">
         <i class="mail outline icon"></i>
         <div class="content">
-          <a class="header">Thanks for being my owner</a>
-          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+          Thanks for being my owner
         </div>
       </div>
       <div class="item">
         <i class="mail outline icon"></i>
         <div class="content">
-          <a class="header">What a walk</a>
-          <div class="description">Man i am so tired that walk today really was too far...</div>
+          What a walk
         </div>
       </div>
       <div class="item">
         <i class="map icon"></i>
         <div class="content">
-          <a class="header">Sorry about your old dog</a>
-          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+          Sorry about your old dog
         </div>
       </div>
     </div>
+  </div>
+  <div class="another example">
     <div class="ui big list">
       <div class="item">
         <i class="mail outline icon"></i>
         <div class="content">
-          <a class="header">Thanks for being my owner</a>
-          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+          Thanks for being my owner
         </div>
       </div>
       <div class="item">
         <i class="mail outline icon"></i>
         <div class="content">
-          <a class="header">What a walk</a>
-          <div class="description">Man i am so tired that walk today really was too far...</div>
+          What a walk
         </div>
       </div>
       <div class="item">
         <i class="map icon"></i>
         <div class="content">
-          <a class="header">Sorry about your old dog</a>
-          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+          Sorry about your old dog
         </div>
       </div>
     </div>
+  </div>
+  <div class="another example">
     <div class="ui huge list">
       <div class="item">
         <i class="mail outline icon"></i>
         <div class="content">
-          <a class="header">Thanks for being my owner</a>
-          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+          Thanks for being my owner
         </div>
       </div>
       <div class="item">
         <i class="mail outline icon"></i>
         <div class="content">
-          <a class="header">What a walk</a>
-          <div class="description">Man i am so tired that walk today really was too far...</div>
+          What a walk
         </div>
       </div>
       <div class="item">
         <i class="map icon"></i>
         <div class="content">
-          <a class="header">Sorry about your old dog</a>
-          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+          Sorry about your old dog
         </div>
       </div>
     </div>
+  </div>
+  <div class="another example">
     <div class="ui massive list">
       <div class="item">
         <i class="mail outline icon"></i>
         <div class="content">
-          <a class="header">Thanks for being my owner</a>
-          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+          Thanks for being my owner
         </div>
       </div>
       <div class="item">
         <i class="mail outline icon"></i>
         <div class="content">
-          <a class="header">What a walk</a>
-          <div class="description">Man i am so tired that walk today really was too far...</div>
+          What a walk
         </div>
       </div>
       <div class="item">
         <i class="map icon"></i>
         <div class="content">
-          <a class="header">Sorry about your old dog</a>
-          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+          Sorry about your old dog
         </div>
       </div>
     </div>

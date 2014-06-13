@@ -19941,7 +19941,7 @@ body.pushed.scrolling.ui.dimmable {
 }
 
 /*
- * # Semantic List - Flat
+ * # Semantic List
  * http://github.com/jlukic/semantic-ui/
  *
  *
@@ -19952,20 +19952,161 @@ body.pushed.scrolling.ui.dimmable {
  * Released: April 26 2013
  */
 /*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+        Global Variables
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*******************************
+           BG Colors
+*******************************/
+/*******************************
+             Colors
+*******************************/
+/*---  Colors  ---*/
+/*---  Neutrals  ---*/
+/*--- Text Colors ---*/
+/* Preserve */
+/* Adjust for Legibility */
+/*--- Backgrounds ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive / Negative */
+/* Messages */
+/*-------------------
+     Text Colors
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Globals Used
+--------------------*/
+/*-------------------
+       List
+--------------------*/
+/* List */
+/* Sub List */
+/* List Item */
+/*-------------------
+      Elements
+--------------------*/
+/* Icon */
+/* Image */
+/* Content */
+/* Link */
+/* Linked Icon */
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
             List
 *******************************/
 ul.ui.list,
 ol.ui.list,
 .ui.list {
   list-style-type: none;
-  margin: 1em 0em;
-  padding: 0em;
-}
-ul.ui.list ul,
-ol.ui.list ol,
-.ui.list .list {
   margin: 0em;
-  padding: 0.5em 0em 0.5em 1em;
+  padding: 0em 0em;
 }
 ul.ui.list:first-child,
 ol.ui.list:first-child,
@@ -19989,9 +20130,11 @@ ol.ui.list li,
   display: list-item;
   list-style-type: none;
   list-style-position: outside;
-  padding: 0.3rem 0em;
+  padding: 0.3em 0em;
   line-height: 1.2;
 }
+ul.ui.list > li:first-child,
+ol.ui.list > li:first-child,
 .ui.list .item:after {
   content: '';
   display: block;
@@ -19999,7 +20142,6 @@ ol.ui.list li,
   clear: both;
   visibility: hidden;
 }
-/* First Last Child */
 ul.ui.list > li:first-child,
 ol.ui.list > li:first-child,
 .ui.list > .item:first-child {
@@ -20010,59 +20152,58 @@ ol.ui.list > li:last-child,
 .ui.list > .item:last-child {
   padding-bottom: 0em !important;
 }
-.ui.horizontal.list > .item:first-child,
-.ui.horizontal.list > .item:last-child,
-.ui.celled.list > .item:first-child,
-.ui.celled.list > .item:last-child {
-  padding-top: 0.3em !important;
-  padding-bottom: 0.3em !important;
-}
-/* Sub-List */
+/* Child List */
+ul.ui.list ul,
+ol.ui.list ol,
 .ui.list .list {
   clear: both;
+  margin: 0em;
+  padding: 0.3em 0em 0.3em 1em;
 }
 /* Icon */
 .ui.list .item > .icon {
-  display: block;
-  float: left;
-  margin: 0em 1em 0em 0em;
-  padding: 0.1em 0em 0em 0em;
+  display: table-cell;
+  padding: 0em 1em 0em 0em;
+  vertical-align: top;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 .ui.list .item > .icon:only-child {
   display: inline-block;
 }
-.ui.horizontal.list .item > .icon {
-  margin: 0em;
-  padding: 0em 0.25em 0em 0em;
-}
-.ui.horizontal.list .item > .icon,
-.ui.horizontal.list .item > .icon + .content {
-  float: none;
-  display: inline-block;
-}
 /* Image */
-.ui.list .item > img {
-  display: block;
-  float: left;
-  margin-right: 1em;
-  vertical-align: middle;
+.ui.list .item > .image {
+  display: table-cell;
+  padding-right: 1em;
+  vertical-align: top;
+}
+.ui.list .item > img.image,
+.ui.list .item > .image:only-child {
+  display: inline-block;
+  padding-right: 0em;
 }
 /* Content */
-.ui.list .item > .content {
-  vertical-align: middle;
-  line-height: 1.2;
-}
+.ui.list .item > .image + .content,
 .ui.list .item > .icon + .content {
+  display: table-cell;
   vertical-align: top;
+}
+.ui.list .item > img.image + .content {
+  display: inline-block;
+}
+.ui.list .item > .content > .list {
+  margin-left: 0em;
 }
 /* Link */
 .ui.list a {
   cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.list a:hover {
+  color: #00b2f3;
 }
 .ui.list a .icon {
   color: rgba(0, 0, 0, 0.6);
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
 }
 /* Header */
 .ui.list .header {
@@ -20105,6 +20246,22 @@ ol.ui.list > li:last-child,
   padding-left: 0em;
   padding-bottom: 0em;
 }
+/* Padding on all elements */
+.ui.horizontal.list > .item:first-child,
+.ui.horizontal.list > .item:last-child {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+/* Horizontal List */
+.ui.horizontal.list .item > .icon {
+  margin: 0em;
+  padding: 0em 0.25em 0em 0em;
+}
+.ui.horizontal.list .item > .icon,
+.ui.horizontal.list .item > .icon + .content {
+  float: none;
+  display: inline-block;
+}
 /*******************************
              States
 *******************************/
@@ -20125,9 +20282,6 @@ ol.ui.list > li:last-child,
 }
 .ui.inverted.list .description {
   color: rgba(255, 255, 255, 0.8);
-}
-.ui.inverted.link.list .item {
-  color: rgba(255, 255, 255, 0.4);
 }
 /*-------------------
        Link
@@ -20152,6 +20306,9 @@ ol.ui.list > li:last-child,
   color: rgba(0, 0, 0, 0.8);
 }
 /* Inverted */
+.ui.inverted.link.list .item {
+  color: rgba(255, 255, 255, 0.4);
+}
 .ui.inverted.link.list a.item,
 .ui.inverted.link.list .item a {
   color: rgba(255, 255, 255, 0.6);
@@ -20403,6 +20560,12 @@ ol.ui.horizontal.list li:before,
 .ui.celled.list > .item:last-child {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+/* Padding on all elements */
+.ui.celled.list > .item:first-child,
+.ui.celled.list > .item:last-child {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
 /* Sub Menu */
 .ui.celled.list .item .list {
   margin-left: -0.5em;
@@ -20515,6 +20678,12 @@ ol.ui.horizontal.list li:before,
 .ui.massive.list .item {
   font-size: 1.5rem;
 }
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
 
 /*
  * # Statistic

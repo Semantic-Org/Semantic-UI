@@ -8,6 +8,7 @@
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 
 **Enhancements**
+- **List** - Child lists can now be formatted to sit inside text content
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
 - **Dropdown** - New action combo will change text of adjacent button, select will select element but not change text
