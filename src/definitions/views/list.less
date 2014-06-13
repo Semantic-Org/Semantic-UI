@@ -72,14 +72,14 @@ ol.ui.list > li:first-child,
   visibility: hidden;
 }
 
-ul.ui.list > li:first-child,
-ol.ui.list > li:first-child,
-.ui.list > .item:first-child {
+ul.ui.list li:first-child,
+ol.ui.list li:first-child,
+.ui.list .item:first-child {
   padding-top: 0em !important;
 }
-ul.ui.list > li:last-child,
-ol.ui.list > li:last-child,
-.ui.list > .item:last-child {
+ul.ui.list li:last-child,
+ol.ui.list li:last-child,
+.ui.list .item:last-child {
   padding-bottom: 0em !important;
 }
 
@@ -95,7 +95,9 @@ ol.ui.list ol,
 /* Icon */
 .ui.list .item > .icon {
   display: table-cell;
-  padding: 0em @iconDistance 0em 0em;
+  margin: 0em;
+  padding-top: @iconOffset;
+  padding-right: @iconDistance;
   vertical-align: @iconAlign;
   transition: @iconTransition;
 }
@@ -113,6 +115,7 @@ ol.ui.list ol,
 .ui.list .item > img.image,
 .ui.list .item > .image:only-child {
   display: inline-block;
+  vertical-align: middle;
   padding-right: 0em;
 }
 
@@ -120,13 +123,22 @@ ol.ui.list ol,
 .ui.list .item > .image + .content,
 .ui.list .item > .icon + .content {
   display: table-cell;
+  padding-left: @contentDistance;
+  vertical-align: @contentAlign;
+}
+.ui.list .item > .image + .content,
+.ui.list .item > .icon + .content {
+  display: table-cell;
+  padding-left: @contentDistance;
   vertical-align: @contentAlign;
 }
 .ui.list .item > img.image + .content {
   display: inline-block;
+  vertical-align: middle;
 }
 .ui.list .item > .content > .list {
   margin-left: 0em;
+  padding-left: 0em;
 }
 
 /* Link */
@@ -138,28 +150,30 @@ ol.ui.list ol,
   color: @itemLinkHoverColor;
 }
 .ui.list a .icon {
-  color: rgba(0, 0, 0, 0.6);
+  color: @itemLinkIconColor;
 }
 
 /* Header */
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-weight: bold;
+  font-family: @itemHeaderFontFamily;
+  font-weight: @itemHeaderFontWeight;
+  color: @itemHeaderColor;
 }
 .ui.list .description {
   display: block;
-  color: rgba(0, 0, 0, 0.8);
+  color: @itemDescriptionColor;
 }
 
 /* Floated Content */
 .ui.list .item > .left.floated {
-  margin-right: 1em;
   float: left;
+  margin-right: @floatMargin;
 }
 .ui.list .item > .right.floated {
-  margin-left: 1em;
   float: right;
+  margin-left: @floatMargin;
 }
 
 
@@ -178,7 +192,7 @@ ol.ui.list ol,
 }
 .ui.horizontal.list > .item {
   display: inline-block;
-  margin-left: 1em;
+  margin-left: @horizontalSpacing;
   font-size: 1rem;
 }
 .ui.horizontal.list > .item:first-child {
@@ -199,7 +213,7 @@ ol.ui.list ol,
 /* Horizontal List */
 .ui.horizontal.list .item > .icon {
   margin: 0em;
-  padding: 0em 0.25em 0em 0em;
+  padding: 0em @horizontalIconDistance 0em 0em;
 }
 .ui.horizontal.list .item > .icon,
 .ui.horizontal.list .item > .icon + .content {
@@ -217,9 +231,8 @@ ol.ui.list ol,
 --------------------*/
 
 .ui.list a:hover .icon {
-  color: rgba(0, 0, 0, 0.8);
+  color: @itemLinkIconHoverColor;
 }
-
 
 
 /*******************************
@@ -231,55 +244,54 @@ ol.ui.list ol,
 --------------------*/
 
 .ui.inverted.list a .icon {
-  color: rgba(255, 255, 255, 0.6);
+  color: @invertedIconLinkColor;
+}
+.ui.inverted.list .header {
+  color: @invertedHeaderColor;
 }
 .ui.inverted.list .description {
-  color: rgba(255, 255, 255, 0.8);
+  color: @invertedDescriptionColor;
 }
 
 /*-------------------
        Link
 --------------------*/
 
-.ui.link.list .item {
-  color: rgba(0, 0, 0, 0.3);
-}
+.ui.link.list .item,
 .ui.link.list a.item,
 .ui.link.list .item a {
-  color: rgba(0, 0, 0, 0.5);
+  color: @linkListItemColor;
 }
 .ui.link.list a.item:hover,
 .ui.link.list .item a:hover {
-  color: rgba(0, 0, 0, 0.8);
+  color:@linkListItemHoverColor;
 }
 .ui.link.list a.item:active,
 .ui.link.list .item a:active {
-  color: rgba(0, 0, 0, 0.8);
+  color:@linkListItemDownColor;
 }
 .ui.link.list a.active.item,
 .ui.link.list .active.item a {
-  color: rgba(0, 0, 0, 0.8);
+  color: @linkListItemActiveColor;
 }
 
 /* Inverted */
-.ui.inverted.link.list .item {
-  color: rgba(255, 255, 255, 0.4);
-}
+.ui.inverted.link.list .item,
 .ui.inverted.link.list a.item,
 .ui.inverted.link.list .item a {
-  color: rgba(255, 255, 255, 0.6);
+  color: @invertedLinkListItemColor;
 }
 .ui.inverted.link.list a.item:hover,
 .ui.inverted.link.list .item a:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: @invertedLinkListItemHoverColor;
 }
 .ui.inverted.link.list a.item:active,
 .ui.inverted.link.list .item a:active {
-  color: rgba(255, 255, 255, 0.9);
+  color: @invertedLinkListItemDownColor;
 }
 .ui.inverted.link.list a.active.item,
 .ui.inverted.link.list .active.item a {
-  color: rgba(255, 255, 255, 0.8);
+  color: @invertedLinkListItemActiveColor;
 }
 
 /*-------------------
@@ -288,59 +300,57 @@ ol.ui.list ol,
 
 .ui.selection.list .item {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.4);
-  padding: 0.5em;
-
-  transition:
-    0.2s color ease,
-    0.2s padding-left ease,
-    0.2s background-color ease
-  ;
+  background: @selectionListBackground;
+  padding: @selectionListItemVerticalPadding @selectionListItemHorizontalPadding;
+  color: @selectionListColor;
+  transition: @selectionListTransition;
 }
 .ui.selection.list .item:hover {
-  background-color: rgba(0, 0, 0, 0.02);
-  color: rgba(0, 0, 0, 0.7);
+  background: @selectionListHoverBackground;
+  color: @selectionListHoverColor;
 }
 .ui.selection.list .item:active {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.7);
+  background: @selectionListDownBackground;
+  color: @selectionListDownColor;
 }
 .ui.selection.list .item.active {
-  background-color: rgba(0, 0, 0, 0.04);
-  color: rgba(0, 0, 0, 0.7);
+  background: @selectionListActiveBackground;
+  color: @selectionListActiveColor;
 }
-
-.ui.animated.list .item {
-  transition:
-    0.2s color ease,
-    0.2s padding-left ease,
-    0.2s background-color ease
-  ;
-}
-.ui.animated.list:not(.horizontal) .item:hover {
-  padding-left: 1em;
-}
-.ui.animated.list:not(.horizontal) .item:hover .item:hover {
-  padding-left: 0.5em;
-}
-
 
 /* Inverted */
+
 .ui.inverted.selection.list .item {
-  color: rgba(255, 255, 255, 0.6);
+  background: @invertedSelectionListBackground;
+  color: @selectionListColor;
 }
 .ui.inverted.selection.list .item:hover {
-  background-color: rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.8);
+  background: @invertedSelectionListHoverBackground;
+  color: @invertedSelectionListHoverColor;
 }
 .ui.inverted.selection.list .item:active {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
+  background: @invertedSelectionListDownBackground;
+  color: @invertedSelectionListDownColor;
 }
 .ui.inverted.selection.list .item.active {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #FFFFFF;
+  background: @invertedSelectionListActiveBackground;
+  color: @invertedSelectionListActiveColor;
 }
+
+/*-------------------
+       Animated
+--------------------*/
+
+.ui.animated.list .item {
+  transition: @animatedListTransition;
+}
+.ui.animated.list:not(.horizontal) .item:hover {
+  padding-left: @animatedListIndent;
+}
+.ui.animated.list:not(.horizontal) .item:hover .item:hover {
+  padding-left: @animatedListChildIndent;
+}
+
 
 /*-------------------
        Fitted
@@ -352,8 +362,8 @@ ol.ui.list ol,
 }
 
 .ui.fitted.selection.list .item {
-  margin-left: -0.5em;
-  margin-right: -0.5em;
+  margin-left: -@selectionListItemHorizontalPadding;
+  margin-right: -@selectionListItemHorizontalPadding;
 }
 
 /*-------------------
@@ -362,7 +372,7 @@ ol.ui.list ol,
 
 ul.ui.list,
 .ui.bulleted.list {
-  margin-left: 1.25rem;
+  margin-left: @bulletDistance;
 }
 ul.ui.list li,
 .ui.bulleted.list .item {
@@ -371,16 +381,15 @@ ul.ui.list li,
 ul.ui.list li:before,
 .ui.bulleted.list .item:before {
   position: absolute;
-  left: -1.25rem;
-  content: '•';
-
-  line-height: 1.2em;
-  vertical-align: top;
+  left: @bulletOffset;
+  content: @bulletCharacter;
+  opacity: @bulletOpacity;
+  vertical-align: @bulletVerticalAlign;
 }
 
 ul.ui.list ul,
 .ui.bulleted.list .list {
-  padding-left: 1.25rem;
+  padding-left: @bulletChildDistance;
 }
 
 /* Horizontal Bulleted */
@@ -390,11 +399,11 @@ ul.ui.horizontal.bulleted.list,
 }
 ul.ui.horizontal.bulleted.list li,
 .ui.horizontal.bulleted.list .item {
-  margin-left: 1.5rem;
+  margin-left: @horizontalBulletSpacing;
 }
 ul.ui.horizontal.bulleted.list li:before,
 .ui.horizontal.bulleted.list .item:before {
-  left: -0.9em;
+  left: @horizontalBulletOffset;
 }
 ul.ui.horizontal.bulleted.list li:first-child,
 .ui.horizontal.bulleted.list .item:first-child {
@@ -423,25 +432,28 @@ ol.ui.list li,
 ol.ui.list li:before,
 .ui.ordered.list .item:before {
   position: absolute;
-  left: -1.5rem;
-
-  counter-increment: ordered;
-  content: counters(ordered, ".");
-
-  text-align: right;
-  vertical-align: top;
-  opacity: 0.5;
+  left: @orderedCountOffset;
+  counter-increment: @orderedCountName;
+  content: @orderedCountContent;
+  text-align: @orderedCountTextAlign;
+  vertical-align: @orderedCountVerticalAlign;
+  opacity: @orderedCountOpacity;
 }
 
 ol.ui.list ol,
 .ui.ordered.list .list {
-  counter-reset: ordered;
-  padding-left: 2.5em;
+  counter-reset: @orderedCountName;
+  padding-left: @orderedCountDistance;
 }
 
+/* Child Lists */
+ol.ui.list ol,
+.ui.ordered.list .list {
+  padding-left: @orderedChildCountDistance;
+}
 ol.ui.list ol li:before,
 .ui.ordered.list .list .item:before {
-  left: -2em;
+  left: @orderedChildCountOffset;
 }
 
 /* Horizontal Ordered */
@@ -452,7 +464,7 @@ ol.ui.horizontal.list,
 ol.ui.horizontal.list li:before,
 .ui.ordered.horizontal.list .item:before {
   position: static;
-  margin: 0em 0.5em 0em 0em;
+  margin: 0em @horizontalOrderedCountDistance 0em 0em;
 }
 
 
@@ -462,16 +474,16 @@ ol.ui.horizontal.list li:before,
 
 .ui.divided.list  .item,
 .ui.divided.list:not(.horizontal) .list {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: @dividedBorder;
 }
 .ui.divided.list .list .item {
-  border-top: none;
+  border-top: @dividedChildListBorder;
 }
 .ui.divided.list .item .menu .item {
-  border-width: 0px;
+  border-top: @dividedChildItemBorder;
 }
 .ui.divided.list .item:first-child {
-  border-top-width: 0px;
+  border-top: none;
 }
 
 /* Sub Menu */
@@ -484,7 +496,7 @@ ol.ui.horizontal.list li:before,
   padding-right: 1rem;
 }
 .ui.divided.list:not(.horizontal) .list .item:first-child {
-  border-top-width: 1px;
+  border-top-width: @dividedBorderWidth;
 }
 
 /* Divided bulleted */
@@ -667,28 +679,28 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.mini.list .item {
-  font-size: 0.7rem;
+  font-size: @mini;
 }
 .ui.tiny.list .item {
-  font-size: 0.8125rem;
+  font-size: @tiny;
 }
 .ui.small.list .item {
-  font-size: 0.875rem;
+  font-size: @small;
 }
 .ui.list .item {
-  font-size: 1rem;
+  font-size: @medium;
 }
 .ui.large.list .item {
-  font-size: 1.125rem;
+  font-size: @large;
 }
 .ui.big.list .item {
-  font-size: 1.25rem;
+  font-size: @big;
 }
 .ui.huge.list .item {
-  font-size: 1.375rem;
+  font-size: @huge;
 }
 .ui.massive.list .item {
-  font-size: 1.5rem;
+  font-size: @massive;
 }
 
 .loadUIOverrides();

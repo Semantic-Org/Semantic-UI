@@ -181,7 +181,7 @@
 @invertedSelectedTextColor   : rgba(255, 255, 255, 1);
 @invertedDisabledTextColor   : rgba(255, 255, 255, 0.3);
 
-@unselectedTextColor         : rgba(0, 0, 0, 0.4);
+@unselectedTextColor         : rgba(0, 0, 0, 0.5);
 @selectedTextColor           : rgba(0, 0, 0, 0.8);
 @disabledTextColor           : rgba(0, 0, 0, 0.2);
 

@@ -50,7 +50,7 @@
 
 /* Icon */
 @iconSize: 1em;
-@iconOffset: 0em;
+@iconOffset: (@lineHeight - 1em);
 @iconMargin: 1em;
 @iconAlignment: middle;
 

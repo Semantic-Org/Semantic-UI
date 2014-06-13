@@ -28,7 +28,7 @@
 /* List Item */
 @itemVerticalPadding: 0.3em;
 @itemHorizontalPadding: 0em;
-@itemLineHeight: 1.2;
+@itemLineHeight: 1.2em;
 
 
 /*-------------------
@@ -36,8 +36,9 @@
 --------------------*/
 
 /* Icon */
-@iconDistance: 1em;
+@iconDistance: 0.3em;
 @iconAlign: top;
+@iconOffset: (@itemLineHeight - 1em);
 @iconTransition: color 0.2s ease;
 
 /* Image */
@@ -45,6 +46,7 @@
 @imageAlign: top;
 
 /* Content */
+@contentDistance: 0.5em;
 @contentAlign: top;
 
 /* Link */
@@ -53,3 +55,124 @@
 
 /* Linked Icon */
 @itemLinkIconColor: @lightTextColor;
+@itemLinkIconHoverColor: @textColor;
+@invertedIconLinkColor: @invertedLightTextColor;
+
+/* Header */
+@itemHeaderFontFamily: @headerFont;
+@itemHeaderFontWeight: bold;
+@itemHeaderColor: @textColor;
+
+/* Description */
+@itemDescriptionColor: @textColor;
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Float */
+@floatMargin: 1em;
+
+/* Horizontal */
+@horizontalSpacing: 1em;
+@horizontalIconDistance: 0.25em;
+
+/* Inverted */
+@invertedListIconColor: @invertedLightTextColor;
+@invertedHeaderColor: @invertedTextColor;
+@invertedDescriptionColor: @invertedTextColor;
+
+/* Link List */
+@linkListItemColor: @unselectedTextColor;
+@linkListItemHoverColor: @selectedTextColor;
+@linkListItemDownColor: @selectedTextColor;
+@linkListItemActiveColor: @selectedTextColor;
+
+/* Inverted Link List */
+@invertedLinkListItemColor: @invertedUnselectedTextColor;
+@invertedLinkListItemHoverColor: @invertedUnselectedTextColor;
+@invertedLinkListItemDownColor: @invertedTextColor;
+@invertedLinkListItemActiveColor: @invertedSelectedTextColor;
+
+/* Selection List */
+@selectionListItemVerticalPadding: 0.5em;
+@selectionListItemHorizontalPadding: 0.5em;
+@selectionListTransition:
+  0.2s color ease,
+  0.2s padding-left ease,
+  0.2s background-color ease
+;
+/* Selection List States */
+@selectionListBackground: transparent;
+@selectionListColor: @unselectedTextColor;
+@selectionListHoverBackground: @subtleTransparentBlack;
+@selectionListHoverColor: @selectedTextColor;
+@selectionListDownBackground: @transparentBlack;
+@selectionListDownColor: @selectedTextColor;
+@selectionListActiveBackground: @transparentBlack;
+@selectionListActiveColor: @selectedTextColor;
+
+/* Inverted Selection List */
+@invertedSelectionListBackground: transparent;
+@invertedSelectionListColor: @invertedUnselectedTextColor;
+@invertedSelectionListHoverBackground: @subtleTransparentWhite;
+@invertedSelectionListHoverColor: @invertedSelectedTextColor;
+@invertedSelectionListDownBackground: @transparentWhite;
+@invertedSelectionListDownColor: @invertedSelectedTextColor;
+@invertedSelectionListActiveBackground: @transparentWhite;
+@invertedSelectionListActiveColor: @invertedSelectedTextColor;
+
+
+/* Animated List */
+@animatedListTransition:
+  0.2s color ease,
+  0.2s padding-left ease,
+  0.2s background-color ease
+;
+@animatedListIndent: 1em;
+@animatedListChildIndent: 0.5em;
+
+/* Bulleted */
+@bulletDistance: 1rem;
+@bulletOffset: -1rem;
+
+@bulletOpacity: 1;
+@bulletCharacter: '•';
+@bulletVerticalAlign: top;
+@bulletChildDistance: @bulletDistance;
+
+/* Horizontal Bullets */
+@horizontalBulletSpacing: 1.5rem;
+@horizontalBulletOffset: -0.9rem;
+
+/* Ordered List */
+@orderedCountName: ordered;
+@orderedCountContent: counters(ordered, ".");
+@orderedCountDistance: 2.5rem;
+@orderedCountOffset: -1.5rem;
+@orderedCountOpacity: 0.6;
+@orderedCountTextAlign: right;
+@orderedCountVerticalAlign: top;
+
+@orderedChildCountDistance: 2em;
+@orderedChildCountOffset: -2em;
+
+/* Horizontal Ordereded */
+@horizontalOrderedCountDistance: 0.5em;
+
+/* Divided */
+@dividedBorderWidth: 1px;
+@dividedBorder: @dividedBorderWidth solid @borderColor;
+@dividedChildListBorder: none;
+@dividedChildItemBorder: none;
+
+/* Sizes */
+@mini: 0.7rem;
+@tiny: 0.8rem;
+@small: 0.9rem;
+@medium: 1rem;
+@large: 1.1rem;
+@big: 1.2rem;
+@huge: 1.3rem;
+@massive: 1.5rem;

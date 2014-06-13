@@ -530,6 +530,7 @@ i.icon.wechat:before { content: "\f1d7"; }
             Aliases
 *******************************/
 
+
 i.icon.video:before { content: "\f008"; }
 i.icon.sidebar:before { content: "\f00b"; }
 i.icon.check:before { content: "\f00c"; }
@@ -600,6 +601,10 @@ i.icon.numbered.list:before { content: "\f0cb"; }
 i.icon.magic:before { content: "\f0d0"; }
 i.icon.truck:before { content: "\f0d1"; }
 i.icon.currency:before { content: "\f0d6"; }
+i.icon.triangle.down:before { content: "\f0d7"; }
+i.icon.triangle.up:before { content: "\f0d8"; }
+i.icon.triangle.left:before { content: "\f0d9"; }
+i.icon.triangle.right:before { content: "\f0da"; }
 i.icon.envelope:before { content: "\f0e0"; }
 i.icon.conversation:before { content: "\f0e6"; }
 i.icon.lightning:before { content: "\f0e7"; }
