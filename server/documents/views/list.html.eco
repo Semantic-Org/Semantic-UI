@@ -1,11 +1,16 @@
 ---
 layout      : 'default'
 css         : 'list'
+element     : 'list'
+elementType : 'view'
+
 title       : 'List'
 description : 'A list is a group of related content items ordered consecutively'
 type        : 'UI View'
----
 
+themes      : ['Default']
+---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/views/list.less" />
 
 <%- @partial('header') %>
 <div class="main container">
