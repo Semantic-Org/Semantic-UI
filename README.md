@@ -43,6 +43,8 @@ To download the entire library
 If you prefer to download the whole kit as a zip, it is so conveniently packaged.
 
     http://semantic-ui.com/build/semantic.zip
+    
+### CDN Resources
 
 Semantic is also available from CDN
 * [Hosted on CDN JS](http://www.jsdelivr.com/#!semantic-ui)
