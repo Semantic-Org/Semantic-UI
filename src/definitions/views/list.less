@@ -75,12 +75,12 @@ ol.ui.list > li:first-child,
 ul.ui.list li:first-child,
 ol.ui.list li:first-child,
 .ui.list .item:first-child {
-  padding-top: 0em !important;
+  padding-top: 0em;
 }
 ul.ui.list li:last-child,
 ol.ui.list li:last-child,
 .ui.list .item:last-child {
-  padding-bottom: 0em !important;
+  padding-bottom: 0em;
 }
 
 /* Child List */
@@ -89,7 +89,7 @@ ol.ui.list ol,
 .ui.list .list {
   clear: both;
   margin: 0em;
-  padding: @subListVerticalPadding 0em @subListVerticalPadding @subListIndent;
+  padding: @childListPadding;
 }
 
 /* Icon */
@@ -109,13 +109,13 @@ ol.ui.list ol,
 /* Image */
 .ui.list .item > .image {
   display: table-cell;
+  margin: 0em;
   padding-right: @imageDistance;
   vertical-align: @imageAlign;
 }
 .ui.list .item > img.image,
 .ui.list .item > .image:only-child {
   display: inline-block;
-  vertical-align: middle;
   padding-right: 0em;
 }
 
@@ -134,7 +134,6 @@ ol.ui.list ol,
 }
 .ui.list .item > img.image + .content {
   display: inline-block;
-  vertical-align: middle;
 }
 .ui.list .item > .content > .list {
   margin-left: 0em;
@@ -472,8 +471,7 @@ ol.ui.horizontal.list li:before,
        Divided
 --------------------*/
 
-.ui.divided.list  .item,
-.ui.divided.list:not(.horizontal) .list {
+.ui.divided.list .item {
   border-top: @dividedBorder;
 }
 .ui.divided.list .list .item {
@@ -487,44 +485,36 @@ ol.ui.horizontal.list li:before,
 }
 
 /* Sub Menu */
-.ui.divided.list:not(.horizontal) .list {
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
-}
-.ui.divided.list:not(.horizontal) .list .item {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
 .ui.divided.list:not(.horizontal) .list .item:first-child {
   border-top-width: @dividedBorderWidth;
 }
 
 /* Divided bulleted */
-.ui.divided.bulleted.list {
+.ui.divided.bulleted.list:not(.horizontal),
+.ui.divided.bulleted.list .list {
   margin-left: 0em;
+  padding-left: 0em;
 }
-.ui.divided.bulleted.list .item {
-  padding-left: 1.5rem;
+.ui.divided.bulleted.list .item:not(.horizontal) {
+  padding-left: @bulletDistance;
 }
 .ui.divided.bulleted.list .item:before {
-  left: 0.5rem;
+  left: 0em;
 }
 
-/* Divided ordered */
-.ui.divided.ordered.list {
+/* Divided Ordered */
+.ui.divided.ordered.list:not(.horizontal),
+.ui.divided.ordered.list .list {
   margin-left: 0em;
+  padding-left: 0em;
 }
-.ui.divided.ordered.list > .item {
-  padding-left: 2rem;
-  padding-right: 2rem;
+.ui.divided.ordered.list .item:not(.horizontal) {
+  padding-left: @orderedCountDistance;
 }
-.ui.divided.ordered.list > .item:before {
-  left: 0.5rem;
+.ui.divided.ordered.list .item:before {
+  left: 0em;
 }
-.ui.divided.ordered.list .item .list {
-  margin-left: -2rem;
-  margin-right: -2rem;
-}
+
 
 
 /* Divided horizontal */

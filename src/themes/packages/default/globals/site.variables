@@ -61,7 +61,7 @@
            BG Colors
 *******************************/
 
-@subtleTransparentBlack : rgba(0, 0, 0, 0.01);
+@subtleTransparentBlack : rgba(0, 0, 0, 0.02);
 @transparentBlack       : rgba(0, 0, 0, 0.05);
 @strongTransparentBlack : rgba(0, 0, 0, 0.10);
 

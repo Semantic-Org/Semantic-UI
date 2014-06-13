@@ -22,13 +22,14 @@
 @horizontalPadding: 0em;
 
 /* Sub List */
-@subListVerticalPadding: 0.3em;
-@subListIndent: 1em;
+@childListDistance: 0.75em;
+@childListPadding: @childListDistance 0em @childListDistance 0em;
+@childListIndent: 1em;
 
 /* List Item */
 @itemVerticalPadding: 0.3em;
 @itemHorizontalPadding: 0em;
-@itemLineHeight: 1.2em;
+@itemLineHeight: 1.2rem;
 
 
 /*-------------------
@@ -38,7 +39,7 @@
 /* Icon */
 @iconDistance: 0.3em;
 @iconAlign: top;
-@iconOffset: (@itemLineHeight - 1em);
+@iconOffset: ((@itemLineHeight - 1rem) / 2);
 @iconTransition: color 0.2s ease;
 
 /* Image */
@@ -81,7 +82,7 @@
 /* Inverted */
 @invertedListIconColor: @invertedLightTextColor;
 @invertedHeaderColor: @invertedTextColor;
-@invertedDescriptionColor: @invertedTextColor;
+@invertedDescriptionColor: @invertedLightTextColor;
 
 /* Link List */
 @linkListItemColor: @unselectedTextColor;
@@ -148,7 +149,7 @@
 
 /* Ordered List */
 @orderedCountName: ordered;
-@orderedCountContent: counters(ordered, ".");
+@orderedCountConten      nb    t: counters(ordered, ".");
 @orderedCountDistance: 2.5rem;
 @orderedCountOffset: -1.5rem;
 @orderedCountOpacity: 0.6;
