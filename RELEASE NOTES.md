@@ -17,7 +17,7 @@
 **Docs**
 - **Modal** - Docs now have HTML examples
 - **Docs** - Fixes issue with overview mode not clearing code examples
-- **CSS Guide(* - Fixes typos in css guide
+- **CSS Guide** - Fixes typos in css guide
 
 
 ### Version 0.17.0 - May 9, 2014
