@@ -163,6 +163,7 @@
 ---------------------*/
 
 .ui.form .info.message,
+.ui.form .success.message,
 .ui.form .warning.message,
 .ui.form .error.message {
   display: none;
@@ -250,6 +251,15 @@
 }
 
 /*--------------------
+        Success
+---------------------*/
+
+/* On Form */
+.ui.form.success .success.message {
+  display: block;
+}
+
+/*--------------------
         Error
 ---------------------*/
 
@@ -317,6 +327,7 @@
   -webkit-appearance: none;
   box-shadow: @inputErrorFocusBoxShadow;
 }
+
 /*------------------
     Dropdown Error
 --------------------*/

@@ -8,6 +8,8 @@
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 
 **Enhancements**
+- **Form** - Form now has a success state which will automatically display success messages
+- **Form** - Forms in 'success' state will now show success messages inside
 - **List** - Child lists can now be formatted to sit inside text content
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.

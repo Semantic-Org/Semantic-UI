@@ -149,7 +149,7 @@
 
 /* Ordered List */
 @orderedCountName: ordered;
-@orderedCountConten      nb    t: counters(ordered, ".");
+@orderedCountContent: counters(ordered, ".");
 @orderedCountDistance: 2.5rem;
 @orderedCountOffset: -1.5rem;
 @orderedCountOpacity: 0.6;
