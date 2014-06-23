@@ -396,7 +396,7 @@
 ---------------*/
 /* Dropdown */
 .ui.menu .ui.dropdown.visible {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.02);
   border-bottom-right-radius: 0em;
   border-bottom-left-radius: 0em;
 }
@@ -428,12 +428,12 @@
 }
 /* Hover */
 .ui.menu .dropdown .menu .item:hover {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.02);
   color: rgba(0, 0, 0, 0.85);
 }
 /* Pressed */
 .ui.menu .dropdown .menu .item:active {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.02);
 }
 /* Active */
 .ui.menu .dropdown.item .menu .active.item {
@@ -491,7 +491,7 @@
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover {
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.02);
 }
 /*--------------
       Down
@@ -499,20 +499,20 @@
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.02);
 }
 /*--------------
      Active
 ---------------*/
 .ui.menu .active.item {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.02);
   color: rgba(0, 0, 0, 0.85);
   font-weight: normal;
   -webkit-box-shadow: 0em 0.2em 0em inset;
   box-shadow: 0em 0.2em 0em inset;
 }
 .ui.vertical.menu .active.item {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.02);
   border-radius: 0em;
   -webkit-box-shadow: 0.2em 0em 0em inset;
   box-shadow: 0.2em 0em 0em inset;
@@ -539,7 +539,7 @@
 ---------------*/
 .ui.vertical.menu .active.item:hover,
 .ui.menu .active.item:hover {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.02);
 }
 /*--------------
      Disabled

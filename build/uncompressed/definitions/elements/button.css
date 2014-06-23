@@ -279,6 +279,8 @@
   color: transparent !important;
   -webkit-transition: all 0s linear;
   transition: all 0s linear;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.loading.button:after {
   position: absolute;
@@ -308,6 +310,7 @@
   background-image: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
+  pointer-events: none;
 }
 /*******************************
              Types

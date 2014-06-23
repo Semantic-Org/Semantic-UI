@@ -223,6 +223,7 @@ a.ui.label {
 /* Icon */
 .ui.label .icon {
   width: auto;
+  margin: 0em 0.75em 0em 0em;
 }
 /* Removable label */
 .ui.label .delete.icon {

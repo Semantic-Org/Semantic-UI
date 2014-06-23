@@ -357,6 +357,8 @@
 /* Handle */
 .ui.slider.checkbox .box:after,
 .ui.slider.checkbox label:after {
+  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
+  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   position: absolute;
   content: '';
@@ -418,6 +420,8 @@
 /* Handle */
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
+  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
+  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   position: absolute;
   content: '';

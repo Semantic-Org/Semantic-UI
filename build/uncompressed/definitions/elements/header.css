@@ -172,7 +172,7 @@
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
-  line-height: 1.33;
+  line-height: 1.33em;
   text-transform: none;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -181,14 +181,14 @@
   font-weight: normal;
   margin: 0em;
   padding: 0em;
-  line-height: 1.2;
+  line-height: 1.2em;
   color: rgba(0, 0, 0, 0.5);
 }
 /* Icon and Content Together */
 .ui.header > .icon {
   display: table-cell;
   font-size: 1em;
-  padding-top: 0em;
+  padding-top: 0.165em;
   vertical-align: middle;
   padding-right: 0.5em;
 }

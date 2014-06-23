@@ -249,6 +249,10 @@ img.ui.image {
   margin-bottom: 1em;
   margin-left: 1em;
 }
+.ui.floated.images:last-child,
+.ui.floated.image:last-child {
+  margin-bottom: 0em;
+}
 .ui.centered.images,
 .ui.centered.image {
   margin-left: auto;

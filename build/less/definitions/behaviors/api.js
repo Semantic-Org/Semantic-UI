@@ -118,7 +118,7 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // Add form content
-          if(settings.serializeForm !== false || $module.is('form') && settings.method == 'POST') {
+          if(settings.serializeForm !== false || $module.is('form')) {
             if(settings.serializeForm == 'json') {
               $.extend(true, settings.data, module.get.formData());
             }
@@ -149,8 +149,14 @@ $.api = $.fn.api = function(parameters) {
 
           // exit conditions reached, missing url parameters
           if( !url ) {
-            module.error(error.missingURL);
-            return;
+            if($module.is('form')) {
+              module.debug('No url or action specified, defaulting to form action');
+              url = $module.attr('action');
+            }
+            else {
+              module.error(error.missingURL);
+              return;
+            }
           }
 
           // add loading state
@@ -288,57 +294,61 @@ $.api = $.fn.api = function(parameters) {
               var
                 context      = this,
                 elapsedTime  = (new Date().getTime() - time),
-                loadingDelay = (settings.loadingDuration - elapsedTime >= 0)
-                  ? settings.loadingDuration - elapsedTime
-                  : 0
+                timeLeft     = (settings.loadingDuration - elapsedTime)
               ;
-              setTimeout(function(){
+              timeLeft = (timeLeft > 0)
+                ? timeLeft
+                : 0
+              ;
+              setTimeout(function() {
                 module.request.resolveWith(context, [response]);
-              }, loadingDelay);
+              }, timeLeft);
             },
             fail: function(xhr, status, httpMessage) {
               var
-                context      = this,
-                elapsedTime  = (new Date().getTime() - time),
-                loadingDelay = (settings.loadingDuration - elapsedTime >= 0)
-                  ? settings.loadingDuration - elapsedTime
-                  : 0
+                context     = this,
+                elapsedTime = (new Date().getTime() - time),
+                timeLeft    = (settings.loadingDuration - elapsedTime)
+              ;
+              timeLeft = (timeLeft > 0)
+                ? timeLeft
+                : 0
               ;
               // page triggers abort on navigation, dont show error
-              if(status !== 'abort') {
-                setTimeout(function(){
+              setTimeout(function() {
+                if(status !== 'abort') {
                   module.request.rejectWith(context, [xhr, status, httpMessage]);
-                }, settings.loadingDelay);
-              }
-              else {
-                module.reset();
-              }
+                }
+                else {
+                  module.reset();
+                }
+              }, timeLeft);
             }
           },
           request: {
-            complete: function() {
+            complete: function(response) {
               module.remove.loading();
-              $.proxy(settings.complete, $context)();
+              $.proxy(settings.onComplete, $context)(response, $module);
             },
             done: function(response) {
               module.debug('API request received', response);
               if(settings.dataType == 'json') {
                 if( $.isFunction(settings.successTest) ) {
                   module.debug('Checking JSON', settings.successTest, response);
-                  if( settings.success(response) ) {
-                    $.proxy(settings.success, $context)(response, $module);
+                  if( settings.onSuccess(response) ) {
+                    $.proxy(settings.onSuccess, $context)(response, $module);
                   }
                   else {
                     module.debug('JSON test specified by user and response failed', response);
-                    $.proxy(settings.failure, $context)(response, $module);
+                    $.proxy(settings.onFailure, $context)(response, $module);
                   }
                 }
                 else {
-                  $.proxy(settings.success, $context)(response, $module);
+                  $.proxy(settings.onSuccess, $context)(response, $module);
                 }
               }
               else {
-                $.proxy(settings.success, $context)(response, $module);
+                $.proxy(settings.onSuccess, $context)(response, $module);
               }
             },
             error: function(xhr, status, httpMessage) {
@@ -377,10 +387,11 @@ $.api = $.fn.api = function(parameters) {
                     setTimeout(module.remove.error, settings.errorDuration);
                   }
                   module.debug('API Request error:', errorMessage);
-                  $.proxy(settings.failure, $context)(errorMessage, this);
+                  $.proxy(settings.onFailure, $context)(errorMessage, $module);
                 }
                 else {
-                  module.debug('Request Aborted (Most likely caused by page change)');
+                  $.proxy(settings.onAbort, $context)(errorMessage, $module);
+                  module.debug('Request Aborted (Most likely caused by page change or CORS Policy)', status, httpMessage);
                 }
               }
             }
@@ -595,7 +606,7 @@ $.api = $.fn.api = function(parameters) {
               title = settings.name + ':',
               totalTime = 0
             ;
-            time = false;
+            time = new Date().getTime();
             clearTimeout(module.performance.timer);
             $.each(performance, function(index, data) {
               totalTime += data['Execution Time'];
@@ -729,7 +740,7 @@ $.api.settings = {
   allowMultiple   : false,
 
   // state
-  loadingDuration : 500,
+  loadingDuration : 0,
   errorDuration   : 2000,
 
   // jQ ajax
@@ -739,13 +750,15 @@ $.api.settings = {
   cache           : true,
 
   // callbacks
-  beforeSend   : function(settings) { return settings; },
-  beforeXHR    : function(xhr) {},
+  beforeSend  : function(settings) { return settings; },
+  beforeXHR   : function(xhr) {},
 
-  success      : function(response) {},
-  successText  : function(response) { return true; },
-  complete     : function(response) {},
-  failure      : function(response) {},
+  onSuccess   : function(response, $module) {},
+  onComplete  : function(response, $module) {},
+  onFailure   : function(errorMessage, $module) {},
+  onAbort     : function(errorMessage, $module) {},
+
+  successText : function(response) { return true; },
 
   // errors
   error : {

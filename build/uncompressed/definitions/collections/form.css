@@ -293,6 +293,7 @@
    Types of Messages
 ---------------------*/
 .ui.form .info.message,
+.ui.form .success.message,
 .ui.form .warning.message,
 .ui.form .error.message {
   display: none;
@@ -367,6 +368,13 @@
   -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   -webkit-appearance: none;
+}
+/*--------------------
+        Success
+---------------------*/
+/* On Form */
+.ui.form.success .success.message {
+  display: block;
 }
 /*--------------------
         Error
