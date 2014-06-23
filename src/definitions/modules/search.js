@@ -306,7 +306,7 @@ $.fn.search = function(parameters) {
                 urlData: {
                   query: searchTerm
                 },
-                success       : function(response) {
+                onSuccess : function(response) {
                   searchHTML = module.results.generate(response);
                   module.search.cache.write(searchTerm, searchHTML);
                   module.results.add(searchHTML);
