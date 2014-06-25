@@ -71,6 +71,7 @@ $.api = $.fn.api = function(parameters) {
           var
             triggerEvent = module.get.event()
           ;
+          // bind events
           if(!methodInvoked) {
             if( triggerEvent ) {
               module.debug('Attaching API events to element', triggerEvent);
@@ -445,7 +446,23 @@ $.api = $.fn.api = function(parameters) {
             return module.xhr || false;
           },
           settings: function() {
-            return $.proxy(settings.beforeSend, $module)(settings);
+            var
+              runSettings
+            ;
+            runSettings = $.proxy(settings.beforeSend, $module)(settings);
+            if(runSettings.success !== undefined) {
+              module.debug('Legacy success callback detected', runSettings);
+              runSettings.onSuccess = runSettings.success;
+            }
+            if(runSettings.failure !== undefined) {
+              module.debug('Legacy failure callback detected', runSettings);
+              runSettings.onFailure = runSettings.failure;
+            }
+            if(runSettings.complete !== undefined) {
+              module.debug('Legacy complete callback detected', runSettings);
+              runSettings.onComplete = runSettings.complete;
+            }
+            return runSettings;
           },
           defaultData: function() {
             var
