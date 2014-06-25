@@ -215,7 +215,7 @@ type        : 'UI Module'
     <p>All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax:</p>
     <div class="code">
     $('.ui.rating')
-      .modal('behavior name', argumentOne, argumentTwo)
+      .rating('behavior name', argumentOne, argumentTwo)
     ;
     </div>
 
