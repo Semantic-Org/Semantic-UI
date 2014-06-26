@@ -343,11 +343,27 @@ $.fn.form = function(fields, parameters) {
           }
         },
 
+        set: {
+          success: function() {
+            $module
+              .removeClass(className.error)
+              .addClass(className.success)
+            ;
+          },
+          error: function() {
+            $module
+              .removeClass(className.success)
+              .addClass(className.error)
+            ;
+          }
+        },
+
         validate: {
 
           form: function(event) {
             var
-              allValid = true
+              allValid = true,
+              apiRequest
             ;
             // reset errors
             formErrors = [];
@@ -358,17 +374,18 @@ $.fn.form = function(fields, parameters) {
             });
             if(allValid) {
               module.debug('Form has no validation errors, submitting');
-              $module
-                .removeClass(className.error)
-                .addClass(className.success)
-              ;
+              module.set.error();
               return $.proxy(settings.onSuccess, this)(event);
             }
             else {
               module.debug('Form has errors');
-              $module.addClass(className.error);
+              module.set.error();
               if(!settings.inline) {
                 module.add.errors(formErrors);
+              }
+              // prevent ajax submit
+              if($module.data('moduleApi') !== undefined) {
+                event.stopImmediatePropagation();
               }
               return $.proxy(settings.onFailure, this)(formErrors);
             }

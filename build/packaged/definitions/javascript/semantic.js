@@ -71,6 +71,7 @@ $.api = $.fn.api = function(parameters) {
           var
             triggerEvent = module.get.event()
           ;
+          // bind events
           if(!methodInvoked) {
             if( triggerEvent ) {
               module.debug('Attaching API events to element', triggerEvent);
@@ -445,7 +446,23 @@ $.api = $.fn.api = function(parameters) {
             return module.xhr || false;
           },
           settings: function() {
-            return $.proxy(settings.beforeSend, $module)(settings);
+            var
+              runSettings
+            ;
+            runSettings = $.proxy(settings.beforeSend, $module)(settings);
+            if(runSettings.success !== undefined) {
+              module.debug('Legacy success callback detected', runSettings);
+              runSettings.onSuccess = runSettings.success;
+            }
+            if(runSettings.failure !== undefined) {
+              module.debug('Legacy failure callback detected', runSettings);
+              runSettings.onFailure = runSettings.failure;
+            }
+            if(runSettings.complete !== undefined) {
+              module.debug('Legacy complete callback detected', runSettings);
+              runSettings.onComplete = runSettings.complete;
+            }
+            return runSettings;
           },
           defaultData: function() {
             var
@@ -1412,11 +1429,27 @@ $.fn.form = function(fields, parameters) {
           }
         },
 
+        set: {
+          success: function() {
+            $module
+              .removeClass(className.error)
+              .addClass(className.success)
+            ;
+          },
+          error: function() {
+            $module
+              .removeClass(className.success)
+              .addClass(className.error)
+            ;
+          }
+        },
+
         validate: {
 
           form: function(event) {
             var
-              allValid = true
+              allValid = true,
+              apiRequest
             ;
             // reset errors
             formErrors = [];
@@ -1427,17 +1460,18 @@ $.fn.form = function(fields, parameters) {
             });
             if(allValid) {
               module.debug('Form has no validation errors, submitting');
-              $module
-                .removeClass(className.error)
-                .addClass(className.success)
-              ;
+              module.set.error();
               return $.proxy(settings.onSuccess, this)(event);
             }
             else {
               module.debug('Form has errors');
-              $module.addClass(className.error);
+              module.set.error();
               if(!settings.inline) {
                 module.add.errors(formErrors);
+              }
+              // prevent ajax submit
+              if($module.data('moduleApi') !== undefined) {
+                event.stopImmediatePropagation();
               }
               return $.proxy(settings.onFailure, this)(formErrors);
             }
@@ -8149,7 +8183,8 @@ $.fn.modal.settings = {
   },
   error : {
     dimmer    : 'UI Dimmer, a required component is not included in this page',
-    method    : 'The method you called is not defined.'
+    method    : 'The method you called is not defined.',
+    notFound  : 'The element you specified could not be found'
   },
   className : {
     active    : 'active',
@@ -14458,6 +14493,12 @@ $.fn.video = function(parameters) {
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
 
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
     returnedValue
   ;
 
@@ -14473,10 +14514,12 @@ $.fn.video = function(parameters) {
         error           = settings.error,
         metadata        = settings.metadata,
         namespace       = settings.namespace,
+        templates       = settings.templates,
 
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
 
+        $window         = $(window),
         $module         = $(this),
         $placeholder    = $module.find(selector.placeholder),
         $playButton     = $module.find(selector.playButton),
@@ -14491,6 +14534,7 @@ $.fn.video = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing video');
+          module.create();
           $placeholder
             .on('click' + eventNamespace, module.play)
           ;
@@ -14508,6 +14552,19 @@ $.fn.video = function(parameters) {
           ;
         },
 
+        create: function() {
+          var
+            image = $module.data(metadata.image),
+            html = templates.video(image)
+          ;
+          $module.html(html);
+          module.refresh();
+          if(!image) {
+            module.play();
+          }
+          module.debug('Creating html for video element', html);
+        },
+
         destroy: function() {
           module.verbose('Destroying previous instance of video');
           $module
@@ -14520,6 +14577,13 @@ $.fn.video = function(parameters) {
           $playButton
             .off(eventNamespace)
           ;
+        },
+
+        refresh: function() {
+          module.verbose('Refreshing selector cache');
+          $placeholder    = $module.find(selector.placeholder);
+          $playButton     = $module.find(selector.playButton);
+          $embed          = $module.find(selector.embed);
         },
 
         // sets new video
@@ -14565,41 +14629,59 @@ $.fn.video = function(parameters) {
           settings.onPlay();
         },
 
+        get: {
+          source: function(url) {
+            if(typeof url !== 'string') {
+              return false;
+            }
+            if(url.search('youtube.com') !== -1) {
+              return 'youtube';
+            }
+            else if(url.search('vimeo.com') !== -1) {
+              return 'vimeo';
+            }
+            return false;
+          },
+          id: function(url) {
+            if(settings.regExp.youtube.test(url)) {
+              return url.match(settings.regExp.youtube)[1];
+            }
+            else if(settings.regExp.vimeo.test(url)) {
+              return url.match(settings.regExp.vimeo)[2];
+            }
+            return false;
+          }
+        },
+
         generate: {
           // generates iframe html
           html: function(source, id, url) {
             module.debug('Generating embed html');
             var
-              width = (settings.width == 'auto')
-                ? $module.width()
-                : settings.width,
-              height = (settings.height == 'auto')
-                ? $module.height()
-                : settings.height,
               html
             ;
-            if(source && id) {
+            // allow override of settings
+            source = source || settings.source;
+            id     = id     || settings.id;
+            if((source && id) || url) {
+              if(!source || !id) {
+                source = module.get.source(url);
+                id     = module.get.id(url);
+              }
               if(source == 'vimeo') {
                 html = ''
                   + '<iframe src="http://player.vimeo.com/video/' + id + '?=' + module.generate.url(source) + '"'
-                  + ' width="' + width + '" height="' + height + '"'
+                  + ' width="100%" height="100%"'
                   + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
                 ;
               }
               else if(source == 'youtube') {
                 html = ''
                   + '<iframe src="http://www.youtube.com/embed/' + id + '?=' + module.generate.url(source) + '"'
-                  + ' width="' + width + '" height="' + height + '"'
+                  + ' width="100%" height="100%"'
                   + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
                 ;
               }
-            }
-            else if(url) {
-              html = ''
-                + '<iframe src="' + url + '"'
-                + ' width="' + width + '" height="' + height + '"'
-                + ' frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
-              ;
             }
             else {
               module.error(error.noVideo);
@@ -14613,9 +14695,9 @@ $.fn.video = function(parameters) {
               api      = (settings.api)
                 ? 1
                 : 0,
-              autoplay = (settings.autoplay)
-                ? 1
-                : 0,
+              autoplay = (settings.autoplay === 'auto')
+                ? ($module.data('image') !== undefined)
+                : settings.autoplay,
               hd       = (settings.hd)
                 ? 1
                 : 0,
@@ -14650,7 +14732,7 @@ $.fn.video = function(parameters) {
             }
             else if(source == 'youtube') {
               url = ''
-                +      'enablejsapi=' + api
+                + 'enablejsapi='      + api
                 + '&amp;autoplay='    + autoplay
                 + '&amp;autohide='    + hideUI
                 + '&amp;hq='          + hd
@@ -14852,10 +14934,17 @@ $.fn.video.settings = {
   performance : true,
 
   metadata    : {
-    source : 'source',
     id     : 'id',
+    image  : 'image',
+    source : 'source',
     url    : 'url'
   },
+
+  source      : false,
+  url         : false,
+  id          : false,
+
+  aspectRatio : (16/9),
 
   onPlay   : function(){},
   onReset  : function(){},
@@ -14868,11 +14957,16 @@ $.fn.video.settings = {
   width    : 'auto',
   height   : 'auto',
 
-  autoplay : false,
+  autoplay : 'auto',
   color    : '#442359',
   hd       : true,
   showUI   : false,
   api      : true,
+
+  regExp : {
+    youtube : /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/,
+    vimeo   : /http:\/\/(www\.)?vimeo.com\/(\d+)($|\/)/
+  },
 
   error      : {
     noVideo     : 'No video specified',
@@ -14887,6 +14981,22 @@ $.fn.video.settings = {
     embed       : '.embed',
     placeholder : '.placeholder',
     playButton  : '.play'
+  }
+};
+
+$.fn.video.settings.templates = {
+  video: function(image) {
+    var
+      html = ''
+    ;
+    if(image) {
+      html += ''
+        + '<i class="play sign icon"></i>'
+        + '<img class="placeholder" src="' + image + '">'
+      ;
+    }
+    html += '<div class="embed"></div>';
+    return html;
   }
 };
 

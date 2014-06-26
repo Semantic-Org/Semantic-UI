@@ -235,8 +235,8 @@
   right: auto !important;
   bottom: auto !important;
   -webkit-transform: none !important;
-  -ms-transform: none !important;
-  transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
 }
 .ui.disabled.reveal:hover > .hidden.content {
   display: none !important;

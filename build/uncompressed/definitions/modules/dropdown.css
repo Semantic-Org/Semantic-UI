@@ -153,7 +153,7 @@
   -webkit-box-shadow: none;
   -moz-shadow: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   z-index: 12;
 }
 /*--------------------
@@ -362,7 +362,7 @@
   right: auto;
   margin-top: 0.5em !important;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset, 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset, 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset, 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
   border-radius: 0.325em;
 }
 /*--------------
@@ -387,7 +387,7 @@
   background-color: #FFFFFF;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+      transform: rotate(45deg);
   z-index: 2;
 }
 .ui.pointing.dropdown .menu .active.item:first-child {
@@ -415,7 +415,7 @@
   margin: 0em;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+      transform: rotate(45deg);
 }
 .ui.top.right.pointing.dropdown .menu {
   top: 100%;
@@ -431,7 +431,7 @@
   margin: 0em;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+      transform: rotate(45deg);
 }
 .ui.left.pointing.dropdown .menu {
   top: 0%;
@@ -445,7 +445,7 @@
   margin: 0em 0em 0em 0em;
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+      transform: rotate(-45deg);
 }
 .ui.right.pointing.dropdown .menu {
   top: 0%;
@@ -460,5 +460,5 @@
   margin: 0em 0em 0em 0em;
   -webkit-transform: rotate(135deg);
   -ms-transform: rotate(135deg);
-  transform: rotate(135deg);
+      transform: rotate(135deg);
 }

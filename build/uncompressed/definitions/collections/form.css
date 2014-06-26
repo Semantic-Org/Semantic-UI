@@ -239,14 +239,14 @@
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
   -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
-  box-shadow: 0em 0em 0em 0em transparent inset;
+          box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-transition: background-color 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .ui.textarea,
 .ui.form textarea {
@@ -366,7 +366,7 @@
   border-radius: 0em 0.3125em 0.3125em 0em;
   background: #ffffff;
   -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
-  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   -webkit-appearance: none;
 }
 /*--------------------
@@ -423,7 +423,7 @@
   color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
   -webkit-box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
-  box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
+          box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -437,7 +437,7 @@
   color: #ff5950;
   -webkit-appearance: none;
   -webkit-box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
-  box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
+          box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
 }
 /*------------------
     Dropdown Error
@@ -453,17 +453,17 @@
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
   -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
-  box-shadow: 0px 0px 0px 1px #da9797 !important;
+          box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
   -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
-  box-shadow: 0px 0px 0px 1px #da9797 !important;
+          box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
   -webkit-box-shadow: 0px 1px 0px 1px #da9797;
-  box-shadow: 0px 1px 0px 1px #da9797;
+          box-shadow: 0px 1px 0px 1px #da9797;
 }
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
@@ -604,15 +604,15 @@
   clear: none;
   float: left;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   padding-left: 1%;
   padding-right: 1%;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 /* Other Combinations */
 .ui.form .two.fields > .fields,

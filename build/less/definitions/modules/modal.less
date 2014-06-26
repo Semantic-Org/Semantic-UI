@@ -31,13 +31,14 @@
   left: 50%;
   text-align: left;
 
-  width: @modalWidth;
-  margin-left: @modalXOffset;
+  width: @width;
+  margin-left: @xOffset;
 
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
+  background: @background;
+  border: @border;
+  box-shadow: @boxShadow;
 
-  border-radius: @modalBorderRadius;
+  border-radius: @borderRadius;
   user-select: text;
 }
 
@@ -53,17 +54,17 @@
 .ui.modal > .close {
   cursor: pointer;
   position: absolute;
-  top: @modalCloseTop;
-  right: @modalCloseRight;
+  top: @closeTop;
+  right: @closeRight;
   z-index: 1;
 
-  opacity: @modalCloseOpacity;
-  font-size: @modalCloseSize;
-  color: @modalCloseColor;
+  opacity: @closeOpacity;
+  font-size: @closeSize;
+  color: @closeColor;
 
-  width: @modalCloseHitbox;
-  height: @modalCloseHitbox;
-  padding: @modalClosePadding;
+  width: @closeHitbox;
+  height: @closeHitbox;
+  padding: @closePadding;
 }
 .ui.modal > .close:hover {
   opacity: 1;
@@ -74,15 +75,18 @@
 ---------------*/
 
 .ui.modal > .header {
-  font-family: @modalHeaderFontFamily;
-  margin: @modalHeaderMargin;
-  padding: @modalHeaderPadding;
+  display: block;
+  font-family: @headerFontFamily;
+  background: @headerBackground;
+  margin: @headerMargin;
+  padding: @headerPadding;
 
-  font-size: @modalHeaderFontSize;
-  font-weight: @modalHeaderFontWeight;
+  font-size: @headerFontSize;
+  font-weight: @headerFontWeight;
+  border-bottom: @headerBottomBorder;
 
-  border-top-left-radius: @modalBorderRadius;
-  border-top-right-radius: @modalBorderRadius;
+  border-top-left-radius: @borderRadius;
+  border-top-right-radius: @borderRadius;
 }
 
 /*--------------
@@ -93,25 +97,31 @@
   position: relative;
   display: table;
   width: 100%;
-  font-size: @modalContentFontSize;
-  line-height: @modalContentLineHeight;
-  padding: @modalContentPadding;
-  background: @modalContentBackground;
+  font-size: @contentFontSize;
+  line-height: @contentLineHeight;
+  padding: @contentPadding;
+  background: @contentBackground;
+
+  border-bottom-left-radius: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
+}
+.ui.modal > .content:only-child {
+  border-radius: @borderRadius;
 }
 .ui.modal > .content > .image {
   display: table-cell;
-  padding-right: @modalImagePadding;
-  min-width: @modalImageMinWidth;
+  padding-right: @imagePadding;
+  min-width: @imageMinWidth;
 }
 .ui.modal > .content > .description {
   display: table-cell;
   vertical-align: top;
-  padding-left: @modalDescriptionPadding;
-  min-width: @modalDescriptionMinWidth;
+  padding-left: @descriptionPadding;
+  min-width: @descriptionMinWidth;
 }
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
-  font-size: @modalImageIconSize;
+  font-size: @imageIconSize;
   margin: 0em;
 }
 
@@ -120,11 +130,11 @@
 ---------------*/
 
 .ui.modal .actions {
-  padding: @modalActionPadding;
+  padding: @actionPadding;
   text-align: right;
 }
 .ui.modal .actions > .button {
-  margin-left: @modalButtonDistance;
+  margin-left: @buttonDistance;
 }
 
 /*-------------------
@@ -134,32 +144,32 @@
 /* Modal Width */
 @media only screen and (max-width : (@tabletBreakpoint - 1px)) {
   .ui.modal {
-    width: @modalMobileWidth;
-    margin: @modalMobileMargin;
+    width: @mobileWidth;
+    margin: @mobileMargin;
   }
 }
 @media only screen and (min-width : @tabletBreakpoint) {
   .ui.modal {
-    width: @modalTabletWidth;
-    margin: @modalTabletMargin;
+    width: @tabletWidth;
+    margin: @tabletMargin;
   }
 }
 @media only screen and (min-width : @computerBreakpoint) {
   .ui.modal {
-    width: @modalComputerWidth;
-    margin: @modalComputerMargin;
+    width: @computerWidth;
+    margin: @computerMargin;
   }
 }
 @media only screen and (min-width : @largeMonitorBreakpoint) {
   .ui.modal {
-    width: @modalLargeMonitorWidth;
-    margin: @modalLargeMonitorMargin;
+    width: @largeMonitorWidth;
+    margin: @largeMonitorMargin;
   }
 }
 @media only screen and (min-width : @widescreenMonitorBreakpoint) {
   .ui.modal {
-    width: @modalWidescreenMonitorWidth;
-    margin: @modalWidescreenMonitorMargin;
+    width: @widescreenMonitorWidth;
+    margin: @widescreenMonitorMargin;
   }
 }
 
@@ -169,12 +179,12 @@
    /*rtl:ignore*/
   .ui.modal .content > .image {
     display: block;
-    padding: @modalMobileImagePadding;
+    padding: @mobileImagePadding;
   }
   /*rtl:ignore*/
   .ui.modal .content > .description {
     display: block;
-    padding: @modalMobileDescriptionPadding;
+    padding: @mobileDescriptionPadding;
     box-shadow: none;
   }
   .ui.modal .content .image {
@@ -186,16 +196,16 @@
   }
   .ui.modal .actions > .buttons,
   .ui.modal .actions > .button {
-    margin-bottom: @modalMobileButtonDistance;
+    margin-bottom: @mobileButtonDistance;
   }
 }
 /* Tablet and Mobile */
 @media only screen and (max-width : @computerBreakpoint) {
   .ui.modal > .close {
-    top: @modalInnerCloseTop;
-    right: @modalInnerCloseRight;
+    top: @innerCloseTop;
+    right: @innerCloseRight;
 
-    color: @modalInnerCloseColor;
+    color: @innerCloseColor;
   }
 }
 
@@ -229,11 +239,27 @@
 
 
 /*******************************
-              States
+             States
 *******************************/
 
 .ui.active.modal {
   display: block;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+   Full Screen
+---------------*/
+
+.ui.fullscreen.modal {
+  width: @fullScreenWidth !important;
+  margin: @fullScreenMargin !important;
+}
+.ui.fullscreen.modal > .close {
+  right: 0em;
 }
 
 
@@ -243,73 +269,75 @@
 
 /* Small */
 .ui.small.modal > .header {
-  font-size: @modalSmallHeaderSize;
+  font-size: @smallHeaderSize;
 }
+
 /* Small Modal Width */
 @media only screen and (max-width : (@tabletBreakpoint - 1px)) {
   .ui.small.modal {
-    width: @modalSmallMobileWidth;
-    margin: @modalSmallMobileMargin;
+    width: @smallMobileWidth;
+    margin: @smallMobileMargin;
   }
 }
 @media only screen and (min-width : @tabletBreakpoint) {
   .ui.small.modal {
-    width: @modalSmallTabletWidth;
-    margin: @modalSmallTabletMargin;
+    width: @smallTabletWidth;
+    margin: @smallTabletMargin;
   }
 }
 @media only screen and (min-width : @computerBreakpoint) {
   .ui.small.modal {
-    width: @modalSmallComputerWidth;
-    margin: @modalSmallComputerMargin;
+    width: @smallComputerWidth;
+    margin: @smallComputerMargin;
   }
 }
 @media only screen and (min-width : @largeMonitorBreakpoint) {
   .ui.small.modal {
-    width: @modalSmallLargeMonitorWidth;
-    margin: @modalSmallLargeMonitorMargin;
+    width: @smallLargeMonitorWidth;
+    margin: @smallLargeMonitorMargin;
   }
 }
 @media only screen and (min-width : @widescreenMonitorBreakpoint) {
   .ui.small.modal {
-    width: @modalSmallWidescreenMonitorWidth;
-    margin: @modalSmallWidescreenMonitorMargin;
+    width: @smallWidescreenMonitorWidth;
+    margin: @smallWidescreenMonitorMargin;
   }
 }
 
 /* Large Modal Width */
 .ui.large.modal > .header {
-  font-size: @modalLargeHeaderSize;
+  font-size: @largeHeaderSize;
 }
 @media only screen and (max-width : (@tabletBreakpoint - 1px)) {
   .ui.large.modal {
-    width: @modalLargeMobileWidth;
-    margin: @modalLargeMobileMargin;
+    width: @largeMobileWidth;
+    margin: @largeMobileMargin;
   }
 }
 @media only screen and (min-width : @tabletBreakpoint) {
   .ui.large.modal {
-    width: @modalLargeTabletWidth;
-    margin: @modalLargeTabletMargin;
+    width: @largeTabletWidth;
+    margin: @largeTabletMargin;
   }
 }
 @media only screen and (min-width : @computerBreakpoint) {
   .ui.large.modal {
-    width: @modalLargeComputerWidth;
-    margin: @modalLargeComputerMargin;
+    width: @largeComputerWidth;
+    margin: @largeComputerMargin;
   }
 }
 @media only screen and (min-width : @largeMonitorBreakpoint) {
   .ui.large.modal {
-    width: @modalLargeLargeMonitorWidth;
-    margin: @modalLargeLargeMonitorMargin;
+    width: @largeLargeMonitorWidth;
+    margin: @largeLargeMonitorMargin;
   }
 }
 @media only screen and (min-width : @widescreenMonitorBreakpoint) {
   .ui.large.modal {
-    width: @modalLargeWidescreenMonitorWidth;
-    margin: @modalLargeWidescreenMonitorMargin;
+    width: @largeWidescreenMonitorWidth;
+    margin: @largeWidescreenMonitorMargin;
   }
 }
+
 
 .loadUIOverrides();

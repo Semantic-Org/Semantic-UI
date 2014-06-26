@@ -223,7 +223,7 @@ a.ui.label:hover:before {
 .ui.tag.label:before {
     position: absolute;
     top: @tagTriangleTopOffset;
-    left: @tagTriangleLeftOffset;
+    right: @tagTriangleRightOffset;
     content: '';
 
     background-color: @backgroundColor;
@@ -232,7 +232,7 @@ a.ui.label:hover:before {
     width: @tagTriangleSize;
     height: @tagTriangleSize;
 
-    transform: rotate(45deg);
+    transform: translateY(-50%) translateX(50%) rotate(-45deg);
     transition:
       background 0.1s linear
     ;

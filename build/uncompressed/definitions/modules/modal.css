@@ -171,13 +171,15 @@
   text-align: left;
   width: 90%;
   margin-left: -45%;
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
-  border-radius: 0.25em;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+  border-radius: 0.25rem;
   -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
 }
 /*******************************
             Content
@@ -205,13 +207,16 @@
      Header
 ---------------*/
 .ui.modal > .header {
+  display: block;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background: #ffffff;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
   font-weight: bold;
-  border-top-left-radius: 0.25em;
-  border-top-right-radius: 0.25em;
+  border-bottom: none;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 /*--------------
      Content
@@ -224,6 +229,11 @@
   line-height: 1.4;
   padding: 2rem;
   background: #f4f4f4;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.ui.modal > .content:only-child {
+  border-radius: 0.25rem;
 }
 .ui.modal > .content > .image {
   display: table-cell;
@@ -297,7 +307,7 @@
     display: block;
     padding: 0em 0em 1em;
     -webkit-box-shadow: none;
-    box-shadow: none;
+            box-shadow: none;
   }
   .ui.modal .content .image {
     width: auto !important;
@@ -343,10 +353,23 @@
   margin-top: 1rem;
 }
 /*******************************
-              States
+             States
 *******************************/
 .ui.active.modal {
   display: block;
+}
+/*******************************
+           Variations
+*******************************/
+/*--------------
+   Full Screen
+---------------*/
+.ui.fullscreen.modal {
+  width: 99% !important;
+  margin: 0em 0em 0em -49.5% !important;
+}
+.ui.fullscreen.modal > .close {
+  right: 0em;
 }
 /*--------------
       Size

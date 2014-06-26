@@ -1,5 +1,5 @@
-/*
- * # Semantic - Video
+ /*
+ * # Semantic - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9,15 +9,28 @@
  *
  */
 
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'video';
+
+@import '../../semantic.config';
+
 
 /*******************************
             Video
 *******************************/
 
 .ui.video {
-  background-color: #000000;
+  position: relative;
+  background-color: @background;
   position: relative;
   max-width: 100%;
+  padding-bottom: 56.25%;
+  height: 0px;
+  overflow: hidden;
 }
 
 /*--------------
@@ -26,7 +39,7 @@
 
 /* Placeholder Image */
 .ui.video .placeholder {
-  background-color: #333333;
+  background-color: @placeholderBackground;
 }
 
 /* Play Icon Overlay */
@@ -40,14 +53,7 @@
   width: 100%;
   height: 100%;
 
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: alpha(opacity=60);
-  opacity: 0.6;
-
-  -webkit-transition: opacity 0.3s;
-  -moz-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  -ms-transition: opacity 0.3s;
+  opacity: @playOpacity;
   transition: opacity 0.3s;
 }
 .ui.video .play.icon:before {
@@ -56,21 +62,40 @@
   left: 50%;
   z-index: 11;
 
-  font-size: 6rem;
-  margin: -3rem 0em 0em -3rem;
-  color: #FFFFFF;
-  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.4);
+  background: @playBackground;
+
+  width: (@playSize + @playBorderSize);
+  height: (@playSize + @playBorderSize);
+  line-height: (@playSize + @playBorderSize);
+  border-radius: @playBorderRadius;
+
+  color: @playColor;
+  font-size: @playSize;
+  text-shadow: @playShadow;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .ui.video .placeholder {
+  position: absolute;
+  top: 0px;
+  left: 0px;
   display: block;
   width: 100%;
   height: 100%;
 }
 
 /* IFrame Embed */
-.ui.video .embed {
-  display: none;
+.ui.video .embed iframe,
+.ui.video .embed embed,
+.ui.video .embed object {
+  position: absolute;
+  border: none;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  margin: 0em;
+  padding: 0em;
 }
 
 /*******************************
@@ -82,9 +107,8 @@
 ---------------*/
 
 .ui.video .play:hover {
-  opacity: 1;
+  opacity: @playHoverOpacity;
 }
-
 
 /*--------------
      Active
@@ -95,5 +119,7 @@
   display: none;
 }
 .ui.video.active .embed {
-  display: block;
+  display: inline;
 }
+
+.loadUIOverrides();

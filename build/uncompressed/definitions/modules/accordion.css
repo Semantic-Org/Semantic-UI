@@ -102,7 +102,7 @@
 }
 .ui.basic.accordion .accordion {
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   padding: 1em 0.5em;
 }
 /*******************************

@@ -246,7 +246,7 @@ ol.ui.list ol,
   padding-right: 0.3em;
   vertical-align: top;
   -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+          transition: color 0.2s ease;
 }
 .ui.list .item > .icon:only-child {
   display: inline-block;
@@ -424,7 +424,7 @@ ol.ui.list ol,
   padding: 0.5em 0.5em;
   color: rgba(0, 0, 0, 0.5);
   -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
-  transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+          transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
 }
 .ui.selection.list .item:hover {
   background: rgba(0, 0, 0, 0.02);
@@ -460,7 +460,7 @@ ol.ui.list ol,
 --------------------*/
 .ui.animated.list .item {
   -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
-  transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
+          transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
 }
 .ui.animated.list:not(.horizontal) .item:hover {
   padding-left: 1em;
