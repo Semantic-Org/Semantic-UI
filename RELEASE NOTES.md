@@ -28,6 +28,8 @@
 - **Popup** - Popup can now allow itself not to be closed when hovered over
 - **Popup** - Popup content can now be specified on initialization.
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
+- **List** - List spacing defaults have been adjusted to be more consistent
+- **List** - List images can now specify vertical alignment
 
 ### Version 0.15.0 - Mar 14, 2014
 
