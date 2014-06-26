@@ -64,6 +64,14 @@ type        : 'UI Element'
     <p>An image may appear circular</p>
     <img class="circular ui image" src="/images/demo/photo2.jpg">
   </div>
+  <div class="example">
+    <h4 class="ui header">Vertically Aligned</h4>
+    <img class="ui top aligned tiny image" src="/images/demo/photo2.jpg"> Dog Doggington
+    <br>
+    <img class="ui middle aligned tiny image" src="/images/demo/photo2.jpg"> Dog Doggington
+    <br>
+    <img class="ui bottom aligned tiny image" src="/images/demo/photo2.jpg"> Dog Doggington
+  </div>
 
   <div class="example">
     <h4 class="ui header">Floated</h4>

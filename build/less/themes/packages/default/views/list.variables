@@ -29,7 +29,7 @@
 /* List Item */
 @itemVerticalPadding: 0.3em;
 @itemHorizontalPadding: 0em;
-@itemLineHeight: 1.2;
+@itemLineHeight: 1.2rem;
 
 
 /*-------------------

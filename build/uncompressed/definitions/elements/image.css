@@ -184,6 +184,34 @@ img.ui.image {
           Variations
 *******************************/
 /*--------------
+     Inline
+---------------*/
+.ui.inline.image,
+.ui.inline.image img {
+  display: inline-block;
+}
+/*------------------
+  Vertical Aligned
+-------------------*/
+.ui.top.aligned.images .image,
+.ui.top.aligned.image,
+.ui.top.aligned.image img {
+  display: inline-block;
+  vertical-align: top;
+}
+.ui.middle.aligned.images .image,
+.ui.middle.aligned.image,
+.ui.middle.aligned.image img {
+  display: inline-block;
+  vertical-align: middle;
+}
+.ui.bottom.aligned.images .image,
+.ui.bottom.aligned.image,
+.ui.bottom.aligned.image img {
+  display: inline-block;
+  vertical-align: bottom;
+}
+/*--------------
      Rounded
 ---------------*/
 .ui.rounded.images .image,
@@ -202,7 +230,7 @@ img.ui.image {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------
-     Circular
+    Circular
 ---------------*/
 .ui.circular.images .image,
 .ui.circular.images img,
@@ -229,8 +257,8 @@ img.ui.image {
 .ui.avatar.image {
   margin-right: 0.25rem;
   display: inline-block;
-  width: 2em;
-  height: 2em;
+  width: 2.5em;
+  height: 2.5em;
   border-radius: 500rem;
 }
 /*-------------------
@@ -319,7 +347,7 @@ img.ui.image {
 .ui.images .image,
 .ui.images img {
   display: inline-block;
-  margin: 0em 0.25rem 0.5em;
+  margin: 0em 0.25rem 0.5rem;
 }
 /*******************************
            Overrides

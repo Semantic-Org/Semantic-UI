@@ -137,6 +137,24 @@
 @basicActiveBackground: @transparentBlack;
 @basicActiveColor: @selectedTextColor;
 
+/* Basic Inverted */
+@basicInvertedBackground: transparent;
+@basicInvertedHoverBackground: transparent;
+@basicInvertedDownBackground: @transparentWhite;
+@basicInvertedActiveBackground: @transparentWhite;
+
+@basicInvertedBoxShadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5);
+@basicInvertedHoverBoxShadow: 0px 0px 0px 2px @selectedWhiteBorderColor;
+@basicInvertedDownBoxShadow: 0px 0px 0px 2px @selectedWhiteBorderColor;
+@basicInvertedActiveBoxShadow: 0px 0px 0px 2px @selectedWhiteBorderColor;
+
+@basicInvertedColor: @darkWhite;
+@basicInvertedHoverColor: @darkWhiteHover;
+@basicInvertedDownColor: @darkWhiteActive;
+@basicInvertedActiveColor: @invertedTextColor;
+
+
+/* Basic Group */
 @basicGroupBorder: 1px solid @borderColor;
 @basicGroupBoxShadow: 0px 0px 0px 1px @borderColor;
 

@@ -62,8 +62,8 @@ ol.ui.list li,
   line-height: @itemLineHeight;
 }
 
-ul.ui.list > li:first-child,
-ol.ui.list > li:first-child,
+ul.ui.list > li:first-child:after,
+ol.ui.list > li:first-child:after,
 .ui.list .item:after {
   content: '';
   display: block;
@@ -109,8 +109,15 @@ ol.ui.list ol,
 /* Image */
 .ui.list .item > .image {
   display: table-cell;
+  background-color: transparent;
   margin: 0em;
   padding-right: @imageDistance;
+  vertical-align: @imageAlign;
+}
+.ui.list .item > .top.aligned.image {
+  vertical-align: top;
+}
+.ui.list .item > .image img {
   vertical-align: @imageAlign;
 }
 .ui.list .item > img.image,
@@ -418,9 +425,11 @@ ul.ui.horizontal.bulleted.list li:first-child::before,
 --------------------*/
 
 ol.ui.list,
-.ui.ordered.list {
+.ui.ordered.list,
+.ui.ordered.list .list,
+ol.ui.list ol {
   counter-reset: ordered;
-  margin-left: 1.5rem;
+  margin-left: @orderedCountDistance;
   list-style-type: none;
 }
 ol.ui.list li,
@@ -431,7 +440,7 @@ ol.ui.list li,
 ol.ui.list li:before,
 .ui.ordered.list .item:before {
   position: absolute;
-  left: @orderedCountOffset;
+  left: -(@orderedCountDistance);
   counter-increment: @orderedCountName;
   content: @orderedCountContent;
   text-align: @orderedCountTextAlign;
@@ -439,16 +448,11 @@ ol.ui.list li:before,
   opacity: @orderedCountOpacity;
 }
 
-ol.ui.list ol,
-.ui.ordered.list .list {
-  counter-reset: @orderedCountName;
-  padding-left: @orderedCountDistance;
-}
 
 /* Child Lists */
 ol.ui.list ol,
 .ui.ordered.list .list {
-  padding-left: @orderedChildCountDistance;
+  margin-left: @orderedChildCountDistance;
 }
 ol.ui.list ol li:before,
 .ui.ordered.list .list .item:before {
@@ -503,18 +507,25 @@ ol.ui.horizontal.list li:before,
 }
 
 /* Divided Ordered */
-.ui.divided.ordered.list:not(.horizontal),
-.ui.divided.ordered.list .list {
+.ui.divided.ordered.list {
   margin-left: 0em;
-  padding-left: 0em;
 }
-.ui.divided.ordered.list .item:not(.horizontal) {
+.ui.divided.ordered.list .item {
   padding-left: @orderedCountDistance;
+  padding-right: @orderedCountDistance;
 }
 .ui.divided.ordered.list .item:before {
   left: 0em;
 }
-
+.ui.divided.ordered.list .item .list {
+  margin-left: -(@orderedChildCountDistance);
+  margin-right: -(@orderedChildCountDistance);
+  padding-bottom: @itemVerticalPadding;
+}
+.ui.divided.ordered.list .item .list .item {
+  padding-left: @orderedChildCountDistance;
+  padding-right: @orderedChildCountDistance;
+}
 
 
 /* Divided horizontal */
@@ -523,12 +534,11 @@ ol.ui.horizontal.list li:before,
 }
 .ui.divided.horizontal.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: @dividedBorder;
   margin: 0em;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-
-  line-height: 0.6;
+  padding-left: @horizontalDividedSpacing;
+  padding-right: @horizontalDividedSpacing;
+  line-height: @horizontalDividedLineHeight;
 }
 .ui.horizontal.divided.list > .item:first-child {
   border-left: none;
@@ -538,10 +548,10 @@ ol.ui.horizontal.list li:before,
 /* Inverted */
 .ui.divided.inverted.list > .item,
 .ui.divided.inverted.list > .list {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: @dividedInvertedBorder;
 }
 .ui.divided.inverted.horizontal.list .item {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: @dividedInvertedBorder;
 }
 
 
@@ -552,12 +562,12 @@ ol.ui.horizontal.list li:before,
 
 .ui.celled.list > .item,
 .ui.celled.list > .list {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  border-top: @celledBorder;
+  padding-left: @celledHorizontalPadding;
+  padding-right: @celledHorizontalPadding;
 }
 .ui.celled.list > .item:last-child {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: @celledBorder;
 }
 
 /* Padding on all elements */
@@ -568,10 +578,6 @@ ol.ui.horizontal.list li:before,
 }
 
 /* Sub Menu */
-.ui.celled.list .item .list {
-  margin-left: -0.5em;
-  margin-right: -0.5em;
-}
 .ui.celled.list .item .list .item {
   border-width: 0px;
 }
@@ -583,11 +589,17 @@ ol.ui.horizontal.list li:before,
 .ui.celled.bulleted.list {
   margin-left: 0em;
 }
-.ui.celled.bulleted.list > .item {
-  padding-left: 1.5rem;
+.ui.celled.bulleted.list .item {
+  padding-left: (@bulletDistance);
+  padding-right: (@bulletDistance);
 }
-.ui.celled.bulleted.list > .item:before {
-  left: 0.5em;
+.ui.celled.bulleted.list .item:before {
+  left: 0em;
+}
+.ui.celled.bulleted.list .item .list {
+  margin-left: -(@bulletDistance);
+  margin-right: -(@bulletDistance);
+  padding-bottom: @itemVerticalPadding;
 }
 
 /* Celled Ordered */
@@ -595,15 +607,20 @@ ol.ui.horizontal.list li:before,
   margin-left: 0em;
 }
 .ui.celled.ordered.list .item {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: @orderedCountDistance;
+  padding-right: @orderedCountDistance;
 }
 .ui.celled.ordered.list .item:before {
-  left: 0.5em;
+  left: 0em;
 }
 .ui.celled.ordered.list .item .list {
-  margin-left: -2rem;
-  margin-right: -2rem;
+  margin-left: -(@orderedChildCountDistance);
+  margin-right: -(@orderedChildCountDistance);
+  padding-bottom: @itemVerticalPadding;
+}
+.ui.celled.ordered.list .item .list .item {
+  padding-left: @orderedChildCountDistance;
+  padding-right: @orderedChildCountDistance;
 }
 
 /* Celled Horizontal */
@@ -612,57 +629,54 @@ ol.ui.horizontal.list li:before,
 }
 .ui.horizontal.celled.list .item {
   border-top: none;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: @celledBorder;
   margin: 0em;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: @horizontalCelledSpacing;
+  padding-right: @horizontalCelledSpacing;
 
-  line-height: 0.6;
+  line-height: @horizontalCelledLineHeight;
 }
 .ui.horizontal.celled.list .item:last-child {
   border-bottom: none;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: @celledBorder;
 }
 
 /* Inverted */
 .ui.celled.inverted.list > .item,
 .ui.celled.inverted.list > .list {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: @celledInvertedBorder;
 }
 .ui.celled.inverted.horizontal.list .item {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: @celledInvertedBorder;
 }
-
-
 
 /*-------------------
        Relaxed
 --------------------*/
 
 .ui.relaxed.list:not(.horizontal) .item {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: @relaxedVerticalPadding;
+  padding-bottom: @relaxedVerticalPadding;
 }
 .ui.relaxed.list .header {
-  margin-bottom: 0.25rem;
+  margin-bottom: @relaxedHeaderMargin;
 }
 .ui.horizontal.relaxed.list .item {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: @relaxedHorizontalPadding;
+  padding-right: @relaxedHorizontalPadding;
 }
 
 .ui.very.relaxed.list:not(.horizontal) .item {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: @veryRelaxedVerticalPadding;
+  padding-bottom: @veryRelaxedVerticalPadding;
 }
 .ui.very.relaxed.list .header {
-  margin-bottom: 0.5rem;
+  margin-bottom: @veryRelaxedHeaderMargin;
 }
 .ui.horizontal.very.relaxed.list .item {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: @veryRelaxedHorizontalPadding;
+  padding-right: @veryRelaxedHorizontalPadding;
 }
-
 
 /*-------------------
       Sizes

@@ -39,10 +39,10 @@ themes      : ['Default', 'Basic', 'Chubby', 'Amazon', 'GitHub']
     <h4 class="ui header">Ordinality</h4>
     <p>A button can be formatted to show different levels of emphasis</p>
     <div class="ui primary button">
-      Add to Cart
+      <i class="shop icon"></i> Add to Cart
     </div>
     <div class="ui secondary button">
-      Save
+      <i class="save icon"></i> Save
     </div>
   </div>
 
@@ -53,13 +53,13 @@ themes      : ['Default', 'Basic', 'Chubby', 'Amazon', 'GitHub']
     <div class="ui animated button">
       <div class="visible content">Next</div>
       <div class="hidden content">
-        <i class="right icon"></i>
+        <i class="right arrow icon"></i>
       </div>
     </div>
     <div class="ui vertical animated button">
       <div class="hidden content">Shop</div>
       <div class="visible content">
-        <i class="cart icon"></i>
+        <i class="shop icon"></i>
       </div>
     </div>
     <div class="ui animated fade button">
@@ -111,8 +111,25 @@ themes      : ['Default', 'Basic', 'Chubby', 'Amazon', 'GitHub']
       <br><br>
       <div class="ui inverted teal button">Teal</div>
     </div>
-
   </div>
+  <div class="another example">
+    <div class="ui inverted segment">
+      <div class="ui inverted basic button">Basic</div>
+      <div class="ui inverted black basic button">Basic Black</div>
+      <div class="ui inverted yellow basic button">Basic Yellow</div>
+      <br><br>
+      <div class="ui inverted green basic button">Basic Green</div>
+      <div class="ui inverted blue basic button">Basic Blue</div>
+      <div class="ui inverted orange basic button">Basic Orange</div>
+      <br><br>
+      <div class="ui inverted purple basic button">Basic Purple</div>
+      <div class="ui inverted pink basic button">Basic Pink</div>
+      <div class="ui inverted red basic button">Basic Red</div>
+      <br><br>
+      <div class="ui inverted teal basic button">Basic Teal</div>
+    </div>
+  </div>
+
 
   <h2 class="ui dividing header">Groups</h2>
 
