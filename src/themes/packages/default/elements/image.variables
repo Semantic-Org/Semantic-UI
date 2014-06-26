@@ -10,7 +10,7 @@
 @roundedBorderRadius: 0.3125em;
 
 @imageHorizontalMargin: 0.25rem;
-@imageVerticalMargin: 0.5em;
+@imageVerticalMargin: 0.5rem;
 @imageBorder: 1px solid rgba(0, 0, 0, 0.1);
 
 /*******************************
@@ -18,7 +18,7 @@
 *******************************/
 
 /* Avatar */
-@avatarSize: 2em;
+@avatarSize: 2.5em;
 @avatarMargin: @imageHorizontalMargin;
 
 
