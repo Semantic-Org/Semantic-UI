@@ -115,6 +115,6 @@
 -------------------*/
 
 .loadUIOverrides() {
-  @import "@{packagesFolder}//@{theme}/@{type}s/@{element}.overrides";
+  @import "@{packagesFolder}/@{theme}/@{type}s/@{element}.overrides";
   @import "@{userFolder}/@{type}s/@{element}.overrides";
 }
