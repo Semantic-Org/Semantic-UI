@@ -17,7 +17,7 @@
 
 @borderRadius: 3px;
 
-@verticalPadding: 0.75em;
+@verticalPadding: 0.8em;
 @horizontalPadding: 1.75em;
 
 @backgroundColor: #F7F8FA;
