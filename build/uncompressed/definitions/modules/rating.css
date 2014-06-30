@@ -14,7 +14,7 @@
 .ui.rating {
   display: inline-block;
   font-size: 0em;
-  vertical-align: middle;
+  vertical-align: baseline;
   margin: 0em 0.5rem 0em 0em;
 }
 .ui.rating:last-child {

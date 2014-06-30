@@ -9,68 +9,230 @@
  *
  */
 /*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+        Global Variables
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*******************************
+           BG Colors
+*******************************/
+/*******************************
+             Colors
+*******************************/
+/*---  Colors  ---*/
+/*---  Neutrals  ---*/
+/*--- Text Colors ---*/
+/* Preserve */
+/* Adjust for Legibility */
+/*--- Backgrounds ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive / Negative */
+/* Messages */
+/*-------------------
+     Text Colors
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Globals Used
+--------------------*/
+/*-------------------
+      Collection
+--------------------*/
+/*--------------
+    Elements
+---------------*/
+/* Table Row */
+/* Table Cell */
+/* Table Header */
+/* Table Footer */
+/* Responsive Size */
+/*--------------
+    Couplings
+---------------*/
+/*--------------
+     States
+---------------*/
+/* Positive */
+/*--------------
+     Types
+---------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
              Table
 *******************************/
 /* Prototype */
 .ui.table {
   width: 100%;
-  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0.25rem;
+}
+.ui.table {
+  border-collapse: separate;
+  border-spacing: 0px;
 }
 /* Table Content */
 .ui.table th,
-.ui.table tr,
 .ui.table td {
-  border-collapse: collapse;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
+  -webkit-transition: all 0.2s 'ease';
+          transition: all 0.2s 'ease';
 }
 /* Headers */
-.ui.table thead {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-}
-.ui.table tfoot th {
-  background-color: rgba(0, 0, 0, 0.03);
-}
-.ui.table th {
+.ui.table thead th {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   cursor: auto;
+  background-color: transparent;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 0.7em 0.8em;
+  vertical-align: middle;
+  font-style: none;
+  font-weight: bold;
+  text-transform: none;
+}
+.ui.table thead th:first-child {
+  border-radius: 0.25rem 0em 0em 0em;
+}
+.ui.table thead th:last-child {
+  border-radius: 0em 0.25rem 0em 0em;
+}
+/* Footer */
+.ui.table tfoot th {
+  cursor: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0.05);
   text-align: left;
   color: rgba(0, 0, 0, 0.8);
-  padding: 0.5em 0.7em;
+  padding: 1em 0.8em;
   vertical-align: middle;
-}
-.ui.table thead th:first-child {
-  border-radius: 5px 0px 0px 0px;
-}
-.ui.table thead th:last-child {
-  border-radius: 0px 5px 0px 0px;
+  font-style: italic;
+  font-weight: normal;
+  text-transform: none;
 }
 .ui.table tfoot th:first-child {
-  border-radius: 0px 0px 0px 5px;
+  border-radius: 0em 0em 0em 0.25rem;
 }
 .ui.table tfoot th:last-child {
-  border-radius: 0px 0px 5px 0px;
+  border-radius: 0em 0em 0.25rem 0em;
+}
+/* Table Row */
+.ui.table tr td {
+  border-top: 1px solid #dddddd;
+}
+.ui.table tr:first-child td {
+  border-top: none;
 }
 /* Table Cells */
 .ui.table td {
-  padding: 0.5em 0.7em;
+  padding: 0.7em 0.8em;
   vertical-align: middle;
-}
-/* Footer */
-.ui.table tfoot {
-  border-top: 1px solid rgba(0, 0, 0, 0.03);
-}
-.ui.table tfoot th {
-  font-weight: normal;
-  font-style: italic;
-}
-/* Table Striping */
-.ui.table tbody tr:nth-child(2n) {
-  background-color: rgba(0, 0, 50, 0.02);
 }
 /* Icons */
 .ui.table > .icon {
@@ -92,7 +254,9 @@
     display: block;
     padding: 0em;
   }
-  .ui.table thead,
+  .ui.table thead {
+    display: none;
+  }
   .ui.table tfoot {
     display: none;
   }
@@ -107,16 +271,16 @@
     display: block;
     border: none !important;
     padding: 0.25em 0.75em;
-    -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) !important;
-            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) !important;
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
   }
   .ui.table td:first-child {
     font-weight: bold;
     padding-top: 1em;
   }
   .ui.table td:last-child {
-    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     padding-bottom: 1em;
   }
   /* Clear BG Colors */
@@ -132,36 +296,16 @@
              States
 *******************************/
 /*--------------
-      Hover
----------------*/
-/* Sortable */
-.ui.sortable.table th.disabled:hover {
-  cursor: auto;
-  text-align: left;
-  font-weight: bold;
-  color: #333333;
-  color: rgba(0, 0, 0, 0.8);
-}
-.ui.sortable.table thead th:hover {
-  background-color: rgba(0, 0, 0, 0.13);
-  color: rgba(0, 0, 0, 0.8);
-}
-/* Inverted Sortable */
-.ui.inverted.sortable.table thead th:hover {
-  background-color: rgba(255, 255, 255, 0.13);
-  color: #ffffff;
-}
-/*--------------
     Positive
 ---------------*/
 .ui.table tr.positive,
 .ui.table td.positive {
   -webkit-box-shadow: 2px 0px 0px #119000 inset;
-  box-shadow: 2px 0px 0px #119000 inset;
+          box-shadow: 2px 0px 0px #119000 inset;
 }
 .ui.table tr.positive td,
 .ui.table td.positive {
-  background-color: #F2F8F0 !important;
+  background: #f2f8f0 !important;
   color: #119000 !important;
 }
 .ui.celled.table tr.positive:hover td,
@@ -169,7 +313,7 @@
 .ui.table tr.positive:hover td,
 .ui.table td:hover.positive,
 .ui.table th:hover.positive {
-  background-color: #ECF5E9 !important;
+  background: #ecf5e9 !important;
   color: #119000 !important;
 }
 /*--------------
@@ -178,7 +322,7 @@
 .ui.table tr.negative,
 .ui.table td.negative {
   -webkit-box-shadow: 2px 0px 0px #CD2929 inset;
-  box-shadow: 2px 0px 0px #CD2929 inset;
+          box-shadow: 2px 0px 0px #CD2929 inset;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
@@ -199,7 +343,7 @@
 .ui.table tr.error,
 .ui.table td.error {
   -webkit-box-shadow: 2px 0px 0px #CD2929 inset;
-  box-shadow: 2px 0px 0px #CD2929 inset;
+          box-shadow: 2px 0px 0px #CD2929 inset;
 }
 .ui.table tr.error td,
 .ui.table td.error,
@@ -221,7 +365,7 @@
 .ui.table tr.warning,
 .ui.table td.warning {
   -webkit-box-shadow: 2px 0px 0px #7D6C00 inset;
-  box-shadow: 2px 0px 0px #7D6C00 inset;
+          box-shadow: 2px 0px 0px #7D6C00 inset;
 }
 .ui.table tr.warning td,
 .ui.table td.warning,
@@ -243,7 +387,7 @@
 .ui.table tr.active,
 .ui.table td.active {
   -webkit-box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
-  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+          box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
 }
 .ui.table tr.active td,
 .ui.table tr td.active {
@@ -263,6 +407,14 @@
 /*******************************
           Variations
 *******************************/
+/*--------------
+     Striped
+---------------*/
+/* Table Striping */
+.ui.striped.table > tr:nth-child(2n),
+.ui.striped.table tbody tr:nth-child(2n) {
+  background-color: rgba(0, 0, 50, 0.03);
+}
 /*--------------
   Column Count
 ---------------*/
@@ -388,7 +540,11 @@
 }
 .ui.celled.table th,
 .ui.celled.table td {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ui.celled.table th:first-child,
+.ui.celled.table td:first-child {
+  border-left: none;
 }
 /* Coupling with segment */
 .ui.celled.table.segment th:first-child,
@@ -415,9 +571,9 @@
 .ui.sortable.table thead th.sorted,
 .ui.sortable.table thead th.sorted:hover {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .ui.sortable.table thead th:after {
   display: inline-block;
@@ -435,6 +591,23 @@
 }
 .ui.sortable.table thead th.descending:after {
   content: '\25be';
+}
+/* Sortable Hover */
+.ui.sortable.table th.disabled:hover {
+  cursor: auto;
+  text-align: left;
+  font-weight: bold;
+  color: #333333;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.sortable.table thead th:hover {
+  background-color: rgba(0, 0, 0, 0.13);
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Inverted Sortable */
+.ui.inverted.sortable.table thead th:hover {
+  background-color: rgba(255, 255, 255, 0.13);
+  color: #ffffff;
 }
 /*--------------
     Inverted
@@ -507,3 +680,9 @@
 .ui.large.table {
   font-size: 1.1em;
 }
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+           Overrides
+*******************************/

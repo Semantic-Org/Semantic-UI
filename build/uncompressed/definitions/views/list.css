@@ -214,7 +214,7 @@ ol.ui.list li,
   list-style-type: none;
   list-style-position: outside;
   padding: 0.3em 0em;
-  line-height: 1.2rem;
+  line-height: 1.2;
 }
 ul.ui.list > li:first-child:after,
 ol.ui.list > li:first-child:after,
@@ -748,7 +748,7 @@ ol.ui.horizontal.list li:before,
   padding-bottom: 0.5rem;
 }
 .ui.relaxed.list .header {
-  margin-bottom: 0.25rem;
+  /*margin-bottom: @relaxedHeaderMargin;*/
 }
 .ui.horizontal.relaxed.list .item {
   padding-left: 1.25rem;
@@ -759,7 +759,7 @@ ol.ui.horizontal.list li:before,
   padding-bottom: 1rem;
 }
 .ui.very.relaxed.list .header {
-  margin-bottom: 0.5rem;
+  /*margin-bottom: @veryRelaxedHeaderMargin;*/
 }
 .ui.horizontal.very.relaxed.list .item {
   padding-left: 2rem;

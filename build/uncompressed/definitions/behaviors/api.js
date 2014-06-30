@@ -452,14 +452,17 @@ $.api = $.fn.api = function(parameters) {
             runSettings = $.proxy(settings.beforeSend, $module)(settings);
             if(runSettings.success !== undefined) {
               module.debug('Legacy success callback detected', runSettings);
+              module.error(error.legacyParameters);
               runSettings.onSuccess = runSettings.success;
             }
             if(runSettings.failure !== undefined) {
               module.debug('Legacy failure callback detected', runSettings);
+              module.error(error.legacyParameters);
               runSettings.onFailure = runSettings.failure;
             }
             if(runSettings.complete !== undefined) {
               module.debug('Legacy complete callback detected', runSettings);
+              module.error(error.legacyParameters);
               runSettings.onComplete = runSettings.complete;
             }
             return runSettings;
@@ -783,6 +786,7 @@ $.api.settings = {
     error             : 'There was an error with your request',
     exitConditions    : 'API Request Aborted. Exit conditions met',
     JSONParse         : 'JSON could not be parsed during error handling',
+    legacyParameters  : 'You are using legacy API success callback names',
     missingAction     : 'API action used but no url was defined',
     missingSerialize  : 'Serializing a Form requires toJSON to be included',
     missingURL        : 'No URL specified for api event',

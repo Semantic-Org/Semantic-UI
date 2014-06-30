@@ -9,7 +9,7 @@ type        : 'UI Module'
 
 <script src="/javascript/tab.js"></script>
 
-<%- @partial('header', { tabs: {  examples: 'Examples', usage: 'Usage', settings: 'Settings' } }) %>
+<%- @partial('header', { tabs: {  usage: 'Usage', examples: 'Examples', settings: 'Settings' } }) %>
 
 <div class="main container">
 
@@ -25,7 +25,7 @@ type        : 'UI Module'
 
   <div class="ui tab" data-tab="usage">
 
-    <h4 class="ui header">Initializing tabs</h4>
+    <h2 class="ui dividing header">Initializing Tabs</h2>
 
     <p>Tabs are usually used in concert with an element that activates the tab. Tabs are initialized on the activating item instead of the tab.</p>
     <p>If there are no menus that activate tab elements on the page, tabs can be initialized globally by using <code>$.tab()</code> and activated programmatically using <code>$.tab('change tab', path);</code></p>

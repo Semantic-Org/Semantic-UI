@@ -18,6 +18,11 @@ $.tab = $.fn.tab = function(parameters) {
     $allModules     = $.isFunction(this)
         ? $(window)
         : $(this),
+
+    settings        = ( $.isPlainObject(parameters) )
+      ? $.extend(true, {}, $.fn.tab.settings, parameters)
+      : $.extend({}, $.fn.tab.settings),
+
     moduleSelector  = $allModules.selector || '',
     time            = new Date().getTime(),
     performance     = [],
@@ -25,6 +30,8 @@ $.tab = $.fn.tab = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
+
+    module,
     returnedValue
   ;
 
@@ -32,9 +39,6 @@ $.tab = $.fn.tab = function(parameters) {
   $allModules
     .each(function() {
       var
-        settings          = ( $.isPlainObject(parameters) )
-          ? $.extend(true, {}, $.fn.tab.settings, parameters)
-          : $.extend({}, $.fn.tab.settings),
 
         className          = settings.className,
         metadata           = settings.metadata,
@@ -57,8 +61,7 @@ $.tab = $.fn.tab = function(parameters) {
         historyEvent,
 
         element         = this,
-        instance        = $module.data(moduleNamespace),
-        module
+        instance        = $module.data(moduleNamespace)
       ;
 
       module = {
@@ -86,8 +89,6 @@ $.tab = $.fn.tab = function(parameters) {
               .on('click' + eventNamespace, module.event.click)
             ;
           }
-
-          module.initializeHistory();
           module.instantiate();
         },
 
@@ -142,7 +143,6 @@ $.tab = $.fn.tab = function(parameters) {
                 }
               }
               $.address
-                .unbind('change')
                 .bind('change', module.event.history.change)
               ;
             }
@@ -306,7 +306,9 @@ $.tab = $.fn.tab = function(parameters) {
               }
             }
             else {
-              module.error(error.missingTab, tab);
+              if(!settings.history) {
+                module.error(error.missingTab, $module, currentPath);
+              }
               return false;
             }
           });
@@ -320,7 +322,7 @@ $.tab = $.fn.tab = function(parameters) {
               apiSettings      = {
                 dataType     : 'html',
                 stateContext : $tab,
-                success      : function(response) {
+                onSuccess      : function(response) {
                   module.cache.add(fullTabPath, response);
                   module.content.update(tabPath, response);
                   if(tabPath == activeTabPath) {
@@ -687,6 +689,9 @@ $.tab = $.fn.tab = function(parameters) {
       }
     })
   ;
+  if(!methodInvoked) {
+    module.initializeHistory();
+  }
   return (returnedValue !== undefined)
     ? returnedValue
     : this
@@ -745,7 +750,7 @@ $.fn.tab.settings = {
   error: {
     api        : 'You attempted to load content without API module',
     method     : 'The method you called is not defined',
-    missingTab : 'Tab cannot be found',
+    missingTab : 'Activated tab cannot be found for this context.',
     noContent  : 'The tab you specified is missing a content url.',
     path       : 'History enabled, but no path was specified',
     recursion  : 'Max recursive depth reached',
