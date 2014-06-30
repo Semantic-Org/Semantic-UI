@@ -1,0 +1,97 @@
+/*-------------------
+    Globals Used
+--------------------*/
+
+// @textColor
+// @borderColor
+// @invertedUnselectedTextColor
+
+/*-------------------
+      Collection
+--------------------*/
+
+@borderCollapse: separate;
+@borderSpacing: 0px;
+@transition: all 0.2s @defaultEasing;
+@borderRadius: 0.25rem;
+@background: #FFFFFF;
+@border: 1px solid @solidBorderColor;
+@boxShadow: none;
+
+/*--------------
+    Elements
+---------------*/
+
+/* Table Row */
+@rowBorder: 1px solid @solidBorderColor;
+
+/* Table Cell */
+@cellVerticalPadding: 0.7em;
+@cellHorizontalPadding: 0.8em;
+@cellVerticalAlign: middle;
+@cellBorder: 1px solid @solidBorderColor;
+
+/* Table Header */
+@headerBorder: 1px solid rgba(0, 0, 0, 0.1);
+@headerBackground: transparent;
+@headerAlign: left;
+@headerVerticalAlign: middle;
+@headerColor: @textColor;
+@headerVerticalPadding: @cellVerticalPadding;
+@headerHorizontalPadding: @cellHorizontalPadding;
+@headerFontStyle: none;
+@headerFontWeight: bold;
+@headerTextTransform: none;
+
+/* Table Footer */
+@footerBorder: 1px solid rgba(0, 0, 0, 0.1);
+@footerBackground: rgba(0, 0, 0, 0.05);
+@footerAlign: left;
+@footerVerticalAlign: middle;
+@footerColor: @textColor;
+@footerVerticalPadding: 1em;
+@footerHorizontalPadding: @cellHorizontalPadding;
+@footerFontStyle: italic;
+@footerFontWeight: normal;
+@footerTextTransform: none;
+
+/* Responsive Size */
+@responsiveHeaderDisplay: none;
+@responsiveFooterDisplay: none;
+
+@responsiveRowVerticalPadding: 1em;
+@responsiveRowBoxShadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+
+@responsiveCellVerticalPadding: 0.25em;
+@responsiveCellHorizontalPadding: 0.75em;
+@responsiveCellBoxShadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) !important;
+
+@responsiveStatusColor: transparent;
+
+/*--------------
+    Couplings
+---------------*/
+
+@iconVerticalAlign: baseline;
+
+
+/*--------------
+     States
+---------------*/
+
+@stateMarkerWidth: 2px;
+
+/* Positive */
+@positiveColor: #119000;
+@positiveBackgroundColor: #F2F8F0;
+@positiveBoxShadow: @stateMarkerWidth 0px 0px @positiveColor inset;
+
+@positiveBackgroundHover: #ECF5E9;
+@positiveColorHover: #119000;
+
+
+/*--------------
+     Types
+---------------*/
+
+@stripedBackground: rgba(0, 0, 50, 0.03);

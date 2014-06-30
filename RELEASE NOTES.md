@@ -8,6 +8,7 @@
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 
 **Enhancements**
+- **Table** - Tables are no longer striped by default, must specify variation 'striped'
 - **Form** - Form now has a success state which will automatically display success messages
 - **Form** - Forms in 'success' state will now show success messages inside
 - **List** - Child lists can now be formatted to sit inside text content
