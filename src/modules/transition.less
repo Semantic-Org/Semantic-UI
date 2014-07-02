@@ -136,6 +136,20 @@
   animation-name: fadeDownOut;
 }
 
+.ui.fade.left.transition.in {
+  animation-name: fadeLeft;
+}
+.ui.fade.left.transition.out {
+  animation-name: fadeLeftOut;
+}
+
+.ui.fade.right.transition.in {
+  animation-name: fadeRight;
+}
+.ui.fade.right.transition.out {
+  animation-name: fadeRightOut;
+}
+
 /*--------------
       Scale
 ---------------*/
@@ -391,6 +405,51 @@
     transform: translateY(-20px);
   }
 }
+
+/* Fade Left */
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeftOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+/* Fade Right */
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeRightOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
 
 /*--------------
       Scale
