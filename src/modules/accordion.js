@@ -129,7 +129,8 @@ $.fn.accordion = function(parameters) {
           var
             $activeTitle     = $title.eq(index),
             $activeContent   = $activeTitle.next($content),
-            $previousTitle   = $activeTitle.siblings(selector.title).filter('.' + className.active),
+            $others          = module.is.menu() ? $activeTitle.parent().siblings(selector.item).find(selector.title) : $activeTitle.siblings(selector.title);
+            $previousTitle   = $others.filter('.' + className.active),
             $previousContent = $previousTitle.next($title),
             contentIsOpen    =  ($previousTitle.size() > 0)
           ;
@@ -205,7 +206,11 @@ $.fn.accordion = function(parameters) {
             })
           ;
         },
-
+        is: {
+          menu: function () {
+            return $module.hasClass(className.menu);
+          }
+        },
         setting: function(name, value) {
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
@@ -405,12 +410,15 @@ $.fn.accordion.settings = {
   },
 
   className   : {
-    active : 'active'
+    active : 'active',
+    menu   : 'menu',
   },
 
   selector    : {
     title   : '.title',
-    content : '.content'
+    content : '.content',
+    menu    : '.menu',
+    item    : '.item',
   }
 
 

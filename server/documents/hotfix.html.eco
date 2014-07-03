@@ -6,66 +6,338 @@ title  : 'Test Page'
 type   : 'Library'
 ---
 <%- @partial('header') %>
-
-<script type='text/javascript'>
-$(document).ready(function() {
-
-$(document).ready(function () {
-    var settings = {
-        inline : true,
-        on : 'blur'
-    };
-
-    var consultantRules = {
-        required : {
-            identifier : 'required',
-            rules : [{
-                type : 'empty',
-                prompt : 'Please enter value.'
-            }]
-        }
-
-    };
-    $('.form').form(consultantRules, settings);
-});
-
-});
-</script>
 <div class="main container">
-without form :
-    <div class="inline field">
-                <label class="email optional" for="landing_user_Votre email">Votre email</label>
-                <div class="ui input left icon">
-                  <input id="landing_user_email" name="landing_user[email]" required="required" type="text">
-                  <i class="icon mail outline"></i>
+
+<div class="sticky-wrapper">
+	<div class="peek">
+		<div class="ui toggle checkbox">
+			<input type="checkbox" name="pet">
+			<label>Exclusive</label>
+		</div>    
+  </div>
+</div>
+
+
+<h2 class="ui red dividing header">
+      Issue <a href="https://github.com/Semantic-Org/Semantic-UI/issues/803">#803 </a>
+      <div class="sub header"><a href="http://jsfiddle.net/eiriarte/X4PPF/">http://jsfiddle.net/eiriarte/X4PPF/</a></div>
+</h2>
+
+<div class="example">
+
+<h2 class="ui dividing header">
+    List inside accordion
+    <div class="sub header">.content inherits padding from accordion content</div>
+</h2>
+<div class="ui accordion">
+    <div class="active title">Title 1</div>
+    <div class="active content">
+        <div class="ui list">
+            <div class="item">
+                <i class="info icon"></i>
+                <div class="content">
+                    <div class="header">Header 1</div>
+                    <div class="description">Description 1</div>
                 </div>
-
-              </div>
- <br/>   <br/>
-with ui form and with input icon:
-
-<form class='ui form'>
-    <div class="inline field">
-                <label class="email optional" for="landing_user_Votre email">Votre email</label>
-                <div class="ui input left icon">
-                  <input id="landing_user_email" name="landing_user[email]" required="required" type="text">
-                  <i class="icon mail outline"></i>
+            </div>
+            <div class="item">
+                <i class="ordered list icon"></i>
+                <div class="content">
+                    <div class="header">Header 2</div>
+                    <div class="description">Description 2</div>
                 </div>
-
-              </div>
-</form>
-    <br/>
-     <br/>
-with ui form and without input icon
-<form class='ui form'>
-    <div class="inline field">
-                <label class="email optional" for="landing_user_Votre email">Votre email</label>
-                <input id="landing_user_email" name="landing_user[email]" required="required" type="text">
-
-
+            </div>
+            <div class="item">
+                <i class="heart icon"></i>
+                <div class="content">
+                    <div class="header">Header 3</div>
+                    <div class="description">Description 3</div>
+                </div>
+            </div>
+        </div>
     </div>
-</form>
+    <div class="title">Title 2</div>
+    <div class="content">Content 2</div>
+</div>
+<h2 class="ui dividing header">
+    List icon inside divided list 	
+    <div class="sub header">
+			.list inherits negative margin from submenus in divided list
+				<div class="ui green pointing left label">
+          Excludes list icon 
+				</div>
+		</div>
+</h2>
+<div class="ui segment">
+        <div class="ui divided list">
+            <div class="item">
+                <i class="info icon"></i>
+                <div class="content">
+                    <div class="header">Header 1</div>
+                    <div class="description">Description 1</div>
+                </div>
+            </div>
+            <div class="item">
+                <i class="ordered list icon"></i>
+                <div class="content">
+                    <div class="header">Header 2</div>
+                    <div class="description">Description 2</div>
+                </div>
+            </div>
+            <div class="item">
+                <i class="heart icon"></i>
+                <div class="content">
+                    <div class="header">Header 3</div>
+                    <div class="description">Description 3</div>
+                </div>
+            </div>
+        </div>
+</div>
+
+</div>
+
+
+<h2 class="ui red dividing header">
+      Issue <a href="https://github.com/Semantic-Org/Semantic-UI/issues/791">#791</a>
+      <div class="sub header"><a href="http://jsfiddle.net/mL3c5/1/">http://jsfiddle.net/mL3c5/1/</a></div>
+</h2>
+<div class="example">
+<div class="ui basic vertical accordion menu">
+  <div class="item">
+    <a class="active title">
+      <i class="dropdown icon"></i>
+      Size
+    </a>
+    <div class="active content menu">
+      <div class="ui form item">
+        <div class="grouped inline fields">
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="size" value="small">
+              <label>Small</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="size" value="medium">
+              <label>Medium</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="size" value="large">
+              <label>Large</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="size" value="x-large">
+              <label>X-Large</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <a class="active title">
+      <i class="dropdown icon"></i>
+      Colors
+    </a>
+    <div class="active content menu">
+      <div class="ui form item">
+        <div class="grouped inline fields">
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="small">
+              <label>Red</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="medium">
+              <label>Orange</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="large">
+              <label>Green</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="x-large">
+              <label>Blue</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+
+</div>
+
+
+<h2 class="ui red dividing header">
+			Semantic-UI example
+			<div class="sub header"><a href="http://semantic-ui.com/modules/accordion.html">http://semantic-ui.com/modules/accordion.html</a></div>
+</h2>
+
+<div class="example">
+<h3 class="ui header">Nested</h3>
+<div class="ui accordion">
+  <div class="active title">
+    <i class="dropdown icon"></i>
+    Level 1
+  </div>
+  <div class="active content">
+    <p>Welcome to level 1 where sub content formatted as its own accordion.</p>
+    <div class="accordion">
+      <div class="active title">
+          <i class="dropdown icon"></i>
+          Level 1A
+      </div>
+      <div class="active content">
+        <p>Level 1A Contents</p>
+        <div class="accordion">
+          <div class="title">
+              <i class="dropdown icon"></i>
+              Level 1A-A
+          </div>
+          <div class="content">
+              Level 1A-A Contents
+          </div>
+          <div class="title">
+              <i class="dropdown icon"></i>
+              Level 1A-B
+          </div>
+          <div class="content">
+              Level 1A-B Contents
+          </div>
+        </div>
+      </div>
+      <div class="title">
+          <i class="dropdown icon"></i>
+          Level 1B
+      </div>
+      <div class="content">
+          Level 1B Contents
+      </div>
+      <div class="title">
+          <i class="dropdown icon"></i>
+          Level 1C
+      </div>
+      <div class="content">
+          Level 1C Contents
+      </div>
+    </div>
+  </div>
+  <div class="title">
+    <i class="dropdown icon"></i>
+    Level 2
+  </div>
+  <div class="content">
+    <p>Welcome to level 2 where content is formatted without nested accordions</p>
+    <div class="active title">
+      <i class="dropdown icon"></i>
+      Level 2A
+    </div>
+    <div class="active content">
+      <p>Level 2A Contents</p>
+      <div class="title">
+          <i class="dropdown icon"></i>
+          Level 2A-A
+      </div>
+      <div class="content">
+          Level 2A-A Contents
+      </div>
+      <div class="title">
+          <i class="dropdown icon"></i>
+          Level 2A-B
+      </div>
+      <div class="content">
+          Level 2A-B Contents
+      </div>
+    </div>
+    <div class="title">
+        <i class="dropdown icon"></i>
+        Level 2B
+    </div>
+    <div class="content">
+        Level 2B Contents
+    </div>
+    <div class="title">
+        <i class="dropdown icon"></i>
+        Level 2C
+    </div>
+    <div class="content">
+        Level 2C Contents
+    </div>
+  </div>
+</div>
+</div>
+<h3 class="ui header">Form</h3>
+<div class="ui segment">
+  <div class="ui fluid form">
+    <div class="two fields">
+      <div class="field">
+        <label>First Name</label>
+        <input placeholder="First Name" type="text">
+      </div>
+      <div class="field">
+        <label>Last Name</label>
+        <input placeholder="Last Name" type="text">
+      </div>
+    </div>
+    <div class="ui basic accordion field">
+      <div class="title">
+        <i class="icon dropdown"></i>
+        Optional Details
+      </div>
+      <div class="content field">
+        <label>Maiden Name</label>
+        <input placeholder="Maiden Name" type="text">
+      </div>
+    </div>
+    <div class="ui secondary submit button">Sign Up</div>
+  </div>
+</div>
+
 
 
 
 </div>
+<script type="text/javascript">
+  $(function () {
+    $('.ui.accordion')
+      .accordion({
+        exclusive: false
+      })
+		;
+
+		$('.ui.checkbox')
+			.checkbox(
+				{
+					onEnable:function(){									
+						$('.ui.accordion')
+							.accordion({
+								exclusive: true
+							})
+						;
+					},
+					onDisable:function(){									
+						$('.ui.accordion')
+							.accordion({
+								exclusive: false
+							})
+						;
+					},
+				});
+
+  });
+</script>
+
+

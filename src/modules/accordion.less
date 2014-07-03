@@ -62,7 +62,8 @@
 
 
 /* Content */
-.ui.accordion .content,
+.ui.accordion > .content,
+.ui.accordion .content > .content,
 .ui.accordion .accordion .content {
   display: none;
   margin: 0em;
@@ -120,6 +121,10 @@
 .ui.basic.accordion.menu .title,
 .ui.basic.accordion.menu .content {
   padding: 0em;
+}
+
+.ui.accordion.menu .content{
+  display: none;
 }
 
 
