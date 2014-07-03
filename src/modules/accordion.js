@@ -129,8 +129,10 @@ $.fn.accordion = function(parameters) {
           var
             $activeTitle     = $title.eq(index),
             $activeContent   = $activeTitle.next($content),
-            $others          = module.is.menu() ? $activeTitle.parent().siblings(selector.item).find(selector.title) : $activeTitle.siblings(selector.title);
-            $previousTitle   = $others.filter('.' + className.active),
+            $otherSections   = module.is.menu()
+              ? $activeTitle.parent().siblings(selector.item).find(selector.title)
+              : $activeTitle.siblings(selector.title),
+            $previousTitle   = $otherSections.filter('.' + className.active),
             $previousContent = $previousTitle.next($title),
             contentIsOpen    =  ($previousTitle.size() > 0)
           ;
