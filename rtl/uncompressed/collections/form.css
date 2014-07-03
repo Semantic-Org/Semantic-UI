@@ -414,7 +414,7 @@
 .ui.form .fields > .field:first-child {
   border-right: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
 /* Other Combinations */
 .ui.form .two.fields > .fields,

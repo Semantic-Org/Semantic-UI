@@ -204,7 +204,7 @@
   cursor: pointer;
   z-index: 5;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.items .item:hover .extra {
   color: rgba(0, 0, 0, 0.5);

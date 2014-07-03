@@ -15,7 +15,7 @@
   position: relative;
   background-color: #FFFFFF;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   margin: 1em 0em;
   padding: 1em;
   border-radius: 5px 5px 5px 5px;
@@ -76,7 +76,7 @@
 .ui.grid .ui.segment.column {
   border-radius: 0em;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   border: none;
 }
 /* No padding on edge content */
@@ -277,9 +277,9 @@
 .ui.justified.segment {
   text-align: justify;
   -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
 /*-------------------
        Floated

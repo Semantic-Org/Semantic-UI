@@ -85,7 +85,7 @@ body.pushed.scrolling.ui.dimmable {
   padding: 1em 1.5em;
   background-color: #FFFFFF;
   -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.styled.very.thin.sidebar {
   padding: 0.5em;

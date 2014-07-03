@@ -214,8 +214,8 @@ ol.ui.list li,
   color: rgba(0, 0, 0, 0.4);
   padding: 0.5em;
   -webkit-transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
-  -moz-transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
-  transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
+     -moz-transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
+          transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
 }
 .ui.selection.list .item:hover {
   background-color: rgba(0, 0, 0, 0.02);
@@ -231,8 +231,8 @@ ol.ui.list li,
 }
 .ui.animated.list .item {
   -webkit-transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
-  -moz-transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
-  transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
+     -moz-transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
+          transition: 0.2s color ease, 0.2s padding-right ease, 0.2s background-color ease;
 }
 .ui.animated.list:not(.horizontal) .item:hover {
   padding-right: 1em;
