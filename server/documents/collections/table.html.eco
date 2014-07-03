@@ -383,7 +383,7 @@ type        : 'UI Collection'
     <h4 class="ui header">Column Width</h4>
     <p>A table can specify the width of individual columns independently.</p>
     <div class="ui ignored info message">Tables use a 16 column grid. This should be the total width of all elements in a column</div>
-    <table class="ui five column table">
+    <table class="ui table">
       <thead>
         <th class="ten wide">Name</th>
         <th class="six wide">Status</th>
