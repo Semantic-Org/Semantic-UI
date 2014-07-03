@@ -121,6 +121,9 @@
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -820,6 +823,9 @@
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -1851,6 +1857,9 @@ body > .ui.grid {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -3487,6 +3496,9 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -3912,6 +3924,9 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -3981,9 +3996,6 @@ body > .ui.grid {
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
 /*-------------------
-    Globals Used
---------------------*/
-/*-------------------
       Collection
 --------------------*/
 /*--------------
@@ -4001,9 +4013,20 @@ body > .ui.grid {
      States
 ---------------*/
 /* Positive */
+/* Negative */
+/* Error */
+/* Warning */
+/* Active */
 /*--------------
      Types
 ---------------*/
+/* Striped */
+/* Sortable */
+/* Inverted */
+/* Definition */
+/* Basic */
+/* Padded */
+/* Sizes */
 /*------------------
      Load Theme
 -------------------*/
@@ -4030,6 +4053,7 @@ body > .ui.grid {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 0.25rem;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.table {
   border-collapse: separate;
@@ -4178,65 +4202,63 @@ body > .ui.grid {
 ---------------*/
 .ui.table tr.negative,
 .ui.table td.negative {
-  -webkit-box-shadow: 2px 0px 0px #CD2929 inset;
-          box-shadow: 2px 0px 0px #CD2929 inset;
+  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
+          box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
-  background-color: #F9F4F4;
-  color: #CD2929 !important;
+  background: #f9f4f4 !important;
+  color: #cd2929 !important;
 }
 .ui.celled.table tr.negative:hover td,
 .ui.celled.table tr:hover td.negative,
 .ui.table tr.negative:hover td,
 .ui.table td:hover.negative,
 .ui.table th:hover.negative {
-  background-color: #F2E8E8;
-  color: #CD2929;
+  background: #f2e8e8 !important;
+  color: #cd2929 !important;
 }
 /*--------------
       Error
 ---------------*/
 .ui.table tr.error,
 .ui.table td.error {
-  -webkit-box-shadow: 2px 0px 0px #CD2929 inset;
-          box-shadow: 2px 0px 0px #CD2929 inset;
+  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
+          box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.error td,
-.ui.table td.error,
-.ui.table th.error {
-  background-color: #F9F4F4;
-  color: #CD2929;
+.ui.table td.error {
+  background: #f9f4f4 !important;
+  color: #cd2929 !important;
 }
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error,
 .ui.table tr.error:hover td,
 .ui.table td:hover.error,
 .ui.table th:hover.error {
-  background-color: #F2E8E8;
-  color: #CD2929;
+  background: #f2e8e8 !important;
+  color: #cd2929 !important;
 }
 /*--------------
      Warning
 ---------------*/
 .ui.table tr.warning,
 .ui.table td.warning {
-  -webkit-box-shadow: 2px 0px 0px #7D6C00 inset;
-          box-shadow: 2px 0px 0px #7D6C00 inset;
+  -webkit-box-shadow: 2px 0px 0px #7d6c00 inset;
+          box-shadow: 2px 0px 0px #7d6c00 inset;
 }
 .ui.table tr.warning td,
-.ui.table td.warning,
-.ui.table th.warning {
-  background-color: #FBF6E9;
-  color: #7D6C00;
+.ui.table td.warning {
+  background: #fbf6e9 !important;
+  color: #7d6c00 !important;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning,
 .ui.table tr.warning:hover td,
 .ui.table td:hover.warning,
 .ui.table th:hover.warning {
-  background-color: #F3EDDC;
-  color: #7D6C00;
+  background: #f3eddc !important;
+  color: #cd2929 !important;
 }
 /*--------------
      Active
@@ -4247,10 +4269,17 @@ body > .ui.grid {
           box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
 }
 .ui.table tr.active td,
-.ui.table tr td.active {
-  background-color: #E0E0E0;
-  color: rgba(50, 50, 50, 0.9);
-  /* border-color: rgba(0, 0, 0, 0.15) !important; */
+.ui.table td.active {
+  background: #e0e0e0 !important;
+  color: rgba(50, 50, 50, 0.9) !important;
+}
+.ui.celled.table tr.active:hover td,
+.ui.celled.table tr:hover td.active,
+.ui.table tr.active:hover td,
+.ui.table td:hover.active,
+.ui.table th:hover.active {
+  background: #f3eddc !important;
+  color: #cd2929 !important;
 }
 /*--------------
      Disabled
@@ -4272,14 +4301,23 @@ body > .ui.grid {
 .ui.striped.table tbody tr:nth-child(2n) {
   background-color: rgba(0, 0, 50, 0.03);
 }
+/* Stripes */
+.ui.inverted.striped.table > tr:nth-child(2n),
+.ui.inverted.striped.table tbody tr:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.06);
+}
 /*--------------
   Column Count
 ---------------*/
+/* Grid Based */
+.ui.one.column.table td {
+  width: 100%;
+}
 .ui.two.column.table td {
   width: 50%;
 }
 .ui.three.column.table td {
-  width: 33.3333%;
+  width: 33.33333333%;
 }
 .ui.four.column.table td {
   width: 25%;
@@ -4288,34 +4326,34 @@ body > .ui.grid {
   width: 20%;
 }
 .ui.six.column.table td {
-  width: 16.66667%;
+  width: 16.66666667%;
 }
 .ui.seven.column.table td {
-  width: 14.2857%;
+  width: 14.28571429%;
 }
 .ui.eight.column.table td {
   width: 12.5%;
 }
 .ui.nine.column.table td {
-  width: 11.1111%;
+  width: 11.11111111%;
 }
 .ui.ten.column.table td {
   width: 10%;
 }
 .ui.eleven.column.table td {
-  width: 9.0909%;
+  width: 9.09090909%;
 }
 .ui.twelve.column.table td {
-  width: 8.3333%;
+  width: 8.33333333%;
 }
 .ui.thirteen.column.table td {
-  width: 7.6923%;
+  width: 7.69230769%;
 }
 .ui.fourteen.column.table td {
-  width: 7.1428%;
+  width: 7.14285714%;
 }
 .ui.fifteen.column.table td {
-  width: 6.6666%;
+  width: 6.66666667%;
 }
 .ui.sixteen.column.table td {
   width: 6.25%;
@@ -4388,35 +4426,13 @@ body > .ui.grid {
 /*--------------
      Celled
 ---------------*/
-.ui.celled.table {
-  color: rgba(0, 0, 0, 0.8);
-}
-.ui.celled.table tbody tr,
-.ui.celled.table tfoot tr {
-  border: none;
-}
 .ui.celled.table th,
 .ui.celled.table td {
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid #dddddd;
 }
 .ui.celled.table th:first-child,
 .ui.celled.table td:first-child {
   border-left: none;
-}
-/* Coupling with segment */
-.ui.celled.table.segment th:first-child,
-.ui.celled.table.segment td:first-child {
-  border-left: none;
-}
-.ui.celled.table.segment th:last-child,
-.ui.celled.table.segment td:last-child {
-  border-right: none;
-}
-.ui.celled.table.segment tr:first-child td {
-  border-top: none;
-}
-.ui.celled.table.segment tr:last-child td {
-  border-bottom: none;
 }
 /*--------------
     Sortable
@@ -4424,6 +4440,7 @@ body > .ui.grid {
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.sortable.table thead th.sorted,
 .ui.sortable.table thead th.sorted:hover {
@@ -4447,45 +4464,40 @@ body > .ui.grid {
   content: '\25b4';
 }
 .ui.sortable.table thead th.descending:after {
-  content: '\25be';
+  content: '\25b4';
 }
 /* Sortable Hover */
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
-  text-align: left;
-  font-weight: bold;
-  color: #333333;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.2);
 }
 .ui.sortable.table thead th:hover {
-  background-color: rgba(0, 0, 0, 0.13);
+  background: rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.8);
 }
 /* Inverted Sortable */
 .ui.inverted.sortable.table thead th:hover {
-  background-color: rgba(255, 255, 255, 0.13);
+  background-color: rgba(255, 255, 255, 0.01);
   color: #ffffff;
 }
 /*--------------
     Inverted
 ---------------*/
 /* Text Color */
-.ui.inverted.table td {
-  color: rgba(255, 255, 255, 0.9);
+.ui.inverted.table {
+  color: #ffffff;
 }
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
   color: rgba(255, 255, 255, 0.9);
 }
-/* Stripes */
-.ui.inverted.table tbody tr:nth-child(2n) {
-  background-color: rgba(255, 255, 255, 0.06);
-}
 /*--------------
    Definition
 ---------------*/
 .ui.definition.table td:first-child {
-  font-weight: bold;
+  background: '';
+  font-weight: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
    Collapsing
@@ -4496,17 +4508,24 @@ body > .ui.grid {
 /*--------------
       Basic
 ---------------*/
+.ui.basic.table {
+  background: transparent;
+  border: none;
+}
 .ui.basic.table th {
   background-color: transparent;
-  padding: 0.5em;
 }
 .ui.basic.table tbody tr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.basic.table td {
-  padding: 0.8em 1em;
+  background: transparent;
 }
-.ui.basic.table tbody tr:nth-child(2n) {
+.ui.basic.table th,
+.ui.basic.table td {
+  padding: 0.8em 0em;
+}
+.ui.basic.striped.table tbody tr:nth-child(2n) {
   background-color: transparent !important;
 }
 /*--------------
@@ -4515,9 +4534,6 @@ body > .ui.grid {
 .ui.padded.table th,
 .ui.padded.table td {
   padding: 0.8em 1em;
-}
-.ui.compact.table th {
-  padding: 0.3em 0.5em;
 }
 .ui.compact.table td {
   padding: 0.2em 0.5em;
@@ -4599,6 +4615,9 @@ body > .ui.grid {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -6514,6 +6533,9 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -6822,6 +6844,9 @@ body > .ui.grid {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -7956,6 +7981,9 @@ i.flag.zimbabwe {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -8475,6 +8503,9 @@ h5.ui.header {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -10622,6 +10653,9 @@ i.icon.weixin:before {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -10978,6 +11012,9 @@ img.ui.image {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -11397,6 +11434,9 @@ img.ui.image {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -12373,6 +12413,9 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -13245,6 +13288,9 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -13793,6 +13839,9 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -14245,6 +14294,9 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -14725,6 +14777,9 @@ input[type="password"] {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -15401,6 +15456,9 @@ a:hover {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -16553,6 +16611,9 @@ body.ui.dimmed.dimmable > :not(.dimmer){
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -17464,6 +17525,9 @@ a.ui.nag {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -18153,6 +18217,9 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
+         Grid
+--------------------*/
+/*-------------------
      Breakpoints
 --------------------*/
 /*-------------------
@@ -18387,6 +18454,9 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -19461,6 +19531,9 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -20552,6 +20625,9 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*-------------------
         Page
+--------------------*/
+/*-------------------
+         Grid
 --------------------*/
 /*-------------------
      Breakpoints

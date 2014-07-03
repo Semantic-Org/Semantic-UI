@@ -30,6 +30,7 @@
   border: @border;
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
+  color: @color;
 }
 
 .ui.table {
@@ -193,20 +194,20 @@
 
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 2px 0px 0px #CD2929 inset;
+  box-shadow: @negativeBoxShadow;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
-  background-color: #F9F4F4;
-  color: #CD2929 !important;
+  background: @negativeBackgroundColor !important;
+  color: @negativeColor !important;
 }
 .ui.celled.table tr.negative:hover td,
 .ui.celled.table tr:hover td.negative,
 .ui.table tr.negative:hover td,
 .ui.table td:hover.negative,
 .ui.table th:hover.negative {
-  background-color: #F2E8E8;
-  color: #CD2929;
+  background: @negativeBackgroundHover !important;
+  color: @negativeColorHover !important;
 }
 
 /*--------------
@@ -215,21 +216,20 @@
 
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 2px 0px 0px #CD2929 inset;
+  box-shadow: @errorBoxShadow;
 }
 .ui.table tr.error td,
-.ui.table td.error,
-.ui.table th.error {
-  background-color: #F9F4F4;
-  color: #CD2929;
+.ui.table td.error {
+  background: @errorBackgroundColor !important;
+  color: @errorColor !important;
 }
 .ui.celled.table tr.error:hover td,
 .ui.celled.table tr:hover td.error,
 .ui.table tr.error:hover td,
 .ui.table td:hover.error,
 .ui.table th:hover.error {
-  background-color: #F2E8E8;
-  color: #CD2929;
+  background: @errorBackgroundHover !important;
+  color: @errorColorHover !important;
 }
 
 /*--------------
@@ -238,23 +238,21 @@
 
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 2px 0px 0px #7D6C00 inset;
+  box-shadow: @warningBoxShadow;
 }
 .ui.table tr.warning td,
-.ui.table td.warning,
-.ui.table th.warning {
-  background-color: #FBF6E9;
-  color: #7D6C00;
+.ui.table td.warning {
+  background: @warningBackgroundColor !important;
+  color: @warningColor !important;
 }
 .ui.celled.table tr.warning:hover td,
 .ui.celled.table tr:hover td.warning,
 .ui.table tr.warning:hover td,
 .ui.table td:hover.warning,
 .ui.table th:hover.warning {
-  background-color: #F3EDDC;
-  color: #7D6C00;
+  background: @warningBackgroundHover !important;
+  color: @warningColorHover !important;
 }
-
 
 /*--------------
      Active
@@ -262,15 +260,22 @@
 
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  box-shadow: @activeBoxShadow;
+}
+.ui.table tr.active td,
+.ui.table td.active {
+  background: @activeBackgroundColor !important;
+  color: @activeColor !important;
+}
+.ui.celled.table tr.active:hover td,
+.ui.celled.table tr:hover td.active,
+.ui.table tr.active:hover td,
+.ui.table td:hover.active,
+.ui.table th:hover.active {
+  background: @warningBackgroundHover !important;
+  color: @warningColorHover !important;
 }
 
-.ui.table tr.active td,
-.ui.table tr td.active {
-  background-color: #E0E0E0;
-  color: rgba(50, 50, 50, 0.9);
-  /* border-color: rgba(0, 0, 0, 0.15) !important; */
-}
 
 /*--------------
      Disabled
@@ -297,157 +302,143 @@
   background-color: @stripedBackground;
 }
 
+/* Stripes */
+.ui.inverted.striped.table > tr:nth-child(2n),
+.ui.inverted.striped.table tbody tr:nth-child(2n) {
+  background-color: @invertedStripedBackground;
+}
+
 /*--------------
   Column Count
 ---------------*/
 
+/* Grid Based */
+.ui.one.column.table td {
+  width: @oneColumn;
+}
 .ui.two.column.table td {
-  width: 50%;
+  width: @twoColumn;
 }
 .ui.three.column.table td {
-  width: 33.3333%;
+  width: @threeColumn;
 }
 .ui.four.column.table td {
-  width: 25%;
+  width: @fourColumn;
 }
 .ui.five.column.table td {
-  width: 20%;
+  width: @fiveColumn;
 }
 .ui.six.column.table td {
-  width: 16.66667%;
+  width: @sixColumn;
 }
 .ui.seven.column.table td {
-  width: 14.2857%;
+  width: @sevenColumn;
 }
 .ui.eight.column.table td {
-  width: 12.5%;
+  width: @eightColumn;
 }
 .ui.nine.column.table td {
-  width: 11.1111%;
+  width: @nineColumn;
 }
 .ui.ten.column.table td {
-  width: 10%;
+  width: @tenColumn;
 }
 .ui.eleven.column.table td {
-  width: 9.0909%;
+  width: @elevenColumn;
 }
 .ui.twelve.column.table td {
-  width: 8.3333%;
+  width: @twelveColumn;
 }
 .ui.thirteen.column.table td {
-  width: 7.6923%;
+  width: @thirteenColumn;
 }
 .ui.fourteen.column.table td {
-  width: 7.1428%;
+  width: @fourteenColumn;
 }
 .ui.fifteen.column.table td {
-  width: 6.6666%;
+  width: @fifteenColumn;
 }
 .ui.sixteen.column.table td {
-  width: 6.25%;
+  width: @sixteenColumn;
 }
 
 /* Column Width */
 .ui.table th.one.wide,
 .ui.table td.one.wide {
-  width: 6.25%;
+  width: @oneWide;
 }
 .ui.table th.two.wide,
 .ui.table td.two.wide {
-  width: 12.5%;
+  width: @twoWide;
 }
 .ui.table th.three.wide,
 .ui.table td.three.wide {
-  width: 18.75%;
+  width: @threeWide;
 }
 .ui.table th.four.wide,
 .ui.table td.four.wide {
-  width: 25%;
+  width: @fourWide;
 }
 .ui.table th.five.wide,
 .ui.table td.five.wide {
-  width: 31.25%;
+  width: @fiveWide;
 }
 .ui.table th.six.wide,
 .ui.table td.six.wide {
-  width: 37.5%;
+  width: @sixWide;
 }
 .ui.table th.seven.wide,
 .ui.table td.seven.wide {
-  width: 43.75%;
+  width: @sevenWide;
 }
 .ui.table th.eight.wide,
 .ui.table td.eight.wide {
-  width: 50%;
+  width: @eightWide;
 }
 .ui.table th.nine.wide,
 .ui.table td.nine.wide {
-  width: 56.25%;
+  width: @nineWide;
 }
 .ui.table th.ten.wide,
 .ui.table td.ten.wide {
-  width: 62.5%;
+  width: @tenWide;
 }
 .ui.table th.eleven.wide,
 .ui.table td.eleven.wide {
-  width: 68.75%;
+  width: @elevenWide;
 }
 .ui.table th.twelve.wide,
 .ui.table td.twelve.wide {
-  width: 75%;
+  width: @twelveWide;
 }
 .ui.table th.thirteen.wide,
 .ui.table td.thirteen.wide {
-  width: 81.25%;
+  width: @thirteenWide;
 }
 .ui.table th.fourteen.wide,
 .ui.table td.fourteen.wide {
-  width: 87.5%;
+  width: @fourteenWide;
 }
 .ui.table th.fifteen.wide,
 .ui.table td.fifteen.wide {
-  width: 93.75%;
+  width: @fifteenWide;
 }
 .ui.table th.sixteen.wide,
 .ui.table td.sixteen.wide {
-  width: 100%;
+  width: @sixteenWide;
 }
-
 
 /*--------------
      Celled
 ---------------*/
 
-.ui.celled.table {
-  color: rgba(0, 0, 0, 0.8);
-}
-.ui.celled.table tbody tr,
-.ui.celled.table tfoot tr {
-  border: none;
-}
 .ui.celled.table th,
 .ui.celled.table td {
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: @cellBorder;
 }
 .ui.celled.table th:first-child,
 .ui.celled.table td:first-child {
   border-left: none;
-}
-
-/* Coupling with segment */
-.ui.celled.table.segment th:first-child,
-.ui.celled.table.segment td:first-child {
-  border-left: none;
-}
-.ui.celled.table.segment th:last-child,
-.ui.celled.table.segment td:last-child {
-  border-right: none;
-}
-.ui.celled.table.segment tr:first-child td {
-  border-top: none;
-}
-.ui.celled.table.segment tr:last-child td {
-  border-bottom: none;
 }
 
 /*--------------
@@ -457,6 +448,7 @@
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
+  color: @sortableColor;
 }
 .ui.sortable.table thead th.sorted,
 .ui.sortable.table thead th.sorted:hover {
@@ -466,40 +458,37 @@
 .ui.sortable.table thead th:after {
   display: inline-block;
   content: '';
-  width: 1em;
-  opacity: 0.8;
+  width: @sortableIconWidth;
+  opacity: @sortableIconOpacity;
 
-  margin: 0em 0em 0em 0.5em;
+  margin: 0em 0em 0em @sortableIconDistance;
 
-  font-family: 'Icons';
+  font-family: @sortableIconFont;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
 }
 .ui.sortable.table thead th.ascending:after {
-  content: '\25b4';
+  content: @sortableIconAscending;
 }
 .ui.sortable.table thead th.descending:after {
-  content: '\25be';
+  content: @sortableIconDescending;
 }
 
 /* Sortable Hover */
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
-  text-align: left;
-  font-weight: bold;
-  color: #333333;
-  color: rgba(0, 0, 0, 0.8);
+  color: @sortableDisabledColor;
 }
 .ui.sortable.table thead th:hover {
-  background-color: rgba(0, 0, 0, 0.13);
-  color: rgba(0, 0, 0, 0.8);
+  background: @sortableHoverBackground;
+  color: @sortableHoverColor;
 }
 
 /* Inverted Sortable */
 .ui.inverted.sortable.table thead th:hover {
-  background-color: rgba(255, 255, 255, 0.13);
-  color: rgba(255, 255, 255, 1);
+  background-color: @sortableInvertedHoverBackground;
+  color: @sortableInvertedHoverColor;
 }
 
 
@@ -508,17 +497,12 @@
 ---------------*/
 
 /* Text Color */
-.ui.inverted.table td {
-  color: rgba(255, 255, 255, 0.9);
+.ui.inverted.table {
+  color: @invertedCellColor;
 }
 .ui.inverted.table th {
-  background-color: rgba(0, 0, 0, 0.15);
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Stripes */
-.ui.inverted.table tbody tr:nth-child(2n) {
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: @invertedHeaderBackground;
+  color: @invertedHeaderColor;
 }
 
 
@@ -527,7 +511,9 @@
 ---------------*/
 
 .ui.definition.table td:first-child {
-  font-weight: bold;
+  background: @definitionBackground;
+  font-weight: @definitionColor;
+  color: @definitionColor;
 }
 
 
@@ -543,18 +529,25 @@
       Basic
 ---------------*/
 
+.ui.basic.table {
+  background: @basicTableBackground;
+  border: @basicTableBorder;
+}
 .ui.basic.table th {
-  background-color: transparent;
-  padding: 0.5em;
+  background-color: @basicTableHeaderBackground;
 }
 .ui.basic.table tbody tr {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: @basicTableCellBorder;
 }
 .ui.basic.table td {
-  padding: 0.8em 1em;
+  background: @basicTableCellBackground;
 }
-.ui.basic.table tbody tr:nth-child(2n) {
-  background-color: transparent !important;
+.ui.basic.table th,
+.ui.basic.table td {
+  padding: @basicTableCellVerticalPadding @basicTableCellHorizontalPadding;
+}
+.ui.basic.striped.table tbody tr:nth-child(2n) {
+  background-color: @basicTableStripedBackground !important;
 }
 
 
@@ -564,14 +557,10 @@
 
 .ui.padded.table th,
 .ui.padded.table td {
-  padding: 0.8em 1em;
-}
-
-.ui.compact.table th {
-  padding: 0.3em 0.5em;
+  padding: @paddedVerticalPadding @paddedHorizontalPadding;
 }
 .ui.compact.table td {
-  padding: 0.2em 0.5em;
+  padding: @compactVerticalPadding @compactHorizontalPadding;
 }
 
 /*--------------
@@ -580,17 +569,17 @@
 
 /* Small */
 .ui.small.table {
-  font-size: 0.875em;
+  font-size: @small;
 }
 
 /* Standard */
 .ui.table {
-  font-size: 1em;
+  font-size: @medium;
 }
 
 /* Large */
 .ui.large.table {
-  font-size: 1.1em;
+  font-size: @large;
 }
 
 .loadUIOverrides();

@@ -1,12 +1,4 @@
 /*-------------------
-    Globals Used
---------------------*/
-
-// @textColor
-// @borderColor
-// @invertedUnselectedTextColor
-
-/*-------------------
       Collection
 --------------------*/
 
@@ -15,6 +7,7 @@
 @transition: all 0.2s @defaultEasing;
 @borderRadius: 0.25rem;
 @background: #FFFFFF;
+@color: @textColor;
 @border: 1px solid @solidBorderColor;
 @boxShadow: none;
 
@@ -85,13 +78,94 @@
 @positiveColor: #119000;
 @positiveBackgroundColor: #F2F8F0;
 @positiveBoxShadow: @stateMarkerWidth 0px 0px @positiveColor inset;
-
 @positiveBackgroundHover: #ECF5E9;
 @positiveColorHover: #119000;
 
+/* Negative */
+@negativeColor: #CD2929;
+@negativeBackgroundColor: #F9F4F4;
+@negativeBoxShadow: @stateMarkerWidth 0px 0px @negativeColor inset;
+@negativeBackgroundHover: #F2E8E8;
+@negativeColorHover: #CD2929;
+
+/* Error */
+@errorColor: #CD2929;
+@errorBackgroundColor: #F9F4F4;
+@errorBoxShadow: @stateMarkerWidth 0px 0px @errorColor inset;
+@errorBackgroundHover: #F2E8E8;
+@errorColorHover: #CD2929;
+
+/* Warning */
+@warningColor: #7D6C00;
+@warningBackgroundColor: #FBF6E9;
+@warningBoxShadow: @stateMarkerWidth 0px 0px @warningColor inset;
+@warningBackgroundHover: #F3EDDC;
+@warningColorHover: #CD2929;
+
+/* Active */
+@activeColor: rgba(50, 50, 50, 0.9);
+@activeBackgroundColor: #E0E0E0;
+@activeBoxShadow: @stateMarkerWidth 0px 0px @activeColor inset;
+@activeBackgroundHover: #EFEFEF;
+@activeColorHover: rgba(50, 50, 50, 1);
 
 /*--------------
      Types
 ---------------*/
 
+/* Striped */
 @stripedBackground: rgba(0, 0, 50, 0.03);
+@invertedStripedBackground: rgba(255, 255, 255, 0.06);
+
+/* Sortable */
+@sortableBackground: '';
+@sortableColor: @textColor;
+
+@sortableIconWidth: 1em;
+@sortableIconDistance: 0.5em;
+@sortableIconOpacity: 0.8;
+@sortableIconFont: 'Icons';
+@sortableIconAscending: '\25b4';
+@sortableIconDescending: '\25b4';
+
+@sortableDisabledColor: @disabledTextColor;
+
+@sortableHoverBackground: @strongTransparentBlack;
+@sortableHoverColor: @selectedTextColor;
+
+@sortableInvertedHoverBackground: @strongTransparentWhite;
+@sortableInvertedHoverColor: @invertedSelectedTextColor;
+
+/* Inverted */
+@invertedCellColor: @invertedTextColor;
+@invertedHeaderBackground: rgba(0, 0, 0, 0.15);
+@invertedHeaderColor: rgba(255, 255, 255, 0.9);
+
+/* Definition */
+@definitionBackground: '';
+@definitionColor: @selectedTextColor;
+@definitionFontWeight: bold;
+
+/* Basic */
+@basicTableBackground: transparent;
+@basicTableBorder: none;
+
+@basicTableHeaderBackground: transparent;
+@basicTableCellBackground: transparent;
+@basicTableCellBorder: 1px solid rgba(0, 0, 0, 0.1);
+@basicTableCellVerticalPadding: 0.8em;
+@basicTableCellHorizontalPadding: 0em;
+@basicTableStripedBackground: transparent;
+
+
+/* Padded */
+@paddedVerticalPadding: 0.8em;
+@paddedHorizontalPadding: 1em;
+
+@compactVerticalPadding: 0.2em;
+@compactHorizontalPadding: 0.5em;
+
+/* Sizes */
+@small: 0.875em;
+@medium: 1em;
+@large: 1.1em;
