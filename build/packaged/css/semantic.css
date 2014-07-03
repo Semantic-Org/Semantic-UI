@@ -9955,7 +9955,8 @@ a.ui.teal.label:hover:before {
   border-top: none;
 }
 /* Content */
-.ui.accordion .content,
+.ui.accordion > .content,
+.ui.accordion .content > .content,
 .ui.accordion .accordion .content {
   display: none;
   margin: 0em;
@@ -9992,6 +9993,9 @@ a.ui.teal.label:hover:before {
 .ui.basic.accordion.menu .title,
 .ui.basic.accordion.menu .content {
   padding: 0em;
+}
+.ui.accordion.menu .content {
+  display: none;
 }
 /*******************************
             Types
@@ -15146,7 +15150,7 @@ ol.ui.horizontal.list li:before,
   border-top-width: 0px;
 }
 /* Sub Menu */
-.ui.divided.list:not(.horizontal) .list {
+.ui.divided.list:not(.horizontal) .list:not(.icon) {
   margin-left: -0.5em;
   margin-right: -0.5em;
 }

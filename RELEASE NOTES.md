@@ -1,5 +1,15 @@
 ## RELEASE NOTES
 
+### Version 0.19.0 - July 3, 2014
+
+**Enhancements**
+- **Transition** - Adds "fade in left/right" variations to match "fade up/down" **Thanks AdamMaras**
+
+**Fixes**
+- **Accordion** - Fixes incompatibilities with ``ui list`` when used inside a ``ui accordion``, fixes issues with menu accordion display in some circumstances
+- **Menu** - Fixes ``ui inverted secondary pointing menu`` to have correct pointer color for all color variations **Thanks AdamMaras**
+- **Docs** - Language clarified for menu/rating definition **Thanks jnbt/ewiner**
+
 ### Version 0.18.0 - June 6, 2014
 
 **Enhancements**
