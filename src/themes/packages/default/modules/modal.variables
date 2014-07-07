@@ -23,7 +23,8 @@
 /* Header */
 @headerMargin: 0em;
 @headerPadding: 1.5rem 2rem;
-@headerBackground: #FFFFFF;
+@headerBackground: @lightBlack;
+@headerColor: @white;
 @headerFontSize: 1.6em;
 @headerFontWeight: bold;
 @headerFontFamily: @headerFont;
