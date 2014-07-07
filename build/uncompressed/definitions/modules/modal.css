@@ -184,6 +184,14 @@
       -ms-user-select: text;
           user-select: text;
 }
+.ui.modal > :first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.ui.modal > :last-child {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
 /*******************************
             Content
 *******************************/
@@ -217,9 +225,7 @@
   padding: 1.5rem 2rem;
   font-size: 1.6em;
   font-weight: bold;
-  border-bottom: none;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------
      Content
@@ -231,23 +237,19 @@
   font-size: 1em;
   line-height: 1.4;
   padding: 2rem;
-  background: #f4f4f4;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-.ui.modal > .content:only-child {
-  border-radius: 0.25rem;
+  background: #ffffff;
 }
 .ui.modal > .content > .image {
   display: table-cell;
   padding-right: 1em;
   min-width: 25%;
+  vertical-align: top;
 }
 .ui.modal > .content > .description {
   display: table-cell;
-  vertical-align: top;
   padding-left: 1em;
   min-width: '';
+  vertical-align: top;
 }
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
@@ -258,7 +260,9 @@
      Actions
 ---------------*/
 .ui.modal .actions {
+  background: #efefef;
   padding: 1rem 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   text-align: right;
 }
 .ui.modal .actions > .button {
@@ -338,14 +342,18 @@
 .ui.basic.modal {
   background-color: transparent;
   border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   color: #ffffff;
+}
+.ui.basic.modal > .header,
+.ui.basic.modal > .content,
+.ui.basic.modal > .actions {
+  background-color: transparent;
 }
 .ui.basic.modal > .close {
   top: 1.5rem;
   right: 1rem;
-}
-.ui.basic.modal .content {
-  background-color: transparent;
 }
 /*******************************
             Variations
