@@ -27,25 +27,30 @@
 @headerFontSize: 1.6em;
 @headerFontWeight: bold;
 @headerFontFamily: @headerFont;
-@headerBottomBorder: none;
+@headerBorder: 1px solid @borderColor;
 
 /* Content */
 @contentFontSize: 1em;
 @contentPadding: 2rem;
 @contentLineHeight: 1.4;
-@contentBackground: #F4F4F4;
+@contentBackground: #FFFFFF;
 
 /* Left / Right */
 @imageMinWidth: 25%;
 @imagePadding: 1em;
-
 @imageIconSize: 8rem;
+@imageVerticalAlign: top;
 
 @descriptionPadding: 1em;
 @descriptionMinWidth: '';
+@descriptionVerticalAlign: top;
 
 /* Modal Actions */
+@actionBorder: 1px solid @borderColor;
+@actionBackground: #EFEFEF;
 @actionPadding: 1rem 2rem;
+@actionAlign: right;
+
 @buttonDistance: 0.75em;
 
 /* Mobile Positions */

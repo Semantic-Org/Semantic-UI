@@ -42,6 +42,15 @@
   user-select: text;
 }
 
+.ui.modal > :first-child {
+  border-top-left-radius: @borderRadius;
+  border-top-right-radius: @borderRadius;
+}
+
+.ui.modal > :last-child {
+  border-bottom-left-radius: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
+}
 
 /*******************************
             Content
@@ -83,10 +92,7 @@
 
   font-size: @headerFontSize;
   font-weight: @headerFontWeight;
-  border-bottom: @headerBottomBorder;
-
-  border-top-left-radius: @borderRadius;
-  border-top-right-radius: @borderRadius;
+  border-bottom: @headerBorder;
 }
 
 /*--------------
@@ -101,23 +107,19 @@
   line-height: @contentLineHeight;
   padding: @contentPadding;
   background: @contentBackground;
-
-  border-bottom-left-radius: @borderRadius;
-  border-bottom-right-radius: @borderRadius;
-}
-.ui.modal > .content:only-child {
-  border-radius: @borderRadius;
 }
 .ui.modal > .content > .image {
   display: table-cell;
   padding-right: @imagePadding;
   min-width: @imageMinWidth;
+  vertical-align: @imageVerticalAlign;
 }
 .ui.modal > .content > .description {
   display: table-cell;
   vertical-align: top;
   padding-left: @descriptionPadding;
   min-width: @descriptionMinWidth;
+  vertical-align: @descriptionVerticalAlign;
 }
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
@@ -130,8 +132,10 @@
 ---------------*/
 
 .ui.modal .actions {
+  background: @actionBackground;
   padding: @actionPadding;
-  text-align: right;
+  border-top: @actionBorder;
+  text-align: @actionAlign;
 }
 .ui.modal .actions > .button {
   margin-left: @buttonDistance;
@@ -217,14 +221,17 @@
 .ui.basic.modal {
   background-color: transparent;
   border: none;
+  box-shadow: none;
   color: @basicModalColor;
+}
+.ui.basic.modal > .header,
+.ui.basic.modal > .content,
+.ui.basic.modal > .actions {
+  background-color: transparent;
 }
 .ui.basic.modal > .close {
   top: @basicModalCloseTop;
   right: @basicModalCloseRight;
-}
-.ui.basic.modal .content {
-  background-color: transparent;
 }
 
 /*******************************
@@ -236,7 +243,6 @@
   position: absolute;
   margin-top: @scrollingTopMargin;
 }
-
 
 /*******************************
              States
