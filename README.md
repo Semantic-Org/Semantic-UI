@@ -13,7 +13,7 @@ Semantic may still be officially 'pre-release', but is already used in productio
 
 Although the pre-release branch ``0.x.x`` is actively being maintained, most important features like better theming support, and new components will land in ``1.0``.
 
-Beta documentation will be available soon for testers and early adopters.
+Beta documentation are available at [http://beta.semantic-ui.com](http://beta.semantic-ui.com) for testers and early adopters.
 
 ## Translations
 
