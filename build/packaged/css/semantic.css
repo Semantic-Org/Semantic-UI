@@ -9903,9 +9903,13 @@ a.ui.teal.label:hover:before {
 /*******************************
              Sizes
 *******************************/
+.ui.mini.step,
+.ui.mini.steps .step {
+  font-size: 0.8rem;
+}
 .ui.small.step,
 .ui.small.steps .step {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 .ui.step,
 .ui.steps .step {
@@ -9913,7 +9917,20 @@ a.ui.teal.label:hover:before {
 }
 .ui.large.step,
 .ui.large.steps .step {
+  font-size: 1.125rem;
+}
+.ui.big.step,
+.ui.big.steps .step {
   font-size: 1.25rem;
+}
+.ui.huge.step,
+.ui.huge.steps .step {
+  font-size: 1.375rem;
+}
+.ui.massive.step,
+.ui.massive.steps .step {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 /*
@@ -12792,21 +12809,25 @@ body.pushed.scrolling.ui.dimmable {
      -moz-animation-name: fadeDownOut;
           animation-name: fadeDownOut;
 }
+/*rtl:ignore renaming*/
 .ui.fade.left.transition.in {
   -webkit-animation-name: fadeLeft;
      -moz-animation-name: fadeLeft;
           animation-name: fadeLeft;
 }
+/*rtl:ignore renaming*/
 .ui.fade.left.transition.out {
   -webkit-animation-name: fadeLeftOut;
      -moz-animation-name: fadeLeftOut;
           animation-name: fadeLeftOut;
 }
+/*rtl:ignore renaming*/
 .ui.fade.right.transition.in {
   -webkit-animation-name: fadeRight;
      -moz-animation-name: fadeRight;
           animation-name: fadeRight;
 }
+/*rtl:ignore renaming*/
 .ui.fade.right.transition.out {
   -webkit-animation-name: fadeRightOut;
      -moz-animation-name: fadeRightOut;
