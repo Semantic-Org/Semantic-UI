@@ -444,6 +444,39 @@ type        : 'UI Collection'
     </table>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Colored</h4>
+    <p>A table can be given a color to distinguish it from other tables.</p>
+    <table class="ui blue table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th>3 People</th>
+        <th>2 Approved</th>
+        <th></th>
+      </tfoot>
+    </table>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Inverted</h4>
