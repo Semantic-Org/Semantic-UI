@@ -141,8 +141,8 @@
 
 /*---  Neutrals  ---*/
 @darkBlack        : #232323;
-@black            : #555555;
-@lightBlack       : #999999;
+@black            : #333333;
+@lightBlack       : #555555;
 
 @darkGrey         : #AAAAAA;
 @grey             : #CCCCCC;

@@ -536,6 +536,8 @@ i.icon.sidebar:before { content: "\f00b"; }
 i.icon.check:before { content: "\f00c"; }
 i.icon.remove:before { content: "\f00d"; }
 i.icon.close:before { content: "\f00d"; }
+i.icon.cancel:before { content: "\f00d"; }
+i.icon.delete:before { content: "\f00d"; }
 i.icon.x:before { content: "\f00d"; }
 i.icon.zoom.in:before { content: "\f00e"; }
 i.icon.magnify:before { content: "\f00e"; }
