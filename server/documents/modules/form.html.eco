@@ -397,7 +397,7 @@ type        : 'UI Behavior'
       <tr>
         <td>length</td>
         <td>value</td>
-        <td>Checks whether a field is longer than a length</td>
+        <td>Checks whether a field is longer than or equal to a length</td>
       </tr>
       <tr>
         <td>not</td>
@@ -417,7 +417,7 @@ type        : 'UI Behavior'
       <tr>
         <td>maxLength</td>
         <td>value, maxLength</td>
-        <td>Checks whether a field is less than a max length</td>
+        <td>Checks whether a field is less than or equal to a max length</td>
       </tr>
       <tr>
         <td>match</td>
