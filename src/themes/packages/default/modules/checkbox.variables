@@ -5,6 +5,8 @@
 @checkboxHeight: 1em;
 @checkboxColor: @textColor;
 
+@fontSize: 1em;
+
 /* Label */
 @labelPadding: 2em;
 
@@ -28,7 +30,7 @@
 
 
 /* Radio */
-@checkboxRadioOffset: 0px;
+@checkboxRadioOffset: 3px;
 @checkboxRadioCircleSize: 9px;
 
 /* Slider & Toggle Handle */

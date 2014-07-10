@@ -251,7 +251,7 @@ type        : 'UI Module'
           </a>
           <div class="active content menu">
             <div class="ui form item">
-              <div class="grouped inline fields">
+              <div class="grouped fields">
                 <div class="field">
                   <div class="ui radio checkbox">
                     <input type="radio" name="size" value="small" />
@@ -287,7 +287,7 @@ type        : 'UI Module'
           </a>
           <div class="active content menu">
             <div class="ui form item">
-              <div class="grouped inline fields">
+              <div class="grouped fields">
                 <div class="field">
                   <div class="ui checkbox">
                     <input type="checkbox" name="small" />
