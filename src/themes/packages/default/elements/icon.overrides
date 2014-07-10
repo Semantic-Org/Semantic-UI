@@ -554,6 +554,7 @@ i.icon.picture:before { content: "\f03e"; }
 i.icon.pencil:before { content: "\f040"; }
 i.icon.compose:before { content: "\f040"; }
 i.icon.point:before { content: "\f041"; }
+i.icon.signup:before { content: "\f044"; }
 i.icon.plus.circle:before { content: "\f055"; }
 i.icon.minus.circle:before { content: "\f056"; }
 i.icon.dont:before { content: "\f05e"; }

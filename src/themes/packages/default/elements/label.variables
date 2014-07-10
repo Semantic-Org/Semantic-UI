@@ -39,8 +39,9 @@
 @iconDistance: 0.75em;
 
 @detailOpacity: 0.8;
-
+@detailIconDistance: 0.25em;
 @detailMargin: 0.5em;
+
 @deleteMargin: 0.5em;
 
 /*-------------------

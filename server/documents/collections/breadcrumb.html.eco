@@ -39,9 +39,9 @@ type        : 'UI Collection'
     <p>A breadcrumb can contain a divider to show the relationship between sections, this can be formatted as an icon or text.</p>
     <div class="ui breadcrumb">
       <a class="section">Food</a>
-      <i class="right arrow icon divider"></i>
+      <i class="right chevron icon divider"></i>
       <a class="section">Fruit</a>
-      <i class="right arrow icon divider"></i>
+      <i class="right chevron icon divider"></i>
       <div class="active section">Apples</div>
     </div>
   </div>

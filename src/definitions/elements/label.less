@@ -72,6 +72,11 @@ a.ui.label {
   opacity: 1;
 }
 
+/* Icon */
+.ui.label .icon {
+  width: auto;
+  margin: 0em @iconDistance 0em 0em;
+}
 /* Detail */
 .ui.label .detail {
   display: inline-block;
@@ -79,12 +84,10 @@ a.ui.label {
   font-weight: bold;
   opacity: @detailOpacity;
 }
-
-/* Icon */
-.ui.label .icon {
-  width: auto;
-  margin: 0em @iconDistance 0em 0em;
+.ui.label .detail .icon {
+  margin: 0em @detailIconDistance 0em 0em;
 }
+
 
 /* Removable label */
 .ui.label .delete.icon {

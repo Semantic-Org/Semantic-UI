@@ -162,8 +162,8 @@
 @paddedVerticalPadding: 0.8em;
 @paddedHorizontalPadding: 1em;
 
-@compactVerticalPadding: 0.2em;
-@compactHorizontalPadding: 0.5em;
+@compactVerticalPadding: 0.5em;
+@compactHorizontalPadding: 0.8em;
 
 /* Sizes */
 @small: 0.875em;
