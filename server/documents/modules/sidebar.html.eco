@@ -234,7 +234,7 @@ type        : 'UI Module'
         <div class="ui styled sidebar">...</div>
       </div>
       <div class="ui labeled icon button">
-        <i class="reorder icon"></i>
+        <i class="left arrow icon"></i>
         Show
       </div>
     </div>
@@ -271,7 +271,7 @@ type        : 'UI Module'
         <div class="ui floating sidebar">...</div>
       </div>
       <div class="ui labeled icon button">
-        <i class="reorder icon"></i>
+        <i class="left arrow icon"></i>
         Show
       </div>
     </div>
@@ -435,7 +435,7 @@ type        : 'UI Module'
       ;
       </div>
       <div class="ui disabled secondary labeled icon toggle button">
-        <i class="reorder icon"></i>
+        <i class="left arrow icon"></i>
         Trigger Sidebar
       </div>
     </div>
@@ -452,7 +452,7 @@ type        : 'UI Module'
       ;
       </div>
       <div class="ui disabled secondary labeled icon open button">
-        <i class="reorder icon"></i>
+        <i class="left arrow icon"></i>
         Open Sidebar
       </div>
     </div>

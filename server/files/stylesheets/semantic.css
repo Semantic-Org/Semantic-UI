@@ -626,6 +626,8 @@ body.guide .main.container > * {
 #example .position.example .icon {
   position: absolute;
   margin: 0em;
+  width: auto;
+  height: auto;
   padding: 0.5em !important;
 }
 #example .position.example .segment {
