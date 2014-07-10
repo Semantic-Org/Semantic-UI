@@ -8,7 +8,7 @@ elementType : 'module'
 title       : 'Checkbox'
 description : "A checkbox visually indicates the status of a user's selection"
 type        : 'UI Module'
-themes      : ['default', 'GitHub']
+themes      : ['default']
 ---
 <script src="/javascript/checkbox.js"></script>
 

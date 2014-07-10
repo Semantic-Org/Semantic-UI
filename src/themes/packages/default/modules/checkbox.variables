@@ -2,13 +2,12 @@
       Checkbox
 --------------------*/
 
-@checkboxHeight: 1em;
 @checkboxColor: @textColor;
-
 @fontSize: 1em;
 
 /* Label */
 @labelPadding: 2em;
+@labelLineHeight: 15px;
 
 @neutralCheckbox: @transparentBlack;
 @positiveCheckbox: @positiveColor;

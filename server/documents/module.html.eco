@@ -52,11 +52,11 @@ type        : 'Semantic'
       </div>
     </div>
     <div class="ui divider"></div>
-    <a href="/spec/docs/modal.commented.html" class="ui large secondary labeled icon button">
+    <a href="/spec/docs/modal.commented.html" class="ui large primary labeled icon button">
       <i class="info icon"></i>
       Real World Commented Example
     </a>
-    <a href="/spec/docs/module.commented.html" class="ui large black labeled icon button">
+    <a href="/spec/docs/module.commented.html" class="ui large secondary labeled icon button">
       <i class="info icon"></i>
       Commented Design Pattern
     </a>
@@ -69,9 +69,9 @@ type        : 'Semantic'
     <p>The following example shows how to attach behavior to elements on a page using Semantic</p>
     <div class="code" data-type="html" data-preview="true">
       <div class="ui medium image">
-        <div class="ui corner label">
-          <i class="help link icon" data-content="This appears to the right"></i>
-        </div>
+        <a class="ui corner label" data-content="This appears to the right">
+          <i class="help link icon"></i>
+        </a>
         <img src="/images/demo/photo.jpg" data-content="This appears in the default location">
       </div>
     </div>
@@ -83,7 +83,7 @@ type        : 'Semantic'
     </div>
     <div class="evaluated code" data-type="javascript">
     // initializing with settings
-    $('.ui.image .help')
+    $('.ui.image .corner.label')
       .popup({
         position: 'right center'
       })

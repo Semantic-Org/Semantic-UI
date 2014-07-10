@@ -900,7 +900,7 @@ a.ui.yellow.label:hover:before {
 
 .ui.tiny.labels .label,
 .ui.tiny.label {
-font-size: @tiny;
+  font-size: @tiny;
 }
 .ui.small.labels .label,
 .ui.small.label {
@@ -917,6 +917,27 @@ font-size: @tiny;
 .ui.huge.labels .label,
 .ui.huge.label {
   font-size: @huge;
+}
+
+.ui.tiny.corner.labels .label,
+.ui.tiny.corner.label {
+  font-size: (@cornerSizeRatio * @tiny);
+}
+.ui.small.corner.labels .label,
+.ui.small.corner.label {
+  font-size: (@cornerSizeRatio * @small);
+}
+.ui.corner.labels .label,
+.ui.corner.label {
+  font-size: (@cornerSizeRatio * @medium);
+}
+.ui.large.corner.labels .label,
+.ui.large.corner.label {
+  font-size: (@cornerSizeRatio * @large);
+}
+.ui.huge.corner.labels .label,
+.ui.huge.corner.label {
+  font-size: (@cornerSizeRatio * @huge);
 }
 
 .loadUIOverrides();

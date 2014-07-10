@@ -125,8 +125,8 @@
 @sortableIconDistance: 0.5em;
 @sortableIconOpacity: 0.8;
 @sortableIconFont: 'Icons';
-@sortableIconAscending: '\25b4';
-@sortableIconDescending: '\25b4';
+@sortableIconAscending: '\f0d7';
+@sortableIconDescending: '\f0d8';
 
 @sortableDisabledColor: @disabledTextColor;
 
