@@ -595,17 +595,6 @@ themes      : ['Default']
         <div class="content">
           <div class="header">Poodle</div>
           A poodle, its pretty basic
-          <div class="list">
-            <div class="item">
-              Can be quite caring
-            </div>
-            <div class="item">
-              Knows how to have fun in water
-            </div>
-            <div class="item">
-              Does not get tired of fetch
-            </div>
-          </div>
         </div>
       </div>
       <div class="item">
@@ -628,6 +617,7 @@ themes      : ['Default']
           <div class="item">Mastiff</div>
         </div>
       </div>
+      <div class="item">Horses Again</div>
     </div>
   </div>
   <div class="another example">
