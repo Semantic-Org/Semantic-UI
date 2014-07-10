@@ -128,7 +128,7 @@
 @iconOffset: 0.05em;
 @basicLoadingColor: #FFFFFF;
 
-@basicHoverBackground: none transparent;
+@basicHoverBackground: #FAFAFA;
 @basicHoverBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
 
 @basicDownBackground: rgba(0, 0, 0, 0.02);

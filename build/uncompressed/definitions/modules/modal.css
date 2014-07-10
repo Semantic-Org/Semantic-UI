@@ -184,7 +184,8 @@
       -ms-user-select: text;
           user-select: text;
 }
-.ui.modal > :first-child {
+.ui.modal > :first-child:not(.icon),
+.ui.modal > .icon:first-child + * {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
@@ -220,11 +221,12 @@
 .ui.modal > .header {
   display: block;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  background: #ffffff;
+  background: #999999;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
   font-weight: bold;
+  color: #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------

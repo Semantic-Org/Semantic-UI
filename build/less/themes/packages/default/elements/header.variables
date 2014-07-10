@@ -50,7 +50,7 @@
 
 /* Icon */
 @iconSize: 1em;
-@iconOffset: ((@lineHeight - 1em) / 2);
+@iconOffset: ( (@lineHeight - 1em) / 2);
 @iconMargin: 1em;
 @iconAlignment: middle;
 
@@ -67,6 +67,7 @@
 
 /* Icon Header */
 @iconHeaderSize: 3em;
+@iconHeaderOpacity: 1;
 @iconHeaderMargin: 0.2em;
 @circularHeaderIconSize: 2em;
 @squareHeaderIconSize: 2em;

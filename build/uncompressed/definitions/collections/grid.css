@@ -641,6 +641,7 @@ body > .ui.grid {
 -----------------------*/
 .ui.celled.grid {
   display: table;
+  width: 100%;
   margin-left: 0%;
   margin-right: 0%;
   -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
@@ -739,6 +740,7 @@ body > .ui.grid {
 .ui.grid > .equal.height.row,
 .ui.equal.height.grid {
   display: table;
+  width: 100%;
 }
 .ui.equal.height.grid > .column,
 .ui.equal.height.grid > .row > .column,

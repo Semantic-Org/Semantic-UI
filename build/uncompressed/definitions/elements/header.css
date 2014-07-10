@@ -278,6 +278,7 @@ h5.ui.header {
   display: block;
   font-size: 3em;
   margin: 0em auto 0.2em;
+  opacity: 1;
   padding: 0em;
 }
 .ui.icon.header .content {

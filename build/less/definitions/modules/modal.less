@@ -42,7 +42,8 @@
   user-select: text;
 }
 
-.ui.modal > :first-child {
+.ui.modal > :first-child:not(.icon),
+.ui.modal > .icon:first-child + * {
   border-top-left-radius: @borderRadius;
   border-top-right-radius: @borderRadius;
 }
@@ -92,6 +93,7 @@
 
   font-size: @headerFontSize;
   font-weight: @headerFontWeight;
+  color: @headerColor;
   border-bottom: @headerBorder;
 }
 

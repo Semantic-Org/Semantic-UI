@@ -149,7 +149,6 @@ $.fn.visibility = function(parameters) {
             ;
             if(src) {
               module.verbose('Lazy loading image', src);
-              settings.once = true;
               // show when top visible
               module.topVisible(function() {
                 module.precache(src, function() {
@@ -232,8 +231,8 @@ $.fn.visibility = function(parameters) {
               if(calculations.bottomVisible || calculations.pixelsPassed > module.get.pixelsPassed(amount)) {
                 module.execute(callback, amount);
               }
-              else {
-                module.remove.occurred(callback, amount);
+              else if(!settings.once) {
+                module.remove.occurred(callback);
               }
             });
           }
@@ -252,7 +251,7 @@ $.fn.visibility = function(parameters) {
           if(callback && calculations.passing) {
             module.execute(callback, callbackName);
           }
-          else {
+          else if(!settings.once) {
             module.remove.occurred(callbackName);
           }
           if(newCallback !== undefined) {
@@ -274,7 +273,7 @@ $.fn.visibility = function(parameters) {
           if(callback && calculations.topVisible) {
             module.execute(callback, callbackName);
           }
-          else {
+          else if(!settings.once) {
             module.remove.occurred(callbackName);
           }
           if(newCallback === undefined) {
@@ -295,7 +294,7 @@ $.fn.visibility = function(parameters) {
           if(callback && calculations.bottomVisible) {
             module.execute(callback, callbackName);
           }
-          else {
+          else if(!settings.once) {
             module.remove.occurred(callbackName);
           }
           if(newCallback === undefined) {
@@ -316,7 +315,7 @@ $.fn.visibility = function(parameters) {
           if(callback && calculations.topPassed) {
             module.execute(callback, callbackName);
           }
-          else {
+          else if(!settings.once) {
             module.remove.occurred(callbackName);
           }
           if(newCallback === undefined) {
@@ -337,7 +336,7 @@ $.fn.visibility = function(parameters) {
           if(callback && calculations.bottomPassed) {
             module.execute(callback, callbackName);
           }
-          else {
+          else if(!settings.once) {
             module.remove.occurred(callbackName);
           }
           if(newCallback === undefined) {
@@ -350,11 +349,12 @@ $.fn.visibility = function(parameters) {
             calculations = module.get.elementCalculations(),
             screen       = module.get.screenCalculations()
           ;
-          if(settings.once && module.get.occurred(callbackName)) {
-            // multiple callbacks are ignored when times == 'once'
+          if(settings.continuous) {
+            module.debug('Callback called continuously on valid', callbackName, calculations);
+            $.proxy(callback, element)(calculations, screen);
           }
-          else {
-            module.debug('Conditions met for callback', callbackName, calculations);
+          else if(!module.get.occurred(callbackName)) {
+            module.debug('Callback conditions met', callbackName, calculations);
             $.proxy(callback, element)(calculations, screen);
           }
           module.save.occurred(callbackName);
@@ -746,7 +746,8 @@ $.fn.visibility.settings = {
   onTopPassed       : false,
   onBottomPassed    : false,
 
-  once              : false,
+  once              : true,
+  continuous        : false,
 
   // utility callbacks
   onRefresh         : function(){},

@@ -1411,6 +1411,7 @@ body > .ui.grid {
 -----------------------*/
 .ui.celled.grid {
   display: table;
+  width: 100%;
   margin-left: 0%;
   margin-right: 0%;
   -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
@@ -1509,6 +1510,7 @@ body > .ui.grid {
 .ui.grid > .equal.height.row,
 .ui.equal.height.grid {
   display: table;
+  width: 100%;
 }
 .ui.equal.height.grid > .column,
 .ui.equal.height.grid > .row > .column,
@@ -5385,7 +5387,7 @@ body > .ui.grid {
 }
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
-  background: none transparent;
+  background: #fafafa !important;
   color: rgba(0, 0, 0, 0.8) !important;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
@@ -5408,39 +5410,50 @@ body > .ui.grid {
 .ui.basic.button.active:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
+/* Vertical */
+.ui.basic.buttons .button:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
+}
+.ui.basic.buttons .button:active {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
+}
+.ui.basic.buttons .button.active {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
+          box-shadow: rgba(0, 0, 0, 0.2) inset;
+}
 /* Inverted */
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
-  background: transparent !important;
-  color: #f0f0f0 !important;
-  -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) !important;
-          box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) !important;
+  color: #fafafa !important;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
+          box-shadow: rgba(255, 255, 255, 0.3);
 }
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
-  background: transparent !important;
-  color: #fdfdfd !important;
-  -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.8) !important;
-          box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.8) !important;
+  color: #ffffff !important;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
+          box-shadow: rgba(255, 255, 255, 0.3);
 }
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
-  background: rgba(255, 255, 255, 0.05) !important;
-  color: #e3e3e3 !important;
-  -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.8) !important;
-          box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.8) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.8) !important;
+          box-shadow: rgba(255, 255, 255, 0.8) !important;
 }
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
-  background: #ffffff !important;
-  color: #ffffff !important;
-  text-shadow: none !important;
-  -webkit-box-shadow: #ffffff !important;
-          box-shadow: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.basic.inverted.buttons .button.active:hover,
 .ui.basic.inverted.button.active:hover {
-  background-color: #fdfdfd !important;
+  background-color: rgba(255, 255, 255, 0.01);
 }
 /* Loading */
 .ui.basic.loading.button:after {
@@ -5452,6 +5465,9 @@ body > .ui.grid {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+.ui.basic.vertical.buttons .button {
+  border-left: none;
 }
 /*--------------
   Labeled Icon
@@ -8204,6 +8220,7 @@ h5.ui.header {
   display: block;
   font-size: 3em;
   margin: 0em auto 0.2em;
+  opacity: 1;
   padding: 0em;
 }
 .ui.icon.header .content {
@@ -16740,7 +16757,8 @@ body.ui.dimmed.dimmable > :not(.dimmer){
       -ms-user-select: text;
           user-select: text;
 }
-.ui.modal > :first-child {
+.ui.modal > :first-child:not(.icon),
+.ui.modal > .icon:first-child + * {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
@@ -16776,11 +16794,12 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.modal > .header {
   display: block;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  background: #ffffff;
+  background: #999999;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
   font-weight: bold;
+  color: #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------

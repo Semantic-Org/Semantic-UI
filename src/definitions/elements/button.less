@@ -684,7 +684,7 @@
 
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
-  background: @basicHoverBackground;
+  background: @basicHoverBackground !important;
   color: @selectedTextColor !important;
   box-shadow: @basicHoverBoxShadow;
 }
@@ -705,35 +705,44 @@
   background-color: @transparentBlack;
 }
 
+/* Vertical */
+.ui.basic.buttons .button:hover {
+  box-shadow: @basicHoverBoxShadow inset;
+}
+.ui.basic.buttons .button:active {
+  box-shadow: @basicDownBoxShadow inset;
+}
+.ui.basic.buttons .button.active {
+  box-shadow: @selectedBorderColor inset;
+}
+
 /* Inverted */
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
-  background: @basicInvertedBackground !important;
-  color: @basicInvertedColor !important;
-  box-shadow: @basicInvertedBoxShadow !important;
+  color: @offWhite !important;
+  box-shadow: @whiteBorderColor;
 }
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
-  background: @basicInvertedHoverBackground !important;
-  color: @basicInvertedHoverColor !important;
-  box-shadow: @basicInvertedHoverBoxShadow !important;
+  color: @white !important;
+  box-shadow: @whiteBorderColor;
 }
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
-  background: @basicInvertedDownBackground !important;
-  color: @basicInvertedDownColor !important;
-  box-shadow: @basicInvertedDownBoxShadow !important;
+  background-color: @transparentWhite !important;
+  color: @white !important;
+  box-shadow: @selectedWhiteBorderColor !important;
 }
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
-  background: @basicInvertedActiveColor !important;
-  color: @basicInvertedActiveColor !important;
-  text-shadow: @invertedTextShadow !important;
-  box-shadow: @basicInvertedActiveColor !important;
+  background-color: @transparentWhite;
+  color: @invertedTextColor;
+  text-shadow: @invertedTextShadow;
+  box-shadow: none;
 }
 .ui.basic.inverted.buttons .button.active:hover,
 .ui.basic.inverted.button.active:hover {
-  background-color: @basicInvertedHoverColor !important;
+  background-color: @strongTransparentWhite;
 }
 
 /* Loading */
@@ -747,6 +756,10 @@
   border-left: @basicGroupBorder;
   box-shadow: none;
 }
+.ui.basic.vertical.buttons .button {
+  border-left: none;
+}
+
 
 /*--------------
   Labeled Icon
