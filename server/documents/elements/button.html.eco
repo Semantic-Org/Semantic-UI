@@ -94,6 +94,23 @@ themes      : ['Default', 'Basic', 'Chubby', 'Amazon', 'GitHub']
   </div>
 
   <div class="example">
+    <h4 class="ui header">Basic</h4>
+    <p>A basic button removes all unnecessary formatting</p>
+    <div class="ui basic button">
+      <i class="icon user"></i>
+      Add Friend
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui inverted segment">
+      <div class="ui inverted basic button">
+        <i class="icon globe"></i>
+        Change Language
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A button can be formatted to appear on dark backgrounds</p>
     <div class="ui inverted segment">
@@ -277,23 +294,6 @@ themes      : ['Default', 'Basic', 'Chubby', 'Amazon', 'GitHub']
     </div>
     <div class="massive ui button">
       Massive
-    </div>
-  </div>
-
-  <div class="example">
-    <h4 class="ui header">Basic</h4>
-    <p>A basic button removes all unnecessary formatting</p>
-    <div class="ui basic button">
-      <i class="icon user"></i>
-      Add Friend
-    </div>
-  </div>
-  <div class="another example">
-    <div class="ui inverted segment">
-      <div class="ui inverted basic button">
-        <i class="icon globe"></i>
-        Change Language
-      </div>
     </div>
   </div>
 
