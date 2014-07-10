@@ -501,7 +501,7 @@ type        : 'UI Collection'
 
   <div class="example">
     <h4 class="ui header">Doubling Grid</h4>
-    <p>A grid can double its</p>
+    <p>A grid can double its column sizes when being viewed at tablet or mobile resolutions</p>
     <div class="ui text message info ignore">
       <i class="icon heart"></i> A grid will round its columns to the closest reasonable value when doubling, for example a <code>five column grid</code> will double <code>1 mobile, 3 tablet, 5 desktop</code>
     </div>
