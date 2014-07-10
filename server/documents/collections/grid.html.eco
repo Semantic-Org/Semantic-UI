@@ -398,8 +398,8 @@ type        : 'UI Collection'
   <h3 class="ui header">Grid</h3>
 
   <div class="example">
-    <h4 class="ui header">Specifying Column Count Per Row</h4>
-    <p>A grid can have a different number of columns per row</p>
+    <h4 class="ui header">Specifying Grid Column Count</h4>
+    <p>A grid can split its columns evenly</p>
     <div class="ui two column grid">
       <div class="column">
         <div class="ui fluid form segment">
@@ -635,6 +635,42 @@ type        : 'UI Collection'
   </div>
 
   <h3 class="ui header">Rows</h3>
+
+  <div class="example">
+    <h4 class="ui header">Specifying Row Column Count</h4>
+    <p>A row can split its columns evenly</p>
+    <div class="ui grid">
+      <div class="two column row">
+        <div class="column">
+          <div class="ui segment">
+            Two
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Two
+          </div>
+        </div>
+      </div>
+      <div class="three column row">
+        <div class="column">
+          <div class="ui segment">
+            Three
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Three
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            Three
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Responsive to Device</h4>
