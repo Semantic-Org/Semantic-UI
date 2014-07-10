@@ -909,6 +909,10 @@ type        : 'UI Collection'
   <div class="example">
     <h4 class="ui header">Column Width</h4>
     <p>A column can vary in width taking up more than a single grid column.</p>
+
+    <div class="ui info message">
+      Column width is based off a 16 column grid, even if you are using a different row or grid column count, for instance a <code>three wide column</code> inside a <code>three column grid</code>  <b>will only take up three-sixteenths of the grid width</b>.
+    </div>
     <div class="ui grid">
       <div class="three wide column">
         <div class="ui segment"><b>Column One</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis sapien.</div>
