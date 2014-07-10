@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -223,7 +223,7 @@
   z-index: 2;
 }
 .ui.flipping.loader .shape:after {
-  background-color: #555555;
+  background-color: #333333;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }

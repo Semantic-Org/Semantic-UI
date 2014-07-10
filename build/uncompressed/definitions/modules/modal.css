@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -221,7 +221,7 @@
 .ui.modal > .header {
   display: block;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  background: #999999;
+  background: #555555;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;

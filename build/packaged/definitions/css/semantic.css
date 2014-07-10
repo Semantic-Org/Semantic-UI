@@ -121,7 +121,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -728,6 +728,7 @@
   margin: 0em 0em 1em;
 }
 .ui.form .inline.fields .field {
+  display: inline-block;
   margin: 0em 1em 0em 0em;
 }
 .ui.form .inline.fields .field > label,
@@ -825,7 +826,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -1861,7 +1862,7 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -2021,9 +2022,6 @@ body > .ui.grid {
 .ui.menu > .item:first-child {
   border-radius: 0.1875rem 0px 0px 0.1875rem;
 }
-.ui.menu > .item:last-child {
-  border-radius: 0px 0.1875rem 0.1875rem 0px;
-}
 /*--------------
     Colors
 ---------------*/
@@ -2092,15 +2090,14 @@ body > .ui.grid {
   position: absolute;
   content: '';
   top: 0%;
-  left: 0px;
+  right: 0px;
   width: 1px;
   height: 100%;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
   background: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
 }
-.ui.menu > .menu:not(.right):first-child > .item:first-child:before,
-.ui.menu .item:first-child:before {
+.ui.menu > .right.menu:first-child {
   display: none;
 }
 .ui.menu .menu.right .item:before,
@@ -2142,14 +2139,14 @@ body > .ui.grid {
 ---------------*/
 .ui.menu:not(.vertical) .item > .input {
   position: relative;
-  top: -0.05em;
-  margin: -0.8em 0em;
-  padding-top: -0.3em;
-  padding-bottom: -0.3em;
+  top: 0em;
+  margin: -0.6em 0em;
+  padding-top: -0.25em;
+  padding-bottom: -0.25em;
   width: 100%;
 }
 .ui.menu:not(.vertical) .item > .icon.input .icon {
-  top: -0.3em;
+  top: -0.25em;
 }
 .ui.menu .item > .input input {
   font-size: 0.875em;
@@ -2205,7 +2202,7 @@ body > .ui.grid {
 ---------------*/
 /* Dropdown */
 .ui.menu .ui.dropdown.visible {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
   border-bottom-right-radius: 0em;
   border-bottom-left-radius: 0em;
 }
@@ -2237,12 +2234,12 @@ body > .ui.grid {
 }
 /* Hover */
 .ui.menu .dropdown .menu .item:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.85);
 }
 /* Pressed */
 .ui.menu .dropdown .menu .item:active {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
 }
 /* Active */
 .ui.menu .dropdown.item .menu .active.item {
@@ -2300,7 +2297,7 @@ body > .ui.grid {
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover {
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
 }
 /*--------------
       Down
@@ -2308,20 +2305,20 @@ body > .ui.grid {
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
 }
 /*--------------
      Active
 ---------------*/
 .ui.menu .active.item {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.85);
   font-weight: normal;
   -webkit-box-shadow: 0em 0.2em 0em inset;
           box-shadow: 0em 0.2em 0em inset;
 }
 .ui.vertical.menu .active.item {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
   border-radius: 0em;
   -webkit-box-shadow: 0.2em 0em 0em inset;
           box-shadow: 0.2em 0em 0em inset;
@@ -2348,7 +2345,7 @@ body > .ui.grid {
 ---------------*/
 .ui.vertical.menu .active.item:hover,
 .ui.menu .active.item:hover {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.01);
 }
 /*--------------
      Disabled
@@ -3256,6 +3253,9 @@ body > .ui.grid {
   padding-right: 0px !important;
   text-align: center;
 }
+.ui.item.menu > .item:last-child {
+  border-radius: 0px 0.1875rem 0.1875rem 0px;
+}
 .ui.menu.two.item .item {
   width: 50%;
 }
@@ -3498,7 +3498,7 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -3751,7 +3751,7 @@ body > .ui.grid {
 }
 .ui.icon.message > .icon:not(.close) {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
   font-size: 2em;
   opacity: 0.8;
 }
@@ -3760,7 +3760,7 @@ body > .ui.grid {
 }
 .ui.icon.message > .content {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
 }
 /*--------------
     Floating
@@ -3773,7 +3773,7 @@ body > .ui.grid {
      Colors
 ---------------*/
 .ui.black.message {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
 }
 /*--------------
@@ -3782,7 +3782,7 @@ body > .ui.grid {
 /* Inverted */
 .ui.inverted.message,
 .ui.black.message {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
 }
 /* Positive / Negative */
@@ -3926,7 +3926,7 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -4024,6 +4024,7 @@ body > .ui.grid {
 ---------------*/
 /* Striped */
 /* Sortable */
+/* Colors */
 /* Inverted */
 /* Definition */
 /* Basic */
@@ -4125,6 +4126,9 @@ body > .ui.grid {
   margin: 0em;
 }
 /* Table Segment */
+.ui.table.segment {
+  padding: 0em;
+}
 .ui.table.segment:after {
   display: none;
 }
@@ -4308,6 +4312,94 @@ body > .ui.grid {
 .ui.inverted.striped.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
 }
+/*-------------------
+       Colors
+--------------------*/
+.ui.black.table {
+  border-top: 0.2em solid #333333;
+  border-radius: 0em;
+}
+.ui.blue.table {
+  border-top: 0.2em solid #0074d9;
+  border-radius: 0em;
+}
+.ui.green.table {
+  border-top: 0.2em solid #2ecc40;
+  border-radius: 0em;
+}
+.ui.orange.table {
+  border-top: 0.2em solid #ff851b;
+  border-radius: 0em;
+}
+.ui.pink.table {
+  border-top: 0.2em solid #d9499a;
+  border-radius: 0em;
+}
+.ui.purple.table {
+  border-top: 0.2em solid #564f8a;
+  border-radius: 0em;
+}
+.ui.red.table {
+  border-top: 0.2em solid #ff4136;
+  border-radius: 0em;
+}
+.ui.teal.table {
+  border-top: 0.2em solid #39cccc;
+  border-radius: 0em;
+}
+.ui.yellow.table {
+  border-top: 0.2em solid #ffcb08;
+  border-radius: 0em;
+}
+/*-------------------
+   Inverted Colors
+--------------------*/
+.ui.inverted.table,
+.ui.inverted.black.table {
+  background-color: #333333 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.blue.table {
+  background-color: #0074d9 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.green.table {
+  background-color: #2ecc40 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.orange.table {
+  background-color: #ff851b !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.pink.table {
+  background-color: #d9499a !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.purple.table {
+  background-color: #564f8a !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.red.table {
+  background-color: #ff4136 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.teal.table {
+  background-color: #39cccc !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.yellow.table {
+  background-color: #ffcb08 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
 /*--------------
   Column Count
 ---------------*/
@@ -4463,10 +4555,10 @@ body > .ui.grid {
   text-decoration: inherit;
 }
 .ui.sortable.table thead th.ascending:after {
-  content: '\25b4';
+  content: '\f0d7';
 }
 .ui.sortable.table thead th.descending:after {
-  content: '\25b4';
+  content: '\f0d8';
 }
 /* Sortable Hover */
 .ui.sortable.table th.disabled:hover {
@@ -4487,11 +4579,16 @@ body > .ui.grid {
 ---------------*/
 /* Text Color */
 .ui.inverted.table {
+  background: #333333;
   color: #ffffff;
+  border: none;
 }
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
   color: rgba(255, 255, 255, 0.9);
+}
+.ui.inverted.table tr td {
+  border-color: rgba(0, 0, 0, 0.2);
 }
 /*--------------
    Definition
@@ -4538,7 +4635,7 @@ body > .ui.grid {
   padding: 0.8em 1em;
 }
 .ui.compact.table td {
-  padding: 0.2em 0.5em;
+  padding: 0.5em 0.8em;
 }
 /*--------------
       Sizes
@@ -4619,7 +4716,7 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -5040,7 +5137,7 @@ body > .ui.grid {
 --------------------*/
 .ui.secondary.buttons .button,
 .ui.secondary.button {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
@@ -5051,19 +5148,19 @@ body > .ui.grid {
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background-color: #626262;
+  background-color: #404040;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-  background-color: #434343;
+  background-color: #212121;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
-  background-color: #484848;
+  background-color: #262626;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5426,15 +5523,16 @@ body > .ui.grid {
 /* Inverted */
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
+  background-color: transparent !important;
   color: #fafafa !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
-          box-shadow: rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.2);
+          box-shadow: rgba(255, 255, 255, 0.2);
 }
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
   color: #ffffff !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
-          box-shadow: rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.2);
+          box-shadow: rgba(255, 255, 255, 0.2);
 }
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
@@ -5797,7 +5895,7 @@ body > .ui.grid {
 /*--- Black ---*/
 .ui.black.buttons .button,
 .ui.black.button {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
@@ -5808,13 +5906,13 @@ body > .ui.grid {
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #626262;
+  background-color: #404040;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.black.buttons .button:active,
 .ui.black.button:active {
-  background-color: #434343;
+  background-color: #212121;
   color: #ffffff;
   text-shadow: none;
 }
@@ -5822,22 +5920,22 @@ body > .ui.grid {
 .ui.black.buttons .button.active:active,
 .ui.black.button.active,
 .ui.black.button .button.active:active {
-  background-color: #484848;
+  background-color: #262626;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.inverted.black.buttons .button,
 .ui.inverted.black.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #999999 inset !important;
-          box-shadow: 0px 0px 0px 2px #999999 inset !important;
-  color: #999999;
+  -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
+          box-shadow: 0px 0px 0px 2px #555555 inset !important;
+  color: #555555;
 }
 .ui.inverted.black.buttons .button:hover,
 .ui.inverted.black.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
-          box-shadow: 0px 0px 0px 2px #555555 inset !important;
-  background-color: #555555;
+  -webkit-box-shadow: 0px 0px 0px 2px #333333 inset !important;
+          box-shadow: 0px 0px 0px 2px #333333 inset !important;
+  background-color: #333333;
   color: #ffffff;
 }
 .ui.inverted.black.basic.buttons .button,
@@ -5851,8 +5949,8 @@ body > .ui.grid {
 .ui.inverted.black.basic.buttons .button:hover,
 .ui.inverted.black.buttons .basic.button:hover,
 .ui.inverted.black.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #999999 inset !important;
-          box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
+          box-shadow: 0px 0px 0px 2px #555555 inset !important;
   color: #ffffff !important;
 }
 /*--- Blue ---*/
@@ -6007,7 +6105,7 @@ body > .ui.grid {
 .ui.orange.buttons .button.active:active,
 .ui.orange.button.active,
 .ui.orange.button .button.active:active {
-  background-color: #484848;
+  background-color: #262626;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6549,7 +6647,7 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -6862,7 +6960,7 @@ body > .ui.grid {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -7997,7 +8095,7 @@ i.flag.zimbabwe {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -8253,7 +8351,7 @@ h5.ui.header {
        Colors
 --------------------*/
 .ui.black.header {
-  color: #555555 !important;
+  color: #333333 !important;
 }
 .ui.blue.header {
   color: #0074d9 !important;
@@ -8280,7 +8378,7 @@ h5.ui.header {
   color: #ffcb08 !important;
 }
 .ui.black.dividing.header {
-  border-bottom: 3px solid #555555;
+  border-bottom: 3px solid #333333;
 }
 .ui.blue.dividing.header {
   border-bottom: 3px solid #0074d9;
@@ -8319,7 +8417,7 @@ h5.ui.header {
    Inverted Colors
 --------------------*/
 .ui.inverted.black.header {
-  background-color: #555555 !important;
+  background-color: #333333 !important;
   color: #ffffff !important;
 }
 .ui.inverted.blue.header {
@@ -8522,7 +8620,7 @@ h5.ui.header {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -8785,7 +8883,7 @@ i.inverted.icon {
        Colors
 --------------------*/
 i.black.icon {
-  color: #555555 !important;
+  color: #333333 !important;
 }
 i.blue.icon {
   color: #0074d9 !important;
@@ -8815,7 +8913,7 @@ i.yellow.icon {
    Inverted Colors
 --------------------*/
 i.inverted.black.icon {
-  background-color: #555555 !important;
+  background-color: #333333 !important;
   color: #FFFFFF !important;
 }
 i.inverted.blue.icon {
@@ -10254,6 +10352,9 @@ i.icon.wechat:before {
 /*******************************
             Aliases
 *******************************/
+i.icon.like:before {
+  content: "\f004";
+}
 i.icon.video:before {
   content: "\f008";
 }
@@ -10267,6 +10368,12 @@ i.icon.remove:before {
   content: "\f00d";
 }
 i.icon.close:before {
+  content: "\f00d";
+}
+i.icon.cancel:before {
+  content: "\f00d";
+}
+i.icon.delete:before {
   content: "\f00d";
 }
 i.icon.x:before {
@@ -10322,6 +10429,9 @@ i.icon.compose:before {
 }
 i.icon.point:before {
   content: "\f041";
+}
+i.icon.signup:before {
+  content: "\f044";
 }
 i.icon.plus.circle:before {
   content: "\f055";
@@ -10670,7 +10780,7 @@ i.icon.weixin:before {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -11031,7 +11141,7 @@ img.ui.image {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -11176,10 +11286,10 @@ img.ui.image {
 ---------------------*/
 /* browsers require these rules separate */
 .ui.input input::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
 }
 .ui.input input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
 }
 /*******************************
             States
@@ -11453,7 +11563,7 @@ img.ui.image {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -11614,6 +11724,11 @@ a.ui.label {
 .ui.label a:hover {
   opacity: 1;
 }
+/* Icon */
+.ui.label .icon {
+  width: auto;
+  margin: 0em 0.75em 0em 0em;
+}
 /* Detail */
 .ui.label .detail {
   display: inline-block;
@@ -11621,10 +11736,8 @@ a.ui.label {
   font-weight: bold;
   opacity: 0.8;
 }
-/* Icon */
-.ui.label .icon {
-  width: auto;
-  margin: 0em 0.75em 0em 0em;
+.ui.label .detail .icon {
+  margin: 0em 0.25em 0em 0em;
 }
 /* Removable label */
 .ui.label .delete.icon {
@@ -11959,31 +12072,31 @@ a.ui.label:hover:before {
 /*--- Black ---*/
 .ui.black.labels .label,
 .ui.black.label {
-  background-color: #555555 !important;
-  border-color: #555555 !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
   color: #ffffff !important;
 }
 .ui.labels .black.label:before,
 .ui.black.labels .label:before,
 .ui.black.label:before {
-  background-color: #555555 !important;
+  background-color: #333333 !important;
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #626262 !important;
-  border-color: #626262 !important;
+  background-color: #404040 !important;
+  border-color: #404040 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #626262 !important;
+  background-color: #404040 !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.black.ribbon.label {
-  border-color: #626262 !important;
+  border-color: #404040 !important;
 }
 /*--- Blue ---*/
 .ui.blue.labels .label,
@@ -12366,6 +12479,26 @@ a.ui.yellow.label:hover:before {
 .ui.huge.label {
   font-size: 1rem;
 }
+.ui.tiny.corner.labels .label,
+.ui.tiny.corner.label {
+  font-size: 0.72rem;
+}
+.ui.small.corner.labels .label,
+.ui.small.corner.label {
+  font-size: 0.9rem;
+}
+.ui.corner.labels .label,
+.ui.corner.label {
+  font-size: 0.975rem;
+}
+.ui.large.corner.labels .label,
+.ui.large.corner.label {
+  font-size: 1.05rem;
+}
+.ui.huge.corner.labels .label,
+.ui.huge.corner.label {
+  font-size: 1.2rem;
+}
 /*******************************
            Overrides
 *******************************/
@@ -12430,7 +12563,7 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -12598,7 +12731,7 @@ a.ui.yellow.label:hover:before {
   z-index: 2;
 }
 .ui.flipping.loader .shape:after {
-  background-color: #555555;
+  background-color: #333333;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
@@ -13305,7 +13438,7 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -13548,7 +13681,7 @@ a.ui.yellow.label:hover:before {
   bottom: -3px;
   left: 0%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.01);
   width: 100%;
   height: 5px;
   visibility: visible;
@@ -13559,7 +13692,7 @@ a.ui.yellow.label:hover:before {
 /* Inverted */
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.01);
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 /*-------------------
@@ -13615,7 +13748,7 @@ a.ui.yellow.label:hover:before {
        Colors
 --------------------*/
 .ui.black.segment {
-  border-top: 0.2em solid #555555;
+  border-top: 0.2em solid #333333;
   border-radius: 0em;
 }
 .ui.blue.segment {
@@ -13655,7 +13788,7 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 .ui.inverted.segment,
 .ui.inverted.black.segment {
-  background-color: #555555 !important;
+  background-color: #333333 !important;
   color: #ffffff !important;
 }
 .ui.inverted.blue.segment {
@@ -13735,7 +13868,7 @@ a.ui.yellow.label:hover:before {
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
 }
 /*-------------------
@@ -13750,14 +13883,14 @@ a.ui.yellow.label:hover:before {
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.secondary.inverted.segment {
-  background-color: #555555;
+  background-color: #333333;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #fafafa;
 }
 .ui.tertiary.inverted.segment {
-  background-color: #555555;
+  background-color: #333333;
   background-image: #f0f0f0;
   color: #f0f0f0;
 }
@@ -13856,7 +13989,7 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -14313,7 +14446,7 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -14796,7 +14929,7 @@ input[type="password"] {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -15475,7 +15608,7 @@ a:hover {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -15594,9 +15727,10 @@ a:hover {
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  height: 1em;
+  height: 16px;
+  font-size: 1rem;
+  line-height: 15px;
   min-width: 16px;
-  line-height: 1em;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   outline: none;
@@ -15618,6 +15752,9 @@ a:hover {
   cursor: pointer;
   padding-left: 2em;
   outline: none;
+}
+.ui.checkbox label {
+  font-size: 1em;
 }
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
@@ -15642,6 +15779,7 @@ a:hover {
   position: absolute;
   top: 1px;
   left: 0px;
+  line-height: 1;
   width: 16px;
   text-align: center;
   opacity: 0;
@@ -15740,7 +15878,7 @@ a:hover {
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
-  top: 0px;
+  top: 3px;
   left: 0em;
   font-size: 9px;
 }
@@ -15915,7 +16053,7 @@ a:hover {
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .ui.radio.checkbox .box:after,
   .ui.radio.checkbox label:after {
-    top: 1px;
+    top: 4px;
   }
 }
 .icon-check:before {
@@ -16628,7 +16766,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -16794,7 +16932,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.modal > .header {
   display: block;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  background: #999999;
+  background: #555555;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
@@ -17552,7 +17690,7 @@ a.ui.nag {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -18244,7 +18382,7 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -18483,7 +18621,7 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -19560,7 +19698,7 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -20654,7 +20792,7 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -20877,6 +21015,9 @@ ol.ui.list ol,
   padding-right: 0em;
 }
 /* Content */
+.ui.list .item > .content {
+  line-height: 1.2em;
+}
 .ui.list .item > .image + .content,
 .ui.list .item > .icon + .content {
   display: table-cell;
@@ -20996,7 +21137,7 @@ ol.ui.list ol,
 .ui.link.list .item,
 .ui.link.list a.item,
 .ui.link.list .item a {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
 }
 .ui.link.list a.item:hover,
 .ui.link.list .item a:hover {
@@ -21035,12 +21176,12 @@ ol.ui.list ol,
   cursor: pointer;
   background: transparent;
   padding: 0.5em 0.5em;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
   -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
           transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
 }
 .ui.selection.list .item:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.selection.list .item:active {
@@ -21054,7 +21195,7 @@ ol.ui.list ol,
 /* Inverted */
 .ui.inverted.selection.list .item {
   background: transparent;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
 }
 .ui.inverted.selection.list .item:hover {
   background: rgba(255, 255, 255, 0.01);
@@ -21224,8 +21365,8 @@ ol.ui.horizontal.list li:before,
   left: 0em;
 }
 .ui.divided.ordered.list .item .list {
-  margin-left: -2em;
-  margin-right: -2em;
+  margin-left: 0em;
+  margin-right: 0em;
   padding-bottom: 0.3em;
 }
 .ui.divided.ordered.list .item .list .item {
@@ -21250,11 +21391,9 @@ ol.ui.horizontal.list li:before,
 }
 /* Inverted */
 .ui.divided.inverted.list > .item,
-.ui.divided.inverted.list > .list {
-  border-color: 1px solid rgba(255, 255, 255, 0.3);
-}
+.ui.divided.inverted.list > .list,
 .ui.divided.inverted.horizontal.list .item {
-  border-color: 1px solid rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 /*-------------------
         Celled
@@ -21309,8 +21448,8 @@ ol.ui.horizontal.list li:before,
   left: 0em;
 }
 .ui.celled.ordered.list .item .list {
-  margin-left: -2em;
-  margin-right: -2em;
+  margin-left: 0em;
+  margin-right: 0em;
   padding-bottom: 0.3em;
 }
 .ui.celled.ordered.list .item .list .item {
@@ -21336,10 +21475,10 @@ ol.ui.horizontal.list li:before,
 /* Inverted */
 .ui.celled.inverted.list > .item,
 .ui.celled.inverted.list > .list {
-  border-color: 1px solid rgba(255, 255, 255, 0.3);
+  border-color: 1px solid rgba(255, 255, 255, 0.2);
 }
 .ui.celled.inverted.horizontal.list .item {
-  border-color: 1px solid rgba(255, 255, 255, 0.3);
+  border-color: 1px solid rgba(255, 255, 255, 0.2);
 }
 /*-------------------
        Relaxed

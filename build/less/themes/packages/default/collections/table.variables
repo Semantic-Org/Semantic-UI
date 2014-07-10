@@ -125,8 +125,8 @@
 @sortableIconDistance: 0.5em;
 @sortableIconOpacity: 0.8;
 @sortableIconFont: 'Icons';
-@sortableIconAscending: '\25b4';
-@sortableIconDescending: '\25b4';
+@sortableIconAscending: '\f0d7';
+@sortableIconDescending: '\f0d8';
 
 @sortableDisabledColor: @disabledTextColor;
 
@@ -136,8 +136,17 @@
 @sortableInvertedHoverBackground: @strongTransparentWhite;
 @sortableInvertedHoverColor: @invertedSelectedTextColor;
 
+/* Colors */
+@coloredBorderSize: 0.2em;
+@coloredBorderRadius: 0em;
+
 /* Inverted */
+@invertedBackground: #333333;
+@invertedBorder: none;
+
+@invertedCellBorderColor: rgba(0, 0, 0, 0.2);
 @invertedCellColor: @invertedTextColor;
+
 @invertedHeaderBackground: rgba(0, 0, 0, 0.15);
 @invertedHeaderColor: rgba(255, 255, 255, 0.9);
 
@@ -162,8 +171,8 @@
 @paddedVerticalPadding: 0.8em;
 @paddedHorizontalPadding: 1em;
 
-@compactVerticalPadding: 0.2em;
-@compactHorizontalPadding: 0.5em;
+@compactVerticalPadding: 0.5em;
+@compactHorizontalPadding: 0.8em;
 
 /* Sizes */
 @small: 0.875em;

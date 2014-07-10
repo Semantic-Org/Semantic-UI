@@ -530,12 +530,14 @@ i.icon.wechat:before { content: "\f1d7"; }
             Aliases
 *******************************/
 
-
+i.icon.like:before { content: "\f004"; }
 i.icon.video:before { content: "\f008"; }
 i.icon.sidebar:before { content: "\f00b"; }
 i.icon.check:before { content: "\f00c"; }
 i.icon.remove:before { content: "\f00d"; }
 i.icon.close:before { content: "\f00d"; }
+i.icon.cancel:before { content: "\f00d"; }
+i.icon.delete:before { content: "\f00d"; }
 i.icon.x:before { content: "\f00d"; }
 i.icon.zoom.in:before { content: "\f00e"; }
 i.icon.magnify:before { content: "\f00e"; }
@@ -554,6 +556,7 @@ i.icon.picture:before { content: "\f03e"; }
 i.icon.pencil:before { content: "\f040"; }
 i.icon.compose:before { content: "\f040"; }
 i.icon.point:before { content: "\f041"; }
+i.icon.signup:before { content: "\f044"; }
 i.icon.plus.circle:before { content: "\f055"; }
 i.icon.minus.circle:before { content: "\f056"; }
 i.icon.dont:before { content: "\f05e"; }

@@ -32,10 +32,11 @@
   position: relative;
   display: inline-block;
 
-  height: @checkboxHeight;
+  height: @checkboxSize;
 
+  font-size: 1rem;
+  line-height: @checkboxLineHeight;
   min-width: @checkboxSize;
-  line-height: @checkboxHeight;
   backface-visibility: hidden;
 
   outline: none;
@@ -61,6 +62,9 @@
   cursor: pointer;
   padding-left: @labelPadding;
   outline: none;
+}
+.ui.checkbox label {
+  font-size: @fontSize;
 }
 
 .ui.checkbox .box:before,
@@ -90,6 +94,7 @@
   position: absolute;
   top: @checkboxCheckOffset;
   left: 0px;
+  line-height: 1;
   width: @checkboxSize;
   text-align: center;
 

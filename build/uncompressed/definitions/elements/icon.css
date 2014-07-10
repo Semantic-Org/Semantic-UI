@@ -68,7 +68,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -331,7 +331,7 @@ i.inverted.icon {
        Colors
 --------------------*/
 i.black.icon {
-  color: #555555 !important;
+  color: #333333 !important;
 }
 i.blue.icon {
   color: #0074d9 !important;
@@ -361,7 +361,7 @@ i.yellow.icon {
    Inverted Colors
 --------------------*/
 i.inverted.black.icon {
-  background-color: #555555 !important;
+  background-color: #333333 !important;
   color: #FFFFFF !important;
 }
 i.inverted.blue.icon {
@@ -1800,6 +1800,9 @@ i.icon.wechat:before {
 /*******************************
             Aliases
 *******************************/
+i.icon.like:before {
+  content: "\f004";
+}
 i.icon.video:before {
   content: "\f008";
 }
@@ -1813,6 +1816,12 @@ i.icon.remove:before {
   content: "\f00d";
 }
 i.icon.close:before {
+  content: "\f00d";
+}
+i.icon.cancel:before {
+  content: "\f00d";
+}
+i.icon.delete:before {
   content: "\f00d";
 }
 i.icon.x:before {
@@ -1868,6 +1877,9 @@ i.icon.compose:before {
 }
 i.icon.point:before {
   content: "\f041";
+}
+i.icon.signup:before {
+  content: "\f044";
 }
 i.icon.plus.circle:before {
   content: "\f055";

@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -308,7 +308,7 @@
 }
 .ui.icon.message > .icon:not(.close) {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
   font-size: 2em;
   opacity: 0.8;
 }
@@ -317,7 +317,7 @@
 }
 .ui.icon.message > .content {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
 }
 /*--------------
     Floating
@@ -330,7 +330,7 @@
      Colors
 ---------------*/
 .ui.black.message {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
 }
 /*--------------
@@ -339,7 +339,7 @@
 /* Inverted */
 .ui.inverted.message,
 .ui.black.message {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
 }
 /* Positive / Negative */

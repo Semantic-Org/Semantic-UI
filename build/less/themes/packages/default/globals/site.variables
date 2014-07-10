@@ -17,6 +17,7 @@
 @fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.8);
 
+@headerMargin        : 1em 0em 1rem;
 @paragraphMargin     : 1em 0em;
 
 @linkColor           : #009FDA;
@@ -26,9 +27,8 @@
 @highlightBackground : #FFFFCC;
 @highlightColor      : @textColor;
 
-
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 
 @columnCount: 16;
@@ -103,7 +103,7 @@
            BG Colors
 *******************************/
 
-@subtleTransparentBlack : rgba(0, 0, 0, 0.02);
+@subtleTransparentBlack : rgba(0, 0, 0, 0.01);
 @transparentBlack       : rgba(0, 0, 0, 0.05);
 @strongTransparentBlack : rgba(0, 0, 0, 0.10);
 
@@ -141,8 +141,8 @@
 
 /*---  Neutrals  ---*/
 @darkBlack        : #232323;
-@black            : #555555;
-@lightBlack       : #999999;
+@black            : #333333;
+@lightBlack       : #555555;
 
 @darkGrey         : #AAAAAA;
 @grey             : #CCCCCC;
@@ -223,7 +223,7 @@
 @invertedSelectedTextColor   : rgba(255, 255, 255, 1);
 @invertedDisabledTextColor   : rgba(255, 255, 255, 0.3);
 
-@unselectedTextColor         : rgba(0, 0, 0, 0.5);
+@unselectedTextColor         : rgba(0, 0, 0, 0.4);
 @selectedTextColor           : rgba(0, 0, 0, 0.8);
 @disabledTextColor           : rgba(0, 0, 0, 0.2);
 
@@ -250,7 +250,7 @@
 @selectedBorderColor      : rgba(0, 0, 0, 0.2);
 @solidBorderColor         : #DDDDDD;
 
-@whiteBorderColor         : rgba(255, 255, 255, 0.3);
+@whiteBorderColor         : rgba(255, 255, 255, 0.2);
 @selectedWhiteBorderColor : rgba(255, 255, 255, 0.8);
 
 /*-------------------

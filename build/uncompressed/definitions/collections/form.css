@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -662,6 +662,7 @@
   margin: 0em 0em 1em;
 }
 .ui.form .inline.fields .field {
+  display: inline-block;
   margin: 0em 1em 0em 0em;
 }
 .ui.form .inline.fields .field > label,

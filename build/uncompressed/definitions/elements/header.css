@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -311,7 +311,7 @@ h5.ui.header {
        Colors
 --------------------*/
 .ui.black.header {
-  color: #555555 !important;
+  color: #333333 !important;
 }
 .ui.blue.header {
   color: #0074d9 !important;
@@ -338,7 +338,7 @@ h5.ui.header {
   color: #ffcb08 !important;
 }
 .ui.black.dividing.header {
-  border-bottom: 3px solid #555555;
+  border-bottom: 3px solid #333333;
 }
 .ui.blue.dividing.header {
   border-bottom: 3px solid #0074d9;
@@ -377,7 +377,7 @@ h5.ui.header {
    Inverted Colors
 --------------------*/
 .ui.inverted.black.header {
-  background-color: #555555 !important;
+  background-color: #333333 !important;
   color: #ffffff !important;
 }
 .ui.inverted.blue.header {

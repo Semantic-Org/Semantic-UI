@@ -48,6 +48,7 @@
 
 /* Content */
 @contentDistance: 0.5em;
+@contentLineHeight: 1.2em;
 @contentAlign: middle;
 
 /* Link */
@@ -164,7 +165,7 @@
 /* Divided */
 @dividedBorderWidth: 1px;
 @dividedBorder: @dividedBorderWidth solid @borderColor;
-@dividedInvertedBorder: @dividedBorderWidth solid @whiteBorderColor;
+@dividedInvertedBorderColor: @whiteBorderColor;
 @dividedChildListBorder: none;
 @dividedChildItemBorder: none;
 

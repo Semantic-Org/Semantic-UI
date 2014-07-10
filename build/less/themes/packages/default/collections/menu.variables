@@ -85,10 +85,10 @@
 
 /* Input */
 @inputSize: 0.875em;
-@inputVerticalMargin: -0.8em;
-@inputOffset: -0.05em;
+@inputVerticalMargin: -0.6em;
+@inputOffset: 0em;
 @inputVerticalPadding: 0.5em;
-@inputIconOffset: -0.3em;
+@inputIconOffset: -0.25em;
 
 @smallInputOffset: 0em;
 @smallInputVerticalPadding: 0.4em;

@@ -689,7 +689,7 @@ $.tab = $.fn.tab = function(parameters) {
       }
     })
   ;
-  if(!methodInvoked) {
+  if(module && !methodInvoked) {
     module.initializeHistory();
   }
   return (returnedValue !== undefined)

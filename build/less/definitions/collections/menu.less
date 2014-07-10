@@ -52,9 +52,6 @@
 .ui.menu > .item:first-child {
   border-radius: @borderRadius 0px 0px @borderRadius;
 }
-.ui.menu > .item:last-child {
-  border-radius: 0px @borderRadius @borderRadius 0px;
-}
 
 /*--------------
     Colors
@@ -128,13 +125,12 @@
   position: absolute;
   content: '';
   top: 0%;
-  left: 0px;
+  right: 0px;
   width: @dividerSize;
   height: 100%;
   background: @dividerBackground;
 }
-.ui.menu > .menu:not(.right):first-child > .item:first-child:before,
-.ui.menu .item:first-child:before {
+.ui.menu > .right.menu:first-child {
   display: none;
 }
 .ui.menu .menu.right .item:before,
@@ -1433,6 +1429,9 @@
   padding-left: 0px !important;
   padding-right: 0px !important;
   text-align: center;
+}
+.ui.item.menu > .item:last-child {
+  border-radius: 0px @borderRadius @borderRadius 0px;
 }
 .ui.menu.two.item .item {
   width: 50%;

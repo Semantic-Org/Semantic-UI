@@ -107,6 +107,9 @@
 }
 
 /* Table Segment */
+.ui.table.segment {
+  padding: 0em;
+}
 .ui.table.segment:after {
   display: none;
 }
@@ -308,6 +311,100 @@
   background-color: @invertedStripedBackground;
 }
 
+
+/*-------------------
+       Colors
+--------------------*/
+
+.ui.black.table {
+  border-top: @coloredBorderSize solid @black;
+  border-radius: @coloredBorderRadius;
+}
+.ui.blue.table {
+  border-top: @coloredBorderSize solid @blue;
+  border-radius: @coloredBorderRadius;
+}
+.ui.green.table {
+  border-top: @coloredBorderSize solid @green;
+  border-radius: @coloredBorderRadius;
+}
+.ui.orange.table {
+  border-top: @coloredBorderSize solid @orange;
+  border-radius: @coloredBorderRadius;
+}
+.ui.pink.table {
+  border-top: @coloredBorderSize solid @pink;
+  border-radius: @coloredBorderRadius;
+}
+.ui.purple.table {
+  border-top: @coloredBorderSize solid @purple;
+  border-radius: @coloredBorderRadius;
+}
+.ui.red.table {
+  border-top: @coloredBorderSize solid @red;
+  border-radius: @coloredBorderRadius;
+}
+.ui.teal.table {
+  border-top: @coloredBorderSize solid @teal;
+  border-radius: @coloredBorderRadius;
+}
+.ui.yellow.table {
+  border-top: @coloredBorderSize solid @yellow;
+  border-radius: @coloredBorderRadius;
+}
+
+/*-------------------
+   Inverted Colors
+--------------------*/
+
+.ui.inverted.table,
+.ui.inverted.black.table {
+  background-color: @black !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+.ui.inverted.blue.table {
+  background-color: @blue !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+.ui.inverted.green.table {
+  background-color: @green !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+.ui.inverted.orange.table {
+  background-color: @orange !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+.ui.inverted.pink.table {
+  background-color: @pink !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+.ui.inverted.purple.table {
+  background-color: @purple !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+.ui.inverted.red.table {
+  background-color: @red !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+.ui.inverted.teal.table {
+  background-color: @teal !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+.ui.inverted.yellow.table {
+  background-color: @yellow !important;
+  border-radius: @borderRadius;
+  color: @white !important;
+}
+
+
 /*--------------
   Column Count
 ---------------*/
@@ -498,11 +595,16 @@
 
 /* Text Color */
 .ui.inverted.table {
+  background: @invertedBackground;
   color: @invertedCellColor;
+  border: @invertedBorder;
 }
 .ui.inverted.table th {
   background-color: @invertedHeaderBackground;
   color: @invertedHeaderColor;
+}
+.ui.inverted.table tr td {
+  border-color: @invertedCellBorderColor;
 }
 
 

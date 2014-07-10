@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -216,6 +216,11 @@ a.ui.label {
 .ui.label a:hover {
   opacity: 1;
 }
+/* Icon */
+.ui.label .icon {
+  width: auto;
+  margin: 0em 0.75em 0em 0em;
+}
 /* Detail */
 .ui.label .detail {
   display: inline-block;
@@ -223,10 +228,8 @@ a.ui.label {
   font-weight: bold;
   opacity: 0.8;
 }
-/* Icon */
-.ui.label .icon {
-  width: auto;
-  margin: 0em 0.75em 0em 0em;
+.ui.label .detail .icon {
+  margin: 0em 0.25em 0em 0em;
 }
 /* Removable label */
 .ui.label .delete.icon {
@@ -561,31 +564,31 @@ a.ui.label:hover:before {
 /*--- Black ---*/
 .ui.black.labels .label,
 .ui.black.label {
-  background-color: #555555 !important;
-  border-color: #555555 !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
   color: #ffffff !important;
 }
 .ui.labels .black.label:before,
 .ui.black.labels .label:before,
 .ui.black.label:before {
-  background-color: #555555 !important;
+  background-color: #333333 !important;
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #626262 !important;
-  border-color: #626262 !important;
+  background-color: #404040 !important;
+  border-color: #404040 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #626262 !important;
+  background-color: #404040 !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.black.ribbon.label {
-  border-color: #626262 !important;
+  border-color: #404040 !important;
 }
 /*--- Blue ---*/
 .ui.blue.labels .label,
@@ -967,6 +970,26 @@ a.ui.yellow.label:hover:before {
 .ui.huge.labels .label,
 .ui.huge.label {
   font-size: 1rem;
+}
+.ui.tiny.corner.labels .label,
+.ui.tiny.corner.label {
+  font-size: 0.72rem;
+}
+.ui.small.corner.labels .label,
+.ui.small.corner.label {
+  font-size: 0.9rem;
+}
+.ui.corner.labels .label,
+.ui.corner.label {
+  font-size: 0.975rem;
+}
+.ui.large.corner.labels .label,
+.ui.large.corner.label {
+  font-size: 1.05rem;
+}
+.ui.huge.corner.labels .label,
+.ui.huge.corner.label {
+  font-size: 1.2rem;
 }
 /*******************************
            Overrides

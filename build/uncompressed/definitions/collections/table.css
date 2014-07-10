@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -153,6 +153,7 @@
 ---------------*/
 /* Striped */
 /* Sortable */
+/* Colors */
 /* Inverted */
 /* Definition */
 /* Basic */
@@ -254,6 +255,9 @@
   margin: 0em;
 }
 /* Table Segment */
+.ui.table.segment {
+  padding: 0em;
+}
 .ui.table.segment:after {
   display: none;
 }
@@ -437,6 +441,94 @@
 .ui.inverted.striped.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.06);
 }
+/*-------------------
+       Colors
+--------------------*/
+.ui.black.table {
+  border-top: 0.2em solid #333333;
+  border-radius: 0em;
+}
+.ui.blue.table {
+  border-top: 0.2em solid #0074d9;
+  border-radius: 0em;
+}
+.ui.green.table {
+  border-top: 0.2em solid #2ecc40;
+  border-radius: 0em;
+}
+.ui.orange.table {
+  border-top: 0.2em solid #ff851b;
+  border-radius: 0em;
+}
+.ui.pink.table {
+  border-top: 0.2em solid #d9499a;
+  border-radius: 0em;
+}
+.ui.purple.table {
+  border-top: 0.2em solid #564f8a;
+  border-radius: 0em;
+}
+.ui.red.table {
+  border-top: 0.2em solid #ff4136;
+  border-radius: 0em;
+}
+.ui.teal.table {
+  border-top: 0.2em solid #39cccc;
+  border-radius: 0em;
+}
+.ui.yellow.table {
+  border-top: 0.2em solid #ffcb08;
+  border-radius: 0em;
+}
+/*-------------------
+   Inverted Colors
+--------------------*/
+.ui.inverted.table,
+.ui.inverted.black.table {
+  background-color: #333333 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.blue.table {
+  background-color: #0074d9 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.green.table {
+  background-color: #2ecc40 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.orange.table {
+  background-color: #ff851b !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.pink.table {
+  background-color: #d9499a !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.purple.table {
+  background-color: #564f8a !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.red.table {
+  background-color: #ff4136 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.teal.table {
+  background-color: #39cccc !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
+.ui.inverted.yellow.table {
+  background-color: #ffcb08 !important;
+  border-radius: 0.25rem;
+  color: #ffffff !important;
+}
 /*--------------
   Column Count
 ---------------*/
@@ -592,10 +684,10 @@
   text-decoration: inherit;
 }
 .ui.sortable.table thead th.ascending:after {
-  content: '\25b4';
+  content: '\f0d7';
 }
 .ui.sortable.table thead th.descending:after {
-  content: '\25b4';
+  content: '\f0d8';
 }
 /* Sortable Hover */
 .ui.sortable.table th.disabled:hover {
@@ -616,11 +708,16 @@
 ---------------*/
 /* Text Color */
 .ui.inverted.table {
+  background: #333333;
   color: #ffffff;
+  border: none;
 }
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
   color: rgba(255, 255, 255, 0.9);
+}
+.ui.inverted.table tr td {
+  border-color: rgba(0, 0, 0, 0.2);
 }
 /*--------------
    Definition
@@ -667,7 +764,7 @@
   padding: 0.8em 1em;
 }
 .ui.compact.table td {
-  padding: 0.2em 0.5em;
+  padding: 0.5em 0.8em;
 }
 /*--------------
       Sizes

@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -476,7 +476,7 @@
 --------------------*/
 .ui.secondary.buttons .button,
 .ui.secondary.button {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
@@ -487,19 +487,19 @@
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background-color: #626262;
+  background-color: #404040;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-  background-color: #434343;
+  background-color: #212121;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.secondary.buttons .active.button,
 .ui.secondary.button.active {
-  background-color: #484848;
+  background-color: #262626;
   color: #ffffff;
   text-shadow: none;
 }
@@ -862,15 +862,16 @@
 /* Inverted */
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
+  background-color: transparent !important;
   color: #fafafa !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
-          box-shadow: rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.2);
+          box-shadow: rgba(255, 255, 255, 0.2);
 }
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
   color: #ffffff !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.3);
-          box-shadow: rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: rgba(255, 255, 255, 0.2);
+          box-shadow: rgba(255, 255, 255, 0.2);
 }
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
@@ -1233,7 +1234,7 @@
 /*--- Black ---*/
 .ui.black.buttons .button,
 .ui.black.button {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
@@ -1244,13 +1245,13 @@
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #626262;
+  background-color: #404040;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.black.buttons .button:active,
 .ui.black.button:active {
-  background-color: #434343;
+  background-color: #212121;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1258,22 +1259,22 @@
 .ui.black.buttons .button.active:active,
 .ui.black.button.active,
 .ui.black.button .button.active:active {
-  background-color: #484848;
+  background-color: #262626;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.inverted.black.buttons .button,
 .ui.inverted.black.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #999999 inset !important;
-          box-shadow: 0px 0px 0px 2px #999999 inset !important;
-  color: #999999;
+  -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
+          box-shadow: 0px 0px 0px 2px #555555 inset !important;
+  color: #555555;
 }
 .ui.inverted.black.buttons .button:hover,
 .ui.inverted.black.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
-          box-shadow: 0px 0px 0px 2px #555555 inset !important;
-  background-color: #555555;
+  -webkit-box-shadow: 0px 0px 0px 2px #333333 inset !important;
+          box-shadow: 0px 0px 0px 2px #333333 inset !important;
+  background-color: #333333;
   color: #ffffff;
 }
 .ui.inverted.black.basic.buttons .button,
@@ -1287,8 +1288,8 @@
 .ui.inverted.black.basic.buttons .button:hover,
 .ui.inverted.black.buttons .basic.button:hover,
 .ui.inverted.black.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #999999 inset !important;
-          box-shadow: 0px 0px 0px 2px #999999 inset !important;
+  -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
+          box-shadow: 0px 0px 0px 2px #555555 inset !important;
   color: #ffffff !important;
 }
 /*--- Blue ---*/
@@ -1443,7 +1444,7 @@
 .ui.orange.buttons .button.active:active,
 .ui.orange.button.active,
 .ui.orange.button .button.active:active {
-  background-color: #484848;
+  background-color: #262626;
   color: #ffffff;
   text-shadow: none;
 }

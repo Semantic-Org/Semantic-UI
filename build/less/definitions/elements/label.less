@@ -72,6 +72,11 @@ a.ui.label {
   opacity: 1;
 }
 
+/* Icon */
+.ui.label .icon {
+  width: auto;
+  margin: 0em @iconDistance 0em 0em;
+}
 /* Detail */
 .ui.label .detail {
   display: inline-block;
@@ -79,12 +84,10 @@ a.ui.label {
   font-weight: bold;
   opacity: @detailOpacity;
 }
-
-/* Icon */
-.ui.label .icon {
-  width: auto;
-  margin: 0em @iconDistance 0em 0em;
+.ui.label .detail .icon {
+  margin: 0em @detailIconDistance 0em 0em;
 }
+
 
 /* Removable label */
 .ui.label .delete.icon {
@@ -897,7 +900,7 @@ a.ui.yellow.label:hover:before {
 
 .ui.tiny.labels .label,
 .ui.tiny.label {
-font-size: @tiny;
+  font-size: @tiny;
 }
 .ui.small.labels .label,
 .ui.small.label {
@@ -914,6 +917,27 @@ font-size: @tiny;
 .ui.huge.labels .label,
 .ui.huge.label {
   font-size: @huge;
+}
+
+.ui.tiny.corner.labels .label,
+.ui.tiny.corner.label {
+  font-size: (@cornerSizeRatio * @tiny);
+}
+.ui.small.corner.labels .label,
+.ui.small.corner.label {
+  font-size: (@cornerSizeRatio * @small);
+}
+.ui.corner.labels .label,
+.ui.corner.label {
+  font-size: (@cornerSizeRatio * @medium);
+}
+.ui.large.corner.labels .label,
+.ui.large.corner.label {
+  font-size: (@cornerSizeRatio * @large);
+}
+.ui.huge.corner.labels .label,
+.ui.huge.corner.label {
+  font-size: (@cornerSizeRatio * @huge);
 }
 
 .loadUIOverrides();

@@ -39,8 +39,9 @@
 @iconDistance: 0.75em;
 
 @detailOpacity: 0.8;
-
+@detailIconDistance: 0.25em;
 @detailMargin: 0.5em;
+
 @deleteMargin: 0.5em;
 
 /*-------------------
@@ -87,6 +88,7 @@
 @attachedHorizontalPadding: 1em;
 
 /* Corner */
+@cornerSizeRatio: 1.2;
 @cornerTriangleSize: 3em;
 @cornerTextWidth: 2.5em;
 

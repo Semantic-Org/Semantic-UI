@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -174,9 +174,10 @@
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  height: 1em;
+  height: 16px;
+  font-size: 1rem;
+  line-height: 15px;
   min-width: 16px;
-  line-height: 1em;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   outline: none;
@@ -198,6 +199,9 @@
   cursor: pointer;
   padding-left: 2em;
   outline: none;
+}
+.ui.checkbox label {
+  font-size: 1em;
 }
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
@@ -222,6 +226,7 @@
   position: absolute;
   top: 1px;
   left: 0px;
+  line-height: 1;
   width: 16px;
   text-align: center;
   opacity: 0;
@@ -320,7 +325,7 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
-  top: 0px;
+  top: 3px;
   left: 0em;
   font-size: 9px;
 }
@@ -495,7 +500,7 @@
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .ui.radio.checkbox .box:after,
   .ui.radio.checkbox label:after {
-    top: 1px;
+    top: 4px;
   }
 }
 .icon-check:before {

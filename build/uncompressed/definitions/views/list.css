@@ -56,7 +56,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -279,6 +279,9 @@ ol.ui.list ol,
   padding-right: 0em;
 }
 /* Content */
+.ui.list .item > .content {
+  line-height: 1.2em;
+}
 .ui.list .item > .image + .content,
 .ui.list .item > .icon + .content {
   display: table-cell;
@@ -398,7 +401,7 @@ ol.ui.list ol,
 .ui.link.list .item,
 .ui.link.list a.item,
 .ui.link.list .item a {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
 }
 .ui.link.list a.item:hover,
 .ui.link.list .item a:hover {
@@ -437,12 +440,12 @@ ol.ui.list ol,
   cursor: pointer;
   background: transparent;
   padding: 0.5em 0.5em;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
   -webkit-transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
           transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
 }
 .ui.selection.list .item:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.selection.list .item:active {
@@ -456,7 +459,7 @@ ol.ui.list ol,
 /* Inverted */
 .ui.inverted.selection.list .item {
   background: transparent;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
 }
 .ui.inverted.selection.list .item:hover {
   background: rgba(255, 255, 255, 0.01);
@@ -626,8 +629,8 @@ ol.ui.horizontal.list li:before,
   left: 0em;
 }
 .ui.divided.ordered.list .item .list {
-  margin-left: -2em;
-  margin-right: -2em;
+  margin-left: 0em;
+  margin-right: 0em;
   padding-bottom: 0.3em;
 }
 .ui.divided.ordered.list .item .list .item {
@@ -652,11 +655,9 @@ ol.ui.horizontal.list li:before,
 }
 /* Inverted */
 .ui.divided.inverted.list > .item,
-.ui.divided.inverted.list > .list {
-  border-color: 1px solid rgba(255, 255, 255, 0.3);
-}
+.ui.divided.inverted.list > .list,
 .ui.divided.inverted.horizontal.list .item {
-  border-color: 1px solid rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 /*-------------------
         Celled
@@ -711,8 +712,8 @@ ol.ui.horizontal.list li:before,
   left: 0em;
 }
 .ui.celled.ordered.list .item .list {
-  margin-left: -2em;
-  margin-right: -2em;
+  margin-left: 0em;
+  margin-right: 0em;
   padding-bottom: 0.3em;
 }
 .ui.celled.ordered.list .item .list .item {
@@ -738,10 +739,10 @@ ol.ui.horizontal.list li:before,
 /* Inverted */
 .ui.celled.inverted.list > .item,
 .ui.celled.inverted.list > .list {
-  border-color: 1px solid rgba(255, 255, 255, 0.3);
+  border-color: 1px solid rgba(255, 255, 255, 0.2);
 }
 .ui.celled.inverted.horizontal.list .item {
-  border-color: 1px solid rgba(255, 255, 255, 0.3);
+  border-color: 1px solid rgba(255, 255, 255, 0.2);
 }
 /*-------------------
        Relaxed

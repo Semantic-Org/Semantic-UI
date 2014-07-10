@@ -55,7 +55,7 @@
         Page
 --------------------*/
 /*-------------------
-         Grid
+        Grid
 --------------------*/
 /*-------------------
      Breakpoints
@@ -298,7 +298,7 @@
   bottom: -3px;
   left: 0%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.01);
   width: 100%;
   height: 5px;
   visibility: visible;
@@ -309,7 +309,7 @@
 /* Inverted */
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.01);
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 /*-------------------
@@ -365,7 +365,7 @@
        Colors
 --------------------*/
 .ui.black.segment {
-  border-top: 0.2em solid #555555;
+  border-top: 0.2em solid #333333;
   border-radius: 0em;
 }
 .ui.blue.segment {
@@ -405,7 +405,7 @@
 --------------------*/
 .ui.inverted.segment,
 .ui.inverted.black.segment {
-  background-color: #555555 !important;
+  background-color: #333333 !important;
   color: #ffffff !important;
 }
 .ui.inverted.blue.segment {
@@ -485,7 +485,7 @@
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #555555;
+  background-color: #333333;
   color: #ffffff;
 }
 /*-------------------
@@ -500,14 +500,14 @@
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.secondary.inverted.segment {
-  background-color: #555555;
+  background-color: #333333;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #fafafa;
 }
 .ui.tertiary.inverted.segment {
-  background-color: #555555;
+  background-color: #333333;
   background-image: #f0f0f0;
   color: #f0f0f0;
 }
