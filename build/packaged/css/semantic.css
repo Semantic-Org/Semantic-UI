@@ -9689,6 +9689,12 @@ a.ui.teal.label:hover:before {
   -webkit-box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.15) inset;
           box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.15) inset;
 }
+.ui.reversed.step:after,
+.ui.reversed.steps .step:after {
+  right: none;
+  left: -1em;
+}
+
 .ui.step,
 .ui.steps .step,
 .ui.steps .step:after {
