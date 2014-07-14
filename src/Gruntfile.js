@@ -60,6 +60,10 @@ module.exports = function(grunt) {
     ],
 
     setWatchFiles = function(action, filePath) {
+      // convert backslashes to slashes for Windows compatibility
+      if(process.platform === 'win32') {
+        filePath = filePath.replace(/\\/g, '/');
+      }
       var
         outputPath = filePath.replace(paths.source.definitions, paths.output.uncompressed + 'definitions/')
       ;
