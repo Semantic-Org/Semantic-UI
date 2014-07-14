@@ -20,7 +20,19 @@ module.exports = function(grunt) {
       'copy:file',
 
       // auto prefix outputted file
-      'autoprefixer:prefixFile'
+      'autoprefixer:prefixFile',
+
+      // creates minified js of outputted file if it is js
+      'newer:uglify:minifyOutput',
+
+      // creates minified css of outputted file if it is css
+      'newer:cssmin:minifyOutput',
+
+      // create concatenated css release if outputted file is css
+      'newer:concat:createCSSPackage',
+
+      // create concatenated js release if outputted file is js
+      'newer:concat:createJSPackage'
     ],
 
     resetTasks = [
@@ -296,6 +308,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-clear');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-newer');
 
   // css
   grunt.loadNpmTasks('grunt-contrib-cssmin');
