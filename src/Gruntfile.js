@@ -115,8 +115,8 @@ module.exports = function(grunt) {
       src: {
         files: [
           paths.source.definitions + '**/*.less',
-          paths.source.definitions + '**/*.variables',
-          paths.source.definitions + '**/*.overrides',
+          paths.source.themes + '**/*.variables',
+          paths.source.themes + '**/*.overrides',
           paths.source.definitions + '**/*.js'
         ],
         tasks : watchTasks
