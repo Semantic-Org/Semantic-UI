@@ -20,7 +20,19 @@ module.exports = function(grunt) {
       'copy:file',
 
       // auto prefix outputted file
-      'autoprefixer:prefixFile'
+      'autoprefixer:prefixFile',
+
+      // creates minified js of outputted file if it is js
+      'newer:uglify:minifyOutput',
+
+      // creates minified css of outputted file if it is css
+      'newer:cssmin:minifyOutput',
+
+      // create concatenated css release if outputted file is css
+      'newer:concat:createCSSPackage',
+
+      // create concatenated js release if outputted file is js
+      'newer:concat:createJSPackage'
     ],
 
     resetTasks = [
@@ -60,6 +72,17 @@ module.exports = function(grunt) {
     ],
 
     setWatchFiles = function(action, filePath) {
+      // convert backslashes to slashes for Windows compatibility
+      if(process.platform === 'win32') {
+        filePath = filePath.replace(/\\/g, '/');
+      }
+      var
+        re = new RegExp(paths.source.themes + '.*\/([^\/]*\/[^\/]*)\.(?:overrides|variables)$')
+      ;
+      // find relevant .less file for each modified .overrides or .variables file
+      if(filePath.search(re) !== -1) {
+        filePath = filePath.replace(re, paths.source.definitions + '$1.less');
+      }
       var
         outputPath = filePath.replace(paths.source.definitions, paths.output.uncompressed + 'definitions/')
       ;
@@ -111,8 +134,8 @@ module.exports = function(grunt) {
       src: {
         files: [
           paths.source.definitions + '**/*.less',
-          paths.source.definitions + '**/*.variables',
-          paths.source.definitions + '**/*.overrides',
+          paths.source.themes + '**/*.variables',
+          paths.source.themes + '**/*.overrides',
           paths.source.definitions + '**/*.js'
         ],
         tasks : watchTasks
@@ -285,6 +308,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-clear');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-newer');
 
   // css
   grunt.loadNpmTasks('grunt-contrib-cssmin');
