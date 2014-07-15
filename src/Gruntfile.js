@@ -65,6 +65,13 @@ module.exports = function(grunt) {
         filePath = filePath.replace(/\\/g, '/');
       }
       var
+        re = new RegExp(paths.source.themes + '.*\/([^\/]*\/[^\/]*)\.(?:overrides|variables)$')
+      ;
+      // find relevant .less file for each modified .overrides or .variables file
+      if(filePath.search(re) !== -1) {
+        filePath = filePath.replace(re, paths.source.definitions + '$1.less');
+      }
+      var
         outputPath = filePath.replace(paths.source.definitions, paths.output.uncompressed + 'definitions/')
       ;
       // build less and prefix
