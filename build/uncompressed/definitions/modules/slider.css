@@ -1,0 +1,184 @@
+/*
+ * # Semantic - Slider
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*************************************************
+                    Slider
+*************************************************/
+.ui.slider {
+  display: inline-block;
+  position: relative;
+  width: 6em;
+  height: 2px;
+}
+/* Thumb */
+.ui.slider .thumb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  width: 0.5em;
+  height: 0.5em;
+}
+/*******************************
+             Types
+*******************************/
+/*-------------------
+        Standard
+--------------------*/
+.ui.slider {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.ui.slider .thumb {
+  border-radius: 50rem;
+  background-color: #D95C5C;
+  border: 0.2em solid #FFFFFF;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* bubble */
+.ui.bubble.slider .active.thumb:before {
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.2em;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+}
+.ui.bubble.slider .active.thumb:after {
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+}
+/*-------------------
+        iOS
+--------------------*/
+.ui.ios.slider {
+  height: 0.25em;
+  border-radius: 0.125em;
+  -webkit-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.7);
+          box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.7);
+  background-color: #FFFFFF;
+  -webkit-background-size: 100%, 50% 100%;
+          background-size: 100%, 50% 100%;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.21)), to(rgba(0, 0, 0, 0.02))), -webkit-gradient(linear, left top, left bottom, from(#5eaaff), to(#5eaaff));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.21) 0%, rgba(0, 0, 0, 0.02) 100%), -webkit-linear-gradient(top, #5eaaff 0%, #5eaaff 100%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.21) 0%, rgba(0, 0, 0, 0.02) 100%), linear-gradient(to bottom, #5eaaff 0%, #5eaaff 100%);
+}
+.ui.ios.slider .thumb {
+  width: 1em;
+  height: 1em;
+  border-width: 0em;
+  border-radius: 50%;
+  -webkit-box-shadow: 0em 0em 0em 0.04em rgba(0, 0, 0, 0.2) inset, 0.05em 0.05em 0.02em 0em rgba(0, 0, 0, 0.5);
+          box-shadow: 0em 0em 0em 0.04em rgba(0, 0, 0, 0.2) inset, 0.05em 0.05em 0.02em 0em rgba(0, 0, 0, 0.5);
+  background: #9E9E9E;
+}
+/* bubble */
+.ui.ios.bubble.slider .active.thumb:before {
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.3em;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  background: #ededed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#f6f6f6));
+  background: -webkit-linear-gradient(top, #ededed 0%, #f6f6f6 100%);
+  background: linear-gradient(to bottom, #ededed 0%, #f6f6f6 100%);
+}
+.ui.ios.bubble.slider .active.thumb:after {
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  background: #f4f4f4;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#f6f6f6));
+  background: -webkit-linear-gradient(top, #f4f4f4 0%, #f6f6f6 100%);
+  background: linear-gradient(to bottom, #f4f4f4 0%, #f6f6f6 100%);
+}
+/*-------------------
+        Vertical
+--------------------*/
+.ui.vertical.slider {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+/*******************************
+             States
+*******************************/
+/*-------------------
+        Active
+--------------------*/
+.ui.bubble.slider .active.thumb:before {
+  content: attr(data-content);
+  display: block;
+  position: absolute;
+  left: -0.65em;
+  top: -2.1em;
+  font-size: 0.7em;
+  width: 2em;
+  height: 1.3em;
+  text-align: center;
+  line-height: 1.5em;
+}
+.ui.bubble.slider .active.thumb:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0.25em;
+  top: -0.9em;
+  width: 0.3em;
+  height: 0.3em;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+/* iOS */
+.ui.ios.bubble.slider .active.thumb:before {
+  left: -0.25em;
+  top: -1.8em;
+  font-family: "Helvetica Neue", "Helvetica", Arial;
+}
+.ui.ios.bubble.slider .active.thumb:after {
+  left: 0.6em;
+  /* slightly tweaked to make looks comfortable*/
+  top: -0.6em;
+}
+/* Vertical */
+.ui.vertical.bubble.slider .active.thumb:before {
+  top: -2.45em;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+/* Hover */
+.ui.slider .active.thumb,
+.ui.slider .thumb:hover {
+  background-color: #89B84C;
+}
+/* Active */
+.ui.ios.slider .active.thumb,
+.ui.ios.slider .thumb:hover {
+  background: #9E9E9E;
+}
+/*******************************
+          Variations
+*******************************/
+/*-------------------
+        Sizes
+--------------------*/
+.ui.slider {
+  font-size: 2rem;
+}
+.ui.bubble.slider .thumb.active:before,
+.ui.bubble.slider .thumb.active:after {
+  font-size: 0.7em;
+}

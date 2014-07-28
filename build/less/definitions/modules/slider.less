@@ -1,0 +1,189 @@
+/*
+ * # Semantic - Slider
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*************************************************
+                    Slider
+*************************************************/
+
+.ui.slider {
+	display: inline-block;
+	position: relative;
+	width: 6em;
+	height: 2px;
+}
+
+/* Thumb */
+.ui.slider .thumb {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 0.5em;
+	height: 0.5em;
+}
+
+/*******************************
+             Types
+*******************************/
+/*-------------------
+        Standard
+--------------------*/
+.ui.slider {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.ui.slider .thumb {
+	border-radius: 50rem;
+	background-color: #D95C5C;
+	border: 0.2em solid #FFFFFF;
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* bubble */
+
+.ui.bubble.slider .active.thumb:before {
+	color: rgba(0, 0, 0, 0.7);
+	border-radius: 0.2em;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+	background-color: #FFFFFF;
+}
+
+.ui.bubble.slider .active.thumb:after {
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	background-color: #FFFFFF;
+}
+
+/*-------------------
+        iOS
+--------------------*/
+.ui.ios.slider {
+	height: 0.25em;
+	border-radius: 0.125em;
+	box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.7);
+	background-color: #FFFFFF;
+	background-size: 100%, 50% 100%;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.21) 0%, rgba(0, 0, 0, 0.02) 100%), linear-gradient(to bottom, rgba(94, 170, 255, 1) 0%, rgba(94, 170, 255, 1) 100%);
+}
+
+.ui.ios.slider .thumb {
+	width: 1em;
+	height: 1em;
+	border-width: 0em;
+	border-radius: 50%;
+  box-shadow: 0em 0em 0em 0.04em rgba(0, 0, 0, 0.2) inset, 0.05em 0.05em 0.02em 0em rgba(0, 0, 0, 0.5);
+	background: #9E9E9E;
+	background: -ms-linear-gradient(top, #9E9E9E 0%,#B8B8B8 26%,#D9D9D9 59%,#F5F5F5 77%,#C3C3C3 100%);
+}
+
+/* bubble */
+
+.ui.ios.bubble.slider .active.thumb:before {
+	color: rgba(0, 0, 0, 0.7);
+	border-radius: 0.3em;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+	background: rgba(237,237,237, 1);
+	background: linear-gradient(to bottom, rgba(237, 237, 237, 1) 0%, rgba(246, 246, 246, 1) 100%);
+}
+
+.ui.ios.bubble.slider .active.thumb:after {
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	background-color: transparent;
+	background: rgba(244, 244, 244, 1);
+	background: linear-gradient(to bottom, rgba(244, 244, 244, 1) 0%, rgba(246, 246, 246, 1) 100%);
+}
+
+/*-------------------
+        Vertical
+--------------------*/
+.ui.vertical.slider {
+	transform: rotate(-90deg);
+}
+
+/*******************************
+             States
+*******************************/
+/*-------------------
+        Active
+--------------------*/
+.ui.bubble.slider .active.thumb:before {
+	content: attr(data-content);
+	display: block;
+	position: absolute;
+	left: -0.65em;
+	top: -2.1em;
+	font-size: 0.7em;
+	width: 2em;
+	height: 1.3em;
+	text-align: center;
+	line-height: 1.5em;
+}
+
+.ui.bubble.slider .active.thumb:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0.25em;
+	top: -0.9em;
+	width: 0.3em;
+	height: 0.3em;
+	transform: rotate(45deg);
+}
+
+/* iOS */
+
+.ui.ios.bubble.slider .active.thumb:before {
+	left: -0.25em;
+	top: -1.8em;
+	font-family: "Helvetica Neue", "Helvetica", Arial;
+}
+
+.ui.ios.bubble.slider .active.thumb:after {
+	left: 0.6em; /* slightly tweaked to make looks comfortable*/
+	top: -0.6em;
+}
+
+/* Vertical */
+.ui.vertical.bubble.slider .active.thumb:before {
+	top: -2.45em;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+/* Hover */
+.ui.slider .active.thumb,
+.ui.slider .thumb:hover {
+	background-color: #89B84C;
+}
+
+/* Active */
+.ui.ios.slider .active.thumb,
+.ui.ios.slider .thumb:hover {
+	background: #9E9E9E;
+	background: linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%), -moz-linear-gradient(top, #9E9E9E 0%, #B8B8B8 26%, #D9D9D9 59%, #F5F5F5 77%, #C3C3C3 100%);
+}
+
+/*******************************
+          Variations
+*******************************/
+/*-------------------
+        Sizes
+--------------------*/
+.ui.slider {
+	font-size: 2rem;
+}
+
+.ui.bubble.slider .thumb.active:before,
+.ui.bubble.slider .thumb.active:after {
+	font-size: 0.7em;
+}
