@@ -34,6 +34,9 @@
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
 - **Table** - Tables are no longer striped by default, must specify variation 'striped'
 
+** Bug Fixes **
+- **Rating** - Vertical alignment has been improved
+
 ### Version 0.15.0 - Mar 14, 2014
 
 **Enhancements**
