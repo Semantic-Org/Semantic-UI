@@ -1,12 +1,21 @@
 ---
 layout      : 'default'
 css         : 'breadcrumb'
+
+element     : 'breadcrumb'
+elementType : 'collection'
+
 title       : 'Breadcrumb'
 description : 'A breadcrumb is a menu to show the location of the current section in relation to other sections.'
 type        : 'UI Collection'
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>
+
+
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/breadcrumb.less" />
+
 
 <div class="main container">
 
