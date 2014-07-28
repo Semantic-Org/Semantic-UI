@@ -14,8 +14,8 @@
             Theme
 *******************************/
 
-@type    : 'element';
-@element : 'breadcrum';
+@type    : 'collection';
+@element : 'breadcrumb';
 
 @import '../../semantic.config';
 
@@ -42,10 +42,13 @@
 .ui.breadcrumb .divider {
   display: inline-block;
   opacity: @dividerOpacity;
-  margin: 0em @dividerDistance 0em;
+  margin: 0em @dividerSpacing 0em;
 
   font-size: @dividerSize;
   color: @dividerColor;
+}
+.ui.breadcrumb .icon.divider {
+  font-size: @iconDividerSize;
 }
 
 .ui.breadcrumb a.section {

@@ -13,8 +13,10 @@
 
 @dividerSpacing: 0.15em;
 @dividerOpacity: 0.5;
-@dividerSize: 1em;
 @dividerColor: @lightTextColor;
+
+@dividerSize: 1em;
+@iconDividerSize: 1em;
 
 @sectionMargin: 0em;
 @sectionPadding: 0em;
