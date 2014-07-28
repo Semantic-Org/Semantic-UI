@@ -8,13 +8,11 @@
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 
 **Enhancements**
-- **Table** - Tables are no longer striped by default, must specify variation 'striped'
-- **Form** - Form now has a success state which will automatically display success messages
-- **Form** - Forms in 'success' state will now show success messages inside
-- **List** - Child lists can now be formatted to sit inside text content
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
 - **Dropdown** - New action combo will change text of adjacent button, select will select element but not change text
+- **Form** - Form now has a success state which will automatically display success messages
+- **Form** - Forms in 'success' state will now show success messages inside
 - **Form** - Inputs now use 1em font size and correctly match selection dropdown height
 - **Form** - Inverted form now properly styles loader
 - **Form** - New field type ``required`` formats labels to show filling out field is mandatory
@@ -26,11 +24,15 @@
 - **Image** - New ``bordered image`` variation
 - **Label** - Added tag label and empty circular label style
 - **Label** - Now has compact form, for fitting into tight spaces
+- **List** - Child lists can now be formatted to sit inside text content
+- **List** - List images can now specify vertical alignment
+- **List** - List spacing defaults have been adjusted to be more consistent
 - **Popup** - Popup can now allow itself not to be closed when hovered over
 - **Popup** - Popup content can now be specified on initialization.
+- **Rating** - Rating now uses an embedded icon font to maximize compatibility
+- **Sidebar** - Sidebar now has tall / very tall variations for resizing top/bottom sidebars
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
-- **List** - List spacing defaults have been adjusted to be more consistent
-- **List** - List images can now specify vertical alignment
+- **Table** - Tables are no longer striped by default, must specify variation 'striped'
 
 ### Version 0.15.0 - Mar 14, 2014
 

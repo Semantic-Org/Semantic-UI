@@ -2,13 +2,19 @@
 layout      : 'default'
 css         : 'rating'
 
+element     : 'rating'
+elementType : 'element'
+
 title       : 'Rating'
-description : 'A rating lets a user assess and view the desirability of content'
+description : 'A rating allows a user to indicate their interest'
 type        : 'UI Module'
+
+themes      : ['Default']
 ---
 
 <%- @partial('header', { tabs: 'module' }) %>
 
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/rating.less" />
 <script src="/javascript/rating.js"></script>
 
 <div class="main container">
@@ -26,12 +32,8 @@ type        : 'UI Module'
 
     <div class="example">
       <h4 class="ui header">Rating</h4>
-      <p>A basic rating</p>
+      <p>A basic rating </p>
       <div class="ui rating">
-        <i class="icon"></i>
-        <i class="icon"></i>
-        <i class="icon"></i>
-        <i class="icon"></i>
         <i class="icon"></i>
       </div>
     </div>
@@ -39,7 +41,6 @@ type        : 'UI Module'
     <div class="example">
       <h4 class="ui header">Star</h4>
       <p>A rating can use a set of star icons</p>
-      <div class="ui info message">Star and heart rating types require the inclusion of semantic <a href="/elements/icon.html">ui icons</a></div>
 
       <div>
         Average rating:
@@ -272,8 +273,8 @@ type        : 'UI Module'
         </tr>
         <tr>
           <td>clearable</td>
-          <td>false</td>
-          <td>If enabled clicking on the current star rating will clear the rating</td>
+          <td>auto</td>
+          <td>By default a rating will be only clearable if there is 1 icon. Setting to true/false will allow or disallow a user to clear their rating</td>
         </tr>
         <tr>
           <td>interactive</td>
