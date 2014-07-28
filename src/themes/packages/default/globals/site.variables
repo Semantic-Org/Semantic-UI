@@ -96,7 +96,7 @@
        Easing
 --------------------*/
 
-@defaultEasing: 'ease';
+@defaultEasing: ease;
 
 
 /*******************************

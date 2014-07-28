@@ -2,11 +2,17 @@
 layout      : 'default'
 css         : 'side'
 
+element     : 'sidebar'
+elementType : 'element'
+
 title       : 'Sidebar'
 description : 'A sidebar is a menu hidden beside page content'
 type        : 'UI Module'
+
+themes      : ['Default']
 ---
 
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/sidebar.less" />
 <script src="/javascript/sidebar.js"></script>
 
 <%- @partial('header', { tabs: 'module' }) %>

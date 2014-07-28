@@ -1,0 +1,55 @@
+/*-------------------
+       Sidebar
+--------------------*/
+
+@duration: 0.3s;
+@easing: @defaultEasing;
+@bodyTransition:
+  margin @duration @easing,
+  transform @duration @easing
+;
+
+@overflowY: auto;
+@zIndex: 999;
+
+@sidebarTransition:
+  margin-left @duration @easing,
+  margin-top @duration @easing
+;
+
+/* Coupling */
+@dimmableSidebarPosition: static;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Sizes */
+@veryThinWidth: 60px;
+@thinWidth: 200px;
+@width: 275px;
+@wideWidth: 350px;
+@veryWideWidth: 475px;
+
+@veryThinHeight: 20px;
+@thinHeight: 30px;
+@height: 37px;
+@tallHeight: 100px;
+@veryTallHeight: 150px;
+
+/* Styled */
+@styledVerticalPadding: 1em;
+@styledHorizontalPadding: 1.5em;
+@styledBackground: @white;
+@styledBoxShadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+@styledThinPadding: 1em;
+@styledVeryThinPadding: 0.5em;
+
+/* Floating */
+@floatingShadowColor: rgba(0, 0, 0, 0.2);
+@floatingShadowDistance: 2px;
+@floatingShadowBlur: 2px;
+@floatingLeftBoxShadow: @floatingShadowDistance 0px @floatingShadowBlur @floatingShadowColor;
+@floatingRightBoxShadow: -(@floatingShadowDistance) 0px @floatingShadowBlur @floatingShadowColor;
+@floatingTopBoxShadow: 0px @floatingShadowDistance @floatingShadowBlur @floatingShadowColor;
+@floatingBottomBoxShadow: 0px -(@floatingShadowDistance) @floatingShadowBlur @floatingShadowColor;
