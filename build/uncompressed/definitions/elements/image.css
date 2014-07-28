@@ -229,7 +229,7 @@ img.ui.image {
 .ui.bordered.images .image,
 .ui.bordered.images img,
 .ui.bordered.image img,
-.ui.bordered.image {
+img.ui.bordered.image {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------

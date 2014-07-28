@@ -290,7 +290,6 @@
           box-shadow: '';
   line-height: 1.2;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 0.3125rem;
 }

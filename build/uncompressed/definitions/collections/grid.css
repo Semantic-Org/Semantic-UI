@@ -174,10 +174,9 @@
   margin: 0%;
   padding: 0%;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-body > .ui.grid {
+body > .ui.grid:not(.page) {
   margin-left: 0% !important;
   margin-right: 0% !important;
 }
@@ -202,7 +201,6 @@ body > .ui.grid {
   padding-left: 1.5%;
   padding-right: 1.5%;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
   vertical-align: top;
 }
@@ -520,6 +518,11 @@ body > .ui.grid {
 .ui.centered.grid > .row,
 .ui.grid .centered.row {
   text-align: center;
+}
+.ui.centered.grid > .column:not(.aligned),
+.ui.centered.grid > .row > .column:not(.aligned),
+.ui.grid .centered.row > .column:not(.aligned) {
+  text-align: left;
 }
 /*----------------------
         Relaxed

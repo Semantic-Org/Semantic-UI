@@ -1,0 +1,212 @@
+---
+layout      : 'default'
+css         : 'slider'
+
+title       : 'Slider'
+description : 'A slider is a hidden list of selections that a user can choose to have appear'
+type        : 'UI Module'
+---
+
+<script src="/javascript/slider.js"></script>
+
+<%- @partial('header', { tabs: 'module' }) %>
+
+<div class="main container">
+
+  <div class="ui active tab" data-tab="definition">
+
+    <div class="peek">
+      <div class="ui vertical pointing secondary menu">
+        <a class="active item">Types</a>
+        <a class="item">Variations</a>
+        <a class="item">States</a>
+      </div>
+    </div>
+
+
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="slider example">
+      <h4 class="ui header">Slider</h4>
+      <p>A slider allows a user to select incrementally from a series of values</p>
+    </div>
+
+    <div class="ui slider" id="slyder">
+      <div class="thumb"></div>
+    </div>
+    <div class="ui ios bubble slider" id="iosSlyder">
+      <div class="thumb"></div>
+    </div>
+    <div class="ui slider" id="popupSlyder">
+      <div class="thumb"></div>
+    </div>
+    <div class="ui vertical bubble slider" id="verticalSlyder">
+      <div class="thumb"></div>
+    </div>
+    <div class="ui ios vertical slider" id="iosVerticalSlyder">
+      <div class="thumb"></div>
+    </div>
+    <div class="ui input">
+      <input type="text" class="abc">
+    </div>
+    <div>
+      <select name="" id="" class="abc">
+        <option value="">Sunday</option>
+        <option value="">Monday</option>
+        <option value="">Tuesday</option>
+        <option value="">Wednesday</option>
+        <option value="">Thursday</option>
+        <option value="">Friday</option>
+        <option value="">Saturday</option>
+        <option value="">Week</option>
+        <option value="">Month</option>
+        <option value="">Year</option>
+      </select>
+    </div>
+    <div class="ui selection dropdown abc">
+    <input type="hidden" name="stuff">
+    <div class="default text">Stuff</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item" data-value="9">Jacket</div>
+      <div class="item" data-value="8">Ink</div>
+      <div class="item" data-value="7">Hotel</div>
+      <div class="item" data-value="6">Glue</div>
+      <div class="item" data-value="5">Flower</div>
+      <div class="item" data-value="4">Elephant</div>
+      <div class="item" data-value="3">Desk</div>
+      <div class="item" data-value="2">Computer</div>
+      <div class="item" data-value="1">Book</div>
+      <div class="item" data-value="0">Apple</div>
+    </div>
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <h2 class="ui dividing header">States</h2>
+
+
+
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+    <h2 class="ui dividing header">Initializing</h2>
+
+    <h3 class="ui header">Initializing a slider</h3>
+    <div class="code" data-label="HTML" data-type="html">
+      <div class="ui slider">
+        <div class="text">Select</div>
+        <i class="slider icon"></i>
+        <div class="menu">
+          <div class="item" data-value="option1">Option 1</div>
+          <div class="item" data-value="option2">Option 2</div>
+        </div>
+      </div>
+    </div>
+    <div class="code" data-label="Javascript" data-type="javascript">
+      $('.ui.slider')
+        .slider()
+      ;
+    </div>
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    <p>All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .slider('behavior name', argumentOne, argumentTwo)
+    ;
+    </div>
+
+    <table class="ui definition sortable celled table segment">
+      <thead>
+        <tr>
+        <th>Behavior</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Behavior Name</td>
+          <td>Explanation of behavior</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
+
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h3 class="ui header">
+      Slider Settings
+      <div class="sub header">slider settings modify the slider's behavior</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>slider</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>error</td>
+          <td colspan="2">
+            <div class="code">
+      error   : {
+        action    : 'You called a slider action that was not defined',
+        method    : 'The method you called is not defined.',
+        transition : 'The requested transition was not found'
+      }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

@@ -188,7 +188,6 @@
   font-weight: normal;
   border-radius: 0.325em;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-transition: background 0.1s linear
   ;
@@ -548,7 +547,6 @@ a.ui.label:hover:before {
 .ui.fluid.labels > .label {
   width: 100%;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
 /*-------------------

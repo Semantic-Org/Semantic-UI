@@ -210,7 +210,6 @@
       -ms-user-select: none;
           user-select: none;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, -webkit-box-shadow 0.25s ease;
           transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
@@ -921,7 +920,6 @@
   top: 0em;
   left: 0em;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
   width: 2.83em;
   height: 100%;
@@ -1051,7 +1049,6 @@
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
 .ui.buttons .or:after {
@@ -1181,7 +1178,6 @@
   display: block;
   width: auto;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
 .ui.\32.vertical.buttons > .button,

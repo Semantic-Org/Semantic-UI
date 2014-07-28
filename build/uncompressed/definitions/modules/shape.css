@@ -18,7 +18,6 @@
   -ms-perspective: 2000px;
   perspective: 2000px;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -35,7 +34,6 @@
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }

@@ -68,7 +68,6 @@
 .ui.items .item > .content > .meta,
 .ui.items .item > .content > .extra {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -80,7 +79,6 @@
   position: relative;
   background-color: rgba(0, 0, 0, 0.05);
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 0.2em;

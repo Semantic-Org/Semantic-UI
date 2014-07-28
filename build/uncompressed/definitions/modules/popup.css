@@ -47,7 +47,6 @@
       transform: rotate(45deg);
   z-index: 2;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
