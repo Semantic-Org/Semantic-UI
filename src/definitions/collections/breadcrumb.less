@@ -9,14 +9,24 @@
  *
  */
 
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'breadcrum';
+
+@import '../../semantic.config';
+
 /*******************************
            Breadcrumb
 *******************************/
 
 .ui.breadcrumb {
-  margin: 1em 0em;
-  display: inline-block;
-  vertical-align: middle;
+  margin: @verticalMargin 0em;
+  display: @display;
+  vertical-align: @verticalAlign;
 }
 .ui.breadcrumb:first-child {
   margin-top: 0em;
@@ -31,11 +41,11 @@
 
 .ui.breadcrumb .divider {
   display: inline-block;
-  opacity: 0.5;
-  margin: 0em 0.15em 0em;
+  opacity: @dividerOpacity;
+  margin: 0em @dividerDistance 0em;
 
-  font-size: 1em;
-  color: rgba(0, 0, 0, 0.3);
+  font-size: @dividerSize;
+  color: @dividerColor;
 }
 
 .ui.breadcrumb a.section {
@@ -43,14 +53,14 @@
 }
 .ui.breadcrumb .section {
   display: inline-block;
-  margin: 0em;
-  padding: 0em;
+  margin: @sectionMargin;
+  padding: @sectionPadding;
 }
 
 /* Loose Coupling */
 .ui.breadcrumb.segment {
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: @segmentPadding;
 }
 
 /*******************************
@@ -58,7 +68,7 @@
 *******************************/
 
 .ui.breadcrumb .active.section {
-  font-weight: bold;
+  font-weight: @activeFontWeight;
 }
 
 
@@ -66,12 +76,27 @@
            Variations
 *******************************/
 
+.ui.mini.breadcrumb {
+  font-size: @mini;
+}
+.ui.tiny.breadcrumb {
+  font-size: @tiny;
+}
 .ui.small.breadcrumb {
-  font-size: 0.75em;
+  font-size: @small;
+}
+.ui.breadcrumb {
+  font-size: @medium;
 }
 .ui.large.breadcrumb {
-  font-size: 1.1em;
+  font-size: @large;
+}
+.ui.big.breadcrumb {
+  font-size: @big;
 }
 .ui.huge.breadcrumb {
-  font-size: 1.3em;
+  font-size: @huge;
+}
+.ui.massive.breadcrumb {
+  font-size: @massive;
 }
