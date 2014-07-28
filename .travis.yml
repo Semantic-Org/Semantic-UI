@@ -7,3 +7,6 @@ before_script:
   - mv src/semantic.config.example src/semantic.config
 after_script:
   - grunt coveralls
+notifications:
+  on_success: change
+  on_failure: change

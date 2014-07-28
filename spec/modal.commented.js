@@ -731,13 +731,13 @@ $.fn.modal.settings = {
   transition  : 'scale',
 
   // Callback when modal shows
-  onShow      : function(){},
+  onShow      : function() {},
   // Callback when modal hides
-  onHide      : function(){},
+  onHide      : function() {},
   // Callback when modal approve action is called
-  onApprove   : function(){ return true },
+  onApprove   : function() { return true; },
   // Callback when modal deny action is called
-  onDeny      : function(){ return true },
+  onDeny      : function() { return true; },
 
   // List of selectors used to match behavior to DOM elements
   selector    : {
