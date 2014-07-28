@@ -34,7 +34,7 @@
   box-sizing: border-box;
 }
 
-body > .ui.grid {
+body > .ui.grid:not(.page) {
   margin-left: 0% !important;
   margin-right: 0% !important;
 }
@@ -406,6 +406,11 @@ body > .ui.grid {
 .ui.centered.grid > .row,
 .ui.grid .centered.row {
   text-align: center;
+}
+.ui.centered.grid > .column:not(.aligned),
+.ui.centered.grid > .row > .column:not(.aligned),
+.ui.grid .centered.row > .column:not(.aligned) {
+  text-align: left;
 }
 
 

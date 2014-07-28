@@ -62,6 +62,7 @@
 @accordion   : 'default';
 @chatroom    : 'default';
 @checkbox    : 'default';
+@dimmer      : 'default';
 @dropdown    : 'default';
 @modal       : 'default';
 @nag         : 'default';

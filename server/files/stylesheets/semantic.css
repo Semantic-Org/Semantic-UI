@@ -62,9 +62,6 @@ h5 {
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
 }
 
-p {
-  margin: 1em 0em;
-}
 p:first-child {
   margin-top: 0em;
 }

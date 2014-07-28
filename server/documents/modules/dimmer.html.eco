@@ -2,12 +2,18 @@
 layout      : 'default'
 css         : ''
 
+element     : 'dimmer'
+elementType : 'module'
+
 title       : 'Dimmer'
 description : "Dimmers hide distractions to focus user's attention on particular content"
 type        : 'UI Module'
----
 
+themes      : ['Default']
+---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/dimmer.less" />
 <script src="/javascript/dimmer.js"></script>
+
 <div class="ui page dimmer">
   <div class="content">
     <div class="center">

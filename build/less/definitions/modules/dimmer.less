@@ -10,63 +10,65 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'dimmer';
+
+@import '../../semantic.config';
+
+
+/*******************************
             Dimmer
 *******************************/
 
 .ui.dimmable {
-  position: relative;
+  position: @dimmablePosition;
 }
 
 .ui.dimmer {
   display: none;
-  position: absolute;
+  position: @dimmerPosition;
   top: 0em !important;
   left: 0em !important;
 
   width: 0%;
   height: 0%;
 
-  text-align: center;
-  vertical-align: middle;
+  text-align: @textAlign;
+  vertical-align: @verticalAlign;
 
-  background-color: rgba(0, 0, 0, 0.85);
-  opacity: 0;
-  line-height: 1;
+  background: @background;
+  opacity: @startOpacity;
+  line-height: @lineHeight;
 
   animation-fill-mode: both;
-  animation-duration: 0.5s;
-
-  transition:
-    background-color 0.5s linear
-  ;
+  animation-duration: @duration;
+  transition: @transition;
 
   user-select: none;
-  box-sizing: border-box;
 
-  z-index: 1000;
+  z-index: @zIndex;
 }
 
 /* Dimmer Content */
 .ui.dimmer > .content {
   width: 100%;
   height: 100%;
-  display: table;
+  display: @contentDisplay;
   user-select: text;
 }
 .ui.dimmer > .content > div {
-  display: table-cell;
-  vertical-align: middle;
-  color: #FFFFFF;
+  display: @contentChildDisplay;
+  vertical-align: @verticalAlign;
+  color: @textColor;
 }
 
 
 /* Loose Coupling */
 .ui.segment > .ui.dimmer {
-  border-radius: 5px;
-}
-.ui.horizontal.segment > .ui.dimmer,
-.ui.vertical.segment > .ui.dimmer {
-  border-radius: 5px;
+  border-radius: inherit !important;
 }
 
 /*******************************
@@ -74,7 +76,7 @@
 *******************************/
 
 .ui.dimmed.dimmable:not(body) {
-  overflow: hidden;
+  overflow: @overflow;
 }
 
 .ui.dimmed.dimmable > .ui.animating.dimmer,
@@ -83,12 +85,12 @@
   display: block;
   width: 100%;
   height: 100%;
-  opacity: 1;
+  opacity: @visibleOpacity;
 }
 
 .ui.disabled.dimmer {
-  width: 0em !important;
-  height: 0em !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 /*******************************
@@ -100,10 +102,9 @@
 ---------------*/
 
 .ui.page.dimmer {
-  position: fixed;
-
-  transform-style: preserve-3d;
-  perspective: 2000px;
+  position: @pageDimmerPosition;
+  transform-style: @transformStyle;
+  perspective: @perspective;
   transform-origin: center center;
 }
 
@@ -112,11 +113,9 @@
   position: absolute;
 }
 
-/* Blurred Background
 body.ui.dimmed.dimmable > :not(.dimmer){
-  filter: ~"blur(15px) grayscale(0.7)";
+  filter: @elementFilter;
 }
-*/
 
 /*--------------
     Aligned
@@ -134,10 +133,10 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 ---------------*/
 
 .ui.inverted.dimmer {
-  background-color: rgba(255, 255, 255, 0.85);
+  background: @invertedBackground;
 }
 .ui.inverted.dimmer > .content > * {
-  color: rgba(0, 0, 0, 0.8);
+  color: @textColor;
 }
 
 /*--------------
@@ -150,20 +149,20 @@ body.ui.dimmed.dimmable > :not(.dimmer){
   overflow: hidden;
   opacity: 1;
   z-index: -100;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: @simpleStartBackground;
 }
 .ui.dimmed.dimmable > .ui.simple.dimmer {
   overflow: visible;
   opacity: 1;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  z-index: 1;
+  background: @simpleEndBackground;
+  z-index: @simpleZIndex;
 }
 
 .ui.simple.inverted.dimmer {
-  background-color: rgba(255, 255, 255, 0);
+  background: @simpleInvertedStartBackground;
 }
 .ui.dimmed.dimmable > .ui.simple.inverted.dimmer {
-  background-color: rgba(255, 255, 255, 0.85)
+  background: @simpleInvertedEndBackground;
 }

@@ -19,6 +19,7 @@
   border-radius: 0.3125em;
   background-color: #FFFFFF;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.accordion .title,
@@ -29,6 +30,9 @@
   color: rgba(0, 0, 0, 0.8);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  -ms-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
 }
 .ui.accordion .title:first-child,
@@ -52,10 +56,15 @@
   float: none;
   margin: 0em 0.5em 0em 0em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease, opacity 0.2s ease;
+  -o-transition: -o-transform 0.2s ease, opacity 0.2s ease;
+  -ms-transition: -ms-transform 0.2s ease, opacity 0.2s ease;
   transition: transform 0.2s ease,
     opacity 0.2s ease
   ;
   -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
@@ -69,6 +78,7 @@
 .ui.basic.accordion.menu {
   background-color: #FFFFFF;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.basic.accordion.menu .title,
@@ -84,6 +94,7 @@
 .ui.basic.accordion {
   background-color: transparent;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.basic.accordion .title,
@@ -101,8 +112,7 @@
   background-color: transparent;
 }
 .ui.basic.accordion .accordion {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 1em 0.5em;
 }
 /*******************************
@@ -131,6 +141,8 @@
 .ui.accordion .active.title .dropdown.icon,
 .ui.accordion .accordion .active.title .dropdown.icon {
   -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }

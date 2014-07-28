@@ -126,6 +126,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
             Standard
 *******************************/
@@ -146,9 +149,6 @@
 /* Colors */
 /* Ordinality */
 /*------------------
-     Load Theme
--------------------*/
-/*------------------
      Load Site
 -------------------*/
 /*******************************
@@ -166,15 +166,12 @@
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   margin: 1em 0em;
   padding: 1em 1em;
   border-radius: 0.25em;
   border: none;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .ui.segment:first-child {
   margin-top: 0em;
@@ -196,8 +193,7 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
@@ -209,8 +205,7 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.horizontal.segment:first-child {
   padding-left: 0em;
@@ -230,8 +225,7 @@
 .ui.grid .ui.segment.row,
 .ui.grid .ui.segment.column {
   border-radius: 0em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: none;
 }
 /* No padding on edge content */
@@ -249,8 +243,7 @@
 --------------------*/
 .ui.piled.segment {
   margin: 2em 0em;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.piled.segment:first-child {
   margin-top: 0em;
@@ -268,20 +261,15 @@
   left: -1px;
   position: absolute;
   width: 100%;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.piled.segment:after {
-  -webkit-transform: rotate(1.2deg);
-      -ms-transform: rotate(1.2deg);
-          transform: rotate(1.2deg);
+  transform: rotate(1.2deg);
   top: 0;
   z-index: -1;
 }
 .ui.piled.segment:before {
-  -webkit-transform: rotate(-1.2deg);
-      -ms-transform: rotate(-1.2deg);
-          transform: rotate(-1.2deg);
+  transform: rotate(-1.2deg);
   top: 0;
   z-index: -2;
 }
@@ -326,8 +314,7 @@
        Raised
 --------------------*/
 .ui.raised.segment {
-  -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
 }
 /*******************************
             States
@@ -345,8 +332,7 @@
 .ui.basic.segment {
   position: relative;
   background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-radius: 0px;
 }
 .ui.basic.segment:first-child {
@@ -454,10 +440,7 @@
 }
 .ui.justified.segment {
   text-align: justify;
-  -webkit-hyphens: auto;
-     -moz-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
 }
 /*-------------------
        Floated
@@ -475,6 +458,7 @@
 .ui.inverted.segment {
   border: none;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.inverted.segment .segment {
@@ -501,8 +485,6 @@
 }
 .ui.secondary.inverted.segment {
   background-color: #333333;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #fafafa;
 }
@@ -519,8 +501,7 @@
   bottom: -1px;
   margin: 0em;
   border-radius: 0px;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.top.attached.segment {
   top: 0px;

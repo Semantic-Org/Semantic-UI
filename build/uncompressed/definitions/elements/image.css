@@ -229,7 +229,7 @@ img.ui.image {
 .ui.bordered.images .image,
 .ui.bordered.images img,
 .ui.bordered.image img,
-.ui.bordered.image {
+img.ui.bordered.image {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------
@@ -239,6 +239,8 @@ img.ui.image {
 .ui.circular.images img,
 .ui.circular.image img,
 .ui.circular.image {
+  -webkit-border-radius: 500rem;
+  -moz-border-radius: 500rem;
   border-radius: 500rem;
 }
 /*--------------
@@ -262,6 +264,8 @@ img.ui.image {
   display: inline-block;
   width: 2.5em;
   height: 2.5em;
+  -webkit-border-radius: 500rem;
+  -moz-border-radius: 500rem;
   border-radius: 500rem;
 }
 /*-------------------

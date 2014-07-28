@@ -187,12 +187,8 @@
   text-transform: uppercase;
   font-weight: normal;
   border-radius: 0.325em;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition: background 0.1s linear
-  ;
-          transition: background 0.1s linear
+  box-sizing: border-box;
+  transition: background 0.1s linear
   ;
 }
 .ui.label:first-child {
@@ -210,8 +206,7 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.8;
-  -webkit-transition: 0.2s opacity ease;
-          transition: 0.2s opacity ease;
+  transition: 0.2s opacity ease;
 }
 .ui.label a:hover {
   opacity: 1;
@@ -237,9 +232,7 @@ a.ui.label {
   margin-right: 0em;
   margin-left: 0.5em;
   opacity: 0.8;
-  -webkit-transition: background 0.1s linear
-  ;
-          transition: background 0.1s linear
+  transition: background 0.1s linear
   ;
 }
 .ui.label .delete.icon:hover {
@@ -274,8 +267,7 @@ a.ui.label {
   padding-bottom: 0.8em;
   vertical-align: baseline;
   text-transform: none;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.image.label img {
   display: inline-block;
@@ -347,12 +339,8 @@ a.ui.label:hover:before {
   background-image: none;
   width: 1.75em;
   height: 1.75em;
-  -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
-      -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
-          transform: translateY(-50%) translateX(50%) rotate(-45deg);
-  -webkit-transition: background 0.1s linear
-    ;
-          transition: background 0.1s linear
+  transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  transition: background 0.1s linear
     ;
 }
 .ui.tag.labels .label:after,
@@ -365,8 +353,7 @@ a.ui.label:hover:before {
   background-color: #ffffff;
   width: 0.5em;
   height: 0.5em;
-  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-          box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 500rem;
 }
 /*-------------------
@@ -451,8 +438,7 @@ a.ui.label:hover:before {
   height: 3em;
   padding: 0em;
   text-align: center;
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 .ui.corner.label:after {
   position: absolute;
@@ -467,8 +453,7 @@ a.ui.label:hover:before {
   border-bottom: 3em solid transparent;
   border-left: 0em solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.2s ease;
-          transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 .ui.corner.label .icon {
   position: relative;
@@ -487,9 +472,7 @@ a.ui.label:hover:before {
   font-size: 0.7em;
   font-weight: bold;
   text-align: center;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 /* Left Corner */
 .ui.left.corner.label,
@@ -509,9 +492,7 @@ a.ui.label:hover:before {
 }
 .ui.left.corner.label .text {
   left: -0.75em;
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 /* Coupling */
 .ui.rounded.image > .ui.corner.label,
@@ -547,9 +528,7 @@ a.ui.label:hover:before {
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 /*-------------------
        Inverted
@@ -878,13 +857,9 @@ a.ui.yellow.label:hover:before {
   width: 0.6em;
   height: 0.6em;
   background-image: none;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   z-index: 2;
-  -webkit-transition: background 0.1s linear
-  ;
-          transition: background 0.1s linear
+  transition: background 0.1s linear
   ;
 }
 /*--- Above ---*/

@@ -178,8 +178,7 @@
   font-size: 1rem;
   line-height: 15px;
   min-width: 16px;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   outline: none;
   vertical-align: middle;
 }
@@ -214,8 +213,7 @@
   content: '';
   background: #ffffff;
   border-radius: 0.25em;
-  -webkit-transition: background-color 0.3s ease, border 0.3s ease, -webkit-box-shadow 0.3s ease;
-          transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------
@@ -231,8 +229,7 @@
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 /*--------------
       Label
@@ -242,12 +239,8 @@
 .ui.checkbox + label {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  transition: color 0.2s ease;
+  user-select: none;
 }
 /* Outside */
 .ui.checkbox + label {
@@ -317,9 +310,7 @@
 .ui.radio.checkbox .box:before,
 .ui.radio.checkbox label:before {
   border-radius: 500rem;
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
+  transform: none;
 }
 /* Circle */
 .ui.radio.checkbox .box:after,
@@ -353,36 +344,27 @@
   background-color: rgba(0, 0, 0, 0.05);
   width: 2.25em;
   height: 0.25em;
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
+  transform: none;
   border-radius: 500rem;
-  -webkit-transition: background 0.3s ease
-  ;
-          transition: background 0.3s ease
+  transition: background 0.3s ease
   ;
 }
 /* Handle */
 .ui.slider.checkbox .box:after,
 .ui.slider.checkbox label:after {
-  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
-  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   position: absolute;
   content: '';
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   width: 1.25em;
   height: 1.25em;
   top: -0.125em;
   left: 0em;
   border-radius: 500rem;
-  -webkit-transition: left 0.3s ease 0s
-  ;
-          transition: left 0.3s ease 0s
+  transition: left 0.3s ease 0s
   ;
 }
 /* Focus */
@@ -428,25 +410,19 @@
 /* Handle */
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
-  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
-  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   position: absolute;
   content: '';
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   width: 1.25em;
   height: 1.25em;
   top: -0.125em;
   left: 0em;
   border-radius: 500rem;
-  -webkit-transition: background 0.3s ease 0s,
-    left 0.3s ease 0s
-  ;
-          transition: background 0.3s ease 0s,
+  transition: background 0.3s ease 0s,
     left 0.3s ease 0s
   ;
 }
