@@ -53,6 +53,7 @@
 
   font-weight: normal;
   font-style: normal;
+  vertical-align: top;
 }
 
 /*******************************
@@ -159,10 +160,14 @@
 }
 .ui.large.rating .icon {
   font-size: @large;
-  vertical-align: @oversizedVerticalAlign;
 }
 .ui.huge.rating .icon {
   font-size: @huge;
+}
+
+/* Realign */
+.ui.large.rating,
+.ui.huge.rating {
   vertical-align: @oversizedVerticalAlign;
 }
 

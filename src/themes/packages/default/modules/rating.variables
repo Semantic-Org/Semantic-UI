@@ -4,7 +4,9 @@
 
 @display: inline-block;
 @margin: 0em 0.5rem 0em 0em;
-@verticalAlign: middle;
+
+@verticalAlign: top;
+@oversizedVerticalAlign: middle;
 
 @iconHitbox: 1.2em;
 @inactiveColor: rgba(0, 0, 0, 0.15);
@@ -42,4 +44,3 @@
 @medium: 16px;
 @large: 24px;
 @huge: 28px;
-@oversizedVerticalAlign: middle;
