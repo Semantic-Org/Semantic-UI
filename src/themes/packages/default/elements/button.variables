@@ -1,17 +1,9 @@
+/*******************************
+            Button
+*******************************/
 
 /*-------------------
-    Globals Used
---------------------*/
-
-// (Color Variables)
-// @transitionDuration
-// @transitionEasing
-// @iconWidth
-// @borderColor
-// @textColor, @invertedTextColor
-
-/*-------------------
-       Button
+       Element
 --------------------*/
 
 @verticalMargin: 0em;

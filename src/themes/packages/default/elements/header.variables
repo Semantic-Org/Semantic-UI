@@ -1,21 +1,9 @@
-/*-------------------
-    Globals Used
---------------------*/
-
-// @white
-// @blue
-// @red
-// @green
-// @purple
-// @teal
-// @black
-
 /*******************************
-            Standard
+            Header
 *******************************/
 
 /*-------------------
-       Header
+       Element
 --------------------*/
 
 @pageFont : Source Sans Pro, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -60,10 +48,9 @@
 /* Paragraph after Header */
 @precedingParagraphMargin: 0em;
 
-
-/*******************************
-           Variations
-*******************************/
+/*-------------------
+      Variations
+--------------------*/
 
 /* Icon Header */
 @iconHeaderSize: 3em;

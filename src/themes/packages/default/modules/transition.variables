@@ -1,6 +1,6 @@
-/*-------------------
-      Transition
---------------------*/
+/*******************************
+          Transition
+*******************************/
 
 @transitionDefaultEasing: @defaultEasing;
 @transitionDefaultFill: both;

@@ -26,7 +26,6 @@
   display: none;
 }
 
-
 /*******************************
              States
 *******************************/
@@ -48,25 +47,24 @@
   position: relative;
   overflow: hidden;
   display: block;
-  min-height: 250px;
+  min-height: @loadingMinHeight;
 }
 .ui.tab.loading * {
-  position: relative !important;
-  left: -10000px !important;
+  position: @loadingContentPosition !important;
+  left: @loadingContentOffset !important;
 }
 .ui.tab.loading:after {
   border: none;
   position: absolute;
-  top: 50px;
-  left: 50%;
-  content: 'Loading...';
-  margin-left: -32px;
-  text-indent: 10px;
-  color: rgba(0, 0, 0, 0.4);
+  top: @loadingTextDistance;
+  left: 0%;
+  content: @loadingText;
+  color: @lightTextColor;
   width: 100%;
   height: 100%;
-  padding-top: 80px;
-  background: url(../../themes/packages/default/assets/images/loader-large.gif) no-repeat 0px 0px;
+  padding-top: @loadingTextDistance;
+  text-align: @loadingAlign;
+  background: @loadingBackground;
   visibility: visible;
 }
 
