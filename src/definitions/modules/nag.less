@@ -10,6 +10,16 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'nag';
+
+@import '../../semantic.config';
+
+
+/*******************************
              Nag
 *******************************/
 
@@ -25,9 +35,6 @@
   min-height: 0;
   width: 100%;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 
   margin: 0em;
@@ -36,12 +43,6 @@
 
   background-color: #555555;
 
-  -webkit-box-shadow:
-    0px 1px 2px 0px rgba(0, 0, 0, 0.2)
-  ;
-  -moz-box-shadow:
-    0px 1px 2px 0px rgba(0, 0, 0, 0.2)
-  ;
   box-shadow:
     0px 1px 2px 0px rgba(0, 0, 0, 0.2)
   ;
@@ -50,14 +51,7 @@
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
 
-  -webkit-border-radius: 0px 0px 5px 5px;
-  -moz-border-radius: 0px 0px 5px 5px;
   border-radius: 0px 0px 5px 5px;
-
-  -webkit-transition: 0.2s background;
-  -moz-transition: 0.2s background;
-  -o-transition: 0.2s background;
-  -ms-transition: 0.2s background;
   transition: 0.2s background;
 }
 
@@ -82,11 +76,6 @@ a.ui.nag {
 
   margin-top: -0.5em;
   color: #FFFFFF;
-
-  -webkit-transition: 0.1s opacity;
-  -moz-transition: 0.1s opacity;
-  -o-transition: 0.1s opacity;
-  -ms-transition: 0.1s opacity;
   transition: 0.1s opacity;
 }
 
@@ -133,8 +122,6 @@ a.ui.nag {
 ---------------*/
 
 .ui.bottom.nag {
-  -webkit-border-radius: 5px 5px 0px 0px;
-  -moz-border-radius: 5px 5px 0px 0px;
   border-radius: 5px 5px 0px 0px;
 }
 .ui.fixed.bottom.nags,
@@ -167,7 +154,7 @@ a.ui.nag {
 *******************************/
 
 .ui.nags .nag {
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
   border-radius: 0px;
 }
+
+.loadUIOverrides();
