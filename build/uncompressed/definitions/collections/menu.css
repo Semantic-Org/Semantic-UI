@@ -1214,7 +1214,7 @@
     Inverted
 ---------------*/
 .ui.inverted.menu {
-  background: none #333333;
+  background: #333333;
   -webkit-box-shadow: none;
           box-shadow: none;
 }

@@ -3203,7 +3203,7 @@ body > .ui.grid:not(.page) {
     Inverted
 ---------------*/
 .ui.inverted.menu {
-  background: none #333333;
+  background: #333333;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -14231,6 +14231,9 @@ a.ui.yellow.label:hover:before {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
              Step
 *******************************/
@@ -14252,9 +14255,6 @@ a.ui.yellow.label:hover:before {
 /* Down */
 /* Active */
 /* Disabled */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -20038,12 +20038,12 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
             Sticky
 *******************************/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
