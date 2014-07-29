@@ -1,11 +1,16 @@
 ---
 layout      : 'default'
 css         : 'accordion'
+element     : 'accordion'
+elementType : 'module'
 
 title       : 'Accordion'
-description : 'An accordion displays a single piece of content, while allowing the option of displaying other related content'
+description : 'An accordion concisely displays several groups of related content together '
 type        : 'UI Module'
+
+themes      : ['default']
 ---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/accordion.less" />
 <script src="/javascript/accordion.js"></script>
 
 <%- @partial('header', { tabs: 'module' }) %>
@@ -52,9 +57,9 @@ type        : 'UI Module'
     </div>
 
     <div class="example">
-      <h4 class="ui header">Basic</h4>
-      <p>A basic accordion does not add any extra formatting</p>
-      <div class="ui basic accordion">
+      <h4 class="ui header">Styled</h4>
+      <p>A styled accordion adds basic formatting</p>
+      <div class="ui styled accordion">
         <div class="active title">
           <i class="dropdown icon"></i>
           What is a dog?
@@ -84,7 +89,7 @@ type        : 'UI Module'
     <div class="example">
       <h4 class="ui header">Fluid</h4>
       <p>An accordion can take up the width of its container</p>
-      <div class="ui fluid accordion">
+      <div class="ui styled fluid accordion">
         <div class="active title">
           <i class="dropdown icon"></i>
           What is a dog?
@@ -125,7 +130,7 @@ type        : 'UI Module'
           Level 1
         </div>
         <div class="active content">
-          <p>Welcome to level 1 where sub content formatted as its own accordion.</p>
+          Welcome to level 1 where sub content formatted as its own accordion.
           <div class="accordion">
             <div class="active title">
                 <i class="dropdown icon"></i>
@@ -171,13 +176,13 @@ type        : 'UI Module'
           Level 2
         </div>
         <div class="content">
-          <p>Welcome to level 2 where content is formatted without nested accordions</p>
+          Welcome to level 2 where content is formatted without nested accordions
           <div class="active title">
             <i class="dropdown icon"></i>
             Level 2A
           </div>
           <div class="active content">
-            <p>Level 2A Contents</p>
+            Level 2A Contents
             <div class="title">
                 <i class="dropdown icon"></i>
                 Level 2A-A
@@ -226,7 +231,7 @@ type        : 'UI Module'
               <input placeholder="Last Name" type="text">
             </div>
           </div>
-          <div class="ui basic accordion field">
+          <div class="ui accordion field">
             <div class="title">
               <i class="icon dropdown"></i>
               Optional Details
@@ -243,7 +248,7 @@ type        : 'UI Module'
     <div class="example">
       <h3 class="ui header">Menu</h3>
       <p>An accordion can be used to create content drawers inside a menu</p>
-      <div class="ui basic vertical accordion menu">
+      <div class="ui vertical accordion menu">
         <div class="item">
           <a class="active title">
             <i class="dropdown icon"></i>

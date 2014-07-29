@@ -1,14 +1,19 @@
 ---
 layout      : 'default'
 css         : 'shape'
+element     : 'accordion'
+elementType : 'module'
 
 title       : 'Shape'
 description : 'A shape is a three dimensional object displayed on a two dimensional plane'
 type        : 'UI Module'
----
 
-<script src="/javascript/shape.js"></script>
+themes      : ['default']
+---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/shape.less" />
+
 <link rel="stylesheet" type="text/css" class="ui" href="/stylesheets/shape.css">
+<script src="/javascript/shape.js"></script>
 
 <%- @partial('header', { tabs: 'module' }) %>
 

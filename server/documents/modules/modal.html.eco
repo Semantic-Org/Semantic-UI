@@ -10,6 +10,7 @@ type        : 'UI Module'
 
 themes      : ['default', 'fixed-width']
 ---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/modal.less" />
 <script src="/javascript/modal.js"></script>
 
 <%- @partial('header', { tabs: 'module' }) %>

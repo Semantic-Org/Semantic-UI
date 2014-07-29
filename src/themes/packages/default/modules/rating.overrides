@@ -11,34 +11,37 @@
   font-weight: normal;
   font-style: normal;
 }
+.ui.rating .icon {
+  font-family: 'Rating';
+  line-height: 1;
+  height: 1em;
+  width: 1.23em;
+  backface-visibility: hidden;
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+}
 
 /* Empty Star */
 .ui.rating .icon:before {
   content: '\f006';
-  font-family: 'Rating';
 }
-
 /* Active Star */
 .ui.rating .active.icon:before {
   content: '\f005';
-  font-family: 'Rating';
 }
 
 /*-------------------
         Star
 --------------------*/
 
-
 /* Empty Star */
 .ui.star.rating .icon:before {
   content: '\f006';
-  font-family: 'Rating';
 }
-
 /* Active Star */
 .ui.star.rating .active.icon:before {
   content: '\f005';
-  font-family: 'Rating';
 }
 
 /*-------------------
@@ -48,11 +51,8 @@
 /* Empty Heart */
 .ui.heart.rating .icon:before {
   content: '\f08a';
-  font-family: 'Rating';
 }
-
 /* Active */
 .ui.heart.rating .active.icon:before {
   content: '\f004';
-  font-family: 'Rating';
 }
