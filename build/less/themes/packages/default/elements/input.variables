@@ -1,13 +1,6 @@
-/*-------------------
-    Globals Used
---------------------*/
-
-// (Color Variables)
-// @transitionDuration
-// @transitionEasing
-// @iconWidth
-// @borderColor
-// @textColor, @invertedTextColor
+/*******************************
+            Input
+*******************************/
 
 /*-------------------
       Element

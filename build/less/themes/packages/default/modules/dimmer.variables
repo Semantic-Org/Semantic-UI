@@ -1,6 +1,6 @@
-/*-------------------
-       Dimmer
---------------------*/
+/*******************************
+            Dimmer
+*******************************/
 
 @dimmablePosition: relative;
 @dimmerPosition: absolute;

@@ -46,7 +46,7 @@
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -126,6 +126,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+          Breadcrumb
+*******************************/
 /*-------------------
     Globals Used
 --------------------*/
@@ -281,7 +284,7 @@
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -362,7 +365,7 @@
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
 /*******************************
-            Form
+             Form
 *******************************/
 /*-------------------
        Elements
@@ -984,7 +987,7 @@
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -1064,6 +1067,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Grid
+*******************************/
 /* Inherited From Site */
 /*******************************
             Grid
@@ -2023,7 +2029,7 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -2103,6 +2109,9 @@ body > .ui.grid:not(.page) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Menu
+*******************************/
 /*-------------------
     Globals Used
 --------------------*/
@@ -3658,7 +3667,7 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -4086,7 +4095,7 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -4166,6 +4175,9 @@ body > .ui.grid:not(.page) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Table
+*******************************/
 /*-------------------
       Collection
 --------------------*/
@@ -4876,7 +4888,7 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -4956,11 +4968,11 @@ body > .ui.grid:not(.page) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Button
+*******************************/
 /*-------------------
-    Globals Used
---------------------*/
-/*-------------------
-       Button
+       Element
 --------------------*/
 /* transitions */
 /* Padding */
@@ -6803,7 +6815,7 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -6884,10 +6896,10 @@ body > .ui.grid:not(.page) {
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
 /*******************************
-            Standard
+            Divider
 *******************************/
 /*-------------------
-       Divider
+       Element
 --------------------*/
 /*-------------------
        Coupling
@@ -7115,7 +7127,7 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -7195,8 +7207,11 @@ body > .ui.grid:not(.page) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Flag
+*******************************/
 /*-------------------
-      Variables
+       Element
 --------------------*/
 /*------------------
      Load Theme
@@ -8250,7 +8265,7 @@ i.flag.zimbabwe {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -8330,14 +8345,11 @@ i.flag.zimbabwe {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-    Globals Used
---------------------*/
 /*******************************
-            Standard
+            Header
 *******************************/
 /*-------------------
-       Header
+       Element
 --------------------*/
 /* HTML Headings */
 /* Sizing */
@@ -8345,9 +8357,9 @@ i.flag.zimbabwe {
 /* Icon */
 /* Content */
 /* Paragraph after Header */
-/*******************************
-           Variations
-*******************************/
+/*-------------------
+      Variations
+--------------------*/
 /* Icon Header */
 /* Inverted */
 /* Divided */
@@ -8774,20 +8786,8 @@ h5.ui.header {
 /*------------------
      Load Default
 -------------------*/
-/*-------------------
-    Globals Used
---------------------*/
-/*
-  @disabledOpacity
-*/
-/*-------------------
-   Icon Variables
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -8867,6 +8867,15 @@ h5.ui.header {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Icon
+*******************************/
+/*-------------------
+   Icon Variables
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -9121,19 +9130,19 @@ i.icon {
   font-size: 1em;
 }
 i.large.icon {
-  font-size: 1.125em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 i.big.icon {
-  font-size: 1.25em;
+  font-size: 2em;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 1.375em;
+  font-size: 4em;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 1.5em;
+  font-size: 8em;
   vertical-align: middle;
 }
 /*
@@ -10934,7 +10943,7 @@ i.icon.weixin:before {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -11015,18 +11024,18 @@ i.icon.weixin:before {
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
 /*******************************
-            Standard
+            Image
 *******************************/
 /*-------------------
-       Image
+       Element
 --------------------*/
-/*******************************
-              Types
-*******************************/
+/*-------------------
+       Types
+--------------------*/
 /* Avatar */
-/*******************************
-           Variations
-*******************************/
+/*-------------------
+       Variations
+--------------------*/
 /* Floated */
 /* Sizing */
 /* Size */
@@ -11295,7 +11304,7 @@ img.ui.bordered.image {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -11375,9 +11384,9 @@ img.ui.bordered.image {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-    Globals Used
---------------------*/
+/*******************************
+            Input
+*******************************/
 /*-------------------
       Element
 --------------------*/
@@ -11715,7 +11724,7 @@ img.ui.bordered.image {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -11795,9 +11804,9 @@ img.ui.bordered.image {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-    Globals Used
---------------------*/
+/*******************************
+             Label
+*******************************/
 /*-------------------
       Standard
 --------------------*/
@@ -12713,7 +12722,7 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -12793,9 +12802,9 @@ a.ui.yellow.label:hover:before {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-    Globals Used
---------------------*/
+/*******************************
+             Loader
+*******************************/
 /*-------------------
       Standard
 --------------------*/
@@ -13586,7 +13595,7 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -13667,10 +13676,10 @@ a.ui.yellow.label:hover:before {
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
 /*******************************
-            Standard
+            Segment
 *******************************/
 /*-------------------
-       Segment
+       Element
 --------------------*/
 /*-------------------
        Coupling
@@ -14136,7 +14145,7 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -14216,8 +14225,11 @@ a.ui.yellow.label:hover:before {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Step
+*******************************/
 /*-------------------
-        Step
+      Element
 --------------------*/
 /* Icon */
 /* Title */
@@ -14592,7 +14604,7 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -14672,12 +14684,12 @@ a.ui.yellow.label:hover:before {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Reset
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
-/*-------------------
-        Reset
---------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -15072,7 +15084,7 @@ input[type="password"] {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -15354,7 +15366,7 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -15434,9 +15446,9 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-      Accordion
---------------------*/
+/*******************************
+           Accordion
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
@@ -15648,7 +15660,7 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -15728,9 +15740,9 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-      Chatroom
---------------------*/
+/*******************************
+            Chatroom
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
@@ -16035,7 +16047,7 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -16115,9 +16127,9 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-      Checkbox
---------------------*/
+/*******************************
+            Checkbox
+*******************************/
 /* Label */
 /* Checkbox */
 /* Checkmark */
@@ -16575,7 +16587,7 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -16655,9 +16667,9 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-       Dimmer
---------------------*/
+/*******************************
+            Dimmer
+*******************************/
 /* Hidden (Default) */
 /* Content */
 /* Visible */
@@ -16869,7 +16881,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -16949,9 +16961,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-       Dropdown
---------------------*/
+/*******************************
+           Dropdown
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
@@ -17472,7 +17484,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -17552,9 +17564,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-       Modal
---------------------*/
+/*******************************
+             Modal
+*******************************/
 /* Close Icon */
 /* Header */
 /* Content */
@@ -17937,7 +17949,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -18017,9 +18029,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-        Nag
---------------------*/
+/*******************************
+             Nag
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
@@ -18194,7 +18206,7 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -18274,9 +18286,9 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-        Popup
---------------------*/
+/*******************************
+             Popup
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
@@ -18546,7 +18558,7 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -18626,9 +18638,9 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-       Rating
---------------------*/
+/*******************************
+             Rating
+*******************************/
 /*-------------------
         Types
 --------------------*/
@@ -18870,7 +18882,7 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -19247,7 +19259,7 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -19327,9 +19339,15 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-        Shape
---------------------*/
+/*******************************
+             Shape
+*******************************/
+/* Animating */
+/* Side */
+/*--------------
+      Types
+---------------*/
+/* Cube */
 /*------------------
      Load Theme
 -------------------*/
@@ -19349,12 +19367,10 @@ a.ui.nag {
               Shape
 *******************************/
 .ui.shape {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   -webkit-perspective: 2000px;
           perspective: 2000px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 .ui.shape .sides {
   -webkit-transform-style: preserve-3d;
@@ -19366,8 +19382,6 @@ a.ui.nag {
   margin: 0em !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 .ui.shape .side {
   display: none;
@@ -19379,8 +19393,8 @@ a.ui.nag {
   min-width: 15em;
   height: 15em;
   padding: 2em;
-  background-color: #E6E6E6;
-  color: rgba(0, 0, 0, 0.6);
+  background-color: #e6e6e6;
+  color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
@@ -19513,7 +19527,7 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -19593,9 +19607,9 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-       Sidebar
---------------------*/
+/*******************************
+             Sidebar
+*******************************/
 /* Coupling */
 /*-------------------
       Variations
@@ -19883,7 +19897,7 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -19963,6 +19977,9 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Sticky
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
@@ -20069,7 +20086,7 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -20149,9 +20166,11 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-        Tab
---------------------*/
+/*******************************
+              Tab
+*******************************/
+/* Loading */
+/* Loading Content */
 /*------------------
      Load Theme
 -------------------*/
@@ -20200,19 +20219,18 @@ body.pushed.scrolling.ui.dimmable {
   border: none;
   position: absolute;
   top: 50px;
-  left: 50%;
+  left: 0%;
   content: 'Loading...';
-  margin-left: -32px;
-  text-indent: 10px;
   color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
-  padding-top: 80px;
-  background: url(../../themes/packages/default/assets/images/loader-large.gif) no-repeat 0px 0px;
+  padding-top: 50px;
+  text-align: center;
+  background: url(../../themes/packages/default/assets/images/loader-large.gif) no-repeat 50% 0px;
   visibility: visible;
 }
 /*******************************
-           Overrides
+         Tab Overrides
 *******************************/
 /*******************************
         User Overrides
@@ -20264,7 +20282,7 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -20344,9 +20362,9 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-      Transition
---------------------*/
+/*******************************
+          Transition
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
@@ -21341,7 +21359,7 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -21421,9 +21439,9 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-       Video
---------------------*/
+/*******************************
+             Video
+*******************************/
 /*------------------
      Load Theme
 -------------------*/
@@ -21525,7 +21543,7 @@ body.pushed.scrolling.ui.dimmable {
   display: inline;
 }
 /*******************************
-           Overrides
+        Video Overrides
 *******************************/
 /*******************************
            Overrides
@@ -22432,7 +22450,7 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -22512,11 +22530,11 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             List
+*******************************/
 /*-------------------
-    Globals Used
---------------------*/
-/*-------------------
-       List
+         View
 --------------------*/
 /* List */
 /* Sub List */

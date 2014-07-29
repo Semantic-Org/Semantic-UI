@@ -1,17 +1,10 @@
+/*******************************
+             List
+*******************************/
+
 
 /*-------------------
-    Globals Used
---------------------*/
-
-// (Color Variables)
-// @transitionDuration
-// @transitionEasing
-// @iconWidth
-// @borderColor
-// @textColor, @invertedTextColor
-
-/*-------------------
-       List
+         View
 --------------------*/
 
 /* List */

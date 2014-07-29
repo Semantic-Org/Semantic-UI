@@ -46,7 +46,7 @@
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -126,9 +126,11 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-        Tab
---------------------*/
+/*******************************
+              Tab
+*******************************/
+/* Loading */
+/* Loading Content */
 /*------------------
      Load Theme
 -------------------*/
@@ -177,19 +179,18 @@
   border: none;
   position: absolute;
   top: 50px;
-  left: 50%;
+  left: 0%;
   content: 'Loading...';
-  margin-left: -32px;
-  text-indent: 10px;
   color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
-  padding-top: 80px;
-  background: url(../../themes/packages/default/assets/images/loader-large.gif) no-repeat 0px 0px;
+  padding-top: 50px;
+  text-align: center;
+  background: url(../../themes/packages/default/assets/images/loader-large.gif) no-repeat 50% 0px;
   visibility: visible;
 }
 /*******************************
-           Overrides
+         Tab Overrides
 *******************************/
 /*******************************
         User Overrides

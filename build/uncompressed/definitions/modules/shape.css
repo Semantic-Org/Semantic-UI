@@ -46,7 +46,7 @@
      Load Default
 -------------------*/
 /*******************************
-        Global Variables
+         Site Variables
 *******************************/
 /*-------------------
         Paths
@@ -126,9 +126,15 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*-------------------
-        Shape
---------------------*/
+/*******************************
+             Shape
+*******************************/
+/* Animating */
+/* Side */
+/*--------------
+      Types
+---------------*/
+/* Cube */
 /*------------------
      Load Theme
 -------------------*/
@@ -148,12 +154,10 @@
               Shape
 *******************************/
 .ui.shape {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   -webkit-perspective: 2000px;
           perspective: 2000px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 .ui.shape .sides {
   -webkit-transform-style: preserve-3d;
@@ -165,8 +169,6 @@
   margin: 0em !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 .ui.shape .side {
   display: none;
@@ -178,8 +180,8 @@
   min-width: 15em;
   height: 15em;
   padding: 2em;
-  background-color: #E6E6E6;
-  color: rgba(0, 0, 0, 0.6);
+  background-color: #e6e6e6;
+  color: rgba(0, 0, 0, 0.8);
   -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
