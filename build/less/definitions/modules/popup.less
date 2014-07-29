@@ -10,6 +10,15 @@
  */
 
 /*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'popup';
+
+@import '../../semantic.config';
+
+/*******************************
             Popup
 *******************************/
 
@@ -30,12 +39,7 @@
   font-style: normal;
   color: rgba(0, 0, 0, 0.7);
 
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
   border-radius: 0.2em;
-
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .header {
@@ -55,19 +59,10 @@
   background-image: none;
   background-color: #FFFFFF;
 
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
   transform: rotate(45deg);
 
   z-index: 2;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
-
-  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -113,8 +108,6 @@
   left: 50%;
   right: auto;
   bottom: auto;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -127,8 +120,6 @@
   bottom: auto;
   left: auto;
   margin-left: 0em;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -141,8 +132,6 @@
   right: auto;
   bottom: auto;
   margin-left: 0em;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -182,8 +171,6 @@
   bottom: auto;
   left: auto;
   margin-top: -0.4em;
-  -moz-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -194,8 +181,6 @@
   bottom: auto;
   right: auto;
   margin-top: -0.4em;
-  -moz-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -240,9 +225,6 @@
   background-color: #333333;
   border: none;
   color: #FFFFFF;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
 .ui.inverted.popup .header {
@@ -251,8 +233,7 @@
 }
 .ui.inverted.popup:before {
   background-color: #333333;
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
+
+.loadUIOverrides();

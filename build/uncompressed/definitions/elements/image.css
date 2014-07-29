@@ -239,8 +239,6 @@ img.ui.bordered.image {
 .ui.circular.images img,
 .ui.circular.image img,
 .ui.circular.image {
-  -webkit-border-radius: 500rem;
-  -moz-border-radius: 500rem;
   border-radius: 500rem;
 }
 /*--------------
@@ -264,8 +262,6 @@ img.ui.bordered.image {
   display: inline-block;
   width: 2.5em;
   height: 2.5em;
-  -webkit-border-radius: 500rem;
-  -moz-border-radius: 500rem;
   border-radius: 500rem;
 }
 /*-------------------

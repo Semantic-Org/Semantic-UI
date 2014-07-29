@@ -145,7 +145,8 @@
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 html,
 body {
@@ -172,7 +173,7 @@ h5 {
   padding: 0em;
 }
 p {
-  margin: 1em 0em;
+  margin: 0em 0em 1em;
 }
 p:first-child {
   margin-top: 0em;

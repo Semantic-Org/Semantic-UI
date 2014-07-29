@@ -9,6 +9,17 @@
  *
  */
 
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'module';
+@element : 'shape';
+
+@import '../../semantic.config';
+
+
 /*******************************
               Shape
 *******************************/
@@ -17,22 +28,12 @@
   display: inline-block;
   position: relative;
 
-  -webkit-perspective: 2000px;
-  -moz-perspective: 2000px;
-  -ms-perspective: 2000px;
   perspective: 2000px;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 
 }
 
 .ui.shape .sides {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
@@ -42,14 +43,7 @@
 
   margin: 0em !important;
 
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -70,9 +64,6 @@
 
   background-color: #E6E6E6;
   color: rgba(0, 0, 0, 0.6);
-
-  -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
 .ui.cube.shape .side > .content {
@@ -81,10 +72,6 @@
   display: table;
 
   text-align: center;
-
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
   user-select: text;
 }
 .ui.cube.shape .side > .content > div {
@@ -143,18 +130,6 @@
 ---------------*/
 
 .ui.shape.animating {
-  -webkit-transition:
-    all 0.6s ease-in-out;
-  ;
-  -moz-transition:
-    all 0.6s ease-in-out;
-  ;
-  -o-transition:
-    all 0.6s ease-in-out;
-  ;
-  -ms-transition:
-    all 0.6s ease-in-out;
-  ;
   transition:
     all 0.6s ease-in-out;
   ;
@@ -163,17 +138,9 @@
   position: absolute;
 }
 .ui.shape.animating .sides {
-  -webkit-transition: all 0.6s ease-in-out;
-  -moz-transition: all 0.6s ease-in-out;
-  -o-transition: all 0.6s ease-in-out;
-  -ms-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
 .ui.shape.animating .side {
-  -webkit-transition: opacity 0.6s ease-in-out;
-  -moz-transition: opacity 0.6s ease-in-out;
-  -o-transition: opacity 0.6s ease-in-out;
-  -ms-transition: opacity 0.6s ease-in-out;
   transition: opacity 0.6s ease-in-out;
 }
 
@@ -185,3 +152,5 @@
 .ui.shape .active.side {
   display: block;
 }
+
+.loadUIOverrides();

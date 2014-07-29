@@ -40,7 +40,7 @@
   vertical-align: @verticalAlign;
 
   background: @background;
-  opacity: @startOpacity;
+  opacity: @hiddenOpacity;
   line-height: @lineHeight;
 
   animation-fill-mode: both;
@@ -166,3 +166,5 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 .ui.dimmed.dimmable > .ui.simple.inverted.dimmer {
   background: @simpleInvertedEndBackground;
 }
+
+.loadUIOverrides();

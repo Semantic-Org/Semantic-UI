@@ -120,9 +120,12 @@ $.fn.rating = function(parameters) {
             var
               $activeIcon   = $(this),
               currentRating = module.getRating(),
-              rating        = $icon.index($activeIcon) + 1
+              rating        = $icon.index($activeIcon) + 1,
+              canClear      = (settings.clearable == 'auto')
+               ? ($icon.size() === 1)
+               : settings.clearable
             ;
-            if(settings.clearable && currentRating == rating) {
+            if(canClear && currentRating == rating) {
               module.clearRating();
             }
             else {
@@ -380,7 +383,7 @@ $.fn.rating.settings = {
 
   initialRating : 0,
   interactive   : true,
-  clearable     : false,
+  clearable     : 'auto',
 
   onRate        : function(rating){},
 

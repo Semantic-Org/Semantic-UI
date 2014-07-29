@@ -18,7 +18,7 @@
 @textColor           : rgba(0, 0, 0, 0.8);
 
 @headerMargin        : 1em 0em 1rem;
-@paragraphMargin     : 1em 0em;
+@paragraphMargin     : 0em 0em 1em;
 
 @linkColor           : #009FDA;
 @linkUnderline       : none;
@@ -96,7 +96,7 @@
        Easing
 --------------------*/
 
-@defaultEasing: 'ease';
+@defaultEasing: ease;
 
 
 /*******************************

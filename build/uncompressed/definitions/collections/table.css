@@ -182,7 +182,8 @@
   width: 100%;
   background: #ffffff;
   border: 1px solid #dddddd;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-radius: 0.25rem;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -193,7 +194,8 @@
 /* Table Content */
 .ui.table th,
 .ui.table td {
-  transition: all 0.2s 'ease';
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
 }
 /* Headers */
 .ui.table thead th {
@@ -285,14 +287,16 @@
     display: block;
     border: none !important;
     padding: 0.25em 0.75em;
-    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
   }
   .ui.table td:first-child {
     font-weight: bold;
     padding-top: 1em;
   }
   .ui.table td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     padding-bottom: 1em;
   }
   /* Clear BG Colors */
@@ -312,7 +316,8 @@
 ---------------*/
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 2px 0px 0px #119000 inset;
+  -webkit-box-shadow: 2px 0px 0px #119000 inset;
+          box-shadow: 2px 0px 0px #119000 inset;
 }
 .ui.table tr.positive td,
 .ui.table td.positive {
@@ -332,7 +337,8 @@
 ---------------*/
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
+          box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
@@ -352,7 +358,8 @@
 ---------------*/
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
+          box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.error td,
 .ui.table td.error {
@@ -372,7 +379,8 @@
 ---------------*/
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 2px 0px 0px #7d6c00 inset;
+  -webkit-box-shadow: 2px 0px 0px #7d6c00 inset;
+          box-shadow: 2px 0px 0px #7d6c00 inset;
 }
 .ui.table tr.warning td,
 .ui.table td.warning {
@@ -392,7 +400,8 @@
 ---------------*/
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  -webkit-box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+          box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
 }
 .ui.table tr.active td,
 .ui.table td.active {
@@ -658,7 +667,10 @@
 }
 .ui.sortable.table thead th.sorted,
 .ui.sortable.table thead th.sorted:hover {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .ui.sortable.table thead th:after {
   display: inline-block;

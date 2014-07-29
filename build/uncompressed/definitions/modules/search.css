@@ -1,0 +1,376 @@
+/*
+ * # Semantic - Search
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2013 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+        Global Variables
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*******************************
+           BG Colors
+*******************************/
+/*******************************
+             Colors
+*******************************/
+/*---  Colors  ---*/
+/*---  Neutrals  ---*/
+/*--- Text Colors ---*/
+/* Preserve */
+/* Adjust for Legibility */
+/*--- Backgrounds ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive / Negative */
+/* Messages */
+/*-------------------
+     Text Colors
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Search
+*******************************/
+/* Result Box */
+/* Result */
+/* Result Image */
+/* Result Content */
+/* Special Message */
+/* All Results Link */
+/*******************************
+            States
+*******************************/
+/* Hover */
+/* Loading */
+/* Active Category */
+/* Active Result */
+/*******************************
+            Types
+*******************************/
+/* Category */
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+           Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
+             Search
+*******************************/
+.ui.search {
+  position: relative;
+  text-shadow: none;
+  font-style: normal;
+  font-weight: normal;
+}
+.ui.search input {
+  border-radius: 500rem;
+}
+/*--------------
+     Icon
+---------------*/
+.ui.search .prompt ~ .search.icon {
+  cursor: pointer;
+}
+/*--------------
+    Results
+---------------*/
+.ui.search .results {
+  display: none;
+  position: absolute;
+  z-index: 998;
+  top: 100%;
+  left: 0%;
+  overflow: hidden;
+  background: #ffffff;
+  margin-top: 0.5em;
+  width: 380px;
+  border-radius: 0.25em;
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+}
+/*--------------
+    Result
+---------------*/
+.ui.search .result {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 1.33;
+}
+.ui.search .result:first-child {
+  border-top: none;
+}
+/* Image */
+.ui.search .result .image {
+  float: right;
+  overflow: hidden;
+  background: none;
+  width: 5em;
+  height: 3em;
+  border-radius: 0.25em;
+}
+.ui.search .result .image img {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+/*--------------
+      Info
+---------------*/
+.ui.search .result .image + .content {
+  margin: 0em 6em 0em 0em;
+}
+.ui.search .result .title {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.search .result .description {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.search .result .price {
+  float: right;
+  color: #2ecc40;
+}
+/*--------------
+    Message
+---------------*/
+.ui.search .message {
+  padding: 1em 1em;
+}
+.ui.search .message .header {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.search .message .description {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+/* View All Results */
+.ui.search .all {
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+  height: 2em;
+  line-height: 2em;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  text-align: center;
+}
+/*******************************
+            States
+*******************************/
+/*--------------
+      Hover
+---------------*/
+.ui.search .result:hover,
+.ui.search .results .category .result:hover {
+  background: #fafafa;
+}
+.ui.search .all:hover {
+  background: #fafafa;
+}
+/*--------------
+     Loading
+---------------*/
+.ui.search.loading .input .icon {
+  background: url("../../themes/packages/default/assets/images/loader-mini.gif") no-repeat 50% 50%;
+}
+.ui.search.loading .input .icon:before,
+.ui.search.loading .input .icon:after {
+  display: none;
+}
+/*--------------
+      Active
+---------------*/
+.ui.search .results .category.active {
+  background-color: #f1f1f1;
+}
+.ui.search .results .category.active > .name {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.search .result.active,
+.ui.search .results .category .result.active {
+  border-left-color: transparent;
+  background-color: #f0f0f0;
+  -webkit-box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+}
+.ui.search .result.active .title {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.search .result.active .description {
+  color: rgba(0, 0, 0, 0.85);
+}
+/*******************************
+           Types
+*******************************/
+/*-------------------
+     Left / Right
+--------------------*/
+.ui.right.aligned.search .results {
+  right: 0%;
+  left: auto;
+}
+/*--------------
+    Categories
+---------------*/
+.ui.search .results .category {
+  background: #f0f0f0;
+  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.search .results .category,
+.ui.search .results .category .result {
+  position: relative;
+  -webkit-transition: background 0.2s ease, border-color 0.2s ease;
+          transition: background 0.2s ease, border-color 0.2s ease;
+}
+.ui.search .results .category:first-child {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.ui.search .results .category > .name {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  float: 0.9em;
+  float: left;
+  padding: 0.4em 0em 0em 1em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.search .results .category .result {
+  background-color: #ffffff;
+  margin-left: 100px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/*******************************
+           Variations
+*******************************/
+.ui.search {
+  font-size: 1em;
+}
+.ui.large.search {
+  font-size: 1.1em;
+}
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+           Overrides
+*******************************/
