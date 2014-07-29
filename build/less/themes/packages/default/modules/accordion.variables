@@ -1,3 +1,72 @@
 /*******************************
            Accordion
 *******************************/
+
+@fontSize: 1em;
+@boxShadow: none;
+
+/* Title */
+@titleFont: @headerFont;
+@titlePadding: 0.5em 0em;
+@titleFontSize: 1em;
+@titleColor: @textColor;
+
+/* Icon */
+@iconOpacity: 0.75;
+@iconWidth: 1.25em;
+@iconHeight: 1em;
+@iconDisplay: inline-block;
+@iconMargin: 0em 0em 0em 0em;
+@iconTransition:
+  transform 0.2s ease,
+  opacity 0.2s ease
+;
+
+/* Child Accordion */
+@childAccordionMargin: 1em 0em 0em;
+@childAccordionPadding: 0em;
+
+/* Content */
+@contentMargin: 0em;
+@contentPadding: 0.5em 0.5em 1em;
+
+/*-------------------
+        States
+--------------------*/
+
+/* Title Hover */
+@titleHoverColor: @selectedTextColor;
+
+/* Title Active */
+@activeTitleColor: @selectedTextColor;
+
+/* Active Styled */
+@styledActiveTitleBackground: @strongTransparentBlack;
+@styledActiveChildTitleBackground: @transparentBlack;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Styled */
+@styledWidth: 600px;
+@styledBackground: @white;
+@styledBorderRadius: 0.3125em;
+@styledBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+
+/* Styled Title */
+@styledTitleMargin: 0em;
+@styledTitlePadding: 0.75em 1em;
+@styledTitleColor: @textColor;
+@styledTitleTransition: background-color 0.2s ease;
+@styledTitleBorder: 1px solid rgba(0, 0, 0, 0.05);
+@styledTitleTransition: background-color 0.2s ease;
+
+/* Content */
+@styledContentMargin: 0em;
+@styledContentPadding: 1.3em 1em;
+
+/* Child Content */
+@styledChildContentMargin: 0em;
+@styledChildContentPadding: 0.8em 1em;
+

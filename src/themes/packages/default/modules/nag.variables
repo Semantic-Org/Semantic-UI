@@ -34,8 +34,8 @@
 @titleMargin: 0em 0.5em;
 
 @closeSize: 1em;
-@closeMargin: -(@closeSize / 2) 0em 0em;
-@closeTop: 50%:
+@closeMargin: (-@closeSize / 2) 0em 0em;
+@closeTop: 50%;
 @closeRight: 1em;
 @closeColor: @white;
 @closeTransition: opacity 0.2s ease;
@@ -47,8 +47,9 @@
 ---------------*/
 
 /* Hover */
-@navHoverBackground: @background;
-@navHoverOpacity: 1;
+@nagHoverBackground: @background;
+@nagHoverOpacity: 1;
+
 @closeHoverOpacity: 1;
 
 /*--------------

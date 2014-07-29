@@ -2,7 +2,7 @@
             Checkbox
 *******************************/
 
-@checkboxColor: @textColor;
+@checkboxColor: @selectedTextColor;
 @fontSize: 1em;
 @checkboxLineHeight: 15px;
 

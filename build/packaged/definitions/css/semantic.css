@@ -439,6 +439,9 @@
   clear: both;
   margin: 0em 0em 1em;
 }
+.ui.form .field:last-child {
+  margin-bottom: 0em;
+}
 /*--------------------
         Labels
 ---------------------*/
@@ -818,6 +821,9 @@
 /* Grouped Vertically */
 .ui.form .grouped.fields {
   margin: 0em 0em 1em;
+}
+.ui.form .grouped.fields:last-child {
+  margin-bottom: 0em;
 }
 .ui.form .grouped.fields .field {
   display: block;
@@ -15449,6 +15455,23 @@ a:hover {
 /*******************************
            Accordion
 *******************************/
+/* Title */
+/* Icon */
+/* Child Accordion */
+/* Content */
+/*-------------------
+        States
+--------------------*/
+/* Title Hover */
+/* Title Active */
+/* Active Styled */
+/*-------------------
+      Variations
+--------------------*/
+/* Styled */
+/* Styled Title */
+/* Content */
+/* Child Content */
 /*------------------
      Load Theme
 -------------------*/
@@ -15469,98 +15492,86 @@ a:hover {
 *******************************/
 .ui.accordion,
 .ui.accordion .accordion {
-  width: 600px;
   max-width: 100%;
   font-size: 1em;
-  border-radius: 0.3125em;
-  background-color: #FFFFFF;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.accordion .accordion {
+  margin: 1em 0em 0em;
+  padding: 0em;
 }
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  margin: 0em;
-  padding: 0.75em 1em;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  -webkit-transition: background-color 0.2s ease-out;
-          transition: background-color 0.2s ease-out;
 }
-.ui.accordion .title:first-child,
-.ui.accordion .accordion .title:first-child {
-  border-top: none;
-}
-/* Content */
 .ui.accordion .content,
 .ui.accordion .accordion .content {
   display: none;
   margin: 0em;
-  padding: 1.3em 1em;
+  padding: 0.5em 0.5em 1em;
 }
-.ui.accordion .accordion .content {
-  padding: 0.8em 1em;
+.ui.accordion .content:last-child {
+  padding-bottom: 0em;
 }
 /* Arrow */
 .ui.accordion .title .dropdown.icon,
 .ui.accordion .accordion .title .dropdown.icon {
   display: inline-block;
-  float: none;
-  margin: 0em 0.5em 0em 0em;
-  -webkit-transition: -webkit-transform 0.2s ease,
-    opacity 0.2s ease;
-          transition: transform 0.2s ease,
-    opacity 0.2s ease
-  ;
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-}
-.ui.accordion .title .dropdown.icon:before,
-.ui.accordion .accordion .title .dropdown.icon:before {
-  content: '\f0da' /*rtl:'\f0d9'*/;
-}
-/*--------------
- Loose Coupling
----------------*/
-.ui.basic.accordion.menu {
-  background-color: #FFFFFF;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-}
-.ui.basic.accordion.menu .title,
-.ui.basic.accordion.menu .content {
-  padding: 0em;
+  opacity: 0.75;
+  width: 1.25em;
+  height: 1em;
+  margin: 0em 0em 0em 0em;
+  -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
+          transition: transform 0.2s ease, opacity 0.2s ease;
 }
 /*******************************
             Types
 *******************************/
 /*--------------
-     Basic
+     Styled
 ---------------*/
-.ui.basic.accordion {
-  background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+.ui.styled.accordion {
+  width: 600px;
 }
-.ui.basic.accordion .title,
-.ui.basic.accordion .accordion .title {
-  background-color: transparent;
+.ui.styled.accordion,
+.ui.styled.accordion .accordion {
+  border-radius: 0.3125em;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.styled.accordion .title,
+.ui.styled.accordion .accordion .title {
+  margin: 0em;
+  padding: 0.75em 1em;
+  color: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  -webkit-transition: background-color 0.2s ease;
+          transition: background-color 0.2s ease;
+}
+.ui.styled.accordion .title:first-child,
+.ui.styled.accordion .accordion .title:first-child {
   border-top: none;
-  padding-left: 0em;
-  padding-right: 0em;
 }
-.ui.basic.accordion .content {
-  padding: 0.5em 0em;
+/* Content */
+.ui.styled.accordion .content,
+.ui.styled.accordion .accordion .content {
+  margin: 0em;
+  padding: 1.3em 1em;
 }
-.ui.basic.accordion .active.title,
-.ui.basic.accordion .accordion .active.title {
-  background-color: transparent;
+.ui.styled.accordion .accordion .content {
+  padding: 0em;
+  padding: 0.8em 1em;
 }
-.ui.basic.accordion .accordion {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  padding: 1em 0.5em;
+/* Active */
+.ui.styled.accordion .active.title {
+  background: rgba(0, 0, 0, 0.1);
+}
+.ui.styled.accordion .accordion .active.title {
+  background: rgba(0, 0, 0, 0.05);
 }
 /*******************************
             States
@@ -15577,23 +15588,13 @@ a:hover {
 /*--------------
      Active
 ---------------*/
-.ui.accordion .active.title {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.8);
-}
-.ui.accordion .accordion .active.title {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
-}
-.ui.accordion .active.title .dropdown.icon,
-.ui.accordion .accordion .active.title .dropdown.icon {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
 .ui.accordion .active.content,
 .ui.accordion .accordion .active.content {
   display: block;
+}
+.ui.accordion .active.title,
+.ui.accordion .accordion .active.title {
+  color: rgba(0, 0, 0, 0.8);
 }
 /*******************************
            Variations
@@ -15608,6 +15609,40 @@ a:hover {
 /*******************************
            Overrides
 *******************************/
+@font-face {
+  font-family: 'Accordion';
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMggjB5AAAAC8AAAAYGNtYXAPfOIKAAABHAAAAExnYXNwAAAAEAAAAWgAAAAIZ2x5Zryj6HgAAAFwAAAAyGhlYWT/0IhHAAACOAAAADZoaGVhApkB5wAAAnAAAAAkaG10eAJuABIAAAKUAAAAGGxvY2EAjABWAAACrAAAAA5tYXhwAAgAFgAAArwAAAAgbmFtZfC1n04AAALcAAABPHBvc3QAAwAAAAAEGAAAACAAAwIAAZAABQAAAUwBZgAAAEcBTAFmAAAA9QAZAIQAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADw2gHg/+D/4AHgACAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEADgAAAAKAAgAAgACAAEAIPDa//3//wAAAAAAIPDZ//3//wAB/+MPKwADAAEAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQASAEkAtwFuABMAADc0PwE2FzYXFh0BFAcGJwYvASY1EgaABQgHBQYGBQcIBYAG2wcGfwcBAQcECf8IBAcBAQd/BgYAAAAAAQAAAEkApQFuABMAADcRNDc2MzIfARYVFA8BBiMiJyY1AAUGBwgFgAYGgAUIBwYFWwEACAUGBoAFCAcFgAYGBQcAAAABAAAAAQAAqWYls18PPPUACwIAAAAAAM/9o+4AAAAAz/2j7gAAAAAAtwFuAAAACAACAAAAAAAAAAEAAAHg/+AAAAIAAAAAAAC3AAEAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAQAAAAC3ABIAtwAAAAAAAAAKABQAHgBCAGQAAAABAAAABgAUAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEADAAAAAEAAAAAAAIADgBAAAEAAAAAAAMADAAiAAEAAAAAAAQADABOAAEAAAAAAAUAFgAMAAEAAAAAAAYABgAuAAEAAAAAAAoANABaAAMAAQQJAAEADAAAAAMAAQQJAAIADgBAAAMAAQQJAAMADAAiAAMAAQQJAAQADABOAAMAAQQJAAUAFgAMAAMAAQQJAAYADAA0AAMAAQQJAAoANABaAHIAYQB0AGkAbgBnAFYAZQByAHMAaQBvAG4AIAAxAC4AMAByAGEAdABpAG4AZ3JhdGluZwByAGEAdABpAG4AZwBSAGUAZwB1AGwAYQByAHIAYQB0AGkAbgBnAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4ALgADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA) format('truetype'), url(data:application/font-woff;charset=utf-8;base64,d09GRk9UVE8AAASwAAoAAAAABGgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAAA9AAAAS0AAAEtFpovuE9TLzIAAAIkAAAAYAAAAGAIIweQY21hcAAAAoQAAABMAAAATA984gpnYXNwAAAC0AAAAAgAAAAIAAAAEGhlYWQAAALYAAAANgAAADb/0IhHaGhlYQAAAxAAAAAkAAAAJAKZAedobXR4AAADNAAAABgAAAAYAm4AEm1heHAAAANMAAAABgAAAAYABlAAbmFtZQAAA1QAAAE8AAABPPC1n05wb3N0AAAEkAAAACAAAAAgAAMAAAEABAQAAQEBB3JhdGluZwABAgABADr4HAL4GwP4GAQeCgAZU/+Lix4KABlT/4uLDAeLa/iU+HQFHQAAAHkPHQAAAH4RHQAAAAkdAAABJBIABwEBBw0PERQZHnJhdGluZ3JhdGluZ3UwdTF1MjB1RjBEOXVGMERBAAACAYkABAAGAQEEBwoNVp38lA78lA78lA77lA773Z33bxWLkI2Qj44I9xT3FAWOj5CNkIuQi4+JjoePiI2Gi4YIi/uUBYuGiYeHiIiHh4mGi4aLho2Ijwj7FPcUBYeOiY+LkAgO+92L5hWL95QFi5CNkI6Oj4+PjZCLkIuQiY6HCPcU+xQFj4iNhouGi4aJh4eICPsU+xQFiIeGiYaLhouHjYePiI6Jj4uQCA74lBT4lBWLDAoAAAAAAwIAAZAABQAAAUwBZgAAAEcBTAFmAAAA9QAZAIQAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADw2gHg/+D/4AHgACAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEADgAAAAKAAgAAgACAAEAIPDa//3//wAAAAAAIPDZ//3//wAB/+MPKwADAAEAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAEAADfYOJZfDzz1AAsCAAAAAADP/aPuAAAAAM/9o+4AAAAAALcBbgAAAAgAAgAAAAAAAAABAAAB4P/gAAACAAAAAAAAtwABAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAEAAAAAtwASALcAAAAAUAAABgAAAAAADgCuAAEAAAAAAAEADAAAAAEAAAAAAAIADgBAAAEAAAAAAAMADAAiAAEAAAAAAAQADABOAAEAAAAAAAUAFgAMAAEAAAAAAAYABgAuAAEAAAAAAAoANABaAAMAAQQJAAEADAAAAAMAAQQJAAIADgBAAAMAAQQJAAMADAAiAAMAAQQJAAQADABOAAMAAQQJAAUAFgAMAAMAAQQJAAYADAA0AAMAAQQJAAoANABaAHIAYQB0AGkAbgBnAFYAZQByAHMAaQBvAG4AIAAxAC4AMAByAGEAdABpAG4AZ3JhdGluZwByAGEAdABpAG4AZwBSAGUAZwB1AGwAYQByAHIAYQB0AGkAbgBnAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4ALgADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Dropdown Icon */
+.ui.accordion .title .dropdown.icon,
+.ui.accordion .accordion .title .dropdown.icon {
+  font-family: Accordion;
+  line-height: 1;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+}
+.ui.accordion .title .dropdown.icon:before,
+.ui.accordion .accordion .title .dropdown.icon:before {
+  content: '\f0da' /*rtl:'\f0d9'*/;
+}
+/* Icon Rotation */
+.ui.accordion .title .dropdown.icon,
+.ui.accordion .accordion .title .dropdown.icon {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.ui.accordion .active.title .dropdown.icon,
+.ui.accordion .accordion .active.title .dropdown.icon {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
 /*******************************
         User Overrides
 *******************************/
@@ -18032,6 +18067,25 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*******************************
              Nag
 *******************************/
+/*--------------
+   Collection
+---------------*/
+/*--------------
+    Elements
+---------------*/
+/* Title */
+/*--------------
+      States
+---------------*/
+/* Hover */
+/*--------------
+   Variations
+---------------*/
+/* Top / Bottom */
+/* Inverted */
+/*--------------
+      Plural
+---------------*/
 /*------------------
      Load Theme
 -------------------*/
@@ -18054,25 +18108,22 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   display: none;
   opacity: 0.95;
   position: relative;
-  top: 0px;
-  left: 0%;
+  top: 0em;
+  left: 0px;
   z-index: 101;
-  min-height: 0;
+  min-height: 0em;
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   margin: 0em;
-  line-height: 3em;
-  padding: 0em 1em;
-  background-color: #555555;
+  padding: 0.5em 1em;
+  background: #555555;
   -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
-  font-size: 1em;
+  font-size: 1rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.8);
-  border-radius: 0px 0px 5px 5px;
-  -webkit-transition: 0.2s background;
-          transition: 0.2s background;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0em 0em 0.25em 0.25em;
+  -webkit-transition: 0.2s background ease;
+          transition: 0.2s background ease;
 }
 a.ui.nag {
   cursor: pointer;
@@ -18080,7 +18131,7 @@ a.ui.nag {
 .ui.nag > .title {
   display: inline-block;
   margin: 0em 0.5em;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .ui.nag > .close.icon {
   cursor: pointer;
@@ -18088,16 +18139,18 @@ a.ui.nag {
   position: absolute;
   top: 50%;
   right: 1em;
-  margin-top: -0.5em;
-  color: #FFFFFF;
-  -webkit-transition: 0.1s opacity;
-          transition: 0.1s opacity;
+  font-size: 1em;
+  margin: -0.5em 0em 0em;
+  color: #ffffff;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
 }
 /*******************************
              States
 *******************************/
 /* Hover */
 .ui.nag:hover {
+  background: #555555;
   opacity: 1;
 }
 .ui.nag .close:hover {
@@ -18122,34 +18175,37 @@ a.ui.nag {
 /*--------------
      Bottom
 ---------------*/
+.ui.bottom.nags,
 .ui.bottom.nag {
-  border-radius: 5px 5px 0px 0px;
-}
-.ui.fixed.bottom.nags,
-.ui.fixed.bottom.nag {
+  border-radius: 0.25em 0.25em 0em 0em;
   top: auto;
-  bottom: 0px;
+  bottom: 0em;
 }
 /*--------------
      White
 ---------------*/
-.ui.white.nags .nag,
-.ui.white.nag {
-  background-color: #F1F1F1;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
-  color: #ACACAC;
+.ui.inverted.nags .nag,
+.ui.inverted.nag {
+  background-color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.85);
 }
-.ui.white.nags .nag .close,
-.ui.white.nags .nag .title,
-.ui.white.nag .close,
-.ui.white.nag .title {
-  color: #333333;
+.ui.inverted.nags .nag .close,
+.ui.inverted.nags .nag .title,
+.ui.inverted.nag .close,
+.ui.inverted.nag .title {
+  color: rgba(0, 0, 0, 0.4);
 }
 /*******************************
            Groups
 *******************************/
 .ui.nags .nag {
-  border-radius: 0px;
+  border-radius: 0em !important;
+}
+.ui.nags .nag:last-child {
+  border-radius: 0em 0em 0.25em 0.25em;
+}
+.ui.bottom.nags .nag:last-child {
+  border-radius: 0.25em 0.25em 0em 0em;
 }
 /*******************************
            Overrides
@@ -18794,15 +18850,24 @@ a.ui.nag {
   font-weight: normal;
   font-style: normal;
 }
+.ui.rating .icon {
+  font-family: 'Rating';
+  line-height: 1;
+  height: 1em;
+  width: 1.23em;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+}
 /* Empty Star */
 .ui.rating .icon:before {
   content: '\f006';
-  font-family: 'Rating';
 }
 /* Active Star */
 .ui.rating .active.icon:before {
   content: '\f005';
-  font-family: 'Rating';
 }
 /*-------------------
         Star
@@ -18810,12 +18875,10 @@ a.ui.nag {
 /* Empty Star */
 .ui.star.rating .icon:before {
   content: '\f006';
-  font-family: 'Rating';
 }
 /* Active Star */
 .ui.star.rating .active.icon:before {
   content: '\f005';
-  font-family: 'Rating';
 }
 /*-------------------
         Heart
@@ -18823,12 +18886,10 @@ a.ui.nag {
 /* Empty Heart */
 .ui.heart.rating .icon:before {
   content: '\f08a';
-  font-family: 'Rating';
 }
 /* Active */
 .ui.heart.rating .active.icon:before {
   content: '\f004';
-  font-family: 'Rating';
 }
 /*******************************
            Overrides
@@ -19977,12 +20038,12 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-            Sticky
-*******************************/
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+            Sticky
+*******************************/
 /*------------------
      Load Site
 -------------------*/
