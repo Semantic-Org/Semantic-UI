@@ -254,8 +254,8 @@ themes      : ['default']
             <i class="dropdown icon"></i>
             Size
           </a>
-          <div class="active content menu">
-            <div class="ui form item">
+          <div class="active content">
+            <div class="ui form">
               <div class="grouped fields">
                 <div class="field">
                   <div class="ui radio checkbox">
@@ -290,8 +290,8 @@ themes      : ['default']
             <i class="dropdown icon"></i>
             Colors
           </a>
-          <div class="active content menu">
-            <div class="ui form item">
+          <div class="active content">
+            <div class="ui form">
               <div class="grouped fields">
                 <div class="field">
                   <div class="ui checkbox">

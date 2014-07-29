@@ -12,6 +12,7 @@
 @titleColor: @textColor;
 
 /* Icon */
+@iconOpacity: 0.75;
 @iconWidth: 1.25em;
 @iconHeight: 1em;
 @iconDisplay: inline-block;

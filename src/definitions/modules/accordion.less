@@ -47,11 +47,15 @@
   margin: @contentMargin;
   padding: @contentPadding;
 }
+.ui.accordion .content:last-child {
+  padding-bottom: 0em;
+}
 
 /* Arrow */
 .ui.accordion .title .dropdown.icon,
 .ui.accordion .accordion .title .dropdown.icon {
   display: @iconDisplay;
+  opacity: @iconOpacity;
   width: @iconWidth;
   height: @iconHeight;
   margin: @iconMargin;
