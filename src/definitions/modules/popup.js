@@ -125,9 +125,6 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
-          $window
-            .off(eventNamespace)
-          ;
           $popup
             .remove()
           ;
@@ -192,6 +189,11 @@ $.fn.popup = function(parameters) {
               .addClass(variation)
               .html(html)
             ;
+            if(variation) {
+              $popup
+                .addClass(variation)
+              ;
+            }
             if(settings.inline) {
               module.verbose('Inserting popup element inline', $popup);
               $popup
@@ -838,7 +840,7 @@ $.fn.popup.settings = {
   onShow         : function(){},
   onHide         : function(){},
 
-  variation      : '',
+  variation      : false,
   content        : false,
   html           : false,
   title          : false,

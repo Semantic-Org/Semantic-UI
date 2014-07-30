@@ -81,3 +81,4 @@
 @small: 0.8rem;
 @medium: 0.875rem;
 @large: 1rem;
+@huge: 1.1rem;

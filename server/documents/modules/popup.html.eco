@@ -41,7 +41,7 @@ themes      : ['Default']
     <div class="example">
       <h3 class="ui header">Title</h3>
       <p>A popup can be formatted with a title</p>
-      <img src="/images/demo/photo.jpg" data-title="PonyDog22" data-content="Ponydog has been a member for 22 days" class="ui avatar image"> PonyDog22
+      <img src="/images/demo/avatar.jpg" data-title="PonyDog22" data-content="Ponydog has been a member for 22 days" class="ui avatar image"> PonyDog22
     </div>
 
     <div class="example">
@@ -54,9 +54,10 @@ themes      : ['Default']
 
     <div class="example">
       <h3 class="ui header">Size</h3>
-      <p>A popup can be large or small</p>
+      <p>A popup can vary in size</p>
       <i class="circular heart icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
       <i class="circular heart icon link" data-content="Hello. This is a large popup" data-variation="large"></i>
+      <i class="circular heart icon link" data-content="Hello. This is a huge popup" data-variation="huge"></i>
     </div>
 
     <div class="example">
@@ -202,7 +203,7 @@ themes      : ['Default']
       <div class="evaluated code">
     $('.test.button')
       .popup({
-        position : 'top right',
+        position : 'right center',
         target   : '.test.image',
         title    : 'My favorite dog',
         content  : 'My favorite dog would like other dogs as much as themselves'
