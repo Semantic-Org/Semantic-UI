@@ -3,9 +3,10 @@
 *******************************/
 
 /*-------------------
-      Collection
+       Element
 --------------------*/
 
+@margin: 1em 0em;
 @borderCollapse: separate;
 @borderSpacing: 0px;
 @transition: all 0.2s @defaultEasing;
@@ -16,7 +17,7 @@
 @boxShadow: none;
 
 /*--------------
-    Elements
+     Parts
 ---------------*/
 
 /* Table Row */
@@ -142,7 +143,7 @@
 
 /* Colors */
 @coloredBorderSize: 0.2em;
-@coloredBorderRadius: 0em;
+@coloredBorderRadius: @borderRadius;
 
 /* Inverted */
 @invertedBackground: #333333;
