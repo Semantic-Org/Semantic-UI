@@ -30,7 +30,7 @@
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
 
-  <% if 'zzz' in @getEnvironments(): %>
+  <% if 'development' in @getEnvironments(): %>
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/globals/reset.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/globals/site.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/icon.css">

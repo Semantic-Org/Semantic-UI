@@ -131,7 +131,7 @@ type        : 'UI Behavior'
     </h3>
     <div class="ui info message">Validation rules are found in <code>settings.rules</code>, to add new global validation rules, modify <code>$.fn.form.settings.rules</code> to include your function.</div>
     <div class="in red message">To pass parameters to a rule, use bracket notation in your settings object. For example <code>type: 'not[dog]'</code></div>
-    <table class="ui teal celled sortable definition table segment">
+    <table class="ui teal celled sortable definition table">
       <thead>
         <th class="four wide">Name</th>
         <th>Arguments</th>
@@ -366,7 +366,7 @@ type        : 'UI Behavior'
 
     All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax <code>$('.foo').form('behavior name', argumentOne, argumentTwo)</code>
 
-    <table class="ui definition celled table segment">
+    <table class="ui definition celled table">
       <tr>
         <td>submit</td>
         <td>Submits selected form</td>
@@ -404,7 +404,7 @@ type        : 'UI Behavior'
       <div class="sub header">Form settings modify the form validation behavior</div>
     </h3>
 
-    <table class="ui celled sortable definition table segment">
+    <table class="ui celled sortable definition table">
       <thead>
         <th>Setting</th>
         <th class="four wide">Default</th>
@@ -458,7 +458,7 @@ type        : 'UI Behavior'
       <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
     </h3>
 
-    <table class="ui celled definition table segment">
+    <table class="ui celled definition table">
       <thead>
         <th class="four wide">Setting</th>
         <th>Context</th>
@@ -495,7 +495,7 @@ type        : 'UI Behavior'
       <div class="sub header">Templates are used to construct elements</div>
     </h3>
     <div class="ui info message">Templates are found in <code>settings.template</code>, to modify templates across all forms, modify <code>$.fn.form.settings.templates</code> to include your function. They must return html.</div>
-    <table class="ui celled definition table segment">
+    <table class="ui celled definition table">
       <thead>
         <th class="four wide">Template</th>
         <th>Arguments</th>
@@ -521,7 +521,7 @@ type        : 'UI Behavior'
       DOM Settings
       <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
     </h3>
-    <table class="ui celled definition table segment">
+    <table class="ui celled definition table">
       <thead>
         <th>Setting</th>
         <th class="six wide">Default</th>
@@ -587,7 +587,7 @@ type        : 'UI Behavior'
       <div class="sub header">Debug settings controls debug output to the console</div>
     </h3>
 
-    <table class="ui celled sortable definition table segment">
+    <table class="ui celled sortable definition table">
       <thead>
         <th>Setting</th>
         <th class="four wide">Default</th>

@@ -57,7 +57,7 @@
 @iconSize: 2em;
 @iconOpacity: 0.8;
 @iconDistance: 1.5em;
-@iconVerticalAlign: top;
+@iconVerticalAlign: middle;
 
 /* Attached */
 @attachedOffset: -1px;
