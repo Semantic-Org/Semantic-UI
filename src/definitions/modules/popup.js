@@ -80,7 +80,7 @@ $.fn.popup = function(parameters) {
               .on('click', module.toggle)
             ;
           }
-          else {
+          else if( module.get.startEvent() ) {
             $module
               .on(module.get.startEvent() + eventNamespace, module.event.start)
               .on(module.get.endEvent() + eventNamespace, module.event.end)
@@ -370,6 +370,7 @@ $.fn.popup = function(parameters) {
             else if(settings.on == 'focus') {
               return 'focus';
             }
+            return false;
           },
           endEvent: function() {
             if(settings.on == 'hover') {
@@ -378,6 +379,7 @@ $.fn.popup = function(parameters) {
             else if(settings.on == 'focus') {
               return 'blur';
             }
+            return false;
           },
           offstagePosition: function() {
             var
@@ -851,8 +853,8 @@ $.fn.popup.settings = {
   context        : 'body',
   position       : 'top center',
   delay          : {
-    show : 100,
-    hide : 100
+    show : 50,
+    hide : 0
   },
 
   target         : false,
