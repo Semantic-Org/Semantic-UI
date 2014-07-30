@@ -374,7 +374,7 @@ $.fn.form = function(fields, parameters) {
             });
             if(allValid) {
               module.debug('Form has no validation errors, submitting');
-              module.set.error();
+              module.set.success();
               return $.proxy(settings.onSuccess, this)(event);
             }
             else {
