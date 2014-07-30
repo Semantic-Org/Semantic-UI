@@ -624,6 +624,7 @@ body.guide .main.container > * {
   position: absolute;
   margin: 0em;
   width: auto;
+  font-size: 1.5em;
   height: auto;
   padding: 0.5em !important;
 }

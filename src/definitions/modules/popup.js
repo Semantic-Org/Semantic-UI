@@ -485,10 +485,10 @@ $.fn.popup = function(parameters) {
             switch(position) {
               case 'top left':
                 positioning = {
-                  bottom :  parentHeight - offset.top + distanceAway,
-                  right  :  parentWidth - offset.left - arrowOffset,
                   top    : 'auto',
-                  left   : 'auto'
+                  bottom : parentHeight - offset.top + distanceAway,
+                  left   : offset.left + arrowOffset,
+                  right  : 'auto'
                 };
               break;
               case 'top center':
@@ -501,10 +501,10 @@ $.fn.popup = function(parameters) {
               break;
               case 'top right':
                 positioning = {
+                  bottom :  parentHeight - offset.top + distanceAway,
+                  right  :  parentWidth - offset.left - width - arrowOffset,
                   top    : 'auto',
-                  bottom : parentHeight - offset.top + distanceAway,
-                  left   : offset.left + width + arrowOffset,
-                  right  : 'auto'
+                  left   : 'auto'
                 };
               break;
               case 'left center':
@@ -526,9 +526,9 @@ $.fn.popup = function(parameters) {
               case 'bottom left':
                 positioning = {
                   top    : offset.top + height + distanceAway,
-                  right  : parentWidth - offset.left - arrowOffset,
-                  left   : 'auto',
-                  bottom : 'auto'
+                  left   : offset.left + arrowOffset,
+                  bottom : 'auto',
+                  right  : 'auto'
                 };
               break;
               case 'bottom center':
@@ -542,9 +542,9 @@ $.fn.popup = function(parameters) {
               case 'bottom right':
                 positioning = {
                   top    : offset.top + height + distanceAway,
-                  left   : offset.left + width + arrowOffset,
-                  bottom : 'auto',
-                  right  : 'auto'
+                  right  : parentWidth - offset.left  - width - arrowOffset,
+                  left   : 'auto',
+                  bottom : 'auto'
                 };
               break;
             }

@@ -5,7 +5,13 @@ css         : 'popup'
 title       : 'Popup'
 description : 'A popup displays additional information on top of a page element'
 type        : 'UI Module'
+
+element     : 'popup'
+elementType : 'module'
+
+themes      : ['Default']
 ---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/popup.less" />
 <script src="/javascript/popup.js"></script>
 
 <%- @partial('header', { tabs: 'module' }) %>

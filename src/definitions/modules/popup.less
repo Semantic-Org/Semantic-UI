@@ -105,31 +105,31 @@
   left: 50%;
   right: auto;
   bottom: auto;
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: @bottomArrowBoxShadow;
 }
 
 .ui.bottom.left.popup {
-  margin-right: @boxArrowOffset;
-}
-.ui.bottom.left.popup:before {
-  top: @arrowOffset;
-  right: @arrowDistanceFromEdge;
-  bottom: auto;
-  left: auto;
-  margin-left: 0em;
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.ui.bottom.right.popup {
   margin-left: @boxArrowOffset;
 }
-.ui.bottom.right.popup:before {
+.ui.bottom.left.popup:before {
   top: @arrowOffset;
   left: @arrowDistanceFromEdge;
   right: auto;
   bottom: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: @bottomArrowBoxShadow;
+}
+
+.ui.bottom.right.popup {
+  margin-right: @boxArrowOffset;
+}
+.ui.bottom.right.popup:before {
+  top: @arrowOffset;
+  right: @arrowDistanceFromEdge;
+  bottom: auto;
+  left: auto;
+  margin-left: 0em;
+  box-shadow: @bottomArrowBoxShadow;
 }
 
 /*--- Above ---*/
@@ -141,23 +141,23 @@
   margin-left: @arrowOffset;
 }
 .ui.top.left.popup {
-  margin-right: @boxArrowOffset;
-}
-.ui.top.left.popup:before {
-  bottom: @arrowOffset;
-  right: @arrowDistanceFromEdge;
-  top: auto;
-  left: auto;
-  margin-left: 0em;
-}
-.ui.top.right.popup {
   margin-left: @boxArrowOffset;
 }
-.ui.top.right.popup:before {
+.ui.top.left.popup:before {
   bottom: @arrowOffset;
   left: @arrowDistanceFromEdge;
   top: auto;
   right: auto;
+  margin-left: 0em;
+}
+.ui.top.right.popup {
+  margin-right: @boxArrowOffset;
+}
+.ui.top.right.popup:before {
+  bottom: @arrowOffset;
+  right: @arrowDistanceFromEdge;
+  top: auto;
+  left: auto;
   margin-left: 0em;
 }
 
@@ -188,7 +188,7 @@
 .ui.loading.popup {
   display: block;
   visibility: hidden;
-  z-index: -1;
+  z-index: @loadingZIndex;
 }
 
 .ui.animating.popup,
@@ -202,34 +202,22 @@
 *******************************/
 
 /*--------------
-      Size
----------------*/
-
-.ui.small.popup {
-  font-size: 0.75rem;
-}
-.ui.large.popup {
-  font-size: 1rem;
-}
-
-
-/*--------------
      Colors
 ---------------*/
 
 /* Inverted colors  */
 .ui.inverted.popup {
-  background-color: #333333;
-  border: none;
-  color: #FFFFFF;
-  box-shadow: none;
+  background: @invertedBackground;
+  color: @invertedColor;
+  border: @invertedBorder;
+  box-shadow: @invertedBoxShadow;
 }
 .ui.inverted.popup .header {
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #FFFFFF;
+  background-color: @invertedHeaderBackground;
+  color: @invertedHeaderColor;
 }
 .ui.inverted.popup:before {
-  background-color: #333333;
+  background-color: @invertedArrowColor;
   box-shadow: none;
 }
 
@@ -237,8 +225,14 @@
      Sizes
 ---------------*/
 
+.ui.small.popup {
+  font-size: @small;
+}
 .ui.popup {
   font-size: @medium;
+}
+.ui.large.poup {
+  font-size: @large;
 }
 
 .loadUIOverrides();

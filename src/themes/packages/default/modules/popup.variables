@@ -20,15 +20,17 @@
 @fontStyle: normal;
 @borderRadius: 0.2em;
 
-/* Placement */
-@popupDistanceAway: @arrowSize;
-@arrowDistanceFromEdge: 1em;
-@boxArrowOffset: -5em;
-
-
 /*-------------------
        Parts
 --------------------*/
+
+/* Placement */
+@arrowSize: 0.75em;
+@arrowWidth: 1em;
+@arrowDistanceFromEdge: 1em;
+@boxArrowOffset: 0em;
+@popupDistanceAway: @arrowSize;
+
 
 /* Header */
 @headerFontFamily: @headerFont;
@@ -36,13 +38,10 @@
 @headerDistance: 0.5em;
 @headerLineHeight: 1.2;
 
-
-
-@arrowSize: 0.75em;
+/* Arrow */
 @arrowBackground: @white;
 @arrowZIndex: 2;
-
-@arrowOffset: -0.4em;
+@arrowOffset: -(@arrowSize / 2);
 
 @arrowShadowColor: rgba(0, 0, 0, 0.2);
 @arrowStroke: 1px;
@@ -50,6 +49,7 @@
 @arrowBoxShadow: 1px 1px @arrowStroke @arrowShadowColor;
 @leftArrowBoxShadow: 1px -1px @arrowStroke @arrowShadowColor;
 @rightArrowBoxShadow: -1px 1px @arrowStroke @arrowShadowColor;
+@bottomArrowBoxShadow: -1px -1px @arrowStroke @arrowShadowColor;
 
 /*-------------------
        Coupling
@@ -57,5 +57,27 @@
 
 @popupButtonWidth: 100%;
 
+/*-------------------
+       States
+--------------------*/
+
+@loadingZIndex: -1;
+
+/*-------------------
+       Variations
+--------------------*/
+
+/* Inverted */
+@invertedBackground: @black;
+@invertedColor: @white;
+@invertedBorder: none;
+@invertedBoxShadow: none;
+
+@invertedHeaderBackground: rgba(0, 0, 0, 0.2);
+@invertedHeaderColor: @white;
+@invertedArrowColor: @black;
+
 /* Sizes */
+@small: 0.8rem;
 @medium: 0.875rem;
+@large: 1rem;
