@@ -27,47 +27,44 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  z-index: 900;
+  z-index: @zIndex;
 
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  max-width: 250px;
-  background-color: #FFFFFF;
+  border: @border;
+  max-width: @maxWidth;
+  background-color: @background;
 
-  padding: 0.8em 1.2em;
-  font-size: 0.875rem;
-  font-weight: normal;
-  font-style: normal;
-  color: rgba(0, 0, 0, 0.7);
+  padding: @verticalPadding @horizontalPadding;
+  font-weight: @fontWeight;
+  font-style: @fontStyle;
+  color: @color;
 
-  border-radius: 0.2em;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: @borderRadius;
+  box-shadow: @boxShadow;
 }
 .ui.popup .header {
-  padding: 0em 0em 0.5em;
+  padding: 0em 0em @headerDistance;
 
-  font-size: 1.125em;
-  line-height: 1.2;
+  font-family: @headerFont;
+  font-size: @headerFontSize;
+  line-height: @headerLineHeight;
   font-weight: bold;
 }
 
 .ui.popup:before {
   position: absolute;
-  content: "";
-  width: 0.75em;
-  height: 0.75rem;
+  content: '';
+  width: @arrowSize;
+  height: @arrowSize;
 
-  background-image: none;
-  background-color: #FFFFFF;
-
+  background: @arrowBackground;
   transform: rotate(45deg);
 
-  z-index: 2;
-  box-sizing: border-box;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  z-index: @arrowZIndex;
+  box-shadow: @arrowBoxShadow;
 }
 
 .ui.popup .ui.button {
-  width: 100%;
+  width: @popupButtonWidth;
 }
 
 /*******************************
@@ -82,16 +79,16 @@
   margin: 0em;
 }
 .ui.popup.bottom {
-  margin: 0.75em 0em 0em;
+  margin: @popupDistanceAway 0em 0em;
 }
 .ui.popup.top {
-  margin: 0em 0em 0.75em;
+  margin: 0em 0em @popupDistanceAway;
 }
 .ui.popup.left.center {
-  margin: 0em 0.75em 0em 0em;
+  margin: 0em @popupDistanceAway 0em 0em;
 }
 .ui.popup.right.center {
-  margin: 0em 0em 0em 0.75em;
+  margin: 0em 0em 0em @popupDistanceAway;
 }
 .ui.popup.center {
   margin-left: -1.25em;
@@ -103,8 +100,8 @@
 
 /*--- Below ---*/
 .ui.bottom.center.popup:before {
-  margin-left: -0.4em;
-  top: -0.4em;
+  margin-left: @arrowOffset;
+  top: @arrowOffset;
   left: 50%;
   right: auto;
   bottom: auto;
@@ -112,11 +109,11 @@
 }
 
 .ui.bottom.left.popup {
-  margin-right: -2em;
+  margin-right: @boxArrowOffset;
 }
 .ui.bottom.left.popup:before {
-  top: -0.4em;
-  right: 1em;
+  top: @arrowOffset;
+  right: @arrowDistanceFromEdge;
   bottom: auto;
   left: auto;
   margin-left: 0em;
@@ -124,11 +121,11 @@
 }
 
 .ui.bottom.right.popup {
-  margin-left: -2em;
+  margin-left: @boxArrowOffset;
 }
 .ui.bottom.right.popup:before {
-  top: -0.4em;
-  left: 1em;
+  top: @arrowOffset;
+  left: @arrowDistanceFromEdge;
   right: auto;
   bottom: auto;
   margin-left: 0em;
@@ -139,26 +136,26 @@
 .ui.top.center.popup:before {
   top: auto;
   right: auto;
-  bottom: -0.4em;
+  bottom: @arrowOffset;
   left: 50%;
-  margin-left: -0.4em;
+  margin-left: @arrowOffset;
 }
 .ui.top.left.popup {
-  margin-right: -2em;
+  margin-right: @boxArrowOffset;
 }
 .ui.top.left.popup:before {
-  bottom: -0.4em;
-  right: 1em;
+  bottom: @arrowOffset;
+  right: @arrowDistanceFromEdge;
   top: auto;
   left: auto;
   margin-left: 0em;
 }
 .ui.top.right.popup {
-  margin-left: -2em;
+  margin-left: @boxArrowOffset;
 }
 .ui.top.right.popup:before {
-  bottom: -0.4em;
-  left: 1em;
+  bottom: @arrowOffset;
+  left: @arrowDistanceFromEdge;
   top: auto;
   right: auto;
   margin-left: 0em;
@@ -167,21 +164,21 @@
 /*--- Left Center ---*/
 .ui.left.center.popup:before {
   top: 50%;
-  right: -0.35em;
+  right: @arrowOffset;
   bottom: auto;
   left: auto;
-  margin-top: -0.4em;
-  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  margin-top: @arrowOffset;
+  box-shadow: @leftArrowBoxShadow;
 }
 
 /*--- Right Center  ---*/
 .ui.right.center.popup:before {
   top: 50%;
-  left: -0.35em;
+  left: @arrowOffset;
   bottom: auto;
   right: auto;
-  margin-top: -0.4em;
-  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+  margin-top: @arrowOffset;
+  box-shadow: @rightArrowBoxShadow;
 }
 
 /*******************************
@@ -234,6 +231,14 @@
 .ui.inverted.popup:before {
   background-color: #333333;
   box-shadow: none;
+}
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.popup {
+  font-size: @medium;
 }
 
 .loadUIOverrides();

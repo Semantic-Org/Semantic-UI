@@ -78,6 +78,7 @@
 
   <!-- <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/site.less" /> -->
 
+  <link rel="stylesheet" type="text/css" href="/stylesheets/doc-icon.css">
   <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
 
   <% if 'development' in @getEnvironments(): %>
@@ -228,15 +229,18 @@
         </div>
         <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
         <a class="popup designer icon item" data-content="Designer Mode">
-          <i class="tint icon"></i>
+          <i class="docs designer icon"></i>
         </a>
         <a class="popup developer icon item" data-content="Developer Mode">
-          <i class="terminal icon"></i>
+          <i class="docs developer icon"></i>
         </a>
         <% end %>
-        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
-          <i class="icon github"></i>
+        <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/quirkyinc/semantic">
+          <i class="alternate github icon"></i>
         </a>
+      <!--   <a class="popup localization icon item" data-content="International">
+          <i class="docs globe icon"></i>
+        </a> -->
       </div>
     </div>
   </div>

@@ -362,7 +362,7 @@ semantic.ready = function() {
         $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
-        $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $demo       = $example.children().not($header).not('.ui.popup, i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         code        = $example.data('code') || $.proxy(handler.generateCode, this)()
       ;
 

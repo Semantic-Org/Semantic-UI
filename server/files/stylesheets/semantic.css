@@ -1104,6 +1104,7 @@ body.guide .main.container > * {
 #example .example i.code {
   cursor: pointer;
   position: absolute;
+
   top: 2em;
   right: 0px;
   opacity: 0.2;
@@ -1116,6 +1117,10 @@ body.guide .main.container > * {
   -o-transition: opacity 0.3s ease-out;
   -ms-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
+}
+#example .example i.code:before {
+  font-family: 'Docs';
+  content: "\f05f";
 }
 
 #example .example:hover i.code {
