@@ -335,12 +335,19 @@ themes      : ['Default']
         <tr>
           <td>on</td>
           <td>hover</td>
-          <td>Event used to trigger popup. Can be either <b>focus, click or hover</b></td>
+          <td>Event used to trigger popup. Can be either <b>focus, click, hover, or manual</b>. Manul popups must be triggered with <code>$('.element').popup('show');</code></td>
         </tr>
         <tr>
           <td>delay</td>
-          <td>150</td>
-          <td>Delay in milliseconds before showing a popup when using hover or focus events.</td>
+          <td>
+            <div class="code">
+    delay: {
+      show: 50,
+      hide: 0
+    }
+            </div>
+          </td>
+          <td>Delay in milliseconds before showing or hiding a popup on hover or focus</td>
         </tr>
         <tr>
           <td>transition</td>
