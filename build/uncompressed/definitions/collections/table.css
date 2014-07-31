@@ -130,10 +130,10 @@
              Table
 *******************************/
 /*-------------------
-      Collection
+       Element
 --------------------*/
 /*--------------
-    Elements
+     Parts
 ---------------*/
 /* Table Row */
 /* Table Cell */
@@ -184,6 +184,7 @@
 .ui.table {
   width: 100%;
   background: #ffffff;
+  margin: 1em 0em;
   border: 1px solid #dddddd;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -449,39 +450,39 @@
 --------------------*/
 .ui.black.table {
   border-top: 0.2em solid #333333;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 .ui.blue.table {
   border-top: 0.2em solid #0074d9;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 .ui.green.table {
   border-top: 0.2em solid #2ecc40;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 .ui.orange.table {
   border-top: 0.2em solid #ff851b;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 .ui.pink.table {
   border-top: 0.2em solid #d9499a;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 .ui.purple.table {
   border-top: 0.2em solid #564f8a;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 .ui.red.table {
   border-top: 0.2em solid #ff4136;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 .ui.teal.table {
   border-top: 0.2em solid #39cccc;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 .ui.yellow.table {
   border-top: 0.2em solid #ffcb08;
-  border-radius: 0em;
+  border-radius: 0.25rem;
 }
 /*-------------------
    Inverted Colors

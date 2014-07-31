@@ -1,3 +1,84 @@
 /*******************************
              Popup
 *******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@zIndex: 900;
+@background: @white;
+
+@maxWidth: 250px;
+@border: 1px solid rgba(0, 0, 0, 0.1);
+@boxShadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+@color: @textColor;
+
+@verticalPadding: 0.8em;
+@horizontalPadding: 1.2em;
+@fontWeight: normal;
+@fontStyle: normal;
+@borderRadius: 0.2em;
+
+/*-------------------
+       Parts
+--------------------*/
+
+/* Placement */
+@arrowSize: 0.75em;
+@arrowWidth: 1em;
+@arrowDistanceFromEdge: 1em;
+@boxArrowOffset: 0em;
+@popupDistanceAway: @arrowSize;
+
+
+/* Header */
+@headerFontFamily: @headerFont;
+@headerFontSize: 1.125em;
+@headerDistance: 0.5em;
+@headerLineHeight: 1.2;
+
+/* Arrow */
+@arrowBackground: @white;
+@arrowZIndex: 2;
+@arrowOffset: -(@arrowSize / 2);
+
+@arrowShadowColor: rgba(0, 0, 0, 0.2);
+@arrowStroke: 1px;
+
+@arrowBoxShadow: 1px 1px @arrowStroke @arrowShadowColor;
+@leftArrowBoxShadow: 1px -1px @arrowStroke @arrowShadowColor;
+@rightArrowBoxShadow: -1px 1px @arrowStroke @arrowShadowColor;
+@bottomArrowBoxShadow: -1px -1px @arrowStroke @arrowShadowColor;
+
+/*-------------------
+       Coupling
+--------------------*/
+
+@popupButtonWidth: 100%;
+
+/*-------------------
+       States
+--------------------*/
+
+@loadingZIndex: -1;
+
+/*-------------------
+       Variations
+--------------------*/
+
+/* Inverted */
+@invertedBackground: @black;
+@invertedColor: @white;
+@invertedBorder: none;
+@invertedBoxShadow: none;
+
+@invertedHeaderBackground: rgba(0, 0, 0, 0.2);
+@invertedHeaderColor: @white;
+@invertedArrowColor: @black;
+
+/* Sizes */
+@small: 0.8rem;
+@medium: 0.875rem;
+@large: 1rem;
+@huge: 1.1rem;

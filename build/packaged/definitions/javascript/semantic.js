@@ -1464,7 +1464,7 @@ $.fn.form = function(fields, parameters) {
             });
             if(allValid) {
               module.debug('Form has no validation errors, submitting');
-              module.set.error();
+              module.set.success();
               return $.proxy(settings.onSuccess, this)(event);
             }
             else {
@@ -8827,7 +8827,7 @@ $.fn.popup = function(parameters) {
               .on('click', module.toggle)
             ;
           }
-          else {
+          else if( module.get.startEvent() ) {
             $module
               .on(module.get.startEvent() + eventNamespace, module.event.start)
               .on(module.get.endEvent() + eventNamespace, module.event.end)
@@ -8872,9 +8872,6 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
-          $window
-            .off(eventNamespace)
-          ;
           $popup
             .remove()
           ;
@@ -8939,6 +8936,11 @@ $.fn.popup = function(parameters) {
               .addClass(variation)
               .html(html)
             ;
+            if(variation) {
+              $popup
+                .addClass(variation)
+              ;
+            }
             if(settings.inline) {
               module.verbose('Inserting popup element inline', $popup);
               $popup
@@ -9115,6 +9117,7 @@ $.fn.popup = function(parameters) {
             else if(settings.on == 'focus') {
               return 'focus';
             }
+            return false;
           },
           endEvent: function() {
             if(settings.on == 'hover') {
@@ -9123,6 +9126,7 @@ $.fn.popup = function(parameters) {
             else if(settings.on == 'focus') {
               return 'blur';
             }
+            return false;
           },
           offstagePosition: function() {
             var
@@ -9232,10 +9236,10 @@ $.fn.popup = function(parameters) {
             switch(position) {
               case 'top left':
                 positioning = {
-                  bottom :  parentHeight - offset.top + distanceAway,
-                  right  :  parentWidth - offset.left - arrowOffset,
                   top    : 'auto',
-                  left   : 'auto'
+                  bottom : parentHeight - offset.top + distanceAway,
+                  left   : offset.left + arrowOffset,
+                  right  : 'auto'
                 };
               break;
               case 'top center':
@@ -9248,10 +9252,10 @@ $.fn.popup = function(parameters) {
               break;
               case 'top right':
                 positioning = {
+                  bottom :  parentHeight - offset.top + distanceAway,
+                  right  :  parentWidth - offset.left - width - arrowOffset,
                   top    : 'auto',
-                  bottom : parentHeight - offset.top + distanceAway,
-                  left   : offset.left + width + arrowOffset,
-                  right  : 'auto'
+                  left   : 'auto'
                 };
               break;
               case 'left center':
@@ -9273,9 +9277,9 @@ $.fn.popup = function(parameters) {
               case 'bottom left':
                 positioning = {
                   top    : offset.top + height + distanceAway,
-                  right  : parentWidth - offset.left - arrowOffset,
-                  left   : 'auto',
-                  bottom : 'auto'
+                  left   : offset.left + arrowOffset,
+                  bottom : 'auto',
+                  right  : 'auto'
                 };
               break;
               case 'bottom center':
@@ -9289,9 +9293,9 @@ $.fn.popup = function(parameters) {
               case 'bottom right':
                 positioning = {
                   top    : offset.top + height + distanceAway,
-                  left   : offset.left + width + arrowOffset,
-                  bottom : 'auto',
-                  right  : 'auto'
+                  right  : parentWidth - offset.left  - width - arrowOffset,
+                  left   : 'auto',
+                  bottom : 'auto'
                 };
               break;
             }
@@ -9585,7 +9589,7 @@ $.fn.popup.settings = {
   onShow         : function(){},
   onHide         : function(){},
 
-  variation      : '',
+  variation      : false,
   content        : false,
   html           : false,
   title          : false,
@@ -9596,8 +9600,8 @@ $.fn.popup.settings = {
   context        : 'body',
   position       : 'top center',
   delay          : {
-    show : 100,
-    hide : 100
+    show : 50,
+    hide : 0
   },
 
   target         : false,

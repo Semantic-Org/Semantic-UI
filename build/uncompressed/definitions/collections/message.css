@@ -308,7 +308,7 @@
 }
 .ui.icon.message > .icon:not(.close) {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
   font-size: 2em;
   opacity: 0.8;
 }
@@ -317,7 +317,7 @@
 }
 .ui.icon.message > .content {
   display: table-cell;
-  vertical-align: top;
+  vertical-align: middle;
 }
 /*--------------
     Floating

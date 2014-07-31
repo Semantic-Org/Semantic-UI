@@ -1,3 +1,140 @@
 /*******************************
-           Dropdown
+            Dropdown
 *******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@lineHeight: 1;
+@transition:
+  border-radius 0.1s ease,
+  width 0.2s ease
+;
+@borderRadius: 0.325em;
+
+/*-------------------
+       Content
+--------------------*/
+
+/* Icon */
+@dropdownIconMargin: 0em 0em 0em 1em;
+
+@dropdownSubMenuIconFloat: right;
+@dropdownSubMenuIconMargin: 0em 0em 0em 0.5em;
+
+/* Current Text */
+@textTransition: color 0.2s @defaultEasing;
+
+/* Menu */
+@menuBackground: #FFFFFF;
+@menuMargin: 0em;
+@menuTop: 100%;
+@menuWrap: nowrap;
+@menuBoxShadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+@menuBorderRadius: 0em 0em @borderRadius @borderRadius;
+@menuTransition: opacity 0.2s ease;
+@menuZIndex: 11;
+
+/* Menu Item */
+@itemFontSize: 1rem;
+@itemBorder: none;
+@itemHeight: auto;
+@itemDivider: 1px solid @borderColor;
+@itemColor: @textColor;
+@itemVerticalPadding: 0.85em;
+@itemHorizontalPadding: 1em;
+@itemFontWeight: normal;
+@itemTextAlign: left;
+@itemTextTransform: none;
+@itemBoxShadow: none;
+
+/* Menu Item Icon */
+@itemIconMargin: 0em 0.75em 0em 0em;
+
+/* Sub Menu */
+@subMenuTop: 0%;
+@subMenuLeft: 100%;
+@subMenuRight: auto;
+@subMenuMargin: 0em;
+@subMenuBorderRadius: 0em @borderRadius @borderRadius 0em;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Selection */
+@selectionBackground: @white;
+@selectionDisplay: inline-block;
+@selectionVerticalPadding: 0.65em;
+@selectionHorizontalPadding: 1em;
+@selectionTextColor: @textColor;
+@selectionBoxShadow: 0px 0px 0px 1px @borderColor;
+@selectionBorderRadius: @borderRadius;
+@selectionIconOpacity: 0.8;
+@selectionIconTransition: opacity 0.2s ease;
+@selectionIconMargin: 0em 0em 0em 1em;
+@selectionMenuMaxHeight: 312px;
+@selectionMenuBoxShadow: 0px 1px 0px 1px #E0E0E0;
+@selectionMenuItemBoxShadow: none;
+
+/* Selection Hover */
+@selectionHoverBoxShadow: 0px 0px 0px 1px @selectedBorderColor;
+@selectionHoverMenuBoxShadow: 0px 1px 0px 1px #D3D3D3;
+@selectionHoverIconOpacity: 1;
+
+@selectionVisibleConnectingBorder: 0em;
+@selectionActiveIconOpacity: 1;
+
+/* Inline */
+@inlineIconMargin: 0em 0.5em 0em 0.25em;
+@inlineTextColor: inherit;
+@inlineTextFontWeight: bold;
+@inlineMenuDistance: 0.25em;
+@inlineMenuBorderRadius: @borderRadius;
+
+/*-------------------
+       States
+--------------------*/
+
+/* Default Text */
+@defaultTextColor: rgba(179, 179, 179, 0.7);
+@defaultTextHoverColor: rgba(140, 140, 140, 0.7);
+
+/* Active Menu Item */
+@activeItemBackground: @transparentBlack;
+@activeItemZIndex: @menuZIndex + 1;
+@activeItemBoxShadow: none;
+@activeItemFontWeight: bold;
+@activeItemColor: @selectedTextColor;
+
+/* Menu Error */
+
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Simple */
+@simpleTransitionDuration: 0.2s;
+@simpleTransition: opacity @simpleTransitionDuration @defaultEasing;
+
+/* Floating */
+@floatingMenuDistance: 0.5em;
+@floatingMenuBoxShadow:
+  0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset,
+  0px 2px 5px 0px rgba(0, 0, 0, 0.15)
+;
+@floatingMenuBorderRadius: @borderRadius;
+
+/* Pointing */
+@pointingArrowOffset: -0.25em;
+@pointingArrowDistanceFromEdge: 1em;
+
+@pointingArrowBackground: @white;
+@pointingArrowZIndex: 2;
+@pointingArrowBoxShadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
+@pointingArrowSize: 0.5em;
+
+@pointingMenuDistance: 0.75em;
+@pointingMenuBorderRadius: @borderRadius;
