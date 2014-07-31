@@ -22,7 +22,6 @@
 /* Input */
 @inputWidth: 100%;
 @inputFontSize: 1em;
-@inputColor: @textColor;
 
 @inputVerticalPadding: 0.65em;
 @inputHorizontalPadding: 1em;

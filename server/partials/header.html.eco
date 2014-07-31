@@ -4,7 +4,7 @@
   <div class="container">
     <div class="introduction">
 
-      <h1 class="ui header">
+      <h1 class="ui dividing header">
         <%=@document.title %>
         <% if @document.status?: %><span class="ui label"><%= @document.status %></span><% end %>
       </h1>
