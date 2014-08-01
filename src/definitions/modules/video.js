@@ -1,12 +1,13 @@
-/*  ******************************
-  Module - Video
-  Author: Jack Lukic
-
-  This is a video playlist and video embed plugin which helps
-  provide helpers for adding embed code for vimeo and youtube and
-  abstracting event handlers for each library
-
-******************************  */
+ /*
+ * # Semantic - Video
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ($, window, document, undefined) {
 
