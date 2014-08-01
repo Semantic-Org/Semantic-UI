@@ -68,10 +68,8 @@
 @replyDistance: 2em;
 @replyHeight: 12em;
 @replyFontSize: 1em;
-@replyMaxWidth: 40em;
 
 @commentReplyDistance: @replyDistance;
-@commentReplyMaxWidth: 30em;
 
 /*-------------------
       Variations

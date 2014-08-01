@@ -292,8 +292,8 @@ themes      : ['Default']
             <a class="reply">Reply</a>
           </div>
         </div>
-        <div class="comments">
-          <div class="collapsed comment">
+        <div class="collapsed comments">
+          <div class="comment">
             <a class="avatar">
               <img src="/images/demo/avatar2.jpg">
             </a>
