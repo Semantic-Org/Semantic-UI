@@ -5,15 +5,23 @@ css         : 'comment'
 title       : 'Comment'
 description : 'A comment view is used to display lists of user feedback to site content'
 type        : 'UI View'
+
+element     : 'comment'
+elementType : 'view'
+
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/views/comment.less" />
+
 <div class="main container">
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Types</a>
       <a class="item">Content</a>
+      <a class="item">State</a>
       <a class="item">Variations</a>
     </div>
   </div>
@@ -23,79 +31,89 @@ type        : 'UI View'
   <div class="example">
     <h4 class="ui header">Comments</h4>
     <p>A basic list of comments</p>
-
-    <div class="ui two column grid">
-      <div class="column">
-        <div class="ui piled blue segment">
-          <h2 class="ui header">
-            <i class="icon inverted circular blue comment"></i> Comments
-          </h2>
-          <div class="ui comments">
-            <div class="comment">
-              <a class="avatar">
-                <img src="/images/demo/avatar.jpg">
-              </a>
-              <div class="content">
-                <a class="author">Dog Doggington</a>
-                <div class="metadata">
-                  <span class="date">2 days ago</span>
-                </div>
-                <div class="text">
-                  I think this is a great idea and i am voting on it
-                </div>
-                <div class="actions">
-                  <a class="reply">Reply</a>
-                  <a class="delete">Delete</a>
-                </div>
-              </div>
-            </div>
-            <div class="comment">
-              <a class="avatar">
-                <img src="/images/demo/avatar2.jpg">
-              </a>
-              <div class="content">
-                <a class="author">Pawfin Dog</a>
-                <div class="metadata">
-                  <span class="date">2 days ago</span>
-                </div>
-                <div class="text">
-                  I think this is a great idea and i am voting on it
-                </div>
-                <div class="actions">
-                  <a class="reply">Reply</a>
-                  <a class="delete">Delete</a>
-                </div>
-              </div>
-            </div>
-            <div class="comment">
-              <a class="avatar">
-                <img src="/images/demo/avatar.jpg">
-              </a>
-              <div class="content">
-                <a class="author">Dog Doggington</a>
-                <div class="metadata">
-                  <span class="date">2 days ago</span>
-                </div>
-                <div class="text">
-                  I think this is a great idea and i am voting on it
-                </div>
-                <div class="actions">
-                  <a class="reply">Reply</a>
-                  <a class="delete">Delete</a>
-                </div>
-              </div>
-            </div>
-            <form class="ui reply form">
-              <div class="field">
-                <textarea></textarea>
-              </div>
-              <div class="ui fluid blue labeled submit icon button">
-                <i class="icon edit"></i> Add Reply
-              </div>
-            </form>
+    <h2 class="ui header">
+      <i class="comment icon"></i> Comments
+    </h2>
+    <div class="ui comments">
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/avatar.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Dog Doggington</a>
+          <div class="metadata">
+            <span class="date">Today at 5:42PM</span>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
           </div>
         </div>
       </div>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/avatar2.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Pawfin Dog</a>
+          <div class="metadata">
+            <span class="date">Yesterday at 12:30AM</span>
+          </div>
+          <div class="text">
+            <p>This is against my beliefs, and the beliefs of other dogs like me. Dogs aren't cats and cats aren't dogs, the two should never be mistaken. I'm sure the creator of this post would mistake a cat for a dog.</p>
+            <p>I however and dogs like me, would never want to listen to someone who sympathizes so much with cats. Who likes cats anyway.</p>
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+        <div class="comments">
+          <div class="comment">
+            <a class="avatar">
+              <img src="/images/demo/avatar.jpg">
+            </a>
+            <div class="content">
+              <a class="author">Dog Doggington</a>
+              <div class="metadata">
+                <span class="date">Just now</span>
+              </div>
+              <div class="text">
+                +1 I agree with you.
+              </div>
+              <div class="actions">
+                <a class="reply">Reply</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/avatar3.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Roofus</a>
+          <div class="metadata">
+            <span class="date">5 days ago</span>
+          </div>
+          <div class="text">
+            I like to bark. If you like to bark visit <a href="http://www.bark.com"> this website</a> for great resources on barking.
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+      <form class="ui reply form">
+        <div class="field">
+          <textarea></textarea>
+        </div>
+        <div class="ui blue labeled submit icon button">
+          <i class="icon edit"></i> Add Reply
+        </div>
+      </form>
     </div>
   </div>
   <h2 class="ui dividing header">Content</h2>
@@ -132,12 +150,9 @@ type        : 'UI View'
           <a class="author">Dog Doggington</a>
           <div class="metadata">
             <div class="date">2 days ago</div>
-            <div class="stars">
-              <i class="icon star"></i>
-              <i class="icon star"></i>
-              <i class="icon star"></i>
-              <i class="icon empty star"></i>
-              <i class="icon empty star"></i>
+            <div class="rating">
+              <i class="star icon"></i>
+              5 Faves
             </div>
           </div>
           <div class="text">
@@ -160,12 +175,9 @@ type        : 'UI View'
           <a class="author">Dog Doggington</a>
           <div class="metadata">
             <div class="date">2 days ago</div>
-            <div class="stars">
-              <i class="icon star"></i>
-              <i class="icon star"></i>
-              <i class="icon star"></i>
-              <i class="icon empty star"></i>
-              <i class="icon empty star"></i>
+            <div class="rating">
+              <i class="star icon"></i>
+              5 Faves
             </div>
           </div>
           <div class="text">
@@ -173,7 +185,6 @@ type        : 'UI View'
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
-            <a class="delete">Delete</a>
           </div>
         </div>
       </div>
@@ -198,7 +209,6 @@ type        : 'UI View'
           </div>
           <div class="actions">
             <a class="reply active">Reply</a>
-            <a class="delete">Delete</a>
           </div>
           <form class="ui reply form">
             <div class="field">
@@ -229,7 +239,6 @@ type        : 'UI View'
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
-            <a class="delete">Delete</a>
           </div>
         </div>
       </div>
@@ -261,6 +270,70 @@ type        : 'UI View'
     </div>
   </div>
 
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Collapsed</h4>
+    <p>Comments can be collapsed, or hidden from view</p>
+    <div class="ui comments">
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/demo/avatar.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Dog Doggington</a>
+          <div class="metadata">
+            <span class="date">2 days ago</span>
+          </div>
+          <div class="text">
+            I think this is a great idea and i am voting on it
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+        <div class="comments">
+          <div class="collapsed comment">
+            <a class="avatar">
+              <img src="/images/demo/avatar2.jpg">
+            </a>
+            <div class="content">
+              <a class="author">Pawfin Dog</a>
+              <div class="metadata">
+                <span class="date">1 day ago</span>
+              </div>
+              <div class="text">
+                I think this is a great idea and i am voting on it
+              </div>
+              <div class="actions">
+                <a class="reply">Reply</a>
+              </div>
+            </div>
+            <div class="comments">
+              <div class="comment">
+                <a class="avatar">
+                  <img src="/images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                  <a class="author">Dog Doggington</a>
+                  <div class="metadata">
+                    <span class="date">20 minutes ago</span>
+                  </div>
+                  <div class="text">
+                    I think this is a great idea and i am voting on it
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <h2 class="ui dividing header">Variations</h2>
 
@@ -282,7 +355,6 @@ type        : 'UI View'
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
-            <a class="delete">Delete</a>
           </div>
         </div>
         <div class="comments">
@@ -300,7 +372,6 @@ type        : 'UI View'
               </div>
               <div class="actions">
                 <a class="reply">Reply</a>
-                <a class="delete">Delete</a>
               </div>
             </div>
             <div class="comments">
@@ -318,7 +389,6 @@ type        : 'UI View'
                   </div>
                   <div class="actions">
                     <a class="reply">Reply</a>
-                    <a class="delete">Delete</a>
                   </div>
                 </div>
               </div>
@@ -336,7 +406,6 @@ type        : 'UI View'
                   </div>
                   <div class="actions">
                     <a class="reply">Reply</a>
-                    <a class="delete">Delete</a>
                   </div>
                 </div>
               </div>
@@ -356,7 +425,6 @@ type        : 'UI View'
               </div>
               <div class="actions">
                 <a class="reply">Reply</a>
-                <a class="delete">Delete</a>
               </div>
             </div>
           </div>
@@ -418,7 +486,6 @@ type        : 'UI View'
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
-            <a class="delete">Delete</a>
           </div>
         </div>
         <div class="comments">
@@ -436,7 +503,6 @@ type        : 'UI View'
               </div>
               <div class="actions">
                 <a class="reply">Reply</a>
-                <a class="delete">Delete</a>
               </div>
             </div>
             <div class="comments">
@@ -454,7 +520,6 @@ type        : 'UI View'
                   </div>
                   <div class="actions">
                     <a class="reply">Reply</a>
-                    <a class="delete">Delete</a>
                   </div>
                 </div>
               </div>
@@ -472,7 +537,6 @@ type        : 'UI View'
                   </div>
                   <div class="actions">
                     <a class="reply">Reply</a>
-                    <a class="delete">Delete</a>
                   </div>
                 </div>
               </div>
@@ -492,7 +556,6 @@ type        : 'UI View'
               </div>
               <div class="actions">
                 <a class="reply">Reply</a>
-                <a class="delete">Delete</a>
               </div>
             </div>
           </div>

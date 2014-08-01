@@ -15,7 +15,6 @@
   font-family: 'Rating';
   line-height: 1;
   height: 1em;
-  width: 1.23em;
   backface-visibility: hidden;
   font-weight: normal;
   font-style: normal;

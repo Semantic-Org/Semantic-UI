@@ -1,13 +1,13 @@
-/*
+ /*
  * # Semantic - Tab
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
- * Copyright 2013 Contributors
+ *
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 ;(function ($, window, document, undefined) {
 

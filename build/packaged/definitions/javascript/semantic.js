@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -822,7 +822,7 @@ $.api.settings.api = {};
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -1093,7 +1093,7 @@ $.api.settings.api = {};
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -1859,7 +1859,7 @@ $.fn.form.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -2534,7 +2534,7 @@ $.fn.state.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -3307,7 +3307,7 @@ $.fn.visibility.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -3821,7 +3821,7 @@ $.fn.visit.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -4308,7 +4308,7 @@ $.extend($.expr[ ":" ], {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -4738,7 +4738,7 @@ $.extend( $.easing, {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -5513,7 +5513,7 @@ $.fn.chatroom = function(parameters) {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -5894,7 +5894,7 @@ $.fn.checkbox.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -6488,7 +6488,7 @@ $.fn.dimmer.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -7459,7 +7459,7 @@ $.extend( $.easing, {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8205,7 +8205,7 @@ $.fn.modal.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -8750,7 +8750,7 @@ $.fn.nag.settings = {
  * http://github.com/jlukic/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -9668,7 +9668,7 @@ $.fn.popup.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -10080,7 +10080,7 @@ $.fn.rating.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -10894,7 +10894,7 @@ $.fn.search.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -11682,7 +11682,7 @@ $.fn.shape.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -12193,12 +12193,12 @@ $.fn.sidebar.settings = {
 
 })( jQuery, window , document );
 
-/*
+ /*
  * # Semantic - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -12884,16 +12884,16 @@ $.fn.sticky.settings = {
 
 })( jQuery, window , document );
 
-/*
+ /*
  * # Semantic - Tab
- * http://github.com/jlukic/semantic-ui/
+ * http://github.com/semantic-org/semantic-ui/
  *
- * Copyright 2013 Contributors
+ *
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 ;(function ($, window, document, undefined) {
 
@@ -13667,7 +13667,7 @@ $.fn.tab.settings = {
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributor
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -14484,15 +14484,16 @@ $.fn.transition.settings = {
 
 })( jQuery, window , document );
 
-/*  ******************************
-  Module - Video
-  Author: Jack Lukic
-
-  This is a video playlist and video embed plugin which helps
-  provide helpers for adding embed code for vimeo and youtube and
-  abstracting event handlers for each library
-
-******************************  */
+ /*
+ * # Semantic - Video
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
 
 ;(function ($, window, document, undefined) {
 

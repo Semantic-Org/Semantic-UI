@@ -8,7 +8,7 @@
 @verticalAlign: top;
 @oversizedVerticalAlign: middle;
 
-@iconHitbox: 1.2em;
+@iconHitbox: 1.1em;
 @inactiveColor: rgba(0, 0, 0, 0.15);
 
 /*-------------------
