@@ -121,9 +121,22 @@
       Variations
 --------------------*/
 
-@small: 0.875em;
-@large: 1.125em;
+/* Grouped Fields */
+@groupedMargin: @fieldMargin;
+@groupedFieldMargin: 0.5em 0em;
 
+/* Inline */
+@inlineLabelFontSize: 1em;
+@inlineLabelVerticalAlign: middle;
+
+/* (x) Wide Field */
+@gutterWidth: 1.5%;
+
+/* Sizes */
+@small: 0.875em;
+@medium: auto;
+@large: 1.125em;
+@huge: 1.2em;
 
 /*-------------------
        Groups
