@@ -391,7 +391,6 @@
 /* Input Error */
 /* Dropdown Error */
 /* Focused Error */
-/* Input Focused Error */
 /* Placeholder */
 /* Loading */
 /*-------------------
@@ -457,7 +456,7 @@
   margin: 0em 0em 0.3em 0em;
   display: block;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 0.875em;
+  font-size: 0.9em;
   font-weight: normal;
 }
 /*--------------------
@@ -577,16 +576,16 @@
 ---------------------*/
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(179, 179, 179, 0.8);
+  color: rgba(140, 140, 140, 0.8);
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(179, 179, 179, 0.8);
+  color: rgba(140, 140, 140, 0.8);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(89, 89, 89, 0.8);
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(89, 89, 89, 0.8);
 }
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
@@ -616,8 +615,8 @@
   border-color: rgba(0, 0, 0, 0.2);
   border-radius: 0em 0.3125em 0.3125em 0em;
   background: #ffffff;
-  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
-          box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow: 1px 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 1px 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   -webkit-appearance: none;
 }
 /*--------------------
@@ -673,8 +672,8 @@
   border-color: #da9797;
   color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
-          box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
+  -webkit-box-shadow: 3px 0em 0em 0em #ff4136 inset;
+          box-shadow: 3px 0em 0em 0em #ff4136 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -684,11 +683,12 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus {
+  background: #f2dede;
   border-color: #da9797;
   color: #ff5950;
   -webkit-appearance: none;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
-          box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
+  -webkit-box-shadow: 3px 0em 0em 0em #ff5950 inset;
+          box-shadow: 3px 0em 0em 0em #ff5950 inset;
 }
 /*------------------
     Dropdown Error
@@ -8943,15 +8943,6 @@ h5.ui.header {
      Load Default
 -------------------*/
 /*******************************
-             Icon
-*******************************/
-/*-------------------
-   Icon Variables
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -9034,6 +9025,15 @@ h5.ui.header {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Icon
+*******************************/
+/*-------------------
+   Icon Variables
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -9288,19 +9288,19 @@ i.icon {
   font-size: 1em;
 }
 i.large.icon {
-  font-size: 1.125em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 i.big.icon {
-  font-size: 1.25em;
+  font-size: 2em;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 1.375em;
+  font-size: 4em;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 1.5em;
+  font-size: 8em;
   vertical-align: middle;
 }
 /*
@@ -16342,8 +16342,6 @@ a:hover {
 /* Label */
 /* Checkbox */
 /* Checkmark */
-/* Radio */
-/* Slider & Toggle Handle */
 /*-------------------
       Coupling
 --------------------*/
@@ -16355,6 +16353,7 @@ a:hover {
         Types
 --------------------*/
 /* Radio */
+/* Slider & Toggle Handle */
 /* Slider */
 /* Toggle */
 /*-------------------
@@ -16547,7 +16546,7 @@ a:hover {
 }
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
-  padding-left: 3.25em;
+  padding-left: 3.25rem;
 }
 /* Line */
 .ui.slider.checkbox .box:before,
@@ -16556,13 +16555,13 @@ a:hover {
   display: block;
   position: absolute;
   content: '';
-  top: 0.4em;
+  top: 0.4rem;
   left: 0em;
   z-index: 1;
   border: none !important;
   background-color: rgba(0, 0, 0, 0.05);
-  width: 2.25em;
-  height: 0.25em;
+  width: 2.25rem;
+  height: 0.25rem;
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;
@@ -16585,9 +16584,9 @@ a:hover {
   border: none;
   -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
           box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  width: 1.25em;
-  height: 1.25em;
-  top: -0.125em;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: -0.125rem;
   left: 0em;
   border-radius: 500rem;
   -webkit-transition: left 0.3s ease 0s
@@ -16608,7 +16607,7 @@ a:hover {
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
-  left: 1em;
+  left: 1rem;
 }
 /*--------------
      Toggle
@@ -16627,12 +16626,12 @@ a:hover {
   display: block;
   position: absolute;
   content: '';
-  top: -0.125em;
+  top: -0.125rem;
   z-index: 1;
   border: none;
   background-color: rgba(0, 0, 0, 0.05);
-  width: 2.25em;
-  height: 1.25em;
+  width: 2.25rem;
+  height: 1.25rem;
   border-radius: 500rem;
 }
 /* Handle */
@@ -16648,9 +16647,9 @@ a:hover {
   border: none;
   -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
           box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  width: 1.25em;
-  height: 1.25em;
-  top: -0.125em;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: -0.125rem;
   left: 0em;
   border-radius: 500rem;
   -webkit-transition: background 0.3s ease 0s,
@@ -16662,7 +16661,7 @@ a:hover {
 }
 .ui.toggle.checkbox input ~ .box:after,
 .ui.toggle.checkbox input ~ label:after {
-  left: -0.2em;
+  left: -0.2rem;
 }
 /* Focus */
 .ui.toggle.checkbox input:focus ~ .box:before,
@@ -16681,7 +16680,7 @@ a:hover {
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
-  left: 1.2em;
+  left: 1.2rem;
 }
 /*******************************
            Overrides
@@ -20518,14 +20517,14 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
               Tab
 *******************************/
 /* Loading */
 /* Loading Content */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -24216,14 +24215,21 @@ ol.ui.horizontal.list li:before,
            Statistic
 *******************************/
 .ui.statistic {
+  margin: 1em 0em;
   text-align: center;
+}
+.ui.statistic:first-child {
+  margin-top: 0em;
+}
+.ui.statistic:last-child {
+  margin-bottom: 0em;
 }
 /*******************************
             Content
 *******************************/
 .ui.statistic > .number {
   font-size: 4em;
-  font-weight: bold;
+  font-weight: 300;
   color: rgba(0, 0, 0, 0.7);
 }
 .ui.statistic > .description {
