@@ -59,11 +59,27 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+             Icon
+*******************************/
+/*-------------------
+   Icon Variables
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -73,8 +89,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -83,17 +102,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -101,7 +112,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -139,15 +150,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Icon
-*******************************/
-/*-------------------
-   Icon Variables
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -176,7 +178,7 @@
 i.icon {
   display: inline-block;
   opacity: 0.75;
-  margin: 0em 0.25em 0em 0em;
+  margin: 0em 0em 0em 0em;
   width: 1.23em;
   height: 1em;
   font-family: 'Icons';
@@ -402,19 +404,19 @@ i.icon {
   font-size: 1em;
 }
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 1.125em;
   vertical-align: middle;
 }
 i.big.icon {
-  font-size: 2em;
+  font-size: 1.25em;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 4em;
+  font-size: 1.375em;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 8em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 /*

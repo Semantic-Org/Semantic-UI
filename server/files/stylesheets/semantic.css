@@ -49,7 +49,7 @@ body#example {
   padding: 0px;
   color: #555555;
   min-width: 320px;
-  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif !important;
+  font-family: "Lato", "Helvetica Neue", Arial, sans-serif !important;
 }
 body > .content  {
   background: #FCFCFC url(../images/bg.jpg) repeat;
@@ -60,7 +60,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */ !important;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */ !important;
 }
 
 p:first-child {

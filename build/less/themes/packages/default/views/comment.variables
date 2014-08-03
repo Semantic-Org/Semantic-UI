@@ -4,21 +4,98 @@
 
 
 /*-------------------
-         View
+       View
 --------------------*/
 
-/* Comment */
-@margin: 0.5em 0em 0em;
-@padding: 0.5em 0em 0em;
-
-
+@maxWidth: 650px;
+@margin: 1.5em 0em;
 
 /*-------------------
       Elements
 --------------------*/
 
+/* Comment */
+@commentMargin: 0.75em 0em 0em;
+@commentPadding: 0.75em 0em 0em;
+@commentDivider: none;
+@commentBorder: none;
+@commentLineHeight: 1.2;
+@firstCommentMargin: 0em;
+@firstCommentPadding: 0em;
 
+/* Nested Comment */
+@nestedCommentsMargin: 0em 0em 0.5em 0em;
+@nestedCommentsPadding: 1em 0em 0em 1em;
+
+/* Avatar */
+@avatarDisplay: block;
+@avatarFloat: left;
+@avatarWidth: 2.5em;
+@avatarHeight: auto;
+@avatarSpacing: 1em;
+@avatarMargin: (@commentLineHeight - 1em) 0em 0em;
+@avatarBorderRadius: 0.25rem;
+
+/* Content */
+@contentMargin: @avatarWidth + @avatarSpacing;
+
+/* Author */
+@authorFontSize: 1em;
+@authorColor: @textColor;
+@authorHoverColor: @linkHoverColor;
+@authorFontWeight: bold;
+
+/* Metadata */
+@metadataDisplay: inline-block;
+@metadataFontSize: 0.9em;
+@metadataSpacing: 0.5em;
+@metadataContentSpacing: 0.5em;
+@metadataColor: @lightTextColor;
+
+/* Text */
+@textFontSize: 1em;
+@textMargin: 0.25em 0em 0.5em;
+@textWordWrap: break-word;
+@textLineHeight: 1.3;
+
+/* Actions */
+@actionFontSize: 0.9em;
+@actionContentDistance: 0.3em;
+@actionLinkColor: @unselectedTextColor;
+@actionLinkHoverColor: @selectedTextColor;
+
+/* Reply */
+@replyDistance: 2em;
+@replyHeight: 12em;
+@replyFontSize: 1em;
+
+@commentReplyDistance: @replyDistance;
 
 /*-------------------
       Variations
 --------------------*/
+
+/* Threaded */
+@threadedCommentVerticalOffset: -1.5em;
+@threadedCommentHorizontalOffset: (@avatarWidth / 2);
+@threadedCommentBoxShadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+
+@threadedCommentVerticalDistance: 2em;
+@threadedCommentHorizontalDistance: 2em;
+
+/* Minimal */
+@minimalActionPosition: absolute;
+@minimalActionTop: 0px;
+@minimalActionRight: 0px;
+@minimalActionLeft: auto;
+
+@minimalTransitionDelay: 0.1s;
+@minimalEasing: @defaultEasing;
+@minimalDuration: 0.2s;
+@minimalTransition: opacity @minimalDuration @minimalEasing;
+
+/* Sizes */
+@small: 0.9em;
+@medium: 1em;
+@large: 1.1em;
+@huge: 1.2em;

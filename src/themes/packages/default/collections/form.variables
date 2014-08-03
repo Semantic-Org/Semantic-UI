@@ -14,7 +14,7 @@
 @fieldMargin: 0em 0em 1em;
 
 /* Form Label */
-@labelFontSize: 0.875em;
+@labelFontSize: 0.9em;
 @labelFontWeight: normal;
 @labelMargin: 0.3em;
 @labelColor: @textColor;
@@ -61,7 +61,7 @@
 /* Disabled */
 
 /* Focus */
-@inputFocusPointerSize: 0.3em;
+@inputFocusPointerSize: 1px;
 
 /* Input Focus */
 @inputFocusBackground: #FFFFFF;
@@ -76,7 +76,7 @@
 @formErrorBackground: @negativeBackgroundColor;
 
 /* Input Error */
-@inputErrorPointerSize: 0.3em;
+@inputErrorPointerSize: 3px;
 @inputErrorBorderRadius: 0em @inputBorderRadius @inputBorderRadius 0em;
 @inputErrorBoxShadow: @inputErrorPointerSize 0em 0em 0em @formErrorColor inset;
 
@@ -85,16 +85,14 @@
 @dropdownErrorActiveBackground: #FDCFCF;
 
 /* Focused Error */
-@formErrorFocusColor: @negativeColorHover;
-@formErrorFocusBorder: @negativeBorderColor;
-@formErrorFocusBackground: @negativeBackgroundColor;
-
-/* Input Focused Error */
-@inputErrorFocusBoxShadow: @inputFocusPointerSize 0em 0em 0em @negativeColorHover inset;
+@inputErrorFocusBackground: @negativeBackgroundColor;
+@inputErrorFocusColor: @negativeColorHover;
+@inputErrorFocusBorder: @negativeBorderColor;
+@inputErrorFocusBoxShadow: @inputErrorPointerSize 0em 0em 0em @negativeColorHover inset;
 
 /* Placeholder */
-@inputPlaceholderColor: lighten(@inputColor, 70);
-@inputPlaceholderFocusColor: lighten(@inputColor, 55);
+@inputPlaceholderColor: lighten(@inputColor, 55);
+@inputPlaceholderFocusColor: lighten(@inputColor, 35);
 @inputErrorPlaceholderColor: lighten(@formErrorColor, 10);
 @inputErrorPlaceholderFocusColor: lighten(@formErrorColor, 5);
 

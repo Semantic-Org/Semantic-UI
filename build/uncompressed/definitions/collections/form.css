@@ -46,11 +46,18 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -60,8 +67,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -70,17 +80,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -88,7 +90,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -160,6 +162,10 @@
 /*-------------------
       Variations
 --------------------*/
+/* Grouped Fields */
+/* Inline */
+/* (x) Wide Field */
+/* Sizes */
 /*-------------------
        Groups
 --------------------*/
@@ -594,7 +600,7 @@
   padding: 0em;
 }
 /*--------------------
-          Fields
+        Fields
 ---------------------*/
 /* Split fields */
 .ui.form .fields {
@@ -613,8 +619,8 @@
   float: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
@@ -628,7 +634,7 @@
 }
 .ui.form .three.fields > .fields,
 .ui.form .three.fields > .field {
-  width: 33.333%;
+  width: 33.33333333%;
 }
 .ui.form .four.fields > .fields,
 .ui.form .four.fields > .field {
@@ -658,6 +664,96 @@
 }
 .ui.form .fields .field:last-child {
   padding-right: 0%;
+}
+/* Sizing Combinations */
+.ui.form .fields .wide.field {
+  width: 6.25%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+.ui.form .fields .wide.field:first-child {
+  padding-left: 0%;
+}
+.ui.form .fields .wide.field:last-child {
+  padding-right: 0%;
+}
+.ui.form .one.wide.field {
+  width: 6.25% !important;
+}
+.ui.form .two.wide.field {
+  width: 12.5% !important;
+}
+.ui.form .three.wide.field {
+  width: 18.75% !important;
+}
+.ui.form .four.wide.field {
+  width: 25% !important;
+}
+.ui.form .five.wide.field {
+  width: 31.25% !important;
+}
+.ui.form .six.wide.field {
+  width: 37.5% !important;
+}
+.ui.form .seven.wide.field {
+  width: 43.75% !important;
+}
+.ui.form .eight.wide.field {
+  width: 50% !important;
+}
+.ui.form .nine.wide.field {
+  width: 56.25% !important;
+}
+.ui.form .ten.wide.field {
+  width: 62.5% !important;
+}
+.ui.form .eleven.wide.field {
+  width: 68.75% !important;
+}
+.ui.form .twelve.wide.field {
+  width: 75% !important;
+}
+.ui.form .thirteen.wide.field {
+  width: 81.25% !important;
+}
+.ui.form .fourteen.wide.field {
+  width: 87.5% !important;
+}
+.ui.form .fifteen.wide.field {
+  width: 93.75% !important;
+}
+.ui.form .sixteen.wide.field {
+  width: 100% !important;
+}
+/* Swap to full width on mobile */
+@media only screen and (max-width: 767px) {
+  .ui.form .two.fields > .fields,
+  .ui.form .two.fields > .field,
+  .ui.form .three.fields > .fields,
+  .ui.form .three.fields > .field,
+  .ui.form .four.fields > .fields,
+  .ui.form .four.fields > .field,
+  .ui.form .five.fields > .fields,
+  .ui.form .five.fields > .field,
+  .ui.form .fields > .two.wide.field,
+  .ui.form .fields > .three.wide.field,
+  .ui.form .fields > .four.wide.field,
+  .ui.form .fields > .five.wide.field,
+  .ui.form .fields > .six.wide.field,
+  .ui.form .fields > .seven.wide.field,
+  .ui.form .fields > .eight.wide.field,
+  .ui.form .fields > .nine.wide.field,
+  .ui.form .fields > .ten.wide.field,
+  .ui.form .fields > .eleven.wide.field,
+  .ui.form .fields > .twelve.wide.field,
+  .ui.form .fields > .thirteen.wide.field,
+  .ui.form .fields > .fourteen.wide.field,
+  .ui.form .fields > .fifteen.wide.field,
+  .ui.form .fields > .sixteen.wide.field {
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
 }
 /*--------------------
     Inline Fields
@@ -702,7 +798,15 @@
 .ui.small.form {
   font-size: 0.875em;
 }
+/* Medium */
+.ui.form {
+  font-size: auto;
+}
 /* Large */
 .ui.large.form {
   font-size: 1.125em;
+}
+/* Huge */
+.ui.huge.form {
+  font-size: 1.2em;
 }

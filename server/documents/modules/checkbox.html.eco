@@ -11,6 +11,7 @@ type        : 'UI Module'
 themes      : ['default']
 ---
 <script src="/javascript/checkbox.js"></script>
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/checkbox.less" />
 
 <%- @partial('header', { tabs: 'module' }) %>
 

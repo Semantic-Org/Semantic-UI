@@ -46,11 +46,18 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -60,8 +67,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -70,17 +80,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -88,7 +90,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -284,11 +286,18 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -298,8 +307,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -308,17 +320,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -326,7 +330,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -398,6 +402,10 @@
 /*-------------------
       Variations
 --------------------*/
+/* Grouped Fields */
+/* Inline */
+/* (x) Wide Field */
+/* Sizes */
 /*-------------------
        Groups
 --------------------*/
@@ -832,7 +840,7 @@
   padding: 0em;
 }
 /*--------------------
-          Fields
+        Fields
 ---------------------*/
 /* Split fields */
 .ui.form .fields {
@@ -851,8 +859,8 @@
   float: left;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
@@ -866,7 +874,7 @@
 }
 .ui.form .three.fields > .fields,
 .ui.form .three.fields > .field {
-  width: 33.333%;
+  width: 33.33333333%;
 }
 .ui.form .four.fields > .fields,
 .ui.form .four.fields > .field {
@@ -896,6 +904,96 @@
 }
 .ui.form .fields .field:last-child {
   padding-right: 0%;
+}
+/* Sizing Combinations */
+.ui.form .fields .wide.field {
+  width: 6.25%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+.ui.form .fields .wide.field:first-child {
+  padding-left: 0%;
+}
+.ui.form .fields .wide.field:last-child {
+  padding-right: 0%;
+}
+.ui.form .one.wide.field {
+  width: 6.25% !important;
+}
+.ui.form .two.wide.field {
+  width: 12.5% !important;
+}
+.ui.form .three.wide.field {
+  width: 18.75% !important;
+}
+.ui.form .four.wide.field {
+  width: 25% !important;
+}
+.ui.form .five.wide.field {
+  width: 31.25% !important;
+}
+.ui.form .six.wide.field {
+  width: 37.5% !important;
+}
+.ui.form .seven.wide.field {
+  width: 43.75% !important;
+}
+.ui.form .eight.wide.field {
+  width: 50% !important;
+}
+.ui.form .nine.wide.field {
+  width: 56.25% !important;
+}
+.ui.form .ten.wide.field {
+  width: 62.5% !important;
+}
+.ui.form .eleven.wide.field {
+  width: 68.75% !important;
+}
+.ui.form .twelve.wide.field {
+  width: 75% !important;
+}
+.ui.form .thirteen.wide.field {
+  width: 81.25% !important;
+}
+.ui.form .fourteen.wide.field {
+  width: 87.5% !important;
+}
+.ui.form .fifteen.wide.field {
+  width: 93.75% !important;
+}
+.ui.form .sixteen.wide.field {
+  width: 100% !important;
+}
+/* Swap to full width on mobile */
+@media only screen and (max-width: 767px) {
+  .ui.form .two.fields > .fields,
+  .ui.form .two.fields > .field,
+  .ui.form .three.fields > .fields,
+  .ui.form .three.fields > .field,
+  .ui.form .four.fields > .fields,
+  .ui.form .four.fields > .field,
+  .ui.form .five.fields > .fields,
+  .ui.form .five.fields > .field,
+  .ui.form .fields > .two.wide.field,
+  .ui.form .fields > .three.wide.field,
+  .ui.form .fields > .four.wide.field,
+  .ui.form .fields > .five.wide.field,
+  .ui.form .fields > .six.wide.field,
+  .ui.form .fields > .seven.wide.field,
+  .ui.form .fields > .eight.wide.field,
+  .ui.form .fields > .nine.wide.field,
+  .ui.form .fields > .ten.wide.field,
+  .ui.form .fields > .eleven.wide.field,
+  .ui.form .fields > .twelve.wide.field,
+  .ui.form .fields > .thirteen.wide.field,
+  .ui.form .fields > .fourteen.wide.field,
+  .ui.form .fields > .fifteen.wide.field,
+  .ui.form .fields > .sixteen.wide.field {
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
 }
 /*--------------------
     Inline Fields
@@ -940,9 +1038,17 @@
 .ui.small.form {
   font-size: 0.875em;
 }
+/* Medium */
+.ui.form {
+  font-size: auto;
+}
 /* Large */
 .ui.large.form {
   font-size: 1.125em;
+}
+/* Huge */
+.ui.huge.form {
+  font-size: 1.2em;
 }
 
 /*
@@ -993,11 +1099,18 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -1007,8 +1120,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -1017,17 +1133,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -1035,7 +1143,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -2035,11 +2143,18 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -2049,8 +2164,11 @@ body > .ui.grid:not(.page) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -2059,17 +2177,9 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -2077,7 +2187,7 @@ body > .ui.grid:not(.page) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -3673,11 +3783,18 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -3687,8 +3804,11 @@ body > .ui.grid:not(.page) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -3697,17 +3817,9 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -3715,7 +3827,7 @@ body > .ui.grid:not(.page) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -4101,11 +4213,18 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -4115,8 +4234,11 @@ body > .ui.grid:not(.page) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -4125,17 +4247,9 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -4143,7 +4257,7 @@ body > .ui.grid:not(.page) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -4895,11 +5009,18 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -4909,8 +5030,11 @@ body > .ui.grid:not(.page) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -4919,17 +5043,9 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -4937,7 +5053,7 @@ body > .ui.grid:not(.page) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -6848,11 +6964,18 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -6862,8 +6985,11 @@ body > .ui.grid:not(.page) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -6872,17 +6998,9 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -6890,7 +7008,7 @@ body > .ui.grid:not(.page) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -7160,11 +7278,18 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -7174,8 +7299,11 @@ body > .ui.grid:not(.page) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -7184,17 +7312,9 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -7202,7 +7322,7 @@ body > .ui.grid:not(.page) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -8298,11 +8418,18 @@ i.flag.zimbabwe {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -8312,8 +8439,11 @@ i.flag.zimbabwe {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -8322,17 +8452,9 @@ i.flag.zimbabwe {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -8340,7 +8462,7 @@ i.flag.zimbabwe {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -8452,7 +8574,8 @@ i.flag.zimbabwe {
 .ui.header .icon:only-child {
   display: inline-block;
   padding: 0em;
-  vertical-align: middle;
+  margin-right: 0.5em;
+  vertical-align: baseline;
 }
 .ui.header .content {
   display: inline-block;
@@ -8820,11 +8943,27 @@ h5.ui.header {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+             Icon
+*******************************/
+/*-------------------
+   Icon Variables
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -8834,8 +8973,11 @@ h5.ui.header {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -8844,17 +8986,9 @@ h5.ui.header {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -8862,7 +8996,7 @@ h5.ui.header {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -8900,15 +9034,6 @@ h5.ui.header {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Icon
-*******************************/
-/*-------------------
-   Icon Variables
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -8937,7 +9062,7 @@ h5.ui.header {
 i.icon {
   display: inline-block;
   opacity: 0.75;
-  margin: 0em 0.25em 0em 0em;
+  margin: 0em 0em 0em 0em;
   width: 1.23em;
   height: 1em;
   font-family: 'Icons';
@@ -9163,19 +9288,19 @@ i.icon {
   font-size: 1em;
 }
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 1.125em;
   vertical-align: middle;
 }
 i.big.icon {
-  font-size: 2em;
+  font-size: 1.25em;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 4em;
+  font-size: 1.375em;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 8em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 /*
@@ -10976,11 +11101,18 @@ i.icon.weixin:before {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -10990,8 +11122,11 @@ i.icon.weixin:before {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -11000,17 +11135,9 @@ i.icon.weixin:before {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -11018,7 +11145,7 @@ i.icon.weixin:before {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -11337,11 +11464,18 @@ img.ui.bordered.image {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -11351,8 +11485,11 @@ img.ui.bordered.image {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -11361,17 +11498,9 @@ img.ui.bordered.image {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -11379,7 +11508,7 @@ img.ui.bordered.image {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -11757,11 +11886,18 @@ img.ui.bordered.image {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -11771,8 +11907,11 @@ img.ui.bordered.image {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -11781,17 +11920,9 @@ img.ui.bordered.image {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -11799,7 +11930,7 @@ img.ui.bordered.image {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -12755,11 +12886,18 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -12769,8 +12907,11 @@ a.ui.yellow.label:hover:before {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -12779,17 +12920,9 @@ a.ui.yellow.label:hover:before {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -12797,7 +12930,7 @@ a.ui.yellow.label:hover:before {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -13628,11 +13761,18 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -13642,8 +13782,11 @@ a.ui.yellow.label:hover:before {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -13652,17 +13795,9 @@ a.ui.yellow.label:hover:before {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -13670,7 +13805,7 @@ a.ui.yellow.label:hover:before {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -14178,11 +14313,18 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -14192,8 +14334,11 @@ a.ui.yellow.label:hover:before {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -14202,17 +14347,9 @@ a.ui.yellow.label:hover:before {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -14220,7 +14357,7 @@ a.ui.yellow.label:hover:before {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -14637,11 +14774,18 @@ a.ui.yellow.label:hover:before {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -14651,8 +14795,11 @@ a.ui.yellow.label:hover:before {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -14661,17 +14808,9 @@ a.ui.yellow.label:hover:before {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -14679,7 +14818,7 @@ a.ui.yellow.label:hover:before {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -15117,11 +15256,18 @@ input[type="password"] {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -15131,8 +15277,11 @@ input[type="password"] {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -15141,17 +15290,9 @@ input[type="password"] {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -15159,7 +15300,7 @@ input[type="password"] {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -15399,11 +15540,18 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -15413,8 +15561,11 @@ a:hover {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -15423,17 +15574,9 @@ a:hover {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -15441,7 +15584,7 @@ a:hover {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -15722,11 +15865,18 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -15736,8 +15886,11 @@ a:hover {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -15746,17 +15899,9 @@ a:hover {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -15764,7 +15909,7 @@ a:hover {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -16109,11 +16254,18 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -16123,8 +16275,11 @@ a:hover {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -16133,17 +16288,9 @@ a:hover {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -16151,7 +16298,7 @@ a:hover {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -16649,11 +16796,18 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -16663,8 +16817,11 @@ a:hover {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -16673,17 +16830,9 @@ a:hover {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -16691,7 +16840,7 @@ a:hover {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -16943,11 +17092,18 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -16957,8 +17113,11 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -16967,17 +17126,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -16985,7 +17136,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -17618,11 +17769,18 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -17632,8 +17790,11 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -17642,17 +17803,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -17660,7 +17813,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -18083,11 +18236,18 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -18097,8 +18257,11 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -18107,17 +18270,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -18125,7 +18280,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -18361,11 +18516,18 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -18375,8 +18537,11 @@ a.ui.nag {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -18385,17 +18550,9 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -18403,7 +18560,7 @@ a.ui.nag {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -18736,11 +18893,18 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -18750,8 +18914,11 @@ a.ui.nag {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -18760,17 +18927,9 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -18778,7 +18937,7 @@ a.ui.nag {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -18868,7 +19027,8 @@ a.ui.nag {
 .ui.rating .icon {
   cursor: pointer;
   margin: 0em;
-  width: 1.2em;
+  width: 1.1em;
+  text-align: center;
   height: auto;
   padding: 0em;
   font-weight: normal;
@@ -18976,7 +19136,6 @@ a.ui.nag {
   font-family: 'Rating';
   line-height: 1;
   height: 1em;
-  width: 1.23em;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   font-weight: normal;
@@ -19065,11 +19224,18 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -19079,8 +19245,11 @@ a.ui.nag {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -19089,17 +19258,9 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -19107,7 +19268,7 @@ a.ui.nag {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -19442,11 +19603,18 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -19456,8 +19624,11 @@ a.ui.nag {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -19466,17 +19637,9 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -19484,7 +19647,7 @@ a.ui.nag {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -19710,11 +19873,18 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -19724,8 +19894,11 @@ a.ui.nag {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -19734,17 +19907,9 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -19752,7 +19917,7 @@ a.ui.nag {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -20080,11 +20245,18 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -20094,8 +20266,11 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -20104,17 +20279,9 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -20122,7 +20289,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -20269,11 +20436,18 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -20283,8 +20457,11 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -20293,17 +20470,9 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -20311,7 +20480,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -20467,11 +20636,18 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -20481,8 +20657,11 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -20491,17 +20670,9 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -20509,7 +20680,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -21544,11 +21715,18 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -21558,8 +21736,11 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -21568,17 +21749,9 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -21586,7 +21759,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -21782,11 +21955,18 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -21796,8 +21976,11 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -21806,17 +21989,9 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -21824,7 +21999,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -21866,15 +22041,26 @@ body.pushed.scrolling.ui.dimmable {
             Comments
 *******************************/
 /*-------------------
-         View
+       View
 --------------------*/
-/* Comment */
 /*-------------------
       Elements
 --------------------*/
+/* Comment */
+/* Nested Comment */
+/* Avatar */
+/* Content */
+/* Author */
+/* Metadata */
+/* Text */
+/* Actions */
+/* Reply */
 /*-------------------
       Variations
 --------------------*/
+/* Threaded */
+/* Minimal */
+/* Sizes */
 /*------------------
      Load Theme
 -------------------*/
@@ -21896,108 +22082,37 @@ body.pushed.scrolling.ui.dimmable {
 /*--------------
     Comments
 ---------------*/
-/* Force hover on JS Links */
-.ui.comments a {
-  cursor: pointer;
+.ui.comments {
+  margin: 1.5em 0em;
+  max-width: 650px;
+}
+.ui.comments:first-child {
+  margin-top: 0em;
+}
+.ui.comments:last-child {
+  margin-bottom: 0em;
 }
 /*--------------
      Comment
 ---------------*/
 .ui.comments .comment {
   position: relative;
-  margin-top: 0.5em;
-  padding-top: 0.5em;
+  margin: 0.75em 0em 0em;
+  padding: 0.75em 0em 0em;
+  border: none;
+  border-top: none;
+  line-height: 1.2;
 }
 .ui.comments .comment:first-child {
   margin-top: 0em;
   padding-top: 0em;
 }
 /*--------------------
-   Avatar (Optional)
----------------------*/
-.ui.comments .comment .avatar {
-  display: block;
-  float: left;
-  width: 4em;
-}
-.ui.comments .comment .avatar img {
-  display: block;
-  margin: 0em auto;
-  width: 3em;
-  height: 3em;
-  border-radius: 500px;
-}
-/*--------------
-     Content
----------------*/
-.ui.comments .comment > .content,
-.ui.comments .comment > .avatar {
-  display: block;
-}
-.ui.comments .comment .avatar ~ .content {
-  padding: 0em 1em;
-}
-/* If there is an avatar move content over */
-.ui.comments .comment > .avatar ~ .content {
-  padding-top: 0.25em;
-  margin-left: 3.5em;
-}
-.ui.comments .comment .metadata {
-  display: inline-block;
-  margin-left: 0.3em;
-  color: rgba(0, 0, 0, 0.4);
-}
-.ui.comments .comment .metadata > * {
-  display: inline-block;
-  margin: 0em 0.3em 0em 0em;
-}
-/*--------------------
-     Comment Text
----------------------*/
-.ui.comments .comment .text {
-  margin: 0.25em 0em 0.5em;
-  word-wrap: break-word;
-}
-/*--------------------
-     User Actions
----------------------*/
-.ui.comments .comment .actions {
-  font-size: 0.9em;
-}
-.ui.comments .comment .actions a {
-  display: inline-block;
-  margin: 0em 0.3em 0em 0em;
-  color: rgba(0, 0, 0, 0.3);
-}
-.ui.comments .comment .actions a.active,
-.ui.comments .comment .actions a:hover {
-  color: rgba(0, 0, 0, 0.6);
-}
-/*--------------------
-      Reply Form
----------------------*/
-.ui.comments .reply.form {
-  margin-top: 0.75em;
-  width: 100%;
-  max-width: 30em;
-}
-.ui.comments .comment .reply.form {
-  margin-left: 2em;
-}
-.ui.comments > .reply.form {
-  margin-top: 1.5em;
-  max-width: 40em;
-}
-.ui.comments .reply.form textarea {
-  height: 12em;
-}
-/*--------------------
     Nested Comments
 ---------------------*/
 .ui.comments .comment .comments {
-  margin-top: 0.5em;
-  padding-top: 0.5em;
-  padding-bottom: 1em;
+  margin: 0em 0em 0.5em 0em;
+  padding: 1em 0em 0em 1em;
 }
 .ui.comments .comment .comments:before {
   position: absolute;
@@ -22006,19 +22121,116 @@ body.pushed.scrolling.ui.dimmable {
 }
 /* One Deep */
 .ui.comments > .comment .comments {
-  margin-left: 2em;
+  margin-left: 1em;
 }
-/* Two Deep */
-.ui.comments > .comment > .comments > .comment > .comments {
-  margin-left: 1.75em;
+/*--------------
+     Avatar
+---------------*/
+.ui.comments .comment .avatar {
+  display: block;
+  width: 2.5em;
+  height: auto;
+  float: left;
+  margin: 0.2em 0em 0em;
 }
-/* Three Deep */
-.ui.comments > .comment > .comments > .comment > .comments > .comment > .comments {
-  margin-left: 1.5em;
+.ui.comments .comment img.avatar,
+.ui.comments .comment .avatar img {
+  display: block;
+  margin: 0em auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
 }
-/* Four Deep or more */
-.ui.comments > .comment > .comments > .comment > .comments > .comment > .comments > .comment .comments {
+/*--------------
+    Content
+---------------*/
+.ui.comments .comment > .content {
+  display: block;
+}
+/* If there is an avatar move content over */
+.ui.comments .comment > .avatar ~ .content {
+  margin-left: 3.5em;
+}
+/*--------------
+     Author
+---------------*/
+.ui.comments .comment .author {
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+}
+.ui.comments .comment a.author {
+  cursor: pointer;
+}
+.ui.comments .comment a.author:hover {
+  color: #00b2f3;
+}
+/*--------------
+     Metadata
+---------------*/
+.ui.comments .comment .metadata {
+  display: inline-block;
   margin-left: 0.5em;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 0.9em;
+}
+.ui.comments .comment .metadata > * {
+  display: inline-block;
+  margin: 0em 0.5em 0em 0em;
+}
+.ui.comments .comment .metadata > :last-child {
+  margin-right: 0em;
+}
+/*--------------------
+     Comment Text
+---------------------*/
+.ui.comments .comment .text {
+  margin: 0.25em 0em 0.5em;
+  font-size: 1em;
+  word-wrap: break-word;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 1.3;
+}
+/*--------------------
+     User Actions
+---------------------*/
+.ui.comments .comment .actions {
+  font-size: 0.9em;
+}
+.ui.comments .comment .actions a {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0em 0.3em 0em 0em;
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.comments .comment .actions a:last-child {
+  margin-right: 0em;
+}
+.ui.comments .comment .actions a.active,
+.ui.comments .comment .actions a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+/*--------------------
+      Reply Form
+---------------------*/
+.ui.comments > .reply.form {
+  margin-top: 2em;
+}
+.ui.comments .comment .reply.form {
+  width: 100%;
+  margin-top: 2em;
+}
+.ui.comments .reply.form textarea {
+  font-size: 1em;
+  height: 12em;
+}
+/*******************************
+            State
+*******************************/
+.ui.collapsed.comments,
+.ui.comments .collapsed.comments,
+.ui.comments .collapsed.comment {
+  display: none;
 }
 /*******************************
            Variations
@@ -22027,20 +22239,24 @@ body.pushed.scrolling.ui.dimmable {
         Threaded
 ---------------------*/
 .ui.threaded.comments .comment .comments {
-  margin-left: 2em !important;
-  padding-left: 2em !important;
+  margin: -1.5em 0em 0em 1.25em;
+  padding: 2em 0em 0em 2em;
   -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
-  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
 }
 /*--------------------
         Minimal
 ---------------------*/
 .ui.minimal.comments .comment .actions {
   opacity: 0;
-  -webkit-transition: opacity 0.1s ease-out;
-  transition: opacity 0.1s ease-out;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: auto;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
   -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
+          transition-delay: 0.1s;
 }
 .ui.minimal.comments .comment > .content:hover > .actions {
   opacity: 1;
@@ -22049,7 +22265,16 @@ body.pushed.scrolling.ui.dimmable {
        Sizes
 ---------------------*/
 .ui.small.comments {
-  font-size: 0.875em;
+  font-size: 0.9em;
+}
+.ui.comments {
+  font-size: 1em;
+}
+.ui.large.comments {
+  font-size: 1.1em;
+}
+.ui.huge.comments {
+  font-size: 1.2em;
 }
 
 /*
@@ -22100,11 +22325,18 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -22114,8 +22346,11 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -22124,17 +22359,9 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -22142,7 +22369,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -22371,11 +22598,18 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -22385,8 +22619,11 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -22395,17 +22632,9 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -22413,7 +22642,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -23068,11 +23297,18 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -23082,8 +23318,11 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -23092,17 +23331,9 @@ body.pushed.scrolling.ui.dimmable {
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -23110,7 +23341,7 @@ body.pushed.scrolling.ui.dimmable {
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -23872,11 +24103,18 @@ ol.ui.horizontal.list li:before,
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -23886,8 +24124,11 @@ ol.ui.horizontal.list li:before,
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -23896,17 +24137,9 @@ ol.ui.horizontal.list li:before,
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -23914,7 +24147,7 @@ ol.ui.horizontal.list li:before,
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors

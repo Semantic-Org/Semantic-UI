@@ -487,7 +487,7 @@
 
 /* Grouped Vertically */
 .ui.form .grouped.fields {
-  margin: 0em 0em 1em;
+  margin: @groupedMargin
 }
 .ui.form .grouped.fields:last-child {
   margin-bottom: 0em;
@@ -495,13 +495,13 @@
 .ui.form .grouped.fields .field {
   display: block;
   float: none;
-  margin: 0.5em 0em;
+  margin: @groupedFieldMargin;
   padding: 0em;
 }
 
 
 /*--------------------
-          Fields
+        Fields
 ---------------------*/
 
 /* Split fields */
@@ -520,8 +520,8 @@
   clear: none;
   float: left;
   box-sizing: border-box;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: @gutterWidth;
+  padding-right: @gutterWidth;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
@@ -531,19 +531,19 @@
 /* Other Combinations */
 .ui.form .two.fields > .fields,
 .ui.form .two.fields > .field {
-  width: 50%;
+  width: @twoColumn;
 }
 .ui.form .three.fields > .fields,
 .ui.form .three.fields > .field {
-  width: 33.333%;
+  width: @threeColumn;
 }
 .ui.form .four.fields > .fields,
 .ui.form .four.fields > .field {
-  width: 25%;
+  width: @fourColumn;
 }
 .ui.form .five.fields > .fields,
 .ui.form .five.fields > .field {
-  width: 20%;
+  width: @fiveColumn;
 }
 
 /* Swap to full width on mobile */
@@ -556,7 +556,7 @@
   .ui.form .four.fields > .field,
   .ui.form .five.fields > .fields,
   .ui.form .five.fields > .field {
-    width: 100%;
+    width: @oneColumn;
     padding-left: 0%;
     padding-right: 0%;
   }
@@ -569,6 +569,100 @@
   padding-right: 0%;
 }
 
+
+/* Sizing Combinations */
+
+.ui.form .fields .wide.field {
+  width: @oneWide;
+  padding-left: @gutterWidth;
+  padding-right: @gutterWidth;
+}
+.ui.form .fields .wide.field:first-child {
+  padding-left: 0%;
+}
+.ui.form .fields .wide.field:last-child {
+  padding-right: 0%;
+}
+
+.ui.form .one.wide.field {
+  width: @oneWide !important;
+}
+.ui.form .two.wide.field {
+  width: @twoWide !important;
+}
+.ui.form .three.wide.field {
+  width: @threeWide !important;
+}
+.ui.form .four.wide.field {
+  width: @fourWide !important;
+}
+.ui.form .five.wide.field {
+  width: @fiveWide !important;
+}
+.ui.form .six.wide.field {
+  width: @sixWide !important;
+}
+.ui.form .seven.wide.field {
+  width: @sevenWide !important;
+}
+.ui.form .eight.wide.field {
+  width: @eightWide !important;
+}
+.ui.form .nine.wide.field {
+  width: @nineWide !important;
+}
+.ui.form .ten.wide.field {
+  width: @tenWide !important;
+}
+.ui.form .eleven.wide.field {
+  width: @elevenWide !important;
+}
+.ui.form .twelve.wide.field {
+  width: @twelveWide !important;
+}
+.ui.form .thirteen.wide.field {
+  width: @thirteenWide !important;
+}
+.ui.form .fourteen.wide.field {
+  width: @fourteenWide !important;
+}
+.ui.form .fifteen.wide.field {
+  width: @fifteenWide !important;
+}
+.ui.form .sixteen.wide.field {
+  width: @sixteenWide !important;
+}
+
+/* Swap to full width on mobile */
+@media only screen and (max-width : 767px) {
+  .ui.form .two.fields > .fields,
+  .ui.form .two.fields > .field,
+  .ui.form .three.fields > .fields,
+  .ui.form .three.fields > .field,
+  .ui.form .four.fields > .fields,
+  .ui.form .four.fields > .field,
+  .ui.form .five.fields > .fields,
+  .ui.form .five.fields > .field,
+  .ui.form .fields > .two.wide.field,
+  .ui.form .fields > .three.wide.field,
+  .ui.form .fields > .four.wide.field,
+  .ui.form .fields > .five.wide.field,
+  .ui.form .fields > .six.wide.field,
+  .ui.form .fields > .seven.wide.field,
+  .ui.form .fields > .eight.wide.field,
+  .ui.form .fields > .nine.wide.field,
+  .ui.form .fields > .ten.wide.field,
+  .ui.form .fields > .eleven.wide.field,
+  .ui.form .fields > .twelve.wide.field,
+  .ui.form .fields > .thirteen.wide.field,
+  .ui.form .fields > .fourteen.wide.field,
+  .ui.form .fields > .fifteen.wide.field,
+  .ui.form .fields > .sixteen.wide.field {
+    width: @oneColumn;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
 
 /*--------------------
     Inline Fields
@@ -587,19 +681,18 @@
 .ui.form .inline.field > label,
 .ui.form .inline.field > p,
 .ui.form .inline.field > input {
-
   display: inline-block;
   width: auto;
 
   margin-top: 0em;
   margin-bottom: 0em;
 
-  vertical-align: middle;
-  font-size: 1em;
+  vertical-align: @inlineLabelVerticalAlign;
+  font-size: @inlineLabelFontSize;
 }
 .ui.form .inline.fields .field > input,
 .ui.form .inline.field > input {
-  font-size: 1em;
+  font-size: @inlineLabelFontSize;
 }
 
 /* Label */
@@ -622,7 +715,17 @@
   font-size: @small;
 }
 
+/* Medium */
+.ui.form {
+  font-size: @medium;
+}
+
 /* Large */
 .ui.large.form {
   font-size: @large;
+}
+
+/* Huge */
+.ui.huge.form {
+  font-size: @huge;
 }
