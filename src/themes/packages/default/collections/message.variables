@@ -25,11 +25,9 @@
 ;
 
 /* Header */
-
 @headerFontSize: 1.3em;
 @headerFontWeight: bold;
 @headerBottomMargin: 0.25em;
-
 @headerDisplay: block;
 @headerHorizontalDistance: 0em;
 
@@ -60,7 +58,7 @@
 /* Icon Message */
 @iconSize: 2em;
 @iconOpacity: 0.8;
-@iconContentDistance: 1.5em;
+@iconContentDistance: 1.5rem;
 @iconVerticalAlign: middle;
 
 /* Attached */

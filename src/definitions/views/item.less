@@ -85,12 +85,12 @@
   position: relative;
   padding: @imagePadding;
   background: @imageBackground;
-  border-radius: @imageBorderRadius;
 }
 .ui.items .item > .image > img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: @imageBorderRadius;
 }
 
 /*--------------
@@ -126,6 +126,7 @@
   font-size: @titleFontSize;
   color: @titleColor;
 }
+.ui.items .item > .content > .meta + .description,
 .ui.items .item > .content > .header + .description {
   margin-top: @descriptionDistance;
 }
@@ -165,10 +166,8 @@
 ---------------*/
 
 .ui.items .item .meta {
-  float: @metaFloat;
   color: @metaColor;
 }
-
 
 /*--------------
      Labels

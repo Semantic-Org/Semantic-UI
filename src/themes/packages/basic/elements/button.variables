@@ -31,6 +31,9 @@
 
 @loadingBackgroundColor: #F0F0F0;
 
+@labeledIconLeftShadow: none;
+@labeledIconRightShadow: none;
+
 @mini: 0.6rem;
 @tiny: 0.7rem;
 @small: 0.85rem;

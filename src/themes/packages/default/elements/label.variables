@@ -86,14 +86,14 @@
 
 /* Corner */
 @cornerSizeRatio: 1.2;
-@cornerTriangleSize: 3em;
+@cornerTriangleSize: 2.5em;
 @cornerTextWidth: 2.5em;
 
 @cornerTextSize: 0.7em;
 @cornerIconSize: 0.7em;
 
-@cornerTopOffset: 0.45em;
-@cornerLeftOffset: 0.75em;
+@cornerTopOffset: 0.1em;
+@cornerLeftOffset: 0.95em;
 
 /* Horizontal */
 @horizontalLabelMinWidth: 3em;

@@ -5,23 +5,29 @@
          View
 --------------------*/
 
+/* Shadow */
+@shadowDistance: 3px;
+@shadowBoxShadow: 0px 3px 0px 0px @solidBorderColor;
+
 /* Item */
 @background: #FFFFFF;
 @borderRadius: 0.325rem;
 @display: block;
-@float: left;
 @margin: 0em @horizontalSpacing @rowSpacing;
 @minHeight: 0px;
 @padding: 0em;
 @width: 300px;
 @boxShadow:
-  0px 0px 0px 1px @borderColor,
-  0px 3px 0px 0px @borderColor
+  0px 0px 0px 1px @solidBorderColor,
+  @shadowBoxShadow
 ;
 @border: none;
 @zIndex: '';
+@transition: box-shadow @transitionDuration @transitionEasing;
 
 /* Item Group */
+@groupDisplay: block;
+@groupFloat: left;
 @horizontalSpacing: 0.5em;
 @rowSpacing: 2.5em;
 @groupMargin: 1em -@horizontalSpacing;
@@ -38,8 +44,9 @@
 @imageBorder: none;
 
 /* Content */
+@contentBackground: none;
 @contentMargin: 0em;
-@contentPadding: 0.75em 1em;
+@contentPadding: 1em 1em;
 @contentFontSize: 1em;
 @contentBorder: none;
 @contentBorderRadius: 0em;
@@ -53,27 +60,31 @@
 @titleColor: @darkTextColor;
 
 /* Metadata */
+@metaSpacing: 0.3em;
 @metaColor: @lightTextColor;
 
 /* Description */
 @descriptionDistance: 0.75em;
-@descriptionColor: @lightTextColor;
+@descriptionColor: rgba(0, 0, 0, 0.5);
 
-/* Image */
-@imageSpacing: 0.25em;
+/* Content Image */
 @contentImageWidth: 2em;
 @contentImageVerticalAlign: middle;
 
+/* Avatar Image */
+@avatarSize: @contentImageWidth;
+@avatarBorderRadius: @circularRadius;
+
 /* Paragraph */
-@paragraphDistance: 0.1em;
+@paragraphDistance: 0.5em;
 
 /* Additional Content */
-@extraDisplay: absolute;
-@extraTop: 100%;
+@extraDivider: none;
+@extraDisplay: static;
+@extraTop: 0em;
 @extraLeft: 0em;
 @extraWidth: 100%;
-
-@extraPadding: 0.5em 0.75em;
+@extraPadding: 0.5em 1em;
 @extraColor: @lightTextColor;
 @extraTransition: color @transitionDuration @transitionEasing;
 
@@ -81,12 +92,14 @@
        States
 --------------------*/
 
+@shadowHoverBoxShadow: 0px 3px 0px 0px @solidSelectedBorderColor;
+
 @hoverCursor: pointer;
 @hoverZIndex: 5;
 @hoverBorder: none;
 @hoverBoxShadow:
-  0px 0px 0px 1px @selectedBorderColor,
-  0px 3px 0px 0px @selectedBorderColor
+  @shadowHoverBoxShadow,
+  0px 0px 0px 1px @selectedBorderColor
 ;
 
 

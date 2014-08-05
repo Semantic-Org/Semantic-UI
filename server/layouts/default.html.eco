@@ -55,6 +55,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/message.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/table.css">
 
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/card.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/comment.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/list.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/feed.css">

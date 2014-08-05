@@ -7,7 +7,7 @@
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 - **Accordion** - Accordions are not unstyled by default allowing for more compatability with other modules without having to override styles. Styled accordions are now included as a variation ``ui styled accordion``
-- **Item** - "Name" has been renamed "Header" to be consistent with other modules. Additional content is no longer nested inside item content, but as an optional variation of content that is formatted to be less pronounced
+- **Item** - Items have now been renamed "card" to allow for a more generic item list that does not use a "card" style. Some 'card' view content has been slightly adjusted. Please refer to documentation
 
 **Enhancements**
 - **Accordion** - Accordion now includes all icons in an embedded font instead of requiring icons
