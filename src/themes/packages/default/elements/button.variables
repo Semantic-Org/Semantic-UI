@@ -14,14 +14,18 @@
 @textColor: rgba(0, 0, 0, 0.6);
 @textShadow: none;
 @invertedTextShadow: none;
-
 @borderRadius: 0.25em;
+
+/* Shadow */
+@shadowDistance: 0em;
+@shadowOffset: (@shadowDistance / 2);
+@shadowBoxShadow: 0px -@shadowDistance 0px 0px rgba(0, 0, 0, 0.1) inset;
 
 @backgroundColor: #FAFAFA;
 @backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
 @boxShadow:
   0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
-  0px -@shadowDistance 0px 0px rgba(0, 0, 0, 0.1) inset
+  @shadowBoxShadow
 ;
 
 /* transitions */
@@ -37,12 +41,12 @@
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.5em;
 
-/* Shadow */
-@shadowDistance: 0em;
-@shadowOffset: (@shadowDistance / 2);
-
 /* Icon */
-@iconMargin: 0.6em;
+@iconOpacity: 0.8;
+@iconDistance: 0.4em;
+@iconTransition: opacity @transitionDuration @transitionEasing;
+@iconMargin: 0em @iconDistance 0em -@iconDistance;
+@iconVerticalAlign: top;
 
 /* Loader */
 @loaderPath: "@{imagePath}/loader-mini.gif";
@@ -155,7 +159,7 @@
 
 /* Colors */
 @coloredBackgroundImage: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-@coloredBoxShadow: none;
+@coloredBoxShadow: @shadowBoxShadow;
 
 /* Compact */
 @compactVerticalPadding: (@verticalPadding * 0.75);

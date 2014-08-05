@@ -505,25 +505,10 @@
 ---------------*/
 
 .ui.button > .icon {
-  margin-right: @iconMargin;
-
-  line-height: 1;
-
-  -webkit-transition:
-    opacity 0.1s @transitionEasing
-  ;
-  -moz-transition:
-    opacity 0.1s @transitionEasing
-  ;
-  -o-transition:
-    opacity 0.1s @transitionEasing
-  ;
-  -ms-transition:
-    opacity 0.1s @transitionEasing
-  ;
-  transition:
-    opacity 0.1s @transitionEasing
-  ;
+  opacity: @iconOpacity;
+  margin: @iconMargin;
+  transition: @iconTransition;
+  vertical-align: @iconVerticalAlign;
 }
 
 /*******************************
