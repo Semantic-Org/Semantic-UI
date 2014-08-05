@@ -128,6 +128,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
           Breadcrumb
 *******************************/
@@ -142,9 +145,6 @@
        States
 --------------------*/
 /* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -19616,6 +19616,19 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
+             Sidebar
+*******************************/
+/* Coupling */
+/*-------------------
+      Variations
+--------------------*/
+/* Sizes */
+/* Styled */
+/* Floating */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -19698,19 +19711,6 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Sidebar
-*******************************/
-/* Coupling */
-/*-------------------
-      Variations
---------------------*/
-/* Sizes */
-/* Styled */
-/* Floating */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -21858,7 +21858,7 @@ body.pushed.scrolling.ui.dimmable {
 .ui.card {
   position: relative;
   display: block;
-  width: 275px;
+  width: 300px;
   min-height: 0px;
   margin: 0em 0.5em 2.5em;
   background: #ffffff;
@@ -21902,6 +21902,7 @@ a.ui.cards {
   width: 100%;
   height: auto;
   border-radius: 0.325rem 0.325rem 0em 0em;
+  border: none;
 }
 .ui.cards .card > .image:only-child > img,
 .ui.card > .image:only-child > img {

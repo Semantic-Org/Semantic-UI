@@ -17,7 +17,7 @@
 @margin: 0em @horizontalSpacing @rowSpacing;
 @minHeight: 0px;
 @padding: 0em;
-@width: 275px;
+@width: 300px;
 @boxShadow:
   0px 0px 0px 1px @solidBorderColor,
   @shadowBoxShadow
@@ -40,6 +40,7 @@
 /* Image */
 @imageBackground: @transparentBlack;
 @imagePadding: 0em;
+@imageBorder: none;
 @imageBorderRadius: @borderRadius @borderRadius 0em 0em;
 @imageBoxShadow: none;
 @imageBorder: none;
@@ -55,7 +56,6 @@
 
 /* Header */
 @headerMargin: 0em;
-@headerFont: @headerFont;
 @headerFontWeight: bold;
 @headerFontSize: 1.25em;
 @headerColor: @darkTextColor;
