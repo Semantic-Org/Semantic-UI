@@ -1,18 +1,100 @@
 /*******************************
              Item
 *******************************/
-
-
 /*-------------------
          View
 --------------------*/
 
+/* Item */
+@background: #FFFFFF;
+@borderRadius: 0.325em;
+@display: block;
+@float: left;
+@margin: 0em @horizontalSpacing @rowSpacing;
+@minHeight: 0px;
+@padding: 0.5em;
+@width: 300px;
+@boxShadow:
+  0px 0px 0px 1px @borderColor,
+  0px 3px 0px 0px @borderColor
+;
+@border: none;
+@zIndex: '';
+
+/* Item Group */
+@horizontalSpacing: 0.5em;
+@rowSpacing: 2.5em;
+@groupMargin: 1em -@horizontalSpacing;
+
 /*-------------------
-      Elements
+       Content
 --------------------*/
 
+/* Image */
+@imageBackground: @transparentBlack;
+@imagePadding: 0em;
+@imageBorderRadius: @borderRadius;
+@imageBoxShadow: none;
+@imageBorder: none;
+
+/* Content */
+@contentMargin: 0em;
+@contentPadding: 0.75em 0.5em;
+@contentFontSize: 1em;
+@contentBorder: none;
+@contentBorderRadius: 0em;
+@contentBoxShadow: none;
+
+/* Title */
+@titleMargin: 0em;
+@titleFont: @headerFont;
+@titleFontWeight: bold;
+@titleFontSize: 1.25em;
+@titleColor: @darkTextColor;
+
+/* Metadata */
+@metaFloat: right;
+@metaColor: @lightTextColor;
+
+/* Description */
+@descriptionDistance: 0.75em;
+@descriptionColor: @lightTextColor;
+
+/* Image */
+@imageSpacing: 0.25em;
+@contentImageWidth: 2em;
+@contentImageVerticalAlign: middle;
+
+/* Paragraph */
+@paragraphDistance: 0.1em;
+
+/* Additional Content */
+@extraDisplay: absolute;
+@extraTop: 100%;
+@extraLeft: 0em;
+@extraWidth: 100%;
+@extraHeight: 1.5em;
+
+@extraPadding: 0.5em 0.75em;
+@extraColor: @lightTextColor;
+@extraTransition: color @transitionDuration @transitionEasing;
+
+/*-------------------
+       States
+--------------------*/
+
+@hoverCursor: pointer;
+@hoverZIndex: 5;
+@hoverBorder: none;
+@hoverBoxShadow:
+  0px 0px 0px 1px @selectedBorderColor,
+  0px 3px 0px 0px @selectedBorderColor
+;
 
 
 /*-------------------
       Variations
 --------------------*/
+
+/* Sizes */
+@medium: 1em;

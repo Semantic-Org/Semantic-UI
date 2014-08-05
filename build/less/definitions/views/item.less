@@ -28,16 +28,16 @@
 ---------------*/
 
 .ui.items {
-  margin: 1em 0em 0em;
+  margin: @groupMargin;
 }
 .ui.items:first-child {
   margin-top: 0em;
 }
 .ui.items:last-child {
-  margin-bottom: -1em;
+  margin-bottom: 0em;
 }
 
-/* Force Clearing */
+/* Clearing */
 .ui.items:after {
   display: block;
   content: ' ';
@@ -53,37 +53,21 @@
 
 .ui.items > .row > .item,
 .ui.items > .item {
-  display: block;
-  float: left;
   position: relative;
-  top: 0px;
+  display: @display;
+  float: @float;
 
-  width: 316px;
-  min-height: 375px;
-  margin: 0em 0.5em 2.5em;
-  padding: 0em;
+  width: @width;
+  min-height: @minHeight;
+  margin: @margin;
 
-  background-color: #FFFFFF;
-  line-height: 1.2;
-  font-size: 1em;
+  background: @background;
+  padding: @padding;
 
-  -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-
-  border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
-
-  -moz-border-radius: 0.33em;
-  -webkit-border-radius: 0.33em;
-  border-radius: 0.33em;
-
-  -webkit-transition: box-shadow 0.2s ease;
-  -moz-transition: box-shadow 0.2s ease;
-  -o-transition: box-shadow 0.2s ease;
-  -ms-transition: box-shadow 0.2s ease;
-  transition: box-shadow 0.2s ease;
-
-  padding: 0.5em;
+  border: @border;
+  border-radius: @borderRadius;
+  box-shadow: @boxShadow;
+  z-index: @zIndex;
 }
 
 .ui.items a.item,
@@ -91,65 +75,88 @@
   cursor: pointer;
 }
 
-.ui.items .item,
-.ui.items .item > .image,
-.ui.items .item > .image .overlay,
-.ui.items .item > .content,
-.ui.items .item > .content > .meta,
-.ui.items .item > .content > .extra {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 /*--------------
-      Images
+     Images
 ---------------*/
 
 .ui.items .item > .image {
   display: block;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.05);
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-
-  -webkit-border-radius: 0.2em;
-  -moz-border-radius: 0.2em;
-  border-radius: 0.2em;
+  padding: @imagePadding;
+  background: @imageBackground;
+  border-radius: @imageBorderRadius;
 }
 .ui.items .item > .image > img {
   display: block;
   width: 100%;
+  height: auto;
 }
+
+/*--------------
+     Floated
+---------------*/
+
+.ui.items .item  .left {
+  float: left;
+}
+.ui.items .item  .right {
+  float: right;
+}
+
 
 
 /*--------------
      Content
 ---------------*/
-.ui.items .item > .content {
-  padding: 0.75em 0.5em;
-}
-.ui.items .item > .content > .name {
-  display: block;
 
-  font-size: 1.25em;
-  font-weight: bold;
-  margin-bottom: 0.2em;
-  color: rgba(0, 0, 0, 0.7);
+.ui.items .item > .content {
+  margin: @contentMargin;
+  padding: @contentPadding;
+  box-shadow: @contentBoxShadow;
+  font-size: @contentFontSize;
+  border: @contentBorder;
+  border-radius: @contentBorderRadius;
 }
+.ui.items .item > .content > .header {
+  display: block;
+  margin: @titleMargin;
+  font-family: @titleFont;
+  font-weight: @titleFontWeight;
+  font-size: @titleFontSize;
+  color: @titleColor;
+}
+.ui.items .item > .content > .header + .description {
+  margin-top: @descriptionDistance;
+}
+/*--------------
+      Image
+---------------*/
+
+.ui.items .item .content img {
+  display: inline-block;
+  vertical-align: @contentImageVerticalAlign;
+  width: @contentImageWidth;
+}
+
+
+/*--------------
+   Description
+---------------*/
+
 .ui.items .item > .content > .description {
   clear: both;
-  margin: 0em 0em;
-  color: rgba(0, 0, 0, 0.45);
+  color: @descriptionColor;
 }
-.ui.items .item > .content > .description p {
-  margin: 0em 0em 0.2em;
+
+/*--------------
+    Paragraph
+---------------*/
+
+.ui.items .item > .content p {
+  margin: 0em 0em @paragraphDistance;
 }
-.ui.items .item > .content > .description p:last-child {
+.ui.items .item > .content p:last-child {
   margin-bottom: 0em;
 }
 
@@ -158,11 +165,8 @@
 ---------------*/
 
 .ui.items .item .meta {
-  float: right;
-  color: rgba(0, 0, 0, 0.35);
-}
-.ui.items .item > .content > .meta + .name {
-  float: left;
+  float: @metaFloat;
+  color: @metaColor;
 }
 
 
@@ -170,7 +174,7 @@
      Labels
 ---------------*/
 
-/*-----star----- */
+/*-----Star----- */
 
 /* hover */
 .ui.items .item .star.label:hover::after {
@@ -194,7 +198,7 @@
   color: #AC9400
 }
 
-/*-----like----- */
+/*-----Like----- */
 
 /* hover */
 .ui.items .item .like.label:hover::after {
@@ -220,72 +224,30 @@
 
 
 /*--------------
-      Extra
+  Extra Content
 ---------------*/
 
 .ui.items .item .extra {
-  position: absolute;
-  width: 100%;
-  padding: 0em 0.5em;
-  bottom: -2em;
-  left: 0em;
-  height: 1.5em;
-  color: rgba(0, 0, 0, 0.25);
-
-  -webkit-transition: color 0.2s ease;
-  -moz-transition: color 0.2s ease;
-  -o-transition: color 0.2s ease;
-  -ms-transition: color 0.2s ease;
-  transition: color 0.2s ease;
+  position: @extraDisplay;
+  width: @extraWidth;
+  height: @extraHeight;
+  padding: @extraPadding;
+  top: @extraTop;
+  left: @extraLeft;
+  color: @extraColor;
+  transition: @extraTransition;
 }
-.ui.items .item .extra > img {
-  display: inline-block;
-  border-radius: 500px 500px 500px 500px;
-  margin-right: 0.25em;
-  vertical-align: middle;
-  width: 2em;
-}
-.ui.items .item .extra .left {
-  float: left;
-}
-.ui.items .item .extra .right {
-  float: right;
-}
-
 
 /*******************************
            States
 *******************************/
 
 .ui.items .item:hover {
-  cursor: pointer;
-  z-index: 5;
-
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  cursor: @hoverCursor;
+  z-index: @hoverZIndex;
+  border: @hoverBorder;
+  box-shadow: @hoverBoxShadow;
 }
-.ui.items .item:hover .extra {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.ui.items .item:nth-of-type(6n+1):hover {
-  border-bottom-color: #6ECFF5 !important;
-}
-.ui.items .item:nth-of-type(6n+2):hover {
-  border-bottom-color: #5C6166 !important;
-}
-.ui.items .item:nth-of-type(6n+3):hover {
-  border-bottom-color: #A1CF64 !important;
-}
-.ui.items .item:nth-of-type(6n+4):hover {
-  border-bottom-color: #D95C5C !important;
-}
-.ui.items .item:nth-of-type(6n+5):hover {
-  border-bottom-color: #00B5AD !important;
-}
-.ui.items .item:nth-of-type(6n+6):hover {
-  border-bottom-color: #564F8A !important;
-}
-
 
 /*******************************
            Variations
@@ -344,75 +306,51 @@
 /* Item Count */
 .ui.one.connected.items > .row > .item,
 .ui.one.connected.items > .item {
-  width: 50%;
-  padding-left: 2%;
-  padding-right: 2%;
+  width: @oneColumn;
 }
 .ui.two.connected.items > .row > .item,
 .ui.two.connected.items > .item {
-  width: 50%;
-  padding-left: 1%;
-  padding-right: 1%;
+  width: @twoColumn;
 }
 .ui.three.connected.items > .row > .item,
 .ui.three.connected.items > .item {
-  width: 33.333%;
-  padding-left: 1%;
-  padding-right: 1%;
+  width: @threeColumn;
 }
 .ui.four.connected.items > .row > .item,
 .ui.four.connected.items > .item {
-  width: 25%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
+  width: @fourColumn;
 }
 .ui.five.connected.items > .row > .item,
 .ui.five.connected.items > .item {
-  width: 20%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
+  width: @fiveColumn;
 }
 .ui.six.connected.items > .row > .item,
 .ui.six.connected.items > .item {
-  width: 16.66%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
+  width: @sixColumn;
 }
 .ui.seven.connected.items > .row > .item,
 .ui.seven.connected.items > .item {
-  width: 14.28%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
+  width: @sevenColumn;
 }
 .ui.eight.connected.items > .row > .item,
 .ui.eight.connected.items > .item {
-  width: 12.5%;
-  padding-left: 0.25%;
-  padding-right: 0.25%;
+  width: @eightColumn;
 }
 .ui.nine.connected.items > .row > .item,
 .ui.nine.connected.items > .item {
-  width: 11.11%;
-  padding-left: 0.25%;
-  padding-right: 0.25%;
+  width: @nineColumn;
 }
 .ui.ten.connected.items > .row > .item,
 .ui.ten.connected.items > .item {
-  width: 10%;
-  padding-left: 0.2%;
-  padding-right: 0.2%;
+  width: @tenColumn;
 }
 .ui.eleven.connected.items > .row > .item,
 .ui.eleven.connected.items > .item {
-  width: 9.09%;
-  padding-left: 0.2%;
-  padding-right: 0.2%;
+  width: @elevenColumn;
 }
 .ui.twelve.connected.items > .row > .item,
 .ui.twelve.connected.items > .item {
-  width: 8.3333%;
-  padding-left: 0.1%;
-  padding-right: 0.1%;
+  width: @twelveColumn;
 }
 
 /*-------------------
@@ -645,3 +583,11 @@
   clear: left;
 }
 
+/*--------------
+      Items
+---------------*/
+
+.ui.items > .row > .item,
+.ui.items > .item {
+  font-size: @medium;
+}

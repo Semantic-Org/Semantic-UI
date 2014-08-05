@@ -42,7 +42,7 @@
 @shadowOffset: (@shadowDistance / 2);
 
 /* Icon */
-@iconMargin: 0.6em;
+@iconDistance: 0.6em;
 
 /* Loader */
 @loaderPath: "@{imagePath}/loader-mini.gif";

@@ -166,7 +166,7 @@
 @purpleTextColor  : @purple;
 @redTextColor     : @red;
 @tealTextColor    : @teal;
-@yellowTextColor  : #EAB600; // Yellow text illegible
+@yellowTextColor  : #B58105; // Yellow text illegible
 
 /*--- Backgrounds ---*/
 @blueBackground   : #D3E4F3;

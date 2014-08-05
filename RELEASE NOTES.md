@@ -7,6 +7,7 @@
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
 - **Accordion** - Accordions are not unstyled by default allowing for more compatability with other modules without having to override styles. Styled accordions are now included as a variation ``ui styled accordion``
+- **Item** - "Name" has been renamed "Header" to be consistent with other modules. Additional content is no longer nested inside item content, but as an optional variation of content that is formatted to be less pronounced
 
 **Enhancements**
 - **Accordion** - Accordion now includes all icons in an embedded font instead of requiring icons
@@ -24,6 +25,7 @@
 - **Grid** - Fixed page grid allows for fixed pixel size containers used with a grid instead of percentage
 - **Grid** - Vertically divided grid now does not include left/right gutters in divider
 - **Image** - New ``bordered image`` variation
+- **Item** - Items now have a horizontal list view for content lists
 - **Label** - Added tag label and empty circular label style
 - **Label** - Now has compact form, for fitting into tight spaces
 - **List** - Child lists can now be formatted to sit inside text content

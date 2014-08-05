@@ -48,7 +48,7 @@
      Content
 ---------------*/
 
-/* block with headers */
+/* Header */
 .ui.message .header {
   display: @headerDisplay;
   font-family: @headerFont;
@@ -57,7 +57,7 @@
   margin: 0em @headerHorizontalDistance 0em 0em;
 }
 
-/* block with paragraphs */
+/* Paragraph */
 .ui.message p {
   opacity: @messageTextOpacity;
   margin: @messageParagraphMargin 0em;
@@ -72,7 +72,7 @@
   margin-top: @headerBottomMargin;
 }
 
-/* Block with list */
+/* List */
 .ui.message ul.list {
   opacity: @listOpacity;
   list-style-position: @listStylePosition;
@@ -94,6 +94,12 @@
 }
 .ui.message ul.list li:first-child {
   margin-top: 0em;
+}
+
+
+/* Icon */
+.ui.message > .icon {
+  margin-right: @iconDistance;
 }
 
 /* Close Icon */
@@ -191,7 +197,7 @@
   opacity: @iconOpacity;
 }
 .ui.icon.message > .icon + .content {
-  padding-left: @iconDistance;
+  padding-left: @iconContentDistance;
 }
 .ui.icon.message > .content {
   display: table-cell;

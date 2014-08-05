@@ -25,6 +25,7 @@
 ;
 
 /* Header */
+
 @headerFontSize: 1.3em;
 @headerFontWeight: bold;
 @headerBottomMargin: 0.25em;
@@ -43,6 +44,9 @@
 @listItemIndent: 1em;
 @listItemMargin: 0.3em;
 
+/* Icon */
+@iconDistance: 0.6em;
+
 /* Close Icon */
 @closeTopDistance: 1em;
 @closeRightDistance: 0.5em;
@@ -56,7 +60,7 @@
 /* Icon Message */
 @iconSize: 2em;
 @iconOpacity: 0.8;
-@iconDistance: 1.5em;
+@iconContentDistance: 1.5em;
 @iconVerticalAlign: middle;
 
 /* Attached */

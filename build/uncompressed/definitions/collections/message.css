@@ -137,6 +137,7 @@
 /* Header */
 /* Paragraph */
 /* List */
+/* Icon */
 /* Close Icon */
 /*-------------------
         Types
@@ -187,15 +188,15 @@
 /*--------------
      Content
 ---------------*/
-/* block with headers */
+/* Header */
 .ui.message .header {
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.3em;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
 }
-/* block with paragraphs */
+/* Paragraph */
 .ui.message p {
   opacity: 0.85;
   margin: 0.75em 0em;
@@ -209,7 +210,7 @@
 .ui.message .header + p {
   margin-top: 0.25em;
 }
-/* Block with list */
+/* List */
 .ui.message ul.list {
   opacity: 0.85;
   list-style-position: inside;
@@ -231,6 +232,10 @@
 }
 .ui.message ul.list li:first-child {
   margin-top: 0em;
+}
+/* Icon */
+.ui.message > .icon {
+  margin-right: 0.6em;
 }
 /* Close Icon */
 .ui.message > .close.icon {
@@ -398,7 +403,7 @@
 }
 .ui.yellow.message {
   background-color: #fcf5d8;
-  color: #eab600;
+  color: #b58105;
 }
 /*--------------
      Sizes
