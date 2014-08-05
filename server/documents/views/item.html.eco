@@ -4,7 +4,7 @@ css         : 'item'
 
 title       : 'Item'
 description : 'An item view can be used to list site content'
-type        : 'UI View'
+type        : 'Draft'
 ---
 
 <%- @partial('header') %>
@@ -22,7 +22,7 @@ type        : 'UI View'
   <div class="example">
     <h4 class="ui header">Items</h4>
     <p>A group of items. </p>
-    <div class="ignored yellow ui message">
+    <div class="ignored yellow icon ui message">
       <i class="info icon"></i>
       Items must manually be given a width and height that match up to the content that it displays. Content must also be truncated so that each item will not exceed the maximum height.
     </div>
@@ -105,7 +105,7 @@ type        : 'UI View'
   <div class="example">
     <h4 class="ui header">List</h4>
     <p>An item list. </p>
-    <div class="ignored yellow ui message">
+    <div class="ignored yellow icon ui message">
       <i class="info icon"></i>
       Items must manually be given a width and height that match up to the content that it displays. Content must also be truncated so that each item will not exceed the maximum height.
     </div>
@@ -155,7 +155,7 @@ type        : 'UI View'
 
   <div class="example">
     <h4 class="ui header">Stackable</h4>
-    <div class="ui ignored info message">Resize your browser to a smaller size to see the items stack after reaching mobile breakpoints</div>
+    <div class="ui ignored info icon message">Resize your browser to a smaller size to see the items stack after reaching mobile breakpoints</div>
     <p>An item view can have its items take the full width when below a browser resolution threshold to allow for content to display properly at small sizes</p>
     <div class="ui stackable items">
       <div class="item">

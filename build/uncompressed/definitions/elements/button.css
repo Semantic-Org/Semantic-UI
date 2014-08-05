@@ -134,9 +134,9 @@
 /*-------------------
        Element
 --------------------*/
+/* Shadow */
 /* transitions */
 /* Padding */
-/* Shadow */
 /* Icon */
 /* Loader */
 /*-------------------
@@ -440,7 +440,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.primary.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
@@ -472,7 +472,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.secondary.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
@@ -502,7 +502,7 @@
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.facebook.button:hover {
   background-color: #4261b0;
@@ -521,7 +521,7 @@
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.twitter.button:hover {
   background-color: #549dd1;
@@ -540,7 +540,7 @@
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.google.plus.button:hover {
   background-color: #d85b4b;
@@ -575,7 +575,7 @@
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.youtube.button:hover {
   background-color: #e31b21;
@@ -594,7 +594,7 @@
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.instagram.button:hover {
   background-color: #5183ad;
@@ -613,7 +613,7 @@
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pinterest.button:hover {
   background-color: #08bbff;
@@ -631,7 +631,7 @@
   color: #ffffff;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.vk.button:hover {
   background-color: #567ea9;
@@ -645,10 +645,11 @@
      Icon
 ---------------*/
 .ui.button > .icon {
-  margin-right: 0.6em;
-  line-height: 1;
-  -webkit-transition: opacity 0.1s ease;
-  transition: opacity 0.1s ease;
+  opacity: 0.8;
+  margin: 0em 0.4em 0em -0.4em;
+  -webkit-transition: opacity 0.25s ease;
+          transition: opacity 0.25s ease;
+  vertical-align: top;
 }
 /*******************************
            Variations
@@ -1192,7 +1193,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.black.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
@@ -1249,7 +1250,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.blue.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
@@ -1307,7 +1308,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.green.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
@@ -1365,7 +1366,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.orange.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
@@ -1423,7 +1424,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.pink.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
@@ -1481,7 +1482,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.purple.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
@@ -1539,7 +1540,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.red.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
@@ -1597,7 +1598,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.teal.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
@@ -1655,7 +1656,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.yellow.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
@@ -1715,7 +1716,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.positive.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover,
@@ -1751,7 +1752,7 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.negative.button {
-  box-shadow: none;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,

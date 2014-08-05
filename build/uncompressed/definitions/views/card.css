@@ -1,4 +1,4 @@
- /*
+/*
  * # Semantic - Item
  * http://github.com/semantic-org/semantic-ui/
  *
@@ -8,44 +8,191 @@
  * http://opensource.org/licenses/MIT
  *
  */
-
 /*******************************
             Theme
 *******************************/
+/*
 
-@type    : 'view';
-@element : 'card';
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
 
-@import '../../semantic.config';
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
 
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       BG Colors
+--------------------*/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
+/*--- Text Colors ---*/
+/*--- Backgrounds ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive / Negative */
+/* Messages */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+             Card
+*******************************/
+/*-------------------
+         View
+--------------------*/
+/* Shadow */
+/* Item */
+/* Item Group */
+/*-------------------
+       Content
+--------------------*/
+/* Image */
+/* Content */
+/* Header */
+/* Metadata */
+/* Icons */
+/* Links */
+/* Description */
+/* Content Image */
+/* Avatar Image */
+/* Paragraph */
+/* Additional Content */
+/*-------------------
+      Variations
+--------------------*/
+/* Link */
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
 /*******************************
             Standard
 *******************************/
-
-
 /*--------------
       Items
 ---------------*/
-
 .ui.cards,
 .ui.card {
-  margin: @groupMargin;
+  margin: 1em -0.5em;
 }
-.ui.cards:first-child
-.ui.card:first-child {
+.ui.cards:first-child .ui.card:first-child {
   margin-top: 0em;
 }
 .ui.cards:last-child,
 .ui.card:last-child {
   margin-bottom: 0em;
 }
-
 .ui.cards > .row > .card,
 .ui.cards > .card {
-  display: @groupDisplay;
-  float: @groupFloat;
+  display: block;
+  float: left;
 }
-
 /* Clearing */
 .ui.cards:after,
 .ui.card:after {
@@ -56,84 +203,67 @@
   overflow: hidden;
   visibility: hidden;
 }
-
-
 /*--------------
       Item
 ---------------*/
-
 .ui.cards > .row > .card,
 .ui.cards > .card,
 .ui.card {
   position: relative;
-  display: @display;
-
-  width: @width;
-  min-height: @minHeight;
-  margin: @margin;
-
-  background: @background;
-  padding: @padding;
-
-  border: @border;
-  border-radius: @borderRadius;
-  box-shadow: @boxShadow;
-  transition: @transition;
-  z-index: @zIndex;
+  display: block;
+  width: 275px;
+  min-height: 0px;
+  margin: 0em 0.5em 2.5em;
+  background: #ffffff;
+  padding: 0em;
+  border: none;
+  border-radius: 0.325rem;
+  box-shadow: 0px 0px 0px 1px #dddddd, 0px 0px 0px 0px #dddddd;
+  -webkit-transition: box-shadow 0.25s ease;
+          transition: box-shadow 0.25s ease;
+  z-index: '';
 }
-
 .ui.cards > .row > .card > :first-child,
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
-  border-radius: @borderRadius @borderRadius 0em 0em !important;
+  border-radius: 0.325rem 0.325rem 0em 0em !important;
 }
-
 .ui.cards > .row > .card > :last-child,
 .ui.cards > .card > :last-child,
 .ui.card > :last-child {
-  border-radius: 0em 0em @borderRadius @borderRadius !important;
+  border-radius: 0em 0em 0.325rem 0.325rem !important;
 }
-
-
 .ui.cards a.card,
 .ui.cards .card a,
 .ui.card a,
 a.ui.cards {
   cursor: pointer;
 }
-
-
 /*--------------
      Images
 ---------------*/
-
 .ui.cards .card > .image,
 .ui.card > .image {
   display: block;
   position: relative;
-  padding: @imagePadding;
-  background: @imageBackground;
+  padding: 0em;
+  background: rgba(0, 0, 0, 0.05);
 }
 .ui.cards .card > .image > img,
 .ui.card > .image > img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: @imageBorderRadius;
-  border: @imageBorder;
+  border-radius: 0.325rem 0.325rem 0em 0em;
 }
-
 .ui.cards .card > .image:only-child > img,
 .ui.card > .image:only-child > img {
-  border-radius: @borderRadius;
+  border-radius: 0.325rem;
 }
-
-
 /*--------------
      Floated
 ---------------*/
-
-.ui.cards .card  .left.floated,
+.ui.cards .card .left.floated,
 .ui.card .left.floated {
   float: left;
 }
@@ -141,24 +271,19 @@ a.ui.cards {
 .ui.card .right.floated {
   float: right;
 }
-
-
-
 /*--------------
      Content
 ---------------*/
-
 .ui.cards .card > .content,
 .ui.card > .content {
-  background: @contentBackground;
-  margin: @contentMargin;
-  padding: @contentPadding;
-  box-shadow: @contentBoxShadow;
-  font-size: @contentFontSize;
-  border: @contentBorder;
-  border-radius: @contentBorderRadius;
+  background: none;
+  margin: 0em;
+  padding: 1em 1em;
+  box-shadow: none;
+  font-size: 1em;
+  border: none;
+  border-radius: 0em;
 }
-
 .ui.cards .card > .content:after,
 .ui.card > .content:after {
   display: block;
@@ -168,209 +293,183 @@ a.ui.cards {
   overflow: hidden;
   visibility: hidden;
 }
-
 .ui.cards .card > .content > .header,
 .ui.card > .content > .header {
   display: block;
-  margin: @headerMargin;
-  font-family: @headerFont;
-  font-weight: @headerFontWeight;
-  font-size: @headerFontSize;
-  color: @headerColor;
+  margin: 0em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.25em;
+  color: rgba(0, 0, 0, 0.85);
 }
 .ui.cards .card > .content > .meta + .description,
 .ui.cards .card > .content > .header + .description,
 .ui.card > .content > .meta + .description,
-.ui.card > .content > .header + .description  {
-  margin-top: @descriptionDistance;
+.ui.card > .content > .header + .description {
+  margin-top: 0.75em;
 }
-
 /*--------------
      Image
 ---------------*/
-
 .ui.cards .card .content img,
 .ui.card .content img {
   display: inline-block;
-  vertical-align: @contentImageVerticalAlign;
-  width: @contentImageWidth;
+  vertical-align: middle;
+  width: 2em;
 }
 .ui.cards .card img.avatar,
 .ui.cards .card .avatar img,
 .ui.card img.avatar,
 .ui.card .avatar img {
-  width: @avatarSize;
-  height: @avatarSize;
-  border-radius: @avatarBorderRadius;
+  width: 2em;
+  height: 2em;
+  border-radius: 500rem;
 }
-
-
 /*--------------
    Description
 ---------------*/
-
 .ui.cards .card > .content > .description,
 .ui.card > .content > .description {
   clear: both;
-  color: @descriptionColor;
+  color: rgba(0, 0, 0, 0.5);
 }
-
 /*--------------
     Paragraph
 ---------------*/
-
 .ui.cards .card > .content p,
 .ui.card > .content p {
-  margin: 0em 0em @paragraphDistance;
+  margin: 0em 0em 0.5em;
 }
 .ui.cards .card > .content p:last-child,
 .ui.card > .content p:last-child {
   margin-bottom: 0em;
 }
-
 /*--------------
       Meta
 ---------------*/
-
 .ui.cards .card .meta,
 .ui.card .meta {
-  font-size: @metaFontSize;
-  color: @metaColor;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.4);
 }
 .ui.cards .card .meta *,
 .ui.card .meta * {
-  margin-right: @metaSpacing;
+  margin-right: 0.3em;
 }
 .ui.cards .card .meta :last-child,
 .ui.card .meta :last-child {
   margin-right: 0em;
 }
-
 .ui.cards .card .meta .right.floated,
 .ui.card .meta .right.floated {
   margin-right: 0em;
-  margin-left: @metaSpacing;
+  margin-left: 0.3em;
 }
-
 /*--------------
       Links
 ---------------*/
-
 /* Generic */
 .ui.cards .card > .content a,
 .ui.card > .content a {
-  color: @contentLinkColor;
+  color: #009fda;
 }
 .ui.cards .card > .content a:hover,
 .ui.card > .content a:hover {
-  color: @contentLinkHoverColor;
+  color: #00b2f3;
 }
-
 /* Header */
 .ui.cards .card > .content > a.header,
 .ui.card > .content > a.header {
-  color: @headerLinkColor;
+  color: rgba(0, 0, 0, 0.85);
 }
 .ui.cards .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: @headerLinkHoverColor;
+  color: #00b2f3;
 }
-
 /* Meta */
 .ui.cards .card .meta a,
 .ui.card .meta a {
-  color: @metaLinkColor;
+  color: rgba(0, 0, 0, 0.4);
 }
 .ui.cards .card .meta a:hover,
 .ui.card .meta a:hover {
-  color: @metaLinkHoverColor;
+  color: rgba(0, 0, 0, 0.8);
 }
-
-
-
 /*--------------
      Labels
 ---------------*/
-
 /*-----Star----- */
-
 /* Icon */
 .ui.cards .card > .content .star.icon,
 .ui.card > .content .star.icon {
   cursor: pointer;
-  opacity: @actionOpacity;
-  transition: @actionTransition;
+  opacity: 0.75;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
 }
 .ui.cards .card > .content .star.icon:hover,
 .ui.card > .content .star.icon:hover {
-  opacity: @actionHoverOpacity;
-  color: @starColor;
+  opacity: 1;
+  color: #ac9400;
 }
 .ui.cards .card > .content .active.star.icon,
 .ui.card > .content .active.star.icon {
-  color: @starActiveColor;
+  color: #e9b539;
 }
-
 /*-----Like----- */
-
 /* Icon */
 .ui.cards .card > .content .like.icon,
 .ui.card > .content .like.icon {
   cursor: pointer;
-  opacity: @actionOpacity;
-  transition: @actionTransition;
+  opacity: 0.75;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
 }
 .ui.cards .card > .content .like.icon:hover,
 .ui.card > .content .like.icon:hover {
-  opacity: @actionHoverOpacity;
-  color: @likeColor;
+  opacity: 1;
+  color: #ffadae;
 }
 .ui.cards .card > .content .active.like.icon,
 .ui.card > .content .active.like.icon {
-  color: @likeActiveColor;
+  color: #ef404a;
 }
-
 /*----------------
   Extra Content
 -----------------*/
-
 .ui.cards .card .extra,
 .ui.card .extra {
-  position: @extraDisplay;
-  background: @extraBackground;
-  width: @extraWidth;
-  padding: @extraPadding;
-  top: @extraTop;
-  left: @extraLeft;
-  color: @extraColor;
-  box-shadow: @extraBoxShadow;
-  transition: @extraTransition;
-  border-top: @extraDivider;
+  position: static;
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+  width: 100%;
+  padding: 0.75em 1em;
+  top: 0em;
+  left: 0em;
+  color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
-
-
 /*******************************
            Variations
 *******************************/
-
 /*-------------------
         Link
 --------------------*/
-
 .ui.link.cards .card:hover,
 .ui.link.card:hover {
   cursor: pointer;
-  z-index: @linkHoverZIndex;
-  background: @linkHoverBackground;
-  border: @linkHoverBorder;
-  box-shadow: @linkHoverBoxShadow;
+  z-index: 5;
+  background: '';
+  border: none;
+  box-shadow: 0px 0px 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
-
 /*-------------------
       Responsive
 --------------------*/
-
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width: 768px) {
   .ui.stackable.cards {
     display: block !important;
   }
@@ -382,12 +481,9 @@ a.ui.cards {
     padding: 0% !important;
   }
 }
-
 /*--------------
     Item Count
 ---------------*/
-
-
 .ui.one.cards {
   margin-left: -2%;
   margin-right: -2%;
@@ -397,7 +493,6 @@ a.ui.cards {
   margin-left: 2%;
   margin-right: 2%;
 }
-
 .ui.two.cards {
   margin-left: -1%;
   margin-right: -1%;
@@ -410,7 +505,6 @@ a.ui.cards {
 .ui.two.cards > .card:nth-child(2n+1) {
   clear: left;
 }
-
 .ui.three.cards {
   margin-left: -1%;
   margin-right: -1%;
@@ -423,7 +517,6 @@ a.ui.cards {
 .ui.three.cards > .card:nth-child(3n+1) {
   clear: left;
 }
-
 .ui.four.cards {
   margin-left: -0.5%;
   margin-right: -0.5%;
@@ -436,7 +529,6 @@ a.ui.cards {
 .ui.four.cards > .card:nth-child(4n+1) {
   clear: left;
 }
-
 .ui.five.cards {
   margin-left: -0.5%;
   margin-right: -0.5%;
@@ -449,7 +541,6 @@ a.ui.cards {
 .ui.five.cards > .card:nth-child(5n+1) {
   clear: left;
 }
-
 .ui.six.cards {
   margin-left: -0.5%;
   margin-right: -0.5%;
@@ -462,7 +553,6 @@ a.ui.cards {
 .ui.six.cards > .card:nth-child(6n+1) {
   clear: left;
 }
-
 .ui.seven.cards {
   margin-left: -0.5%;
   margin-right: -0.5%;
@@ -476,7 +566,6 @@ a.ui.cards {
 .ui.seven.cards > .card:nth-child(7n+1) {
   clear: left;
 }
-
 .ui.eight.cards {
   margin-left: -0.25%;
   margin-right: -0.25%;
@@ -490,7 +579,6 @@ a.ui.cards {
 .ui.eight.cards > .card:nth-child(8n+1) {
   clear: left;
 }
-
 .ui.nine.cards {
   margin-left: -0.25%;
   margin-right: -0.25%;
@@ -504,7 +592,6 @@ a.ui.cards {
 .ui.nine.cards > .card:nth-child(9n+1) {
   clear: left;
 }
-
 .ui.ten.cards {
   margin-left: -0.2%;
   margin-right: -0.2%;
@@ -518,7 +605,6 @@ a.ui.cards {
 .ui.ten.cards > .card:nth-child(10n+1) {
   clear: left;
 }
-
 .ui.eleven.cards {
   margin-left: -0.2%;
   margin-right: -0.2%;
@@ -532,7 +618,6 @@ a.ui.cards {
 .ui.eleven.cards > .card:nth-child(11n+1) {
   clear: left;
 }
-
 .ui.twelve.cards {
   margin-left: -0.1%;
   margin-right: -0.1%;
@@ -546,12 +631,10 @@ a.ui.cards {
 .ui.twelve.cards > .card:nth-child(12n+1) {
   clear: left;
 }
-
 /*--------------
       Items
 ---------------*/
-
 .ui.cards > .row > .card,
 .ui.cards > .card {
-  font-size: @medium;
+  font-size: 1em;
 }

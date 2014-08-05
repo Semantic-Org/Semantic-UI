@@ -4,34 +4,20 @@ semantic.card = {};
 semantic.card.ready = function() {
 
   // selector cache
-  var 
-    $card = $('.ui.product.cards .card, .ui.product.card, .ui.idea.cards .card, .ui.idea.card'),
+  var
+    $icon = $('.card .icon, .card .corner.label'),
     handler
   ;
 
   handler = {
 
-    randomProgress: function(index) {
-      var $this = $(this);
-      setTimeout(function() {
-        $this
-          .find('.bar')
-            .css('width', Math.floor(Math.random() * 100) + '%')
-        ;
-      }, index * 200);
-    }
 
   };
 
-  $.api.settings.api = {
-    vote   : '/api.json',
-    follow : '/api.json'
-  };
-
-  $card
-    .card()
+  $icon
+    .state()
   ;
-  
+
 };
 
 

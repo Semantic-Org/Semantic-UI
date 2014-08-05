@@ -5,9 +5,18 @@ css         : 'card'
 title       : 'Card'
 description : 'A card view can be used to list site content as a playing card'
 type        : 'UI View'
+
+element     : 'card'
+elementType : 'view'
+
+themes      : ['Default', 'Basic']
 ---
 
 <%- @partial('header') %>
+
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/views/card.less" />
+<script src="/javascript/card.js"></script>
+
 <div class="main container">
 
   <div class="peek">
@@ -29,10 +38,15 @@ type        : 'UI View'
       </div>
       <div class="content">
         <div class="header">Cute Dog</div>
-        <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
+        <div class="meta">
+          <span class="date">5 days ago</span>
+        </div>
+        <div class="description">
+          This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.
+        </div>
       </div>
       <div class="extra content">
-        <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+        <i class="right floated like icon"></i>
       </div>
     </div>
   </div>
@@ -98,6 +112,7 @@ type        : 'UI View'
       </div>
     </div>
   </div>
+
   <div class="example">
     <h4 class="ui header">Metadata</h4>
     <p>A card can contain content metadata</p>
@@ -112,6 +127,44 @@ type        : 'UI View'
           <span class="time">2 days ago</span>
           <span class="category">Animals</span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Link</h4>
+    <p>A card can contain contain links as images, headers, or inside content</p>
+    <div class="ui yellow message">
+      <i class="star icon"></i>
+      To make the entire content of a card link, check out the link variation below
+    </div>
+    <div class="ui card">
+      <a class="image" href="#">
+        <img src="/images/demo/highres.jpg">
+      </a>
+      <div class="content">
+        <a class="header" href="#">Cute Dog</a>
+        <div class="meta">
+          <a class="time">2 days ago</a>
+        </div>
+        <div class="description">
+          Check our this <a href="http://www.dogs.com"> excellent resource</a> on dogs.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Icons</h4>
+    <p>A card can contain icons to denote user actions.</p>
+    <div class="ui info message">
+      Common actions may contain special formatting, like "star" or "heart". To attach events, on a user action, please check out the <a href="#">state behavior</a>.
+    </div>
+    <div class="ui card">
+      <div class="content">
+        <i class="right floated like icon"></i>
+        <i class="right floated star icon"></i>
+        <div class="header">Cute Dog</div>
       </div>
     </div>
   </div>
@@ -132,11 +185,41 @@ type        : 'UI View'
   </div>
 
   <div class="example">
+    <h4 class="ui header">Extra Content</h4>
+    <p>A card can contain extra content meant to be formatted separately from the main content</p>
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">2 days ago</div>
+        <div class="description">
+          <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+          <p>Many people also have their own barometers for what makes a cute dog.</p>
+        </div>
+      </div>
+      <div class="extra content">
+        121 Votes
+      </div>
+    </div>
+
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Image</h4>
     <p>A card can contain an image</p>
     <div class="ui card">
       <div class="image">
         <img src="/images/demo/highres.jpg">
+      </div>
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">2 days ago</div>
+        <div class="description">
+          <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+          <p>Many people also have their own barometers for what makes a cute dog.</p>
+        </div>
+      </div>
+      <div class="extra content">
+        121 Votes
       </div>
     </div>
   </div>
@@ -158,7 +241,7 @@ type        : 'UI View'
           <span class="category">Animals</span>
         </div>
         <div class="description">
-          We are one too!
+          Here's a description of a cute dog.
         </div>
       </div>
       <div class="extra content">
@@ -176,9 +259,6 @@ type        : 'UI View'
       <div class="card">
         <div class="image">
           <img src="/images/demo/highres4.jpg">
-          <a class="star ui corner label">
-            <i class="star icon"></i>
-          </a>
         </div>
         <div class="content">
           <div class="header">Cute Dog</div>
@@ -188,9 +268,6 @@ type        : 'UI View'
       <div class="card">
         <div class="image">
           <img src="/images/demo/highres5.jpg">
-          <a class="star ui corner label">
-            <i class="star icon"></i>
-          </a>
         </div>
         <div class="content">
           <div class="header">Faithful Dog</div>
@@ -200,9 +277,6 @@ type        : 'UI View'
       <div class="card">
         <div class="image">
           <img src="/images/demo/highres3.jpg">
-          <a class="star ui corner label">
-            <i class="star icon"></i>
-          </a>
         </div>
         <div class="content">
           <div class="header">Silly Dog</div>
@@ -212,9 +286,6 @@ type        : 'UI View'
       <div class="card">
         <div class="image">
           <img src="/images/demo/highres2.jpg">
-          <a class="star ui corner label">
-            <i class="star icon"></i>
-          </a>
         </div>
         <div class="content">
           <div class="header">Happy Dog</div>

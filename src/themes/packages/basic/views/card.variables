@@ -1,0 +1,26 @@
+/*******************************
+             Card
+*******************************/
+
+/*-------------------
+         View
+--------------------*/
+
+@width: 250px;
+@background: transparent;
+@border: none;
+@boxShadow: none;
+
+@contentPadding: 1em 0em;
+
+@extraBackground: transparent;
+@extraDivider: none;
+@extraBoxShadow: none;
+
+@headerFontSize: 1.2em;
+
+@imageBorderRadius: @borderRadius;
+@imageBorder: 1px solid @borderColor;
+
+
+

@@ -445,8 +445,8 @@ a.ui.label:hover:before {
   right: 0em;
   z-index: 10;
   margin: 0em;
-  width: 3em;
-  height: 3em;
+  width: 2.5em;
+  height: 2.5em;
   padding: 0em;
   text-align: center;
   -webkit-transition: color 0.2s ease;
@@ -461,8 +461,8 @@ a.ui.label:hover:before {
   width: 0em;
   height: 0em;
   border-top: 0em solid transparent;
-  border-right: 3em solid transparent;
-  border-bottom: 3em solid transparent;
+  border-right: 2.5em solid transparent;
+  border-bottom: 2.5em solid transparent;
   border-left: 0em solid transparent;
   border-right-color: inherit;
   -webkit-transition: border-color 0.2s ease;
@@ -470,16 +470,16 @@ a.ui.label:hover:before {
 }
 .ui.corner.label .icon {
   position: relative;
-  top: 0.45em;
-  left: 0.75em;
+  top: 0.1em;
+  left: 0.95em;
   font-size: 0.7em;
   margin: 0em;
 }
 .ui.corner.label .text {
   display: inline-block;
   position: relative;
-  top: 0.45em;
-  left: 0.75em;
+  top: 0.1em;
+  left: 0.95em;
   margin: 0em;
   width: 2.5em;
   font-size: 0.7em;
@@ -496,17 +496,17 @@ a.ui.label:hover:before {
   left: 0em;
 }
 .ui.left.corner.label:after {
-  border-top: 3em solid transparent;
-  border-right: 3em solid transparent;
+  border-top: 2.5em solid transparent;
+  border-right: 2.5em solid transparent;
   border-bottom: 0em solid transparent;
   border-left: 0em solid transparent;
   border-top-color: inherit;
 }
 .ui.left.corner.label .icon {
-  left: -0.75em;
+  left: -0.95em;
 }
 .ui.left.corner.label .text {
-  left: -0.75em;
+  left: -0.95em;
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);

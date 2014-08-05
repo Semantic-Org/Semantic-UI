@@ -316,9 +316,7 @@
   vertical-align: middle;
   font-size: 2em;
   opacity: 0.8;
-}
-.ui.icon.message > .icon + .content {
-  padding-left: 1.5em;
+  padding-right: 1.5rem;
 }
 .ui.icon.message > .content {
   display: table-cell;
