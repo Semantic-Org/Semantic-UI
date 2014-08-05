@@ -46,11 +46,18 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -60,8 +67,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -70,17 +80,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -88,7 +90,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -166,8 +168,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   line-height: 1;
   height: 0em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;

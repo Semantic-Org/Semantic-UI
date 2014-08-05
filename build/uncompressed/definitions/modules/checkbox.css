@@ -46,11 +46,18 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -60,8 +67,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -70,17 +80,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -88,7 +90,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -132,8 +134,6 @@
 /* Label */
 /* Checkbox */
 /* Checkmark */
-/* Radio */
-/* Slider & Toggle Handle */
 /*-------------------
       Coupling
 --------------------*/
@@ -145,6 +145,7 @@
         Types
 --------------------*/
 /* Radio */
+/* Slider & Toggle Handle */
 /* Slider */
 /* Toggle */
 /*-------------------
@@ -214,7 +215,7 @@
   content: '';
   background: #ffffff;
   border-radius: 0.25em;
-  -webkit-transition: background-color 0.3s ease, border 0.3s ease, -webkit-box-shadow 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
           transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -337,7 +338,7 @@
 }
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
-  padding-left: 3.25em;
+  padding-left: 3.25rem;
 }
 /* Line */
 .ui.slider.checkbox .box:before,
@@ -346,13 +347,13 @@
   display: block;
   position: absolute;
   content: '';
-  top: 0.4em;
+  top: 0.4rem;
   left: 0em;
   z-index: 1;
   border: none !important;
   background-color: rgba(0, 0, 0, 0.05);
-  width: 2.25em;
-  height: 0.25em;
+  width: 2.25rem;
+  height: 0.25rem;
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;
@@ -365,7 +366,6 @@
 /* Handle */
 .ui.slider.checkbox .box:after,
 .ui.slider.checkbox label:after {
-  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
   background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   position: absolute;
@@ -373,11 +373,10 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  width: 1.25em;
-  height: 1.25em;
-  top: -0.125em;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: -0.125rem;
   left: 0em;
   border-radius: 500rem;
   -webkit-transition: left 0.3s ease 0s
@@ -398,7 +397,7 @@
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
-  left: 1em;
+  left: 1rem;
 }
 /*--------------
      Toggle
@@ -417,18 +416,17 @@
   display: block;
   position: absolute;
   content: '';
-  top: -0.125em;
+  top: -0.125rem;
   z-index: 1;
   border: none;
   background-color: rgba(0, 0, 0, 0.05);
-  width: 2.25em;
-  height: 1.25em;
+  width: 2.25rem;
+  height: 1.25rem;
   border-radius: 500rem;
 }
 /* Handle */
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
-  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
   background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   position: absolute;
@@ -436,11 +434,10 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  width: 1.25em;
-  height: 1.25em;
-  top: -0.125em;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: -0.125rem;
   left: 0em;
   border-radius: 500rem;
   -webkit-transition: background 0.3s ease 0s,
@@ -452,7 +449,7 @@
 }
 .ui.toggle.checkbox input ~ .box:after,
 .ui.toggle.checkbox input ~ label:after {
-  left: -0.2em;
+  left: -0.2rem;
 }
 /* Focus */
 .ui.toggle.checkbox input:focus ~ .box:before,
@@ -471,7 +468,7 @@
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
-  left: 1.2em;
+  left: 1.2rem;
 }
 /*******************************
            Overrides

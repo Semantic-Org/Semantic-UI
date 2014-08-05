@@ -46,11 +46,18 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -60,8 +67,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -70,17 +80,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -88,7 +90,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -217,8 +219,7 @@ body.pushed.scrolling.ui.dimmable {
 .ui.styled.sidebar {
   padding: 1em 1.5em;
   background-color: #ffffff;
-  -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.styled.thin.sidebar {
   padding: 1em;
@@ -230,20 +231,16 @@ body.pushed.scrolling.ui.dimmable {
        Floating
 --------------------*/
 .ui.floating.sidebar {
-  -webkit-box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
 }
 .ui.right.floating.sidebar {
-  -webkit-box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
 }
 .ui.top.floating.sidebar {
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.floating.sidebar {
-  -webkit-box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
 }
 /*-------------------
         Width

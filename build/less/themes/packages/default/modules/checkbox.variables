@@ -27,18 +27,6 @@
 /* Checkmark */
 @checkboxCheckOffset: 1px;
 
-/* Radio */
-@checkboxRadioOffset: 3px;
-@checkboxRadioCircleSize: 9px;
-
-/* Slider & Toggle Handle */
-@handleBackground: #FFFFFF linear-gradient(transparent, rgba(0, 0, 0, 0.1));
-@handleBoxShadow:
-  0px 2px 2px 0px rgba(0, 0, 0, 0.1),
-  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset
-;
-@handleSize: 1.25em;
-
 /*-------------------
       Coupling
 --------------------*/
@@ -70,29 +58,39 @@
 --------------------*/
 
 /* Radio */
+@checkboxRadioOffset: 3px;
+@checkboxRadioCircleSize: 9px;
+
+/* Slider & Toggle Handle */
+@handleBackground: #FFFFFF linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+@handleBoxShadow:
+  0px 2px 2px 0px rgba(0, 0, 0, 0.1),
+  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset
+;
+@handleSize: 1.25rem;
 
 /* Slider */
-@sliderLineWidth: 2.25em;
-@sliderLineHeight: 0.25em;
-@sliderLineVerticalOffset: 0.4em;
+@sliderLineWidth: 2.25rem;
+@sliderLineHeight: 0.25rem;
+@sliderLineVerticalOffset: 0.4rem;
 
-@sliderHandleOffset: (1em - @handleSize) / 2;
+@sliderHandleOffset: (1rem - @handleSize) / 2;
 @sliderTravelDistance: @sliderLineWidth - @handleSize;
-@sliderLabelDistance: @sliderLineWidth + 1em;
+@sliderLabelDistance: @sliderLineWidth + 1rem;
 
 
 /* Toggle */
-@toggleSwitchWidth: 2.25em;
-@toggleSwitchHeight: 1.25em;
-@toggleSwitchVerticalOffset: (1em - @toggleSwitchHeight) / 2;
+@toggleSwitchWidth: 2.25rem;
+@toggleSwitchHeight: 1.25rem;
+@toggleSwitchVerticalOffset: (1rem - @toggleSwitchHeight) / 2;
 
 @toggleFocusColor: @strongTransparentBlack;
-@toggleHandleOffset: (1em - @handleSize) / 2;
+@toggleHandleOffset: (1rem - @handleSize) / 2;
 @toggleTravelDistance: @toggleSwitchWidth - @handleSize;
-@toggleLabelDistance: @toggleSwitchWidth + 1em;
+@toggleLabelDistance: @toggleSwitchWidth + 1rem;
 
-@toggleOffOffset: -0.2em;
-@toggleOnOffset: 1.2em;
+@toggleOffOffset: -0.2rem;
+@toggleOnOffset: 1.2rem;
 
 
 

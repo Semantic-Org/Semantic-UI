@@ -37,7 +37,6 @@
 @verticalPadding: 0.8em;
 @horizontalPadding: 1.5em;
 
-
 /* Shadow */
 @shadowDistance: 0em;
 @shadowOffset: (@shadowDistance / 2);

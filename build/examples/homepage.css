@@ -77,12 +77,10 @@ p a {
 
 .masthead.segment {
   background-image: url(images/bg.jpg);
-  -webkit-background-size: cover;
   background-size: cover;
   margin: 0em;
   padding-top: 4rem;
   overflow: hidden;
-  -webkit-box-shadow: 0 -20px 10px 0 rgba(0, 0, 0, 0.1) inset !important;
   box-shadow: 0 -20px 10px 0 rgba(0, 0, 0, 0.1) inset !important;
 }
 
@@ -149,7 +147,6 @@ p a {
   }
 
   .masthead.segment {
-    -webkit-background-size: auto;
     background-size: auto;
   }
 

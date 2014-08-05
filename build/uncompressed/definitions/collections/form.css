@@ -46,11 +46,18 @@
      Load Default
 -------------------*/
 /*******************************
-         Site Variables
+         Site Settings
 *******************************/
 /*-------------------
         Paths
 --------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -60,8 +67,11 @@
 /*-------------------
      Breakpoints
 --------------------*/
+/*******************************
+           Power-User
+*******************************/
 /*-------------------
-       Fonts
+       BG Colors
 --------------------*/
 /*-------------------
        Icons
@@ -70,17 +80,9 @@
 /*-------------------
        Easing
 --------------------*/
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*---  Colors  ---*/
-/*---  Neutrals  ---*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
 /*--- Text Colors ---*/
-/* Preserve */
-/* Adjust for Legibility */
 /*--- Backgrounds ---*/
 /*-------------------
     Emotive Colors
@@ -88,7 +90,7 @@
 /* Positive / Negative */
 /* Messages */
 /*-------------------
-     Text Colors
+     Neutral Text
 --------------------*/
 /*-------------------
      Brand Colors
@@ -149,7 +151,6 @@
 /* Input Error */
 /* Dropdown Error */
 /* Focused Error */
-/* Input Focused Error */
 /* Placeholder */
 /* Loading */
 /*-------------------
@@ -160,6 +161,10 @@
 /*-------------------
       Variations
 --------------------*/
+/* Grouped Fields */
+/* Inline */
+/* (x) Wide Field */
+/* Sizes */
 /*-------------------
        Groups
 --------------------*/
@@ -211,7 +216,7 @@
   margin: 0em 0em 0.3em 0em;
   display: block;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 0.875em;
+  font-size: 0.9em;
   font-weight: normal;
 }
 /*--------------------
@@ -244,13 +249,11 @@
   outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
-  -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
-          box-shadow: 0em 0em 0em 0em transparent inset;
+  box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .ui.textarea,
@@ -331,16 +334,16 @@
 ---------------------*/
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(179, 179, 179, 0.8);
+  color: rgba(140, 140, 140, 0.8);
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(179, 179, 179, 0.8);
+  color: rgba(140, 140, 140, 0.8);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(89, 89, 89, 0.8);
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(140, 140, 140, 0.8);
+  color: rgba(89, 89, 89, 0.8);
 }
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
@@ -370,8 +373,7 @@
   border-color: rgba(0, 0, 0, 0.2);
   border-radius: 0em 0.3125em 0.3125em 0em;
   background: #ffffff;
-  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
-          box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 1px 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   -webkit-appearance: none;
 }
 /*--------------------
@@ -427,8 +429,7 @@
   border-color: #da9797;
   color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
-          box-shadow: 0.3em 0em 0em 0em #ff4136 inset;
+  box-shadow: 3px 0em 0em 0em #ff4136 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -438,11 +439,11 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus {
+  background: #f2dede;
   border-color: #da9797;
   color: #ff5950;
   -webkit-appearance: none;
-  -webkit-box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
-          box-shadow: 0.3em 0em 0em 0em #ff5950 inset;
+  box-shadow: 3px 0em 0em 0em #ff5950 inset;
 }
 /*------------------
     Dropdown Error
@@ -457,18 +458,15 @@
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
-          box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
-          box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #da9797;
-          box-shadow: 0px 1px 0px 1px #da9797;
+  box-shadow: 0px 1px 0px 1px #da9797;
 }
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
@@ -594,7 +592,7 @@
   padding: 0em;
 }
 /*--------------------
-          Fields
+        Fields
 ---------------------*/
 /* Split fields */
 .ui.form .fields {
@@ -611,15 +609,13 @@
 .ui.form .fields > .field {
   clear: none;
   float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding-left: 1%;
-  padding-right: 1%;
+  box-sizing: border-box;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Other Combinations */
 .ui.form .two.fields > .fields,
@@ -628,7 +624,7 @@
 }
 .ui.form .three.fields > .fields,
 .ui.form .three.fields > .field {
-  width: 33.333%;
+  width: 33.33333333%;
 }
 .ui.form .four.fields > .fields,
 .ui.form .four.fields > .field {
@@ -658,6 +654,96 @@
 }
 .ui.form .fields .field:last-child {
   padding-right: 0%;
+}
+/* Sizing Combinations */
+.ui.form .fields .wide.field {
+  width: 6.25%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+.ui.form .fields .wide.field:first-child {
+  padding-left: 0%;
+}
+.ui.form .fields .wide.field:last-child {
+  padding-right: 0%;
+}
+.ui.form .one.wide.field {
+  width: 6.25% !important;
+}
+.ui.form .two.wide.field {
+  width: 12.5% !important;
+}
+.ui.form .three.wide.field {
+  width: 18.75% !important;
+}
+.ui.form .four.wide.field {
+  width: 25% !important;
+}
+.ui.form .five.wide.field {
+  width: 31.25% !important;
+}
+.ui.form .six.wide.field {
+  width: 37.5% !important;
+}
+.ui.form .seven.wide.field {
+  width: 43.75% !important;
+}
+.ui.form .eight.wide.field {
+  width: 50% !important;
+}
+.ui.form .nine.wide.field {
+  width: 56.25% !important;
+}
+.ui.form .ten.wide.field {
+  width: 62.5% !important;
+}
+.ui.form .eleven.wide.field {
+  width: 68.75% !important;
+}
+.ui.form .twelve.wide.field {
+  width: 75% !important;
+}
+.ui.form .thirteen.wide.field {
+  width: 81.25% !important;
+}
+.ui.form .fourteen.wide.field {
+  width: 87.5% !important;
+}
+.ui.form .fifteen.wide.field {
+  width: 93.75% !important;
+}
+.ui.form .sixteen.wide.field {
+  width: 100% !important;
+}
+/* Swap to full width on mobile */
+@media only screen and (max-width: 767px) {
+  .ui.form .two.fields > .fields,
+  .ui.form .two.fields > .field,
+  .ui.form .three.fields > .fields,
+  .ui.form .three.fields > .field,
+  .ui.form .four.fields > .fields,
+  .ui.form .four.fields > .field,
+  .ui.form .five.fields > .fields,
+  .ui.form .five.fields > .field,
+  .ui.form .fields > .two.wide.field,
+  .ui.form .fields > .three.wide.field,
+  .ui.form .fields > .four.wide.field,
+  .ui.form .fields > .five.wide.field,
+  .ui.form .fields > .six.wide.field,
+  .ui.form .fields > .seven.wide.field,
+  .ui.form .fields > .eight.wide.field,
+  .ui.form .fields > .nine.wide.field,
+  .ui.form .fields > .ten.wide.field,
+  .ui.form .fields > .eleven.wide.field,
+  .ui.form .fields > .twelve.wide.field,
+  .ui.form .fields > .thirteen.wide.field,
+  .ui.form .fields > .fourteen.wide.field,
+  .ui.form .fields > .fifteen.wide.field,
+  .ui.form .fields > .sixteen.wide.field {
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
 }
 /*--------------------
     Inline Fields
@@ -702,7 +788,15 @@
 .ui.small.form {
   font-size: 0.875em;
 }
+/* Medium */
+.ui.form {
+  font-size: auto;
+}
 /* Large */
 .ui.large.form {
   font-size: 1.125em;
+}
+/* Huge */
+.ui.huge.form {
+  font-size: 1.2em;
 }
