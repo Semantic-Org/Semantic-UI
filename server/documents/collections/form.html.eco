@@ -27,7 +27,7 @@ themes      : ['default', 'GitHub']
   <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
-    <h4 class="ui header">Form:</h4>
+    <h4 class="ui header">Form</h4>
     <p>
       Forms always include fields, and fields always contain form elements. Fields themselves may also include:
         <a href="/elements/input.html">inputs</a>, standard form fields, <a href="/elements/label.html">labels</a>, <a href="/modules/dropdown.html">selection dropdowns</a>, textareas, as well as:

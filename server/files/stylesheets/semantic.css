@@ -49,7 +49,7 @@ body#example {
   padding: 0px;
   color: #555555;
   min-width: 320px;
-  font-family: "Lato", "Helvetica Neue", Arial, sans-serif !important;
+  font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
 }
 body > .content  {
   background: #FCFCFC url(../images/bg.jpg) repeat;
@@ -248,32 +248,6 @@ body.guide .main h3 {
 }
 body.guide .main.container > * {
   max-width: 800px;
-}
-
-
-/*--------------
-    Playground
----------------*/
-
-#example.playground {
-  min-width: 1000px;
-}
-#example.playground > .title.grid {
-  padding-top: 60px;
-
-}
-#example .ui.items .menu .item {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-
-/*--------------
-    Items
----------------*/
-
-#example.item .text.example .item {
-  min-height: 150px;
 }
 
 
