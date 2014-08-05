@@ -15,6 +15,7 @@
 --------------------*/
 
 /* Comment */
+@commentBackground: none;
 @commentMargin: 0.75em 0em 0em;
 @commentPadding: 0.75em 0em 0em;
 @commentDivider: none;
@@ -24,8 +25,12 @@
 @firstCommentPadding: 0em;
 
 /* Nested Comment */
-@nestedCommentsMargin: 0em 0em 0.5em 0em;
+@nestedCommentsMargin: 0em 0em 0.5em 0.5em;
 @nestedCommentsPadding: 1em 0em 0em 1em;
+
+@nestedCommentDivider: none;
+@nestedCommentBorder: none;
+@nestedCommentBackground: none;
 
 /* Avatar */
 @avatarDisplay: block;

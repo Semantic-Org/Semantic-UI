@@ -29,13 +29,16 @@
 ---------------*/
 
 .ui.comments {
+  margin: @margin;
+  max-width: @maxWidth;
 }
 
-/* Force hover on JS Links */
-.ui.comments a {
-  cursor: pointer;
+.ui.comments:first-child {
+  margin-top: 0em;
 }
-
+.ui.comments:last-child {
+  margin-bottom: 0em;
+}
 
 /*--------------
      Comment
@@ -43,108 +46,17 @@
 
 .ui.comments .comment {
   position: relative;
-  margin-top: 0.5em;
-  padding-top: 0.5em;
+  background: @commentBackground;
+  margin: @commentMargin;
+  padding: @commentPadding;
+  border: @commentBorder;
+  border-top: @commentDivider;
+  line-height: @commentLineHeight;
 }
 .ui.comments .comment:first-child {
-  margin-top: 0em;
-  padding-top: 0em;
+  margin-top: @firstCommentMargin;
+  padding-top: @firstCommentPadding;
 }
-
-
-
-/*--------------------
-   Avatar (Optional)
----------------------*/
-
-.ui.comments .comment .avatar {
-  display: block;
-  float: left;
-  width: 4em;
-}
-.ui.comments .comment .avatar img {
-  display: block;
-  margin: 0em auto;
-
-  width: 3em;
-  height: 3em;
-  border-radius: 500px;
-}
-
-/*--------------
-     Content
----------------*/
-
-.ui.comments .comment > .content,
-.ui.comments .comment > .avatar {
-  display: block;
-}
-.ui.comments .comment .avatar ~ .content {
-  padding: 0em 1em;
-}
-
-/* If there is an avatar move content over */
-.ui.comments .comment > .avatar ~ .content {
-  padding-top: 0.25em;
-  margin-left: 3.5em;
-}
-
-.ui.comments .comment .metadata {
-  display: inline-block;
-  margin-left: 0.3em;
-  color: rgba(0, 0, 0, 0.4);
-}
-.ui.comments .comment .metadata > * {
-  display: inline-block;
-  margin: 0em 0.3em 0em 0em;
-}
-
-/*--------------------
-     Comment Text
----------------------*/
-
-.ui.comments .comment .text {
-  margin: 0.25em 0em 0.5em;
-  word-wrap: break-word;
-}
-
-/*--------------------
-     User Actions
----------------------*/
-
-.ui.comments .comment .actions {
-  font-size: 0.9em;
-}
-.ui.comments .comment .actions a {
-  display: inline-block;
-  margin: 0em 0.3em 0em 0em;
-  color: rgba(0, 0, 0, 0.3);
-}
-.ui.comments .comment .actions a.active,
-.ui.comments .comment .actions a:hover {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-/*--------------------
-      Reply Form
----------------------*/
-
-.ui.comments .reply.form {
-  margin-top: 0.75em;
-  width: 100%;
-  max-width: 30em;
-}
-.ui.comments .comment .reply.form {
-  margin-left: 2em;
-}
-.ui.comments > .reply.form {
-  margin-top: 1.5em;
-  max-width: 40em;
-}
-.ui.comments .reply.form textarea {
-  height: 12em;
-}
-
 
 
 /*--------------------
@@ -152,31 +64,144 @@
 ---------------------*/
 
 .ui.comments .comment .comments {
-  margin-top: 0.5em;
-  padding-top: 0.5em;
-  padding-bottom: 1em;
+  margin: @nestedCommentsMargin;
+  padding: @nestedCommentsPadding;
 }
 .ui.comments .comment .comments:before{
   position: absolute;
   top: 0px;
   left: 0px;
 }
-/* One Deep */
-.ui.comments > .comment  .comments {
-  margin-left: 2em;
+.ui.comments .comment .comments .comment {
+  border: @nestedCommentBorder;
+  border-top: @nestedCommentDivider;
+  background: @nestedCommentBackground;
+}
 
+/*--------------
+     Avatar
+---------------*/
+
+.ui.comments .comment .avatar {
+  display: @avatarDisplay;
+  width: @avatarWidth;
+  height: @avatarHeight;
+  float: @avatarFloat;
+  margin: @avatarMargin;
 }
-/* Two Deep */
-.ui.comments > .comment > .comments > .comment > .comments {
-  margin-left: 1.75em;
+.ui.comments .comment img.avatar,
+.ui.comments .comment .avatar img {
+  display: block;
+  margin: 0em auto;
+  width: 100%;
+  height: 100%;
+  border-radius: @avatarBorderRadius;
 }
-/* Three Deep */
-.ui.comments > .comment > .comments > .comment > .comments > .comment > .comments {
-  margin-left: 1.5em;
+
+/*--------------
+     Content
+---------------*/
+
+.ui.comments .comment > .content {
+  display: block;
 }
-/* Four Deep or more */
-.ui.comments > .comment > .comments > .comment > .comments > .comment > .comments > .comment .comments {
-  margin-left: 0.5em;
+/* If there is an avatar move content over */
+.ui.comments .comment > .avatar ~ .content {
+  margin-left: @contentMargin;
+}
+
+/*--------------
+     Author
+---------------*/
+
+.ui.comments .comment .author {
+  font-size: @authorFontSize;
+  color: @authorColor;
+  font-weight: @authorFontWeight;
+}
+.ui.comments .comment a.author {
+  cursor: pointer;
+}
+.ui.comments .comment a.author:hover {
+  color: @authorHoverColor;
+}
+
+/*--------------
+     Metadata
+---------------*/
+
+.ui.comments .comment .metadata {
+  display: @metadataDisplay;
+  margin-left: @metadataSpacing;
+  color: @metadataColor;
+  font-size: @metadataFontSize;
+}
+.ui.comments .comment .metadata > * {
+  display: inline-block;
+  margin: 0em @metadataContentSpacing 0em 0em;
+}
+.ui.comments .comment .metadata > :last-child {
+  margin-right: 0em;
+}
+
+/*--------------------
+     Comment Text
+---------------------*/
+
+.ui.comments .comment .text {
+  margin: @textMargin;
+  font-size: @textFontSize;
+  word-wrap: @textWordWrap;
+  color: @textColor;
+  line-height: @textLineHeight;
+}
+
+
+/*--------------------
+     User Actions
+---------------------*/
+
+.ui.comments .comment .actions {
+  font-size: @actionFontSize;
+}
+.ui.comments .comment .actions a {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0em @actionContentDistance 0em 0em;
+  color: @actionLinkColor;
+}
+.ui.comments .comment .actions a:last-child {
+  margin-right: 0em;
+}
+.ui.comments .comment .actions a.active,
+.ui.comments .comment .actions a:hover {
+  color: @actionLinkHoverColor;
+}
+
+/*--------------------
+      Reply Form
+---------------------*/
+
+.ui.comments > .reply.form {
+  margin-top: @replyDistance;
+}
+.ui.comments .comment .reply.form {
+  width: 100%;
+  margin-top: @commentReplyDistance;
+}
+.ui.comments .reply.form textarea {
+  font-size: @replyFontSize;
+  height: @replyHeight;
+}
+
+/*******************************
+            State
+*******************************/
+
+.ui.collapsed.comments,
+.ui.comments .collapsed.comments,
+.ui.comments .collapsed.comment {
+  display: none;
 }
 
 
@@ -189,12 +214,9 @@
 ---------------------*/
 
 .ui.threaded.comments .comment .comments {
-  margin-left: 2em !important;
-  padding-left: 2em !important;
-
-  -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
-  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+  margin: @threadedCommentVerticalOffset 0em 0em @threadedCommentHorizontalOffset;
+  padding: @threadedCommentVerticalDistance 0em 0em @threadedCommentHorizontalDistance;
+  box-shadow: @threadedCommentBoxShadow;
 }
 
 /*--------------------
@@ -203,18 +225,12 @@
 
 .ui.minimal.comments .comment .actions {
   opacity: 0;
-
-  -webkit-transition: opacity 0.1s ease-out;
-  -moz-transition: opacity 0.1s ease-out;
-  -o-transition: opacity 0.1s ease-out;
-  -ms-transition: opacity 0.1s ease-out;
-  transition: opacity 0.1s ease-out;
-
-  -webkit-transition-delay: 0.1s;
-  -moz-transition-delay: 0.1s;
-  -o-transition-delay: 0.1s;
-  -ms-transition-delay: 0.1s;
-  transition-delay: 0.1s;
+  position: @minimalActionPosition;
+  top: @minimalActionTop;
+  right: @minimalActionRight;
+  left: @minimalActionLeft;
+  transition: @minimalTransition;
+  transition-delay: @minimalTransitionDelay;
 }
 .ui.minimal.comments .comment > .content:hover > .actions {
   opacity: 1;
@@ -225,5 +241,14 @@
 ---------------------*/
 
 .ui.small.comments {
-  font-size: 0.875em;
+  font-size: @small;
+}
+.ui.comments {
+  font-size: @medium;
+}
+.ui.large.comments {
+  font-size: @large;
+}
+.ui.huge.comments {
+  font-size: @huge;
 }

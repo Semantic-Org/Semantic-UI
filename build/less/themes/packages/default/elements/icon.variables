@@ -11,9 +11,7 @@
 @opacity: 0.75;
 @width: 1.23em;
 @height: 1em;
-
-@margin: 0.25em;
-@directionMargin: 0.5em;
+@distanceFromText: 0em;
 
 @linkDuration: 0.3s;
 @loadingDuration: 2s;

@@ -9,7 +9,7 @@ type        : 'UI View'
 element     : 'comment'
 elementType : 'view'
 
-themes      : ['Default']
+themes      : ['Default', 'Chubby']
 ---
 
 <%- @partial('header') %>

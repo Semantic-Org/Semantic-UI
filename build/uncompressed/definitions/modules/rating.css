@@ -178,7 +178,8 @@
 .ui.rating .icon {
   cursor: pointer;
   margin: 0em;
-  width: 1.2em;
+  width: 1.1em;
+  text-align: center;
   height: auto;
   padding: 0em;
   font-weight: normal;
@@ -286,7 +287,6 @@
   font-family: 'Rating';
   line-height: 1;
   height: 1em;
-  width: 1.23em;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   font-weight: normal;

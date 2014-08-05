@@ -46,6 +46,51 @@
      Load Default
 -------------------*/
 /*******************************
+             List
+*******************************/
+/*-------------------
+         View
+--------------------*/
+/* List */
+/* Sub List */
+/* List Item */
+/*-------------------
+      Elements
+--------------------*/
+/* Icon */
+/* Image */
+/* Content */
+/* Link */
+/* Linked Icon */
+/* Header */
+/* Description */
+/*-------------------
+      Variations
+--------------------*/
+/* Float */
+/* Horizontal */
+/* Inverted */
+/* Link List */
+/* Inverted Link List */
+/* Selection List */
+/* Selection List States */
+/* Inverted Selection List */
+/* Animated List */
+/* Bulleted */
+/* Horizontal Bullets */
+/* Ordered List */
+/* Horizontal Ordereded */
+/* Divided */
+/* Divided Horizontal */
+/* Divided */
+/* Divided Horizontal */
+/* Relaxed */
+/* Very Relaxed */
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Variables
 *******************************/
 /*-------------------
@@ -126,51 +171,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             List
-*******************************/
-/*-------------------
-         View
---------------------*/
-/* List */
-/* Sub List */
-/* List Item */
-/*-------------------
-      Elements
---------------------*/
-/* Icon */
-/* Image */
-/* Content */
-/* Link */
-/* Linked Icon */
-/* Header */
-/* Description */
-/*-------------------
-      Variations
---------------------*/
-/* Float */
-/* Horizontal */
-/* Inverted */
-/* Link List */
-/* Inverted Link List */
-/* Selection List */
-/* Selection List States */
-/* Inverted Selection List */
-/* Animated List */
-/* Bulleted */
-/* Horizontal Bullets */
-/* Ordered List */
-/* Horizontal Ordereded */
-/* Divided */
-/* Divided Horizontal */
-/* Divided */
-/* Divided Horizontal */
-/* Relaxed */
-/* Very Relaxed */
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -772,28 +772,28 @@ ol.ui.horizontal.list li:before,
       Sizes
 --------------------*/
 .ui.mini.list .item {
-  font-size: 0.7rem;
+  font-size: 0.7em;
 }
 .ui.tiny.list .item {
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 .ui.small.list .item {
-  font-size: 0.9rem;
+  font-size: 0.875em;
 }
 .ui.list .item {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.large.list .item {
-  font-size: 1.1rem;
+  font-size: 1.125em;
 }
 .ui.big.list .item {
-  font-size: 1.2rem;
+  font-size: 1.25em;
 }
 .ui.huge.list .item {
-  font-size: 1.3rem;
+  font-size: 1.375em;
 }
 .ui.massive.list .item {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 /*******************************
            Overrides

@@ -46,6 +46,7 @@
 
 .ui.comments .comment {
   position: relative;
+  background: @commentBackground;
   margin: @commentMargin;
   padding: @commentPadding;
   border: @commentBorder;
@@ -71,9 +72,10 @@
   top: 0px;
   left: 0px;
 }
-/* One Deep */
-.ui.comments > .comment  .comments {
-  margin-left: 1em;
+.ui.comments .comment .comments .comment {
+  border: @nestedCommentBorder;
+  border-top: @nestedCommentDivider;
+  background: @nestedCommentBackground;
 }
 
 /*--------------
@@ -97,7 +99,7 @@
 }
 
 /*--------------
-    Content
+     Content
 ---------------*/
 
 .ui.comments .comment > .content {
