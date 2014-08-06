@@ -31,7 +31,7 @@
 
 /* Table Header */
 @headerBorder: 1px solid @solidBorderColor;
-@headerDivider: 1px solid @solidBorderColor;
+@headerDivider: none;
 @headerBackground: linear-gradient(transparent, rgba(0, 0, 0, 0.03));
 @headerAlign: left;
 @headerVerticalAlign: middle;
@@ -165,6 +165,7 @@
 
 @basicTableHeaderBackground: transparent;
 @basicTableCellBackground: transparent;
+@basicTableHeaderDivider: none;
 @basicTableCellBorder: 1px solid rgba(0, 0, 0, 0.1);
 @basicTableCellVerticalPadding: 0.8em;
 @basicTableCellHorizontalPadding: 0em;

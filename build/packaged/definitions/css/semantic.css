@@ -4391,7 +4391,7 @@ body > .ui.grid:not(.page) {
   font-weight: bold;
   text-transform: none;
   border-bottom: 1px solid #dddddd;
-  border-left: 1px solid #dddddd;
+  border-left: none;
 }
 .ui.table thead th:first-child {
   border-radius: 0.25rem 0em 0em 0em;
@@ -4913,7 +4913,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.definition.table td:first-child {
   background: '';
-  font-weight: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
@@ -4931,6 +4931,7 @@ body > .ui.grid:not(.page) {
 }
 .ui.basic.table th {
   background-color: transparent;
+  border-left: none;
 }
 .ui.basic.table tbody tr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -19701,6 +19702,9 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
              Shape
 *******************************/
@@ -19710,9 +19714,6 @@ a.ui.nag {
       Types
 ---------------*/
 /* Cube */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -20734,12 +20735,12 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-          Transition
-*******************************/
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+          Transition
+*******************************/
 /*------------------
      Load Site
 -------------------*/
@@ -21731,12 +21732,6 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-             Video
-*******************************/
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -21819,6 +21814,12 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Video
+*******************************/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/

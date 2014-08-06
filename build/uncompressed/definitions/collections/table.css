@@ -221,7 +221,7 @@
   font-weight: bold;
   text-transform: none;
   border-bottom: 1px solid #dddddd;
-  border-left: 1px solid #dddddd;
+  border-left: none;
 }
 .ui.table thead th:first-child {
   border-radius: 0.25rem 0em 0em 0em;
@@ -743,7 +743,7 @@
 ---------------*/
 .ui.definition.table td:first-child {
   background: '';
-  font-weight: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
@@ -761,6 +761,7 @@
 }
 .ui.basic.table th {
   background-color: transparent;
+  border-left: none;
 }
 .ui.basic.table tbody tr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
