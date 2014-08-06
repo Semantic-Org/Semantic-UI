@@ -45,7 +45,7 @@
 @iconOpacity: 0.8;
 @iconDistance: 0.4em;
 @iconTransition: opacity @transitionDuration @transitionEasing;
-@iconMargin: 0em @iconDistance 0em -@iconDistance;
+@iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
 @iconVerticalAlign: top;
 
 /* Loader */

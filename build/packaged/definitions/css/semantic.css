@@ -62,6 +62,10 @@
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -70,9 +74,6 @@
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -94,6 +95,9 @@
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -302,6 +306,10 @@
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -310,9 +318,6 @@
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -334,6 +339,9 @@
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -489,13 +497,11 @@
   outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
-  -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
-          box-shadow: 0em 0em 0em 0em transparent inset;
+  box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .ui.textarea,
@@ -615,8 +621,7 @@
   border-color: rgba(0, 0, 0, 0.2);
   border-radius: 0em 0.3125em 0.3125em 0em;
   background: #ffffff;
-  -webkit-box-shadow: 1px 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
-          box-shadow: 1px 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 1px 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
   -webkit-appearance: none;
 }
 /*--------------------
@@ -672,8 +677,7 @@
   border-color: #da9797;
   color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  -webkit-box-shadow: 3px 0em 0em 0em #ff4136 inset;
-          box-shadow: 3px 0em 0em 0em #ff4136 inset;
+  box-shadow: 3px 0em 0em 0em #ff4136 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -687,8 +691,7 @@
   border-color: #da9797;
   color: #ff5950;
   -webkit-appearance: none;
-  -webkit-box-shadow: 3px 0em 0em 0em #ff5950 inset;
-          box-shadow: 3px 0em 0em 0em #ff5950 inset;
+  box-shadow: 3px 0em 0em 0em #ff5950 inset;
 }
 /*------------------
     Dropdown Error
@@ -703,18 +706,15 @@
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
-          box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
-          box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #da9797;
-          box-shadow: 0px 1px 0px 1px #da9797;
+  box-shadow: 0px 1px 0px 1px #da9797;
 }
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
@@ -857,15 +857,13 @@
 .ui.form .fields > .field {
   clear: none;
   float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding-left: 1.5%;
   padding-right: 1.5%;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Other Combinations */
 .ui.form .two.fields > .fields,
@@ -1115,6 +1113,10 @@
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -1123,9 +1125,6 @@
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -1147,6 +1146,9 @@
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -1231,8 +1233,7 @@
   font-size: 0em;
   margin: 0%;
   padding: 0%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 body > .ui.grid:not(.page) {
   margin-left: 0% !important;
@@ -1258,8 +1259,7 @@ body > .ui.grid:not(.page) {
   width: 6.25%;
   padding-left: 1.5%;
   padding-right: 1.5%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   vertical-align: top;
 }
 .ui.grid > * {
@@ -1633,22 +1633,18 @@ body > .ui.grid:not(.page) {
 -----------------------*/
 .ui.divided.grid:not(.vertically) > .column:not(.row),
 .ui.divided.grid:not(.vertically) > .row > .column {
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
-          box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
 }
 .ui.divided.grid:not(.vertically) > .column:first-child,
 .ui.divided.grid:not(.vertically) > .row > .column:first-child {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Divided Row */
 .ui.grid > .divided.row > .column {
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
-          box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
 }
 .ui.grid > .divided.row > .column:first-child {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Vertically Divided */
 .ui.vertically.divided.grid > .row {
@@ -1662,21 +1658,17 @@ body > .ui.grid:not(.page) {
   width: 97%;
   height: 1px;
   margin: 0% 1.5%;
-  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.3);
-          box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.3);
 }
 .ui.vertically.divided.grid > .row:first-child:before {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Inverted Divided */
 .ui.inverted.divided.grid > .row {
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
 }
 .ui.inverted.vertically.divided.grid > .row {
-  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(0, 0, 0, 0.15);
 }
 /* Relaxed */
 .ui.relaxed.vertically.divided.grid > .row:before {
@@ -1705,8 +1697,7 @@ body > .ui.grid:not(.page) {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.celled.grid > .row,
 .ui.celled.grid > .column.row,
@@ -1715,24 +1706,20 @@ body > .ui.grid:not(.page) {
   width: 100%;
   margin-top: 0em;
   padding-top: 0em;
-  -webkit-box-shadow: 0px -1px 0px 0px #dddddd;
-          box-shadow: 0px -1px 0px 0px #dddddd;
+  box-shadow: 0px -1px 0px 0px #dddddd;
 }
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
   display: table-cell;
   padding: 0.75em;
-  -webkit-box-shadow: -1px 0px 0px 0px #dddddd;
-          box-shadow: -1px 0px 0px 0px #dddddd;
+  box-shadow: -1px 0px 0px 0px #dddddd;
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.celled.page.grid {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*----------------------
   Horizontally Centered
@@ -2060,8 +2047,7 @@ body > .ui.grid:not(.page) {
     width: auto !important;
     margin: 0.75rem 0em 0em !important;
     padding: 0.75rem 0em 0em !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
+    box-shadow: none !important;
   }
   .ui.stackable.divided.grid > .column,
   .ui.stackable.celled.grid > .row > .column {
@@ -2159,6 +2145,10 @@ body > .ui.grid:not(.page) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -2167,9 +2157,6 @@ body > .ui.grid:not(.page) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -2191,6 +2178,9 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -2297,8 +2287,7 @@ body > .ui.grid:not(.page) {
   background: #ffffff;
   font-size: 0px;
   font-weight: normal;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   border-radius: 0.1875rem;
 }
 .ui.menu:first-child {
@@ -2355,14 +2344,13 @@ body > .ui.grid:not(.page) {
   vertical-align: middle;
   line-height: 1;
   text-decoration: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 .ui.menu .menu {
@@ -2387,7 +2375,6 @@ body > .ui.grid:not(.page) {
   right: 0px;
   width: 1px;
   height: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
   background: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
 }
@@ -2501,8 +2488,7 @@ body > .ui.grid:not(.page) {
   border-bottom-left-radius: 0em;
 }
 .ui.menu .ui.dropdown.active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Menu Position */
 .ui.menu .dropdown.item .menu {
@@ -2511,8 +2497,7 @@ body > .ui.grid:not(.page) {
   margin: 1px 0px 0px;
   min-width: -webkit-calc(99%);
   min-width: calc(99%);
-  -webkit-box-shadow: 0 1px 1px 1px #dddddd;
-          box-shadow: 0 1px 1px 1px #dddddd;
+  box-shadow: 0 1px 1px 1px #dddddd;
 }
 .ui.menu .pointing.dropdown.item .menu {
   margin-top: 0.75em;
@@ -2537,8 +2522,7 @@ body > .ui.grid:not(.page) {
 }
 /* Active */
 .ui.menu .dropdown.item .menu .active.item {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 /* Dropdown Menu Item Content */
 .ui.menu .dropdown .menu .item .icon {
@@ -2608,14 +2592,12 @@ body > .ui.grid:not(.page) {
   background: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.85);
   font-weight: normal;
-  -webkit-box-shadow: 0em 0.2em 0em inset;
-          box-shadow: 0em 0.2em 0em inset;
+  box-shadow: 0em 0.2em 0em inset;
 }
 .ui.vertical.menu .active.item {
   background: rgba(0, 0, 0, 0.01);
   border-radius: 0em;
-  -webkit-box-shadow: 0.2em 0em 0em inset;
-          box-shadow: 0.2em 0em 0em inset;
+  box-shadow: 0.2em 0em 0em inset;
 }
 .ui.vertical.menu > .active.item:first-child {
   border-radius: 0em 0.1875rem 0em 0em;
@@ -2631,8 +2613,7 @@ body > .ui.grid:not(.page) {
 }
 .ui.vertical.menu .item .menu .active.item {
   background-color: rgba(0, 0, 0, 0.03);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*--------------
   Active Hover
@@ -2710,7 +2691,6 @@ body > .ui.grid:not(.page) {
   top: 0%;
   left: 0px;
   width: 100%;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.03)), color-stop(1.5em, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.03)));
   background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
   background: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
   height: 1px;
@@ -2727,8 +2707,7 @@ body > .ui.grid:not(.page) {
   top: 0% !important;
   left: 100%;
   margin: 0px 0px 0px 1px;
-  -webkit-box-shadow: 0 0px 1px 1px #dddddd;
-          box-shadow: 0 0px 1px 1px #dddddd;
+  box-shadow: 0 0px 1px 1px #dddddd;
 }
 .ui.vertical.menu .dropdown.item.active {
   border-top-right-radius: 0em;
@@ -2741,8 +2720,7 @@ body > .ui.grid:not(.page) {
   margin-right: 0em;
 }
 .ui.vertical.menu .dropdown.item.active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*--- Sub Menu ---*/
 .ui.vertical.menu .item > .menu {
@@ -2780,8 +2758,7 @@ body > .ui.grid:not(.page) {
   background-color: #fcfcfc;
   border-radius: 0em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.tiered.menu > .sub.menu > .item {
   color: rgba(0, 0, 0, 0.4);
@@ -2804,8 +2781,7 @@ body > .ui.grid:not(.page) {
   background: none transparent;
   border-radius: 0;
   border-top: medium none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: rgba(0, 0, 0, 0.8) !important;
 }
 .ui.tiered.menu .sub.menu .active.item:after {
@@ -2830,8 +2806,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.tiered.menu > .sub.menu > .active.item,
 .ui.inverted.tiered.menu > .menu > .active.item {
   color: #ffffff !important;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Tiered Pointing */
 .ui.pointing.tiered.menu > .menu > .item:after {
@@ -2847,8 +2822,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   border-bottom: 1px solid #dcddde;
   border-radius: 0em;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 .ui.tabular.menu .item {
   background-color: transparent;
@@ -2876,8 +2850,7 @@ body > .ui.grid:not(.page) {
   font-weight: bold;
   margin-bottom: -1px;
   border-bottom: 1px solid #ffffff;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-radius: 5px 5px 0px 0px;
 }
 /* Coupling with segment for attachment */
@@ -2911,8 +2884,7 @@ body > .ui.grid:not(.page) {
   border-top: none;
   padding-top: 0.83em;
   background-color: rgba(0, 0, 0, 0.03);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*--------------
    Secondary
@@ -2920,13 +2892,11 @@ body > .ui.grid:not(.page) {
 .ui.secondary.menu {
   background: none;
   border-radius: 0em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.secondary.menu > .menu > .item,
 .ui.secondary.menu > .item {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: none;
   height: auto !important;
   background: none;
@@ -2963,8 +2933,7 @@ body > .ui.grid:not(.page) {
 .ui.secondary.menu > .active.item {
   background: rgba(0, 0, 0, 0.05);
   opacity: 1;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.secondary.vertical.menu > .active.item {
   border-radius: 0.3125em;
@@ -2986,8 +2955,7 @@ body > .ui.grid:not(.page) {
   margin: 0em;
 }
 .ui.secondary.attached.menu {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*---------------------
    Secondary Vertical
@@ -3053,8 +3021,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.8) !important;
 }
 .ui.secondary.pointing.menu .text.item {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 .ui.secondary.pointing.menu > .menu > .item:after,
 .ui.secondary.pointing.menu > .item:after {
@@ -3081,8 +3048,7 @@ body > .ui.grid:not(.page) {
 .ui.secondary.pointing.menu > .item.active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: rgba(0, 0, 0, 0.8);
 }
 /* Secondary Vertical Pointing */
@@ -3124,8 +3090,7 @@ body > .ui.grid:not(.page) {
   background: none transparent;
   margin: 1rem -1rem;
   border-radius: 0px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.text.menu > .item {
   opacity: 0.8;
@@ -3133,8 +3098,7 @@ body > .ui.grid:not(.page) {
   padding: 0em;
   height: auto !important;
   border-radius: 0px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
 }
@@ -3193,17 +3157,14 @@ body > .ui.grid:not(.page) {
   border: none;
   opacity: 1;
   font-weight: bold;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* disable variations */
 .ui.text.pointing.menu .active.item:after {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.text.attached.menu {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.inverted.text.menu,
 .ui.inverted.text.menu .item,
@@ -3314,14 +3275,12 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.inverted.menu {
   background: #333333;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.inverted.menu .header.item {
   margin: 0em;
   background: rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.inverted.menu .item,
 .ui.inverted.menu .item > a {
@@ -3340,12 +3299,10 @@ body > .ui.grid:not(.page) {
 }
 /*--- Border ---*/
 .ui.inverted.menu .item:before {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
   background: -webkit-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
   background: linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
 .ui.vertical.inverted.menu .item:before {
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
   background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
   background: linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
 }
@@ -3371,8 +3328,7 @@ body > .ui.grid:not(.page) {
 }
 /*--- Active ---*/
 .ui.inverted.menu .active.item {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   background-color: rgba(255, 255, 255, 0.2);
 }
 .ui.inverted.menu .active.item {
@@ -3385,8 +3341,7 @@ body > .ui.grid:not(.page) {
 /*--- Pointers ---*/
 .ui.inverted.pointing.menu .active.item:after {
   background-color: #5B5B5B;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
   background-color: #4A4A4A;
@@ -3689,8 +3644,7 @@ body > .ui.grid:not(.page) {
   margin: 0rem;
   border-radius: 0px;
   /* avoid rgba multiplying */
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.top.attached.menu {
   border-radius: 0.1875rem 0.1875rem 0em 0em;
@@ -3799,6 +3753,10 @@ body > .ui.grid:not(.page) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -3807,9 +3765,6 @@ body > .ui.grid:not(.page) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -3831,6 +3786,9 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -3911,11 +3869,10 @@ body > .ui.grid:not(.page) {
   padding: 1em 1.5em;
   line-height: 1.3;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 0.25em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.075) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.075) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.075) inset;
 }
 .ui.message:first-child {
   margin-top: 0em;
@@ -3929,7 +3886,7 @@ body > .ui.grid:not(.page) {
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.3em;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -4025,8 +3982,7 @@ body > .ui.grid:not(.page) {
   margin-right: -1px;
   margin-bottom: -1px;
   border-radius: 0.25em 0.25em 0em 0em;
-  -webkit-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.attached + .ui.attached.message:not(.top):not(.bottom) {
   margin-top: -1px;
@@ -4053,7 +4009,7 @@ body > .ui.grid:not(.page) {
 .ui.icon.message > .icon:not(.close) {
   display: table-cell;
   vertical-align: middle;
-  font-size: 2em;
+  font-size: 3em;
   opacity: 0.8;
   padding-right: 1.5rem;
 }
@@ -4065,8 +4021,7 @@ body > .ui.grid:not(.page) {
     Floating
 ---------------*/
 .ui.floating.message {
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-          box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
 }
 /*--------------
      Colors
@@ -4232,6 +4187,10 @@ body > .ui.grid:not(.page) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -4240,9 +4199,6 @@ body > .ui.grid:not(.page) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -4264,6 +4220,9 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -4358,8 +4317,7 @@ body > .ui.grid:not(.page) {
   background: #ffffff;
   margin: 1em 0em;
   border: 1px solid #d0d0d0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-radius: 0.25rem;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -4375,14 +4333,12 @@ body > .ui.grid:not(.page) {
 }
 /* Headers */
 .ui.table thead {
-  -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
 }
 .ui.table thead th {
   cursor: auto;
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.03)));
-  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   text-align: left;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.7em 0.8em;
@@ -4402,8 +4358,7 @@ body > .ui.grid:not(.page) {
 }
 /* Footer */
 .ui.table tfoot {
-  -webkit-box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
 }
 .ui.table tfoot th {
   cursor: auto;
@@ -4475,16 +4430,14 @@ body > .ui.grid:not(.page) {
     display: block;
     border: none !important;
     padding: 0.25em 0.75em;
-    -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
-            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
   }
   .ui.table td:first-child {
     font-weight: bold;
     padding-top: 1em;
   }
   .ui.table td:last-child {
-    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
-            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     padding-bottom: 1em;
   }
   /* Clear BG Colors */
@@ -4504,8 +4457,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.table tr.positive,
 .ui.table td.positive {
-  -webkit-box-shadow: 2px 0px 0px #119000 inset;
-          box-shadow: 2px 0px 0px #119000 inset;
+  box-shadow: 2px 0px 0px #119000 inset;
 }
 .ui.table tr.positive td,
 .ui.table td.positive {
@@ -4525,8 +4477,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.table tr.negative,
 .ui.table td.negative {
-  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
-          box-shadow: 2px 0px 0px #cd2929 inset;
+  box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
@@ -4546,8 +4497,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.table tr.error,
 .ui.table td.error {
-  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
-          box-shadow: 2px 0px 0px #cd2929 inset;
+  box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.error td,
 .ui.table td.error {
@@ -4567,8 +4517,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.table tr.warning,
 .ui.table td.warning {
-  -webkit-box-shadow: 2px 0px 0px #7d6c00 inset;
-          box-shadow: 2px 0px 0px #7d6c00 inset;
+  box-shadow: 2px 0px 0px #7d6c00 inset;
 }
 .ui.table tr.warning td,
 .ui.table td.warning {
@@ -4588,8 +4537,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.table tr.active,
 .ui.table td.active {
-  -webkit-box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
-          box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
 }
 .ui.table tr.active td,
 .ui.table td.active {
@@ -5042,6 +4990,10 @@ body > .ui.grid:not(.page) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -5050,9 +5002,6 @@ body > .ui.grid:not(.page) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -5074,6 +5023,9 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -5173,7 +5125,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -5181,19 +5133,16 @@ body > .ui.grid:not(.page) {
   font-style: normal;
   text-align: center;
   text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.09)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
   border-radius: 0.25em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, -webkit-box-shadow 0.25s ease;
+  box-sizing: border-box;
+  -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
           transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 /*******************************
@@ -5204,7 +5153,6 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.button:hover {
   background-color: '';
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.13)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
   color: rgba(0, 0, 0, 0.8);
@@ -5218,8 +5166,7 @@ body > .ui.grid:not(.page) {
 .ui.button:focus {
   background-color: '';
   background-image: '';
-  -webkit-box-shadow: 0 0 1px rgba(81, 167, 232, 0.8) inset, 0 0 3px 2px rgba(81, 167, 232, 0.8);
-          box-shadow: 0 0 1px rgba(81, 167, 232, 0.8) inset, 0 0 3px 2px rgba(81, 167, 232, 0.8);
+  box-shadow: 0 0 1px rgba(81, 167, 232, 0.8) inset, 0 0 3px 2px rgba(81, 167, 232, 0.8);
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.button:focus .icon {
@@ -5233,8 +5180,7 @@ body > .ui.grid:not(.page) {
   background-color: #f1f1f1;
   background-image: '';
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
 }
 /*--------------
      Active
@@ -5242,8 +5188,7 @@ body > .ui.grid:not(.page) {
 .ui.active.button {
   background-color: #dddddd;
   background-image: none;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset;
   color: rgba(0, 0, 0, 0.6);
 }
 .ui.button.active:hover {
@@ -5265,8 +5210,7 @@ body > .ui.grid:not(.page) {
   color: transparent !important;
   -webkit-transition: all 0s linear;
           transition: all 0s linear;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.loading.button:after {
   position: absolute;
@@ -5279,8 +5223,7 @@ body > .ui.grid:not(.page) {
 }
 .ui.labeled.icon.loading.button .icon {
   background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*-------------------
       Disabled
@@ -5294,8 +5237,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.4) !important;
   opacity: 0.3 !important;
   background-image: none !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   pointer-events: none;
 }
 /*******************************
@@ -5408,16 +5350,14 @@ body > .ui.grid:not(.page) {
        Inverted
 --------------------*/
 .ui.inverted.button {
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   background: transparent none;
   color: #ffffff;
   text-shadow: none !important;
 }
 .ui.inverted.button:hover {
   background: #ffffff none;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: rgba(0, 0, 0, 0.6);
 }
 /*-------------------
@@ -5428,13 +5368,11 @@ body > .ui.grid:not(.page) {
   background-color: #39cccc;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.primary.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
@@ -5462,13 +5400,11 @@ body > .ui.grid:not(.page) {
   background-color: #333333;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.secondary.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
@@ -5496,11 +5432,9 @@ body > .ui.grid:not(.page) {
   background-color: #3b579d;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.facebook.button:hover {
   background-color: #4261b0;
@@ -5517,11 +5451,9 @@ body > .ui.grid:not(.page) {
   background-color: #4092cc;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.twitter.button:hover {
   background-color: #549dd1;
@@ -5538,11 +5470,9 @@ body > .ui.grid:not(.page) {
   background-color: #d34836;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.google.plus.button:hover {
   background-color: #d85b4b;
@@ -5575,11 +5505,9 @@ body > .ui.grid:not(.page) {
   background-color: #cc181e;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.youtube.button:hover {
   background-color: #e31b21;
@@ -5596,11 +5524,9 @@ body > .ui.grid:not(.page) {
   background-color: #49769c;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.instagram.button:hover {
   background-color: #5183ad;
@@ -5617,11 +5543,9 @@ body > .ui.grid:not(.page) {
   background-color: #00aced;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pinterest.button:hover {
   background-color: #08bbff;
@@ -5637,11 +5561,9 @@ body > .ui.grid:not(.page) {
 .ui.vk.button {
   background-color: #4D7198;
   color: #ffffff;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.vk.button:hover {
   background-color: #567ea9;
@@ -5656,7 +5578,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.button > .icon {
   opacity: 0.8;
-  margin: 0em 0.4em 0em -0.4em;
+  margin: 0em 0.4em 0em -0.2em;
   -webkit-transition: opacity 0.25s ease;
           transition: opacity 0.25s ease;
   vertical-align: top;
@@ -5796,37 +5718,32 @@ body > .ui.grid:not(.page) {
   font-weight: normal;
   text-transform: none;
   text-shadow: none !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.basic.labeled.icon.button > .icon {
   padding-top: 0.85em !important;
 }
 .ui.basic.buttons {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   border-radius: 0.25em;
 }
 .ui.basic.buttons .button:hover,
 .ui.basic.button:hover {
   background: #fafafa !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background: rgba(0, 0, 0, 0.02) !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.basic.buttons .button.active,
 .ui.basic.button.active {
   background: rgba(0, 0, 0, 0.05) !important;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2);
-          box-shadow: rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.2);
 }
 .ui.basic.buttons .button.active:hover,
 .ui.basic.button.active:hover {
@@ -5834,45 +5751,38 @@ body > .ui.grid:not(.page) {
 }
 /* Vertical */
 .ui.basic.buttons .button:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
 }
 .ui.basic.buttons .button:active {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
 }
 .ui.basic.buttons .button.active {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset;
-          box-shadow: rgba(0, 0, 0, 0.2) inset;
+  box-shadow: rgba(0, 0, 0, 0.2) inset;
 }
 /* Inverted */
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
   background-color: transparent !important;
   color: #fafafa !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.2);
-          box-shadow: rgba(255, 255, 255, 0.2);
+  box-shadow: rgba(255, 255, 255, 0.2);
 }
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
   color: #ffffff !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.2);
-          box-shadow: rgba(255, 255, 255, 0.2);
+  box-shadow: rgba(255, 255, 255, 0.2);
 }
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
   background-color: rgba(255, 255, 255, 0.05) !important;
   color: #ffffff !important;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.8) !important;
-          box-shadow: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: rgba(255, 255, 255, 0.8) !important;
 }
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
   background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   text-shadow: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.basic.inverted.buttons .button.active:hover,
 .ui.basic.inverted.button.active:hover {
@@ -5886,8 +5796,7 @@ body > .ui.grid:not(.page) {
 /* Basic Group */
 .ui.basic.buttons .button {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.basic.vertical.buttons .button {
   border-left: none;
@@ -5906,8 +5815,7 @@ body > .ui.grid:not(.page) {
   position: absolute;
   top: 0em;
   left: 0em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 2.83em;
   height: 100%;
   padding-top: 0.85em;
@@ -5916,8 +5824,7 @@ body > .ui.grid:not(.page) {
   color: '';
   border-radius: 0.25em 0px 0px 0.25em;
   line-height: 1;
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
-          box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 }
 .ui.labeled.icon.buttons .button > .icon {
   border-radius: 0em;
@@ -5951,8 +5858,7 @@ body > .ui.grid:not(.page) {
   left: auto;
   right: 0em;
   border-radius: 0em 0.25em 0.25em 0em;
-  -webkit-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
-          box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
 }
 /*--------------
      Toggle
@@ -5962,8 +5868,7 @@ body > .ui.grid:not(.page) {
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
   background-color: #2ecc40 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   text-shadow: none;
   color: #ffffff !important;
 }
@@ -5984,8 +5889,7 @@ body > .ui.grid:not(.page) {
 .ui.attached.button {
   display: block;
   margin: 0em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
 }
 .ui.attached.top.button {
   border-radius: 0.25em 0.25em 0em 0em;
@@ -6033,10 +5937,8 @@ body > .ui.grid:not(.page) {
   font-weight: bold;
   text-align: center;
   border-radius: 500em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 .ui.buttons .or:after {
   position: absolute;
@@ -6164,8 +6066,7 @@ body > .ui.grid:not(.page) {
 .ui.fluid.vertical.buttons > .button {
   display: block;
   width: auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .ui.\32.vertical.buttons > .button,
 .ui.two.vertical.buttons > .button {
@@ -6220,13 +6121,11 @@ body > .ui.grid:not(.page) {
   background-color: #333333;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.black.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
@@ -6251,14 +6150,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.black.buttons .button,
 .ui.inverted.black.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
-          box-shadow: 0px 0px 0px 2px #555555 inset !important;
+  box-shadow: 0px 0px 0px 2px #555555 inset !important;
   color: #555555;
 }
 .ui.inverted.black.buttons .button:hover,
 .ui.inverted.black.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #333333 inset !important;
-          box-shadow: 0px 0px 0px 2px #333333 inset !important;
+  box-shadow: 0px 0px 0px 2px #333333 inset !important;
   background-color: #333333;
   color: #ffffff;
 }
@@ -6266,15 +6163,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.black.buttons .basic.button,
 .ui.inverted.black.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.black.basic.buttons .button:hover,
 .ui.inverted.black.buttons .basic.button:hover,
 .ui.inverted.black.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
-          box-shadow: 0px 0px 0px 2px #555555 inset !important;
+  box-shadow: 0px 0px 0px 2px #555555 inset !important;
   color: #ffffff !important;
 }
 /*--- Blue ---*/
@@ -6283,13 +6178,11 @@ body > .ui.grid:not(.page) {
   background-color: #0074d9;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.blue.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
@@ -6315,14 +6208,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.blue.buttons .button,
 .ui.inverted.blue.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
-          box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
+  box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
   color: #54c8ff;
 }
 .ui.inverted.blue.buttons .button:hover,
 .ui.inverted.blue.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #0074d9 inset !important;
-          box-shadow: 0px 0px 0px 2px #0074d9 inset !important;
+  box-shadow: 0px 0px 0px 2px #0074d9 inset !important;
   background-color: #0074d9;
   color: #ffffff;
 }
@@ -6330,15 +6221,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.blue.buttons .basic.button,
 .ui.inverted.blue.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.blue.basic.buttons .button:hover,
 .ui.inverted.blue.buttons .basic.button:hover,
 .ui.inverted.blue.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
-          box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
+  box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
   color: #54c8ff !important;
 }
 /*--- Green ---*/
@@ -6347,13 +6236,11 @@ body > .ui.grid:not(.page) {
   background-color: #2ecc40;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.green.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
@@ -6379,14 +6266,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.green.buttons .button,
 .ui.inverted.green.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
-          box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
+  box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
   color: #2ecc40;
 }
 .ui.inverted.green.buttons .button:hover,
 .ui.inverted.green.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
-          box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
+  box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
   background-color: #2ecc40;
   color: #ffffff;
 }
@@ -6394,15 +6279,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.green.buttons .basic.button,
 .ui.inverted.green.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.green.basic.buttons .button:hover,
 .ui.inverted.green.buttons .basic.button:hover,
 .ui.inverted.green.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
-          box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
+  box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
   color: #2ecc40 !important;
 }
 /*--- Orange ---*/
@@ -6411,13 +6294,11 @@ body > .ui.grid:not(.page) {
   background-color: #ff851b;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.orange.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
@@ -6443,14 +6324,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.orange.buttons .button,
 .ui.inverted.orange.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ff851b inset !important;
-          box-shadow: 0px 0px 0px 2px #ff851b inset !important;
+  box-shadow: 0px 0px 0px 2px #ff851b inset !important;
   color: #ff851b;
 }
 .ui.inverted.orange.buttons .button:hover,
 .ui.inverted.orange.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #ff851b inset !important;
-          box-shadow: 0px 0px 0px 2px #ff851b inset !important;
+  box-shadow: 0px 0px 0px 2px #ff851b inset !important;
   background-color: #ff851b;
   color: #ffffff;
 }
@@ -6458,15 +6337,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.orange.buttons .basic.button,
 .ui.inverted.orange.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.orange.basic.buttons .button:hover,
 .ui.inverted.orange.buttons .basic.button:hover,
 .ui.inverted.orange.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #ff851b inset !important;
-          box-shadow: 0px 0px 0px 2px #ff851b inset !important;
+  box-shadow: 0px 0px 0px 2px #ff851b inset !important;
   color: #ff851b !important;
 }
 /*--- Pink ---*/
@@ -6475,13 +6352,11 @@ body > .ui.grid:not(.page) {
   background-color: #d9499a;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.pink.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
@@ -6507,14 +6382,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.pink.buttons .button,
 .ui.inverted.pink.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
-          box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
+  box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
   color: #ff8edf;
 }
 .ui.inverted.pink.buttons .button:hover,
 .ui.inverted.pink.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
-          box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
+  box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
   background-color: #ff8edf;
   color: #ffffff;
 }
@@ -6522,15 +6395,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.pink.buttons .basic.button,
 .ui.inverted.pink.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.pink.basic.buttons .button:hover,
 .ui.inverted.pink.buttons .basic.button:hover,
 .ui.inverted.pink.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
-          box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
+  box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
   color: #ff8edf !important;
 }
 /*--- Purple ---*/
@@ -6539,13 +6410,11 @@ body > .ui.grid:not(.page) {
   background-color: #564f8a;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.purple.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
@@ -6571,14 +6440,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.purple.buttons .button,
 .ui.inverted.purple.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
-          box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
+  box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
   color: #cdc6ff;
 }
 .ui.inverted.purple.buttons .button:hover,
 .ui.inverted.purple.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
-          box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
+  box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
   background-color: #cdc6ff;
   color: #ffffff;
 }
@@ -6586,15 +6453,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.purple.buttons .basic.button,
 .ui.inverted.purple.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.purple.basic.buttons .button:hover,
 .ui.inverted.purple.buttons .basic.button:hover,
 .ui.inverted.purple.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
-          box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
+  box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
   color: #cdc6ff !important;
 }
 /*--- Red ---*/
@@ -6603,13 +6468,11 @@ body > .ui.grid:not(.page) {
   background-color: #ff4136;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.red.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
@@ -6635,14 +6498,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.red.buttons .button,
 .ui.inverted.red.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ff695e inset !important;
-          box-shadow: 0px 0px 0px 2px #ff695e inset !important;
+  box-shadow: 0px 0px 0px 2px #ff695e inset !important;
   color: #ff695e;
 }
 .ui.inverted.red.buttons .button:hover,
 .ui.inverted.red.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #ff695e inset !important;
-          box-shadow: 0px 0px 0px 2px #ff695e inset !important;
+  box-shadow: 0px 0px 0px 2px #ff695e inset !important;
   background-color: #ff695e;
   color: #ffffff;
 }
@@ -6650,15 +6511,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.red.buttons .basic.button,
 .ui.inverted.red.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.red.basic.buttons .button:hover,
 .ui.inverted.red.buttons .basic.button:hover,
 .ui.inverted.red.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #ff695e inset !important;
-          box-shadow: 0px 0px 0px 2px #ff695e inset !important;
+  box-shadow: 0px 0px 0px 2px #ff695e inset !important;
   color: #ff695e !important;
 }
 /*--- Teal ---*/
@@ -6667,13 +6526,11 @@ body > .ui.grid:not(.page) {
   background-color: #39cccc;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.teal.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
@@ -6699,14 +6556,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.teal.buttons .button,
 .ui.inverted.teal.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #6dffff inset !important;
-          box-shadow: 0px 0px 0px 2px #6dffff inset !important;
+  box-shadow: 0px 0px 0px 2px #6dffff inset !important;
   color: #6dffff;
 }
 .ui.inverted.teal.buttons .button:hover,
 .ui.inverted.teal.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #6dffff inset !important;
-          box-shadow: 0px 0px 0px 2px #6dffff inset !important;
+  box-shadow: 0px 0px 0px 2px #6dffff inset !important;
   background-color: #6dffff;
   color: #ffffff;
 }
@@ -6714,15 +6569,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.teal.buttons .basic.button,
 .ui.inverted.teal.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.teal.basic.buttons .button:hover,
 .ui.inverted.teal.buttons .basic.button:hover,
 .ui.inverted.teal.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #6dffff inset !important;
-          box-shadow: 0px 0px 0px 2px #6dffff inset !important;
+  box-shadow: 0px 0px 0px 2px #6dffff inset !important;
   color: #6dffff !important;
 }
 /*--- Yellow ---*/
@@ -6731,13 +6584,11 @@ body > .ui.grid:not(.page) {
   background-color: #ffcb08;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.yellow.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
@@ -6763,14 +6614,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.yellow.buttons .button,
 .ui.inverted.yellow.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
-          box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
+  box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
   color: #ffe21f;
 }
 .ui.inverted.yellow.buttons .button:hover,
 .ui.inverted.yellow.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
-          box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
+  box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
   background-color: #ffe21f;
   color: #ffffff;
 }
@@ -6778,15 +6627,13 @@ body > .ui.grid:not(.page) {
 .ui.inverted.yellow.buttons .basic.button,
 .ui.inverted.yellow.basic.button {
   background-color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-          box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: #ffffff;
 }
 .ui.inverted.yellow.basic.buttons .button:hover,
 .ui.inverted.yellow.buttons .basic.button:hover,
 .ui.inverted.yellow.basic.button:hover {
-  -webkit-box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
-          box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
+  box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
   color: #ffe21f !important;
 }
 /*---------------
@@ -6797,13 +6644,11 @@ body > .ui.grid:not(.page) {
   background-color: #2ecc40 !important;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.positive.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover,
@@ -6835,13 +6680,11 @@ body > .ui.grid:not(.page) {
   background-color: #ff4136 !important;
   color: #ffffff;
   text-shadow: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.negative.button {
-  -webkit-box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,
@@ -6906,8 +6749,7 @@ body > .ui.grid:not(.page) {
   display: block;
   float: none;
   margin: 0px 0px -1px 0px;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.vertical.buttons .button:first-child,
 .ui.vertical.buttons .mini.button:first-child,
@@ -6998,6 +6840,10 @@ body > .ui.grid:not(.page) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -7006,9 +6852,6 @@ body > .ui.grid:not(.page) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -7030,6 +6873,9 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -7104,8 +6950,7 @@ body > .ui.grid:not(.page) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   line-height: 1;
   height: 0em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -7312,6 +7157,10 @@ body > .ui.grid:not(.page) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -7320,9 +7169,6 @@ body > .ui.grid:not(.page) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -7344,6 +7190,9 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -8452,6 +8301,10 @@ i.flag.zimbabwe {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -8460,9 +8313,6 @@ i.flag.zimbabwe {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -8484,6 +8334,9 @@ i.flag.zimbabwe {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -8560,7 +8413,7 @@ i.flag.zimbabwe {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -8863,29 +8716,41 @@ h5.ui.header {
         Block
 --------------------*/
 .ui.block.header {
-  background: rgba(0, 0, 0, 0.05);
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.5em 1em;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid #dddddd;
+  border-radius: 0.3125rem;
 }
 /*-------------------
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #f0f0f0;
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   margin: 0em;
-  padding: 0.75rem 0.75rem;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1rem;
+  box-shadow: 0px 0px 0px 1px #dddddd;
+  border: none;
+  margin-left: 0px;
+  margin-right: 0px;
 }
-.ui.attached:not(.top, .bottom) {
-  margin: 0em;
+.ui.attached:not(.top):not(.bottom) {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  border-top: none;
+  border-bottom: none;
 }
 .ui.top.attached.header {
   margin-bottom: 0em;
-  border-radius: 0.3125em 0.3125em 0em 0em;
+  border-bottom: none;
+  border-radius: 0.3125rem 0.3125rem 0em 0em;
 }
 .ui.bottom.attached.header {
   margin-top: 0em;
-  border-radius: 0em 0em 0.3125em 0.3125em;
+  border-top: none;
+  border-radius: 0em 0em 0.3125rem 0.3125rem;
 }
 /*-------------------
         Sizing
@@ -8977,6 +8842,10 @@ h5.ui.header {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -8985,9 +8854,6 @@ h5.ui.header {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -9009,6 +8875,9 @@ h5.ui.header {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -9090,8 +8959,7 @@ i.icon {
   text-decoration: inherit;
   text-align: center;
   speak: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-backface-visibility: hidden;
@@ -9163,16 +9031,14 @@ i.link.icon:hover {
 i.circular.icon {
   border-radius: 500em !important;
   padding: 0.5em 0.35em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   line-height: 1 !important;
   width: 2em !important;
   height: 2em !important;
 }
 i.circular.inverted.icon {
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*-------------------
       Flipped
@@ -9211,14 +9077,12 @@ i.bordered.icon {
   width: 2em;
   height: 2em;
   padding: 0.5em 0.385em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
 }
 i.bordered.inverted.icon {
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*-------------------
       Inverted
@@ -11135,6 +10999,10 @@ i.icon.weixin:before {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -11143,9 +11011,6 @@ i.icon.weixin:before {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -11167,6 +11032,9 @@ i.icon.weixin:before {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -11498,6 +11366,10 @@ img.ui.bordered.image {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -11506,9 +11378,6 @@ img.ui.bordered.image {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -11530,6 +11399,9 @@ img.ui.bordered.image {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -11616,7 +11488,7 @@ img.ui.bordered.image {
 }
 .ui.input input {
   width: 100%;
-  font-family: "Helvetica Neue", "Helvetica", Arial;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 0em;
   padding: 0.65em 1em;
   background: #ffffff;
@@ -11624,12 +11496,10 @@ img.ui.bordered.image {
   outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
-  -webkit-transition: background-color 0.3s ease-out, -webkit-box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-shadow: none;
+  box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 /*--------------------
@@ -11653,8 +11523,7 @@ img.ui.bordered.image {
   border-color: rgba(0, 0, 0, 0.3);
   background: #fafafa;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*--------------------
         Loading
@@ -11674,8 +11543,7 @@ img.ui.bordered.image {
   border-color: rgba(0, 0, 0, 0.2);
   background: '';
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.input.focus input input::-webkit-input-placeholder,
 .ui.input input:focus input::-webkit-input-placeholder {
@@ -11692,8 +11560,7 @@ img.ui.bordered.image {
   background-color: #fffafa;
   border-color: #e7bebe;
   color: #d95c5c;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Error Placeholder */
 .ui.input.error input ::-webkit-input-placeholder {
@@ -11736,8 +11603,7 @@ img.ui.bordered.image {
   padding-top: 0.82em;
   text-align: center;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-transition: opacity 0.3s ease-out;
           transition: opacity 0.3s ease-out;
 }
@@ -11920,6 +11786,10 @@ img.ui.bordered.image {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -11928,9 +11798,6 @@ img.ui.bordered.image {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -11952,6 +11819,9 @@ img.ui.bordered.image {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -12047,8 +11917,7 @@ img.ui.bordered.image {
   text-transform: uppercase;
   font-weight: normal;
   border-radius: 0.325em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-transition: background 0.1s linear
   ;
           transition: background 0.1s linear
@@ -12133,8 +12002,7 @@ a.ui.label {
   padding-bottom: 0.8em;
   vertical-align: baseline;
   text-transform: none;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.image.label img {
   display: inline-block;
@@ -12224,8 +12092,7 @@ a.ui.label:hover:before {
   background-color: #ffffff;
   width: 0.5em;
   height: 0.5em;
-  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-          box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 500rem;
 }
 /*-------------------
@@ -12406,8 +12273,7 @@ a.ui.label:hover:before {
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 /*-------------------
        Inverted
@@ -12920,6 +12786,10 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -12928,9 +12798,6 @@ a.ui.yellow.label:hover:before {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -12952,6 +12819,9 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -13057,8 +12927,7 @@ a.ui.yellow.label:hover:before {
   position: relative;
   margin: 0em auto 1em;
   color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 1px;
-          box-shadow: 0px 0px 0px 1px;
+  box-shadow: 0px 0px 0px 1px;
   -webkit-animation: loaderFlipping 1s infinite ease;
           animation: loaderFlipping 1s infinite ease;
   margin-bottom: 1em;
@@ -13071,8 +12940,7 @@ a.ui.yellow.label:hover:before {
   content: '';
   top: 0px;
   left: 0px;
-  -webkit-box-shadow: 0px 0px 0px 1px;
-          box-shadow: 0px 0px 0px 1px;
+  box-shadow: 0px 0px 0px 1px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
@@ -13276,7 +13144,6 @@ a.ui.yellow.label:hover:before {
   background-color: #FAFAFA;
   padding: 5px;
   border-radius: 0.3125em;
-  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -13433,7 +13300,6 @@ a.ui.yellow.label:hover:before {
     Striped
 ---------------*/
 .ui.progress.striped .bar {
-  -webkit-background-size: 30px 30px;
   background-size: 30px 30px;
   background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -13531,7 +13397,6 @@ a.ui.yellow.label:hover:before {
 .ui.slide.reveal > .content {
   display: block;
   float: left;
-  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0em;
@@ -13795,6 +13660,10 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -13803,9 +13672,6 @@ a.ui.yellow.label:hover:before {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -13827,6 +13693,9 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -13901,14 +13770,12 @@ a.ui.yellow.label:hover:before {
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   margin: 1em 0em;
   padding: 1em 1em;
   border-radius: 0.25em;
   border: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .ui.segment:first-child {
   margin-top: 0em;
@@ -13930,8 +13797,7 @@ a.ui.yellow.label:hover:before {
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
@@ -13943,8 +13809,7 @@ a.ui.yellow.label:hover:before {
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.horizontal.segment:first-child {
   padding-left: 0em;
@@ -13964,8 +13829,7 @@ a.ui.yellow.label:hover:before {
 .ui.grid .ui.segment.row,
 .ui.grid .ui.segment.column {
   border-radius: 0em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: none;
 }
 /* No padding on edge content */
@@ -13983,8 +13847,7 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 .ui.piled.segment {
   margin: 2em 0em;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.piled.segment:first-child {
   margin-top: 0em;
@@ -14002,8 +13865,7 @@ a.ui.yellow.label:hover:before {
   left: -1px;
   position: absolute;
   width: 100%;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
@@ -14060,8 +13922,7 @@ a.ui.yellow.label:hover:before {
        Raised
 --------------------*/
 .ui.raised.segment {
-  -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
 }
 /*******************************
             States
@@ -14079,8 +13940,7 @@ a.ui.yellow.label:hover:before {
 .ui.basic.segment {
   position: relative;
   background-color: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-radius: 0px;
 }
 .ui.basic.segment:first-child {
@@ -14208,7 +14068,6 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 .ui.inverted.segment {
   border: none;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 .ui.inverted.segment .segment {
@@ -14235,7 +14094,6 @@ a.ui.yellow.label:hover:before {
 }
 .ui.secondary.inverted.segment {
   background-color: #333333;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #fafafa;
@@ -14253,8 +14111,7 @@ a.ui.yellow.label:hover:before {
   bottom: -1px;
   margin: 0em;
   border-radius: 0px;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.top.attached.segment {
   top: 0px;
@@ -14347,6 +14204,10 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -14355,9 +14216,6 @@ a.ui.yellow.label:hover:before {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -14379,6 +14237,9 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -14460,8 +14321,7 @@ a.ui.yellow.label:hover:before {
   vertical-align: top;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
   border-radius: 0em;
 }
 .ui.steps .step:after {
@@ -14482,7 +14342,7 @@ a.ui.yellow.label:hover:before {
 }
 .ui.steps .step,
 .ui.steps .step:after {
-  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
           transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
 }
 /*******************************
@@ -14490,7 +14350,7 @@ a.ui.yellow.label:hover:before {
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -14576,11 +14436,9 @@ a.ui.yellow.label:hover:before {
   display: inline-block;
   font-size: 0em;
   background: '';
-  -webkit-box-shadow: '';
-          box-shadow: '';
+  box-shadow: '';
   line-height: 1.2;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 0.3125rem;
 }
 .ui.steps .step:first-child {
@@ -14808,6 +14666,10 @@ a.ui.yellow.label:hover:before {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -14816,9 +14678,6 @@ a.ui.yellow.label:hover:before {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -14840,6 +14699,9 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -15005,8 +14867,7 @@ dfn {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
 }
 /**
@@ -15159,8 +15020,7 @@ html input[disabled] {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -15173,7 +15033,6 @@ input[type="radio"] {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
 }
@@ -15290,6 +15149,10 @@ input[type="password"] {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -15298,9 +15161,6 @@ input[type="password"] {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -15322,6 +15182,9 @@ input[type="password"] {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -15375,8 +15238,7 @@ input[type="password"] {
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 html,
 body {
@@ -15385,7 +15247,7 @@ body {
 }
 body {
   background: #fcfcfc;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 0px;
   padding: 0px;
   color: rgba(0, 0, 0, 0.8);
@@ -15574,6 +15436,10 @@ a:hover {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -15582,9 +15448,6 @@ a:hover {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -15606,6 +15469,9 @@ a:hover {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -15690,7 +15556,7 @@ a:hover {
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -15728,8 +15594,7 @@ a:hover {
 .ui.styled.accordion .accordion {
   border-radius: 0.3125em;
   background: #ffffff;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {
@@ -15899,6 +15764,10 @@ a:hover {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -15907,9 +15776,6 @@ a:hover {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -15931,6 +15797,9 @@ a:hover {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -16171,8 +16040,7 @@ a:hover {
   padding: 4px 12px;
   font-size: 12px;
   line-height: 23px;
-  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
   border-radius: 0 5px 5px 0;
 }
 .ui.chatroom .talk .log-in.button {
@@ -16288,6 +16156,10 @@ a:hover {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -16296,9 +16168,6 @@ a:hover {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -16320,6 +16189,9 @@ a:hover {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -16441,7 +16313,7 @@ a:hover {
   content: '';
   background: #ffffff;
   border-radius: 0.25em;
-  -webkit-transition: background-color 0.3s ease, border 0.3s ease, -webkit-box-shadow 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
           transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -16592,7 +16464,6 @@ a:hover {
 /* Handle */
 .ui.slider.checkbox .box:after,
 .ui.slider.checkbox label:after {
-  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
   background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   position: absolute;
@@ -16600,8 +16471,7 @@ a:hover {
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   width: 1.25rem;
   height: 1.25rem;
   top: -0.125rem;
@@ -16655,7 +16525,6 @@ a:hover {
 /* Handle */
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
-  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
   background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
   position: absolute;
@@ -16663,8 +16532,7 @@ a:hover {
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   width: 1.25rem;
   height: 1.25rem;
   top: -0.125rem;
@@ -16829,6 +16697,10 @@ a:hover {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -16837,9 +16709,6 @@ a:hover {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -16861,6 +16730,9 @@ a:hover {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -17125,6 +16997,10 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -17133,9 +17009,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -17157,6 +17030,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -17268,8 +17144,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   white-space: nowrap;
   font-size: 1rem;
   text-shadow: none;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 0em 0em 0.325em 0.325em;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
@@ -17310,8 +17185,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   text-transform: none;
   font-weight: normal;
   text-align: left;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   -webkit-touch-callout: none;
 }
 .ui.dropdown .menu .item .icon {
@@ -17380,8 +17254,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   display: inline-block;
   padding: 0.65em 1em;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   border-radius: 0.325em !important;
   /* Matches selection dropdown height to input height */
   border-top: 1px solid transparent;
@@ -17399,8 +17272,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 312px;
-  -webkit-box-shadow: 0px 1px 0px 1px #e0e0e0;
-          box-shadow: 0px 1px 0px 1px #e0e0e0;
+  box-shadow: 0px 1px 0px 1px #e0e0e0;
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
@@ -17408,12 +17280,10 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 }
 /* Hover */
 .ui.selection.dropdown:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
 }
 .ui.selection.dropdown:hover .menu {
-  -webkit-box-shadow: 0px 1px 0px 1px #d3d3d3;
-          box-shadow: 0px 1px 0px 1px #d3d3d3;
+  box-shadow: 0px 1px 0px 1px #d3d3d3;
 }
 .ui.selection.dropdown:hover > .dropdown.icon {
   opacity: 1;
@@ -17469,8 +17339,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   background: rgba(0, 0, 0, 0.05);
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   z-index: 12;
 }
 /*--------------------
@@ -17494,17 +17363,14 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 }
 .ui.selection.dropdown.error {
   background: #f2dede;
-  -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
-          box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.selection.dropdown.error:hover {
-  -webkit-box-shadow: 0px 0px 0px 1px #da9797 !important;
-          box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #da9797 !important;
 }
 .ui.dropdown.error > .menu,
 .ui.dropdown.error > .menu .menu {
-  -webkit-box-shadow: 0px 0px 1px 1px #da9797 !important;
-          box-shadow: 0px 0px 1px 1px #da9797 !important;
+  box-shadow: 0px 0px 1px 1px #da9797 !important;
 }
 .ui.dropdown.error > .menu .item {
   color: #D95C5C !important;
@@ -17590,8 +17456,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   left: 0;
   right: auto;
   margin-top: 0.5em !important;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset, 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset, 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset, 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
   border-radius: 0.325em;
 }
 /*--------------
@@ -17613,8 +17478,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
           transform: rotate(45deg);
   width: 0.5em;
   height: 0.5em;
-  -webkit-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
-          box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
   background: #ffffff;
   z-index: 2;
 }
@@ -17802,6 +17666,10 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -17810,9 +17678,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -17834,6 +17699,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -17918,8 +17786,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   margin-left: -45%;
   background: transparent;
   border: none;
-  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
-          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
   border-radius: 0.25rem;
   -webkit-user-select: text;
      -moz-user-select: text;
@@ -17962,7 +17829,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   background: #555555;
   margin: 0em;
   padding: 1.5rem 2rem;
@@ -18057,8 +17924,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   .ui.modal .content > .description {
     display: block;
     padding: 0em 0em 1em;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
   .ui.modal .content .image {
     width: auto !important;
@@ -18086,8 +17952,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.basic.modal {
   background-color: transparent;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: #ffffff;
 }
 .ui.basic.modal > .header,
@@ -18269,6 +18134,10 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -18277,9 +18146,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -18301,6 +18167,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -18387,8 +18256,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   margin: 0em;
   padding: 0.5em 1em;
   background: #555555;
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
@@ -18549,6 +18417,10 @@ a.ui.nag {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -18557,9 +18429,6 @@ a.ui.nag {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -18581,6 +18450,9 @@ a.ui.nag {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -18670,12 +18542,11 @@ a.ui.nag {
   font-style: normal;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2em;
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .header {
   padding: 0em 0em 0.5em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -18690,8 +18561,7 @@ a.ui.nag {
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
-  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.popup .ui.button {
   width: 100%;
@@ -18730,8 +18600,7 @@ a.ui.nag {
   left: 50%;
   right: auto;
   bottom: auto;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.left.popup {
   margin-left: 0em;
@@ -18742,8 +18611,7 @@ a.ui.nag {
   right: auto;
   bottom: auto;
   margin-left: 0em;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.right.popup {
   margin-right: 0em;
@@ -18754,8 +18622,7 @@ a.ui.nag {
   bottom: auto;
   left: auto;
   margin-left: 0em;
-  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Above ---*/
 .ui.top.center.popup:before {
@@ -18792,8 +18659,7 @@ a.ui.nag {
   bottom: auto;
   left: auto;
   margin-top: -0.375em;
-  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Right Center  ---*/
 .ui.right.center.popup:before {
@@ -18802,8 +18668,7 @@ a.ui.nag {
   bottom: auto;
   right: auto;
   margin-top: -0.375em;
-  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 /*******************************
             States
@@ -18828,8 +18693,7 @@ a.ui.nag {
   background: #333333;
   color: #ffffff;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.inverted.popup .header {
   background-color: rgba(0, 0, 0, 0.2);
@@ -18837,8 +18701,7 @@ a.ui.nag {
 }
 .ui.inverted.popup:before {
   background-color: #333333;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*--------------
      Sizes
@@ -18926,6 +18789,10 @@ a.ui.nag {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -18934,9 +18801,6 @@ a.ui.nag {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -18958,6 +18822,9 @@ a.ui.nag {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -19257,6 +19124,10 @@ a.ui.nag {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -19265,9 +19136,6 @@ a.ui.nag {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -19289,6 +19157,9 @@ a.ui.nag {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -19391,14 +19262,13 @@ a.ui.nag {
   margin-top: 0.5em;
   width: 380px;
   border-radius: 0.25em;
-  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
 /*--------------
     Result
 ---------------*/
 .ui.search .result {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -19430,7 +19300,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -19448,7 +19318,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -19505,8 +19375,7 @@ a.ui.nag {
 .ui.search .results .category .result.active {
   border-left-color: transparent;
   background-color: #f0f0f0;
-  -webkit-box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
 }
 .ui.search .result.active .title {
   color: rgba(0, 0, 0, 0.85);
@@ -19529,8 +19398,7 @@ a.ui.nag {
 ---------------*/
 .ui.search .results .category {
   background: #f0f0f0;
-  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.search .results .category,
 .ui.search .results .category .result {
@@ -19539,11 +19407,10 @@ a.ui.nag {
           transition: background 0.2s ease, border-color 0.2s ease;
 }
 .ui.search .results .category:first-child {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;
@@ -19636,6 +19503,10 @@ a.ui.nag {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -19644,9 +19515,6 @@ a.ui.nag {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -19668,6 +19536,9 @@ a.ui.nag {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -19702,9 +19573,6 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
              Shape
 *******************************/
@@ -19714,6 +19582,9 @@ a.ui.nag {
       Types
 ---------------*/
 /* Cube */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -19758,8 +19629,7 @@ a.ui.nag {
   padding: 2em;
   background-color: #e6e6e6;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
 .ui.cube.shape .side > .content {
   width: 100%;
@@ -19906,6 +19776,10 @@ a.ui.nag {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -19914,9 +19788,6 @@ a.ui.nag {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -19938,6 +19809,9 @@ a.ui.nag {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -20063,8 +19937,7 @@ body.pushed.scrolling.ui.dimmable {
 .ui.styled.sidebar {
   padding: 1em 1.5em;
   background-color: #ffffff;
-  -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.styled.thin.sidebar {
   padding: 1em;
@@ -20076,20 +19949,16 @@ body.pushed.scrolling.ui.dimmable {
        Floating
 --------------------*/
 .ui.floating.sidebar {
-  -webkit-box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
 }
 .ui.right.floating.sidebar {
-  -webkit-box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.2);
 }
 .ui.top.floating.sidebar {
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.floating.sidebar {
-  -webkit-box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
 }
 /*-------------------
         Width
@@ -20278,6 +20147,10 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -20286,9 +20159,6 @@ body.pushed.scrolling.ui.dimmable {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -20310,6 +20180,9 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -20469,6 +20342,10 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -20477,9 +20354,6 @@ body.pushed.scrolling.ui.dimmable {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -20501,6 +20375,9 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -20669,6 +20546,10 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -20677,9 +20558,6 @@ body.pushed.scrolling.ui.dimmable {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -20701,6 +20579,9 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -20735,12 +20616,12 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
           Transition
 *******************************/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -21748,6 +21629,10 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -21756,9 +21641,6 @@ body.pushed.scrolling.ui.dimmable {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -21780,6 +21662,9 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -21988,6 +21873,10 @@ body.pushed.scrolling.ui.dimmable {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -21996,9 +21885,6 @@ body.pushed.scrolling.ui.dimmable {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -22020,6 +21906,9 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -22081,6 +21970,7 @@ body.pushed.scrolling.ui.dimmable {
       Variations
 --------------------*/
 /* Link */
+/* Card Count */
 /* Sizes */
 /*------------------
      Load Theme
@@ -22101,23 +21991,23 @@ body.pushed.scrolling.ui.dimmable {
             Standard
 *******************************/
 /*--------------
-      Items
+      Cards
 ---------------*/
-.ui.cards,
-.ui.card {
+.ui.cards {
   margin: 1em -0.5em;
 }
-.ui.cards:first-child .ui.card:first-child {
+.ui.cards > .card {
+  display: block;
+  margin: 0em 0.5em 2.5em;
+  float: left;
+}
+.ui.cards:first-child,
+.ui.card:first-child {
   margin-top: 0em;
 }
 .ui.cards:last-child,
 .ui.card:last-child {
   margin-bottom: 0em;
-}
-.ui.cards > .row > .card,
-.ui.cards > .card {
-  display: block;
-  float: left;
 }
 /* Clearing */
 .ui.cards:after,
@@ -22130,53 +22020,52 @@ body.pushed.scrolling.ui.dimmable {
   visibility: hidden;
 }
 /*--------------
-      Item
+      Card
 ---------------*/
-.ui.cards > .row > .card,
 .ui.cards > .card,
 .ui.card {
   position: relative;
   display: block;
   width: 300px;
   min-height: 0px;
-  margin: 0em 0.5em 2.5em;
   background: #ffffff;
   padding: 0em;
   border: none;
   border-radius: 0.325rem;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd, 0px 0px 0px 0px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd, 0px 0px 0px 0px #dddddd;
-  -webkit-transition: -webkit-box-shadow 0.25s ease;
+  box-shadow: 0px 0em 0px 0px #dddddd, 0px 0px 0px 1px #dddddd;
+  -webkit-transition: box-shadow 0.25s ease;
           transition: box-shadow 0.25s ease;
   z-index: '';
 }
-.ui.cards > .row > .card > :first-child,
+.ui.card {
+  margin: 1em 0em;
+}
+.ui.cards > .card a,
+.ui.card a {
+  cursor: pointer;
+}
+/*--------------
+  Rounded Edges
+---------------*/
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
   border-radius: 0.325rem 0.325rem 0em 0em !important;
 }
-.ui.cards > .row > .card > :last-child,
 .ui.cards > .card > :last-child,
 .ui.card > :last-child {
   border-radius: 0em 0em 0.325rem 0.325rem !important;
 }
-.ui.cards a.card,
-.ui.cards .card a,
-.ui.card a,
-a.ui.cards {
-  cursor: pointer;
-}
 /*--------------
      Images
 ---------------*/
-.ui.cards .card > .image,
+.ui.cards > .card > .image,
 .ui.card > .image {
   display: block;
   position: relative;
   padding: 0em;
   background: rgba(0, 0, 0, 0.05);
 }
-.ui.cards .card > .image > img,
+.ui.cards > .card > .image > img,
 .ui.card > .image > img {
   display: block;
   width: 100%;
@@ -22184,36 +22073,24 @@ a.ui.cards {
   border-radius: 0.325rem 0.325rem 0em 0em;
   border: none;
 }
-.ui.cards .card > .image:only-child > img,
+.ui.cards > .card > .image:only-child > img,
 .ui.card > .image:only-child > img {
   border-radius: 0.325rem;
 }
 /*--------------
-     Floated
----------------*/
-.ui.cards .card .left.floated,
-.ui.card .left.floated {
-  float: left;
-}
-.ui.cards .card .right.floated,
-.ui.card .right.floated {
-  float: right;
-}
-/*--------------
      Content
 ---------------*/
-.ui.cards .card > .content,
+.ui.cards > .card > .content,
 .ui.card > .content {
   background: none;
   margin: 0em;
   padding: 1em 1em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   font-size: 1em;
   border: none;
   border-radius: 0em;
 }
-.ui.cards .card > .content:after,
+.ui.cards > .card > .content:after,
 .ui.card > .content:after {
   display: block;
   content: ' ';
@@ -22222,32 +22099,43 @@ a.ui.cards {
   overflow: hidden;
   visibility: hidden;
 }
-.ui.cards .card > .content > .header,
+.ui.cards > .card > .content > .header,
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   color: rgba(0, 0, 0, 0.85);
 }
-.ui.cards .card > .content > .meta + .description,
-.ui.cards .card > .content > .header + .description,
+.ui.cards > .card > .content > .meta + .description,
+.ui.cards > .card > .content > .header + .description,
 .ui.card > .content > .meta + .description,
 .ui.card > .content > .header + .description {
   margin-top: 0.75em;
 }
 /*--------------
-     Image
+     Floated
 ---------------*/
-.ui.cards .card .content img,
+.ui.cards > .card .left.floated,
+.ui.card .left.floated {
+  float: left;
+}
+.ui.cards > .card .right.floated,
+.ui.card .right.floated {
+  float: right;
+}
+/*--------------
+  Content Image
+---------------*/
+.ui.cards > .card .content img,
 .ui.card .content img {
   display: inline-block;
   vertical-align: middle;
   width: 2em;
 }
-.ui.cards .card img.avatar,
-.ui.cards .card .avatar img,
+.ui.cards > .card img.avatar,
+.ui.cards > .card .avatar img,
 .ui.card img.avatar,
 .ui.card .avatar img {
   width: 2em;
@@ -22257,7 +22145,7 @@ a.ui.cards {
 /*--------------
    Description
 ---------------*/
-.ui.cards .card > .content > .description,
+.ui.cards > .card > .content > .description,
 .ui.card > .content > .description {
   clear: both;
   color: rgba(0, 0, 0, 0.5);
@@ -22265,31 +22153,31 @@ a.ui.cards {
 /*--------------
     Paragraph
 ---------------*/
-.ui.cards .card > .content p,
+.ui.cards > .card > .content p,
 .ui.card > .content p {
   margin: 0em 0em 0.5em;
 }
-.ui.cards .card > .content p:last-child,
+.ui.cards > .card > .content p:last-child,
 .ui.card > .content p:last-child {
   margin-bottom: 0em;
 }
 /*--------------
       Meta
 ---------------*/
-.ui.cards .card .meta,
+.ui.cards > .card .meta,
 .ui.card .meta {
   font-size: 0.9em;
   color: rgba(0, 0, 0, 0.4);
 }
-.ui.cards .card .meta *,
+.ui.cards > .card .meta *,
 .ui.card .meta * {
   margin-right: 0.3em;
 }
-.ui.cards .card .meta :last-child,
+.ui.cards > .card .meta :last-child,
 .ui.card .meta :last-child {
   margin-right: 0em;
 }
-.ui.cards .card .meta .right.floated,
+.ui.cards > .card .meta .right.floated,
 .ui.card .meta .right.floated {
   margin-right: 0em;
   margin-left: 0.3em;
@@ -22298,29 +22186,31 @@ a.ui.cards {
       Links
 ---------------*/
 /* Generic */
-.ui.cards .card > .content a,
+.ui.cards > .card > .content a,
 .ui.card > .content a {
   color: #009fda;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
 }
-.ui.cards .card > .content a:hover,
+.ui.cards > .card > .content a:hover,
 .ui.card > .content a:hover {
   color: #00b2f3;
 }
 /* Header */
-.ui.cards .card > .content > a.header,
+.ui.cards > .card > .content > a.header,
 .ui.card > .content > a.header {
   color: rgba(0, 0, 0, 0.85);
 }
-.ui.cards .card > .content > a.header:hover,
+.ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
   color: #00b2f3;
 }
 /* Meta */
-.ui.cards .card .meta a,
+.ui.cards > .card .meta a,
 .ui.card .meta a {
   color: rgba(0, 0, 0, 0.4);
 }
-.ui.cards .card .meta a:hover,
+.ui.cards > .card .meta a:hover,
 .ui.card .meta a:hover {
   color: rgba(0, 0, 0, 0.8);
 }
@@ -22329,56 +22219,55 @@ a.ui.cards {
 ---------------*/
 /*-----Star----- */
 /* Icon */
-.ui.cards .card > .content .star.icon,
+.ui.cards > .card > .content .star.icon,
 .ui.card > .content .star.icon {
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
 }
-.ui.cards .card > .content .star.icon:hover,
+.ui.cards > .card > .content .star.icon:hover,
 .ui.card > .content .star.icon:hover {
   opacity: 1;
   color: #ac9400;
 }
-.ui.cards .card > .content .active.star.icon,
+.ui.cards > .card > .content .active.star.icon,
 .ui.card > .content .active.star.icon {
   color: #e9b539;
 }
 /*-----Like----- */
 /* Icon */
-.ui.cards .card > .content .like.icon,
+.ui.cards > .card > .content .like.icon,
 .ui.card > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
 }
-.ui.cards .card > .content .like.icon:hover,
+.ui.cards > .card > .content .like.icon:hover,
 .ui.card > .content .like.icon:hover {
   opacity: 1;
   color: #ffadae;
 }
-.ui.cards .card > .content .active.like.icon,
+.ui.cards > .card > .content .active.like.icon,
 .ui.card > .content .active.like.icon {
   color: #ef404a;
 }
 /*----------------
   Extra Content
 -----------------*/
-.ui.cards .card .extra,
+.ui.cards > .card .extra,
 .ui.card .extra {
+  min-height: 0px !important;
   position: static;
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.03)));
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   width: 100%;
   padding: 0.75em 1em;
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -22389,24 +22278,340 @@ a.ui.cards {
 /*-------------------
         Link
 --------------------*/
+.ui.cards a.card:hover,
 .ui.link.cards .card:hover,
+a.ui.card:hover,
 .ui.link.card:hover {
   cursor: pointer;
   z-index: 5;
   background: '';
   border: none;
-  -webkit-box-shadow: 0px 0px 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0em 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+/*--------------
+   Card Count
+---------------*/
+.ui.one.cards {
+  margin-left: 0em;
+  margin-right: 0em;
+}
+.ui.one.cards > .card {
+  width: 100%;
+}
+.ui.two.cards {
+  margin-left: -1em;
+  margin-right: -1em;
+}
+.ui.two.cards > .card {
+  width: -webkit-calc( 50%  -  2em );
+  width: calc( 50%  -  2em );
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.ui.two.cards > .card:nth-child(2n+1) {
+  clear: left;
+}
+.ui.three.cards {
+  margin-left: -1em;
+  margin-right: -1em;
+}
+.ui.three.cards > .card {
+  width: -webkit-calc( 33.33333333%  -  2em );
+  width: calc( 33.33333333%  -  2em );
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.ui.three.cards > .card:nth-child(3n+1) {
+  clear: left;
+}
+.ui.four.cards {
+  margin-left: -0.75em;
+  margin-right: -0.75em;
+}
+.ui.four.cards > .card {
+  width: -webkit-calc( 25%  -  1.5em );
+  width: calc( 25%  -  1.5em );
+  margin-left: 0.75em;
+  margin-right: 0.75em;
+}
+.ui.four.cards > .card:nth-child(4n+1) {
+  clear: left;
+}
+.ui.five.cards {
+  margin-left: -0.75em;
+  margin-right: -0.75em;
+}
+.ui.five.cards > .card {
+  width: -webkit-calc( 20%  -  1.5em );
+  width: calc( 20%  -  1.5em );
+  margin-left: 0.75em;
+  margin-right: 0.75em;
+}
+.ui.five.cards > .card:nth-child(5n+1) {
+  clear: left;
+}
+.ui.six.cards {
+  margin-left: -0.75em;
+  margin-right: -0.75em;
+}
+.ui.six.cards > .card {
+  width: -webkit-calc( 16.66666667%  -  1.5em );
+  width: calc( 16.66666667%  -  1.5em );
+  margin-left: 0.75em;
+  margin-right: 0.75em;
+}
+.ui.six.cards > .card:nth-child(6n+1) {
+  clear: left;
+}
+.ui.seven.cards {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.seven.cards > .card {
+  width: -webkit-calc( 14.28571429%  -  1em );
+  width: calc( 14.28571429%  -  1em );
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.ui.seven.cards > .card:nth-child(7n+1) {
+  clear: left;
+}
+.ui.eight.cards {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.eight.cards > .card {
+  width: -webkit-calc( 12.5%  -  1em );
+  width: calc( 12.5%  -  1em );
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 11px;
+}
+.ui.eight.cards > .card:nth-child(8n+1) {
+  clear: left;
+}
+.ui.nine.cards {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.nine.cards > .card {
+  width: -webkit-calc( 11.11111111%  -  1em );
+  width: calc( 11.11111111%  -  1em );
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 10px;
+}
+.ui.nine.cards > .card:nth-child(9n+1) {
+  clear: left;
+}
+.ui.ten.cards {
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+}
+.ui.ten.cards > .card {
+  width: -webkit-calc( 10%  -  1em );
+  width: calc( 10%  -  1em );
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.ui.ten.cards > .card:nth-child(10n+1) {
+  clear: left;
 }
 /*-------------------
-      Responsive
+      Doubling
+--------------------*/
+/* Mobily Only */
+@media only screen and (max-width: 767px) {
+  .ui.two.doubling.cards {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .ui.two.doubling.cards .card {
+    width: 100%;
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .ui.three.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.three.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.four.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.four.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.five.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.five.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.six.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.six.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.seven.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.seven.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.eight.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.nine.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.nine.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.ten.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.ten.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+/* Tablet Only */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.two.doubling.cards {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .ui.two.doubling.cards .card {
+    width: 100%;
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  .ui.three.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.three.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.four.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.four.doubling.cards .card {
+    width: -webkit-calc( 50%  -  2em );
+    width: calc( 50%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.five.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.five.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.six.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.six.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+  .ui.eight.doubling.cards .card {
+    width: -webkit-calc( 33.33333333%  -  2em );
+    width: calc( 33.33333333%  -  2em );
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: -0.75em;
+    margin-right: -0.75em;
+  }
+  .ui.eight.doubling.cards .card {
+    width: -webkit-calc( 25%  -  1.5em );
+    width: calc( 25%  -  1.5em );
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+  }
+  .ui.nine.doubling.cards {
+    margin-left: -0.75em;
+    margin-right: -0.75em;
+  }
+  .ui.nine.doubling.cards .card {
+    width: -webkit-calc( 25%  -  1.5em );
+    width: calc( 25%  -  1.5em );
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+  }
+  .ui.ten.doubling.cards {
+    margin-left: -0.75em;
+    margin-right: -0.75em;
+  }
+  .ui.ten.doubling.cards .card {
+    width: -webkit-calc( 20%  -  1.5em );
+    width: calc( 20%  -  1.5em );
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+  }
+}
+/*-------------------
+      Stackable
 --------------------*/
 @media only screen and (max-width: 768px) {
   .ui.stackable.cards {
     display: block !important;
   }
-  .ui.stackable.cards > .card,
-  .ui.stackable.cards > .row > .card {
+  .ui.stackable.cards > .card {
     display: block !important;
     height: auto !important;
     width: auto !important;
@@ -22414,159 +22619,8 @@ a.ui.cards {
   }
 }
 /*--------------
-    Item Count
+      Size
 ---------------*/
-.ui.one.cards {
-  margin-left: -2%;
-  margin-right: -2%;
-}
-.ui.one.cards > .card {
-  width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-.ui.two.cards {
-  margin-left: -1%;
-  margin-right: -1%;
-}
-.ui.two.cards > .card {
-  width: 48%;
-  margin-left: 1%;
-  margin-right: 1%;
-}
-.ui.two.cards > .card:nth-child(2n+1) {
-  clear: left;
-}
-.ui.three.cards {
-  margin-left: -1%;
-  margin-right: -1%;
-}
-.ui.three.cards > .card {
-  width: 31.333%;
-  margin-left: 1%;
-  margin-right: 1%;
-}
-.ui.three.cards > .card:nth-child(3n+1) {
-  clear: left;
-}
-.ui.four.cards {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
-}
-.ui.four.cards > .card {
-  width: 24%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-}
-.ui.four.cards > .card:nth-child(4n+1) {
-  clear: left;
-}
-.ui.five.cards {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
-}
-.ui.five.cards > .card {
-  width: 19%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-}
-.ui.five.cards > .card:nth-child(5n+1) {
-  clear: left;
-}
-.ui.six.cards {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
-}
-.ui.six.cards > .card {
-  width: 15.66%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-}
-.ui.six.cards > .card:nth-child(6n+1) {
-  clear: left;
-}
-.ui.seven.cards {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
-}
-.ui.seven.cards > .card {
-  width: 13.28%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  font-size: 11px;
-}
-.ui.seven.cards > .card:nth-child(7n+1) {
-  clear: left;
-}
-.ui.eight.cards {
-  margin-left: -0.25%;
-  margin-right: -0.25%;
-}
-.ui.eight.cards > .card {
-  width: 12.0%;
-  margin-left: 0.25%;
-  margin-right: 0.25%;
-  font-size: 11px;
-}
-.ui.eight.cards > .card:nth-child(8n+1) {
-  clear: left;
-}
-.ui.nine.cards {
-  margin-left: -0.25%;
-  margin-right: -0.25%;
-}
-.ui.nine.cards > .card {
-  width: 10.61%;
-  margin-left: 0.25%;
-  margin-right: 0.25%;
-  font-size: 10px;
-}
-.ui.nine.cards > .card:nth-child(9n+1) {
-  clear: left;
-}
-.ui.ten.cards {
-  margin-left: -0.2%;
-  margin-right: -0.2%;
-}
-.ui.ten.cards > .card {
-  width: 9.6%;
-  margin-left: 0.2%;
-  margin-right: 0.2%;
-  font-size: 10px;
-}
-.ui.ten.cards > .card:nth-child(10n+1) {
-  clear: left;
-}
-.ui.eleven.cards {
-  margin-left: -0.2%;
-  margin-right: -0.2%;
-}
-.ui.eleven.cards > .card {
-  width: 8.69%;
-  margin-left: 0.2%;
-  margin-right: 0.2%;
-  font-size: 9px;
-}
-.ui.eleven.cards > .card:nth-child(11n+1) {
-  clear: left;
-}
-.ui.twelve.cards {
-  margin-left: -0.1%;
-  margin-right: -0.1%;
-}
-.ui.twelve.cards > .card {
-  width: 8.1333%;
-  margin-left: 0.1%;
-  margin-right: 0.1%;
-  font-size: 9px;
-}
-.ui.twelve.cards > .card:nth-child(12n+1) {
-  clear: left;
-}
-/*--------------
-      Items
----------------*/
-.ui.cards > .row > .card,
 .ui.cards > .card {
   font-size: 1em;
 }
@@ -22635,6 +22689,10 @@ a.ui.cards {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -22643,9 +22701,6 @@ a.ui.cards {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -22667,6 +22722,9 @@ a.ui.cards {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -22907,8 +22965,7 @@ a.ui.cards {
 .ui.threaded.comments .comment .comments {
   margin: -1.5em 0em 0em 1.25em;
   padding: 2em 0em 0em 2em;
-  -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
-          box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
 }
 /*--------------------
         Minimal
@@ -23007,6 +23064,10 @@ a.ui.cards {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -23015,9 +23076,6 @@ a.ui.cards {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -23039,6 +23097,9 @@ a.ui.cards {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -23111,7 +23172,6 @@ a.ui.cards {
 .ui.feed .label,
 .ui.feed .content,
 .ui.feed .extra {
-  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -23280,6 +23340,10 @@ a.ui.cards {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -23288,9 +23352,6 @@ a.ui.cards {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -23312,6 +23373,9 @@ a.ui.cards {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -23352,25 +23416,26 @@ a.ui.cards {
 /*-------------------
          View
 --------------------*/
+/* Items */
 /* Item */
-/* Item Group */
 /*-------------------
        Content
 --------------------*/
 /* Image */
 /* Content */
-/* Title */
+/* Header */
 /* Metadata */
+/* Icons */
+/* Links */
 /* Description */
-/* Image */
+/* Content Image */
+/* Avatar Image */
 /* Paragraph */
 /* Additional Content */
 /*-------------------
-       States
---------------------*/
-/*-------------------
       Variations
 --------------------*/
+/* Divided */
 /* Sizes */
 /*------------------
      Load Theme
@@ -23391,10 +23456,30 @@ a.ui.cards {
             Standard
 *******************************/
 /*--------------
+      Item
+---------------*/
+.ui.items > .item {
+  display: table;
+  margin: 1em 0em;
+  width: 100%;
+  min-height: 0px;
+  background: transparent;
+  padding: 0em;
+  border: none;
+  border-radius: 0rem;
+  box-shadow: none;
+  -webkit-transition: box-shadow 0.25s ease;
+          transition: box-shadow 0.25s ease;
+  z-index: '';
+}
+.ui.items > .item a {
+  cursor: pointer;
+}
+/*--------------
       Items
 ---------------*/
 .ui.items {
-  margin: 1em -0.5em;
+  margin: 1em 0em;
 }
 .ui.items:first-child {
   margin-top: 0em;
@@ -23402,8 +23487,13 @@ a.ui.cards {
 .ui.items:last-child {
   margin-bottom: 0em;
 }
-/* Clearing */
-.ui.items:after {
+/*--------------
+      Item
+---------------*/
+.ui.items > .item {
+  min-width: 100%;
+}
+.ui.items > .item:after {
   display: block;
   content: ' ';
   height: 0px;
@@ -23411,482 +23501,249 @@ a.ui.cards {
   overflow: hidden;
   visibility: hidden;
 }
-/*--------------
-      Item
----------------*/
-.ui.items > .row > .item,
-.ui.items > .item {
-  position: relative;
-  display: block;
-  float: left;
-  width: 300px;
-  min-height: 0px;
-  margin: 0em 0.5em 2.5em;
-  background: #ffffff;
-  padding: 0em;
-  border: none;
-  border-radius: 0.325rem;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 3px 0px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 3px 0px 0px rgba(0, 0, 0, 0.1);
-  z-index: '';
+.ui.items > .item:first-child {
+  margin-top: 0em;
 }
-.ui.items a.item,
-.ui.items .item a {
-  cursor: pointer;
+.ui.items > .item:last-child {
+  margin-bottom: 0em;
 }
 /*--------------
      Images
 ---------------*/
-.ui.items .item > .image {
-  display: block;
+.ui.items > .item > .image {
   position: relative;
+  display: table-cell;
+  float: none;
+  width: 225px;
+  margin: 0em;
   padding: 0em;
   background: rgba(0, 0, 0, 0.05);
+  max-height: '';
+  vertical-align: top;
 }
-.ui.items .item > .image > img {
+.ui.items > .item > .image > img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 0.325rem 0.325rem 0em 0em;
+  border-radius: 0.125rem;
+  border: none;
 }
-/*--------------
-     Floated
----------------*/
-.ui.items .item .left {
-  float: left;
-}
-.ui.items .item .right {
-  float: right;
+.ui.items > .item > .image:only-child > img {
+  border-radius: 0rem;
 }
 /*--------------
      Content
 ---------------*/
-.ui.items .item > .content {
+.ui.items > .item > .content {
+  display: block;
+  background: none;
   margin: 0em;
-  padding: 0.75em 1em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  padding: 0em;
+  box-shadow: none;
   font-size: 1em;
   border: none;
   border-radius: 0em;
 }
-.ui.items .item > .content > .header {
+.ui.items > .item > .content:after {
+  display: block;
+  content: ' ';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.ui.items > .item > .image + .content {
+  display: table-cell;
+  margin-left: 0em;
+  vertical-align: top;
+  padding-left: 1em;
+}
+.ui.items > .item > .content > .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   color: rgba(0, 0, 0, 0.85);
 }
-.ui.items .item > .content > .meta + .description,
-.ui.items .item > .content > .header + .description {
+.ui.items > .item > .content > .meta + .description,
+.ui.items > .item > .content > .header + .description {
   margin-top: 0.75em;
 }
 /*--------------
-      Image
+     Floated
 ---------------*/
-.ui.items .item .content img {
+.ui.items > .item .left.floated {
+  float: left;
+}
+.ui.items > .item .right.floated {
+  float: right;
+}
+/*--------------
+  Content Image
+---------------*/
+.ui.items > .item .content img {
   display: inline-block;
   vertical-align: middle;
   width: 2em;
 }
+.ui.items > .item img.avatar,
+.ui.items > .item .avatar img {
+  width: 2em;
+  height: 2em;
+  border-radius: 500rem;
+}
 /*--------------
    Description
 ---------------*/
-.ui.items .item > .content > .description {
-  clear: both;
-  color: rgba(0, 0, 0, 0.4);
+.ui.items > .item > .content > .description {
+  color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
     Paragraph
 ---------------*/
-.ui.items .item > .content p {
-  margin: 0em 0em 0.1em;
+.ui.items > .item > .content p {
+  margin: 0em 0em 0.5em;
 }
-.ui.items .item > .content p:last-child {
+.ui.items > .item > .content p:last-child {
   margin-bottom: 0em;
 }
 /*--------------
       Meta
 ---------------*/
-.ui.items .item .meta {
+.ui.items > .item .meta {
+  font-size: 0.9em;
   color: rgba(0, 0, 0, 0.4);
+}
+.ui.items > .item .meta * {
+  margin-right: 0.3em;
+}
+.ui.items > .item .meta :last-child {
+  margin-right: 0em;
+}
+.ui.items > .item .meta .right.floated {
+  margin-right: 0em;
+  margin-left: 0.3em;
+}
+/*--------------
+      Links
+---------------*/
+/* Generic */
+.ui.items > .item > .content a {
+  color: #009fda;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
+}
+.ui.items > .item > .content a:hover {
+  color: #00b2f3;
+}
+/* Header */
+.ui.items > .item > .content > a.header {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.items > .item > .content > a.header:hover {
+  color: #00b2f3;
+}
+/* Meta */
+.ui.items > .item .meta a {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.items > .item .meta a:hover {
+  color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
      Labels
 ---------------*/
 /*-----Star----- */
-/* hover */
-.ui.items .item .star.label:hover::after {
-  border-right-color: #F6EFC3;
-}
-.ui.items .item .star.label:hover::after {
-  border-top-color: #F6EFC3;
-}
-.ui.items .item .star.label:hover .icon {
-  color: #ac9400;
-}
-/* active */
-.ui.items .item .star.label.active::after {
-  border-right-color: #F6EFC3;
-}
-.ui.items .item .star.label.active::after {
-  border-top-color: #F6EFC3;
-}
-.ui.items .item .star.label.active .icon {
-  color: #ac9400;
-}
-/*-----Like----- */
-/* hover */
-.ui.items .item .like.label:hover::after {
-  border-right-color: #F5E1E2;
-}
-.ui.items .item .like.label.active::after {
-  border-top-color: #F5E1E2;
-}
-.ui.items .item .like.label:hover .icon {
-  color: #ef404a;
-}
-/* active */
-.ui.items .item .like.label.active::after {
-  border-right-color: #F5E1E2;
-}
-.ui.items .item .like.label.active::after {
-  border-top-color: #F5E1E2;
-}
-.ui.items .item .like.label.active .icon {
-  color: #ef404a;
-}
-/*--------------
-  Extra Content
----------------*/
-.ui.items .item .extra {
-  position: absolute;
-  width: 100%;
-  padding: 0.5em 0.75em;
-  top: 100%;
-  left: 0em;
-  color: rgba(0, 0, 0, 0.4);
+/* Icon */
+.ui.items > .item > .content .star.icon {
+  cursor: pointer;
+  opacity: 0.75;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
 }
-/*******************************
-           States
-*******************************/
-.ui.items .item:hover {
+.ui.items > .item > .content .star.icon:hover {
+  opacity: 1;
+  color: #ac9400;
+}
+.ui.items > .item > .content .active.star.icon {
+  color: #e9b539;
+}
+/*-----Like----- */
+/* Icon */
+.ui.items > .item > .content .like.icon {
   cursor: pointer;
-  z-index: 5;
-  border: none;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0.75;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
+}
+.ui.items > .item > .content .like.icon:hover {
+  opacity: 1;
+  color: #ffadae;
+}
+.ui.items > .item > .content .active.like.icon {
+  color: #ef404a;
+}
+/*----------------
+  Extra Content
+-----------------*/
+.ui.items > .item .extra {
+  display: block;
+  position: relative;
+  background: none;
+  margin: 1em 0em 0em;
+  width: 100%;
+  padding: 0.75em 0em 0em;
+  top: 0em;
+  left: 0em;
+  color: rgba(0, 0, 0, 0.4);
+  box-shadow: none;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.ui.items > .item .extra:after {
+  display: block;
+  content: ' ';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
 }
 /*******************************
            Variations
 *******************************/
-/*--------------
-    Connected
----------------*/
-.ui.connected.items {
-  display: table;
-  width: 100%;
-  margin-left: 0em !important;
-  margin-right: 0em !important;
-}
-.ui.connected.items > .row > .item,
-.ui.connected.items > .item {
-  float: none;
-  display: table-cell;
-  vertical-align: top;
-  height: auto;
-  border-radius: 0px;
+/*-------------------
+      Divided
+--------------------*/
+.ui.divided.items > .item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0em;
-  width: 33.33%;
+  padding: 1em 0em;
 }
-.ui.connected.items > .row {
-  display: table;
-  margin: 0.5em 0em;
-}
-.ui.connected.items > .row:first-child {
+.ui.divided.items > .item:first-child {
+  border-top: none;
   margin-top: 0em;
+  padding-top: 0em;
 }
-/* Borders */
-.ui.connected.items > .item,
-.ui.connected.items > .row:last-child > .item {
-  border-bottom: 0.2em solid rgba(0, 0, 0, 0.2);
-}
-.ui.connected.items > .row:last-child > .item:first-child,
-.ui.connected.items > .item:first-child {
-  border-radius: 0em 0em 0em 0.33em;
-}
-.ui.connected.items > .row:last-child > .item:last-child,
-.ui.connected.items > .item:last-child {
-  border-radius: 0em 0em 0.33em 0em;
-}
-/* Hover */
-.ui.connected.items .item:hover {
-  border-bottom-width: 0.2em;
-}
-/* Item Count */
-.ui.one.connected.items > .row > .item,
-.ui.one.connected.items > .item {
-  width: 100%;
-}
-.ui.two.connected.items > .row > .item,
-.ui.two.connected.items > .item {
-  width: 50%;
-}
-.ui.three.connected.items > .row > .item,
-.ui.three.connected.items > .item {
-  width: 33.33333333%;
-}
-.ui.four.connected.items > .row > .item,
-.ui.four.connected.items > .item {
-  width: 25%;
-}
-.ui.five.connected.items > .row > .item,
-.ui.five.connected.items > .item {
-  width: 20%;
-}
-.ui.six.connected.items > .row > .item,
-.ui.six.connected.items > .item {
-  width: 16.66666667%;
-}
-.ui.seven.connected.items > .row > .item,
-.ui.seven.connected.items > .item {
-  width: 14.28571429%;
-}
-.ui.eight.connected.items > .row > .item,
-.ui.eight.connected.items > .item {
-  width: 12.5%;
-}
-.ui.nine.connected.items > .row > .item,
-.ui.nine.connected.items > .item {
-  width: 11.11111111%;
-}
-.ui.ten.connected.items > .row > .item,
-.ui.ten.connected.items > .item {
-  width: 10%;
-}
-.ui.eleven.connected.items > .row > .item,
-.ui.eleven.connected.items > .item {
-  width: 9.09090909%;
-}
-.ui.twelve.connected.items > .row > .item,
-.ui.twelve.connected.items > .item {
-  width: 8.33333333%;
+.ui.divided.items > .item:last-child {
+  margin-bottom: 0em;
+  padding-bottom: 0em;
 }
 /*-------------------
-      Responsive
+        Link
 --------------------*/
-@media only screen and (max-width: 768px) {
-  .ui.stackable.items {
-    display: block !important;
-  }
-  .ui.stackable.items > .item,
-  .ui.stackable.items > .row > .item {
-    display: block !important;
-    height: auto !important;
-    width: auto !important;
-    padding: 0% !important;
-  }
+.ui.items a.item:hover,
+.ui.link.item > .item:hover {
+  cursor: pointer;
 }
-/*--------------------
-      Horizontal
----------------------*/
-.ui.horizontal.items > .item,
-.ui.items > .horizontal.item {
-  display: table;
-}
-.ui.horizontal.items > .item > .image,
-.ui.items > .horizontal.item > .image {
-  display: table-cell;
-  width: 50%;
-}
-.ui.horizontal.items > .item > .image + .content,
-.ui.items > .horizontal.item > .image + .content {
-  width: 50%;
-  display: table-cell;
-}
-.ui.horizontal.items > .item > .content,
-.ui.items > .horizontal.item > .content {
-  padding: 1% 1.7% 11% 3%;
-  vertical-align: top;
-}
-.ui.horizontal.items > .item > .meta,
-.ui.items > .horizontal.item > .meta {
-  position: absolute;
-  padding: 0%;
-  bottom: 7%;
-  left: 3%;
-  width: 94%;
-}
-.ui.horizontal.items > .item > .image + .content + .meta,
-.ui.items > .horizontal.item > .image + .content + .meta {
-  bottom: 7%;
-  left: 53%;
-  width: 44%;
-}
-.ui.horizontal.items > .item .avatar,
-.ui.items > .horizontal.item .avatar {
-  width: 11.5%;
-}
-.ui.items > .item .avatar {
-  max-width: 25px;
+.ui.items a.item:hover .content .header,
+.ui.link.item > .item:hover .content .header {
+  color: #00b2f3;
 }
 /*--------------
-    Item Count
+      Size
 ---------------*/
-.ui.one.items {
-  margin-left: -2%;
-  margin-right: -2%;
-}
-.ui.one.items > .item {
-  width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-.ui.two.items {
-  margin-left: -1%;
-  margin-right: -1%;
-}
-.ui.two.items > .item {
-  width: 48%;
-  margin-left: 1%;
-  margin-right: 1%;
-}
-.ui.two.items > .item:nth-child(2n+1) {
-  clear: left;
-}
-.ui.three.items {
-  margin-left: -1%;
-  margin-right: -1%;
-}
-.ui.three.items > .item {
-  width: 31.333%;
-  margin-left: 1%;
-  margin-right: 1%;
-}
-.ui.three.items > .item:nth-child(3n+1) {
-  clear: left;
-}
-.ui.four.items {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
-}
-.ui.four.items > .item {
-  width: 24%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-}
-.ui.four.items > .item:nth-child(4n+1) {
-  clear: left;
-}
-.ui.five.items {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
-}
-.ui.five.items > .item {
-  width: 19%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-}
-.ui.five.items > .item:nth-child(5n+1) {
-  clear: left;
-}
-.ui.six.items {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
-}
-.ui.six.items > .item {
-  width: 15.66%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-}
-.ui.six.items > .item:nth-child(6n+1) {
-  clear: left;
-}
-.ui.seven.items {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
-}
-.ui.seven.items > .item {
-  width: 13.28%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  font-size: 11px;
-}
-.ui.seven.items > .item:nth-child(7n+1) {
-  clear: left;
-}
-.ui.eight.items {
-  margin-left: -0.25%;
-  margin-right: -0.25%;
-}
-.ui.eight.items > .item {
-  width: 12.0%;
-  margin-left: 0.25%;
-  margin-right: 0.25%;
-  font-size: 11px;
-}
-.ui.eight.items > .item:nth-child(8n+1) {
-  clear: left;
-}
-.ui.nine.items {
-  margin-left: -0.25%;
-  margin-right: -0.25%;
-}
-.ui.nine.items > .item {
-  width: 10.61%;
-  margin-left: 0.25%;
-  margin-right: 0.25%;
-  font-size: 10px;
-}
-.ui.nine.items > .item:nth-child(9n+1) {
-  clear: left;
-}
-.ui.ten.items {
-  margin-left: -0.2%;
-  margin-right: -0.2%;
-}
-.ui.ten.items > .item {
-  width: 9.6%;
-  margin-left: 0.2%;
-  margin-right: 0.2%;
-  font-size: 10px;
-}
-.ui.ten.items > .item:nth-child(10n+1) {
-  clear: left;
-}
-.ui.eleven.items {
-  margin-left: -0.2%;
-  margin-right: -0.2%;
-}
-.ui.eleven.items > .item {
-  width: 8.69%;
-  margin-left: 0.2%;
-  margin-right: 0.2%;
-  font-size: 9px;
-}
-.ui.eleven.items > .item:nth-child(11n+1) {
-  clear: left;
-}
-.ui.twelve.items {
-  margin-left: -0.1%;
-  margin-right: -0.1%;
-}
-.ui.twelve.items > .item {
-  width: 8.1333%;
-  margin-left: 0.1%;
-  margin-right: 0.1%;
-  font-size: 9px;
-}
-.ui.twelve.items > .item:nth-child(12n+1) {
-  clear: left;
-}
-/*--------------
-      Items
----------------*/
-.ui.items > .row > .item,
 .ui.items > .item {
   font-size: 1em;
 }
@@ -23955,6 +23812,10 @@ a.ui.cards {
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -23963,9 +23824,6 @@ a.ui.cards {
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -23987,6 +23845,9 @@ a.ui.cards {
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -24210,7 +24071,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -24761,6 +24622,10 @@ ol.ui.horizontal.list li:before,
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -24769,9 +24634,6 @@ ol.ui.horizontal.list li:before,
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -24793,6 +24655,9 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders

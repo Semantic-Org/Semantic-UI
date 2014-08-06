@@ -16,6 +16,7 @@
 @extraBackground: transparent;
 @extraDivider: none;
 @extraBoxShadow: none;
+@extraPadding: 0.5em 0em;
 
 @headerFontSize: 1.2em;
 

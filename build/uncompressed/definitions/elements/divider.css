@@ -62,6 +62,10 @@
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -70,9 +74,6 @@
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -94,6 +95,9 @@
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -168,8 +172,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   line-height: 1;
   height: 0em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;

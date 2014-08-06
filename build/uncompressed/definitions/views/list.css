@@ -62,6 +62,10 @@
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -70,9 +74,6 @@
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -94,6 +95,9 @@
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -317,7 +321,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }

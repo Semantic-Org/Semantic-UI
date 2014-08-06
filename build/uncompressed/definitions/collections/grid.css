@@ -62,6 +62,10 @@
         Page
 --------------------*/
 /*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating greys */
+/*-------------------
         Grid
 --------------------*/
 /*-------------------
@@ -70,9 +74,6 @@
 /*******************************
            Power-User
 *******************************/
-/*-------------------
-       BG Colors
---------------------*/
 /*-------------------
        Icons
 --------------------*/
@@ -94,6 +95,9 @@
 --------------------*/
 /*-------------------
      Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
 --------------------*/
 /*-------------------
       Borders
@@ -178,8 +182,7 @@
   font-size: 0em;
   margin: 0%;
   padding: 0%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 body > .ui.grid:not(.page) {
   margin-left: 0% !important;
@@ -205,8 +208,7 @@ body > .ui.grid:not(.page) {
   width: 6.25%;
   padding-left: 1.5%;
   padding-right: 1.5%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   vertical-align: top;
 }
 .ui.grid > * {
@@ -580,22 +582,18 @@ body > .ui.grid:not(.page) {
 -----------------------*/
 .ui.divided.grid:not(.vertically) > .column:not(.row),
 .ui.divided.grid:not(.vertically) > .row > .column {
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
-          box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
 }
 .ui.divided.grid:not(.vertically) > .column:first-child,
 .ui.divided.grid:not(.vertically) > .row > .column:first-child {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Divided Row */
 .ui.grid > .divided.row > .column {
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
-          box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1), -2px 0px 0px 0px rgba(255, 255, 255, 0.3);
 }
 .ui.grid > .divided.row > .column:first-child {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Vertically Divided */
 .ui.vertically.divided.grid > .row {
@@ -609,21 +607,17 @@ body > .ui.grid:not(.page) {
   width: 97%;
   height: 1px;
   margin: 0% 1.5%;
-  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.3);
-          box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1), 0px -2px 0px 0px rgba(255, 255, 255, 0.3);
 }
 .ui.vertically.divided.grid > .row:first-child:before {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /* Inverted Divided */
 .ui.inverted.divided.grid > .row {
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.15), -2px 0px 0px 0px rgba(0, 0, 0, 0.15);
 }
 .ui.inverted.vertically.divided.grid > .row {
-  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15), 0px -2px 0px 0px rgba(0, 0, 0, 0.15);
 }
 /* Relaxed */
 .ui.relaxed.vertically.divided.grid > .row:before {
@@ -652,8 +646,7 @@ body > .ui.grid:not(.page) {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.celled.grid > .row,
 .ui.celled.grid > .column.row,
@@ -662,24 +655,20 @@ body > .ui.grid:not(.page) {
   width: 100%;
   margin-top: 0em;
   padding-top: 0em;
-  -webkit-box-shadow: 0px -1px 0px 0px #dddddd;
-          box-shadow: 0px -1px 0px 0px #dddddd;
+  box-shadow: 0px -1px 0px 0px #dddddd;
 }
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
   display: table-cell;
   padding: 0.75em;
-  -webkit-box-shadow: -1px 0px 0px 0px #dddddd;
-          box-shadow: -1px 0px 0px 0px #dddddd;
+  box-shadow: -1px 0px 0px 0px #dddddd;
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.celled.page.grid {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*----------------------
   Horizontally Centered
@@ -1007,8 +996,7 @@ body > .ui.grid:not(.page) {
     width: auto !important;
     margin: 0.75rem 0em 0em !important;
     padding: 0.75rem 0em 0em !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
+    box-shadow: none !important;
   }
   .ui.stackable.divided.grid > .column,
   .ui.stackable.celled.grid > .row > .column {
