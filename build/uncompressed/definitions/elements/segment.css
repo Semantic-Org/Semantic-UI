@@ -168,12 +168,14 @@
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   margin: 1em 0em;
   padding: 1em 1em;
   border-radius: 0.25em;
   border: none;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .ui.segment:first-child {
   margin-top: 0em;
@@ -195,7 +197,8 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.vertical.segment:first-child {
   padding-top: 0em;
@@ -207,7 +210,8 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.horizontal.segment:first-child {
   padding-left: 0em;
@@ -227,7 +231,8 @@
 .ui.grid .ui.segment.row,
 .ui.grid .ui.segment.column {
   border-radius: 0em;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: none;
 }
 /* No padding on edge content */
@@ -245,7 +250,8 @@
 --------------------*/
 .ui.piled.segment {
   margin: 2em 0em;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.piled.segment:first-child {
   margin-top: 0em;
@@ -263,7 +269,8 @@
   left: -1px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
@@ -320,7 +327,8 @@
        Raised
 --------------------*/
 .ui.raised.segment {
-  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
 }
 /*******************************
             States
@@ -338,7 +346,8 @@
 .ui.basic.segment {
   position: relative;
   background-color: transparent;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-radius: 0px;
 }
 .ui.basic.segment:first-child {
@@ -466,6 +475,7 @@
 --------------------*/
 .ui.inverted.segment {
   border: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 .ui.inverted.segment .segment {
@@ -492,6 +502,7 @@
 }
 .ui.secondary.inverted.segment {
   background-color: #333333;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0.3)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
   color: #fafafa;
@@ -509,7 +520,8 @@
   bottom: -1px;
   margin: 0em;
   border-radius: 0px;
-  box-shadow: 0px 0px 0px 1px #dddddd;
+  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
+          box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.top.attached.segment {
   top: 0px;

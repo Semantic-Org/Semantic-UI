@@ -187,8 +187,9 @@
   width: 100%;
   background: #ffffff;
   margin: 1em 0em;
-  border: 1px solid #dddddd;
-  box-shadow: none;
+  border: 1px solid #d0d0d0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-radius: 0.25rem;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -203,10 +204,15 @@
           transition: all 0.2s ease;
 }
 /* Headers */
+.ui.table thead {
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
 .ui.table thead th {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   cursor: auto;
-  background-color: transparent;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.03)));
+  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.03));
   text-align: left;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.7em 0.8em;
@@ -214,21 +220,28 @@
   font-style: none;
   font-weight: bold;
   text-transform: none;
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
 }
 .ui.table thead th:first-child {
   border-radius: 0.25rem 0em 0em 0em;
+  border-left: none;
 }
 .ui.table thead th:last-child {
   border-radius: 0em 0.25rem 0em 0em;
 }
 /* Footer */
+.ui.table tfoot {
+  -webkit-box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
+}
 .ui.table tfoot th {
   cursor: auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.05);
+  border-top: 1px solid #dddddd;
+  background: rgba(0, 0, 0, 0.05);
   text-align: left;
   color: rgba(0, 0, 0, 0.8);
-  padding: 1em 0.8em;
+  padding: 0.7em 0.8em;
   vertical-align: middle;
   font-style: italic;
   font-weight: normal;
@@ -292,14 +305,16 @@
     display: block;
     border: none !important;
     padding: 0.25em 0.75em;
-    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
   }
   .ui.table td:first-child {
     font-weight: bold;
     padding-top: 1em;
   }
   .ui.table td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     padding-bottom: 1em;
   }
   /* Clear BG Colors */
@@ -319,7 +334,8 @@
 ---------------*/
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 2px 0px 0px #119000 inset;
+  -webkit-box-shadow: 2px 0px 0px #119000 inset;
+          box-shadow: 2px 0px 0px #119000 inset;
 }
 .ui.table tr.positive td,
 .ui.table td.positive {
@@ -339,7 +355,8 @@
 ---------------*/
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
+          box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
@@ -359,7 +376,8 @@
 ---------------*/
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
+          box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.error td,
 .ui.table td.error {
@@ -379,7 +397,8 @@
 ---------------*/
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 2px 0px 0px #7d6c00 inset;
+  -webkit-box-shadow: 2px 0px 0px #7d6c00 inset;
+          box-shadow: 2px 0px 0px #7d6c00 inset;
 }
 .ui.table tr.warning td,
 .ui.table td.warning {
@@ -399,7 +418,8 @@
 ---------------*/
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  -webkit-box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+          box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
 }
 .ui.table tr.active td,
 .ui.table td.active {
@@ -693,7 +713,7 @@
   color: rgba(0, 0, 0, 0.2);
 }
 .ui.sortable.table thead th:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.8);
 }
 /* Inverted Sortable */
@@ -712,6 +732,7 @@
 }
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.2);
   color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.table tr td {
@@ -759,7 +780,7 @@
 ---------------*/
 .ui.padded.table th,
 .ui.padded.table td {
-  padding: 0.8em 1em;
+  padding: 1em 1em;
 }
 .ui.compact.table td {
   padding: 0.5em 0.8em;

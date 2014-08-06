@@ -178,7 +178,7 @@
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -216,7 +216,8 @@
 .ui.styled.accordion .accordion {
   border-radius: 0.3125em;
   background: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {

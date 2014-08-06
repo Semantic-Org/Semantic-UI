@@ -218,8 +218,9 @@
   padding: 0em;
   border: none;
   border-radius: 0.325rem;
-  box-shadow: 0px 0px 0px 1px #dddddd, 0px 0px 0px 0px #dddddd;
-  -webkit-transition: box-shadow 0.25s ease;
+  -webkit-box-shadow: 0px 0px 0px 1px #dddddd, 0px 0px 0px 0px #dddddd;
+          box-shadow: 0px 0px 0px 1px #dddddd, 0px 0px 0px 0px #dddddd;
+  -webkit-transition: -webkit-box-shadow 0.25s ease;
           transition: box-shadow 0.25s ease;
   z-index: '';
 }
@@ -280,7 +281,8 @@ a.ui.cards {
   background: none;
   margin: 0em;
   padding: 1em 1em;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   font-size: 1em;
   border: none;
   border-radius: 0em;
@@ -298,7 +300,7 @@ a.ui.cards {
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   color: rgba(0, 0, 0, 0.85);
@@ -441,6 +443,7 @@ a.ui.cards {
 .ui.cards .card .extra,
 .ui.card .extra {
   position: static;
+  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.03)));
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.03));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.03));
   width: 100%;
@@ -448,7 +451,8 @@ a.ui.cards {
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -465,7 +469,8 @@ a.ui.cards {
   z-index: 5;
   background: '';
   border: none;
-  box-shadow: 0px 0px 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 0px 0px #b0b0b0, 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 /*-------------------
       Responsive

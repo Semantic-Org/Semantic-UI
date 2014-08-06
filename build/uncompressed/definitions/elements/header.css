@@ -170,7 +170,7 @@
 /* Standard */
 .ui.header {
   border: none;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -483,7 +483,8 @@ h5.ui.header {
   background: #f0f0f0;
   margin: 0em;
   padding: 0.75rem 0.75rem;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.attached:not(.top, .bottom) {
   margin: 0em;

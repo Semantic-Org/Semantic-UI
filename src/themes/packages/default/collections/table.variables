@@ -13,7 +13,7 @@
 @borderRadius: 0.25rem;
 @background: #FFFFFF;
 @color: @textColor;
-@border: 1px solid @solidBorderColor;
+@border: 1px solid #D0D0D0;
 @boxShadow: none;
 
 /*--------------
@@ -137,7 +137,7 @@
 @sortableIconAscending: '\f0d7';
 @sortableIconDescending: '\f0d8';
 @sortableDisabledColor: @disabledTextColor;
-@sortableHoverBackground: @strongTransparentBlack;
+@sortableHoverBackground: @transparentBlack;
 @sortableHoverColor: @selectedTextColor;
 @sortableInvertedHoverBackground: @strongTransparentWhite;
 @sortableInvertedHoverColor: @invertedSelectedTextColor;
