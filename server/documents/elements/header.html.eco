@@ -141,18 +141,18 @@ themes      : ['default', 'bookish', 'chubby']
     <h4 class="ui header">Attached</h4>
     <p>A header can be attached to other content, like a <a href="elements/segment.html">segment</a></p>
     <h4 class="ui top attached header">
-      Section 1
+      Bulldog
     </h4>
     <div class="ui attached segment">
-      <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-      <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+      <p>Bulldog is the name for a breed of dog commonly referred to as the English Bulldog. Other Bulldog breeds include the American Bulldog, Old English Bulldog (now extinct), Olde English Bulldogge, and the French Bulldog. The Bulldog is a muscular, heavy dog with a wrinkled face and a distinctive pushed-in nose.</p>
+      <p>The American Kennel Club (AKC), The Kennel Club (UK), and the United Kennel Club (UKC) oversee breeding standards. Bulldogs are the 5th most popular purebreed in the United States in 2013 according to the American Kennel Club.</p>
     </div>
     <h4 class="ui attached header">
-      Section 2
+      Catahoula Cur
     </h4>
     <div class="ui attached segment">
-    <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-    <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+    <p>The Catahoula Cur is an American dog breed named after Catahoula Parish, in the state of Louisiana, in the United States. After becoming the state dog of Louisiana in 1979, its name was officially changed to Louisiana Catahoula Leopard Dog. The Catahoula is believed to be the first dog breed developed in North America.</p>
+    <p>The breed is sometimes referred to as the "Catahoula Hound" or "Catahoula Leopard Hound", although it is not a true hound, but a cur. It is also called the "Catahoula Hog Dog", reflecting its traditional use in hunting wild boar.</p>
     </div>
     <h4 class="ui bottom attached header">
       Thanks for reading

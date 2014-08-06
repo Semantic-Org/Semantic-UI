@@ -195,8 +195,8 @@ themes      : ['default']
     <div class="dog ui shape">
       <div class="sides">
         <div class="active side">
-          <div class="ui items">
-            <div class="item">
+          <div class="ui cards">
+            <div class="card">
               <div class="image">
                 <a class="ui like corner label">
                   <i class="like icon"></i>
@@ -204,15 +204,15 @@ themes      : ['default']
                 <img src="/images/demo/highres2.jpg">
               </div>
               <div class="content">
-                <div class="name">Cute Dog</div>
+                <div class="header">Cute Dog</div>
                 <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
               </div>
             </div>
           </div>
         </div>
         <div class="side">
-          <div class="ui items">
-            <div class="item">
+          <div class="ui cards">
+            <div class="card">
               <div class="image">
                 <a class="ui like corner label">
                   <i class="like icon"></i>
@@ -220,15 +220,15 @@ themes      : ['default']
                 <img src="/images/demo/highres5.jpg">
               </div>
               <div class="content">
-                <div class="name">Silly Dog</div>
+                <div class="header">Silly Dog</div>
                 <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
               </div>
             </div>
           </div>
         </div>
         <div class="side">
-          <div class="ui items">
-            <div class="item">
+          <div class="ui cards">
+            <div class="card">
               <div class="image">
                 <a class="ui like corner label">
                   <i class="like icon"></i>
@@ -236,8 +236,8 @@ themes      : ['default']
                 <img src="/images/demo/highres4.jpg">
               </div>
               <div class="content">
+                <div class="header">Faithful Dog</div>
                 <div class="meta">5 days ago</div>
-                <div class="name">Faithful Dog</div>
                 <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
               </div>
             </div>
@@ -249,8 +249,8 @@ themes      : ['default']
     <div class="dog ui shape">
       <div class="sides">
         <div class="active side">
-          <div class="ui items">
-            <div class="item">
+          <div class="ui cards">
+            <div class="card">
               <div class="image">
                 <a class="ui like corner label">
                   <i class="like icon"></i>
@@ -258,15 +258,15 @@ themes      : ['default']
                 <img src="/images/demo/highres.jpg">
               </div>
               <div class="content">
-                <div class="name">Cute Dog</div>
+                <div class="header">Cute Dog</div>
                 <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
               </div>
             </div>
           </div>
         </div>
         <div class="side">
-          <div class="ui items">
-            <div class="item">
+          <div class="ui cards">
+            <div class="card">
               <div class="image">
                 <a class="ui like corner label">
                   <i class="like icon"></i>
@@ -274,15 +274,15 @@ themes      : ['default']
                 <img src="/images/demo/highres4.jpg">
               </div>
               <div class="content">
-                <div class="name">Silly Dog</div>
+                <div class="header">Silly Dog</div>
                 <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
               </div>
             </div>
           </div>
         </div>
         <div class="side">
-          <div class="ui items">
-            <div class="item">
+          <div class="ui cards">
+            <div class="card">
               <div class="image">
                 <a class="ui like corner label">
                   <i class="like icon"></i>
@@ -290,8 +290,8 @@ themes      : ['default']
                 <img src="/images/demo/highres6.jpg">
               </div>
               <div class="content">
+                <div class="header">Faithful Dog</div>
                 <div class="meta">5 days ago</div>
-                <div class="name">Faithful Dog</div>
                 <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
               </div>
             </div>

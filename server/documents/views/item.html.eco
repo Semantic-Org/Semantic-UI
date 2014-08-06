@@ -4,39 +4,47 @@ css         : 'item'
 
 title       : 'Item'
 description : 'An item view can be used to list site content'
-type        : 'Draft'
+type        : 'UI View'
+
+element     : 'item'
+elementType : 'view'
+
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>
+
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/views/item.less" />
+<script src="/javascript/item.js"></script>
+
 <div class="main container">
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
       <a class="active item">Types</a>
+      <a class="item">Content</a>
       <a class="item">Variations</a>
     </div>
   </div>
 
   <h2 class="ui dividing header">Types</h2>
 
-  <div class="example">
+  <div class="even example">
     <h4 class="ui header">Items</h4>
-    <p>A group of items. </p>
-    <div class="ignored yellow icon ui message">
-      <i class="info icon"></i>
-      Items must manually be given a width and height that match up to the content that it displays. Content must also be truncated so that each item will not exceed the maximum height.
-    </div>
+    <p>A group of items.</p>
     <div class="ui items">
       <div class="item">
         <div class="image">
           <img src="/images/demo/highres.jpg">
         </div>
         <div class="content">
-          <div class="header">Cute Dog</div>
+          <a class="header">Cute Dog</a>
+          <div class="meta">Today</div>
           <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
-        </div>
-        <div class="extra content">
-          199 Votes
+          <div class="extra">
+            <i class="check icon"></i>
+            199 Votes
+          </div>
         </div>
       </div>
       <div class="item">
@@ -44,12 +52,13 @@ type        : 'Draft'
           <img src="/images/demo/highres2.jpg">
         </div>
         <div class="content">
-          <div class="header">Faithful Dog</div>
+          <a class="header">Faithful Dog</a>
           <div class="meta">5 days ago</div>
           <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
-        </div>
-        <div class="extra content">
-          199 Votes
+          <div class="extra">
+            <i class="check icon"></i>
+            199 Votes
+          </div>
         </div>
       </div>
       <div class="item">
@@ -57,45 +66,48 @@ type        : 'Draft'
           <img src="/images/demo/highres3.jpg">
         </div>
         <div class="content">
-          <div class="header">Silly Dog</div>
+          <a class="header">Silly Dog</a>
+          <div class="meta">12 days ago</div>
           <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
-        </div>
-        <div class="extra content">
-          199 Votes
+          <div class="extra">
+            <i class="check icon"></i>
+            199 Votes
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="another text example">
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example">
+    <h4 class="ui header">Title</h4>
+    <p>A item can contain content a title</p>
     <div class="ui items">
       <div class="item">
         <div class="content">
-          <div class="header">Cute Dog</div>
+          <a class="header">Cute Dog</a>
           <div class="meta">2 days ago</div>
           <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
-          <div class="extra">
-            121 Votes
-          </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Metadata</h4>
+    <p>A item can contain content metadata</p>
+    <div class="ui info message">
+      <i class="info icon"></i>
+      You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
+    </div>
+    <div class="ui items">
       <div class="item">
         <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="meta">5 days ago</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
-          <div class="extra">
-            121 Votes
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="content">
-          <div class="header">Silly Dog</div>
-          <div class="meta">1 week ago</div>
-          <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
-          <div class="extra">
-            121 Votes
+          <a class="header">Cute Dog</a>
+          <div class="meta">
+            <span class="time">2 days ago</span>
+            <span class="category">Animals</span>
           </div>
         </div>
       </div>
@@ -103,86 +115,214 @@ type        : 'Draft'
   </div>
 
   <div class="example">
-    <h4 class="ui header">List</h4>
-    <p>An item list. </p>
-    <div class="ignored yellow icon ui message">
-      <i class="info icon"></i>
-      Items must manually be given a width and height that match up to the content that it displays. Content must also be truncated so that each item will not exceed the maximum height.
+    <h4 class="ui header">Link</h4>
+    <p>A item can contain contain links as images, headers, or inside content</p>
+    <div class="ui yellow message">
+      <i class="star icon"></i>
+      To make the entire content of a item link, check out the link variation below
     </div>
+    <div class="ui items">
+      <div class="item">
+        <a class="image" href="#">
+          <img src="/images/demo/highres.jpg">
+        </a>
+        <div class="content">
+          <a class="header" href="#">Cute Dog</a>
+          <div class="meta">
+            <a class="time">2 days ago</a>
+          </div>
+          <div class="description">
+            Check our this <a href="http://www.dogs.com"> excellent resource</a> on dogs.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Icons</h4>
+    <p>A item can contain icons to denote user actions.</p>
+    <div class="ui info message">
+      Common actions may contain special formatting, like "star" or "heart". To attach events, on a user action, please check out the <a href="#">state behavior</a>.
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <div class="content">
+          <i class="right floated like icon"></i>
+          <i class="right floated star icon"></i>
+          <a class="header">Cute Dog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Description</h4>
+    <p>A item can contain a description with a single or multiple paragraphs</p>
+    <div class="ui items">
+      <div class="item">
+        <div class="content">
+          <a class="header">Cute Dog</a>
+          <div class="meta">2 days ago</div>
+          <div class="description">
+            <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+            <p>Many people also have their own barometers for what makes a cute dog.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Extra Content</h4>
+    <p>A item can contain extra content meant to be formatted separately from the main content</p>
+    <div class="ui items">
+      <div class="item">
+        <div class="content">
+          <a class="header">Cute Dog</a>
+          <div class="meta">2 days ago</div>
+          <div class="description">
+            <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+            <p>Many people also have their own barometers for what makes a cute dog.</p>
+          </div>
+          <div class="extra">
+            <i class="check icon"></i>
+            121 Votes
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Image</h4>
+    <p>A item can contain an image</p>
     <div class="ui items">
       <div class="item">
         <div class="image">
           <img src="/images/demo/highres.jpg">
         </div>
         <div class="content">
-          <div class="header">Cute Dog</div>
-          <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
-        </div>
-        <div class="extra content">
-          199 Votes
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="/images/demo/highres2.jpg">
-        </div>
-        <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="meta">5 days ago</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
-        </div>
-        <div class="extra content">
-          199 Votes
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="/images/demo/highres3.jpg">
-        </div>
-        <div class="content">
-          <div class="header">Silly Dog</div>
-          <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
-        </div>
-        <div class="extra content">
-          199 Votes
+          <a class="header">Cute Dog</a>
+          <div class="meta">2 days ago</div>
+          <div class="description">
+            <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+            <p>Many people also have their own barometers for what makes a cute dog.</p>
+          </div>
+          <div class="extra">
+            <i class="check icon"></i>
+            121 Votes
+          </div>
         </div>
       </div>
     </div>
   </div>
-
 
   <h2 class="ui dividing header">Variations</h2>
-
   <div class="example">
-    <h4 class="ui header">Stackable</h4>
-    <div class="ui ignored info icon message">Resize your browser to a smaller size to see the items stack after reaching mobile breakpoints</div>
-    <p>An item view can have its items take the full width when below a browser resolution threshold to allow for content to display properly at small sizes</p>
-    <div class="ui stackable items">
-      <div class="item">
-        <div class="image">
-          <img src="/images/demo/highres5.jpg">
-          <a class="like ui corner label">
-            <i class="like icon"></i>
-          </a>
-        </div>
+    <h4 class="ui header">Divided</h4>
+    <p>Items can be divided to better distinguish between grouped content</p>
+    <div class="ui info message">
+      <i class="info icon"></i>
+      The following example uses <a href="/elements/segment.html">ui</a> for legibility only. This is not necessary for using <code>ui items</code>
+    </div>
+    <div class="ui divided items segment">
+      <div class="item" href="http://www.dog.com">
         <div class="content">
-          <div class="header">Cute Dog</div>
-          <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
-          <div class="extra content">
-            11 Votes
+          <a class="header">Cute Dog</a>
+          <div class="meta">
+            <span class="category">Animals</span>
+          </div>
+          <div class="description">
+            Click to view more information about this dog at dog.com
+          </div>
+          <div class="extra">
+            <div class="author">
+              <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+            </div>
           </div>
         </div>
       </div>
-      <div class="item">
+      <div class="item" href="http://www.dog.com">
+        <div class="content">
+          <a class="header">Magic Dog</a>
+          <div class="meta">
+            <span class="category">Animals</span>
+          </div>
+          <div class="description">
+            Click to view more information about a magic dog at dog.com
+          </div>
+          <div class="extra">
+            <div class="author">
+              <img class="ui avatar image" src="/images/demo/photo.jpg"> Dog Doggington
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Link Item</h4>
+    <p>A item can be formatted so that the entire contents link to another page</p>
+    <div class="ui items">
+      <a class="item" href="http://www.dog.com">
         <div class="image">
-          <img src="/images/demo/highres6.jpg">
+          <img src="/images/demo/highres.jpg">
         </div>
         <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="meta">5 days ago</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
-          <div class="extra content">
-            11 Votes
+          <div class="header">Cute Dog</div>
+          <div class="meta">
+            <span class="category">Animals</span>
+          </div>
+          <div class="description">
+            Click to view more information about this dog at dog.com
+          </div>
+          <div class="extra">
+            <div class="author">
+              <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+            </div>
+          </div>
+        </div>
+      </a>
+      <a class="item" href="http://www.dog.com">
+        <div class="image">
+          <img src="/images/demo/highres3.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Magic Dog</div>
+          <div class="meta">
+            <span class="category">Animals</span>
+          </div>
+          <div class="description">
+            Click to view more information about a magic dog at dog.com
+          </div>
+          <div class="extra">
+            <div class="author">
+              <img class="ui avatar image" src="/images/demo/photo.jpg"> Dog Doggington
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui link items">
+      <div class="item">
+        <div class="content">
+          <a class="header">Cute Dog</a>
+          <div class="meta">
+            <span class="category">Animals</span>
+          </div>
+          <div class="description">
+            This item simulates a link without using the A tag for use with javascript links.
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="right floated author">
+            <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
           </div>
         </div>
       </div>
@@ -190,55 +330,28 @@ type        : 'Draft'
   </div>
 
   <div class="example">
-    <h4 class="ui header">Column count</h4>
-    <p>An item list can list how many columns should exist in a row</p>
-    <div class="ui four items">
+    <h4 class="ui header">Floated Content</h4>
+    <p>Any content element can be floated left or right</p>
+    <div class="ui info message">
+      <i class="info icon"></i>
+      You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
+    </div>
+    <div class="ui items">
       <div class="item">
-        <div class="image">
-          <img src="/images/demo/highres4.jpg">
-          <a class="star ui corner label">
-            <i class="star icon"></i>
-          </a>
-        </div>
         <div class="content">
-          <div class="header">Cute Dog</div>
-          <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="/images/demo/highres5.jpg">
-          <a class="star ui corner label">
-            <i class="star icon"></i>
-          </a>
-        </div>
-        <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="/images/demo/highres3.jpg">
-          <a class="star ui corner label">
-            <i class="star icon"></i>
-          </a>
-        </div>
-        <div class="content">
-          <div class="header">Silly Dog</div>
-          <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="/images/demo/highres2.jpg">
-          <a class="star ui corner label">
-            <i class="star icon"></i>
-          </a>
-        </div>
-        <div class="content">
-          <div class="header">Happy Dog</div>
-          <div class="description">Happy dogs are pretty interesting if you are an unhappy person.</div>
+          <a class="header">Cute Dog</a>
+          <div class="meta">
+            <span class="right floated time">2 days ago</span>
+            <span class="category">Animals</span>
+          </div>
+          <div class="description">
+            Here's a description of a cute dog.
+          </div>
+          <div class="content">
+            <div class="right floated author">
+              <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+            </div>
+          </div>
         </div>
       </div>
     </div>

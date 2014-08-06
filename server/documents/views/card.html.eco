@@ -46,17 +46,29 @@ themes      : ['Default', 'Basic']
         </div>
       </div>
       <div class="extra content">
-        <i class="right floated like icon"></i>
+        <i class="like icon"></i>
+        22 Likes
       </div>
     </div>
   </div>
 
-  <div class="clearing example">
+  <div class="even example">
     <h4 class="ui header">Cards</h4>
     <p>A group of cards. </p>
     <div class="ignored yellow ui message">
-      <i class="info icon"></i>
-      Cards must manually be given a width and height that match up to the content that it displays. Content must also be truncated so that each item will not exceed the maximum height.
+      <div class="header">
+        <i class="info icon"></i>
+        Equal Size Cards
+      </div>
+      <p>Your card's content may vary in length. In order to keep cards aligned, it is best to set a <code>min-height</code> that matches your largest card size.</p>
+
+      <p>For example:</p>
+      <div class="code" data-type="css">
+      /* Sets card height to about 3 lines of description */
+      #my-container .card .content {
+        min-height: 145px;
+      }
+      </div>
     </div>
     <div class="ui cards">
       <div class="card">
@@ -65,9 +77,11 @@ themes      : ['Default', 'Basic']
         </div>
         <div class="content">
           <div class="header">Cute Dog</div>
+          <div class="meta">Today</div>
           <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
         </div>
         <div class="extra content">
+          <i class="check icon"></i>
           199 Votes
         </div>
       </div>
@@ -81,6 +95,7 @@ themes      : ['Default', 'Basic']
           <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
         </div>
         <div class="extra content">
+          <i class="check icon"></i>
           199 Votes
         </div>
       </div>
@@ -90,9 +105,11 @@ themes      : ['Default', 'Basic']
         </div>
         <div class="content">
           <div class="header">Silly Dog</div>
+          <div class="meta">12 days ago</div>
           <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
         </div>
         <div class="extra content">
+          <i class="check icon"></i>
           199 Votes
         </div>
       </div>
@@ -197,6 +214,7 @@ themes      : ['Default', 'Basic']
         </div>
       </div>
       <div class="extra content">
+        <i class="check icon"></i>
         121 Votes
       </div>
     </div>
@@ -219,12 +237,52 @@ themes      : ['Default', 'Basic']
         </div>
       </div>
       <div class="extra content">
+        <i class="check icon"></i>
         121 Votes
       </div>
     </div>
   </div>
 
   <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Link Card</h4>
+    <p>A card can be formatted so that the entire contents link to another page</p>
+    <a class="ui card" href="http://www.dog.com">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          Click to view more information about this dog at dog.com
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="another example">
+    <div class="ui link card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          This card simulates a link without using the A tag for use with javascript links.
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Floated Content</h4>
@@ -252,9 +310,9 @@ themes      : ['Default', 'Basic']
     </div>
   </div>
 
-  <div class="example">
+  <div class="even example">
     <h4 class="ui header">Column count</h4>
-    <p>An item list can list how many columns should exist in a row</p>
+    <p>A group of cards can set how many cards should exist in a row</p>
     <div class="ui four cards">
       <div class="card">
         <div class="image">
@@ -295,11 +353,11 @@ themes      : ['Default', 'Basic']
     </div>
   </div>
 
-  <div class="example">
-    <h4 class="ui header">Stackable</h4>
-    <div class="ui ignored info message">Resize your browser to a smaller size to see the cards stack after reaching mobile breakpoints</div>
-    <p>An item view can have its cards take the full width when below a browser resolution threshold to allow for content to display properly at small sizes</p>
-    <div class="ui four stackable cards">
+  <div class="even example">
+    <h4 class="ui header">Doubling</h4>
+    <p>A group of cards can double its column width for mobile</p>
+    <div class="ui ignored warning message">Resize your browser to a smaller size to see the cards stack after reaching mobile breakpoints</div>
+    <div class="ui six doubling cards">
       <div class="card">
         <div class="image">
           <img src="/images/demo/highres4.jpg">
@@ -334,6 +392,24 @@ themes      : ['Default', 'Basic']
         <div class="content">
           <div class="header">Happy Dog</div>
           <div class="description">Happy dogs are pretty interesting if you are an unhappy person.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/demo/highres5.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Faithful Dog</div>
+          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/demo/highres5.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Faithful Dog</div>
+          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
         </div>
       </div>
     </div>

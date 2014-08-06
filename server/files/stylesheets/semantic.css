@@ -538,7 +538,10 @@ body.guide .main.container > * {
   position: fixed;
   top: 63px;
   z-index: 500;
-  width: 70px;
+  width: 60px;
+}
+#example .launch.button .icon {
+  margin-left: 0px;
 }
 #example.index .main.menu {
   top: 0px;
@@ -1201,6 +1204,11 @@ body.guide .main.container > * {
   cursor: pointer;
 }
 
+
+body.card .even.example .card .content {
+  clear: both;
+  min-height: 145px;
+}
 
 body.progress .ui.progress .bar {
   -webkit-animation: finish 10s ease-in-out infinite;
