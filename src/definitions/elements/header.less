@@ -375,6 +375,9 @@ h5.ui.header {
 .ui.block.header {
   background: @blockBackground;
   padding: @blockVerticalPadding @blockHorizontalPadding;
+  box-shadow: @blockBoxShadow;
+  border: @blockBorder;
+  border-radius: @blockBorderRadius;
 }
 
 /*-------------------
@@ -384,18 +387,26 @@ h5.ui.header {
 .ui.attached.header {
   background: @attachedBackground;
   margin: 0em;
-  padding: @attachedVerticalPadding @attachedVerticalPadding;
+  padding: @attachedVerticalPadding @attachedHorizontalPadding;
   box-shadow: @attachedBoxShadow;
+  border: @attachedBorder;
+  margin-left: @attachedOffset;
+  margin-right: @attachedOffset;
 }
-.ui.attached:not(.top, .bottom) {
-  margin: 0em;
+.ui.attached:not(.top):not(.bottom) {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  border-top: none;
+  border-bottom: none;
 }
 .ui.top.attached.header {
   margin-bottom: 0em;
+  border-bottom: none;
   border-radius: @attachedBorderRadius @attachedBorderRadius 0em 0em;
 }
 .ui.bottom.attached.header {
   margin-top: 0em;
+  border-top: none;
   border-radius: 0em 0em @attachedBorderRadius @attachedBorderRadius;
 }
 

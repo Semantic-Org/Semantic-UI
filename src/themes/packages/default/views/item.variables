@@ -1,98 +1,129 @@
 /*******************************
              Item
 *******************************/
+
 /*-------------------
          View
 --------------------*/
 
+/* Items */
+@itemsMargin: 1em 0em;
+
 /* Item */
-@background: #FFFFFF;
-@borderRadius: 0.325rem;
-@display: block;
-@float: left;
-@margin: 0em @horizontalSpacing @rowSpacing;
+@display: table;
+@background: transparent;
+@borderRadius: 0rem;
+@margin: 1em 0em;
 @minHeight: 0px;
 @padding: 0em;
-@width: 300px;
-@boxShadow:
-  0px 0px 0px 1px @borderColor,
-  0px 3px 0px 0px @borderColor
-;
+@width: 100%;
+@boxShadow: none;
 @border: none;
 @zIndex: '';
+@transition: box-shadow @transitionDuration @transitionEasing;
 
-/* Item Group */
-@horizontalSpacing: 0.5em;
-@rowSpacing: 2.5em;
-@groupMargin: 1em -@horizontalSpacing;
 
 /*-------------------
        Content
 --------------------*/
 
 /* Image */
+@imageDisplay: table-cell;
+@imageFloat: none;
+@imageWidth: 225px;
+@imageMaxHeight: '';
+@imageVerticalAlign: top;
+@imageMargin: 0em;
 @imageBackground: @transparentBlack;
 @imagePadding: 0em;
-@imageBorderRadius: @borderRadius @borderRadius 0em 0em;
+@imageBorder: none;
+@imageBorderRadius: 0.125rem;
 @imageBoxShadow: none;
 @imageBorder: none;
 
 /* Content */
+@contentDisplay: table-cell;
+@contentVerticalAlign: top;
+@contentImagePadding: 1em;
+
+@contentOffset: 0em;
+@contentBackground: none;
 @contentMargin: 0em;
-@contentPadding: 0.75em 1em;
+@contentPadding: 0em;
 @contentFontSize: 1em;
 @contentBorder: none;
 @contentBorderRadius: 0em;
 @contentBoxShadow: none;
 
-/* Title */
-@titleMargin: 0em;
-@titleFont: @headerFont;
-@titleFontWeight: bold;
-@titleFontSize: 1.25em;
-@titleColor: @darkTextColor;
+/* Header */
+@headerMargin: 0em;
+@headerFontWeight: bold;
+@headerFontSize: 1.25em;
+@headerColor: @darkTextColor;
 
 /* Metadata */
+@metaFontSize: 0.9em;
+@metaSpacing: 0.3em;
 @metaColor: @lightTextColor;
+
+/* Icons */
+@actionOpacity: 0.75;
+@actionHoverOpacity: 1;
+@actionTransition: color @transitionDuration @transitionEasing;
+@starColor: #AC9400;
+@starActiveColor: #E9B539;
+@likeColor: #FFADAE;
+@likeActiveColor: #EF404A;
+
+/* Links */
+@contentLinkTransition: color @transitionDuration @transitionEasing;
+@contentLinkColor: @linkColor;
+@contentLinkHoverColor: @linkHoverColor;
+@headerLinkColor: @headerColor;
+@headerLinkHoverColor: @linkHoverColor;
+@metaLinkColor: @lightTextColor;
+@metaLinkHoverColor: @textColor;
 
 /* Description */
 @descriptionDistance: 0.75em;
-@descriptionColor: @lightTextColor;
+@descriptionColor: @textColor;
 
-/* Image */
-@imageSpacing: 0.25em;
+/* Content Image */
 @contentImageWidth: 2em;
 @contentImageVerticalAlign: middle;
 
+/* Avatar Image */
+@avatarSize: @contentImageWidth;
+@avatarBorderRadius: @circularRadius;
+
 /* Paragraph */
-@paragraphDistance: 0.1em;
+@paragraphDistance: 0.5em;
 
 /* Additional Content */
-@extraDisplay: absolute;
-@extraTop: 100%;
+@extraDivider: 1px solid rgba(0, 0, 0, 0.05);
+@extraBackground: none;
+@extraDisplay: block;
+@extraPosition: relative;
+@extraMargin: 1em 0em 0em;
+@extraTop: 0em;
 @extraLeft: 0em;
 @extraWidth: 100%;
-
-@extraPadding: 0.5em 0.75em;
+@extraPadding: 0.75em 0em 0em;
+@extraBoxShadow: none;
 @extraColor: @lightTextColor;
 @extraTransition: color @transitionDuration @transitionEasing;
 
 /*-------------------
-       States
---------------------*/
-
-@hoverCursor: pointer;
-@hoverZIndex: 5;
-@hoverBorder: none;
-@hoverBoxShadow:
-  0px 0px 0px 1px @selectedBorderColor,
-  0px 3px 0px 0px @selectedBorderColor
-;
-
-
-/*-------------------
       Variations
 --------------------*/
+
+/* Divided */
+@dividedBorder: 1px solid @borderColor;
+@dividedMargin: 0em;
+@dividedPadding: 1em 0em;
+
+@dividedFirstLastMargin: 0em;
+@dividedFirstLastPadding: 0em;
 
 /* Sizes */
 @medium: 1em;

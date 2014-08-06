@@ -37,7 +37,7 @@
   float: @groupFloat;
 }
 
-.ui.cards:first-child
+.ui.cards:first-child,
 .ui.card:first-child {
   margin-top: 0em;
 }
@@ -82,10 +82,8 @@
   margin: @margin;
 }
 
-.ui.cards a.card,
-.ui.cards .card a,
-.ui.card a,
-a.ui.cards {
+.ui.cards > .card a,
+.ui.card a {
   cursor: pointer;
 }
 
@@ -108,14 +106,14 @@ a.ui.cards {
      Images
 ---------------*/
 
-.ui.cards .card > .image,
+.ui.cards > .card > .image,
 .ui.card > .image {
   display: block;
   position: relative;
   padding: @imagePadding;
   background: @imageBackground;
 }
-.ui.cards .card > .image > img,
+.ui.cards > .card > .image > img,
 .ui.card > .image > img {
   display: block;
   width: 100%;
@@ -124,32 +122,16 @@ a.ui.cards {
   border: @imageBorder;
 }
 
-.ui.cards .card > .image:only-child > img,
+.ui.cards > .card > .image:only-child > img,
 .ui.card > .image:only-child > img {
   border-radius: @borderRadius;
 }
-
-
-/*--------------
-     Floated
----------------*/
-
-.ui.cards .card  .left.floated,
-.ui.card .left.floated {
-  float: left;
-}
-.ui.cards .card .right.floated,
-.ui.card .right.floated {
-  float: right;
-}
-
-
 
 /*--------------
      Content
 ---------------*/
 
-.ui.cards .card > .content,
+.ui.cards > .card > .content,
 .ui.card > .content {
   background: @contentBackground;
   margin: @contentMargin;
@@ -160,7 +142,7 @@ a.ui.cards {
   border-radius: @contentBorderRadius;
 }
 
-.ui.cards .card > .content:after,
+.ui.cards > .card > .content:after,
 .ui.card > .content:after {
   display: block;
   content: ' ';
@@ -170,7 +152,7 @@ a.ui.cards {
   visibility: hidden;
 }
 
-.ui.cards .card > .content > .header,
+.ui.cards > .card > .content > .header,
 .ui.card > .content > .header {
   display: block;
   margin: @headerMargin;
@@ -179,25 +161,38 @@ a.ui.cards {
   font-size: @headerFontSize;
   color: @headerColor;
 }
-.ui.cards .card > .content > .meta + .description,
-.ui.cards .card > .content > .header + .description,
+.ui.cards > .card > .content > .meta + .description,
+.ui.cards > .card > .content > .header + .description,
 .ui.card > .content > .meta + .description,
 .ui.card > .content > .header + .description  {
   margin-top: @descriptionDistance;
 }
 
 /*--------------
-     Image
+     Floated
 ---------------*/
 
-.ui.cards .card .content img,
+.ui.cards > .card  .left.floated,
+.ui.card .left.floated {
+  float: left;
+}
+.ui.cards > .card .right.floated,
+.ui.card .right.floated {
+  float: right;
+}
+
+/*--------------
+  Content Image
+---------------*/
+
+.ui.cards > .card .content img,
 .ui.card .content img {
   display: inline-block;
   vertical-align: @contentImageVerticalAlign;
   width: @contentImageWidth;
 }
-.ui.cards .card img.avatar,
-.ui.cards .card .avatar img,
+.ui.cards > .card img.avatar,
+.ui.cards > .card .avatar img,
 .ui.card img.avatar,
 .ui.card .avatar img {
   width: @avatarSize;
@@ -210,7 +205,7 @@ a.ui.cards {
    Description
 ---------------*/
 
-.ui.cards .card > .content > .description,
+.ui.cards > .card > .content > .description,
 .ui.card > .content > .description {
   clear: both;
   color: @descriptionColor;
@@ -220,11 +215,11 @@ a.ui.cards {
     Paragraph
 ---------------*/
 
-.ui.cards .card > .content p,
+.ui.cards > .card > .content p,
 .ui.card > .content p {
   margin: 0em 0em @paragraphDistance;
 }
-.ui.cards .card > .content p:last-child,
+.ui.cards > .card > .content p:last-child,
 .ui.card > .content p:last-child {
   margin-bottom: 0em;
 }
@@ -233,21 +228,21 @@ a.ui.cards {
       Meta
 ---------------*/
 
-.ui.cards .card .meta,
+.ui.cards > .card .meta,
 .ui.card .meta {
   font-size: @metaFontSize;
   color: @metaColor;
 }
-.ui.cards .card .meta *,
+.ui.cards > .card .meta *,
 .ui.card .meta * {
   margin-right: @metaSpacing;
 }
-.ui.cards .card .meta :last-child,
+.ui.cards > .card .meta :last-child,
 .ui.card .meta :last-child {
   margin-right: 0em;
 }
 
-.ui.cards .card .meta .right.floated,
+.ui.cards > .card .meta .right.floated,
 .ui.card .meta .right.floated {
   margin-right: 0em;
   margin-left: @metaSpacing;
@@ -258,31 +253,32 @@ a.ui.cards {
 ---------------*/
 
 /* Generic */
-.ui.cards .card > .content a,
+.ui.cards > .card > .content a,
 .ui.card > .content a {
   color: @contentLinkColor;
+  transition: @contentLinkTransition;
 }
-.ui.cards .card > .content a:hover,
+.ui.cards > .card > .content a:hover,
 .ui.card > .content a:hover {
   color: @contentLinkHoverColor;
 }
 
 /* Header */
-.ui.cards .card > .content > a.header,
+.ui.cards > .card > .content > a.header,
 .ui.card > .content > a.header {
   color: @headerLinkColor;
 }
-.ui.cards .card > .content > a.header:hover,
+.ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
   color: @headerLinkHoverColor;
 }
 
 /* Meta */
-.ui.cards .card .meta a,
+.ui.cards > .card .meta a,
 .ui.card .meta a {
   color: @metaLinkColor;
 }
-.ui.cards .card .meta a:hover,
+.ui.cards > .card .meta a:hover,
 .ui.card .meta a:hover {
   color: @metaLinkHoverColor;
 }
@@ -296,18 +292,18 @@ a.ui.cards {
 /*-----Star----- */
 
 /* Icon */
-.ui.cards .card > .content .star.icon,
+.ui.cards > .card > .content .star.icon,
 .ui.card > .content .star.icon {
   cursor: pointer;
   opacity: @actionOpacity;
   transition: @actionTransition;
 }
-.ui.cards .card > .content .star.icon:hover,
+.ui.cards > .card > .content .star.icon:hover,
 .ui.card > .content .star.icon:hover {
   opacity: @actionHoverOpacity;
   color: @starColor;
 }
-.ui.cards .card > .content .active.star.icon,
+.ui.cards > .card > .content .active.star.icon,
 .ui.card > .content .active.star.icon {
   color: @starActiveColor;
 }
@@ -315,18 +311,18 @@ a.ui.cards {
 /*-----Like----- */
 
 /* Icon */
-.ui.cards .card > .content .like.icon,
+.ui.cards > .card > .content .like.icon,
 .ui.card > .content .like.icon {
   cursor: pointer;
   opacity: @actionOpacity;
   transition: @actionTransition;
 }
-.ui.cards .card > .content .like.icon:hover,
+.ui.cards > .card > .content .like.icon:hover,
 .ui.card > .content .like.icon:hover {
   opacity: @actionHoverOpacity;
   color: @likeColor;
 }
-.ui.cards .card > .content .active.like.icon,
+.ui.cards > .card > .content .active.like.icon,
 .ui.card > .content .active.like.icon {
   color: @likeActiveColor;
 }
@@ -335,10 +331,10 @@ a.ui.cards {
   Extra Content
 -----------------*/
 
-.ui.cards .card .extra,
+.ui.cards > .card .extra,
 .ui.card .extra {
   min-height: 0px !important;
-  position: @extraDisplay;
+  position: @extraPosition;
   background: @extraBackground;
   width: @extraWidth;
   padding: @extraPadding;

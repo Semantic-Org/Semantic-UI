@@ -72,15 +72,21 @@
 @dividedIconPadding: 0.2em;
 
 /* Block */
+@blockBackground: @offWhite @subtleGradient;
+@blockBoxShadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+@blockBorder: 1px solid @solidBorderColor;
 @blockHorizontalPadding: 1em;
 @blockVerticalPadding: 0.5em;
+@blockBorderRadius: 0.3125rem;
 
 /* Attached */
-@attachedBackground: #F0F0F0;
+@attachedOffset: 0px;
+@attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
 @attachedVerticalPadding: 0.75rem;
 @attachedHorizontalPadding: 1rem;
-@attachedBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-@attachedBorderRadius: 0.3125em;
+@attachedBackground: @blockBackground;
+@attachedBorder: none;
+@attachedBorderRadius: @blockBorderRadius;
 
 /* Floated */
 @floatedMargin: 0.5em;
