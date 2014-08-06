@@ -5,7 +5,14 @@ css         : 'table'
 title       : 'Table'
 description : 'Tables display collections of data grouped into rows'
 type        : 'UI Collection'
+
+element     : 'table'
+elementType : 'collection'
+
+themes      : ['Default']
 ---
+
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/table.less" />
 <script src="/javascript/table.js"></script>
 
 <%- @partial('header') %>
