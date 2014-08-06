@@ -126,6 +126,8 @@
 @transparentWhite       : rgba(255, 255, 255, 0.05);
 @strongTransparentWhite : rgba(255, 255, 255, 0.01);
 
+/* Used for differentiating greys */
+@subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 
 /*-------------------
        Icons

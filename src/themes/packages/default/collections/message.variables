@@ -56,7 +56,7 @@
 --------------------*/
 
 /* Icon Message */
-@iconSize: 2em;
+@iconSize: 3em;
 @iconOpacity: 0.8;
 @iconContentDistance: 1.5rem;
 @iconVerticalAlign: middle;

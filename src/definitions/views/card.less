@@ -24,13 +24,19 @@
 
 
 /*--------------
-      Items
+      Cards
 ---------------*/
 
-.ui.cards,
-.ui.card {
-  margin: @groupMargin;
+.ui.cards {
+  margin: @groupCardsMargin;
 }
+
+.ui.cards > .card {
+  display: @groupDisplay;
+  margin: @groupCardMargin;
+  float: @groupFloat;
+}
+
 .ui.cards:first-child
 .ui.card:first-child {
   margin-top: 0em;
@@ -38,12 +44,6 @@
 .ui.cards:last-child,
 .ui.card:last-child {
   margin-bottom: 0em;
-}
-
-.ui.cards > .row > .card,
-.ui.cards > .card {
-  display: @groupDisplay;
-  float: @groupFloat;
 }
 
 /* Clearing */
@@ -59,10 +59,9 @@
 
 
 /*--------------
-      Item
+      Card
 ---------------*/
 
-.ui.cards > .row > .card,
 .ui.cards > .card,
 .ui.card {
   position: relative;
@@ -70,8 +69,6 @@
 
   width: @width;
   min-height: @minHeight;
-  margin: @margin;
-
   background: @background;
   padding: @padding;
 
@@ -81,19 +78,9 @@
   transition: @transition;
   z-index: @zIndex;
 }
-
-.ui.cards > .row > .card > :first-child,
-.ui.cards > .card > :first-child,
-.ui.card > :first-child {
-  border-radius: @borderRadius @borderRadius 0em 0em !important;
+.ui.card {
+  margin: @margin;
 }
-
-.ui.cards > .row > .card > :last-child,
-.ui.cards > .card > :last-child,
-.ui.card > :last-child {
-  border-radius: 0em 0em @borderRadius @borderRadius !important;
-}
-
 
 .ui.cards a.card,
 .ui.cards .card a,
@@ -102,6 +89,20 @@ a.ui.cards {
   cursor: pointer;
 }
 
+
+/*--------------
+  Rounded Edges
+---------------*/
+
+.ui.cards > .card > :first-child,
+.ui.card > :first-child {
+  border-radius: @borderRadius @borderRadius 0em 0em !important;
+}
+
+.ui.cards > .card > :last-child,
+.ui.card > :last-child {
+  border-radius: 0em 0em @borderRadius @borderRadius !important;
+}
 
 /*--------------
      Images
@@ -336,6 +337,7 @@ a.ui.cards {
 
 .ui.cards .card .extra,
 .ui.card .extra {
+  min-height: 0px !important;
   position: @extraDisplay;
   background: @extraBackground;
   width: @extraWidth;
@@ -357,7 +359,9 @@ a.ui.cards {
         Link
 --------------------*/
 
+.ui.cards a.card:hover,
 .ui.link.cards .card:hover,
+a.ui.card:hover,
 .ui.link.card:hover {
   cursor: pointer;
   z-index: @linkHoverZIndex;
@@ -366,125 +370,104 @@ a.ui.cards {
   box-shadow: @linkHoverBoxShadow;
 }
 
-/*-------------------
-      Responsive
---------------------*/
-
-@media only screen and (max-width : 768px) {
-  .ui.stackable.cards {
-    display: block !important;
-  }
-  .ui.stackable.cards > .card,
-  .ui.stackable.cards > .row > .card {
-    display: block !important;
-    height: auto !important;
-    width: auto !important;
-    padding: 0% !important;
-  }
-}
-
 /*--------------
-    Item Count
+   Card Count
 ---------------*/
 
-
 .ui.one.cards {
-  margin-left: -2%;
-  margin-right: -2%;
+  margin-left: @oneCardOffset;
+  margin-right: @oneCardOffset;
 }
 .ui.one.cards > .card {
-  width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
+  width: @oneCard;
 }
 
 .ui.two.cards {
-  margin-left: -1%;
-  margin-right: -1%;
+  margin-left: @twoCardOffset;
+  margin-right: @twoCardOffset;
 }
 .ui.two.cards > .card {
-  width: 48%;
-  margin-left: 1%;
-  margin-right: 1%;
+  width: @twoCard;
+  margin-left: @twoCardSpacing;
+  margin-right: @twoCardSpacing;
 }
 .ui.two.cards > .card:nth-child(2n+1) {
   clear: left;
 }
 
 .ui.three.cards {
-  margin-left: -1%;
-  margin-right: -1%;
+  margin-left: @threeCardOffset;
+  margin-right: @threeCardOffset;
 }
 .ui.three.cards > .card {
-  width: 31.333%;
-  margin-left: 1%;
-  margin-right: 1%;
+  width: @threeCard;
+  margin-left: @threeCardSpacing;
+  margin-right: @threeCardSpacing;
 }
 .ui.three.cards > .card:nth-child(3n+1) {
   clear: left;
 }
 
 .ui.four.cards {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
+  margin-left: @fourCardOffset;
+  margin-right: @fourCardOffset;
 }
 .ui.four.cards > .card {
-  width: 24%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
+  width: @fourCard;
+  margin-left: @fourCardSpacing;
+  margin-right: @fourCardSpacing;
 }
 .ui.four.cards > .card:nth-child(4n+1) {
   clear: left;
 }
 
 .ui.five.cards {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
+  margin-left: @fiveCardOffset;
+  margin-right: @fiveCardOffset;
 }
 .ui.five.cards > .card {
-  width: 19%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
+  width: @fiveCard;
+  margin-left: @fiveCardSpacing;
+  margin-right: @fiveCardSpacing;
 }
 .ui.five.cards > .card:nth-child(5n+1) {
   clear: left;
 }
 
 .ui.six.cards {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
+  margin-left: @sixCardOffset;
+  margin-right: @sixCardOffset;
 }
 .ui.six.cards > .card {
-  width: 15.66%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
+  width: @sixCard;
+  margin-left: @sixCardSpacing;
+  margin-right: @sixCardSpacing;
 }
 .ui.six.cards > .card:nth-child(6n+1) {
   clear: left;
 }
 
 .ui.seven.cards {
-  margin-left: -0.5%;
-  margin-right: -0.5%;
+  margin-left: @sevenCardOffset;
+  margin-right: @sevenCardOffset;
 }
 .ui.seven.cards > .card {
-  width: 13.28%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  font-size: 11px;
+  width: @sevenCard;
+  margin-left: @sevenCardSpacing;
+  margin-right: @sevenCardSpacing;
 }
 .ui.seven.cards > .card:nth-child(7n+1) {
   clear: left;
 }
 
 .ui.eight.cards {
-  margin-left: -0.25%;
-  margin-right: -0.25%;
+  margin-left: @eightCardOffset;
+  margin-right: @eightCardOffset;
 }
 .ui.eight.cards > .card {
-  width: 12.0%;
-  margin-left: 0.25%;
-  margin-right: 0.25%;
+  width: @eightCard;
+  margin-left: @eightCardSpacing;
+  margin-right: @eightCardSpacing;
   font-size: 11px;
 }
 .ui.eight.cards > .card:nth-child(8n+1) {
@@ -492,13 +475,13 @@ a.ui.cards {
 }
 
 .ui.nine.cards {
-  margin-left: -0.25%;
-  margin-right: -0.25%;
+  margin-left: @nineCardOffset;
+  margin-right: @nineCardOffset;
 }
 .ui.nine.cards > .card {
-  width: 10.61%;
-  margin-left: 0.25%;
-  margin-right: 0.25%;
+  width: @nineCard;
+  margin-left: @nineCardSpacing;
+  margin-right: @nineCardSpacing;
   font-size: 10px;
 }
 .ui.nine.cards > .card:nth-child(9n+1) {
@@ -506,52 +489,40 @@ a.ui.cards {
 }
 
 .ui.ten.cards {
-  margin-left: -0.2%;
-  margin-right: -0.2%;
+  margin-left: @tenCardOffset;
+  margin-right: @tenCardOffset;
 }
 .ui.ten.cards > .card {
-  width: 9.6%;
-  margin-left: 0.2%;
-  margin-right: 0.2%;
-  font-size: 10px;
+  width: @tenCard;
+  margin-left: @tenCardSpacing;
+  margin-right: @tenCardSpacing;
 }
 .ui.ten.cards > .card:nth-child(10n+1) {
   clear: left;
 }
 
-.ui.eleven.cards {
-  margin-left: -0.2%;
-  margin-right: -0.2%;
-}
-.ui.eleven.cards > .card {
-  width: 8.69%;
-  margin-left: 0.2%;
-  margin-right: 0.2%;
-  font-size: 9px;
-}
-.ui.eleven.cards > .card:nth-child(11n+1) {
-  clear: left;
+/*-------------------
+      Responsive
+--------------------*/
+
+@media only screen and (max-width : @tabletBreakpoint) {
+  .ui.stackable.cards {
+    display: block !important;
+  }
+  .ui.stackable.cards > .card {
+    display: block !important;
+    height: auto !important;
+    width: auto !important;
+    padding: 0% !important;
+  }
 }
 
-.ui.twelve.cards {
-  margin-left: -0.1%;
-  margin-right: -0.1%;
-}
-.ui.twelve.cards > .card {
-  width: 8.1333%;
-  margin-left: 0.1%;
-  margin-right: 0.1%;
-  font-size: 9px;
-}
-.ui.twelve.cards > .card:nth-child(12n+1) {
-  clear: left;
-}
 
 /*--------------
-      Items
+      Size
 ---------------*/
 
-.ui.cards > .row > .card,
 .ui.cards > .card {
   font-size: @medium;
 }
+

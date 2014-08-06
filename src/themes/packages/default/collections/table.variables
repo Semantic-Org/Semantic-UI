@@ -32,7 +32,7 @@
 /* Table Header */
 @headerBorder: 1px solid @solidBorderColor;
 @headerDivider: none;
-@headerBackground: linear-gradient(transparent, rgba(0, 0, 0, 0.03));
+@headerBackground: @subtleGradient;
 @headerAlign: left;
 @headerVerticalAlign: middle;
 @headerColor: @textColor;

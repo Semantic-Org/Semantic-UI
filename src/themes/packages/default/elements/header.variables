@@ -72,7 +72,6 @@
 @dividedIconPadding: 0.2em;
 
 /* Block */
-@blockBackground: rgba(0, 0, 0, 0.05);
 @blockHorizontalPadding: 1em;
 @blockVerticalPadding: 0.5em;
 
