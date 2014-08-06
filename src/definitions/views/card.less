@@ -501,8 +501,183 @@ a.ui.card:hover,
   clear: left;
 }
 
+
 /*-------------------
-      Responsive
+      Doubling
+--------------------*/
+
+/* Mobily Only */
+@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+  .ui.two.doubling.cards {
+    margin-left: @oneCardOffset;
+    margin-right: @oneCardOffset;
+  }
+  .ui.two.doubling.cards .card {
+    width: @oneCard;
+    margin-left: @oneCardSpacing;
+    margin-right: @oneCardSpacing;
+  }
+  .ui.three.doubling.cards {
+    margin-left: @twoCardOffset;
+    margin-right: @twoCardOffset;
+  }
+  .ui.three.doubling.cards .card {
+    width: @twoCard;
+    margin-left: @twoCardSpacing;
+    margin-right: @twoCardSpacing;
+  }
+  .ui.four.doubling.cards {
+    margin-left: @twoCardOffset;
+    margin-right: @twoCardOffset;
+  }
+  .ui.four.doubling.cards .card {
+    width: @twoCard;
+    margin-left: @twoCardSpacing;
+    margin-right: @twoCardSpacing;
+  }
+  .ui.five.doubling.cards {
+    margin-left: @twoCardOffset;
+    margin-right: @twoCardOffset;
+  }
+  .ui.five.doubling.cards .card {
+    width: @twoCard;
+    margin-left: @twoCardSpacing;
+    margin-right: @twoCardSpacing;
+  }
+  .ui.six.doubling.cards {
+    margin-left: @twoCardOffset;
+    margin-right: @twoCardOffset;
+  }
+  .ui.six.doubling.cards .card {
+    width: @twoCard;
+    margin-left: @twoCardSpacing;
+    margin-right: @twoCardSpacing;
+  }
+  .ui.seven.doubling.cards {
+    margin-left: @threeCardOffset;
+    margin-right: @threeCardOffset;
+  }
+  .ui.seven.doubling.cards .card {
+    width: @threeCard;
+    margin-left: @threeCardSpacing;
+    margin-right: @threeCardSpacing;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: @threeCardOffset;
+    margin-right: @threeCardOffset;
+  }
+  .ui.eight.doubling.cards .card {
+    width: @threeCard;
+    margin-left: @threeCardSpacing;
+    margin-right: @threeCardSpacing;
+  }
+  .ui.nine.doubling.cards {
+    margin-left: @threeCardOffset;
+    margin-right: @threeCardOffset;
+  }
+  .ui.nine.doubling.cards .card {
+    width: @threeCard;
+    margin-left: @threeCardSpacing;
+    margin-right: @threeCardSpacing;
+  }
+  .ui.ten.doubling.cards {
+    margin-left: @threeCardOffset;
+    margin-right: @threeCardOffset;
+  }
+  .ui.ten.doubling.cards .card {
+    width: @threeCard;
+    margin-left: @threeCardSpacing;
+    margin-right: @threeCardSpacing;
+  }
+}
+
+/* Tablet Only */
+@media only screen and (min-width : @tabletBreakpoint) and (max-width : (@computerBreakpoint - 1px)) {
+  .ui.two.doubling.cards {
+    margin-left: @oneCardOffset;
+    margin-right: @oneCardOffset;
+  }
+  .ui.two.doubling.cards .card {
+    width: @oneCard;
+    margin-left: @oneCardSpacing;
+    margin-right: @oneCardSpacing;
+  }
+  .ui.three.doubling.cards {
+    margin-left: @twoCardOffset;
+    margin-right: @twoCardOffset;
+  }
+  .ui.three.doubling.cards .card {
+    width: @twoCard;
+    margin-left: @twoCardSpacing;
+    margin-right: @twoCardSpacing;
+  }
+  .ui.four.doubling.cards {
+    margin-left: @twoCardOffset;
+    margin-right: @twoCardOffset;
+  }
+  .ui.four.doubling.cards .card {
+    width: @twoCard;
+    margin-left: @twoCardSpacing;
+    margin-right: @twoCardSpacing;
+  }
+  .ui.five.doubling.cards {
+    margin-left: @threeCardOffset;
+    margin-right: @threeCardOffset;
+  }
+  .ui.five.doubling.cards .card {
+    width: @threeCard;
+    margin-left: @threeCardSpacing;
+    margin-right: @threeCardSpacing;
+  }
+  .ui.six.doubling.cards {
+    margin-left: @threeCardOffset;
+    margin-right: @threeCardOffset;
+  }
+  .ui.six.doubling.cards .card {
+    width: @threeCard;
+    margin-left: @threeCardSpacing;
+    margin-right: @threeCardSpacing;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: @threeCardOffset;
+    margin-right: @threeCardOffset;
+  }
+  .ui.eight.doubling.cards .card {
+    width: @threeCard;
+    margin-left: @threeCardSpacing;
+    margin-right: @threeCardSpacing;
+  }
+  .ui.eight.doubling.cards {
+    margin-left: @fourCardOffset;
+    margin-right: @fourCardOffset;
+  }
+  .ui.eight.doubling.cards .card {
+    width: @fourCard;
+    margin-left: @fourCardSpacing;
+    margin-right: @fourCardSpacing;
+  }
+  .ui.nine.doubling.cards {
+    margin-left: @fourCardOffset;
+    margin-right: @fourCardOffset;
+  }
+  .ui.nine.doubling.cards .card {
+    width: @fourCard;
+    margin-left: @fourCardSpacing;
+    margin-right: @fourCardSpacing;
+  }
+  .ui.ten.doubling.cards {
+    margin-left: @fiveCardOffset;
+    margin-right: @fiveCardOffset;
+  }
+  .ui.ten.doubling.cards .card {
+    width: @fiveCard;
+    margin-left: @fiveCardSpacing;
+    margin-right: @fiveCardSpacing;
+  }
+}
+
+/*-------------------
+      Stackable
 --------------------*/
 
 @media only screen and (max-width : @tabletBreakpoint) {

@@ -130,6 +130,7 @@
 @cardSpacing: 0.75em;
 @smallCardSpacing: 0.5em;
 
+@oneCardSpacing: 0em;
 @twoCardSpacing: @wideCardSpacing;
 @threeCardSpacing: @wideCardSpacing;
 @fourCardSpacing: @cardSpacing;
@@ -141,7 +142,7 @@
 @tenCardSpacing: @smallCardSpacing;
 
 @oneCard: @oneColumn;
-@oneCardOffset: 0;
+@oneCardOffset: 0em;
 @twoCard: ~"calc("@twoColumn~" - "(@twoCardSpacing * 2)~")";
 @twoCardOffset: -@twoCardSpacing;
 @threeCard: ~"calc("@threeColumn~" - "(@threeCardSpacing * 2)~")";
