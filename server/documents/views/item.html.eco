@@ -32,7 +32,7 @@ themes      : ['Default']
   <div class="even example">
     <h4 class="ui header">Items</h4>
     <p>A group of items.</p>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
         <div class="image">
           <img src="/images/demo/highres.jpg">
