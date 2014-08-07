@@ -15,6 +15,7 @@
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
 - **Dropdown** - New action combo will change text of adjacent button, select will select element but not change text
 - **Form** - Form now has a success state which will automatically display success messages
+- **Form** - Grouped fields and inline fields can now have labels
 - **Form** - Forms in 'success' state will now show success messages inside
 - **Form** - Inputs now use 1em font size and correctly match selection dropdown height
 - **Form** - Inverted form now properly styles loader

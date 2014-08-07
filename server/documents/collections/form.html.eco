@@ -125,13 +125,15 @@ themes      : ['default', 'GitHub']
       .dropdown()
     ;
     </div>
-    <div class="ui selection dropdown">
-      <input type="hidden" name="gender">
-      <div class="default text">Gender</div>
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item" data-value="male">Male</div>
-        <div class="item" data-value="female">Female</div>
+    <div class="ui form segment">
+      <div class="ui selection dropdown">
+        <input type="hidden" name="gender">
+        <div class="default text">Gender</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="male">Male</div>
+          <div class="item" data-value="female">Female</div>
+        </div>
       </div>
     </div>
   </div>
@@ -144,8 +146,9 @@ themes      : ['default', 'GitHub']
       .checkbox()
     ;
     </div>
-    <div class="ui form">
+    <div class="ui form segment">
       <div class="inline fields">
+        <label for="fruit">Select your favorite fruit:</label>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" checked />
@@ -172,6 +175,7 @@ themes      : ['default', 'GitHub']
         </div>
       </div>
       <div class="grouped fields">
+        <label for="fruit">Select your second favorite fruit:</label>
         <div class="field">
           <div class="ui radio checkbox">
             <input type="radio" name="fruit" checked />

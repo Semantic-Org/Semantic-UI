@@ -23,22 +23,13 @@
 *******************************/
 
 .ui.feed {
-
+  margin: @margin;
 }
-
-.ui.feed a {
-  cursor: pointer;
+.ui.feed:first-child {
+  margin-top: 0em;
 }
-
-.ui.feed,
-.ui.feed .event,
-.ui.feed .label,
-.ui.feed .content,
-.ui.feed .extra {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
+.ui.feed:last-child {
+  margin-top: 0em;
 }
 
 
@@ -47,84 +38,183 @@
 *******************************/
 
 /* Event */
-.ui.feed .event {
-  width: 100%;
-  display: table;
-  padding: 1em;
+.ui.feed > .event {
+  display: @eventDisplay;
+  width: @eventWidth;
+  padding: @eventPadding;
+  margin: @eventMargin;
+  background: @eventBackground;
+  border-top: @eventDivider;
 }
-.ui.feed .event:first-child {
+.ui.feed > .event:first-child {
   border-top: 0px;
+  padding-top: 0em;
 }
-.ui.feed .event:last-child {
-  margin-bottom: 1em;
+.ui.feed > .event:last-child {
+  padding-bottom: 0em;
 }
 
 /* Event Label */
-.ui.feed .label {
-  width: 3em;
-  display: table-cell;
-  vertical-align: top;
-  text-align: left;
+.ui.feed > .event > .label {
+  display: @labelDisplay;
+  width: @labelWidth;
+  height: @labelHeight;
+  vertical-align: @labelVerticalAlign;
+  text-align: @labelTextAlign;
 }
-.ui.feed .label .icon {
-  font-size: 1.5em;
-  padding: 0.5em;
-  margin: 0em;
+.ui.feed > .event > .label .icon {
+  font-size: @iconLabelSize;
+  width: @iconLabelWidth;
+  padding: @iconLabelPadding;
 }
-.ui.feed .label img {
-  width: 3em;
-  margin: 0em;
-  border-radius: 50em;
+.ui.feed > .event > .label img {
+  width: @imageLabelWidth;
+  height: @imageLabelHeight;
+  border-radius: @imageLabelBorderRadius;
 }
-.ui.feed .label + .content {
-  padding: 0.75em 1em 0em;
+.ui.feed > .event > .label + .content {
+  padding: @labeledContentVerticalOffset 0em @labeledContentVerticalOffset @labeledContentHorizontalOffset;
 }
 
 /* Content */
-.ui.feed .content {
-  display: table-cell;
+.ui.feed > .event > .content {
+  display: @contentDisplay;
+  vertical-align: @contentVerticalAlign;
+  text-align: @contentTextAlign;
+  word-wrap: @contentWordWrap;
+}
+
+/*--------------
+      Date
+---------------*/
+
+.ui.feed > .event > .content .date {
+  margin: @dateMargin;
+  color: @dateColor;
+}
+
+/*--------------
+     Summary
+---------------*/
+
+.ui.feed > .event > .content .summary {
+  margin: @summaryMargin;
+  font-size: @summaryFontSize;
+  font-weight: @summaryFontWeight;
+  color: @summaryColor;
+}
+
+/* Summary Image */
+.ui.feed > .event > .content .summary img {
+  display: inline-block;
+  width: @summaryImageWidth;
+  height: @summaryImageHeight;
+  margin: @summaryImageMargin;
+  border-radius: @summaryImageBorderRadius;
+  vertical-align: @summaryImageVerticalAlign;
+}
+/*--------------
+      User
+---------------*/
+
+.ui.feed > .event > .content .user {
+  display: inline-block;
+  font-weight: @userFontWeight;
+  margin-right: @userDistance;
+  vertical-align: baseline;
+}
+.ui.feed > .event > .content .user img {
+  margin: @userImageMargin;
+  width: @userImageWidth;
+  height: @userImageHeight;
+  vertical-align: @userImageVerticalAlign;
+}
+/*--------------
+   Inline Date
+---------------*/
+
+/* Date inside Summary */
+.ui.feed > .event > .content .summary > .date {
+  display: @summaryDateDisplay;
+  float: @summaryDateFloat;
+  font-weight: @summaryDateFontWeight;
+  margin: @summaryDateMargin;
+  padding: @summaryDatePadding;
+}
+
+/*--------------
+  Extra Summary
+---------------*/
+
+.ui.feed > .event > .content .extra {
+  margin: @extraMargin;
+  background: @extraBackground;
+  padding: @extraPadding;
+  color: @extraColor;
+}
+
+/* Images */
+.ui.feed > .event > .content .extra.images img {
+  display: inline-block;
+  margin: @extraImageMargin;
+  width: @extraImageWidth;
+}
+
+/* Text */
+.ui.feed > .event > .content .extra.text {
+  padding: @extraTextPadding;
+  border-left: @extraTextPointer;
+}
+
+
+/*--------------
+      Meta
+---------------*/
+
+.ui.feed > .event > .content .meta {
+  display: @metadataDisplay;
+  margin: @metadataMargin;
+  background: @metadataBackground;
+  border: @metadataBorder;
+  border-radius: @metadataBorderRadius;
+  box-shadow: @metadataBoxShadow;
+  padding: @metadataPadding;
+  color: @metadataColor;
+}
+
+.ui.feed > .event > .content .meta > * {
+  position: relative;
+  margin-left: 1.5em;
+}
+.ui.feed > .event > .content .meta > *:after {
+  content: @metadataDivider;
+  color: @metadataDividerColor;
+  left: @metadataDividerOffset;
+  opacity: 1;
+  position: absolute;
   vertical-align: top;
-  text-align: left;
-  word-wrap: break-word;
 }
 
-/* Date */
-.ui.feed .content .date {
-  float: right;
-  padding-left: 1em;
-  color: rgba(0, 0, 0, 0.4);
+/* First element */
+.ui.feed > .event > .content .meta > :first-child {
+  margin-left: 0em;
+}
+.ui.feed > .event > .content .meta > :first-child::after {
+  display: none;
 }
 
-/* Summary */
-.ui.feed .content .summary {
-  color: rgba(0, 0, 0, 0.75);
+/* Action */
+.ui.feed > .event > .content .meta a,
+.ui.feed > .event > .content .meta > .icon {
+  cursor: @metadataActionCursor;
+  opacity: @metadataActionOpacity;
+  color: @metadataActionColor;
+  transition: @metadataActionTransition;
 }
-.ui.feed .content .summary img {
-  display: inline-block;
-  margin-right: 0.25em;
-  width: 4em;
-  border-radius: 500px;
-}
-
-/* Additional Information */
-.ui.feed .content .extra {
-  margin: 1em 0em 0em;
-  padding: 0.5em 0em 0em;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.ui.feed .content .extra.images {
-
-}
-.ui.feed .content .extra.images img {
-  display: inline-block;
-  margin-right: 0.25em;
-  width: 6em;
-}
-
-.ui.feed .content .extra.text {
-  padding: 0.5em 1em;
-  border-left: 0.2em solid rgba(0, 0, 0, 0.1);
+.ui.feed > .event > .content .meta a:hover,
+.ui.feed > .event > .content .meta a:hover .icon,
+.ui.feed > .event > .content .meta > .icon:hover {
+  color: @metadataActionHoverColor;
 }
 
 
@@ -134,26 +224,8 @@
 *******************************/
 
 .ui.small.feed {
-  font-size: 0.875em;
+  font-size: @small;
 }
-.ui.small.feed .label img {
-  width: 2.5em;
-}
-.ui.small.feed .label .icon {
-  font-size: 1.25em;
-}
-.ui.feed .event {
-  padding: 0.75em 0em;
-}
-.ui.small.feed .label + .content {
-  padding: 0.5em 0.5em 0;
-}
-.ui.small.feed .content .extra.images img {
-  width: 5em;
-}
-.ui.small.feed .content .extra {
-  margin: 0.5em 0em 0em;
-}
-.ui.small.feed .content .extra.text {
-  padding: 0.25em 0.5em;
+.ui.feed {
+  font-size: @medium;
 }

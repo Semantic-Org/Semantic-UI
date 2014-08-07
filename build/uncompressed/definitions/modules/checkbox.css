@@ -202,7 +202,7 @@
 .ui.checkbox .box,
 .ui.checkbox label {
   cursor: pointer;
-  padding-left: 2em;
+  padding-left: 1.75em;
   outline: none;
 }
 .ui.checkbox label {

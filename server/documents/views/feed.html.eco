@@ -5,7 +5,14 @@ css         : 'feed'
 title       : 'Feed'
 description : 'A feed presents user activity chronologically'
 type        : 'UI View'
+
+element     : 'feed'
+elementType : 'view'
+
+themes      : ['Default', 'Timeline']
 ---
+
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/views/feed.less" />
 
 <%- @partial('header') %>
 <div class="main container">
@@ -21,48 +28,64 @@ type        : 'UI View'
   <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
-    <h4>Feed</h4>
+    <h4 class="ui header">Feed</h4>
     <p>A standard feed with some optional elements</p>
-    <div class="ui piled feed segment">
-      <h2 class="ui header">
-        Recent Activity
-      </h2>
+    <div class="ui feed segment">
       <div class="event">
         <div class="label">
-          <img src="/images/demo/avatar2.jpg">
+          <i class="user icon"></i>
         </div>
         <div class="content">
-          <div class="date">
-            Just moments ago
-          </div>
           <div class="summary">
-             <a>Sally Poodle</a> added you as a friend
+            <a class="user">
+              <img src="/images/demo/avatar2.jpg">
+              Sally Poodle
+            </a> added you as a friend
+            <div class="date">
+              1 Hour Ago
+            </div>
+          </div>
+          <div class="meta">
+            <a class="replies">
+              2 <i class="comments icon"></i>
+            </a>
+            <a class="like">
+              4 <i class="like icon"></i>
+            </a>
           </div>
         </div>
       </div>
       <div class="event">
         <div class="label">
-          <i class="circular pencil icon"></i>
+          <i class="pencil icon"></i>
         </div>
         <div class="content">
-          <div class="date">
-            3 days ago
-          </div>
           <div class="summary">
             You submitted a new post to the page
+            <div class="date">
+              3 days ago
+            </div>
           </div>
           <div class="extra text">
             I am a dog and I do not know how to make a post
           </div>
+          <div class="meta">
+            <a class="replies">
+              0 <i class="comments icon"></i>
+            </a>
+            <a class="like">
+              5 <i class="like icon"></i>
+            </a>
+          </div>
         </div>
       </div>
       <div class="event">
         <div class="label">
-          <i class="circular photo icon"></i>
+          <i class="photo icon"></i>
         </div>
         <div class="content">
           <div class="date">
-            3 days ago
+            4 days ago
           </div>
           <div class="summary">
             <a>Sally Poodle</a> added <a>2 new photos</a> of you
@@ -70,6 +93,86 @@ type        : 'UI View'
           <div class="extra images">
             <img src="/images/demo/item1.jpg">
             <img src="/images/demo/item2.jpg">
+          </div>
+          <div class="meta">
+            <a class="replies">
+              2 <i class="comments icon"></i>
+            </a>
+            <a class="like">
+              4 <i class="like icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a class="user">
+              Sally Poodle
+            </a> added you as a friend
+            <div class="date">
+              1 Hour Ago
+            </div>
+          </div>
+          <div class="meta">
+            <a class="replies">
+              2 <i class="comments icon"></i>
+            </a>
+            <a class="like">
+              4 <i class="like icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="pencil icon"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            You submitted a new post to the page
+            <div class="date">
+              3 days ago
+            </div>
+          </div>
+          <div class="extra text">
+            I am a dog and I do not know how to make a post
+          </div>
+          <div class="meta">
+            <a class="replies">
+              0 <i class="comments icon"></i>
+            </a>
+            <a class="like">
+              5 <i class="like icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="photo icon"></i>
+        </div>
+        <div class="content">
+          <div class="date">
+            4 days ago
+          </div>
+          <div class="summary">
+            <a>Sally Poodle</a> added <a>2 new photos</a> of you
+          </div>
+          <div class="extra images">
+            <img src="/images/demo/item1.jpg">
+            <img src="/images/demo/item2.jpg">
+          </div>
+          <div class="meta">
+            <a class="replies">
+              2 <i class="comments icon"></i>
+            </a>
+            <a class="like">
+              4 <i class="like icon"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -79,10 +182,9 @@ type        : 'UI View'
   <h2 class="ui dividing header">Content</h2>
 
   <div class="example">
-    <h4>Label</h4>
+    <h4 class="ui header">Label</h4>
     <p>An event can contain a label</p>
-    <div class="ignored ui info message">In semantic's implementation a label is formatted to contain an icon or an image</div>
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <img src="/images/demo/avatar.jpg">
@@ -95,7 +197,7 @@ type        : 'UI View'
       </div>
       <div class="event">
         <div class="label">
-          <i class="circular pencil icon"></i>
+          <i class="pencil icon"></i>
         </div>
         <div class="content">
           <div class="summary">
@@ -107,9 +209,9 @@ type        : 'UI View'
   </div>
 
   <div class="example">
-    <h4>Date</h4>
+    <h4 class="ui header">Date</h4>
     <p>An event can contain a date</p>
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <img src="/images/demo/avatar.jpg">
@@ -127,9 +229,9 @@ type        : 'UI View'
   </div>
 
   <div class="example">
-    <h4>Additional information</h4>
+    <h4 class="ui header">Additional information</h4>
     <p>An event can contain additional content explaining the event</p>
-    <div class="ui feed segment">
+    <div class="ui feed">
       <div class="event">
         <div class="label">
           <img src="/images/demo/avatar.jpg">
@@ -174,7 +276,7 @@ type        : 'UI View'
 
     <div class="ui grid">
       <div class="ten wide column">
-        <div class="ui small piled feed segment">
+        <div class="ui small feed">
           <h4 class="ui header">My Activity</h4>
           <div class="event">
             <div class="label">
@@ -191,7 +293,7 @@ type        : 'UI View'
           </div>
           <div class="event">
             <div class="label">
-              <i class="circular pencil icon"></i>
+              <i class="pencil icon"></i>
             </div>
             <div class="content">
               <div class="date">
@@ -207,7 +309,7 @@ type        : 'UI View'
           </div>
           <div class="event">
             <div class="label">
-              <i class="circular photo icon"></i>
+              <i class="photo icon"></i>
             </div>
             <div class="content">
               <div class="date">
@@ -225,7 +327,7 @@ type        : 'UI View'
         </div>
       </div>
       <div class="six wide column">
-        <div class="ui small   feed segment">
+        <div class="ui small feed">
           <h4 class="ui header">Followers Activity</h4>
           <div class="event">
             <div class="content">

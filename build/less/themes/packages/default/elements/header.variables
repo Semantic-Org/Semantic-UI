@@ -82,7 +82,7 @@
 /* Attached */
 @attachedOffset: 0px;
 @attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
-@attachedVerticalPadding: 0.75rem;
+@attachedVerticalPadding: 0.7em;
 @attachedHorizontalPadding: 1rem;
 @attachedBackground: @blockBackground;
 @attachedBorder: none;

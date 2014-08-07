@@ -193,8 +193,8 @@
 .ui.comments .comment {
   position: relative;
   background: none;
-  margin: 0.75em 0em 0em;
-  padding: 0.75em 0em 0em;
+  margin: 0.5em 0em 0em;
+  padding: 0.5em 0em 0em;
   border: none;
   border-top: none;
   line-height: 1.2;
@@ -311,11 +311,11 @@
       Reply Form
 ---------------------*/
 .ui.comments > .reply.form {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .ui.comments .comment .reply.form {
   width: 100%;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .ui.comments .reply.form textarea {
   font-size: 1em;

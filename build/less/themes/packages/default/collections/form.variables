@@ -128,7 +128,7 @@
 @inlineLabelVerticalAlign: middle;
 
 /* (x) Wide Field */
-@gutterWidth: 1.5%;
+@gutterWidth: 1%;
 
 /* Sizes */
 @small: 0.875em;

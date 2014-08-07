@@ -216,6 +216,8 @@
 /*--------------------
         Labels
 ---------------------*/
+.ui.form .grouped.fields > label,
+.ui.form .inline.fields > label,
 .ui.form .field > label {
   margin: 0em 0em 0.3em 0em;
   display: block;
@@ -614,8 +616,8 @@
   clear: none;
   float: left;
   box-sizing: border-box;
-  padding-left: 1.5%;
-  padding-right: 1.5%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
@@ -662,8 +664,8 @@
 /* Sizing Combinations */
 .ui.form .fields .wide.field {
   width: 6.25%;
-  padding-left: 1.5%;
-  padding-right: 1.5%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .ui.form .fields .wide.field:first-child {
   padding-left: 0%;
@@ -758,6 +760,7 @@
 .ui.form .inline.fields .field {
   display: inline-block;
   margin: 0em 1em 0em 0em;
+  padding: 0em;
 }
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
