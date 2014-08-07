@@ -3,96 +3,23 @@
 *******************************/
 
 /*-------------------
-        Feed
---------------------*/
-
-@margin: 1em;
-
-/*-------------------
       Elements
 --------------------*/
 
-/* Event */
-@eventDisplay: table;
-@eventWidth: 100%;
-@eventPadding: 0.5em 0em;
-@eventMargin: 0em;
-@eventBackground: none;
-@eventDivider: 1px solid @borderColor;
+@eventMargin: 0em 0em 0em 2em;
+@eventDivider: none;
+@eventPadding: 0em;
 
 /* Event Label */
-@labelDisplay: table-cell;
 @labelWidth: 3em;
 @labelHeight: 3em;
-@labelVerticalAlign: top;
-@labelTextAlign: left;
 
-/* Icon Label */
-@iconLabelWidth: 100%;
-@iconLabelSize: 1.5em;
-@iconLabelPadding: 0.5em;
+@labeledContentPadding: 0.75em 0em 2em 0.75em;
 
-/* Image Label */
-@imageLabelWidth: 100%;
-@imageLabelHeight: auto;
-@imageLabelBorderRadius: @circularRadius;
-
-/* Content w/ Label */
-@labeledContentVerticalOffset: 0.75em;
-@labeledContentHorizontalOffset: 0.75em;
-
-/* Content */
-@contentDisplay: table-cell;
-@contentVerticalAlign: top;
-@contentTextAlign: left;
-@contentWordWrap: break-word;
-
-/* Date */
-@dateMargin: -0.4em 0em 0em;
-@dateColor: rgba(0, 0, 0, 0.6);
-
-/* Summary */
-@summaryMargin: 0em;
-@summaryFontSize: 1em;
-@summaryFontWeight: bold;
-@summaryColor: @textColor;
-
-/* Summary Image */
-@summaryImageWidth: auto;
-@summaryImageHeight: 2em;
-@summaryImageMargin: -0.25em 0.25em 0em 0em;
-@summaryImageVerticalAlign: middle;
-@summaryImageBorderRadius: 0.25em;
-
-/* Summary Date */
-@summaryDateDisplay: inline-block;
-@summaryDateFloat: none;
-@summaryDateFontWeight: normal;
-@summaryDateFontStyle: normal;
-@summaryDateMargin: 0em;
-@summaryDatePadding: 0em;
-
-/* User */
-@userFontWeight: bold;
-@userDistance: 0em;
-@userImageWidth: @summaryImageWidth;
-@userImageHeight: @summaryImageHeight;
-@userImageMargin: @summaryImageMargin;
-@userImageVerticalAlign: @summaryImageVerticalAlign;
-
-/* Extra Summary Data */
-@extraMargin: 0.5em 0em 0em;
-@extraBackground: none;
-@extraPadding: 0em;
-@extraColor: @lightTextColor;
-
-/* Extra Images */
-@extraImageMargin: 0em 0.25em 0em 0em;
-@extraImageWidth: 6em;
-
-/* Extra Text */
-@extraTextPadding: 0.5em 1em;
-@extraTextPointer: 0.2em solid rgba(0, 0, 0, 0.1);
+/* Icon */
+@iconLabelBackground: @primaryColor;
+@iconLabelBorderRadius: @circularRadius;
+@iconLabelColor: @white;
 
 /* Metadata Group */
 @metadataDisplay: inline-block;
@@ -103,18 +30,6 @@
 @metadataBoxShadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 @metadataPadding: 0.5em 1em;
 @metadataColor: rgba(0, 0, 0, 0.6);
-
-/* Metadata Divider */
-@metadataDivider: '|';
-@metadataDividerColor: rgba(0, 0, 0, 0.2);
-@metadataDividerOffset: -1em;
-
-@metadataActionCursor: pointer;
-@metadataActionOpacity: 1;
-@metadataActionColor: rgba(0, 0, 0, 0.5);
-@metadataActionTransition: color @transitionDuration @transitionEasing;
-
-@metadataActionHoverColor: @selectedTextColor;
 
 /*-------------------
       Variations

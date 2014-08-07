@@ -63,9 +63,14 @@
   text-align: @labelTextAlign;
 }
 .ui.feed > .event > .label .icon {
+  opacity: @iconLabelOpacity;
   font-size: @iconLabelSize;
   width: @iconLabelWidth;
   padding: @iconLabelPadding;
+  background: @iconLabelBackground;
+  border: @iconLabelBorder;
+  border-radius: @iconLabelBorderRadius;
+  color: @iconLabelColor;
 }
 .ui.feed > .event > .label img {
   width: @imageLabelWidth;
@@ -73,7 +78,7 @@
   border-radius: @imageLabelBorderRadius;
 }
 .ui.feed > .event > .label + .content {
-  padding: @labeledContentVerticalOffset 0em @labeledContentVerticalOffset @labeledContentHorizontalOffset;
+  padding: @labeledContentPadding;
 }
 
 /* Content */
@@ -166,13 +171,13 @@
   border-left: @extraTextPointer;
 }
 
-
 /*--------------
       Meta
 ---------------*/
 
 .ui.feed > .event > .content .meta {
   display: @metadataDisplay;
+  font-size: @metadataFontSize;
   margin: @metadataMargin;
   background: @metadataBackground;
   border: @metadataBorder;
@@ -229,3 +234,5 @@
 .ui.feed {
   font-size: @medium;
 }
+
+.loadUIOverrides();

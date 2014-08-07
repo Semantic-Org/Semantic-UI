@@ -22,15 +22,20 @@
 
 /* Event Label */
 @labelDisplay: table-cell;
-@labelWidth: 3em;
-@labelHeight: 3em;
+@labelWidth: 2.5em;
+@labelHeight: 2.5em;
 @labelVerticalAlign: top;
 @labelTextAlign: left;
 
 /* Icon Label */
+@iconLabelOpacity: 1;
 @iconLabelWidth: 100%;
 @iconLabelSize: 1.5em;
 @iconLabelPadding: 0.5em;
+@iconLabelBackground: none;
+@iconLabelBorderRadius: none;
+@iconLabelBorder: none;
+@iconLabelColor: rgba(0, 0, 0, 0.6);
 
 /* Image Label */
 @imageLabelWidth: 100%;
@@ -38,8 +43,7 @@
 @imageLabelBorderRadius: @circularRadius;
 
 /* Content w/ Label */
-@labeledContentVerticalOffset: 0.75em;
-@labeledContentHorizontalOffset: 0.75em;
+@labeledContentPadding: 0.75em 0em 0.75em 1em;
 
 /* Content */
 @contentDisplay: table-cell;
@@ -96,12 +100,13 @@
 
 /* Metadata Group */
 @metadataDisplay: inline-block;
+@metadataFontSize: 0.9em;
 @metadataMargin: 1em 0em 0em;
-@metadataBackground: @white @subtleGradient;
-@metadataBorder: 1px solid @solidBorderColor;
-@metadataBorderRadius: 0.25em;
-@metadataBoxShadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-@metadataPadding: 0.5em 1em;
+@metadataBackground: none;
+@metadataBorder: none;
+@metadataBorderRadius: 0;
+@metadataBoxShadow: none;
+@metadataPadding: 0em;
 @metadataColor: rgba(0, 0, 0, 0.6);
 
 /* Metadata Divider */

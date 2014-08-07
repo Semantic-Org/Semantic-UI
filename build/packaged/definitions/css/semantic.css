@@ -21616,12 +21616,6 @@ body.pushed.scrolling.ui.dimmable {
      Load Default
 -------------------*/
 /*******************************
-             Video
-*******************************/
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -21708,6 +21702,12 @@ body.pushed.scrolling.ui.dimmable {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Video
+*******************************/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -22627,6 +22627,35 @@ a.ui.card:hover,
 .ui.cards > .card {
   font-size: 1em;
 }
+/*******************************
+             Item
+*******************************/
+/*-------------------
+         View
+--------------------*/
+/* Item */
+/* Item Group */
+/*-------------------
+       Content
+--------------------*/
+/* Image */
+/* Content */
+/* Title */
+/* Metadata */
+/* Description */
+/* Image */
+/* Paragraph */
+/* Additional Content */
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/* Sizes */
+/*******************************
+    User Variable Overrides
+*******************************/
 
 /*
  * # Semantic - Comment
@@ -23002,6 +23031,12 @@ a.ui.card:hover,
 .ui.huge.comments {
   font-size: 1.2em;
 }
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
 
 /*
  * # Semantic - Feed
@@ -23215,15 +23250,20 @@ a.ui.card:hover,
 /* Event Label */
 .ui.feed > .event > .label {
   display: table-cell;
-  width: 3em;
-  height: 3em;
+  width: 2.5em;
+  height: 2.5em;
   vertical-align: top;
   text-align: left;
 }
 .ui.feed > .event > .label .icon {
+  opacity: 1;
   font-size: 1.5em;
   width: 100%;
   padding: 0.5em;
+  background: none;
+  border: none;
+  border-radius: none;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.feed > .event > .label img {
   width: 100%;
@@ -23231,7 +23271,7 @@ a.ui.card:hover,
   border-radius: 500rem;
 }
 .ui.feed > .event > .label + .content {
-  padding: 0.75em 0em 0.75em 0.75em;
+  padding: 0.75em 0em 0.75em 1em;
 }
 /* Content */
 .ui.feed > .event > .content {
@@ -23316,13 +23356,13 @@ a.ui.card:hover,
 ---------------*/
 .ui.feed > .event > .content .meta {
   display: inline-block;
+  font-size: 0.9em;
   margin: 1em 0em 0em;
-  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  border: 1px solid #dddddd;
-  border-radius: 0.25em;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  padding: 0.5em 1em;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0em;
   color: rgba(0, 0, 0, 0.6);
 }
 .ui.feed > .event > .content .meta > * {
@@ -23367,6 +23407,12 @@ a.ui.card:hover,
 .ui.feed {
   font-size: 1em;
 }
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
 
 /*
  * # Semantic - Item
@@ -23839,6 +23885,12 @@ a.ui.card:hover,
 .ui.items > .item {
   font-size: 1em;
 }
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
 
 /*
  * # Semantic - List
@@ -24835,3 +24887,9 @@ ol.ui.horizontal.list li:before,
 .ui.statistic > .description {
   opacity: 0.8;
 }
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
