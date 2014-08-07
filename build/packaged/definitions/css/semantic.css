@@ -23655,7 +23655,6 @@ a.ui.card:hover,
   width: 225px;
   margin: 0em;
   padding: 0em;
-  background: rgba(0, 0, 0, 0.05);
   max-height: '';
   vertical-align: top;
 }
@@ -23694,7 +23693,7 @@ a.ui.card:hover,
   display: table-cell;
   margin-left: 0em;
   vertical-align: top;
-  padding-left: 1em;
+  padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
   display: block;
@@ -23735,6 +23734,8 @@ a.ui.card:hover,
    Description
 ---------------*/
 .ui.items > .item > .content > .description {
+  font-size: 1.1em;
+  line-height: 1.2;
   color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
@@ -23831,7 +23832,7 @@ a.ui.card:hover,
   background: none;
   margin: 1em 0em 0em;
   width: 100%;
-  padding: 0.75em 0em 0em;
+  padding: 0.25em 0em 0em;
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
