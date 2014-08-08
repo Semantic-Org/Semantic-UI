@@ -200,13 +200,14 @@
   margin-top: 0.5em;
   width: 380px;
   border-radius: 0.25em;
-  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
 /*--------------
     Result
 ---------------*/
 .ui.search .result {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -238,7 +239,7 @@
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -256,7 +257,7 @@
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -313,7 +314,8 @@
 .ui.search .results .category .result.active {
   border-left-color: transparent;
   background-color: #f0f0f0;
-  box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.2);
 }
 .ui.search .result.active .title {
   color: rgba(0, 0, 0, 0.85);
@@ -336,7 +338,8 @@
 ---------------*/
 .ui.search .results .category {
   background: #f0f0f0;
-  box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ui.search .results .category,
 .ui.search .results .category .result {
@@ -345,10 +348,11 @@
           transition: background 0.2s ease, border-color 0.2s ease;
 }
 .ui.search .results .category:first-child {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;

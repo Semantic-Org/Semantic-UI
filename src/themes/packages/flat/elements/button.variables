@@ -5,41 +5,19 @@
 /*-------------------
        Element
 --------------------*/
-
-@verticalMargin: 0em;
-@horizontalMargin: 0.25em;
-@textTransform: none;
-
+@borderRadius: @circularRadius;
+@textTransform: uppercase;
+@backgroundColor: #FFFFFF;
+@backgroundImage: none;
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
-@textShadow: none;
-@invertedTextShadow: none;
-@borderRadius: 0.25em;
-
-/* Shadow */
-@shadowDistance: 0em;
-@shadowOffset: (@shadowDistance / 2);
-@shadowBoxShadow: 0px -@shadowDistance 0px 0px rgba(0, 0, 0, 0.1) inset;
-
-@backgroundColor: #FAFAFA;
-@backgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
 @boxShadow:
-  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
-  @shadowBoxShadow
-;
-
-/* transitions */
-@transition:
-  opacity @transitionDuration @transitionEasing,
-  background-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing,
-  background @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing
+  0px 0px 0px 2px rgba(0, 0, 0, 0.2) inset
 ;
 
 /* Padding */
-@verticalPadding: 0.8em;
-@horizontalPadding: 1.5em;
+@verticalPadding: 1.25em;
+@horizontalPadding: 3em;
 
 /* Icon */
 @iconOpacity: 0.8;
@@ -64,23 +42,17 @@
         States
 --------------------*/
 
-@hoverBackgroundColor: '';
-@hoverBackgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
-@hoverBoxShadow: '';
-@iconHoverOpacity: 0.85;
+@hoverBackgroundColor: #FAFAFA;
+@hoverBackgroundImage: none;
+@hoverBoxShadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.3) inset;
 
-@focusBackgroundColor: '';
-@focusBackgroundImage: '';
-@focusBoxShadow: 0 0 1px rgba(81, 167, 232, 0.8) inset, 0 0 3px 2px rgba(81, 167, 232, 0.8);
-@iconFocusOpacity: 0.85;
-
-@downBackgroundColor: #F1F1F1;
-@downBackgroundImage: '';
-@downBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+@downBackgroundColor: #F0F0F0;
+@downBackgroundImage: none;
+@downBoxShadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.35) inset !important;
 
 @activeBackgroundColor: #DDDDDD;
 @activeBackgroundImage: none;
-@activeBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+@activeBoxShadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.3) inset !important;
 
 @loadingBackgroundColor: #FFFFFF;
 
@@ -88,35 +60,15 @@
         Types
 --------------------*/
 
-/* Or */
-@orWidth: 0.3em;
-@orHeight: 1.1em;
-
-@orVerticalOffset: -0.1em;
-@orHorizontalOffset: -0.9em;
-
-@orTextStyle: normal;
-@orTextWeight: bold;
-
-@orCircleSize: 1.8em;
-@orLineHeight: 1.6;
-@orBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-
-@orSpacerHeight: 0.5em;
-@orSpacerColor: @white;
-
-/* Icon */
-@iconButtonOpacity: 0.9;
-
 /* Labeled Icon */
 @labeledIconWidth: 1em + (@verticalPadding * 2);
-@labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
-@labeledIconPadding: (@horizontalPadding + @labeledIconWidth);
+@labeledIconBackgroundColor: transparent;
+@labeledIconPadding: (@horizontalPadding + 1em);
 @labeledIconBorder: rgba(0, 0, 0, 0.05);
 @labeledIconColor: '';
 
-@labeledIconLeftShadow: -1px 0px 0px 0px @labeledIconBorder inset;
-@labeledIconRightShadow: 1px 0px 0px 0px @labeledIconBorder inset;
+@labeledIconLeftShadow: none;
+@labeledIconRightShadow: none;
 
 /* Basic */
 @basicBoxShadow: 0px 0px 0px 1px @borderColor;
