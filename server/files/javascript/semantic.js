@@ -581,7 +581,7 @@ semantic.ready = function() {
         $(this)
           .stop()
           .animate({
-            width: '130px'
+            width: '135px'
           }, 300, function() {
             $(this).find('.text').show();
           })

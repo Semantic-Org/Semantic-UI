@@ -425,7 +425,7 @@ body.guide .main.container > * {
   border: none;
   overflow: hidden;
   height: auto;
-  padding: 6px 8px 15px;
+  padding: 6px 0px 13px;
 }
 #example .inverted.advertisement .carbonad-text {
   color: rgba(255, 255, 255, 0.6);
