@@ -21,30 +21,176 @@
 /*******************************
            Statistic
 *******************************/
+
 .ui.statistic {
-  margin: 1em 0em;
-  text-align: center;
+  display: @display;
+  margin: @margin;
 }
 
-.ui.statistic:first-child {
+/*******************************
+            Group
+*******************************/
+
+.ui.statistics {
+  display: @groupDisplay;
+  margin: @groupMargin;
+}
+
+/* Clearing */
+.ui.statistics:after {
+  display: block;
+  content: ' ';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.ui.statistics:first-child {
   margin-top: 0em;
 }
-
-.ui.statistic:last-child {
+.ui.statistics:last-child {
   margin-bottom: 0em;
 }
+
+/* Each */
+.ui.statistics > .statistic {
+  display: @elementDisplay;
+  float: @elementFloat;
+  margin: @elementMargin;
+}
+
 
 /*******************************
             Content
 *******************************/
 
-.ui.statistic > .number {
-  font-size: 4em;
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.7);
+
+/*--------------
+      Value
+---------------*/
+
+.ui.statistics .statistic > .value,
+.ui.statistic > .value {
+  font-family: @valueFont;
+  font-size: @valueSize;
+  font-weight: @valueFontWeight;
+  line-height: @valueLineHeight;
+  color: @valueColor;
+  text-transform: @valueTextTransform;
+  text-align: @textAlign;
 }
-.ui.statistic > .description {
-  opacity: 0.8;
+
+/*--------------
+      Label
+---------------*/
+
+.ui.statistics .statistic > .label,
+.ui.statistic > .label {
+  margin-top: @labelDistance;
+  font-family: @labelFont;
+  font-size: @labelSize;
+  font-weight: @labelFontWeight;
+  color: @labelColor;
+  text-transform: @labelTextTransform;
+  text-align: @textAlign;
+}
+
+
+/*******************************
+             Types
+*******************************/
+
+/*--------------
+   Icon Value
+---------------*/
+
+.ui.statistics .statistic > .value .icon,
+.ui.statistic > .value .icon {
+  opacity: 1;
+}
+
+/*--------------
+   Text Value
+---------------*/
+
+.ui.statistics .statistic > .text.value,
+.ui.statistic > .text.value {
+  font-size: 2em;
+  line-height: 1em;
+  min-height: 4rem;
+  text-align: left;
+}
+.ui.statistics .statistic > .text.value + .label,
+.ui.statistic > .text.value + .label {
+  text-align: left;
+}
+
+/*--------------
+   Image Value
+---------------*/
+
+.ui.statistics .statistic > .value img,
+.ui.statistic > .value img {
+  max-height: 4rem;
+  vertical-align: top;
+}
+
+
+
+/*******************************
+            Variations
+*******************************/
+
+/*--------------
+   Horizontal
+---------------*/
+
+.ui.horizontal.statistics,
+.ui.horizontal.statistic {
+  display: block;
+  margin: 0em;
+}
+.ui.horizontal.statistics .statistic {
+  float: none;
+  margin: @horizontalGroupElementMargin;
+}
+
+.ui.horizontal.statistics .statistic > .value,
+.ui.horizontal.statistic > .value {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: @horizontalValueSize;
+}
+.ui.horizontal.statistics .statistic > .label,
+.ui.horizontal.statistic > .label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0em 0em 0em @horizontalLabelDistance;
+}
+
+
+
+/*--------------
+    Floated
+---------------*/
+
+.ui.left.floated.statistic {
+  float: left;
+}
+.ui.right.floated.statistic {
+  float: right;
+}
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.inverted.statistic .value {
+  color: @invertedValueColor;
+}
+.ui.inverted.statistic .label {
+  color: @invertedLabelColor;
 }
 
 .loadUIOverrides();

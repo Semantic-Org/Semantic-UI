@@ -2,17 +2,60 @@
            Statistic
 *******************************/
 
-
 /*-------------------
          View
 --------------------*/
+
+@display: inline-block;
+@margin: 1em 0em;
+@textAlign: center;
+
+/* Group */
+@groupDisplay: block;
+@groupMargin: 1em -@horizontalSpacing;
+@horizontalSpacing: 1.5em;
+@rowSpacing: 2em;
+@elementFloat: left;
+@elementDisplay: block;
+@elementMargin: 0em @horizontalSpacing @rowSpacing;
 
 /*-------------------
       Elements
 --------------------*/
 
+/* Value */
+@valueFont: @pageFont;
+@valueFontWeight: normal;
+@valueLineHeight: 1em;
+@valueSize: 4em;
+@valueColor: @black;
+@valueTextTransform: uppercase;
 
+/* Label */
+@labelDistance: 0.25em;
+@labelFont: @headerFont;
+@labelFontWeight: normal;
+@labelSize: 1em;
+@labelColor: @unselectedTextColor;
+@labelLineHeight: 1.33em;
+@labelTextTransform: none;
+
+/*-------------------
+      Types
+--------------------*/
+
+@horizontalGroupElementMargin: 1em 0em;
+@horizontalValueSize: 3em;
+@horizontalLabelDistance: 0.75em;
 
 /*-------------------
       Variations
 --------------------*/
+
+/* Floated */
+
+/* Inverted */
+@invertedValueColor: @invertedTextColor;
+@invertedLabelColor: @invertedLightTextColor;
+
+/* Size */

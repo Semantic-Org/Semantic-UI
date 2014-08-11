@@ -52,7 +52,7 @@ type   : 'Semantic'
       <div class="ui message">
         Semantic is tag agnostic meaning you can use <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list" target="_blank">any html tags</a> with UI elements.
       </div>
-      <div class="ui stackable two column grid">
+      <div class="ui stackable two column fitted grid">
         <div class="column">
           <a class="ui teal label" href="/collections/grid.html">Semantic</a>
           <div class="code" data-type="html">
@@ -215,8 +215,8 @@ type   : 'Semantic'
           <div class="column">
             <div class="ui stacked segment">
               <div class="ui statistic">
-                <div class="number"><%= uiElements.length %></div>
-                <div class="description">UI Elements</div>
+                <div class="value"><%= uiElements.length %></div>
+                <div class="label">UI Elements</div>
               </div>
               <div class="ui divided selection list">
                 <% for element in uiElements: %>
@@ -228,8 +228,8 @@ type   : 'Semantic'
           <div class="column">
             <div class="ui stacked segment">
               <div class="ui statistic">
-                <div class="number"><%= uiCollections.length %></div>
-                <div class="description">UI Collections</div>
+                <div class="value"><%= uiCollections.length %></div>
+                <div class="label">UI Collections</div>
               </div>
               <div class="ui divided selection list">
                 <% for element in uiCollections: %>
@@ -241,8 +241,8 @@ type   : 'Semantic'
           <div class="column">
             <div class="ui stacked segment">
               <div class="ui statistic">
-                <div class="number"><%= uiViews.length %></div>
-                <div class="description">UI Views</div>
+                <div class="value"><%= uiViews.length %></div>
+                <div class="label">UI Views</div>
               </div>
               <div class="ui divided selection list">
                 <% for element in uiViews: %>
@@ -254,8 +254,8 @@ type   : 'Semantic'
           <div class="column">
             <div class="ui stacked segment">
               <div class="ui statistic">
-                <div class="number"><%= uiModules.length %></div>
-                <div class="description">UI Modules</div>
+                <div class="value"><%= uiModules.length %></div>
+                <div class="label">UI Modules</div>
               </div>
               <div class="ui divided selection list">
                 <% for element in uiModules: %>
