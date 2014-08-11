@@ -113,6 +113,34 @@ themes      : ['Default', 'Basic']
           199 Votes
         </div>
       </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/demo/highres4.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Introverted Dog</div>
+          <div class="meta">18 days ago</div>
+          <div class="description">Introverted dogs don't like to say much, but thats ok, dogs can't talk anyways.</div>
+        </div>
+        <div class="extra content">
+          <i class="check icon"></i>
+          199 Votes
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/demo/highres5.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Large Dog</div>
+          <div class="meta">22 days ago</div>
+          <div class="description">Large dogs just take up a lot of space. There's not much to be said.</div>
+        </div>
+        <div class="extra content">
+          <i class="check icon"></i>
+          199 Votes
+        </div>
+      </div>
     </div>
   </div>
 

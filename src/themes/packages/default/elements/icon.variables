@@ -10,7 +10,7 @@
 
 @opacity: 0.75;
 @width: 1.23em;
-@height: 1em;
+@height: 0em;
 @distanceFromText: 0em;
 
 @linkDuration: 0.3s;
