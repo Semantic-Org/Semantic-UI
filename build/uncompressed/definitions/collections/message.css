@@ -83,13 +83,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -354,59 +356,101 @@
   background-color: #dff0d8;
   color: #3c763d;
 }
+.ui.positive.message .header {
+  color: #336534;
+}
 .ui.negative.message {
   background-color: #f2dede;
   color: #a94442;
+}
+.ui.negative.message .header {
+  color: #973d3b;
 }
 /* User Action */
 .ui.info.message {
   background-color: #d9edf7;
   color: #31708f;
 }
+.ui.info.message .header {
+  color: #2a617c;
+}
 .ui.warning.message {
   background-color: #fcf8e3;
   color: #8a6d3b;
+}
+.ui.warning.message .header {
+  color: #785f33;
 }
 .ui.error.message {
   background-color: #f2dede;
   color: #a94442;
 }
+.ui.error.message .header {
+  color: #973d3b;
+}
 .ui.success.message {
   background-color: #dff0d8;
   color: #3c763d;
+}
+.ui.success.message .header {
+  color: #336534;
 }
 /* Colors */
 .ui.blue.message {
   background-color: #d3e4f3;
   color: #0074d9;
 }
+.ui.blue.message .header {
+  color: #0066c0;
+}
 .ui.green.message {
   background-color: #def2e0;
   color: #2ecc40;
+}
+.ui.green.message .header {
+  color: #29b739;
 }
 .ui.orange.message {
   background-color: #f7e5d6;
   color: #ff851b;
 }
+.ui.orange.message .header {
+  color: #ff7701;
+}
 .ui.pink.message {
   background-color: #f9cee6;
   color: #d9499a;
+}
+.ui.pink.message .header {
+  color: #d5348e;
 }
 .ui.purple.message {
   background-color: #e0ddf5;
   color: #564f8a;
 }
+.ui.purple.message .header {
+  color: #4c467a;
+}
 .ui.red.message {
   background-color: #f8d5d3;
   color: #ff4136;
+}
+.ui.red.message .header {
+  color: #ff291c;
 }
 .ui.teal.message {
   background-color: #d2f5f5;
   color: #39cccc;
 }
+.ui.teal.message .header {
+  color: #30bbbb;
+}
 .ui.yellow.message {
   background-color: #fcf5d8;
   color: #b58105;
+}
+.ui.yellow.message .header {
+  color: #9c6f04;
 }
 /*--------------
      Sizes

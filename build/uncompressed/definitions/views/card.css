@@ -83,13 +83,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -183,11 +185,11 @@
       Cards
 ---------------*/
 .ui.cards {
-  margin: 1em -0.5em;
+  margin: 1em -0.5em 0em;
 }
 .ui.cards > .card {
   display: block;
-  margin: 0em 0.5em 2.5em;
+  margin: 0em 0.5em 1.5em;
   float: left;
 }
 .ui.cards:first-child,

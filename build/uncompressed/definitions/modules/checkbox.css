@@ -83,13 +83,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -397,7 +399,7 @@
 /* Active */
 .ui.slider.checkbox input:checked ~ .box:before,
 .ui.slider.checkbox input:checked ~ label:before {
-  background-color: #2ecc40;
+  background-color: #3c763d;
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
@@ -464,11 +466,11 @@
 /* Active */
 .ui.toggle.checkbox input:checked ~ .box,
 .ui.toggle.checkbox input:checked ~ label {
-  color: #2ecc40;
+  color: #3c763d;
 }
 .ui.toggle.checkbox input:checked ~ .box:before,
 .ui.toggle.checkbox input:checked ~ label:before {
-  background-color: #2ecc40;
+  background-color: #3c763d;
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {

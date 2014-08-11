@@ -96,13 +96,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -184,7 +186,7 @@ i.icon {
   opacity: 0.75;
   margin: 0em 0em 0em 0em;
   width: 1.23em;
-  height: 1em;
+  height: 0em;
   font-family: 'Icons';
   font-style: normal;
   line-height: 1;
@@ -192,7 +194,6 @@ i.icon {
   text-decoration: inherit;
   text-align: center;
   speak: none;
-  box-sizing: border-box;
   font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-backface-visibility: hidden;
@@ -309,7 +310,7 @@ i.counterclockwise.rotated.icon {
 i.bordered.icon {
   width: 2em;
   height: 2em;
-  padding: 0.5em 0.385em !important;
+  padding: 1em 0.385em !important;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
 }

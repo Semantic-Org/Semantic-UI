@@ -20,7 +20,8 @@
 @textColor: @white;
 @overflow: hidden;
 
-@elementFilter: ~"blur(15px) grayscale(0.7)";
+// @elementFilter: ~"blur(15px) grayscale(0.7)";
+@elementFilter: '';
 
 /* Hidden (Default) */
 @hiddenOpacity: 0;

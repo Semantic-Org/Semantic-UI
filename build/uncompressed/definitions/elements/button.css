@@ -83,13 +83,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -939,13 +941,13 @@
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-  background-color: #2ecc40 !important;
+  background-color: #3c763d !important;
   box-shadow: none !important;
   text-shadow: none;
   color: #ffffff !important;
 }
 .ui.button.toggle.active:hover {
-  background-color: #40d451 !important;
+  background-color: #458746 !important;
   text-shadow: none;
   color: #ffffff !important;
 }
@@ -1713,7 +1715,7 @@
 ----------------*/
 .ui.positive.buttons .button,
 .ui.positive.button {
-  background-color: #2ecc40 !important;
+  background-color: #3c763d !important;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
@@ -1726,13 +1728,13 @@
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background-color: #40d451 !important;
+  background-color: #458746 !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: #27af37 !important;
+  background-color: #305e31 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1740,7 +1742,7 @@
 .ui.positive.buttons .button.active:active,
 .ui.positive.button.active,
 .ui.positive.button .button.active:active {
-  background-color: #29b739;
+  background-color: #336534;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1749,7 +1751,7 @@
 ----------------*/
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #ff4136 !important;
+  background-color: #a94442 !important;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
@@ -1762,13 +1764,13 @@
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
-  background-color: #ff5950 !important;
+  background-color: #b94e4c !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #ff1f12 !important;
+  background-color: #8f3a38 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1776,7 +1778,7 @@
 .ui.negative.buttons .button.active:active,
 .ui.negative.button.active,
 .ui.negative.button .button.active:active {
-  background-color: #ff291c;
+  background-color: #973d3b;
   color: #ffffff;
   text-shadow: none;
 }

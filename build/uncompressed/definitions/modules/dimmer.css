@@ -46,19 +46,6 @@
      Load Default
 -------------------*/
 /*******************************
-            Dimmer
-*******************************/
-/* Hidden (Default) */
-/* Content */
-/* Visible */
-/*-------------------
-      Variations
---------------------*/
-/* Simple */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -96,13 +83,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -145,6 +134,19 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Dimmer
+*******************************/
+/* Hidden (Default) */
+/* Content */
+/* Visible */
+/*-------------------
+      Variations
+--------------------*/
+/* Simple */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -200,7 +202,7 @@
 .ui.dimmer > .content > div {
   display: table-cell;
   vertical-align: middle;
-  color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
 }
 /* Loose Coupling */
 .ui.segment > .ui.dimmer {
@@ -245,8 +247,8 @@
   position: absolute;
 }
 body.ui.dimmed.dimmable > :not(.dimmer) {
-  -webkit-filter: blur(15px) grayscale(0.7);
-          filter: blur(15px) grayscale(0.7);
+  -webkit-filter: '';
+          filter: '';
 }
 /*--------------
     Aligned
@@ -264,7 +266,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   background: rgba(255, 255, 255, 0.85);
 }
 .ui.inverted.dimmer > .content > * {
-  color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
 }
 /*--------------
      Simple

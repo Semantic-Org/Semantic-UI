@@ -22,10 +22,21 @@
            Statistic
 *******************************/
 
+/* Standalone */
 .ui.statistic {
   display: @display;
   margin: @margin;
+  max-width: @maxWidth;
 }
+
+/* Grouped */
+.ui.statistics > .statistic {
+  display: @elementDisplay;
+  float: @elementFloat;
+  margin: @elementMargin;
+  max-width: @elementMaxWidth;
+}
+
 
 /*******************************
             Group
@@ -51,13 +62,6 @@
 }
 .ui.statistics:last-child {
   margin-bottom: 0em;
-}
-
-/* Each */
-.ui.statistics > .statistic {
-  display: @elementDisplay;
-  float: @elementFloat;
-  margin: @elementMargin;
 }
 
 
@@ -116,14 +120,13 @@
 
 .ui.statistics .statistic > .text.value,
 .ui.statistic > .text.value {
-  font-size: 2em;
-  line-height: 1em;
-  min-height: 4rem;
-  text-align: left;
+  line-height: @textLabelLineHeight;
+  min-height: @textLabelMinHeight;
+  text-align: center;
 }
 .ui.statistics .statistic > .text.value + .label,
 .ui.statistic > .text.value + .label {
-  text-align: left;
+  text-align: center;
 }
 
 /*--------------
@@ -132,8 +135,8 @@
 
 .ui.statistics .statistic > .value img,
 .ui.statistic > .value img {
-  max-height: 4rem;
-  vertical-align: top;
+  max-height: @imageHeight;
+  vertical-align: @imageVerticalAlign;
 }
 
 
@@ -150,17 +153,23 @@
 .ui.horizontal.statistic {
   display: block;
   margin: 0em;
+  max-width: 9999px;
 }
 .ui.horizontal.statistics .statistic {
   float: none;
   margin: @horizontalGroupElementMargin;
+  max-width: 9999px;
+}
+
+.ui.horizontal.statistic > .text.value,
+.ui.horizontal.statistics > .statistic > .text.value {
+  min-height: 0em !important;
 }
 
 .ui.horizontal.statistics .statistic > .value,
 .ui.horizontal.statistic > .value {
   display: inline-block;
   vertical-align: middle;
-  font-size: @horizontalValueSize;
 }
 .ui.horizontal.statistics .statistic > .label,
 .ui.horizontal.statistic > .label {
@@ -169,7 +178,50 @@
   margin: 0em 0em 0em @horizontalLabelDistance;
 }
 
+/*--------------
+     Colors
+---------------*/
 
+.ui.blue.statistics .statistic > .value,
+.ui.statistics .blue.statistic > .value,
+.ui.blue.statistic > .value {
+  color: @blueTextColor;
+}
+.ui.green.statistics .statistic > .value,
+.ui.statistics .green.statistic > .value,
+.ui.green.statistic > .value {
+  color: @greenTextColor;
+}
+.ui.orange.statistics .statistic > .value,
+.ui.statistics .orange.statistic > .value,
+.ui.orange.statistic > .value {
+  color: @orangeTextColor;
+}
+.ui.pink.statistics .statistic > .value,
+.ui.statistics .pink.statistic > .value,
+.ui.pink.statistic > .value {
+  color: @pinkTextColor;
+}
+.ui.purple.statistics .statistic > .value,
+.ui.statistics .purple.statistic > .value,
+.ui.purple.statistic > .value {
+  color: @purpleTextColor;
+}
+.ui.red.statistics .statistic > .value,
+.ui.statistics .red.statistic > .value,
+.ui.red.statistic > .value {
+  color: @redTextColor;
+}
+.ui.teal.statistics .statistic > .value,
+.ui.statistics .teal.statistic > .value,
+.ui.teal.statistic > .value {
+  color: @tealTextColor;
+}
+.ui.yellow.statistics .statistic > .value,
+.ui.statistics .yellow.statistic > .value,
+.ui.yellow.statistic > .value {
+  color: @yellowTextColor;
+}
 
 /*--------------
     Floated
@@ -177,9 +229,14 @@
 
 .ui.left.floated.statistic {
   float: left;
+  margin: @leftFloatedMargin;
 }
 .ui.right.floated.statistic {
   float: right;
+  margin: @rightFloatedMargin;
+}
+.ui.floated.statistic:last-child {
+  margin-bottom: 0em;
 }
 
 /*--------------
@@ -192,5 +249,53 @@
 .ui.inverted.statistic .label {
   color: @invertedLabelColor;
 }
+
+
+/*--------------
+     Sizes
+---------------*/
+
+.ui.statistics .statistic > .value,
+.ui.statistic > .value {
+  font-size: @valueSize;
+}
+.ui.horizontal.statistics .statistic > .value,
+.ui.horizontal.statistic > .value {
+  font-size: @horizontalValueSize;
+}
+.ui.statistics .statistic > .text.value,
+.ui.statistic > .text.value {
+  font-size: @textLabelSize;
+}
+
+/* Small */
+.ui.small.statistics .statistic > .value,
+.ui.small.statistic > .value {
+  font-size: @smallValueSize;
+}
+.ui.small.horizontal.statistics .statistic > .value,
+.ui.small.horizontal.statistic > .value {
+  font-size: @smallHorizontalValueSize;
+}
+.ui.small.statistics .statistic > .text.value,
+.ui.small.statistic > .text.value {
+  font-size: @smallTextLabelSize;
+}
+
+/* Large */
+.ui.large.statistics .statistic > .value,
+.ui.large.statistic > .value {
+  font-size: @largeValueSize;
+}
+.ui.large.horizontal.statistics .statistic > .value,
+.ui.large.horizontal.statistic > .value {
+  font-size: @largeHorizontalValueSize;
+}
+.ui.large.statistics .statistic > .text.value,
+.ui.large.statistic > .text.value {
+  font-size: @largeTextLabelSize;
+}
+
+
 
 .loadUIOverrides();

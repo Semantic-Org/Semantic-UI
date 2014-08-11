@@ -83,13 +83,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -327,13 +329,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -597,16 +601,16 @@
 }
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #ff7169;
+  color: #c0605e;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #ff7169;
+  color: #c0605e;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #ff5950;
+  color: #b94e4c;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #ff5950;
+  color: #b94e4c;
 }
 /*--------------------
         Focus
@@ -652,11 +656,11 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #ff4136;
+  color: #a94442;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #ff4136;
+  border-color: #a94442;
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
@@ -677,9 +681,9 @@
 .ui.form .field.error input[type="tel"] {
   background: #f2dede;
   border-color: #da9797;
-  color: #ff4136;
+  color: #a94442;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  box-shadow: 3px 0em 0em 0em #ff4136 inset;
+  box-shadow: 3px 0em 0em 0em #a94442 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -691,9 +695,9 @@
 .ui.form .field.error input[type="tel"]:focus {
   background: #f2dede;
   border-color: #da9797;
-  color: #ff5950;
+  color: #b94e4c;
   -webkit-appearance: none;
-  box-shadow: 3px 0em 0em 0em #ff5950 inset;
+  box-shadow: 3px 0em 0em 0em #b94e4c inset;
 }
 /*------------------
     Dropdown Error
@@ -704,7 +708,7 @@
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
   background: #f2dede;
-  color: #ff4136;
+  color: #a94442;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
@@ -735,7 +739,7 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #ff4136;
+  color: #a94442;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
@@ -748,7 +752,7 @@
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #ff4136;
+  color: #a94442;
 }
 /*--------------------
        Disabled
@@ -793,7 +797,7 @@
   margin: -0.2em 0em 0em 0.2em;
   vertical-align: top;
   content: '*';
-  color: #ff4136;
+  color: #a94442;
 }
 /*--------------------
       Date Input
@@ -1137,13 +1141,15 @@
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -2044,6 +2050,7 @@ body > .ui.grid:not(.page) {
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
   .ui.stackable.grid > .column.grid > .column,
+  .ui.stackable.grid > .column.row > .column,
   .ui.stackable.grid > .row > .column,
   .ui.stackable.grid > .column {
     display: block !important;
@@ -2169,13 +2176,15 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -3792,13 +3801,15 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -4063,59 +4074,101 @@ body > .ui.grid:not(.page) {
   background-color: #dff0d8;
   color: #3c763d;
 }
+.ui.positive.message .header {
+  color: #336534;
+}
 .ui.negative.message {
   background-color: #f2dede;
   color: #a94442;
+}
+.ui.negative.message .header {
+  color: #973d3b;
 }
 /* User Action */
 .ui.info.message {
   background-color: #d9edf7;
   color: #31708f;
 }
+.ui.info.message .header {
+  color: #2a617c;
+}
 .ui.warning.message {
   background-color: #fcf8e3;
   color: #8a6d3b;
+}
+.ui.warning.message .header {
+  color: #785f33;
 }
 .ui.error.message {
   background-color: #f2dede;
   color: #a94442;
 }
+.ui.error.message .header {
+  color: #973d3b;
+}
 .ui.success.message {
   background-color: #dff0d8;
   color: #3c763d;
+}
+.ui.success.message .header {
+  color: #336534;
 }
 /* Colors */
 .ui.blue.message {
   background-color: #d3e4f3;
   color: #0074d9;
 }
+.ui.blue.message .header {
+  color: #0066c0;
+}
 .ui.green.message {
   background-color: #def2e0;
   color: #2ecc40;
+}
+.ui.green.message .header {
+  color: #29b739;
 }
 .ui.orange.message {
   background-color: #f7e5d6;
   color: #ff851b;
 }
+.ui.orange.message .header {
+  color: #ff7701;
+}
 .ui.pink.message {
   background-color: #f9cee6;
   color: #d9499a;
+}
+.ui.pink.message .header {
+  color: #d5348e;
 }
 .ui.purple.message {
   background-color: #e0ddf5;
   color: #564f8a;
 }
+.ui.purple.message .header {
+  color: #4c467a;
+}
 .ui.red.message {
   background-color: #f8d5d3;
   color: #ff4136;
+}
+.ui.red.message .header {
+  color: #ff291c;
 }
 .ui.teal.message {
   background-color: #d2f5f5;
   color: #39cccc;
 }
+.ui.teal.message .header {
+  color: #30bbbb;
+}
 .ui.yellow.message {
   background-color: #fcf5d8;
   color: #b58105;
+}
+.ui.yellow.message .header {
+  color: #9c6f04;
 }
 /*--------------
      Sizes
@@ -4227,13 +4280,15 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -5030,13 +5085,15 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -5886,13 +5943,13 @@ body > .ui.grid:not(.page) {
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-  background-color: #2ecc40 !important;
+  background-color: #3c763d !important;
   box-shadow: none !important;
   text-shadow: none;
   color: #ffffff !important;
 }
 .ui.button.toggle.active:hover {
-  background-color: #40d451 !important;
+  background-color: #458746 !important;
   text-shadow: none;
   color: #ffffff !important;
 }
@@ -6660,7 +6717,7 @@ body > .ui.grid:not(.page) {
 ----------------*/
 .ui.positive.buttons .button,
 .ui.positive.button {
-  background-color: #2ecc40 !important;
+  background-color: #3c763d !important;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
@@ -6673,13 +6730,13 @@ body > .ui.grid:not(.page) {
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background-color: #40d451 !important;
+  background-color: #458746 !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: #27af37 !important;
+  background-color: #305e31 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6687,7 +6744,7 @@ body > .ui.grid:not(.page) {
 .ui.positive.buttons .button.active:active,
 .ui.positive.button.active,
 .ui.positive.button .button.active:active {
-  background-color: #29b739;
+  background-color: #336534;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6696,7 +6753,7 @@ body > .ui.grid:not(.page) {
 ----------------*/
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #ff4136 !important;
+  background-color: #a94442 !important;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
@@ -6709,13 +6766,13 @@ body > .ui.grid:not(.page) {
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
-  background-color: #ff5950 !important;
+  background-color: #b94e4c !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #ff1f12 !important;
+  background-color: #8f3a38 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6723,7 +6780,7 @@ body > .ui.grid:not(.page) {
 .ui.negative.buttons .button.active:active,
 .ui.negative.button.active,
 .ui.negative.button .button.active:active {
-  background-color: #ff291c;
+  background-color: #973d3b;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6880,13 +6937,15 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -7197,13 +7256,15 @@ body > .ui.grid:not(.page) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -8341,13 +8402,15 @@ i.flag.zimbabwe {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -8882,13 +8945,15 @@ h5.ui.header {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -8970,7 +9035,7 @@ i.icon {
   opacity: 0.75;
   margin: 0em 0em 0em 0em;
   width: 1.23em;
-  height: 1em;
+  height: 0em;
   font-family: 'Icons';
   font-style: normal;
   line-height: 1;
@@ -8978,7 +9043,6 @@ i.icon {
   text-decoration: inherit;
   text-align: center;
   speak: none;
-  box-sizing: border-box;
   font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-backface-visibility: hidden;
@@ -9095,7 +9159,7 @@ i.counterclockwise.rotated.icon {
 i.bordered.icon {
   width: 2em;
   height: 2em;
-  padding: 0.5em 0.385em !important;
+  padding: 1em 0.385em !important;
   box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
 }
@@ -11039,13 +11103,15 @@ i.icon.weixin:before {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -11406,13 +11472,15 @@ img.ui.bordered.image {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -11826,13 +11894,15 @@ img.ui.bordered.image {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -12826,13 +12896,15 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -13700,13 +13772,15 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -14245,13 +14319,15 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -14514,7 +14590,7 @@ a.ui.yellow.label:hover:before {
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #2ecc40;
+  color: #3c763d;
 }
 /* Disabled */
 .ui.steps .disabled.step {
@@ -14707,13 +14783,15 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -15190,13 +15268,15 @@ input[type="password"] {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -15477,13 +15557,15 @@ a:hover {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -15805,13 +15887,15 @@ a:hover {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -16197,13 +16281,15 @@ a:hover {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -16511,7 +16597,7 @@ a:hover {
 /* Active */
 .ui.slider.checkbox input:checked ~ .box:before,
 .ui.slider.checkbox input:checked ~ label:before {
-  background-color: #2ecc40;
+  background-color: #3c763d;
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
@@ -16578,11 +16664,11 @@ a:hover {
 /* Active */
 .ui.toggle.checkbox input:checked ~ .box,
 .ui.toggle.checkbox input:checked ~ label {
-  color: #2ecc40;
+  color: #3c763d;
 }
 .ui.toggle.checkbox input:checked ~ .box:before,
 .ui.toggle.checkbox input:checked ~ label:before {
-  background-color: #2ecc40;
+  background-color: #3c763d;
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
@@ -16701,19 +16787,6 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-            Dimmer
-*******************************/
-/* Hidden (Default) */
-/* Content */
-/* Visible */
-/*-------------------
-      Variations
---------------------*/
-/* Simple */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -16751,13 +16824,15 @@ a:hover {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -16800,6 +16875,19 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Dimmer
+*******************************/
+/* Hidden (Default) */
+/* Content */
+/* Visible */
+/*-------------------
+      Variations
+--------------------*/
+/* Simple */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -16855,7 +16943,7 @@ a:hover {
 .ui.dimmer > .content > div {
   display: table-cell;
   vertical-align: middle;
-  color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
 }
 /* Loose Coupling */
 .ui.segment > .ui.dimmer {
@@ -16900,8 +16988,8 @@ a:hover {
   position: absolute;
 }
 body.ui.dimmed.dimmable > :not(.dimmer) {
-  -webkit-filter: blur(15px) grayscale(0.7);
-          filter: blur(15px) grayscale(0.7);
+  -webkit-filter: '';
+          filter: '';
 }
 /*--------------
     Aligned
@@ -16919,7 +17007,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   background: rgba(255, 255, 255, 0.85);
 }
 .ui.inverted.dimmer > .content > * {
-  color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
 }
 /*--------------
      Simple
@@ -17038,13 +17126,15 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -17707,13 +17797,15 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -18175,13 +18267,15 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -18458,13 +18552,15 @@ a.ui.nag {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -18830,13 +18926,15 @@ a.ui.nag {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -19165,13 +19263,15 @@ a.ui.nag {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -19544,13 +19644,15 @@ a.ui.nag {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -19817,13 +19919,15 @@ a.ui.nag {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -20188,13 +20292,15 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -20383,13 +20489,15 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -20587,13 +20695,15 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -21670,13 +21780,15 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -21914,13 +22026,15 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -22014,11 +22128,11 @@ body.pushed.scrolling.ui.dimmable {
       Cards
 ---------------*/
 .ui.cards {
-  margin: 1em -0.5em;
+  margin: 1em -0.5em 0em;
 }
 .ui.cards > .card {
   display: block;
-  margin: 0em 0.5em 2.5em;
+  margin: 0em 0.5em 1.5em;
   float: left;
 }
 .ui.cards:first-child,
@@ -22759,13 +22873,15 @@ a.ui.card:hover,
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -23140,13 +23256,15 @@ a.ui.card:hover,
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -23389,6 +23507,7 @@ a.ui.card:hover,
 .ui.feed > .event > .content .meta > *:after {
   content: '|';
   color: rgba(0, 0, 0, 0.2);
+  top: 0em;
   left: -1em;
   opacity: 1;
   position: absolute;
@@ -23516,13 +23635,15 @@ a.ui.card:hover,
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -23995,13 +24116,15 @@ a.ui.card:hover,
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -24805,13 +24928,15 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 /*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
-/*--- Text Colors ---*/
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
 /*-------------------
     Emotive Colors
 --------------------*/
-/* Positive / Negative */
-/* Messages */
+/* Mood */
+/* Status */
+/* Darkened Headers */
 /*-------------------
      Neutral Text
 --------------------*/
@@ -24862,10 +24987,12 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 /* Group */
 /*-------------------
-      Elements
+       Content
 --------------------*/
 /* Value */
 /* Label */
+/* Text */
+/* Label Image */
 /*-------------------
       Types
 --------------------*/
@@ -24893,16 +25020,25 @@ ol.ui.horizontal.list li:before,
 /*******************************
            Statistic
 *******************************/
+/* Standalone */
 .ui.statistic {
   display: inline-block;
   margin: 1em 0em;
+  max-width: 175px;
+}
+/* Grouped */
+.ui.statistics > .statistic {
+  display: block;
+  float: left;
+  margin: 0em 1em 2em;
+  max-width: 175px;
 }
 /*******************************
             Group
 *******************************/
 .ui.statistics {
   display: block;
-  margin: 1em -1.5em;
+  margin: 1em -1em;
 }
 /* Clearing */
 .ui.statistics:after {
@@ -24919,12 +25055,6 @@ ol.ui.horizontal.list li:before,
 .ui.statistics:last-child {
   margin-bottom: 0em;
 }
-/* Each */
-.ui.statistics > .statistic {
-  display: block;
-  float: left;
-  margin: 0em 1.5em 2em;
-}
 /*******************************
             Content
 *******************************/
@@ -24934,7 +25064,7 @@ ol.ui.horizontal.list li:before,
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
   color: #333333;
@@ -24948,7 +25078,7 @@ ol.ui.horizontal.list li:before,
 .ui.statistic > .label {
   margin-top: 0.25em;
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);
   text-transform: none;
@@ -24969,22 +25099,21 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .text.value,
 .ui.statistic > .text.value {
-  font-size: 2em;
   line-height: 1em;
-  min-height: 4rem;
-  text-align: left;
+  min-height: 2em;
+  text-align: center;
 }
 .ui.statistics .statistic > .text.value + .label,
 .ui.statistic > .text.value + .label {
-  text-align: left;
+  text-align: center;
 }
 /*--------------
    Image Value
 ---------------*/
 .ui.statistics .statistic > .value img,
 .ui.statistic > .value img {
-  max-height: 4rem;
-  vertical-align: top;
+  max-height: 3rem;
+  vertical-align: baseline;
 }
 /*******************************
             Variations
@@ -24996,16 +25125,21 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.statistic {
   display: block;
   margin: 0em;
+  max-width: 9999px;
 }
 .ui.horizontal.statistics .statistic {
   float: none;
   margin: 1em 0em;
+  max-width: 9999px;
+}
+.ui.horizontal.statistic > .text.value,
+.ui.horizontal.statistics > .statistic > .text.value {
+  min-height: 0em !important;
 }
 .ui.horizontal.statistics .statistic > .value,
 .ui.horizontal.statistic > .value {
   display: inline-block;
   vertical-align: middle;
-  font-size: 3em;
 }
 .ui.horizontal.statistics .statistic > .label,
 .ui.horizontal.statistic > .label {
@@ -25014,13 +25148,61 @@ ol.ui.horizontal.list li:before,
   margin: 0em 0em 0em 0.75em;
 }
 /*--------------
+     Colors
+---------------*/
+.ui.blue.statistics .statistic > .value,
+.ui.statistics .blue.statistic > .value,
+.ui.blue.statistic > .value {
+  color: #0074d9;
+}
+.ui.green.statistics .statistic > .value,
+.ui.statistics .green.statistic > .value,
+.ui.green.statistic > .value {
+  color: #2ecc40;
+}
+.ui.orange.statistics .statistic > .value,
+.ui.statistics .orange.statistic > .value,
+.ui.orange.statistic > .value {
+  color: #ff851b;
+}
+.ui.pink.statistics .statistic > .value,
+.ui.statistics .pink.statistic > .value,
+.ui.pink.statistic > .value {
+  color: #d9499a;
+}
+.ui.purple.statistics .statistic > .value,
+.ui.statistics .purple.statistic > .value,
+.ui.purple.statistic > .value {
+  color: #564f8a;
+}
+.ui.red.statistics .statistic > .value,
+.ui.statistics .red.statistic > .value,
+.ui.red.statistic > .value {
+  color: #ff4136;
+}
+.ui.teal.statistics .statistic > .value,
+.ui.statistics .teal.statistic > .value,
+.ui.teal.statistic > .value {
+  color: #39cccc;
+}
+.ui.yellow.statistics .statistic > .value,
+.ui.statistics .yellow.statistic > .value,
+.ui.yellow.statistic > .value {
+  color: #b58105;
+}
+/*--------------
     Floated
 ---------------*/
 .ui.left.floated.statistic {
   float: left;
+  margin: 0em 2em 1em 0em;
 }
 .ui.right.floated.statistic {
   float: right;
+  margin: 0em 0em 1em 2em;
+}
+.ui.floated.statistic:last-child {
+  margin-bottom: 0em;
 }
 /*--------------
     Inverted
@@ -25030,6 +25212,47 @@ ol.ui.horizontal.list li:before,
 }
 .ui.inverted.statistic .label {
   color: rgba(255, 255, 255, 0.8);
+}
+/*--------------
+     Sizes
+---------------*/
+.ui.statistics .statistic > .value,
+.ui.statistic > .value {
+  font-size: 4rem;
+}
+.ui.horizontal.statistics .statistic > .value,
+.ui.horizontal.statistic > .value {
+  font-size: 3rem;
+}
+.ui.statistics .statistic > .text.value,
+.ui.statistic > .text.value {
+  font-size: 2rem;
+}
+/* Small */
+.ui.small.statistics .statistic > .value,
+.ui.small.statistic > .value {
+  font-size: 3rem;
+}
+.ui.small.horizontal.statistics .statistic > .value,
+.ui.small.horizontal.statistic > .value {
+  font-size: 2rem;
+}
+.ui.small.statistics .statistic > .text.value,
+.ui.small.statistic > .text.value {
+  font-size: 1.5rem;
+}
+/* Large */
+.ui.large.statistics .statistic > .value,
+.ui.large.statistic > .value {
+  font-size: 5rem;
+}
+.ui.large.horizontal.statistics .statistic > .value,
+.ui.large.horizontal.statistic > .value {
+  font-size: 4rem;
+}
+.ui.large.statistics .statistic > .text.value,
+.ui.large.statistic > .text.value {
+  font-size: 2.5rem;
 }
 /*******************************
            Overrides

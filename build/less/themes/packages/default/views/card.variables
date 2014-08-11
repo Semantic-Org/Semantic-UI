@@ -30,8 +30,8 @@
 @groupDisplay: block;
 @groupFloat: left;
 @horizontalSpacing: 0.5em;
-@rowSpacing: 2.5em;
-@groupCardsMargin: 1em -@horizontalSpacing;
+@rowSpacing: 1.5em;
+@groupCardsMargin: 1em -@horizontalSpacing 0em;
 @groupCardMargin: 0em @horizontalSpacing @rowSpacing;
 
 /*-------------------
