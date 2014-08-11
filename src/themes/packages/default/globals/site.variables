@@ -34,7 +34,7 @@
 @grey             : #CCCCCC;
 @white            : #FFFFFF;
 
-@primaryColor     : @teal;
+@primaryColor     : @blue;
 @secondaryColor   : @black;
 @tertiaryColor    : @orange;
 
@@ -126,17 +126,7 @@
 @offWhite         : #FAFAFA;
 @darkWhite        : #F0F0F0;
 
-/*--- Text Colors ---*/
-@blueTextColor    : @blue;
-@greenTextColor   : @green;
-@orangeTextColor  : @orange;
-@pinkTextColor    : @pink;
-@purpleTextColor  : @purple;
-@redTextColor     : @red;
-@tealTextColor    : @teal;
-@yellowTextColor  : #B58105; // Yellow text illegible
-
-/*--- Backgrounds ---*/
+/*--- Colored Backgrounds ---*/
 @blueBackground   : #D3E4F3;
 @greenBackground  : #DEF2E0;
 @orangeBackground : #F7E5D6;
@@ -146,39 +136,69 @@
 @tealBackground   : #D2F5F5;
 @yellowBackground : #FCF5D8;
 
+/*--- Colored Text ---*/
+@blueTextColor    : @blue;
+@greenTextColor   : @green;
+@orangeTextColor  : @orange;
+@pinkTextColor    : @pink;
+@purpleTextColor  : @purple;
+@redTextColor     : @red;
+@tealTextColor    : @teal;
+@yellowTextColor  : #B58105; // Yellow text is illegible
+
+/*--- Colored Headers ---*/
+@blueHeaderColor   : darken(@blueTextColor, 5);
+@greenHeaderColor  : darken(@greenTextColor, 5);
+@orangeHeaderColor : darken(@orangeTextColor, 5);
+@pinkHeaderColor   : darken(@pinkTextColor, 5);
+@purpleHeaderColor : darken(@purpleTextColor, 5);
+@redHeaderColor    : darken(@redTextColor, 5);
+@tealHeaderColor   : darken(@tealTextColor, 5);
+@yellowHeaderColor : darken(@yellowTextColor, 5);
+
+
 
 /*-------------------
     Emotive Colors
 --------------------*/
 
-/* Positive / Negative */
+/* Mood */
 @positiveBackgroundColor : #DFF0D8;
 @negativeBackgroundColor : #F2DEDE;
 
 @positiveBorderColor     : #D6E9C6;
 @negativeBorderColor     : #DA9797;
 
-@positiveColor           : @green;
-@negativeColor           : @red;
+@positiveColor           : #3C763D;
+@negativeColor           : #A94442;
 
 @positiveTextColor       : #3C763D;
 @negativeTextColor       : #A94442;
 
-/* Messages */
-@infoBackgroundColor     : #D9EDF7;
-@warningBackgroundColor  : #FCF8E3;
-@successBackgroundColor  : @positiveBackgroundColor;
-@errorBackgroundColor    : @negativeBackgroundColor;
 
-@infoBorderColor         : #BCE8F1;
-@warningBorderColor      : #FAEBCC;
-@successBorderColor      : @positiveBorderColor;
-@errorBorderColor        : @negativeBorderColor;
+/* Status */
+@infoBackgroundColor    : #D9EDF7;
+@warningBackgroundColor : #FCF8E3;
+@successBackgroundColor : @positiveBackgroundColor;
+@errorBackgroundColor   : @negativeBackgroundColor;
 
-@infoTextColor           : #31708F;
-@warningTextColor        : #8A6D3B;
-@successTextColor        : @positiveTextColor;
-@errorTextColor          : @negativeTextColor;
+@infoBorderColor        : #BCE8F1;
+@warningBorderColor     : #FAEBCC;
+@successBorderColor     : @positiveBorderColor;
+@errorBorderColor       : @negativeBorderColor;
+
+@infoTextColor          : #31708F;
+@warningTextColor       : #8A6D3B;
+@successTextColor       : @positiveTextColor;
+@errorTextColor         : @negativeTextColor;
+
+/* Darkened Headers */
+@positiveHeaderColor : darken(@positiveTextColor, 5);
+@negativeHeaderColor : darken(@negativeTextColor, 5);
+@infoHeaderColor     : darken(@infoTextColor, 5);
+@warningHeaderColor  : darken(@warningTextColor, 5);
+@successHeaderColor  : darken(@successTextColor, 5);
+@errorHeaderColor    : darken(@errorTextColor, 5);
 
 /*-------------------
      Neutral Text

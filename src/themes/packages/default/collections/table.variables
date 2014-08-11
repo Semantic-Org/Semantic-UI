@@ -179,6 +179,6 @@
 @compactHorizontalPadding: 0.8em;
 
 /* Sizes */
-@small: 0.875em;
+@small: 0.9em;
 @medium: 1em;
 @large: 1.1em;

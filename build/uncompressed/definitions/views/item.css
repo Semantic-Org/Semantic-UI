@@ -189,9 +189,8 @@
   padding: 0em;
   border: none;
   border-radius: 0rem;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transition: -webkit-box-shadow 0.25s ease;
+  box-shadow: none;
+  -webkit-transition: box-shadow 0.25s ease;
           transition: box-shadow 0.25s ease;
   z-index: '';
 }
@@ -261,8 +260,7 @@
   background: none;
   margin: 0em;
   padding: 0em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   font-size: 1em;
   border: none;
   border-radius: 0em;
@@ -284,7 +282,7 @@
 .ui.items > .item > .content > .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   color: rgba(0, 0, 0, 0.85);
@@ -422,8 +420,7 @@
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);

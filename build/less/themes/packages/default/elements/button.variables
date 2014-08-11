@@ -109,7 +109,7 @@
 @iconButtonOpacity: 0.9;
 
 /* Labeled Icon */
-@labeledIconWidth: @iconWidth + (@verticalPadding * 2);
+@labeledIconWidth: 1em + (@verticalPadding * 2);
 @labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
 @labeledIconPadding: (@horizontalPadding + @labeledIconWidth);
 @labeledIconBorder: rgba(0, 0, 0, 0.05);

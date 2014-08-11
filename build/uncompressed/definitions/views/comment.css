@@ -132,9 +132,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
             Comments
 *******************************/
@@ -159,6 +156,9 @@
 /* Threaded */
 /* Minimal */
 /* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -338,8 +338,7 @@
 .ui.threaded.comments .comment .comments {
   margin: -1.5em 0em 0em 1.25em;
   padding: 2em 0em 0em 2em;
-  -webkit-box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
-          box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
 }
 /*--------------------
         Minimal

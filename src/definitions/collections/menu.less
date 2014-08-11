@@ -54,7 +54,7 @@
 }
 
 /*--------------
-    Colors
+     Colors
 ---------------*/
 
 /* Text Color */
@@ -156,6 +156,15 @@
   margin-bottom: 0;
 }
 
+/*--------------
+      Icons
+---------------*/
+
+.ui.menu .item > i.icon {
+  opacity: @iconOpacity;
+  float: @iconFloat;
+  margin: @iconMargin;
+}
 
 /*--------------
      Button
@@ -385,6 +394,11 @@
   font-weight: @activeFontWeight;
   box-shadow: 0em @activeBorderSize 0em inset;
 }
+.ui.menu .active.item > i.icon {
+  opacity: @activeIconOpacity;
+}
+
+/* Vertical */
 .ui.vertical.menu .active.item {
   background: @activeBackground;
   border-radius: 0em;
@@ -399,7 +413,6 @@
 .ui.vertical.menu > .active.item:only-child {
   border-radius: 0em @borderRadius @borderRadius 0em;
 }
-
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
 }
@@ -407,6 +420,7 @@
   background-color: @subMenuActiveColor;
   box-shadow: none;
 }
+
 
 /*--------------
   Active Hover
@@ -461,6 +475,7 @@
   background: @verticalBackground;
 }
 
+/*--- Item ---*/
 .ui.vertical.menu .item {
   background: @verticalItemBackground;
   display: block;
@@ -476,18 +491,21 @@
   border-radius: 0px 0px @borderRadius @borderRadius;
 }
 
+/*--- Label ---*/
 .ui.vertical.menu .item > .label {
   float: right;
   text-align: center;
 }
+
+/*--- Icon ---*/
 .ui.vertical.menu .item > i.icon {
-  float: right;
   width: @iconWidth;
-  margin: 0em 0em 0em @iconMargin;
+  float: @verticalIconFloat;
+  margin: @verticalIconMargin;
 }
 .ui.vertical.menu .item > .label + i.icon {
-  float: none;
-  margin: 0em @iconLabelMargin 0em 0em;
+  float: @labelAndIconFloat;
+  margin: @labelAndIconMargin;
 }
 
 /*--- Border ---*/

@@ -138,12 +138,21 @@
 /*-------------------
          View
 --------------------*/
+/* Group */
 /*-------------------
       Elements
+--------------------*/
+/* Value */
+/* Label */
+/*-------------------
+      Types
 --------------------*/
 /*-------------------
       Variations
 --------------------*/
+/* Floated */
+/* Inverted */
+/* Size */
 /*------------------
      Load Theme
 -------------------*/
@@ -163,25 +172,142 @@
            Statistic
 *******************************/
 .ui.statistic {
+  display: inline-block;
   margin: 1em 0em;
-  text-align: center;
 }
-.ui.statistic:first-child {
+/*******************************
+            Group
+*******************************/
+.ui.statistics {
+  display: block;
+  margin: 1em -1.5em;
+}
+/* Clearing */
+.ui.statistics:after {
+  display: block;
+  content: ' ';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.ui.statistics:first-child {
   margin-top: 0em;
 }
-.ui.statistic:last-child {
+.ui.statistics:last-child {
   margin-bottom: 0em;
+}
+/* Each */
+.ui.statistics > .statistic {
+  display: block;
+  float: left;
+  margin: 0em 1.5em 2em;
 }
 /*******************************
             Content
 *******************************/
-.ui.statistic > .number {
+/*--------------
+      Value
+---------------*/
+.ui.statistics .statistic > .value,
+.ui.statistic > .value {
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 4em;
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.7);
+  font-weight: normal;
+  line-height: 1em;
+  color: #333333;
+  text-transform: uppercase;
+  text-align: center;
 }
-.ui.statistic > .description {
-  opacity: 0.8;
+/*--------------
+      Label
+---------------*/
+.ui.statistics .statistic > .label,
+.ui.statistic > .label {
+  margin-top: 0.25em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.4);
+  text-transform: none;
+  text-align: center;
+}
+/*******************************
+             Types
+*******************************/
+/*--------------
+   Icon Value
+---------------*/
+.ui.statistics .statistic > .value .icon,
+.ui.statistic > .value .icon {
+  opacity: 1;
+}
+/*--------------
+   Text Value
+---------------*/
+.ui.statistics .statistic > .text.value,
+.ui.statistic > .text.value {
+  font-size: 2em;
+  line-height: 1em;
+  min-height: 4rem;
+  text-align: left;
+}
+.ui.statistics .statistic > .text.value + .label,
+.ui.statistic > .text.value + .label {
+  text-align: left;
+}
+/*--------------
+   Image Value
+---------------*/
+.ui.statistics .statistic > .value img,
+.ui.statistic > .value img {
+  max-height: 4rem;
+  vertical-align: top;
+}
+/*******************************
+            Variations
+*******************************/
+/*--------------
+   Horizontal
+---------------*/
+.ui.horizontal.statistics,
+.ui.horizontal.statistic {
+  display: block;
+  margin: 0em;
+}
+.ui.horizontal.statistics .statistic {
+  float: none;
+  margin: 1em 0em;
+}
+.ui.horizontal.statistics .statistic > .value,
+.ui.horizontal.statistic > .value {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 3em;
+}
+.ui.horizontal.statistics .statistic > .label,
+.ui.horizontal.statistic > .label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0em 0em 0em 0.75em;
+}
+/*--------------
+    Floated
+---------------*/
+.ui.left.floated.statistic {
+  float: left;
+}
+.ui.right.floated.statistic {
+  float: right;
+}
+/*--------------
+    Inverted
+---------------*/
+.ui.inverted.statistic .value {
+  color: #ffffff;
+}
+.ui.inverted.statistic .label {
+  color: rgba(255, 255, 255, 0.8);
 }
 /*******************************
            Overrides

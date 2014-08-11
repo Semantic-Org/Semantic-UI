@@ -67,8 +67,12 @@
 ---------------*/
 
 /* Icon */
-@iconMargin: 0.5em;
-@iconLabelMargin: 0.25em;
+@iconFloat: none;
+@iconMargin: 0.25em 0em 0em 0em;
+@iconOpacity: 0.75;
+
+@verticalIconFloat: left;
+@verticalIconMargin: 0em 0em 0em 0.5em;
 
 /* Header */
 @headerBackground: rgba(0, 0, 0, 0.04);
@@ -110,6 +114,9 @@
 @labelVerticalPadding: 0.3em;
 @labelHorizontalPadding: 0.8em;
 
+@labelAndIconFloat: none;
+@labelAndIconMargin: 0em 0.5em 0em 0em;
+
 /* Dropdown */
 @dropdownBackground: #FFFFFF;
 @dropdownMenuOffset: 1px;
@@ -129,7 +136,6 @@
 @arrowVerticalHoverColor: #FAFAFA;
 @arrowVerticalActiveColor: #FCFCFC;
 
-
 /*--------------
      States
 ---------------*/
@@ -143,6 +149,7 @@
 @activeColor: @darkTextColor;
 @activeBorderSize: 0.2em;
 @activeFontWeight: normal;
+@activeIconOpacity: 1;
 
 @activeHoverBackground: @hoverBackground;
 @subMenuActiveColor: rgba(0, 0, 0, 0.03);

@@ -174,7 +174,7 @@
 /* Standard */
 .ui.header {
   border: none;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -477,12 +477,10 @@ h5.ui.header {
         Block
 --------------------*/
 .ui.block.header {
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.5em 1em;
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
   border: 1px solid #dddddd;
   border-radius: 0.3125rem;
 }
@@ -490,13 +488,11 @@ h5.ui.header {
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   margin: 0em;
   padding: 0.7em 1rem;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
   border: none;
   margin-left: 0px;
   margin-right: 0px;

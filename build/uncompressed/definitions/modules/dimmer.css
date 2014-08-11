@@ -46,6 +46,19 @@
      Load Default
 -------------------*/
 /*******************************
+            Dimmer
+*******************************/
+/* Hidden (Default) */
+/* Content */
+/* Visible */
+/*-------------------
+      Variations
+--------------------*/
+/* Simple */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -132,19 +145,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-            Dimmer
-*******************************/
-/* Hidden (Default) */
-/* Content */
-/* Visible */
-/*-------------------
-      Variations
---------------------*/
-/* Simple */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -200,7 +200,7 @@
 .ui.dimmer > .content > div {
   display: table-cell;
   vertical-align: middle;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 /* Loose Coupling */
 .ui.segment > .ui.dimmer {
@@ -264,7 +264,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   background: rgba(255, 255, 255, 0.85);
 }
 .ui.inverted.dimmer > .content > * {
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
      Simple

@@ -203,8 +203,7 @@
   position: relative;
   margin: 0em auto 1em;
   color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 1px;
-          box-shadow: 0px 0px 0px 1px;
+  box-shadow: 0px 0px 0px 1px;
   -webkit-animation: loaderFlipping 1s infinite ease;
           animation: loaderFlipping 1s infinite ease;
   margin-bottom: 1em;
@@ -217,13 +216,12 @@
   content: '';
   top: 0px;
   left: 0px;
-  -webkit-box-shadow: 0px 0px 0px 1px;
-          box-shadow: 0px 0px 0px 1px;
+  box-shadow: 0px 0px 0px 1px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
 .ui.flipping.loader .shape:before {
-  background-color: #39cccc;
+  background-color: #0074d9;
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
   z-index: 2;

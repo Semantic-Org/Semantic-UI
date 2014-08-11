@@ -171,6 +171,7 @@
 .ui.bottom.attached.message {
   margin-top: @attachedOffset;
   border-radius: 0em 0em @borderRadius @borderRadius;
+  box-shadow: @attachedBottomBoxShadow;
 }
 .ui.bottom.attached.message:not(:last-child) {
   margin-bottom: @verticalMargin;
@@ -235,9 +236,15 @@
   background-color: @positiveBackgroundColor;
   color: @positiveTextColor;
 }
+.ui.positive.message .header {
+  color: @positiveHeaderColor;
+}
 .ui.negative.message {
   background-color: @negativeBackgroundColor;
   color: @negativeTextColor;
+}
+.ui.negative.message .header {
+  color: @negativeHeaderColor;
 }
 
 /* User Action */
@@ -245,17 +252,29 @@
   background-color: @infoBackgroundColor;
   color: @infoTextColor;
 }
+.ui.info.message .header {
+  color: @infoHeaderColor;
+}
 .ui.warning.message {
   background-color: @warningBackgroundColor;
   color: @warningTextColor;
+}
+.ui.warning.message .header {
+  color: @warningHeaderColor;
 }
 .ui.error.message {
   background-color: @errorBackgroundColor;
   color: @errorTextColor;
 }
+.ui.error.message .header {
+  color: @errorHeaderColor;
+}
 .ui.success.message {
   background-color: @successBackgroundColor;
   color: @successTextColor;
+}
+.ui.success.message .header {
+  color: @successHeaderColor;
 }
 
 
@@ -264,33 +283,57 @@
   background-color: @blueBackground;
   color: @blueTextColor;
 }
+.ui.blue.message .header {
+  color: @blueHeaderColor;
+}
 .ui.green.message {
   background-color: @greenBackground;
   color: @greenTextColor;
+}
+.ui.green.message .header {
+  color: @greenHeaderColor;
 }
 .ui.orange.message {
   background-color: @orangeBackground;
   color: @orangeTextColor;
 }
+.ui.orange.message .header {
+  color: @orangeHeaderColor;
+}
 .ui.pink.message {
   background-color: @pinkBackground;
   color: @pinkTextColor;
+}
+.ui.pink.message .header {
+  color: @pinkHeaderColor;
 }
 .ui.purple.message {
   background-color: @purpleBackground;
   color: @purpleTextColor;
 }
+.ui.purple.message .header {
+  color: @purpleHeaderColor;
+}
 .ui.red.message {
   background-color: @redBackground;
   color: @redTextColor;
+}
+.ui.red.message .header {
+  color: @redHeaderColor;
 }
 .ui.teal.message {
   background-color: @tealBackground;
   color: @tealTextColor;
 }
+.ui.teal.message .header {
+  color: @tealHeaderColor;
+}
 .ui.yellow.message {
   background-color: @yellowBackground;
   color: @yellowTextColor;
+}
+.ui.yellow.message .header {
+  color: @yellowHeaderColor;
 }
 
 

@@ -34,7 +34,7 @@
 @grey             : #CCCCCC;
 @white            : #FFFFFF;
 
-@primaryColor     : @teal;
+@primaryColor     : @blue;
 @secondaryColor   : @black;
 @tertiaryColor    : @orange;
 

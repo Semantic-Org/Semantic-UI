@@ -11,24 +11,13 @@
 @backgroundImage: none;
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
-
-
 @boxShadow:
   0px 0px 0px 2px rgba(0, 0, 0, 0.2) inset
 ;
 
-/* transitions */
-@transition:
-  opacity @transitionDuration @transitionEasing,
-  background-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing,
-  background @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing
-;
-
 /* Padding */
-@verticalPadding: 0.8em;
-@horizontalPadding: 1.5em;
+@verticalPadding: 1.25em;
+@horizontalPadding: 3em;
 
 /* Icon */
 @iconOpacity: 0.8;
@@ -71,35 +60,15 @@
         Types
 --------------------*/
 
-/* Or */
-@orWidth: 0.3em;
-@orHeight: 1.1em;
-
-@orVerticalOffset: -0.1em;
-@orHorizontalOffset: -0.9em;
-
-@orTextStyle: normal;
-@orTextWeight: bold;
-
-@orCircleSize: 1.8em;
-@orLineHeight: 1.6;
-@orBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-
-@orSpacerHeight: 0.5em;
-@orSpacerColor: @white;
-
-/* Icon */
-@iconButtonOpacity: 0.9;
-
 /* Labeled Icon */
-@labeledIconWidth: @iconWidth + (@verticalPadding * 2);
-@labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
-@labeledIconPadding: (@horizontalPadding + @labeledIconWidth);
+@labeledIconWidth: 1em + (@verticalPadding * 2);
+@labeledIconBackgroundColor: transparent;
+@labeledIconPadding: (@horizontalPadding + 1em);
 @labeledIconBorder: rgba(0, 0, 0, 0.05);
 @labeledIconColor: '';
 
-@labeledIconLeftShadow: -1px 0px 0px 0px @labeledIconBorder inset;
-@labeledIconRightShadow: 1px 0px 0px 0px @labeledIconBorder inset;
+@labeledIconLeftShadow: none;
+@labeledIconRightShadow: none;
 
 /* Basic */
 @basicBoxShadow: 0px 0px 0px 1px @borderColor;
