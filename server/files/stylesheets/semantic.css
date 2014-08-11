@@ -574,7 +574,7 @@ body.guide .main.container > * {
 #example .peek {
   position: absolute;
   top: 0px;
-  left: -230px;
+  left: -280px;
   width: 180px;
 /*
   -webkit-transition: padding 0.3s ease;
@@ -1458,22 +1458,13 @@ body.progress .ui.progress .bar {
 
 @media only screen and (min-width : 1725px) {
   #example .container {
-    width: 1100px;
+    width: 1000px;
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: -780px;
   }
   #example.left.pushed .main.menu {
     margin-left: -132px;
-  }
-}
-
-@media only screen and (min-width : 2300px) {
-  #example .container {
-    width: 1320px;
-  }
-  #example .sticky-wrapper.stuck .peek {
-    margin-left: -890px;
   }
 }
 

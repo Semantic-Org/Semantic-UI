@@ -9,6 +9,7 @@
 @display: inline-block;
 @margin: 1em 0em;
 @textAlign: center;
+@maxWidth: 175px;
 
 /* Group */
 @groupDisplay: block;
@@ -18,34 +19,41 @@
 @elementFloat: left;
 @elementDisplay: block;
 @elementMargin: 0em @horizontalSpacing @rowSpacing;
+@elementMaxWidth: 175px;
 
 /*-------------------
-      Elements
+       Content
 --------------------*/
 
 /* Value */
 @valueFont: @pageFont;
 @valueFontWeight: normal;
 @valueLineHeight: 1em;
-@valueSize: 4em;
 @valueColor: @black;
 @valueTextTransform: uppercase;
 
 /* Label */
+@labelSize: 1rem;
 @labelDistance: 0.25em;
 @labelFont: @headerFont;
 @labelFontWeight: normal;
-@labelSize: 1em;
 @labelColor: @unselectedTextColor;
 @labelLineHeight: 1.33em;
 @labelTextTransform: none;
+
+/* Text */
+@textLabelLineHeight: 1em;
+@textLabelMinHeight: 2em;
+
+/* Label Image */
+@imageHeight: 3rem;
+@imageVerticalAlign: baseline;
 
 /*-------------------
       Types
 --------------------*/
 
 @horizontalGroupElementMargin: 1em 0em;
-@horizontalValueSize: 3em;
 @horizontalLabelDistance: 0.75em;
 
 /*-------------------
@@ -59,3 +67,14 @@
 @invertedLabelColor: @invertedLightTextColor;
 
 /* Size */
+@smallValueSize: 3rem;
+@smallTextLabelSize: 1.5rem;
+@smallHorizontalValueSize: 2rem;
+
+@valueSize: 4rem;
+@textLabelSize: 2rem;
+@horizontalValueSize: 3rem;
+
+@largeValueSize: 5rem;
+@largeTextLabelSize: 2.5rem;
+@largeHorizontalValueSize: 4rem;
