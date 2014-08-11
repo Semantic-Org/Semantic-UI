@@ -17,6 +17,7 @@ themes : ['Default']
     </div>
   </div>
   <h2 class="ui dividing header">Types</h2>
+  <div class="ui ignored message">The statitic view is used in Semantic-UI homepage to count components</div>
   <div class="example">
     <h4 class="ui header">Statitic</h4>
     <p>A standard statistic</p>
