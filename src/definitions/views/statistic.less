@@ -229,9 +229,14 @@
 
 .ui.left.floated.statistic {
   float: left;
+  margin: @leftFloatedMargin;
 }
 .ui.right.floated.statistic {
   float: right;
+  margin: @rightFloatedMargin;
+}
+.ui.floated.statistic:last-child {
+  margin-bottom: 0em;
 }
 
 /*--------------

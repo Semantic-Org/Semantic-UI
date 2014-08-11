@@ -14,7 +14,7 @@
 /* Group */
 @groupDisplay: block;
 @groupMargin: 1em -@horizontalSpacing;
-@horizontalSpacing: 1.5em;
+@horizontalSpacing: 1em;
 @rowSpacing: 2em;
 @elementFloat: left;
 @elementDisplay: block;
@@ -61,6 +61,8 @@
 --------------------*/
 
 /* Floated */
+@leftFloatedMargin: 0em 2em 1em 0em;
+@rightFloatedMargin: 0em 0em 1em 2em;
 
 /* Inverted */
 @invertedValueColor: @invertedTextColor;
