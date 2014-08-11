@@ -90,6 +90,7 @@
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -399,7 +400,7 @@
 /* Active */
 .ui.slider.checkbox input:checked ~ .box:before,
 .ui.slider.checkbox input:checked ~ label:before {
-  background-color: #3c763d;
+  background-color: #2ecc40;
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
@@ -466,11 +467,11 @@
 /* Active */
 .ui.toggle.checkbox input:checked ~ .box,
 .ui.toggle.checkbox input:checked ~ label {
-  color: #3c763d;
+  color: #2ecc40;
 }
 .ui.toggle.checkbox input:checked ~ .box:before,
 .ui.toggle.checkbox input:checked ~ label:before {
-  background-color: #3c763d;
+  background-color: #2ecc40;
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {

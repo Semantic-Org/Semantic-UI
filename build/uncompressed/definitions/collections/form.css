@@ -90,6 +90,7 @@
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -355,16 +356,16 @@
 }
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #c0605e;
+  color: #ff7169;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #c0605e;
+  color: #ff7169;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #b94e4c;
+  color: #ff5950;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #b94e4c;
+  color: #ff5950;
 }
 /*--------------------
         Focus
@@ -410,11 +411,11 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #a94442;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #a94442;
+  border-color: #ff4136;
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
@@ -435,9 +436,9 @@
 .ui.form .field.error input[type="tel"] {
   background: #f2dede;
   border-color: #da9797;
-  color: #a94442;
+  color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  box-shadow: 3px 0em 0em 0em #a94442 inset;
+  box-shadow: 3px 0em 0em 0em #ff4136 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -449,9 +450,9 @@
 .ui.form .field.error input[type="tel"]:focus {
   background: #f2dede;
   border-color: #da9797;
-  color: #b94e4c;
+  color: #ff5950;
   -webkit-appearance: none;
-  box-shadow: 3px 0em 0em 0em #b94e4c inset;
+  box-shadow: 3px 0em 0em 0em #ff5950 inset;
 }
 /*------------------
     Dropdown Error
@@ -462,7 +463,7 @@
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
   background: #f2dede;
-  color: #a94442;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
@@ -493,7 +494,7 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #a94442;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
@@ -506,7 +507,7 @@
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #a94442;
+  color: #ff4136;
 }
 /*--------------------
        Disabled
@@ -551,7 +552,7 @@
   margin: -0.2em 0em 0em 0.2em;
   vertical-align: top;
   content: '*';
-  color: #a94442;
+  color: #ff4136;
 }
 /*--------------------
       Date Input

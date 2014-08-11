@@ -169,8 +169,9 @@
 @positiveBorderColor     : #D6E9C6;
 @negativeBorderColor     : #DA9797;
 
-@positiveColor           : #3C763D;
-@negativeColor           : #A94442;
+/* Solid Background Color */
+@positiveColor           : @green;
+@negativeColor           : @red;
 
 @positiveTextColor       : #3C763D;
 @negativeTextColor       : #A94442;

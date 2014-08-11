@@ -90,6 +90,7 @@
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -354,7 +355,7 @@
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #3c763d;
+  color: #2ecc40;
 }
 /* Disabled */
 .ui.steps .disabled.step {

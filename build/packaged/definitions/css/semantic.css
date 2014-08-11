@@ -90,6 +90,7 @@
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -336,6 +337,7 @@
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -601,16 +603,16 @@
 }
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #c0605e;
+  color: #ff7169;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #c0605e;
+  color: #ff7169;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #b94e4c;
+  color: #ff5950;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #b94e4c;
+  color: #ff5950;
 }
 /*--------------------
         Focus
@@ -656,11 +658,11 @@
 .ui.form .field.error label,
 .ui.form .fields.error .field .input,
 .ui.form .field.error .input {
-  color: #a94442;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .corner.label,
 .ui.form .field.error .corner.label {
-  border-color: #a94442;
+  border-color: #ff4136;
   color: #ffffff;
 }
 .ui.form .fields.error .field textarea,
@@ -681,9 +683,9 @@
 .ui.form .field.error input[type="tel"] {
   background: #f2dede;
   border-color: #da9797;
-  color: #a94442;
+  color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  box-shadow: 3px 0em 0em 0em #a94442 inset;
+  box-shadow: 3px 0em 0em 0em #ff4136 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -695,9 +697,9 @@
 .ui.form .field.error input[type="tel"]:focus {
   background: #f2dede;
   border-color: #da9797;
-  color: #b94e4c;
+  color: #ff5950;
   -webkit-appearance: none;
-  box-shadow: 3px 0em 0em 0em #b94e4c inset;
+  box-shadow: 3px 0em 0em 0em #ff5950 inset;
 }
 /*------------------
     Dropdown Error
@@ -708,7 +710,7 @@
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
   background: #f2dede;
-  color: #a94442;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
@@ -739,7 +741,7 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box {
-  color: #a94442;
+  color: #ff4136;
 }
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
@@ -752,7 +754,7 @@
 .ui.form .field.error .checkbox label:after,
 .ui.form .fields.error .field .checkbox .box:after,
 .ui.form .field.error .checkbox .box:after {
-  color: #a94442;
+  color: #ff4136;
 }
 /*--------------------
        Disabled
@@ -797,7 +799,7 @@
   margin: -0.2em 0em 0em 0.2em;
   vertical-align: top;
   content: '*';
-  color: #a94442;
+  color: #ff4136;
 }
 /*--------------------
       Date Input
@@ -1148,6 +1150,7 @@
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -2183,6 +2186,7 @@ body > .ui.grid:not(.page) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -3808,6 +3812,7 @@ body > .ui.grid:not(.page) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -4287,6 +4292,7 @@ body > .ui.grid:not(.page) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -5092,6 +5098,7 @@ body > .ui.grid:not(.page) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -5943,13 +5950,13 @@ body > .ui.grid:not(.page) {
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-  background-color: #3c763d !important;
+  background-color: #2ecc40 !important;
   box-shadow: none !important;
   text-shadow: none;
   color: #ffffff !important;
 }
 .ui.button.toggle.active:hover {
-  background-color: #458746 !important;
+  background-color: #40d451 !important;
   text-shadow: none;
   color: #ffffff !important;
 }
@@ -6717,7 +6724,7 @@ body > .ui.grid:not(.page) {
 ----------------*/
 .ui.positive.buttons .button,
 .ui.positive.button {
-  background-color: #3c763d !important;
+  background-color: #2ecc40 !important;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
@@ -6730,13 +6737,13 @@ body > .ui.grid:not(.page) {
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.button.active {
-  background-color: #458746 !important;
+  background-color: #40d451 !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: #305e31 !important;
+  background-color: #27af37 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6744,7 +6751,7 @@ body > .ui.grid:not(.page) {
 .ui.positive.buttons .button.active:active,
 .ui.positive.button.active,
 .ui.positive.button .button.active:active {
-  background-color: #336534;
+  background-color: #29b739;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6753,7 +6760,7 @@ body > .ui.grid:not(.page) {
 ----------------*/
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #a94442 !important;
+  background-color: #ff4136 !important;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
@@ -6766,13 +6773,13 @@ body > .ui.grid:not(.page) {
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.button.active {
-  background-color: #b94e4c !important;
+  background-color: #ff5950 !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #8f3a38 !important;
+  background-color: #ff1f12 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6780,7 +6787,7 @@ body > .ui.grid:not(.page) {
 .ui.negative.buttons .button.active:active,
 .ui.negative.button.active,
 .ui.negative.button .button.active:active {
-  background-color: #973d3b;
+  background-color: #ff291c;
   color: #ffffff;
   text-shadow: none;
 }
@@ -6944,6 +6951,7 @@ body > .ui.grid:not(.page) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -7263,6 +7271,7 @@ body > .ui.grid:not(.page) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -8409,6 +8418,7 @@ i.flag.zimbabwe {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -8952,6 +8962,7 @@ h5.ui.header {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -11110,6 +11121,7 @@ i.icon.weixin:before {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -11479,6 +11491,7 @@ img.ui.bordered.image {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -11901,6 +11914,7 @@ img.ui.bordered.image {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -12903,6 +12917,7 @@ a.ui.yellow.label:hover:before {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -13779,6 +13794,7 @@ a.ui.yellow.label:hover:before {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -14326,6 +14342,7 @@ a.ui.yellow.label:hover:before {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -14590,7 +14607,7 @@ a.ui.yellow.label:hover:before {
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #3c763d;
+  color: #2ecc40;
 }
 /* Disabled */
 .ui.steps .disabled.step {
@@ -14790,6 +14807,7 @@ a.ui.yellow.label:hover:before {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -15275,6 +15293,7 @@ input[type="password"] {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -15564,6 +15583,7 @@ a:hover {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -15894,6 +15914,7 @@ a:hover {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -16288,6 +16309,7 @@ a:hover {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -16597,7 +16619,7 @@ a:hover {
 /* Active */
 .ui.slider.checkbox input:checked ~ .box:before,
 .ui.slider.checkbox input:checked ~ label:before {
-  background-color: #3c763d;
+  background-color: #2ecc40;
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
@@ -16664,11 +16686,11 @@ a:hover {
 /* Active */
 .ui.toggle.checkbox input:checked ~ .box,
 .ui.toggle.checkbox input:checked ~ label {
-  color: #3c763d;
+  color: #2ecc40;
 }
 .ui.toggle.checkbox input:checked ~ .box:before,
 .ui.toggle.checkbox input:checked ~ label:before {
-  background-color: #3c763d;
+  background-color: #2ecc40;
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
@@ -16831,6 +16853,7 @@ a:hover {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -17133,6 +17156,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -17804,6 +17828,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -18274,6 +18299,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -18559,6 +18585,7 @@ a.ui.nag {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -18933,6 +18960,7 @@ a.ui.nag {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -19270,6 +19298,7 @@ a.ui.nag {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -19651,6 +19680,7 @@ a.ui.nag {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -19926,6 +19956,7 @@ a.ui.nag {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -20299,6 +20330,7 @@ body.pushed.scrolling.ui.dimmable {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -20496,6 +20528,7 @@ body.pushed.scrolling.ui.dimmable {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -20702,6 +20735,7 @@ body.pushed.scrolling.ui.dimmable {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -21787,6 +21821,7 @@ body.pushed.scrolling.ui.dimmable {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -22033,6 +22068,7 @@ body.pushed.scrolling.ui.dimmable {
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -22880,6 +22916,7 @@ a.ui.card:hover,
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -23263,6 +23300,7 @@ a.ui.card:hover,
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -23642,6 +23680,7 @@ a.ui.card:hover,
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -24123,6 +24162,7 @@ a.ui.card:hover,
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
@@ -24935,6 +24975,7 @@ ol.ui.horizontal.list li:before,
     Emotive Colors
 --------------------*/
 /* Mood */
+/* Solid Background Color */
 /* Status */
 /* Darkened Headers */
 /*-------------------
