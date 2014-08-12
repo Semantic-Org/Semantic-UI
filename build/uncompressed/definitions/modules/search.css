@@ -65,6 +65,7 @@
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -210,7 +211,7 @@
     Result
 ---------------*/
 .ui.search .result {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -242,7 +243,7 @@
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -260,7 +261,7 @@
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -355,7 +356,7 @@
           box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;

@@ -65,6 +65,7 @@
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -219,7 +220,7 @@
 ---------------*/
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -233,7 +234,7 @@
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
   margin-top: 0.25em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);

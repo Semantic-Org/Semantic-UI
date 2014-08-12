@@ -65,6 +65,7 @@
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -312,6 +313,7 @@
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -1135,6 +1137,7 @@
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -2187,6 +2190,7 @@ body > .ui.grid:not(.page) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -2329,8 +2333,8 @@ body > .ui.grid:not(.page) {
   background: #ffffff;
   font-size: 0px;
   font-weight: normal;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.1875rem;
 }
 .ui.menu:first-child {
@@ -2455,7 +2459,11 @@ body > .ui.grid:not(.page) {
 .ui.menu .item > i.icon {
   opacity: 0.75;
   float: none;
-  margin: 0.25em 0em 0em 0em;
+  margin: 0em 0.25em 0em 0em;
+}
+.ui.menu .item > i.dropdown.icon {
+  float: right;
+  margin-left: 1em;
 }
 /*--------------
      Button
@@ -2473,7 +2481,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.menu:not(.vertical) .item > .input {
   position: relative;
-  top: 0em;
+  top: -0.05em;
   margin: -0.6em 0em;
   padding-top: -0.25em;
   padding-bottom: -0.25em;
@@ -2484,13 +2492,13 @@ body > .ui.grid:not(.page) {
 }
 .ui.menu .item > .input input {
   font-size: 0.875em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
 }
 .ui.vertical.menu .item > .input input {
   margin: 0em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
 }
 /* Labeled Button */
 .ui.menu:not(.vertical) .item > .labeled.button > .icon {
@@ -2648,8 +2656,8 @@ body > .ui.grid:not(.page) {
   background: rgba(0, 0, 0, 0.01);
   color: rgba(0, 0, 0, 0.85);
   font-weight: normal;
-  -webkit-box-shadow: 0em 0.2em 0em inset;
-          box-shadow: 0em 0.2em 0em inset;
+  -webkit-box-shadow: 0em 2px 0em inset;
+          box-shadow: 0em 2px 0em inset;
 }
 .ui.menu .active.item > i.icon {
   opacity: 1;
@@ -2658,8 +2666,8 @@ body > .ui.grid:not(.page) {
 .ui.vertical.menu .active.item {
   background: rgba(0, 0, 0, 0.01);
   border-radius: 0em;
-  -webkit-box-shadow: 0.2em 0em 0em inset;
-          box-shadow: 0.2em 0em 0em inset;
+  -webkit-box-shadow: 2px 0em 0em inset;
+          box-shadow: 2px 0em 0em inset;
 }
 .ui.vertical.menu > .active.item:first-child {
   border-radius: 0em 0.1875rem 0em 0em;
@@ -2743,7 +2751,7 @@ body > .ui.grid:not(.page) {
 /*--- Icon ---*/
 .ui.vertical.menu .item > i.icon {
   width: 1.23em;
-  float: left;
+  float: right;
   margin: 0em 0em 0em 0.5em;
 }
 .ui.vertical.menu .item > .label + i.icon {
@@ -2763,12 +2771,13 @@ body > .ui.grid:not(.page) {
   height: 1px;
 }
 .ui.vertical.menu .item:first-child:before {
-  background-image: none !important;
+  background: none !important;
 }
 /*--- Dropdown ---*/
-.ui.vertical.menu .dropdown.item > i {
+.ui.vertical.menu .dropdown.item > .icon {
   float: right;
   content: "\f0da";
+  margin-left: 1em;
 }
 .ui.vertical.menu .dropdown.item .menu {
   top: 0% !important;
@@ -2838,7 +2847,7 @@ body > .ui.grid:not(.page) {
 }
 /* Sub Menu Divider */
 .ui.tiered.menu .sub.menu .item:before {
-  background-image: none;
+  background: none;
 }
 /* Sub Menu Hover */
 .ui.tiered.menu .sub.menu .item:hover {
@@ -3275,6 +3284,7 @@ body > .ui.grid:not(.page) {
 .ui.icon.menu > .item > .icon {
   display: block;
   float: none !important;
+  height: 1em;
   opacity: 1;
   margin: 0em auto !important;
 }
@@ -3560,7 +3570,7 @@ body > .ui.grid:not(.page) {
 .ui.borderless.menu .item:before,
 .ui.borderless.menu .item .menu .item:before,
 .ui.menu .borderless.item:before {
-  background-image: none;
+  background: none;
 }
 /*-------------------
        Compact
@@ -3691,7 +3701,7 @@ body > .ui.grid:not(.page) {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  background-image: none;
+  background: none;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -3849,6 +3859,7 @@ body > .ui.grid:not(.page) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -3968,8 +3979,8 @@ body > .ui.grid:not(.page) {
   -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
           transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 0.25em;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.message:first-child {
   margin-top: 0em;
@@ -3983,7 +3994,7 @@ body > .ui.grid:not(.page) {
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.3em;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -4026,7 +4037,7 @@ body > .ui.grid:not(.page) {
   margin-top: 0em;
 }
 /* Icon */
-.ui.message > .icon {
+.ui.message .icon {
   margin-right: 0.6em;
 }
 /* Close Icon */
@@ -4089,8 +4100,8 @@ body > .ui.grid:not(.page) {
 .ui.bottom.attached.message {
   margin-top: -1px;
   border-radius: 0em 0em 0.25em 0.25em;
-  -webkit-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset, 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
 }
 .ui.bottom.attached.message:not(:last-child) {
   margin-bottom: 1em;
@@ -4333,6 +4344,7 @@ body > .ui.grid:not(.page) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -5150,6 +5162,7 @@ body > .ui.grid:not(.page) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -5291,7 +5304,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -5778,7 +5791,7 @@ body > .ui.grid:not(.page) {
   margin: 0em 0.4em 0em -0.2em;
   -webkit-transition: opacity 0.25s ease;
           transition: opacity 0.25s ease;
-  vertical-align: top;
+  vertical-align: baseline;
 }
 /*******************************
            Variations
@@ -7120,6 +7133,7 @@ body > .ui.grid:not(.page) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -7441,6 +7455,7 @@ body > .ui.grid:not(.page) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -8588,6 +8603,7 @@ i.flag.zimbabwe {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -8700,7 +8716,7 @@ i.flag.zimbabwe {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -9007,8 +9023,8 @@ h5.ui.header {
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.5em 1em;
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid #dddddd;
   border-radius: 0.3125rem;
 }
@@ -9136,6 +9152,7 @@ h5.ui.header {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -11299,6 +11316,7 @@ i.icon.weixin:before {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -11669,6 +11687,7 @@ img.ui.bordered.image {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -11791,7 +11810,7 @@ img.ui.bordered.image {
 }
 .ui.input input {
   width: 100%;
-  font-family: "Helvetica Neue", "Helvetica", Arial;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0em;
   padding: 0.65em 1em;
   background: #ffffff;
@@ -12098,6 +12117,7 @@ img.ui.bordered.image {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -13106,6 +13126,7 @@ a.ui.yellow.label:hover:before {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -13988,6 +14009,7 @@ a.ui.yellow.label:hover:before {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -14099,8 +14121,8 @@ a.ui.yellow.label:hover:before {
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0 2px 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0 2px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   margin: 1em 0em;
   padding: 1em 1em;
   border-radius: 0.25em;
@@ -14469,8 +14491,8 @@ a.ui.yellow.label:hover:before {
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 1em;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd, 0 2px 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 0px 0px 1px #dddddd, 0 2px 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 0px 0px 1px #dddddd, 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 0px 0px 1px #dddddd, 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0em 0em 0.25em 0.25em;
 }
 .ui.segment.bottom.attached:last-child {
@@ -14550,6 +14572,7 @@ a.ui.yellow.label:hover:before {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -14697,7 +14720,7 @@ a.ui.yellow.label:hover:before {
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -15018,6 +15041,7 @@ a.ui.yellow.label:hover:before {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -15507,6 +15531,7 @@ input[type="password"] {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -15606,7 +15631,7 @@ body {
 }
 body {
   background: #fcfcfc;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0px;
   padding: 0px;
   color: rgba(0, 0, 0, 0.8);
@@ -15798,6 +15823,7 @@ a:hover {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -15918,7 +15944,7 @@ a:hover {
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -16130,6 +16156,7 @@ a:hover {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -16526,6 +16553,7 @@ a:hover {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -17074,6 +17102,7 @@ a:hover {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -17377,6 +17406,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -17519,13 +17549,14 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   display: none;
   top: 100%;
   margin: 0em;
+  padding: 0em;
   background: #ffffff;
   min-width: 100%;
   white-space: nowrap;
   font-size: 1rem;
   text-shadow: none;
-  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.15);
   border-radius: 0em 0em 0.325em 0.325em;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
@@ -17548,6 +17579,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 .ui.dropdown > .text {
   display: inline-block;
+  vertical-align: top;
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
 }
@@ -17559,7 +17591,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   display: block;
   border: none;
   height: auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.85em 1em !important;
   font-size: 1rem;
@@ -17869,8 +17901,8 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
           transform: rotate(45deg);
   width: 0.5em;
   height: 0.5em;
-  -webkit-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
-          box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
   background: #ffffff;
   z-index: 2;
 }
@@ -18061,6 +18093,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -18225,7 +18258,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #555555;
   margin: 0em;
   padding: 1.5rem 2rem;
@@ -18535,6 +18568,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -18822,6 +18856,7 @@ a.ui.nag {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -18952,7 +18987,7 @@ a.ui.nag {
 }
 .ui.popup .header {
   padding: 0em 0em 0.5em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -19206,6 +19241,7 @@ a.ui.nag {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -19544,6 +19580,7 @@ a.ui.nag {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -19689,7 +19726,7 @@ a.ui.nag {
     Result
 ---------------*/
 .ui.search .result {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -19721,7 +19758,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -19739,7 +19776,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -19834,7 +19871,7 @@ a.ui.nag {
           box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;
@@ -19930,6 +19967,7 @@ a.ui.nag {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -20207,6 +20245,7 @@ a.ui.nag {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -20586,6 +20625,7 @@ body.pushed.scrolling.ui.dimmable {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -20784,6 +20824,7 @@ body.pushed.scrolling.ui.dimmable {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -20991,6 +21032,7 @@ body.pushed.scrolling.ui.dimmable {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -22077,6 +22119,7 @@ body.pushed.scrolling.ui.dimmable {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -22324,6 +22367,7 @@ body.pushed.scrolling.ui.dimmable {
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -22556,7 +22600,7 @@ body.pushed.scrolling.ui.dimmable {
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   color: rgba(0, 0, 0, 0.85);
@@ -23177,6 +23221,7 @@ a.ui.card:hover,
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -23562,6 +23607,7 @@ a.ui.card:hover,
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -23943,6 +23989,7 @@ a.ui.card:hover,
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -24165,7 +24212,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.25em;
   color: rgba(0, 0, 0, 0.85);
@@ -24428,6 +24475,7 @@ a.ui.card:hover,
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -24687,7 +24735,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -25241,6 +25289,7 @@ ol.ui.horizontal.list li:before,
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -25395,7 +25444,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -25409,7 +25458,7 @@ ol.ui.horizontal.list li:before,
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
   margin-top: 0.25em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);

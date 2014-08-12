@@ -65,6 +65,7 @@
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -324,7 +325,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }

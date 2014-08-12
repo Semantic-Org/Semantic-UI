@@ -46,7 +46,7 @@
 @iconDistance: 0.4em;
 @iconTransition: opacity @transitionDuration @transitionEasing;
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
-@iconVerticalAlign: top;
+@iconVerticalAlign: baseline;
 
 /* Loader */
 @loaderPath: "@{imagePath}/loader-mini.gif";

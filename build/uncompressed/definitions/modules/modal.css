@@ -65,6 +65,7 @@
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -229,7 +230,7 @@
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: #555555;
   margin: 0em;
   padding: 1.5rem 2rem;

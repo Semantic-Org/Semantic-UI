@@ -65,6 +65,7 @@
   Background Colors
 --------------------*/
 /* Used for differentiating greys */
+/* Used for differentiating layers */
 /*-------------------
         Grid
 --------------------*/
@@ -187,7 +188,7 @@
 }
 .ui.input input {
   width: 100%;
-  font-family: "Helvetica Neue", "Helvetica", Arial;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0em;
   padding: 0.65em 1em;
   background: #ffffff;
