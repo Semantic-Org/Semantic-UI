@@ -187,13 +187,14 @@
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.input input {
-  width: 100%;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 0em;
-  padding: 0.65em 1em;
+  width: 100%;
+  outline: none;
+  line-height: 1;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  padding: 0.8em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  outline: none;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
   -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -298,7 +299,7 @@
   top: 0px;
   right: 0px;
   margin: 0em;
-  width: 2.8em;
+  width: 3.1em;
   height: 100%;
   padding-top: 0.82em;
   text-align: center;

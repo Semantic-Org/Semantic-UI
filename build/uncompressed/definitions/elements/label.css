@@ -263,10 +263,10 @@ a.ui.label {
        Coupling
 --------------------*/
 /* Padding on next content after a label */
-.ui.segment > .attached.label:first-child + * {
+.ui.segment > .top.attached.label:not(.right):not(.left):first-child + * {
   margin-top: 2.5em;
 }
-.ui.segment > .bottom.attached.label:first-child ~ :last-child {
+.ui.segment > .bottom.attached.label:not(.right):not(.left):first-child ~ :last-child {
   margin-top: 0em;
   margin-bottom: 2.5em;
 }
@@ -288,7 +288,7 @@ a.ui.label {
 .ui.image.label img {
   display: inline-block;
   height: 2.6em;
-  margin: -0.8em 0.8em -0.8em -0.8em;
+  margin: -0.8em 0.5em -0.8em -0.8em;
   vertical-align: top;
   border-radius: 500rem;
 }
@@ -434,7 +434,7 @@ a.ui.label:hover:before {
   width: auto;
   top: auto;
   bottom: 0em;
-  border-radius: 0.325em 0em 0em 0.325em;
+  border-radius: 0em 0em 0.325em 0.325em;
 }
 .ui.bottom.right.attached.label {
   top: auto;
@@ -720,33 +720,33 @@ a.ui.pink.label:hover:before {
 /*--- Purple ---*/
 .ui.purple.labels .label,
 .ui.purple.label {
-  background-color: #564f8a !important;
-  border-color: #564f8a !important;
+  background-color: #a24096 !important;
+  border-color: #a24096 !important;
   color: #ffffff !important;
 }
 .ui.labels .purple.label:before,
 .ui.purple.labels .label:before,
 .ui.purple.label:before {
-  background-color: #564f8a !important;
+  background-color: #a24096 !important;
 }
 a.ui.purple.labels .label:hover,
 .ui.purple.labels a.label:hover,
 a.ui.purple.label:hover {
-  background-color: #60589a !important;
-  border-color: #60589a !important;
+  background-color: #b447a7 !important;
+  border-color: #b447a7 !important;
   color: #ffffff !important;
 }
 .ui.labels a.purple.label:hover:before,
 .ui.purple.labels a.label:hover:before,
 a.ui.purple.label:hover:before {
-  background-color: #60589a !important;
+  background-color: #b447a7 !important;
 }
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.purple.ribbon.label {
-  border-color: #60589a !important;
+  border-color: #b447a7 !important;
 }
 /*--- Red ---*/
 .ui.red.labels .label,
@@ -958,19 +958,19 @@ a.ui.yellow.label:hover:before {
 --------------------*/
 .ui.tiny.labels .label,
 .ui.tiny.label {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
 }
 .ui.small.labels .label,
 .ui.small.label {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 .ui.labels .label,
 .ui.label {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 .ui.large.labels .label,
 .ui.large.label {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
 }
 .ui.huge.labels .label,
 .ui.huge.label {
@@ -978,19 +978,19 @@ a.ui.yellow.label:hover:before {
 }
 .ui.tiny.corner.labels .label,
 .ui.tiny.corner.label {
-  font-size: 0.72rem;
+  font-size: 0.9rem;
 }
 .ui.small.corner.labels .label,
 .ui.small.corner.label {
-  font-size: 0.9rem;
+  font-size: 0.96rem;
 }
 .ui.corner.labels .label,
 .ui.corner.label {
-  font-size: 0.975rem;
+  font-size: 1.05rem;
 }
 .ui.large.corner.labels .label,
 .ui.large.corner.label {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
 }
 .ui.huge.corner.labels .label,
 .ui.huge.corner.label {

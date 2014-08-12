@@ -210,6 +210,7 @@
   margin: 0em 0em 0em 0em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
+  vertical-align: top;
 }
 /*******************************
             Types

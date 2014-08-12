@@ -334,7 +334,7 @@ h5.ui.header {
   color: #d9499a !important;
 }
 .ui.purple.header {
-  color: #564f8a !important;
+  color: #a24096 !important;
 }
 .ui.red.header {
   color: #ff4136 !important;
@@ -361,7 +361,7 @@ h5.ui.header {
   border-bottom: 3px solid #d9499a;
 }
 .ui.purple.dividing.header {
-  border-bottom: 3px solid #564f8a;
+  border-bottom: 3px solid #a24096;
 }
 .ui.red.dividing.header {
   border-bottom: 3px solid #ff4136;
@@ -405,7 +405,7 @@ h5.ui.header {
   color: #ffffff !important;
 }
 .ui.inverted.purple.header {
-  background-color: #564f8a !important;
+  background-color: #a24096 !important;
   color: #ffffff !important;
 }
 .ui.inverted.red.header {
@@ -488,6 +488,21 @@ h5.ui.header {
   border: 1px solid #dddddd;
   border-radius: 0.3125rem;
 }
+.ui.tiny.block.header {
+  font-size: 0.9em;
+}
+.ui.small.block.header {
+  font-size: 1em;
+}
+.ui.block.header {
+  font-size: 1.1em;
+}
+.ui.large.block.header {
+  font-size: 1.25em;
+}
+.ui.huge.block.header {
+  font-size: 1.5em;
+}
 /*-------------------
        Attached
 --------------------*/
@@ -516,6 +531,21 @@ h5.ui.header {
   margin-top: 0em;
   border-top: none;
   border-radius: 0em 0em 0.3125rem 0.3125rem;
+}
+.ui.tiny.attached.header {
+  font-size: 0.9em;
+}
+.ui.small.attached.header {
+  font-size: 1em;
+}
+.ui.attached.header {
+  font-size: 1.1em;
+}
+.ui.large.attached.header {
+  font-size: 1.25em;
+}
+.ui.huge.attached.header {
+  font-size: 1.5em;
 }
 /*-------------------
         Sizing

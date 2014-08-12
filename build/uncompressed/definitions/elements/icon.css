@@ -208,6 +208,7 @@ i.icon {
     Loading
 ---------------*/
 i.icon.loading {
+  height: 1em;
   -webkit-animation: icon-loading 2s linear infinite;
           animation: icon-loading 2s linear infinite;
 }
@@ -330,6 +331,9 @@ i.inverted.icon {
 /*-------------------
        Colors
 --------------------*/
+i.white.icon {
+  color: #ffffff !important;
+}
 i.black.icon {
   color: #333333 !important;
 }
@@ -346,7 +350,7 @@ i.pink.icon {
   color: #d9499a !important;
 }
 i.purple.icon {
-  color: #564f8a !important;
+  color: #a24096 !important;
 }
 i.red.icon {
   color: #ff4136 !important;
@@ -381,7 +385,7 @@ i.inverted.pink.icon {
   color: #FFFFFF !important;
 }
 i.inverted.purple.icon {
-  background-color: #564f8a !important;
+  background-color: #a24096 !important;
   color: #FFFFFF !important;
 }
 i.inverted.red.icon {

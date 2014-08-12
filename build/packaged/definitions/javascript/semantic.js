@@ -6557,6 +6557,7 @@ $.fn.dropdown = function(parameters) {
             module.bind.touchEvents();
           }
           module.bind.mouseEvents();
+          module.bind.keyboardEvents();
           module.instantiate();
         },
 
@@ -6580,6 +6581,15 @@ $.fn.dropdown = function(parameters) {
         },
 
         bind: {
+          keyboardEvents: function() {
+            module.debug('Binding keyboard events');
+            $module
+              .on('keydown' + eventNamespace, module.handleKeyboard)
+            ;
+            $module
+              .on('focus' + eventNamespace, module.show)
+            ;
+          },
           touchEvents: function() {
             module.debug('Touch device detected binding touch events');
             $module
@@ -6640,6 +6650,69 @@ $.fn.dropdown = function(parameters) {
             $document
               .off('click' + eventNamespace)
             ;
+          }
+        },
+
+        handleKeyboard: function(event) {
+          var
+            $selectedItem = $item.filter('.' + className.selected),
+            pressedKey    = event.which,
+            keys          = {
+              enter     : 13,
+              escape    : 27,
+              upArrow   : 38,
+              downArrow : 40
+            },
+            selectedClass   = className.selected,
+            currentIndex    = $item.index( $selectedItem ),
+            hasSelectedItem = ($selectedItem.size() > 0),
+            resultSize      = $item.size(),
+            newIndex
+          ;
+          // close shortcuts
+          if(pressedKey == keys.escape) {
+            module.verbose('Escape key pressed, closing dropdown');
+            module.hide();
+          }
+          // result shortcuts
+          if(module.is.visible()) {
+            if(pressedKey == keys.enter && hasSelectedItem) {
+              module.verbose('Enter key pressed, choosing selected item');
+              $.proxy(module.event.item.click, $item.filter('.' + selectedClass) )(event);
+              event.preventDefault();
+              return false;
+            }
+            else if(pressedKey == keys.upArrow) {
+              module.verbose('Up key pressed, changing active item');
+              newIndex = (currentIndex - 1 < 0)
+                ? currentIndex
+                : currentIndex - 1
+              ;
+              $item
+                .removeClass(selectedClass)
+                .eq(newIndex)
+                  .addClass(selectedClass)
+              ;
+              event.preventDefault();
+            }
+            else if(pressedKey == keys.downArrow) {
+              module.verbose('Down key pressed, changing active item');
+              newIndex = (currentIndex + 1 >= resultSize)
+                ? currentIndex
+                : currentIndex + 1
+              ;
+              $item
+                .removeClass(selectedClass)
+                .eq(newIndex)
+                  .addClass(selectedClass)
+              ;
+              event.preventDefault();
+            }
+          }
+          else {
+            if(pressedKey == keys.enter) {
+              module.show();
+            }
           }
         },
 
@@ -7018,8 +7091,8 @@ $.fn.dropdown = function(parameters) {
           },
           animated: function($subMenu) {
             return ($subMenu)
-              ? $subMenu.is(':animated') || $subMenu.transition('is animating')
-              : $menu.is(':animated') || $menu.transition('is animating')
+              ? $subMenu.is(':animated') || $subMenu.transition && $subMenu.transition('is animating')
+              : $menu.is(':animated') || $menu.transition && $menu.transition('is animating')
             ;
           },
           visible: function($subMenu) {
@@ -7440,6 +7513,7 @@ $.fn.dropdown.settings = {
     placeholder : 'default',
     disabled    : 'disabled',
     visible     : 'visible',
+    selected    : 'selected',
     selection   : 'selection'
   }
 

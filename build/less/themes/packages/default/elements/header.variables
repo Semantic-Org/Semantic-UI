@@ -79,6 +79,12 @@
 @blockVerticalPadding: 0.5em;
 @blockBorderRadius: 0.3125rem;
 
+@tinyBlock: 0.9em;
+@smallBlock: 1em;
+@mediumBlock: 1.1em;
+@largeBlock: 1.25em;
+@hugeBlock: 1.5em;
+
 /* Attached */
 @attachedOffset: 0px;
 @attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
@@ -87,6 +93,12 @@
 @attachedBackground: @blockBackground;
 @attachedBorder: none;
 @attachedBorderRadius: @blockBorderRadius;
+
+@tinyAttached: @tinyBlock;
+@smallAttached: @smallBlock;
+@mediumAttached: @mediumBlock;
+@largeAttached: @largeBlock;
+@hugeAttached: @hugeBlock;
 
 /* Floated */
 @floatedMargin: 0.5em;

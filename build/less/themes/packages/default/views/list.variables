@@ -31,9 +31,10 @@
 
 /* Icon */
 @iconDistance: 0.3em;
-@iconAlign: middle;
 @iconOffset: ((@itemLineHeight - 1rem) / 2);
 @iconTransition: color 0.2s ease;
+@iconVerticalAlign: top;
+@iconContentVerticalAlign: middle;
 
 /* Image */
 @imageDistance: 0.5em;
@@ -42,7 +43,7 @@
 /* Content */
 @contentDistance: 0.5em;
 @contentLineHeight: 1.2em;
-@contentAlign: middle;
+@contentVerticalAlign: middle;
 
 /* Link */
 @itemLinkColor: @textColor;
@@ -139,7 +140,7 @@
 
 /* Horizontal Bullets */
 @horizontalBulletSpacing: 1.5rem;
-@horizontalBulletOffset: -0.9rem;
+@horizontalBulletOffset: -1.1rem;
 
 /* Ordered List */
 @orderedCountName: ordered;

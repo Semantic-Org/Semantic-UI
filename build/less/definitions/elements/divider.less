@@ -47,7 +47,6 @@
   margin: 0em;
   background-color: transparent;
 
-  font-size: @medium;
   font-weight: bold;
   text-align: center;
   text-transform: @dividerTextTransform;
@@ -66,12 +65,12 @@
   top: 50%;
   left: 50%;
 
-  margin: 0% 0% 0% (@verticalDividerWidth / 2);
+  margin: 0% 0% 0% -(@verticalDividerWidth / 2);
 
   width: @verticalDividerWidth;
   height: 50%;
 
-  line-height: 0;
+  line-height: 0em;
   padding: 0em;
 }
 
@@ -143,6 +142,7 @@
 .ui.divider > .icon {
   margin: @dividerIconMargin;
   font-size: @dividerIconSize;
+  height: 1em;
   vertical-align: middle;
 }
 
@@ -202,6 +202,14 @@
 .ui.section.divider {
   margin-top: @sectionMargin;
   margin-bottom: @sectionMargin;
+}
+
+/*--------------
+      Sizes
+---------------*/
+
+.ui.divider {
+  font-size: 1rem;
 }
 
 .loadUIOverrides();

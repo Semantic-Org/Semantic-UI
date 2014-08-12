@@ -1490,7 +1490,7 @@
 /*--- Purple ---*/
 .ui.purple.buttons .button,
 .ui.purple.button {
-  background-color: #564f8a;
+  background-color: #a24096;
   color: #ffffff;
   text-shadow: none;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
@@ -1501,13 +1501,13 @@
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
-  background-color: #60589a;
+  background-color: #b447a7;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.purple.buttons .button:active,
 .ui.purple.button:active {
-  background-color: #484273;
+  background-color: #88367e;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1515,7 +1515,7 @@
 .ui.purple.buttons .button.active:active,
 .ui.purple.button.active,
 .ui.purple.button .button.active:active {
-  background-color: #4c467a;
+  background-color: #903985;
   color: #ffffff;
   text-shadow: none;
 }

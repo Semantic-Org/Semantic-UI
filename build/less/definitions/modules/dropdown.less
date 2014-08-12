@@ -189,6 +189,8 @@
   cursor: pointer;
   word-wrap: break-word;
   white-space: normal;
+  outline: 0;
+
   background: @selectionBackground;
   display: @selectionDisplay;
   padding: @selectionVerticalPadding @selectionHorizontalPadding;
@@ -198,6 +200,10 @@
 
   /* Matches selection dropdown height to input height */
   border-top: 1px solid transparent;
+}
+.ui.selection.dropdown.active {
+  transform: rotateZ(0deg);
+  z-index: 10;
 }
 .ui.selection.dropdown select {
   display: none;

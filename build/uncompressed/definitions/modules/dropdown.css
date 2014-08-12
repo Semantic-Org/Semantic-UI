@@ -146,6 +146,7 @@
        Content
 --------------------*/
 /* Icon */
+/* Sub Menu Pointer Icon */
 /* Current Text */
 /* Menu */
 /* Menu Item */
@@ -321,14 +322,20 @@
   cursor: pointer;
   word-wrap: break-word;
   white-space: normal;
+  outline: 0;
   background: #ffffff;
   display: inline-block;
-  padding: 0.65em 1em;
+  padding: 0.8em 1.1em;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   border-radius: 0.325em !important;
   /* Matches selection dropdown height to input height */
   border-top: 1px solid transparent;
+}
+.ui.selection.dropdown.active {
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
+  z-index: 10;
 }
 .ui.selection.dropdown select {
   display: none;

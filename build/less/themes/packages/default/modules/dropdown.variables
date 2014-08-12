@@ -20,6 +20,7 @@
 /* Icon */
 @dropdownIconMargin: 0em 0em 0em 1em;
 
+/* Sub Menu Pointer Icon */
 @dropdownSubMenuIconFloat: right;
 @dropdownSubMenuIconMargin: 0em 0em 0em 0.5em;
 
@@ -73,8 +74,8 @@
 /* Selection */
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
-@selectionVerticalPadding: 0.65em;
-@selectionHorizontalPadding: 1em;
+@selectionVerticalPadding: 0.8em;
+@selectionHorizontalPadding: 1.1em;
 @selectionTextColor: @textColor;
 @selectionBoxShadow: 0px 0px 0px 1px @borderColor;
 @selectionBorderRadius: @borderRadius;

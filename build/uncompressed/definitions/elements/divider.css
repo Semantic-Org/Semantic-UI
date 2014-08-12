@@ -190,7 +190,6 @@
   height: 0em;
   margin: 0em;
   background-color: transparent;
-  font-size: 1em;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
@@ -204,10 +203,10 @@
   z-index: 2;
   top: 50%;
   left: 50%;
-  margin: 0% 0% 0% 3%;
+  margin: 0% 0% 0% -3%;
   width: 6%;
   height: 50%;
-  line-height: 0;
+  line-height: 0em;
   padding: 0em;
 }
 .ui.vertical.divider:before,
@@ -264,6 +263,7 @@
 .ui.divider > .icon {
   margin: 0rem;
   font-size: 1rem;
+  height: 1em;
   vertical-align: middle;
 }
 /*******************************
@@ -311,6 +311,12 @@
 .ui.section.divider {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+/*--------------
+      Sizes
+---------------*/
+.ui.divider {
+  font-size: 1rem;
 }
 /*******************************
            Overrides

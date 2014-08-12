@@ -239,13 +239,6 @@
   box-shadow: none;
   border: none;
 }
-/* No padding on edge content */
-.ui.segment > :first-child {
-  margin-top: 0em;
-}
-.ui.segment > :last-child {
-  margin-bottom: 0em;
-}
 /*******************************
              Types
 *******************************/
@@ -386,7 +379,7 @@
   border-raidus: 0em 0em 0.25em 0.25em !important;
 }
 .ui.purple.segment:not(.inverted) {
-  border-top: 0.2em solid #564f8a;
+  border-top: 0.2em solid #a24096;
   border-raidus: 0em 0em 0.25em 0.25em !important;
 }
 .ui.red.segment:not(.inverted) {
@@ -426,7 +419,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.purple.segment {
-  background-color: #564f8a !important;
+  background-color: #a24096 !important;
   color: #ffffff !important;
 }
 .ui.inverted.red.segment {

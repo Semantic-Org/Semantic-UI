@@ -84,7 +84,6 @@
 @headerBackground: rgba(0, 0, 0, 0.04);
 @headerWeight: bold;
 @headerTextTransform: normal;
-@headerFontSize: 1rem;
 
 /*--------------
     Couplings
@@ -127,7 +126,11 @@
 @dropdownBackground: #FFFFFF;
 @dropdownMenuOffset: 1px;
 @dropdownPointingDistance: 0.75em;
+
 @dropdownTextColor: @textColor;
+@dropdownTextColorHover: @darkTextColor;
+@dropdownIconMargin: 0em 0em 0em 1em;
+
 @dropdownBoxShadow: 0 1px 1px 1px @solidBorderColor;
 @dropdownVerticalBoxShadow: 0 0px 1px 1px @solidBorderColor;
 

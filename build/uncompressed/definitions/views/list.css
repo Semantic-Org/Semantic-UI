@@ -259,6 +259,7 @@ ol.ui.list ol,
 .ui.list .item > .icon {
   display: table-cell;
   margin: 0em;
+  height: 1em;
   padding-top: 0.1rem;
   padding-right: 0.3em;
   vertical-align: middle;
@@ -267,6 +268,7 @@ ol.ui.list ol,
 }
 .ui.list .item > .icon:only-child {
   display: inline-block;
+  vertical-align: top;
 }
 /* Image */
 .ui.list .item > .image {
@@ -540,7 +542,7 @@ ul.ui.horizontal.bulleted.list li,
 }
 ul.ui.horizontal.bulleted.list li:before,
 .ui.horizontal.bulleted.list .item:before {
-  left: -0.9rem;
+  left: -1.1rem;
 }
 ul.ui.horizontal.bulleted.list li:first-child,
 .ui.horizontal.bulleted.list .item:first-child {
