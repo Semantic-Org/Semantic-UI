@@ -148,7 +148,7 @@ a.ui.label {
 .ui.image.label img {
   display: inline-block;
   height: @imageLabelImageHeight;
-  margin: -@verticalPadding @horizontalPadding -@verticalPadding -@horizontalPadding;
+  margin: -@verticalPadding @imageLabelDistance -@verticalPadding -@horizontalPadding;
   vertical-align: top;
   border-radius: @circularRadius;
 }
@@ -329,8 +329,7 @@ a.ui.label:hover:before {
   width: auto;
   top: auto;
   bottom: 0em;
-
-  border-radius: @borderRadius 0em 0em @borderRadius;
+  border-radius: 0em 0em @borderRadius @borderRadius ;
 }
 .ui.bottom.right.attached.label {
   top: auto;

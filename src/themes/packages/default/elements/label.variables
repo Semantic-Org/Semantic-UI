@@ -49,6 +49,7 @@
 @imageLabelBorderRadius: @circularRadius;
 @imageLabelImageHeight: (1em + @verticalPadding * 2);
 @imageLabelBoxShadow: none;
+@imageLabelDistance: 0.5em,;
 
 
 /*-------------------
@@ -117,8 +118,8 @@
 --------------------*/
 
 /* Sizing */
-@tiny: 0.6rem;
-@small: 0.75rem;
-@medium: 0.8125rem;
-@large: 0.875rem;
+@tiny: 0.75rem;
+@small: 0.8rem;
+@medium: 0.875rem;
+@large: 0.9rem;
 @huge: 1rem;
