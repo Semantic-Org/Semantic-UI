@@ -21,6 +21,7 @@
   transform 0.2s ease,
   opacity 0.2s ease
 ;
+@iconVerticalAlign: top;
 
 /* Child Accordion */
 @childAccordionMargin: 1em 0em 0em;
