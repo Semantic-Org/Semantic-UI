@@ -84,7 +84,6 @@
   width: 100%;
 }
 
-.ui.form textarea,
 .ui.form input[type="text"],
 .ui.form input[type="email"],
 .ui.form input[type="date"],
@@ -92,6 +91,26 @@
 .ui.form input[type="number"],
 .ui.form input[type="url"],
 .ui.form input[type="tel"] {
+  margin: 0em;
+  line-height: 1;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+
+  padding: @inputVerticalPadding @inputHorizontalPadding;
+  font-size: @inputFontSize;
+
+  background: @inputBackground;
+  border: @inputBorder;
+  color: @inputColor;
+  border-radius: @inputBorderRadius;
+  box-shadow: @inputBoxShadow;
+  box-sizing: border-box;
+  transition: @inputTransition;
+}
+
+.ui.textarea,
+.ui.form textarea {
   margin: 0em;
   padding: @inputVerticalPadding @inputHorizontalPadding;
   font-size: @inputFontSize;
@@ -101,17 +120,14 @@
   outline: none;
 
   color: @inputColor;
-  border-radius: 0.3125em;
+  border-radius: @inputBorderRadius;
   box-shadow: @inputBoxShadow;
 
   -webkit-appearance: none;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
   box-sizing: border-box;
   transition: @inputTransition;
-}
 
-.ui.textarea,
-.ui.form textarea {
   font-size: @textAreaFontSize;
 
   height: @textAreaHeight;

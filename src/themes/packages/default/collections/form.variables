@@ -23,7 +23,7 @@
 @inputWidth: 100%;
 @inputFontSize: 1em;
 
-@inputVerticalPadding: 0.65em;
+@inputVerticalPadding: 0.8em;
 @inputHorizontalPadding: 1em;
 @inputBackground: #FFFFFF;
 @inputBorder: 1px solid @borderColor;

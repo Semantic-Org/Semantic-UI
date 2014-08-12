@@ -74,7 +74,7 @@
 /* Selection */
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
-@selectionVerticalPadding: 0.65em;
+@selectionVerticalPadding: 0.8em;
 @selectionHorizontalPadding: 1.1em;
 @selectionTextColor: @textColor;
 @selectionBoxShadow: 0px 0px 0px 1px @borderColor;

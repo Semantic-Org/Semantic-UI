@@ -94,13 +94,15 @@ ol.ui.list ol,
 .ui.list .item > .icon {
   display: table-cell;
   margin: 0em;
+  height: 1em;
   padding-top: @iconOffset;
   padding-right: @iconDistance;
-  vertical-align: @iconAlign;
+  vertical-align: @iconContentVerticalAlign;
   transition: @iconTransition;
 }
 .ui.list .item > .icon:only-child {
   display: inline-block;
+  vertical-align: @iconVerticalAlign;
 }
 
 
@@ -132,13 +134,13 @@ ol.ui.list ol,
 .ui.list .item > .icon + .content {
   display: table-cell;
   padding-left: @contentDistance;
-  vertical-align: @contentAlign;
+  vertical-align: @contentVerticalAlign;
 }
 .ui.list .item > .image + .content,
 .ui.list .item > .icon + .content {
   display: table-cell;
   padding-left: @contentDistance;
-  vertical-align: @contentAlign;
+  vertical-align: @contentVerticalAlign;
 }
 .ui.list .item > img.image + .content {
   display: inline-block;
