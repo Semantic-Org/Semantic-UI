@@ -1221,7 +1221,7 @@
 /*--------------
      Page
 ---------------*/
-/* Standard */
+/* Column Gutters */
 /*--------------
      Relaxed
 ---------------*/
@@ -1341,35 +1341,41 @@ body > .ui.grid:not(.page) {
   min-width: 320px;
   padding-left: 0%;
   padding-right: 0%;
+  width: auto;
   margin-left: 13%;
   margin-right: 13%;
 }
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 1em;
     margin-right: 1em;
   }
 }
 @media only screen and (min-width: 768px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 8%;
     margin-right: 8%;
   }
 }
 @media only screen and (min-width: 992px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 13%;
     margin-right: 13%;
   }
 }
 @media only screen and (min-width: 1400px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 18%;
     margin-right: 18%;
   }
 }
 @media only screen and (min-width: 1900px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 23%;
     margin-right: 23%;
   }
@@ -4479,11 +4485,18 @@ body > .ui.grid:not(.page) {
           box-shadow: none;
   border-radius: 0.25rem;
   color: rgba(0, 0, 0, 0.8);
-}
-.ui.table {
   border-collapse: separate;
   border-spacing: 0px;
 }
+.ui.table:first-child {
+  margin-top: 0em;
+}
+.ui.table:last-child {
+  margin-bottom: 0em;
+}
+/*******************************
+             Parts
+*******************************/
 /* Table Content */
 .ui.table th,
 .ui.table td {
@@ -4718,8 +4731,8 @@ body > .ui.grid:not(.page) {
 .ui.table tr.active:hover td,
 .ui.table td:hover.active,
 .ui.table th:hover.active {
-  background: #f3eddc !important;
-  color: #cd2929 !important;
+  background: #e0e0e0 !important;
+  color: rgba(50, 50, 50, 0.9) !important;
 }
 /*--------------
      Disabled
@@ -8773,7 +8786,7 @@ h1.ui.header {
   font-size: 2rem;
 }
 h2.ui.header {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 h3.ui.header {
   font-size: 1.33rem;
@@ -8797,7 +8810,7 @@ h5.ui.header {
   font-size: 1.33em;
 }
 .ui.large.header {
-  font-size: 1.75em;
+  font-size: 1.5em;
 }
 .ui.huge.header {
   min-height: 1em;
@@ -22466,6 +22479,7 @@ body.pushed.scrolling.ui.dimmable {
 --------------------*/
 /* Link */
 /* Card Count */
+/* Stackable */
 /* Sizes */
 /*------------------
      Load Theme
@@ -23114,8 +23128,10 @@ a.ui.card:hover,
   .ui.stackable.cards > .card {
     display: block !important;
     height: auto !important;
-    width: auto !important;
-    padding: 0% !important;
+    margin: 1em 1em;
+    padding: 0 !important;
+    width: -webkit-calc( 100%  -  2em ) !important;
+    width: calc( 100%  -  2em ) !important;
   }
 }
 /*--------------

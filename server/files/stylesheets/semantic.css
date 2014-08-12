@@ -1109,8 +1109,11 @@ body.guide .main.container > * {
 #example .highlighted.example {
   min-height: 205px;
 }
+#example .collection.cards {
+  min-height: 350px;
+}
 #example .highlighted.example .grid,
-#example .ui.type.items .image .grid {
+#example .ui.type.cards .image .grid {
   -webkit-animation: grid 15s ease infinite;
   -moz-animation: grid 15s ease infinite;
   background-color: #F6F6F6;
@@ -1121,26 +1124,26 @@ body.guide .main.container > * {
   ;
 }
 #example .highlighted.example .grid .row,
-#example .ui.type.items .image .grid .row {
+#example .ui.type.cards .image .grid .row {
   border-top: 1px solid #DDDDDD;
 }
 #example .highlighted.example .grid .row:first-child,
-#example .ui.type.items .image .grid .row:first-child {
+#example .ui.type.cards .image .grid .row:first-child {
   border-top: none;
 }
 #example .highlighted.example .grid .column:first-child,
-#example .ui.type.items .image .grid .column:first-child {
+#example .ui.type.cards .image .grid .column:first-child {
   box-shadow: none;
 }
 #example .highlighted.example .grid .column,
-#example .ui.type.items .image .grid .column {
+#example .ui.type.cards .image .grid .column {
   min-height: 50px;
   -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
   box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 #example .highlighted.example .grid .segment,
-#example .ui.type.items .image .grid .segment {
+#example .ui.type.cards .image .grid .segment {
   min-height: 60px;
   text-align: center;
   padding-left: 0em;
@@ -1192,11 +1195,11 @@ body.guide .main.container > * {
 }
 
 
-#example .ui.type.items > .item {
+#example .ui.type.cards > .item {
   min-height: 255px;
 }
 
-#example .ui.type.items > .item > .image {
+#example .ui.type.cards > .item > .image {
   padding: 1em;
   height: 165px;
   vertical-align: middle;

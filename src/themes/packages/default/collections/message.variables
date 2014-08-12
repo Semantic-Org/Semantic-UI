@@ -31,7 +31,7 @@
 ;
 
 /* Header */
-@headerFontSize: 1.3em;
+@headerFontSize: 1.3rem;
 @headerFontWeight: bold;
 @headerBottomMargin: 0.25em;
 @headerDisplay: block;

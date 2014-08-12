@@ -163,5 +163,10 @@
 @tenCard: ~"calc("@tenColumn~" - "(@tenCardSpacing * 2)~")";
 @tenCardOffset: -@tenCardSpacing;
 
+/* Stackable */
+@stackableRowSpacing: 1em;
+@stackableCardSpacing: 1em;
+@stackableMargin: ~"calc("@oneColumn~" - "(@stackableCardSpacing * 2)~")";
+
 /* Sizes */
 @medium: 1em;

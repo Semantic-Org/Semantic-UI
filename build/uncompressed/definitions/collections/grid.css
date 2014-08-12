@@ -149,7 +149,7 @@
 /*--------------
      Page
 ---------------*/
-/* Standard */
+/* Column Gutters */
 /*--------------
      Relaxed
 ---------------*/
@@ -269,35 +269,41 @@ body > .ui.grid:not(.page) {
   min-width: 320px;
   padding-left: 0%;
   padding-right: 0%;
+  width: auto;
   margin-left: 13%;
   margin-right: 13%;
 }
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 1em;
     margin-right: 1em;
   }
 }
 @media only screen and (min-width: 768px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 8%;
     margin-right: 8%;
   }
 }
 @media only screen and (min-width: 992px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 13%;
     margin-right: 13%;
   }
 }
 @media only screen and (min-width: 1400px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 18%;
     margin-right: 18%;
   }
 }
 @media only screen and (min-width: 1900px) {
   .ui.page.grid {
+    width: auto;
     margin-left: 23%;
     margin-right: 23%;
   }

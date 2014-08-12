@@ -19,16 +19,16 @@
 
 /* HTML Headings */
 @h1: 2rem;
-@h2: 1.75rem;
-@h3: 1.33rem;
+@h2: 1.5rem;
+@h3: 1.3rem;
 @h4: 1.1rem;
 @h5: 1rem;
 
 /* Sizing */
 @tiny: 1em;
 @small: 1.1em;
-@medium: 1.33em;
-@large: 1.75em;
+@medium: 1.3em;
+@large: 1.5em;
 @huge: 2em;
 
 /* Sub Header */

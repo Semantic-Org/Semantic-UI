@@ -30,11 +30,20 @@
      Page
 ---------------*/
 
-/* Standard */
+/* Column Gutters */
+@mobileWidth: auto;
 @mobileGutter: 1em;
+
+@tabletWidth: auto;
 @tabletGutter: 8%;
+
+@computerWidth: auto;
 @computerGutter: 13%;
+
+@largeMonitorWidth: auto;
 @largeMonitorGutter: 18%;
+
+@widescreenMonitorWidth: auto;
 @widescreenMonitorGutter: 23%;
 
 

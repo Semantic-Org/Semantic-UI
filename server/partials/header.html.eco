@@ -33,9 +33,11 @@
         </div>
       </div>
       <% end %>
+      <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
       <div class="ui secondary button">
         Download
       </div>
+      <% end %>
     </div>
     <div class="advertisement">
       <% unless 'development' in @getEnvironments(): %>

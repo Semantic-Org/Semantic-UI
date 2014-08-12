@@ -164,6 +164,7 @@
 --------------------*/
 /* Link */
 /* Card Count */
+/* Stackable */
 /* Sizes */
 /*------------------
      Load Theme
@@ -812,8 +813,10 @@ a.ui.card:hover,
   .ui.stackable.cards > .card {
     display: block !important;
     height: auto !important;
-    width: auto !important;
-    padding: 0% !important;
+    margin: 1em 1em;
+    padding: 0 !important;
+    width: -webkit-calc( 100%  -  2em ) !important;
+    width: calc( 100%  -  2em ) !important;
   }
 }
 /*--------------

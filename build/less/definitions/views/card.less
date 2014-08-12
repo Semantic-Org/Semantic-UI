@@ -683,8 +683,9 @@ a.ui.card:hover,
   .ui.stackable.cards > .card {
     display: block !important;
     height: auto !important;
-    width: auto !important;
-    padding: 0% !important;
+    margin: @stackableRowSpacing @stackableCardSpacing;
+    padding: 0 !important;
+    width: @stackableMargin !important;
   }
 }
 

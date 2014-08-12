@@ -32,12 +32,20 @@
   box-shadow: @boxShadow;
   border-radius: @borderRadius;
   color: @color;
-}
-
-.ui.table {
   border-collapse: @borderCollapse;
   border-spacing: @borderSpacing;
 }
+
+.ui.table:first-child {
+  margin-top: 0em;
+}
+.ui.table:last-child {
+  margin-bottom: 0em;
+}
+
+/*******************************
+             Parts
+*******************************/
 
 /* Table Content */
 .ui.table th,
@@ -284,8 +292,8 @@
 .ui.table tr.active:hover td,
 .ui.table td:hover.active,
 .ui.table th:hover.active {
-  background: @warningBackgroundHover !important;
-  color: @warningColorHover !important;
+  background: @activeBackgroundColor !important;
+  color: @activeColor !important;
 }
 
 

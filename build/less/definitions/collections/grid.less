@@ -134,36 +134,42 @@ body > .ui.grid:not(.page) {
   min-width: @minWidth;
   padding-left: 0%;
   padding-right: 0%;
+  width: @computerWidth;
   margin-left: @computerGutter;
   margin-right: @computerGutter;
 }
 
 @media only screen and (max-width : (@tabletBreakpoint - 1)) {
   .ui.page.grid {
+    width: @mobileWidth;
     margin-left: @mobileGutter;
     margin-right: @mobileGutter;
   }
 }
 @media only screen and (min-width : @tabletBreakpoint) {
   .ui.page.grid {
+    width: @tabletWidth;
     margin-left: @tabletGutter;
     margin-right: @tabletGutter;
   }
 }
 @media only screen and (min-width : @computerBreakpoint) {
   .ui.page.grid {
+    width: @computerWidth;
     margin-left: @computerGutter;
     margin-right: @computerGutter;
   }
 }
 @media only screen and (min-width : @largeMonitorBreakpoint) {
   .ui.page.grid {
+    width: @largeMonitorWidth;
     margin-left: @largeMonitorGutter;
     margin-right: @largeMonitorGutter;
   }
 }
 @media only screen and (min-width : @widescreenMonitorBreakpoint) {
   .ui.page.grid {
+    width: @widescreenMonitorWidth;
     margin-left: @widescreenMonitorGutter;
     margin-right: @widescreenMonitorGutter;
   }

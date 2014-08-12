@@ -200,11 +200,18 @@
           box-shadow: none;
   border-radius: 0.25rem;
   color: rgba(0, 0, 0, 0.8);
-}
-.ui.table {
   border-collapse: separate;
   border-spacing: 0px;
 }
+.ui.table:first-child {
+  margin-top: 0em;
+}
+.ui.table:last-child {
+  margin-bottom: 0em;
+}
+/*******************************
+             Parts
+*******************************/
 /* Table Content */
 .ui.table th,
 .ui.table td {
@@ -439,8 +446,8 @@
 .ui.table tr.active:hover td,
 .ui.table td:hover.active,
 .ui.table th:hover.active {
-  background: #f3eddc !important;
-  color: #cd2929 !important;
+  background: #e0e0e0 !important;
+  color: rgba(50, 50, 50, 0.9) !important;
 }
 /*--------------
      Disabled
