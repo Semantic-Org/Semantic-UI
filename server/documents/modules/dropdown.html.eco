@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'dropdown'
 
 title       : 'Dropdown'
-description : 'A dropdown allows a user to select a value from a series of options.'
+description : 'A dropdown allows a user to select a value from a series of options'
 type        : 'UI Module'
 
 element     : 'dropdown'

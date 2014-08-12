@@ -5,7 +5,7 @@ element     : 'list'
 elementType : 'view'
 
 title       : 'List'
-description : 'A list is used to group short descriptions of content'
+description : 'A list is used to group descriptions of related content'
 type        : 'UI View'
 
 themes      : ['Default']
@@ -26,7 +26,7 @@ themes      : ['Default']
   <h2 class="ui dividing header">Types</h2>
   <div class="example">
     <h4 class="ui header">List</h4>
-    <p>A standard list</p>
+    <p>A simple list</p>
     <div class="ui list">
       <div class="item">Apples</div>
       <div class="item">Pears</div>

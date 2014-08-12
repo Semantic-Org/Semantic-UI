@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'icon'
 title       : 'Icon'
-description : 'An icon is a glyph used to represent another concept more simply'
+description : 'An icon is a glyph used to represent a concept'
 type        : 'UI Element'
 
 element     : 'icon'

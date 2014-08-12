@@ -5,7 +5,7 @@ element     : 'step'
 elementType : 'element'
 
 title       : 'Step'
-description : 'Steps show the current activity in a series of consecutive activities.'
+description : 'Steps show the completion of activities that occur in a series'
 type        : 'UI Element'
 
 themes      : ['default', 'Basic', 'GitHub']

@@ -6,7 +6,7 @@ element     : 'breadcrumb'
 elementType : 'collection'
 
 title       : 'Breadcrumb'
-description : 'A breadcrumb is used to display the relation of the current section to other sections of the site.'
+description : 'A breadcrumb is used to display the relation of the current content to other content.'
 type        : 'UI Collection'
 themes      : ['Default']
 ---

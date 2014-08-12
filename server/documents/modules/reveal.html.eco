@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'reveal'
 
 title       : 'Reveal'
-description : 'A reveal is an element that shows different content below it when hovered'
+description : 'A reveal hides additional content until a user engages content'
 type        : 'UI Element'
 ---
 

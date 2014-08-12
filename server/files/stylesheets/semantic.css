@@ -94,7 +94,7 @@ h1 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 h4 + p {
-  margin: 0px 0px 20px;
+  margin: 0px 0px 1em;
 }
 pre {
   background-color: #F0F0F0;
@@ -574,7 +574,7 @@ body.guide .main.container > * {
 #example .peek {
   position: absolute;
   top: 0px;
-  left: -280px;
+  left: -230px;
   width: 180px;
 /*
   -webkit-transition: padding 0.3s ease;
@@ -724,7 +724,7 @@ body.guide .main.container > * {
 }
 
 #example .another.example {
-  margin-top: 0em;
+  margin-top: -1em;
   padding-top: 2em;
   border-top: none;
 }
@@ -1069,9 +1069,8 @@ body.guide .main.container > * {
   clear: both;
 }
 #example .example {
-  margin: 1em 0em;
+  margin: 1em 0em 1.5em;
   padding: 1em 0em;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
 /*  clear: both;*/
   position: relative;
 }
@@ -1301,11 +1300,12 @@ body.progress .ui.progress .bar {
 
 
 
-@media only screen and (max-width : 1725px) {
+@media only screen and (max-width : 1325px) {
   #example .container {
     width: auto;
     margin-right: 100px;
     margin-left: 325px;
+    max-width: 700px;
   }
   #example.index .container {
     margin-left: 8em;
@@ -1470,12 +1470,12 @@ body.progress .ui.progress .bar {
 
 
 
-@media only screen and (min-width : 1725px) {
+@media only screen and (min-width : 1325px) {
   #example .container {
-    width: 1000px;
+    width: 850px;
   }
   #example .sticky-wrapper.stuck .peek {
-    margin-left: -780px;
+    margin-left: -655px;
   }
   #example.left.pushed .main.menu {
     margin-left: -132px;

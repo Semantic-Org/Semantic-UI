@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'table'
 
 title       : 'Table'
-description : 'Tables display collections of data grouped into rows'
+description : 'Tables display collections of related data grouped into rows'
 type        : 'UI Collection'
 
 element     : 'table'

@@ -2,7 +2,7 @@
 layout      : 'default'
 css         : 'progress'
 title       : 'Progress'
-description : 'Progress bars show the percent of a task complete'
+description : 'A progress bar shows the progression of a task'
 type        : 'UI Element'
 ---
 
