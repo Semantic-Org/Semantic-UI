@@ -6,7 +6,7 @@ element     : 'sidebar'
 elementType : 'element'
 
 title       : 'Sidebar'
-description : 'A sidebar is a menu hidden beside a page's layout.'
+description : 'A sidebar hides additional content beside a page.'
 type        : 'UI Module'
 
 themes      : ['Default']
