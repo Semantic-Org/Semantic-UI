@@ -154,7 +154,8 @@
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 html,
 body {
@@ -163,7 +164,7 @@ body {
 }
 body {
   background: #fcfcfc;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0px;
   padding: 0px;
   color: rgba(0, 0, 0, 0.8);

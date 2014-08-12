@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'text'
 
 title       : 'Message'
-description : 'Messages alert a user to information they must immediately consider before proceeding on to the normal content of the page'
+description : 'A message displays information a user must immediately consider before proceeding to the contents of a page.'
 type        : 'UI Collection'
 
 element     : 'message'

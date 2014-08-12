@@ -29,9 +29,16 @@
 /* Menu */
 @menuBackground: #FFFFFF;
 @menuMargin: 0em;
+@menuPadding: 0em;
 @menuTop: 100%;
 @menuWrap: nowrap;
-@menuBoxShadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+
+@menuBorderShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+@menuShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+@menuBoxShadow:
+  @menuBorderShadow,
+  @menuShadow
+;
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @menuTransition: opacity 0.2s ease;
 @menuZIndex: 11;
@@ -40,7 +47,7 @@
 @itemFontSize: 1rem;
 @itemBorder: none;
 @itemHeight: auto;
-@itemDivider: 1px solid @borderColor;
+@itemDivider: none;
 @itemColor: @textColor;
 @itemVerticalPadding: 0.85em;
 @itemHorizontalPadding: 1em;
@@ -133,7 +140,7 @@
 
 @pointingArrowBackground: @white;
 @pointingArrowZIndex: 2;
-@pointingArrowBoxShadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.05);
+@pointingArrowBoxShadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
 @pointingArrowSize: 0.5em;
 
 @pointingMenuDistance: 0.75em;

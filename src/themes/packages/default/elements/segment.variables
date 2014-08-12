@@ -10,10 +10,9 @@
 @border: none;
 
 @borderShadow: 0px 0px 0px @borderWidth @borderColor;
-@shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.05);
 @boxShadow:
   @borderShadow,
-  @shadow
+  @subtleShadow
 ;
 @verticalPadding: 1em;
 @horizontalPadding: 1em;
@@ -58,7 +57,7 @@
 @attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,
-  @shadow
+  @subtleShadow
 ;
 
 /* Colors */

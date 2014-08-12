@@ -166,6 +166,11 @@
   margin: @iconMargin;
 }
 
+.ui.menu .item > i.dropdown.icon {
+  float: @dropdownIconFloat;
+  margin-left: @dropdownIconDistance;
+}
+
 /*--------------
      Button
 ---------------*/
@@ -521,13 +526,14 @@
 }
 
 .ui.vertical.menu .item:first-child:before {
-  background-image: none !important;
+  background: none !important;
 }
 
 /*--- Dropdown ---*/
-.ui.vertical.menu .dropdown.item > i {
+.ui.vertical.menu .dropdown.item > .icon {
   float: right;
   content: "\f0da";
+  margin-left: 1em;
 }
 .ui.vertical.menu .dropdown.item .menu {
   top: 0% !important;
@@ -601,7 +607,7 @@
 
 /* Sub Menu Divider */
 .ui.tiered.menu .sub.menu .item:before {
-  background-image: none;
+  background: none;
 }
 
 /* Sub Menu Hover */
@@ -1091,6 +1097,7 @@
 .ui.icon.menu > .item > .icon {
   display: block;
   float: none !important;
+  height: 1em;
   opacity: 1;
   margin: 0em auto !important;
 }
@@ -1407,7 +1414,7 @@
 .ui.borderless.menu .item:before,
 .ui.borderless.menu .item .menu .item:before,
 .ui.menu .borderless.item:before {
-  background-image: none;
+  background: none;
 }
 
 /*-------------------
@@ -1555,7 +1562,7 @@
   border-bottom: @arrowBorder;
   border-right: @arrowBorder;
 
-  background-image: none;
+  background: none;
   transform: rotate(45deg);
   z-index: 2;
 

@@ -64,24 +64,51 @@
         States
 --------------------*/
 
+/* Hovered */
 @hoverBackgroundColor: '';
 @hoverBackgroundImage: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
 @hoverBoxShadow: '';
+@hoverColor: @selectedTextColor;
 @iconHoverOpacity: 0.85;
 
+/* Focused */
 @focusBackgroundColor: '';
 @focusBackgroundImage: '';
-@focusBoxShadow: 0 0 1px rgba(81, 167, 232, 0.8) inset, 0 0 3px 2px rgba(81, 167, 232, 0.8);
+@focusBoxShadow:
+  0px 0px 1px rgba(81, 167, 232, 0.8) inset,
+  0px 0px 3px 2px rgba(81, 167, 232, 0.8)
+;
+@focusColor: @selectedTextColor;
 @iconFocusOpacity: 0.85;
 
+/* Pressed Down */
 @downBackgroundColor: #F1F1F1;
 @downBackgroundImage: '';
-@downBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+@downBoxShadow:
+  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
+  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
+;
+@downColor: @selectedTextColor;
 
-@activeBackgroundColor: #DDDDDD;
+/* Active */
+@activeBackgroundColor: #DADADA;
 @activeBackgroundImage: none;
-@activeBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset !important;
+@activeColor: rgba(0, 0, 0, 0.5);
+@activeBoxShadow:
+  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
+  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
+;
 
+/* Active + Hovered */
+@activeHoverBackgroundColor: #DADADA;
+@activeHoverBackgroundImage: none;
+@activeHoverBoxShadow:
+  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
+  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
+;
+@activeHoverColor: @selectedTextColor;
+
+/* Loading */
 @loadingBackgroundColor: #FFFFFF;
 
 /*-------------------

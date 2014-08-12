@@ -18,7 +18,7 @@
 @backgroundColor: #E8E8E8;
 @backgroundImage: none;
 
-@labelTextColor: @textColor;
+@labelTextColor: rgba(0, 0, 0, 0.65);
 
 @verticalPadding: 0.8em;
 @horizontalPadding: 0.8em;
@@ -37,7 +37,7 @@
 
 @detailOpacity: 0.8;
 @detailIconDistance: 0.25em;
-@detailMargin: 0.5em;
+@detailMargin: 1em;
 
 @deleteMargin: 0.5em;
 
@@ -46,9 +46,9 @@
 --------------------*/
 
 @imageLabelBackgroundColor: @backgroundColor;
-
+@imageLabelBorderRadius: @circularRadius;
 @imageLabelImageHeight: (1em + @verticalPadding * 2);
-@imageLabelBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+@imageLabelBoxShadow: none;
 
 
 /*-------------------
@@ -87,7 +87,7 @@
 /* Corner */
 @cornerSizeRatio: 1.2;
 @cornerTriangleSize: 2.5em;
-@cornerTextWidth: 2.5em;
+@cornerTextWidth: 3em;
 
 @cornerTextSize: 0.7em;
 @cornerIconSize: 0.7em;

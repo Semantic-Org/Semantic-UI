@@ -23,7 +23,10 @@
 @itemBackground: none;
 
 @fontWeight: normal;
-@boxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+@boxShadow:
+  0px 0px 0px 1px rgba(0, 0, 0, 0.1),
+  @subtleShadow
+;
 
 @borderSize: 0em;
 
@@ -68,10 +71,13 @@
 
 /* Icon */
 @iconFloat: none;
-@iconMargin: 0.25em 0em 0em 0em;
+@iconMargin: 0em 0.25em 0em 0em;
 @iconOpacity: 0.75;
 
-@verticalIconFloat: left;
+@dropdownIconFloat: right;
+@dropdownIconDistance: 1em;
+
+@verticalIconFloat: right;
 @verticalIconMargin: 0em 0em 0em 0.5em;
 
 /* Header */
@@ -95,8 +101,8 @@
 /* Input */
 @inputSize: 0.875em;
 @inputVerticalMargin: -0.6em;
-@inputOffset: 0em;
-@inputVerticalPadding: 0.5em;
+@inputOffset: -0.05em;
+@inputVerticalPadding: 0.4em;
 @inputIconOffset: -0.25em;
 
 @smallInputOffset: 0em;
@@ -147,7 +153,7 @@
 
 @activeBackground: @subtleTransparentBlack;
 @activeColor: @darkTextColor;
-@activeBorderSize: 0.2em;
+@activeBorderSize: 2px;
 @activeFontWeight: normal;
 @activeIconOpacity: 1;
 

@@ -18,10 +18,9 @@
 
 @borderWidth: 1px;
 @borderShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset;
-@shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
 @boxShadow:
   @borderShadow,
-  @shadow
+  @subtleShadow
 ;
 
 @transition:
@@ -73,7 +72,7 @@
 @attachedBoxShadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,
-  @shadow
+  @subtleShadow
 ;
 
 /* Floating */

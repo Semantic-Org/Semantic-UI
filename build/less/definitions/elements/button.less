@@ -68,7 +68,7 @@
 .ui.button:hover {
   background-color: @hoverBackgroundColor;
   background-image: @hoverBackgroundImage;
-  color: @selectedTextColor;
+  color: @hoverColor;
 }
 
 .ui.button:hover .icon {
@@ -83,7 +83,7 @@
   background-color: @focusBackgroundColor;
   background-image: @focusBackgroundImage;
   box-shadow: @focusBoxShadow;
-  color: @selectedTextColor;
+  color: @focusColor;
 }
 
 .ui.button:focus .icon {
@@ -98,7 +98,7 @@
 .ui.active.button:active {
   background-color: @downBackgroundColor;
   background-image: @downBackgroundImage;
-  color: @selectedTextColor;
+  color: @downColor;
   box-shadow: @downBoxShadow;
 }
 
@@ -110,11 +110,12 @@
   background-color: @activeBackgroundColor;
   background-image: @activeBackgroundImage;
   box-shadow: @activeBoxShadow;
-  color: @textColor;
+  color: @activeColor;
 }
 .ui.button.active:hover {
-  background-color: @activeBackgroundColor;
-  background-image: @activeBackgroundImage;
+  background-color: @activeHoverBackgroundColor;
+  background-image: @activeHoverBackgroundImage;
+  color: @activeHoverColor;
 }
 .ui.button.active:active {
   background-color: @activeBackgroundColor;
@@ -1676,6 +1677,7 @@
 /*---------------
      Negative
 ----------------*/
+
 .ui.negative.buttons .button,
 .ui.negative.button {
   background-color: @negativeColor !important;
