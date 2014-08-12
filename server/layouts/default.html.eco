@@ -153,7 +153,10 @@
       <i class="close icon"></i> Close Menu
     </a>
     <a class="item" href="/build/semantic.zip">
-      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+      <i class="awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <a class="item" href="/kitchen.html">
+      <i class="browser icon"></i> <b>Kitchen Sink</b>
     </a>
     <div class="item">
       <a href="/element.html"><b>Elements</b></a>

@@ -1,9 +1,17 @@
 ---
 layout      : 'default'
-css         : "label"
+css         : 'label'
+
+element     : 'label'
+elementType : 'element'
+
 title       : 'Label'
 description : 'Labels give descriptions to pieces of content'
 type        : 'UI Element'
+
+themes      : ['Default']
+---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/label.less" />
 ---
 
 <%- @partial('header') %>
@@ -60,7 +68,6 @@ type        : 'UI Element'
     <a class="ui image label">
       <img src="/images/demo/photo2.jpg">
       dog@doggington.com
-      <i class="delete icon"></i>
     </a>
     <a class="ui image label">
       <img src="/images/demo/avatar2.jpg">
@@ -70,7 +77,7 @@ type        : 'UI Element'
     <a class="ui image label">
       <img src="/images/demo/avatar3.jpg">
       kelly@bellyscratcher.com
-      <i class="delete icon"></i>
+      <div class="detail">Friend</div>
     </a>
   </div>
 

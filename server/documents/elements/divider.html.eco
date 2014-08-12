@@ -34,7 +34,7 @@ themes      : ['default']
   <div class="example">
     <h4 class="ui header">Vertical Divider</h4>
     <p>A divider can segment content vertically</p>
-    <div class="ui two column middle aligned relaxed grid basic segment">
+    <div class="ui two column middle aligned relaxed fitted grid basic segment">
       <div class="column">
         <div class="ui form segment">
           <div class="field">

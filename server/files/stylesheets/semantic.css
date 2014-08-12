@@ -689,6 +689,7 @@ body.guide .main.container > * {
 }
 #example .icon.example .column .icon {
   opacity: 1;
+  height: 1em;
   color: #333333;
   display: block;
   margin: 0em auto 0.25em;
@@ -1258,6 +1259,10 @@ body.progress .ui.progress .bar {
   100% {
     width: 100%;
   }
+}
+
+#example.sink .inverted.button {
+  margin-bottom: 0.75em;
 }
 
 

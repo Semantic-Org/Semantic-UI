@@ -108,8 +108,6 @@ type   : 'Library'
         <div class="ui large red fluid add button"><i class="icon add"></i>Add</div>
       </div>
     </div>
-
-
   </div>
   <div class="ui ten wide default page column">
     <div class="ui raised segment">
