@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'item'
 
 title       : 'Item'
-description : 'An item view can be used to list site content'
+description : 'An item view divides site content into vertical groups for display'
 type        : 'UI View'
 
 element     : 'item'

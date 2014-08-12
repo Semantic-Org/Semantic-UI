@@ -6,7 +6,7 @@ element     : 'dimmer'
 elementType : 'module'
 
 title       : 'Dimmer'
-description : "Dimmers hide distractions to focus user's attention on particular content"
+description : "A dimmer hides distractions to focus attention on particular content"
 type        : 'UI Module'
 
 themes      : ['Default']

@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'stat'
 
 title       : 'Statistic'
-description : 'A statistic is used to present a single value measurement of an attribute'
+description : 'A statistic emphasizes the current value of an attribute'
 type        : 'UI View'
 
 element     : 'statistic'

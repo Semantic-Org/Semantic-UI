@@ -6,7 +6,7 @@ elementType : 'module'
 
 
 title       : 'Checkbox'
-description : "A checkbox visually indicates the status of a user's selection"
+description : "A checkbox indicates the current value of a selection"
 type        : 'UI Module'
 themes      : ['default']
 ---

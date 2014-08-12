@@ -5,7 +5,7 @@ element     : 'accordion'
 elementType : 'module'
 
 title       : 'Accordion'
-description : 'An accordion concisely displays several groups of related content together '
+description : 'An accordion lets a user activate groups of collapsible content'
 type        : 'UI Module'
 
 themes      : ['default']

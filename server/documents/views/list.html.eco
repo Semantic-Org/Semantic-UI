@@ -5,7 +5,7 @@ element     : 'list'
 elementType : 'view'
 
 title       : 'List'
-description : 'A list is a group of related content items ordered consecutively'
+description : 'A list is used to group short descriptions of content'
 type        : 'UI View'
 
 themes      : ['Default']

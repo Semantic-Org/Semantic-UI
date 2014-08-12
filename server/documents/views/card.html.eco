@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'card'
 
 title       : 'Card'
-description : 'A card view can be used to list site content as a playing card'
+description : 'A card view lists site content as a playing card'
 type        : 'UI View'
 
 element     : 'card'
