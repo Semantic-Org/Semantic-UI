@@ -8,7 +8,7 @@
 
 @pageFont: "Helvetica Neue", "Helvetica", Arial;
 
-@verticalPadding: 0.65em;
+@verticalPadding: 0.8em;
 @horizontalPadding: 1em;
 @inputHeight: (@verticalPadding * 2) + 1.5;
 
