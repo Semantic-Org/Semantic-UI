@@ -25,6 +25,9 @@
 
 @inputVerticalPadding: 0.8em;
 @inputHorizontalPadding: 1em;
+@inputLineHeight: 1.2;
+@inputPadding: (@inputVerticalPadding + ((1em - @inputLineHeight) / 2)) @inputHorizontalPadding;
+
 @inputBackground: #FFFFFF;
 @inputBorder: 1px solid @borderColor;
 @inputBorderRadius: 0.3125em;
