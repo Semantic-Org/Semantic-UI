@@ -291,4 +291,85 @@ themes      : ['Default']
     </div>
   </div>
 
+  <div class="example">
+    <h4 class="ui header">Sizes</h4>
+    <p>A statistic can vary in size</p>
+    <div class="ui small statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small horizontal statistics">
+      <div class="statistic">
+        <div class="value">
+          22
+        </div>
+        <div class="label">
+          Breeds of Dog
+        </div>
+      </div>
+      <div class="statistic">
+        <div class="value">
+          31
+        </div>
+        <div class="label">
+          Famous Dogs in Films
+        </div>
+      </div>
+      <div class="statistic">
+        <div class="value">
+          22
+        </div>
+        <div class="label">
+          US Presidents Owned Dogs
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Sizes</h4>
+    <p>A statistic can vary in size</p>
+    <div class="ui large statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui large horizontal statistics">
+      <div class="statistic">
+        <div class="value">
+          22
+        </div>
+        <div class="label">
+          Breeds of Dog
+        </div>
+      </div>
+      <div class="statistic">
+        <div class="value">
+          31
+        </div>
+        <div class="label">
+          Famous Dogs in Films
+        </div>
+      </div>
+      <div class="statistic">
+        <div class="value">
+          22
+        </div>
+        <div class="label">
+          US Presidents Owned Dogs
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -18,9 +18,8 @@ themes      : ['default']
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
-      <a class="active item">Standard</a>
+      <a class="active item">Types</a>
       <a class="item">Elements</a>
-      <!--<a class="item">Types</a>-->
       <a class="item">Variations</a>
     </div>
   </div>
@@ -28,11 +27,12 @@ themes      : ['default']
   <h2 class="ui dividing header">Standard</h2>
 
   <div class="highlighted example">
-    <h4 class="ui header">Grid</h4>
+    <h4 class="ui header">Basic Grid</h4>
     <p>A grid is made up of columns of content with gutters to provide negative space between columns.</p>
 
-    <div class="ui ignore info message"><i class="icon heart"></i>All grid systems must assume an arbitrary amount of column rows. Semantic by default assumes <b>16 columns</b></div>
-    <div class="ui grid">
+    <div class="ui ignore info message"><i class="icon heart"></i>All grid systems must assume an arbitrary amount of column rows. Semantic's default theme assumes <b>16 columns</b></div>
+
+     <div class="ui grid">
       <div class="four wide column">
         <div class="ui segment">
         </div>
@@ -51,43 +51,56 @@ themes      : ['default']
       </div>
     </div>
   </div>
+  <div class="highlighted example">
+    <h4 class="ui header">Enhanced Grid</h4>
+    <p>A grid can include additional nesting for rows. This allows variations like <code>equal height</code> and <code>vertically divided</div> to function correctly and ensures the bottom grid row will always sit flush with content below.</p>
+
+
+    <div class="ui grid">
+      <div class="ui four column row">
+        <div class="column">
+          <div class="ui segment">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+          </div>
+        </div>
+      </div>
+      <div class="ui row">
+        <div class="three wide column">
+          <div class="ui segment">
+          </div>
+        </div>
+        <div class="eight wide column">
+          <div class="ui segment">
+          </div>
+        </div>
+        <div class="five wide column">
+          <div class="ui segment">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="example">
     <h4 class="ui header">Page Grid</h4>
     <p>A page grid is used to layout page contents into a grid system. Page grids exists on the top level of a web site. A page grid has gutters to the left and right of its columns to center content on a page.</p>
 
-    <h4>Standard Page Grid</h4>
+  <h4>Page Grid</h4>
     <p>A page grid will automatically resize its gutters as a browser's width changes. This will preserve a <b>percentage of width</b> as a gutter.</p>
 
     <div class="ui page grid">
-      <div class="eight wide column">
-        <div class="ui labeled vertical fluid inverted icon menu">
-          <a class="item">
-            <i class="icon mail"></i>
-            Mail
-          </a>
-          <a class="item">
-            <i class="icon lab"></i>
-            Lab
-          </a>
-          <a class="item">
-            <i class="icon star"></i>
-            Favorites
-          </a>
-        </div>
-      </div>
-      <div class="eight wide column">
-        <div class="ui segment">
-          <b>Inbox</b>
-          <p>Welcome to your inbox. Would you like to see more information?</p>
-        </div>
-      </div>
-    </div>
-
-    <h4>Fixed Page Grid</h4>
-    <p>A fixed page grid only changes its gutter sizes once per breakpoint, this will preserve a <b>fixed grid size</b> for each screen type</p>
-
-    <div class="ui fixed page grid">
       <div class="eight wide column">
         <div class="ui labeled vertical fluid inverted icon menu">
           <a class="item">
@@ -209,7 +222,7 @@ themes      : ['default']
 
   <div class="highlighted example">
     <h4 class="ui header">Rows</h4>
-    <p>A row is used to create vertical padding between groups of columns on a page. If no rows are specified columns will sit flush vertically.</p>
+    <p>A row is used to create vertical padding between groups of columns on a page.</p>
     <div class="ui grid">
       <div class="row">
         <div class="column">
@@ -379,7 +392,7 @@ themes      : ['default']
   </div>
   <div class="highlighted example">
     <h4 class="ui header">Columns</h4>
-    <p>Columns each contain gutters giving them equal vertical spacing from other columns. Columns by default do not take up their entire row height.</p>
+    <p>Columns each contain gutters giving them equal spacing from other columns.</p>
     <div class="ui three column grid">
       <div class="column">
         <div class="ui segment">
