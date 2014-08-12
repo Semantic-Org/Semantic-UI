@@ -27,10 +27,12 @@ themes      : ['default']
   <h2 class="ui dividing header">Standard</h2>
 
   <div class="highlighted example">
-    <h4 class="ui header">Basic Grid</h4>
+    <h4 class="ui header">Simple Grid</h4>
     <p>A grid is made up of columns of content with gutters to provide negative space between columns.</p>
 
-    <div class="ui ignore info message"><i class="icon heart"></i>All grid systems must assume an arbitrary amount of column rows. Semantic's default theme assumes <b>16 columns</b></div>
+    <div class="ui ignore info message">
+      All grid systems must assume an arbitrary amount of column rows. Semantic's default theme assumes <b>16 columns</b>
+    </div>
 
      <div class="ui grid">
       <div class="four wide column">
@@ -52,9 +54,14 @@ themes      : ['default']
     </div>
   </div>
   <div class="highlighted example">
-    <h4 class="ui header">Enhanced Grid</h4>
-    <p>A grid can include additional nesting for rows. This allows variations like <code>equal height</code> and <code>vertically divided</div> to function correctly and ensures the bottom grid row will always sit flush with content below.</p>
+    <h4 class="ui header">Grid with Rows</h4>
+    <p>A grid can wrap groups of columns into rows</p>
 
+    <div class="ui ignored positive message">
+      <h3 class="ui header">The Benefits of Rows</h3>
+      <p>It's often easier to have dynamic content output without nested rows, but using row wrappers is the only way for variations like <code>equal height</code> and <code>vertically divided</code> to function correctly.</p>
+      <p>In addition, the bottom and top rows, when specified will sit flush with the edge of the grid.</p>
+    </div>
 
     <div class="ui grid">
       <div class="ui four column row">
@@ -95,10 +102,11 @@ themes      : ['default']
 
   <div class="example">
     <h4 class="ui header">Page Grid</h4>
-    <p>A page grid is used to layout page contents into a grid system. Page grids exists on the top level of a web site. A page grid has gutters to the left and right of its columns to center content on a page.</p>
+    <p>A page grid is used to layout page contents into a grid system.
 
-  <h4>Page Grid</h4>
-    <p>A page grid will automatically resize its gutters as a browser's width changes. This will preserve a <b>percentage of width</b> as a gutter.</p>
+    <div class="ui ignored info message">
+      <p>A page grid has gutters to the left and right of its columns to center content on a page. These gutterss adjust as the width of the browser changes, ensuring your grid uses a sensible amount of the browser.</p>
+    </div>
 
     <div class="ui page grid">
       <div class="eight wide column">
