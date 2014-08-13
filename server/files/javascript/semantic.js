@@ -158,6 +158,7 @@ semantic.ready = function() {
                     if( $('style.override').size() > 0 ) {
                       $('style.override').remove();
                     }
+                    console.log(content);
                     $('<style>' + content + '</style>')
                       .addClass('override')
                       .appendTo('body')
