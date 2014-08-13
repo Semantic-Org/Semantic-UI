@@ -223,24 +223,29 @@ themes      : ['default', 'bookish', 'chubby']
   <div class="example">
     <h4 class="ui header">Inverted</h4>
     <p>A header can have its colors inverted for contrast</p>
-    <h4 class="ui inverted black block header">
-      Black
-    </h4>
-    <h4 class="ui inverted blue block header">
-      Blue
-    </h4>
-    <h4 class="ui inverted red block header">
-      Red
-    </h4>
-    <h4 class="ui inverted green block header">
-      Green
-    </h4>
-    <h4 class="ui inverted purple block header">
-      Purple
-    </h4>
-    <h4 class="ui inverted teal block header">
-      Teal
-    </h4>
+    <div class="ui info message">
+      Inverted headers use modified light versions of your site's color scheme that are adapted to have more contrast on dark background
+    </div>
+    <div class="ui inverted segment">
+      <h4 class="ui inverted black header">
+        Black
+      </h4>
+      <h4 class="ui inverted blue header">
+        Blue
+      </h4>
+      <h4 class="ui inverted red header">
+        Red
+      </h4>
+      <h4 class="ui inverted green header">
+        Green
+      </h4>
+      <h4 class="ui inverted purple header">
+        Purple
+      </h4>
+      <h4 class="ui inverted teal header">
+        Teal
+      </h4>
+    </div>
   </div>
 
 </div>

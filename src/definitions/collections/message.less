@@ -195,11 +195,17 @@
   vertical-align: @iconVerticalAlign;
   font-size: @iconSize;
   opacity: @iconOpacity;
-  padding-right: @iconContentDistance;
 }
 .ui.icon.message > .content {
   display: table-cell;
   vertical-align: @iconVerticalAlign;
+}
+
+.ui.icon.message .icon:not(.close) + .content {
+  padding-left: @iconContentDistance;
+}
+.ui.icon.message .circular.icon + .content {
+  padding-left: @circularIconContentDistance;
 }
 
 /*--------------

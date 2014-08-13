@@ -85,7 +85,7 @@
 @metaLinkHoverColor: @textColor;
 
 /* Description */
-@descriptionDistance: 0.75em;
+@descriptionDistance: 0.5em;
 @descriptionColor: rgba(0, 0, 0, 0.5);
 
 /* Content Image */

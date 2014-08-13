@@ -147,8 +147,8 @@
 @pinkTextColor    : @pink;
 @purpleTextColor  : @purple;
 @redTextColor     : @red;
-@tealTextColor    : @teal;
-@yellowTextColor  : #B58105; // Yellow text is illegible
+@tealTextColor    : #10A3A3; // Teal text is difficult to read
+@yellowTextColor  : #B58105; // Yellow text is difficult to read
 
 /*--- Colored Headers ---*/
 @blueHeaderColor   : darken(@blueTextColor, 5);

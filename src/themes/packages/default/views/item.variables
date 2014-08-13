@@ -30,7 +30,7 @@
 /* Image */
 @imageDisplay: table-cell;
 @imageFloat: none;
-@imageWidth: 225px;
+@imageWidth: 175px;
 @imageMaxHeight: '';
 @imageVerticalAlign: top;
 @imageMargin: 0em;

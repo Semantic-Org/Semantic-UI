@@ -328,11 +328,16 @@
   vertical-align: middle;
   font-size: 3em;
   opacity: 0.8;
-  padding-right: 1.5rem;
 }
 .ui.icon.message > .content {
   display: table-cell;
   vertical-align: middle;
+}
+.ui.icon.message .icon:not(.close) + .content {
+  padding-left: 1.5rem;
+}
+.ui.icon.message .circular.icon + .content {
+  padding-left: 2em;
 }
 /*--------------
     Floating
@@ -446,10 +451,10 @@
 }
 .ui.teal.message {
   background-color: #d2f5f5;
-  color: #39cccc;
+  color: #10a3a3;
 }
 .ui.teal.message .header {
-  color: #30bbbb;
+  color: #0e8c8c;
 }
 .ui.yellow.message {
   background-color: #fcf5d8;

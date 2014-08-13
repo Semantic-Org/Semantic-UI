@@ -136,9 +136,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
             Header
 *******************************/
@@ -160,6 +157,9 @@
 /* Block */
 /* Attached */
 /* Floated */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -385,40 +385,31 @@ h5.ui.header {
    Inverted Colors
 --------------------*/
 .ui.inverted.black.header {
-  background-color: #333333 !important;
-  color: #ffffff !important;
+  color: #aaaaaa !important;
 }
 .ui.inverted.blue.header {
-  background-color: #0074d9 !important;
-  color: #ffffff !important;
+  color: #54c8ff !important;
 }
 .ui.inverted.green.header {
-  background-color: #2ecc40 !important;
-  color: #ffffff !important;
+  color: #2ecc40 !important;
 }
 .ui.inverted.orange.header {
-  background-color: #ff851b !important;
-  color: #ffffff !important;
+  color: #ff851b !important;
 }
 .ui.inverted.pink.header {
-  background-color: #d9499a !important;
-  color: #ffffff !important;
+  color: #ff8edf !important;
 }
 .ui.inverted.purple.header {
-  background-color: #a24096 !important;
-  color: #ffffff !important;
+  color: #cdc6ff !important;
 }
 .ui.inverted.red.header {
-  background-color: #ff4136 !important;
-  color: #ffffff !important;
+  color: #ff695e !important;
 }
 .ui.inverted.teal.header {
-  background-color: #39cccc !important;
-  color: #ffffff !important;
+  color: #6dffff !important;
 }
 .ui.inverted.yellow.header {
-  background-color: #ffcb08 !important;
-  color: #ffffff !important;
+  color: #ffe21f !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;

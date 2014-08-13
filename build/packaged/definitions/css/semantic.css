@@ -136,9 +136,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
           Breadcrumb
 *******************************/
@@ -153,6 +150,9 @@
        States
 --------------------*/
 /* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -4110,11 +4110,16 @@ body > .ui.grid:not(.page) {
   vertical-align: middle;
   font-size: 3em;
   opacity: 0.8;
-  padding-right: 1.5rem;
 }
 .ui.icon.message > .content {
   display: table-cell;
   vertical-align: middle;
+}
+.ui.icon.message .icon:not(.close) + .content {
+  padding-left: 1.5rem;
+}
+.ui.icon.message .circular.icon + .content {
+  padding-left: 2em;
 }
 /*--------------
     Floating
@@ -4228,10 +4233,10 @@ body > .ui.grid:not(.page) {
 }
 .ui.teal.message {
   background-color: #d2f5f5;
-  color: #39cccc;
+  color: #10a3a3;
 }
 .ui.teal.message .header {
-  color: #30bbbb;
+  color: #0e8c8c;
 }
 .ui.yellow.message {
   background-color: #fcf5d8;
@@ -5788,6 +5793,9 @@ body > .ui.grid:not(.page) {
           transition: opacity 0.25s ease;
   vertical-align: baseline;
 }
+.ui.button > .right.icon {
+  margin: 0em -0.2em 0em 0.4em;
+}
 /*******************************
            Variations
 *******************************/
@@ -7109,6 +7117,25 @@ body > .ui.grid:not(.page) {
      Load Default
 -------------------*/
 /*******************************
+            Divider
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Coupling
+--------------------*/
+/* Icon */
+/*******************************
+         Variations
+*******************************/
+/* Horizontal / Vertical */
+/* Inverted */
+/* Section */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -7199,25 +7226,6 @@ body > .ui.grid:not(.page) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-            Divider
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/*-------------------
-       Coupling
---------------------*/
-/* Icon */
-/*******************************
-         Variations
-*******************************/
-/* Horizontal / Vertical */
-/* Inverted */
-/* Section */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -7236,7 +7244,7 @@ body > .ui.grid:not(.page) {
 .ui.divider {
   margin: 1rem 0rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   line-height: 1;
   height: 0em;
   -webkit-box-sizing: border-box;
@@ -7280,7 +7288,7 @@ body > .ui.grid:not(.page) {
   content: " ";
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
   width: 0%;
   height: 80%;
 }
@@ -7312,7 +7320,7 @@ body > .ui.grid:not(.page) {
   top: 50%;
   height: 0%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 .ui.horizontal.divider:before {
   left: 0%;
@@ -8675,9 +8683,6 @@ i.flag.zimbabwe {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
             Header
 *******************************/
@@ -8699,6 +8704,9 @@ i.flag.zimbabwe {
 /* Block */
 /* Attached */
 /* Floated */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -8924,40 +8932,31 @@ h5.ui.header {
    Inverted Colors
 --------------------*/
 .ui.inverted.black.header {
-  background-color: #333333 !important;
-  color: #ffffff !important;
+  color: #aaaaaa !important;
 }
 .ui.inverted.blue.header {
-  background-color: #0074d9 !important;
-  color: #ffffff !important;
+  color: #54c8ff !important;
 }
 .ui.inverted.green.header {
-  background-color: #2ecc40 !important;
-  color: #ffffff !important;
+  color: #2ecc40 !important;
 }
 .ui.inverted.orange.header {
-  background-color: #ff851b !important;
-  color: #ffffff !important;
+  color: #ff851b !important;
 }
 .ui.inverted.pink.header {
-  background-color: #d9499a !important;
-  color: #ffffff !important;
+  color: #ff8edf !important;
 }
 .ui.inverted.purple.header {
-  background-color: #a24096 !important;
-  color: #ffffff !important;
+  color: #cdc6ff !important;
 }
 .ui.inverted.red.header {
-  background-color: #ff4136 !important;
-  color: #ffffff !important;
+  color: #ff695e !important;
 }
 .ui.inverted.teal.header {
-  background-color: #39cccc !important;
-  color: #ffffff !important;
+  color: #6dffff !important;
 }
 .ui.inverted.yellow.header {
-  background-color: #ffcb08 !important;
-  color: #ffffff !important;
+  color: #ffe21f !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;
@@ -9473,41 +9472,32 @@ i.yellow.icon {
 /*-------------------
    Inverted Colors
 --------------------*/
-i.inverted.black.icon {
-  background-color: #333333 !important;
-  color: #FFFFFF !important;
+.ui.inverted.black.icon {
+  color: #aaaaaa !important;
 }
-i.inverted.blue.icon {
-  background-color: #0074d9 !important;
-  color: #FFFFFF !important;
+.ui.inverted.blue.icon {
+  color: #54c8ff !important;
 }
-i.inverted.green.icon {
-  background-color: #2ecc40 !important;
-  color: #FFFFFF !important;
+.ui.inverted.green.icon {
+  color: #2ecc40 !important;
 }
-i.inverted.orange.icon {
-  background-color: #ff851b !important;
-  color: #FFFFFF !important;
+.ui.inverted.orange.icon {
+  color: #ff851b !important;
 }
-i.inverted.pink.icon {
-  background-color: #d9499a !important;
-  color: #FFFFFF !important;
+.ui.inverted.pink.icon {
+  color: #ff8edf !important;
 }
-i.inverted.purple.icon {
-  background-color: #a24096 !important;
-  color: #FFFFFF !important;
+.ui.inverted.purple.icon {
+  color: #cdc6ff !important;
 }
-i.inverted.red.icon {
-  background-color: #ff4136 !important;
-  color: #FFFFFF !important;
+.ui.inverted.red.icon {
+  color: #ff695e !important;
 }
-i.inverted.teal.icon {
-  background-color: #39cccc !important;
-  color: #FFFFFF !important;
+.ui.inverted.teal.icon {
+  color: #6dffff !important;
 }
-i.inverted.yellow.icon {
-  background-color: #ffcb08 !important;
-  color: #FFFFFF !important;
+.ui.inverted.yellow.icon {
+  color: #ffe21f !important;
 }
 /*-------------------
         Sizes
@@ -22644,7 +22634,7 @@ body.pushed.scrolling.ui.dimmable {
 .ui.cards > .card > .content > .header + .description,
 .ui.card > .content > .meta + .description,
 .ui.card > .content > .header + .description {
-  margin-top: 0.75em;
+  margin-top: 0.5em;
 }
 /*--------------
      Floated
@@ -24202,7 +24192,7 @@ a.ui.card:hover,
   position: relative;
   display: table-cell;
   float: none;
-  width: 225px;
+  width: 175px;
   margin: 0em;
   padding: 0em;
   max-height: '';
@@ -25602,7 +25592,7 @@ ol.ui.horizontal.list li:before,
 .ui.teal.statistics .statistic > .value,
 .ui.statistics .teal.statistic > .value,
 .ui.teal.statistic > .value {
-  color: #39cccc;
+  color: #10a3a3;
 }
 .ui.yellow.statistics .statistic > .value,
 .ui.statistics .yellow.statistic > .value,

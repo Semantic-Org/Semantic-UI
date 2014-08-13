@@ -308,7 +308,7 @@
 .ui.cards > .card > .content > .header + .description,
 .ui.card > .content > .meta + .description,
 .ui.card > .content > .header + .description {
-  margin-top: 0.75em;
+  margin-top: 0.5em;
 }
 /*--------------
      Floated

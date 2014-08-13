@@ -42,7 +42,7 @@ type   : 'Semantic'
   <div class="ui page grid">
     <div class="ui column">
       <h2 class="ui header">
-        <i class="circular emphasized book icon"></i>
+        <i class="world icon"></i>
         <div class="content">
           Lose the Hieroglyphics
           <div class="sub header">Semantic is structured around natural language conventions to make development more intuitive.
@@ -134,10 +134,10 @@ type   : 'Semantic'
       <div class="ui inverted horizontal section divider">
         <i class="circular heart icon"></i>
       </div>
-      <div class="ui stackable grid" data-demo="true">
+      <div class="ui stackable fitted grid" data-demo="true">
         <div class="row">
           <div class="ten wide column">
-          <div class="ui teal header">Open up your web console.</div>
+          <div class="ui inverted teal header">Open up your web console.</div>
           <p>Semantic provides tracing for javascript behavior so your components can tell you what they're doing as they do it.</p>
           <div class="code" data-type="javascript" data-demo="true">
           $('.kitten.image')
@@ -145,11 +145,7 @@ type   : 'Semantic'
             .transition('tada', '800ms')
           ;
           </div>
-<!--           <div class="ui raised segment">
-            <div class="ui black top attached label">Console</div>
-            <pre class="console"></pre>
-          </div> -->
-          <a href="module.html" class="ui teal right labeled button">Learn about modules <i class="right arrow icon"></i></a>
+          <a href="module.html" class="ui teal inverted button">Learn about modules <i class="right arrow icon"></i></a>
           </div>
           <div class="five wide right floated column">
             <img src="/images/cat.png" class="ui kitten image">

@@ -368,41 +368,32 @@ i.yellow.icon {
 /*-------------------
    Inverted Colors
 --------------------*/
-i.inverted.black.icon {
-  background-color: #333333 !important;
-  color: #FFFFFF !important;
+.ui.inverted.black.icon {
+  color: #aaaaaa !important;
 }
-i.inverted.blue.icon {
-  background-color: #0074d9 !important;
-  color: #FFFFFF !important;
+.ui.inverted.blue.icon {
+  color: #54c8ff !important;
 }
-i.inverted.green.icon {
-  background-color: #2ecc40 !important;
-  color: #FFFFFF !important;
+.ui.inverted.green.icon {
+  color: #2ecc40 !important;
 }
-i.inverted.orange.icon {
-  background-color: #ff851b !important;
-  color: #FFFFFF !important;
+.ui.inverted.orange.icon {
+  color: #ff851b !important;
 }
-i.inverted.pink.icon {
-  background-color: #d9499a !important;
-  color: #FFFFFF !important;
+.ui.inverted.pink.icon {
+  color: #ff8edf !important;
 }
-i.inverted.purple.icon {
-  background-color: #a24096 !important;
-  color: #FFFFFF !important;
+.ui.inverted.purple.icon {
+  color: #cdc6ff !important;
 }
-i.inverted.red.icon {
-  background-color: #ff4136 !important;
-  color: #FFFFFF !important;
+.ui.inverted.red.icon {
+  color: #ff695e !important;
 }
-i.inverted.teal.icon {
-  background-color: #39cccc !important;
-  color: #FFFFFF !important;
+.ui.inverted.teal.icon {
+  color: #6dffff !important;
 }
-i.inverted.yellow.icon {
-  background-color: #ffcb08 !important;
-  color: #FFFFFF !important;
+.ui.inverted.yellow.icon {
+  color: #ffe21f !important;
 }
 /*-------------------
         Sizes

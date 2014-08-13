@@ -46,6 +46,25 @@
      Load Default
 -------------------*/
 /*******************************
+            Divider
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Coupling
+--------------------*/
+/* Icon */
+/*******************************
+         Variations
+*******************************/
+/* Horizontal / Vertical */
+/* Inverted */
+/* Section */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,25 +155,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-            Divider
-*******************************/
-/*-------------------
-       Element
---------------------*/
-/*-------------------
-       Coupling
---------------------*/
-/* Icon */
-/*******************************
-         Variations
-*******************************/
-/* Horizontal / Vertical */
-/* Inverted */
-/* Section */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -173,7 +173,7 @@
 .ui.divider {
   margin: 1rem 0rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   line-height: 1;
   height: 0em;
   -webkit-box-sizing: border-box;
@@ -217,7 +217,7 @@
   content: " ";
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
   width: 0%;
   height: 80%;
 }
@@ -249,7 +249,7 @@
   top: 50%;
   height: 0%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 .ui.horizontal.divider:before {
   left: 0%;

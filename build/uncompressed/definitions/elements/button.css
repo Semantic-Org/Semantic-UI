@@ -696,6 +696,9 @@
           transition: opacity 0.25s ease;
   vertical-align: baseline;
 }
+.ui.button > .right.icon {
+  margin: 0em -0.2em 0em 0.4em;
+}
 /*******************************
            Variations
 *******************************/

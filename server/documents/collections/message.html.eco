@@ -68,6 +68,17 @@ themes      : ['default', 'github', 'google']
       </div>
     </div>
   </div>
+  <div class="another example">
+    <div class="ui icon message">
+      <i class="circular notched circle loading icon"></i>
+      <div class="content">
+        <div class="header">
+          Just one second
+        </div>
+        <p>We're fetching that content for you.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Dismissable Block</h4>

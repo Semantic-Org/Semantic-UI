@@ -66,6 +66,7 @@
 @iconOpacity: 0.8;
 @iconContentDistance: 1.5rem;
 @iconVerticalAlign: middle;
+@circularIconContentDistance: 2em;
 
 /* Attached */
 @attachedOffset: -1px;
