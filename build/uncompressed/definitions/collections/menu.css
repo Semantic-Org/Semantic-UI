@@ -307,6 +307,7 @@
   Text Content
 ---------------*/
 .ui.menu .text.item > *,
+.ui.menu .item > a,
 .ui.menu .item > p:only-child {
   -webkit-user-select: text;
      -moz-user-select: text;
@@ -349,17 +350,17 @@
 ---------------*/
 .ui.menu:not(.vertical) .item > .input {
   position: relative;
-  top: -0.05em;
+  top: 0em;
   margin: -0.6em 0em;
-  padding-top: -0.25em;
-  padding-bottom: -0.25em;
+  padding-top: -0.3em;
+  padding-bottom: -0.3em;
   width: 100%;
 }
 .ui.menu:not(.vertical) .item > .icon.input .icon {
-  top: -0.25em;
+  top: -0.3em;
 }
 .ui.menu .item > .input input {
-  font-size: 0.875em;
+  font-size: 1em;
   padding-top: 0.4em;
   padding-bottom: 0.4em;
 }

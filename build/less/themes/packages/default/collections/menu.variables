@@ -98,11 +98,11 @@
 @labeledButtonPadding: 0.6em;
 
 /* Input */
-@inputSize: 0.875em;
+@inputSize: 1em;
 @inputVerticalMargin: -0.6em;
-@inputOffset: -0.05em;
+@inputOffset: 0em;
 @inputVerticalPadding: 0.4em;
-@inputIconOffset: -0.25em;
+@inputIconOffset: -0.3em;
 
 @smallInputOffset: 0em;
 @smallInputVerticalPadding: 0.4em;
