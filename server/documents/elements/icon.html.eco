@@ -239,13 +239,14 @@ referencesOthers: true
       <p>Icons can alert users to the type of message being displayed</p>
       <div class="ui fitted doubling eight column grid">
         <div class="column"><i class="announcement icon"></i>Announcement</div>
+        <div class="column"><i class="flag icon"></i>Flag</div>
         <div class="column"><i class="help icon"></i>Help</div>
-        <div class="column"><i class="help square icon"></i>Help Square</div>
+        <div class="column"><i class="help circle icon"></i>Help Circle</div>
         <div class="column"><i class="info icon"></i>Info</div>
-        <div class="column"><i class="info square icon"></i>Info Square</div>
+        <div class="column"><i class="info circle icon"></i>Info Circle</div>
         <div class="column"><i class="warning icon"></i>Warning</div>
+        <div class="column"><i class="warning circle icon"></i>Warning Circle</div>
         <div class="column"><i class="warning sign icon"></i>Warning Sign</div>
-        <div class="column"><i class="warning square icon"></i>Warning Square</div>
       </div>
       <div class="existing code">
         <i class="announcement icon"></i>

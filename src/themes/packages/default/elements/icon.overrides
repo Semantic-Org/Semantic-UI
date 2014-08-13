@@ -97,7 +97,6 @@ i.icon.download:before { content: "\f019"; }
 i.icon.repeat:before { content: "\f01e"; }
 i.icon.refresh:before { content: "\f021"; }
 i.icon.lock:before { content: "\f023"; }
-i.icon.flag:before { content: "\f024"; }
 i.icon.bookmark:before { content: "\f02e"; }
 i.icon.print:before { content: "\f02f"; }
 i.icon.write:before { content: "\f040"; }
@@ -145,13 +144,13 @@ i.icon.write.square:before { content: "\f14b"; }
 i.icon.share.square:before { content: "\f14d"; }
 
 /* Messages */
-i.icon.help.square:before { content: "\f059"; }
-i.icon.info.square:before { content: "\f05a"; }
-i.icon.warning.square:before { content: "\f06a"; }
+i.icon.help.circle:before { content: "\f059"; }
+i.icon.info.circle:before { content: "\f05a"; }
+i.icon.warning:before { content: "\f12a"; }
+i.icon.warning.circle:before { content: "\f06a"; }
 i.icon.warning.sign:before { content: "\f071"; }
 i.icon.help:before { content: "\f128"; }
 i.icon.info:before { content: "\f129"; }
-i.icon.warning:before { content: "\f12a"; }
 i.icon.announcement:before { content: "\f0a1"; }
 
 /* Users */
@@ -178,6 +177,7 @@ i.icon.crop:before { content: "\f125"; }
 /* Literal Objects */
 i.icon.cocktail:before { content: "\f000"; }
 i.icon.road:before { content: "\f018"; }
+i.icon.flag:before { content: "\f024"; }
 i.icon.book:before { content: "\f02d"; }
 i.icon.gift:before { content: "\f06b"; }
 i.icon.leaf:before { content: "\f06c"; }
@@ -547,7 +547,6 @@ i.icon.clock:before { content: "\f017"; }
 i.icon.time:before { content: "\f017"; }
 i.icon.play.circle.outline:before { content: "\f01d"; }
 i.icon.clockwise:before { content: "\f01e"; }
-i.icon.warning:before { content: "\f024"; }
 i.icon.headphone:before { content: "\f025"; }
 i.icon.volume.off:before { content: "\f026"; }
 i.icon.camera:before { content: "\f030"; }
