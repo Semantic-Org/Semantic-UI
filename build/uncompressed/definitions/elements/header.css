@@ -136,6 +136,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
             Header
 *******************************/
@@ -157,9 +160,6 @@
 /* Block */
 /* Attached */
 /* Floated */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -481,9 +481,9 @@ h5.ui.header {
         Block
 --------------------*/
 .ui.block.header {
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background: #f0f0f0 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.5em 1em;
   -webkit-box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
           box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
@@ -491,27 +491,27 @@ h5.ui.header {
   border-radius: 0.3125rem;
 }
 .ui.tiny.block.header {
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 .ui.small.block.header {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .ui.block.header {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .ui.large.block.header {
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 .ui.huge.block.header {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 /*-------------------
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background: #f0f0f0 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   margin: 0em;
   padding: 0.7em 1rem;
   -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
@@ -537,19 +537,19 @@ h5.ui.header {
   border-radius: 0em 0em 0.3125rem 0.3125rem;
 }
 .ui.tiny.attached.header {
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 .ui.small.attached.header {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .ui.attached.header {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .ui.large.attached.header {
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 .ui.huge.attached.header {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 /*-------------------
         Sizing

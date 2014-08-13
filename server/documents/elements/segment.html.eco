@@ -92,6 +92,11 @@ themes      : ['default', 'GitHub']
     <h4 class="ui header">Attached</h4>
     <p>A segment can be attached to other content on a page</p>
 
+    <div class="ui ignored info message">
+      <div class="header">Adding section headers</div>
+      <p>Attached segments are designed to be used with <code>attached header</code> a variation of <a href="/elements/header.html">header</a> that can attach to segments.</p>
+      <p>You can also attach <a href="/collections/message.html">ui messages</a> to segments as well</p>
+    </div>
     <div class="ui top attached segment">
       <p>This segment is on top</p>
     </div>
@@ -100,6 +105,30 @@ themes      : ['default', 'GitHub']
     </div>
     <div class="ui bottom attached segment">
       <p>This segment is on bottom</p>
+    </div>
+  </div>
+  <div class="another example">
+    <h5 class="ui top attached header">
+      Dogs
+    </h5>
+    <div class="ui attached segment">
+      <p>Dogs are one type of animal</p>
+    </div>
+    <h5 class="ui attached header">
+      Cats
+    </h5>
+    <div class="ui attached segment">
+      <p>Cats are thought of as being related to dogs, but only humans think this.</p>
+    </div>
+    <h5 class="ui attached header">
+      Lions
+    </h5>
+    <div class="ui attached segment">
+      <p>Humans don't think of lions as being like cats, but they are.</p>
+    </div>
+    <div class="ui bottom attached warning message">
+      <i class="warning icon"></i>
+      You've reached the end of this content segment!
     </div>
   </div>
 

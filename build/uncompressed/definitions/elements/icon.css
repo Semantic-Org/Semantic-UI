@@ -614,9 +614,6 @@ i.icon.refresh:before {
 i.icon.lock:before {
   content: "\f023";
 }
-i.icon.flag:before {
-  content: "\f024";
-}
 i.icon.bookmark:before {
   content: "\f02e";
 }
@@ -753,13 +750,16 @@ i.icon.share.square:before {
   content: "\f14d";
 }
 /* Messages */
-i.icon.help.square:before {
+i.icon.help.circle:before {
   content: "\f059";
 }
-i.icon.info.square:before {
+i.icon.info.circle:before {
   content: "\f05a";
 }
-i.icon.warning.square:before {
+i.icon.warning:before {
+  content: "\f12a";
+}
+i.icon.warning.circle:before {
   content: "\f06a";
 }
 i.icon.warning.sign:before {
@@ -770,9 +770,6 @@ i.icon.help:before {
 }
 i.icon.info:before {
   content: "\f129";
-}
-i.icon.warning:before {
-  content: "\f12a";
 }
 i.icon.announcement:before {
   content: "\f0a1";
@@ -836,6 +833,9 @@ i.icon.cocktail:before {
 }
 i.icon.road:before {
   content: "\f018";
+}
+i.icon.flag:before {
+  content: "\f024";
 }
 i.icon.book:before {
   content: "\f02d";
@@ -1858,9 +1858,6 @@ i.icon.play.circle.outline:before {
 }
 i.icon.clockwise:before {
   content: "\f01e";
-}
-i.icon.warning:before {
-  content: "\f024";
 }
 i.icon.headphone:before {
   content: "\f025";

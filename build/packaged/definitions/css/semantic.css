@@ -136,6 +136,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
           Breadcrumb
 *******************************/
@@ -150,9 +153,6 @@
        States
 --------------------*/
 /* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -3983,7 +3983,7 @@ body > .ui.grid:not(.page) {
 .ui.message .header {
   display: block;
   font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
 }
@@ -8675,6 +8675,9 @@ i.flag.zimbabwe {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
             Header
 *******************************/
@@ -8696,9 +8699,6 @@ i.flag.zimbabwe {
 /* Block */
 /* Attached */
 /* Floated */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -9020,9 +9020,9 @@ h5.ui.header {
         Block
 --------------------*/
 .ui.block.header {
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background: #f0f0f0 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.5em 1em;
   -webkit-box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
           box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
@@ -9030,27 +9030,27 @@ h5.ui.header {
   border-radius: 0.3125rem;
 }
 .ui.tiny.block.header {
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 .ui.small.block.header {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .ui.block.header {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .ui.large.block.header {
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 .ui.huge.block.header {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 /*-------------------
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
-  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background: #f0f0f0 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #f0f0f0 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   margin: 0em;
   padding: 0.7em 1rem;
   -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
@@ -9076,19 +9076,19 @@ h5.ui.header {
   border-radius: 0em 0em 0.3125rem 0.3125rem;
 }
 .ui.tiny.attached.header {
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 .ui.small.attached.header {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .ui.attached.header {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .ui.large.attached.header {
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 .ui.huge.attached.header {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 /*-------------------
         Sizing
@@ -9719,9 +9719,6 @@ i.icon.refresh:before {
 i.icon.lock:before {
   content: "\f023";
 }
-i.icon.flag:before {
-  content: "\f024";
-}
 i.icon.bookmark:before {
   content: "\f02e";
 }
@@ -9858,13 +9855,16 @@ i.icon.share.square:before {
   content: "\f14d";
 }
 /* Messages */
-i.icon.help.square:before {
+i.icon.help.circle:before {
   content: "\f059";
 }
-i.icon.info.square:before {
+i.icon.info.circle:before {
   content: "\f05a";
 }
-i.icon.warning.square:before {
+i.icon.warning:before {
+  content: "\f12a";
+}
+i.icon.warning.circle:before {
   content: "\f06a";
 }
 i.icon.warning.sign:before {
@@ -9875,9 +9875,6 @@ i.icon.help:before {
 }
 i.icon.info:before {
   content: "\f129";
-}
-i.icon.warning:before {
-  content: "\f12a";
 }
 i.icon.announcement:before {
   content: "\f0a1";
@@ -9941,6 +9938,9 @@ i.icon.cocktail:before {
 }
 i.icon.road:before {
   content: "\f018";
+}
+i.icon.flag:before {
+  content: "\f024";
 }
 i.icon.book:before {
   content: "\f02d";
@@ -10963,9 +10963,6 @@ i.icon.play.circle.outline:before {
 }
 i.icon.clockwise:before {
   content: "\f01e";
-}
-i.icon.warning:before {
-  content: "\f024";
 }
 i.icon.headphone:before {
   content: "\f025";

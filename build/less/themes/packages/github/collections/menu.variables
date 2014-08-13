@@ -39,9 +39,6 @@
       Elements
 --------------------*/
 
-@inputVerticalPadding: 0.65em;
-@inputIconOffset: -0.1em;
-
 @buttonOffset: -0.15em;
 @buttonVerticalPadding: 0.75em;
 

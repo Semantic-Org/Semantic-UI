@@ -72,18 +72,18 @@
 @dividedIconPadding: 0.2em;
 
 /* Block */
-@blockBackground: @offWhite @subtleGradient;
+@blockBackground: @darkWhite @subtleGradient;
 @blockBoxShadow: @subtleShadow;
 @blockBorder: 1px solid @solidBorderColor;
 @blockHorizontalPadding: 1em;
 @blockVerticalPadding: 0.5em;
 @blockBorderRadius: 0.3125rem;
 
-@tinyBlock: 0.9em;
-@smallBlock: 1em;
-@mediumBlock: 1.1em;
-@largeBlock: 1.25em;
-@hugeBlock: 1.5em;
+@tinyBlock: 0.875em;
+@smallBlock: 0.9em;
+@mediumBlock: 1em;
+@largeBlock: 1.1em;
+@hugeBlock: 1.25em;
 
 /* Attached */
 @attachedOffset: 0px;

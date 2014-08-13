@@ -731,7 +731,7 @@ body.guide .main.container > * {
 #example .another.example i.code {
   top: 0px;
 }
-#example .another.example i.code ~ .message {
+#example .another.example i.code ~ .ignored.message {
   margin-top: 0em;
 }
 #example .example > p {
