@@ -711,6 +711,18 @@ semantic.ready = function() {
     }
   };
 
+  $('.masthead')
+    .visibility({
+      once: false
+    })
+    .visibility('bottom visible', function(){
+      $('.main.menu').removeClass('filled');
+    })
+    .visibility('bottom passed', function(){
+      $('.main.menu').addClass('filled');
+    })
+  ;
+
   $(window)
     .on('resize', function() {
       clearTimeout(handler.timer);

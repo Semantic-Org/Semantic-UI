@@ -277,6 +277,22 @@
   text-shadow: none !important;
 }
 
+.ui.inverted.buttons .button {
+  margin: @invertedGroupButtonOffset;
+}
+.ui.inverted.buttons .button:first-child {
+  margin-left: 0em;
+}
+.ui.inverted.vertical.buttons .button {
+  margin: @invertedVerticalGroupButtonOffset;
+}
+.ui.inverted.vertical.buttons .button:first-child {
+  margin-top: 0em;
+}
+.ui.inverted.buttons .button:hover {
+  position: relative;
+}
+
 .ui.inverted.button:hover {
   background: @white none;
   box-shadow: 0px 0px 0px 2px @white inset !important;
@@ -714,29 +730,30 @@
 .ui.basic.inverted.button {
   background-color: transparent !important;
   color: @offWhite !important;
-  box-shadow: @whiteBorderColor;
+  box-shadow: @basicInvertedBoxShadow !important;
 }
 .ui.basic.inverted.buttons .button:hover,
 .ui.basic.inverted.button:hover {
   color: @white !important;
-  box-shadow: @whiteBorderColor;
+  box-shadow: @basicInvertedHoverBoxShadow !important;
 }
 .ui.basic.inverted.buttons .button:active,
 .ui.basic.inverted.button:active {
   background-color: @transparentWhite !important;
   color: @white !important;
-  box-shadow: @selectedWhiteBorderColor !important;
+  box-shadow: @basicInvertedDownBoxShadow !important;
 }
 .ui.basic.inverted.buttons .button.active,
 .ui.basic.inverted.button.active {
   background-color: @transparentWhite;
   color: @invertedTextColor;
   text-shadow: @invertedTextShadow;
-  box-shadow: none;
+  box-shadow: @basicInvertedActiveBoxShadow;
 }
 .ui.basic.inverted.buttons .button.active:hover,
 .ui.basic.inverted.button.active:hover {
   background-color: @strongTransparentWhite;
+  box-shadow: @basicInvertedHoverBoxShadow !important;
 }
 
 /* Loading */
@@ -1158,7 +1175,7 @@
 .ui.inverted.black.buttons .basic.button,
 .ui.inverted.black.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.black.basic.buttons .button:hover,
@@ -1220,7 +1237,7 @@
 .ui.inverted.blue.buttons .basic.button,
 .ui.inverted.blue.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.blue.basic.buttons .button:hover,
@@ -1279,7 +1296,7 @@
 .ui.inverted.green.buttons .basic.button,
 .ui.inverted.green.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.green.basic.buttons .button:hover,
@@ -1337,7 +1354,7 @@
 .ui.inverted.orange.buttons .basic.button,
 .ui.inverted.orange.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.orange.basic.buttons .button:hover,
@@ -1395,7 +1412,7 @@
 .ui.inverted.pink.buttons .basic.button,
 .ui.inverted.pink.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.pink.basic.buttons .button:hover,
@@ -1453,7 +1470,7 @@
 .ui.inverted.purple.buttons .basic.button,
 .ui.inverted.purple.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.purple.basic.buttons .button:hover,
@@ -1511,7 +1528,7 @@
 .ui.inverted.red.buttons .basic.button,
 .ui.inverted.red.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.red.basic.buttons .button:hover,
@@ -1570,7 +1587,7 @@
 .ui.inverted.teal.buttons .basic.button,
 .ui.inverted.teal.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.teal.basic.buttons .button:hover,
@@ -1629,7 +1646,7 @@
 .ui.inverted.yellow.buttons .basic.button,
 .ui.inverted.yellow.basic.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px @white inset !important;
+  box-shadow: @basicInvertedBoxShadow !important;
   color: @white;
 }
 .ui.inverted.yellow.basic.buttons .button:hover,
@@ -1738,7 +1755,7 @@
   margin: 0em;
   float: left;
   border-radius: 0em;
-  margin: 0px 0px 0px -1px;
+  margin: @groupButtonOffset;
 }
 .ui.buttons .button:first-child  {
   margin-left: 0em;
@@ -1758,7 +1775,7 @@
 .ui.vertical.buttons .button {
   display: block;
   float: none;
-  margin: 0px 0px -1px 0px;
+  margin: @verticalGroupOffset;
   box-shadow: @verticalBoxShadow;
 }
 .ui.vertical.buttons .button:first-child,

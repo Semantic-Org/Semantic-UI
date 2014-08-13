@@ -267,16 +267,16 @@ body.guide .main.container > * {
 #example .masthead {
   position: relative;
   overflow: hidden;
-  background-color: #00B5AD;
+  background: #111111 url(../images/bg-moonlight.jpg);
+  background-size: cover;
   text-align: center;
-  margin-top: 36px;
-  padding: 50px 0px;
+  padding: 7em 0px;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0px;
   border-bottom: none;
 }
 #example .masthead:before {
-  background: #00B5AD url(/images/tile-bg.png) repeat fixed 0% 0%;
+  display: none;
   position: absolute;
   z-index: 1;
   width: 500%;
@@ -299,7 +299,7 @@ body.guide .main.container > * {
   -moz-animation-duration: 80s;
   -ms-animation-duration: 80s;
   -o-animation-duration: 80s;
-  animation-duration: 80s;
+  animation-duration: 0s;
 
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
@@ -379,6 +379,16 @@ body.guide .main.container > * {
  }
 
 }
+#example.index .main.menu {
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+#example.index .filled.main.menu {
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
 #example .masthead .grid {
   position: relative;
   z-index: 2;
@@ -390,6 +400,15 @@ body.guide .main.container > * {
   display: table-cell;
   vertical-align: top;
   width: 100%;
+  text-align: center;
+}
+#example .introduction .buttons {
+  margin-top: 3em;
+}
+#example .introduction .label {
+  position: absolute;
+  top: 1em;
+  right: 0em;
 }
 
 #example .introduction .theme.buttons {
@@ -461,7 +480,7 @@ body.guide .main.container > * {
 }
 #example .masthead h2 {
   font-weight: normal;
-  margin: -10px 0 16px 0px;
+  margin: 0px 0 16px 0px;
   font-size: 1.75em;
   border-bottom: none;
   line-height: 1;
