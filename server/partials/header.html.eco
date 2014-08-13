@@ -12,9 +12,8 @@
       <p><%=@document.description %></p>
       <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection': %>
       <div class="ui divider"></div>
-      <div class="ui right floated basic labeled icon toggle overview button">
-        Definition Mode
-        <i class="book icon"></i>
+      <div class="ui basic toggle overview button">
+        Definition
       </div>
       <% end %>
       <% if @document.type is 'UI Module': %>
@@ -25,7 +24,7 @@
       <% end %>
       <% if @document.themes?: %>
       <div class="ui floating dropdown theme basic button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
-        <span class="text">Choose Theme</span>
+        <span class="text">Theme</span>
         <div class="menu ui transition hidden">
           <% for id, name of @document.themes: %>
             <div class="item" data-value="<%= name %>"><%= (name.charAt(0).toUpperCase() + name.slice(1)) %></div>
@@ -34,7 +33,7 @@
       </div>
       <% end %>
       <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
-      <div class="ui secondary button">
+      <div class="ui disabled secondary button">
         Download
       </div>
       <% end %>

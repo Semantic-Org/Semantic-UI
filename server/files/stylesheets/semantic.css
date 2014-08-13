@@ -389,6 +389,9 @@ body.guide .main.container > * {
   background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
+#example.index .introduction {
+  text-align: center;
+}
 #example .masthead .grid {
   position: relative;
   z-index: 2;
@@ -400,7 +403,6 @@ body.guide .main.container > * {
   display: table-cell;
   vertical-align: top;
   width: 100%;
-  text-align: center;
 }
 #example .introduction .buttons {
   margin-top: 3em;
