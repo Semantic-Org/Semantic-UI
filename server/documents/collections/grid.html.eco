@@ -31,6 +31,7 @@ themes      : ['default']
     <p>A grid is made up of columns of content with gutters to provide negative space between columns.</p>
 
     <div class="ui ignore info message">
+      <p>A grid does not need to specify rows, content will automatically flow to the next row when all the grid columns are taken in the current row.</p>
       All grid systems must assume an arbitrary amount of column rows. Semantic's default theme assumes <b>16 columns</b>
     </div>
 

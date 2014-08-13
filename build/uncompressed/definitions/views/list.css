@@ -259,7 +259,6 @@ ol.ui.list ol,
 .ui.list .item > .icon {
   display: table-cell;
   margin: 0em;
-  height: 1em;
   padding-top: 0.1rem;
   padding-right: 0.3em;
   vertical-align: middle;
@@ -327,7 +326,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
