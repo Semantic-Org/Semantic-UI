@@ -1107,7 +1107,7 @@ body.guide .main.container > * {
 }
 
 #example .highlighted.example {
-  min-height: 205px;
+  min-height: 275px;
 }
 #example .collection.cards {
   min-height: 350px;
@@ -1131,12 +1131,12 @@ body.guide .main.container > * {
 #example .ui.type.cards .image .grid .row:first-child {
   border-top: none;
 }
-#example .highlighted.example .grid .column:first-child,
-#example .ui.type.cards .image .grid .column:first-child {
+#example .highlighted.example .grid .column:not(.grid):first-child,
+#example .ui.type.cards .image .grid .column:not(.grid):first-child {
   box-shadow: none;
 }
-#example .highlighted.example .grid .column,
-#example .ui.type.cards .image .grid .column {
+#example .highlighted.example .grid .column:not(.grid),
+#example .ui.type.cards .image .grid .column:not(.grid) {
   min-height: 50px;
   -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.1);

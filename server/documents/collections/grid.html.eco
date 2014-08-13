@@ -18,19 +18,20 @@ themes      : ['default']
 
   <div class="peek">
     <div class="ui vertical pointing secondary menu">
+      <a class="item">Introduction</a>
       <a class="active item">Types</a>
       <a class="item">Elements</a>
       <a class="item">Variations</a>
     </div>
   </div>
 
-  <h2 class="ui dividing header">Standard</h2>
+  <h2 class="ui dividing header">Introduction</h2>
 
   <div class="highlighted example">
-    <h4 class="ui header">Simple Grid</h4>
+    <h4 class="ui header">Grid</h4>
     <p>A grid is made up of columns of content with gutters to provide negative space between columns.</p>
 
-    <div class="ui ignore info message">
+    <div class="ui ignored message">
       <p>A grid does not need to specify rows, content will automatically flow to the next row when all the grid columns are taken in the current row.</p>
       All grid systems must assume an arbitrary amount of column rows. Semantic's default theme assumes <b>16 columns</b>
     </div>
@@ -54,10 +55,13 @@ themes      : ['default']
       </div>
     </div>
   </div>
+
   <div class="highlighted example">
     <h4 class="ui header">Grid with Rows</h4>
     <p>A grid can wrap groups of columns into rows</p>
-
+    <div class="ui ignored message">
+      The bottom and top rows, when rows are specified will sit flush with the edge of the grid.</p>
+    </div>
     <div class="ui ignored positive message">
       <h3 class="ui header">The Benefits of Rows</h3>
       <p>It's often easier to have dynamic content output without nested rows, but using row wrappers is the only way for variations like <code>equal height</code> and <code>vertically divided</code> to function correctly.</p>
@@ -100,6 +104,47 @@ themes      : ['default']
     </div>
   </div>
 
+  <div class="highlighted example">
+    <h4 class="ui header">Nested grids</h4>
+    <p>A grid can be placed inside another grid</p>
+
+    <div class="ui ignored message">
+      <p>Any grid column can be broken up using a second grid, however for the content of the inner grid to align with the outter grid, you will need to use the <code>fitted grid</code> variation on the inner grid, removing the outer margins from the first and last element.</p>
+    </div>
+    <div class="ui ignored info message">
+      <h3 class="ui header">Column Count</h3>
+      <p>Each grid is divided into 16 columns, so a grid inside a grid inside a column, <b>sub-divides that column into 16  more columns</b>. This means for example, a <code>eight wide column</code> on a nested grid inside a <code>two wide column</code>, is the same as a <code>one wide column</code> on the outer grid.</p>
+    </div>
+
+    <div class="ui two column grid">
+      <div class="column">
+        <div class="ui two column fitted grid">
+          <div class="column">
+            <div class="ui segment">
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui segment">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fitted grid">
+          <div class="eight wide column">
+            <div class="ui segment">
+            </div>
+          </div>
+          <div class="eight wide column">
+            <div class="ui segment">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
     <h4 class="ui header">Page Grid</h4>
@@ -135,6 +180,7 @@ themes      : ['default']
     </div>
 
   </div>
+
 
   <div class="example">
     <h4 class="ui header">Divided Grid</h4>
