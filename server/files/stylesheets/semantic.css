@@ -276,7 +276,6 @@ body.guide .main.container > * {
   border-bottom: none;
 }
 #example .masthead:before {
-  display: none;
   position: absolute;
   z-index: 1;
   width: 500%;
@@ -284,6 +283,7 @@ body.guide .main.container > * {
   top: 0px;
   left: 0px;
   content: '';
+  background: url(../images/icons.png);
 
   -moz-transform-origin: 50% 50%;
   -o-transform-origin: 50% 50%;
@@ -295,11 +295,11 @@ body.guide .main.container > * {
   -o-animation-name: masthead;
   animation-name: masthead;
 
-  -webkit-animation-duration: 80s;
-  -moz-animation-duration: 80s;
-  -ms-animation-duration: 80s;
-  -o-animation-duration: 80s;
-  animation-duration: 0s;
+  -webkit-animation-duration: 120s;
+  -moz-animation-duration: 120s;
+  -ms-animation-duration: 120s;
+  -o-animation-duration: 120s;
+  animation-duration: 120s;
 
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
@@ -315,6 +315,8 @@ body.guide .main.container > * {
   -ms-animation-iteration-count: infinite;
   -o-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+
+  transform: rotateZ(1deg);
 }
 @keyframes masthead {
  0% {
