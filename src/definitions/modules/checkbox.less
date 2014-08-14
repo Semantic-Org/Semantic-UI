@@ -221,11 +221,13 @@
 
 .ui.slider.checkbox {
   cursor: pointer;
+  height: @sliderSize;
 }
 
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
   padding-left: @sliderLabelDistance;
+  line-height: @sliderLabelLineHeight;
 }
 
 /* Line */
@@ -263,8 +265,8 @@
 
   border: none;
   box-shadow: @handleBoxShadow;
-  width: @handleSize;
-  height: @handleSize;
+  width: @sliderHandleSize;
+  height: @sliderHandleSize;
   top: @sliderHandleOffset;
   left: 0em;
 
@@ -298,11 +300,14 @@
 
 .ui.toggle.checkbox {
   cursor: pointer;
+  height: @toggleSize;
 }
 
 .ui.toggle.checkbox .box,
 .ui.toggle.checkbox label {
-  padding-left: 3em;
+  height: @toggleSize;
+  padding-left: @toggleLabelDistance;
+  line-height: @toggleLabelLineHeight;
 }
 
 /* Switch */
@@ -314,14 +319,14 @@
   position: absolute;
   content: '';
 
-  top: @toggleSwitchVerticalOffset;
+  top: @toggleLaneVerticalOffset;
   z-index: 1;
   border: none;
 
   background-color: @neutralCheckbox;
-  width: @toggleSwitchWidth;
-  height: @toggleSwitchHeight;
-  border-radius: @circularRadius;
+  width: @toggleLaneWidth;
+  height: @toggleLaneHeight;
+  border-radius: @toggleHandleRadius;
 }
 
 /* Handle */
@@ -335,16 +340,13 @@
 
   border: none;
   box-shadow: @handleBoxShadow;
-  width: @handleSize;
-  height: @handleSize;
-  top: @sliderHandleOffset;
+  width: @toggleHandleSize;
+  height: @toggleHandleSize;
+  top: @toggleHandleOffset;
   left: 0em;
 
   border-radius: @circularRadius;
-  transition:
-    background 0.3s ease 0s,
-    left 0.3s ease 0s
-  ;
+  transition: @toggleLabelTransition;
 }
 
 .ui.toggle.checkbox input ~ .box:after,

@@ -62,35 +62,46 @@
 @checkboxRadioCircleSize: 9px;
 
 /* Slider & Toggle Handle */
-@handleBackground: #FFFFFF linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+@handleBackground: @white @subtleGradient;
 @handleBoxShadow:
-  0px 2px 2px 0px rgba(0, 0, 0, 0.1),
-  0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset
+  @subtleShadow,
+  0px 0px 0px 1px @borderColor inset
 ;
-@handleSize: 1.25rem;
 
 /* Slider */
-@sliderLineWidth: 2.25rem;
+@sliderHandleSize: 1.5rem;
+
+@sliderLineWidth: 3.5rem;
 @sliderLineHeight: 0.25rem;
 @sliderLineVerticalOffset: 0.4rem;
 
-@sliderHandleOffset: (1rem - @handleSize) / 2;
-@sliderTravelDistance: @sliderLineWidth - @handleSize;
+@sliderHandleOffset: (1rem - @sliderHandleSize) / 2;
+@sliderTravelDistance: @sliderLineWidth - @sliderHandleSize;
 @sliderLabelDistance: @sliderLineWidth + 1rem;
 
+@sliderSize: @sliderHandleSize;
+@sliderLabelLineHeight: 1rem;
 
 /* Toggle */
-@toggleSwitchWidth: 2.25rem;
-@toggleSwitchHeight: 1.25rem;
-@toggleSwitchVerticalOffset: (1rem - @toggleSwitchHeight) / 2;
+@toggleSize: 1.75rem;
+@toggleHandleSize: @toggleSize;
+@toggleHandleRadius: @circularRadius;
+@toggleHandleOffset: 0rem;
+
+@toggleLaneWidth: 3.5rem;
+@toggleLaneHeight: 1.75rem;
+@toggleLaneVerticalOffset: 0rem;
+@toggleOffOffset: -0.05rem;
+@toggleOnOffset: (@toggleLaneWidth - @toggleHandleSize) + 0.05rem;
+
+@toggleLabelDistance: @toggleLaneWidth + @toggleSize;
+@toggleLabelLineHeight: 1.5rem;
+@toggleLabelTransition:
+  background 0.3s ease 0s,
+  left 0.3s ease 0s
+;
 
 @toggleFocusColor: @strongTransparentBlack;
-@toggleHandleOffset: (1rem - @handleSize) / 2;
-@toggleTravelDistance: @toggleSwitchWidth - @handleSize;
-@toggleLabelDistance: @toggleSwitchWidth + 1rem;
-
-@toggleOffOffset: -0.2rem;
-@toggleOnOffset: 1.2rem;
 
 
 
