@@ -23,11 +23,11 @@ type   : 'Semantic'
         <h2 class="ui inverted header">UI is the vocabulary of the web.</h2>
         <div class="ui huge inverted buttons">
           <a class="ui basic teal inverted view-ui button"><i class="list layout icon"></i>UI Library</a>
-          <a class="ui basic red inverted button" data-title="Coming Soon 1">
+          <a class="ui disabled basic red inverted button" data-title="Coming Soon">
             <i class="tint icon"></i>
             Themes
           </a>
-          <a class="ui basic green inverted button" data-title="Coming Soon 2">
+          <a class="ui disabled basic green inverted button" data-title="Coming Soon">
             <i class="browser icon"></i>
             Layouts
           </a>

@@ -42,12 +42,15 @@
   box-shadow: @boxShadow;
 }
 .ui.popup .header {
-  padding: 0em 0em @headerDistance;
+  padding: 0em;
 
   font-family: @headerFont;
   font-size: @headerFontSize;
   line-height: @headerLineHeight;
   font-weight: bold;
+}
+.ui.popup .header + .content {
+  padding-top: @headerDistance;
 }
 
 .ui.popup:before {

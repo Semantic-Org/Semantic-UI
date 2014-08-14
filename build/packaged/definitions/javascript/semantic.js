@@ -2862,7 +2862,7 @@ $.fn.visibility = function(parameters) {
           ;
           if(newCallback) {
             module.debug('Adding callback for bottom passed', newCallback);
-            settings.bottomPassed = newCallback;
+            settings.onBottomPassed = newCallback;
           }
           if(callback && calculations.bottomPassed) {
             module.execute(callback, callbackName);
@@ -8871,18 +8871,19 @@ $.fn.popup = function(parameters) {
           : $module,
 
         $window         = $(window),
+        $body           = $('body'),
 
         $popup          = (settings.popup)
           ? $(settings.popup)
           : (settings.inline)
             ? $target.next(settings.selector.popup)
-            : $window.children(settings.selector.popup).last(),
+            : $context.find(settings.selector.popup).last(),
 
         $offsetParent   = (settings.popup)
           ? $popup.offsetParent()
           : (settings.inline)
             ? $target.offsetParent()
-            : $window,
+            : $body,
 
         searchDepth     = 0,
 
@@ -8940,7 +8941,7 @@ $.fn.popup = function(parameters) {
             $offsetParent = $target.offsetParent();
           }
           else {
-            $popup = $window.children(selector.popup).last();
+            $popup = $context.find(selector.popup).last();
           }
         },
 
@@ -9103,7 +9104,7 @@ $.fn.popup = function(parameters) {
             return ( $popup.size() !== 0 );
           }
           else {
-            return ( $popup.parent($context).size() );
+            return ( $popup.closest($context).size() );
           }
         },
 
@@ -9129,8 +9130,8 @@ $.fn.popup = function(parameters) {
           conditions: function() {
             if(module.cache && module.cache.title) {
               $module.attr('title', module.cache.title);
+              module.verbose('Restoring original attributes', module.cache.title);
             }
-            module.verbose('Restoring original attributes', module.cache.title);
             return true;
           }
         },
@@ -9660,10 +9661,11 @@ $.fn.popup.settings = {
   namespace      : 'popup',
 
   onCreate       : function(){},
+  onRemove       : function(){},
   onShow         : function(){},
   onHide         : function(){},
 
-  variation      : false,
+  variation      : 'inverted',
   content        : false,
   html           : false,
   title          : false,
@@ -9734,6 +9736,14 @@ $.fn.popup.settings = {
   }
 
 };
+
+// Adds easing
+$.extend( $.easing, {
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  }
+});
+
 
 })( jQuery, window , document );
 

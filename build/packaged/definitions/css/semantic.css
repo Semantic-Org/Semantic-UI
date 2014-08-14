@@ -6401,12 +6401,13 @@ body > .ui.grid:not(.page) {
   color: #ffffff;
   text-shadow: none;
 }
+/* Inverted */
 .ui.inverted.black.buttons .button,
 .ui.inverted.black.button {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #555555 inset !important;
           box-shadow: 0px 0px 0px 2px #555555 inset !important;
-  color: #555555;
+  color: #FFFFFF;
 }
 .ui.inverted.black.buttons .button:hover,
 .ui.inverted.black.button:hover {
@@ -6470,7 +6471,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
           box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
-  color: #54c8ff;
+  color: #ffffff;
 }
 .ui.inverted.blue.buttons .button:hover,
 .ui.inverted.blue.button:hover {
@@ -6534,7 +6535,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
           box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
-  color: #2ecc40;
+  color: #ffffff;
 }
 .ui.inverted.green.buttons .button:hover,
 .ui.inverted.green.button:hover {
@@ -6598,7 +6599,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #ff851b inset !important;
           box-shadow: 0px 0px 0px 2px #ff851b inset !important;
-  color: #ff851b;
+  color: #ffffff;
 }
 .ui.inverted.orange.buttons .button:hover,
 .ui.inverted.orange.button:hover {
@@ -6662,7 +6663,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
           box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
-  color: #ff8edf;
+  color: #ffffff;
 }
 .ui.inverted.pink.buttons .button:hover,
 .ui.inverted.pink.button:hover {
@@ -6726,7 +6727,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
           box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
-  color: #cdc6ff;
+  color: #ffffff;
 }
 .ui.inverted.purple.buttons .button:hover,
 .ui.inverted.purple.button:hover {
@@ -6790,7 +6791,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #ff695e inset !important;
           box-shadow: 0px 0px 0px 2px #ff695e inset !important;
-  color: #ff695e;
+  color: #ffffff;
 }
 .ui.inverted.red.buttons .button:hover,
 .ui.inverted.red.button:hover {
@@ -6854,7 +6855,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #6dffff inset !important;
           box-shadow: 0px 0px 0px 2px #6dffff inset !important;
-  color: #6dffff;
+  color: #ffffff;
 }
 .ui.inverted.teal.buttons .button:hover,
 .ui.inverted.teal.button:hover {
@@ -6918,7 +6919,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
           box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
-  color: #ffe21f;
+  color: #ffffff;
 }
 .ui.inverted.yellow.buttons .button:hover,
 .ui.inverted.yellow.button:hover {
@@ -19065,11 +19066,14 @@ a.ui.nag {
           box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .header {
-  padding: 0em 0em 0.5em;
+  padding: 0em;
   font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
+}
+.ui.popup .header + .content {
+  padding-top: 0.5em;
 }
 .ui.popup:before {
   position: absolute;
@@ -19223,7 +19227,7 @@ a.ui.nag {
           box-shadow: none;
 }
 .ui.inverted.popup .header {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: none;
   color: #ffffff;
 }
 .ui.inverted.popup:before {

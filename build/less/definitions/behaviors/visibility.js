@@ -331,7 +331,7 @@ $.fn.visibility = function(parameters) {
           ;
           if(newCallback) {
             module.debug('Adding callback for bottom passed', newCallback);
-            settings.bottomPassed = newCallback;
+            settings.onBottomPassed = newCallback;
           }
           if(callback && calculations.bottomPassed) {
             module.execute(callback, callbackName);
