@@ -228,6 +228,7 @@
 .ui.slider.checkbox label {
   padding-left: @sliderLabelDistance;
   line-height: @sliderLabelLineHeight;
+  color: @sliderOffLabelColor;
 }
 
 /* Line */
@@ -243,12 +244,12 @@
   z-index: 1;
   border: none !important;
 
-  background-color: @neutralCheckbox;
+  background-color: @sliderLineColor;
   width: @sliderLineWidth;
   height: @sliderLineHeight;
 
   transform: none;
-  border-radius: @circularRadius;
+  border-radius: @sliderLineRadius;
   transition:
     background 0.3s ease
   ;
@@ -283,10 +284,24 @@
   border: none;
 }
 
+/* Hover */
+.ui.slider.checkbox .box:hover,
+.ui.slider.checkbox label:hover {
+  color: @sliderHoverLabelColor;
+}
+.ui.slider.checkbox .box:hover::before,
+.ui.slider.checkbox label:hover::before {
+  background: @sliderHoverLaneBackground;
+}
+
 /* Active */
+.ui.slider.checkbox input:checked ~ .box,
+.ui.slider.checkbox input:checked ~ label {
+  color: @sliderOnLabelColor;
+}
 .ui.slider.checkbox input:checked ~ .box:before,
 .ui.slider.checkbox input:checked ~ label:before {
-  background-color: @positiveCheckbox;
+  background-color: @sliderOnLineColor;
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
@@ -308,6 +323,7 @@
   height: @toggleSize;
   padding-left: @toggleLabelDistance;
   line-height: @toggleLabelLineHeight;
+  color: @toggleOffLabelColor;
 }
 
 /* Switch */
@@ -346,7 +362,10 @@
   left: 0em;
 
   border-radius: @circularRadius;
-  transition: @toggleLabelTransition;
+  transition:
+    background 0.3s ease 0s,
+    left 0.3s ease 0s
+  ;
 }
 
 .ui.toggle.checkbox input ~ .box:after,
@@ -361,14 +380,21 @@
   border: none;
 }
 
+/* Hover */
+.ui.toggle.checkbox .box:hover::before,
+.ui.toggle.checkbox label:hover::before {
+  background-color: @toggleHoverColor;
+  border: none;
+}
+
 /* Active */
 .ui.toggle.checkbox input:checked ~ .box,
 .ui.toggle.checkbox input:checked ~ label {
-  color: @positiveCheckbox;
+  color: @toggleOnLabelColor;
 }
 .ui.toggle.checkbox input:checked ~ .box:before,
 .ui.toggle.checkbox input:checked ~ label:before {
-  background-color: @positiveCheckbox;
+  background-color: @toggleOnLaneColor;
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {

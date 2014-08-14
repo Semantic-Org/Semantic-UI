@@ -39,19 +39,19 @@ themes      : ['default']
 
     <div class="example">
       <h4 class="ui header">Slider</h4>
-      <p>A checkbox can be formatted to show user selection as a slider</p>
+      <p>A checkbox can be formatted to emphasize the current selection state</p>
       <div class="ui slider checkbox">
-        <input type="checkbox" name="walk" />
-        <label>Allow others to see when your dog is on a walk</label>
+        <input type="checkbox" name="newsletter" />
+        <label>Receive weekly poodle newsletter</label>
       </div>
     </div>
 
     <div class="example">
       <h4 class="ui header">Toggle</h4>
-      <p>A checkbox can be formatted to show user selection as a toggle</p>
+      <p>A checkbox can be formatted to show an on or off choice</p>
       <div class="ui toggle checkbox">
-        <input type="checkbox" name="pet" />
-        <label>Allow other people to pet my dog</label>
+        <input type="checkbox" name="public" />
+        <label>Make my dog's profile public</label>
       </div>
     </div>
 

@@ -25,7 +25,7 @@
 ;
 
 /* Checkmark */
-@checkboxCheckOffset: 1px;
+@checkboxCheckOffset: 2px;
 
 /*-------------------
       Coupling
@@ -69,39 +69,55 @@
 ;
 
 /* Slider */
-@sliderHandleSize: 1.5rem;
+@sliderSize: 1.5rem;
+@sliderHandleSize: @sliderSize;
 
 @sliderLineWidth: 3.5rem;
 @sliderLineHeight: 0.25rem;
 @sliderLineVerticalOffset: 0.4rem;
+@sliderLineColor: @neutralCheckbox;
+@sliderLineRadius: @circularRadius;
 
 @sliderHandleOffset: (1rem - @sliderHandleSize) / 2;
 @sliderTravelDistance: @sliderLineWidth - @sliderHandleSize;
-@sliderLabelDistance: @sliderLineWidth + 1rem;
 
-@sliderSize: @sliderHandleSize;
+@sliderLabelDistance: @sliderLineWidth + 1rem;
+@sliderOffLabelColor: @unselectedTextColor;
+
+@sliderOnLineColor: @strongTransparentBlack;
+@sliderOnLabelColor: @selectedTextColor;
 @sliderLabelLineHeight: 1rem;
 
+@sliderHoverLaneBackground: @strongTransparentBlack;
+@sliderHoverLabelColor: @selectedTextColor;
+
+
 /* Toggle */
-@toggleSize: 1.75rem;
+@toggleSize: 1.5rem;
 @toggleHandleSize: @toggleSize;
 @toggleHandleRadius: @circularRadius;
 @toggleHandleOffset: 0rem;
-
-@toggleLaneWidth: 3.5rem;
-@toggleLaneHeight: 1.75rem;
-@toggleLaneVerticalOffset: 0rem;
-@toggleOffOffset: -0.05rem;
-@toggleOnOffset: (@toggleLaneWidth - @toggleHandleSize) + 0.05rem;
-
-@toggleLabelDistance: @toggleLaneWidth + @toggleSize;
-@toggleLabelLineHeight: 1.5rem;
-@toggleLabelTransition:
+@toggleHandleTransition:
   background 0.3s ease 0s,
   left 0.3s ease 0s
 ;
 
+@toggleLaneWidth: 3.5rem;
+@toggleLaneHeight: @toggleSize;
+@toggleLaneVerticalOffset: 0rem;
+@toggleOffOffset: -0.05rem;
+@toggleOnOffset: (@toggleLaneWidth - @toggleHandleSize) + 0.05rem;
+
+@toggleLabelDistance: @toggleLaneWidth + 1rem;
+@toggleLabelLineHeight: 1.5rem;
+
+
 @toggleFocusColor: @strongTransparentBlack;
+@toggleHoverColor: @toggleFocusColor;
+
+@toggleOffLabelColor: @checkboxColor;
+@toggleOnLabelColor: @positiveCheckbox;
+@toggleOnLaneColor: @positiveCheckbox;
 
 
 

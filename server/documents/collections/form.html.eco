@@ -33,32 +33,117 @@ themes      : ['default', 'GitHub']
         <a href="/elements/input.html">inputs</a>, standard form fields, <a href="/elements/label.html">labels</a>, <a href="/modules/dropdown.html">selection dropdowns</a>, textareas, as well as:
         <a href="/modules/checkbox.html">checkboxes</a>, and <a href="/collections/message.html">message blocks</a>.
     </p>
-    <p>Validation messages use <a href="/collections/message.html">messages</a> which are formatted for use inside forms.</p>
     <div class="ui ignored warning top attached message">
       <p>If you are looking for form validation, you should check out <a href="/modules/form.html">form validation</a>.</p>
     </div>
-    <div class="ui ignored bottom attached message">
-      <p>This example uses a <a href="/elements/segment.html">ui segment</a> to add the padding and background color. This is not required.</p>
+    <div class="ui ignored info attached message"><p>Validation messages use <a href="/collections/message.html">messages</a> which are formatted for use inside forms.</p>
+    <p>This example also uses <a href="/elements/segment.html">ui segment</a> to group the form. This is not required.
     </div>
     <div class="ui form segment">
-      <div class="required field">
-        <label>Username</label>
-        <div class="ui left labeled icon input">
-          <input type="text" placeholder="Username">
-          <i class="user icon"></i>
+      <h4 class="ui dividing header">Personal Information</h4>
+      <div class="two fields">
+        <div class="field">
+          <label>Name</label>
+          <div class="two fields">
+            <div class="field">
+              <input type="text" name="first-name" placeholder="First Name">
+            </div>
+            <div class="field">
+              <input type="text" name="last-name" placeholder="Last Name">
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Gender</label>
+          <div class="ui selection dropdown">
+            <input type="hidden" name="gender">
+            <div class="default text">Gender</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="male">Male</div>
+              <div class="item" data-value="female">Female</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="required field">
-        <label>Password</label>
-        <div class="ui left labeled icon input">
-          <input type="password">
-          <i class="lock icon"></i>
+      <div class="field">
+        <label>Biography</label>
+        <textarea></textarea>
+      </div>
+      <h4 class="ui dividing header">Account Info</h4>
+      <div class="two fields">
+        <div class="required field">
+          <label>Username</label>
+          <div class="ui left labeled icon input">
+            <input type="text" placeholder="Username">
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="required field">
+          <label>Password</label>
+          <div class="ui left labeled icon input">
+            <input type="password">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="ui block top attached header">Optional Survey</h4>
+      <div class="ui bottom attached secondary segment">
+        <div class="grouped fields">
+          <label for="alone">Are you a human?</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" checked="" name="alone">
+              <label>Yes</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="alone">
+              <label>No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="ui dividing header">Settings</h4>
+      <h5 class="ui header">Privacy</h5>
+      <div class="field">
+        <div class="ui toggle checkbox">
+          <input type="radio" name="privacy">
+          <label>Allow <b>anyone</b> to see my account</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui toggle checkbox">
+          <input type="radio" name="privacy">
+          <label>Allow <b>only friends</b> to see my account</label>
+        </div>
+      </div>
+      <h5 class="ui header">Newsletter Subscriptions</h5>
+      <div class="field">
+        <div class="ui slider checkbox">
+          <input type="checkbox" name="top-posts">
+          <label>Top Posts This Week</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui slider checkbox">
+          <input type="checkbox" name="hot-deals">
+          <label>Hot Deals</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="hot-deals">
+          <label>I agree to the <a href="#">Terms of Service</a>.</label>
         </div>
       </div>
       <div class="ui error message">
         <div class="header">We noticed some issues</div>
       </div>
-      <div class="ui submit button">Login</div>
+      <div class="ui submit button">Register</div>
     </div>
   </div>
 
