@@ -721,6 +721,9 @@ semantic.ready = function() {
     .visibility('bottom passed', function(){
       $('.main.menu').addClass('filled');
     })
+    .find('.button')
+      .popup({
+      })
   ;
 
   $(window)

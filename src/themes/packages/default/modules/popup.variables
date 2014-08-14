@@ -73,7 +73,7 @@
 @invertedBorder: none;
 @invertedBoxShadow: none;
 
-@invertedHeaderBackground: rgba(0, 0, 0, 0.2);
+@invertedHeaderBackground: none;
 @invertedHeaderColor: @white;
 @invertedArrowColor: @black;
 
