@@ -16,6 +16,8 @@
 @groupMargin: 1em -@horizontalSpacing;
 @horizontalSpacing: 1em;
 @rowSpacing: 2em;
+
+/* Group Element */
 @elementFloat: left;
 @elementDisplay: block;
 @elementMargin: 0em @horizontalSpacing @rowSpacing;
@@ -34,7 +36,7 @@
 
 /* Label */
 @labelSize: 1rem;
-@labelDistance: 0.25em;
+@labelDistance: 0.25rem;
 @labelFont: @headerFont;
 @labelFontWeight: normal;
 @labelColor: @unselectedTextColor;

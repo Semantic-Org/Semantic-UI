@@ -31,13 +31,23 @@ themes      : ['Default']
 
   <div class="example">
     <h4 class="ui header">Statistic</h4>
-    <p>A statistic</p>
+    <p>A statistic can display a value with a label above or below it.</p>
     <div class="ui statistic">
       <div class="value">
         22
       </div>
       <div class="label">
         Breeds of Dog
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui statistic">
+      <div class="label">
+        Famous Dogs
+      </div>
+      <div class="value">
+        414
       </div>
     </div>
   </div>
