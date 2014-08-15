@@ -30,7 +30,7 @@
 @teal             : #39CCCC;
 @yellow           : #FFCB08;
 
-@black            : #333333;
+@black            : #191919;
 @grey             : #CCCCCC;
 @white            : #FFFFFF;
 
@@ -71,7 +71,7 @@
 @transparentWhite       : rgba(255, 255, 255, 0.05);
 @strongTransparentWhite : rgba(255, 255, 255, 0.01);
 
-/* Used for differentiating greys */
+/* Used for differentiating neutrals */
 @subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 
 /* Used for differentiating layers */
@@ -277,16 +277,19 @@
       Borders
 --------------------*/
 
-@circularRadius           : 500rem;
+@circularRadius                : 500rem;
 
-@borderColor              : rgba(0, 0, 0, 0.1);
-@selectedBorderColor      : rgba(0, 0, 0, 0.2);
+@borderColor                   : rgba(0, 0, 0, 0.1);
+@selectedBorderColor           : rgba(0, 0, 0, 0.2);
 
-@solidBorderColor         : #DDDDDD;
-@solidSelectedBorderColor : #B0B0B0;
+@solidBorderColor              : #DDDDDD;
+@solidSelectedBorderColor      : #B0B0B0;
 
-@whiteBorderColor         : rgba(255, 255, 255, 0.2);
-@selectedWhiteBorderColor : rgba(255, 255, 255, 0.8);
+@whiteBorderColor              : rgba(255, 255, 255, 0.2);
+@selectedWhiteBorderColor      : rgba(255, 255, 255, 0.8);
+
+@solidWhiteBorderColor         : #555555;
+@selectedSolidWhiteBorderColor : #999999;
 
 /*-------------------
         Sizes

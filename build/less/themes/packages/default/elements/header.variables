@@ -62,6 +62,7 @@
 /* Inverted */
 @invertedColor: @white;
 @invertedSubHeaderColor: rgba(255, 255, 255, 0.85);
+@invertedDividedBorderColor: @whiteBorderColor;
 
 /* Divided */
 @dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
@@ -88,8 +89,8 @@
 /* Attached */
 @attachedOffset: 0px;
 @attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
-@attachedVerticalPadding: 0.7em;
-@attachedHorizontalPadding: 1rem;
+@attachedVerticalPadding: @blockVerticalPadding;
+@attachedHorizontalPadding: @blockHorizontalPadding;
 @attachedBackground: @blockBackground;
 @attachedBorder: none;
 @attachedBorderRadius: @blockBorderRadius;

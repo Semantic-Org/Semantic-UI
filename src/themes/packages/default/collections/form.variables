@@ -15,7 +15,7 @@
 
 /* Form Label */
 @labelFontSize: 0.9em;
-@labelFontWeight: normal;
+@labelFontWeight: bold;
 @labelMargin: 0.3em;
 @labelColor: @textColor;
 

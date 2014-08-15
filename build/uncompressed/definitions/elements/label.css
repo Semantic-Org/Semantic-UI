@@ -64,7 +64,7 @@
 /*-------------------
   Background Colors
 --------------------*/
-/* Used for differentiating greys */
+/* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
         Grid
@@ -197,8 +197,7 @@
   text-transform: uppercase;
   font-weight: normal;
   border-radius: 0.325em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-transition: background 0.1s linear
   ;
           transition: background 0.1s linear
@@ -284,8 +283,7 @@ a.ui.label {
   vertical-align: baseline;
   text-transform: none;
   border-radius: 500rem;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.image.label img {
   display: inline-block;
@@ -375,8 +373,7 @@ a.ui.label:hover:before {
   background-color: #ffffff;
   width: 0.5em;
   height: 0.5em;
-  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-          box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 500rem;
 }
 /*-------------------
@@ -557,8 +554,7 @@ a.ui.label:hover:before {
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 /*-------------------
        Inverted
@@ -573,31 +569,31 @@ a.ui.label:hover:before {
 /*--- Black ---*/
 .ui.black.labels .label,
 .ui.black.label {
-  background-color: #333333 !important;
-  border-color: #333333 !important;
+  background-color: #191919 !important;
+  border-color: #191919 !important;
   color: #ffffff !important;
 }
 .ui.labels .black.label:before,
 .ui.black.labels .label:before,
 .ui.black.label:before {
-  background-color: #333333 !important;
+  background-color: #191919 !important;
 }
 a.ui.black.labels .label:hover,
 a.ui.black.label:hover {
-  background-color: #404040 !important;
-  border-color: #404040 !important;
+  background-color: #262626 !important;
+  border-color: #262626 !important;
 }
 .ui.labels a.black.label:hover:before,
 .ui.black.labels a.label:hover:before,
 a.ui.black.label:hover:before {
-  background-color: #404040 !important;
+  background-color: #262626 !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.black.ribbon.label {
-  border-color: #404040 !important;
+  border-color: #262626 !important;
 }
 /*--- Blue ---*/
 .ui.blue.labels .label,

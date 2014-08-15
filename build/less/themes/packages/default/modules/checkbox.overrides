@@ -21,13 +21,12 @@
 /* Radio Checkbox */
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
-  content: '\e801'; /* '' */
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  .ui.radio.checkbox .box:after,
-  .ui.radio.checkbox label:after {
-    top: @checkboxRadioOffset + 1px;
-  }
+  content: ''; /* '' */
+  transform: scale(0.5);
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
+  border-radius: @circularRadius;
+  background-color: @checkboxColor;
 }
 
 .icon-check:before { content: '\e800'; }

@@ -59,6 +59,15 @@
      Load Default
 -------------------*/
 /*******************************
+             Icon
+*******************************/
+/*-------------------
+   Icon Variables
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -77,7 +86,7 @@
 /*-------------------
   Background Colors
 --------------------*/
-/* Used for differentiating greys */
+/* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
         Grid
@@ -149,15 +158,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Icon
-*******************************/
-/*-------------------
-   Icon Variables
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -268,16 +268,14 @@ i.link.icon:hover {
 i.circular.icon {
   border-radius: 500em !important;
   padding: 0.5em 0.35em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   line-height: 1 !important;
   width: 2em !important;
   height: 2em !important;
 }
 i.circular.inverted.icon {
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*-------------------
       Flipped
@@ -316,14 +314,12 @@ i.bordered.icon {
   width: 2em;
   height: 2em;
   padding: 0.55em 0.385em !important;
-  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
   vertical-align: baseline;
 }
 i.bordered.inverted.icon {
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*-------------------
        Colors
@@ -332,7 +328,7 @@ i.white.icon {
   color: #ffffff !important;
 }
 i.black.icon {
-  color: #333333 !important;
+  color: #191919 !important;
 }
 i.blue.icon {
   color: #0074d9 !important;
@@ -397,7 +393,7 @@ i.inverted.circular.icon {
   color: #FFFFFF !important;
 }
 i.inverted.circular.black.icon {
-  background-color: #333333 !important;
+  background-color: #191919 !important;
   color: #FFFFFF !important;
 }
 i.inverted.circular.blue.icon {
@@ -442,19 +438,19 @@ i.icon {
   font-size: 1em;
 }
 i.large.icon {
-  font-size: 1.5em;
+  font-size: 1.125em;
   vertical-align: middle;
 }
 i.big.icon {
-  font-size: 2em;
+  font-size: 1.25em;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 4em;
+  font-size: 1.375em;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 8em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 /*

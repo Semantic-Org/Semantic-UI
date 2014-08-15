@@ -64,7 +64,7 @@
 /*-------------------
   Background Colors
 --------------------*/
-/* Used for differentiating greys */
+/* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
         Grid
@@ -186,8 +186,7 @@
   margin-left: -45%;
   background: transparent;
   border: none;
-  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
-          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
   border-radius: 0.25rem;
   -webkit-user-select: text;
      -moz-user-select: text;
@@ -230,7 +229,7 @@
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   background: #555555;
   margin: 0em;
   padding: 1.5rem 2rem;
@@ -325,8 +324,7 @@
   .ui.modal .content > .description {
     display: block;
     padding: 0em 0em 1em;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
   .ui.modal .content .image {
     width: auto !important;
@@ -354,8 +352,7 @@
 .ui.basic.modal {
   background-color: transparent;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: #ffffff;
 }
 .ui.basic.modal > .header,

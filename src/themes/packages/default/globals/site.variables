@@ -63,7 +63,7 @@
   Background Colors
 --------------------*/
 
-@subtleTransparentBlack : rgba(0, 0, 0, 0.01);
+@subtleTransparentBlack : rgba(0, 0, 0, 0.03);
 @transparentBlack       : rgba(0, 0, 0, 0.05);
 @strongTransparentBlack : rgba(0, 0, 0, 0.10);
 

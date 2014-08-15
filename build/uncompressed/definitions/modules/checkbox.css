@@ -64,7 +64,7 @@
 /*-------------------
   Background Colors
 --------------------*/
-/* Used for differentiating greys */
+/* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
         Grid
@@ -183,10 +183,10 @@
 .ui.checkbox {
   position: relative;
   display: inline-block;
-  height: 16px;
+  height: 17px;
   font-size: 1rem;
   line-height: 15px;
-  min-width: 16px;
+  min-width: 17px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   outline: none;
@@ -216,14 +216,14 @@
 .ui.checkbox label:before {
   position: absolute;
   line-height: 1;
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
   top: 0em;
   left: 0em;
   content: '';
   background: #ffffff;
   border-radius: 0.25em;
-  -webkit-transition: background-color 0.3s ease, border 0.3s ease, -webkit-box-shadow 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
           transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -233,15 +233,16 @@
 .ui.checkbox .box:after,
 .ui.checkbox label:after {
   position: absolute;
-  top: 1px;
+  top: 0px;
   left: 0px;
-  line-height: 1;
-  width: 16px;
+  line-height: 17px;
+  width: 17px;
+  height: 17px;
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+          transition: all 0.1s ease;
 }
 /*--------------
       Label
@@ -322,9 +323,14 @@
 /*--------------
      Radio
 ---------------*/
+.ui.radio.checkbox {
+  height: 16px;
+}
 /* Box */
 .ui.radio.checkbox .box:before,
 .ui.radio.checkbox label:before {
+  width: 16px;
+  height: 16px;
   border-radius: 500rem;
   -webkit-transform: none;
       -ms-transform: none;
@@ -334,8 +340,11 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
-  top: 3px;
-  left: 0em;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  top: 0px;
+  left: 0px;
   font-size: 9px;
 }
 /*--------------
@@ -343,10 +352,13 @@
 ---------------*/
 .ui.slider.checkbox {
   cursor: pointer;
+  height: 1.5rem;
 }
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
-  padding-left: 3.25rem;
+  padding-left: 4.5rem;
+  line-height: 1rem;
+  color: rgba(0, 0, 0, 0.4);
 }
 /* Line */
 .ui.slider.checkbox .box:before,
@@ -360,7 +372,7 @@
   z-index: 1;
   border: none !important;
   background-color: rgba(0, 0, 0, 0.05);
-  width: 2.25rem;
+  width: 3.5rem;
   height: 0.25rem;
   -webkit-transform: none;
       -ms-transform: none;
@@ -374,20 +386,21 @@
 /* Handle */
 .ui.slider.checkbox .box:after,
 .ui.slider.checkbox label:after {
-  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
-  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
-  background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   position: absolute;
   content: '';
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  width: 1.25rem;
-  height: 1.25rem;
-  top: -0.125rem;
+  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: -0.25rem;
   left: 0em;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
   border-radius: 500rem;
   -webkit-transition: left 0.3s ease 0s
   ;
@@ -400,24 +413,41 @@
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
 }
+/* Hover */
+.ui.slider.checkbox .box:hover,
+.ui.slider.checkbox label:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.slider.checkbox .box:hover::before,
+.ui.slider.checkbox label:hover::before {
+  background: rgba(0, 0, 0, 0.1);
+}
 /* Active */
+.ui.slider.checkbox input:checked ~ .box,
+.ui.slider.checkbox input:checked ~ label {
+  color: rgba(0, 0, 0, 0.8);
+}
 .ui.slider.checkbox input:checked ~ .box:before,
 .ui.slider.checkbox input:checked ~ label:before {
-  background-color: #2ecc40;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
-  left: 1rem;
+  left: 2rem;
 }
 /*--------------
      Toggle
 ---------------*/
 .ui.toggle.checkbox {
   cursor: pointer;
+  height: 1.5rem;
 }
 .ui.toggle.checkbox .box,
 .ui.toggle.checkbox label {
-  padding-left: 3em;
+  height: 1.5rem;
+  padding-left: 4.5rem;
+  line-height: 1.5rem;
+  color: rgba(0, 0, 0, 0.8);
 }
 /* Switch */
 .ui.toggle.checkbox .box:before,
@@ -426,30 +456,28 @@
   display: block;
   position: absolute;
   content: '';
-  top: -0.125rem;
+  top: 0rem;
   z-index: 1;
   border: none;
   background-color: rgba(0, 0, 0, 0.05);
-  width: 2.25rem;
-  height: 1.25rem;
+  width: 3.5rem;
+  height: 1.5rem;
   border-radius: 500rem;
 }
 /* Handle */
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
-  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
-  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1));
-  background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+  background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   position: absolute;
   content: '';
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-  width: 1.25rem;
-  height: 1.25rem;
-  top: -0.125rem;
+  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 0rem;
   left: 0em;
   border-radius: 500rem;
   -webkit-transition: background 0.3s ease 0s,
@@ -461,11 +489,17 @@
 }
 .ui.toggle.checkbox input ~ .box:after,
 .ui.toggle.checkbox input ~ label:after {
-  left: -0.2rem;
+  left: -0.05rem;
 }
 /* Focus */
 .ui.toggle.checkbox input:focus ~ .box:before,
 .ui.toggle.checkbox input:focus ~ label:before {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+}
+/* Hover */
+.ui.toggle.checkbox .box:hover::before,
+.ui.toggle.checkbox label:hover::before {
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
 }
@@ -480,7 +514,7 @@
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
-  left: 1.2rem;
+  left: 2.05rem;
 }
 /*******************************
            Overrides
@@ -503,14 +537,15 @@
 /* Radio Checkbox */
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
-  content: '\e801';
+  content: '';
   /* '' */
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .ui.radio.checkbox .box:after,
-  .ui.radio.checkbox label:after {
-    top: 4px;
-  }
+  -webkit-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+          transform: scale(0.5);
+  width: 16px;
+  height: 16px;
+  border-radius: 500rem;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .icon-check:before {
   content: '\e800';

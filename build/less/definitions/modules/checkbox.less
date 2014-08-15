@@ -92,15 +92,16 @@
 .ui.checkbox .box:after,
 .ui.checkbox label:after {
   position: absolute;
-  top: @checkboxCheckOffset;
-  left: 0px;
-  line-height: 1;
+  top: @checkboxCheckTop;
+  left: @checkboxCheckLeft;
+  line-height: @checkboxSize;
   width: @checkboxSize;
+  height: @checkboxSize;
   text-align: center;
 
   opacity: 0;
   color: @checkboxColor;
-  transition: opacity 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 /*--------------
@@ -199,9 +200,15 @@
      Radio
 ---------------*/
 
+.ui.radio.checkbox {
+  height: @checkboxRadioSize;
+}
+
 /* Box */
 .ui.radio.checkbox .box:before,
 .ui.radio.checkbox label:before {
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
   border-radius: @circularRadius;
   transform: none;
 }
@@ -210,8 +217,11 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
-  top: @checkboxRadioOffset;
-  left: 0em;
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
+  line-height: @checkboxRadioSize;
+  top: @checkboxRadioTop;
+  left: @checkboxRadioLeft;
   font-size: @checkboxRadioCircleSize;
 }
 
@@ -221,11 +231,14 @@
 
 .ui.slider.checkbox {
   cursor: pointer;
+  height: @sliderSize;
 }
 
 .ui.slider.checkbox .box,
 .ui.slider.checkbox label {
   padding-left: @sliderLabelDistance;
+  line-height: @sliderLabelLineHeight;
+  color: @sliderOffLabelColor;
 }
 
 /* Line */
@@ -241,12 +254,12 @@
   z-index: 1;
   border: none !important;
 
-  background-color: @neutralCheckbox;
+  background-color: @sliderLineColor;
   width: @sliderLineWidth;
   height: @sliderLineHeight;
 
   transform: none;
-  border-radius: @circularRadius;
+  border-radius: @sliderLineRadius;
   transition:
     background 0.3s ease
   ;
@@ -263,10 +276,11 @@
 
   border: none;
   box-shadow: @handleBoxShadow;
-  width: @handleSize;
-  height: @handleSize;
+  width: @sliderHandleSize;
+  height: @sliderHandleSize;
   top: @sliderHandleOffset;
   left: 0em;
+  transform: none;
 
   border-radius: @circularRadius;
   transition:
@@ -281,10 +295,24 @@
   border: none;
 }
 
+/* Hover */
+.ui.slider.checkbox .box:hover,
+.ui.slider.checkbox label:hover {
+  color: @sliderHoverLabelColor;
+}
+.ui.slider.checkbox .box:hover::before,
+.ui.slider.checkbox label:hover::before {
+  background: @sliderHoverLaneBackground;
+}
+
 /* Active */
+.ui.slider.checkbox input:checked ~ .box,
+.ui.slider.checkbox input:checked ~ label {
+  color: @sliderOnLabelColor;
+}
 .ui.slider.checkbox input:checked ~ .box:before,
 .ui.slider.checkbox input:checked ~ label:before {
-  background-color: @positiveCheckbox;
+  background-color: @sliderOnLineColor;
 }
 .ui.slider.checkbox input:checked ~ .box:after,
 .ui.slider.checkbox input:checked ~ label:after {
@@ -298,11 +326,15 @@
 
 .ui.toggle.checkbox {
   cursor: pointer;
+  height: @toggleSize;
 }
 
 .ui.toggle.checkbox .box,
 .ui.toggle.checkbox label {
-  padding-left: 3em;
+  height: @toggleSize;
+  padding-left: @toggleLabelDistance;
+  line-height: @toggleLabelLineHeight;
+  color: @toggleOffLabelColor;
 }
 
 /* Switch */
@@ -314,14 +346,14 @@
   position: absolute;
   content: '';
 
-  top: @toggleSwitchVerticalOffset;
+  top: @toggleLaneVerticalOffset;
   z-index: 1;
   border: none;
 
   background-color: @neutralCheckbox;
-  width: @toggleSwitchWidth;
-  height: @toggleSwitchHeight;
-  border-radius: @circularRadius;
+  width: @toggleLaneWidth;
+  height: @toggleLaneHeight;
+  border-radius: @toggleHandleRadius;
 }
 
 /* Handle */
@@ -335,9 +367,9 @@
 
   border: none;
   box-shadow: @handleBoxShadow;
-  width: @handleSize;
-  height: @handleSize;
-  top: @sliderHandleOffset;
+  width: @toggleHandleSize;
+  height: @toggleHandleSize;
+  top: @toggleHandleOffset;
   left: 0em;
 
   border-radius: @circularRadius;
@@ -359,14 +391,21 @@
   border: none;
 }
 
+/* Hover */
+.ui.toggle.checkbox .box:hover::before,
+.ui.toggle.checkbox label:hover::before {
+  background-color: @toggleHoverColor;
+  border: none;
+}
+
 /* Active */
 .ui.toggle.checkbox input:checked ~ .box,
 .ui.toggle.checkbox input:checked ~ label {
-  color: @positiveCheckbox;
+  color: @toggleOnLabelColor;
 }
 .ui.toggle.checkbox input:checked ~ .box:before,
 .ui.toggle.checkbox input:checked ~ label:before {
-  background-color: @positiveCheckbox;
+  background-color: @toggleOnLaneColor;
 }
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {

@@ -57,7 +57,6 @@
 .ui.slide.reveal > .content {
   display: block;
   float: left;
-  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0em;

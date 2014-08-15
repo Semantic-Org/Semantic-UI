@@ -64,7 +64,7 @@
 /*-------------------
   Background Colors
 --------------------*/
-/* Used for differentiating greys */
+/* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
         Grid
@@ -178,7 +178,7 @@
 /* Standard */
 .ui.header {
   border: none;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -319,7 +319,7 @@ h5.ui.header {
        Colors
 --------------------*/
 .ui.black.header {
-  color: #333333 !important;
+  color: #191919 !important;
 }
 .ui.blue.header {
   color: #0074d9 !important;
@@ -346,7 +346,7 @@ h5.ui.header {
   color: #ffcb08 !important;
 }
 .ui.black.dividing.header {
-  border-bottom: 3px solid #333333;
+  border-bottom: 3px solid #191919;
 }
 .ui.blue.dividing.header {
   border-bottom: 3px solid #0074d9;
@@ -468,16 +468,17 @@ h5.ui.header {
 .ui.dividing.header .icon {
   margin-bottom: 0.2em;
 }
+.ui.inverted.dividing.header {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
 /*-------------------
         Block
 --------------------*/
 .ui.block.header {
-  background: #f0f0f0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #f0f0f0 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #f0f0f0 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.5em 1em;
-  -webkit-box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid #dddddd;
   border-radius: 0.3125rem;
 }
@@ -500,13 +501,11 @@ h5.ui.header {
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #f0f0f0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #f0f0f0 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #f0f0f0 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   margin: 0em;
-  padding: 0.7em 1rem;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd;
+  padding: 0.5em 1em;
+  box-shadow: 0px 0px 0px 1px #dddddd;
   border: none;
   margin-left: 0px;
   margin-right: 0px;

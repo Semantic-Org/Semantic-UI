@@ -41,29 +41,35 @@ themes      : ['Default']
     <table class="ui table">
       <thead>
         <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <th>Registration Date</th>
+        <th>E-mail address</th>
+        <th>Premium Plan</th>
       </thead>
       <tbody>
         <tr>
-          <td>John</td>
-          <td>Approved</td>
-          <td>None</td>
+          <td>John Lilki</td>
+          <td>September 14, 2013</td>
+          <td>jhlilk22@yahoo.com</td>
+          <td>No</td>
         </tr>
         <tr>
-          <td>Jamie</td>
-          <td>Approved</td>
-          <td>Requires call</td>
+          <td>Jamie Harington</td>
+          <td>January 11, 2014</td>
+          <td>jamieharingonton@yahoo.com</td>
+          <td>Yes</td>
         </tr>
         <tr>
-          <td>Jill</td>
-          <td>Denied</td>
-          <td>None</td>
+          <td>Jill Lewis</td>
+          <td>May 11, 2014</td>
+          <td>jilsewris22@yahoo.com</td>
+          <td>Yes</td>
         </tr>
       </tbody>
       <tfoot>
-        <th colspan="3">
-          <div class="ui blue labeled icon button"><i class="user icon"></i> Add User</div>
+        <th colspan="4">
+          <div class="ui primary labeled icon button">
+            <i class="user icon"></i> Add User
+          </div>
         </th>
       </tfoot>
     </table>
@@ -316,6 +322,32 @@ themes      : ['Default']
     <h4 class="ui header">Basic</h4>
     <p>A table can reduce its complexity to increase readability.</p>
     <table class="ui basic table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+          <td>Denied</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="another example">
+    <table class="ui very basic table">
       <thead>
         <th>Name</th>
         <th>Status</th>
@@ -633,6 +665,27 @@ themes      : ['Default']
       </tbody>
     </table>
   </div>
+  <div class="another example">
+    <table class="ui very padded table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>He is a very nice guy and I enjoyed talking to him on the telephone. I hope we get to talk again.</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Jamie was not interested in purchasing our product.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <div class="example">
     <h4 class="ui header">Compact</h4>
     <p>A table may sometimes need to be more compact to make more rows visible at a time</p>
@@ -680,6 +733,65 @@ themes      : ['Default']
         </tr>
         <tr>
           <td>Jamie</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="another example">
+    <table class="ui very compact table">
+      <thead>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Another Status</th>
+        <th>Notes</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
+          <td>Approved</td>
+          <td>Requires call</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Approved</td>
+          <td>Approved</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+          <td>Approved</td>
           <td>Approved</td>
           <td>Requires call</td>
         </tr>

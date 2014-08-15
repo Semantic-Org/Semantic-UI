@@ -9,6 +9,7 @@
 - **Accordion** - Accordions are not unstyled by default allowing for more compatability with other modules without having to override styles. Styled accordions are now included as a variation ``ui styled accordion``
 - **Item** - Items have now been renamed "card" to allow for a more generic item list that does not use a "card" style. Some 'card' view content has been slightly adjusted. Please refer to documentation
 - **Header / Icon** - Inverted headers and icons no longer invert background colors, but instead use a lighter version of colors more legible on dark backgrounds. Inverted circular icons, still however invert the color of the circle.
+- **Table** - Tables are no longer striped by default, instead you must specify the 'striped' variation
 
 **Enhancements**
 - **Accordion** - Accordion now includes all icons in an embedded font instead of requiring icons
@@ -39,7 +40,7 @@
 - **Rating** - Rating now uses an embedded icon font to maximize compatibility
 - **Sidebar** - Sidebar now has tall / very tall variations for resizing top/bottom sidebars
 - **Steps** - Steps can now have icons, descriptions and titles. Step default theme has been modified significantly to be more flexible.
-- **Table** - Tables are no longer striped by default, must specify variation 'striped'
+- **Table** - Tables now have 'basic' and 'very' basic variations
 
 ** Bug Fixes **
 - **Rating** - Vertical alignment has been improved

@@ -46,6 +46,12 @@
      Load Default
 -------------------*/
 /*******************************
+            Chatroom
+*******************************/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -64,7 +70,7 @@
 /*-------------------
   Background Colors
 --------------------*/
-/* Used for differentiating greys */
+/* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
         Grid
@@ -136,12 +142,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-            Chatroom
-*******************************/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -342,8 +342,7 @@
   padding: 4px 12px;
   font-size: 12px;
   line-height: 23px;
-  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
   border-radius: 0 5px 5px 0;
 }
 .ui.chatroom .talk .log-in.button {

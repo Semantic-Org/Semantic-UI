@@ -278,8 +278,8 @@ body.guide .main.container > * {
 #example .masthead:before {
   position: absolute;
   z-index: 1;
-  width: 500%;
-  height: 500%;
+  width: 100%;
+  height: 150%;
   top: 0px;
   left: 0px;
   content: '';
@@ -295,11 +295,13 @@ body.guide .main.container > * {
   -o-animation-name: masthead;
   animation-name: masthead;
 
-  -webkit-animation-duration: 120s;
-  -moz-animation-duration: 120s;
-  -ms-animation-duration: 120s;
-  -o-animation-duration: 120s;
-  animation-duration: 120s;
+  opacity: 0.7;
+
+  -webkit-animation-duration: 30s;
+  -moz-animation-duration: 30s;
+  -ms-animation-duration: 30s;
+  -o-animation-duration: 30s;
+  animation-duration: 30s;
 
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
@@ -322,11 +324,8 @@ body.guide .main.container > * {
  0% {
     background-position: 0% 0%;
  }
- 50% {
-    background-position: -50% -100%;
- }
  100% {
-    background-position: -100% -200%;
+    background-position: 0% -410px;
  }
 
 }
@@ -335,11 +334,8 @@ body.guide .main.container > * {
  0% {
    background-position: 0% 0%;
  }
- 50% {
-   background-position: -50% -100%;
- }
  100% {
-   background-position: -100% -200%;
+   background-position: 0% -410px;
  }
 
 }
@@ -348,11 +344,8 @@ body.guide .main.container > * {
  0% {
    background-position: 0% 0%;
  }
- 50% {
-   background-position: -50% -100%;
- }
  100% {
-   background-position: -100% -200%;
+   background-position: 0% -410px;
  }
 
 }
@@ -361,11 +354,8 @@ body.guide .main.container > * {
  0% {
    background-position: 0% 0%;
  }
- 50% {
-   background-position: -50% -100%;
- }
  100% {
-   background-position: -100% -200%;
+   background-position: 0% -410px;
  }
 }
 
@@ -373,11 +363,8 @@ body.guide .main.container > * {
  0% {
    background-position: 0% 0%;
  }
- 50% {
-   background-position: -50% -100%;
- }
  100% {
-   background-position: -100% -200%;
+   background-position: 0% -410px;
  }
 
 }

@@ -64,7 +64,7 @@
 /*-------------------
   Background Colors
 --------------------*/
-/* Used for differentiating greys */
+/* Used for differentiating neutrals */
 /* Used for differentiating layers */
 /*-------------------
         Grid
@@ -207,8 +207,7 @@
   position: relative;
   margin: 0em auto 1em;
   color: transparent;
-  -webkit-box-shadow: 0px 0px 0px 1px;
-          box-shadow: 0px 0px 0px 1px;
+  box-shadow: 0px 0px 0px 1px;
   -webkit-animation: loaderFlipping 1s infinite ease;
           animation: loaderFlipping 1s infinite ease;
   margin-bottom: 1em;
@@ -221,8 +220,7 @@
   content: '';
   top: 0px;
   left: 0px;
-  -webkit-box-shadow: 0px 0px 0px 1px;
-          box-shadow: 0px 0px 0px 1px;
+  box-shadow: 0px 0px 0px 1px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
@@ -233,7 +231,7 @@
   z-index: 2;
 }
 .ui.flipping.loader .shape:after {
-  background-color: #333333;
+  background-color: #191919;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
