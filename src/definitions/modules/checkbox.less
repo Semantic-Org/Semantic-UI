@@ -92,15 +92,16 @@
 .ui.checkbox .box:after,
 .ui.checkbox label:after {
   position: absolute;
-  top: @checkboxCheckOffset;
-  left: 0px;
-  line-height: 1;
+  top: @checkboxCheckTop;
+  left: @checkboxCheckLeft;
+  line-height: @checkboxSize;
   width: @checkboxSize;
+  height: @checkboxSize;
   text-align: center;
 
   opacity: 0;
   color: @checkboxColor;
-  transition: opacity 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 /*--------------
@@ -199,9 +200,15 @@
      Radio
 ---------------*/
 
+.ui.radio.checkbox {
+  height: @checkboxRadioSize;
+}
+
 /* Box */
 .ui.radio.checkbox .box:before,
 .ui.radio.checkbox label:before {
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
   border-radius: @circularRadius;
   transform: none;
 }
@@ -210,8 +217,11 @@
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   border: none;
-  top: @checkboxRadioOffset;
-  left: 0em;
+  width: @checkboxRadioSize;
+  height: @checkboxRadioSize;
+  line-height: @checkboxRadioSize;
+  top: @checkboxRadioTop;
+  left: @checkboxRadioLeft;
   font-size: @checkboxRadioCircleSize;
 }
 
@@ -270,6 +280,7 @@
   height: @sliderHandleSize;
   top: @sliderHandleOffset;
   left: 0em;
+  transform: none;
 
   border-radius: @circularRadius;
   transition:
