@@ -257,6 +257,14 @@ h5.ui.header {
 .ui.inverted.header .sub.header {
   color: @invertedSubHeaderColor;
 }
+.ui.inverted.attached.header {
+  background: @invertedAttachedBackground;
+  box-shadow: none;
+}
+.ui.inverted.block.header {
+  background: @invertedBlockBackground;
+  box-shadow: none;
+}
 
 
 /*-------------------
@@ -358,6 +366,10 @@ h5.ui.header {
   margin-bottom: @dividedIconPadding;
 }
 
+.ui.inverted.dividing.header {
+  border-bottom-color: @invertedDividedBorderColor;
+}
+
 
 /*-------------------
         Block
@@ -417,6 +429,7 @@ h5.ui.header {
   border-radius: 0em 0em @attachedBorderRadius @attachedBorderRadius;
 }
 
+/* Attached Sizes */
 .ui.tiny.attached.header {
   font-size: @tinyAttached;
 }

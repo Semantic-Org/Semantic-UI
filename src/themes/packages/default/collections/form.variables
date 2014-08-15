@@ -114,7 +114,7 @@
 @requiredVerticalOffset: -0.2em;
 
 /* Inverted */
-@invertedFormColor: @invertedTextColor;
+@invertedLabelColor: @invertedTextColor;
 @formInvertedLoaderPath: "@{imagePath}/loader-large-inverted.gif";
 @formInvertedLoaderDimmerColor: rgba(0, 0, 0, 0.8);
 
