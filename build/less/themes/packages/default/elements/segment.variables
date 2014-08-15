@@ -53,7 +53,7 @@
 
 /* Attached */
 @attachedTopOffset: -1px;
-@attachedBottomOffset: -1px;
+@attachedBottomOffset: 1px;
 @attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,
@@ -61,7 +61,7 @@
 ;
 
 /* Colors */
-@coloredBorderSize: 0.2em;
+@coloredBorderSize: 2px;
 @coloredBorderRadius: 0em 0em @borderRadius @borderRadius;
 
 /* Ordinality */

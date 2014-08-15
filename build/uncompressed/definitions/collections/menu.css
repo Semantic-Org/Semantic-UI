@@ -356,13 +356,8 @@
 .ui.menu:not(.vertical) .item > .icon.input .icon {
   top: -0.3em;
 }
-.ui.menu .item > .input input {
+.ui.menu:not(.vertical) .item > .input input {
   font-size: 1em;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-}
-.ui.vertical.menu .item > .input input {
-  margin: 0em;
   padding-top: 0.4em;
   padding-bottom: 0.4em;
 }
@@ -407,7 +402,7 @@
 ---------------*/
 /* Dropdown */
 .ui.menu .ui.dropdown.visible {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
   border-bottom-right-radius: 0em;
   border-bottom-left-radius: 0em;
 }
@@ -472,7 +467,7 @@
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover {
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
 }
 /*--------------
       Down
@@ -480,13 +475,13 @@
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
 }
 /*--------------
      Active
 ---------------*/
 .ui.menu .active.item {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.85);
   font-weight: normal;
   box-shadow: 0em 2px 0em inset;
@@ -496,7 +491,7 @@
 }
 /* Vertical */
 .ui.vertical.menu .active.item {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
   border-radius: 0em;
   box-shadow: 2px 0em 0em inset;
 }
@@ -521,7 +516,7 @@
 ---------------*/
 .ui.vertical.menu .active.item:hover,
 .ui.menu .active.item:hover {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 /*--------------
      Disabled
@@ -1184,7 +1179,7 @@
     Inverted
 ---------------*/
 .ui.inverted.menu {
-  background: #333333;
+  background: #191919;
   box-shadow: none;
 }
 .ui.inverted.menu .header.item {

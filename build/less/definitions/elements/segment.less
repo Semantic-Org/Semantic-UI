@@ -245,39 +245,39 @@
 
 .ui.black.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @black;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 .ui.blue.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @blue;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 .ui.green.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @green;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 .ui.orange.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @orange;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 .ui.pink.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @pink;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 .ui.purple.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @purple;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 .ui.red.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @red;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 .ui.teal.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @teal;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 .ui.yellow.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @yellow;
-  border-raidus: @coloredBorderRadius !important;
+  border-radius: @coloredBorderRadius !important;
 }
 
 /*-------------------
@@ -335,10 +335,6 @@
 .ui.center.aligned.segment {
   text-align: center;
 }
-.ui.justified.segment {
-  text-align: justify;
-  hyphens: auto;
-}
 
 /*-------------------
        Floated
@@ -375,6 +371,11 @@
   color: @white;
 }
 
+.ui.inverted.block.segment,
+.ui.inverted.attached.segment {
+  box-shadow: none !important;
+}
+
 /*-------------------
      Ordinality
 --------------------*/
@@ -404,16 +405,16 @@
 --------------------*/
 
 .ui.segment.attached {
-  top: @attachedTopOffset;
-  bottom: @attachedBottomOffset;
+  top: 0px;
+  bottom: 0px;
   margin: 0em;
   border-radius: 0px;
   box-shadow: @attachedBoxShadow;
 }
 
 .ui.top.attached.segment {
-  top: 0px;
-  bottom: @attachedBottomOffset;
+  top: @attachedTopOffset;
+  bottom: 0px;
 
   margin-top: @margin;
   margin-bottom: 0em;
@@ -424,7 +425,7 @@
 }
 
 .ui.segment.bottom.attached {
-  top: @attachedTopOffset;
+  top: @attachedBottomOffset;
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: @margin;

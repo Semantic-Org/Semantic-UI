@@ -455,7 +455,7 @@ ol.ui.list ol,
           transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
 }
 .ui.selection.list .item:hover {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.selection.list .item:active {

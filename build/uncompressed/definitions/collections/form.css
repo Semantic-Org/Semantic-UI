@@ -227,7 +227,7 @@
   display: block;
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.9em;
-  font-weight: normal;
+  font-weight: bold;
 }
 /*--------------------
     Standard Inputs
@@ -591,8 +591,11 @@
     Inverted Colors
 ---------------------*/
 .ui.inverted.form label,
-.ui.inverted.form .ui.checkbox label:hover,
-.ui.inverted.form .ui.checkbox .box:hover {
+.ui.form .inverted.segment label,
+.ui.form .inverted.segment .ui.checkbox label,
+.ui.form .inverted.segment .ui.checkbox .box,
+.ui.inverted.form .ui.checkbox label,
+.ui.inverted.form .ui.checkbox .box {
   color: #ffffff;
 }
 .ui.inverted.form.loading:after {

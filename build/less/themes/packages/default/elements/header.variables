@@ -59,11 +59,6 @@
 @circularHeaderIconSize: 2em;
 @squareHeaderIconSize: 2em;
 
-/* Inverted */
-@invertedColor: @white;
-@invertedSubHeaderColor: rgba(255, 255, 255, 0.85);
-@invertedDividedBorderColor: @whiteBorderColor;
-
 /* Divided */
 @dividedBorder: 1px solid rgba(0, 0, 0, 0.1);
 @dividedColoredBorderWidth: 3px;
@@ -73,18 +68,18 @@
 @dividedIconPadding: 0.2em;
 
 /* Block */
-@blockBackground: @darkWhite @subtleGradient;
+@blockBackground: @offWhite @subtleGradient;
 @blockBoxShadow: @subtleShadow;
 @blockBorder: 1px solid @solidBorderColor;
-@blockHorizontalPadding: 1em;
-@blockVerticalPadding: 0.5em;
+@blockHorizontalPadding: 1rem;
+@blockVerticalPadding: 0.75rem;
 @blockBorderRadius: 0.3125rem;
 
-@tinyBlock: 0.875em;
-@smallBlock: 0.9em;
-@mediumBlock: 1em;
-@largeBlock: 1.1em;
-@hugeBlock: 1.25em;
+@tinyBlock: 0.9em;
+@smallBlock: 1em;
+@mediumBlock: 1.1em;
+@largeBlock: 1.2em;
+@hugeBlock: 1.33em;
 
 /* Attached */
 @attachedOffset: 0px;
@@ -100,6 +95,13 @@
 @mediumAttached: @mediumBlock;
 @largeAttached: @largeBlock;
 @hugeAttached: @hugeBlock;
+
+/* Inverted */
+@invertedColor: @white;
+@invertedSubHeaderColor: rgba(255, 255, 255, 0.85);
+@invertedDividedBorderColor: @whiteBorderColor;
+@invertedBlockBackground: @lightBlack @subtleGradient;
+@invertedAttachedBackground: @invertedBlockBackground;
 
 /* Floated */
 @floatedMargin: 0.5em;

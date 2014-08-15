@@ -201,13 +201,8 @@
 .ui.menu:not(.vertical) .item > .icon.input .icon {
   top: @inputIconOffset;
 }
-.ui.menu .item > .input input {
+.ui.menu:not(.vertical) .item > .input input {
   font-size: @inputSize;
-  padding-top: @inputVerticalPadding;
-  padding-bottom: @inputVerticalPadding;
-}
-.ui.vertical.menu .item > .input input {
-  margin: 0em;
   padding-top: @inputVerticalPadding;
   padding-bottom: @inputVerticalPadding;
 }

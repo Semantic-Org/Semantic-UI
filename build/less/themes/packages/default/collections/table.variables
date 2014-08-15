@@ -58,16 +58,13 @@
 @footerTextTransform: none;
 
 /* Responsive Size */
-@responsiveHeaderDisplay: none;
-@responsiveFooterDisplay: none;
-
+@responsiveHeaderDisplay: block;
+@responsiveFooterDisplay: block;
 @responsiveRowVerticalPadding: 1em;
 @responsiveRowBoxShadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-
 @responsiveCellVerticalPadding: 0.25em;
 @responsiveCellHorizontalPadding: 0.75em;
-@responsiveCellBoxShadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) !important;
-
+@responsiveCellBoxShadow: none !important;
 @responsiveStatusColor: transparent;
 
 /*--------------
@@ -130,6 +127,7 @@
 @sortableBackground: '';
 @sortableColor: @textColor;
 
+@sortableBorder: 1px solid @borderColor;
 @sortableIconWidth: 1em;
 @sortableIconDistance: 0.5em;
 @sortableIconOpacity: 0.8;
@@ -137,14 +135,21 @@
 @sortableIconAscending: '\f0d7';
 @sortableIconDescending: '\f0d8';
 @sortableDisabledColor: @disabledTextColor;
-@sortableHoverBackground: @transparentBlack;
+
+@sortableHoverBackground: @subtleTransparentBlack @subtleGradient;
 @sortableHoverColor: @selectedTextColor;
-@sortableInvertedHoverBackground: @strongTransparentWhite;
+@sortableActiveBackground: @transparentBlack @subtleGradient;
+@sortableActiveColor: @selectedTextColor;
+
+@sortableInvertedBorderColor: transparent;
+@sortableInvertedHoverBackground: @transparentWhite @subtleGradient;
 @sortableInvertedHoverColor: @invertedSelectedTextColor;
+@sortableInvertedActiveBackground: @strongTransparentWhite @subtleGradient;
+@sortableInvertedActiveColor: @invertedSelectedTextColor;
 
 /* Colors */
 @coloredBorderSize: 0.2em;
-@coloredBorderRadius: @borderRadius;
+@coloredBorderRadius: 0em 0em @borderRadius @borderRadius;
 
 /* Inverted */
 @invertedBackground: #333333;
@@ -161,7 +166,8 @@
 
 /* Basic */
 @basicTableBackground: transparent;
-@basicTableBorder: none;
+@basicTableBorder: 1px solid @borderColor;
+@basicBoxShadow: none;
 
 @basicTableHeaderBackground: transparent;
 @basicTableCellBackground: transparent;
@@ -169,14 +175,20 @@
 @basicTableCellBorder: 1px solid rgba(0, 0, 0, 0.1);
 @basicTableCellVerticalPadding: 0.8em;
 @basicTableCellHorizontalPadding: 0em;
-@basicTableStripedBackground: transparent;
+@basicTableStripedBackground: @transparentBlack;
 
 /* Padded */
 @paddedVerticalPadding: 1em;
 @paddedHorizontalPadding: 1em;
+@veryPaddedVerticalPadding: 1.5em;
+@veryPaddedHorizontalPadding: 1.5em;
 
+/* Compact */
 @compactVerticalPadding: 0.5em;
-@compactHorizontalPadding: 0.8em;
+@compactHorizontalPadding: 0.7em;
+@veryCompactVerticalPadding: 0.4em;
+@veryCompactHorizontalPadding: 0.6em;
+
 
 /* Sizes */
 @small: 0.9em;

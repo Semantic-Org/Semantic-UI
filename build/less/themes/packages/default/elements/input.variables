@@ -11,7 +11,8 @@
 @verticalPadding: 0.8em;
 @horizontalPadding: 1em;
 @lineHeight: 1.2em;
-@padding: (@verticalPadding + ((1em - @lineHeight) / 2)) @horizontalPadding;
+@lineOffset: ((@lineHeight - 1em) / 2);
+@padding: (@verticalPadding - @lineOffset) @horizontalPadding;
 
 @background: #FFFFFF;
 @borderWidth: 1px;
@@ -32,19 +33,27 @@
 --------------------*/
 
 /* Icon Input */
-@iconWidth: (@verticalPadding * 2) + 1.25;
+@glyphWidth: 1.25em;
+@iconWidth: (@verticalPadding * 2) + @glyphWidth;
 @iconOpacity: 0.5;
 @iconOffset: 0.9em;
 @iconFocusOpacity: 1;
-@iconMargin: 2.75em;
+@iconSpacing: 0.5em;
+@iconMargin: @iconWidth + @iconSpacing;
 @iconTransition: opacity 0.3s ease-out;
+
+@transparentIconWidth: @glyphWidth;
+@transparentIconOffset: @lineOffset;
+@transparentIconMargin: @transparentIconWidth + @iconSpacing;
 
 /* Circular Icon Input */
 @circularIconVerticalOffset: 0.35em;
 @circularIconHorizontalOffset: 0.5em;
 
 /* Labeled Input */
-@labelSize: 0.7em;
+@labelTop: @borderWidth;
+@labelRight: @borderWidth;
+@labelSize: 14px;
 
 @labeledMargin: 2.5em;
 @labeledIconInputMargin: 3.25em;

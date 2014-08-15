@@ -63,7 +63,7 @@
   Background Colors
 --------------------*/
 
-@subtleTransparentBlack : rgba(0, 0, 0, 0.01);
+@subtleTransparentBlack : rgba(0, 0, 0, 0.03);
 @transparentBlack       : rgba(0, 0, 0, 0.05);
 @strongTransparentBlack : rgba(0, 0, 0, 0.10);
 
@@ -123,8 +123,8 @@
 @lightYellow      : #FFE21F;
 
 /*---   Neutrals  ---*/
-@darkBlack        : #232323;
-@lightBlack       : #555555;
+@fullBlack        : #000000;
+@lightBlack       : #333333;
 @darkGrey         : #AAAAAA;
 @lightGrey        : #DCDDDE;
 @offWhite         : #FAFAFA;
@@ -346,7 +346,7 @@
 @negativeColorHover   : lighten( @negativeColor, 5);
 
 /*---  Neutrals  ---*/
-@darkBlackHover       : lighten( @darkBlack, 5);
+@fullBlackHover       : lighten( @fullBlack, 5);
 @blackHover           : lighten( @black, 5);
 @lightBlackHover      : lighten( @lightBlack, 5);
 
@@ -392,7 +392,7 @@
 @negativeColorDown   : darken(@negativeColor, 7);
 
 /*---  Neutrals  ---*/
-@darkBlackDown       : darken(@darkBlack, 7);
+@fullBlackDown       : darken(@fullBlack, 7);
 @blackDown           : darken(@black, 7);
 @lightBlackDown      : darken(@lightBlack, 7);
 
@@ -437,7 +437,7 @@
 @negativeColorActive   : darken(@negativeColor, 5);
 
 /*---  Neutrals  ---*/
-@darkBlackActive       : darken(@darkBlack, 5);
+@fullBlackActive       : darken(@fullBlack, 5);
 @blackActive           : darken(@black, 5);
 @lightBlackActive      : darken(@lightBlack, 5);
 

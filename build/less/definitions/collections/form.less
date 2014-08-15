@@ -492,9 +492,12 @@
 ---------------------*/
 
 .ui.inverted.form label,
-.ui.inverted.form .ui.checkbox label:hover,
-.ui.inverted.form .ui.checkbox .box:hover {
-  color: @invertedFormColor;
+.ui.form .inverted.segment label,
+.ui.form .inverted.segment .ui.checkbox label,
+.ui.form .inverted.segment .ui.checkbox .box,
+.ui.inverted.form .ui.checkbox label,
+.ui.inverted.form .ui.checkbox .box {
+  color: @invertedLabelColor;
 }
 .ui.inverted.form.loading:after {
   background: @formInvertedLoaderDimmerColor url(@formInvertedLoaderPath) no-repeat @formLoaderPosition;

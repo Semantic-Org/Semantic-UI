@@ -154,17 +154,21 @@
     display: block;
   }
 
+  .ui.table tr > th,
   .ui.table tr > td {
+    background: none;
     width: 100% !important;
     display: block;
     border: none !important;
     padding: @responsiveCellVerticalPadding @responsiveCellHorizontalPadding;
-    box-shadow: @responsiveCellBoxShadow
+    box-shadow: @responsiveCellBoxShadow;
   }
+  .ui.table th:first-child,
   .ui.table td:first-child {
     font-weight: bold;
     padding-top: @responsiveRowVerticalPadding;
   }
+  .ui.table th:last-child,
   .ui.table td:last-child {
     box-shadow: @responsiveRowBoxShadow;
     padding-bottom: @responsiveRowVerticalPadding;
@@ -562,7 +566,10 @@
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
-  color: @sortableColor;
+  border-left: @sortableBorder;
+}
+.ui.sortable.table thead th:first-child {
+  border-left: none;
 }
 .ui.sortable.table thead th.sorted,
 .ui.sortable.table thead th.sorted:hover {
@@ -589,7 +596,13 @@
   content: @sortableIconDescending;
 }
 
-/* Sortable Hover */
+/* Sorted */
+.ui.sortable.table thead th.sorted {
+  background: @sortableActiveBackground;
+  color: @sortableActiveColor;
+}
+
+/* Hover */
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
   color: @sortableDisabledColor;
@@ -599,10 +612,17 @@
   color: @sortableHoverColor;
 }
 
-/* Inverted Sortable */
+/* Inverted */
+.ui.inverted.sortable.table thead th.sorted {
+  background: @sortableInvertedActiveBackground;
+  color: @sortableInvertedActiveColor;
+}
 .ui.inverted.sortable.table thead th:hover {
-  background-color: @sortableInvertedHoverBackground;
+  background: @sortableInvertedHoverBackground;
   color: @sortableInvertedHoverColor;
+}
+.ui.inverted.sortable.table thead th {
+  border-left-color: @sortableInvertedBorderColor;
 }
 
 
@@ -652,9 +672,14 @@
 .ui.basic.table {
   background: @basicTableBackground;
   border: @basicTableBorder;
+  box-shadow: @basicBoxShadow;
+}
+.ui.basic.table thead,
+.ui.basic.table tfoot {
+  box-shadow: none;
 }
 .ui.basic.table th {
-  background-color: @basicTableHeaderBackground;
+  background: @basicTableHeaderBackground;
   border-left: @basicTableHeaderDivider;
 }
 .ui.basic.table tbody tr {
@@ -663,25 +688,60 @@
 .ui.basic.table td {
   background: @basicTableCellBackground;
 }
-.ui.basic.table th,
-.ui.basic.table td {
-  padding: @basicTableCellVerticalPadding @basicTableCellHorizontalPadding;
-}
 .ui.basic.striped.table tbody tr:nth-child(2n) {
   background-color: @basicTableStripedBackground !important;
 }
 
+/* Very Basic */
+.ui.very.basic.table {
+  border: none;
+}
+.ui.very.basic.table:not(.sortable) th,
+.ui.very.basic.table:not(.sortable) td {
+  padding: @basicTableCellVerticalPadding @basicTableCellHorizontalPadding;
+}
 
 /*--------------
      Padded
 ---------------*/
 
+.ui.padded.table th {
+  padding-left: @paddedHorizontalPadding;
+  padding-right: @paddedHorizontalPadding;
+}
 .ui.padded.table th,
 .ui.padded.table td {
   padding: @paddedVerticalPadding @paddedHorizontalPadding;
 }
+
+/* Very */
+.ui.very.padded.table th {
+  padding-left: @veryPaddedHorizontalPadding;
+  padding-right: @veryPaddedHorizontalPadding;
+}
+.ui.very.padded.table td {
+  padding: @veryPaddedVerticalPadding @veryPaddedHorizontalPadding;
+}
+
+/*--------------
+     Compact
+---------------*/
+
+.ui.compact.table th {
+  padding-left: @compactHorizontalPadding;
+  padding-right: @compactHorizontalPadding;
+}
 .ui.compact.table td {
   padding: @compactVerticalPadding @compactHorizontalPadding;
+}
+
+/* Very */
+.ui.very.compact.table th {
+  padding-left: @veryCompactHorizontalPadding;
+  padding-right: @veryCompactHorizontalPadding;
+}
+.ui.very.compact.table td {
+  padding: @veryCompactVerticalPadding @veryCompactHorizontalPadding;
 }
 
 /*--------------

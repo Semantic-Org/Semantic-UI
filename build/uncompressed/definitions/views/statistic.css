@@ -143,6 +143,7 @@
          View
 --------------------*/
 /* Group */
+/* Group Element */
 /*-------------------
        Content
 --------------------*/
@@ -229,17 +230,27 @@
   text-align: center;
 }
 /*--------------
-      Label
+     Label
 ---------------*/
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  margin-top: 0.25em;
+  margin-top: 0.25rem;
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);
   text-transform: none;
   text-align: center;
+}
+/* Top Label */
+.ui.statistics .statistic > .label + .value,
+.ui.statistic > .label + .value {
+  margin-top: 0.25rem;
+}
+/* Bottom Label */
+.ui.statistics .statistic > .value + .label,
+.ui.statistic > .value + .label {
+  margin-top: 0.25rem;
 }
 /*******************************
              Types

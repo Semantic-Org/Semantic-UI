@@ -86,7 +86,7 @@
 }
 
 /*--------------
-      Label
+     Label
 ---------------*/
 
 .ui.statistics .statistic > .label,
@@ -99,6 +99,19 @@
   text-transform: @labelTextTransform;
   text-align: @textAlign;
 }
+
+/* Top Label */
+.ui.statistics .statistic > .label + .value,
+.ui.statistic > .label + .value {
+  margin-top: @labelDistance;
+}
+
+/* Bottom Label */
+.ui.statistics .statistic > .value + .label,
+.ui.statistic > .value + .label {
+  margin-top: @labelDistance;
+}
+
 
 
 /*******************************

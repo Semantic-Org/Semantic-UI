@@ -475,7 +475,7 @@
   display: block;
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.9em;
-  font-weight: normal;
+  font-weight: bold;
 }
 /*--------------------
     Standard Inputs
@@ -839,8 +839,11 @@
     Inverted Colors
 ---------------------*/
 .ui.inverted.form label,
-.ui.inverted.form .ui.checkbox label:hover,
-.ui.inverted.form .ui.checkbox .box:hover {
+.ui.form .inverted.segment label,
+.ui.form .inverted.segment .ui.checkbox label,
+.ui.form .inverted.segment .ui.checkbox .box,
+.ui.inverted.form .ui.checkbox label,
+.ui.inverted.form .ui.checkbox .box {
   color: #ffffff;
 }
 .ui.inverted.form.loading:after {
@@ -2474,13 +2477,8 @@ body > .ui.grid:not(.page) {
 .ui.menu:not(.vertical) .item > .icon.input .icon {
   top: -0.3em;
 }
-.ui.menu .item > .input input {
+.ui.menu:not(.vertical) .item > .input input {
   font-size: 1em;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-}
-.ui.vertical.menu .item > .input input {
-  margin: 0em;
   padding-top: 0.4em;
   padding-bottom: 0.4em;
 }
@@ -2525,7 +2523,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 /* Dropdown */
 .ui.menu .ui.dropdown.visible {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
   border-bottom-right-radius: 0em;
   border-bottom-left-radius: 0em;
 }
@@ -2590,7 +2588,7 @@ body > .ui.grid:not(.page) {
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover {
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
 }
 /*--------------
       Down
@@ -2598,13 +2596,13 @@ body > .ui.grid:not(.page) {
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
 }
 /*--------------
      Active
 ---------------*/
 .ui.menu .active.item {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.85);
   font-weight: normal;
   box-shadow: 0em 2px 0em inset;
@@ -2614,7 +2612,7 @@ body > .ui.grid:not(.page) {
 }
 /* Vertical */
 .ui.vertical.menu .active.item {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
   border-radius: 0em;
   box-shadow: 2px 0em 0em inset;
 }
@@ -2639,7 +2637,7 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.vertical.menu .active.item:hover,
 .ui.menu .active.item:hover {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.03);
 }
 /*--------------
      Disabled
@@ -3302,7 +3300,7 @@ body > .ui.grid:not(.page) {
     Inverted
 ---------------*/
 .ui.inverted.menu {
-  background: #333333;
+  background: #191919;
   box-shadow: none;
 }
 .ui.inverted.menu .header.item {
@@ -4376,6 +4374,7 @@ body > .ui.grid:not(.page) {
 /* Definition */
 /* Basic */
 /* Padded */
+/* Compact */
 /* Sizes */
 /*------------------
      Load Theme
@@ -4505,10 +4504,10 @@ body > .ui.grid:not(.page) {
     padding: 0em;
   }
   .ui.table thead {
-    display: none;
+    display: block;
   }
   .ui.table tfoot {
-    display: none;
+    display: block;
   }
   .ui.table tbody {
     display: block;
@@ -4516,17 +4515,21 @@ body > .ui.grid:not(.page) {
   .ui.table tr {
     display: block;
   }
+  .ui.table tr > th,
   .ui.table tr > td {
+    background: none;
     width: 100% !important;
     display: block;
     border: none !important;
     padding: 0.25em 0.75em;
-    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
   }
+  .ui.table th:first-child,
   .ui.table td:first-child {
     font-weight: bold;
     padding-top: 1em;
   }
+  .ui.table th:last-child,
   .ui.table td:last-child {
     box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     padding-bottom: 1em;
@@ -4673,39 +4676,39 @@ body > .ui.grid:not(.page) {
 --------------------*/
 .ui.black.table {
   border-top: 0.2em solid #191919;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.blue.table {
   border-top: 0.2em solid #0074d9;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.green.table {
   border-top: 0.2em solid #2ecc40;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.orange.table {
   border-top: 0.2em solid #ff851b;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.pink.table {
   border-top: 0.2em solid #d9499a;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.purple.table {
   border-top: 0.2em solid #a24096;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.red.table {
   border-top: 0.2em solid #ff4136;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.teal.table {
   border-top: 0.2em solid #39cccc;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 .ui.yellow.table {
   border-top: 0.2em solid #ffcb08;
-  border-radius: 0.25rem;
+  border-radius: 0em 0em 0.25rem 0.25rem;
 }
 /*-------------------
    Inverted Colors
@@ -4890,7 +4893,10 @@ body > .ui.grid:not(.page) {
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
-  color: rgba(0, 0, 0, 0.8);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ui.sortable.table thead th:first-child {
+  border-left: none;
 }
 .ui.sortable.table thead th.sorted,
 .ui.sortable.table thead th.sorted:hover {
@@ -4916,19 +4922,35 @@ body > .ui.grid:not(.page) {
 .ui.sortable.table thead th.descending:after {
   content: '\f0d8';
 }
-/* Sortable Hover */
+/* Sorted */
+.ui.sortable.table thead th.sorted {
+  background: rgba(0, 0, 0, 0.05) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(0, 0, 0, 0.05) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Hover */
 .ui.sortable.table th.disabled:hover {
   cursor: auto;
   color: rgba(0, 0, 0, 0.2);
 }
 .ui.sortable.table thead th:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.03) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(0, 0, 0, 0.03) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: rgba(0, 0, 0, 0.8);
 }
-/* Inverted Sortable */
-.ui.inverted.sortable.table thead th:hover {
-  background-color: rgba(255, 255, 255, 0.01);
+/* Inverted */
+.ui.inverted.sortable.table thead th.sorted {
+  background: rgba(255, 255, 255, 0.01) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(255, 255, 255, 0.01) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: #ffffff;
+}
+.ui.inverted.sortable.table thead th:hover {
+  background: rgba(255, 255, 255, 0.05) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: rgba(255, 255, 255, 0.05) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  color: #ffffff;
+}
+.ui.inverted.sortable.table thead th {
+  border-left-color: transparent;
 }
 /*--------------
     Inverted
@@ -4966,10 +4988,15 @@ body > .ui.grid:not(.page) {
 ---------------*/
 .ui.basic.table {
   background: transparent;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
+.ui.basic.table thead,
+.ui.basic.table tfoot {
+  box-shadow: none;
 }
 .ui.basic.table th {
-  background-color: transparent;
+  background: transparent;
   border-left: none;
 }
 .ui.basic.table tbody tr {
@@ -4978,22 +5005,53 @@ body > .ui.grid:not(.page) {
 .ui.basic.table td {
   background: transparent;
 }
-.ui.basic.table th,
-.ui.basic.table td {
-  padding: 0.8em 0em;
-}
 .ui.basic.striped.table tbody tr:nth-child(2n) {
-  background-color: transparent !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+/* Very Basic */
+.ui.very.basic.table {
+  border: none;
+}
+.ui.very.basic.table:not(.sortable) th,
+.ui.very.basic.table:not(.sortable) td {
+  padding: 0.8em 0em;
 }
 /*--------------
      Padded
 ---------------*/
+.ui.padded.table th {
+  padding-left: 1em;
+  padding-right: 1em;
+}
 .ui.padded.table th,
 .ui.padded.table td {
   padding: 1em 1em;
 }
+/* Very */
+.ui.very.padded.table th {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+.ui.very.padded.table td {
+  padding: 1.5em 1.5em;
+}
+/*--------------
+     Compact
+---------------*/
+.ui.compact.table th {
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+}
 .ui.compact.table td {
-  padding: 0.5em 0.8em;
+  padding: 0.5em 0.7em;
+}
+/* Very */
+.ui.very.compact.table th {
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.ui.very.compact.table td {
+  padding: 0.4em 0.6em;
 }
 /*--------------
       Sizes
@@ -6273,7 +6331,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.black.buttons .button,
 .ui.inverted.black.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #555555 inset !important;
+  box-shadow: 0px 0px 0px 2px #333333 inset !important;
   color: #FFFFFF;
 }
 .ui.inverted.black.buttons .button:hover,
@@ -6292,7 +6350,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.black.basic.buttons .button:hover,
 .ui.inverted.black.buttons .basic.button:hover,
 .ui.inverted.black.basic.button:hover {
-  box-shadow: 0px 0px 0px 2px #555555 inset !important;
+  box-shadow: 0px 0px 0px 2px #333333 inset !important;
   color: #ffffff !important;
 }
 /*--- Blue ---*/
@@ -8528,10 +8586,10 @@ i.flag.zimbabwe {
       Variations
 --------------------*/
 /* Icon Header */
-/* Inverted */
 /* Divided */
 /* Block */
 /* Attached */
+/* Inverted */
 /* Floated */
 /*------------------
      Load Theme
@@ -8757,6 +8815,16 @@ h5.ui.header {
 .ui.inverted.header .sub.header {
   color: rgba(255, 255, 255, 0.85);
 }
+.ui.inverted.attached.header {
+  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  box-shadow: none;
+}
+.ui.inverted.block.header {
+  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  box-shadow: none;
+}
 /*-------------------
    Inverted Colors
 --------------------*/
@@ -8851,36 +8919,36 @@ h5.ui.header {
         Block
 --------------------*/
 .ui.block.header {
-  background: #f0f0f0 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #f0f0f0 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  padding: 0.5em 1em;
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  padding: 0.75rem 1rem;
   box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid #dddddd;
   border-radius: 0.3125rem;
 }
 .ui.tiny.block.header {
-  font-size: 0.875em;
-}
-.ui.small.block.header {
   font-size: 0.9em;
 }
-.ui.block.header {
+.ui.small.block.header {
   font-size: 1em;
 }
-.ui.large.block.header {
+.ui.block.header {
   font-size: 1.1em;
 }
+.ui.large.block.header {
+  font-size: 1.2em;
+}
 .ui.huge.block.header {
-  font-size: 1.25em;
+  font-size: 1.33em;
 }
 /*-------------------
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #f0f0f0 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: #f0f0f0 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   margin: 0em;
-  padding: 0.5em 1em;
+  padding: 0.75rem 1rem;
   box-shadow: 0px 0px 0px 1px #dddddd;
   border: none;
   margin-left: 0px;
@@ -8902,20 +8970,21 @@ h5.ui.header {
   border-top: none;
   border-radius: 0em 0em 0.3125rem 0.3125rem;
 }
+/* Attached Sizes */
 .ui.tiny.attached.header {
-  font-size: 0.875em;
-}
-.ui.small.attached.header {
   font-size: 0.9em;
 }
-.ui.attached.header {
+.ui.small.attached.header {
   font-size: 1em;
 }
-.ui.large.attached.header {
+.ui.attached.header {
   font-size: 1.1em;
 }
+.ui.large.attached.header {
+  font-size: 1.2em;
+}
 .ui.huge.attached.header {
-  font-size: 1.25em;
+  font-size: 1.33em;
 }
 /*-------------------
         Sizing
@@ -8989,15 +9058,6 @@ h5.ui.header {
 *******************************/
 /*------------------
      Load Default
--------------------*/
-/*******************************
-             Icon
-*******************************/
-/*-------------------
-   Icon Variables
---------------------*/
-/*------------------
-     Load Theme
 -------------------*/
 /*******************************
          Site Settings
@@ -9090,6 +9150,15 @@ h5.ui.header {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Icon
+*******************************/
+/*-------------------
+   Icon Variables
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -9293,7 +9362,7 @@ i.inverted.icon {
   color: #ffffff;
 }
 i.inverted.black.icon {
-  color: #555555 !important;
+  color: #333333 !important;
 }
 i.inverted.blue.icon {
   color: #54c8ff !important;
@@ -9370,19 +9439,19 @@ i.icon {
   font-size: 1em;
 }
 i.large.icon {
-  font-size: 1.125em;
+  font-size: 1.5em;
   vertical-align: middle;
 }
 i.big.icon {
-  font-size: 1.25em;
+  font-size: 2em;
   vertical-align: middle;
 }
 i.huge.icon {
-  font-size: 1.375em;
+  font-size: 4em;
   vertical-align: middle;
 }
 i.massive.icon {
-  font-size: 1.5em;
+  font-size: 8em;
   vertical-align: middle;
 }
 /*
@@ -11789,10 +11858,9 @@ img.ui.bordered.image {
       Transparent
 ---------------------*/
 .ui.transparent.input input {
-  border: none;
+  border-color: transparent;
   background-color: transparent;
-  padding-left: 0em;
-  padding-right: 0em;
+  padding: 0em;
 }
 /*--------------------
          Icon
@@ -11817,7 +11885,7 @@ img.ui.bordered.image {
   cursor: pointer;
 }
 .ui.icon.input input {
-  padding-right: 2.75em !important;
+  padding-right: 3.35em !important;
 }
 .ui.icon.input > .circular.icon {
   top: 0.35em;
@@ -11834,8 +11902,21 @@ img.ui.bordered.image {
   left: 0.5em;
 }
 .ui.left.icon.input > input {
-  padding-left: 2.75em !important;
+  padding-left: 3.35em !important;
   padding-right: 1em !important;
+}
+/* Transparent Icon */
+.ui.transparent.icon.input > .icon {
+  width: 1.25em;
+  padding-top: 0.1em;
+}
+.ui.transparent.icon.input > input {
+  padding-left: 0em !important;
+  padding-right: 1.75em !important;
+}
+.ui.transparent.left.icon.input > input {
+  padding-left: 0em !important;
+  padding-left: 1.75em !important;
 }
 /* Focus */
 .ui.icon.input > input:focus ~ .icon {
@@ -11847,7 +11928,7 @@ img.ui.bordered.image {
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
-  font-size: 0.7em;
+  font-size: 14px;
   border-top-right-radius: 0.3125em;
 }
 .ui.labeled.input input {
@@ -14107,7 +14188,7 @@ a.ui.yellow.label:hover:before {
   bottom: -3px;
   left: 0%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.03);
   width: 100%;
   height: 5px;
   visibility: visible;
@@ -14118,7 +14199,7 @@ a.ui.yellow.label:hover:before {
 /* Inverted */
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 /*-------------------
@@ -14172,40 +14253,40 @@ a.ui.yellow.label:hover:before {
        Colors
 --------------------*/
 .ui.black.segment:not(.inverted) {
-  border-top: 0.2em solid #191919;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #191919;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.blue.segment:not(.inverted) {
-  border-top: 0.2em solid #0074d9;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #0074d9;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.green.segment:not(.inverted) {
-  border-top: 0.2em solid #2ecc40;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #2ecc40;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.orange.segment:not(.inverted) {
-  border-top: 0.2em solid #ff851b;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #ff851b;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.pink.segment:not(.inverted) {
-  border-top: 0.2em solid #d9499a;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #d9499a;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.purple.segment:not(.inverted) {
-  border-top: 0.2em solid #a24096;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #a24096;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.red.segment:not(.inverted) {
-  border-top: 0.2em solid #ff4136;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #ff4136;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.teal.segment:not(.inverted) {
-  border-top: 0.2em solid #39cccc;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #39cccc;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 .ui.yellow.segment:not(.inverted) {
-  border-top: 0.2em solid #ffcb08;
-  border-raidus: 0em 0em 0.25em 0.25em !important;
+  border-top: 2px solid #ffcb08;
+  border-radius: 0em 0em 0.25em 0.25em !important;
 }
 /*-------------------
    Inverted Colors
@@ -14259,13 +14340,6 @@ a.ui.yellow.label:hover:before {
 .ui.center.aligned.segment {
   text-align: center;
 }
-.ui.justified.segment {
-  text-align: justify;
-  -webkit-hyphens: auto;
-     -moz-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
-}
 /*-------------------
        Floated
 --------------------*/
@@ -14294,6 +14368,10 @@ a.ui.yellow.label:hover:before {
   background-color: #191919;
   color: #ffffff;
 }
+.ui.inverted.block.segment,
+.ui.inverted.attached.segment {
+  box-shadow: none !important;
+}
 /*-------------------
      Ordinality
 --------------------*/
@@ -14319,15 +14397,15 @@ a.ui.yellow.label:hover:before {
       Attached
 --------------------*/
 .ui.segment.attached {
-  top: -1px;
-  bottom: -1px;
+  top: 0px;
+  bottom: 0px;
   margin: 0em;
   border-radius: 0px;
   box-shadow: 0px 0px 0px 1px #dddddd;
 }
 .ui.top.attached.segment {
-  top: 0px;
-  bottom: -1px;
+  top: -1px;
+  bottom: 0px;
   margin-top: 1em;
   margin-bottom: 0em;
   border-radius: 0.25em 0.25em 0em 0em;
@@ -14336,7 +14414,7 @@ a.ui.yellow.label:hover:before {
   margin-top: 0em;
 }
 .ui.segment.bottom.attached {
-  top: -1px;
+  top: 1px;
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 1em;
@@ -15524,75 +15602,8 @@ a:hover {
   color: rgba(0, 0, 0, 0.8);
 }
 /*******************************
-        Global Variables
+        Global Overrides
 *******************************/
-/*-------------------
-        Paths
---------------------*/
-/*-------------------
-        Page
---------------------*/
-/*-------------------
-     Breakpoints
---------------------*/
-/*-------------------
-       Fonts
---------------------*/
-/*-------------------
-       Icons
---------------------*/
-/* Width of largest icon */
-/*******************************
-           BG Colors
-*******************************/
-/*******************************
-             Colors
-*******************************/
-/*-------------------
-     Background
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-     Text Colors
---------------------*/
-/*-------------------
-     Brand Colors
---------------------*/
-/*-------------------
-      Borders
---------------------*/
-/*-------------------
-        Sizes
---------------------*/
-/*-------------------
-     Transitions
---------------------*/
-/*******************************
-           States
-*******************************/
-/*-------------------
-      Disabled
---------------------*/
-/*-------------------
-        Hover
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-    Down (:active)
---------------------*/
-/*---  Colors  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
-/*-------------------
-        Active
---------------------*/
-/*---  Standard  ---*/
-/*---  Emotive  ---*/
-/*---  Neutrals  ---*/
 /*******************************
            Overrides
 *******************************/
@@ -18128,7 +18139,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.modal > .header {
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
-  background: #555555;
+  background: #333333;
   margin: 0em;
   padding: 1.5rem 2rem;
   font-size: 1.6em;
@@ -24708,7 +24719,7 @@ ol.ui.list ol,
           transition: 0.2s color ease, 0.2s padding-left ease, 0.2s background-color ease;
 }
 .ui.selection.list .item:hover {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.selection.list .item:active {
@@ -25211,6 +25222,7 @@ ol.ui.horizontal.list li:before,
          View
 --------------------*/
 /* Group */
+/* Group Element */
 /*-------------------
        Content
 --------------------*/
@@ -25297,17 +25309,27 @@ ol.ui.horizontal.list li:before,
   text-align: center;
 }
 /*--------------
-      Label
+     Label
 ---------------*/
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  margin-top: 0.25em;
+  margin-top: 0.25rem;
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);
   text-transform: none;
   text-align: center;
+}
+/* Top Label */
+.ui.statistics .statistic > .label + .value,
+.ui.statistic > .label + .value {
+  margin-top: 0.25rem;
+}
+/* Bottom Label */
+.ui.statistics .statistic > .value + .label,
+.ui.statistic > .value + .label {
+  margin-top: 0.25rem;
 }
 /*******************************
              Types

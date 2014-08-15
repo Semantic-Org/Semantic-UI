@@ -152,10 +152,9 @@
 ---------------------*/
 
 .ui.transparent.input input {
-  border: none;
+  border-color: transparent;
   background-color: transparent;
-  padding-left: 0em;
-  padding-right: 0em;
+  padding: 0em;
 }
 
 /*--------------------
@@ -206,6 +205,20 @@
   padding-right: @horizontalPadding !important;
 }
 
+/* Transparent Icon */
+.ui.transparent.icon.input > .icon {
+  width: @transparentIconWidth;
+  padding-top: @transparentIconOffset;
+}
+.ui.transparent.icon.input > input {
+  padding-left: 0em !important;
+  padding-right: @transparentIconMargin !important;
+}
+.ui.transparent.left.icon.input > input {
+  padding-left: 0em !important;
+  padding-left: @transparentIconMargin !important;
+}
+
 /* Focus */
 .ui.icon.input > input:focus ~ .icon {
   opacity: 1;
@@ -216,8 +229,8 @@
 ---------------------*/
 
 .ui.labeled.input .corner.label {
-  top: @borderWidth;
-  right: @borderWidth;
+  top: @labelTop;
+  right: @labelRight;
   font-size: @labelSize;
   border-top-right-radius: @borderRadius;
 }
