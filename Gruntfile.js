@@ -241,7 +241,7 @@ module.exports = function(grunt) {
         dest   : 'build/',
         src    : [
           '**/*.less',
-          '**/*.css',
+          '**/*.css'
         ]
       },
       prefixDocs: {
@@ -250,7 +250,7 @@ module.exports = function(grunt) {
         dest   : 'docs/build/',
         src    : [
           '**/*.less',
-          '**/*.css',
+          '**/*.css'
         ]
       },
       prefixFile: {
@@ -298,10 +298,10 @@ module.exports = function(grunt) {
         cwd    : 'build/',
         src    : [
           '**/*.less',
-          '**/*.css',
+          '**/*.css'
         ],
         dest   : 'rtl'
-      },
+      }
     },
 
     less: {
@@ -548,7 +548,7 @@ module.exports = function(grunt) {
       createDocsJSPackage: {
         src: ['docs/build/uncompressed/**/*.js'],
         dest: 'docs/build/packaged/javascript/semantic.js'
-      },
+      }
     },
 
     cssmin: {
