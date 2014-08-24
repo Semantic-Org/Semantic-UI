@@ -9,7 +9,7 @@
 @dividerMargin: 1rem;
 
 @highlightWidth: 1px;
-@highlightColor: rgba(255, 255, 255, 0.8);
+@highlightColor: rgba(255, 255, 255, 0.2);
 
 @shadowWidth: 1px;
 @shadowColor: rgba(0, 0, 0, 0.1);

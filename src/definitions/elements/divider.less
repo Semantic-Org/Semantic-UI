@@ -46,6 +46,14 @@
   border-bottom: @highlightWidth solid @highlightColor;
 }
 
+/*--------------
+    Coupling
+---------------*/
+
+.ui.grid > .ui.divider {
+  font-size: 1rem;
+}
+
 
 /*--------------
    Horizontal
@@ -93,15 +101,12 @@
   top: 50%;
   left: 50%;
 
-  width: @verticalDividerMargin;
+  margin: 0rem;
+  padding: 0em;
+  width: auto;
   height: 50%;
 
   line-height: 0em;
-  padding: 0em;
-
-  border: none;
-  height: 0em;
-  background-color: transparent;
   text-align: center;
 }
 
@@ -164,11 +169,11 @@
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: @invertedShadowColor;
-  border-bottom-color: @invertedHighlightColor;
+  border-top-color: @invertedShadowColor !important;
+  border-bottom-color: @invertedHighlightColor !important;
 
-  border-left-color: @invertedShadowColor;
-  border-right-color: @invertedHighlightColor;
+  border-left-color: @invertedShadowColor !important;
+  border-right-color: @invertedHighlightColor !important;
 }
 
 /*--------------
