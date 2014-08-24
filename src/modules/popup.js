@@ -11,6 +11,17 @@
 
 ;(function ($, window, document, undefined) {
 
+function encodeHtml(html) {
+  if(!html) {
+    return html;
+  }
+  return String(html)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 $.fn.popup = function(parameters) {
   var
     $allModules     = $(this),
@@ -155,8 +166,8 @@ $.fn.popup = function(parameters) {
           if(html || content || title) {
             if(!html) {
               html = settings.template({
-                title   : title,
-                content : content
+                title   : encodeHtml(title),
+                content : encodeHtml(content)
               });
             }
             $popup = $('<div/>')
