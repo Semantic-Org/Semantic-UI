@@ -45,14 +45,14 @@ body {
 
 body#example {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
-  background: #FCFCFC url(../images/bg.jpg) repeat;
+  background: #FCFCFC;
   margin: 0px;
   padding: 0px;
   color: #555555;
   min-width: 320px;
 }
 body > .content  {
-  background: #FCFCFC url(../images/bg.jpg) repeat;
+  background: #FCFCFC;
 }
 
 h1,
