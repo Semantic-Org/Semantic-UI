@@ -82,31 +82,57 @@ themes      : ['Default']
   </div>
 
   <div class="example">
+    <h4 class="ui header">Pointing</h4>
+    <p>A label can point to content next to it</p>
+    <form class="ui fluid form">
+      <div class="field">
+        <input type="text" placeholder="First name">
+        <div class="ui pointing label">
+          Please enter a value
+        </div>
+      </div>
+      <div class="ui simple divider"></div>
+      <div class="field" placeholder="Last Name">
+        <div class="ui pointing below label">
+          Please enter a value
+        </div>
+        <input type="text">
+      </div>
+      <div class="ui simple divider"></div>
+      <div class="inline field">
+        <input type="text" placeholder="Username">
+        <div class="ui pointing left label">
+          That name is taken!
+        </div>
+      </div>
+      <div class="ui simple divider"></div>
+      <div class="inline field">
+        <div class="ui pointing right label">
+          Your password must be 6 characters or more
+        </div>
+        <input type="password">
+      </div>
+    </form>
+  </div>
+
+  <div class="example">
     <h4 class="ui header">Corner</h4>
     <p>A label can position itself in the corner of an element</p>
-    <div class="yellow ui message">A corner label must be positioned inside a container with position: relative to display properly</div>
-    <div class="ui segment">
-      <div class="ui right text corner label">
-        Sale
-      </div>
-      <div class="ui left text corner label">
-        New
-      </div>
-      This is a normal text segment
+    <div class="yellow ui message">A corner label must be positioned inside a container with <b>position: relative</b> to display properly</div>
+    <div class="ui left floated medium image">
+      <a class="ui corner label">
+        <i class="save icon"></i>
+      </a>
+      <img src="/images/demo/highres2.jpg">
     </div>
     <div class="ui left floated medium image">
       <a class="ui left red corner label">
         <i class="heart icon"></i>
       </a>
-      <img src="/images/demo/highres2.jpg">
-    </div>
-    <div class="ui left floated medium image">
-      <a class="ui right red corner label">
-        <i class="heart icon"></i>
-      </a>
       <img src="/images/demo/highres3.jpg">
     </div>
   </div>
+
   <div class="clearing example">
     <h4 class="ui header">Tag</h4>
     <p>A label can appear as a tag</p>
@@ -122,11 +148,11 @@ themes      : ['Default']
       <div class="row">
         <div class="column">
           <div class="ui raised segment">
-            <div class="ui ribbon label">Dogs</div>
+            <a class="ui ribbon label">Dogs</a>
             <p>Pretty nice animals.</p>
-            <div class="ui teal ribbon label">Cats</div>
+            <a class="ui teal ribbon label">Cats</a>
             <p>Also pretty nice animals, but can prefer solitude.</p>
-            <div class="ui red ribbon label">Ogres and monsters</div>
+            <a class="ui red ribbon label">Ogres and monsters</a>
             <p>Never seen one as a pet before, but I imagine they'd make pretty terrible companions.</p>
           </div>
         </div>
@@ -197,19 +223,6 @@ themes      : ['Default']
       </div>
   </div>
 
-  <h2 class="ui dividing header">Variations</h2>
-  <div class="example">
-    <h4 class="ui header">Colors</h4>
-    <p>A label can have different colors</p>
-    <a class="ui black label">Black Label</a>
-    <a class="ui yellow label">Yellow Label</a>
-    <a class="ui green label">Green Label</a>
-    <a class="ui blue label">Blue Label</a>
-    <a class="ui orange label">Orange Label</a>
-    <a class="ui purple label">Purple Label</a>
-    <a class="ui red label">Red Label</a>
-    <a class="ui teal label">Teal Label</a>
-  </div>
 
   <div class="example">
     <h4 class="ui header">Horizontal</h4>
@@ -280,40 +293,18 @@ themes      : ['Default']
     </div>
   </div>
 
-
-
+  <h2 class="ui dividing header">Variations</h2>
   <div class="example">
-    <h4 class="ui header">Pointing</h4>
-    <p>A label can point to content next to it</p>
-    <form class="ui fluid form">
-      <div class="field">
-        <input type="text" placeholder="First name">
-        <div class="ui pointing label">
-          Please enter a value
-        </div>
-      </div>
-      <div class="ui simple divider"></div>
-      <div class="field" placeholder="Last Name">
-        <div class="ui pointing below label">
-          Please enter a value
-        </div>
-        <input type="text">
-      </div>
-      <div class="ui simple divider"></div>
-      <div class="inline field">
-        <input type="text" placeholder="Username">
-        <div class="ui pointing left label">
-          That name is taken!
-        </div>
-      </div>
-      <div class="ui simple divider"></div>
-      <div class="inline field">
-        <div class="ui pointing right label">
-          Your password must be 6 characters or more
-        </div>
-        <input type="password">
-      </div>
-    </form>
+    <h4 class="ui header">Colors</h4>
+    <p>A label can have different colors</p>
+    <a class="ui black label">Black Label</a>
+    <a class="ui yellow label">Yellow Label</a>
+    <a class="ui green label">Green Label</a>
+    <a class="ui blue label">Blue Label</a>
+    <a class="ui orange label">Orange Label</a>
+    <a class="ui purple label">Purple Label</a>
+    <a class="ui red label">Red Label</a>
+    <a class="ui teal label">Teal Label</a>
   </div>
 
   <div class="example">

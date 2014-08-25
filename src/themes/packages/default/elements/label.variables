@@ -20,6 +20,9 @@
 @textTransform: none;
 @fontWeight: bold;
 
+@labelTransitionDuration: @transitionDuration;
+@labelTransitionEasing: @transitionEasing;
+
 /* Group */
 @groupVerticalMargin: 0.75em;
 @groupHorizontalMargin: 0.5em;
@@ -92,15 +95,16 @@
 @attachedHorizontalPadding: 1em;
 
 /* Corner */
-@cornerSizeRatio: 1.2;
-@cornerTriangleSize: 2.5em;
+@cornerSizeRatio: 1;
+@cornerTriangleSize: 3.25em;
+@cornerIconSize: 1em;
+@cornerIconTopOffset: 0.4em;
+@cornerIconLeftOffset: 0.75em;
+
+/* Corner Text */
 @cornerTextWidth: 3em;
-
-@cornerTextSize: 0.7em;
-@cornerIconSize: 0.7em;
-
-@cornerTopOffset: 0.1em;
-@cornerLeftOffset: 0.95em;
+@cornerTextWeight: bold;
+@cornerTextSize: 1em;
 
 /* Horizontal */
 @horizontalLabelMinWidth: 3em;

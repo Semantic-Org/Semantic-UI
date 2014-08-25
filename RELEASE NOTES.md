@@ -3,7 +3,7 @@
 ### Version 1.0.0 - XX XX, 2014
 
 **Breaking Changes**
-- **Label** - Corner labels with text now are a separate variation from icon corner labels, this is to allow for more room for longer text lengths
+- **Label** - Corner labels no longer support text, only icons.
 - **Form** - Standard grids now have gutters on left and right of first and last column. ``ui fitted grid`` can be used to remove these margins
 - **Checkbox** - Checkbox "enable" and "disable" have been replaced with "check" and "uncheck"
 - **Modal** - Modal ``left`` and ``right`` sections are now replaced with ``image`` and ``description``
