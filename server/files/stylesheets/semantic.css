@@ -275,6 +275,9 @@ body.guide .main.container > * {
   margin-bottom: 0px;
   border-bottom: none;
 }
+#example .masthead .ui.tag.label:after {
+  background-color: #000000 !important;
+}
 #example .masthead:before {
   position: absolute;
   z-index: 1;
@@ -398,8 +401,8 @@ body.guide .main.container > * {
 }
 #example .introduction .label {
   position: absolute;
-  top: 1em;
-  right: 0em;
+  margin-left: 2em;
+  top: 1em
 }
 
 #example .introduction .theme.buttons {

@@ -179,20 +179,26 @@ themes      : ['Default']
     <p>A list item can have an icon</p>
     <div class="ui list">
       <a class="item">
-        <i class="right triangle icon"></i>
-        How do you know your dog likes you?
+        <i class="help icon"></i>
+        An icon immediately inside an item sits inline this content will sit under the icon if there is a line break
+      </a>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui list">
+      <a class="item">
+        <i class="help icon"></i>
+        <div class="content">
+          <div class="header">This is a floated icon</div>
+          <div class="description">This text will always have a left margin to make sure it sits alongside your icon</div>
+        </div>
       </a>
       <a class="item">
-        <i class="right triangle icon"></i>
-        When is it ok to send your dog to a farm?
-      </a>
-      <a class="item">
-        <i class="right triangle icon"></i>
-        Can you get your dog back from a farm if you really want him back?
-      </a>
-      <a class="item">
-        <i class="right triangle icon"></i>
-        Is trespassing on a farm a misdemeanor offence?
+        <i class="top aligned right triangle icon"></i>
+        <div class="content">
+          <div class="header">Floated Icon Alignment</div>
+          <div class="description">Floated icons are, by default, middle aligned. To have an icon top aligned try this example.</div>
+        </div>
       </a>
     </div>
   </div>

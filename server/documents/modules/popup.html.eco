@@ -176,6 +176,29 @@ themes      : ['Default']
   <div class="ui tab" data-tab="examples">
 
     <div class="example">
+      <h3 class="ui header">Using Your Own Popup</h3>
+      <p>When using an inline popup</p>
+      <div class="evaluated code">
+    $('.example .teal.button')
+      .popup({
+        on: 'click'
+      })
+    ;
+    $('.example input')
+      .popup({
+        on: 'focus'
+      })
+    ;
+      </div>
+      <div class="ui teal button" data-title="Using click events" data-content="Clicked popups will close if you click away, but not if you click inside the popup">Click Me</div>
+      <div class="ui icon input">
+        <input type="text" placeholder="Focus me..." data-content="You can use me to enter data">
+        <i class="search icon"></i>
+      </div>
+    </div>
+
+
+    <div class="example">
       <h3 class="ui header">Specifying a trigger event</h3>
       <p>A popup trigger event can be specified</p>
       <div class="evaluated code">
@@ -210,7 +233,7 @@ themes      : ['Default']
       })
     ;
       </div>
-      <div class="ui basic test button">Hover Me</div>
+      <div class="ui green test button">Hover Me</div>
       <div class="ui divider"></div>
       <img class="medium ui test image" src="/images/demo/photo.jpg">
 

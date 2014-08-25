@@ -51,6 +51,7 @@ referencesOthers: true
         <div class="column"><i class="comment outline icon"></i>Comment Outline</div>
         <div class="column"><i class="comments icon"></i>Comments</div>
         <div class="column"><i class="comments outline icon"></i>Comments Outline</div>
+        <div class="column"><i class="content icon"></i>Content</div>
         <div class="column"><i class="dashboard icon"></i>Dashboard</div>
         <div class="column"><i class="external link icon"></i>External Link</div>
         <div class="column"><i class="external link square icon"></i>External Link Square</div>
@@ -77,7 +78,7 @@ referencesOthers: true
         <div class="column"><i class="tasks icon"></i>Tasks</div>
         <div class="column"><i class="terminal icon"></i>Terminal</div>
         <div class="column"><i class="ticket icon"></i>Ticket</div>
-        <div class="column"><i class="top icon"></i>Top</div>
+        <div class="column"><i class="trophy icon"></i>Trophy</div>
         <div class="column"><i class="wifi icon"></i>Wifi</div>
       </div>
       <div class="existing code">
@@ -168,7 +169,7 @@ referencesOthers: true
       <div class="column"><i class="share square icon"></i>Share Square</div>
       <div class="column"><i class="sign in icon"></i>Sign in</div>
       <div class="column"><i class="sign out icon"></i>Sign out</div>
-      <div class="column"><i class="tint icon"></i>Tint</div>
+      <div class="column"><i class="theme icon"></i>Theme</div>
       <div class="column"><i class="translate icon"></i>Translate</div>
       <div class="column"><i class="undo icon"></i>Undo</div>
       <div class="column"><i class="unhide icon"></i>Unhide</div>
@@ -830,7 +831,6 @@ referencesOthers: true
         <div class="column"><i class="align right icon"></i>Align Right</div>
         <div class="column"><i class="attach icon"></i>Attach</div>
         <div class="column"><i class="bold icon"></i>Bold</div>
-        <div class="column"><i class="content icon"></i>Content</div>
         <div class="column"><i class="copy icon"></i>Copy</div>
         <div class="column"><i class="cut icon"></i>Cut</div>
         <div class="column"><i class="font icon"></i>Font</div>

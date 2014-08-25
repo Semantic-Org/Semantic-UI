@@ -723,6 +723,8 @@ semantic.ready = function() {
     })
     .find('.button')
       .popup({
+        position  : 'top center',
+        variation : 'inverted'
       })
   ;
 

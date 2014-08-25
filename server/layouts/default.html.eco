@@ -199,7 +199,7 @@
 
   <div class="ui fixed transparent inverted main menu">
     <div class="container">
-      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <a class="launch item"><i class="content icon"></i> Content</a>
       <div class="title item">
         <b><%= @document.type %>:</b> <%= @document.title %>
       </div>
@@ -246,7 +246,7 @@
     </div>
   </div>
     <div class="ui black huge launch right attached button">
-      <i class="icon list layout"></i>
+      <i class="content icon"></i>
       <span class="text">Menu</span>
     </div>
   <%- @content %>
