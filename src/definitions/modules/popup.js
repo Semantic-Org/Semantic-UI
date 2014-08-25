@@ -13,17 +13,18 @@
 
 $.fn.popup = function(parameters) {
   var
-    $allModules     = $(this),
-    $document       = $(document),
+    $allModules    = $(this),
+    $document      = $(document),
 
-    moduleSelector  = $allModules.selector || '',
+    moduleSelector = $allModules.selector || '',
 
-    time            = new Date().getTime(),
-    performance     = [],
+    hasTouch       = ('ontouchstart' in document.documentElement),
+    time           = new Date().getTime(),
+    performance    = [],
 
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
 
     returnedValue
   ;
@@ -51,18 +52,8 @@ $.fn.popup = function(parameters) {
 
         $window         = $(window),
         $body           = $('body'),
-
-        $popup          = (settings.popup)
-          ? $(settings.popup)
-          : (settings.inline)
-            ? $target.next(settings.selector.popup)
-            : $context.find(settings.selector.popup).last(),
-
-        $offsetParent   = (settings.popup)
-          ? $popup.offsetParent()
-          : (settings.inline)
-            ? $target.offsetParent()
-            : $body,
+        $popup,
+        $offsetParent,
 
         searchDepth     = 0,
 
@@ -76,6 +67,7 @@ $.fn.popup = function(parameters) {
         // binds events
         initialize: function() {
           module.debug('Initializing module', $module);
+          module.refresh();
           if(settings.on == 'click') {
             $module
               .on('click', module.toggle)
@@ -111,24 +103,27 @@ $.fn.popup = function(parameters) {
         },
 
         refresh: function() {
-          if(settings.popup) {
-            $popup        = $(settings.popup);
-            $offsetParent = $popup.offsetParent();
-          }
-          else if(settings.inline) {
-            $popup        = $target.next(selector.popup);
-            $offsetParent = $target.offsetParent();
-          }
-          else {
-            $popup = $context.find(selector.popup).last();
-          }
+          $popup = (settings.popup)
+            ? $(settings.popup)
+            : (settings.inline)
+              ? $target.next(settings.selector.popup)
+              : false
+          ;
+          $offsetParent   = (settings.popup)
+            ? $popup.offsetParent()
+            : (settings.inline)
+              ? $target.offsetParent()
+              : $body
+          ;
         },
 
         destroy: function() {
           module.debug('Destroying previous module');
-          $popup
-            .remove()
-          ;
+          if($popup) {
+            $popup
+              .remove()
+            ;
+          }
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -171,7 +166,6 @@ $.fn.popup = function(parameters) {
 
         // generates popup html from metadata
         create: function() {
-          module.debug('Creating pop-up html');
           var
             html      = $module.data(metadata.html)      || settings.html,
             variation = $module.data(metadata.variation) || settings.variation,
@@ -179,8 +173,9 @@ $.fn.popup = function(parameters) {
             content   = $module.data(metadata.content)   || $module.attr('title') || settings.content
           ;
           if(html || content || title) {
+            module.debug('Creating pop-up html');
             if(!html) {
-              html = settings.template({
+              html = settings.templates.popup({
                 title   : title,
                 content : content
               });
@@ -241,7 +236,7 @@ $.fn.popup = function(parameters) {
           if( !module.exists() ) {
             module.create();
           }
-          if( module.set.position() ) {
+          if( $popup && module.set.position() ) {
             module.save.conditions();
             module.animate.show(callback);
           }
@@ -279,6 +274,9 @@ $.fn.popup = function(parameters) {
         },
 
         exists: function() {
+          if(!$popup) {
+            return false;
+          }
           if(settings.inline) {
             return ( $popup.size() !== 0 );
           }
@@ -573,7 +571,10 @@ $.fn.popup = function(parameters) {
                 position = module.get.nextPosition(position);
                 searchDepth++;
                 module.debug('Trying new position', position);
-                return module.set.position(position);
+                return ($popup)
+                  ? module.set.position(position)
+                  : false
+                ;
               }
               else {
                 module.error(error.recursion);
@@ -609,7 +610,7 @@ $.fn.popup = function(parameters) {
               $document
                 .on('click' + eventNamespace, function(event) {
                   module.verbose('Pop-up clickaway intent detected');
-                  $.proxy(module.hideGracefully, this)(event);
+                  $.proxy(module.hideGracefully, element)(event);
                 })
               ;
             }
@@ -629,10 +630,10 @@ $.fn.popup = function(parameters) {
 
         is: {
           animating: function() {
-            return ( $popup.is(':animated') || $popup.hasClass(className.animating) );
+            return ( $popup && $popup.is(':animated') || $popup.hasClass(className.animating) );
           },
           visible: function() {
-            return $popup.is(':visible');
+            return $popup && $popup.is(':visible');
           },
           hidden: function() {
             return !module.is.visible();
@@ -844,7 +845,7 @@ $.fn.popup.settings = {
   onShow         : function(){},
   onHide         : function(){},
 
-  variation      : 'inverted',
+  variation      : '',
   content        : false,
   html           : false,
   title          : false,
@@ -853,7 +854,7 @@ $.fn.popup.settings = {
   closable       : true,
 
   context        : 'body',
-  position       : 'top center',
+  position       : 'top left',
   delay          : {
     show : 50,
     hide : 0
@@ -862,7 +863,7 @@ $.fn.popup.settings = {
   target         : false,
   popup          : false,
   inline         : false,
-  preserve       : false,
+  preserve       : true,
   hoverable      : false,
 
   duration       : 200,
