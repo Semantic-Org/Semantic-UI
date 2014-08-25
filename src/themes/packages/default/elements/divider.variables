@@ -9,13 +9,15 @@
 @dividerMargin: 1rem;
 
 @highlightWidth: 1px;
-@highlightColor: rgba(255, 255, 255, 0.8);
+@highlightColor: rgba(255, 255, 255, 0.2);
 
 @shadowWidth: 1px;
 @shadowColor: rgba(0, 0, 0, 0.1);
 
-@dividerTextColor: @textColor;
-@dividerTextTransform: uppercase;
+/* Text */
+@fontWeight: bold;
+@color: @darkTextColor;
+@textTransform: uppercase;
 
 /*-------------------
        Coupling
@@ -31,16 +33,13 @@
 *******************************/
 
 /* Horizontal / Vertical */
-@directionalFontSize: 0.875rem;
-@directionalTextColor: @invertedLightTextColor;
-
-@horizontalDividerVerticalMargin: 1rem;
-@horizontalDividerWidth: 40%;
-@verticalDividerWidth: 6%;
+@horizontalMargin: '';
+@horizontalDividerMargin: 1.5%;
+@verticalDividerMargin: 1rem;
+@verticalDividerHeight: ~"calc(100% - "(@verticalDividerMargin)~")";
 
 /* Inverted */
 @invertedTextColor: @white;
-
 @invertedHighlightColor: rgba(255, 255, 255, 0.15);
 @invertedShadowColor: rgba(0, 0, 0, 0.15);
 

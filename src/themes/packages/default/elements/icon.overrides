@@ -568,6 +568,7 @@ i.icon.shuffle:before { content: "\f074"; }
 i.icon.talk:before { content: "\f075"; }
 i.icon.chat:before { content: "\f075"; }
 i.icon.shopping.cart:before { content: "\f07a"; }
+i.icon.bar.graph:before { content: "\f080"; }
 i.icon.key:before { content: "\f084"; }
 i.icon.privacy:before { content: "\f084"; }
 i.icon.cogs:before { content: "\f085"; }

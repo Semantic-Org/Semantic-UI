@@ -12,6 +12,7 @@ themes      : ['default']
 
 <%- @partial('header') %>
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/divider.less" />
+
 <div class="main container">
 
   <div class="peek">
@@ -75,6 +76,9 @@ themes      : ['default']
   <div class="example">
     <h4 class="ui header">Horizontal Divider</h4>
     <p>A divider can segment content horizontally</p>
+    <div class="ui ignored positive message">Horizontal dividers can also be used in combination with <a href="/elements/header.html">header</a> and <a href="/elements/icon.html">icons</a> to create different styles of dividers.
+    </div>
+    <div class="ui ignored message">Dividers in Semantic <code>1.0</code> will automatically vary the size of their rules to match the length of your text</div>
     <h3 class="ui header">Retrieve Order</h3>
     <div class="ui tertiary form segment">
       <div class="field">
@@ -94,17 +98,40 @@ themes      : ['default']
       <i class="add icon"></i>
     </div>
   </div>
-
-  <div class="example">
-    <h4 class="ui header">Icon Divider</h4>
-    <p>A divider can include an icon</p>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-    <div class="ui horizontal icon divider">
-      <i class="circular heart icon"></i>
+  <div class="another example">
+    <div class="ui segment">
+      <h2 class="ui header">
+        Doggie Treat
+        <div class="sub header">$4.99 for 100</div>
+      </h2>
+      <div class="ui primary button">Add to cart</div>
+      <p>Doggie treats are good for all times of the year. Proven to be eaten by 99.9% of all dogs worldwide.</p>
+      <h4 class="ui horizontal header divider">
+        <i class="bar chart icon"></i>
+        Specifications
+      </h4>
+      <table class="ui very basic definition table">
+        <tbody>
+          <tr>
+            <td class="two wide column">Size</td>
+            <td>1" x 2"</td>
+          </tr>
+          <tr>
+            <td>Weight</td>
+            <td>6 ounces</td>
+          </tr>
+          <tr>
+            <td>Color</td>
+            <td>Yellowish</td>
+          </tr>
+          <tr>
+            <td>Odor</td>
+            <td>Not Much Usually</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
   </div>
-
 
   <h2 class="ui dividing header">Variations</h2>
 
