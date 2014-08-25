@@ -53,6 +53,27 @@ themes      : ['Default']
     <h2 class="ui dividing header">Variations</h2>
 
     <div class="example">
+      <h3 class="ui header">Width</h3>
+      <p>A popup can be extra wide to allow for longer content</p>
+      <i class="circular heart icon link" data-content="Hello. This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="wide"></i>
+      <i class="circular heart icon link" data-content="Hello. This is a very wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="very wide"></i>
+    </div>
+
+    <div class="fluid example">
+      <h3 class="ui header">Fluid</h3>
+      <p>A fluid popup will take up the entire width of its offset container</p>
+      <div class="ui button">Show fluid popup</div>
+      <div class="ui fluid popup">
+        <div class="ui four column fitted divided center aligned grid">
+          <div class="column">1</div>
+          <div class="column">2</div>
+          <div class="column">3</div>
+          <div class="column">4</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
       <h3 class="ui header">Size</h3>
       <p>A popup can vary in size</p>
       <i class="circular heart icon link" data-content="Hello. This is a small popup" data-variation="small"></i>
@@ -174,26 +195,62 @@ themes      : ['Default']
 
 
   <div class="ui tab" data-tab="examples">
+    <div class="example">
+      <h3 class="ui header">Complex Content</h3>
+      <p>An easier way to display complex content inside a popup, instead of generating it from data attributes, is to have the popup content as part of your page's html.</p>
+      <p>The easiest way to specify custom content for a popup, is to use the setting <code>inline: true</code>. This will let Semantic know to use the next sibling popup element after the activator as the popup content.</p>
+
+      <div class="evaluated code">
+      $('.example .menu .browse')
+        .popup({
+          inline   : true,
+          position : 'bottom left'
+        })
+      ;
+      </div>
+      <div class="ui menu">
+        <a class="active item">
+          <i class="home icon"></i> Home
+        </a>
+        <a class="browse item">
+          Browse
+          <i class="dropdown icon"></i>
+        </a>
+        <div class="ui very wide popup">
+          <div class="ui four column divided fitted grid">
+            <div class="ui column">
+              1
+            </div>
+            <div class="ui column">
+              2
+            </div>
+            <div class="ui column">
+              3
+            </div>
+            <div class="ui column">
+              4
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="example">
-      <h3 class="ui header">Using Your Own Popup</h3>
-      <p>When using an inline popup</p>
+      <h3 class="ui header">Specifying a selector for a popup</h3>
+      <p>If its not possible to include the popup content as the next sibling, you can also specify a custom selector to help link the popup contents to its activator.</p>
       <div class="evaluated code">
-    $('.example .teal.button')
-      .popup({
-        on: 'click'
-      })
-    ;
-    $('.example input')
-      .popup({
-        on: 'focus'
-      })
-    ;
+      $('.example .custom.button')
+        .popup({
+          popup : $('.custom.popup'),
+          on    : 'click'
+        })
+      ;
       </div>
-      <div class="ui teal button" data-title="Using click events" data-content="Clicked popups will close if you click away, but not if you click inside the popup">Click Me</div>
-      <div class="ui icon input">
-        <input type="text" placeholder="Focus me..." data-content="You can use me to enter data">
-        <i class="search icon"></i>
+      <div class="arbitrary container">
+        <div class="ui custom button">Show custom popup</div>
+      </div>
+      <div class="ui custom popup">
+        I'm not on the same level as the button, but i can still be found.
       </div>
     </div>
 
@@ -236,7 +293,8 @@ themes      : ['Default']
       <div class="ui green test button">Hover Me</div>
       <div class="ui divider"></div>
       <img class="medium ui test image" src="/images/demo/photo.jpg">
-
+    </div>
+    <div class="inline example">
       <h3 class="ui header">Inline or relative to page</h3>
       <p>A popup can either be inserted directly after an element, or added as a child element to the page's <code>body</code>.</p>
       <div class="ui positive message">
@@ -252,11 +310,11 @@ themes      : ['Default']
       }
       </div>
       <div class="evaluated code">
-    $('.inline.icon')
-      .popup({
-        inline: true
-      })
-    ;
+      $('.inline.icon')
+        .popup({
+          inline: true
+        })
+      ;
       </div>
       <i class="heart circular icon link" data-content="This is a child element to the page's body and will not be styled" ></i>
       <i class="mail inline circular icon link" data-content="This popup was inserted inline and will be styled" ></i>

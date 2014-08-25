@@ -605,7 +605,7 @@ body.guide .main.container > * {
   height: 175px;
 }
 
-#example.popup .example .popup {
+#example.popup .inline.example .popup {
   color: #FF0000;
 }
 #example .position.example .icon {

@@ -18,6 +18,13 @@ semantic.popup.ready = function() {
     })
   ;
 
+  $('.fluid.example .button')
+    .popup({
+      inline: true
+    })
+  ;
+
+
 };
 
 

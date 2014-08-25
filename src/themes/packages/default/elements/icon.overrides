@@ -605,6 +605,7 @@ i.icon.magic:before { content: "\f0d0"; }
 i.icon.truck:before { content: "\f0d1"; }
 i.icon.currency:before { content: "\f0d6"; }
 i.icon.triangle.down:before { content: "\f0d7"; }
+i.icon.dropdown:before { content: "\f0d7"; }
 i.icon.triangle.up:before { content: "\f0d8"; }
 i.icon.triangle.left:before { content: "\f0d9"; }
 i.icon.triangle.right:before { content: "\f0da"; }

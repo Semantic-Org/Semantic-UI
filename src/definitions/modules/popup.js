@@ -70,7 +70,7 @@ $.fn.popup = function(parameters) {
           module.refresh();
           if(settings.on == 'click') {
             $module
-              .on('click', module.toggle)
+              .on('click' + eventNamespace, module.toggle)
             ;
           }
           else if( module.get.startEvent() ) {
@@ -277,7 +277,7 @@ $.fn.popup = function(parameters) {
           if(!$popup) {
             return false;
           }
-          if(settings.inline) {
+          if(settings.inline || settings.popup) {
             return ( $popup.size() !== 0 );
           }
           else {
@@ -396,6 +396,7 @@ $.fn.popup = function(parameters) {
               offstage  = {},
               offstagePositions = []
             ;
+            console.log($popup.width());
             if(popup.position) {
               offstage = {
                 top    : (popup.position.top < boundary.top),
@@ -464,7 +465,7 @@ $.fn.popup = function(parameters) {
 
               distanceAway = settings.distanceAway,
 
-              offset       = (settings.inline)
+              offset       = (settings.inline || settings.popup)
                 ? $target.position()
                 : $target.offset(),
 
@@ -474,7 +475,7 @@ $.fn.popup = function(parameters) {
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
             // adjust for margin when inline
-            if(settings.inline) {
+            if(settings.inline || settings.popup) {
               if(position == 'left center' || position == 'right center') {
                 arrowOffset  += parseInt( window.getComputedStyle(element).getPropertyValue('margin-top'), 10);
                 distanceAway += -parseInt( window.getComputedStyle(element).getPropertyValue('margin-left'), 10);

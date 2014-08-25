@@ -176,7 +176,7 @@ themes      : ['Default']
 
   <div class="example">
     <h4 class="ui header">Icon</h4>
-    <p>A list item can have an icon</p>
+    <p>A list item can contain an icon</p>
     <div class="ui list">
       <a class="item">
         <i class="help icon"></i>
@@ -205,7 +205,7 @@ themes      : ['Default']
 
   <div class="example">
     <h4 class="ui header">Image</h4>
-    <p>A list can contain an image</p>
+    <p>A list item can contain an image</p>
     <div class="ui list">
       <div class="item">
         <div class="ui avatar image">
