@@ -196,15 +196,22 @@ themes      : ['Default']
 
   <div class="ui tab" data-tab="examples">
     <div class="example">
-      <h3 class="ui header">Complex Content</h3>
-      <p>An easier way to display complex content inside a popup, instead of generating it from data attributes, is to have the popup content as part of your page's html.</p>
-      <p>The easiest way to specify custom content for a popup, is to use the setting <code>inline: true</code>. This will let Semantic know to use the next sibling popup element after the activator as the popup content.</p>
+      <h3 class="ui header">Wide Popup Menu</h3>
+      <p>An easier way to display complex content, like a wide popup menu is to have the popup content as a pre-existing part of your page's html.</p>
+      <p>Using the setting <code>inline: true</code> will let Semantic know to display the next sibling <code>ui popup</code> element after the activator.</p>
+
+      <p>Tweaking settings like the delay for show, and hide, and making the menu hoverable will help it function more like a dropdown menu</p>
 
       <div class="evaluated code">
       $('.example .menu .browse')
         .popup({
           inline   : true,
-          position : 'bottom left'
+          hoverable: true,
+          position : 'bottom left',
+          delay: {
+            show: 300,
+            hide: 800
+          }
         })
       ;
       </div>
