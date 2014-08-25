@@ -131,26 +131,33 @@ a.ui.label {
 *******************************/
 
 .ui.image.label {
-  background-color: @imageLabelBackgroundColor;
+  background: @imageLabelBackground;
   width: auto !important;
   margin-top: 0em;
   margin-bottom: 0em;
 
-  padding-top: @verticalPadding;
-  padding-bottom: @verticalPadding;
+  padding: @imageLabelPadding;
 
   vertical-align: baseline;
   text-transform: none;
 
-  border-radius: @circularRadius;
+  border-radius: @imageLabelBorderRadius;
   box-shadow: @imageLabelBoxShadow;
 }
+
 .ui.image.label img {
   display: inline-block;
   height: @imageLabelImageHeight;
-  margin: -@verticalPadding @imageLabelDistance -@verticalPadding -@horizontalPadding;
+  margin: @imageLabelImageMargin;
   vertical-align: top;
   border-radius: @circularRadius;
+}
+
+.ui.image.label .detail {
+  background: @imageLabelDetailBackground;
+  margin: @imageLabelDetailMargin;
+  padding: @imageLabelDetailPadding;
+  border-radius: 0em @imageLabelBorderRadius @imageLabelBorderRadius 0em;
 }
 
 /*******************************

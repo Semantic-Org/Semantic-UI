@@ -90,6 +90,7 @@ a.ui.label {
 
 
 /* Removable label */
+.ui.label .close.icon,
 .ui.label .delete.icon {
   cursor: pointer;
   margin-right: 0em;
@@ -117,10 +118,10 @@ a.ui.label {
 --------------------*/
 
 /* Padding on next content after a label */
-.ui.segment > .top.attached.label:not(.right):not(.left):first-child + * {
+.ui.segment > .top.attached.label:first-child + * {
   margin-top: @attachedSegmentPadding;
 }
-.ui.segment > .bottom.attached.label:not(.right):not(.left):first-child ~ :last-child {
+.ui.segment > .bottom.attached.label:first-child ~ :last-child {
   margin-top: 0em;
   margin-bottom: @attachedSegmentPadding;
 }
@@ -131,26 +132,33 @@ a.ui.label {
 *******************************/
 
 .ui.image.label {
-  background-color: @imageLabelBackgroundColor;
   width: auto !important;
   margin-top: 0em;
   margin-bottom: 0em;
-
-  padding-top: @verticalPadding;
-  padding-bottom: @verticalPadding;
-
+  max-width: 9999px;
   vertical-align: baseline;
   text-transform: none;
 
-  border-radius: @circularRadius;
+  background: @imageLabelBackground;
+  padding: @imageLabelPadding;
+  border-radius: @imageLabelBorderRadius;
   box-shadow: @imageLabelBoxShadow;
 }
+
 .ui.image.label img {
   display: inline-block;
-  height: @imageLabelImageHeight;
-  margin: -@verticalPadding @imageLabelDistance -@verticalPadding -@horizontalPadding;
   vertical-align: top;
-  border-radius: @circularRadius;
+
+  height: @imageLabelImageHeight;
+  margin: @imageLabelImageMargin;
+  border-radius: @imageLabelBorderRadius;
+}
+
+.ui.image.label .detail {
+  background: @imageLabelDetailBackground;
+  margin: @imageLabelDetailMargin;
+  padding: @imageLabelDetailPadding;
+  border-radius: 0em @imageLabelBorderRadius @imageLabelBorderRadius 0em;
 }
 
 /*******************************
@@ -897,7 +905,10 @@ a.ui.yellow.label:hover:before {
         Sizes
 --------------------*/
 
-
+.ui.mini.labels .label,
+.ui.mini.label {
+  font-size: @mini;
+}
 .ui.tiny.labels .label,
 .ui.tiny.label {
   font-size: @tiny;

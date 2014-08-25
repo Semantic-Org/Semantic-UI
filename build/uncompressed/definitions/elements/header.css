@@ -269,7 +269,8 @@ h5.ui.header {
  Loose Coupling
 ---------------*/
 .ui.header .ui.label {
-  vertical-align: middle;
+  margin: 0em;
+  vertical-align: top;
 }
 /*******************************
             Types

@@ -7,23 +7,73 @@ type   : 'Library'
 ---
 <%- @partial('header') %>
 
-<div class="main container">
+<!-- TEST JS HERE !-->
+<script>
 $(document).ready(function() {
-    $('.dropdown').dropdown();
+  $('.button')
+      .popup({
+          on: 'click',
+          inline: true,
+          preserve: true
+      })
+  ;
 });
 </script>
 
-<div>Show me posts trending
-    <div class="ui inline dropdown">
-      <div class="text">today</div>
-      <i class="dropdown icon"></i>
-      <input type="hidden" name="trending">
-      <div class="menu">
-        <div class="item" data-text="1">Today</div>
-        <div class="item" data-text="2">This Week</div>
-        <div class="item" data-text="this month">This Month</div>
+<!-- TEST CSS HERE !-->
+<style type="text/css">
+.wide.popup {
+    max-width: 500px;
+    padding: 0em;
+}
+</style>
+
+
+<div class="main container">
+
+  <!-- TEST HTML HERE !-->
+  <div class="ui button">Trigger Popup</div>
+  <div class="ui popup">
+    <div class="header">Hello World</div>
+    <div class="content">My custom content</div>
+  </div>
+
+  <div class="ui button">Trigger Wide Popup</div>
+  <div class="ui wide popup">
+    <div class="ui four column center aligned divided grid">
+      <div class="column">
+        <div class="ui selection list">
+            <a class="item">1</a>
+            <a class="item">2</a>
+            <a class="item">3</a>
+            <a class="item">4</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui selection list">
+            <a class="item">1</a>
+            <a class="item">2</a>
+            <a class="item">3</a>
+            <a class="item">4</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui selection list">
+            <a class="item">1</a>
+            <a class="item">2</a>
+            <a class="item">3</a>
+            <a class="item">4</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui selection list">
+            <a class="item">1</a>
+            <a class="item">2</a>
+            <a class="item">3</a>
+            <a class="item">4</a>
+        </div>
       </div>
     </div>
+  </div>
 </div>
-
 </body>

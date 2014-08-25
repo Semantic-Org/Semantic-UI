@@ -70,15 +70,15 @@ themes      : ['Default']
       dog@doggington.com
     </a>
     <a class="ui image label">
-      <img src="/images/demo/avatar2.jpg">
-      james@thepooch.com
-      <i class="delete icon"></i>
-    </a>
-    <a class="ui image label">
       <img src="/images/demo/avatar3.jpg">
       kelly@bellyscratcher.com
       <div class="detail">Friend</div>
     </a>
+    <div class="ui image label">
+      <img src="/images/demo/avatar2.jpg">
+      james@thepooch.com
+      <i class="delete icon"></i>
+    </div>
   </div>
 
   <div class="example">
@@ -86,17 +86,17 @@ themes      : ['Default']
     <p>A label can position itself in the corner of an element</p>
     <div class="yellow ui message">A corner label must be positioned inside a container with position: relative to display properly</div>
     <div class="ui segment">
-      <div class="ui right red corner label">
-        <i class="heart icon"></i>
+      <div class="ui right text corner label">
+        Sale
       </div>
-      <div class="ui left corner label">
-        <div class="text">New</div>
+      <div class="ui left text corner label">
+        New
       </div>
       This is a normal text segment
     </div>
     <div class="ui left floated medium image">
-      <a class="ui left corner label">
-        <div class="text">New</div>
+      <a class="ui left red corner label">
+        <i class="heart icon"></i>
       </a>
       <img src="/images/demo/highres2.jpg">
     </div>
@@ -140,6 +140,11 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Attached</h4>
     <p>A label can attach to a content segment</p>
+    <div class="ui ignored warning message">
+      <h3 class="ui header">Attached label padding</h3>
+      <p>Attached labels attempt to intelligently pad other content to account for their position, but may not in all cases apply this padding correctly.</p>
+      <p>If this happens you may need to manually correct the padding of the other elements inside the container.
+    </div>
     <div class="ui three column grid">
       <div class="row">
         <div class="column">
@@ -314,12 +319,23 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Size</h4>
     <p>A label can be small or large</p>
-    <div class="ui small label">
-      Fun
+    <div class="ui mini label">
+      Mini
     </div>
-    <br><br>
+    <div class="ui tiny label">
+      Tiny
+    </div>
+    <div class="ui small label">
+      Small
+    </div>
+    <div class="ui label">
+      Standard
+    </div>
     <div class="ui large label">
-      Fun
+      Large
+    </div>
+    <div class="ui huge label">
+      Huge
     </div>
   </div>
 

@@ -4,32 +4,28 @@
 
 
 /*-------------------
-      Standard
+       Element
 --------------------*/
 
-@verticalAlign: baseline;
 
+@verticalAlign: baseline;
 @verticalMargin: 0.25em;
 @horizontalMargin: 0.125em;
+@backgroundColor: #E8E8E8;
+@backgroundImage: none;
+@labelTextColor: rgba(0, 0, 0, 0.6);
+@verticalPadding: 0.6em;
+@horizontalPadding: 0.8em;
+@borderRadius: 0.325em;
+@textTransform: none;
+@fontWeight: bold;
 
+/* Group */
 @groupVerticalMargin: 0.75em;
 @groupHorizontalMargin: 0.5em;
 
-@backgroundColor: #E8E8E8;
-@backgroundImage: none;
-
-@labelTextColor: rgba(0, 0, 0, 0.65);
-
-@verticalPadding: 0.8em;
-@horizontalPadding: 0.8em;
-
-@borderRadius: 0.325em;
-
-@textTransform: uppercase;
-@fontWeight: normal;
-
 /*-------------------
-      Elements
+        Parts
 --------------------*/
 
 @linkOpacity: 0.8;
@@ -45,12 +41,23 @@
         Types
 --------------------*/
 
-@imageLabelBackgroundColor: @backgroundColor;
+/* Image Label */
+@imageLabelBackground: @backgroundColor;
 @imageLabelBorderRadius: @circularRadius;
-@imageLabelImageHeight: (1em + @verticalPadding * 2);
+@imageLabelVerticalPadding: @verticalPadding;
+@imageLabelHorizontalPadding: @horizontalPadding;
+@imageLabelTextDistance: 0.5em;
+@imageLabelDetailDistance: @imageLabelTextDistance;
+@imageLabelBorderRadius: 500rem;
 @imageLabelBoxShadow: none;
-@imageLabelDistance: 0.5em,;
+@imageLabelDetailBackground: @strongTransparentBlack;
 
+/* Computed Values */
+@imageLabelImageHeight: (1em + @verticalPadding * 2);
+@imageLabelPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding @imageLabelVerticalPadding @imageLabelTextDistance;
+@imageLabelImageMargin: -@verticalPadding @imageLabelTextDistance -@verticalPadding -@imageLabelTextDistance;
+@imageLabelDetailPadding: @imageLabelVerticalPadding @imageLabelHorizontalPadding;
+@imageLabelDetailMargin: -@imageLabelVerticalPadding -@imageLabelHorizontalPadding -@imageLabelVerticalPadding @imageLabelDetailDistance;
 
 /*-------------------
         States

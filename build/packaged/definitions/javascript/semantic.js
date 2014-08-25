@@ -10404,7 +10404,7 @@ $.fn.search = function(parameters) {
             }
             else {
               module.debug("Querying for '" + searchTerm + "'");
-              if($.isPlainObject(settings.source)) {
+              if($.isPlainObject(settings.source) || $.isArray(settings.source)) {
                 module.search.local(searchTerm);
               }
               else if(settings.apiSettings) {
@@ -10973,6 +10973,7 @@ $.fn.search.settings = {
 };
 
 })( jQuery, window , document );
+
 /*
  * # Semantic - Shape
  * http://github.com/semantic-org/semantic-ui/

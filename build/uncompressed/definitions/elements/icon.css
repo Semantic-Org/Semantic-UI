@@ -186,7 +186,7 @@
 i.icon {
   display: inline-block;
   opacity: 0.75;
-  margin: 0em 0em 0em 0em;
+  margin: 0em 0.25em 0em 0em;
   width: 1.23em;
   height: 0.9em;
   font-family: 'Icons';
@@ -1945,6 +1945,9 @@ i.icon.chat:before {
 }
 i.icon.shopping.cart:before {
   content: "\f07a";
+}
+i.icon.bar.graph:before {
+  content: "\f080";
 }
 i.icon.key:before {
   content: "\f084";

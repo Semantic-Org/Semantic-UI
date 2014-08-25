@@ -809,9 +809,12 @@
 .ui.very.basic.table {
   border: none;
 }
-.ui.very.basic.table:not(.sortable) th,
-.ui.very.basic.table:not(.sortable) td {
+.ui.very.basic.table:not(.sortable):not(.striped) th,
+.ui.very.basic.table:not(.sortable):not(.striped) td {
   padding: 0.8em 0em;
+}
+.ui.very.basic.table:not(.sortable):not(.striped) tbody tr:last-child td {
+  padding-bottom: 0em;
 }
 /*--------------
      Padded

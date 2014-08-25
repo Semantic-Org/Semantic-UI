@@ -142,6 +142,7 @@
 /*-------------------
        Element
 --------------------*/
+/* Text */
 /*-------------------
        Coupling
 --------------------*/
@@ -172,28 +173,57 @@
 *******************************/
 .ui.divider {
   margin: 1rem 0rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   line-height: 1;
   height: 0em;
-  box-sizing: border-box;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.85);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.ui.vertical.divider,
+/*--------------
+      Basic
+---------------*/
+.ui.divider:not(.vertical):not(.horizontal) {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+/*--------------
+    Coupling
+---------------*/
+.ui.grid > .ui.divider {
+  font-size: 1rem;
+}
+/*--------------
+   Horizontal
+---------------*/
 .ui.horizontal.divider {
-  position: absolute;
-  border: none;
-  height: 0em;
-  margin: 0em;
-  background-color: transparent;
-  font-weight: bold;
+  position: relative;
+  height: auto;
+  margin: '';
+  overflow: hidden;
+  line-height: 1;
   text-align: center;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.8);
+}
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
+  position: absolute;
+  content: '';
+  z-index: 3;
+  width: 50%;
+  top: 50%;
+  height: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.ui.horizontal.divider:before {
+  margin-left: -51.5%;
+}
+.ui.horizontal.divider:after {
+  margin-left: 1.5%;
 }
 /*--------------
     Vertical
@@ -203,22 +233,24 @@
   z-index: 2;
   top: 50%;
   left: 50%;
-  margin: 0% 0% 0% -3%;
-  width: 6%;
+  margin: 0rem;
+  padding: 0em;
+  width: auto;
   height: 50%;
   line-height: 0em;
-  padding: 0em;
+  text-align: center;
 }
 .ui.vertical.divider:before,
 .ui.vertical.divider:after {
   position: absolute;
   left: 50%;
-  content: " ";
+  content: '';
   z-index: 3;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   width: 0%;
-  height: 80%;
+  height: -webkit-calc(100% -  1rem );
+  height: calc(100% -  1rem );
 }
 .ui.vertical.divider:before {
   top: -100%;
@@ -226,36 +258,6 @@
 .ui.vertical.divider:after {
   top: auto;
   bottom: 0px;
-}
-/*--------------
-    Horizontal
----------------*/
-.ui.horizontal.divider {
-  position: relative;
-  top: 0%;
-  left: 0%;
-  margin: 1rem 0em;
-  height: auto;
-  padding: 0em;
-  line-height: 1;
-}
-.ui.horizontal.divider:before,
-.ui.horizontal.divider:after {
-  position: absolute;
-  content: '';
-  z-index: 3;
-  width: 40%;
-  top: 50%;
-  height: 0%;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-}
-.ui.horizontal.divider:before {
-  left: 0%;
-}
-.ui.horizontal.divider:after {
-  left: auto;
-  right: 0%;
 }
 /*--------------
       Icon
@@ -273,7 +275,7 @@
     Hidden
 ---------------*/
 .ui.hidden.divider {
-  border-color: transparent;
+  border-color: transparent !important;
 }
 /*--------------
     Inverted
@@ -283,15 +285,15 @@
 }
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
 }
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(255, 255, 255, 0.15);
-  border-left-color: rgba(0, 0, 0, 0.15);
-  border-right-color: rgba(255, 255, 255, 0.15);
+  border-top-color: rgba(0, 0, 0, 0.15) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+  border-left-color: rgba(0, 0, 0, 0.15) !important;
+  border-right-color: rgba(255, 255, 255, 0.15) !important;
 }
 /*--------------
     Fitted
@@ -311,12 +313,6 @@
 .ui.section.divider {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-/*--------------
-      Sizes
----------------*/
-.ui.divider {
-  font-size: 1rem;
 }
 /*******************************
            Overrides

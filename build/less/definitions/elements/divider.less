@@ -26,34 +26,70 @@
 .ui.divider {
   margin: @dividerMargin 0rem;
 
-  border-top: @shadowWidth solid @shadowColor;
-  border-bottom: @highlightWidth solid @highlightColor;
-
   line-height: 1;
   height: 0em;
 
-  box-sizing: border-box;
+  font-weight: @fontWeight;
+  text-transform: @textTransform;
+  color: @color;
 
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.ui.vertical.divider,
-.ui.horizontal.divider {
-  position: absolute;
+/*--------------
+      Basic
+---------------*/
 
-  border: none;
-  height: 0em;
-  margin: 0em;
-  background-color: transparent;
-
-  font-weight: bold;
-  text-align: center;
-  text-transform: @dividerTextTransform;
-
-  color: @dividerTextColor;
+.ui.divider:not(.vertical):not(.horizontal) {
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
 }
 
+/*--------------
+    Coupling
+---------------*/
+
+.ui.grid > .ui.divider {
+  font-size: 1rem;
+}
+
+
+/*--------------
+   Horizontal
+---------------*/
+
+.ui.horizontal.divider {
+  position: relative;
+
+  height: auto;
+  margin: @horizontalMargin;
+  overflow: hidden;
+  line-height: 1;
+  text-align: center;
+}
+
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
+  position: absolute;
+  top: 50%;
+  content: '';
+  z-index: 3;
+
+  width: 50%;
+  top: 50%;
+  height: 0px;
+
+  border-top: @shadowWidth solid @shadowColor;
+  border-bottom: @highlightWidth solid @highlightColor;
+}
+
+.ui.horizontal.divider:before {
+  margin-left: -(50% + @horizontalDividerMargin);
+}
+.ui.horizontal.divider:after {
+  margin-left: @horizontalDividerMargin;
+}
 
 /*--------------
     Vertical
@@ -65,27 +101,27 @@
   top: 50%;
   left: 50%;
 
-  margin: 0% 0% 0% -(@verticalDividerWidth / 2);
-
-  width: @verticalDividerWidth;
+  margin: 0rem;
+  padding: 0em;
+  width: auto;
   height: 50%;
 
   line-height: 0em;
-  padding: 0em;
+  text-align: center;
 }
 
 .ui.vertical.divider:before,
 .ui.vertical.divider:after {
   position: absolute;
   left: 50%;
-  content: " ";
+  content: '';
   z-index: 3;
 
   border-left: @shadowWidth solid @shadowColor;
   border-right: @highlightWidth solid @highlightColor;
 
   width: 0%;
-  height: 80%;
+  height: @verticalDividerHeight;
 }
 
 .ui.vertical.divider:before {
@@ -94,45 +130,6 @@
 .ui.vertical.divider:after {
   top: auto;
   bottom: 0px;
-}
-
-/*--------------
-    Horizontal
----------------*/
-
-.ui.horizontal.divider {
-  position: relative;
-  top: 0%;
-  left: 0%;
-
-  margin: @horizontalDividerVerticalMargin 0em;
-  height: auto;
-  padding: 0em;
-
-  line-height: 1;
-}
-
-.ui.horizontal.divider:before,
-.ui.horizontal.divider:after {
-  position: absolute;
-  top: 50%;
-  content: '';
-  z-index: 3;
-
-  width: @horizontalDividerWidth;
-  top: 50%;
-  height: 0%;
-
-  border-top: @shadowWidth solid @shadowColor;
-  border-bottom: @highlightWidth solid @highlightColor;
-}
-
-.ui.horizontal.divider:before {
-  left: 0%;
-}
-.ui.horizontal.divider:after {
-  left: auto;
-  right: 0%;
 }
 
 /*--------------
@@ -155,7 +152,7 @@
 ---------------*/
 
 .ui.hidden.divider {
-  border-color: transparent;
+  border-color: transparent !important;
 }
 
 /*--------------
@@ -167,16 +164,16 @@
 }
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
-  color: @directionalTextColor;
+  color: @invertedTextColor;
 }
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: @invertedShadowColor;
-  border-bottom-color: @invertedHighlightColor;
+  border-top-color: @invertedShadowColor !important;
+  border-bottom-color: @invertedHighlightColor !important;
 
-  border-left-color: @invertedShadowColor;
-  border-right-color: @invertedHighlightColor;
+  border-left-color: @invertedShadowColor !important;
+  border-right-color: @invertedHighlightColor !important;
 }
 
 /*--------------
@@ -202,14 +199,6 @@
 .ui.section.divider {
   margin-top: @sectionMargin;
   margin-bottom: @sectionMargin;
-}
-
-/*--------------
-      Sizes
----------------*/
-
-.ui.divider {
-  font-size: 1rem;
 }
 
 .loadUIOverrides();

@@ -140,14 +140,17 @@
              Label
 *******************************/
 /*-------------------
-      Standard
+       Element
 --------------------*/
+/* Group */
 /*-------------------
-      Elements
+        Parts
 --------------------*/
 /*-------------------
         Types
 --------------------*/
+/* Image Label */
+/* Computed Values */
 /*-------------------
         States
 --------------------*/
@@ -192,10 +195,10 @@
   background-color: #e8e8e8;
   border-color: #e8e8e8;
   background-image: none;
-  padding: 0.8em 0.8em;
-  color: rgba(0, 0, 0, 0.65);
-  text-transform: uppercase;
-  font-weight: normal;
+  padding: 0.6em 0.8em;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: none;
+  font-weight: bold;
   border-radius: 0.325em;
   box-sizing: border-box;
   -webkit-transition: background 0.1s linear
@@ -274,12 +277,11 @@ a.ui.label {
              Types
 *******************************/
 .ui.image.label {
-  background-color: #e8e8e8;
+  background: #e8e8e8;
   width: auto !important;
   margin-top: 0em;
   margin-bottom: 0em;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
+  padding: 0.6em 0.8em 0.6em 0.5em;
   vertical-align: baseline;
   text-transform: none;
   border-radius: 500rem;
@@ -287,10 +289,16 @@ a.ui.label {
 }
 .ui.image.label img {
   display: inline-block;
-  height: 2.6em;
-  margin: -0.8em 0.5em -0.8em -0.8em;
+  height: 2.2em;
+  margin: -0.6em 0.5em -0.6em -0.5em;
   vertical-align: top;
   border-radius: 500rem;
+}
+.ui.image.label .detail {
+  background: rgba(0, 0, 0, 0.1);
+  margin: -0.6em -0.8em -0.6em 0.5em;
+  padding: 0.6em 0.8em;
+  border-radius: 0em 500rem 500rem 0em;
 }
 /*******************************
              States
