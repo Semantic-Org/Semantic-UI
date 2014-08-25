@@ -550,7 +550,7 @@ i.icon.privacy:before {
 i.icon.settings:before {
   content: "\f085";
 }
-i.icon.top:before {
+i.icon.trophy:before {
   content: "\f091";
 }
 i.icon.payment:before {
@@ -647,7 +647,7 @@ i.icon.print:before {
 i.icon.write:before {
   content: "\f040";
 }
-i.icon.tint:before {
+i.icon.theme:before {
   content: "\f043";
 }
 i.icon.adjust:before {
@@ -1907,6 +1907,9 @@ i.icon.compose:before {
 i.icon.point:before {
   content: "\f041";
 }
+i.icon.tint:before {
+  content: "\f043";
+}
 i.icon.signup:before {
   content: "\f044";
 }
@@ -1975,9 +1978,6 @@ i.icon.log.out:before {
 }
 i.icon.thumb.tack:before {
   content: "\f08d";
-}
-i.icon.trophy:before {
-  content: "\f091";
 }
 i.icon.winner:before {
   content: "\f091";
@@ -2055,6 +2055,9 @@ i.icon.currency:before {
   content: "\f0d6";
 }
 i.icon.triangle.down:before {
+  content: "\f0d7";
+}
+i.icon.dropdown:before {
   content: "\f0d7";
 }
 i.icon.triangle.up:before {

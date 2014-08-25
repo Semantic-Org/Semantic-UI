@@ -691,13 +691,34 @@ $.fn.search.settings = {
   },
 
   templates: {
+    escape: function(string) {
+      var
+        badChars     = /[&<>"'`]/g,
+        shouldEscape = /[&<>"'`]/,
+        escape       = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#x27;",
+          "`": "&#x60;"
+        },
+        escapedChar  = function(chr) {
+          return escape[chr];
+        }
+      ;
+      if(shouldEscape.test(string)) {
+        return string.replace(badChars, escapedChar);
+      }
+      return string;
+    },
     message: function(message, type) {
       var
         html = ''
       ;
       if(message !== undefined && type !== undefined) {
         html +=  ''
-          + '<div class="message ' + type +'">'
+          + '<div class="message ' + type + '">'
         ;
         // message type
         if(type == 'empty') {
@@ -715,7 +736,8 @@ $.fn.search.settings = {
     },
     categories: function(response) {
       var
-        html = ''
+        html = '',
+        escape = $.fn.search.settings.templates.escape
       ;
       if(response.results !== undefined) {
         // each category
@@ -730,7 +752,8 @@ $.fn.search.settings = {
               html  += '<div class="result">';
               html  += '<a href="' + result.url + '"></a>';
               if(result.image !== undefined) {
-                html+= ''
+                result.image = escape(result.image);
+                html += ''
                   + '<div class="image">'
                   + ' <img src="' + result.image + '" alt="">'
                   + '</div>'
@@ -738,13 +761,15 @@ $.fn.search.settings = {
               }
               html += '<div class="content">';
               if(result.price !== undefined) {
-                html+= '<div class="price">' + result.price + '</div>';
+                result.price = escape(result.price);
+                html += '<div class="price">' + result.price + '</div>';
               }
               if(result.title !== undefined) {
-                html+= '<div class="title">' + result.title + '</div>';
+                result.title = escape(result.title);
+                html += '<div class="title">' + result.title + '</div>';
               }
               if(result.description !== undefined) {
-                html+= '<div class="description">' + result.description + '</div>';
+                html += '<div class="description">' + result.description + '</div>';
               }
               html  += ''
                 + '</div>'
@@ -776,7 +801,7 @@ $.fn.search.settings = {
         $.each(response.results, function(index, result) {
           html  += '<a class="result" href="' + result.url + '">';
           if(result.image !== undefined) {
-            html+= ''
+            html += ''
               + '<div class="image">'
               + ' <img src="' + result.image + '">'
               + '</div>'
@@ -784,13 +809,13 @@ $.fn.search.settings = {
           }
           html += '<div class="content">';
           if(result.price !== undefined) {
-            html+= '<div class="price">' + result.price + '</div>';
+            html += '<div class="price">' + result.price + '</div>';
           }
           if(result.title !== undefined) {
-            html+= '<div class="title">' + result.title + '</div>';
+            html += '<div class="title">' + result.title + '</div>';
           }
           if(result.description !== undefined) {
-            html+= '<div class="description">' + result.description + '</div>';
+            html += '<div class="description">' + result.description + '</div>';
           }
           html  += ''
             + '</div>'

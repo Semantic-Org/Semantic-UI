@@ -185,6 +185,7 @@
       Item
 ---------------*/
 .ui.items > .item {
+  table-layout: fixed;
   display: table;
   margin: 1em 0em;
   width: 100%;

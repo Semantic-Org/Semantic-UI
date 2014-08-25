@@ -8,10 +8,11 @@
  * http://opensource.org/licenses/MIT
  *
  */
+
 ;(function ( $, window, document, undefined ) {
 
 $.fn.dropdown = function(parameters) {
-    var
+  var
     $allModules    = $(this),
     $document      = $(document),
 

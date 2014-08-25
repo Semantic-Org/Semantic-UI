@@ -354,8 +354,8 @@
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
-  font-size: 14px;
-  border-top-right-radius: 0.3125em;
+  font-size: 0.75em;
+  border-radius: 0em 0.3125em 0em 0em;
 }
 .ui.labeled.input input {
   padding-right: 2.5em !important;

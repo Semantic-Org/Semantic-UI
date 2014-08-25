@@ -1731,6 +1731,7 @@ body > .ui.grid:not(.page) {
 -----------------------*/
 .ui.celled.grid {
   display: table;
+  table-layout: fixed;
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
@@ -1740,6 +1741,7 @@ body > .ui.grid:not(.page) {
 .ui.celled.grid > .column.row,
 .ui.celled.grid > .column.row:first-child {
   display: table;
+  table-layout: fixed;
   width: 100%;
   margin-top: 0em;
   padding-top: 0em;
@@ -5280,7 +5282,7 @@ body > .ui.grid:not(.page) {
 .ui.button {
   cursor: pointer;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: baseline;
   min-height: 1em;
   outline: none;
   border: none;
@@ -9551,7 +9553,7 @@ i.icon.privacy:before {
 i.icon.settings:before {
   content: "\f085";
 }
-i.icon.top:before {
+i.icon.trophy:before {
   content: "\f091";
 }
 i.icon.payment:before {
@@ -9648,7 +9650,7 @@ i.icon.print:before {
 i.icon.write:before {
   content: "\f040";
 }
-i.icon.tint:before {
+i.icon.theme:before {
   content: "\f043";
 }
 i.icon.adjust:before {
@@ -10908,6 +10910,9 @@ i.icon.compose:before {
 i.icon.point:before {
   content: "\f041";
 }
+i.icon.tint:before {
+  content: "\f043";
+}
 i.icon.signup:before {
   content: "\f044";
 }
@@ -10976,9 +10981,6 @@ i.icon.log.out:before {
 }
 i.icon.thumb.tack:before {
   content: "\f08d";
-}
-i.icon.trophy:before {
-  content: "\f091";
 }
 i.icon.winner:before {
   content: "\f091";
@@ -11056,6 +11058,9 @@ i.icon.currency:before {
   content: "\f0d6";
 }
 i.icon.triangle.down:before {
+  content: "\f0d7";
+}
+i.icon.dropdown:before {
   content: "\f0d7";
 }
 i.icon.triangle.up:before {
@@ -11931,8 +11936,8 @@ img.ui.bordered.image {
 .ui.labeled.input .corner.label {
   top: 1px;
   right: 1px;
-  font-size: 14px;
-  border-top-right-radius: 0.3125em;
+  font-size: 0.75em;
+  border-radius: 0em 0.3125em 0em 0em;
 }
 .ui.labeled.input input {
   padding-right: 2.5em !important;
@@ -12336,8 +12341,8 @@ a.ui.label {
   content: '';
   background-color: #e8e8e8;
   background-image: none;
-  width: 1.55em;
-  height: 1.55em;
+  width: 1.56em;
+  height: 1.56em;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
       -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
@@ -12376,10 +12381,10 @@ a.ui.label {
           transition: color 0.25s ease;
 }
 /* Icon Label */
-.ui.corner.label:not(.text) {
+.ui.corner.label {
   background-color: transparent !important;
 }
-.ui.corner.label:not(.text):after {
+.ui.corner.label:after {
   position: absolute;
   content: "";
   right: 0em;
@@ -12403,24 +12408,20 @@ a.ui.label {
   font-size: 1em;
   margin: 0em;
 }
-/* Text Label */
+/* Text Label
 .ui.text.corner.label {
-  font-weight: bold;
+  font-weight: @cornerTextWeight;
   text-align: center;
   padding: 0.25em 0;
   top: 1.1em;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   width: 4em;
   height: auto;
 }
 .ui.left.text.corner.label {
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
-/*.ui.text.corner.label:before,
+.ui.text.corner.label:before,
 .ui.text.corner.label:after {
   position: absolute;
   content: '';
@@ -12464,12 +12465,6 @@ a.ui.label {
 }
 .ui.left.corner.label .icon {
   left: -0.75em;
-}
-/* Coupling */
-.ui.rounded.image > .ui.corner.label,
-.ui.input > .ui.corner.label,
-.ui.segment > .ui.corner.label {
-  overflow: hidden;
 }
 /* Segment */
 .ui.segment > .ui.corner.label {
@@ -12611,11 +12606,8 @@ a.ui.label:hover:before {
   color: #ffffff !important;
 }
 .ui.labels .black.label:before,
-.ui.labels .black.label:after,
 .ui.black.labels .label:before,
-.ui.black.labels .label:after,
-.ui.black.label:before,
-.ui.black.label:after {
+.ui.black.label:before {
   background-color: #191919 !important;
 }
 a.ui.black.labels .label:hover,
@@ -12624,19 +12616,16 @@ a.ui.black.label:hover {
   border-color: #262626 !important;
 }
 .ui.labels a.black.label:hover:before,
-.ui.labels a.black.label:hover:after,
 .ui.black.labels a.label:hover:before,
-.ui.black.labels a.label:hover:after,
-a.ui.black.label:hover:before,
-a.ui.black.label:hover:after {
-  background-color: #262626;
+a.ui.black.label:hover:before {
+  background-color: #262626 !important;
 }
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.black.ribbon.label {
-  border-color: #262626 !important;
+  border-color: #191919 !important;
 }
 /*--- Blue ---*/
 .ui.blue.labels .label,
@@ -12646,11 +12635,8 @@ a.ui.black.label:hover:after {
   color: #ffffff !important;
 }
 .ui.labels .blue.label:before,
-.ui.labels .blue.label:after,
 .ui.blue.labels .label:before,
-.ui.blue.labels .label:after,
-.ui.blue.label:before,
-.ui.blue.label:after {
+.ui.blue.label:before {
   background-color: #0074d9 !important;
 }
 a.ui.blue.labels .label:hover,
@@ -12661,19 +12647,16 @@ a.ui.blue.label:hover {
   color: #ffffff !important;
 }
 .ui.labels a.blue.label:hover:before,
-.ui.labels a.blue.label:hover:after,
 .ui.blue.labels a.label:hover:before,
-.ui.blue.labels a.label:hover:after,
-a.ui.blue.label:hover:before,
-a.ui.blue.label:hover:after {
-  background-color: #0082f3;
+a.ui.blue.label:hover:before {
+  background-color: #0082f3 !important;
 }
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.blue.ribbon.label {
-  border-color: #0082f3 !important;
+  border-color: #0074d9 !important;
 }
 /*--- Green ---*/
 .ui.green.labels .label,
@@ -12683,11 +12666,8 @@ a.ui.blue.label:hover:after {
   color: #ffffff !important;
 }
 .ui.labels .green.label:before,
-.ui.labels .green.label:after,
 .ui.green.labels .label:before,
-.ui.green.labels .label:after,
-.ui.green.label:before,
-.ui.green.label:after {
+.ui.green.label:before {
   background-color: #2ecc40 !important;
 }
 a.ui.green.labels .label:hover,
@@ -12696,19 +12676,16 @@ a.ui.green.label:hover {
   border-color: #40d451 !important;
 }
 .ui.labels a.green.label:hover:before,
-.ui.labels a.green.label:hover:after,
 .ui.green.labels a.label:hover:before,
-.ui.green.labels a.label:hover:after,
-a.ui.green.label:hover:before,
-a.ui.green.label:hover:after {
-  background-color: #40d451;
+a.ui.green.label:hover:before {
+  background-color: #40d451 !important;
 }
 .ui.green.corner.label,
 .ui.green.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.green.ribbon.label {
-  border-color: #40d451 !important;
+  border-color: #2ecc40 !important;
 }
 /*--- Orange ---*/
 .ui.orange.labels .label,
@@ -12718,11 +12695,8 @@ a.ui.green.label:hover:after {
   color: #ffffff !important;
 }
 .ui.labels .orange.label:before,
-.ui.labels .orange.label:after,
 .ui.orange.labels .label:before,
-.ui.orange.labels .label:after,
-.ui.orange.label:before,
-.ui.orange.label:after {
+.ui.orange.label:before {
   background-color: #ff851b !important;
 }
 a.ui.orange.labels .label:hover,
@@ -12733,19 +12707,16 @@ a.ui.orange.label:hover {
   color: #ffffff !important;
 }
 .ui.labels a.orange.label:hover:before,
-.ui.labels a.orange.label:hover:after,
 .ui.orange.labels a.label:hover:before,
-.ui.orange.labels a.label:hover:after,
-a.ui.orange.label:hover:before,
-a.ui.orange.label:hover:after {
-  background-color: #ff9335;
+a.ui.orange.label:hover:before {
+  background-color: #ff9335 !important;
 }
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.orange.ribbon.label {
-  border-color: #ff9335 !important;
+  border-color: #ff851b !important;
 }
 /*--- Pink ---*/
 .ui.pink.labels .label,
@@ -12755,11 +12726,8 @@ a.ui.orange.label:hover:after {
   color: #ffffff !important;
 }
 .ui.labels .pink.label:before,
-.ui.labels .pink.label:after,
 .ui.pink.labels .label:before,
-.ui.pink.labels .label:after,
-.ui.pink.label:before,
-.ui.pink.label:after {
+.ui.pink.label:before {
   background-color: #d9499a !important;
 }
 a.ui.pink.labels .label:hover,
@@ -12770,19 +12738,16 @@ a.ui.pink.label:hover {
   color: #ffffff !important;
 }
 .ui.labels a.pink.label:hover:before,
-.ui.labels a.pink.label:hover:after,
 .ui.pink.labels a.label:hover:before,
-.ui.pink.labels a.label:hover:after,
-a.ui.pink.label:hover:before,
-a.ui.pink.label:hover:after {
-  background-color: #dd5ea6;
+a.ui.pink.label:hover:before {
+  background-color: #dd5ea6 !important;
 }
 .ui.pink.corner.label,
 .ui.pink.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.pink.ribbon.label {
-  border-color: #dd5ea6 !important;
+  border-color: #d9499a !important;
 }
 /*--- Purple ---*/
 .ui.purple.labels .label,
@@ -12792,11 +12757,8 @@ a.ui.pink.label:hover:after {
   color: #ffffff !important;
 }
 .ui.labels .purple.label:before,
-.ui.labels .purple.label:after,
 .ui.purple.labels .label:before,
-.ui.purple.labels .label:after,
-.ui.purple.label:before,
-.ui.purple.label:after {
+.ui.purple.label:before {
   background-color: #a24096 !important;
 }
 a.ui.purple.labels .label:hover,
@@ -12807,19 +12769,16 @@ a.ui.purple.label:hover {
   color: #ffffff !important;
 }
 .ui.labels a.purple.label:hover:before,
-.ui.labels a.purple.label:hover:after,
 .ui.purple.labels a.label:hover:before,
-.ui.purple.labels a.label:hover:after,
-a.ui.purple.label:hover:before,
-a.ui.purple.label:hover:after {
-  background-color: #b447a7;
+a.ui.purple.label:hover:before {
+  background-color: #b447a7 !important;
 }
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.purple.ribbon.label {
-  border-color: #b447a7 !important;
+  border-color: #a24096 !important;
 }
 /*--- Red ---*/
 .ui.red.labels .label,
@@ -12829,11 +12788,8 @@ a.ui.purple.label:hover:after {
   color: #ffffff !important;
 }
 .ui.labels .red.label:before,
-.ui.labels .red.label:after,
 .ui.red.labels .label:before,
-.ui.red.labels .label:after,
-.ui.red.label:before,
-.ui.red.label:after {
+.ui.red.label:before {
   background-color: #ff4136 !important;
 }
 .ui.red.corner.label,
@@ -12847,15 +12803,12 @@ a.ui.red.label:hover {
   color: #ffffff !important;
 }
 .ui.labels a.red.label:hover:before,
-.ui.labels a.red.label:hover:after,
 .ui.red.labels a.label:hover:before,
-.ui.red.labels a.label:hover:after,
-a.ui.red.label:hover:before,
-a.ui.red.label:hover:after {
-  background-color: #ff5950;
+a.ui.red.label:hover:before {
+  background-color: #ff5950 !important;
 }
 .ui.red.ribbon.label {
-  border-color: #ff5950 !important;
+  border-color: #ff4136 !important;
 }
 /*--- Teal ---*/
 .ui.teal.labels .label,
@@ -12865,11 +12818,8 @@ a.ui.red.label:hover:after {
   color: #ffffff !important;
 }
 .ui.labels .teal.label:before,
-.ui.labels .teal.label:after,
 .ui.teal.labels .label:before,
-.ui.teal.labels .label:after,
-.ui.teal.label:before,
-.ui.teal.label:after {
+.ui.teal.label:before {
   background-color: #39cccc !important;
 }
 a.ui.teal.labels .label:hover,
@@ -12880,19 +12830,16 @@ a.ui.teal.label:hover {
   color: #ffffff !important;
 }
 .ui.labels a.teal.label:hover:before,
-.ui.labels a.teal.label:hover:after,
 .ui.teal.labels a.label:hover:before,
-.ui.teal.labels a.label:hover:after,
-a.ui.teal.label:hover:before,
-a.ui.teal.label:hover:after {
-  background-color: #4dd1d1;
+a.ui.teal.label:hover:before {
+  background-color: #4dd1d1 !important;
 }
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.teal.ribbon.label {
-  border-color: #4dd1d1 !important;
+  border-color: #39cccc !important;
 }
 /*--- Yellow ---*/
 .ui.yellow.labels .label,
@@ -12902,11 +12849,8 @@ a.ui.teal.label:hover:after {
   color: #ffffff !important;
 }
 .ui.labels .yellow.label:before,
-.ui.labels .yellow.label:after,
 .ui.yellow.labels .label:before,
-.ui.yellow.labels .label:after,
-.ui.yellow.label:before,
-.ui.yellow.label:after {
+.ui.yellow.label:before {
   background-color: #ffcb08 !important;
 }
 a.ui.yellow.labels .label:hover,
@@ -12917,19 +12861,16 @@ a.ui.yellow.label:hover {
   color: #ffffff !important;
 }
 .ui.labels a.yellow.label:hover:before,
-.ui.labels a.yellow.label:hover:after,
 .ui.yellow.labels a.label:hover:before,
-.ui.yellow.labels a.label:hover:after,
-a.ui.yellow.label:hover:before,
-a.ui.yellow.label:hover:after {
-  background-color: #ffd021;
+a.ui.yellow.label:hover:before {
+  background-color: #ffd021 !important;
 }
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.yellow.ribbon.label {
-  border-color: #4dd1d1 !important;
+  border-color: #ffcb08 !important;
 }
 /*-------------------
        Fluid
@@ -13084,30 +13025,6 @@ a.ui.yellow.label:hover:after {
 }
 .ui.huge.labels .label,
 .ui.huge.label {
-  font-size: 1.25rem;
-}
-.ui.mini.corner.labels .label,
-.ui.mini.corner.label {
-  font-size: 0.7rem;
-}
-.ui.tiny.corner.labels .label,
-.ui.tiny.corner.label {
-  font-size: 0.75rem;
-}
-.ui.small.corner.labels .label,
-.ui.small.corner.label {
-  font-size: 0.8rem;
-}
-.ui.corner.labels .label,
-.ui.corner.label {
-  font-size: 0.875rem;
-}
-.ui.large.corner.labels .label,
-.ui.large.corner.label {
-  font-size: 1rem;
-}
-.ui.huge.corner.labels .label,
-.ui.huge.corner.label {
   font-size: 1.25rem;
 }
 /*******************************
@@ -18928,6 +18845,7 @@ a.ui.nag {
 /*-------------------
        Variations
 --------------------*/
+/* Wide */
 /* Inverted */
 /* Sizes */
 /*------------------
@@ -19108,6 +19026,24 @@ a.ui.nag {
 /*******************************
             Variations
 *******************************/
+/*--------------
+     Wide
+---------------*/
+.ui.wide.popup {
+  width: 350px;
+  max-width: 350px;
+}
+.ui.very.wide.popup {
+  width: 550px;
+  max-width: 550px;
+}
+/*--------------
+     Fluid
+---------------*/
+.ui.fluid.popup {
+  width: 100%;
+  max-width: 99999px;
+}
 /*--------------
      Colors
 ---------------*/
@@ -24069,6 +24005,7 @@ a.ui.card:hover,
       Item
 ---------------*/
 .ui.items > .item {
+  table-layout: fixed;
   display: table;
   margin: 1em 0em;
   width: 100%;
@@ -24631,6 +24568,9 @@ ol.ui.list ol,
   vertical-align: middle;
   -webkit-transition: color 0.2s ease;
           transition: color 0.2s ease;
+}
+.ui.list .item > .top.aligned.icon {
+  vertical-align: top;
 }
 .ui.list .item > .icon:only-child {
   display: inline-block;

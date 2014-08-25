@@ -81,7 +81,7 @@
 @tagCircleBoxShadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
 @tagTriangleRightOffset: 100%;
 @tagTriangleTopOffset: 50%;
-@tagTriangleSize: 1.55em;
+@tagTriangleSize: 1.56em;
 
 /* Ribbon */
 @ribbonDistance: 2rem;

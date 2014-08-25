@@ -53,7 +53,7 @@
 /* Labeled Input */
 @labelTop: @borderWidth;
 @labelRight: @borderWidth;
-@labelSize: 14px;
+@labelSize: 0.75em;
 
 @labeledMargin: 2.5em;
 @labeledIconInputMargin: 3.25em;

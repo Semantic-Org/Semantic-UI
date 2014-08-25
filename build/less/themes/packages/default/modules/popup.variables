@@ -67,6 +67,10 @@
        Variations
 --------------------*/
 
+/* Wide */
+@wideWidth: 350px;
+@veryWideWidth: 550px;
+
 /* Inverted */
 @invertedBackground: @black;
 @invertedColor: @white;
