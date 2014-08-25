@@ -37,7 +37,7 @@
 - **List** - List images can now specify vertical alignment
 - **List** - List spacing defaults have been adjusted to be more consistent
 - **Popup** - Popup can now allow itself not to be closed when hovered over
-- **Popup** - Popup content can now be specified on initialization.
+- **Popup** - A popup element can now be specified on initialization.
 - **Popup** - Positioned popups will now extend in the opposite direction to fit better with floated content
 - **Rating** - Rating now uses an embedded icon font to maximize compatibility
 - **Sidebar** - Sidebar now has tall / very tall variations for resizing top/bottom sidebars

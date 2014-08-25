@@ -902,10 +902,6 @@ $.fn.popup.settings = {
     popup    : '.ui.popup'
   },
 
-  escape: function() {
-
-  },
-
   templates: {
     escape: function(string) {
       var

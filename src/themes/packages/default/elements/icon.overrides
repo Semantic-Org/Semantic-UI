@@ -66,7 +66,7 @@ i.icon.comments:before { content: "\f086"; }
 i.icon.shop:before { content: "\f07a"; }
 i.icon.privacy:before { content: "\f084"; }
 i.icon.settings:before { content: "\f085"; }
-i.icon.top:before { content: "\f091"; }
+i.icon.trophy:before { content: "\f091"; }
 i.icon.payment:before { content: "\f09d"; }
 i.icon.feed:before { content: "\f09e"; }
 i.icon.alarm.outline:before { content: "\f0a2"; }
@@ -100,7 +100,7 @@ i.icon.lock:before { content: "\f023"; }
 i.icon.bookmark:before { content: "\f02e"; }
 i.icon.print:before { content: "\f02f"; }
 i.icon.write:before { content: "\f040"; }
-i.icon.tint:before { content: "\f043"; }
+i.icon.theme:before { content: "\f043"; }
 i.icon.adjust:before { content: "\f042"; }
 i.icon.edit:before { content: "\f044"; }
 i.icon.external.share:before { content: "\f045"; }
@@ -555,6 +555,7 @@ i.icon.picture:before { content: "\f03e"; }
 i.icon.pencil:before { content: "\f040"; }
 i.icon.compose:before { content: "\f040"; }
 i.icon.point:before { content: "\f041"; }
+i.icon.tint:before { content: "\f043"; }
 i.icon.signup:before { content: "\f044"; }
 i.icon.plus.circle:before { content: "\f055"; }
 i.icon.minus.circle:before { content: "\f056"; }
@@ -578,7 +579,6 @@ i.icon.dislike.outline:before { content: "\f088"; }
 i.icon.heart.outline:before { content: "\f08a"; }
 i.icon.log.out:before { content: "\f08b"; }
 i.icon.thumb.tack:before { content: "\f08d"; }
-i.icon.trophy:before { content: "\f091"; }
 i.icon.winner:before { content: "\f091"; }
 i.icon.bookmark.outline:before { content: "\f097"; }
 i.icon.phone.square:before { content: "\f098"; }
