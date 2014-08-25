@@ -213,8 +213,8 @@ themes      : ['Default']
           <i class="home icon"></i> Home
         </a>
         <a class="browse item">
-          Browse
           <i class="dropdown icon"></i>
+          Browse
         </a>
         <div class="ui very wide popup">
           <div class="ui four column divided fitted grid">
