@@ -46,10 +46,10 @@ themes      : ['default', 'fixed-width']
   <div class="ui small modal">
     <i class="close icon"></i>
     <div class="header">
-      Changing Your Thing
+      Delete Your Account
     </div>
     <div class="content">
-      <p>Do you want to change that thing to something else?</p>
+      <p>Are you sure you want to delete your account</p>
     </div>
     <div class="actions">
       <div class="ui negative button">
@@ -59,6 +59,105 @@ themes      : ['default', 'fixed-width']
         Yes
         <i class="checkmark icon"></i>
       </div>
+    </div>
+  </div>
+
+  <div class="ui fullscreen modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Update Your Account Settings
+    </div>
+    <div class="content">
+      <div class="ui form">
+        <h4 class="ui dividing header">Personal Information</h4>
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <div class="two fields">
+              <div class="field">
+                <input type="text" name="first-name" placeholder="First Name">
+              </div>
+              <div class="field">
+                <input type="text" name="last-name" placeholder="Last Name">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui selection dropdown">
+              <input type="hidden" name="gender">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="male">Male</div>
+                <div class="item" data-value="female">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Biography</label>
+          <textarea></textarea>
+        </div>
+        <h4 class="ui dividing header">Account Info</h4>
+        <div class="two fields">
+          <div class="required field">
+            <label>Username</label>
+            <div class="ui left labeled icon input">
+              <input type="text" placeholder="Username">
+              <i class="user icon"></i>
+            </div>
+          </div>
+          <div class="required field">
+            <label>Password</label>
+            <div class="ui left labeled icon input">
+              <input type="password">
+              <i class="lock icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="ui dividing header">Settings</h4>
+        <h5 class="ui header">Privacy</h5>
+        <div class="field">
+          <div class="ui toggle checkbox">
+            <input type="radio" name="privacy">
+            <label>Allow <b>anyone</b> to see my account</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui toggle checkbox">
+            <input type="radio" name="privacy">
+            <label>Allow <b>only friends</b> to see my account</label>
+          </div>
+        </div>
+        <h5 class="ui header">Newsletter Subscriptions</h5>
+        <div class="field">
+          <div class="ui slider checkbox">
+            <input type="checkbox" name="top-posts">
+            <label>Top Posts This Week</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui slider checkbox">
+            <input type="checkbox" name="hot-deals">
+            <label>Hot Deals</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="hot-deals">
+            <label>I agree to the <a href="#">Terms of Service</a>.</label>
+          </div>
+        </div>
+        <div class="ui error message">
+          <div class="header">We noticed some issues</div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui button">Cancel</div>
+      <div class="ui green button">Update</div>
     </div>
   </div>
 
@@ -142,6 +241,15 @@ themes      : ['default', 'fixed-width']
     <h2 class="ui dividing header">Variations</h2>
 
     <div class="no example">
+      <h4 class="ui header">Full Screen</h4>
+      <p>A modal can use the entire size of the screen</p>
+      <div class="code" data-demo="true">
+      $('.fullscreen.modal')
+        .modal('show')
+      ;
+      </div>
+    </div>
+    <div class="no example">
       <h4 class="ui header">Size</h4>
       <p>A modal can vary in size</p>
       <div class="code" data-demo="true">
@@ -162,7 +270,7 @@ themes      : ['default', 'fixed-width']
       <h4 class="ui header">Active</h4>
       <p>An active modal is visible on the page</p>
       <div class="code" data-type="html">
-        <div class="active ui modal">...</div>
+        <div class="ui active modal"></div>
       </div>
     </div>
   </div>

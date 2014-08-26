@@ -77,8 +77,8 @@
 @largeMonitorMargin: 0em 0em 0em -(@largeMonitorWidth / 2);
 @widescreenMonitorMargin: 0em 0em 0em -(@widescreenMonitorWidth / 2);
 
-@fullScreenWidth: 99%;
-@fullScreenMargin: 0em 0em 0em -(@fullScreenWidth / 2);
+@fullScreenWidth: 95%;
+@fullScreenMargin: @scrollingMargin ((100% - @fullScreenWidth) / 2) @scrollingMargin;
 
 
 /*-------------------

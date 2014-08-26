@@ -376,7 +376,7 @@
             Variations
 *******************************/
 /* A modal that cannot fit on the page */
-.ui.scrolling.dimmable {
+.ui.scrolling.dimmable.dimmed {
   overflow: hidden;
 }
 .ui.scrolling.dimmable > .dimmer {
@@ -400,11 +400,15 @@
    Full Screen
 ---------------*/
 .ui.fullscreen.modal {
-  width: 99% !important;
-  margin: 0em 0em 0em -49.5% !important;
+  width: 95% !important;
+  margin: 3rem 2.5% 3rem !important;
+  top: auto;
+  left: auto;
 }
 .ui.fullscreen.modal > .close {
-  right: 0em;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(0, 0, 0, 0.8);
 }
 /*--------------
       Size

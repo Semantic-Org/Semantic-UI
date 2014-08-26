@@ -251,7 +251,7 @@
 
 /* A modal that cannot fit on the page */
 
-.ui.scrolling.dimmable {
+.ui.scrolling.dimmable.dimmed {
   overflow: hidden;
 }
 .ui.scrolling.dimmable > .dimmer {
@@ -282,12 +282,14 @@
 .ui.fullscreen.modal {
   width: @fullScreenWidth !important;
   margin: @fullScreenMargin !important;
+  top: auto;
+  left: auto;
 }
 .ui.fullscreen.modal > .close {
-  right: 0em;
+  top: @innerCloseTop;
+  right: @innerCloseRight;
+  color: @innerCloseColor;
 }
-
-
 /*--------------
       Size
 ---------------*/

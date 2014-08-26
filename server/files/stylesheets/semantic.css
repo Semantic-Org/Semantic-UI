@@ -159,6 +159,10 @@ a:hover {
   display: none;
 }
 
+#example .code .active.ui.modal {
+  display: none !important;
+}
+
 #example #menu .item .item {
   font-size: 0.875rem;
 }

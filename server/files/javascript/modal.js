@@ -24,6 +24,9 @@ semantic.modal.ready = function() {
         }
       })
     ;
+    $('.ui.checkbox')
+      .checkbox()
+    ;
 
 
 };
