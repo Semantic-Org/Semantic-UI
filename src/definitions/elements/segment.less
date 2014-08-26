@@ -25,7 +25,7 @@
 
 .ui.segment {
   position: relative;
-  background-color: @white;
+  background-color: @background;
 
   box-shadow: @boxShadow;
 
@@ -85,10 +85,12 @@
     Loose Coupling
 --------------------*/
 
+/* Menu */
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
 }
 
+/* Grid */
 .ui.page.grid.segment,
 .ui.grid .ui.segment.column {
   padding-top: @pageGridMargin;
@@ -100,6 +102,14 @@
   border-radius: 0em;
   box-shadow: none;
   border: none;
+}
+
+/* Table */
+.ui.basic.table.segment {
+  background: @background;
+  border-radius: @borderRadius;
+  border: @border;
+  box-shadow: @boxShadow;
 }
 
 
