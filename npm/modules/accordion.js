@@ -83,6 +83,7 @@ module.exports = function(parameters) {
               $activeTitle = $(this),
               index        = $title.index($activeTitle)
             ;
+            if( $(event.target).data('disable-accordion') ) return;
             module.toggle(index);
           },
           resetDisplay: function() {
