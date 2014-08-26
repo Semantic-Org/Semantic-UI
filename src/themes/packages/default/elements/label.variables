@@ -90,7 +90,7 @@
 @ribbonShadowColor: rgba(0, 0, 0, 0.15);
 
 /* Attached */
-@attachedSegmentPadding: 2.5em;
+@attachedSegmentPadding: 2rem;
 @attachedVerticalPadding: 0.75em;
 @attachedHorizontalPadding: 1em;
 
