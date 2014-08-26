@@ -17645,6 +17645,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 }
 .ui.inline.dropdown .dropdown.icon {
   margin: 0em 0.5em 0em 0.25em;
+  vertical-align: top;
 }
 .ui.inline.dropdown .text {
   font-weight: bold;
@@ -18126,7 +18127,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   text-align: left;
   width: 90%;
   margin-left: -45%;
-  background: transparent;
+  background: #ffffff;
   border: none;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
   border-radius: 0.25rem;
@@ -18186,7 +18187,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Content
 ---------------*/
 .ui.modal > .content {
-  position: relative;
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -18476,31 +18476,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Load Default
 -------------------*/
 /*******************************
-             Nag
-*******************************/
-/*--------------
-   Collection
----------------*/
-/*--------------
-    Elements
----------------*/
-/* Title */
-/*--------------
-      States
----------------*/
-/* Hover */
-/*--------------
-   Variations
----------------*/
-/* Top / Bottom */
-/* Inverted */
-/*--------------
-      Plural
----------------*/
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -18591,6 +18566,31 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Nag
+*******************************/
+/*--------------
+   Collection
+---------------*/
+/*--------------
+    Elements
+---------------*/
+/* Title */
+/*--------------
+      States
+---------------*/
+/* Hover */
+/*--------------
+   Variations
+---------------*/
+/* Top / Bottom */
+/* Inverted */
+/*--------------
+      Plural
+---------------*/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -18619,7 +18619,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   padding: 0.5em 1em;
   background: #555555;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
-  font-size: 14px;
+  font-size: 1rem;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0em 0em 0.25em 0.25em;
@@ -24556,6 +24556,7 @@ ul.ui.list li,
 ol.ui.list li,
 .ui.list .item {
   display: list-item;
+  table-layout: fixed;
   list-style-type: none;
   list-style-position: outside;
   padding: 0.3em 0em;
@@ -24969,7 +24970,6 @@ ol.ui.horizontal.list li:before,
 }
 .ui.divided.ordered.list .item {
   padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 .ui.divided.ordered.list .item:before {
   left: 0em;
@@ -24981,7 +24981,6 @@ ol.ui.horizontal.list li:before,
 }
 .ui.divided.ordered.list .item .list .item {
   padding-left: 2em;
-  padding-right: 2em;
 }
 /* Divided horizontal */
 .ui.divided.horizontal.list {
@@ -25036,7 +25035,6 @@ ol.ui.horizontal.list li:before,
 }
 .ui.celled.bulleted.list .item {
   padding-left: 1rem;
-  padding-right: 1rem;
 }
 .ui.celled.bulleted.list .item:before {
   left: 0em;
@@ -25052,7 +25050,6 @@ ol.ui.horizontal.list li:before,
 }
 .ui.celled.ordered.list .item {
   padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 .ui.celled.ordered.list .item:before {
   left: 0em;
@@ -25064,7 +25061,6 @@ ol.ui.horizontal.list li:before,
 }
 .ui.celled.ordered.list .item .list .item {
   padding-left: 2em;
-  padding-right: 2em;
 }
 /* Celled Horizontal */
 .ui.horizontal.celled.list {

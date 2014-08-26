@@ -385,6 +385,7 @@
 }
 .ui.inline.dropdown .dropdown.icon {
   margin: 0em 0.5em 0em 0.25em;
+  vertical-align: top;
 }
 .ui.inline.dropdown .text {
   font-weight: bold;

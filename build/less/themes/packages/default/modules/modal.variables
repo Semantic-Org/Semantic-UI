@@ -2,7 +2,7 @@
              Modal
 *******************************/
 
-@background: transparent;
+@background: @white;
 @border: none;
 @width: 90%;
 @xOffset: -(@width / 2);

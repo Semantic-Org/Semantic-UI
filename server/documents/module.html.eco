@@ -16,35 +16,35 @@ type        : 'Semantic'
     <p>All official javascript modules in Semantic are designed using a singular design pattern. This pattern allows several useful features common to all javascript components</p>
     <div class="ui relaxed list">
       <div class="item">
-        <i class="check icon"></i>
+        <i class="top aligned green check icon"></i>
         <div class="content">
           <div class="header">Run-time Performance Analysis</div>
           <p>Semantic modules all provide the ability to log performance traces to the console, allowing you to see which aspects of the module are more or less performant and to track total init time <code>onDomReady</code></p>
         </div>
       </div>
       <div class="item">
-        <i class="check icon"></i>
+        <i class="top aligned green check icon"></i>
         <div class="content">
           <div class="header">Human Readable Traces</div>
           <p>Unlike other component libraries that hide explanations of behavior in inline comments which can only be read by combing the source, semantic modules provide run-time debug output to the JavaScript console telling you what each component is doing as it is doing it.</p>
         </div>
       </div>
       <div class="item">
-        <i class="check icon"></i>
+        <i class="top aligned green check icon"></i>
         <div class="content">
           <div class="header">Settings can be overwritten after initialization</div>
           <p>Semantic provides methods to set default settings, set settings at initialization, and set settings after initialization, allowing complete flexibility over component behaviors.</p>
         </div>
       </div>
       <div class="item">
-        <i class="check icon"></i>
+        <i class="top aligned green check icon"></i>
         <div class="content">
           <div class="header">All modules include an initialize and destroy method</div>
           <p>All events and metadata are namespaced and can be removed after initialization, modules automatically handle destroy/init events to allow users to lazy-initialize a plugin multiple times with no issues.</p>
         </div>
       </div>
       <div class="item">
-        <i class="check icon"></i>
+        <i class="top aligned green check icon"></i>
         <div class="content">
           <div class="header">Instance available in metadata</div>
           <p>Modules store their instance in metadata meaning that, in a pinch, you can directly modify the instance of a UI element by modifying its properties.</p>

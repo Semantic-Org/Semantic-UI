@@ -572,7 +572,7 @@ body.guide .main.container > * {
 
 #example .main.container {
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 2em;
 }
 #example .main.container > h2 {
   -webkit-transition: 0.5s color ease;
@@ -1352,6 +1352,7 @@ body.progress .ui.progress .bar {
   #example .fixed .container {
     width: auto;
     margin: 0px auto;
+    max-width: 9999px;
   }
   #example .attached.launch.button {
     display: none;
@@ -1377,6 +1378,7 @@ body.progress .ui.progress .bar {
   }
   #example.index .masthead h1 {
     font-size: 3em;
+    margin-top: 0em;
   }
   #example.index .masthead h1 .icon {
     display: none;
@@ -1433,12 +1435,20 @@ body.progress .ui.progress .bar {
     margin-left: 160px;
     width: 170px;
   }
+  #example:not(.index) .introduction .button {
+    float: none;
+    margin: 0 0.5em 0.5em 0;
+  }
 }
 
 
 @media only screen and (max-width : 600px) {
   #example .icon.example .grid .column {
     width: 33.33%;
+  }
+  #example .container {
+    width: auto;
+    margin: 0% 1em 0px;
   }
 }
 
@@ -1493,6 +1503,20 @@ body.progress .ui.progress .bar {
   }
 }
 
+#example .masthead .mobile.buttons {
+  display: none;
+}
+@media only screen and (max-width : 470px) {
+  #example .masthead .tag.label {
+    display: none;
+  }
+  #example .masthead .inverted.buttons {
+    display: none;
+  }
+  #example .masthead .mobile.buttons {
+    display: block;
+  }
+}
 
 
 @media only screen and (max-width : 998px) {
