@@ -21,15 +21,15 @@
   transform 0.2s ease,
   opacity 0.2s ease
 ;
-@iconVerticalAlign: top;
+@iconVerticalAlign: baseline;
 
 /* Child Accordion */
-@childAccordionMargin: 1em 0em 0em;
+@childAccordionMargin: 1em 0.5em 0em;
 @childAccordionPadding: 0em;
 
 /* Content */
 @contentMargin: 0em;
-@contentPadding: 0.5em 0.5em 1em;
+@contentPadding: 0.5em 0em 1em;
 
 /*-------------------
         States

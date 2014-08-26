@@ -266,6 +266,70 @@ themes      : ['Default']
           Breeds of Dog
         </div>
       </div>
+      <div class="ui inverted yellow statistic">
+        <div class="value">
+          27
+        </div>
+        <div class="label">
+          Yellow Labradors
+        </div>
+      </div>
+      <div class="ui inverted green statistic">
+        <div class="value">
+          8
+        </div>
+        <div class="label">
+          Green Poodles
+        </div>
+      </div>
+      <div class="ui inverted blue statistic">
+        <div class="value">
+          28
+        </div>
+        <div class="label">
+          Blue Shiba-Inus
+        </div>
+      </div>
+      <div class="ui inverted orange statistic">
+        <div class="value">
+          14
+        </div>
+        <div class="label">
+          Orange Chihuahuas
+        </div>
+      </div>
+      <div class="ui inverted purple statistic">
+        <div class="value">
+          82
+        </div>
+        <div class="label">
+          Purple Labradoodles
+        </div>
+      </div>
+      <div class="ui inverted pink statistic">
+        <div class="value">
+          1
+        </div>
+        <div class="label">
+          Pink Labradors
+        </div>
+      </div>
+      <div class="ui inverted red statistic">
+        <div class="value">
+          22
+        </div>
+        <div class="label">
+          Red Mastifs
+        </div>
+      </div>
+      <div class="ui inverted teal statistic">
+        <div class="value">
+          15
+        </div>
+        <div class="label">
+          Teal Cockerspaniels
+        </div>
+      </div>
     </div>
   </div>
 
@@ -304,6 +368,22 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Sizes</h4>
     <p>A statistic can vary in size</p>
+    <div class="ui mini statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
+    <div class="ui tiny statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
     <div class="ui small statistic">
       <div class="value">
         22
@@ -312,39 +392,23 @@ themes      : ['Default']
         Breeds of Dog
       </div>
     </div>
-  </div>
-  <div class="another example">
-    <div class="ui small horizontal statistics">
-      <div class="statistic">
-        <div class="value">
-          22
-        </div>
-        <div class="label">
-          Breeds of Dog
-        </div>
+    <div class="ui statistic">
+      <div class="value">
+        22
       </div>
-      <div class="statistic">
-        <div class="value">
-          31
-        </div>
-        <div class="label">
-          Famous Dogs in Films
-        </div>
-      </div>
-      <div class="statistic">
-        <div class="value">
-          22
-        </div>
-        <div class="label">
-          US Presidents Owned Dogs
-        </div>
+      <div class="label">
+        Breeds of Dog
       </div>
     </div>
-  </div>
-  <div class="example">
-    <h4 class="ui header">Sizes</h4>
-    <p>A statistic can vary in size</p>
     <div class="ui large statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
+    <div class="ui huge statistic">
       <div class="value">
         22
       </div>
@@ -354,30 +418,52 @@ themes      : ['Default']
     </div>
   </div>
   <div class="another example">
-    <div class="ui large horizontal statistics">
-      <div class="statistic">
-        <div class="value">
-          22
-        </div>
-        <div class="label">
-          Breeds of Dog
-        </div>
+    <div class="ui mini horizontal statistic">
+      <div class="value">
+        22
       </div>
-      <div class="statistic">
-        <div class="value">
-          31
-        </div>
-        <div class="label">
-          Famous Dogs in Films
-        </div>
+      <div class="label">
+        Breeds of Dog
       </div>
-      <div class="statistic">
-        <div class="value">
-          22
-        </div>
-        <div class="label">
-          US Presidents Owned Dogs
-        </div>
+    </div>
+    <div class="ui tiny horizontal statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
+    <div class="ui small horizontal statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
+    <div class="ui horizontal statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
+    <div class="ui large horizontal statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
+      </div>
+    </div>
+    <div class="ui huge horizontal statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Breeds of Dog
       </div>
     </div>
   </div>

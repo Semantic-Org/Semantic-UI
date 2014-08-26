@@ -124,7 +124,7 @@ themes      : ['default']
     <div class="example">
       <h3 class="ui header">Nested</h3>
       <p>An accordion can have multiple levels of nested content. This content can either be in a nested <code>accordion</code> or simply another level of <code>title</code> and <code>content</code></p>
-      <div class="ui accordion">
+      <div class="ui styled accordion">
         <div class="active title">
           <i class="dropdown icon"></i>
           Level 1
@@ -176,13 +176,13 @@ themes      : ['default']
           Level 2
         </div>
         <div class="content">
-          Welcome to level 2 where content is formatted without nested accordions
+          <p>Welcome to level 2 where content is formatted without nested accordions</p>
           <div class="active title">
             <i class="dropdown icon"></i>
             Level 2A
           </div>
           <div class="active content">
-            Level 2A Contents
+            <p>Level 2A Contents</p>
             <div class="title">
                 <i class="dropdown icon"></i>
                 Level 2A-A

@@ -90,6 +90,24 @@
   top: 1px;
 }
 
+/* Label */
+.ui.bottom.attached.segment > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.top.attached.segment > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+
 /* Grid */
 .ui.page.grid.segment,
 .ui.grid .ui.segment.column {
@@ -107,9 +125,11 @@
 /* Table */
 .ui.basic.table.segment {
   background: @background;
-  border-radius: @borderRadius;
   border: @border;
   box-shadow: @boxShadow;
+}
+.ui.very.basic.table.segment {
+  padding: @verticalPadding @horizontalPadding;
 }
 
 
