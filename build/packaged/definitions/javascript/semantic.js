@@ -5976,7 +5976,6 @@ $.fn.dimmer = function(parameters) {
               .on(clickEvent + eventNamespace, module.toggle)
             ;
           }
-
           if( module.is.page() ) {
             module.debug('Setting as a page dimmer', $dimmable);
             module.set.pageDimmer();
@@ -6083,13 +6082,13 @@ $.fn.dimmer = function(parameters) {
             ;
             if(settings.on != 'hover' && settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
               module.verbose('Hiding dimmer with css');
+              module.remove.dimmed();
               $dimmer
                 .transition({
                   animation : settings.transition + ' out',
                   duration  : module.get.duration(),
                   queue     : true,
                   complete  : function() {
-                    module.remove.dimmed();
                     module.remove.active();
                     callback();
                   }
@@ -6098,11 +6097,11 @@ $.fn.dimmer = function(parameters) {
             }
             else {
               module.verbose('Hiding dimmer with javascript');
+              module.remove.dimmed();
               $dimmer
                 .stop()
                 .fadeOut(module.get.duration(), function() {
                   $dimmer.removeAttr('style');
-                  module.remove.dimmed();
                   module.remove.active();
                   callback();
                 })
@@ -7967,7 +7966,7 @@ $.fn.modal = function(parameters) {
 
         cacheSizes: function() {
           module.cache = {
-            pageHeight    : $body.outerHeight(),
+            pageHeight    : $(document).outerHeight(),
             height        : $module.outerHeight() + settings.offset,
             contextHeight : (settings.context == 'body')
               ? $(window).height()
@@ -8041,7 +8040,7 @@ $.fn.modal = function(parameters) {
             else {
               $module
                 .css({
-                  marginTop : '1em',
+                  marginTop : '',
                   top       : $document.scrollTop()
                 })
               ;
@@ -9755,7 +9754,7 @@ $.fn.popup.settings = {
       if(typeof text !== undefined) {
         if(typeof text.title !== undefined && text.title) {
           text.title = escape(text.title);
-          html += '<div class="header">' + text.title + '</div class="header">';
+          html += '<div class="header">' + text.title + '</div>';
         }
         if(typeof text.content !== undefined && text.content) {
           text.content = escape(text.content);

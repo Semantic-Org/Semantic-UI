@@ -224,9 +224,28 @@
 /*-------------------
     Loose Coupling
 --------------------*/
+/* Menu */
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
 }
+/* Label */
+.ui.bottom.attached.segment > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.top.attached.segment > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+/* Grid */
 .ui.page.grid.segment,
 .ui.grid .ui.segment.column {
   padding-top: 2em;
@@ -238,6 +257,15 @@
   border-radius: 0em;
   box-shadow: none;
   border: none;
+}
+/* Table */
+.ui.basic.table.segment {
+  background: #ffffff;
+  border: none;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.very.basic.table.segment {
+  padding: 1em 1em;
 }
 /*******************************
              Types

@@ -933,7 +933,7 @@ $.fn.popup.settings = {
       if(typeof text !== undefined) {
         if(typeof text.title !== undefined && text.title) {
           text.title = escape(text.title);
-          html += '<div class="header">' + text.title + '</div class="header">';
+          html += '<div class="header">' + text.title + '</div>';
         }
         if(typeof text.content !== undefined && text.content) {
           text.content = escape(text.content);

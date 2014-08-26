@@ -53,7 +53,7 @@
 @footerColor: @textColor;
 @footerVerticalPadding: @cellVerticalPadding;
 @footerHorizontalPadding: @cellHorizontalPadding;
-@footerFontStyle: italic;
+@footerFontStyle: normal;
 @footerFontWeight: normal;
 @footerTextTransform: none;
 

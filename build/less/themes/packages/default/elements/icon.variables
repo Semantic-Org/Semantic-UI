@@ -11,7 +11,7 @@
 @opacity: 0.75;
 @width: 1.23em;
 @height: 0.9em;
-@distanceFromText: 0.25em;
+@distanceFromText: 0.25rem;
 
 @linkDuration: 0.3s;
 @loadingDuration: 2s;

@@ -90,6 +90,7 @@
   background: @headerBackground;
   margin: @headerMargin;
   padding: @headerPadding;
+  box-shadow: @headerBoxShadow;
 
   font-size: @headerFontSize;
   font-weight: @headerFontWeight;
@@ -104,6 +105,7 @@
 .ui.modal > .content {
   position: relative;
   display: table;
+  table-layout: fixed;
   width: 100%;
   font-size: @contentFontSize;
   line-height: @contentLineHeight;
@@ -112,21 +114,26 @@
 }
 .ui.modal > .content > .image {
   display: table-cell;
-  padding-right: @imagePadding;
-  min-width: @imageMinWidth;
+  width: @imageWidth;
   vertical-align: @imageVerticalAlign;
 }
 .ui.modal > .content > .description {
   display: table-cell;
   vertical-align: top;
-  padding-left: @descriptionPadding;
   min-width: @descriptionMinWidth;
   vertical-align: @descriptionVerticalAlign;
 }
+
+.ui.modal > .content > .icon + .description,
+.ui.modal > .content > .image + .description {
+  padding-left: @descriptionDistance;
+}
+
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
   font-size: @imageIconSize;
   margin: 0em;
+  opacity: 1;
 }
 
 /*--------------
@@ -231,6 +238,9 @@
 .ui.basic.modal > .actions {
   background-color: transparent;
 }
+.ui.basic.modal > .header {
+  color: @basicModalHeaderColor;
+}
 .ui.basic.modal > .close {
   top: @basicModalCloseTop;
   right: @basicModalCloseRight;
@@ -241,9 +251,17 @@
 *******************************/
 
 /* A modal that cannot fit on the page */
+
+.ui.scrolling.dimmable {
+  overflow: hidden;
+}
+.ui.scrolling.dimmable > .dimmer {
+  position: fixed;
+  overflow: auto;
+}
 .ui.modal.scrolling {
-  position: absolute;
-  margin-top: @scrollingTopMargin;
+  position: static;
+  margin: @scrollingMargin auto;
 }
 
 /*******************************

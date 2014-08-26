@@ -180,7 +180,7 @@
   font-size: 1em;
 }
 .ui.accordion .accordion {
-  margin: 1em 0em 0em;
+  margin: 1em 0.5em 0em;
   padding: 0em;
 }
 .ui.accordion .title,
@@ -195,7 +195,7 @@
 .ui.accordion .accordion .content {
   display: none;
   margin: 0em;
-  padding: 0.5em 0.5em 1em;
+  padding: 0.5em 0em 1em;
 }
 .ui.accordion .content:last-child {
   padding-bottom: 0em;
@@ -210,7 +210,7 @@
   margin: 0em 0em 0em 0em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
-  vertical-align: top;
+  vertical-align: baseline;
 }
 /*******************************
             Types

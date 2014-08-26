@@ -85,7 +85,6 @@ $.fn.dimmer = function(parameters) {
               .on(clickEvent + eventNamespace, module.toggle)
             ;
           }
-
           if( module.is.page() ) {
             module.debug('Setting as a page dimmer', $dimmable);
             module.set.pageDimmer();
@@ -192,13 +191,13 @@ $.fn.dimmer = function(parameters) {
             ;
             if(settings.on != 'hover' && settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
               module.verbose('Hiding dimmer with css');
+              module.remove.dimmed();
               $dimmer
                 .transition({
                   animation : settings.transition + ' out',
                   duration  : module.get.duration(),
                   queue     : true,
                   complete  : function() {
-                    module.remove.dimmed();
                     module.remove.active();
                     callback();
                   }
@@ -207,11 +206,11 @@ $.fn.dimmer = function(parameters) {
             }
             else {
               module.verbose('Hiding dimmer with javascript');
+              module.remove.dimmed();
               $dimmer
                 .stop()
                 .fadeOut(module.get.duration(), function() {
                   $dimmer.removeAttr('style');
-                  module.remove.dimmed();
                   module.remove.active();
                   callback();
                 })

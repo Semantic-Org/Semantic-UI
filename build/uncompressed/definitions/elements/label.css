@@ -269,11 +269,11 @@ a.ui.label {
 --------------------*/
 /* Padding on next content after a label */
 .ui.segment > .top.attached.label:first-child + * {
-  margin-top: 2.5em;
+  margin-top: 2rem;
 }
 .ui.segment > .bottom.attached.label:first-child ~ :last-child {
   margin-top: 0em;
-  margin-bottom: 2.5em;
+  margin-bottom: 2rem;
 }
 /*******************************
              Types

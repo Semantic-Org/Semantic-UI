@@ -2472,17 +2472,20 @@ body > .ui.grid:not(.page) {
   position: relative;
   top: 0em;
   margin: -0.6em 0em;
-  padding-top: -0.3em;
-  padding-bottom: -0.3em;
+  padding-top: -0.35em;
+  padding-bottom: -0.35em;
   width: 100%;
 }
 .ui.menu:not(.vertical) .item > .icon.input .icon {
-  top: -0.3em;
+  top: -0.35em;
+}
+.ui.menu:not(.vertical) .item > .transparent.icon.input .icon {
+  top: 0.35em;
 }
 .ui.menu:not(.vertical) .item > .input input {
   font-size: 1em;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
+  padding-top: 0.35em;
+  padding-bottom: 0.35em;
 }
 /* Labeled Button */
 .ui.menu:not(.vertical) .item > .labeled.button > .icon {
@@ -4460,7 +4463,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.8);
   padding: 0.7em 0.8em;
   vertical-align: middle;
-  font-style: italic;
+  font-style: normal;
   font-weight: normal;
   text-transform: none;
 }
@@ -4492,6 +4495,7 @@ body > .ui.grid:not(.page) {
 /* Table Segment */
 .ui.table.segment {
   padding: 0em;
+  box-shadow: none;
 }
 .ui.table.segment:after {
   display: none;
@@ -4581,10 +4585,7 @@ body > .ui.grid:not(.page) {
   color: #cd2929 !important;
 }
 .ui.celled.table tr.negative:hover td,
-.ui.celled.table tr:hover td.negative,
-.ui.table tr.negative:hover td,
-.ui.table td:hover.negative,
-.ui.table th:hover.negative {
+.ui.celled.table tr:hover td.negative {
   background: #f2e8e8 !important;
   color: #cd2929 !important;
 }
@@ -4601,10 +4602,7 @@ body > .ui.grid:not(.page) {
   color: #cd2929 !important;
 }
 .ui.celled.table tr.error:hover td,
-.ui.celled.table tr:hover td.error,
-.ui.table tr.error:hover td,
-.ui.table td:hover.error,
-.ui.table th:hover.error {
+.ui.celled.table tr:hover td.error {
   background: #f2e8e8 !important;
   color: #cd2929 !important;
 }
@@ -4621,10 +4619,7 @@ body > .ui.grid:not(.page) {
   color: #7d6c00 !important;
 }
 .ui.celled.table tr.warning:hover td,
-.ui.celled.table tr:hover td.warning,
-.ui.table tr.warning:hover td,
-.ui.table td:hover.warning,
-.ui.table th:hover.warning {
+.ui.celled.table tr:hover td.warning {
   background: #f3eddc !important;
   color: #cd2929 !important;
 }
@@ -4641,10 +4636,7 @@ body > .ui.grid:not(.page) {
   color: rgba(50, 50, 50, 0.9) !important;
 }
 .ui.celled.table tr.active:hover td,
-.ui.celled.table tr:hover td.active,
-.ui.table tr.active:hover td,
-.ui.table td:hover.active,
-.ui.table th:hover.active {
+.ui.celled.table tr:hover td.active {
   background: #e0e0e0 !important;
   color: rgba(50, 50, 50, 0.9) !important;
 }
@@ -5018,6 +5010,9 @@ body > .ui.grid:not(.page) {
 .ui.very.basic.table:not(.sortable):not(.striped) td {
   padding: 0.8em 0em;
 }
+.ui.very.basic.table:not(.sortable):not(.striped) thead th {
+  padding-top: 0em;
+}
 .ui.very.basic.table:not(.sortable):not(.striped) tbody tr:last-child td {
   padding-bottom: 0em;
 }
@@ -5354,7 +5349,7 @@ body > .ui.grid:not(.page) {
   background-color: #dadada;
   background-image: none;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.button.active:hover {
   background-color: #dadada;
@@ -5415,9 +5410,11 @@ body > .ui.grid:not(.page) {
 .ui.animated.button {
   position: relative;
   overflow: hidden;
+  padding-right: 0em;
 }
 .ui.animated.button .visible.content {
   position: relative;
+  margin-right: 1.5em;
 }
 .ui.animated.button .hidden.content {
   position: absolute;
@@ -5460,7 +5457,7 @@ body > .ui.grid:not(.page) {
   right: auto;
 }
 .ui.vertical.animated.button .hidden.content {
-  top: -100%;
+  top: -50%;
   left: 0%;
   right: auto;
 }
@@ -5537,9 +5534,9 @@ body > .ui.grid:not(.page) {
   position: relative;
 }
 .ui.inverted.button:hover {
-  background: #ffffff none;
+  background: #ffffff;
   box-shadow: 0px 0px 0px 2px #ffffff inset !important;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
 }
 /*-------------------
        Primary
@@ -5846,19 +5843,6 @@ body > .ui.grid:not(.page) {
 .ui.massive.button {
   font-size: 1.5rem;
 }
-/* Or resize */
-.ui.tiny.buttons .or:before,
-.ui.mini.buttons .or:before {
-  width: 1.45em;
-  height: 1.55em;
-  line-height: 1.4;
-  margin-left: -0.725em;
-  margin-top: -0.25em;
-}
-.ui.tiny.buttons .or:after,
-.ui.mini.buttons .or:after {
-  height: 1.45em;
-}
 /* Loading Resize */
 .ui.huge.loading.button:after,
 .ui.huge.loading.button.active:after {
@@ -5889,7 +5873,6 @@ body > .ui.grid:not(.page) {
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   height: 0em;
-  vertical-align: top;
 }
 /*-------------------
         Basic
@@ -6133,8 +6116,8 @@ body > .ui.grid:not(.page) {
   background-color: transparent;
   width: 0.3em;
   height: 2.1em;
-  border-top: 0.5em solid #ffffff;
-  border-bottom: 0.5em solid #ffffff;
+  border-top: 0.5em solid transparent;
+  border-bottom: 0.5em solid transparent;
 }
 /* Fluid Or */
 .ui.fluid.buttons .or {
@@ -6337,12 +6320,12 @@ body > .ui.grid:not(.page) {
 .ui.inverted.black.button {
   background-color: transparent;
   box-shadow: 0px 0px 0px 2px #333333 inset !important;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .ui.inverted.black.buttons .button:hover,
 .ui.inverted.black.button:hover {
-  box-shadow: 0px 0px 0px 2px #191919 inset !important;
-  background-color: #191919;
+  box-shadow: 0px 0px 0px 2px #333333 inset !important;
+  background-color: #333333;
   color: #ffffff;
 }
 .ui.inverted.black.basic.buttons .button,
@@ -6399,9 +6382,9 @@ body > .ui.grid:not(.page) {
 }
 .ui.inverted.blue.buttons .button:hover,
 .ui.inverted.blue.button:hover {
-  box-shadow: 0px 0px 0px 2px #0074d9 inset !important;
-  background-color: #0074d9;
-  color: #ffffff;
+  box-shadow: 0px 0px 0px 2px #54c8ff inset !important;
+  background-color: #54c8ff;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.inverted.blue.basic.buttons .button,
 .ui.inverted.blue.buttons .basic.button,
@@ -6459,7 +6442,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.green.button:hover {
   box-shadow: 0px 0px 0px 2px #2ecc40 inset !important;
   background-color: #2ecc40;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.inverted.green.basic.buttons .button,
 .ui.inverted.green.buttons .basic.button,
@@ -6517,7 +6500,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.orange.button:hover {
   box-shadow: 0px 0px 0px 2px #ff851b inset !important;
   background-color: #ff851b;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.inverted.orange.basic.buttons .button,
 .ui.inverted.orange.buttons .basic.button,
@@ -6575,7 +6558,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.pink.button:hover {
   box-shadow: 0px 0px 0px 2px #ff8edf inset !important;
   background-color: #ff8edf;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.inverted.pink.basic.buttons .button,
 .ui.inverted.pink.buttons .basic.button,
@@ -6633,7 +6616,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.purple.button:hover {
   box-shadow: 0px 0px 0px 2px #cdc6ff inset !important;
   background-color: #cdc6ff;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.inverted.purple.basic.buttons .button,
 .ui.inverted.purple.buttons .basic.button,
@@ -6691,7 +6674,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.red.button:hover {
   box-shadow: 0px 0px 0px 2px #ff695e inset !important;
   background-color: #ff695e;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.inverted.red.basic.buttons .button,
 .ui.inverted.red.buttons .basic.button,
@@ -6749,7 +6732,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.teal.button:hover {
   box-shadow: 0px 0px 0px 2px #6dffff inset !important;
   background-color: #6dffff;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.inverted.teal.basic.buttons .button,
 .ui.inverted.teal.buttons .basic.button,
@@ -6807,7 +6790,7 @@ body > .ui.grid:not(.page) {
 .ui.inverted.yellow.button:hover {
   box-shadow: 0px 0px 0px 2px #ffe21f inset !important;
   background-color: #ffe21f;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.inverted.yellow.basic.buttons .button,
 .ui.inverted.yellow.buttons .basic.button,
@@ -9189,7 +9172,7 @@ h5.ui.header {
 i.icon {
   display: inline-block;
   opacity: 0.75;
-  margin: 0em 0.25em 0em 0em;
+  margin: 0em 0.25rem 0em 0em;
   width: 1.23em;
   height: 0.9em;
   font-family: 'Icons';
@@ -11386,7 +11369,7 @@ i.icon.weixin:before {
   display: inline-block;
   vertical-align: middle;
   max-width: 100%;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: transparent;
 }
 img.ui.image {
   display: block;
@@ -12288,11 +12271,11 @@ a.ui.label {
 --------------------*/
 /* Padding on next content after a label */
 .ui.segment > .top.attached.label:first-child + * {
-  margin-top: 2.5em;
+  margin-top: 2rem;
 }
 .ui.segment > .bottom.attached.label:first-child ~ :last-child {
   margin-top: 0em;
-  margin-bottom: 2.5em;
+  margin-bottom: 2rem;
 }
 /*******************************
              Types
@@ -14138,9 +14121,28 @@ a.ui.yellow.label:hover:before {
 /*-------------------
     Loose Coupling
 --------------------*/
+/* Menu */
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
 }
+/* Label */
+.ui.bottom.attached.segment > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.top.attached.segment > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+/* Grid */
 .ui.page.grid.segment,
 .ui.grid .ui.segment.column {
   padding-top: 2em;
@@ -14152,6 +14154,15 @@ a.ui.yellow.label:hover:before {
   border-radius: 0em;
   box-shadow: none;
   border: none;
+}
+/* Table */
+.ui.basic.table.segment {
+  background: #ffffff;
+  border: none;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.very.basic.table.segment {
+  padding: 1em 1em;
 }
 /*******************************
              Types
@@ -15810,7 +15821,7 @@ a:hover {
   font-size: 1em;
 }
 .ui.accordion .accordion {
-  margin: 1em 0em 0em;
+  margin: 1em 0.5em 0em;
   padding: 0em;
 }
 .ui.accordion .title,
@@ -15825,7 +15836,7 @@ a:hover {
 .ui.accordion .accordion .content {
   display: none;
   margin: 0em;
-  padding: 0.5em 0.5em 1em;
+  padding: 0.5em 0em 1em;
 }
 .ui.accordion .content:last-child {
   padding-bottom: 0em;
@@ -15840,7 +15851,7 @@ a:hover {
   margin: 0em 0em 0em 0em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
-  vertical-align: top;
+  vertical-align: baseline;
 }
 /*******************************
             Types
@@ -17187,9 +17198,11 @@ a:hover {
       -ms-transform-origin: center center;
           transform-origin: center center;
 }
-.ui.scrolling.dimmable > .dimmer,
-.ui.scrolling.page.dimmer {
-  position: absolute;
+body.ui.dimmed.dimmable {
+  overflow: hidden;
+}
+body.ui.dimmable > .dimmer {
+  position: fixed;
 }
 body.ui.dimmed.dimmable > :not(.dimmer) {
   -webkit-filter: '';
@@ -18071,7 +18084,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /* Close Icon */
 /* Header */
 /* Content */
-/* Left / Right */
+/* Image / Description */
 /* Modal Actions */
 /* Mobile Positions */
 /* Inner Close Position (Responsive) */
@@ -18159,12 +18172,14 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.modal > .header {
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
-  background: #333333;
+  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   margin: 0em;
   padding: 1.5rem 2rem;
+  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   font-size: 1.6em;
   font-weight: bold;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.85);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 /*--------------
@@ -18173,6 +18188,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.modal > .content {
   position: relative;
   display: table;
+  table-layout: fixed;
   width: 100%;
   font-size: 1em;
   line-height: 1.4;
@@ -18181,20 +18197,23 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 }
 .ui.modal > .content > .image {
   display: table-cell;
-  padding-right: 1em;
-  min-width: 25%;
+  width: '';
   vertical-align: top;
 }
 .ui.modal > .content > .description {
   display: table-cell;
-  padding-left: 1em;
   min-width: '';
   vertical-align: top;
+}
+.ui.modal > .content > .icon + .description,
+.ui.modal > .content > .image + .description {
+  padding-left: 1em;
 }
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
   font-size: 8rem;
   margin: 0em;
+  opacity: 1;
 }
 /*--------------
      Actions
@@ -18270,7 +18289,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /* Tablet and Mobile */
 @media only screen and (max-width: 992px) {
   .ui.modal > .close {
-    top: 1.5rem;
+    top: 1rem;
     right: 1rem;
     color: rgba(0, 0, 0, 0.8);
   }
@@ -18289,6 +18308,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.basic.modal > .actions {
   background-color: transparent;
 }
+.ui.basic.modal > .header {
+  color: #ffffff;
+}
 .ui.basic.modal > .close {
   top: 1.5rem;
   right: 1rem;
@@ -18297,9 +18319,16 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
             Variations
 *******************************/
 /* A modal that cannot fit on the page */
+.ui.scrolling.dimmable {
+  overflow: hidden;
+}
+.ui.scrolling.dimmable > .dimmer {
+  position: fixed;
+  overflow: auto;
+}
 .ui.modal.scrolling {
-  position: absolute;
-  margin-top: 1rem;
+  position: static;
+  margin: 3rem auto;
 }
 /*******************************
              States
@@ -18447,6 +18476,31 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
      Load Default
 -------------------*/
 /*******************************
+             Nag
+*******************************/
+/*--------------
+   Collection
+---------------*/
+/*--------------
+    Elements
+---------------*/
+/* Title */
+/*--------------
+      States
+---------------*/
+/* Hover */
+/*--------------
+   Variations
+---------------*/
+/* Top / Bottom */
+/* Inverted */
+/*--------------
+      Plural
+---------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -18537,31 +18591,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Nag
-*******************************/
-/*--------------
-   Collection
----------------*/
-/*--------------
-    Elements
----------------*/
-/* Title */
-/*--------------
-      States
----------------*/
-/* Hover */
-/*--------------
-   Variations
----------------*/
-/* Top / Bottom */
-/* Inverted */
-/*--------------
-      Plural
----------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -18590,7 +18619,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   padding: 0.5em 1em;
   background: #555555;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
-  font-size: 1rem;
+  font-size: 14px;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0em 0em 0.25em 0.25em;
@@ -25306,6 +25335,15 @@ ol.ui.horizontal.list li:before,
   margin: 1em 0em;
   max-width: 175px;
 }
+.ui.statistic + .ui.statistic {
+  margin: 0em 0em 0em 1em;
+}
+.ui.statistic:first-child {
+  margin-top: 0em;
+}
+.ui.statistic:last-child {
+  margin-bottom: 0em;
+}
 /* Grouped */
 .ui.statistics > .statistic {
   display: block;
@@ -25356,7 +25394,6 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  margin-top: 0.25rem;
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
   font-weight: normal;
@@ -25365,13 +25402,13 @@ ol.ui.horizontal.list li:before,
   text-align: center;
 }
 /* Top Label */
-.ui.statistics .statistic > .label + .value,
-.ui.statistic > .label + .value {
-  margin-top: 0.25rem;
+.ui.statistics .statistic > .label ~ .value,
+.ui.statistic > .label ~ .value {
+  margin-top: 0rem;
 }
 /* Bottom Label */
-.ui.statistics .statistic > .value + .label,
-.ui.statistic > .value + .label {
+.ui.statistics .statistic > .value ~ .label,
+.ui.statistic > .value ~ .label {
   margin-top: 0.25rem;
 }
 /*******************************
@@ -25383,6 +25420,7 @@ ol.ui.horizontal.list li:before,
 .ui.statistics .statistic > .value .icon,
 .ui.statistic > .value .icon {
   opacity: 1;
+  width: auto;
 }
 /*--------------
    Text Value
@@ -25473,12 +25511,12 @@ ol.ui.horizontal.list li:before,
 .ui.teal.statistics .statistic > .value,
 .ui.statistics .teal.statistic > .value,
 .ui.teal.statistic > .value {
-  color: #10a3a3;
+  color: #39cccc;
 }
 .ui.yellow.statistics .statistic > .value,
 .ui.statistics .yellow.statistic > .value,
 .ui.yellow.statistic > .value {
-  color: #b58105;
+  color: #ffcb08;
 }
 /*--------------
     Floated
@@ -25503,20 +25541,74 @@ ol.ui.horizontal.list li:before,
 .ui.inverted.statistic .label {
   color: rgba(255, 255, 255, 0.8);
 }
+.ui.inverted.blue.statistics .statistic > .value,
+.ui.statistics .inverted.blue.statistic > .value,
+.ui.inverted.blue.statistic > .value {
+  color: #54c8ff;
+}
+.ui.inverted.green.statistics .statistic > .value,
+.ui.statistics .inverted.green.statistic > .value,
+.ui.inverted.green.statistic > .value {
+  color: #2ecc40;
+}
+.ui.inverted.orange.statistics .statistic > .value,
+.ui.statistics .inverted.orange.statistic > .value,
+.ui.inverted.orange.statistic > .value {
+  color: #ff851b;
+}
+.ui.inverted.pink.statistics .statistic > .value,
+.ui.statistics .inverted.pink.statistic > .value,
+.ui.inverted.pink.statistic > .value {
+  color: #ff8edf;
+}
+.ui.inverted.purple.statistics .statistic > .value,
+.ui.statistics .inverted.purple.statistic > .value,
+.ui.inverted.purple.statistic > .value {
+  color: #cdc6ff;
+}
+.ui.inverted.red.statistics .statistic > .value,
+.ui.statistics .inverted.red.statistic > .value,
+.ui.inverted.red.statistic > .value {
+  color: #ff695e;
+}
+.ui.inverted.teal.statistics .statistic > .value,
+.ui.statistics .inverted.teal.statistic > .value,
+.ui.inverted.teal.statistic > .value {
+  color: #6dffff;
+}
+.ui.inverted.yellow.statistics .statistic > .value,
+.ui.statistics .inverted.yellow.statistic > .value,
+.ui.inverted.yellow.statistic > .value {
+  color: #ffe21f;
+}
 /*--------------
      Sizes
 ---------------*/
-.ui.statistics .statistic > .value,
-.ui.statistic > .value {
-  font-size: 4rem;
+/* Mini */
+.ui.mini.statistics .statistic > .value,
+.ui.mini.statistic > .value {
+  font-size: 1.5rem;
 }
-.ui.horizontal.statistics .statistic > .value,
-.ui.horizontal.statistic > .value {
-  font-size: 3rem;
+.ui.mini.horizontal.statistics .statistic > .value,
+.ui.mini.horizontal.statistic > .value {
+  font-size: 1.5rem;
 }
-.ui.statistics .statistic > .text.value,
-.ui.statistic > .text.value {
+.ui.mini.statistics .statistic > .text.value,
+.ui.mini.statistic > .text.value {
+  font-size: 1rem;
+}
+/* Tiny */
+.ui.tiny.statistics .statistic > .value,
+.ui.tiny.statistic > .value {
   font-size: 2rem;
+}
+.ui.tiny.horizontal.statistics .statistic > .value,
+.ui.tiny.horizontal.statistic > .value {
+  font-size: 2rem;
+}
+.ui.tiny.statistics .statistic > .text.value,
+.ui.tiny.statistic > .text.value {
+  font-size: 1rem;
 }
 /* Small */
 .ui.small.statistics .statistic > .value,
@@ -25531,6 +25623,19 @@ ol.ui.horizontal.list li:before,
 .ui.small.statistic > .text.value {
   font-size: 1.5rem;
 }
+/* Medium */
+.ui.statistics .statistic > .value,
+.ui.statistic > .value {
+  font-size: 4rem;
+}
+.ui.horizontal.statistics .statistic > .value,
+.ui.horizontal.statistic > .value {
+  font-size: 3rem;
+}
+.ui.statistics .statistic > .text.value,
+.ui.statistic > .text.value {
+  font-size: 2rem;
+}
 /* Large */
 .ui.large.statistics .statistic > .value,
 .ui.large.statistic > .value {
@@ -25542,6 +25647,19 @@ ol.ui.horizontal.list li:before,
 }
 .ui.large.statistics .statistic > .text.value,
 .ui.large.statistic > .text.value {
+  font-size: 2.5rem;
+}
+/* Huge */
+.ui.huge.statistics .statistic > .value,
+.ui.huge.statistic > .value {
+  font-size: 6rem;
+}
+.ui.huge.horizontal.statistics .statistic > .value,
+.ui.huge.horizontal.statistic > .value {
+  font-size: 5rem;
+}
+.ui.huge.statistics .statistic > .text.value,
+.ui.huge.statistic > .text.value {
   font-size: 2.5rem;
 }
 /*******************************

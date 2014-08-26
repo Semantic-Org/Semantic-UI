@@ -101,8 +101,8 @@
 @inputSize: 1em;
 @inputVerticalMargin: -0.6em;
 @inputOffset: 0em;
-@inputVerticalPadding: 0.4em;
-@inputIconOffset: -0.3em;
+@inputVerticalPadding: 0.35em;
+@inputIconOffset: -0.35em;
 
 @smallInputOffset: 0em;
 @smallInputVerticalPadding: 0.4em;

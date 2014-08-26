@@ -30,14 +30,14 @@ themes      : ['default', 'fixed-width']
       </div>
     </div>
     <div class="actions">
-      <div class="two fluid ui buttons">
-        <div class="ui negative labeled icon button">
+      <div class="two fluid ui inverted buttons">
+        <div class="ui red basic inverted button">
           <i class="remove icon"></i>
           No
         </div>
-        <div class="ui positive right labeled icon button">
-          Yes
+        <div class="ui green basic inverted button">
           <i class="checkmark icon"></i>
+          Yes
         </div>
       </div>
     </div>
@@ -87,8 +87,8 @@ themes      : ['default', 'fixed-width']
       Profile Picture
     </div>
     <div class="content">
-      <div class="image">
-        <img class="ui medium image" src="/images/demo/avatar2.jpg">
+      <div class="ui medium image">
+        <img src="/images/demo/highres2.jpg">
       </div>
       <div class="description">
         <div class="ui header">Are you sure you want to upload that?</div>

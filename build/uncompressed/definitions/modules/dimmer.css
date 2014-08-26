@@ -244,9 +244,11 @@
       -ms-transform-origin: center center;
           transform-origin: center center;
 }
-.ui.scrolling.dimmable > .dimmer,
-.ui.scrolling.page.dimmer {
-  position: absolute;
+body.ui.dimmed.dimmable {
+  overflow: hidden;
+}
+body.ui.dimmable > .dimmer {
+  position: fixed;
 }
 body.ui.dimmed.dimmable > :not(.dimmer) {
   -webkit-filter: '';

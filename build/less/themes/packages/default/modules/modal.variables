@@ -23,9 +23,10 @@
 /* Header */
 @headerMargin: 0em;
 @headerPadding: 1.5rem 2rem;
-@headerBackground: @lightBlack;
-@headerColor: @white;
+@headerBackground: @subtleGradient @white;
+@headerColor: @darkTextColor;
 @headerFontSize: 1.6em;
+@headerBoxShadow: @subtleShadow;
 @headerFontWeight: bold;
 @headerFontFamily: @headerFont;
 @headerBorder: 1px solid @borderColor;
@@ -36,13 +37,12 @@
 @contentLineHeight: 1.4;
 @contentBackground: #FFFFFF;
 
-/* Left / Right */
-@imageMinWidth: 25%;
-@imagePadding: 1em;
+/* Image / Description */
+@imageWidth: '';
 @imageIconSize: 8rem;
 @imageVerticalAlign: top;
 
-@descriptionPadding: 1em;
+@descriptionDistance: 1em;
 @descriptionMinWidth: '';
 @descriptionVerticalAlign: top;
 
@@ -60,7 +60,7 @@
 @mobileButtonDistance: 1em;
 
 /* Inner Close Position (Responsive) */
-@innerCloseTop: 1.5rem;
+@innerCloseTop: 1rem;
 @innerCloseRight: 1rem;
 @innerCloseColor: @textColor;
 
@@ -86,12 +86,13 @@
 --------------------*/
 
 /* Basic */
+@basicModalHeaderColor: @white;
 @basicModalColor: @white;
 @basicModalCloseTop: 1.5rem;
 @basicModalCloseRight: 1rem;
 
 /* Scrolling Margin */
-@scrollingTopMargin: 1rem;
+@scrollingMargin: 3rem;
 
 
 /*-------------------

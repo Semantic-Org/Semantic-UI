@@ -36,7 +36,8 @@
 
 /* Label */
 @labelSize: 1rem;
-@labelDistance: 0.25rem;
+@topLabelDistance: 0rem;
+@bottomLabelDistance: 0.25rem;
 @labelFont: @headerFont;
 @labelFontWeight: normal;
 @labelColor: @unselectedTextColor;
@@ -71,6 +72,14 @@
 @invertedLabelColor: @invertedLightTextColor;
 
 /* Size */
+@miniValueSize: 1.5rem;
+@miniTextLabelSize: 1rem;
+@miniHorizontalValueSize: 1.5rem;
+
+@tinyValueSize: 2rem;
+@tinyTextLabelSize: 1rem;
+@tinyHorizontalValueSize: 2rem;
+
 @smallValueSize: 3rem;
 @smallTextLabelSize: 1.5rem;
 @smallHorizontalValueSize: 2rem;
@@ -82,3 +91,7 @@
 @largeValueSize: 5rem;
 @largeTextLabelSize: 2.5rem;
 @largeHorizontalValueSize: 4rem;
+
+@hugeValueSize: 6rem;
+@hugeTextLabelSize: 2.5rem;
+@hugeHorizontalValueSize: 5rem;

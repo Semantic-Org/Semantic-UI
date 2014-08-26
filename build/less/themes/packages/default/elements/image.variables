@@ -6,7 +6,7 @@
        Element
 --------------------*/
 
-@placeholderColor: rgba(0, 0, 0, 0.05);
+@placeholderColor: transparent;
 @roundedBorderRadius: 0.3125em;
 
 @imageHorizontalMargin: 0.25rem;

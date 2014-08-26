@@ -25,7 +25,7 @@
 
 .ui.segment {
   position: relative;
-  background-color: @white;
+  background-color: @background;
 
   box-shadow: @boxShadow;
 
@@ -85,10 +85,30 @@
     Loose Coupling
 --------------------*/
 
+/* Menu */
 .ui.pointing.menu + .ui.attached.segment {
   top: 1px;
 }
 
+/* Label */
+.ui.bottom.attached.segment > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.top.attached.segment > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+
+/* Grid */
 .ui.page.grid.segment,
 .ui.grid .ui.segment.column {
   padding-top: @pageGridMargin;
@@ -100,6 +120,16 @@
   border-radius: 0em;
   box-shadow: none;
   border: none;
+}
+
+/* Table */
+.ui.basic.table.segment {
+  background: @background;
+  border: @border;
+  box-shadow: @boxShadow;
+}
+.ui.very.basic.table.segment {
+  padding: @verticalPadding @horizontalPadding;
 }
 
 
