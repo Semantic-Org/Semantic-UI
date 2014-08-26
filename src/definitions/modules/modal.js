@@ -510,7 +510,7 @@ $.fn.modal = function(parameters) {
             else {
               $module
                 .css({
-                  marginTop : '1em',
+                  marginTop : '',
                   top       : $document.scrollTop()
                 })
               ;
