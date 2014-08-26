@@ -95,7 +95,7 @@
 /* Active */
 @activeBackgroundColor: #DADADA;
 @activeBackgroundImage: none;
-@activeColor: rgba(0, 0, 0, 0.5);
+@activeColor: rgba(0, 0, 0, 0.6);
 @activeBoxShadow:
   0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
   0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
@@ -132,7 +132,7 @@
 @orBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 
 @orSpacerHeight: 0.5em;
-@orSpacerColor: @white;
+@orSpacerColor: transparent;
 
 /* Icon */
 @iconButtonOpacity: 0.9;
@@ -148,8 +148,11 @@
 @labeledIconRightShadow: 1px 0px 0px 0px @labeledIconBorder inset;
 
 /* Inverted */
-@invertedGroupButtonOffset: 0px 0px 0px -2px;
-@invertedVerticalGroupButtonOffset: 0px 0px -2px 0px;
+@invertedBorderSize: 2px;
+@invertedTextColor: @white;
+@invertedTextHoverColor: @hoverColor;
+@invertedGroupButtonOffset: 0px 0px 0px -(@invertedBorderSize);
+@invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
 
 /* Basic */
 @basicBoxShadow: 0px 0px 0px 1px @borderColor;
@@ -170,10 +173,10 @@
 @basicInvertedDownBackground: @transparentWhite;
 @basicInvertedActiveBackground: @transparentWhite;
 
-@basicInvertedBoxShadow: 0px 0px 0px 2px #999999 inset;
-@basicInvertedHoverBoxShadow: 0px 0px 0px 2px #FFFFFF inset;
-@basicInvertedDownBoxShadow: 0px 0px 0px 2px #CCCCCC inset;
-@basicInvertedActiveBoxShadow: 0px 0px 0px 2px #DADADA inset;
+@basicInvertedBoxShadow: 0px 0px 0px @invertedBorderSize #999999 inset;
+@basicInvertedHoverBoxShadow: 0px 0px 0px @invertedBorderSize #FFFFFF inset;
+@basicInvertedDownBoxShadow: 0px 0px 0px @invertedBorderSize #CCCCCC inset;
+@basicInvertedActiveBoxShadow: 0px 0px 0px @invertedBorderSize #DADADA inset;
 
 @basicInvertedColor: @darkWhite;
 @basicInvertedHoverColor: @darkWhiteHover;

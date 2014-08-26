@@ -11,6 +11,7 @@
 
 @verticalPadding: 1.1em;
 @horizontalPadding: 2.5em;
+@invertedBorderSize: 3px;
 
 @blue: #4A88CB;
 @primaryColor: @blue;

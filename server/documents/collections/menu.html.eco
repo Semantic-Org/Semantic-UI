@@ -8,7 +8,7 @@ type        : 'UI Collection'
 
 element     : 'menu'
 elementType : 'collection'
-themes      : ['default', 'github']
+themes      : ['default', 'GitHub']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/menu.less" />
 <script src="/javascript/menu.js"></script>
@@ -40,7 +40,7 @@ themes      : ['default', 'github']
       </a>
       <div class="right menu">
         <div class="item">
-          <div class="ui icon input">
+          <div class="ui transparent icon input">
             <input type="text" placeholder="Search...">
             <i class="search link icon"></i>
           </div>

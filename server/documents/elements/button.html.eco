@@ -377,9 +377,10 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
     <h4 class="ui header">Vertical</h4>
     <p>Groups can be formatted to appear vertically</p>
     <div class="ui vertical buttons">
-      <div class="ui button">Top</div>
-      <div class="ui button">Middle</div>
-      <div class="ui button">Bottom</div>
+      <div class="ui button">Feed</div>
+      <div class="ui button">Messages</div>
+      <div class="ui button">Events</div>
+      <div class="ui button">Photos</div>
     </div>
   </div>
 
@@ -388,10 +389,10 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
     <p>Groups can be formatted as icons</p>
     <div class="ui icon buttons">
       <div class="ui button">
-        <i class="pause icon"></i>
+        <i class="play icon"></i>
       </div>
       <div class="ui button">
-        <i class="play icon"></i>
+        <i class="pause icon"></i>
       </div>
       <div class="ui button">
         <i class="shuffle icon"></i>
@@ -424,32 +425,29 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
     <p>Groups can be divided evenly to fit parent</p>
     <div class="ui message">Evenly divided elements can either use the number or the word, i.e. 2 or "two"</div>
     <div class="3 fluid ui buttons">
-      <div class="ui button">One</div>
-      <div class="ui button">Two</div>
-      <div class="ui button">Three</div>
+      <div class="ui button">Overview</div>
+      <div class="ui button">Specs</div>
+      <div class="ui button">Reviews</div>
     </div>
     <div class="ui ignored divider"></div>
     <div class="five fluid ui buttons">
-      <div class="ui button">One</div>
-      <div class="ui button">Two</div>
-      <div class="ui button">Three</div>
-      <div class="ui button">Four</div>
-      <div class="ui button">Five</div>
+      <div class="ui button">Overview</div>
+      <div class="ui button">Specs</div>
+      <div class="ui button">Warranty</div>
+      <div class="ui button">Reviews</div>
+      <div class="ui button">Support</div>
     </div>
     <div class="ui ignored divider"></div>
-    <div class="12 fluid ui icon buttons">
-      <div class="ui button"><i class="tag icon"></i></div>
-      <div class="ui button"><i class="tags icon"></i></div>
-      <div class="ui button"><i class="tasks icon"></i></div>
-      <div class="ui button"><i class="terminal icon"></i></div>
-      <div class="ui button"><i class="text file icon"></i></div>
-      <div class="ui button"><i class="text file outline icon"></i></div>
-      <div class="ui button"><i class="time icon"></i></div>
-      <div class="ui button"><i class="trash icon"></i></div>
-      <div class="ui button"><i class="url icon"></i></div>
-      <div class="ui button"><i class="user icon"></i></div>
-      <div class="ui button"><i class="users icon"></i></div>
-      <div class="ui button"><i class="video icon"></i></div>
+    <div class="9 fluid ui icon buttons">
+      <div class="ui button"><i class="backward icon"></i></div>
+      <div class="ui button"><i class="fast backward icon"></i></div>
+      <div class="ui button"><i class="step backward icon"></i></div>
+      <div class="ui button"><i class="play icon"></i></div>
+      <div class="ui button"><i class="stop icon"></i></div>
+      <div class="ui button"><i class="step forward icon"></i></div>
+      <div class="ui button"><i class="fast forward icon"></i></div>
+      <div class="ui button"><i class="forward icon"></i></div>
+      <div class="ui button"><i class="mute icon"></i></div>
     </div>
   </div>
 
@@ -489,17 +487,32 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
     </div>
   </div>
   <div class="another example">
+    <div class="ui inverted segment">
+      <div class="ui inverted buttons">
+        <div class="ui red inverted button">One</div>
+        <div class="ui yellow inverted button">Two</div>
+        <div class="ui pink inverted button">Three</div>
+      </div>
+      <div class="ui inverted icon buttons">
+        <div class="ui red basic inverted button"><i class="align left icon"></i></div>
+        <div class="ui yellow basic inverted button"><i class="align center icon"></i></div>
+        <div class="ui pink basic inverted button"><i class="align right icon"></i></div>
+        <div class="ui purple basic inverted button"><i class="align justify icon"></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
     <div class="small icon ui buttons">
-      <div class="ui button"><i class="align left icon"></i></div>
-      <div class="ui button"><i class="align center icon"></i></div>
-      <div class="ui button"><i class="align right icon"></i></div>
-      <div class="ui button"><i class="align justify icon"></i></div>
+      <div class="ui button"><i class="file icon"></i></div>
+      <div class="ui button"><i class="save icon"></i></div>
+      <div class="ui button"><i class="upload icon"></i></div>
+      <div class="ui button"><i class="download icon"></i></div>
     </div>
     <div class="tiny icon ui buttons">
-      <div class="ui button"><i class="align left icon"></i></div>
-      <div class="ui button"><i class="align center icon"></i></div>
-      <div class="ui button"><i class="align right icon"></i></div>
-      <div class="ui button"><i class="align justify icon"></i></div>
+      <div class="ui button"><i class="file icon"></i></div>
+      <div class="ui button"><i class="save icon"></i></div>
+      <div class="ui button"><i class="upload icon"></i></div>
+      <div class="ui button"><i class="download icon"></i></div>
     </div>
   </div>
   <div class="another example">

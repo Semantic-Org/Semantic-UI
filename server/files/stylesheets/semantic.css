@@ -799,23 +799,21 @@ body.guide .main.container > * {
 }
 */
 #example.overview .example {
-  margin: 0em;
+  display: table-row;
   min-height: 0px !important;
   overflow: hidden;
-  padding: 0.5em 0em;
 }
 #example.overview .example .ui.header,
 #example.overview .example p {
-  float: right;
+  display: table-cell;
   font-size: 1em;
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
+  font-weight: bold;
+  padding: 0.5em 0em;
 }
 #example.overview .example p {
-  float: left;
   font-size: 1rem;
-  padding: 0em 0em 0em 0.3em;
+  font-weight: normal;
+  padding: 0em 0em 0em 0.5em;
   width: auto;
 }
 

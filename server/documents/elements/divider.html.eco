@@ -79,7 +79,6 @@ themes      : ['default']
     <div class="ui ignored positive message">Horizontal dividers can also be used in combination with <a href="/elements/header.html">header</a> and <a href="/elements/icon.html">icons</a> to create different styles of dividers.
     </div>
     <div class="ui ignored message">Dividers in Semantic <code>1.0</code> will automatically vary the size of their rules to match the length of your text</div>
-    <h3 class="ui header">Retrieve Order</h3>
     <div class="ui tertiary form segment">
       <div class="field">
         <label>Lookup Order</label>
