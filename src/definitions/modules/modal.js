@@ -436,7 +436,7 @@ $.fn.modal = function(parameters) {
 
         cacheSizes: function() {
           module.cache = {
-            pageHeight    : $body.outerHeight(),
+            pageHeight    : $(document).outerHeight(),
             height        : $module.outerHeight() + settings.offset,
             contextHeight : (settings.context == 'body')
               ? $(window).height()

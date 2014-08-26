@@ -85,7 +85,7 @@ $.fn.dimmer = function(parameters) {
               .on(clickEvent + eventNamespace, module.toggle)
             ;
           }
-
+          console.log($module, module.is.page());
           if( module.is.page() ) {
             module.debug('Setting as a page dimmer', $dimmable);
             module.set.pageDimmer();
