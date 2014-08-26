@@ -18322,9 +18322,11 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.scrolling.dimmable.dimmed {
   overflow: hidden;
 }
+.ui.scrolling.dimmable.dimmed > .dimmer {
+  overflow: auto;
+}
 .ui.scrolling.dimmable > .dimmer {
   position: fixed;
-  overflow: auto;
 }
 .ui.modal.scrolling {
   position: static;
