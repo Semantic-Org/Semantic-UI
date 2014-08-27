@@ -201,8 +201,7 @@
   text-transform: none;
   font-weight: bold;
   border-radius: 0.325em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-transition: background 0.1s linear
   ;
           transition: background 0.1s linear
@@ -289,8 +288,7 @@ a.ui.label {
   background: #e8e8e8;
   padding: 0.6em 0.8em 0.6em 0.5em;
   border-radius: 0.325em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.image.label img {
   display: inline-block;
@@ -344,8 +342,7 @@ a.ui.label {
   background-color: #ffffff !important;
   width: 0.5em;
   height: 0.5em;
-  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-          box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 500rem;
 }
 /*-------------------
@@ -862,8 +859,7 @@ a.ui.yellow.label:hover:before {
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 /*-------------------
        Inverted

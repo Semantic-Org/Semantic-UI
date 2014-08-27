@@ -383,18 +383,14 @@ h5.ui.header {
   color: rgba(255, 255, 255, 0.85);
 }
 .ui.inverted.attached.header {
-  background: #333333 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.inverted.block.header {
-  background: #333333 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 /*-------------------
    Inverted Colors
@@ -490,12 +486,10 @@ h5.ui.header {
         Block
 --------------------*/
 .ui.block.header {
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.75rem 1rem;
-  -webkit-box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid #dddddd;
   border-radius: 0.3125rem;
 }
@@ -518,13 +512,11 @@ h5.ui.header {
        Attached
 --------------------*/
 .ui.attached.header {
-  background: #fafafa -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   margin: 0em;
   padding: 0.75rem 1rem;
-  -webkit-box-shadow: 0px 0px 0px 1px #dddddd;
-          box-shadow: 0px 0px 0px 1px #dddddd;
+  box-shadow: 0px 0px 0px 1px #dddddd;
   border: none;
   margin-left: 0px;
   margin-right: 0px;

@@ -17,7 +17,7 @@
 @iconWidth: 1.25em;
 @iconHeight: 1em;
 @iconDisplay: inline-block;
-@iconMargin: 0em 0.25em 0em 0em;
+@iconMargin: 0em 0.25em 0em -0.25em;
 @iconTransition:
   transform 0.2s ease,
   opacity 0.2s ease
@@ -25,7 +25,7 @@
 @iconVerticalAlign: baseline;
 
 /* Child Accordion */
-@childAccordionMargin: 1em 0.5em 0em;
+@childAccordionMargin: 1em 0em 0em;
 @childAccordionPadding: 0em;
 
 /* Content */
@@ -51,13 +51,13 @@
 
 /* Child Content */
 @styledChildContentMargin: 0em;
-@styledChildContentPadding: 0.5em 1em 1.5em;
+@styledChildContentPadding: @styledContentPadding;
 
 /* Styled Title */
 @styledTitleMargin: 0em;
 @styledTitlePadding: 0.75em 1em;
-@styledTitleFontWeight: normal;
-@styledTitleColor: rgba(0, 0, 0, 0.6);
+@styledTitleFontWeight: bold;
+@styledTitleColor: @unselectedTextColor;
 @styledTitleTransition: background-color 0.2s ease;
 @styledTitleBorder: 1px solid @borderColor;
 @styledTitleTransition:
@@ -67,7 +67,7 @@
 
 /* Styled Title States */
 @styledTitleHoverBackground: transparent;
-@styledTitleHoverColor: @darkTextColor;
+@styledTitleHoverColor: @textColor;
 @styledActiveTitleBackground: transparent;
 @styledActiveTitleColor: @selectedTextColor;
 
