@@ -1,6 +1,6 @@
 <% @tabs = {  definition: 'Definition', examples: 'Examples', usage: 'Usage', settings: 'Settings' } if @tabs == 'module' %>
 <% @tabs = {  overview: 'Overview', usage: 'Usage', examples: 'Examples', settings: 'Settings' } if @tabs == 'behavior' %>
-<div class="<% if @tabs?: %>tab <% end %>segment">
+<div class="<% if @tabs?: %>tab <% end %> header segment">
   <div class="container">
     <div class="introduction">
 

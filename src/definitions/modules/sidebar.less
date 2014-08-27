@@ -24,60 +24,75 @@
             Sidebar
 *******************************/
 
-body {
-  transition: @bodyTransition;
-}
-
+/* Sidebar Menu */
 .ui.sidebar {
-  position: fixed;
-
-  margin: 0 !important;
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  background: @sidebarBackground;
+  backface-visibility: hidden;
   height: 100% !important;
-  border-radius: 0px !important;
+  width: @sidebarWidth !important;
+  border-radius: 0em !important;
+  margin: 0 !important;
+  will-change: transform;
+}
 
-  overflow-y: @overflowY;
+/*--------------
+     Body
+---------------*/
+
+/* Sets 3D Perspective */
+body.pushable {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+/*--------------
+     Pusher
+---------------*/
+
+body.pushable > .pusher {
+  position: relative;
+  left: 0;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform @animationDuration;
+  z-index: 2;
+  will-change: transform;
+}
+
+/*--------------
+     Page
+---------------*/
+
+body.pushable > .pusher > .page {
+  background: @bodyBackground;
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/*--------------
+     Dimmer
+---------------*/
+
+body.pushable > .pusher > .page:after {
+  position: absolute;
   top: 0px;
-  left: 0px;
-  z-index: @zIndex;
-
-  transition: @sidebarTransition;
-}
-
-/*-------------------
-      Coupling
---------------------*/
-
-body.pushed.scrolling.ui.dimmable {
-  position: @dimmableSidebarPosition;
-}
-
-
-/*******************************
-             Types
-*******************************/
-
-/*-------------------
-       Direction
---------------------*/
-
-.ui.right.very.thin.sidebar,
-.ui.right.thin.sidebar,
-.ui.right.sidebar,
-.ui.right.wide.sidebar,
-.ui.right.very.wide.sidebar {
-  left: 100%;
-  margin: 0px !important;
-}
-
-.ui.top.sidebar {
-  width: 100% !important;
-}
-
-.ui.bottom.sidebar {
-  width: 100% !important;
-  top: 100%;
-  margin: 0px !important;
+  right: 0px;
+  content: '';
+  background-color: @dimmerColor;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 999;
+  transition: opacity @animationDuration;
+  will-change: opacity;
 }
 
 
@@ -85,179 +100,326 @@ body.pushed.scrolling.ui.dimmable {
             States
 *******************************/
 
-.ui.active.sidebar {
-  margin-left: 0px !important;
-}
-.ui.active.top.sidebar,
-.ui.active.bottom.sidebar {
-  margin-top: 0px !important;
+/*--------------
+    Animating
+---------------*/
+
+
+/*--------------
+     Pushed
+---------------*/
+
+/* Show Dimmer */
+body.pushable.pushed,
+body.pushable.hide,
+body.pushable.show {
+  background: @canvasBackground !important;
 }
 
+/*body.pushed > .pusher > .page:after {
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+}*/
+body > .visible.ui.sidebar {
+  visibility: visible;
+}
 
 /*******************************
-           Variations
+          Variations
 *******************************/
 
-/*-------------------
-      Formatted
---------------------*/
+/*--------------
+    Styled
+---------------*/
 
 .ui.styled.sidebar {
-  padding: @styledVerticalPadding @styledHorizontalPadding;
-  background-color: @styledBackground;
-  box-shadow: @styledBoxShadow;
-}
-.ui.styled.thin.sidebar {
-  padding: @styledThinPadding;
-}
-.ui.styled.very.thin.sidebar {
-  padding: @styledVeryThinPadding;
+  background-color: #FFFFFF;
+  padding: 1em 1.25em;
+  border-right: 1px solid #DDDDDD;
 }
 
 
-/*-------------------
-       Floating
---------------------*/
+/*--------------
+    Overlay
+---------------*/
 
-.ui.floating.sidebar {
-  box-shadow: @floatingLeftBoxShadow;
-}
-.ui.right.floating.sidebar {
-  box-shadow: @floatingRightBoxShadow;
-}
-.ui.top.floating.sidebar {
-  box-shadow: @floatingTopBoxShadow;
-}
-.ui.bottom.floating.sidebar {
-  box-shadow: @floatingBottomBoxShadow
+/* Set-up */
+body.overlay > .ui.sidebar {
+  transform: translate3d(-100%, 0, 0);
+  z-index: 3;
 }
 
-/*-------------------
-        Width
---------------------*/
-
-/* Very Thin */
-.ui.very.thin.sidebar {
-  width: @veryThinWidth !important;
-  margin-left: -@veryThinWidth !important;
-}
-.ui.active.very.thin.sidebar {
-  margin-left: 0px !important;
-}
-.ui.active.right.very.thin.sidebar {
-  margin-left: -@veryThinWidth !important;
+/* Pushed */
+body.overlay .visible.ui.sidebar {
+  transform: translate3d(0, 0, 0);
 }
 
-/* Thin */
-.ui.thin.sidebar {
-  width: @thinWidth !important;
-  margin-left: -@thinWidth !important;
-}
-.ui.active.thin.sidebar {
-  margin-left: 0px !important;
-}
-.ui.active.right.thin.sidebar {
-  margin-left: -@thinWidth !important;
+/* Animation */
+body.overlay.show > .visible.ui.sidebar,
+body.overlay.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration ease;
 }
 
-/* Standard */
-.ui.sidebar {
-  width: @width !important;
-  margin-left: -@width !important;
+/*--------------
+     Pushed
+---------------*/
+
+/* Set-Up */
+body.pushing.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
 }
-.ui.active.sidebar {
-  margin-left: 0px !important;
+body.pushing > .ui.sidebar {
+  transform: translate3d(-100%, 0, 0);
 }
-.ui.active.right.sidebar {
-  margin-left: -@width !important;
+body.pushing > .pusher {
+  transform: translate3d(0, 0, 0);
 }
 
-/* Wide */
-.ui.wide.sidebar {
-  width: @wideWidth !important;
-  margin-left: -@wideWidth !important;
+/* Pushed */
+body.pushing.pushed .visible.sidebar {
+  transform: translate3d(0%, 0, 0);
 }
-.ui.active.wide.sidebar {
-  margin-left: 0px !important;
-}
-.ui.active.right.wide.sidebar {
-  margin-left: -@wideWidth !important;
+body.pushing.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
 }
 
-/* Very Wide */
-.ui.very.wide.sidebar {
-  width: @veryWideWidth !important;
-  margin-left: -@veryWideWidth !important;
-}
-.ui.active.very.wide.sidebar {
-  margin-left: 0px !important;
-}
-.ui.active.right.very.wide.sidebar {
-  margin-left: -@veryWideWidth !important;
+/* Animation */
+body.pushing.show > .visible.ui.sidebar,
+body.pushing.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration ease;
 }
 
-/*-------------------
-       Height
---------------------*/
 
-/* Very Thin */
-.ui.very.thin.top.sidebar {
-  margin: -@veryThinHeight 0px 0px 0px !important;
+/*--------------
+     Reveal
+---------------*/
+
+/* Set-up */
+body.reveal .visible.ui.sidebar {
+  z-index: 1;
 }
-.ui.very.thin.top.sidebar,
-.ui.very.thin.bottom.sidebar {
-  height: @veryThinHeight !important;
-}
-.ui.very.thin.active.bottom.sidebar {
-  margin-top: -@veryThinHeight !important;
+body.reveal > .pusher {
+  transform: translate3d(0, 0, 0);
+  z-index: 2;
 }
 
-/* Thin */
-.ui.thin.top.sidebar {
-  margin: -@thinHeight 0px 0px 0px !important;
-}
-.ui.thin.top.sidebar,
-.ui.thin.bottom.sidebar {
-  height: @thinHeight !important;
-}
-.ui.thin.active.bottom.sidebar {
-  margin-top: -@thinHeight !important;
+/* Pushed */
+body.reveal.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
 }
 
-/* Standard */
-.ui.top.sidebar {
-  margin: -@height 0px 0px 0px !important;
-}
-.ui.top.sidebar,
-.ui.bottom.sidebar {
-  height: @height !important;
-}
-.ui.active.bottom.sidebar {
-  margin-top: -@height !important;
+
+/*--------------
+   Slide Along
+---------------*/
+
+/* Set-up */
+body.slide.along > .ui.sidebar {
+  z-index: 1;
+  transform: translate3d(-50%, 0, 0);
 }
 
-/* Tall */
-.ui.tall.top.sidebar {
-  margin: -@tallHeight 0px 0px 0px !important;
+/* Pushed */
+body.slide.along.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
 }
-.ui.tall.top.sidebar,
-.ui.tall.bottom.sidebar {
-  height: @tallHeight !important;
-}
-.ui.tall.active.bottom.sidebar {
-  margin-top: -@tallHeight !important;
+body.slide.along.pushed > .visible.ui.sidebar {
+  transform: translate3d(0, 0, 0);
 }
 
-/* Very Tall */
-.ui.very.tall.top.sidebar {
-  margin: -@veryTallHeight 0px 0px 0px !important;
-}
-.ui.very.tall.top.sidebar,
-.ui.very.tall.bottom.sidebar {
-  height: @veryTallHeight !important;
-}
-.ui.very.tall.active.bottom.sidebar {
-  margin-top: -@veryTallHeight !important;
+/* Animation */
+body.slide.along.show > .visible.ui.sidebar,
+body.slide.along.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration ease;
 }
 
-.loadUIOverrides();
+
+
+/*--------------
+   Slide Out
+---------------*/
+
+/* Set-up */
+body.slide.out > .ui.sidebar {
+  z-index: 1;
+  transform: translate3d(50%, 0, 0);
+}
+
+/* Pushed */
+body.slide.out.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
+}
+body.slide.out.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
+}
+
+/* Animation */
+body.slide.out.show > .visible.ui.sidebar,
+body.slide.out.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration ease;
+}
+
+/*--------------
+   Scale Down
+---------------*/
+
+/* Set-up */
+body.scale.down {
+  perspective: 1500px;
+}
+body.scale.down > .pusher {
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+body.scale.down > .ui.sidebar {
+  opacity: 1;
+  transform: translate3d(-100%, 0, 0);
+  z-index: 3;
+}
+
+/* Pushed */
+body.scale.down.pushed > .pusher {
+  transform: translate3d(0, 0, -@sidebarWidth);
+}
+body.scale.down.pushed > .visible.ui.sidebar {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Animation */
+body.scale.down.show > .visible.ui.sidebar,
+body.scale.down.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration ease;
+}
+
+
+/*--------------
+    Scale Up
+---------------*/
+
+/* Set-up */
+body.scale.up {
+  perspective: 1500px;
+  perspective-origin: 0% 50%;
+}
+body.scale.up > .ui.sidebar {
+  z-index: 1;
+  transform: translate3d(0, 0, -@sidebarWidth);
+}
+body.scale.up > .pusher {
+  z-index: 2;
+}
+
+/* Pushed */
+body.scale.up.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
+}
+body.scale.up.pushed > .visible.ui.sidebar {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Animation */
+body.scale.up.show > .visible.ui.sidebar,
+body.scale.up.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration ease;
+}
+
+
+/*--------------
+     Recede
+---------------*/
+
+/* Set-up */
+body.recede {
+  perspective: 1500px;
+}
+body.recede > .ui.sidebar {
+  opacity: 1;
+  transform: translate3d(-100%, 0, 0);
+  z-index: 3;
+}
+body.recede > .pusher {
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+body.recede > .pusher::after {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Pushed */
+body.recede.pushed > .pusher {
+  transform: translate3d(0px, 0, -200px) rotateY(-25deg);
+}
+body.recede.pushed > .visible.ui.sidebar {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Animation */
+body.recede.show > .visible.ui.sidebar,
+body.recede.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration ease;
+}
+
+/*--------------
+   Open Door
+---------------*/
+
+/* Set-up */
+body.open.door {
+  perspective: 1500px;
+}
+body.open.door > .ui.sidebar {
+  opacity: 1;
+  transform: translate3d(-100%, 0, 0);
+}
+body.open.door > .pusher {
+  transform-origin: 100% 50%;
+  transform-style: preserve-3d;
+}
+
+
+/* Pushed */
+body.open.door.pushed > .pusher {
+  transform: rotateY(-10deg);
+}
+body.open.door.pushed > .visible.ui.sidebar {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Animation */
+body.open.door.show > .visible.ui.sidebar,
+body.open.door.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration;
+}
+
+/*--------------
+    Rotate In
+---------------*/
+
+/* Set-up */
+body.rotate.in {
+  perspective: 1500px;
+  perspective-origin: 0% 50%;
+}
+body.rotate.in > .pusher {
+  transform-style: preserve-3d;
+}
+body.rotate.in > .ui.sidebar {
+  transform: translate3d(-100%, 0, 0) rotateY(90deg);
+  transform-origin: 50% 100% 0;
+  transform-style: preserve-3d;
+}
+
+/* Pushed */
+body.rotate.in.pushed > .pusher {
+  transform: translate3d(@sidebarWidth, 0, 0);
+}
+body.rotate.in.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0) rotateY(0deg);
+}
+
+/* Animation */
+body.rotate.in.show > .visible.ui.sidebar,
+body.rotate.in.hide > .visible.ui.sidebar {
+  transition: transform @animationDuration ease-in-out 0s;
+}

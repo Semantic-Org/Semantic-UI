@@ -44,7 +44,7 @@ body {
 }
 
 body#example {
-  background: #FCFCFC url(../images/bg.jpg) repeat;
+  background: #F9F9F9;
   margin: 0px;
   padding: 0px;
   color: #555555;
@@ -171,8 +171,9 @@ a:hover {
 }
 
 /* segment headers */
+#example .header.segment,
 #example > .content > .page > .segment,
-#example > .segment {
+#example > .header.segment {
   margin: 0px 0px 3em;
   padding-top: 70px;
   padding-bottom: 30px;
@@ -180,24 +181,24 @@ a:hover {
   border-bottom: 1px solid #DDDDDD;
 }
 
-#example > .tab.segment {
+#example .tab.header.segment {
   padding-bottom: 0em;
   margin-bottom: 2em;
 }
 
-#example > .tab.segment .fixed .tabular.menu {
+#example .tab.header.segment .fixed .tabular.menu {
   position: fixed;
   top: 50px;
 }
-#example > .tab.segment .vertical.menu {
+#example .tab.header.segment .vertical.menu {
   display: none;
   margin: 2rem 0em 1rem;
 }
-#example > .tab.segment .tabular.menu {
+#example .tab.header.segment .tabular.menu {
   margin: 2rem 0em 0em;
   border-bottom: none;
 }
-#example > .tab.segment .tabular.menu .active.item {
+#example .tab.header.segment .tabular.menu .active.item {
   background-color: #FAFAFA;
   border-bottom-color: #FAFAFA;
 }
@@ -871,12 +872,6 @@ body.guide .main.container > * {
   width: 100px;
 }
 
-#example .existing.annotation {
-  /*display: none;*/
-}
-/*#example .segment p:first-of-type {
-  margin-top: 0em;
-}*/
 
 /* example code reskin */
 #example div.code.hide {
@@ -1467,11 +1462,11 @@ body.progress .ui.progress .bar {
   #example .fixed .next {
     display: none;
   }
-  #example > .tab.segment .tabular.menu {
+  #example .tab.header.segment .tabular.menu {
     display: none;
   }
 
-  #example > .tab.segment .vertical.menu {
+  #example .tab.header.segment .vertical.menu {
     display: block;
   }
 }

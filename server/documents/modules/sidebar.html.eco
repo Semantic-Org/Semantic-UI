@@ -1,6 +1,6 @@
 ---
 layout      : 'default'
-css         : 'side'
+css         : ''
 
 element     : 'sidebar'
 elementType : 'element'
@@ -12,7 +12,6 @@ type        : 'UI Module'
 themes      : ['Default']
 ---
 
-<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/sidebar.less" />
 <script src="/javascript/sidebar.js"></script>
 
 <%- @partial('header', { tabs: 'module' }) %>
@@ -170,7 +169,7 @@ themes      : ['Default']
     </div>
   </div>
 </div>
-<div class="ui left sidebar vertical menu">
+<div class="ui left sidebar vertical inverted menu">
   <div class="header item">Left Sidebar menu</div>
   <a class="item">One</a>
   <a class="item">Two</a>
