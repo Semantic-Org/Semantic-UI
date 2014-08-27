@@ -224,8 +224,11 @@ body.reveal.pushed > .pusher {
 
 /* Set-up */
 body.slide.along > .ui.sidebar {
-  z-index: 1;
+  z-index: 2;
   transform: translate3d(-50%, 0, 0);
+}
+body.slide.along > .pusher {
+  z-index: 3;
 }
 
 /* Pushed */
@@ -233,7 +236,7 @@ body.slide.along.pushed > .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
 }
 body.slide.along.pushed > .visible.ui.sidebar {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0%, 0, 0);
 }
 
 /* Animation */

@@ -99,7 +99,6 @@ $.fn.sidebar = function(parameters) {
 
         event: {
           clickaway: function(event) {
-            console.log(event.target);
             if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
               module.verbose('User clicked on dimmed page');
               $.proxy(module.hide, element)();
@@ -109,7 +108,6 @@ $.fn.sidebar = function(parameters) {
 
         bind: {
           clickaway: function() {
-            console.log($body);
             $body
               .on('click' + eventNamespace, module.event.clickaway)
             ;

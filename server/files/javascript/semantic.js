@@ -836,6 +836,9 @@ semantic.ready = function() {
     .on('mouseleave', handler.menu.mouseleave)
   ;
   $menu
+    .sidebar({
+      animation: 'slide along'
+    })
     .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
     .sidebar('attach events', $hideMenu, 'hide')
   ;
