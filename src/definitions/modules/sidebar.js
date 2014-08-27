@@ -97,6 +97,32 @@ $.fn.sidebar = function(parameters) {
           ;
         },
 
+        event: {
+          clickaway: function(event) {
+            console.log(event.target);
+            if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
+              module.verbose('User clicked on dimmed page');
+              $.proxy(module.hide, element)();
+            }
+          }
+        },
+
+        bind: {
+          clickaway: function() {
+            console.log($body);
+            $body
+              .on('click' + eventNamespace, module.event.clickaway)
+            ;
+          }
+        },
+        unbind: {
+          clickaway: function() {
+            $body
+              .off('click' + eventNamespace)
+            ;
+          }
+        },
+
         refresh: function() {
           module.verbose('Refreshing selector cache');
           $style  = $('style[title=' + namespace + ']');
@@ -235,7 +261,9 @@ $.fn.sidebar = function(parameters) {
             module.set.inward();
             requestAnimationFrame(function() {
               module.set.visible();
-              module.set.pushed();
+              requestAnimationFrame(function() {
+                module.set.pushed();
+              });
             });
             $pusher
               .off(transitionEnd)
@@ -244,6 +272,7 @@ $.fn.sidebar = function(parameters) {
                   module.remove.inward();
                   module.set.active();
                   $pusher.off(transitionEnd);
+                  module.bind.clickaway();
                   $.proxy(callback, element)();
                 }
               })
@@ -261,6 +290,7 @@ $.fn.sidebar = function(parameters) {
             if(settings.animation == 'overlay') {
               $module. removeClass(className.visible);
             }
+            module.unbind.clickaway();
             requestAnimationFrame(function() {
               module.set.outward();
               module.remove.active();

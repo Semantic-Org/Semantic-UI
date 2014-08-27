@@ -101,26 +101,32 @@ body.pushable > .pusher > .page:after {
 *******************************/
 
 /*--------------
-    Animating
----------------*/
-
-
-/*--------------
      Pushed
 ---------------*/
 
-/* Show Dimmer */
+/* Add Canvas BG */
 body.pushable.pushed,
 body.pushable.hide,
 body.pushable.show {
   background: @canvasBackground !important;
 }
 
-/*body.pushed > .pusher > .page:after {
+/* Remove Scroll */
+body.pushed > .pusher > .page {
+  overflow: hidden;
+}
+
+/* Show Dimmer */
+body.pushed > .pusher > .page:after {
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
-}*/
+}
+
+/*--------------
+     Visible
+---------------*/
+
 body > .visible.ui.sidebar {
   visibility: visible;
 }
@@ -171,14 +177,16 @@ body.pushing.pushed > .pusher {
 }
 body.pushing > .ui.sidebar {
   transform: translate3d(-100%, 0, 0);
+  z-index: 3;
 }
 body.pushing > .pusher {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0px, 0, 0);
+  z-index: 2;
 }
 
 /* Pushed */
 body.pushing.pushed .visible.sidebar {
-  transform: translate3d(0%, 0, 0);
+  transform: translate3d(0px, 0, 0);
 }
 body.pushing.pushed > .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
@@ -280,7 +288,7 @@ body.scale.down > .ui.sidebar {
 
 /* Pushed */
 body.scale.down.pushed > .pusher {
-  transform: translate3d(0, 0, -@sidebarWidth);
+  transform: translate3d(210px, 0px, -500px);
 }
 body.scale.down.pushed > .visible.ui.sidebar {
   transform: translate3d(0, 0, 0);
@@ -348,7 +356,7 @@ body.recede > .pusher::after {
 
 /* Pushed */
 body.recede.pushed > .pusher {
-  transform: translate3d(0px, 0, -200px) rotateY(-25deg);
+  transform: translate3d(15%, 0px, -400px) rotateY(-15deg);
 }
 body.recede.pushed > .visible.ui.sidebar {
   transform: translate3d(0, 0, 0);
@@ -371,10 +379,12 @@ body.open.door {
 body.open.door > .ui.sidebar {
   opacity: 1;
   transform: translate3d(-100%, 0, 0);
+  z-index: 3;
 }
 body.open.door > .pusher {
   transform-origin: 100% 50%;
   transform-style: preserve-3d;
+  z-index: 2;
 }
 
 
@@ -416,6 +426,12 @@ body.rotate.in.pushed > .pusher {
 }
 body.rotate.in.pushed .visible.ui.sidebar {
   transform: translate3d(0%, 0, 0) rotateY(0deg);
+}
+
+/* Return Animation */
+body.rotate.in.hide > .visible.ui.sidebar {
+  transform: translate3d(-100%, 0, 0) rotateY(0deg);
+  transition: transform @animationDuration ease 0s;
 }
 
 /* Animation */
