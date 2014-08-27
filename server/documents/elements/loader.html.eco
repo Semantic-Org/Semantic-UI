@@ -1,9 +1,15 @@
 ---
 layout      : 'default'
 css         : 'loader'
+
+element     : 'loader'
+elementType : 'element'
+
 title       : 'Loader'
 description : 'Loaders lets a user know to wait for activity to finish'
 type        : 'UI Element'
+
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>

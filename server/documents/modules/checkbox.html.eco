@@ -4,11 +4,11 @@ css         : 'checkbox'
 element     : 'checkbox'
 elementType : 'module'
 
-
 title       : 'Checkbox'
 description : "A checkbox indicates the current value of a selection"
 type        : 'UI Module'
-themes      : ['default']
+
+themes      : ['Default']
 ---
 <script src="/javascript/checkbox.js"></script>
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/checkbox.less" />

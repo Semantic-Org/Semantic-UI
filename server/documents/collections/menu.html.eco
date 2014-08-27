@@ -2,13 +2,14 @@
 layout      : 'default'
 css         : 'menu'
 
+element     : 'menu'
+elementType : 'collection'
+
 title       : 'Menu'
 description : 'A menu is a collection of elements showing related user actions'
 type        : 'UI Collection'
 
-element     : 'menu'
-elementType : 'collection'
-themes      : ['default', 'GitHub']
+themes      : ['Default', 'GitHub']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/menu.less" />
 <script src="/javascript/menu.js"></script>

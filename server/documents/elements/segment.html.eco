@@ -1,6 +1,7 @@
 ---
 layout      : 'default'
 css         : 'segment'
+
 element     : 'segment'
 elementType : 'element'
 

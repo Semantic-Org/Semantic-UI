@@ -2,8 +2,12 @@
 layout      : 'default'
 css         : 'form'
 
+element     : 'form'
+elementType : 'behavior'
+
 title       : 'Form Validation'
 description : 'A form validation behavior checks user input data against a set of criteria before passing along the data to the server'
+
 type        : 'UI Behavior'
 ---
 

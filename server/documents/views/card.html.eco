@@ -2,12 +2,12 @@
 layout      : 'default'
 css         : 'card'
 
+element     : 'card'
+elementType : 'view'
+
 title       : 'Card'
 description : 'A card view lists site content as a playing card'
 type        : 'UI View'
-
-element     : 'card'
-elementType : 'view'
 
 themes      : ['Default', 'Basic']
 ---

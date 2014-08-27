@@ -1,14 +1,15 @@
 ---
 layout      : 'default'
-css         : 'text'
+css         : 'message'
+
+element     : 'message'
+elementType : 'collection'
 
 title       : 'Message'
 description : 'A message displays information a user must immediately consider before proceeding to the contents of a page.'
 type        : 'UI Collection'
 
-element     : 'message'
-elementType : 'collection'
-themes      : ['default', 'github', 'google']
+themes      : ['Default', 'GitHub', 'Google']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/message.less" />
 <%- @partial('header') %>

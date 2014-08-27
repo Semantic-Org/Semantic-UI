@@ -144,18 +144,14 @@
 /* Child Accordion */
 /* Content */
 /*-------------------
-        States
---------------------*/
-/* Title Hover */
-/* Title Active */
-/* Active Styled */
-/*-------------------
       Variations
 --------------------*/
 /* Styled */
-/* Styled Title */
 /* Content */
 /* Child Content */
+/* Styled Title */
+/* Styled Title States */
+/* Styled Child Title States */
 /*------------------
      Load Theme
 -------------------*/
@@ -186,7 +182,7 @@
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -204,10 +200,11 @@
 .ui.accordion .title .dropdown.icon,
 .ui.accordion .accordion .title .dropdown.icon {
   display: inline-block;
+  float: none;
   opacity: 0.75;
   width: 1.25em;
   height: 1em;
-  margin: 0em 0em 0em 0em;
+  margin: 0em 0.25em 0em 0em;
   -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
           transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
@@ -225,16 +222,18 @@
 .ui.styled.accordion .accordion {
   border-radius: 0.3125em;
   background: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.styled.accordion .title,
 .ui.styled.accordion .accordion .title {
   margin: 0em;
   padding: 0.75em 1em;
-  color: rgba(0, 0, 0, 0.8);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  -webkit-transition: background-color 0.2s ease;
-          transition: background-color 0.2s ease;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: normal;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-transition: background 0.25s ease, color 0.25s ease;
+          transition: background 0.25s ease, color 0.25s ease;
 }
 .ui.styled.accordion .title:first-child,
 .ui.styled.accordion .accordion .title:first-child {
@@ -244,41 +243,43 @@
 .ui.styled.accordion .content,
 .ui.styled.accordion .accordion .content {
   margin: 0em;
-  padding: 1.3em 1em;
+  padding: 0.5em 1em 1.5em;
 }
 .ui.styled.accordion .accordion .content {
   padding: 0em;
-  padding: 0.8em 1em;
+  padding: 0.5em 1em 1.5em;
+}
+/* Hover */
+.ui.styled.accordion .title:hover,
+.ui.styled.accordion .active.title,
+.ui.styled.accordion .accordion .title:hover,
+.ui.styled.accordion .accordion .active.title {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.styled.accordion .accordion .title:hover,
+.ui.styled.accordion .accordion .active.title {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.85);
 }
 /* Active */
 .ui.styled.accordion .active.title {
-  background: rgba(0, 0, 0, 0.1);
+  background: transparent;
+  color: rgba(0, 0, 0, 0.8);
 }
 .ui.styled.accordion .accordion .active.title {
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
+  color: rgba(0, 0, 0, 0.8);
 }
 /*******************************
             States
 *******************************/
-/*--------------
-      Hover
----------------*/
-.ui.accordion .title:hover,
-.ui.accordion .active.title,
-.ui.accordion .accordion .title:hover,
-.ui.accordion .accordion .active.title {
-  color: rgba(0, 0, 0, 0.8);
-}
 /*--------------
      Active
 ---------------*/
 .ui.accordion .active.content,
 .ui.accordion .accordion .active.content {
   display: block;
-}
-.ui.accordion .active.title,
-.ui.accordion .accordion .active.title {
-  color: rgba(0, 0, 0, 0.8);
 }
 /*******************************
            Variations

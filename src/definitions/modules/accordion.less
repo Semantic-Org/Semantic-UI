@@ -55,6 +55,7 @@
 .ui.accordion .title .dropdown.icon,
 .ui.accordion .accordion .title .dropdown.icon {
   display: @iconDisplay;
+  float: @iconFloat;
   opacity: @iconOpacity;
   width: @iconWidth;
   height: @iconHeight;
@@ -88,6 +89,7 @@
   margin: @styledTitleMargin;
   padding: @styledTitlePadding;
   color: @styledTitleColor;
+  font-weight: @styledTitleFontWeight;
   border-top: @styledTitleBorder;
   transition: @styledTitleTransition;
 }
@@ -108,30 +110,36 @@
   padding: @styledChildContentPadding;
 }
 
+
+/* Hover */
+.ui.styled.accordion .title:hover,
+.ui.styled.accordion .active.title,
+.ui.styled.accordion .accordion .title:hover,
+.ui.styled.accordion .accordion .active.title {
+  background: @styledTitleHoverBackground;
+  color: @styledTitleHoverColor;
+}
+.ui.styled.accordion .accordion .title:hover,
+.ui.styled.accordion .accordion .active.title {
+  background: @styledHoverChildTitleBackground;
+  color: @styledHoverChildTitleColor;
+}
+
+
 /* Active */
 .ui.styled.accordion .active.title {
   background: @styledActiveTitleBackground;
+  color: @styledActiveTitleColor;
 }
 .ui.styled.accordion .accordion .active.title {
   background: @styledActiveChildTitleBackground;
+  color: @styledActiveChildTitleColor;
 }
 
 
 /*******************************
             States
 *******************************/
-
-
-/*--------------
-      Hover
----------------*/
-
-.ui.accordion .title:hover,
-.ui.accordion .active.title,
-.ui.accordion .accordion .title:hover,
-.ui.accordion .accordion .active.title {
-  color: @titleHoverColor;
-}
 
 /*--------------
      Active
@@ -141,11 +149,6 @@
 .ui.accordion .accordion .active.content {
   display: block;
 }
-.ui.accordion .active.title,
-.ui.accordion .accordion .active.title {
-  color: @selectedTextColor;
-}
-
 
 /*******************************
            Variations
@@ -159,5 +162,7 @@
 .ui.fluid.accordion .accordion {
   width: 100%;
 }
+
+
 
 .loadUIOverrides();

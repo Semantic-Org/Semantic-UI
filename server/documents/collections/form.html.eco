@@ -1,13 +1,15 @@
 ---
 layout      : 'default'
 css         : 'form'
+
 element     : 'form'
 elementType : 'collection'
 
 title       : 'Form'
 description : 'A form is a collection of user input elements'
 type        : 'UI Collection'
-themes      : ['default', 'GitHub']
+
+themes      : ['Default', 'GitHub']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/form.less" />
 <script src="/javascript/form.js"></script>

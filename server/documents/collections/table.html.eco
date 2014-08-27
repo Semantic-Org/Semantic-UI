@@ -2,12 +2,12 @@
 layout      : 'default'
 css         : 'table'
 
+element     : 'table'
+elementType : 'collection'
+
 title       : 'Table'
 description : 'Tables display collections of related data grouped into rows'
 type        : 'UI Collection'
-
-element     : 'table'
-elementType : 'collection'
 
 themes      : ['Default']
 ---

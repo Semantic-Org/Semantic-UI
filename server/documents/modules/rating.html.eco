@@ -3,7 +3,7 @@ layout      : 'default'
 css         : 'rating'
 
 element     : 'rating'
-elementType : 'element'
+elementType : 'module'
 
 title       : 'Rating'
 description : 'A rating allows a user to indicate interest in content'

@@ -2,13 +2,14 @@
 layout      : 'default'
 css         : 'Grid'
 
+element     : 'grid'
+elementType : 'collection'
+
 title       : 'Grid'
 description : 'A grid is a structure used to harmonize negative space in a layout'
 type        : 'UI Collection'
 
-element     : 'grid'
-elementType : 'collection'
-themes      : ['default']
+themes      : ['Default']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/collections/grid.less" />
 

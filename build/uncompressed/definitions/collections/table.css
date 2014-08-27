@@ -197,7 +197,8 @@
   background: #ffffff;
   margin: 1em 0em;
   border: 1px solid #d0d0d0;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-radius: 0.25rem;
   color: rgba(0, 0, 0, 0.8);
   border-collapse: separate;
@@ -220,10 +221,12 @@
 }
 /* Headers */
 .ui.table thead {
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
 }
 .ui.table thead th {
   cursor: auto;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   text-align: left;
@@ -245,7 +248,8 @@
 }
 /* Footer */
 .ui.table tfoot {
-  box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px -1px 1px 0px rgba(0, 0, 0, 0.05);
 }
 .ui.table tfoot th {
   cursor: auto;
@@ -287,7 +291,8 @@
 /* Table Segment */
 .ui.table.segment {
   padding: 0em;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.table.segment:after {
   display: none;
@@ -320,7 +325,8 @@
     display: block;
     border: none !important;
     padding: 0.25em 0.75em;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   .ui.table th:first-child,
   .ui.table td:first-child {
@@ -329,7 +335,8 @@
   }
   .ui.table th:last-child,
   .ui.table td:last-child {
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
     padding-bottom: 1em;
   }
   /* Clear BG Colors */
@@ -349,7 +356,8 @@
 ---------------*/
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 2px 0px 0px #119000 inset;
+  -webkit-box-shadow: 2px 0px 0px #119000 inset;
+          box-shadow: 2px 0px 0px #119000 inset;
 }
 .ui.table tr.positive td,
 .ui.table td.positive {
@@ -369,7 +377,8 @@
 ---------------*/
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
+          box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.negative td,
 .ui.table td.negative {
@@ -386,7 +395,8 @@
 ---------------*/
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 2px 0px 0px #cd2929 inset;
+  -webkit-box-shadow: 2px 0px 0px #cd2929 inset;
+          box-shadow: 2px 0px 0px #cd2929 inset;
 }
 .ui.table tr.error td,
 .ui.table td.error {
@@ -403,7 +413,8 @@
 ---------------*/
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 2px 0px 0px #7d6c00 inset;
+  -webkit-box-shadow: 2px 0px 0px #7d6c00 inset;
+          box-shadow: 2px 0px 0px #7d6c00 inset;
 }
 .ui.table tr.warning td,
 .ui.table td.warning {
@@ -420,7 +431,8 @@
 ---------------*/
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+  -webkit-box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
+          box-shadow: 2px 0px 0px rgba(50, 50, 50, 0.9) inset;
 }
 .ui.table tr.active td,
 .ui.table td.active {
@@ -710,6 +722,7 @@
 }
 /* Sorted */
 .ui.sortable.table thead th.sorted {
+  background: rgba(0, 0, 0, 0.05) -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: rgba(0, 0, 0, 0.05) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: rgba(0, 0, 0, 0.05) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: rgba(0, 0, 0, 0.8);
@@ -720,17 +733,20 @@
   color: rgba(0, 0, 0, 0.2);
 }
 .ui.sortable.table thead th:hover {
+  background: rgba(0, 0, 0, 0.03) -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: rgba(0, 0, 0, 0.03) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: rgba(0, 0, 0, 0.03) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: rgba(0, 0, 0, 0.8);
 }
 /* Inverted */
 .ui.inverted.sortable.table thead th.sorted {
+  background: rgba(255, 255, 255, 0.01) -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: rgba(255, 255, 255, 0.01) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: rgba(255, 255, 255, 0.01) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: #ffffff;
 }
 .ui.inverted.sortable.table thead th:hover {
+  background: rgba(255, 255, 255, 0.05) -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: rgba(255, 255, 255, 0.05) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: rgba(255, 255, 255, 0.05) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: #ffffff;
@@ -775,11 +791,13 @@
 .ui.basic.table {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.basic.table thead,
 .ui.basic.table tfoot {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.basic.table th {
   background: transparent;

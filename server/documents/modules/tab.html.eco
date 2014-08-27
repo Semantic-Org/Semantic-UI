@@ -1,10 +1,14 @@
 ---
 layout      : 'default'
 css         : 'tab'
+element     : 'tab'
+elementType : 'module'
 
 title       : 'Tab'
 description : 'A tab is a section of content tied to a navigation menu'
 type        : 'UI Module'
+
+themes      : ['Default']
 ---
 
 <script src="/javascript/tab.js"></script>

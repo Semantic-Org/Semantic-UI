@@ -336,17 +336,19 @@
 .ui.menu a.item:hover {
   cursor: pointer;
   background: @hoverBackground;
+  color: @hoverColor;
 }
 
 
 /*--------------
-      Down
+     Pressed
 ---------------*/
 
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
-  background: @downBackground;
+  background: @pressedBackground;
+  color: @pressedColor;
 }
 
 /*--------------
@@ -382,7 +384,7 @@
   border-left: none;
 }
 .ui.vertical.menu .item .menu .active.item {
-  background-color: @subMenuActiveColor;
+  background-color: @subMenuActiveBackground;
   box-shadow: none;
 }
 
@@ -832,7 +834,7 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Down */
+/* Pressed */
 .ui.secondary.inverted.pointing.menu > .menu > .item:active,
 .ui.secondary.inverted.pointing.menu > .item:active {
   border-color: rgba(255, 255, 255, 0.4);
@@ -888,7 +890,7 @@
   color: @secondaryPointingHoverTextColor;
 }
 
-/* Down */
+/* Pressed */
 .ui.secondary.pointing.menu > .menu > .link.item:active,
 .ui.secondary.pointing.menu > .link.item:active,
 .ui.secondary.pointing.menu > .menu > a.item:active,
@@ -924,7 +926,7 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-/* Down */
+/* Pressed */
 .ui.secondary.vertical.pointing.menu > .item:active {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.2);
@@ -1176,6 +1178,11 @@
 .ui.inverted.menu .item > a {
   color: @invertedTextColor;
 }
+
+.ui.inverted.menu .item:not(.dropdown).menu {
+  background: @invertedSubMenuBackground;
+}
+
 .ui.inverted.menu .item .item,
 .ui.inverted.menu .item .item > a {
   color: @invertedSubMenuColor;
@@ -1203,43 +1210,42 @@
 .ui.inverted.menu .link.item:hover,
 .ui.inverted.menu a.item:hover,
 .ui.inverted.menu .dropdown.item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: @invertedHoverBackground;
+  color: @invertedHoverColor;
 }
-.ui.inverted.menu a.item:hover,
-.ui.inverted.menu .item > a:hover,
 .ui.inverted.menu .item .menu a.item:hover,
 .ui.inverted.menu .item .menu .link.item:hover {
-  color: rgba(255, 255, 255, 1);
+  background: @invertedSubMenuBackground;
+  color: @invertedSubMenuHoverColor;
 }
 
-/*--- Down ---*/
+/*--- Pressed ---*/
 .ui.inverted.menu a.item:active,
 .ui.inverted.menu .dropdown.item:active,
 .ui.inverted.menu .link.item:active,
 .ui.inverted.menu a.item:active {
-  background-color: rgba(255, 255, 255, 0.15);
+  background: @invertedMenuPressedBackground;
+  color: @invertedMenuPressedColor;
 }
 
 /*--- Active ---*/
 .ui.inverted.menu .active.item {
   box-shadow: none !important;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.ui.inverted.menu .active.item {
-  color: rgba(255, 255, 255, 1) !important;
+  background: @invertedActiveBackground;
+  color: @invertedActiveColor !important;
 }
 .ui.inverted.vertical.menu .item .menu .active.item {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 1);
+  background: @invertedSubMenuActiveBackground;
+  color: @invertedSubMenuActiveColor;
 }
 
 /*--- Pointers ---*/
 .ui.inverted.pointing.menu .active.item:after {
-  background-color: #5B5B5B;
+  background: #5B5B5B;
   box-shadow: none;
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
-  background-color: #4A4A4A;
+  background: #4A4A4A;
 }
 
 

@@ -152,7 +152,8 @@
 @hoverBackground: @subtleTransparentBlack;
 @hoverColor: @textColor;
 
-@downBackground: @subtleTransparentBlack;
+@pressedBackground: @subtleTransparentBlack;
+@pressedColor: @selectedTextColor;
 
 @activeBackground: @subtleTransparentBlack;
 @activeColor: @darkTextColor;
@@ -161,7 +162,7 @@
 @activeIconOpacity: 1;
 
 @activeHoverBackground: @hoverBackground;
-@subMenuActiveColor: rgba(0, 0, 0, 0.03);
+@subMenuActiveBackground: transparent;
 
 @loadingBackgroundColor: rgba(255, 255, 255, 0.8);
 @loadingImage: "@{imagePath}/loader-large.gif";
@@ -266,9 +267,27 @@
 /* Inverted */
 @invertedBackground: @black;
 @invertedBoxShadow: none;
-
 @invertedHeaderBackground: rgba(0, 0, 0, 0.3);
-@invertedSubMenuColor: @invertedLightTextColor;
+
+/* Inverted Sub Menu */
+@invertedSubMenuBackground: transparent;
+@invertedSubMenuColor: @invertedUnselectedTextColor;
+
+/* Inverted Hover */
+@invertedHoverBackground: rgba(255, 255, 255, 0.1);
+@invertedHoverColor: @white;
+@invertedSubMenuHoverBackground: transparent;
+@invertedSubMenuHoverColor: @white;
+
+/* Pressed */
+@invertedMenuPressedBackground: rgba(255, 255, 255, 0.15);
+@invertedMenuPressedColor: @white;
+
+/* Inverted Active */
+@invertedActiveBackground: rgba(255, 255, 255, 0.2);
+@invertedActiveColor: @white;
+@invertedSubMenuActiveBackground: transparent;
+@invertedSubMenuActiveColor: @white;
 
 /* Inverted Secondary */
 @secondaryInvertedColor: @invertedLightTextColor;

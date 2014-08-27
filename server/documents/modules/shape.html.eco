@@ -1,7 +1,8 @@
 ---
 layout      : 'default'
 css         : 'shape'
-element     : 'accordion'
+
+element     : 'shape'
 elementType : 'module'
 
 title       : 'Shape'

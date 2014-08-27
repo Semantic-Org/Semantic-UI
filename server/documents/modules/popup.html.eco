@@ -2,12 +2,12 @@
 layout      : 'default'
 css         : 'popup'
 
+element     : 'popup'
+elementType : 'module'
+
 title       : 'Popup'
 description : 'A popup displays additional information on top of a page element'
 type        : 'UI Module'
-
-element     : 'popup'
-elementType : 'module'
 
 themes      : ['Default']
 ---

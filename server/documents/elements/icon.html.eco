@@ -1,13 +1,15 @@
 ---
 layout      : 'default'
 css         : 'icon'
+
+element     : 'icon'
+elementType : 'element'
+
 title       : 'Icon'
 description : 'An icon is a glyph used to represent a concept'
 type        : 'UI Element'
 
-element     : 'icon'
-elementType : 'element'
-referencesOthers: true
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>

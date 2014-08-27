@@ -1,6 +1,7 @@
 ---
 layout      : 'default'
 css         : 'steps'
+
 element     : 'step'
 elementType : 'element'
 

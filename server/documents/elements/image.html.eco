@@ -1,9 +1,15 @@
 ---
 layout      : 'default'
 css         : 'image'
+
+element     : 'image'
+elementType : 'element'
+
 title       : 'Image'
 description : 'An image is a graphic representation of something'
 type        : 'UI Element'
+
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>

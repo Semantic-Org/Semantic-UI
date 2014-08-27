@@ -223,7 +223,7 @@
   content: '';
   background: #ffffff;
   border-radius: 0.25em;
-  -webkit-transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, border 0.3s ease, -webkit-box-shadow 0.3s ease;
           transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -386,6 +386,7 @@
 /* Handle */
 .ui.slider.checkbox .box:after,
 .ui.slider.checkbox label:after {
+  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   position: absolute;
@@ -393,7 +394,8 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+          box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.25rem;
@@ -467,6 +469,7 @@
 /* Handle */
 .ui.toggle.checkbox .box:after,
 .ui.toggle.checkbox label:after {
+  background: #ffffff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #ffffff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #ffffff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   position: absolute;
@@ -474,7 +477,8 @@
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+          box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: 0rem;

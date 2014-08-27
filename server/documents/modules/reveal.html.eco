@@ -2,9 +2,14 @@
 layout      : 'default'
 css         : 'reveal'
 
+element     : 'reveal'
+elementType : 'element'
+
 title       : 'Reveal'
 description : 'A reveal hides additional content until a user engages content'
 type        : 'UI Element'
+
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>

@@ -2,12 +2,12 @@
 layout      : 'default'
 css         : 'stat'
 
+element     : 'statistic'
+elementType : 'view'
+
 title       : 'Statistic'
 description : 'A statistic emphasizes the current value of an attribute'
 type        : 'UI View'
-
-element     : 'statistic'
-elementType : 'view'
 
 themes      : ['Default']
 ---

@@ -1,13 +1,15 @@
 ---
 layout      : 'default'
 css         : 'header'
+
+element     : 'header'
+elementType : 'element'
+
 title       : 'Header'
 description : 'Headers provide a short summary of content'
 type        : 'UI Element'
 
-element     : 'header'
-elementType : 'element'
-themes      : ['default', 'bookish', 'chubby']
+themes      : ['Default', 'Bookish', 'Chubby']
 ---
 
 <%- @partial('header') %>

@@ -1,13 +1,15 @@
 ---
 layout      : 'default'
 css         : 'input'
+
+element     : 'input'
+elementType : 'element'
+
 title       : 'Input'
 description : 'An input allows a site to elicit user input'
 type        : 'UI Element'
 
-element     : 'input'
-elementType : 'element'
-themes      : ['default']
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>

@@ -2,12 +2,12 @@
 layout      : 'default'
 css         : 'item'
 
+element     : 'item'
+elementType : 'view'
+
 title       : 'Item'
 description : 'An item view divides site content into vertical groups for display'
 type        : 'UI View'
-
-element     : 'item'
-elementType : 'view'
 
 themes      : ['Default']
 ---

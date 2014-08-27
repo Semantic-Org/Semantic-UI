@@ -1,6 +1,7 @@
 ---
 layout      : 'default'
 css         : 'modal-page'
+
 element     : 'modal'
 elementType : 'module'
 
@@ -8,7 +9,7 @@ title       : 'Modal'
 description : 'A modal displays content that temporarily blocks interactions with other content'
 type        : 'UI Module'
 
-themes      : ['default', 'fixed-width']
+themes      : ['Default', 'Fixed-width']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/modal.less" />
 <script src="/javascript/modal.js"></script>

@@ -1,6 +1,7 @@
 ---
 layout      : 'default'
 css         : 'list'
+
 element     : 'list'
 elementType : 'view'
 

@@ -192,11 +192,12 @@
   font-style: normal;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.2em;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
 .ui.popup .header {
   padding: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -214,7 +215,8 @@
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.popup .ui.button {
   width: 100%;
@@ -253,7 +255,8 @@
   left: 50%;
   right: auto;
   bottom: auto;
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.left.popup {
   margin-left: 0em;
@@ -264,7 +267,8 @@
   right: auto;
   bottom: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 .ui.bottom.right.popup {
   margin-right: 0em;
@@ -275,7 +279,8 @@
   bottom: auto;
   left: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Above ---*/
 .ui.top.center.popup:before {
@@ -312,7 +317,8 @@
   bottom: auto;
   left: auto;
   margin-top: -0.375em;
-  box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
 }
 /*--- Right Center  ---*/
 .ui.right.center.popup:before {
@@ -321,7 +327,8 @@
   bottom: auto;
   right: auto;
   margin-top: -0.375em;
-  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 /*******************************
             States
@@ -364,7 +371,8 @@
   background: #191919;
   color: #ffffff;
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.inverted.popup .header {
   background-color: none;
@@ -372,7 +380,8 @@
 }
 .ui.inverted.popup:before {
   background-color: #191919;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 /*--------------
      Sizes

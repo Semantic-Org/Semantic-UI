@@ -1,0 +1,7 @@
+/*-------------------
+   Accordion Variables
+--------------------*/
+
+@styledActiveTitleBackground: @subtleGradient;
+@styledActiveTitleColor: @primaryColor;
+@styledTitlePadding: 1.25em;

@@ -8,7 +8,7 @@ title       : 'Accordion'
 description : 'An accordion lets a user activate groups of collapsible content'
 type        : 'UI Module'
 
-themes      : ['default']
+themes      : ['Default', 'Chubby']
 ---
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/modules/accordion.less" />
 <script src="/javascript/accordion.js"></script>

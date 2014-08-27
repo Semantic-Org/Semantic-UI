@@ -1,9 +1,15 @@
 ---
 layout      : 'default'
 css         : 'progress'
+
+element     : 'progress'
+elementType : 'element'
+
 title       : 'Progress'
 description : 'A progress bar shows the progression of a task'
 type        : 'UI Element'
+
+themes      : ['Default']
 ---
 
 <%- @partial('header') %>

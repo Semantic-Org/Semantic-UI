@@ -1,12 +1,14 @@
 ---
 layout      : 'default'
 css         : 'divider'
+
+element     : 'divider'
+elementType : 'element'
+
 title       : 'Divider'
 description : 'A divider visually segments content into separate groups'
 type        : 'UI Element'
 
-element     : 'divider'
-elementType : 'element'
 themes      : ['default']
 ---
 
