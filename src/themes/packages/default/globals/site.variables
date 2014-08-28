@@ -341,6 +341,15 @@
 @tealHover            : lighten( @teal, 5);
 @yellowHover          : lighten( @yellow, 5);
 
+@lightBlueHover       : lighten( @lightBlue, 5);
+@lightGreenHover      : lighten( @lightGreen, 5);
+@lightOrangeHover     : lighten( @lightOrange, 5);
+@lightPinkHover       : lighten( @lightPink, 5);
+@lightPurpleHover     : lighten( @lightPurple, 5);
+@lightRedHover        : lighten( @lightRed, 5);
+@lightTealHover       : lighten( @lightTeal, 5);
+@lightYellowHover     : lighten( @lightYellow, 5);
+
 /*---  Emotive  ---*/
 @positiveColorHover   : lighten( @positiveColor, 5);
 @negativeColorHover   : lighten( @negativeColor, 5);
@@ -387,6 +396,15 @@
 @tealDown            : darken(@teal, 7);
 @yellowDown          : darken(@yellow, 7);
 
+@lightBlueDown       : darken(@lightBlue, 7);
+@lightGreenDown      : darken(@lightGreen, 7);
+@lightOrangeDown     : darken(@lightOrange, 7);
+@lightPinkDown       : darken(@lightPink, 7);
+@lightPurpleDown     : darken(@lightPurple, 7);
+@lightRedDown        : darken(@lightRed, 7);
+@lightTealDown       : darken(@lightTeal, 7);
+@lightYellowDown     : darken(@lightYellow, 7);
+
 /*---  Emotive  ---*/
 @positiveColorDown   : darken(@positiveColor, 7);
 @negativeColorDown   : darken(@negativeColor, 7);
@@ -431,6 +449,15 @@
 @redActive             : darken(@red, 5);
 @tealActive            : darken(@teal, 5);
 @yellowActive          : darken(@yellow, 5);
+
+@lightBlueActive       : darken(@lightBlue, 5);
+@lightGreenActive      : darken(@lightGreen, 5);
+@lightOrangeActive     : darken(@lightOrange, 5);
+@lightPinkActive       : darken(@lightPink, 5);
+@lightPurpleActive     : darken(@lightPurple, 5);
+@lightRedActive        : darken(@lightRed, 5);
+@lightTealActive       : darken(@lightTeal, 5);
+@lightYellowActive     : darken(@lightYellow, 5);
 
 /*---  Emotive  ---*/
 @positiveColorActive   : darken(@positiveColor, 5);

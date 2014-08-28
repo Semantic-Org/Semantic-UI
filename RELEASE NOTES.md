@@ -29,6 +29,7 @@
 - **Grid** - Elements inside a grid that are not rows or columns will now align properly
 - **Grid** - Fixed page grid allows for fixed pixel size containers used with a grid instead of percentage
 - **Grid** - Vertically divided grid now does not include left/right gutters in divider
+- **Header** - Linked headers now receive link colors
 - **Image** - New ``bordered image`` variation
 - **Item** - Items now have a horizontal list view for content lists
 - **Label** - Added tag label and empty circular label style

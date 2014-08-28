@@ -596,6 +596,7 @@ body.guide .main.container > * {
   background: url(http://beta.myfav.es/images/themes/bg/subtle/subtle-handmade-paper.png) repeat;
 }
 #example .peek {
+  display: none;
   position: absolute;
   top: 0px;
   left: -230px;

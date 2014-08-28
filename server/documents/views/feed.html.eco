@@ -29,28 +29,24 @@ themes      : ['Default', 'Timeline']
 
   <div class="example">
     <h4 class="ui header">Feed</h4>
-    <p>A standard feed with some optional elements</p>
+    <p>A feed</p>
     <div class="ui feed segment">
       <div class="event">
         <div class="label">
-          <i class="user icon"></i>
+          <img src="/images/avatar/small/elliot.jpg">
         </div>
         <div class="content">
           <div class="summary">
             <a class="user">
-              <img src="/images/demo/avatar2.jpg">
-              Sally Poodle
+              Elliot Fu
             </a> added you as a friend
             <div class="date">
               1 Hour Ago
             </div>
           </div>
           <div class="meta">
-            <a class="replies">
-              2 <i class="comments icon"></i>
-            </a>
             <a class="like">
-              4 <i class="like icon"></i>
+              <i class="like icon"></i> 4 Likes
             </a>
           </div>
         </div>
@@ -67,111 +63,96 @@ themes      : ['Default', 'Timeline']
             </div>
           </div>
           <div class="extra text">
-            I am a dog and I do not know how to make a post
+            I'm having a BBQ this weekend. Come by around 4pm if you can.
           </div>
           <div class="meta">
-            <a class="replies">
-              0 <i class="comments icon"></i>
-            </a>
             <a class="like">
-              5 <i class="like icon"></i>
+              <i class="like icon"></i> 11 Likes
             </a>
           </div>
         </div>
       </div>
       <div class="event">
         <div class="label">
-          <i class="photo icon"></i>
+          <img src="/images/avatar/small/helen.jpg">
         </div>
         <div class="content">
           <div class="date">
             4 days ago
           </div>
           <div class="summary">
-            <a>Sally Poodle</a> added <a>2 new photos</a> of you
+            <a>Helen Troy</a> added <a>2 new illustrations</a>
           </div>
           <div class="extra images">
-            <img src="/images/demo/item1.jpg">
-            <img src="/images/demo/item2.jpg">
+            <a><img src="/images/animals/bear-love.jpg"></a>
+            <a><img src="/images/animals/rooster-star.jpg"></a>
           </div>
           <div class="meta">
-            <a class="replies">
-              2 <i class="comments icon"></i>
-            </a>
             <a class="like">
-              4 <i class="like icon"></i>
+              <i class="like icon"></i> 1 Like
             </a>
           </div>
         </div>
       </div>
       <div class="event">
         <div class="label">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/jenny.jpg">
         </div>
         <div class="content">
           <div class="summary">
             <a class="user">
-              Sally Poodle
+              Jenny Hess
             </a> added you as a friend
             <div class="date">
-              1 Hour Ago
+              2 Days Ago
             </div>
           </div>
           <div class="meta">
-            <a class="replies">
-              2 <i class="comments icon"></i>
-            </a>
             <a class="like">
-              4 <i class="like icon"></i>
+              <i class="like icon"></i> 8 Likes
             </a>
           </div>
         </div>
       </div>
       <div class="event">
         <div class="label">
-          <i class="pencil icon"></i>
+          <img src="/images/avatar/small/joe.jpg">
         </div>
         <div class="content">
           <div class="summary">
-            You submitted a new post to the page
+            <a>Joe Henderson</a> posted on his page
             <div class="date">
               3 days ago
             </div>
           </div>
           <div class="extra text">
-            I am a dog and I do not know how to make a post
+            Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even if we don't run extra laps that day, we surely will come back for more of the same another day soon.
           </div>
           <div class="meta">
-            <a class="replies">
-              0 <i class="comments icon"></i>
-            </a>
             <a class="like">
-              5 <i class="like icon"></i>
+              <i class="like icon"></i> 5 Likes
             </a>
           </div>
         </div>
       </div>
       <div class="event">
         <div class="label">
-          <i class="photo icon"></i>
+          <img src="/images/avatar/small/justen.jpg">
         </div>
         <div class="content">
           <div class="date">
             4 days ago
           </div>
           <div class="summary">
-            <a>Sally Poodle</a> added <a>2 new photos</a> of you
+            <a>Justen Kitsune</a> added <a>2 new photos</a> of you
           </div>
           <div class="extra images">
-            <img src="/images/demo/item1.jpg">
-            <img src="/images/demo/item2.jpg">
+            <a><img src="/images/animals/bear-love.jpg"></a>
+            <a><img src="/images/animals/rooster-star.jpg"></a>
           </div>
           <div class="meta">
-            <a class="replies">
-              2 <i class="comments icon"></i>
-            </a>
             <a class="like">
-              4 <i class="like icon"></i>
+              <i class="like icon"></i> 41 Likes
             </a>
           </div>
         </div>
@@ -183,45 +164,66 @@ themes      : ['Default', 'Timeline']
 
   <div class="example">
     <h4 class="ui header">Label</h4>
-    <p>An event can contain a label</p>
-    <div class="ui feed">
+    <p>An event can contain an image or icon label</p>
+    <div class="ui feed segment">
       <div class="event">
         <div class="label">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/elliot.jpg">
         </div>
         <div class="content">
-          <div class="summary">
-             <a>Sally Poodle</a> added you as a friend
-          </div>
+          You added Elliot Fu to the group <a>Coworkers</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui feed segment">
       <div class="event">
         <div class="label">
           <i class="pencil icon"></i>
         </div>
         <div class="content">
           <div class="summary">
-            You submitted a new post to the page
+            You posted on your friend <a>Stevie Feliciano's</a> wall.
+            <div class="date">Today</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+
   <div class="example">
     <h4 class="ui header">Date</h4>
-    <p>An event can contain a date</p>
-    <div class="ui feed">
+    <p>An event or an event summary can contain a date</p>
+    <div class="ui feed segment">
       <div class="event">
         <div class="label">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/jenny.jpg">
         </div>
         <div class="content">
           <div class="date">
             3 days ago
           </div>
           <div class="summary">
-             <a>Sally Poodle</a> added you as a friend
+             You added <a>Jenny Hess</a> to your <a>coworker</a> group.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui feed segment">
+      <div class="event">
+        <div class="label">
+          <img src="/images/avatar/small/jenny.jpg">
+        </div>
+        <div class="content">
+          <div class="summary">
+            You added <a>Jenny Hess</a> to your <a>coworker</a> group.
+            <div class="date">
+              3 days ago
+            </div>
           </div>
         </div>
       </div>
@@ -230,38 +232,38 @@ themes      : ['Default', 'Timeline']
 
   <div class="example">
     <h4 class="ui header">Additional information</h4>
-    <p>An event can contain additional content explaining the event</p>
-    <div class="ui feed">
+    <p>An event can contain additional information like a set of images or text</p>
+    <div class="ui feed segment">
       <div class="event">
         <div class="label">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/helen.jpg">
         </div>
         <div class="content">
           <div class="date">
             3 days ago
           </div>
           <div class="summary">
-             <a>Sally Poodle</a> added 2 photos of you
+             <a>Helen Troy</a> added 2 photos
           </div>
           <div class="extra images">
-            <img src="/images/demo/item1.jpg">
-            <img src="/images/demo/item2.jpg">
+            <a><img src="/images/animals/bear-love.jpg"></a>
+            <a><img src="/images/animals/rooster-star.jpg"></a>
           </div>
         </div>
       </div>
       <div class="event">
         <div class="label">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/jill.jpg">
         </div>
         <div class="content">
           <div class="date">
             3 days ago
           </div>
           <div class="summary">
-             <a>Sally Poodle</a> created a post
+             <a>Jill Kronkite</a> created a post
           </div>
           <div class="extra text">
-            I am a dog and I do not know how to make a post
+            Have you seen what's going on in Israel? Can you believe it.
           </div>
         </div>
       </div>
@@ -274,88 +276,101 @@ themes      : ['Default', 'Timeline']
     <h4 class="ui header">Sizes</h4>
     <p>A feed can have different sizes</p>
 
-    <div class="ui grid">
-      <div class="ten wide column">
-        <div class="ui small feed">
-          <h4 class="ui header">My Activity</h4>
-          <div class="event">
-            <div class="label">
-              <img src="/images/demo/avatar2.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                Just moments ago
-              </div>
-              <div class="summary">
-                 <a>Sally Poodle</a> added you as a friend
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <i class="pencil icon"></i>
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                You submitted a new post to the page
-              </div>
-              <div class="extra text">
-                I am a dog and I do not know how to make a post
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <i class="photo icon"></i>
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                <a>Sally Poodle</a> added <a>2 new photos</a> of you
-              </div>
-              <div class="extra images">
-                <img src="/images/demo/item1.jpg">
-                <img src="/images/demo/item2.jpg">
-              </div>
-            </div>
+    <div class="ui small feed segment">
+      <h4 class="ui header">Followers Activity</h4>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Elliot Fu</a> added <a>Jenny Hess</a> as a friend
           </div>
         </div>
       </div>
-      <div class="six wide column">
-        <div class="ui small feed">
-          <h4 class="ui header">Followers Activity</h4>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <a>Sally Poodle</a> added <a>hotpup202</a> as a friend
-              </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Helen Troy</a> added <a>Christian Rocha</a> as a friend
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Christian Rocha</a> signed up for the  site.
+          </div>
+        </div>
+      </div>
+    </div
+    >
+  </div>
+  <div class="another example">
+    <div class="ui large feed segment">
+      <div class="event">
+        <div class="label">
+          <img src="/images/avatar/small/elliot.jpg">
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a class="user">
+              Elliot Fu
+            </a> added you as a friend
+            <div class="date">
+              1 Hour Ago
             </div>
           </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <a>Dally Doodle</a> added <a>hotpup202</a> as a friend
-              </div>
+          <div class="meta">
+            <a class="like">
+              <i class="like icon"></i> 4 Likes
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="pencil icon"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            You submitted a new post to the page
+            <div class="date">
+              3 days ago
             </div>
           </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <a>Sally Poodle</a> added <a>sixpack dog</a> as a friend
-              </div>
-            </div>
+          <div class="extra text">
+            I'm having a BBQ this weekend. Come by around 4pm if you can.
           </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <a>Dally Doodle</a> added <a>hotpup202</a> as a friend
-              </div>
-            </div>
+          <div class="meta">
+            <a class="like">
+              <i class="like icon"></i> 11 Likes
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <img src="/images/avatar/small/helen.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+            4 days ago
+          </div>
+          <div class="summary">
+            <a>Helen Troy</a> added <a>2 new illustrations</a>
+          </div>
+          <div class="extra images">
+            <a><img src="/images/animals/bear-love.jpg"></a>
+            <a><img src="/images/animals/rooster-star.jpg"></a>
+          </div>
+          <div class="meta">
+            <a class="like">
+              <i class="like icon"></i> 1 Like
+            </a>
           </div>
         </div>
       </div>
