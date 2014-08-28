@@ -75,7 +75,7 @@
 @subtleGradient: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 
 /* Used for differentiating layers */
-@subtleShadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+@subtleShadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 
 
 /*-------------------

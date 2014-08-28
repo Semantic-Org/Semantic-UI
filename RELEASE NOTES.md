@@ -13,6 +13,7 @@
 - **Table** - Tables are no longer striped by default, instead you must specify the 'striped' variation
 
 **Enhancements**
+- **General** - CSS animations now hint with will change properties to increase performance in supported browsers
 - **Accordion** - Accordion now includes all icons in an embedded font instead of requiring icons
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.

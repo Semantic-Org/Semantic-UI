@@ -43,4 +43,4 @@
 --------------------*/
 
 /* Threaded */
-@threadedCommentHorizontalOffset: (@avatarWidth / 2);
+@threadedCommentMargin: -1.5em 0 -1em  (@avatarWidth / 2);

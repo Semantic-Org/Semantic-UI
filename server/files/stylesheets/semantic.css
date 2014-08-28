@@ -155,6 +155,12 @@ a:hover {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+#example .menu .inverted.header {
+  color: rgba(255, 255, 255, 0.8);
+}
+#example .menu a.inverted.header:hover {
+  color: rgba(255, 255, 255, 1);
+}
 #example #menu .hide.item {
   display: none;
 }
@@ -1117,6 +1123,10 @@ body.guide .main.container > * {
 
 #example .highlighted.example {
   min-height: 275px;
+}
+#example .element.cards .image {
+  overflow: hidden;
+  min-height: 100px;
 }
 #example .collection.cards {
   min-height: 350px;

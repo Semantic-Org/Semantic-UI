@@ -58,7 +58,7 @@
 /* Header */
 @headerMargin: 0em;
 @headerFontWeight: bold;
-@headerFontSize: 1.25em;
+@headerFontSize: 1.2em;
 @headerColor: @darkTextColor;
 
 /* Metadata */

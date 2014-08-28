@@ -1,6 +1,6 @@
 ---
 layout      : 'default'
-css         : 'progress'
+css         : 'list'
 
 title       : 'UI Elements'
 description : 'Elements are the basic building blocks of a website.'
@@ -43,9 +43,9 @@ type        : 'Semantic'
  -->
   <h2 class="ui dividing header">Types</h2>
 
-  <div class="ui two type stackable items">
+  <div class="ui two stackable element cards">
 
-    <div class="item">
+    <div class="card">
       <div class="image">
         <div class="ui teal labeled icon button">
           <i class="icon user add"></i>Follow
@@ -58,20 +58,20 @@ type        : 'Semantic'
         </div>
       </div>
       <div class="content">
-        <a href="elements/button.html" class="name">Button</a>
+        <a href="elements/button.html" class="header">Button</a>
         <p>A button indicates a possible user action.</p>
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <div class="image">
         <div class="ui horizontal divider"><i class="github icon"></i></div>
       </div>
       <div class="content">
-        <a href="elements/divider.html" class="name">Divider</a>
+        <a href="elements/divider.html" class="header">Divider</a>
         <p>A divider visually segments content into separate groups</p>
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <div class="image">
         <h2 class="ui blue block header">
           Section 2
@@ -79,33 +79,33 @@ type        : 'Semantic'
         </h2>
       </div>
       <div class="content">
-        <a href="elements/header.html" class="name">Header</a>
+        <a href="elements/header.html" class="header">Header</a>
         <p>Headers provide a short summary of content</p>
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <div class="image">
         <div class="ui red active progress">
           <div class="bar"></div>
         </div>
       </div>
       <div class="content">
-        <a href="elements/progress.html" class="name">Progress Bar</a>
+        <a href="elements/progress.html" class="header">Progress Bar</a>
         <p>A progress bar displays progress on a task</p>
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <div class="image">
         <div class="ui inverted stacked segment">
           <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
         </div>
       </div>
       <div class="content">
-        <a href="elements/segment.html" class="name">Segment</a>
+        <a href="elements/segment.html" class="header">Segment</a>
         <p>A segment is used to create a grouping of related content.</p>
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <div class="image">
         <div class="ui left floated circular image">
           <img src="/images/demo/avatar.jpg">
@@ -115,11 +115,11 @@ type        : 'Semantic'
         </div>
       </div>
       <div class="content">
-      <a href="elements/image.html" class="name">Image</a>
+      <a href="elements/image.html" class="header">Image</a>
       <p>An image is a graphic representation of something</p>
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <div class="image">
         <div class="ui four fluid steps">
           <div class="ui step">
@@ -137,11 +137,11 @@ type        : 'Semantic'
         </div>
       </div>
       <div class="content">
-        <a href="elements/step.html" class="name">Step</a>
+        <a href="elements/step.html" class="header">Step</a>
         <p>Steps show the current activity in a series of steps.</p>
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <div class="image">
         <i class="archive icon"></i>
         <i class="attachment icon"></i>
@@ -232,11 +232,11 @@ type        : 'Semantic'
         <i class="off icon"></i>
       </div>
       <div class="content">
-        <a href="elements/icon.html" class="name">Icon</a>
+        <a href="elements/icon.html" class="header">Icon</a>
         <p>An icon is a glyph used to represent another concept more simply</p>
       </div>
     </div>
-    <div class="item">
+    <div class="card">
       <div class="image">
         <div class="ui red label">Dog</div>
         <div class="ui teal corner label">
@@ -246,7 +246,7 @@ type        : 'Semantic'
         <div class="ui blue ribbon label">HTML</div>
       </div>
       <div class="content">
-        <a href="elements/label.html" class="name">Label</a>
+        <a href="elements/label.html" class="header">Label</a>
         <p>Labels give descriptions to sections of content.</p>
       </div>
     </div>

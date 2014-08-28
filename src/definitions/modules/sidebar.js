@@ -260,12 +260,10 @@ $.fn.sidebar = function(parameters) {
             module.set.direction();
             module.set.animation();
             module.set.inward();
-              requestAnimationFrame(function() {
-                module.set.visible();
-                requestAnimationFrame(function() {
-                  module.set.pushed();
-                });
-              });
+            requestAnimationFrame(function() {
+              module.set.visible();
+              module.set.pushed();
+            });
             $pusher
               .off(transitionEnd)
               .on(transitionEnd, function(event) {
@@ -536,9 +534,6 @@ $.fn.sidebar = function(parameters) {
             if(moduleSelector) {
               title += ' \'' + moduleSelector + '\'';
             }
-            if($allModules.size() > 1) {
-              title += ' ' + '(' + $allModules.size() + ')';
-            }
             if( (console.group !== undefined || console.table !== undefined) && performance.length > 0) {
               console.groupCollapsed(title);
               if(console.table) {
@@ -586,6 +581,7 @@ $.fn.sidebar = function(parameters) {
                 return false;
               }
               else {
+                module.error(error.method, query);
                 return false;
               }
             });
@@ -607,21 +603,22 @@ $.fn.sidebar = function(parameters) {
           }
           return found;
         }
-      };
-      if(methodInvoked) {
-        if(instance === undefined) {
-          module.initialize();
-        }
-        module.invoke(query);
       }
-      else {
-        if(instance !== undefined) {
-          module.destroy();
-        }
+    ;
+
+    if(methodInvoked) {
+      if(instance === undefined) {
         module.initialize();
       }
-    })
-  ;
+      module.invoke(query);
+    }
+    else {
+      if(instance !== undefined) {
+        module.destroy();
+      }
+      module.initialize();
+    }
+  });
 
   return (returnedValue !== undefined)
     ? returnedValue

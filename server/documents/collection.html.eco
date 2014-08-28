@@ -1,6 +1,6 @@
 y---
 layout      : 'default'
-css         : 'index'
+css         : 'list'
 
 title       : 'UI Collections'
 description : 'UI collections are elements which contain other elements which often appear together.'

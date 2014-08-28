@@ -182,6 +182,9 @@
   padding-right: 0em;
 }
 
+.ui.animated.button .content {
+  will-change: transform, opacity;
+}
 .ui.animated.button .visible.content {
   position: relative;
   margin-right: @horizontalPadding;
@@ -1740,12 +1743,22 @@
   border-left: none;
 }
 
+.ui.buttons:not(.basic):not(.inverted) {
+  box-shadow: @groupBoxShadow;
+}
+.ui.buttons > .ui.button:not(.basic):not(.inverted),
+.ui.buttons:not(.basic):not(.inverted) > .button {
+  box-shadow: @groupButtonBoxShadow;
+}
+
+
 .ui.buttons .button {
   margin: 0em;
   float: left;
   border-radius: 0em;
   margin: @groupButtonOffset;
 }
+
 .ui.buttons .button:first-child  {
   margin-left: 0em;
   border-top-left-radius: @borderRadius;

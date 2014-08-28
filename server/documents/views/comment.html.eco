@@ -17,35 +17,30 @@ themes      : ['Default', 'Chubby']
 
 <div class="main container">
 
-  <div class="peek">
-    <div class="ui vertical pointing secondary menu">
-      <a class="active item">Types</a>
-      <a class="item">Content</a>
-      <a class="item">State</a>
-      <a class="item">Variations</a>
-    </div>
-  </div>
-
   <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
     <h4 class="ui header">Comments</h4>
     <p>A basic list of comments</p>
-    <h2 class="ui header">
-      <i class="comment icon"></i> Comments
-    </h2>
-    <div class="ui comments">
+    <div class="ui ignored info attached message">
+      <p>These examples uses <a href="/elements/segment.html">ui segment</a> to create content segments. This is not required.</p>
+    </div>
+    <div class="ui ignored bottom attached warning message">
+      <p><b>UI Views</b> provide structured layouts, but do not hook up site specific code. You will need to add your own javascript behaviors to hide and show the appropriate forms. For example, having a reply button open a reply form<p>
+    </div>
+    <div class="ui comments segment">
+      <h3 class="ui dividing header">Comments</h3>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/matt.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Matt</a>
           <div class="metadata">
             <span class="date">Today at 5:42PM</span>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            How artistic!
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
@@ -54,16 +49,15 @@ themes      : ['Default', 'Chubby']
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar2.jpg">
+          <img src="/images/avatar/small/elliot.jpg">
         </a>
         <div class="content">
-          <a class="author">Pawfin Dog</a>
+          <a class="author">Elliot Fu</a>
           <div class="metadata">
             <span class="date">Yesterday at 12:30AM</span>
           </div>
           <div class="text">
-            <p>This is against my beliefs, and the beliefs of other dogs like me. Dogs aren't cats and cats aren't dogs, the two should never be mistaken. I'm sure the creator of this post would mistake a cat for a dog.</p>
-            <p>I however and dogs like me, would never want to listen to someone who sympathizes so much with cats. Who likes cats anyway.</p>
+            <p>This has been very useful for my research. Thanks as well!</p>
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
@@ -72,15 +66,15 @@ themes      : ['Default', 'Chubby']
         <div class="comments">
           <div class="comment">
             <a class="avatar">
-              <img src="/images/demo/avatar.jpg">
+              <img src="/images/avatar/small/jenny.jpg">
             </a>
             <div class="content">
-              <a class="author">Dog Doggington</a>
+              <a class="author">Jenny Hess</a>
               <div class="metadata">
                 <span class="date">Just now</span>
               </div>
               <div class="text">
-                +1 I agree with you.
+                Elliot you are always so right :)
               </div>
               <div class="actions">
                 <a class="reply">Reply</a>
@@ -91,15 +85,15 @@ themes      : ['Default', 'Chubby']
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar3.jpg">
+          <img src="/images/avatar/small/joe.jpg">
         </a>
         <div class="content">
-          <a class="author">Roofus</a>
+          <a class="author">Joe Henderson</a>
           <div class="metadata">
             <span class="date">5 days ago</span>
           </div>
           <div class="text">
-            I like to bark. If you like to bark visit <a href="http://www.bark.com"> this website</a> for great resources on barking.
+            Dude, this is awesome. Thanks so much
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
@@ -123,16 +117,13 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Avatar</h4>
     <p>A comment can contain an image or avatar</p>
-    <div class="ui comments">
+    <div class="ui comments segment">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/elliot.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
-          <div class="text">
-            I think this is a great idea and i am voting on it
-          </div>
+          <a class="author">Elliot Fu</a>
         </div>
       </div>
     </div>
@@ -141,13 +132,13 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Metadata</h4>
     <p>A comment can contain metadata about the comment, an arbitrary amount of metadata may be defined.</p>
-    <div class="ui comments">
+    <div class="ui comments segment">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/stevie.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Stevie Feliciano</a>
           <div class="metadata">
             <div class="date">2 days ago</div>
             <div class="rating">
@@ -156,7 +147,7 @@ themes      : ['Default', 'Chubby']
             </div>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            Hey guys, I hope this example comment is helping you read this documentation.
           </div>
         </div>
       </div>
@@ -166,25 +157,24 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Actions</h4>
     <p>A comment can contain an list of actions a user may perform related to this comment.</p>
-    <div class="ui comments">
+    <div class="ui comments segment">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/joe.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
-          <div class="metadata">
-            <div class="date">2 days ago</div>
-            <div class="rating">
-              <i class="star icon"></i>
-              5 Faves
-            </div>
-          </div>
+          <a class="author">Tom Lukic</a>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            This will be great for business reports. I will definitely download this.
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
+            <a class="save">Save</a>
+            <a class="hide">Hide</a>
+            <a>
+              <i class="expand icon"></i>
+              Full-screen
+            </a>
           </div>
         </div>
       </div>
@@ -194,18 +184,21 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Reply Form</h4>
     <p>A comment can contain a form to reply to a comment. This may have arbitrary content.</p>
-    <div class="ui comments">
+    <div class="ui info message">
+      <p>If a comment form is located inside a <code> ui comment</code> it will be formatted as an nested reply form. If the comment form is included after all comments, it will be formatted as a normal reply form.</p>
+    </div>
+    <div class="ui comments segment">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/steve.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Steve Jobes</a>
           <div class="metadata">
             <div class="date">2 days ago</div>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            Revolutionary!
           </div>
           <div class="actions">
             <a class="reply active">Reply</a>
@@ -214,7 +207,7 @@ themes      : ['Default', 'Chubby']
             <div class="field">
               <textarea></textarea>
             </div>
-            <div class="ui button teal submit labeled icon">
+            <div class="ui primary submit labeled icon button">
               <i class="icon edit"></i> Add Reply
             </div>
           </form>
@@ -223,19 +216,19 @@ themes      : ['Default', 'Chubby']
     </div>
   </div>
   <div class="another example">
-    <p>A comment reply form can also exist below a comment feed to reply specifically to the original content.
-    <div class="ui comments">
+    <div class="ui comments segment">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/joe.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Joe Henderson</a>
           <div class="metadata">
-            <div class="date">2 days ago</div>
+            <div class="date">1 day ago</div>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            <p>The hours, minutes and seconds stand as visible reminders that your effort put them all there. </p>
+            <p>Preserve until your next run, when the watch lets you see how Impermanent your efforts are.</p>
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
@@ -244,15 +237,15 @@ themes      : ['Default', 'Chubby']
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar2.jpg">
+          <img src="/images/avatar/small/christian.jpg">
         </a>
         <div class="content">
-          <a class="author">Pawfin Dog</a>
+          <a class="author">Christian Rocha</a>
           <div class="metadata">
-            <div class="date">1 day ago</div>
+            <div class="date">2 days ago</div>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            I re-tweeted this.
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
@@ -263,7 +256,7 @@ themes      : ['Default', 'Chubby']
         <div class="field">
           <textarea></textarea>
         </div>
-        <div class="ui button teal submit labeled icon">
+        <div class="ui primary submit labeled icon button">
           <i class="icon edit"></i> Add Comment
         </div>
       </form>
@@ -275,18 +268,18 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Collapsed</h4>
     <p>Comments can be collapsed, or hidden from view</p>
-    <div class="ui comments">
+    <div class="ui comments segment">
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/christian.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Christian Rocha</a>
           <div class="metadata">
             <span class="date">2 days ago</span>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            I'm very interested in this motherboard. Do you know if it'd work in a Intel LGA775 CPU socket?
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
@@ -340,18 +333,36 @@ themes      : ['Default', 'Chubby']
   <div class="example">
     <h4 class="ui header">Threaded</h4>
     <p>A comment list can be threaded to showing the relationship between conversations</p>
-    <div class="ui threaded comments">
+    <div class="ui threaded comments segment">
+      <h3 class="ui dividing header">Comments</h3>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/matt.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Matt</a>
           <div class="metadata">
-            <span class="date">2 days ago</span>
+            <span class="date">Today at 5:42PM</span>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            How artistic!
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/avatar/small/elliot.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Elliot Fu</a>
+          <div class="metadata">
+            <span class="date">Yesterday at 12:30AM</span>
+          </div>
+          <div class="text">
+            <p>This has been very useful for my research. Thanks as well!</p>
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
@@ -360,68 +371,15 @@ themes      : ['Default', 'Chubby']
         <div class="comments">
           <div class="comment">
             <a class="avatar">
-              <img src="/images/demo/avatar2.jpg">
+              <img src="/images/avatar/small/jenny.jpg">
             </a>
             <div class="content">
-              <a class="author">Pawfin Dog</a>
+              <a class="author">Jenny Hess</a>
               <div class="metadata">
-                <span class="date">1 day ago</span>
+                <span class="date">Just now</span>
               </div>
               <div class="text">
-                I think this is a great idea and i am voting on it
-              </div>
-              <div class="actions">
-                <a class="reply">Reply</a>
-              </div>
-            </div>
-            <div class="comments">
-              <div class="comment">
-                <a class="avatar">
-                  <img src="/images/demo/avatar.jpg">
-                </a>
-                <div class="content">
-                  <a class="author">Dog Doggington</a>
-                  <div class="metadata">
-                    <span class="date">20 minutes ago</span>
-                  </div>
-                  <div class="text">
-                    I think this is a great idea and i am voting on it
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
-              <div class="comment">
-                <a class="avatar">
-                  <img src="/images/demo/avatar.jpg">
-                </a>
-                <div class="content">
-                  <a class="author">Dog Doggington</a>
-                  <div class="metadata">
-                    <span class="date">20 minutes ago</span>
-                  </div>
-                  <div class="text">
-                    Also pizza.
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <a class="avatar">
-              <img src="/images/demo/avatar.jpg">
-            </a>
-            <div class="content">
-              <a class="author">Dog Doggington</a>
-              <div class="metadata">
-                <span class="date">2 days ago</span>
-              </div>
-              <div class="text">
-                I think this is a great idea and i am voting on it
+                Elliot you are always so right :)
               </div>
               <div class="actions">
                 <a class="reply">Reply</a>
@@ -432,57 +390,65 @@ themes      : ['Default', 'Chubby']
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/joe.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Joe Henderson</a>
           <div class="metadata">
-            <span class="date">20 hours ago</span>
+            <span class="date">5 days ago</span>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            Dude, this is awesome. Thanks so much
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
           </div>
         </div>
       </div>
-      <div class="comment">
-        <a class="avatar">
-          <img src="/images/demo/avatar2.jpg">
-        </a>
-        <div class="content">
-          <a class="author">Pawfin Dog</a>
-          <div class="metadata">
-            <span class="date">15 hours ago</span>
-          </div>
-          <div class="text">
-            I think this is a great idea and i am voting on it
-          </div>
-          <div class="actions">
-            <a class="reply">Reply</a>
-          </div>
+      <form class="ui reply form">
+        <div class="field">
+          <textarea></textarea>
         </div>
-      </div>
+        <div class="ui blue labeled submit icon button">
+          <i class="icon edit"></i> Add Reply
+        </div>
+      </form>
     </div>
   </div>
-
 
   <div class="example">
     <h4 class="ui header">Minimal</h4>
     <p>Comments can hide extra information unless a user shows intent to interact with a comment.</p>
-    <div class="ui minimal comments">
+    <div class="ui minimal comments segment">
+      <h3 class="ui dividing header">Comments</h3>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/matt.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Matt</a>
           <div class="metadata">
-            <span class="date">2 days ago</span>
+            <span class="date">Today at 5:42PM</span>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            How artistic!
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/avatar/small/elliot.jpg">
+        </a>
+        <div class="content">
+          <a class="author">Elliot Fu</a>
+          <div class="metadata">
+            <span class="date">Yesterday at 12:30AM</span>
+          </div>
+          <div class="text">
+            <p>This has been very useful for my research. Thanks as well!</p>
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
@@ -491,68 +457,15 @@ themes      : ['Default', 'Chubby']
         <div class="comments">
           <div class="comment">
             <a class="avatar">
-              <img src="/images/demo/avatar2.jpg">
+              <img src="/images/avatar/small/jenny.jpg">
             </a>
             <div class="content">
-              <a class="author">Pawfin Dog</a>
+              <a class="author">Jenny Hess</a>
               <div class="metadata">
-                <span class="date">1 day ago</span>
+                <span class="date">Just now</span>
               </div>
               <div class="text">
-                I think this is a great idea and i am voting on it
-              </div>
-              <div class="actions">
-                <a class="reply">Reply</a>
-              </div>
-            </div>
-            <div class="comments">
-              <div class="comment">
-                <a class="avatar">
-                  <img src="/images/demo/avatar.jpg">
-                </a>
-                <div class="content">
-                  <a class="author">Dog Doggington</a>
-                  <div class="metadata">
-                    <span class="date">20 minutes ago</span>
-                  </div>
-                  <div class="text">
-                    I think this is a great idea and i am voting on it
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
-              <div class="comment">
-                <a class="avatar">
-                  <img src="/images/demo/avatar.jpg">
-                </a>
-                <div class="content">
-                  <a class="author">Dog Doggington</a>
-                  <div class="metadata">
-                    <span class="date">20 minutes ago</span>
-                  </div>
-                  <div class="text">
-                    Also pizza.
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="comment">
-            <a class="avatar">
-              <img src="/images/demo/avatar.jpg">
-            </a>
-            <div class="content">
-              <a class="author">Dog Doggington</a>
-              <div class="metadata">
-                <span class="date">2 days ago</span>
-              </div>
-              <div class="text">
-                I think this is a great idea and i am voting on it
+                Elliot you are always so right :)
               </div>
               <div class="actions">
                 <a class="reply">Reply</a>
@@ -563,38 +476,29 @@ themes      : ['Default', 'Chubby']
       </div>
       <div class="comment">
         <a class="avatar">
-          <img src="/images/demo/avatar.jpg">
+          <img src="/images/avatar/small/joe.jpg">
         </a>
         <div class="content">
-          <a class="author">Dog Doggington</a>
+          <a class="author">Joe Henderson</a>
           <div class="metadata">
-            <span class="date">20 hours ago</span>
+            <span class="date">5 days ago</span>
           </div>
           <div class="text">
-            I think this is a great idea and i am voting on it
+            Dude, this is awesome. Thanks so much
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
           </div>
         </div>
       </div>
-      <div class="comment">
-        <a class="avatar">
-          <img src="/images/demo/avatar2.jpg">
-        </a>
-        <div class="content">
-          <a class="author">Pawfin Dog</a>
-          <div class="metadata">
-            <span class="date">15 hours ago</span>
-          </div>
-          <div class="text">
-            I think this is a great idea and i am voting on it
-          </div>
-          <div class="actions">
-            <a class="reply">Reply</a>
-          </div>
+      <form class="ui reply form">
+        <div class="field">
+          <textarea></textarea>
         </div>
-      </div>
+        <div class="ui blue labeled submit icon button">
+          <i class="icon edit"></i> Add Reply
+        </div>
+      </form>
     </div>
   </div>
 

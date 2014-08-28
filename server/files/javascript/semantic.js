@@ -145,15 +145,15 @@ semantic.ready = function() {
             url      : variableURL,
             dataType : 'text',
             urlData  : urlData,
-            success: function(content) {
-              less.modifyVars( handler.less.parseFile(content) );
+            onSuccess: function(content) {
+              window.less.modifyVars( handler.less.parseFile(content) );
               $themeDropdown
                 .api({
                   on       : 'now',
                   url      : overrideURL,
                   dataType : 'text',
                   urlData  : urlData,
-                  success: function(content) {
+                  onSuccess: function(content) {
                     if( $('style.override').size() > 0 ) {
                       $('style.override').remove();
                     }
@@ -710,8 +710,22 @@ semantic.ready = function() {
     }
   };
 
+
+  $sidebarButton
+    .on('mouseenter', handler.menu.mouseenter)
+    .on('mouseleave', handler.menu.mouseleave)
+  ;
+  $menu
+    .sidebar({
+      animation : 'scale down'
+    })
+    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
+    .sidebar('attach events', $hideMenu, 'hide')
+  ;
+
   $('.masthead')
     .visibility({
+      context: '.pusher > .page',
       once: false
     })
     .visibility('bottom visible', function(){
@@ -826,17 +840,6 @@ semantic.ready = function() {
     })
   ;
 
-  $sidebarButton
-    .on('mouseenter', handler.menu.mouseenter)
-    .on('mouseleave', handler.menu.mouseleave)
-  ;
-  $menu
-    .sidebar({
-      animation : 'scale down'
-    })
-    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
-    .sidebar('attach events', $hideMenu, 'hide')
-  ;
   $waypoints
     .waypoint({
       continuous : false,
