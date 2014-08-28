@@ -14,7 +14,6 @@
 $.fn.sidebar = function(parameters) {
   var
     $allModules    = $(this),
-    $body          = $('body'),
     $head          = $('head'),
 
     moduleSelector = $allModules.selector || '',
@@ -51,7 +50,7 @@ $.fn.sidebar = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $body           = $('body'),
+        $context        = $(settings.context),
         $style          = $('style[title=' + namespace + ']'),
 
         $sidebars       = $(selector.sidebar),
@@ -73,7 +72,7 @@ $.fn.sidebar = function(parameters) {
 
           transitionEnd = module.get.transitionEvent();
 
-          module.setup.page();
+          module.setup.context();
 
           // avoid locking rendering to change layout if included in onReady
           requestAnimationFrame(module.setup.layout);
@@ -108,14 +107,14 @@ $.fn.sidebar = function(parameters) {
 
         bind: {
           clickaway: function() {
-            $body
+            $context
               .on('click' + eventNamespace, module.event.clickaway)
             ;
           }
         },
         unbind: {
           clickaway: function() {
-            $body
+            $context
               .off('click' + eventNamespace)
             ;
           }
@@ -139,17 +138,20 @@ $.fn.sidebar = function(parameters) {
               $pusher = $('<div class="pusher" />');
               $page   = $('<div class="page" />');
               $pusher.append($page);
-              $body
+              $context
                 .children()
                   .not(selector.omitted)
                   .not($sidebars)
                   .wrapAll($pusher)
               ;
             }
+            if($module.parent()[0] !== $context[0]) {
+              $module.detach().appendTo($context);
+            }
             module.refresh();
           },
           page: function() {
-            $body.addClass(className.hasSidebar);
+            $context.addClass(className.pushable);
           }
         },
 
@@ -337,23 +339,23 @@ $.fn.sidebar = function(parameters) {
           },
           direction: function(direction) {
             direction = direction || module.get.direction();
-            $body.addClass(className[direction]);
+            $context.addClass(className[direction]);
           },
           visible: function() {
             $module.addClass(className.visible);
           },
           animation: function(animation) {
             animation = animation || settings.animation;
-            $body.addClass(animation);
+            $context.addClass(animation);
           },
           inward: function() {
-            $body.addClass(className.inward);
+            $context.addClass(className.inward);
           },
           outward: function() {
-            $body.addClass(className.outward);
+            $context.addClass(className.outward);
           },
           pushed: function() {
-            $body.addClass(className.pushed);
+            $context.addClass(className.pushed);
           }
         },
         remove: {
@@ -375,20 +377,20 @@ $.fn.sidebar = function(parameters) {
           },
           animation: function(animation) {
             animation = animation || settings.animation;
-            $body.removeClass(animation);
+            $context.removeClass(animation);
           },
           pushed: function() {
-            $body.removeClass(className.pushed);
+            $context.removeClass(className.pushed);
           },
           inward: function() {
-            $body.removeClass(className.inward);
+            $context.removeClass(className.inward);
           },
           outward: function() {
-            $body.removeClass(className.outward);
+            $context.removeClass(className.outward);
           },
           direction: function(direction) {
             direction = direction || module.get.direction();
-            $body.removeClass(className[direction]);
+            $context.removeClass(className[direction]);
           }
         },
 
@@ -440,10 +442,10 @@ $.fn.sidebar = function(parameters) {
             return $module.hasClass(className.top);
           },
           inward: function() {
-            return $body.hasClass(className.inward);
+            return $context.hasClass(className.inward);
           },
           outward: function() {
-            return $body.hasClass(className.outward);
+            return $context.hasClass(className.outward);
           },
           animating: function() {
             return module.is.inward() || module.is.outward();
@@ -639,6 +641,7 @@ $.fn.sidebar.settings = {
 
   animation   : 'pushing',
 
+  context     : 'body',
   useCSS      : true,
   duration    : 300,
 
@@ -654,12 +657,12 @@ $.fn.sidebar.settings = {
   onVisible   : function(){},
 
   className : {
-    hasSidebar : 'pushable',
-    active     : 'active',
-    visible    : 'visible',
-    pushed     : 'pushed',
-    inward     : 'show',
-    outward    : 'hide'
+    pushable : 'ui pushable',
+    active   : 'active',
+    visible  : 'visible',
+    pushed   : 'pushed',
+    inward   : 'show',
+    outward  : 'hide'
   },
 
   selector: {
