@@ -98,7 +98,6 @@ $.fn.sidebar = function(parameters) {
 
         event: {
           clickaway: function(event) {
-            console.log(event);
             if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
               module.verbose('User clicked on dimmed page');
               $.proxy(module.hide, element)();
@@ -108,7 +107,6 @@ $.fn.sidebar = function(parameters) {
 
         bind: {
           clickaway: function() {
-            console.log($context);
             $context
               .on('click' + eventNamespace, module.event.clickaway)
             ;
@@ -271,7 +269,6 @@ $.fn.sidebar = function(parameters) {
             $pusher
               .off(transitionEnd)
               .on(transitionEnd, function(event) {
-                console.log(event.target, $pusher[0]);
                 if( event.target == $pusher[0] ) {
                   module.remove.inward();
                   module.set.active();
@@ -302,7 +299,6 @@ $.fn.sidebar = function(parameters) {
               $pusher
                 .off(transitionEnd)
                 .on(transitionEnd, function(event) {
-                  console.log(event.target, $pusher[0]);
                   if( event.target == $pusher[0] ) {
                     module.remove.animation();
                     module.remove.direction();
