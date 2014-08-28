@@ -53,9 +53,9 @@ $.fn.sidebar = function(parameters) {
         $context        = $(settings.context),
         $style          = $('style[title=' + namespace + ']'),
 
-        $sidebars       = $(selector.sidebar),
-        $page           = $(selector.page),
-        $pusher         = $(selector.pusher),
+        $sidebars       = $context.children(selector.sidebar),
+        $pusher         = $context.children(selector.pusher),
+        $page           = $pusher.children(selector.page),
 
         element         = this,
         instance        = $module.data(moduleNamespace),
@@ -98,6 +98,7 @@ $.fn.sidebar = function(parameters) {
 
         event: {
           clickaway: function(event) {
+            console.log(event);
             if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
               module.verbose('User clicked on dimmed page');
               $.proxy(module.hide, element)();
@@ -107,6 +108,7 @@ $.fn.sidebar = function(parameters) {
 
         bind: {
           clickaway: function() {
+            console.log($context);
             $context
               .on('click' + eventNamespace, module.event.clickaway)
             ;
@@ -122,17 +124,16 @@ $.fn.sidebar = function(parameters) {
 
         refresh: function() {
           module.verbose('Refreshing selector cache');
-          $style  = $('style[title=' + namespace + ']');
-          $sidebars = $(selector.sidebar);
-          $page     = $(selector.page);
-          $pusher   = $(selector.pusher);
+          $context  = $(settings.context);
+          $style    = $('style[title=' + namespace + ']');
+          $sidebars = $context.children(selector.sidebar);
+          $pusher   = $context.children(selector.pusher);
+          $page     = $pusher.children(selector.page);
         },
 
         setup: {
           layout: function() {
-            $pusher = $(selector.pusher);
-
-            if($pusher.size() === 0) {
+            if( $context.find(selector.pusher).size() === 0 ) {
               module.debug('Adding wrapper element for sidebar');
               module.verbose('Setting up page structure for sidebar');
               $pusher = $('<div class="pusher" />');
@@ -254,7 +255,7 @@ $.fn.sidebar = function(parameters) {
             : function(){}
           ;
           if( !module.is.inward() ) {
-            module.verbose('Adding body push state', module.get.direction());
+            module.verbose('Adding context push state', $context);
             if(settings.animation != 'overlay') {
               module.remove.allVisible();
             }
@@ -270,7 +271,8 @@ $.fn.sidebar = function(parameters) {
             $pusher
               .off(transitionEnd)
               .on(transitionEnd, function(event) {
-                if($(event.target).is(selector.pusher)) {
+                console.log(event.target, $pusher[0]);
+                if( event.target == $pusher[0] ) {
                   module.remove.inward();
                   module.set.active();
                   $pusher.off(transitionEnd);
@@ -288,7 +290,7 @@ $.fn.sidebar = function(parameters) {
             : function(){}
           ;
           if( !module.is.outward() ) {
-            module.verbose('Removing body push state', module.get.direction());
+            module.verbose('Removing context push state', module.get.direction());
             if(settings.animation == 'overlay') {
               $module. removeClass(className.visible);
             }
@@ -300,7 +302,8 @@ $.fn.sidebar = function(parameters) {
               $pusher
                 .off(transitionEnd)
                 .on(transitionEnd, function(event) {
-                  if($(event.target).is(selector.pusher)) {
+                  console.log(event.target, $pusher[0]);
+                  if( event.target == $pusher[0] ) {
                     module.remove.animation();
                     module.remove.direction();
                     module.remove.outward();
@@ -666,10 +669,10 @@ $.fn.sidebar.settings = {
   },
 
   selector: {
-    sidebar : 'body > .ui.sidebar',
-    pusher  : 'body > .pusher',
-    page    : 'body > .pusher > .page',
-    omitted : '.ui.modal, .ui.nag'
+    sidebar : '.ui.sidebar',
+    pusher  : '.pusher',
+    page    : '.page',
+    omitted : 'script, .ui.modal, .ui.nag'
   },
 
   error   : {
