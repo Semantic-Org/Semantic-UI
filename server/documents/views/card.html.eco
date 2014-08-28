@@ -34,20 +34,22 @@ themes      : ['Default', 'Basic']
     <p>A single card.</p>
     <div class="ui card">
       <div class="image">
-        <img src="/images/demo/highres.jpg">
+        <img src="/images/avatar/large/stevie.jpg">
       </div>
       <div class="content">
-        <div class="header">Cute Dog</div>
+        <a class="header">Stevie Feliciano</a>
         <div class="meta">
-          <span class="date">5 days ago</span>
+          <span class="date">Joined in 2014</span>
         </div>
         <div class="description">
-          This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.
+          Stevie Feliciano lives in New York City. She spends her time reading, running, and writing and likes the park.
         </div>
       </div>
       <div class="extra content">
-        <i class="like icon"></i>
-        22 Likes
+        <a>
+          <i class="user icon"></i>
+          22 Friends
+        </a>
       </div>
     </div>
   </div>

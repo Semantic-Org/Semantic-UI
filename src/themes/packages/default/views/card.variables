@@ -111,6 +111,10 @@
 @extraColor: @lightTextColor;
 @extraTransition: color @transitionDuration @transitionEasing;
 
+/* Extra Links */
+@extraLinkColor: @unselectedTextColor;
+@extraLinkHoverColor: @linkHoverColor;
+
 /*-------------------
       Variations
 --------------------*/

@@ -331,8 +331,8 @@
   Extra Content
 -----------------*/
 
-.ui.cards > .card .extra,
-.ui.card .extra {
+.ui.cards > .card > .extra,
+.ui.card > .extra {
   min-height: 0px !important;
   position: @extraPosition;
   background: @extraBackground;
@@ -344,6 +344,14 @@
   box-shadow: @extraBoxShadow;
   transition: @extraTransition;
   border-top: @extraDivider;
+}
+.ui.cards > .card > .extra a,
+.ui.card > .extra a {
+  color: @extraLinkColor;
+}
+.ui.cards > .card > .extra a:hover,
+.ui.card > .extra a:hover {
+  color: @extraLinkHoverColor;
 }
 
 
