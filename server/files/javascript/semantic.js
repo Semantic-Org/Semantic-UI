@@ -45,12 +45,11 @@ semantic.ready = function() {
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
-    $pageTabMenu      = $('body > .tab.segment .tabular.menu'),
-    $pageTabs         = $('body > .tab.segment .menu .item'),
+    $pageTabMenu      = $('.tab.header.segment .tabular.menu'),
+    $pageTabs         = $('.tab.header.segment .menu .item'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
 
-    $helpPopup        = $('.header .help.icon'),
 
     $example          = $('.example'),
     $shownExample     = $example.filter('.shown'),
@@ -787,10 +786,6 @@ semantic.ready = function() {
     .each(handler.createCode)
   ;
 
-  $helpPopup
-    .popup()
-  ;
-
   $swap
     .on('click', handler.swapStyle)
   ;
@@ -837,7 +832,7 @@ semantic.ready = function() {
   ;
   $menu
     .sidebar({
-      animation: 'scale down'
+      animation : 'scale down'
     })
     .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
     .sidebar('attach events', $hideMenu, 'hide')

@@ -25,6 +25,13 @@ $.fn.sidebar = function(parameters) {
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
+
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
     returnedValue
   ;
 
@@ -44,10 +51,18 @@ $.fn.sidebar = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
+        $body           = $('body'),
         $style          = $('style[title=' + namespace + ']'),
+
+        $sidebars       = $(selector.sidebar),
+        $page           = $(selector.page),
+        $pusher         = $(selector.pusher),
 
         element         = this,
         instance        = $module.data(moduleNamespace),
+
+        transitionEnd,
+
         module
       ;
 
@@ -55,6 +70,14 @@ $.fn.sidebar = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing sidebar', $module);
+
+          transitionEnd = module.get.transitionEvent();
+
+          module.setup.page();
+
+          // avoid locking rendering to change layout if included in onReady
+          requestAnimationFrame(module.setup.layout);
+
           module.instantiate();
         },
 
@@ -74,9 +97,60 @@ $.fn.sidebar = function(parameters) {
           ;
         },
 
+        event: {
+          clickaway: function(event) {
+            if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
+              module.verbose('User clicked on dimmed page');
+              $.proxy(module.hide, element)();
+            }
+          }
+        },
+
+        bind: {
+          clickaway: function() {
+            $body
+              .on('click' + eventNamespace, module.event.clickaway)
+            ;
+          }
+        },
+        unbind: {
+          clickaway: function() {
+            $body
+              .off('click' + eventNamespace)
+            ;
+          }
+        },
+
         refresh: function() {
           module.verbose('Refreshing selector cache');
           $style  = $('style[title=' + namespace + ']');
+          $sidebars = $(selector.sidebar);
+          $page     = $(selector.page);
+          $pusher   = $(selector.pusher);
+        },
+
+        setup: {
+          layout: function() {
+            $pusher = $(selector.pusher);
+
+            if($pusher.size() === 0) {
+              module.debug('Adding wrapper element for sidebar');
+              module.verbose('Setting up page structure for sidebar');
+              $pusher = $('<div class="pusher" />');
+              $page   = $('<div class="page" />');
+              $pusher.append($page);
+              $body
+                .children()
+                  .not(selector.omitted)
+                  .not($sidebars)
+                  .wrapAll($pusher)
+              ;
+            }
+            module.refresh();
+          },
+          page: function() {
+            $body.addClass(className.hasSidebar);
+          }
         },
 
         attachEvents: function(selector, event) {
@@ -106,16 +180,18 @@ $.fn.sidebar = function(parameters) {
           ;
           module.debug('Showing sidebar', callback);
           if(module.is.closed()) {
-            if(!settings.overlay) {
-              if(settings.exclusive) {
-                module.hideAll();
-              }
-              module.pushPage();
+            if(settings.overlay)  {
+              settings.animation = 'overlay';
             }
-            module.set.active();
-            callback();
+            if(settings.animation !== 'overlay') {
+              module.hideAll();
+            }
+            module.pushPage(function() {
+              $.proxy(callback, element)();
+              $.proxy(settings.onShow, element)();
+            });
             $.proxy(settings.onChange, element)();
-            $.proxy(settings.onShow, element)();
+            $.proxy(settings.onVisible, element)();
           }
           else {
             module.debug('Sidebar is already visible');
@@ -128,22 +204,22 @@ $.fn.sidebar = function(parameters) {
             : function(){}
           ;
           module.debug('Hiding sidebar', callback);
-          if(module.is.open()) {
-            if(!settings.overlay) {
-              module.pullPage();
-              module.remove.pushed();
-            }
-            module.remove.active();
-            callback();
+          if(module.is.visible()) {
+            module.pullPage(function() {
+              $.proxy(callback, element)();
+              $.proxy(settings.onHidden, element)();
+            });
             $.proxy(settings.onChange, element)();
             $.proxy(settings.onHide, element)();
           }
         },
 
         hideAll: function() {
-          $(selector.sidebar)
-            .filter(':visible')
-              .sidebar('hide')
+          var
+            $visibleSidebars = $sidebars.find('.' + className.visible)
+          ;
+          $visibleSidebars
+            .sidebar('hide')
           ;
         },
 
@@ -156,47 +232,84 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-        pushPage: function() {
+        forceRepaint: function() {
+          module.verbose('Forcing element repaint');
           var
-            direction = module.get.direction(),
-            distance  = (module.is.vertical())
-              ? $module.outerHeight()
-              : $module.outerWidth()
+            $parentElement = $module.parent(),
+            $nextElement = $module.next()
           ;
-          if(settings.useCSS) {
-            module.debug('Using CSS to animate body');
-            module.add.bodyCSS(direction, distance);
-            module.set.pushed();
+          if($nextElement.size() === 0) {
+            $module.detach().appendTo($parentElement);
           }
           else {
-            module.animatePage(direction, distance, module.set.pushed);
+            $module.detach().insertBefore($nextElement);
           }
         },
 
-        pullPage: function() {
-          var
-            direction = module.get.direction()
+        pushPage: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
           ;
-          if(settings.useCSS) {
-            module.debug('Resetting body position css');
-            module.remove.bodyCSS();
+          if( !module.is.inward() ) {
+            module.verbose('Adding body push state', module.get.direction());
+            if(settings.animation != 'overlay') {
+              module.remove.allVisible();
+            }
+            module.set.direction();
+            module.set.animation();
+            module.set.inward();
+            requestAnimationFrame(function() {
+              module.set.visible();
+              requestAnimationFrame(function() {
+                module.set.pushed();
+              });
+            });
+            $pusher
+              .off(transitionEnd)
+              .on(transitionEnd, function(event) {
+                if($(event.target).is(selector.pusher)) {
+                  module.remove.inward();
+                  module.set.active();
+                  $pusher.off(transitionEnd);
+                  module.bind.clickaway();
+                  $.proxy(callback, element)();
+                }
+              })
+            ;
           }
-          else {
-            module.debug('Resetting body position using javascript');
-            module.animatePage(direction, 0);
-          }
-          module.remove.pushed();
         },
 
-        animatePage: function(direction, distance) {
-          var
-            animateSettings = {}
+        pullPage: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
           ;
-          animateSettings['padding-' + direction] = distance;
-          module.debug('Using javascript to animate body', animateSettings);
-          $body
-            .animate(animateSettings, settings.duration, module.set.pushed)
-          ;
+          if( !module.is.outward() ) {
+            module.verbose('Removing body push state', module.get.direction());
+            if(settings.animation == 'overlay') {
+              $module. removeClass(className.visible);
+            }
+            module.unbind.clickaway();
+            requestAnimationFrame(function() {
+              module.set.outward();
+              module.remove.active();
+              module.remove.pushed();
+              $pusher
+                .off(transitionEnd)
+                .on(transitionEnd, function(event) {
+                  if($(event.target).is(selector.pusher)) {
+                    module.remove.animation();
+                    module.remove.direction();
+                    module.remove.outward();
+                    module.remove.visible();
+                    $pusher.off(transitionEnd);
+                    $.proxy(callback, element)();
+                  }
+                })
+              ;
+            });
+          }
         },
 
         add: {
@@ -208,7 +321,7 @@ $.fn.sidebar = function(parameters) {
               style = ''
                 + '<style title="' + namespace + '">'
                 + 'body.pushed {'
-                + '  margin-' + direction + ': ' + distance + 'px !important;'
+                + ''
                 + '}'
                 + '</style>'
               ;
@@ -218,7 +331,31 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-
+        set: {
+          active: function() {
+            $module.addClass(className.active);
+          },
+          direction: function(direction) {
+            direction = direction || module.get.direction();
+            $body.addClass(className[direction]);
+          },
+          visible: function() {
+            $module.addClass(className.visible);
+          },
+          animation: function(animation) {
+            animation = animation || settings.animation;
+            $body.addClass(animation);
+          },
+          inward: function() {
+            $body.addClass(className.inward);
+          },
+          outward: function() {
+            $body.addClass(className.outward);
+          },
+          pushed: function() {
+            $body.addClass(className.pushed);
+          }
+        },
         remove: {
           bodyCSS: function() {
             module.debug('Removing body css styles', $style);
@@ -228,25 +365,30 @@ $.fn.sidebar = function(parameters) {
           active: function() {
             $module.removeClass(className.active);
           },
-          pushed: function() {
-            module.verbose('Removing body push state', module.get.direction());
-            $body
-              .removeClass(className[ module.get.direction() ])
-              .removeClass(className.pushed)
-            ;
-          }
-        },
-
-        set: {
-          active: function() {
-            $module.addClass(className.active);
+          visible: function() {
+            $module.removeClass(className.visible);
+          },
+          allVisible: function() {
+            if($sidebars.hasClass(className.visible)) {
+              $sidebars.removeClass(className.visible);
+            }
+          },
+          animation: function(animation) {
+            animation = animation || settings.animation;
+            $body.removeClass(animation);
           },
           pushed: function() {
-            module.verbose('Adding body push state', module.get.direction());
-            $body
-              .addClass(className[ module.get.direction() ])
-              .addClass(className.pushed)
-            ;
+            $body.removeClass(className.pushed);
+          },
+          inward: function() {
+            $body.removeClass(className.inward);
+          },
+          outward: function() {
+            $body.removeClass(className.outward);
+          },
+          direction: function(direction) {
+            direction = direction || module.get.direction();
+            $body.removeClass(className[direction]);
           }
         },
 
@@ -286,13 +428,25 @@ $.fn.sidebar = function(parameters) {
 
         is: {
           open: function() {
-            return $module.is(':animated') || $module.hasClass(className.active);
+            return $module.hasClass(className.active);
           },
           closed: function() {
             return !module.is.open();
           },
+          visible: function() {
+            return $module.hasClass(className.visible);
+          },
           vertical: function() {
             return $module.hasClass(className.top);
+          },
+          inward: function() {
+            return $body.hasClass(className.inward);
+          },
+          outward: function() {
+            return $body.hasClass(className.outward);
+          },
+          animating: function() {
+            return module.is.inward() || module.is.outward();
           }
         },
 
@@ -479,30 +633,40 @@ $.fn.sidebar.settings = {
   name        : 'Sidebar',
   namespace   : 'sidebar',
 
-  debug       : false,
+  debug       : true,
   verbose     : true,
   performance : true,
 
+  animation   : 'pushing',
+
   useCSS      : true,
-  exclusive   : true,
-  overlay     : false,
   duration    : 300,
 
-  onChange     : function(){},
-  onShow       : function(){},
-  onHide       : function(){},
+  dimPage     : true,
 
-  className: {
-    active : 'active',
-    pushed : 'pushed',
-    top    : 'top',
-    left   : 'left',
-    right  : 'right',
-    bottom : 'bottom'
+  exclusive   : true,
+
+  onChange    : function(){},
+  onShow      : function(){},
+  onHide      : function(){},
+
+  onHidden    : function(){},
+  onVisible   : function(){},
+
+  className : {
+    hasSidebar : 'pushable',
+    active     : 'active',
+    visible    : 'visible',
+    pushed     : 'pushed',
+    inward     : 'show',
+    outward    : 'hide'
   },
 
   selector: {
-    sidebar: '.ui.sidebar'
+    sidebar : 'body > .ui.sidebar',
+    pusher  : 'body > .pusher',
+    page    : 'body > .pusher > .page',
+    omitted : '.ui.modal, .ui.nag'
   },
 
   error   : {

@@ -99,23 +99,24 @@ themes      : ['Default']
     <div class="hover example">
     <h4 class="ui header">Pointing</h4>
     <p>A dropdown can be formatted so that its menu is pointing</p>
-      <div class="ui compact menu">
+      <div class="ui menu">
         <div class="menu">
           <a class="active item">
-            <i class="home icon"></i> Home
+            Home
           </a>
           <div class="ui pointing dropdown link item">
-            <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
+            <i class="dropdown icon"></i>
+            Messages
             <div class="menu">
               <a class="item"><i class="mail icon"></i>Inbox</a>
               <a class="item"><i class="book icon"></i>Archive</a>
             </div>
           </div>
           <a class="item">
-            <i class="user icon"></i> Browse
+            Browse
           </a>
           <a class="item">
-            <i class="question icon"></i> Help
+            Help
           </a>
         </div>
       </div>
@@ -164,7 +165,8 @@ themes      : ['Default']
       <p>A simple dropdown can open without javascript</p>
       <div class="ui compact menu">
         <div class="ui simple dropdown item">
-          Dropdown <i class="dropdown icon"></i>
+          <i class="dropdown icon"></i>
+          Dropdown
           <div class="menu">
             <div class="item">Choice 1</div>
             <div class="item">Choice 2</div>
@@ -505,27 +507,28 @@ themes      : ['Default']
     <div class="hover example">
       <h3 class="ui header">Menu</h3>
       <p>A <a href="/collections/menu.html">menu</a> element can contain a dropdown</p>
-        <div class="ui compact tiered purple inverted menu">
+        <div class="ui tiered purple inverted menu">
           <div class="menu">
             <a class="active item">
-              <i class="icon home"></i> Home
+              Home
             </a>
             <a class="ui dropdown item">
-              <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
+              <i class="dropdown icon"></i>Messages
               <div class="menu">
                 <div class="item">
-                  <i class="mail icon"></i>Categories
+                  <i class="dropdown icon"></i>
+                  Categories
                   <div class="menu">
                     <div class="item">Unread</div>
                     <div class="item">Promotions</div>
                     <div class="item">Updates</div>
                   </div>
                 </div>
-                <div class="item"><i class="book icon"></i>Archive</div>
+                <div class="item">Archive</div>
               </div>
             </a>
             <a class="item">
-              <i class="user icon"></i> Browse
+              Browse
             </a>
           </div>
           <div class="sub menu">

@@ -1304,10 +1304,10 @@
 /*--- Inverted Colors  ---*/
 /* Blue */
 .ui.inverted.blue.menu {
-  background-color: #0074d9;
+  background-color: #54c8ff;
 }
 .ui.inverted.blue.pointing.menu .active.item:after {
-  background-color: #0074d9;
+  background-color: #54c8ff;
 }
 /* Green */
 .ui.inverted.green.menu {
@@ -1325,38 +1325,38 @@
 }
 /* Pink */
 .ui.inverted.pink.menu {
-  background-color: #d9499a;
+  background-color: #ff8edf;
 }
 .ui.inverted.pink.pointing.menu .active.item:after {
-  background-color: #d9499a;
+  background-color: #ff8edf;
 }
 /* Purple */
 .ui.inverted.purple.menu {
-  background-color: #a24096;
+  background-color: #cdc6ff;
 }
 .ui.inverted.purple.pointing.menu .active.item:after {
-  background-color: #a24096;
+  background-color: #cdc6ff;
 }
 /* Red */
 .ui.inverted.red.menu {
-  background-color: #ff4136;
+  background-color: #ff695e;
 }
 .ui.inverted.red.pointing.menu .active.item:after {
-  background-color: #F16883;
+  background-color: #ff695e;
 }
 /* Teal */
 .ui.inverted.teal.menu {
-  background-color: #39cccc;
+  background-color: #6dffff;
 }
 .ui.inverted.teal.pointing.menu .active.item:after {
-  background-color: #39cccc;
+  background-color: #6dffff;
 }
 /* Yellow */
 .ui.inverted.yellow.menu {
-  background-color: #ffcb08;
+  background-color: #ffe21f;
 }
 .ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: #ffcb08;
+  background-color: #ffe21f;
 }
 /*--------------
      Fitted

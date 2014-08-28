@@ -13,17 +13,19 @@
 
 $.fn.modal = function(parameters) {
   var
-    $allModules = $(this),
-    $window     = $(window),
-    $document   = $(document),
-    $body       = $('body'),
+    $allModules    = $(this),
+    $window        = $(window),
+    $document      = $(document),
+    $body          = $('body'),
 
-    time            = new Date().getTime(),
-    performance     = [],
+    moduleSelector = $allModules.selector || '',
 
-    query           = arguments[0],
-    methodInvoked   = (typeof query == 'string'),
-    queryArguments  = [].slice.call(arguments, 1),
+    time           = new Date().getTime(),
+    performance    = [],
+
+    query          = arguments[0],
+    methodInvoked  = (typeof query == 'string'),
+    queryArguments = [].slice.call(arguments, 1),
 
     requestAnimationFrame = window.requestAnimationFrame
       || window.mozRequestAnimationFrame
@@ -49,7 +51,6 @@ $.fn.modal = function(parameters) {
 
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
-        moduleSelector  = $allModules.selector || '',
 
         $module      = $(this),
         $context     = $(settings.context),

@@ -260,12 +260,12 @@ $.fn.sidebar = function(parameters) {
             module.set.direction();
             module.set.animation();
             module.set.inward();
-            requestAnimationFrame(function() {
-              module.set.visible();
               requestAnimationFrame(function() {
-                module.set.pushed();
+                module.set.visible();
+                requestAnimationFrame(function() {
+                  module.set.pushed();
+                });
               });
-            });
             $pusher
               .off(transitionEnd)
               .on(transitionEnd, function(event) {
@@ -656,7 +656,7 @@ $.fn.sidebar.settings = {
   onVisible   : function(){},
 
   className : {
-    pushable : 'ui pushable',
+    pushable : 'pushable',
     active   : 'active',
     visible  : 'visible',
     pushed   : 'pushed',

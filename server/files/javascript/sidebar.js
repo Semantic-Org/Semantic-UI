@@ -9,6 +9,10 @@ semantic.sidebar.ready = function() {
     handler
   ;
 
+  $('.ui.sidebar')
+    .sidebar()
+  ;
+
   $('.variation .button')
     .on('click', function() {
       $(this)
