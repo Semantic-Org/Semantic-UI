@@ -37,10 +37,10 @@ $.fn.visibility = function(parameters) {
         eventNamespace  = '.' + namespace,
         moduleNamespace = 'module-' + namespace,
 
-        $module         = $(this),
         $window         = $(window),
+        $module         = $(this),
+        $context        = $(settings.context),
         $container      = $module.offsetParent(),
-        $context,
 
         selector        = $module.selector || '',
         instance        = $module.data(moduleNamespace),
@@ -85,6 +85,9 @@ $.fn.visibility = function(parameters) {
           $window
             .off(eventNamespace)
           ;
+          $context
+            .off(eventNamespace)
+          ;
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -94,8 +97,10 @@ $.fn.visibility = function(parameters) {
         bindEvents: function() {
           module.verbose('Binding visibility events to scroll and resize');
           $window
-            .on('resize', module.event.refresh)
-            .on('scroll', module.event.scroll)
+            .on('resize' + eventNamespace, module.event.refresh)
+          ;
+          $context
+            .on('scroll' + eventNamespace, module.event.scroll)
           ;
         },
 
@@ -378,7 +383,7 @@ $.fn.visibility = function(parameters) {
             }
           },
           scroll: function() {
-            module.cache.scroll = $window.scrollTop() + settings.offset;
+            module.cache.scroll = $context.scrollTop() + settings.offset;
           },
           direction: function() {
             var
@@ -456,10 +461,10 @@ $.fn.visibility = function(parameters) {
           },
           screenCalculations: function() {
             var
-              scroll = $window.scrollTop()
+              scroll = $context.scrollTop()
             ;
             if(module.cache.scroll === undefined) {
-              module.cache.scroll = $window.scrollTop();
+              module.cache.scroll = $context.scrollTop();
             }
             module.save.direction();
             $.extend(module.cache.screen, {
@@ -471,7 +476,7 @@ $.fn.visibility = function(parameters) {
           screenSize: function() {
             module.verbose('Saving window position');
             module.cache.screen = {
-              height: $window.height()
+              height: $context.height()
             };
           },
           position: function() {
@@ -727,6 +732,8 @@ $.fn.visibility.settings = {
 
   offset            : 0,
   includeMargin     : false,
+
+  context           : window,
 
   // visibility check delay in ms
   throttle          : false,

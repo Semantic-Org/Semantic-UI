@@ -287,7 +287,6 @@
 /* Table Segment */
 .ui.table.segment {
   padding: 0em;
-  box-shadow: none;
 }
 .ui.table.segment:after {
   display: none;

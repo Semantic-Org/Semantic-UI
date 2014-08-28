@@ -18,7 +18,11 @@
 @extraBoxShadow: none;
 @extraPadding: 0.5em 0em;
 
+@extraLinkColor: @linkColor;
+@extraLinkHoverColor: @linkColor;
+
 @headerFontSize: 1.2em;
+@headerLinkColor: @linkColor;
 
 @imageBorderRadius: @borderRadius;
 @imageBorder: 1px solid @borderColor;

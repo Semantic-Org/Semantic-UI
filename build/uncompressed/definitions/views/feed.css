@@ -160,6 +160,7 @@
 /* Extra Images */
 /* Extra Text */
 /* Metadata Group */
+/* Like */
 /* Metadata Divider */
 /*-------------------
       Variations
@@ -199,10 +200,10 @@
 .ui.feed > .event {
   display: table;
   width: 100%;
-  padding: 0.5em 0em;
+  padding: 0.5rem 0em;
   margin: 0em;
   background: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
 }
 .ui.feed > .event:first-child {
   border-top: 0px;
@@ -223,7 +224,7 @@
   opacity: 1;
   font-size: 1.5em;
   width: 100%;
-  padding: 0.5em;
+  padding: 0.25em;
   background: none;
   border: none;
   border-radius: none;
@@ -235,7 +236,7 @@
   border-radius: 500rem;
 }
 .ui.feed > .event > .label + .content {
-  padding: 0.75em 0em 0.75em 1em;
+  padding: 0.5em 0em 0.5em 1.5em;
 }
 /* Content */
 .ui.feed > .event > .content {
@@ -244,12 +245,23 @@
   text-align: left;
   word-wrap: break-word;
 }
+.ui.feed > .event:last-child > .content {
+  padding-bottom: 0em;
+}
+/* Link */
+.ui.feed > .event > .content a {
+  cursor: pointer;
+}
 /*--------------
       Date
 ---------------*/
 .ui.feed > .event > .content .date {
-  margin: -0.4em 0em 0em;
-  color: rgba(0, 0, 0, 0.6);
+  margin: -0.5rem 0em 0em;
+  padding: 0em;
+  font-weight: normal;
+  font-size: 1em;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.4);
 }
 /*--------------
      Summary
@@ -292,8 +304,11 @@
   display: inline-block;
   float: none;
   font-weight: normal;
-  margin: 0em;
+  font-size: 0.875em;
+  font-style: normal;
+  margin: 0em 0em 0em 0.5em;
   padding: 0em;
+  color: rgba(0, 0, 0, 0.4);
 }
 /*--------------
   Extra Summary
@@ -302,7 +317,7 @@
   margin: 0.5em 0em 0em;
   background: none;
   padding: 0em;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.8);
 }
 /* Images */
 .ui.feed > .event > .content .extra.images img {
@@ -313,15 +328,18 @@
 /* Text */
 .ui.feed > .event > .content .extra.text {
   padding: 0.5em 1em;
-  border-left: 0.2em solid rgba(0, 0, 0, 0.1);
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  font-size: 1em;
+  max-width: 500px;
+  line-height: 1.33;
 }
 /*--------------
       Meta
 ---------------*/
 .ui.feed > .event > .content .meta {
   display: inline-block;
-  font-size: 0.9em;
-  margin: 1em 0em 0em;
+  font-size: 0.875em;
+  margin: 0.5em 0em 0em;
   background: none;
   border: none;
   border-radius: 0;
@@ -331,16 +349,27 @@
 }
 .ui.feed > .event > .content .meta > * {
   position: relative;
-  margin-left: 1.5em;
+  margin-left: 0.75em;
 }
 .ui.feed > .event > .content .meta > *:after {
-  content: '|';
+  content: '';
   color: rgba(0, 0, 0, 0.2);
   top: 0em;
   left: -1em;
   opacity: 1;
   position: absolute;
   vertical-align: top;
+}
+.ui.feed > .event > .content .meta .like {
+  color: '';
+  -webkit-transition: 0.2s color ease;
+          transition: 0.2s color ease;
+}
+.ui.feed > .event > .content .meta .like:hover .icon {
+  color: #ff2733;
+}
+.ui.feed > .event > .content .meta .active.like .icon {
+  color: #ef404a;
 }
 /* First element */
 .ui.feed > .event > .content .meta > :first-child {
@@ -371,6 +400,9 @@
 }
 .ui.feed {
   font-size: 1em;
+}
+.ui.large.feed {
+  font-size: 1.1em;
 }
 /*******************************
            Overrides

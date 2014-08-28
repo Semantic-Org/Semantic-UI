@@ -192,6 +192,7 @@
      -moz-user-select: text;
       -ms-user-select: text;
           user-select: text;
+  will-change: top, left, margin, transform, opacity;
 }
 .ui.modal > :first-child:not(.icon),
 .ui.modal > .icon:first-child + * {
@@ -229,12 +230,12 @@
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   margin: 0em;
   padding: 1.5rem 2rem;
-  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   font-size: 1.6em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
@@ -403,9 +404,7 @@
 ---------------*/
 .ui.fullscreen.modal {
   width: 95% !important;
-  margin: 3rem 2.5% 3rem !important;
-  top: auto;
-  left: auto;
+  margin: 3rem 0em 3rem -47.5%;
 }
 .ui.fullscreen.modal > .close {
   top: 1rem;

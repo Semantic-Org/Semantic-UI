@@ -189,6 +189,7 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  will-transform: opacity;
   z-index: 1000;
 }
 /* Dimmer Content */

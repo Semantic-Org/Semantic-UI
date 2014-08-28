@@ -15,10 +15,10 @@
 /* Event */
 @eventDisplay: table;
 @eventWidth: 100%;
-@eventPadding: 0.5em 0em;
+@eventPadding: 0.5rem 0em;
 @eventMargin: 0em;
 @eventBackground: none;
-@eventDivider: 1px solid @borderColor;
+@eventDivider: none;
 
 /* Event Label */
 @labelDisplay: table-cell;
@@ -31,7 +31,7 @@
 @iconLabelOpacity: 1;
 @iconLabelWidth: 100%;
 @iconLabelSize: 1.5em;
-@iconLabelPadding: 0.5em;
+@iconLabelPadding: 0.25em;
 @iconLabelBackground: none;
 @iconLabelBorderRadius: none;
 @iconLabelBorder: none;
@@ -43,7 +43,8 @@
 @imageLabelBorderRadius: @circularRadius;
 
 /* Content w/ Label */
-@labeledContentPadding: 0.75em 0em 0.75em 1em;
+@labeledContentPadding: 0.5em 0em 0.5em 1.5em;
+@lastLabeledContentPadding: 0em;
 
 /* Content */
 @contentDisplay: table-cell;
@@ -52,8 +53,12 @@
 @contentWordWrap: break-word;
 
 /* Date */
-@dateMargin: -0.4em 0em 0em;
-@dateColor: rgba(0, 0, 0, 0.6);
+@dateMargin: -0.5rem 0em 0em;
+@datePadding: 0em;
+@dateColor: @lightTextColor;
+@dateFontSize: 1em;
+@dateFontWeight: normal;
+@dateFontStyle: normal;
 
 /* Summary */
 @summaryMargin: 0em;
@@ -71,10 +76,12 @@
 /* Summary Date */
 @summaryDateDisplay: inline-block;
 @summaryDateFloat: none;
-@summaryDateFontWeight: normal;
-@summaryDateFontStyle: normal;
-@summaryDateMargin: 0em;
+@summaryDateMargin: 0em 0em 0em 0.5em;
 @summaryDatePadding: 0em;
+@summaryDateFontSize: 0.875em;
+@summaryDateFontWeight: @dateFontWeight;
+@summaryDateFontStyle: @dateFontStyle;
+@summaryDateColor: @dateColor;
 
 /* User */
 @userFontWeight: bold;
@@ -88,7 +95,7 @@
 @extraMargin: 0.5em 0em 0em;
 @extraBackground: none;
 @extraPadding: 0em;
-@extraColor: @lightTextColor;
+@extraColor: @textColor;
 
 /* Extra Images */
 @extraImageMargin: 0em 0.25em 0em 0em;
@@ -96,12 +103,15 @@
 
 /* Extra Text */
 @extraTextPadding: 0.5em 1em;
-@extraTextPointer: 0.2em solid rgba(0, 0, 0, 0.1);
+@extraTextPointer: 3px solid rgba(0, 0, 0, 0.2);
+@extraTextFontSize: 1em;
+@extraTextLineHeight: 1.33;
+@extraTextMaxWidth: 500px;
 
 /* Metadata Group */
 @metadataDisplay: inline-block;
-@metadataFontSize: 0.9em;
-@metadataMargin: 1em 0em 0em;
+@metadataFontSize: 0.875em;
+@metadataMargin: 0.5em 0em 0em;
 @metadataBackground: none;
 @metadataBorder: none;
 @metadataBorderRadius: 0;
@@ -109,8 +119,16 @@
 @metadataPadding: 0em;
 @metadataColor: rgba(0, 0, 0, 0.6);
 
+@metadataElementSpacing: 0.75em;
+
+/* Like */
+@likeColor: '';
+@likeHoverColor: #FF2733;
+@likeActiveColor: #EF404A;
+@likeTransition: 0.2s color ease;
+
 /* Metadata Divider */
-@metadataDivider: '|';
+@metadataDivider: '';
 @metadataDividerColor: rgba(0, 0, 0, 0.2);
 @metadataDividerOffset: -1em;
 
@@ -128,3 +146,4 @@
 /* Size */
 @small: 0.9em;
 @medium: 1em;
+@large: 1.1em;

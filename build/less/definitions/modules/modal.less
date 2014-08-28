@@ -40,6 +40,7 @@
 
   border-radius: @borderRadius;
   user-select: text;
+  will-change: top, left, margin, transform, opacity;
 }
 
 .ui.modal > :first-child:not(.icon),
@@ -282,9 +283,7 @@
 
 .ui.fullscreen.modal {
   width: @fullScreenWidth !important;
-  margin: @fullScreenMargin !important;
-  top: auto;
-  left: auto;
+  margin: @fullScreenMargin;
 }
 .ui.fullscreen.modal > .close {
   top: @innerCloseTop;

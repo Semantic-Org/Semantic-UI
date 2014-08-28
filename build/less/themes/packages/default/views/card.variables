@@ -58,7 +58,7 @@
 /* Header */
 @headerMargin: 0em;
 @headerFontWeight: bold;
-@headerFontSize: 1.25em;
+@headerFontSize: 1.2em;
 @headerColor: @darkTextColor;
 
 /* Metadata */
@@ -110,6 +110,10 @@
 @extraBoxShadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 @extraColor: @lightTextColor;
 @extraTransition: color @transitionDuration @transitionEasing;
+
+/* Extra Links */
+@extraLinkColor: @unselectedTextColor;
+@extraLinkHoverColor: @linkHoverColor;
 
 /*-------------------
       Variations

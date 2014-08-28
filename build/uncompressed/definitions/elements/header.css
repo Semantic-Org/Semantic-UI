@@ -178,7 +178,7 @@
 /* Standard */
 .ui.header {
   border: none;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -322,29 +322,56 @@ h5.ui.header {
 .ui.black.header {
   color: #191919 !important;
 }
+a.ui.black.header:hover {
+  color: #262626;
+}
 .ui.blue.header {
   color: #0074d9 !important;
+}
+a.ui.blue.header:hover {
+  color: #0082f3;
 }
 .ui.green.header {
   color: #2ecc40 !important;
 }
+a.ui.green.header:hover {
+  color: #40d451;
+}
 .ui.orange.header {
   color: #ff851b !important;
+}
+a.ui.orange.header:hover {
+  color: #ff9335;
 }
 .ui.pink.header {
   color: #d9499a !important;
 }
+a.ui.pink.header:hover {
+  color: #dd5ea6;
+}
 .ui.purple.header {
   color: #a24096 !important;
+}
+a.ui.purple.header:hover {
+  color: #b447a7;
 }
 .ui.red.header {
   color: #ff4136 !important;
 }
+a.ui.red.header:hover {
+  color: #ff5950;
+}
 .ui.teal.header {
   color: #39cccc !important;
 }
+a.ui.teal.header:hover {
+  color: #4dd1d1;
+}
 .ui.yellow.header {
   color: #ffcb08 !important;
+}
+a.ui.yellow.header:hover {
+  color: #ffd021;
 }
 .ui.black.dividing.header {
   border-bottom: 3px solid #191919;
@@ -398,29 +425,56 @@ h5.ui.header {
 .ui.inverted.black.header {
   color: #aaaaaa !important;
 }
+a.ui.inverted.black.header:hover {
+  color: #b7b7b7 !important;
+}
 .ui.inverted.blue.header {
   color: #54c8ff !important;
+}
+a.ui.inverted.blue.header:hover {
+  color: #6ed0ff !important;
 }
 .ui.inverted.green.header {
   color: #2ecc40 !important;
 }
+a.ui.inverted.green.header:hover {
+  color: #40d451 !important;
+}
 .ui.inverted.orange.header {
   color: #ff851b !important;
+}
+a.ui.inverted.orange.header:hover {
+  color: #ff9335 !important;
 }
 .ui.inverted.pink.header {
   color: #ff8edf !important;
 }
+a.ui.inverted.pink.header:hover {
+  color: #ffa8e6 !important;
+}
 .ui.inverted.purple.header {
   color: #cdc6ff !important;
+}
+a.ui.inverted.purple.header:hover {
+  color: #e3e0ff !important;
 }
 .ui.inverted.red.header {
   color: #ff695e !important;
 }
+a.ui.inverted.red.header:hover {
+  color: #ff8178 !important;
+}
 .ui.inverted.teal.header {
   color: #6dffff !important;
 }
+a.ui.inverted.teal.header:hover {
+  color: #87ffff !important;
+}
 .ui.inverted.yellow.header {
   color: #ffe21f !important;
+}
+a.ui.inverted.yellow.header:hover {
+  color: #ffe539 !important;
 }
 .ui.inverted.block.header {
   border-bottom: none;
@@ -489,7 +543,7 @@ h5.ui.header {
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.75rem 1rem;
-  box-shadow: 0px 2px 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid #dddddd;
   border-radius: 0.3125rem;
 }

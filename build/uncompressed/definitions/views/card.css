@@ -159,6 +159,7 @@
 /* Avatar Image */
 /* Paragraph */
 /* Additional Content */
+/* Extra Links */
 /*-------------------
       Variations
 --------------------*/
@@ -297,9 +298,9 @@
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
 }
 .ui.cards > .card > .content > .meta + .description,
@@ -450,8 +451,8 @@
 /*----------------
   Extra Content
 -----------------*/
-.ui.cards > .card .extra,
-.ui.card .extra {
+.ui.cards > .card > .extra,
+.ui.card > .extra {
   min-height: 0px !important;
   position: static;
   background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
@@ -465,6 +466,14 @@
   -webkit-transition: color 0.25s ease;
           transition: color 0.25s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.ui.cards > .card > .extra a,
+.ui.card > .extra a {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.cards > .card > .extra a:hover,
+.ui.card > .extra a:hover {
+  color: #00b2f3;
 }
 /*******************************
            Variations

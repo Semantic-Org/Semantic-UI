@@ -212,7 +212,7 @@
 ---------------------*/
 .ui.comments .comment .comments {
   margin: 0em 0em 0.5em 0.5em;
-  padding: 1em 0em 0em 1em;
+  padding: 1em 0em 1em 1em;
 }
 .ui.comments .comment .comments:before {
   position: absolute;
@@ -273,7 +273,7 @@
   display: inline-block;
   margin-left: 0.5em;
   color: rgba(0, 0, 0, 0.4);
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 .ui.comments .comment .metadata > * {
   display: inline-block;
@@ -296,12 +296,12 @@
      User Actions
 ---------------------*/
 .ui.comments .comment .actions {
-  font-size: 0.9em;
+  font-size: 0.875em;
 }
 .ui.comments .comment .actions a {
   cursor: pointer;
   display: inline-block;
-  margin: 0em 0.3em 0em 0em;
+  margin: 0em 0.75em 0em 0em;
   color: rgba(0, 0, 0, 0.4);
 }
 .ui.comments .comment .actions a:last-child {
@@ -340,9 +340,9 @@
         Threaded
 ---------------------*/
 .ui.threaded.comments .comment .comments {
-  margin: -1.5em 0em 0em 1.25em;
-  padding: 2em 0em 0em 2em;
-  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05);
+  margin: -1.5em 0 -1em 1.25em;
+  padding: 3em 0em 2em 2.25em;
+  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 /*--------------------
         Minimal

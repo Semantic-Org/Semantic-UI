@@ -220,6 +220,7 @@
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
   z-index: 11;
+  will-change: transform, opacity;
 }
 /*--------------
       Icon
