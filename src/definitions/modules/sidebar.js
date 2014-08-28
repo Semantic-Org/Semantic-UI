@@ -150,7 +150,7 @@ $.fn.sidebar = function(parameters) {
             }
             module.refresh();
           },
-          page: function() {
+          context: function() {
             $context.addClass(className.pushable);
           }
         },
