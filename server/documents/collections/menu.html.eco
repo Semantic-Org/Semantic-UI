@@ -181,7 +181,8 @@ themes      : ['Default', 'GitHub']
         <i class="mail icon"></i> Messages
       </a>
       <div class="ui dropdown item">
-        More <i class="dropdown icon"></i>
+        <i class="dropdown icon"></i>
+        More
         <div class="menu">
           <a class="item"><i class="edit icon"></i> Edit Profile</a>
           <a class="item"><i class="globe icon"></i> Choose Language</a>
@@ -232,7 +233,8 @@ themes      : ['Default', 'GitHub']
         <i class="user icon"></i> Friends
       </a>
       <div class="ui dropdown item">
-        More <i class="dropdown icon"></i>
+        <i class="dropdown icon"></i>
+        More
         <div class="menu">
           <a class="item"><i class="edit icon"></i> Edit Profile</a>
           <a class="item"><i class="globe icon"></i> Choose Language</a>
@@ -263,7 +265,8 @@ themes      : ['Default', 'GitHub']
           </div>
         </div>
         <div class="ui dropdown item">
-          Language <i class="dropdown icon"></i>
+          <i class="dropdown icon"></i>
+          Language
           <div class="menu">
             <a class="item">English</a>
             <a class="item">Russian</a>
@@ -488,7 +491,8 @@ themes      : ['Default', 'GitHub']
     </div>
     <div class="ui vertical menu">
       <div class="ui dropdown item">
-        Categories <i class="dropdown icon"></i>
+        <i class="dropdown icon"></i>
+        Categories
         <div class="menu">
           <a class="item">Electronics</a>
           <a class="item">Automotive</a>
