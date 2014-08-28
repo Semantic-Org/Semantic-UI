@@ -837,7 +837,7 @@ semantic.ready = function() {
   ;
   $menu
     .sidebar({
-      animation: 'slide along'
+      animation: 'scale down'
     })
     .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
     .sidebar('attach events', $hideMenu, 'hide')

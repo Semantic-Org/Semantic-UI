@@ -131,7 +131,9 @@ $.fn.sidebar = function(parameters) {
 
         setup: {
           layout: function() {
-            if($(selector.pusher).size() === 0) {
+            $pusher = $(selector.pusher);
+
+            if($pusher.size() === 0) {
               module.debug('Adding wrapper element for sidebar');
               module.verbose('Setting up page structure for sidebar');
               $pusher = $('<div class="pusher" />');
@@ -664,7 +666,7 @@ $.fn.sidebar.settings = {
     sidebar : 'body > .ui.sidebar',
     pusher  : 'body > .pusher',
     page    : 'body > .pusher > .page',
-    omitted : '.ui.popup, .ui.modal, .ui.nag'
+    omitted : '.ui.modal, .ui.nag'
   },
 
   error   : {

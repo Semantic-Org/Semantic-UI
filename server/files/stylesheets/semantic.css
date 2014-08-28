@@ -871,7 +871,26 @@ body.guide .main.container > * {
 #example .settings.table td:nth-child(2n) {
   width: 100px;
 }
+#example.pushed {
+  background: #333333 url(../images/icons.png) !important;
 
+  -webkit-animation-name: masthead;
+  -moz-animation-name: masthead;
+  -o-animation-name: masthead;
+  animation-name: masthead;
+
+  -webkit-animation-duration: 30s;
+  -moz-animation-duration: 30s;
+  -ms-animation-duration: 30s;
+  -o-animation-duration: 30s;
+  animation-duration: 30s;
+
+}
+#example.pushed .page .main.menu {
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+}
 
 /* example code reskin */
 #example div.code.hide {
