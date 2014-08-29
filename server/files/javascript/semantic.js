@@ -45,11 +45,12 @@ semantic.ready = function() {
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
-    $pageTabMenu      = $('.tab.header.segment .tabular.menu'),
-    $pageTabs         = $('.tab.header.segment .menu .item'),
+    $pageTabMenu      = $('body > .tab.segment .tabular.menu'),
+    $pageTabs         = $('body > .tab.segment .menu .item'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
 
+    $helpPopup        = $('.header .help.icon'),
 
     $example          = $('.example'),
     $shownExample     = $example.filter('.shown'),
@@ -59,10 +60,6 @@ semantic.ready = function() {
     $designer         = $('.designer.item'),
 
     $sidebarButton    = $('.attached.launch.button'),
-
-    $increaseFont     = $('.font .increase'),
-    $decreaseFont     = $('.font .decrease'),
-
     $code             = $('div.code').not('.existing'),
     $existingCode     = $('.existing.code'),
 
@@ -145,15 +142,15 @@ semantic.ready = function() {
             url      : variableURL,
             dataType : 'text',
             urlData  : urlData,
-            onSuccess: function(content) {
-              window.less.modifyVars( handler.less.parseFile(content) );
+            success: function(content) {
+              less.modifyVars( handler.less.parseFile(content) );
               $themeDropdown
                 .api({
                   on       : 'now',
                   url      : overrideURL,
                   dataType : 'text',
                   urlData  : urlData,
-                  onSuccess: function(content) {
+                  success: function(content) {
                     if( $('style.override').size() > 0 ) {
                       $('style.override').remove();
                     }
@@ -234,28 +231,6 @@ semantic.ready = function() {
           $element.find(selector).text(text);
         });
         return $element;
-      }
-    },
-
-    font: {
-
-      increase: function() {
-        var
-          $container = $(this).parent().prev('.ui.segment'),
-          fontSize   = parseInt( $container.css('font-size'), 10)
-        ;
-        $container
-          .css('font-size', fontSize + 1)
-        ;
-      },
-      decrease: function() {
-        var
-          $container = $(this).parent().prev('.ui.segment'),
-          fontSize   = parseInt( $container.css('font-size'), 10)
-        ;
-        $container
-          .css('font-size', fontSize - 1)
-        ;
       }
     },
     overviewMode: function() {
@@ -710,22 +685,8 @@ semantic.ready = function() {
     }
   };
 
-
-  $sidebarButton
-    .on('mouseenter', handler.menu.mouseenter)
-    .on('mouseleave', handler.menu.mouseleave)
-  ;
-  $menu
-    .sidebar({
-      animation : 'scale down'
-    })
-    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
-    .sidebar('attach events', $hideMenu, 'hide')
-  ;
-
   $('.masthead')
     .visibility({
-      context: '.pusher > .page',
       once: false
     })
     .visibility('bottom visible', function(){
@@ -800,15 +761,12 @@ semantic.ready = function() {
     .each(handler.createCode)
   ;
 
-  $swap
-    .on('click', handler.swapStyle)
+  $helpPopup
+    .popup()
   ;
 
-  $increaseFont
-    .on('click', handler.font.increase)
-  ;
-  $decreaseFont
-    .on('click', handler.font.decrease)
+  $swap
+    .on('click', handler.swapStyle)
   ;
 
   $developer
@@ -840,6 +798,17 @@ semantic.ready = function() {
     })
   ;
 
+  $sidebarButton
+    .on('mouseenter', handler.menu.mouseenter)
+    .on('mouseleave', handler.menu.mouseleave)
+  ;
+  $menu
+    .sidebar({
+      animation: 'scale down'
+    })
+    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
+    .sidebar('attach events', $hideMenu, 'hide')
+  ;
   $waypoints
     .waypoint({
       continuous : false,

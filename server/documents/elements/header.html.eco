@@ -14,6 +14,8 @@ themes      : ['Default', 'Bookish', 'Chubby']
 
 <%- @partial('header') %>
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/header.less" />
+<script src="/javascript/header.js"></script>
+
 <div class="main container">
 
   <div class="peek">
@@ -65,7 +67,11 @@ themes      : ['Default', 'Bookish', 'Chubby']
     <h4 class="ui header">Page Headings</h4>
     <p class="header">Headers may be oriented to give the heirarchy of a section in the context of the page</p>
     <div class="ignored info ui message">Page headings size themselves relative to the base font of the entire page not the surrounding text.</div>
-    <div class="ui basic segment">
+    <div class="ui ignored two fluid font buttons">
+      <a class="increase ui button"> <i class="icon green plus"></i> Base Font</a>
+      <a class="decrease ui button"> <i class="icon red minus"></i> Base Font</a>
+    </div>
+    <div class="ui segment">
       <h1 class="ui header">First header</h1>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
       <h2 class="ui header">Second header</h2>
@@ -77,17 +83,17 @@ themes      : ['Default', 'Bookish', 'Chubby']
       <h5 class="ui header">Fifth header</h5>
       <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
     </div>
-    <div class="ui ignored secondary two item font menu">
-      <a class="increase item"> <i class="icon circular green plus"></i> Base Font</a>
-      <a class="decrease item"> <i class="icon circular red minus"></i> Base Font</a>
-    </div>
   </div>
 
   <div class="example">
     <h4 class="ui header">Content Headings</h4>
     <p>Headers may be oriented to give the importance of a section in the context of the content that surrounds it</p>
     <div class="ignored info ui message">Content headings size themselves relative to the base font of the surrounding text</div>
-    <div class="ui basic segment">
+    <div class="ui ignored two fluid font buttons">
+      <a class="increase ui button"> <i class="icon green plus"></i> Base Font</a>
+      <a class="decrease ui button"> <i class="icon red minus"></i> Base Font</a>
+    </div>
+    <div class="ui segment">
       <div class="ui huge header">Huge Header</div>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
       <div class="ui large header">Large Header</div>
@@ -98,10 +104,6 @@ themes      : ['Default', 'Bookish', 'Chubby']
       <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
       <div class="ui tiny header">Tiny Header</div>
       <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
-    </div>
-    <div class="ui ignored secondary two item font menu">
-      <a class="increase item"> <i class="icon circular green plus"></i> Base Font</a>
-      <a class="decrease item"> <i class="icon circular red minus"></i> Base Font</a>
     </div>
   </div>
 
