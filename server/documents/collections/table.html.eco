@@ -40,10 +40,12 @@ themes      : ['Default']
     </div>
     <table class="ui table">
       <thead>
-        <th>Name</th>
-        <th>Registration Date</th>
-        <th>E-mail address</th>
-        <th>Premium Plan</th>
+        <tr>
+          <th>Name</th>
+          <th>Registration Date</th>
+          <th>E-mail address</th>
+          <th>Premium Plan</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -66,11 +68,13 @@ themes      : ['Default']
         </tr>
       </tbody>
       <tfoot>
-        <th colspan="4">
-          <div class="ui primary labeled icon button">
-            <i class="user icon"></i> Add User
-          </div>
-        </th>
+        <tr>
+          <th colspan="4">
+            <div class="ui primary labeled icon button">
+              <i class="user icon"></i> Add User
+            </div>
+          </th>
+        </tr>
       </tfoot>
     </table>
   </div>
@@ -82,9 +86,11 @@ themes      : ['Default']
     <p>A cell or row may let a user know whether a value is good or bad</p>
     <table class="ui table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -117,9 +123,11 @@ themes      : ['Default']
     <p>A cell or row may attention the user to an error or a negative value</p>
     <table class="ui table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -151,9 +159,11 @@ themes      : ['Default']
     <p>A cell or row may warn a user</p>
     <table class="ui table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -185,9 +195,11 @@ themes      : ['Default']
     <p>A cell or row can be active or selected by a user</p>
     <table class="ui table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -218,9 +230,11 @@ themes      : ['Default']
     <p>A cell can be disabled</p>
     <table class="ui table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr class="disabled">
@@ -255,9 +269,11 @@ themes      : ['Default']
     <p>A table can stripe alternate rows of content with a darker color to increase contrast</p>
     <table class="ui striped table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -289,9 +305,11 @@ themes      : ['Default']
     <p>A table may be divided each row into separate cells</p>
     <table class="ui celled table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -323,9 +341,11 @@ themes      : ['Default']
     <p>A table can reduce its complexity to increase readability.</p>
     <table class="ui basic table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -349,9 +369,11 @@ themes      : ['Default']
   <div class="another example">
     <table class="ui very basic table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -454,9 +476,11 @@ themes      : ['Default']
     <p>By default tables take the size of their container. A collapsing takes up only as much space as its rows.</p>
     <table class="ui collapsing table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -488,9 +512,11 @@ themes      : ['Default']
     <p>A table can be given a color to distinguish it from other tables.</p>
     <table class="ui blue table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -522,9 +548,11 @@ themes      : ['Default']
     <p>A tables colors can be inverted</p>
     <table class="ui inverted table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -553,9 +581,11 @@ themes      : ['Default']
   <div class="another example">
     <table class="ui inverted red table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -614,9 +644,11 @@ themes      : ['Default']
 
     <table class="ui sortable table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -647,9 +679,11 @@ themes      : ['Default']
     <p>A table may sometimes need to be more padded for legibility</p>
     <table class="ui padded table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -668,9 +702,11 @@ themes      : ['Default']
   <div class="another example">
     <table class="ui very padded table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -691,9 +727,11 @@ themes      : ['Default']
     <p>A table may sometimes need to be more compact to make more rows visible at a time</p>
     <table class="ui compact table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -804,9 +842,11 @@ themes      : ['Default']
     <p>A table can also be small or large</p>
     <table class="ui small table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -835,9 +875,11 @@ themes      : ['Default']
   <div class="another example">
     <table class="ui large table">
       <thead>
-        <th>Name</th>
-        <th>Status</th>
-        <th>Notes</th>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
