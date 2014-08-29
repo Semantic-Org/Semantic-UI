@@ -45,8 +45,8 @@ semantic.ready = function() {
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
-    $pageTabMenu      = $('body > .tab.segment .tabular.menu'),
-    $pageTabs         = $('body > .tab.segment .menu .item'),
+    $pageTabMenu      = $('.tab.header.segment .tabular.menu'),
+    $pageTabs         = $('.tab.header.segment .menu .item'),
 
     $downloadDropdown = $('.download.buttons .dropdown'),
 
@@ -723,6 +723,7 @@ semantic.ready = function() {
     ;
   }
 
+
   if( $pageTabs.size() > 0 ) {
     $pageTabs
       .tab({
@@ -740,6 +741,18 @@ semantic.ready = function() {
   else {
     handler.makeCode();
   }
+
+  $sidebarButton
+    .on('mouseenter', handler.menu.mouseenter)
+    .on('mouseleave', handler.menu.mouseleave)
+  ;
+  $menu
+    .sidebar({
+      animation: 'scale down'
+    })
+    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
+    .sidebar('attach events', $hideMenu, 'hide')
+  ;
 
 
   handler.createIcon();
@@ -798,17 +811,6 @@ semantic.ready = function() {
     })
   ;
 
-  $sidebarButton
-    .on('mouseenter', handler.menu.mouseenter)
-    .on('mouseleave', handler.menu.mouseleave)
-  ;
-  $menu
-    .sidebar({
-      animation: 'scale down'
-    })
-    .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
-    .sidebar('attach events', $hideMenu, 'hide')
-  ;
   $waypoints
     .waypoint({
       continuous : false,
