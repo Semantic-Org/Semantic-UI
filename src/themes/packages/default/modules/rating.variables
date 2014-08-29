@@ -16,14 +16,29 @@
 --------------------*/
 
 /* Star */
+@starIconHitbox: @iconHitbox;
 @starInactiveColor: @inactiveColor;
 @starHoverColor: #FFB70A;
-@starActiveColor: #FFCB08;
+@starActiveColor: #FFE623;
+@starActiveShadow:
+  0px -1px 0px #CFA300,
+  -1px 0px 0px #CFA300,
+  0px 1px 0px #CFA300,
+  1px 0px 0px #CFA300
+;
 
 /* Heart */
+@heartIconHitbox: 1.2em;
 @heartInactiveColor: @inactiveColor;
 @heartHoverColor: #FF2733;
 @heartActiveColor: #EF404A;
+@heartActiveShadow:
+  0px -1px 0px #EF404A,
+  -1px 0px 0px #EF404A,
+  0px 1px 0px #EF404A,
+  1px 0px 0px #EF404A
+;
+
 
 /*-------------------
         States
