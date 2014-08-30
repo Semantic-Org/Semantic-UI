@@ -42,8 +42,18 @@ themes      : ['Default']
       <h4 class="ui header">Star</h4>
       <p>A rating can use a set of star icons</p>
 
-      <div>
-        Average rating:
+      <div class="ui compact segment">
+        Rating
+        <div class="ui star rating">
+          <i class="icon"></i>
+          <i class="icon"></i>
+          <i class="icon"></i>
+          <i class="icon"></i>
+          <i class="icon"></i>
+        </div>
+      </div>
+      <div class="ui header">
+        Rating
         <div class="ui star rating">
           <i class="icon"></i>
           <i class="icon"></i>
@@ -71,44 +81,62 @@ themes      : ['Default']
     <div class="example">
       <h4 class="ui header">Size</h4>
       <p>A rating can vary in size</p>
-      <div class="another example">
-        <div class="ui small star rating">
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-        </div>
+      <div class="ui mini star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
       </div>
-      <div class="another example">
-        <div class="ui star rating">
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-        </div>
+      <div class="ignored hidden ui divider"></div>
+      <div class="ui tiny star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
       </div>
-      <div class="another example">
-        <div class="ui large star rating">
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-        </div>
+      <div class="ignored hidden ui divider"></div>
+      <div class="ui small star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
       </div>
-      <div class="another example">
-        <div class="ui huge star rating">
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-        </div>
+      <div class="ignored hidden ui divider"></div>
+      <div class="ui star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+      </div>
+      <div class="ignored hidden ui divider"></div>
+      <div class="ui large star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+      </div>
+      <div class="ignored hidden ui divider"></div>
+      <div class="ui huge star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+      </div>
+      <div class="ignored hidden ui divider"></div>
+      <div class="ui massive star rating">
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
+        <i class="icon"></i>
       </div>
     </div>
-
   </div>
 
   <div class="ui tab" data-tab="examples">

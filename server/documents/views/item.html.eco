@@ -6,7 +6,7 @@ element     : 'item'
 elementType : 'view'
 
 title       : 'Item'
-description : 'An item view divides site content into vertical groups for display'
+description : 'An item view formats large collections of content for display vertically'
 type        : 'UI View'
 
 themes      : ['Default']
@@ -15,7 +15,6 @@ themes      : ['Default']
 <%- @partial('header') %>
 
 <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/views/item.less" />
-<script src="/javascript/item.js"></script>
 
 <div class="main container">
 
@@ -32,46 +31,79 @@ themes      : ['Default']
   <div class="even example">
     <h4 class="ui header">Items</h4>
     <p>A group of items.</p>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
         <div class="image">
-          <img src="/images/demo/highres.jpg">
+          <img src="/images/logos/arrowhead.png">
         </div>
-        <div class="content">
-          <a class="header">Cute Dog</a>
-          <div class="meta">Today</div>
-          <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
+        <div class="middle aligned content">
+          <a class="header">Arrowhead Valley Camp</a>
+          <div class="meta">
+            <span class="price">$1200</span>
+            <span class="stay">1 Month</span>
+          </div>
+          <div class="description">
+            This camp in the Hudson Valley is perfect for teenagers from 10-14.
+          </div>
           <div class="extra">
-            <i class="check icon"></i>
-            199 Votes
+            <span class="right floated amenities ui label">
+              <i class="child icon"></i>
+              Child Friendly
+            </span>
+            <span class="available">
+              <i class="red check icon"></i>
+              0 Spots Available
+            </span>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="image">
-          <img src="/images/demo/highres2.jpg">
+          <img src="/images/logos/big-buck.png">
         </div>
-        <div class="content">
-          <a class="header">Faithful Dog</a>
-          <div class="meta">5 days ago</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
+        <div class="middle aligned content">
+          <a class="header">Buck's Homebrew Stayaway</a>
+          <div class="meta">
+            <span class="price">$1000</span>
+            <span class="stay">2 Weeks</span>
+          </div>
+          <div class="description">
+            This adult stay away from home camp will teach you everything you need to know about forestry and homebrew.
+          </div>
           <div class="extra">
-            <i class="check icon"></i>
-            199 Votes
+            <span class="right floated amenities ui label">
+              <i class="male icon"></i>
+              Adults-Only
+            </span>
+            <span class="available">
+              <i class="green check icon"></i>
+              2 Spots Available
+            </span>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="image">
-          <img src="/images/demo/highres3.jpg">
+          <img src="/images/logos/sunset.png">
         </div>
-        <div class="content">
-          <a class="header">Silly Dog</a>
-          <div class="meta">12 days ago</div>
-          <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
+        <div class="middle aligned content">
+          <a class="header">Greek Astrology Camp</a>
+          <div class="meta">
+            <span class="price">$1600</span>
+            <span class="stay">6 Weeks</span>
+          </div>
+          <div class="description">
+            Learn astrology the old fashioned way in this stayaway camp for kids aged 8-17.
+          </div>
           <div class="extra">
-            <i class="check icon"></i>
-            199 Votes
+            <span class="right floated amenities ui label">
+              <i class="child icon"></i>
+              Child Friendly
+            </span>
+            <span class="available">
+              <i class="green check icon"></i>
+              25 Spots Available
+            </span>
           </div>
         </div>
       </div>
@@ -81,14 +113,31 @@ themes      : ['Default']
   <h2 class="ui dividing header">Content</h2>
 
   <div class="example">
-    <h4 class="ui header">Title</h4>
-    <p>A item can contain content a title</p>
-    <div class="ui items">
+    <h4 class="ui header">Header</h4>
+    <p>A item can contain a header</p>
+    <div class="ui items segment">
       <div class="item">
         <div class="content">
-          <a class="header">Cute Dog</a>
-          <div class="meta">2 days ago</div>
-          <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
+          <div class="header">Arrowhead Valley Camp</div>
+          <div class="description">
+            This camp in the Hudson Valley is perfect for teenagers from 10-14.
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="content">
+          <div class="header">Buck's Homebrew Stayaway</div>
+          <div class="description">
+            This adult stay away from home camp will teach you everything you need to know about  forestry and homebrew.
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="content">
+          <div class="header">Astrology Camp</div>
+          <div class="description">
+            Learn astrology the old fashioned way in this stayaway camp for kids aged 8-17.
+          </div>
         </div>
       </div>
     </div>
@@ -101,13 +150,40 @@ themes      : ['Default']
       <i class="info icon"></i>
       You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
     </div>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
         <div class="content">
-          <a class="header">Cute Dog</a>
+          <div class="header">Arrowhead Valley Camp</div>
           <div class="meta">
-            <span class="time">2 days ago</span>
-            <span class="category">Animals</span>
+            <span class="price">$1200</span>
+            <span class="stay">1 Month</span>
+          </div>
+          <div class="description">
+            This camp in the Hudson Valley is perfect for teenagers from 10-14.
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="content">
+          <div class="header">Buck's Homebrew Stayaway</div>
+          <div class="meta">
+            <span class="price">$1000</span>
+            <span class="stay">2 Weeks</span>
+          </div>
+          <div class="description">
+            This adult stay away from home camp will teach you everything you need to know about  forestry and homebrew.
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="content">
+          <div class="header">Astrology Camp</div>
+          <div class="meta">
+            <span class="price">$1600</span>
+            <span class="stay">6 Weeks</span>
+          </div>
+          <div class="description">
+            Learn astrology the old fashioned way in this stayaway camp for kids aged 8-17.
           </div>
         </div>
       </div>
@@ -121,18 +197,40 @@ themes      : ['Default']
       <i class="star icon"></i>
       To make the entire content of a item link, check out the link variation below
     </div>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
-        <a class="image" href="#">
-          <img src="/images/demo/highres.jpg">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/stevie.jpg">
         </a>
         <div class="content">
-          <a class="header" href="#">Cute Dog</a>
-          <div class="meta">
-            <a class="time">2 days ago</a>
-          </div>
+          <a class="header">Stevie Feliciano</a>
           <div class="description">
-            Check our this <a href="http://www.dogs.com"> excellent resource</a> on dogs.
+            <p>Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.</p>
+            <a>View Profile</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/veronika.jpg">
+        </a>
+        <div class="content">
+          <a class="header">Veronika Ossi</a>
+          <div class="description">
+            <p>Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.</p>
+            <a>View Profile</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/jenny.jpg">
+        </a>
+        <div class="content">
+          <a class="header">Jenny Hess</a>
+          <div class="description">
+            <p>Jenny is a student studying Media Management at the New School.</p>
+            <a>View Profile</a>
           </div>
         </div>
       </div>
@@ -145,7 +243,7 @@ themes      : ['Default']
     <div class="ui info message">
       Common actions may contain special formatting, like "star" or "heart". To attach events, on a user action, please check out the <a href="#">state behavior</a>.
     </div>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
         <div class="content">
           <i class="right floated like icon"></i>
@@ -159,7 +257,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Description</h4>
     <p>A item can contain a description with a single or multiple paragraphs</p>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
         <div class="content">
           <a class="header">Cute Dog</a>
@@ -176,7 +274,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Extra Content</h4>
     <p>A item can contain extra content meant to be formatted separately from the main content</p>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
         <div class="content">
           <a class="header">Cute Dog</a>
@@ -186,7 +284,7 @@ themes      : ['Default']
             <p>Many people also have their own barometers for what makes a cute dog.</p>
           </div>
           <div class="extra">
-            <i class="check icon"></i>
+            <i class="green check icon"></i>
             121 Votes
           </div>
         </div>
@@ -198,7 +296,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Image</h4>
     <p>A item can contain an image</p>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
         <div class="image">
           <img src="/images/demo/highres.jpg">
@@ -211,7 +309,7 @@ themes      : ['Default']
             <p>Many people also have their own barometers for what makes a cute dog.</p>
           </div>
           <div class="extra">
-            <i class="check icon"></i>
+            <i class="green check icon"></i>
             121 Votes
           </div>
         </div>
@@ -267,7 +365,7 @@ themes      : ['Default']
   <div class="example">
     <h4 class="ui header">Link Item</h4>
     <p>A item can be formatted so that the entire contents link to another page</p>
-    <div class="ui items">
+    <div class="ui items segment">
       <a class="item" href="http://www.dog.com">
         <div class="image">
           <img src="/images/demo/highres.jpg">
@@ -321,9 +419,9 @@ themes      : ['Default']
           </div>
         </div>
         <div class="extra content">
-          <div class="right floated author">
+          <span class="right floated author">
             <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
-          </div>
+          </span>
         </div>
       </div>
     </div>
@@ -336,7 +434,7 @@ themes      : ['Default']
       <i class="info icon"></i>
       You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
     </div>
-    <div class="ui items">
+    <div class="ui items segment">
       <div class="item">
         <div class="content">
           <a class="header">Cute Dog</a>
@@ -348,9 +446,9 @@ themes      : ['Default']
             Here's a description of a cute dog.
           </div>
           <div class="content">
-            <div class="right floated author">
+            <span class="right floated author">
               <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
-            </div>
+            </span>
           </div>
         </div>
       </div>

@@ -25,7 +25,6 @@
 
 .ui.rating {
   display: @display;
-
   font-size: 0em;
   vertical-align: @verticalAlign;
   margin: @margin;
@@ -54,7 +53,7 @@
 
   font-weight: normal;
   font-style: normal;
-  vertical-align: top;
+  vertical-align: @verticalAlign;
 }
 
 
@@ -168,6 +167,12 @@
           Variations
 *******************************/
 
+.ui.mini.rating .icon {
+  font-size: @mini;
+}
+.ui.tiny.rating .icon {
+  font-size: @tiny;
+}
 .ui.small.rating .icon {
   font-size: @small;
 }
@@ -180,10 +185,14 @@
 .ui.huge.rating .icon {
   font-size: @huge;
 }
+.ui.massive.rating .icon {
+  font-size: @massive;
+}
 
 /* Realign */
 .ui.large.rating,
-.ui.huge.rating {
+.ui.huge.rating,
+.ui.massive.rating {
   vertical-align: @oversizedVerticalAlign;
 }
 

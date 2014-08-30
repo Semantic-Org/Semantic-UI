@@ -13,6 +13,9 @@
 
 @contentPadding: 1em 0em;
 
+@rowSpacing: 1.5em;
+@groupCardMargin: 0em @horizontalSpacing @rowSpacing;
+
 @extraBackground: transparent;
 @extraDivider: none;
 @extraBoxShadow: none;

@@ -93,7 +93,6 @@
   position: relative;
   display: @imageDisplay;
   float: @imageFloat;
-  width: @imageWidth;
   margin: @imageMargin;
   padding: @imagePadding;
   max-height: @imageMaxHeight;
@@ -109,6 +108,11 @@
 
 .ui.items > .item > .image:only-child > img {
   border-radius: @borderRadius;
+}
+
+/* Default Image Width */
+.ui.items > .item > .image:not(.ui) {
+  width: @imageWidth;
 }
 
 
@@ -136,6 +140,7 @@
 }
 
 .ui.items > .item > .image + .content {
+  width: @contentWidth;
   display: @contentDisplay;
   margin-left: @contentOffset;
   vertical-align: @contentVerticalAlign;
@@ -143,15 +148,14 @@
 }
 
 .ui.items > .item > .content > .header {
-  display: block;
+  display: inline-block;
   margin: @headerMargin;
   font-family: @headerFont;
   font-weight: @headerFontWeight;
   font-size: @headerFontSize;
   color: @headerColor;
 }
-.ui.items > .item > .content > .meta + .description,
-.ui.items > .item > .content > .header + .description {
+.ui.items > .item > .content > .meta + .description{
   margin-top: @descriptionDistance;
 }
 
@@ -324,6 +328,21 @@
 /*******************************
            Variations
 *******************************/
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.items > .item > .image + .top.aligned.content {
+  vertical-align: top;
+}
+.ui.items > .item > .image + .middle.aligned.content {
+  vertical-align: middle;
+}
+.ui.items > .item > .image + .bottom.aligned.content {
+  vertical-align: bottom;
+}
+
 
 /*-------------------
       Divided

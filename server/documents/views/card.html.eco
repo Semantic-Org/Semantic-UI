@@ -42,7 +42,7 @@ themes      : ['Default', 'Basic']
           <span class="date">Joined in 2014</span>
         </div>
         <div class="description">
-          Stevie Feliciano lives in New York City. She spends her time reading, running, and writing and likes the park.
+          Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
         </div>
       </div>
       <div class="extra content">
@@ -57,90 +57,145 @@ themes      : ['Default', 'Basic']
   <div class="even example">
     <h4 class="ui header">Cards</h4>
     <p>A group of cards. </p>
-    <div class="ignored yellow ui message">
-      <div class="header">
-        <i class="info icon"></i>
-        Equal Size Cards
-      </div>
-      <p>Your card's content may vary in length. In order to keep cards aligned, it is best to set a <code>min-height</code> that matches your largest card size.</p>
-
-      <p>For example:</p>
-      <div class="code" data-type="css">
-      /* Sets card height to about 3 lines of description */
-      #my-container .card .content {
-        min-height: 145px;
-      }
-      </div>
+    <div class="ui info message">
+      <h3 class="header">Customizing your views</h3>
+      <p>Cards are designed to be flexible to your content. Meta content can include custom elements related to your content. Each child element inside the <code>extra content</code> or <code>meta</code> group will be automatically formatted to be spaced appropriately.</p>
+      <p>This example includes a category group, a sign-up date, and a friend count which are arbitrary class names used to format users as cards.</p>
     </div>
     <div class="ui cards">
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres.jpg">
+          <img src="/images/avatar/large/elliot.jpg">
         </div>
         <div class="content">
-          <div class="header">Cute Dog</div>
-          <div class="meta">Today</div>
-          <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
+          <div class="header">Elliot Fu</div>
+          <div class="meta">
+            <a class="group">Friends</a>
+          </div>
+          <div class="description">
+            Elliot Fu is a film-maker from New York.
+          </div>
         </div>
         <div class="extra content">
-          <i class="check icon"></i>
-          199 Votes
+          <a class="right floated created">
+            Joined in 2011
+          </a>
+          <a class="friends">
+            <i class="user icon"></i>
+            22 Friends
+          </a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres2.jpg">
+          <img src="/images/avatar/large/helen.jpg">
         </div>
         <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="meta">5 days ago</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
+          <div class="header">Helen Troy</div>
+          <div class="meta">
+            <a class="group">Friends</a>
+          </div>
+          <div class="description">
+            Helen Troy is an archivist living in New York, who enjoys cooking, fine art, and gardening.
+          </div>
         </div>
         <div class="extra content">
-          <i class="check icon"></i>
-          199 Votes
+          <a class="right floated created">
+            Joined in 2013
+          </a>
+          <a class="friends">
+            <i class="user icon"></i>
+            22 Friends
+          </a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres3.jpg">
+          <img src="/images/avatar/large/jenny.jpg">
         </div>
         <div class="content">
-          <div class="header">Silly Dog</div>
-          <div class="meta">12 days ago</div>
-          <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
+          <div class="header">Jenny Hess</div>
+          <div class="meta">
+            <a class="group">Friends</a>
+          </div>
+          <div class="description">
+            Jenny is a student studying Media Management at the New School.
+          </div>
         </div>
         <div class="extra content">
-          <i class="check icon"></i>
-          199 Votes
+          <a class="right floated created">
+            Joined in 2012
+          </a>
+          <a class="friends">
+            <i class="user icon"></i>
+            22 Friends
+          </a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres4.jpg">
+          <img src="/images/avatar/large/veronika.jpg">
         </div>
         <div class="content">
-          <div class="header">Introverted Dog</div>
-          <div class="meta">18 days ago</div>
-          <div class="description">Introverted dogs don't like to say much, but thats ok, dogs can't talk anyways.</div>
+          <div class="header">Veronika Ossi</div>
+          <div class="meta">
+            <a class="group">Friends</a>
+          </div>
+          <div class="description">
+            Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+          </div>
         </div>
         <div class="extra content">
-          <i class="check icon"></i>
-          199 Votes
+          <a class="right floated created">
+            Joined in 2013
+          </a>
+          <a class="friends">
+            <i class="user icon"></i>
+            22 Friends
+          </a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres5.jpg">
+          <img src="/images/avatar/large/stevie.jpg">
         </div>
         <div class="content">
-          <div class="header">Large Dog</div>
-          <div class="meta">22 days ago</div>
-          <div class="description">Large dogs just take up a lot of space. There's not much to be said.</div>
+          <a class="header">Stevie Feliciano</a>
+          <div class="meta">
+            <span class="date">Joined in 2014</span>
+          </div>
+          <div class="description">
+            Stevie Feliciano is a library scientist living in New York City.
+          </div>
         </div>
         <div class="extra content">
-          <i class="check icon"></i>
-          199 Votes
+          <a>
+            <i class="user icon"></i>
+            22 Friends
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/steve.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Steve Jobes</div>
+          <div class="meta">
+            <a class="group">Acquaintances</a>
+          </div>
+          <div class="description">
+            Stevie Jobes is a fictional character designed to resemble someone familiar to readers.
+          </div>
+        </div>
+        <div class="extra content">
+          <a class="right floated created">
+            Joined in 2014
+          </a>
+          <a class="friends">
+            <i class="user icon"></i>
+            22 Friends
+          </a>
         </div>
       </div>
     </div>
@@ -148,14 +203,52 @@ themes      : ['Default', 'Basic']
 
   <h2 class="ui dividing header">Content</h2>
 
-  <div class="example">
-    <h4 class="ui header">Title</h4>
-    <p>A card can contain content a title</p>
-    <div class="ui card">
-      <div class="content">
-        <div class="header">Cute Dog</div>
-        <div class="meta">2 days ago</div>
-        <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
+  <div class="ignored yellow ui message">
+    <div class="header">
+      <i class="info icon"></i>
+      Equal Size Cards
+    </div>
+    <p>If your cards have content that vary in length you must set a <code>min-height</code> for that content area, or the whole card.</p>
+
+    <p>For example:</p>
+    <div class="code" data-type="css">
+    /* Sets card height to about two lines of description */
+    #my-container .card .description {
+      min-height: 35px;
+    }
+    </div>
+  </div>
+
+  <div class="even example">
+    <h4 class="ui header">Header</h4>
+    <p>A card can contain a header</p>
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <div class="header">Elliot Fu</div>
+          <div class="meta">Friend</div>
+          <div class="description">
+            Elliot Fu is a film-maker from New York.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="header">Veronika Ossi</div>
+          <div class="meta">Friend</div>
+          <div class="description">
+            Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="header">Jenny Hess</div>
+          <div class="meta">Friend</div>
+          <div class="description">
+            Jenny is a student studying Media Management at the New School
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -202,8 +295,8 @@ themes      : ['Default', 'Basic']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Icons</h4>
-    <p>A card can contain icons to denote user actions.</p>
+    <h4 class="ui header">Actions</h4>
+    <p>A card can contain common actions</p>
     <div class="ui info message">
       Common actions may contain special formatting, like "star" or "heart". To attach events, on a user action, please check out the <a href="#">state behavior</a>.
     </div>
@@ -212,6 +305,16 @@ themes      : ['Default', 'Basic']
         <i class="right floated like icon"></i>
         <i class="right floated star icon"></i>
         <div class="header">Cute Dog</div>
+        <div class="extra content">
+          <span class="like">
+            <i class="like icon"></i>
+            Like
+          </span>
+          <span class="star">
+            <i class="star icon"></i>
+            Favorite
+          </span>
+        </div>
       </div>
     </div>
   </div>

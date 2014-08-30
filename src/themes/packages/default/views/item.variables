@@ -7,7 +7,7 @@
 --------------------*/
 
 /* Items */
-@itemsMargin: 1em 0em;
+@itemsMargin: 1.5em 0em;
 
 /* Item */
 @display: table;
@@ -57,13 +57,13 @@
 /* Header */
 @headerMargin: 0em;
 @headerFontWeight: bold;
-@headerFontSize: 1.25em;
+@headerFontSize: 1.2em;
 @headerColor: @darkTextColor;
 
 /* Metadata */
-@metaFontSize: 0.9em;
+@metaFontSize: 1em;
 @metaSpacing: 0.3em;
-@metaColor: @lightTextColor;
+@metaColor: rgba(0, 0, 0, 0.6);
 
 /* Icons */
 @actionOpacity: 0.75;
@@ -84,12 +84,13 @@
 @metaLinkHoverColor: @textColor;
 
 /* Description */
-@descriptionDistance: 0.75em;
+@descriptionDistance: 0.6em;
 @descriptionFontSize: 1.1em;
 @descriptionLineHeight: 1.2;
 @descriptionColor: @textColor;
 
 /* Content Image */
+@contentWidth: 100%;
 @contentImageWidth: 2em;
 @contentImageVerticalAlign: middle;
 

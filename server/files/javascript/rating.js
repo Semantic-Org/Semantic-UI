@@ -4,7 +4,9 @@ semantic.dropdown = {};
 semantic.dropdown.ready = function() {
 
   $('.ui.rating')
-    .rating()
+    .rating({
+      initialRating: 3
+    })
   ;
 
 };

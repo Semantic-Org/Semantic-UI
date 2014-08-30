@@ -1234,9 +1234,8 @@ body.guide .main.container > * {
 }
 
 
-body.card .even.example .card .content {
-  clear: both;
-  min-height: 145px;
+body.card .even.example .card .description {
+  height: 35px;
 }
 
 body.progress .ui.progress .bar {
@@ -1319,8 +1318,8 @@ body.progress .ui.progress .bar {
 }
 
 
-
 @media only screen and (max-width : 1325px) {
+
   #example .container {
     width: auto;
     margin-right: 100px;
@@ -1503,6 +1502,10 @@ body.progress .ui.progress .bar {
 @media only screen and (min-width : 1325px) {
   #example .container {
     width: 850px;
+  }
+  #example.item .container,
+  #example.card .container {
+    width: 1100px;
   }
   #example .sticky-wrapper.stuck .peek {
     margin-left: -655px;

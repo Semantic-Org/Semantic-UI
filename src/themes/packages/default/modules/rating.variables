@@ -5,7 +5,7 @@
 @display: inline-block;
 @margin: 0em 0.5rem 0em 0em;
 
-@verticalAlign: top;
+@verticalAlign: baseline;
 @oversizedVerticalAlign: middle;
 
 @iconHitbox: 1.1em;
@@ -55,7 +55,11 @@
       Variations
 --------------------*/
 
-@small: 14px;
-@medium: 16px;
-@large: 24px;
-@huge: 28px;
+@mini: 0.7rem;
+@tiny: 0.8rem;
+@small: 0.875rem;
+@medium: 1rem;
+@large: 1.1rem;
+@big: 1.25rem;
+@huge: 1.5rem;
+@massive: 2rem;
