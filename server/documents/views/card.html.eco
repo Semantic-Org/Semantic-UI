@@ -203,25 +203,24 @@ themes      : ['Default', 'Basic']
 
   <h2 class="ui dividing header">Content</h2>
 
-  <div class="ignored yellow ui message">
-    <div class="header">
-      <i class="info icon"></i>
-      Equal Size Cards
-    </div>
-    <p>If your cards have content that vary in length you must set a <code>min-height</code> for that content area, or the whole card.</p>
-
-    <p>For example:</p>
-    <div class="code" data-type="css">
-    /* Sets card height to about two lines of description */
-    #my-container .card .description {
-      min-height: 35px;
-    }
-    </div>
-  </div>
-
   <div class="even example">
     <h4 class="ui header">Header</h4>
     <p>A card can contain a header</p>
+    <div class="ignored yellow ui message">
+      <div class="header">
+        <i class="info icon"></i>
+        Equal Size Cards
+      </div>
+      <p>If your cards have content that vary in length you must set a <code>min-height</code> for that content area, or the whole card.</p>
+
+      <p>For example:</p>
+      <div class="code" data-type="css">
+      /* Sets card height to about two lines of description */
+      #my-container .card .description {
+        min-height: 35px;
+      }
+      </div>
+    </div>
     <div class="ui cards">
       <div class="card">
         <div class="content">
@@ -393,7 +392,7 @@ themes      : ['Default', 'Basic']
       </div>
       <div class="extra content">
         <div class="right floated author">
-          <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
         </div>
       </div>
     </a>
@@ -411,7 +410,7 @@ themes      : ['Default', 'Basic']
       </div>
       <div class="extra content">
         <div class="right floated author">
-          <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
         </div>
       </div>
     </div>
@@ -437,7 +436,7 @@ themes      : ['Default', 'Basic']
       </div>
       <div class="extra content">
         <div class="right floated author">
-          <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
         </div>
       </div>
     </div>
@@ -449,38 +448,66 @@ themes      : ['Default', 'Basic']
     <div class="ui four cards">
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres4.jpg">
+          <img src="/images/avatar/large/elliot.jpg">
         </div>
         <div class="content">
-          <div class="header">Cute Dog</div>
-          <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
+          <a class="header">Elliot Fu</a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres5.jpg">
+          <img src="/images/avatar/large/helen.jpg">
         </div>
         <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
+          <a class="header">Helen Troy</a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres3.jpg">
+          <img src="/images/avatar/large/jenny.jpg">
         </div>
         <div class="content">
-          <div class="header">Silly Dog</div>
-          <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
+          <a class="header">Jenny Hess</a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres2.jpg">
+          <img src="/images/avatar/large/veronika.jpg">
         </div>
         <div class="content">
-          <div class="header">Happy Dog</div>
-          <div class="description">Happy dogs are pretty interesting if you are an unhappy person.</div>
+          <a class="header">Veronika Ossi</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/stevie.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Stevie Feliciano</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/steve.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Steve Jobes</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/justen.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Justen Kitsune</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/daniel.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Daniel Louise</a>
         </div>
       </div>
     </div>
@@ -493,56 +520,50 @@ themes      : ['Default', 'Basic']
     <div class="ui six doubling cards">
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres4.jpg">
+          <img src="/images/avatar/large/elliot.jpg">
         </div>
         <div class="content">
-          <div class="header">Cute Dog</div>
-          <div class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</div>
+          <a class="header">Elliot Fu</a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres5.jpg">
+          <img src="/images/avatar/large/helen.jpg">
         </div>
         <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
+          <a class="header">Helen Troy</a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres3.jpg">
+          <img src="/images/avatar/large/jenny.jpg">
         </div>
         <div class="content">
-          <div class="header">Silly Dog</div>
-          <div class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</div>
+          <a class="header">Jenny Hess</a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres2.jpg">
+          <img src="/images/avatar/large/veronika.jpg">
         </div>
         <div class="content">
-          <div class="header">Happy Dog</div>
-          <div class="description">Happy dogs are pretty interesting if you are an unhappy person.</div>
+          <a class="header">Veronika Ossi</a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres5.jpg">
+          <img src="/images/avatar/large/stevie.jpg">
         </div>
         <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
+          <a class="header">Stevie Feliciano</a>
         </div>
       </div>
       <div class="card">
         <div class="image">
-          <img src="/images/demo/highres5.jpg">
+          <img src="/images/avatar/large/steve.jpg">
         </div>
         <div class="content">
-          <div class="header">Faithful Dog</div>
-          <div class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</div>
+          <a class="header">Steve Jobes</a>
         </div>
       </div>
     </div>
