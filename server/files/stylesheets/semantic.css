@@ -256,6 +256,12 @@ a:hover {
      Pushed
 ---------------*/
 
+#example.hide .attached.launch.button,
+#example.show .attached.launch.button {
+  transition: none !important;
+  pointer-events: none !important;
+}
+
 /*--------------
      Intro
 ---------------*/
@@ -294,6 +300,45 @@ body.guide .main.container > * {
 }
 #example .masthead .ui.tag.label:after {
   background-color: #000000 !important;
+}
+body#example {
+  position: absolute;
+  background: #191919 url(../images/icons.png) !important;
+
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  -webkit-animation-name: masthead;
+  -moz-animation-name: masthead;
+  -o-animation-name: masthead;
+  animation-name: masthead;
+
+  opacity: 1;
+
+  -webkit-animation-duration: 30s;
+  -moz-animation-duration: 30s;
+  -ms-animation-duration: 30s;
+  -o-animation-duration: 30s;
+  animation-duration: 30s;
+
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  transform: rotateZ(0deg);
 }
 #example .masthead:before {
   position: absolute;
@@ -558,17 +603,61 @@ body.guide .main.container > * {
 #example .stripe .message {
   margin: 2em 0em;
 }
-
+#example .attached.launch.button {
+  position: fixed;
+  top: 63px;
+  left: 0px;
+  z-index: 500;
+  width: 55px;
+  height: 50px;
+  overflow: hidden;
+  -webkit-transition:
+    0.3s width ease
+  ;
+  -moz-transition:
+    0.3s width ease
+  ;
+  -o-transition:
+    0.3s width ease
+  ;
+  -ms-transition:
+    0.3s width ease
+  ;
+  transition:
+    0.3s width ease
+  ;
+}
+#example .attached.launch.button .text {
+  position: absolute;
+  top: 15px;
+  left: 54px;
+  opacity: 0;
+  -webkit-transition:
+    0.3s opacity 0.3s
+  ;
+  -moz-transition:
+    0.3s opacity 0.3s
+  ;
+  -o-transition:
+    0.3s opacity 0.3s
+  ;
+  -ms-transition:
+    0.3s opacity 0.3s
+  ;
+  transition:
+    0.3s opacity 0.3s
+  ;
+}
+#example .attached.launch.button:hover {
+  width: 130px;
+}
+#example .attached.launch.button:hover .text {
+  opacity: 1;
+}
 
 #example .shortcuts {
   float: right;
   clear: both;
-}
-#example .launch.button {
-  position: fixed;
-  top: 63px;
-  z-index: 500;
-  width: 60px;
 }
 #example .launch.button .icon {
   margin-left: 0px;
@@ -581,10 +670,6 @@ body.guide .main.container > * {
 }
 #example.index .attached.launch.button {
   top: 96px;
-}
-#example .launch.button .text {
-  display: inline-block;
-  display: none;
 }
 
 #example .main.container {

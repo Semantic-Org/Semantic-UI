@@ -551,29 +551,6 @@ semantic.ready = function() {
       }
     },
 
-    menu: {
-      mouseenter: function() {
-        $(this)
-          .stop()
-          .animate({
-            width: '135px'
-          }, 300, function() {
-            $(this).find('.text').show();
-          })
-        ;
-      },
-      mouseleave: function(event) {
-        $(this).find('.text').hide();
-        $(this)
-          .stop()
-          .animate({
-            width: '60px'
-          }, 300)
-        ;
-    }
-
-    },
-
     peek: function() {
       var
         $body     = $('html, body'),
@@ -742,10 +719,6 @@ semantic.ready = function() {
     handler.makeCode();
   }
 
-  $sidebarButton
-    .on('mouseenter', handler.menu.mouseenter)
-    .on('mouseleave', handler.menu.mouseleave)
-  ;
   $menu
     .sidebar({
       animation: 'scale down'
