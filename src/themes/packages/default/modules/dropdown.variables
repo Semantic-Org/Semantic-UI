@@ -30,7 +30,7 @@
 /* Menu */
 @menuBackground: #FFFFFF;
 @menuMargin: 0em;
-@menuPadding: 0em;
+@menuPadding: 0em 0em;
 @menuTop: 100%;
 @menuWrap: nowrap;
 
@@ -51,7 +51,7 @@
 @itemDivider: none;
 @itemColor: @textColor;
 @itemVerticalPadding: 0.85em;
-@itemHorizontalPadding: 1em;
+@itemHorizontalPadding: 0.8em;
 @itemFontWeight: normal;
 @itemTextAlign: left;
 @itemTextTransform: none;

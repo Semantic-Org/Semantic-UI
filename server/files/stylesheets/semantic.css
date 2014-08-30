@@ -216,6 +216,8 @@ a:hover {
 }
 
 #example .main.menu {
+  top: 0px;
+  left: 0px;
   min-width: 320px;
   z-index: 900;
 
@@ -251,7 +253,11 @@ a:hover {
 }
 
 /*--------------
-    Intro
+     Pushed
+---------------*/
+
+/*--------------
+     Intro
 ---------------*/
 
 body.guide .main h3 {
@@ -859,15 +865,6 @@ body.guide .main.container > * {
   left: 50%;
   margin-left: -685px;
 }
-#example.left.pushed .sticky-wrapper .peek {
-  margin-left: -132.5px;
-  padding-left: 132.5px;
-}
-
-#example.left.pushed .sticky-wrapper.stuck .peek {
-  margin-left: -817.5px;
-  padding-left: 132.5px;
-}
 
 #example .settings.table {
   margin-bottom: 20px;
@@ -1334,14 +1331,6 @@ body.progress .ui.progress .bar {
     margin-left: 0px;
     left: 95px;
   }
-  #example.left.pushed .sticky-wrapper .peek {
-    padding-left: 275px;
-    margin-left: -275px;
-  }
-  #example.left.pushed .sticky-wrapper.stuck .peek {
-    margin-left: 0px;
-    padding-left: 275px;
-  }
 }
 @media only screen and (max-width : 1500px) {
   #example.index .icon.header .icon {
@@ -1506,12 +1495,6 @@ body.progress .ui.progress .bar {
   #example.item .container,
   #example.card .container {
     width: 1100px;
-  }
-  #example .sticky-wrapper.stuck .peek {
-    margin-left: -655px;
-  }
-  #example.left.pushed .main.menu {
-    margin-left: -132px;
   }
 }
 
