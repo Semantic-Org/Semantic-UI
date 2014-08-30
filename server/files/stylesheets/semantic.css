@@ -302,7 +302,6 @@ body.guide .main.container > * {
   background-color: #000000 !important;
 }
 body#example {
-  position: absolute;
   background: #191919 url(../images/icons.png) !important;
 
   -moz-transform-origin: 50% 50%;
