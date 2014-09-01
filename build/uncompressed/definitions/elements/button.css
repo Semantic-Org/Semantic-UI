@@ -315,7 +315,11 @@
 .ui.buttons .disabled.button,
 .ui.disabled.button,
 .ui.disabled.button:hover,
-.ui.disabled.button.active {
+.ui.disabled.button.active,
+.ui.buttons .button:disabled,
+.ui.button:disabled,
+.ui.button:hover:disabled,
+.ui.button.active:disabled {
   cursor: default;
   background-color: #dcddde !important;
   color: rgba(0, 0, 0, 0.4) !important;
