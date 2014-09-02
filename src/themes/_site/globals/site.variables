@@ -1,6 +1,3 @@
 /*******************************
      User Global Variables
 *******************************/
-
-@headerFont : Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
-@pageFont   : Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
