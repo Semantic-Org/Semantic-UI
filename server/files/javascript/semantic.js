@@ -405,6 +405,7 @@ semantic.ready = function() {
           $code.css('height', 'auto');
           editor        = ace.edit($code[0]);
           editorSession = editor.getSession();
+
           codeHeight = editorSession.getScreenLength() * editor.renderer.lineHeight + padding;
           $code.css('height', codeHeight);
           editor.resize();
@@ -488,7 +489,8 @@ semantic.ready = function() {
       editor        = ace.edit($code[0]);
       editorSession = editor.getSession();
 
-      editor.setTheme('ace/theme/github');
+      editor.setTheme('ace/theme/tomorrow');
+      // editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);
       editor.setReadOnly(true);
       editor.renderer.setShowGutter(false);
@@ -497,7 +499,6 @@ semantic.ready = function() {
       editorSession.setUseWrapMode(true);
       editorSession.setTabSize(2);
       editorSession.setUseSoftTabs(true);
-
       codeHeight = editorSession.getScreenLength() * editor.renderer.lineHeight + padding;
       $(this)
         .height(codeHeight + 'px')
@@ -679,12 +680,12 @@ semantic.ready = function() {
       })
   ;
 
-  $(window)
+/*  $(window)
     .on('resize', function() {
       clearTimeout(handler.timer);
       handler.timer = setTimeout(handler.resizeCode, 100);
     })
-  ;
+  ;*/
 
   $downloadDropdown
     .dropdown({
@@ -721,7 +722,7 @@ semantic.ready = function() {
 
   $menu
     .sidebar({
-      animation: 'scale down'
+      animation: 'slide along'
     })
     .sidebar('attach events', '.launch.button, .view-ui.button, .launch.item')
     .sidebar('attach events', $hideMenu, 'hide')

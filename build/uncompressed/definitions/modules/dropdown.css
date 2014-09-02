@@ -209,7 +209,7 @@
   display: none;
   top: 100%;
   margin: 0em;
-  padding: 0em;
+  padding: 0em 0em;
   background: #ffffff;
   min-width: 100%;
   white-space: nowrap;
@@ -253,7 +253,7 @@
   height: auto;
   border-top: none;
   color: rgba(0, 0, 0, 0.8);
-  padding: 0.85em 1em !important;
+  padding: 0.85em 0.8em !important;
   font-size: 1rem;
   text-transform: none;
   font-weight: normal;

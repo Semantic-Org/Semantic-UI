@@ -5,7 +5,7 @@
 @display: inline-block;
 @margin: 0em 0.5rem 0em 0em;
 
-@verticalAlign: top;
+@verticalAlign: baseline;
 @oversizedVerticalAlign: middle;
 
 @iconHitbox: 1.1em;
@@ -16,14 +16,29 @@
 --------------------*/
 
 /* Star */
+@starIconHitbox: @iconHitbox;
 @starInactiveColor: @inactiveColor;
 @starHoverColor: #FFB70A;
-@starActiveColor: #FFCB08;
+@starActiveColor: #FFE623;
+@starActiveShadow:
+  0px -1px 0px #CFA300,
+  -1px 0px 0px #CFA300,
+  0px 1px 0px #CFA300,
+  1px 0px 0px #CFA300
+;
 
 /* Heart */
+@heartIconHitbox: 1.2em;
 @heartInactiveColor: @inactiveColor;
 @heartHoverColor: #FF2733;
 @heartActiveColor: #EF404A;
+@heartActiveShadow:
+  0px -1px 0px #EF404A,
+  -1px 0px 0px #EF404A,
+  0px 1px 0px #EF404A,
+  1px 0px 0px #EF404A
+;
+
 
 /*-------------------
         States
@@ -40,7 +55,11 @@
       Variations
 --------------------*/
 
-@small: 14px;
-@medium: 16px;
-@large: 24px;
-@huge: 28px;
+@mini: 0.7rem;
+@tiny: 0.8rem;
+@small: 0.875rem;
+@medium: 1rem;
+@large: 1.1rem;
+@big: 1.25rem;
+@huge: 1.5rem;
+@massive: 2rem;

@@ -117,7 +117,7 @@
 
 /* Remove Scroll */
 .pushable.pushed > .pusher > .page {
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 /* Show Dimmer */
@@ -125,6 +125,12 @@
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
+}
+
+.pushable.hide > .pusher > .page *,
+.pushable.show > .pusher > .page *,
+.pushable.pushed > .pusher > .page * {
+  transition: none !important;
 }
 
 /*--------------
@@ -172,7 +178,7 @@
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
 .pushable.overlay.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration ease;
+  transition: transform @animationDuration @easing;
 }
 
 /*--------------

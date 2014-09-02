@@ -171,7 +171,7 @@
 .ui.rating {
   display: inline-block;
   font-size: 0em;
-  vertical-align: top;
+  vertical-align: baseline;
   margin: 0em 0.5rem 0em 0em;
 }
 .ui.rating:last-child {
@@ -194,7 +194,7 @@
   padding: 0em;
   font-weight: normal;
   font-style: normal;
-  vertical-align: top;
+  vertical-align: baseline;
 }
 /*******************************
              Types
@@ -204,26 +204,38 @@
 --------------------*/
 /* Inactive */
 .ui.star.rating .icon {
+  width: 1.1em;
   color: rgba(0, 0, 0, 0.15);
 }
 /* Active Star */
 .ui.star.rating .active.icon {
-  color: #ffcb08 !important;
+  color: #ffe623 !important;
+  text-shadow: 0px -1px 0px #cfa300, -1px 0px 0px #cfa300, 0px 1px 0px #cfa300, 1px 0px 0px #cfa300;
 }
 /* Hovered Star */
 .ui.star.rating .icon.hover,
 .ui.star.rating .icon.hover.active {
   color: #ffb70a !important;
 }
+.ui.star.rating.partial {
+  position: relative;
+  z-index: 1;
+}
+.ui.star.rating.partial:before {
+  position: absolute;
+  z-index: -1;
+}
 /*-------------------
         Heart
 --------------------*/
-.ui.star.rating .icon {
+.ui.heart.rating .icon {
+  width: 1.2em;
   color: rgba(0, 0, 0, 0.15);
 }
 /* Active Heart */
 .ui.heart.rating .active.icon {
   color: #ef404a !important;
+  text-shadow: 0px -1px 0px #ef404a, -1px 0px 0px #ef404a, 0px 1px 0px #ef404a, 1px 0px 0px #ef404a;
 }
 /* Hovered Heart */
 .ui.heart.rating .icon.hover,
@@ -267,21 +279,31 @@
 /*******************************
           Variations
 *******************************/
+.ui.mini.rating .icon {
+  font-size: 0.7rem;
+}
+.ui.tiny.rating .icon {
+  font-size: 0.8rem;
+}
 .ui.small.rating .icon {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .ui.rating .icon {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .ui.large.rating .icon {
-  font-size: 24px;
+  font-size: 1.1rem;
 }
 .ui.huge.rating .icon {
-  font-size: 28px;
+  font-size: 1.5rem;
+}
+.ui.massive.rating .icon {
+  font-size: 2rem;
 }
 /* Realign */
 .ui.large.rating,
-.ui.huge.rating {
+.ui.huge.rating,
+.ui.massive.rating {
   vertical-align: middle;
 }
 /*******************************
@@ -320,6 +342,13 @@
 }
 /* Active Star */
 .ui.star.rating .active.icon:before {
+  content: '\f005';
+}
+/* Partial */
+.ui.star.rating .partial.icon:before {
+  content: '\f006';
+}
+.ui.star.rating .partial.icon {
   content: '\f005';
 }
 /*-------------------

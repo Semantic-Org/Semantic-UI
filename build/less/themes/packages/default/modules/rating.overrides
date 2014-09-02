@@ -43,6 +43,14 @@
   content: '\f005';
 }
 
+/* Partial */
+.ui.star.rating .partial.icon:before {
+  content: '\f006';
+}
+.ui.star.rating .partial.icon {
+  content: '\f005';
+}
+
 /*-------------------
         Heart
 --------------------*/

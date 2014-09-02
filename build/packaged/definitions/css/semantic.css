@@ -3929,7 +3929,7 @@ body > .ui.grid:not(.page) {
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -5292,7 +5292,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -8614,7 +8614,7 @@ i.flag.zimbabwe {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -11828,7 +11828,7 @@ img.ui.bordered.image {
   width: 100%;
   outline: none;
   line-height: 1.2em;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   padding: 0.7em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -14748,7 +14748,7 @@ a.ui.yellow.label:hover:before {
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -15653,7 +15653,7 @@ body {
 }
 body {
   background: #fcfcfc;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0px;
   padding: 0px;
   color: rgba(0, 0, 0, 0.8);
@@ -15895,7 +15895,7 @@ a:hover {
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -16092,12 +16092,6 @@ a:hover {
      Load Default
 -------------------*/
 /*******************************
-            Chatroom
-*******************************/
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -16188,6 +16182,12 @@ a:hover {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+            Chatroom
+*******************************/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -17542,7 +17542,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   display: none;
   top: 100%;
   margin: 0em;
-  padding: 0em;
+  padding: 0em 0em;
   background: #ffffff;
   min-width: 100%;
   white-space: nowrap;
@@ -17586,7 +17586,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   height: auto;
   border-top: none;
   color: rgba(0, 0, 0, 0.8);
-  padding: 0.85em 1em !important;
+  padding: 0.85em 0.8em !important;
   font-size: 1rem;
   text-transform: none;
   font-weight: normal;
@@ -18247,7 +18247,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   margin: 0em;
@@ -18992,7 +18992,7 @@ a.ui.nag {
 }
 .ui.popup .header {
   padding: 0em;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -19365,7 +19365,7 @@ a.ui.nag {
 .ui.rating {
   display: inline-block;
   font-size: 0em;
-  vertical-align: top;
+  vertical-align: baseline;
   margin: 0em 0.5rem 0em 0em;
 }
 .ui.rating:last-child {
@@ -19388,7 +19388,7 @@ a.ui.nag {
   padding: 0em;
   font-weight: normal;
   font-style: normal;
-  vertical-align: top;
+  vertical-align: baseline;
 }
 /*******************************
              Types
@@ -19398,26 +19398,38 @@ a.ui.nag {
 --------------------*/
 /* Inactive */
 .ui.star.rating .icon {
+  width: 1.1em;
   color: rgba(0, 0, 0, 0.15);
 }
 /* Active Star */
 .ui.star.rating .active.icon {
-  color: #ffcb08 !important;
+  color: #ffe623 !important;
+  text-shadow: 0px -1px 0px #cfa300, -1px 0px 0px #cfa300, 0px 1px 0px #cfa300, 1px 0px 0px #cfa300;
 }
 /* Hovered Star */
 .ui.star.rating .icon.hover,
 .ui.star.rating .icon.hover.active {
   color: #ffb70a !important;
 }
+.ui.star.rating.partial {
+  position: relative;
+  z-index: 1;
+}
+.ui.star.rating.partial:before {
+  position: absolute;
+  z-index: -1;
+}
 /*-------------------
         Heart
 --------------------*/
-.ui.star.rating .icon {
+.ui.heart.rating .icon {
+  width: 1.2em;
   color: rgba(0, 0, 0, 0.15);
 }
 /* Active Heart */
 .ui.heart.rating .active.icon {
   color: #ef404a !important;
+  text-shadow: 0px -1px 0px #ef404a, -1px 0px 0px #ef404a, 0px 1px 0px #ef404a, 1px 0px 0px #ef404a;
 }
 /* Hovered Heart */
 .ui.heart.rating .icon.hover,
@@ -19461,21 +19473,31 @@ a.ui.nag {
 /*******************************
           Variations
 *******************************/
+.ui.mini.rating .icon {
+  font-size: 0.7rem;
+}
+.ui.tiny.rating .icon {
+  font-size: 0.8rem;
+}
 .ui.small.rating .icon {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .ui.rating .icon {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .ui.large.rating .icon {
-  font-size: 24px;
+  font-size: 1.1rem;
 }
 .ui.huge.rating .icon {
-  font-size: 28px;
+  font-size: 1.5rem;
+}
+.ui.massive.rating .icon {
+  font-size: 2rem;
 }
 /* Realign */
 .ui.large.rating,
-.ui.huge.rating {
+.ui.huge.rating,
+.ui.massive.rating {
   vertical-align: middle;
 }
 /*******************************
@@ -19514,6 +19536,13 @@ a.ui.nag {
 }
 /* Active Star */
 .ui.star.rating .active.icon:before {
+  content: '\f005';
+}
+/* Partial */
+.ui.star.rating .partial.icon:before {
+  content: '\f006';
+}
+.ui.star.rating .partial.icon {
   content: '\f005';
 }
 /*-------------------
@@ -19743,7 +19772,7 @@ a.ui.nag {
     Result
 ---------------*/
 .ui.search .result {
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -19775,7 +19804,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -19793,7 +19822,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -19885,7 +19914,7 @@ a.ui.nag {
   box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;
@@ -20382,8 +20411,8 @@ a.ui.nag {
   position: relative;
   left: 0;
   height: 100%;
-  -webkit-transition: -webkit-transform 0.5s;
-          transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.6s;
+          transition: transform 0.6s;
   z-index: 2;
   will-change: transform;
   /* Appears to reduce performance breaks fixed position
@@ -20409,14 +20438,14 @@ a.ui.nag {
   top: 0px;
   right: 0px;
   content: '';
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   width: 0px;
   height: 0px;
   overflow: hidden;
   opacity: 0;
   z-index: 999;
-  -webkit-transition: opacity 0.5s;
-          transition: opacity 0.5s;
+  -webkit-transition: opacity 0.6s;
+          transition: opacity 0.6s;
   will-change: opacity;
 }
 /*******************************
@@ -20432,14 +20461,17 @@ a.ui.nag {
   background: #333333 !important;
 }
 /* Remove Scroll */
-.pushable.pushed > .pusher > .page {
-  overflow: hidden;
-}
 /* Show Dimmer */
 .pushable.pushed > .pusher > .page:after {
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
+}
+.pushable.hide > .pusher > .page *,
+.pushable.show > .pusher > .page *,
+.pushable.pushed > .pusher > .page * {
+  -webkit-transition: none !important;
+          transition: none !important;
 }
 /*--------------
      Visible
@@ -20478,8 +20510,8 @@ a.ui.nag {
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
 .pushable.overlay.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease-in;
+          transition: transform 0.6s ease-in;
 }
 /*--------------
      Pushed
@@ -20511,8 +20543,8 @@ a.ui.nag {
 /* Animation */
 .pushable.pushing.show > .visible.ui.sidebar,
 .pushable.pushing.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
      Reveal
@@ -20555,8 +20587,8 @@ a.ui.nag {
 /* Animation */
 .pushable.slide.along.show > .visible.ui.sidebar,
 .pushable.slide.along.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
    Slide Out
@@ -20579,8 +20611,8 @@ a.ui.nag {
 /* Animation */
 .pushable.slide.out.show > .visible.ui.sidebar,
 .pushable.slide.out.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
    Scale Down
@@ -20613,8 +20645,8 @@ a.ui.nag {
 /* Animation */
 .pushable.scale.down.show > .visible.ui.sidebar,
 .pushable.scale.down.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
     Scale Up
@@ -20646,8 +20678,8 @@ a.ui.nag {
 /* Animation */
 .pushable.scale.up.show > .visible.ui.sidebar,
 .pushable.scale.up.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
      Recede
@@ -20683,8 +20715,8 @@ a.ui.nag {
 /* Animation */
 .pushable.recede.show > .visible.ui.sidebar,
 .pushable.recede.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
    Open Door
@@ -20720,8 +20752,8 @@ a.ui.nag {
 /* Animation */
 .pushable.open.door.show > .visible.ui.sidebar,
 .pushable.open.door.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s;
-          transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.6s;
+          transition: transform 0.6s;
 }
 /*--------------
     Rotate In
@@ -20759,14 +20791,14 @@ a.ui.nag {
 .pushable.rotate.in.hide > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
           transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  -webkit-transition: -webkit-transform 0.5s ease 0s;
-          transition: transform 0.5s ease 0s;
+  -webkit-transition: -webkit-transform 0.6s ease 0s;
+          transition: transform 0.6s ease 0s;
 }
 /* Animation */
 .pushable.rotate.in.show > .visible.ui.sidebar,
 .pushable.rotate.in.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease-in-out 0s;
-          transition: transform 0.5s ease-in-out 0s;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out 0s;
+          transition: transform 0.6s ease-in-out 0s;
 }
 
 /*
@@ -22812,7 +22844,7 @@ a.ui.nag {
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -24379,7 +24411,7 @@ a.ui.card:hover,
       Items
 ---------------*/
 .ui.items {
-  margin: 1em 0em;
+  margin: 1.5em 0em;
 }
 .ui.items:first-child {
   margin-top: 0em;
@@ -24414,7 +24446,6 @@ a.ui.card:hover,
   position: relative;
   display: table-cell;
   float: none;
-  width: 175px;
   margin: 0em;
   padding: 0em;
   max-height: '';
@@ -24429,6 +24460,10 @@ a.ui.card:hover,
 }
 .ui.items > .item > .image:only-child > img {
   border-radius: 0rem;
+}
+/* Default Image Width */
+.ui.items > .item > .image:not(.ui) {
+  width: 175px;
 }
 /*--------------
      Content
@@ -24452,22 +24487,22 @@ a.ui.card:hover,
   visibility: hidden;
 }
 .ui.items > .item > .image + .content {
+  width: 100%;
   display: table-cell;
   margin-left: 0em;
   vertical-align: top;
   padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
-  display: block;
+  display: inline-block;
   margin: 0em;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
 }
-.ui.items > .item > .content > .meta + .description,
-.ui.items > .item > .content > .header + .description {
-  margin-top: 0.75em;
+.ui.items > .item > .content > .meta + .description {
+  margin-top: 0.6em;
 }
 /*--------------
      Floated
@@ -24513,8 +24548,8 @@ a.ui.card:hover,
       Meta
 ---------------*/
 .ui.items > .item .meta {
-  font-size: 0.9em;
-  color: rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.items > .item .meta * {
   margin-right: 0.3em;
@@ -24614,6 +24649,18 @@ a.ui.card:hover,
 /*******************************
            Variations
 *******************************/
+/*-------------------
+       Aligned
+--------------------*/
+.ui.items > .item > .image + .top.aligned.content {
+  vertical-align: top;
+}
+.ui.items > .item > .image + .middle.aligned.content {
+  vertical-align: middle;
+}
+.ui.items > .item > .image + .bottom.aligned.content {
+  vertical-align: bottom;
+}
 /*-------------------
       Divided
 --------------------*/
@@ -24987,7 +25034,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -25701,7 +25748,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -25714,7 +25761,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);

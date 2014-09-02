@@ -256,10 +256,19 @@ a:hover {
      Pushed
 ---------------*/
 
+/*#example.show .main.menu,
+#example.pushed .main.menu,
+#example.hide .main.menu {
+  left: -1px;
+  top: -1px;
+  width: calc(100% + 2px);
+}
+*/
 #example.hide .attached.launch.button,
 #example.show .attached.launch.button {
   transition: none !important;
   pointer-events: none !important;
+  animation: none !important;
 }
 
 /*--------------
@@ -928,52 +937,6 @@ body#example.index {
   width: 100px;
 }
 
-/* example code reskin */
-#example div.code.hide {
-  display: none;
-}
-/*rtl:ignore*/
-#example div.code {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  text-align: left;
-  direction:ltr;
-}
-#example div.code {
-  margin: -1em;
-  font-size: 14px;
-  padding: 5px 0px;
-  background-color: transparent;
-}
-#example .label + div.code {
-  margin-top: 1.5em;
-}
-#example div.code .ace_gutter {
-  background-color: #FAFAFA;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  color: #999999;
-}
-#example div.code .ace_gutter-cell {
-  padding-right: 20px;
-  padding-left: 10px;
-}
-#example div.code .ace_bracket {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-#example div.code .ace_indent-guide {
-  position: relative;
-  background: none;
-}
-/* #example div.code .ace_indent-guide:after {
-  content: '';
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  height: 100%;
-  border-left: 1px solid #ECF5F3;
-} */
 
 #example table .instructive.segment {
   background-color: transparent;
@@ -1000,8 +963,50 @@ body#example.index {
 #example .instructive.segment .title + em {
   float: right;
 }
+#example .label + div.code {
+  margin-top: 1.5em;
+}
 
 
+/* example code reskin */
+#example div.code.hide {
+  display: none;
+}
+/*rtl:ignore*/
+/*#example div.code {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  text-align: left;
+  direction:ltr;
+}
+#example div.code .ace_gutter {
+  background-color: #FAFAFA;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  color: #999999;
+}
+#example div.code .ace_gutter-cell {
+  padding-right: 20px;
+  padding-left: 10px;
+}
+
+#example div.code .ace_bracket {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}*/
+/* #example div.code .ace_indent-guide:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  border-left: 1px solid #ECF5F3;
+} */
+
+#example div.code .ace_indent-guide {
+  position: relative;
+  background: none;
+}
 #example div.code .ace_gutter,
 #example div.code .ace_scroller {
   background-color: transparent;
@@ -1012,7 +1017,12 @@ body#example.index {
   overflow: hidden;
   background-color: transparent;
 }
-
+#example div.code {
+  margin: -1em;
+  font-size: 14px;
+  padding: 5px 0px;
+  background-color: transparent;
+}
 #example div.code .ace_line,
 #example div.code .ace_line span {
   -webkit-transition:

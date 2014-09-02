@@ -206,7 +206,7 @@
       Items
 ---------------*/
 .ui.items {
-  margin: 1em 0em;
+  margin: 1.5em 0em;
 }
 .ui.items:first-child {
   margin-top: 0em;
@@ -241,7 +241,6 @@
   position: relative;
   display: table-cell;
   float: none;
-  width: 175px;
   margin: 0em;
   padding: 0em;
   max-height: '';
@@ -256,6 +255,10 @@
 }
 .ui.items > .item > .image:only-child > img {
   border-radius: 0rem;
+}
+/* Default Image Width */
+.ui.items > .item > .image:not(.ui) {
+  width: 175px;
 }
 /*--------------
      Content
@@ -279,22 +282,22 @@
   visibility: hidden;
 }
 .ui.items > .item > .image + .content {
+  width: 100%;
   display: table-cell;
   margin-left: 0em;
   vertical-align: top;
   padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
-  display: block;
+  display: inline-block;
   margin: 0em;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
 }
-.ui.items > .item > .content > .meta + .description,
-.ui.items > .item > .content > .header + .description {
-  margin-top: 0.75em;
+.ui.items > .item > .content > .meta + .description {
+  margin-top: 0.6em;
 }
 /*--------------
      Floated
@@ -340,8 +343,8 @@
       Meta
 ---------------*/
 .ui.items > .item .meta {
-  font-size: 0.9em;
-  color: rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.items > .item .meta * {
   margin-right: 0.3em;
@@ -441,6 +444,18 @@
 /*******************************
            Variations
 *******************************/
+/*-------------------
+       Aligned
+--------------------*/
+.ui.items > .item > .image + .top.aligned.content {
+  vertical-align: top;
+}
+.ui.items > .item > .image + .middle.aligned.content {
+  vertical-align: middle;
+}
+.ui.items > .item > .image + .bottom.aligned.content {
+  vertical-align: bottom;
+}
 /*-------------------
       Divided
 --------------------*/

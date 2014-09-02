@@ -25,7 +25,6 @@
 
 .ui.rating {
   display: @display;
-
   font-size: 0em;
   vertical-align: @verticalAlign;
   margin: @margin;
@@ -54,8 +53,9 @@
 
   font-weight: normal;
   font-style: normal;
-  vertical-align: top;
+  vertical-align: @verticalAlign;
 }
+
 
 /*******************************
              Types
@@ -67,12 +67,14 @@
 
 /* Inactive */
 .ui.star.rating .icon {
+  width: @starIconHitbox;
   color: @starInactiveColor;
 }
 
 /* Active Star */
 .ui.star.rating .active.icon {
   color: @starActiveColor !important;
+  text-shadow: @starActiveShadow;
 }
 
 /* Hovered Star */
@@ -81,18 +83,30 @@
   color: @starHoverColor !important;
 }
 
+.ui.star.rating.partial {
+  position: relative;
+  z-index: 1;
+}
+.ui.star.rating.partial:before {
+  position: absolute;
+  z-index: -1;
+}
+
+
 
 /*-------------------
         Heart
 --------------------*/
 
-.ui.star.rating .icon {
+.ui.heart.rating .icon {
+  width: @heartIconHitbox;
   color: @heartInactiveColor;
 }
 
 /* Active Heart */
 .ui.heart.rating .active.icon {
   color: @heartActiveColor !important;
+  text-shadow: @heartActiveShadow;
 }
 
 /* Hovered Heart */
@@ -153,6 +167,12 @@
           Variations
 *******************************/
 
+.ui.mini.rating .icon {
+  font-size: @mini;
+}
+.ui.tiny.rating .icon {
+  font-size: @tiny;
+}
 .ui.small.rating .icon {
   font-size: @small;
 }
@@ -165,10 +185,14 @@
 .ui.huge.rating .icon {
   font-size: @huge;
 }
+.ui.massive.rating .icon {
+  font-size: @massive;
+}
 
 /* Realign */
 .ui.large.rating,
-.ui.huge.rating {
+.ui.huge.rating,
+.ui.massive.rating {
   vertical-align: @oversizedVerticalAlign;
 }
 

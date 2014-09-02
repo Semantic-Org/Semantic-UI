@@ -189,8 +189,8 @@
   position: relative;
   left: 0;
   height: 100%;
-  -webkit-transition: -webkit-transform 0.5s;
-          transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.6s;
+          transition: transform 0.6s;
   z-index: 2;
   will-change: transform;
   /* Appears to reduce performance breaks fixed position
@@ -216,14 +216,14 @@
   top: 0px;
   right: 0px;
   content: '';
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   width: 0px;
   height: 0px;
   overflow: hidden;
   opacity: 0;
   z-index: 999;
-  -webkit-transition: opacity 0.5s;
-          transition: opacity 0.5s;
+  -webkit-transition: opacity 0.6s;
+          transition: opacity 0.6s;
   will-change: opacity;
 }
 /*******************************
@@ -239,14 +239,17 @@
   background: #333333 !important;
 }
 /* Remove Scroll */
-.pushable.pushed > .pusher > .page {
-  overflow: hidden;
-}
 /* Show Dimmer */
 .pushable.pushed > .pusher > .page:after {
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
+}
+.pushable.hide > .pusher > .page *,
+.pushable.show > .pusher > .page *,
+.pushable.pushed > .pusher > .page * {
+  -webkit-transition: none !important;
+          transition: none !important;
 }
 /*--------------
      Visible
@@ -285,8 +288,8 @@
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
 .pushable.overlay.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease-in;
+          transition: transform 0.6s ease-in;
 }
 /*--------------
      Pushed
@@ -318,8 +321,8 @@
 /* Animation */
 .pushable.pushing.show > .visible.ui.sidebar,
 .pushable.pushing.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
      Reveal
@@ -362,8 +365,8 @@
 /* Animation */
 .pushable.slide.along.show > .visible.ui.sidebar,
 .pushable.slide.along.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
    Slide Out
@@ -386,8 +389,8 @@
 /* Animation */
 .pushable.slide.out.show > .visible.ui.sidebar,
 .pushable.slide.out.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
    Scale Down
@@ -420,8 +423,8 @@
 /* Animation */
 .pushable.scale.down.show > .visible.ui.sidebar,
 .pushable.scale.down.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
     Scale Up
@@ -453,8 +456,8 @@
 /* Animation */
 .pushable.scale.up.show > .visible.ui.sidebar,
 .pushable.scale.up.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
      Recede
@@ -490,8 +493,8 @@
 /* Animation */
 .pushable.recede.show > .visible.ui.sidebar,
 .pushable.recede.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+  -webkit-transition: -webkit-transform 0.6s ease;
+          transition: transform 0.6s ease;
 }
 /*--------------
    Open Door
@@ -527,8 +530,8 @@
 /* Animation */
 .pushable.open.door.show > .visible.ui.sidebar,
 .pushable.open.door.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s;
-          transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.6s;
+          transition: transform 0.6s;
 }
 /*--------------
     Rotate In
@@ -566,12 +569,12 @@
 .pushable.rotate.in.hide > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
           transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  -webkit-transition: -webkit-transform 0.5s ease 0s;
-          transition: transform 0.5s ease 0s;
+  -webkit-transition: -webkit-transform 0.6s ease 0s;
+          transition: transform 0.6s ease 0s;
 }
 /* Animation */
 .pushable.rotate.in.show > .visible.ui.sidebar,
 .pushable.rotate.in.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease-in-out 0s;
-          transition: transform 0.5s ease-in-out 0s;
+  -webkit-transition: -webkit-transform 0.6s ease-in-out 0s;
+          transition: transform 0.6s ease-in-out 0s;
 }

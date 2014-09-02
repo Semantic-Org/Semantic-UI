@@ -6,9 +6,10 @@
 @sidebarBackground: @black;
 @sidebarTransition: transform 0.5s ease;
 
-@dimmerColor: rgba(0, 0, 0, 0.2);
+@dimmerColor: rgba(0, 0, 0, 0.4);
 
 @canvasBackground: @lightBlack;
 @pageBackground: @bodyBackground;
 
-@animationDuration: 0.5s;
+@animationDuration: 0.6s;
+@easing: ease-in;
