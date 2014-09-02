@@ -109,6 +109,7 @@ $.fn.sidebar = function(parameters) {
           clickaway: function() {
             $context
               .on('click' + eventNamespace, module.event.clickaway)
+              .on('touchend' + eventNamespace, module.event.clickaway)
             ;
           }
         },
@@ -116,6 +117,7 @@ $.fn.sidebar = function(parameters) {
           clickaway: function() {
             $context
               .off('click' + eventNamespace)
+              .off('touchend' + eventNamespace)
             ;
           }
         },

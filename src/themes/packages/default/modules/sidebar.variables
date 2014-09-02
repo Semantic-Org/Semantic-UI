@@ -2,7 +2,7 @@
              Sidebar
 *******************************/
 
-@sidebarWidth: 280px;
+@sidebarWidth: 260px;
 @sidebarBackground: @black;
 @sidebarTransition: transform 0.5s ease;
 
