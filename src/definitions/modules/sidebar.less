@@ -37,7 +37,9 @@
   border-radius: 0em !important;
   margin: 0 !important;
   will-change: transform;
-  overflow: auto !important;
+  overflow-y: auto !important;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 /*--------------
@@ -75,9 +77,8 @@
   background: @bodyBackground;
   overflow-y: auto;
   height: 100%;
-  /* Appears to reduce performance
-  backface-visibility: hidden;
-  */
+
+  -webkit-overflow-scrolling: touch;
 }
 
 /*--------------

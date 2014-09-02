@@ -316,6 +316,7 @@ body#example {
 body#example.index {
   background: #2C2C2C !important;
 }
+
 #example .masthead:before {
   position: absolute;
   z-index: 1;
@@ -1376,6 +1377,10 @@ body.progress .ui.progress .bar {
   left: 0px;
 }
 
+/*******************************
+          Responsive
+*******************************/
+
 
 @media only screen and (max-width : 1325px) {
 
@@ -1548,8 +1553,6 @@ body.progress .ui.progress .bar {
   }
 }
 
-
-
 @media only screen and (min-width : 1325px) {
   #example .container {
     width: 850px;
@@ -1573,10 +1576,15 @@ body.progress .ui.progress .bar {
   #example .masthead .mobile.buttons {
     display: block;
   }
+  #example.button .ui.buttons,
+  #example.button :not(.buttons) .ui.button {
+    margin-bottom: 0.5em;
+  }
 }
 
 
 @media only screen and (max-width : 998px) {
+
   #example.index .main.menu .container {
     width: auto;
     padding: 0% 4%;
@@ -1586,6 +1594,9 @@ body.progress .ui.progress .bar {
   }
   #example.transition .examples .pointing.below.label {
     display: none;
+  }
+  body#example.index {
+    background: #2C2C2C !important;
   }
 }
 @media only screen and (min-width : 998px) {

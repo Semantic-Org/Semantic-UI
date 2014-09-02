@@ -199,7 +199,7 @@
 
   <div class="pusher">
     <div class="page">
-       <div class="ui fixed transparent inverted main menu">
+       <div class="ui fixed inverted main menu">
         <div class="container">
           <a class="launch item"><i class="content icon"></i> Content</a>
           <div class="title item">

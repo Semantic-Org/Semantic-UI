@@ -3929,7 +3929,7 @@ body > .ui.grid:not(.page) {
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -5292,7 +5292,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -8614,7 +8614,7 @@ i.flag.zimbabwe {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -11828,7 +11828,7 @@ img.ui.bordered.image {
   width: 100%;
   outline: none;
   line-height: 1.2em;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   padding: 0.7em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -14748,7 +14748,7 @@ a.ui.yellow.label:hover:before {
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -15653,7 +15653,7 @@ body {
 }
 body {
   background: #fcfcfc;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 0px;
   padding: 0px;
   color: rgba(0, 0, 0, 0.8);
@@ -15895,7 +15895,7 @@ a:hover {
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -18247,7 +18247,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   margin: 0em;
@@ -18992,7 +18992,7 @@ a.ui.nag {
 }
 .ui.popup .header {
   padding: 0em;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -19772,7 +19772,7 @@ a.ui.nag {
     Result
 ---------------*/
 .ui.search .result {
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -19804,7 +19804,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -19822,7 +19822,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -19914,7 +19914,7 @@ a.ui.nag {
   box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;
@@ -20411,8 +20411,8 @@ a.ui.nag {
   position: relative;
   left: 0;
   height: 100%;
-  -webkit-transition: -webkit-transform 0.6s;
-          transition: transform 0.6s;
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
   z-index: 2;
   will-change: transform;
   /* Appears to reduce performance breaks fixed position
@@ -20444,8 +20444,8 @@ a.ui.nag {
   overflow: hidden;
   opacity: 0;
   z-index: 999;
-  -webkit-transition: opacity 0.6s;
-          transition: opacity 0.6s;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s;
   will-change: opacity;
 }
 /*******************************
@@ -20510,8 +20510,8 @@ a.ui.nag {
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
 .pushable.overlay.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s ease-in;
-          transition: transform 0.6s ease-in;
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+          transition: transform 0.5s ease-in;
 }
 /*--------------
      Pushed
@@ -20543,8 +20543,8 @@ a.ui.nag {
 /* Animation */
 .pushable.pushing.show > .visible.ui.sidebar,
 .pushable.pushing.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s ease;
-          transition: transform 0.6s ease;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
      Reveal
@@ -20579,6 +20579,7 @@ a.ui.nag {
 .pushable.slide.along.pushed > .pusher {
   -webkit-transform: translate3d(300px, 0, 0);
           transform: translate3d(300px, 0, 0);
+  transform-delay: 10ms;
 }
 .pushable.slide.along.pushed > .visible.ui.sidebar {
   -webkit-transform: translate3d(0%, 0, 0);
@@ -20587,8 +20588,8 @@ a.ui.nag {
 /* Animation */
 .pushable.slide.along.show > .visible.ui.sidebar,
 .pushable.slide.along.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s ease;
-          transition: transform 0.6s ease;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
    Slide Out
@@ -20611,8 +20612,8 @@ a.ui.nag {
 /* Animation */
 .pushable.slide.out.show > .visible.ui.sidebar,
 .pushable.slide.out.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s ease;
-          transition: transform 0.6s ease;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
    Scale Down
@@ -20645,8 +20646,8 @@ a.ui.nag {
 /* Animation */
 .pushable.scale.down.show > .visible.ui.sidebar,
 .pushable.scale.down.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s ease;
-          transition: transform 0.6s ease;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
     Scale Up
@@ -20678,8 +20679,8 @@ a.ui.nag {
 /* Animation */
 .pushable.scale.up.show > .visible.ui.sidebar,
 .pushable.scale.up.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s ease;
-          transition: transform 0.6s ease;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
      Recede
@@ -20715,8 +20716,8 @@ a.ui.nag {
 /* Animation */
 .pushable.recede.show > .visible.ui.sidebar,
 .pushable.recede.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s ease;
-          transition: transform 0.6s ease;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
    Open Door
@@ -20752,8 +20753,8 @@ a.ui.nag {
 /* Animation */
 .pushable.open.door.show > .visible.ui.sidebar,
 .pushable.open.door.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s;
-          transition: transform 0.6s;
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
 }
 /*--------------
     Rotate In
@@ -20791,14 +20792,14 @@ a.ui.nag {
 .pushable.rotate.in.hide > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
           transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  -webkit-transition: -webkit-transform 0.6s ease 0s;
-          transition: transform 0.6s ease 0s;
+  -webkit-transition: -webkit-transform 0.5s ease 0s;
+          transition: transform 0.5s ease 0s;
 }
 /* Animation */
 .pushable.rotate.in.show > .visible.ui.sidebar,
 .pushable.rotate.in.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.6s ease-in-out 0s;
-          transition: transform 0.6s ease-in-out 0s;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out 0s;
+          transition: transform 0.5s ease-in-out 0s;
 }
 
 /*
@@ -21346,12 +21347,12 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-          Transition
-*******************************/
 /*------------------
      Load Theme
 -------------------*/
+/*******************************
+          Transition
+*******************************/
 /*------------------
      Load Site
 -------------------*/
@@ -22844,7 +22845,7 @@ a.ui.nag {
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -24496,7 +24497,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: 0em;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -25034,7 +25035,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -25748,7 +25749,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -25761,7 +25762,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);

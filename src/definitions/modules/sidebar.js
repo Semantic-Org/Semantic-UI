@@ -133,7 +133,6 @@ $.fn.sidebar = function(parameters) {
           layout: function() {
             if( $context.find(selector.pusher).size() === 0 ) {
               module.debug('Adding wrapper element for sidebar');
-              module.verbose('Setting up page structure for sidebar');
               $pusher = $('<div class="pusher" />');
               $page   = $('<div class="page" />');
               $pusher.append($page);
@@ -145,11 +144,13 @@ $.fn.sidebar = function(parameters) {
               ;
             }
             if($module.parent()[0] !== $context[0]) {
+              module.debug('Moved sidebar to correct parent element');
               $module.detach().appendTo($context);
             }
             module.refresh();
           },
           context: function() {
+            module.verbose('Adding pusshable class to wrapper');
             $context.addClass(className.pushable);
           }
         },
@@ -225,6 +226,7 @@ $.fn.sidebar = function(parameters) {
         },
 
         toggle: function() {
+          module.verbose('Determining toggled direction');
           if(module.is.closed()) {
             module.show();
           }
@@ -287,7 +289,7 @@ $.fn.sidebar = function(parameters) {
           if( !module.is.outward() ) {
             module.verbose('Removing context push state', module.get.direction());
             if(settings.animation == 'overlay') {
-              $module. removeClass(className.visible);
+              $module.removeClass(className.visible);
             }
             module.unbind.clickaway();
             requestAnimationFrame(function() {
@@ -342,7 +344,10 @@ $.fn.sidebar = function(parameters) {
             $module.addClass(className.visible);
           },
           animation: function(animation) {
-            animation = animation || settings.animation;
+            animation = animation || ( module.is.mobile() )
+              ? settings.mobileAnimation
+              : settings.animation
+            ;
             $context.addClass(animation);
           },
           inward: function() {
@@ -369,11 +374,15 @@ $.fn.sidebar = function(parameters) {
           },
           allVisible: function() {
             if($sidebars.hasClass(className.visible)) {
+              module.debug('Other sidebars visible, hiding');
               $sidebars.removeClass(className.visible);
             }
           },
           animation: function(animation) {
-            animation = animation || settings.animation;
+            animation = animation || ( module.is.mobile() )
+              ? settings.mobileAnimation
+              : settings.animation
+            ;
             $context.removeClass(animation);
           },
           pushed: function() {
@@ -426,6 +435,21 @@ $.fn.sidebar = function(parameters) {
         },
 
         is: {
+          mobile: function() {
+            var
+              userAgent    = navigator.userAgent,
+              mobileRegExp = /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/,
+              isMobile     = mobileRegExp.test(userAgent)
+            ;
+            if(isMobile) {
+              module.verbose('Browser was found to be mobile', userAgent);
+              return true;
+            }
+            else {
+              module.verbose('Browser is not mobile, using regular animation', userAgent);
+              return false;
+            }
+          },
           open: function() {
             return $module.hasClass(className.active);
           },
@@ -628,29 +652,30 @@ $.fn.sidebar = function(parameters) {
 
 $.fn.sidebar.settings = {
 
-  name        : 'Sidebar',
-  namespace   : 'sidebar',
+  name            : 'Sidebar',
+  namespace       : 'sidebar',
 
-  debug       : true,
-  verbose     : true,
-  performance : true,
+  debug           : true,
+  verbose         : true,
+  performance     : true,
 
-  animation   : 'pushing',
+  animation       : 'scale down',
+  mobileAnimation : 'slide along',
 
-  context     : 'body',
-  useCSS      : true,
-  duration    : 300,
+  context         : 'body',
+  useCSS          : true,
+  duration        : 300,
 
-  dimPage     : true,
+  dimPage         : true,
 
-  exclusive   : true,
+  exclusive       : true,
 
-  onChange    : function(){},
-  onShow      : function(){},
-  onHide      : function(){},
+  onChange        : function(){},
+  onShow          : function(){},
+  onHide          : function(){},
 
-  onHidden    : function(){},
-  onVisible   : function(){},
+  onHidden        : function(){},
+  onVisible       : function(){},
 
   className : {
     pushable : 'pushable',
@@ -665,7 +690,7 @@ $.fn.sidebar.settings = {
     sidebar : '.ui.sidebar',
     pusher  : '.pusher',
     page    : '.page',
-    omitted : 'script, .ui.modal, .ui.nag'
+    omitted : 'script, link, style, .ui.modal, .ui.nag'
   },
 
   error   : {
