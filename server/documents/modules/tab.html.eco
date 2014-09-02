@@ -1,6 +1,6 @@
 ---
 layout      : 'default'
-css         : 'tab'
+css         : ''
 element     : 'tab'
 elementType : 'module'
 
@@ -16,8 +16,8 @@ themes      : ['Default']
 <%- @partial('header', { tabs: {  usage: 'Usage', examples: 'Examples', settings: 'Settings' } }) %>
 
 <div class="main container">
-
-  <div class="ui active tab" data-tab="definition">
+  <!--
+  <div class="ui tab" data-tab="definition">
 
     <div class="peek">
       <div class="ui vertical pointing secondary menu">
@@ -26,8 +26,9 @@ themes      : ['Default']
     </div>
 
   </div>
+  -->
 
-  <div class="ui tab" data-tab="usage">
+  <div class="ui active tab" data-tab="usage">
 
     <h2 class="ui dividing header">Initializing Tabs</h2>
 
