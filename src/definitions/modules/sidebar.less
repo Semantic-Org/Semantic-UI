@@ -47,6 +47,7 @@
 
 /* Sets 3D Perspective */
 .pushable {
+  background: @canvasBackground !important;
   position: relative;
   height: 100%;
   overflow: hidden;
@@ -58,6 +59,7 @@
 
 .pushable > .pusher {
   position: relative;
+  background: @canvasBackground;
   left: 0;
   height: 100%;
   transition: transform @animationDuration;
@@ -108,18 +110,6 @@
      Pushed
 ---------------*/
 
-/* Add Canvas BG */
-.pushable.pushed,
-.pushable.hide,
-.pushable.show {
-  background: @canvasBackground !important;
-}
-
-/* Remove Scroll */
-.pushable.pushed > .pusher > .page {
-  // overflow: hidden;
-}
-
 /* Show Dimmer */
 .pushable.pushed > .pusher > .page:after {
   width: 100% !important;
@@ -132,6 +122,13 @@
 .pushable.pushed > .pusher > .page * {
   transition: none !important;
 }
+
+/* Remove Scroll on Page
+.pushable.pushed > .pusher > .page {
+  // overflow: hidden;
+}
+*/
+
 
 /*--------------
      Visible

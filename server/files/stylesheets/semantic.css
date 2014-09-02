@@ -219,6 +219,7 @@ a:hover {
   top: 0px;
   left: -1px;
   min-width: 320px;
+  width: calc(100% - 15px);
   z-index: 900;
 
   -webkit-box-sizing: border-box;
@@ -1149,6 +1150,7 @@ body#example.index {
   padding: 1em 0em;
 /*  clear: both;*/
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 #example .example .grid i.code {
   right: 25%;

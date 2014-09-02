@@ -9,6 +9,7 @@
 @verticalMargin: 0em;
 @horizontalMargin: 0.25em;
 @textTransform: none;
+@tapColor: transparent;
 
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);

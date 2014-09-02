@@ -660,7 +660,7 @@ $.fn.sidebar.settings = {
   performance     : true,
 
   animation       : 'scale down',
-  mobileAnimation : 'slide along',
+  mobileAnimation : 'reveal',
 
   context         : 'body',
   useCSS          : true,
