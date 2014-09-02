@@ -9,25 +9,24 @@ semantic.sidebar.ready = function() {
     handler
   ;
 
-  $('.variation .button')
-    .on('click', function() {
-      $(this)
-        .toggleClass('active')
-        .siblings()
-        .removeClass('active')
-      ;
-      $('.sidebar')
-        .filter($(this).data('variation') ).first()
-        .sidebar('toggle')
-      ;
-    })
-  ;
-  $('.styled.sidebar').first()
-    .sidebar('attach events', '.styled.example .button')
-  ;
 
-  $('.floating.sidebar').first()
-    .sidebar('attach events', '.floating.example .button')
+  $('.left.sidebar')
+    .sidebar()
+  ;
+  $('.animation.example')
+    .find('.button')
+      .on('click', function() {
+        var
+          animation = $(this).data('animation')
+        ;
+        $('.left.sidebar')
+          .sidebar('setting', {
+            animation: animation,
+            mobileAnimation: animation
+          })
+          .sidebar('toggle')
+        ;
+      })
   ;
 
 

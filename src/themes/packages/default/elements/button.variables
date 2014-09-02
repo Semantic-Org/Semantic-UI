@@ -35,8 +35,7 @@
   opacity @transitionDuration @transitionEasing,
   background-color @transitionDuration @transitionEasing,
   color @transitionDuration @transitionEasing,
-  background @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing
+  background @transitionDuration @transitionEasing
 ;
 
 /* Padding */

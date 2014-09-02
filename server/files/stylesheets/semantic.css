@@ -287,6 +287,7 @@ body.guide .main.container > * {
 /*--------------
     Masthead
 ---------------*/
+
 #example .error.masthead {
   position: absolute;
   margin-top: -290px;
@@ -859,14 +860,6 @@ body#example.index {
   margin-left: 0px;
   width: 180px;
 }
-/* #example .peek > .menu.animating > .active {
-  background-color: transparent;
-  border: none;
-  padding-left: 0.95em;
-}
-#example .peek > .menu.animating > .active:after {
-  background-color: #FFFFFF;
-} */
 
 /* overview mode */
 
@@ -1276,6 +1269,9 @@ body#example.index {
   }
 }
 
+#example .animation.example .ui.button {
+  margin-bottom: 0.5em;
+}
 
 #example .ui.type.cards > .item {
   min-height: 255px;

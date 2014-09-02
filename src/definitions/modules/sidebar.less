@@ -36,7 +36,10 @@
   width: @sidebarWidth !important;
   border-radius: 0em !important;
   margin: 0 !important;
+
+  transition: none;
   will-change: transform;
+
   overflow-y: auto !important;
   -webkit-overflow-scrolling: touch;
 }
@@ -62,12 +65,10 @@
   background: @canvasBackground;
   left: 0;
   height: 100%;
-  transition: transform @animationDuration;
   z-index: 2;
+  transform: translate3d(0px, 0, 0);
+  transition: transform @duration @easing;
   will-change: transform;
-  /* Appears to reduce performance breaks fixed position
-  backface-visibility: hidden;
-  */
 }
 
 /*--------------
@@ -78,7 +79,6 @@
   background: @bodyBackground;
   overflow-y: auto;
   height: 100%;
-
   -webkit-overflow-scrolling: touch;
 }
 
@@ -97,7 +97,7 @@
   overflow: hidden;
   opacity: 0;
   z-index: 999;
-  transition: opacity @animationDuration;
+  transition: opacity @duration;
   will-change: opacity;
 }
 
@@ -117,18 +117,11 @@
   opacity: 1 !important;
 }
 
-.pushable.hide > .pusher > .page *,
+/*.pushable.hide > .pusher > .page *,
 .pushable.show > .pusher > .page *,
 .pushable.pushed > .pusher > .page * {
   transition: none !important;
-}
-
-/* Remove Scroll on Page
-.pushable.pushed > .pusher > .page {
-  // overflow: hidden;
-}
-*/
-
+}*/
 
 /*--------------
      Visible
@@ -162,51 +155,45 @@
 ---------------*/
 
 /* Set-up */
-.pushable.overlay > .ui.sidebar {
+.pushable.overlay > .visible.ui.sidebar {
   transform: translate3d(-100%, 0, 0);
   z-index: 3;
 }
 
 /* Pushed */
-.pushable.overlay .visible.ui.sidebar {
-  transform: translate3d(0, 0, 0);
+.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
 }
 
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
 .pushable.overlay.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration @easing;
+  transition: transform @duration @easing;
 }
 
 /*--------------
-     Pushed
+      Push
 ---------------*/
 
 /* Set-Up */
-.pushable.pushing.pushed > .pusher {
-  transform: translate3d(@sidebarWidth, 0, 0);
-}
-.pushable.pushing > .ui.sidebar {
-  transform: translate3d(-100%, 0, 0);
-  z-index: 3;
-}
-.pushable.pushing > .pusher {
+.pushable.push > .pusher {
   transform: translate3d(0px, 0, 0);
-  z-index: 2;
+}
+.pushable.push > .visible.ui.sidebar {
+  transform: translate3d(-100%, 0, 0);
 }
 
 /* Pushed */
-.pushable.pushing.pushed .visible.sidebar {
-  transform: translate3d(0px, 0, 0);
+.pushable.push.pushed > .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
 }
-.pushable.pushing.pushed > .pusher {
+.pushable.push.pushed > .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
 }
 
-/* Animation */
-.pushable.pushing.show > .visible.ui.sidebar,
-.pushable.pushing.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration ease;
+.pushable.push.show > .visible.ui.sidebar,
+.pushable.push.hide > .visible.ui.sidebar {
+  transition: transform @duration @easing;
 }
 
 
@@ -215,12 +202,13 @@
 ---------------*/
 
 /* Set-up */
-.pushable.reveal .visible.ui.sidebar {
-  z-index: 1;
-}
 .pushable.reveal > .pusher {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0px, 0, 0);
   z-index: 2;
+}
+.pushable.reveal > .visible.ui.sidebar {
+  z-index: 1;
+  transition: none;
 }
 
 /* Pushed */
@@ -234,29 +222,23 @@
 ---------------*/
 
 /* Set-up */
-.pushable.slide.along > .ui.sidebar {
+.pushable.slide.along > .pusher {
+  transform: translate3d(0px, 0, 0);
+  z-index: 3;
+}
+.pushable.slide.along > .visible.ui.sidebar {
   z-index: 2;
   transform: translate3d(-50%, 0, 0);
-}
-.pushable.slide.along > .pusher {
-  z-index: 3;
+  transition: transform @duration @easing;
 }
 
 /* Pushed */
 .pushable.slide.along.pushed > .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
-  transform-delay: 10ms
 }
 .pushable.slide.along.pushed > .visible.ui.sidebar {
   transform: translate3d(0%, 0, 0);
 }
-
-/* Animation */
-.pushable.slide.along.show > .visible.ui.sidebar,
-.pushable.slide.along.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration ease;
-}
-
 
 
 /*--------------
@@ -264,9 +246,12 @@
 ---------------*/
 
 /* Set-up */
-.pushable.slide.out > .ui.sidebar {
-  z-index: 1;
+.pushable.slide.out > .pusher {
+  transform: translate3d(0px, 0, 0);
+}
+.pushable.slide.out > .visible.ui.sidebar {
   transform: translate3d(50%, 0, 0);
+  transition: transform @duration @easing;
 }
 
 /* Pushed */
@@ -277,11 +262,6 @@
   transform: translate3d(0%, 0, 0);
 }
 
-/* Animation */
-.pushable.slide.out.show > .visible.ui.sidebar,
-.pushable.slide.out.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration ease;
-}
 
 /*--------------
    Scale Down
@@ -295,8 +275,7 @@
   transform-style: preserve-3d;
   z-index: 2;
 }
-.pushable.scale.down > .ui.sidebar {
-  opacity: 1;
+.pushable.scale.down > .visible.ui.sidebar {
   transform: translate3d(-100%, 0, 0);
   z-index: 3;
 }
@@ -309,10 +288,10 @@
   transform: translate3d(0, 0, 0);
 }
 
-/* Animation */
+/* 3D transition cant have duration set until animation */
 .pushable.scale.down.show > .visible.ui.sidebar,
 .pushable.scale.down.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration ease;
+  transition: transform @duration @easing;
 }
 
 
@@ -342,9 +321,9 @@
 }
 
 /* Animation */
-.pushable.scale.up.show > .visible.ui.sidebar,
-.pushable.scale.up.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration ease;
+.pushable.scale.up.show > .ui.sidebar,
+.pushable.scale.up.hide > .ui.sidebar {
+  transition: transform @duration @easing;
 }
 
 
@@ -362,11 +341,8 @@
   z-index: 3;
 }
 .pushable.recede > .pusher {
-  transform-style: preserve-3d;
+  transform: translate3d(0%, 0px, 0px) rotateY(0deg);
   z-index: 2;
-}
-.pushable.recede > .pusher::after {
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Pushed */
@@ -378,9 +354,9 @@
 }
 
 /* Animation */
-.pushable.recede.show > .visible.ui.sidebar,
-.pushable.recede.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration ease;
+.pushable.recede.show > .ui.sidebar,
+.pushable.recede.hide > .ui.sidebar {
+  transition: transform @duration @easing;
 }
 
 /*--------------
@@ -398,7 +374,7 @@
 }
 .pushable.open.door > .pusher {
   transform-origin: 100% 50%;
-  transform-style: preserve-3d;
+  transform: rotateY(0deg);
   z-index: 2;
 }
 
@@ -412,9 +388,9 @@
 }
 
 /* Animation */
-.pushable.open.door.show > .visible.ui.sidebar,
-.pushable.open.door.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration;
+.pushable.open.door.show > .ui.sidebar,
+.pushable.open.door.hide > .ui.sidebar {
+  transition: transform @duration;
 }
 
 /*--------------
@@ -446,11 +422,11 @@
 /* Return Animation */
 .pushable.rotate.in.hide > .visible.ui.sidebar {
   transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  transition: transform @animationDuration ease 0s;
+  transition: transform @duration ease 0s;
 }
 
 /* Animation */
-.pushable.rotate.in.show > .visible.ui.sidebar,
-.pushable.rotate.in.hide > .visible.ui.sidebar {
-  transition: transform @animationDuration ease-in-out 0s;
+.pushable.rotate.in.show > .ui.sidebar,
+.pushable.rotate.in.hide > .ui.sidebar {
+  transition: transform @duration ease-in-out 0s;
 }

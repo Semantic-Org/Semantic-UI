@@ -11,6 +11,8 @@
 
 ;(function ( $, window, document, undefined ) {
 
+"use strict";
+
 $.fn.sidebar = function(parameters) {
   var
     $allModules    = $(this),
@@ -100,7 +102,7 @@ $.fn.sidebar = function(parameters) {
           clickaway: function(event) {
             if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
               module.verbose('User clicked on dimmed page');
-              $.proxy(module.hide, element)();
+              module.hide();
             }
           }
         },
@@ -237,82 +239,67 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-        forceRepaint: function() {
-          module.verbose('Forcing element repaint');
-          var
-            $parentElement = $module.parent(),
-            $nextElement = $module.next()
-          ;
-          if($nextElement.size() === 0) {
-            $module.detach().appendTo($parentElement);
-          }
-          else {
-            $module.detach().insertBefore($nextElement);
-          }
-        },
-
         pushPage: function(callback) {
+          var
+            $transition = (settings.animation == 'overlay')
+              ? $module
+              : $pusher
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          if( !module.is.inward() ) {
-            module.verbose('Adding context push state', $context);
-            if(settings.animation != 'overlay') {
-              module.remove.allVisible();
-            }
-            module.set.direction();
-            module.set.animation();
-            module.set.inward();
-            requestAnimationFrame(function() {
-              module.set.visible();
-              module.set.pushed();
-            });
-            $pusher
-              .off(transitionEnd)
-              .on(transitionEnd, function(event) {
-                if( event.target == $pusher[0] ) {
-                  module.remove.inward();
-                  module.set.active();
-                  $pusher.off(transitionEnd);
-                  module.bind.clickaway();
-                  $.proxy(callback, element)();
-                }
-              })
-            ;
+          module.verbose('Adding context push state', $context);
+          if(settings.animation != 'overlay') {
+            module.remove.allVisible();
           }
+          $transition
+            .on(transitionEnd, function(event) {
+              if( event.target == $transition[0] ) {
+                $transition.off(transitionEnd);
+                module.remove.inward();
+                module.set.active();
+                module.bind.clickaway();
+                $.proxy(callback, element)();
+              }
+            })
+          ;
+          module.set.visible();
+          module.set.animation();
+          module.set.direction();
+          setTimeout(function() {
+            module.set.inward();
+            module.set.pushed();
+          }, 500);
         },
 
         pullPage: function(callback) {
+          var
+            $transition = (settings.animation == 'overlay')
+              ? $module
+              : $pusher
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          if( !module.is.outward() ) {
-            module.verbose('Removing context push state', module.get.direction());
-            if(settings.animation == 'overlay') {
-              $module.removeClass(className.visible);
-            }
-            module.unbind.clickaway();
-            requestAnimationFrame(function() {
-              module.set.outward();
-              module.remove.active();
-              module.remove.pushed();
-              $pusher
-                .off(transitionEnd)
-                .on(transitionEnd, function(event) {
-                  if( event.target == $pusher[0] ) {
-                    module.remove.animation();
-                    module.remove.direction();
-                    module.remove.outward();
-                    module.remove.visible();
-                    $pusher.off(transitionEnd);
-                    $.proxy(callback, element)();
-                  }
-                })
-              ;
-            });
-          }
+          module.verbose('Removing context push state', module.get.direction());
+          module.unbind.clickaway();
+          $transition
+            .on(transitionEnd, function(event) {
+              if( event.target == $transition[0] ) {
+                $transition.off(transitionEnd);
+                module.remove.animation();
+                module.remove.direction();
+                module.remove.outward();
+                module.remove.visible();
+                $.proxy(callback, element)();
+              }
+            })
+          ;
+          module.set.outward();
+          module.remove.active();
+          module.remove.pushed();
         },
 
         add: {
@@ -657,9 +644,9 @@ $.fn.sidebar.settings = {
   name            : 'Sidebar',
   namespace       : 'sidebar',
 
-  debug           : true,
-  verbose         : true,
-  performance     : true,
+  debug           : false,
+  verbose         : false,
+  performance     : false,
 
   animation       : 'scale down',
   mobileAnimation : 'reveal',

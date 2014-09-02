@@ -16,183 +16,6 @@ themes      : ['Default']
 
 <%- @partial('header', { tabs: 'module' }) %>
 
-<div class="ui styled sidebar">
-  <h3 class="ui header">You Might Like</h3>
-  <div class="ui fluid vertical menu">
-    <a class="item">
-      <i class="chat outline icon"></i>
-      More by this author
-    </a>
-    <a class="item">
-      <i class="text file icon"></i>
-      Suggested Articles
-    </a>
-  </div>
-  <h3 class="ui header">Contact Us</h3>
-  <div class="ui form">
-    <div class="field">
-      <label>Name</label>
-      <div class="ui icon input">
-        <i class="user icon"></i>
-        <input type="text" data-placeholder="Name">
-      </div>
-    </div>
-    <div class="field">
-      <label>Message</label>
-      <textarea></textarea>
-    </div>
-    <div class="ui black fluid button">Submit</div>
-  </div>
-</div>
-<div class="ui thin styled sidebar">
-  <h3 class="ui header">Share</h3>
-  <div class="ui fluid vertical labeled icon buttons">
-    <div class="ui facebook button">
-      <i class="facebook icon"></i>
-      Facebook
-    </div>
-    <div class="ui twitter button">
-      <i class="twitter icon"></i>
-      Twitter
-    </div>
-    <div class="ui google plus button">
-      <i class="google plus icon"></i>
-      Google
-    </div>
-  </div>
-</div>
-<div class="ui very thin styled sidebar">
-  <div class="ui fluid vertical icon buttons">
-    <div class="ui facebook button">
-      <i class="facebook icon"></i>
-    </div>
-    <div class="ui twitter button">
-      <i class="twitter icon"></i>
-    </div>
-    <div class="ui google plus button">
-      <i class="google plus icon"></i>
-    </div>
-  </div>
-</div>
-<div class="ui wide styled sidebar">
-  <h3 class="ui header">You Might Like</h3>
-  <div class="ui fluid vertical menu">
-    <a class="item">
-      <i class="chat outline icon"></i>
-      More by this author
-    </a>
-    <a class="item">
-      <i class="text file icon"></i>
-      Suggested Articles
-    </a>
-  </div>
-</div>
-<div class="ui very wide styled sidebar">
-  <h3 class="ui header">Contact Us</h3>
-  <div class="ui form">
-    <div class="field">
-      <label>Name</label>
-      <div class="ui icon input">
-        <i class="user icon"></i>
-        <input type="text" data-placeholder="Name">
-      </div>
-    </div>
-    <div class="field">
-      <label>Message</label>
-      <textarea></textarea>
-    </div>
-    <div class="ui black fluid button">Submit</div>
-  </div>
-</div>
-
-<div class="ui vertical overlay sidebar menu">
-  <a class="item">
-    <i class="home icon"></i>
-    Home
-  </a>
-  <a class="active item">
-    <i class="heart icon"></i>
-    Current Section
-  </a>
-  <a class="item">
-    <i class="facebook icon"></i>
-    Like us on Facebook
-  </a>
-  <div class="item">
-    <b>More</b>
-    <div class="menu">
-      <a class="item">About</a>
-      <a class="item">Contact Us</a>
-    </div>
-  </div>
-</div>
-<div class="ui floating vertical sidebar menu">
-  <a class="item">
-    <i class="home icon"></i>
-    Home
-  </a>
-  <a class="active item">
-    <i class="heart icon"></i>
-    Current Section
-  </a>
-  <a class="item">
-    <i class="facebook icon"></i>
-    Like us on Facebook
-  </a>
-  <div class="item">
-    <b>More</b>
-    <div class="menu">
-      <a class="item">About</a>
-      <a class="item">Contact Us</a>
-    </div>
-  </div>
-</div>
-
-<div class="ui red vertical demo sidebar menu">
-  <a class="item">
-    <i class="home icon"></i>
-    Home
-  </a>
-  <a class="active item">
-    <i class="heart icon"></i>
-    Current Section
-  </a>
-  <a class="item">
-    <i class="facebook icon"></i>
-    Like us on Facebook
-  </a>
-  <div class="item">
-    <b>More</b>
-    <div class="menu">
-      <a class="item">About</a>
-      <a class="item">Contact Us</a>
-    </div>
-  </div>
-</div>
-<div class="ui left sidebar vertical inverted menu">
-  <div class="header item">Left Sidebar menu</div>
-  <a class="item">One</a>
-  <a class="item">Two</a>
-  <a class="item">Three</a>
-</div>
-<div class="ui right sidebar inverted red vertical menu">
-  <div class="header item">Right Sidebar menu</div>
-  <a class="item">One</a>
-  <a class="item">Two</a>
-  <a class="item">Three</a>
-</div>
-<div class="ui top inverted teal sidebar menu">
-  <div class="header item">Top Sidebar menu</div>
-  <a class="item">One</a>
-  <a class="item">Two</a>
-  <a class="item">Three</a>
-</div>
-<div class="ui bottom inverted sidebar menu">
-  <div class="header item">Bottom Sidebar menu</div>
-  <a class="item">One</a>
-  <a class="item">Two</a>
-  <a class="item">Three</a>
-</div>
 
 <div class="main container">
 
@@ -204,6 +27,41 @@ themes      : ['Default']
       </div>
     </div>
     <h2 class="ui dividing header">Types</h2>
+
+    <div class="animation example">
+      <h4 class="ui header">Animation</h4>
+      <p>A sidebar can use different animations to change contexts</p>
+      <div class="ui button" data-animation="overlay">
+        Overlay
+      </div>
+      <div class="ui button" data-animation="push">
+        Push
+      </div>
+      <div class="ui button" data-animation="reveal">
+        Reveal
+      </div>
+      <div class="ui button" data-animation="slide along">
+        Slide Along
+      </div>
+      <div class="ui button" data-animation="slide out">
+        Slide Out
+      </div>
+      <div class="ui button" data-animation="scale down">
+        Scale Down
+      </div>
+      <div class="ui button" data-animation="scale up">
+        Scale Up
+      </div>
+      <div class="ui button" data-animation="recede">
+        Recede
+      </div>
+      <div class="ui button" data-animation="open door">
+        Open Door
+      </div>
+      <div class="ui button" data-animation="rotate in">
+        Rotate In
+      </div>
+    </div>
 
     <div class="no example">
       <h4 class="ui header">Direction</h4>
@@ -355,8 +213,10 @@ themes      : ['Default']
 
     <table class="ui definition celled sortable table segment">
       <thead>
-        <th>Behavior</th>
-        <th>Description</th>
+        <tr>
+          <th>Behavior</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -415,18 +275,6 @@ themes      : ['Default']
 
   <div class="ui tab" data-tab="examples">
 
-    <div class="no example">
-      <h4 class="ui header">Overlay</h4>
-      <p>A sidebar can overlay page content instead of pushing it to the side</p>
-      <div class="code" data-demo="true">
-      $('.overlay.sidebar')
-        .sidebar({
-          overlay: true
-        })
-        .sidebar('toggle')
-      ;
-      </div>
-    </div>
 
     <div class="no example">
       <h4 class="ui header">Triggering show/hide with other content</h4>
@@ -472,9 +320,11 @@ themes      : ['Default']
     </h3>
     <table class="ui celled sortable definition table segment">
       <thead>
-        <th>Setting</th>
-        <th class="four wide">Default</th>
-        <th>Description</th>
+        <tr>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -506,9 +356,11 @@ themes      : ['Default']
 
     <table class="ui celled sortable definition table segment">
       <thead>
-        <th class="four wide">Setting</th>
-        <th>Context</th>
-        <th>Description</th>
+        <tr>
+          <th class="four wide">Setting</th>
+          <th>Context</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -537,9 +389,11 @@ themes      : ['Default']
     </h3>
     <table class="ui celled definition table segment">
       <thead>
-        <th>Setting</th>
-        <th class="six wide">Default</th>
-        <th>Description</th>
+        <tr>
+          <th>Setting</th>
+          <th class="six wide">Default</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -575,9 +429,11 @@ themes      : ['Default']
 
     <table class="ui celled sortable definition table segment">
       <thead>
-        <th>Setting</th>
-        <th class="four wide">Default</th>
-        <th>Description</th>
+        <tr>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -615,4 +471,184 @@ themes      : ['Default']
     </table>
   </div>
 
+</div>
+
+<div class="ui styled sidebar">
+  <h3 class="ui header">You Might Like</h3>
+  <div class="ui fluid vertical menu">
+    <a class="item">
+      <i class="chat outline icon"></i>
+      More by this author
+    </a>
+    <a class="item">
+      <i class="text file icon"></i>
+      Suggested Articles
+    </a>
+  </div>
+  <h3 class="ui header">Contact Us</h3>
+  <div class="ui form">
+    <div class="field">
+      <label>Name</label>
+      <div class="ui icon input">
+        <i class="user icon"></i>
+        <input type="text" data-placeholder="Name">
+      </div>
+    </div>
+    <div class="field">
+      <label>Message</label>
+      <textarea></textarea>
+    </div>
+    <div class="ui black fluid button">Submit</div>
+  </div>
+</div>
+
+
+<div class="ui thin styled sidebar">
+  <h3 class="ui header">Share</h3>
+  <div class="ui fluid vertical labeled icon buttons">
+    <div class="ui facebook button">
+      <i class="facebook icon"></i>
+      Facebook
+    </div>
+    <div class="ui twitter button">
+      <i class="twitter icon"></i>
+      Twitter
+    </div>
+    <div class="ui google plus button">
+      <i class="google plus icon"></i>
+      Google
+    </div>
+  </div>
+</div>
+<div class="ui very thin styled sidebar">
+  <div class="ui fluid vertical icon buttons">
+    <div class="ui facebook button">
+      <i class="facebook icon"></i>
+    </div>
+    <div class="ui twitter button">
+      <i class="twitter icon"></i>
+    </div>
+    <div class="ui google plus button">
+      <i class="google plus icon"></i>
+    </div>
+  </div>
+</div>
+<div class="ui wide styled sidebar">
+  <h3 class="ui header">You Might Like</h3>
+  <div class="ui fluid vertical menu">
+    <a class="item">
+      <i class="chat outline icon"></i>
+      More by this author
+    </a>
+    <a class="item">
+      <i class="text file icon"></i>
+      Suggested Articles
+    </a>
+  </div>
+</div>
+<div class="ui very wide styled sidebar">
+  <h3 class="ui header">Contact Us</h3>
+  <div class="ui form">
+    <div class="field">
+      <label>Name</label>
+      <div class="ui icon input">
+        <i class="user icon"></i>
+        <input type="text" data-placeholder="Name">
+      </div>
+    </div>
+    <div class="field">
+      <label>Message</label>
+      <textarea></textarea>
+    </div>
+    <div class="ui black fluid button">Submit</div>
+  </div>
+</div>
+
+<div class="ui vertical overlay sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="active item">
+    <i class="heart icon"></i>
+    Current Section
+  </a>
+  <a class="item">
+    <i class="facebook icon"></i>
+    Like us on Facebook
+  </a>
+  <div class="item">
+    <b>More</b>
+    <div class="menu">
+      <a class="item">About</a>
+      <a class="item">Contact Us</a>
+    </div>
+  </div>
+</div>
+<div class="ui floating vertical sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="active item">
+    <i class="heart icon"></i>
+    Current Section
+  </a>
+  <a class="item">
+    <i class="facebook icon"></i>
+    Like us on Facebook
+  </a>
+  <div class="item">
+    <b>More</b>
+    <div class="menu">
+      <a class="item">About</a>
+      <a class="item">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<div class="ui red vertical demo sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="active item">
+    <i class="heart icon"></i>
+    Current Section
+  </a>
+  <a class="item">
+    <i class="facebook icon"></i>
+    Like us on Facebook
+  </a>
+  <div class="item">
+    <b>More</b>
+    <div class="menu">
+      <a class="item">About</a>
+      <a class="item">Contact Us</a>
+    </div>
+  </div>
+</div>
+<div class="ui left sidebar vertical inverted menu">
+  <div class="header item">Left Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+<div class="ui right sidebar inverted red vertical menu">
+  <div class="header item">Right Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+<div class="ui top inverted teal sidebar menu">
+  <div class="header item">Top Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+<div class="ui bottom inverted sidebar menu">
+  <div class="header item">Bottom Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
 </div>

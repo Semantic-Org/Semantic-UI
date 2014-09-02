@@ -4,12 +4,12 @@
 
 @sidebarWidth: 260px;
 @sidebarBackground: @black;
-@sidebarTransition: transform 0.5s ease;
+@sidebarTransition: transform 0.5s linear;
 
 @dimmerColor: rgba(0, 0, 0, 0.4);
 
 @canvasBackground: @lightBlack;
 @pageBackground: @bodyBackground;
 
-@animationDuration: 0.5s;
-@easing: ease-in;
+@duration: 0.5s;
+@easing: ease;
