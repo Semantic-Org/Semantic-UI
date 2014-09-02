@@ -11,5 +11,5 @@
 @canvasBackground: @lightBlack;
 @pageBackground: @bodyBackground;
 
-@animationDuration: 0.6s;
+@animationDuration: 0.5s;
 @easing: ease-in;
