@@ -139,7 +139,7 @@
 ---------------*/
 
 .ui.menu .text.item > *,
-.ui.menu .item > a,
+.ui.menu .item > a:not(.ui),
 .ui.menu .item > p:only-child {
   user-select: text;
   line-height: @textLineHeight;
@@ -1175,7 +1175,7 @@
 }
 
 .ui.inverted.menu .item,
-.ui.inverted.menu .item > a {
+.ui.inverted.menu .item > a:not(.ui) {
   color: @invertedTextColor;
 }
 
@@ -1184,7 +1184,7 @@
 }
 
 .ui.inverted.menu .item .item,
-.ui.inverted.menu .item .item > a {
+.ui.inverted.menu .item .item > a:not(.ui) {
   color: @invertedSubMenuColor;
 }
 .ui.inverted.menu .dropdown .menu .item {

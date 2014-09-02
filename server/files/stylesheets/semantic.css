@@ -1580,8 +1580,13 @@ body.progress .ui.progress .bar {
   #example.button :not(.buttons) .ui.button {
     margin-bottom: 0.5em;
   }
+  #example .masthead:before {
+    -webkit-animation-name: none;
+    -moz-animation-name: none;
+    -o-animation-name: none;
+    animation-name: none;
+  }
 }
-
 
 @media only screen and (max-width : 998px) {
 
