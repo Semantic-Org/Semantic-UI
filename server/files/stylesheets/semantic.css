@@ -217,7 +217,7 @@ a:hover {
 
 #example .main.menu {
   top: 0px;
-  left: 0px;
+  left: -1px;
   min-width: 320px;
   z-index: 900;
 
@@ -582,7 +582,7 @@ body#example.index {
 #example .attached.launch.button {
   position: fixed;
   top: 63px;
-  left: 0px;
+  left: -1px;
   z-index: 500;
   width: 55px;
   height: 50px;
