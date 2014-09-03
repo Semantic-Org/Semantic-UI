@@ -155,14 +155,19 @@ a:hover {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-#example .menu .inverted.header {
+#example #menu .inverted.header {
+  margin-bottom: 0em;
   color: rgba(255, 255, 255, 0.8);
 }
-#example .menu a.inverted.header:hover {
+#example #menu a.inverted.header.active,
+#example #menu a.inverted.header:hover {
   color: rgba(255, 255, 255, 1);
 }
 #example #menu .hide.item {
   display: none;
+}
+#example #menu .menu .active.item {
+  color: #6DFFFF !important;
 }
 
 #example .code .active.ui.modal {
@@ -564,6 +569,12 @@ body#example.index {
 #example .stripe .message {
   margin: 2em 0em;
 }
+#example.pushable.overlay .fixed.launch.button {
+  transform: translate3d(0, 0, 0);
+}
+#example.pushable.overlay.pushed .fixed.launch.button {
+  transform: translate3d(260px, 0, 0);
+}
 #example .fixed.launch.button {
   position: fixed;
   top: 63px;
@@ -573,19 +584,24 @@ body#example.index {
   height: 50px;
   overflow: hidden;
   -webkit-transition:
-    0.3s width ease
+    0.3s width ease,
+    0.5s transform ease
   ;
   -moz-transition:
-    0.3s width ease
+    0.3s width ease,
+    0.5s transform ease
   ;
   -o-transition:
-    0.3s width ease
+    0.3s width ease,
+    0.5s transform ease
   ;
   -ms-transition:
-    0.3s width ease
+    0.3s width ease,
+    0.5s transform ease
   ;
   transition:
-    0.3s width ease
+    0.3s width ease,
+    0.5s transform ease
   ;
 }
 #example .fixed.launch.button .text {

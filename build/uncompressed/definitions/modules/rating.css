@@ -46,6 +46,23 @@
      Load Default
 -------------------*/
 /*******************************
+             Rating
+*******************************/
+/*-------------------
+        Types
+--------------------*/
+/* Star */
+/* Heart */
+/*-------------------
+        States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,23 +153,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Rating
-*******************************/
-/*-------------------
-        Types
---------------------*/
-/* Star */
-/* Heart */
-/*-------------------
-        States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -280,25 +280,25 @@
           Variations
 *******************************/
 .ui.mini.rating .icon {
-  font-size: 0.7rem;
+  font-size: 0.7em;
 }
 .ui.tiny.rating .icon {
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 .ui.small.rating .icon {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 .ui.rating .icon {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.large.rating .icon {
-  font-size: 1.1rem;
+  font-size: 1.125em;
 }
 .ui.huge.rating .icon {
-  font-size: 1.5rem;
+  font-size: 1.375em;
 }
 .ui.massive.rating .icon {
-  font-size: 2rem;
+  font-size: 1.5em;
 }
 /* Realign */
 .ui.large.rating,

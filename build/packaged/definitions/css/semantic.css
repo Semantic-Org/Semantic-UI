@@ -3929,7 +3929,7 @@ body > .ui.grid:not(.page) {
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -5292,7 +5292,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -8615,7 +8615,7 @@ i.flag.zimbabwe {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -11829,7 +11829,7 @@ img.ui.bordered.image {
   width: 100%;
   outline: none;
   line-height: 1.2em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   padding: 0.7em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -14749,7 +14749,7 @@ a.ui.yellow.label:hover:before {
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -15655,7 +15655,7 @@ body {
 }
 body {
   background: #fcfcfc;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin: 0px;
   padding: 0px;
   color: rgba(0, 0, 0, 0.8);
@@ -15897,7 +15897,7 @@ a:hover {
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -18249,7 +18249,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   margin: 0em;
@@ -18994,7 +18994,7 @@ a.ui.nag {
 }
 .ui.popup .header {
   padding: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -19242,6 +19242,23 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
+             Rating
+*******************************/
+/*-------------------
+        Types
+--------------------*/
+/* Star */
+/* Heart */
+/*-------------------
+        States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -19332,23 +19349,6 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-             Rating
-*******************************/
-/*-------------------
-        Types
---------------------*/
-/* Star */
-/* Heart */
-/*-------------------
-        States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -19476,25 +19476,25 @@ a.ui.nag {
           Variations
 *******************************/
 .ui.mini.rating .icon {
-  font-size: 0.7rem;
+  font-size: 0.7em;
 }
 .ui.tiny.rating .icon {
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 .ui.small.rating .icon {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 .ui.rating .icon {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .ui.large.rating .icon {
-  font-size: 1.1rem;
+  font-size: 1.125em;
 }
 .ui.huge.rating .icon {
-  font-size: 1.5rem;
+  font-size: 1.375em;
 }
 .ui.massive.rating .icon {
-  font-size: 2rem;
+  font-size: 1.5em;
 }
 /* Realign */
 .ui.large.rating,
@@ -19774,7 +19774,7 @@ a.ui.nag {
     Result
 ---------------*/
 .ui.search .result {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -19806,7 +19806,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -19824,7 +19824,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -19916,7 +19916,7 @@ a.ui.nag {
   box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;
@@ -20383,7 +20383,7 @@ a.ui.nag {
 *******************************/
 /* Sidebar Menu */
 .ui.sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   visibility: hidden;
@@ -20398,7 +20398,6 @@ a.ui.nag {
           transition: none;
   will-change: transform;
   overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch;
 }
 /*--------------
      Body
@@ -20408,37 +20407,30 @@ a.ui.nag {
   background: #333333 !important;
   position: relative;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 /*--------------
      Pusher
 ---------------*/
 .pushable > .pusher {
-  position: relative;
   background: #333333;
-  left: 0;
   height: 100%;
-  z-index: 2;
-  -webkit-transform: translate3d(0px, 0, 0);
-          transform: translate3d(0px, 0, 0);
+  z-index: 1002;
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
-  will-change: transform;
 }
 /*--------------
      Page
 ---------------*/
 .pushable > .pusher > .page {
+  position: relative;
   background: #fcfcfc;
-  overflow-y: auto;
-  height: 100%;
-  -webkit-overflow-scrolling: touch;
 }
 /*--------------
      Dimmer
 ---------------*/
 .pushable > .pusher > .page:after {
-  position: fixed;
+  position: absolute;
   top: 0px;
   right: 0px;
   content: '';
@@ -20447,7 +20439,7 @@ a.ui.nag {
   height: 0px;
   overflow: hidden;
   opacity: 0;
-  z-index: 999;
+  z-index: 1003;
   -webkit-transition: opacity 0.5s;
           transition: opacity 0.5s;
   will-change: opacity;
@@ -20458,11 +20450,17 @@ a.ui.nag {
 /*--------------
      Pushed
 ---------------*/
+.pushable.pushed {
+  overflow-x: hidden;
+}
 /* Show Dimmer */
 .pushable.pushed > .pusher > .page:after {
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
+}
+.pushable.pushed > .visible.sidebar {
+  -webkit-overflow-scrolling: touch;
 }
 /*.pushable.hide > .pusher > .page *,
 .pushable.show > .pusher > .page *,
@@ -20496,7 +20494,7 @@ a.ui.nag {
 .pushable.overlay > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
-  z-index: 3;
+  z-index: 1004;
 }
 /* Pushed */
 .pushable.overlay.pushed .visible.ui.sidebar {
@@ -20536,16 +20534,43 @@ a.ui.nag {
           transition: transform 0.5s ease;
 }
 /*--------------
+    Safe Mode
+---------------*/
+/* Set-Up */
+.pushable.safe > .pusher {
+  position: relative;
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
+  -webkit-transition: none !important;
+          transition: none !important;
+}
+.pushable.safe > .pusher {
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
+  -webkit-transition: none !important;
+          transition: none !important;
+}
+/* Pushed */
+.pushable.safe.pushed {
+  margin-left: 260px !important;
+}
+.pushable.safe.show,
+.pushable.safe.hide {
+  -webkit-transition: margin 0.5s ease !important;
+          transition: margin 0.5s ease !important;
+}
+/*--------------
      Reveal
 ---------------*/
 /* Set-up */
 .pushable.reveal > .pusher {
   -webkit-transform: translate3d(0px, 0, 0);
           transform: translate3d(0px, 0, 0);
-  z-index: 2;
+  z-index: 1001;
 }
 .pushable.reveal > .visible.ui.sidebar {
-  z-index: 1;
   -webkit-transition: none;
           transition: none;
 }
@@ -20561,14 +20586,11 @@ a.ui.nag {
 .pushable.slide.along > .pusher {
   -webkit-transform: translate3d(0px, 0, 0);
           transform: translate3d(0px, 0, 0);
-  z-index: 3;
+  z-index: 1001;
 }
 .pushable.slide.along > .visible.ui.sidebar {
-  z-index: 2;
   -webkit-transform: translate3d(-50%, 0, 0);
           transform: translate3d(-50%, 0, 0);
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
 }
 /* Pushed */
 .pushable.slide.along.pushed > .pusher {
@@ -20578,6 +20600,11 @@ a.ui.nag {
 .pushable.slide.along.pushed > .visible.ui.sidebar {
   -webkit-transform: translate3d(0%, 0, 0);
           transform: translate3d(0%, 0, 0);
+}
+.pushable.slide.along.show > .visible.ui.sidebar,
+.pushable.slide.along.hide > .visible.ui.sidebar {
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
    Slide Out
@@ -20590,8 +20617,6 @@ a.ui.nag {
 .pushable.slide.out > .visible.ui.sidebar {
   -webkit-transform: translate3d(50%, 0, 0);
           transform: translate3d(50%, 0, 0);
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
 }
 /* Pushed */
 .pushable.slide.out.pushed > .pusher {
@@ -20601,6 +20626,11 @@ a.ui.nag {
 .pushable.slide.out.pushed .visible.ui.sidebar {
   -webkit-transform: translate3d(0%, 0, 0);
           transform: translate3d(0%, 0, 0);
+}
+.pushable.slide.out.show > .visible.ui.sidebar,
+.pushable.slide.out.hide > .visible.ui.sidebar {
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
    Scale Down
@@ -20613,17 +20643,22 @@ a.ui.nag {
 .pushable.scale.down > .pusher {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  z-index: 2;
+  z-index: 1001;
+  -webkit-transform-origin: 75% 50%;
+      -ms-transform-origin: 75% 50%;
+          transform-origin: 75% 50%;
+  overflow: hidden;
 }
 .pushable.scale.down > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
-  z-index: 3;
+  z-index: 1004;
 }
 /* Pushed */
 .pushable.scale.down.pushed > .pusher {
-  -webkit-transform: translate3d(210px, 0px, -500px);
-          transform: translate3d(210px, 0px, -500px);
+  -webkit-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+          transform: scale(0.75);
 }
 .pushable.scale.down.pushed > .visible.ui.sidebar {
   -webkit-transform: translate3d(0, 0, 0);
@@ -20646,12 +20681,8 @@ a.ui.nag {
           perspective-origin: 0% 50%;
 }
 .pushable.scale.up > .ui.sidebar {
-  z-index: 1;
   -webkit-transform: translate3d(0, 0, -260px);
           transform: translate3d(0, 0, -260px);
-}
-.pushable.scale.up > .pusher {
-  z-index: 2;
 }
 /* Pushed */
 .pushable.scale.up.pushed > .pusher {
@@ -20669,40 +20700,6 @@ a.ui.nag {
           transition: transform 0.5s ease;
 }
 /*--------------
-     Recede
----------------*/
-/* Set-up */
-.pushable.recede {
-  -webkit-perspective: 1500px;
-          perspective: 1500px;
-}
-.pushable.recede > .ui.sidebar {
-  opacity: 1;
-  -webkit-transform: translate3d(-100%, 0, 0);
-          transform: translate3d(-100%, 0, 0);
-  z-index: 3;
-}
-.pushable.recede > .pusher {
-  -webkit-transform: translate3d(0%, 0px, 0px) rotateY(0deg);
-          transform: translate3d(0%, 0px, 0px) rotateY(0deg);
-  z-index: 2;
-}
-/* Pushed */
-.pushable.recede.pushed > .pusher {
-  -webkit-transform: translate3d(15%, 0px, -400px) rotateY(-15deg);
-          transform: translate3d(15%, 0px, -400px) rotateY(-15deg);
-}
-.pushable.recede.pushed > .visible.ui.sidebar {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-}
-/* Animation */
-.pushable.recede.show > .ui.sidebar,
-.pushable.recede.hide > .ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
-}
-/*--------------
    Open Door
 ---------------*/
 /* Set-up */
@@ -20714,7 +20711,7 @@ a.ui.nag {
   opacity: 1;
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
-  z-index: 3;
+  z-index: 1004;
 }
 .pushable.open.door > .pusher {
   -webkit-transform-origin: 100% 50%;
@@ -20722,7 +20719,6 @@ a.ui.nag {
           transform-origin: 100% 50%;
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
-  z-index: 2;
 }
 /* Pushed */
 .pushable.open.door.pushed > .pusher {
@@ -20750,8 +20746,8 @@ a.ui.nag {
           perspective-origin: 0% 50%;
 }
 .pushable.rotate.in > .pusher {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  -webkit-perspective: none;
+          perspective: none;
 }
 .pushable.rotate.in > .ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
@@ -22666,9 +22662,6 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
              Card
 *******************************/
@@ -22700,6 +22693,9 @@ a.ui.nag {
 /* Card Count */
 /* Stackable */
 /* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -22828,7 +22824,7 @@ a.ui.nag {
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -24480,7 +24476,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -25018,7 +25014,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -25732,7 +25728,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -25745,7 +25741,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);

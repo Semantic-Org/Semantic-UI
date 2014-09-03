@@ -8,7 +8,7 @@
 * Released under the MIT license
 * http://opensource.org/licenses/MIT
 *
-* Released: 09/02/2014
+* Released: 09/03/2014
 */
 
-*,:after,:before{box-sizing:border-box}body,html{font-size:14px;height:100%;font-smoothing:antialiased}body{background:#fcfcfc;font-family:Lato,'Helvetica Neue',Arial,sans-serif;margin:0;padding:0;color:rgba(0,0,0,.8);min-width:320px}h1,h2,h3,h4,h5{margin:1em 0 1rem;padding:0}p{margin:0 0 1em}p:first-child{margin-top:0}p:last-child{margin-bottom:0}a{color:#009fda;text-decoration:none}a:hover{color:#00b2f3}::-webkit-selection{background-color:#ffc;color:rgba(0,0,0,.8)}::-moz-selection{background-color:#ffc;color:rgba(0,0,0,.8)}::selection{background-color:#ffc;color:rgba(0,0,0,.8)}
+*,:after,:before{box-sizing:border-box}body,html{font-size:14px;height:100%;font-smoothing:antialiased}body{background:#fcfcfc;font-family:'Open Sans',"Helvetica Neue",Arial,Helvetica,sans-serif;margin:0;padding:0;color:rgba(0,0,0,.8);min-width:320px}h1,h2,h3,h4,h5{margin:1em 0 1rem;padding:0}p{margin:0 0 1em}p:first-child{margin-top:0}p:last-child{margin-bottom:0}a{color:#009fda;text-decoration:none}a:hover{color:#00b2f3}::-webkit-selection{background-color:#ffc;color:rgba(0,0,0,.8)}::-moz-selection{background-color:#ffc;color:rgba(0,0,0,.8)}::selection{background-color:#ffc;color:rgba(0,0,0,.8)}

@@ -8,7 +8,7 @@
 * Released under the MIT license
 * http://opensource.org/licenses/MIT
 *
-* Released: 09/02/2014
+* Released: 09/03/2014
 */
 
 .ui.sticky{position:static}.ui.sticky.bound{position:absolute;left:auto;right:auto}.ui.sticky.fixed{position:fixed;left:auto;right:auto}.ui.sticky.bound.top,.ui.sticky.fixed.top{top:0;bottom:auto}.ui.sticky.bound.bottom,.ui.sticky.fixed.bottom{top:auto;bottom:0}.ui.native.sticky{position:-webkit-sticky;position:-moz-sticky;position:-ms-sticky;position:-o-sticky;position:sticky}

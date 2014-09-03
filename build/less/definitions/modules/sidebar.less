@@ -26,7 +26,7 @@
 
 /* Sidebar Menu */
 .ui.sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   visibility: hidden;
@@ -41,7 +41,6 @@
   will-change: transform;
 
   overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch;
 }
 
 /*--------------
@@ -53,7 +52,7 @@
   background: @canvasBackground !important;
   position: relative;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /*--------------
@@ -61,14 +60,10 @@
 ---------------*/
 
 .pushable > .pusher {
-  position: relative;
   background: @canvasBackground;
-  left: 0;
   height: 100%;
-  z-index: 2;
-  transform: translate3d(0px, 0, 0);
+  z-index: 1002;
   transition: transform @duration @easing;
-  will-change: transform;
 }
 
 /*--------------
@@ -76,10 +71,8 @@
 ---------------*/
 
 .pushable > .pusher > .page {
+  position: relative;
   background: @bodyBackground;
-  overflow-y: auto;
-  height: 100%;
-  -webkit-overflow-scrolling: touch;
 }
 
 /*--------------
@@ -87,7 +80,7 @@
 ---------------*/
 
 .pushable > .pusher > .page:after {
-  position: fixed;
+  position: absolute;
   top: 0px;
   right: 0px;
   content: '';
@@ -96,7 +89,7 @@
   height: 0px;
   overflow: hidden;
   opacity: 0;
-  z-index: 999;
+  z-index: @dimmerLayer;
   transition: opacity @duration;
   will-change: opacity;
 }
@@ -110,11 +103,19 @@
      Pushed
 ---------------*/
 
+.pushable.pushed {
+  overflow-x: hidden;
+}
+
 /* Show Dimmer */
 .pushable.pushed > .pusher > .page:after {
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
+}
+
+.pushable.pushed > .visible.sidebar {
+  -webkit-overflow-scrolling: touch;
 }
 
 /*.pushable.hide > .pusher > .page *,
@@ -157,7 +158,7 @@
 /* Set-up */
 .pushable.overlay > .visible.ui.sidebar {
   transform: translate3d(-100%, 0, 0);
-  z-index: 3;
+  z-index: @topLayer;
 }
 
 /* Pushed */
@@ -196,6 +197,32 @@
   transition: transform @duration @easing;
 }
 
+/*--------------
+    Safe Mode
+---------------*/
+
+/* Set-Up */
+.pushable.safe > .pusher {
+  position: relative;
+  transform: none !important;
+  transition: none !important;
+}
+.pushable.safe > .pusher {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Pushed */
+.pushable.safe.pushed  {
+  margin-left: @sidebarWidth !important;
+}
+
+.pushable.safe.show,
+.pushable.safe.hide {
+  transition: margin @duration @easing !important;
+}
+
+
 
 /*--------------
      Reveal
@@ -204,10 +231,9 @@
 /* Set-up */
 .pushable.reveal > .pusher {
   transform: translate3d(0px, 0, 0);
-  z-index: 2;
+  z-index: @bottomLayer;
 }
 .pushable.reveal > .visible.ui.sidebar {
-  z-index: 1;
   transition: none;
 }
 
@@ -224,12 +250,10 @@
 /* Set-up */
 .pushable.slide.along > .pusher {
   transform: translate3d(0px, 0, 0);
-  z-index: 3;
+  z-index: @bottomLayer;
 }
 .pushable.slide.along > .visible.ui.sidebar {
-  z-index: 2;
   transform: translate3d(-50%, 0, 0);
-  transition: transform @duration @easing;
 }
 
 /* Pushed */
@@ -238,6 +262,11 @@
 }
 .pushable.slide.along.pushed > .visible.ui.sidebar {
   transform: translate3d(0%, 0, 0);
+}
+
+.pushable.slide.along.show > .visible.ui.sidebar,
+.pushable.slide.along.hide > .visible.ui.sidebar {
+  transition: transform @duration @easing;
 }
 
 
@@ -251,7 +280,6 @@
 }
 .pushable.slide.out > .visible.ui.sidebar {
   transform: translate3d(50%, 0, 0);
-  transition: transform @duration @easing;
 }
 
 /* Pushed */
@@ -262,6 +290,12 @@
   transform: translate3d(0%, 0, 0);
 }
 
+.pushable.slide.out.show > .visible.ui.sidebar,
+.pushable.slide.out.hide > .visible.ui.sidebar {
+  transition: transform @duration @easing;
+}
+
+
 
 /*--------------
    Scale Down
@@ -269,20 +303,22 @@
 
 /* Set-up */
 .pushable.scale.down {
-  perspective: 1500px;
+  perspective: @perspective;
 }
 .pushable.scale.down > .pusher {
   transform-style: preserve-3d;
-  z-index: 2;
+  z-index: @bottomLayer;
+  transform-origin: 75% 50%;
+  overflow: hidden;
 }
 .pushable.scale.down > .visible.ui.sidebar {
   transform: translate3d(-100%, 0, 0);
-  z-index: 3;
+  z-index: @topLayer;
 }
 
 /* Pushed */
 .pushable.scale.down.pushed > .pusher {
-  transform: translate3d(210px, 0px, -500px);
+  transform: scale(0.75);
 }
 .pushable.scale.down.pushed > .visible.ui.sidebar {
   transform: translate3d(0, 0, 0);
@@ -301,15 +337,11 @@
 
 /* Set-up */
 .pushable.scale.up {
-  perspective: 1500px;
+  perspective: @perspective;
   perspective-origin: 0% 50%;
 }
 .pushable.scale.up > .ui.sidebar {
-  z-index: 1;
   transform: translate3d(0, 0, -@sidebarWidth);
-}
-.pushable.scale.up > .pusher {
-  z-index: 2;
 }
 
 /* Pushed */
@@ -328,54 +360,21 @@
 
 
 /*--------------
-     Recede
----------------*/
-
-/* Set-up */
-.pushable.recede {
-  perspective: 1500px;
-}
-.pushable.recede > .ui.sidebar {
-  opacity: 1;
-  transform: translate3d(-100%, 0, 0);
-  z-index: 3;
-}
-.pushable.recede > .pusher {
-  transform: translate3d(0%, 0px, 0px) rotateY(0deg);
-  z-index: 2;
-}
-
-/* Pushed */
-.pushable.recede.pushed > .pusher {
-  transform: translate3d(15%, 0px, -400px) rotateY(-15deg);
-}
-.pushable.recede.pushed > .visible.ui.sidebar {
-  transform: translate3d(0, 0, 0);
-}
-
-/* Animation */
-.pushable.recede.show > .ui.sidebar,
-.pushable.recede.hide > .ui.sidebar {
-  transition: transform @duration @easing;
-}
-
-/*--------------
    Open Door
 ---------------*/
 
 /* Set-up */
 .pushable.open.door {
-  perspective: 1500px;
+  perspective: @perspective;
 }
 .pushable.open.door > .ui.sidebar {
   opacity: 1;
   transform: translate3d(-100%, 0, 0);
-  z-index: 3;
+  z-index: @topLayer;
 }
 .pushable.open.door > .pusher {
   transform-origin: 100% 50%;
   transform: rotateY(0deg);
-  z-index: 2;
 }
 
 
@@ -399,11 +398,11 @@
 
 /* Set-up */
 .pushable.rotate.in {
-  perspective: 1500px;
+  perspective: @perspective;
   perspective-origin: 0% 50%;
 }
 .pushable.rotate.in > .pusher {
-  transform-style: preserve-3d;
+  perspective: none;
 }
 .pushable.rotate.in > .ui.sidebar {
   transform: translate3d(-100%, 0, 0) rotateY(90deg);
