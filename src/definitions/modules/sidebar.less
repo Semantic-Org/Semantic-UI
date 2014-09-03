@@ -41,7 +41,6 @@
   will-change: transform;
 
   overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch;
 }
 
 /*--------------
@@ -113,6 +112,10 @@
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
+}
+
+.pushable.pushed > .visible.sidebar {
+  -webkit-overflow-scrolling: touch;
 }
 
 /*.pushable.hide > .pusher > .page *,

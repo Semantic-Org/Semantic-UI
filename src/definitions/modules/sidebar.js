@@ -111,7 +111,6 @@ $.fn.sidebar = function(parameters) {
         bind: {
           clickaway: function() {
             $context
-              .on('scroll' + eventNamespace, module.event.preventScroll)
               .on('click' + eventNamespace, module.event.clickaway)
               .on('touchend' + eventNamespace, module.event.clickaway)
             ;
@@ -137,6 +136,7 @@ $.fn.sidebar = function(parameters) {
 
         convert: {
           toAbsolute: function() {
+            window.scrollTo(0, 0);
            /* var
               scrollTop = $(document).scrollTop()
             ;
@@ -152,6 +152,7 @@ $.fn.sidebar = function(parameters) {
             ;*/
           },
           toFixed: function() {
+            window.scrollTo(0, 0);
           /*  $fixed
               .css({
                 transform: 'translate3d(0, 0px, 0px)'
@@ -686,8 +687,8 @@ $.fn.sidebar.settings = {
   verbose         : false,
   performance     : false,
 
-  animation       : 'safe',
-  mobileAnimation : 'safe',
+  animation       : 'scale down',
+  mobileAnimation : 'slide along',
 
   context         : 'body',
   useCSS          : true,
