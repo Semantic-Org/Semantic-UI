@@ -10,6 +10,12 @@
 
 @canvasBackground: @lightBlack;
 @pageBackground: @bodyBackground;
+@perspective: 1500px;
 
 @duration: 0.5s;
 @easing: ease;
+
+@bottomLayer: 1001;
+@middleLayer: 1002;
+@dimmerLayer: 1003;
+@topLayer: 1004;

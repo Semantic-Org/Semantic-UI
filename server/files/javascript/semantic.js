@@ -59,7 +59,7 @@ semantic.ready = function() {
     $overview         = $('.overview.item, .overview.button'),
     $designer         = $('.designer.item'),
 
-    $sidebarButton    = $('.attached.launch.button'),
+    $sidebarButton    = $('.fixed.launch.button'),
     $code             = $('div.code').not('.existing'),
     $existingCode     = $('.existing.code'),
 

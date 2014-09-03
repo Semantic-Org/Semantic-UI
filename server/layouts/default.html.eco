@@ -247,7 +247,7 @@
           </div>
         </div>
       </div>
-      <div class="ui black huge launch right attached button">
+      <div class="ui black huge launch right attached fixed button">
         <i class="content icon"></i>
         <span class="text">Menu</span>
       </div>

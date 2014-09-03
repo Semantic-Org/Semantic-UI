@@ -217,9 +217,9 @@ a:hover {
 
 #example .main.menu {
   top: 0px;
-  left: -1px;
+  left: auto;
   min-width: 320px;
-  width: calc(100% - 15px);
+  width: 100%;
   z-index: 900;
 
   -webkit-box-sizing: border-box;
@@ -253,24 +253,6 @@ a:hover {
   margin-left: 2em;
 }
 
-/*--------------
-     Pushed
----------------*/
-
-/*#example.show .main.menu,
-#example.pushed .main.menu,
-#example.hide .main.menu {
-  left: -1px;
-  top: -1px;
-  width: calc(100% + 2px);
-}
-*/
-#example.hide .attached.launch.button,
-#example.show .attached.launch.button {
-  transition: none !important;
-  pointer-events: none !important;
-  animation: none !important;
-}
 
 /*--------------
      Intro
@@ -582,10 +564,10 @@ body#example.index {
 #example .stripe .message {
   margin: 2em 0em;
 }
-#example .attached.launch.button {
+#example .fixed.launch.button {
   position: fixed;
   top: 63px;
-  left: -1px;
+  left: auto;
   z-index: 500;
   width: 55px;
   height: 50px;
@@ -606,7 +588,7 @@ body#example.index {
     0.3s width ease
   ;
 }
-#example .attached.launch.button .text {
+#example .fixed.launch.button .text {
   position: absolute;
   top: 15px;
   left: 54px;
@@ -627,12 +609,16 @@ body#example.index {
     0.3s opacity 0.3s
   ;
 }
-#example .attached.launch.button:hover {
+#example .fixed.launch.button:hover {
   width: 130px;
 }
-#example .attached.launch.button:hover .text {
+#example .fixed.launch.button:hover .text {
   opacity: 1;
 }
+#example.index .fixed.launch.button {
+  top: 96px;
+}
+
 
 #example .shortcuts {
   float: right;
@@ -647,10 +633,6 @@ body#example.index {
 #example.index pre.console {
   height: 120px;
 }
-#example.index .attached.launch.button {
-  top: 96px;
-}
-
 #example .main.container {
   position: relative;
   padding-bottom: 2em;
@@ -1416,7 +1398,7 @@ body.progress .ui.progress .bar {
     margin: 0px auto;
     max-width: 9999px;
   }
-  #example .attached.launch.button {
+  #example .fixed.launch.button {
     display: none;
   }
   #example .fixed .launch {

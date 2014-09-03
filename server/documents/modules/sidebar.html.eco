@@ -31,6 +31,9 @@ themes      : ['Default']
     <div class="animation example">
       <h4 class="ui header">Animation</h4>
       <p>A sidebar can use different animations to change contexts</p>
+      <div class="ui button" data-animation="safe">
+        Safe
+      </div>
       <div class="ui button" data-animation="overlay">
         Overlay
       </div>
@@ -51,9 +54,6 @@ themes      : ['Default']
       </div>
       <div class="ui button" data-animation="scale up">
         Scale Up
-      </div>
-      <div class="ui button" data-animation="recede">
-        Recede
       </div>
       <div class="ui button" data-animation="open door">
         Open Door
