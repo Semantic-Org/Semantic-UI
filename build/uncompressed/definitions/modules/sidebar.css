@@ -200,6 +200,7 @@
 ---------------*/
 .pushable > .pusher > .page {
   position: relative;
+  min-height: 100%;
   background: #fcfcfc;
 }
 /*--------------

@@ -156,7 +156,7 @@
       <i class="download icon"></i> <b>Download</b>
     </a>
     <div class="item">
-      <a href="/element.html" class="ui small <%= if @document.elementType is 'element' then 'teal ' %>inverted header">Elements</a>
+      <a href="/element.html" class="ui small <%= if @document.elementType is 'element' then 'active ' %>inverted header">Elements</a>
       <div class="menu">
         <% for element in uiElements: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -164,7 +164,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/collection.html" class="ui small <%= if @document.elementType is 'collection' then 'teal ' %> inverted header">Collections</a>
+      <a href="/collection.html" class="ui small <%= if @document.elementType is 'collection' then 'active ' %> inverted header">Collections</a>
       <div class="menu">
         <% for element in uiCollections: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -172,7 +172,7 @@
       </div>
     </div>
     <div class="item">
-      <div class="ui small <%= if @document.elementType is 'view' then 'teal ' %> inverted header">Views</div>
+      <div class="ui small <%= if @document.elementType is 'view' then 'active ' %> inverted header">Views</div>
       <div class="menu">
         <% for element in uiViews: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -180,7 +180,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/module.html" class="ui small <%= if @document.elementType is 'module' then 'teal ' %> inverted header">Modules</a>
+      <a href="/module.html" class="ui small <%= if @document.elementType is 'module' then 'active ' %> inverted header">Modules</a>
       <div class="menu">
         <% for element in uiModules: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>
@@ -188,7 +188,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="/module.html" class="ui small <%= if @document.elementType is 'behavior' then 'teal ' %> inverted header">Behavior</a>
+      <a href="/module.html" class="ui small <%= if @document.elementType is 'behavior' then 'active ' %> inverted header">Behavior</a>
       <div class="menu">
         <% for element in uiBehavior: %>
           <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>"><%= element.title %></a>

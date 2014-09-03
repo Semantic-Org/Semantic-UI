@@ -18433,6 +18433,9 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*--------------
       Size
 ---------------*/
+.ui.modal {
+  font-size: 1em;
+}
 /* Small */
 .ui.small.modal > .header {
   font-size: 1.3em;
@@ -19242,23 +19245,6 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-             Rating
-*******************************/
-/*-------------------
-        Types
---------------------*/
-/* Star */
-/* Heart */
-/*-------------------
-        States
---------------------*/
-/*-------------------
-      Variations
---------------------*/
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -19349,6 +19335,23 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Rating
+*******************************/
+/*-------------------
+        Types
+--------------------*/
+/* Star */
+/* Heart */
+/*-------------------
+        States
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -19476,25 +19479,25 @@ a.ui.nag {
           Variations
 *******************************/
 .ui.mini.rating .icon {
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 .ui.tiny.rating .icon {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 .ui.small.rating .icon {
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 .ui.rating .icon {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.rating .icon {
-  font-size: 1.125em;
+  font-size: 1.1rem;
 }
 .ui.huge.rating .icon {
-  font-size: 1.375em;
+  font-size: 1.5rem;
 }
 .ui.massive.rating .icon {
-  font-size: 1.5em;
+  font-size: 2rem;
 }
 /* Realign */
 .ui.large.rating,
@@ -20424,6 +20427,7 @@ a.ui.nag {
 ---------------*/
 .pushable > .pusher > .page {
   position: relative;
+  min-height: 100%;
   background: #fcfcfc;
 }
 /*--------------

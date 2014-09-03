@@ -414,6 +414,9 @@
 /*--------------
       Size
 ---------------*/
+.ui.modal {
+  font-size: 1em;
+}
 /* Small */
 .ui.small.modal > .header {
   font-size: 1.3em;
