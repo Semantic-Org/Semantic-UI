@@ -2431,7 +2431,7 @@ body > .ui.grid:not(.page) {
   Text Content
 ---------------*/
 .ui.menu .text.item > *,
-.ui.menu .item > a,
+.ui.menu .item > a:not(.ui),
 .ui.menu .item > p:only-child {
   -webkit-user-select: text;
      -moz-user-select: text;
@@ -3320,14 +3320,14 @@ body > .ui.grid:not(.page) {
   box-shadow: none;
 }
 .ui.inverted.menu .item,
-.ui.inverted.menu .item > a {
+.ui.inverted.menu .item > a:not(.ui) {
   color: #ffffff;
 }
 .ui.inverted.menu .item:not(.dropdown).menu {
   background: transparent;
 }
 .ui.inverted.menu .item .item,
-.ui.inverted.menu .item .item > a {
+.ui.inverted.menu .item .item > a:not(.ui) {
   color: rgba(255, 255, 255, 0.5);
 }
 .ui.inverted.menu .dropdown .menu .item {
@@ -5309,8 +5309,9 @@ body > .ui.grid:not(.page) {
       -ms-user-select: none;
           user-select: none;
   box-sizing: border-box;
-  -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-          transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+          transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 /*******************************
             States
@@ -15650,6 +15651,7 @@ html,
 body {
   font-size: 14px;
   height: 100%;
+  font-smoothing: antialiased;
 }
 body {
   background: #fcfcfc;
@@ -20389,17 +20391,21 @@ a.ui.nag {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   height: 100% !important;
-  width: 300px !important;
+  width: 260px !important;
   border-radius: 0em !important;
   margin: 0 !important;
+  -webkit-transition: none;
+          transition: none;
   will-change: transform;
-  overflow: auto !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
 }
 /*--------------
      Body
 ---------------*/
 /* Sets 3D Perspective */
 .pushable {
+  background: #333333 !important;
   position: relative;
   height: 100%;
   overflow: hidden;
@@ -20409,15 +20415,15 @@ a.ui.nag {
 ---------------*/
 .pushable > .pusher {
   position: relative;
+  background: #333333;
   left: 0;
   height: 100%;
-  -webkit-transition: -webkit-transform 0.5s;
-          transition: transform 0.5s;
   z-index: 2;
+  -webkit-transform: translate3d(0px, 0, 0);
+          transform: translate3d(0px, 0, 0);
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
   will-change: transform;
-  /* Appears to reduce performance breaks fixed position
-  backface-visibility: hidden;
-  */
 }
 /*--------------
      Page
@@ -20426,9 +20432,7 @@ a.ui.nag {
   background: #fcfcfc;
   overflow-y: auto;
   height: 100%;
-  /* Appears to reduce performance
-  backface-visibility: hidden;
-  */
+  -webkit-overflow-scrolling: touch;
 }
 /*--------------
      Dimmer
@@ -20454,25 +20458,17 @@ a.ui.nag {
 /*--------------
      Pushed
 ---------------*/
-/* Add Canvas BG */
-.pushable.pushed,
-.pushable.hide,
-.pushable.show {
-  background: #333333 !important;
-}
-/* Remove Scroll */
 /* Show Dimmer */
 .pushable.pushed > .pusher > .page:after {
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
 }
-.pushable.hide > .pusher > .page *,
+/*.pushable.hide > .pusher > .page *,
 .pushable.show > .pusher > .page *,
 .pushable.pushed > .pusher > .page * {
-  -webkit-transition: none !important;
-          transition: none !important;
-}
+  transition: none !important;
+}*/
 /*--------------
      Visible
 ---------------*/
@@ -20497,52 +20493,45 @@ a.ui.nag {
     Overlay
 ---------------*/
 /* Set-up */
-.pushable.overlay > .ui.sidebar {
+.pushable.overlay > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
   z-index: 3;
 }
 /* Pushed */
-.pushable.overlay .visible.ui.sidebar {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+.pushable.overlay.pushed .visible.ui.sidebar {
+  -webkit-transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
 }
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
 .pushable.overlay.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease-in;
-          transition: transform 0.5s ease-in;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /*--------------
-     Pushed
+      Push
 ---------------*/
 /* Set-Up */
-.pushable.pushing.pushed > .pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-          transform: translate3d(300px, 0, 0);
+.pushable.push > .pusher {
+  -webkit-transform: translate3d(0px, 0, 0);
+          transform: translate3d(0px, 0, 0);
 }
-.pushable.pushing > .ui.sidebar {
+.pushable.push > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
-  z-index: 3;
-}
-.pushable.pushing > .pusher {
-  -webkit-transform: translate3d(0px, 0, 0);
-          transform: translate3d(0px, 0, 0);
-  z-index: 2;
 }
 /* Pushed */
-.pushable.pushing.pushed .visible.sidebar {
-  -webkit-transform: translate3d(0px, 0, 0);
-          transform: translate3d(0px, 0, 0);
+.pushable.push.pushed > .visible.ui.sidebar {
+  -webkit-transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
 }
-.pushable.pushing.pushed > .pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-          transform: translate3d(300px, 0, 0);
+.pushable.push.pushed > .pusher {
+  -webkit-transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
 }
-/* Animation */
-.pushable.pushing.show > .visible.ui.sidebar,
-.pushable.pushing.hide > .visible.ui.sidebar {
+.pushable.push.show > .visible.ui.sidebar,
+.pushable.push.hide > .visible.ui.sidebar {
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
 }
@@ -20550,70 +20539,68 @@ a.ui.nag {
      Reveal
 ---------------*/
 /* Set-up */
-.pushable.reveal .visible.ui.sidebar {
-  z-index: 1;
-}
 .pushable.reveal > .pusher {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0px, 0, 0);
+          transform: translate3d(0px, 0, 0);
   z-index: 2;
+}
+.pushable.reveal > .visible.ui.sidebar {
+  z-index: 1;
+  -webkit-transition: none;
+          transition: none;
 }
 /* Pushed */
 .pushable.reveal.pushed > .pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-          transform: translate3d(300px, 0, 0);
+  -webkit-transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
 }
 /*--------------
    Slide Along
 ---------------*/
 /* Set-up */
-.pushable.slide.along > .ui.sidebar {
+.pushable.slide.along > .pusher {
+  -webkit-transform: translate3d(0px, 0, 0);
+          transform: translate3d(0px, 0, 0);
+  z-index: 3;
+}
+.pushable.slide.along > .visible.ui.sidebar {
   z-index: 2;
   -webkit-transform: translate3d(-50%, 0, 0);
           transform: translate3d(-50%, 0, 0);
-}
-.pushable.slide.along > .pusher {
-  z-index: 3;
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /* Pushed */
 .pushable.slide.along.pushed > .pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-          transform: translate3d(300px, 0, 0);
-  transform-delay: 10ms;
+  -webkit-transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
 }
 .pushable.slide.along.pushed > .visible.ui.sidebar {
   -webkit-transform: translate3d(0%, 0, 0);
           transform: translate3d(0%, 0, 0);
 }
-/* Animation */
-.pushable.slide.along.show > .visible.ui.sidebar,
-.pushable.slide.along.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
-}
 /*--------------
    Slide Out
 ---------------*/
 /* Set-up */
-.pushable.slide.out > .ui.sidebar {
-  z-index: 1;
+.pushable.slide.out > .pusher {
+  -webkit-transform: translate3d(0px, 0, 0);
+          transform: translate3d(0px, 0, 0);
+}
+.pushable.slide.out > .visible.ui.sidebar {
   -webkit-transform: translate3d(50%, 0, 0);
           transform: translate3d(50%, 0, 0);
+  -webkit-transition: -webkit-transform 0.5s ease;
+          transition: transform 0.5s ease;
 }
 /* Pushed */
 .pushable.slide.out.pushed > .pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-          transform: translate3d(300px, 0, 0);
+  -webkit-transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
 }
 .pushable.slide.out.pushed .visible.ui.sidebar {
   -webkit-transform: translate3d(0%, 0, 0);
           transform: translate3d(0%, 0, 0);
-}
-/* Animation */
-.pushable.slide.out.show > .visible.ui.sidebar,
-.pushable.slide.out.hide > .visible.ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
 }
 /*--------------
    Scale Down
@@ -20628,8 +20615,7 @@ a.ui.nag {
           transform-style: preserve-3d;
   z-index: 2;
 }
-.pushable.scale.down > .ui.sidebar {
-  opacity: 1;
+.pushable.scale.down > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
   z-index: 3;
@@ -20643,7 +20629,7 @@ a.ui.nag {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
-/* Animation */
+/* 3D transition cant have duration set until animation */
 .pushable.scale.down.show > .visible.ui.sidebar,
 .pushable.scale.down.hide > .visible.ui.sidebar {
   -webkit-transition: -webkit-transform 0.5s ease;
@@ -20661,24 +20647,24 @@ a.ui.nag {
 }
 .pushable.scale.up > .ui.sidebar {
   z-index: 1;
-  -webkit-transform: translate3d(0, 0, -300px);
-          transform: translate3d(0, 0, -300px);
+  -webkit-transform: translate3d(0, 0, -260px);
+          transform: translate3d(0, 0, -260px);
 }
 .pushable.scale.up > .pusher {
   z-index: 2;
 }
 /* Pushed */
 .pushable.scale.up.pushed > .pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-          transform: translate3d(300px, 0, 0);
+  -webkit-transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
 }
 .pushable.scale.up.pushed > .visible.ui.sidebar {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
 /* Animation */
-.pushable.scale.up.show > .visible.ui.sidebar,
-.pushable.scale.up.hide > .visible.ui.sidebar {
+.pushable.scale.up.show > .ui.sidebar,
+.pushable.scale.up.hide > .ui.sidebar {
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
 }
@@ -20697,12 +20683,9 @@ a.ui.nag {
   z-index: 3;
 }
 .pushable.recede > .pusher {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  -webkit-transform: translate3d(0%, 0px, 0px) rotateY(0deg);
+          transform: translate3d(0%, 0px, 0px) rotateY(0deg);
   z-index: 2;
-}
-.pushable.recede > .pusher::after {
-  background-color: rgba(0, 0, 0, 0.5);
 }
 /* Pushed */
 .pushable.recede.pushed > .pusher {
@@ -20714,8 +20697,8 @@ a.ui.nag {
           transform: translate3d(0, 0, 0);
 }
 /* Animation */
-.pushable.recede.show > .visible.ui.sidebar,
-.pushable.recede.hide > .visible.ui.sidebar {
+.pushable.recede.show > .ui.sidebar,
+.pushable.recede.hide > .ui.sidebar {
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
 }
@@ -20737,8 +20720,8 @@ a.ui.nag {
   -webkit-transform-origin: 100% 50%;
       -ms-transform-origin: 100% 50%;
           transform-origin: 100% 50%;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
   z-index: 2;
 }
 /* Pushed */
@@ -20751,8 +20734,8 @@ a.ui.nag {
           transform: translate3d(0, 0, 0);
 }
 /* Animation */
-.pushable.open.door.show > .visible.ui.sidebar,
-.pushable.open.door.hide > .visible.ui.sidebar {
+.pushable.open.door.show > .ui.sidebar,
+.pushable.open.door.hide > .ui.sidebar {
   -webkit-transition: -webkit-transform 0.5s;
           transition: transform 0.5s;
 }
@@ -20781,8 +20764,8 @@ a.ui.nag {
 }
 /* Pushed */
 .pushable.rotate.in.pushed > .pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-          transform: translate3d(300px, 0, 0);
+  -webkit-transform: translate3d(260px, 0, 0);
+          transform: translate3d(260px, 0, 0);
 }
 .pushable.rotate.in.pushed .visible.ui.sidebar {
   -webkit-transform: translate3d(0%, 0, 0) rotateY(0deg);
@@ -20796,8 +20779,8 @@ a.ui.nag {
           transition: transform 0.5s ease 0s;
 }
 /* Animation */
-.pushable.rotate.in.show > .visible.ui.sidebar,
-.pushable.rotate.in.hide > .visible.ui.sidebar {
+.pushable.rotate.in.show > .ui.sidebar,
+.pushable.rotate.in.hide > .ui.sidebar {
   -webkit-transition: -webkit-transform 0.5s ease-in-out 0s;
           transition: transform 0.5s ease-in-out 0s;
 }
@@ -21347,12 +21330,12 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
           Transition
 *******************************/
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -22683,6 +22666,9 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
              Card
 *******************************/
@@ -22714,9 +22700,6 @@ a.ui.nag {
 /* Card Count */
 /* Stackable */
 /* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/

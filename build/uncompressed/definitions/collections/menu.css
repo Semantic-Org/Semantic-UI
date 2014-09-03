@@ -308,7 +308,7 @@
   Text Content
 ---------------*/
 .ui.menu .text.item > *,
-.ui.menu .item > a,
+.ui.menu .item > a:not(.ui),
 .ui.menu .item > p:only-child {
   -webkit-user-select: text;
      -moz-user-select: text;
@@ -1197,14 +1197,14 @@
   box-shadow: none;
 }
 .ui.inverted.menu .item,
-.ui.inverted.menu .item > a {
+.ui.inverted.menu .item > a:not(.ui) {
   color: #ffffff;
 }
 .ui.inverted.menu .item:not(.dropdown).menu {
   background: transparent;
 }
 .ui.inverted.menu .item .item,
-.ui.inverted.menu .item .item > a {
+.ui.inverted.menu .item .item > a:not(.ui) {
   color: rgba(255, 255, 255, 0.5);
 }
 .ui.inverted.menu .dropdown .menu .item {

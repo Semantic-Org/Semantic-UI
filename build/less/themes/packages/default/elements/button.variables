@@ -9,6 +9,7 @@
 @verticalMargin: 0em;
 @horizontalMargin: 0.25em;
 @textTransform: none;
+@tapColor: transparent;
 
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
@@ -34,8 +35,7 @@
   opacity @transitionDuration @transitionEasing,
   background-color @transitionDuration @transitionEasing,
   color @transitionDuration @transitionEasing,
-  background @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing
+  background @transitionDuration @transitionEasing
 ;
 
 /* Padding */

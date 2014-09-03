@@ -161,6 +161,7 @@ html,
 body {
   font-size: 14px;
   height: 100%;
+  font-smoothing: antialiased;
 }
 body {
   background: #fcfcfc;

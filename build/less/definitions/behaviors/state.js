@@ -18,6 +18,7 @@ $.fn.state = function(parameters) {
 
     moduleSelector  = $allModules.selector || '',
 
+    hasTouch        = ('ontouchstart' in document.documentElement),
     time            = new Date().getTime(),
     performance     = [],
 
@@ -26,12 +27,12 @@ $.fn.state = function(parameters) {
     queryArguments  = [].slice.call(arguments, 1),
 
     // shortcuts
-    error         = settings.error,
-    metadata      = settings.metadata,
-    className     = settings.className,
-    namespace     = settings.namespace,
-    states        = settings.states,
-    text          = settings.text,
+    error           = settings.error,
+    metadata        = settings.metadata,
+    className       = settings.className,
+    namespace       = settings.namespace,
+    states          = settings.states,
+    text            = settings.text,
 
     eventNamespace  = '.' + namespace,
     moduleNamespace = namespace + '-module',
