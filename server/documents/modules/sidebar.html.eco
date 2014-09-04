@@ -28,37 +28,37 @@ themes      : ['Default']
     </div>
     <h2 class="ui dividing header">Types</h2>
 
-    <div class="animation example">
-      <h4 class="ui header">Animation</h4>
-      <p>A sidebar can use different animations to change contexts</p>
-      <div class="ui button" data-animation="safe">
+    <div class="transition example">
+      <h4 class="ui header">Transitions</h4>
+      <p>A sidebar can use different transitions</p>
+      <div class="ui button" data-transition="safe">
         Safe
       </div>
-      <div class="ui button" data-animation="overlay">
+      <div class="ui button" data-transition="overlay">
         Overlay
       </div>
-      <div class="ui button" data-animation="push">
+      <div class="ui button" data-transition="push">
         Push
       </div>
-      <div class="ui button" data-animation="reveal">
+      <div class="ui button" data-transition="reveal">
         Reveal
       </div>
-      <div class="ui button" data-animation="slide along">
+      <div class="ui button" data-transition="slide along">
         Slide Along
       </div>
-      <div class="ui button" data-animation="slide out">
+      <div class="ui button" data-transition="slide out">
         Slide Out
       </div>
-      <div class="ui button" data-animation="scale down">
+      <div class="ui button" data-transition="scale down">
         Scale Down
       </div>
-      <div class="ui button" data-animation="scale up">
+      <div class="ui button" data-transition="scale up">
         Scale Up
       </div>
-      <div class="ui button" data-animation="open door">
+      <div class="ui button" data-transition="open door">
         Open Door
       </div>
-      <div class="ui button" data-animation="rotate in">
+      <div class="ui button" data-transition="rotate in">
         Rotate In
       </div>
     </div>

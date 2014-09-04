@@ -13,16 +13,16 @@ semantic.sidebar.ready = function() {
   $('.left.sidebar')
     .sidebar()
   ;
-  $('.animation.example')
+  $('.transition.example')
     .find('.button')
       .on('click', function() {
         var
-          animation = $(this).data('animation')
+          transition = $(this).data('transition')
         ;
         $('.left.sidebar')
           .sidebar('setting', {
-            animation: animation,
-            mobileAnimation: animation
+            transition       : transition,
+            mobileTransition : transition
           })
           .sidebar('toggle')
         ;
