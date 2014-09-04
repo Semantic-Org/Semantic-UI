@@ -501,7 +501,7 @@ semantic.ready = function() {
       // add run code button
       if(demo) {
         $('<a>')
-          .addClass('ui pointing below black label')
+          .addClass('ui pointing below label')
           .html('Run Code')
           .on('click', function() {
             eval(code);
@@ -587,9 +587,11 @@ semantic.ready = function() {
         context      : '.main.container',
         childrenOnly : true,
         history      : true,
-        onTabInit    : handler.makeCode,
+        onTabInit    : function() {
+          handler.makeCode();
+        },
         onTabLoad    : function() {
-
+          $sticky.filter(':visible').sticky('refresh');
         }
       })
     ;
@@ -664,7 +666,10 @@ semantic.ready = function() {
   ;
 
   $sticky
-    .sticky()
+    .sticky({
+      context : '.main.container',
+      pushing : true
+    })
   ;
 
 

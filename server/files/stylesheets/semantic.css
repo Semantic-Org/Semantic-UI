@@ -994,7 +994,7 @@ body#example {
   display: none;
 }
 /*rtl:ignore*/
-/*#example div.code {
+#example div.code {
   position: relative;
   width: 100%;
   height: 200px;
@@ -1010,11 +1010,10 @@ body#example {
   padding-right: 20px;
   padding-left: 10px;
 }
-
 #example div.code .ace_bracket {
   background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
-}*/
+}
 /* #example div.code .ace_indent-guide:after {
   content: '';
   position: absolute;
@@ -1376,25 +1375,13 @@ body.progress .ui.progress .bar {
   display: none;
 }
 
-#example .fixed.column .sticky-wrapper {
+#example .fixed.column {
   position: relative;
-  height: 0px !important;
+}
+#example .fixed.column .sticky {
+  padding-top: 3em;
 }
 
-#example .fixed.column .fixed,
-#example .fixed.segment .fixed {
-  position: fixed;
-  top: 65px;
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  -ms-perspective: 1000px;
-  perspective: 1000px;
-
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
 
 
 /*******************************
@@ -1620,6 +1607,15 @@ body.progress .ui.progress .bar {
   #example.transition .examples .pointing.below.label {
     display: none;
   }
+  #example .examples {
+    margin-right: 220px;
+    padding: 1px;
+  }
+  #example .fixed.column,
+  #example .fixed.column .fixed {
+    float: right;
+    width: 200px;
+  }
 }
 @media only screen and (min-width : 998px) {
   #example.index .main.menu .container {
@@ -1627,7 +1623,7 @@ body.progress .ui.progress .bar {
     padding: 0% 8%;
   }
   #example .examples {
-    margin-right: 400px;
+    margin-right: 330px;
     padding: 1px;
   }
   #example .fixed.column,

@@ -92,7 +92,7 @@ type        : 'Semantic'
   </div>
   <div class="ui tab" data-tab="behavior">
     <div class="fixed column">
-      <div class="content">
+      <div class="ui sticky">
         <h3 class="ui header">Demo Element</h3>
         <i class="demo circular help link icon" data-content="Popup #1"></i>
         <i class="demo circular help link icon" data-content="Popup #2"></i>

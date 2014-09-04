@@ -396,7 +396,6 @@ $.fn.popup = function(parameters) {
               offstage  = {},
               offstagePositions = []
             ;
-            console.log($popup.width());
             if(popup.position) {
               offstage = {
                 top    : (popup.position.top < boundary.top),

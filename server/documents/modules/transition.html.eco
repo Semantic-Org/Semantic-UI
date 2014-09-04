@@ -18,7 +18,6 @@ type        : 'UI Module'
     <div class="fixed column">
       <div class="demo content ui sticky">
         <img src="/images/cat.png" class="ui cat image">
-        <img src="/images/dog.png" class="ui hidden transition dog image">
       </div>
     </div>
     <div class="ui active tab" data-tab="standard">
@@ -188,7 +187,9 @@ type        : 'UI Module'
   </div>
   <div class="ui tab" data-tab="usage">
     <div class="fixed column">
-      <img src="/images/dog.png" class="ui dog image">
+      <div class="ui sticky">
+        <img src="/images/dog.png" class="ui dog image">
+      </div>
     </div>
     <div class="examples">
       <h2 class="ui dividing header">Introduction</h2>
@@ -346,7 +347,9 @@ type        : 'UI Module'
 
   <div class="ui tab" data-tab="examples">
     <div class="fixed column">
-      <img src="/images/cat.png" class="ui kitten image">
+      <div class="ui sticky">
+        <img src="/images/cat.png" class="ui kitten image">
+      </div>
     </div>
     <div class="examples">
       <h3 class="ui header">Visibility</h3>
