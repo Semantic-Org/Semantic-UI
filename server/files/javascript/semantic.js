@@ -311,7 +311,8 @@ semantic.ready = function() {
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
         $header     = $example.not('.another').children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
-        $demo       = $example.children().not($header).not('i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $ignored    = $('i.code:first-child, .code, .existing, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $demo       = $example.children().not($header).not($ignored),
         code        = ''
       ;
       if( $code.size() === 0) {
@@ -329,14 +330,14 @@ semantic.ready = function() {
     },
     createCode: function(type) {
       var
-        $example    = $(this).closest('.example'),
-        $header     = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
-        $annotation = $example.find('.annotation'),
-        $code       = $annotation.find('.code'),
-        $demo       = $example.children().not($header).not('.ui.popup, i.code:first-child, .code, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
-        code        = $example.data('code') || $.proxy(handler.generateCode, this)()
+        $example        = $(this).closest('.example'),
+        $header         = $example.children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
+        $annotation     = $example.find('.annotation'),
+        $code           = $annotation.find('.code'),
+        $ignoredContent = $('.ui.popup, i.code:first-child, .code, .existing.segment, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $demo           = $example.children().not($header).not($ignoredContent),
+        code            = $example.data('code') || $.proxy(handler.generateCode, this)()
       ;
-
       if( $code.hasClass('existing') ) {
         $annotation.show();
         $code.removeClass('existing');
@@ -350,7 +351,7 @@ semantic.ready = function() {
         ;
       }
 
-      if( $example.find('.ace_editor').size() === 0) {
+      if( $example.find('.instructive').size() === 0) {
         $code = $('<div/>')
           .data('type', 'html')
           .addClass('code')
@@ -427,6 +428,7 @@ semantic.ready = function() {
         $code        = $(this).show(),
         code         = $code.html(),
         existingCode = $code.hasClass('existing'),
+        evaluatedCode = $code.hasClass('evaluated'),
         contentType  = $code.data('type')    || 'javascript',
         title        = $code.data('title')   || false,
         demo         = $code.data('demo')    || false,
@@ -439,8 +441,11 @@ semantic.ready = function() {
           text       : 'Command Line',
           sh         : 'Command Line'
         },
-        indent     = handler.getIndent(code) || 4,
+        indent     = handler.getIndent(code) || 2,
         padding    = 20,
+        name = (evaluatedCode)
+          ? 'existing'
+          : 'instructive',
         whiteSpace,
         $label,
         editor,
@@ -460,7 +465,7 @@ semantic.ready = function() {
       }
 
       // evaluate if specified
-      if($code.hasClass('evaluated')) {
+      if(evaluatedCode) {
         eval(code);
       }
 
@@ -481,7 +486,7 @@ semantic.ready = function() {
       codeHeight = editorSession.getScreenLength() * editor.renderer.lineHeight + padding;
       $(this)
         .height(codeHeight + 'px')
-        .wrap('<div class="ui instructive segment">')
+        .wrap('<div class="ui ' + name + ' segment">')
       ;
       // add label
       if(title) {

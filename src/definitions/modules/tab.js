@@ -709,9 +709,9 @@ $.fn.tab.settings = {
   name        : 'Tab',
   namespace   : 'tab',
 
-  debug       : true,
-  verbose     : true,
-  performance : true,
+  debug       : false,
+  verbose     : false,
+  performance : false,
 
   // only called first time a tab's content is loaded (when remote source)
   onTabInit   : function(tabPath, parameterArray, historyEvent) {},

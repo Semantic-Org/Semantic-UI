@@ -90,17 +90,51 @@ themes      : ['Default']
 
   <div class="ui tab" data-tab="usage">
 
-    <h2 class="ui dividing header">Initializing</h2>
+    <h2 class="ui dividing header">Usage</h2>
 
-    <h3 class="ui header">Initializing an popup</h3>
+    <h3 class="ui header">Initializing A Popup</h3>
+    <p>A popup is initialized on an activating element</p>
     <div class="code">
-    $('.ui.popup')
+    $('.activating.element')
       .popup()
     ;
     </div>
 
     <div class="no example">
-      <h3 class="ui header">Including content with HTML Metadata</h3>
+      <h3 class="ui header">Using a Pre-existing Popup</h3>
+      <p>Using a pre-existing popup allows for you to include complex html inside your popup.<p>
+      <h4>As a sibling element</h4>
+      <p>If you include your popup on page load as an adjacent sibling element to your activating element it can be found automatically.</p>
+      <p>To instruct popup to look inline for your popup element you can initialize it with the <code>inline</code> parameter</p>
+      <div class="code" data-type="javascript">
+        $('.button')
+          .popup({
+            inline: true
+          })
+        ;
+      </div>
+      <div class="code" data-type="html">
+        <i class="ui button">Activator</i>
+        <div class="ui special popup">
+          <div class="header">Custom Header</div>
+          <div class="ui button">Click Me</div>
+        </div>
+      </div>
+    </div>
+    <div class="no example">
+      <h4>Anywhere on the page</h4>
+      <p>If you cannot include your popup element as a sibling element, you can specify a custom selector to retrieve your popup</p>
+      <div class="code" data-type="javascript">
+        $('.button')
+          .popup({
+            popup: '.special.popup'
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="no example">
+      <h3 class="ui header">Specifying Content In Metadata</h3>
       <p>Frequently used settings like, title, content, html, or offset or variation, can be included in html metadata<p>
       <div class="ui info icon ignored message">
         <i class="info icon"></i>
@@ -122,16 +156,17 @@ themes      : ['Default']
           </ul>
         </div>
       </div>
-      <h4 class="ui header">Initializing with metadata</h4>
       <div class="code" data-type="html">
         <i class="heart icon" title="Hello I am a popup"></i>
       </div>
-      <div class="ui horizontal divider">Or</div>
-      <h4 class="ui header">Initializing with javascript content</h4>
+    </div>
+    <div class="no example">
+      <h3 class="ui header">Specifying Content In Javascript</h3>
       <div class="code">
       $('.ui.popup')
         .popup({
-          content: 'Hello I am a popup'
+          title   : 'Popup Title',
+          content : 'Hello I am a popup'
         })
       ;
       </div>
@@ -197,10 +232,12 @@ themes      : ['Default']
   <div class="ui tab" data-tab="examples">
     <div class="example">
       <h3 class="ui header">Wide Popup Menu</h3>
-      <p>An easier way to display complex content, like a wide popup menu is to have the popup content as a pre-existing part of your page's html.</p>
-      <p>Using the setting <code>inline: true</code> will let Semantic know to display the next sibling <code>ui popup</code> element after the activator.</p>
+      <div class="ignored">
+        <p>An easier way to display complex content, like a wide popup menu is to have the popup content as a pre-  existing part of your page's html.</p>
+        <p>Using the setting <code>inline: true</code> will let Semantic know to display the next sibling <code>ui  popup</code> element after the activator.</p>
 
-      <p>Tweaking settings like the delay for show, and hide, and making the menu hoverable will help it function more like a dropdown menu</p>
+        <p>Tweaking settings like the delay for show, and hide, and making the menu hoverable will help it function   more like a dropdown menu</p>
+      </div>
 
       <div class="evaluated code">
       $('.example .menu .browse')
@@ -224,18 +261,41 @@ themes      : ['Default']
           Browse
         </a>
         <div class="ui very wide popup">
-          <div class="ui four column divided fitted grid">
+          <div class="ui four column fitted grid">
             <div class="ui column">
-              1
+              <h5 class="ui header">Fabrics</h5>
+              <div class="ui link list">
+                <a class="item">Cashmere</a>
+                <a class="item">Linen</a>
+                <a class="item">Cotton</a>
+                <a class="item">Viscose</a>
+              </div>
             </div>
             <div class="ui column">
-              2
+              <h5 class="ui header">Sizes</h5>
+              <div class="ui link list">
+                <a class="item">Small</a>
+                <a class="item">Medium</a>
+                <a class="item">Large</a>
+                <a class="item">Plus Sizes</a>
+              </div>
             </div>
             <div class="ui column">
-              3
+              <h5 class="ui header">Colors</h5>
+              <div class="ui link list">
+                <a class="item">Neutrals</a>
+                <a class="item">Brights</a>
+                <a class="item">Pastels</a>
+              </div>
             </div>
             <div class="ui column">
-              4
+              <h5 class="ui header">Types</h5>
+              <div class="ui link list">
+                <a class="item">Knitwear</a>
+                <a class="item">Outerwear</a>
+                <a class="item">Pants</a>
+                <a class="item">Shoes</a>
+              </div>
             </div>
           </div>
         </div>

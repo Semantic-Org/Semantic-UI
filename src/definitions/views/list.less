@@ -13,7 +13,7 @@
             Theme
 *******************************/
 
-@type    : 'view';
+@type    : 'element';
 @element : 'list';
 
 @import '../../semantic.config';
@@ -188,6 +188,14 @@ ol.ui.list ol,
   margin-left: @floatMargin;
 }
 
+/*******************************
+            Coupling
+*******************************/
+
+.ui.menu .ui.list .item:before {
+  border: none;
+  background: none;
+}
 
 
 /*******************************

@@ -835,9 +835,9 @@ $.fn.popup.settings = {
 
   name           : 'Popup',
 
-  debug          : true,
-  verbose        : true,
-  performance    : true,
+  debug          : false,
+  verbose        : false,
+  performance    : false,
   namespace      : 'popup',
 
   onCreate       : function(){},
