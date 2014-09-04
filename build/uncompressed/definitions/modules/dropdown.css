@@ -193,7 +193,8 @@
   position: relative;
   display: inline-block;
   line-height: 1;
-  transition: border-radius 0.1s ease, width 0.2s ease;
+  -webkit-transition: border-radius 0.1s ease, width 0.2s ease;
+          transition: border-radius 0.1s ease, width 0.2s ease;
   tap-highlight-color: rgba(0, 0, 0, 0);
 }
 /*******************************
@@ -216,7 +217,8 @@
   text-shadow: none;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.15);
   border-radius: 0em 0em 0.325em 0.325em;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
   z-index: 11;
   will-change: transform, opacity;
 }
@@ -238,7 +240,8 @@
 .ui.dropdown > .text {
   display: inline-block;
   vertical-align: top;
-  transition: color 0.2s ease;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
 }
 /*--------------
     Menu Item
@@ -331,7 +334,8 @@
   border-top: 1px solid transparent;
 }
 .ui.selection.dropdown.active {
-  transform: rotateZ(0deg);
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
   z-index: 10;
 }
 .ui.selection.dropdown select {
@@ -340,7 +344,8 @@
 .ui.selection.dropdown > .dropdown.icon {
   opacity: 0.8;
   margin: 0em 0em 0em 1em;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
 }
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
@@ -484,7 +489,8 @@
   opacity: 0;
   width: 0;
   height: 0;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
 }
 .ui.simple.active.dropdown,
 .ui.simple.dropdown:hover {
@@ -547,7 +553,9 @@
   pointer-events: none;
   content: '';
   visibility: visible;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
   width: 0.5em;
   height: 0.5em;
   box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
@@ -572,7 +580,9 @@
   left: 1em;
   right: auto;
   margin: 0em;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .ui.top.right.pointing.dropdown .menu {
   top: 100%;
@@ -586,7 +596,9 @@
   left: auto;
   right: 1em;
   margin: 0em;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .ui.left.pointing.dropdown .menu {
   top: 0%;
@@ -598,7 +610,9 @@
   top: 1em;
   left: -0.25em;
   margin: 0em 0em 0em 0em;
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 .ui.right.pointing.dropdown .menu {
   top: 0%;
@@ -611,7 +625,9 @@
   left: auto;
   right: -0.25em;
   margin: 0em 0em 0em 0em;
-  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
 }
 /*******************************
            Overrides
@@ -628,7 +644,8 @@
   line-height: 1;
   height: 1em;
   width: 1.23em;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   font-weight: normal;
   font-style: normal;
   text-align: center;

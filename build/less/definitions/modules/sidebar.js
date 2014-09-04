@@ -166,11 +166,6 @@ $.fn.sidebar = function(parameters) {
               module.debug('Moved sidebar to correct parent element');
               $module.detach().prependTo($context);
             }
-            $fixed
-              .css({
-                transform: 'translate3d(0, 0px, 0px)'
-              })
-            ;
             module.refresh();
           },
           context: function() {

@@ -41,7 +41,7 @@
   border-radius: @borderRadius;
   box-shadow: @boxShadow;
 }
-.ui.popup .header {
+.ui.popup > .header {
   padding: 0em;
 
   font-family: @headerFont;
@@ -49,7 +49,7 @@
   line-height: @headerLineHeight;
   font-weight: bold;
 }
-.ui.popup .header + .content {
+.ui.popup > .header + .content {
   padding-top: @headerDistance;
 }
 
@@ -64,10 +64,6 @@
 
   z-index: @arrowZIndex;
   box-shadow: @arrowBoxShadow;
-}
-
-.ui.popup .ui.button {
-  width: @popupButtonWidth;
 }
 
 /*******************************

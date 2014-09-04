@@ -114,7 +114,7 @@ themes      : ['Default']
         ;
       </div>
       <div class="code" data-type="html">
-        <i class="ui button">Activator</i>
+        <div class="ui button">Activator</div>
         <div class="ui special popup">
           <div class="header">Custom Header</div>
           <div class="ui button">Click Me</div>

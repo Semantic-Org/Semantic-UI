@@ -194,14 +194,14 @@
   border-radius: 0.2em;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
-.ui.popup .header {
+.ui.popup > .header {
   padding: 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
 }
-.ui.popup .header + .content {
+.ui.popup > .header + .content {
   padding-top: 0.5em;
 }
 .ui.popup:before {
@@ -210,12 +210,11 @@
   width: 0.75em;
   height: 0.75em;
   background: #ffffff;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
   z-index: 2;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-.ui.popup .ui.button {
-  width: 100%;
 }
 /*******************************
             Types

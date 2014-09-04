@@ -353,8 +353,10 @@
   top: 0px;
   right: 0px;
   left: auto;
-  transition: opacity 0.2s ease;
-  transition-delay: 0.1s;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
 }
 .ui.minimal.comments .comment > .content:hover > .actions {
   opacity: 1;

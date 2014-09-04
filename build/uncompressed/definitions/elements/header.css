@@ -146,6 +146,7 @@
 /* Sizing */
 /* Sub Header */
 /* Icon */
+/* Label */
 /* Content */
 /* Paragraph after Header */
 /*-------------------
@@ -269,8 +270,8 @@ h5.ui.header {
  Loose Coupling
 ---------------*/
 .ui.header .ui.label {
-  margin: 0em;
-  vertical-align: top;
+  margin: 0em 0em 0em 0.5rem;
+  vertical-align: middle;
 }
 /*******************************
             Types
@@ -410,10 +411,12 @@ a.ui.yellow.header:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 .ui.inverted.attached.header {
+  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   box-shadow: none;
 }
 .ui.inverted.block.header {
+  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   box-shadow: none;
 }
@@ -538,6 +541,7 @@ a.ui.inverted.yellow.header:hover {
         Block
 --------------------*/
 .ui.block.header {
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   padding: 0.75rem 1rem;
   box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -563,6 +567,7 @@ a.ui.inverted.yellow.header:hover {
        Attached
 --------------------*/
 .ui.attached.header {
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   margin: 0em;
   padding: 0.75rem 1rem;

@@ -197,7 +197,8 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0.3125em;
-  transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
   box-shadow: none;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -303,7 +304,8 @@
   text-align: center;
   border-radius: 0em 0.3125em 0.3125em 0em;
   box-sizing: border-box;
-  transition: opacity 0.3s ease-out;
+  -webkit-transition: opacity 0.3s ease-out;
+          transition: opacity 0.3s ease-out;
 }
 .ui.icon.input > .link.icon {
   cursor: pointer;

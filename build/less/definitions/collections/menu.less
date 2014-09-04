@@ -331,9 +331,12 @@
       Hover
 ---------------*/
 
-.ui.link.menu .item:hover,
-.ui.menu .link.item:hover,
-.ui.menu a.item:hover {
+.ui.link.menu > .item:hover,
+.ui.menu > .link.item:hover,
+.ui.menu > a.item:hover,
+.ui.link.menu .menu > .item:hover,
+.ui.menu .menu > .link.item:hover,
+.ui.menu .menu > a.item:hover {
   cursor: pointer;
   background: @hoverBackground;
   color: @hoverColor;
@@ -1515,6 +1518,7 @@
 .ui.fixed.menu + .ui.grid {
   padding-top: @fixedGridMargin;
 }
+
 
 /*-------------------
        Pointing
