@@ -264,7 +264,6 @@ body > .ui.grid:not(.page) {
   Page Grid (Responsive)
 -------------------------*/
 .ui.page.grid {
-  min-width: 320px;
   padding-left: 0%;
   padding-right: 0%;
   width: auto;
@@ -274,8 +273,8 @@ body > .ui.grid:not(.page) {
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
     width: auto;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 @media only screen and (min-width: 768px) {

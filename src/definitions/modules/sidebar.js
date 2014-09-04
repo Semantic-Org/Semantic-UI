@@ -105,15 +105,19 @@ $.fn.sidebar = function(parameters) {
               module.verbose('User clicked on dimmed page');
               module.hide();
             }
+          },
+          scroll: function(event) {
+            if( $module.find(event.target).size() === 0 && $(event.target).filter($module).size() === 0 ) {
+              event.preventDefault();
+            }
           }
         },
 
         bind: {
           clickaway: function() {
-
-            $(window).on('DOMMouseScroll' + eventNamespace, function(event){
-              event.preventDefault();
-            });
+            $(window)
+              .on('DOMMouseScroll' + eventNamespace, module.event.scroll)
+            ;
             $context
               .on('click' + eventNamespace, module.event.clickaway)
               .on('touchend' + eventNamespace, module.event.clickaway)

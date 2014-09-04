@@ -32,7 +32,7 @@
 
 /* Column Gutters */
 @mobileWidth: auto;
-@mobileGutter: 1em;
+@mobileGutter: 1rem;
 
 @tabletWidth: auto;
 @tabletGutter: 8%;

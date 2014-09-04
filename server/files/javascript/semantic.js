@@ -397,7 +397,7 @@ semantic.ready = function() {
         .each(function() {
           var
             $code = $(this),
-            padding     = 20,
+            padding     = 50,
             editor,
             editorSession,
             codeHeight
@@ -489,8 +489,8 @@ semantic.ready = function() {
       editor        = ace.edit($code[0]);
       editorSession = editor.getSession();
 
-      editor.setTheme('ace/theme/tomorrow');
-      // editor.setTheme('ace/theme/github');
+      //editor.setTheme('ace/theme/tomorrow');
+      editor.setTheme('ace/theme/github');
       editor.setShowPrintMargin(false);
       editor.setReadOnly(true);
       editor.renderer.setShowGutter(false);
@@ -680,12 +680,12 @@ semantic.ready = function() {
       })
   ;
 
-/*  $(window)
+  $(window)
     .on('resize', function() {
       clearTimeout(handler.timer);
-      handler.timer = setTimeout(handler.resizeCode, 100);
+      handler.timer = setTimeout(handler.resizeCode, 500);
     })
-  ;*/
+  ;
 
   $downloadDropdown
     .dropdown({

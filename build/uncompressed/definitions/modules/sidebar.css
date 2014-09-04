@@ -164,8 +164,6 @@
   left: 0;
   visibility: hidden;
   background: #191919;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
   height: 100% !important;
   width: 260px !important;
   border-radius: 0em !important;
@@ -174,6 +172,8 @@
           transition: none;
   will-change: transform;
   overflow-y: auto !important;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 /*--------------
      Body
@@ -236,8 +236,29 @@
   height: 100% !important;
   opacity: 1 !important;
 }
-.pushable.pushed > .visible.sidebar {
+.pushable.pushed > .pusher {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
+}
+.pushable.active > .visible.sidebar {
+  -webkit-overflow-scrolling: touch;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 9999;
+}
+/*--------------
+    Animation
+---------------*/
+.pushable.show > .pusher,
+.pushable.hide > .pusher {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.pushable.show > .visible.sidebar,
+.pushable.hide > .visible.sidebar {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 /*.pushable.hide > .pusher > .page *,
 .pushable.show > .pusher > .page *,

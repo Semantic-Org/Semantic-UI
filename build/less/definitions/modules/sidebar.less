@@ -39,8 +39,8 @@
 
   transition: none;
   will-change: transform;
-
   overflow-y: auto !important;
+  backface-visibility: hidden;
 }
 
 /*--------------
@@ -95,7 +95,6 @@
   will-change: opacity;
 }
 
-
 /*******************************
             States
 *******************************/
@@ -115,8 +114,28 @@
   opacity: 1 !important;
 }
 
-.pushable.pushed > .visible.sidebar {
+.pushable.pushed > .pusher {
+  backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
+}
+
+.pushable.active > .visible.sidebar {
+  -webkit-overflow-scrolling: touch;
+  backface-visibility: hidden;
+  z-index: 9999;
+}
+
+/*--------------
+    Animation
+---------------*/
+
+.pushable.show > .pusher,
+.pushable.hide > .pusher {
+  backface-visibility: hidden;
+}
+.pushable.show > .visible.sidebar,
+.pushable.hide > .visible.sidebar {
+  backface-visibility: hidden;
 }
 
 /*.pushable.hide > .pusher > .page *,

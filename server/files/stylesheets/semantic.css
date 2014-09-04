@@ -301,9 +301,37 @@ body.guide .main.container > * {
 }
 body#example {
   background: #2C2C2C url(../images/icons.png) !important;
-}
-body#example.index {
-  background: #2C2C2C !important;
+
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  -webkit-animation-name: masthead;
+  -moz-animation-name: masthead;
+  -o-animation-name: masthead;
+  animation-name: masthead;
+
+  -webkit-animation-duration: 30s;
+  -moz-animation-duration: 30s;
+  -ms-animation-duration: 30s;
+  -o-animation-duration: 30s;
+  animation-duration: 30s;
+
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 #example .masthead:before {
@@ -1595,9 +1623,6 @@ body.progress .ui.progress .bar {
   }
   #example.transition .examples .pointing.below.label {
     display: none;
-  }
-  body#example.index {
-    background: #2C2C2C !important;
   }
 }
 @media only screen and (min-width : 998px) {

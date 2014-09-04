@@ -39,7 +39,7 @@
 
   transition: none;
   will-change: transform;
-
+  overflow-y: auto !important;
   backface-visibility: hidden;
 }
 
@@ -95,7 +95,6 @@
   will-change: opacity;
 }
 
-
 /*******************************
             States
 *******************************/
@@ -117,11 +116,13 @@
 
 .pushable.pushed > .pusher {
   backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pushable.active > .visible.sidebar {
   -webkit-overflow-scrolling: touch;
-  overflow-y: auto !important;
+  backface-visibility: hidden;
+  z-index: 9999;
 }
 
 /*--------------

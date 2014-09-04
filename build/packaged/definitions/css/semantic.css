@@ -1342,7 +1342,6 @@ body > .ui.grid:not(.page) {
   Page Grid (Responsive)
 -------------------------*/
 .ui.page.grid {
-  min-width: 320px;
   padding-left: 0%;
   padding-right: 0%;
   width: auto;
@@ -1352,8 +1351,8 @@ body > .ui.grid:not(.page) {
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
     width: auto;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -20391,8 +20390,6 @@ a.ui.nag {
   left: 0;
   visibility: hidden;
   background: #191919;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
   height: 100% !important;
   width: 260px !important;
   border-radius: 0em !important;
@@ -20401,6 +20398,8 @@ a.ui.nag {
           transition: none;
   will-change: transform;
   overflow-y: auto !important;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 /*--------------
      Body
@@ -20463,8 +20462,29 @@ a.ui.nag {
   height: 100% !important;
   opacity: 1 !important;
 }
-.pushable.pushed > .visible.sidebar {
+.pushable.pushed > .pusher {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
+}
+.pushable.active > .visible.sidebar {
+  -webkit-overflow-scrolling: touch;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 9999;
+}
+/*--------------
+    Animation
+---------------*/
+.pushable.show > .pusher,
+.pushable.hide > .pusher {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.pushable.show > .visible.sidebar,
+.pushable.hide > .visible.sidebar {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 /*.pushable.hide > .pusher > .page *,
 .pushable.show > .pusher > .page *,
