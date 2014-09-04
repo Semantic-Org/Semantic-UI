@@ -40,7 +40,7 @@
   transition: none;
   will-change: transform;
 
-  overflow-y: auto !important;
+  backface-visibility: hidden;
 }
 
 /*--------------
@@ -115,8 +115,26 @@
   opacity: 1 !important;
 }
 
-.pushable.pushed > .visible.sidebar {
+.pushable.pushed > .pusher {
+  backface-visibility: hidden;
+}
+
+.pushable.active > .visible.sidebar {
   -webkit-overflow-scrolling: touch;
+  overflow-y: auto !important;
+}
+
+/*--------------
+    Animation
+---------------*/
+
+.pushable.show > .pusher,
+.pushable.hide > .pusher {
+  backface-visibility: hidden;
+}
+.pushable.show > .visible.sidebar,
+.pushable.hide > .visible.sidebar {
+  backface-visibility: hidden;
 }
 
 /*.pushable.hide > .pusher > .page *,

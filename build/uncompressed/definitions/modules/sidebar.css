@@ -413,13 +413,7 @@
    Scale Down
 ---------------*/
 /* Set-up */
-.pushable.scale.down {
-  -webkit-perspective: 1500px;
-          perspective: 1500px;
-}
 .pushable.scale.down > .pusher {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
   z-index: 1001;
   -webkit-transform-origin: 75% 50%;
       -ms-transform-origin: 75% 50%;

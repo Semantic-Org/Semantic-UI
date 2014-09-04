@@ -1267,7 +1267,7 @@ body#example.index {
   }
 }
 
-#example .animation.example .ui.button {
+#example .transition.example .ui.button {
   margin-bottom: 0.5em;
 }
 

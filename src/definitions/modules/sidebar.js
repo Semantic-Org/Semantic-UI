@@ -209,6 +209,7 @@ $.fn.sidebar = function(parameters) {
               module.hideAll();
             }
             module.pushPage(function() {
+              module.set.active();
               $.proxy(callback, element)();
               $.proxy(settings.onShow, element)();
             });
@@ -273,7 +274,6 @@ $.fn.sidebar = function(parameters) {
             module.set.transition();
             module.set.direction();
             requestAnimationFrame(function() {
-              module.set.active();
               module.set.inward();
               module.set.pushed();
             });

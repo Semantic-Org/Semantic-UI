@@ -139,6 +139,11 @@ $.fn.sidebar = function(parameters) {
           $fixed    = $pusher.find(selector.fixed);
         },
 
+        repaint: function() {
+          module.verbose('Forcing repaint event');
+          var fakeAssignment = $context[0].offsetWidth;
+        },
+
         setup: {
           layout: function() {
             if( $context.find(selector.pusher).size() === 0 ) {
@@ -198,9 +203,9 @@ $.fn.sidebar = function(parameters) {
           module.debug('Showing sidebar', callback);
           if(module.is.closed()) {
             if(settings.overlay)  {
-              settings.animation = 'overlay';
+              settings.transition = 'overlay';
             }
-            if(settings.animation !== 'overlay') {
+            if(settings.transition !== 'overlay') {
               module.hideAll();
             }
             module.pushPage(function() {
@@ -252,20 +257,20 @@ $.fn.sidebar = function(parameters) {
 
         pushPage: function(callback) {
           var
-            $transition = (settings.animation == 'safe')
+            $transition = (settings.transition == 'safe')
               ? $context
-              : (settings.animation == 'overlay')
+              : (settings.transition == 'overlay')
                 ? $module
                 : $pusher,
-            animation
+            transition
           ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          animation = function() {
+          transition = function() {
             module.set.visible();
-            module.set.animation();
+            module.set.transition();
             module.set.direction();
             requestAnimationFrame(function() {
               module.set.active();
@@ -284,23 +289,26 @@ $.fn.sidebar = function(parameters) {
             })
           ;
           module.verbose('Adding context push state', $context);
-          if(settings.animation === 'overlay') {
-            requestAnimationFrame(animation);
+          if(settings.transition === 'overlay') {
+            requestAnimationFrame(transition);
           }
           else {
-            if(settings.animation !== 'safe') {
-              window.scrollTo(0, 0);
+            if(settings.transition !== 'safe') {
+              $module.scrollTop(0);
+              if(settings.workaround === 'scroll') {
+                window.scrollTo(0, 0);
+              }
             }
             module.remove.allVisible();
-            animation();
+            requestAnimationFrame(transition);
           }
         },
 
         pullPage: function(callback) {
           var
-            $transition = (settings.animation == 'safe')
+            $transition = (settings.transition == 'safe')
               ? $context
-              : (settings.animation == 'overlay')
+              : (settings.transition == 'overlay')
                 ? $module
                 : $pusher
           ;
@@ -314,7 +322,7 @@ $.fn.sidebar = function(parameters) {
             .on(transitionEnd, function(event) {
               if( event.target == $transition[0] ) {
                 $transition.off(transitionEnd);
-                module.remove.animation();
+                module.remove.transition();
                 module.remove.direction();
                 module.remove.outward();
                 module.remove.visible();
@@ -338,12 +346,12 @@ $.fn.sidebar = function(parameters) {
           visible: function() {
             $module.addClass(className.visible);
           },
-          animation: function(animation) {
-            animation = animation || ( module.is.mobile() )
-              ? settings.mobileAnimation
-              : settings.animation
+          transition: function(transition) {
+            transition = transition || ( module.is.mobile() )
+              ? settings.mobileTransition
+              : settings.transition
             ;
-            $context.addClass(animation);
+            $context.addClass(transition);
           },
           inward: function() {
             $context.addClass(className.inward);
@@ -368,12 +376,12 @@ $.fn.sidebar = function(parameters) {
               $sidebars.removeClass(className.visible);
             }
           },
-          animation: function(animation) {
-            animation = animation || ( module.is.mobile() )
-              ? settings.mobileAnimation
-              : settings.animation
+          transition: function(transition) {
+            transition = transition || ( module.is.mobile() )
+              ? settings.mobileTransition
+              : settings.transition
             ;
-            $context.removeClass(animation);
+            $context.removeClass(transition);
           },
           pushed: function() {
             $context.removeClass(className.pushed);
@@ -436,7 +444,7 @@ $.fn.sidebar = function(parameters) {
               return true;
             }
             else {
-              module.verbose('Browser is not mobile, using regular animation', userAgent);
+              module.verbose('Browser is not mobile, using regular transition', userAgent);
               return false;
             }
           },
@@ -646,8 +654,8 @@ $.fn.sidebar.settings = {
   verbose         : false,
   performance     : false,
 
-  animation       : 'overlay',
-  mobileAnimation : 'slide along',
+  transition       : 'overlay',
+  mobileTransition : 'slide along',
 
   context         : 'body',
   useCSS          : true,
@@ -664,7 +672,9 @@ $.fn.sidebar.settings = {
   onHidden        : function(){},
   onVisible       : function(){},
 
-  className : {
+  workaround      : 'scroll',
+
+  className       : {
     pushable : 'pushable',
     active   : 'active',
     visible  : 'visible',
@@ -676,6 +686,7 @@ $.fn.sidebar.settings = {
   selector: {
     sidebar : '.ui.sidebar',
     pusher  : '.pusher',
+    fixed   : '.ui.fixed',
     page    : '.page',
     omitted : 'script, link, style, .ui.modal, .ui.nag'
   },
