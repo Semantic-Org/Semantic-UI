@@ -19,7 +19,7 @@
       <% if @document.type is 'UI Module': %>
       <a href="/module.html" class="ui right floated basic labeled icon button">
         Learn about Modules
-        <i class="help icon"></i>
+        <i class="help icon" data-title="What are Modules?" data-content="Modules are UI elements that include behaviors as part of their definition. Modules require some knowledge of Javascript to trigger."></i>
       </a>
       <% end %>
       <% if @document.themes?: %>

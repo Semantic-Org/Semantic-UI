@@ -1395,11 +1395,7 @@ body.progress .ui.progress .bar {
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-#example .fixed.column .content > .image {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
+
 
 /*******************************
           Responsive

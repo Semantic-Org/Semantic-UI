@@ -21,6 +21,13 @@ $.fn.accordion = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
+
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
     returnedValue
   ;
   $allModules
@@ -52,7 +59,6 @@ $.fn.accordion = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing accordion with bound events', $module);
-          // initializing
           $title
             .on('click' + eventNamespace, module.event.click)
           ;
@@ -76,85 +82,72 @@ $.fn.accordion = function(parameters) {
           ;
         },
 
+        reset: {
+
+          display: function() {
+            module.verbose('Removing inline display from element', this);
+            $(this).css('display', '');
+            if( $(this).attr('style') === '') {
+              $(this)
+                .attr('style', '')
+                .removeAttr('style')
+              ;
+            }
+          },
+
+          opacity: function() {
+            module.verbose('Removing inline opacity from element', this);
+            $(this).css('opacity', '');
+            if( $(this).attr('style') === '') {
+              $(this)
+                .attr('style', '')
+                .removeAttr('style')
+              ;
+            }
+          },
+
+        },
+
         event: {
           click: function() {
-            module.verbose('Title clicked', this);
-            var
-              $activeTitle = $(this),
-              index        = $title.index($activeTitle)
-            ;
-            module.toggle(index);
-          },
-          resetDisplay: function() {
-            $(this).css('display', '');
-            if( $(this).attr('style') == '') {
-              $(this)
-                .attr('style', '')
-                .removeAttr('style')
-              ;
-            }
-          },
-          resetOpacity: function() {
-            $(this).css('opacity', '');
-            if( $(this).attr('style') == '') {
-              $(this)
-                .attr('style', '')
-                .removeAttr('style')
-              ;
-            }
+            $.proxy(module.toggle, this)();
           }
         },
 
         toggle: function(index) {
-          module.debug('Toggling content content at index', index);
           var
-            $activeTitle   = $title.eq(index),
+            $activeTitle = (index)
+              ? $title.eq(index)
+              : $(this),
             $activeContent = $activeTitle.next($content),
             contentIsOpen  = $activeContent.is(':visible')
           ;
+          module.debug('Toggling visibility of content', $activeTitle);
           if(contentIsOpen) {
             if(settings.collapsible) {
-              module.close(index);
+              $.proxy(module.close, $activeTitle)();
             }
             else {
               module.debug('Cannot close accordion content collapsing is disabled');
             }
           }
           else {
-            module.open(index);
+            $.proxy(module.open, $activeTitle)();
           }
         },
 
         open: function(index) {
           var
-            $activeTitle     = $title.eq(index),
-            $activeContent   = $activeTitle.next($content),
-            $previousTitle   = $activeTitle.siblings(selector.title).filter('.' + className.active),
-            $previousContent = $previousTitle.next($title),
-            contentIsOpen    =  ($previousTitle.size() > 0)
+            $activeTitle = (index)
+              ? $title.eq(index)
+              : $(this),
+            $activeContent     = $activeTitle.next($content),
+            currentlyAnimating = $activeContent.is(':animated')
           ;
-          if( !$activeContent.is(':animated') ) {
+          if(!currentlyAnimating) {
             module.debug('Opening accordion content', $activeTitle);
-            if(settings.exclusive && contentIsOpen) {
-              $previousTitle
-                .removeClass(className.active)
-              ;
-              $previousContent
-                .stop()
-                .children()
-                  .stop()
-                  .animate({
-                    opacity: 0
-                  }, settings.duration, module.event.resetOpacity)
-                  .end()
-                .slideUp(settings.duration , settings.easing, function() {
-                  $previousContent
-                    .removeClass(className.active)
-                    .children()
-                  ;
-                  $.proxy(module.event.resetDisplay, this)();
-                })
-              ;
+            if(settings.exclusive) {
+              $.proxy(module.closeOthers, $activeTitle)();
             }
             $activeTitle
               .addClass(className.active)
@@ -165,13 +158,13 @@ $.fn.accordion = function(parameters) {
                 .stop()
                 .animate({
                   opacity: 1
-                }, settings.duration)
+                }, settings.duration, module.reset.display)
                 .end()
               .slideDown(settings.duration, settings.easing, function() {
                 $activeContent
                   .addClass(className.active)
                 ;
-                $.proxy(module.event.resetDisplay, this)();
+                $.proxy(module.reset.display, this)();
                 $.proxy(settings.onOpen, $activeContent)();
                 $.proxy(settings.onChange, $activeContent)();
               })
@@ -181,7 +174,9 @@ $.fn.accordion = function(parameters) {
 
         close: function(index) {
           var
-            $activeTitle   = $title.eq(index),
+            $activeTitle = (index)
+              ? $title.eq(index)
+              : $(this),
             $activeContent = $activeTitle.next($content)
           ;
           module.debug('Closing accordion content', $activeContent);
@@ -196,14 +191,47 @@ $.fn.accordion = function(parameters) {
               .stop()
               .animate({
                 opacity: 0
-              }, settings.duration, module.event.resetOpacity)
+              }, settings.duration, module.reset.opacity)
               .end()
-            .slideUp(settings.duration, settings.easing, function(){
-              $.proxy(module.event.resetDisplay, this)();
+            .slideUp(settings.duration, settings.easing, function() {
+              $.proxy(module.reset.display, this)();
               $.proxy(settings.onClose, $activeContent)();
               $.proxy(settings.onChange, $activeContent)();
             })
           ;
+        },
+
+        closeOthers: function(index) {
+          var
+            $activeTitle = (index)
+              ? $title.eq(index)
+              : $(this),
+            $parentTitles    = $activeTitle.parents(selector.content).prev(selector.title),
+            $activeAccordion = $activeTitle.closest(selector.accordion),
+            $openTitles      = $activeAccordion.find(selector.title + '.' + className.active + ':visible').not($parentTitles),
+            $openContents    = $openTitles.next($content),
+            contentIsOpen    = ($openTitles.size() > 0)
+          ;
+
+          if(contentIsOpen) {
+            module.debug('Exclusive enabled, closing other content', $openTitles);
+            $openTitles
+              .removeClass(className.active)
+            ;
+            $openContents
+              .stop()
+              .children()
+                .stop()
+                .animate({
+                  opacity: 0
+                }, settings.duration, module.resetOpacity)
+                .end()
+              .slideUp(settings.duration , settings.easing, function() {
+                $(this).removeClass(className.active);
+                $.proxy(module.reset.display, this)();
+              })
+            ;
+          }
         },
 
         setting: function(name, value) {
@@ -394,6 +422,7 @@ $.fn.accordion.settings = {
   exclusive   : true,
   collapsible : true,
 
+  closeNested : true,
   duration    : 500,
   easing      : 'easeInOutQuint',
 
@@ -410,8 +439,9 @@ $.fn.accordion.settings = {
   },
 
   selector    : {
-    title   : '.title',
-    content : '.content'
+    accordion : '.accordion',
+    title     : '.title',
+    content   : '.content'
   }
 
 

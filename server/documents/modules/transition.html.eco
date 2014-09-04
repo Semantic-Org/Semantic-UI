@@ -15,12 +15,8 @@ type        : 'UI Module'
 <div class="main container">
 
   <div class="ui active tab" data-tab="definition">
-    <div class="ui secondary menu">
-      <a class="active item" data-tab="standard">Standard</a>
-      <a class="item" data-tab="items">Items</a>
-    </div>
     <div class="fixed column">
-      <div class="demo content">
+      <div class="demo content ui sticky">
         <img src="/images/cat.png" class="ui cat image">
         <img src="/images/dog.png" class="ui hidden transition dog image">
       </div>
@@ -78,6 +74,36 @@ type        : 'UI Module'
 
         <h3>Appearance</h3>
         <div class="no example">
+          <h4 class="ui header">Drop <span class="ui small horizontal pink label">New</span></h4>
+          <p>An element can drop into view from above </p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('drop')
+          ;
+          </div>
+        </div>
+        <div class="no example">
+          <h4 class="ui header">Browse <span class="ui small horizontal pink label">New</span></h4>
+
+          <p>An element can appear and disappear as part of a series</p>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('browse in')
+          ;
+          </div>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('browse out')
+          ;
+          </div>
+          <div class="code" data-demo="true">
+          $('.cat.image')
+            .transition('browse out right')
+          ;
+          </div>
+        </div>
+
+        <div class="no example">
           <h4 class="ui header">Flip</h4>
           <p>An element can flip into or out of view vertically or horizontally</p>
           <div class="code" data-demo="true">
@@ -91,6 +117,7 @@ type        : 'UI Module'
           ;
           </div>
         </div>
+
         <div class="no example">
           <h4 class="ui header">Fade</h4>
           <p>An element can fade into or out of view descending and ascending</p>

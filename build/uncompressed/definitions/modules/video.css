@@ -179,8 +179,7 @@
   width: 100%;
   height: 100%;
   opacity: 0.8;
-  -webkit-transition: opacity 0.3s;
-          transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 .ui.video .play.icon:before {
   position: absolute;
@@ -195,9 +194,7 @@
   color: #ffffff;
   font-size: 8rem;
   text-shadow: none;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 .ui.video .placeholder {
   position: absolute;

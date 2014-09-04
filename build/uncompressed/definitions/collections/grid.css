@@ -712,10 +712,7 @@ body > .ui.grid:not(.page) {
 .ui.grid .justified.column,
 .ui.grid > .justified.row > .column {
   text-align: justify;
-  -webkit-hyphens: auto;
-     -moz-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
 }
 /*----------------------
   Vertically Centered

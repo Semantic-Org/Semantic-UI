@@ -3,11 +3,11 @@ layout      : 'default'
 css         : 'list'
 
 element     : 'list'
-elementType : 'view'
+elementType : 'element'
 
 title       : 'List'
 description : 'A list is used to group descriptions of related content'
-type        : 'UI View'
+type        : 'UI Element'
 
 themes      : ['Default']
 ---

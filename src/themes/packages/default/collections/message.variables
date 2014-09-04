@@ -33,9 +33,9 @@
 /* Header */
 @headerFontSize: 1.2rem;
 @headerFontWeight: bold;
-@headerBottomMargin: 0.25em;
 @headerDisplay: block;
 @headerHorizontalDistance: 0em;
+@headerParagraphDistance: 0em;
 
 /* Paragraph */
 @messageTextOpacity: 0.85;

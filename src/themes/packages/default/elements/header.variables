@@ -42,6 +42,10 @@
 @iconMargin: 1em;
 @iconAlignment: middle;
 
+/* Label */
+@labelDistance: 0.5rem;
+@labelVerticalAlign: middle;
+
 /* Content */
 @contentAlignment: top;
 

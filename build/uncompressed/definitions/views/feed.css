@@ -362,8 +362,7 @@
 }
 .ui.feed > .event > .content .meta .like {
   color: '';
-  -webkit-transition: 0.2s color ease;
-          transition: 0.2s color ease;
+  transition: 0.2s color ease;
 }
 .ui.feed > .event > .content .meta .like:hover .icon {
   color: #ff2733;
@@ -384,8 +383,7 @@
   cursor: pointer;
   opacity: 1;
   color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: color 0.25s ease;
-          transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 .ui.feed > .event > .content .meta a:hover,
 .ui.feed > .event > .content .meta a:hover .icon,

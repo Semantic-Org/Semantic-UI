@@ -16,7 +16,7 @@ semantic.accordion.ready = function() {
   ;
   $menuAccordion
     .accordion({
-     exclusive: false
+     exclusive: true
     })
   ;
   $checkbox

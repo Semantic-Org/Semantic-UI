@@ -27,11 +27,8 @@ semantic.ready = function() {
   // selector cache
   var
 
-    $peek             = $('.peek'),
-    $peekItem         = $peek.children('.menu').children('a.item'),
-    $peekSubItem      = $peek.find('.item .menu .item'),
     $sortableTables   = $('.sortable.table'),
-    $stuckColumn      = $('.fixed.column > .image, .fixed.column > .content'),
+    $sticky           = $('.ui.sticky'),
 
     $themeDropdown    = $('.theme.dropdown'),
 
@@ -41,7 +38,6 @@ semantic.ready = function() {
     $hideMenu         = $('#menu .hide.item'),
     $sortTable        = $('.sortable.table'),
     $demo             = $('.demo'),
-    $waypoints        = $peek.closest('.tab, .container').find('h2').first().siblings('h2').addBack(),
 
     $menuPopup        = $('.ui.main.menu .popup.item'),
     $menuDropdown     = $('.ui.main.menu .dropdown'),
@@ -425,23 +421,6 @@ semantic.ready = function() {
       }
     },
 
-    makeStickyColumns: function() {
-      var
-        $visibleStuck = $(this).find('.fixed.column > .image, .fixed.column > .content'),
-        isInitialized = ($visibleStuck.parent('.sticky-wrapper').size() !== 0)
-      ;
-      if(!isInitialized) {
-        $visibleStuck
-          .waypoint('sticky', {
-            offset     : 65,
-            stuckClass : 'fixed'
-          })
-        ;
-      }
-      // apparently this doesnt refresh on first hit
-      $.waypoints('refresh');
-      $.waypoints('refresh');
-    },
 
     initializeCode: function() {
       var
@@ -539,106 +518,6 @@ semantic.ready = function() {
       editor.resize();
     },
 
-    movePeek: function() {
-      if( $('.stuck .peek').size() > 0 ) {
-        $('.peek')
-          .toggleClass('pushed')
-        ;
-      }
-      else {
-        $('.peek')
-          .removeClass('pushed')
-        ;
-      }
-    },
-
-    peek: function() {
-      var
-        $body     = $('html, body'),
-        $header   = $(this),
-        $menu     = $header.parent(),
-        $group    = $menu.children(),
-        $headers  = $group.add( $group.find('.menu .item') ),
-        $waypoint = $waypoints.eq( $group.index( $header ) ),
-        offset
-      ;
-      offset    = $waypoint.offset().top - 70;
-      if(!$header.hasClass('active') ) {
-        $menu
-          .addClass('animating')
-        ;
-        $headers
-          .removeClass('active')
-        ;
-        $body
-          .stop()
-          .one('scroll', function() {
-            $body.stop();
-          })
-          .animate({
-            scrollTop: offset
-          }, 500)
-          .promise()
-            .done(function() {
-              $menu
-                .removeClass('animating')
-              ;
-              $headers
-                .removeClass('active')
-              ;
-              $header
-                .addClass('active')
-              ;
-              $waypoint
-                .css('color', $header.css('border-right-color'))
-              ;
-              $waypoints
-                .removeAttr('style')
-              ;
-            })
-        ;
-      }
-    },
-
-    peekSub: function() {
-      var
-        $body           = $('html, body'),
-        $subHeader      = $(this),
-        $header         = $subHeader.parents('.item'),
-        $menu           = $header.parent(),
-        $subHeaderGroup = $header.find('.item'),
-        $headerGroup    = $menu.children(),
-        $waypoint       = $('h2').eq( $headerGroup.index( $header ) ),
-        $subWaypoint    = $waypoint.nextAll('h3').eq( $subHeaderGroup.index($subHeader) ),
-        offset          = $subWaypoint.offset().top - 80
-      ;
-      $menu
-        .addClass('animating')
-      ;
-      $headerGroup
-        .removeClass('active')
-      ;
-      $subHeaderGroup
-        .removeClass('active')
-      ;
-      $body
-        .stop()
-        .animate({
-          scrollTop: offset
-        }, 500, function() {
-          $menu
-            .removeClass('animating')
-          ;
-          $subHeader
-            .addClass('active')
-          ;
-        })
-        .one('scroll', function() {
-          $body.stop();
-        })
-      ;
-    },
-
     swapStyle: function() {
       var
         theme = $(this).data('theme')
@@ -710,8 +589,7 @@ semantic.ready = function() {
         history      : true,
         onTabInit    : handler.makeCode,
         onTabLoad    : function() {
-          $.proxy(handler.makeStickyColumns, this)();
-          $peekItem.removeClass('active').first().addClass('active');
+
         }
       })
     ;
@@ -785,55 +663,10 @@ semantic.ready = function() {
     })
   ;
 
-  $waypoints
-    .waypoint({
-      continuous : false,
-      offset     : 100,
-      handler    : function(direction) {
-        var
-          index = (direction == 'down')
-            ? $waypoints.index(this)
-            : ($waypoints.index(this) - 1 >= 0)
-              ? ($waypoints.index(this) - 1)
-              : 0
-        ;
-        $peekItem
-          .removeClass('active')
-          .eq( index )
-            .addClass('active')
-        ;
-      }
-    })
-  ;
-/*  $('body')
-    .waypoint({
-      handler: function(direction) {
-        if(direction == 'down') {
-          if( !$('body').is(':animated') ) {
-            $peekItem
-              .removeClass('active')
-              .eq( $peekItem.size() - 1 )
-                .addClass('active')
-            ;
-          }
-        }
-      },
-      offset: 'bottom-in-view'
-     })
-  ;*/
-  $peek
-    .waypoint('sticky', {
-      offset     : 85,
-      stuckClass : 'stuck'
-    })
+  $sticky
+    .sticky()
   ;
 
-  $peekItem
-    .on('click', handler.peek)
-  ;
-  $peekSubItem
-    .on('click', handler.peekSub)
-  ;
 
 };
 

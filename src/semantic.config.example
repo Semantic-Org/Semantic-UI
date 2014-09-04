@@ -44,6 +44,7 @@
 @image       : 'default';
 @input       : 'default';
 @label       : 'default';
+@list        : 'default';
 @loader      : 'default';
 @progress    : 'default';
 @reveal      : 'default';
@@ -81,7 +82,6 @@
 @comment     : 'default';
 @feed        : 'default';
 @item        : 'default';
-@list        : 'default';
 @statistic   : 'default';
 
 

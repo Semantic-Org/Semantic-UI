@@ -182,8 +182,7 @@
   padding: 1em 1.5em;
   line-height: 1.3;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-          transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   border-radius: 0.25em;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
@@ -199,7 +198,7 @@
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -216,7 +215,7 @@
   margin-bottom: 0em;
 }
 .ui.message .header + p {
-  margin-top: 0.25em;
+  margin-top: 0em;
 }
 /* List */
 .ui.message ul.list {
@@ -238,8 +237,8 @@
   height: 100%;
   vertical-align: baseline;
 }
-.ui.message ul.list li:first-child {
-  margin-top: 0em;
+.ui.message ul.list li:last-child {
+  margin-bottom: 0em;
 }
 /* Icon */
 .ui.message .icon {
@@ -252,9 +251,7 @@
   top: 1em;
   right: 0.5em;
   opacity: 0.7;
-  -webkit-transition: opacity 0.1s linear
-  ;
-          transition: opacity 0.1s linear
+  transition: opacity 0.1s linear
   ;
 }
 .ui.message > .close.icon:hover {

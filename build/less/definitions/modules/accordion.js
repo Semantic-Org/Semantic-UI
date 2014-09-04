@@ -87,7 +87,7 @@ $.fn.accordion = function(parameters) {
           },
           resetDisplay: function() {
             $(this).css('display', '');
-            if( $(this).attr('style') == '') {
+            if( $(this).attr('style') === '') {
               $(this)
                 .attr('style', '')
                 .removeAttr('style')
@@ -96,7 +96,7 @@ $.fn.accordion = function(parameters) {
           },
           resetOpacity: function() {
             $(this).css('opacity', '');
-            if( $(this).attr('style') == '') {
+            if( $(this).attr('style') === '') {
               $(this)
                 .attr('style', '')
                 .removeAttr('style')
@@ -394,6 +394,7 @@ $.fn.accordion.settings = {
   exclusive   : true,
   collapsible : true,
 
+  closeNested : true,
   duration    : 500,
   easing      : 'easeInOutQuint',
 

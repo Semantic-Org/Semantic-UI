@@ -58,20 +58,16 @@ $.fn.sticky = function(parameters) {
       module      = {
 
         initialize: function() {
-
           if(settings.context) {
             $context = $(settings.context);
           }
           else {
             $context = $container;
           }
-
           if($context.size() === 0) {
             module.error(error.invalidContext, settings.context, $module);
             return;
           }
-
-
           if(module.supports.sticky()) {
             // needs to enable native ios support
           }
@@ -79,11 +75,8 @@ $.fn.sticky = function(parameters) {
             .on('resize' + eventNamespace, module.event.resize)
             .on('scroll' + eventNamespace, module.event.scroll)
           ;
-
           module.verbose('Initializing sticky', settings, $container);
-
           module.save.positions();
-
           module.instantiate();
         },
 
@@ -471,6 +464,11 @@ $.fn.sticky = function(parameters) {
               bottom : '',
               width  : '',
               height : ''
+            })
+          ;
+          $container
+            .css({
+              height: ''
             })
           ;
         },

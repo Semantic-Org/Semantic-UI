@@ -379,6 +379,7 @@
   animation-name: browseIn;
   animation-timing-function: ease;
 }
+.ui.browse.transition.out,
 .ui.browse.transition.out.left {
   animation-name: browseOutLeft;
   animation-timing-function: ease;
@@ -414,14 +415,14 @@
     transform: translateX(0%) rotateY(0deg) rotateX(0deg);
   }
   50% {
-    z-index: 1;
+    z-index: -1;
     transform: translateX(-105%) rotateY(35deg) rotateX(10deg) translateZ(-10px);
   }
   80% {
     opacity: 1;
   }
   100% {
-    z-index: 1;
+    z-index: -1;
     transform: translateX(0%) rotateY(0deg) rotateX(0deg) translateZ(-10px);
     opacity: 0;
   }

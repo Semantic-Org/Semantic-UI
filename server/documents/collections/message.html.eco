@@ -27,7 +27,7 @@ themes      : ['Default', 'GitHub', 'Google']
   <h2 class="ui dividing header">Types</h2>
 
   <div class="example">
-    <h4 class="ui header">Text Message</h4>
+    <h4 class="ui header">Message</h4>
     <p>A basic message</p>
     <div class="ui message">
       <div class="header">

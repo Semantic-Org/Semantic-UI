@@ -69,6 +69,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/rating.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/sidebar.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/shape.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/sticky.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/tab.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/checkbox.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/dimmer.css">
@@ -129,6 +130,7 @@
   <script src="/build/uncompressed/definitions/modules/rating.js"></script>
   <script src="/build/uncompressed/definitions/modules/shape.js"></script>
   <script src="/build/uncompressed/definitions/modules/sidebar.js"></script>
+  <script src="/build/uncompressed/definitions/modules/sticky.js"></script>
   <script src="/build/uncompressed/definitions/modules/tab.js"></script>
   <script src="/build/uncompressed/definitions/modules/transition.js"></script>
   <% else: %>

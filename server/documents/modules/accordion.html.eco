@@ -286,11 +286,11 @@ themes      : ['Default', 'Chubby']
           </div>
         </div>
         <div class="item">
-          <a class="active title">
+          <a class="title">
             <i class="dropdown icon"></i>
             Colors
           </a>
-          <div class="active content">
+          <div class="content">
             <div class="ui form">
               <div class="grouped fields">
                 <div class="field">

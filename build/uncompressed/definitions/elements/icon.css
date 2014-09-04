@@ -198,8 +198,7 @@ i.icon {
   speak: none;
   font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 /*******************************
              Types
@@ -209,27 +208,14 @@ i.icon {
 ---------------*/
 i.icon.loading {
   height: 1em;
-  -webkit-animation: icon-loading 2s linear infinite;
-          animation: icon-loading 2s linear infinite;
-}
-@-webkit-keyframes icon-loading {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+  animation: icon-loading 2s linear infinite;
 }
 @keyframes icon-loading {
   from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 /*******************************
@@ -256,8 +242,7 @@ i.icon.disabled {
 i.link.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: opacity 0.25s ease;
-          transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
 }
 i.link.icon:hover {
   opacity: 1 !important;
@@ -282,14 +267,10 @@ i.circular.inverted.icon {
 --------------------*/
 i.flipped.icon,
 i.horizontally.flipped.icon {
-  -webkit-transform: scale(-1, 1);
-      -ms-transform: scale(-1, 1);
-          transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
 i.vertically.flipped.icon {
-  -webkit-transform: scale(1, -1);
-      -ms-transform: scale(1, -1);
-          transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 /*-------------------
       Rotated
@@ -297,15 +278,11 @@ i.vertically.flipped.icon {
 i.rotated.icon,
 i.right.rotated.icon,
 i.clockwise.rotated.icon {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 i.left.rotated.icon,
 i.counterclockwise.rotated.icon {
-  -webkit-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-          transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 /*-------------------
       Bordered
