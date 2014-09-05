@@ -1,0 +1,6 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@headerFont : 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+@pageFont   : 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
