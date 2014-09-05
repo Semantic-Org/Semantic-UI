@@ -143,11 +143,11 @@
 
 /*--- Colored Text ---*/
 @blueTextColor    : @blue;
-@greenTextColor   : @green;
 @orangeTextColor  : @orange;
 @pinkTextColor    : @pink;
 @purpleTextColor  : @purple;
 @redTextColor     : @red;
+@greenTextColor   : #1EBC30; // Green is difficult to read
 @tealTextColor    : #10A3A3; // Teal text is difficult to read
 @yellowTextColor  : #B58105; // Yellow text is difficult to read
 
@@ -168,11 +168,11 @@
 --------------------*/
 
 /* Mood */
-@positiveBackgroundColor : #DFF0D8;
-@negativeBackgroundColor : #F2DEDE;
+@positiveBackgroundColor : #E4F5DD;
+@negativeBackgroundColor : #FAF1F1;
 
-@positiveBorderColor     : #D6E9C6;
-@negativeBorderColor     : #DA9797;
+@positiveBorderColor     : #B7CAA7;
+@negativeBorderColor     : #DBB1B1;
 
 /* Solid Background Color */
 @positiveColor           : @green;
@@ -183,17 +183,17 @@
 
 
 /* Status */
-@infoBackgroundColor    : #D9EDF7;
+@infoBackgroundColor    : #E5F6FB;
 @warningBackgroundColor : #FCF8E3;
 @successBackgroundColor : @positiveBackgroundColor;
 @errorBackgroundColor   : @negativeBackgroundColor;
 
-@infoBorderColor        : #BCE8F1;
-@warningBorderColor     : #FAEBCC;
+@infoBorderColor        : #AAD6DF;
+@warningBorderColor     : #D3C4A5;
 @successBorderColor     : @positiveBorderColor;
 @errorBorderColor       : @negativeBorderColor;
 
-@infoTextColor          : #31708F;
+@infoTextColor          : #337B92;
 @warningTextColor       : #8A6D3B;
 @successTextColor       : @positiveTextColor;
 @errorTextColor         : @negativeTextColor;

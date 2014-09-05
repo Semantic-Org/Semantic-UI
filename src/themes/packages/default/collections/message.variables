@@ -69,7 +69,8 @@
 @circularIconContentDistance: 2em;
 
 /* Attached */
-@attachedOffset: -1px;
+@attachedXOffset: -1px;
+@attachedYOffset: 0px;
 @attachedBoxShadow: 0em 0em 0em 1px rgba(0, 0, 0, 0.1) inset;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,
