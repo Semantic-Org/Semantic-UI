@@ -166,16 +166,19 @@
 .ui.shape {
   position: relative;
   display: inline-block;
-  perspective: 2000px;
+  -webkit-perspective: 2000px;
+          perspective: 2000px;
 }
 .ui.shape .sides {
-  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 .ui.shape .side {
   opacity: 1;
   width: 100%;
   margin: 0em !important;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 .ui.shape .side {
   display: none;
@@ -196,7 +199,10 @@
   height: 100%;
   display: table;
   text-align: center;
-  user-select: text;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
 }
 .ui.cube.shape .side > .content > div {
   display: table-cell;
@@ -242,16 +248,19 @@
       CSS
 ---------------*/
 .ui.shape.animating {
-  transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+          transition: all 0.6s ease-in-out;
 }
 .ui.shape.animating .sides {
   position: absolute;
 }
 .ui.shape.animating .sides {
-  transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+          transition: all 0.6s ease-in-out;
 }
 .ui.shape.animating .side {
-  transition: opacity 0.6s ease-in-out;
+  -webkit-transition: opacity 0.6s ease-in-out;
+          transition: opacity 0.6s ease-in-out;
 }
 /*--------------
      Active

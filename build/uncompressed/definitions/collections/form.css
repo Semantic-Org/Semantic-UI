@@ -263,7 +263,8 @@
   border-radius: 0.3125em;
   box-shadow: 0em 0em 0em 0em transparent inset;
   box-sizing: border-box;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .ui.textarea,
 .ui.form textarea {
@@ -278,7 +279,8 @@
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   box-sizing: border-box;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   font-size: 1em;
   height: 12em;
   min-height: 8em;
@@ -446,11 +448,11 @@
 .ui.form .field.error input[type="number"],
 .ui.form .field.error input[type="url"],
 .ui.form .field.error input[type="tel"] {
-  background: #f2dede;
-  border-color: #da9797;
+  background: #faf1f1;
+  border-color: #dbb1b1;
   color: #ff4136;
   border-radius: 0em 0.3125em 0.3125em 0em;
-  box-shadow: 3px 0em 0em 0em #ff4136 inset;
+  box-shadow: 2px 0em 0em 0em #ff4136 inset;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error input[type="text"]:focus,
@@ -460,11 +462,11 @@
 .ui.form .field.error input[type="number"]:focus,
 .ui.form .field.error input[type="url"]:focus,
 .ui.form .field.error input[type="tel"]:focus {
-  background: #f2dede;
-  border-color: #da9797;
+  background: #faf1f1;
+  border-color: #dbb1b1;
   color: #ff5950;
   -webkit-appearance: none;
-  box-shadow: 3px 0em 0em 0em #ff5950 inset;
+  box-shadow: 2px 0em 0em 0em #ff5950 inset;
 }
 /*------------------
     Dropdown Error
@@ -474,20 +476,20 @@
 .ui.form .field.error .ui.dropdown,
 .ui.form .field.error .ui.dropdown .text,
 .ui.form .field.error .ui.dropdown .item {
-  background: #f2dede;
+  background: #faf1f1;
   color: #ff4136;
 }
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .field.error .ui.dropdown {
-  box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #dbb1b1 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover,
 .ui.form .field.error .ui.dropdown:hover {
-  box-shadow: 0px 0px 0px 1px #da9797 !important;
+  box-shadow: 0px 0px 0px 1px #dbb1b1 !important;
 }
 .ui.form .fields.error .field .ui.dropdown:hover .menu,
 .ui.form .field.error .ui.dropdown:hover .menu {
-  box-shadow: 0px 1px 0px 1px #da9797;
+  box-shadow: 0px 1px 0px 1px #dbb1b1;
 }
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
@@ -512,8 +514,8 @@
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label:before,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box:before,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) .box:before {
-  background: #f2dede;
-  border-color: #da9797;
+  background: #faf1f1;
+  border-color: #dbb1b1;
 }
 .ui.form .fields.error .field .checkbox label:after,
 .ui.form .field.error .checkbox label:after,

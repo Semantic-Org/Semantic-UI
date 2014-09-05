@@ -216,12 +216,17 @@
   font-style: normal;
   text-align: center;
   text-decoration: none;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.09));
   border-radius: 0.25em;
   box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   box-sizing: border-box;
-  transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+          transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease;
   -webkit-tap-highlight-color: transparent;
 }
 /*******************************
@@ -232,6 +237,7 @@
 ---------------*/
 .ui.button:hover {
   background-color: '';
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.13));
   color: rgba(0, 0, 0, 0.8);
 }
@@ -287,7 +293,8 @@
   background-color: #ffffff !important;
   text-shadow: none !important;
   color: transparent !important;
-  transition: all 0s linear;
+  -webkit-transition: all 0s linear;
+          transition: all 0s linear;
   box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.loading.button:after {
@@ -343,7 +350,8 @@
 /* Horizontal */
 .ui.animated.button .visible.content,
 .ui.animated.button .hidden.content {
-  transition: right 0.3s ease 0s;
+  -webkit-transition: right 0.3s ease 0s;
+          transition: right 0.3s ease 0s;
 }
 .ui.animated.button .visible.content {
   left: auto;
@@ -366,10 +374,13 @@
 /* Vertical */
 .ui.vertical.animated.button .visible.content,
 .ui.vertical.animated.button .hidden.content {
-  transition: top 0.3s ease, transform 0.3s ease;
+  -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
+          transition: top 0.3s ease, transform 0.3s ease;
 }
 .ui.vertical.animated.button .visible.content {
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
   right: auto;
 }
 .ui.vertical.animated.button .hidden.content {
@@ -378,7 +389,9 @@
   right: auto;
 }
 .ui.vertical.animated.button:hover .visible.content {
-  transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+      -ms-transform: translateY(200%);
+          transform: translateY(200%);
   right: auto;
 }
 .ui.vertical.animated.button:hover .hidden.content {
@@ -388,31 +401,40 @@
 /* Fade */
 .ui.fade.animated.button .visible.content,
 .ui.fade.animated.button .hidden.content {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+          transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .ui.fade.animated.button .visible.content {
   left: auto;
   right: auto;
   opacity: 1;
-  transform: scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 .ui.fade.animated.button .hidden.content {
   opacity: 0;
   left: 0%;
   right: auto;
-  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
 }
 .ui.fade.animated.button:hover .visible.content {
   left: auto;
   right: auto;
   opacity: 0;
-  transform: scale(0.75);
+  -webkit-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+          transform: scale(0.75);
 }
 .ui.fade.animated.button:hover .hidden.content {
   left: 0%;
   right: auto;
   opacity: 1;
-  transform: scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 /*-------------------
        Inverted
@@ -451,6 +473,7 @@
   background-color: #0074d9;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.primary.button {
@@ -482,6 +505,7 @@
   background-color: #191919;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.secondary.button {
@@ -513,6 +537,7 @@
   background-color: #3b579d;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
@@ -531,6 +556,7 @@
   background-color: #4092cc;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
@@ -549,6 +575,7 @@
   background-color: #d34836;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
@@ -583,6 +610,7 @@
   background-color: #cc181e;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
@@ -601,6 +629,7 @@
   background-color: #49769c;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
@@ -619,6 +648,7 @@
   background-color: #00aced;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
@@ -636,6 +666,7 @@
 .ui.vk.button {
   background-color: #4D7198;
   color: #ffffff;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
@@ -653,7 +684,8 @@
 .ui.button > .icon {
   opacity: 0.8;
   margin: 0em 0.4em 0em -0.2em;
-  transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.25s ease;
+          transition: opacity 0.25s ease;
   vertical-align: baseline;
 }
 .ui.button > .right.icon {
@@ -1185,6 +1217,7 @@
   background-color: #191919;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.black.button {
@@ -1242,6 +1275,7 @@
   background-color: #0074d9;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.blue.button {
@@ -1299,6 +1333,7 @@
   background-color: #2ecc40;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.green.button {
@@ -1356,6 +1391,7 @@
   background-color: #ff851b;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.orange.button {
@@ -1413,6 +1449,7 @@
   background-color: #d9499a;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.pink.button {
@@ -1470,6 +1507,7 @@
   background-color: #a24096;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.purple.button {
@@ -1527,6 +1565,7 @@
   background-color: #ff4136;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.red.button {
@@ -1584,6 +1623,7 @@
   background-color: #39cccc;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.teal.button {
@@ -1641,6 +1681,7 @@
   background-color: #ffcb08;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.yellow.button {
@@ -1700,6 +1741,7 @@
   background-color: #2ecc40 !important;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.positive.button {
@@ -1735,6 +1777,7 @@
   background-color: #ff4136 !important;
   color: #ffffff;
   text-shadow: none;
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
 }
 .ui.negative.button {

@@ -198,11 +198,14 @@
   height: 1.5em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+      -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+          transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
 .ui.steps .step,
 .ui.steps .step:after {
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
 }
 /*******************************
             Content
@@ -308,8 +311,6 @@
   border-radius: 0em 0.3125rem 0.3125rem 0em;
 }
 .ui.steps .step:only-child {
-  -webkit-border-radius: 0.3125rem;
-  -moz-border-radius: 0.3125rem;
   border-radius: 0.3125rem;
 }
 .ui.steps .step:last-child {

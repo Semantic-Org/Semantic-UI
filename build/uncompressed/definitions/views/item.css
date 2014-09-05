@@ -136,6 +136,9 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*------------------
+     Load Theme
+-------------------*/
 /*******************************
              Item
 *******************************/
@@ -163,9 +166,6 @@
 --------------------*/
 /* Divided */
 /* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -195,7 +195,8 @@
   border: none;
   border-radius: 0rem;
   box-shadow: none;
-  transition: box-shadow 0.25s ease;
+  -webkit-transition: box-shadow 0.25s ease;
+          transition: box-shadow 0.25s ease;
   z-index: '';
 }
 .ui.items > .item a {
@@ -361,7 +362,8 @@
 /* Generic */
 .ui.items > .item > .content a {
   color: #009fda;
-  transition: color 0.25s ease;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
 }
 .ui.items > .item > .content a:hover {
   color: #00b2f3;
@@ -388,7 +390,8 @@
 .ui.items > .item > .content .star.icon {
   cursor: pointer;
   opacity: 0.75;
-  transition: color 0.25s ease;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
 }
 .ui.items > .item > .content .star.icon:hover {
   opacity: 1;
@@ -402,7 +405,8 @@
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  transition: color 0.25s ease;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
@@ -425,7 +429,8 @@
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
-  transition: color 0.25s ease;
+  -webkit-transition: color 0.25s ease;
+          transition: color 0.25s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .ui.items > .item .extra:after {

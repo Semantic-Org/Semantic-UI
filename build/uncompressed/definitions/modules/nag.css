@@ -193,7 +193,8 @@
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
   border-radius: 0em 0em 0.25em 0.25em;
-  transition: 0.2s background ease;
+  -webkit-transition: 0.2s background ease;
+          transition: 0.2s background ease;
 }
 a.ui.nag {
   cursor: pointer;
@@ -212,7 +213,8 @@ a.ui.nag {
   font-size: 1em;
   margin: -0.5em 0em 0em;
   color: #ffffff;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease;
 }
 /*******************************
              States

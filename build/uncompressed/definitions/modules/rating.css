@@ -319,7 +319,8 @@
   font-family: 'Rating';
   line-height: 1;
   height: 1em;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   font-weight: normal;
   font-style: normal;
   text-align: center;

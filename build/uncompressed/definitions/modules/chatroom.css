@@ -46,6 +46,12 @@
      Load Default
 -------------------*/
 /*******************************
+            Chatroom
+*******************************/
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,12 +142,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-            Chatroom
-*******************************/
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -235,7 +235,8 @@
 }
 .ui.chatroom .log .author {
   font-weight: bold;
-  transition: color 0.3s ease-out;
+  -webkit-transition: color 0.3s ease-out;
+          transition: color 0.3s ease-out;
 }
 .ui.chatroom .log a.author:hover {
   opacity: 0.8;

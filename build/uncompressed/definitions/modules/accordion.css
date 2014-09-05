@@ -205,7 +205,8 @@
   width: 1.25em;
   height: 1em;
   margin: 0em 0.25em 0em -0.25em;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
+          transition: transform 0.2s ease, opacity 0.2s ease;
   vertical-align: baseline;
 }
 /*******************************
@@ -230,7 +231,8 @@
   color: rgba(0, 0, 0, 0.4);
   font-weight: bold;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background 0.25s ease, color 0.25s ease;
+  -webkit-transition: background 0.25s ease, color 0.25s ease;
+          transition: background 0.25s ease, color 0.25s ease;
 }
 .ui.styled.accordion .title:first-child,
 .ui.styled.accordion .accordion .title:first-child {
@@ -302,7 +304,8 @@
 .ui.accordion .accordion .title .dropdown.icon {
   font-family: Accordion;
   line-height: 1;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   font-weight: normal;
   font-style: normal;
   text-align: center;
@@ -314,11 +317,15 @@
 /* Icon Rotation */
 .ui.accordion .title .dropdown.icon,
 .ui.accordion .accordion .title .dropdown.icon {
-  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 .ui.accordion .active.title .dropdown.icon,
 .ui.accordion .accordion .active.title .dropdown.icon {
-  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 /*******************************
         User Overrides

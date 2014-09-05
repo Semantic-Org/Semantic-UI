@@ -78,6 +78,12 @@
   margin: @listMargin 0em 0em;
   padding: 0em;
 }
+.ui.message ul.list:first-child {
+  margin-top: 0em;
+}
+.ui.message ul.list:last-child {
+  margin-bottom: 0em;
+}
 .ui.message ul.list li {
   position: relative;
   list-style-type: none;
@@ -156,20 +162,20 @@
 ---------------*/
 
 .ui.attached.message {
-  margin-left: @attachedOffset;
-  margin-right: @attachedOffset;
-  margin-bottom: @attachedOffset;
+  margin-bottom: @attachedYOffset;
   border-radius: @borderRadius @borderRadius 0em 0em;
   box-shadow:
     @attachedBoxShadow
   ;
+  margin-left: @attachedXOffset;
+  margin-right: @attachedXOffset;
 }
 .ui.attached + .ui.attached.message:not(.top):not(.bottom) {
-  margin-top: @attachedOffset;
+  margin-top: @attachedYOffset;
   border-radius: 0em;
 }
 .ui.bottom.attached.message {
-  margin-top: @attachedOffset;
+  margin-top: @attachedYOffset;
   border-radius: 0em 0em @borderRadius @borderRadius;
   box-shadow: @attachedBottomBoxShadow;
 }
@@ -230,54 +236,97 @@
      Types
 ---------------*/
 
-/* Inverted */
-.ui.inverted.message,
-.ui.black.message {
-  background-color: @black;
-  color: @invertedTextColor;
-}
-
-/* Positive / Negative */
+/* Positive */
 .ui.positive.message {
   background-color: @positiveBackgroundColor;
   color: @positiveTextColor;
 }
+.ui.positive.message,
+.ui.attached.positive.message {
+  box-shadow:
+    0px 0px 0px 1px @positiveBorderColor inset,
+    @subtleShadow
+  ;
+}
 .ui.positive.message .header {
   color: @positiveHeaderColor;
 }
+
+/* Negative */
 .ui.negative.message {
   background-color: @negativeBackgroundColor;
   color: @negativeTextColor;
+}
+.ui.negative.message,
+.ui.attached.negative.message {
+  box-shadow:
+    0px 0px 0px 1px @negativeBorderColor inset,
+    @subtleShadow
+  ;
 }
 .ui.negative.message .header {
   color: @negativeHeaderColor;
 }
 
-/* User Action */
+/* Info */
 .ui.info.message {
   background-color: @infoBackgroundColor;
   color: @infoTextColor;
 }
+.ui.info.message,
+.ui.attached.info.message {
+  box-shadow:
+    0px 0px 0px 1px @infoBorderColor inset,
+    @subtleShadow
+  ;
+}
 .ui.info.message .header {
   color: @infoHeaderColor;
 }
+
+/* Warning */
 .ui.warning.message {
   background-color: @warningBackgroundColor;
   color: @warningTextColor;
 }
+.ui.warning.message,
+.ui.attached.warning.message {
+  box-shadow:
+    0px 0px 0px 1px @warningBorderColor inset,
+    @subtleShadow
+  ;
+}
 .ui.warning.message .header {
   color: @warningHeaderColor;
 }
+
+/* Error */
 .ui.error.message {
   background-color: @errorBackgroundColor;
   color: @errorTextColor;
 }
+.ui.error.message,
+.ui.attached.error.message {
+  box-shadow:
+    0px 0px 0px 1px @errorBorderColor inset,
+    @subtleShadow
+  ;
+}
 .ui.error.message .header {
   color: @errorHeaderColor;
 }
+
+/* Success */
 .ui.success.message {
   background-color: @successBackgroundColor;
   color: @successTextColor;
+}
+.ui.success.message,
+.ui.attached.success.message {
+  box-shadow:
+    0px 0px 0px 1px @successBorderColor inset,
+    @subtleShadow
+  ;
 }
 .ui.success.message .header {
   color: @successHeaderColor;
@@ -285,6 +334,12 @@
 
 
 /* Colors */
+.ui.inverted.message,
+.ui.black.message {
+  background-color: @black;
+  color: @invertedTextColor;
+}
+
 .ui.blue.message {
   background-color: @blueBackground;
   color: @blueTextColor;
