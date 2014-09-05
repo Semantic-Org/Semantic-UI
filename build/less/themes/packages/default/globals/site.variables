@@ -13,8 +13,8 @@
        Fonts
 --------------------*/
 
-@headerFont    : "Helvetica Neue", Arial, Helvetica, sans-serif;
-@pageFont      : "Helvetica Neue", Arial, Helvetica, sans-serif;
+@headerFont    : "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+@pageFont      : "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
 @fontSmoothing : antialiased;
 
 /*-------------------

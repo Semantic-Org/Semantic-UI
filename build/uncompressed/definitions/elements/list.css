@@ -254,7 +254,7 @@ ol.ui.list ol,
 .ui.list .list {
   clear: both;
   margin: 0em;
-  padding: 0.5em 0em 0em 0em;
+  padding: 0.75em 0em 0.25em 0.5em;
 }
 /* Icon */
 .ui.list .item > .icon {
@@ -330,7 +330,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -370,7 +370,8 @@ ol.ui.list ol,
   font-size: 1rem;
 }
 .ui.horizontal.list > .item:first-child {
-  margin-left: 0em;
+  margin-left: 0em !important;
+  padding-left: 0em !important;
 }
 .ui.horizontal.list .list {
   padding-left: 0em;
@@ -432,7 +433,7 @@ ol.ui.list ol,
 .ui.link.list .item a:active {
   color: rgba(0, 0, 0, 0.8);
 }
-.ui.link.list a.active.item,
+.ui.link.list .active.item,
 .ui.link.list .active.item a {
   color: rgba(0, 0, 0, 0.8);
 }
@@ -535,6 +536,7 @@ ul.ui.list li:before,
   left: -1rem;
   content: '•';
   opacity: 1;
+  color: rgba(0, 0, 0, 0.8);
   vertical-align: top;
 }
 ul.ui.list ul,
@@ -585,8 +587,9 @@ ol.ui.list li:before,
   counter-increment: ordered;
   content: counters(ordered, ".") " ";
   text-align: right;
-  vertical-align: top;
-  opacity: 0.6;
+  color: rgba(0, 0, 0, 0.8);
+  vertical-align: middle;
+  opacity: 0.8;
 }
 /* Child Lists */
 ol.ui.list ol,
@@ -670,7 +673,6 @@ ol.ui.horizontal.list li:before,
 }
 .ui.horizontal.divided.list > .item:first-child {
   border-left: none;
-  padding-left: 0em;
 }
 /* Inverted */
 .ui.divided.inverted.list > .item,
