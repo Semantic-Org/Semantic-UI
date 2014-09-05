@@ -436,13 +436,18 @@ $.fn.modal = function(parameters) {
         },
 
         cacheSizes: function() {
-          module.cache = {
-            pageHeight    : $(document).outerHeight(),
-            height        : $module.outerHeight() + settings.offset,
-            contextHeight : (settings.context == 'body')
-              ? $(window).height()
-              : $dimmable.height()
-          };
+          var
+            modalHeight = $module.outerHeight()
+          ;
+          if(modalHeight !== 0) {
+            module.cache = {
+              pageHeight    : $(document).outerHeight(),
+              height        : modalHeight + settings.offset,
+              contextHeight : (settings.context == 'body')
+                ? $(window).height()
+                : $dimmable.height()
+            };
+          }
           module.debug('Caching modal and container sizes', module.cache);
         },
 
