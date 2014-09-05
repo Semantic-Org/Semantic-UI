@@ -283,6 +283,14 @@ $.fn.transition = function() {
               .addClass(className.transition)
               .addClass(className.hidden)
             ;
+            requestAnimationFrame(function() {
+              if($module.css('display') !== 'none') {
+                module.verbose('Overriding default display to hide element')
+                $module
+                  .css('display', 'none')
+                ;
+              }
+            })
           },
 
           visible: function() {

@@ -155,7 +155,7 @@
 /*-------------------
       Variations
 --------------------*/
-/* Sizes */
+/* Size Widths */
 /* Derived Responsive Sizes */
 /*------------------
      Load Theme
@@ -346,6 +346,9 @@
 }
 /* Tablet and Mobile */
 @media only screen and (max-width: 992px) {
+  .ui.modal > .header {
+    padding-right: 2.25em;
+  }
   .ui.modal > .close {
     top: 1rem;
     right: 1rem;
@@ -382,13 +385,20 @@
 }
 .ui.scrolling.dimmable.dimmed > .dimmer {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .ui.scrolling.dimmable > .dimmer {
   position: fixed;
 }
-.ui.modal.scrolling {
+.ui.scrolling.modal {
   position: static;
-  margin: 3rem auto;
+  margin: 3.5rem auto;
+}
+@media only screen and (max-width: 992px) {
+  .ui.scrolling.modal {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 /*******************************
              States
@@ -404,12 +414,23 @@
 ---------------*/
 .ui.fullscreen.modal {
   width: 95% !important;
-  margin: 3rem 0em 3rem -47.5%;
+  margin: 1em 0em 1em -47.5%;
+}
+.ui.fullscreen.modal > .header {
+  padding-right: 2.25em;
 }
 .ui.fullscreen.modal > .close {
   top: 1rem;
   right: 1rem;
   color: rgba(0, 0, 0, 0.8);
+}
+@media only screen and (max-width: 767px) {
+  .ui.fullscreen.modal {
+    width: auto !important;
+    margin: 1em !important;
+    top: 0% !important;
+    left: 0% !important;
+  }
 }
 /*--------------
       Size

@@ -78,8 +78,8 @@
 @widescreenMonitorMargin: 0em 0em 0em -(@widescreenMonitorWidth / 2);
 
 @fullScreenWidth: 95%;
-@fullScreenMargin: @scrollingMargin 0em @scrollingMargin -(@fullScreenWidth / 2);
-
+@fullScreenMargin: 1em 0em 1em -(@fullScreenWidth / 2);
+@fullScreenMobileMargin: 1em;
 
 /*-------------------
         Types
@@ -92,14 +92,15 @@
 @basicModalCloseRight: 1rem;
 
 /* Scrolling Margin */
-@scrollingMargin: 3rem;
+@scrollingMargin: 3.5rem;
+@mobileScrollingMargin: 1rem;
 
 
 /*-------------------
       Variations
 --------------------*/
 
-/* Sizes */
+/* Size Widths */
 @smallRatio: 0.6;
 @largeRatio: 1.2;
 

@@ -302,6 +302,9 @@ body.guide .main.container > * {
 body#example {
   background: #2C2C2C url(../images/icons.png) !important;
 
+}
+body#example.pushed,
+body#example.hide {
   -moz-transform-origin: 50% 50%;
   -o-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;

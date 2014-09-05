@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.16.1
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 09/05/2014
+*/
+
+.ui.breadcrumb{margin:1em 0;display:inline-block;vertical-align:middle}.ui.breadcrumb:first-child{margin-top:0}.ui.breadcrumb:last-child{margin-bottom:0}.ui.breadcrumb .divider{display:inline-block;opacity:.5;margin:0 .15em;font-size:1em;color:rgba(0,0,0,.4);vertical-align:baseline}.ui.breadcrumb .icon.divider{font-size:1em}.ui.breadcrumb a.section{cursor:pointer}.ui.breadcrumb .section{display:inline-block;margin:0;padding:0}.ui.breadcrumb.segment{display:inline-block;padding:.5em 1em}.ui.breadcrumb .active.section{font-weight:700}.ui.mini.breadcrumb{font-size:.65em}.ui.tiny.breadcrumb{font-size:.7em}.ui.small.breadcrumb{font-size:.75em}.ui.breadcrumb{font-size:1em}.ui.large.breadcrumb{font-size:1.1em}.ui.big.breadcrumb{font-size:1.05em}.ui.huge.breadcrumb{font-size:1.3em}.ui.massive.breadcrumb{font-size:1.5em}

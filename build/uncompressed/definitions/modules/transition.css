@@ -190,7 +190,7 @@
 }
 /* Hidden */
 .ui.hidden.transition {
-  display: none !important;
+  display: none;
 }
 /* Visible */
 .ui.visible.transition {
