@@ -145,12 +145,11 @@ themes      : ['Default', 'GitHub', 'Google']
     <p>A message can be formatted to attach itself to other content</p>
     <div class="ui attached message">
       <div class="header">
-        Have you heard about our mailing list?
+        Welcome to our site!
       </div>
-      <p>Get all the best inventions in your e-mail every day. Sign up now!</p>
+      <p>Fill out the form below to sign-up for a new account</p>
     </div>
     <form class="ui form attached fluid segment">
-      <p>Let's go ahead and get you signed up.</p>
       <div class="two fields">
         <div class="field">
           <label>First Name</label>
@@ -177,24 +176,11 @@ themes      : ['Default', 'GitHub', 'Google']
       </div>
       <div class="ui blue submit button">Submit</div>
     </form>
-    <div class="ui bottom attached info message">
-      <i class="icon help"></i>Are you sure you know what you're doing?
+    <div class="ui bottom attached warning message">
+      <i class="icon help"></i>
+      Already signed up? <a href="#">Login here</a> instead.
     </div>
   </div>
-  <div class="example">
-    <h4 class="ui header">Colored</h4>
-    <p>A message can be formatted to be different colors</p>
-      <div class="ui black message">Black</div>
-      <div class="ui yellow message">Yellow</div>
-      <div class="ui green message">Green</div>
-      <div class="ui blue message">Blue</div>
-      <div class="ui orange message">Orange</div>
-      <div class="ui purple message">Purple</div>
-      <div class="ui pink message">Pink</div>
-      <div class="ui red message">Red</div>
-      <div class="ui teal message">Teal</div>
-  </div>
-
 
   <div class="example">
     <h4 class="ui header">Warning</h4>
@@ -224,30 +210,68 @@ themes      : ['Default', 'GitHub', 'Google']
   </div>
 
   <div class="example">
-    <h4 class="ui header">Success</h4>
-    <p>A message may be formatted to display a success message.</p>
+    <h4 class="ui header">Positive / Success</h4>
+    <p>A message may be formatted to display a positive message.</p>
+    <b class="ignored">
+      <i class="attention icon"></i>
+      Positive/Success and Negative/Error nessages by default use similar colors, but each has their own color  variables that can be distinguished in your theme.
+    </b>
+    <div class="ui positive message">
+      <i class="close icon"></i>
+      <div class="header">
+        You are eligible for a reward
+      </div>
+      <p>Go to your <b>special offers</b> page to see now.</p>
+    </div>
+  </div>
+  <div class="another example">
     <div class="ui success message">
       <i class="close icon"></i>
       <div class="header">
-        Congratulations, you are now a member!
+        Your user registration was successful.
       </div>
+      <p>You may now log-in with the username you have chosen</p>
     </div>
   </div>
 
   <div class="example">
-    <h4 class="ui header">Error</h4>
-    <p>A message may be formatted to display errors.</p>
+    <h4 class="ui header">Negative / Error </h4>
+    <p>A message may be formatted to display a negative message.</p>
+    <div class="ui negative message">
+      <i class="close icon"></i>
+      <div class="header">
+        We're sorry we can't apply that discount
+      </div>
+      <p>That offer has expired
+    </div>
+  </div>
+  <div class="another example">
     <div class="ui error message">
       <i class="close icon"></i>
       <div class="header">
-        Was this what you wanted?
+        There was some errors with your submission
       </div>
       <ul class="list">
-        <li>It's good to see you again.</li>
-        <li>Did you know it's been a while?</li>
+        <li>You must include both a upper and lower case letters in your password.</li>
+        <li>You need to select your home country.</li>
       </ul>
     </div>
   </div>
+
+  <div class="example">
+    <h4 class="ui header">Colored</h4>
+    <p>A message can be formatted to be different colors</p>
+      <div class="ui black message">Black</div>
+      <div class="ui yellow message">Yellow</div>
+      <div class="ui green message">Green</div>
+      <div class="ui blue message">Blue</div>
+      <div class="ui orange message">Orange</div>
+      <div class="ui purple message">Purple</div>
+      <div class="ui pink message">Pink</div>
+      <div class="ui red message">Red</div>
+      <div class="ui teal message">Teal</div>
+  </div>
+
 
   <div class="example">
     <h4 class="ui header">Sizes</h4>

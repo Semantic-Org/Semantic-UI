@@ -263,8 +263,7 @@
   border-radius: 0.3125em;
   box-shadow: 0em 0em 0em 0em transparent inset;
   box-sizing: border-box;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .ui.textarea,
 .ui.form textarea {
@@ -279,8 +278,7 @@
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   box-sizing: border-box;
-  -webkit-transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-          transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   font-size: 1em;
   height: 12em;
   min-height: 8em;

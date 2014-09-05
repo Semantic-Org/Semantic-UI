@@ -88,9 +88,9 @@ themes      : ['Default']
         <div class="ui floating dropdown icon button">
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item"><i class="edit icon"></i>Edit Post</div>
-            <div class="item"><i class="delete icon"></i>Remove Post</div>
-            <div class="item"><i class="hide icon"></i>Hide Post</div>
+            <div class="item"><i class="edit icon"></i> Edit Post</div>
+            <div class="item"><i class="delete icon"></i> Remove Post</div>
+            <div class="item"><i class="hide icon"></i> Hide Post</div>
           </div>
         </div>
       </div>
@@ -126,18 +126,18 @@ themes      : ['Default']
         <i class="settings icon"></i>
         <span class="text">Settings</span>
         <div class="menu">
-          <div class="item"><i class="edit icon"></i>Edit</div>
-          <div class="item"><i class="delete icon"></i>Remove</div>
-          <div class="item"><i class="hide icon"></i>Hide</div>
+          <div class="item"><i class="edit icon"></i> Edit</div>
+          <div class="item"><i class="delete icon"></i> Remove</div>
+          <div class="item"><i class="hide icon"></i> Hide</div>
         </div>
       </div>
       <div class="ui red labeled icon top right pointing dropdown button">
         <i class="settings icon"></i>
         <span class="text">Settings</span>
         <div class="menu">
-          <div class="item"><i class="edit icon"></i>Edit</div>
-          <div class="item"><i class="delete icon"></i>Remove</div>
-          <div class="item"><i class="hide icon"></i>Hide</div>
+          <div class="item"><i class="edit icon"></i> Edit</div>
+          <div class="item"><i class="delete icon"></i> Remove</div>
+          <div class="item"><i class="hide icon"></i> Hide</div>
         </div>
       </div>
     </div>
@@ -145,17 +145,17 @@ themes      : ['Default']
       <div class="ui right pointing dropdown icon button">
         <i class="settings icon"></i>
         <div class="menu">
-          <div class="item"><i class="edit icon"></i>Edit</div>
-          <div class="item"><i class="delete icon"></i>Remove</div>
-          <div class="item"><i class="hide icon"></i>Hide</div>
+          <div class="item"><i class="edit icon"></i> Edit</div>
+          <div class="item"><i class="delete icon"></i> Remove</div>
+          <div class="item"><i class="hide icon"></i> Hide</div>
         </div>
       </div>
       <div class="ui left pointing dropdown icon button">
         <i class="settings icon"></i>
         <div class="menu">
-          <div class="item"><i class="edit icon"></i>Edit</div>
-          <div class="item"><i class="delete icon"></i>Remove</div>
-          <div class="item"><i class="hide icon"></i>Hide</div>
+          <div class="item"><i class="edit icon"></i> Edit</div>
+          <div class="item"><i class="delete icon"></i> Remove</div>
+          <div class="item"><i class="hide icon"></i> Hide</div>
         </div>
       </div>
     </div>
@@ -407,11 +407,75 @@ themes      : ['Default']
 
   <div class="ui tab" data-tab="examples">
 
-    <h2 class="ui dividing header">Examples</h2>
+    <div class="transition example">
+      <h3 class="ui header">Changing Transitions</h3>
+      <p>A dropdown can specify a different <a href="/modules/transition.html">transitions</a>.</p>
+
+      <div class="code" data-type="javascript">
+      $('.dropdown')
+        .dropdown({
+          // you can use any ui transition
+          transition: 'drop'
+        })
+      ;
+      </div>
+
+      <div class="ui teal buttons">
+        <div class="ui button">Toggle</div>
+        <div class="ui floating dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="drop">Drop</div>
+            <div class="item" data-value="horizontal flip">Horizontal Flip</div>
+            <div class="item" data-value="fade up">Fade Up</div>
+            <div class="item" data-value="scale">Scale</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="dropdown example">
-      <h3 class="ui header">Re-selecting values</h3>
-      <p>A dropdown will automatically select on page load any menu item that includes the currently value of <code>text</code> or your dropdown's hidden input value. This is used to preserve a user's selection on page navigation and will automatically remove and default text placeholder formatting.</p>
+      <h3 class="ui header">Multiple Levels</h3>
+      <p>A dropdown menu can also contain sub menus inside of it</p>
+      My favorite animal breed is <div class="ui inline dropdown">
+        <input type="hidden" name="gender">
+        <div class="text">Shiba Inu</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Dogs
+            <div class="menu">
+              <div class="item">Shiba Inu</div>
+              <div class="item">Poodle</div>
+              <div class="item">Labrador</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Cats
+            <div class="menu">
+              <div class="item">Aegean</div>
+              <div class="item">Balinese</div>
+              <div class="item">Persian</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="dropdown example">
+      <h3 class="ui header">Preserving User Selections</h3>
+      <p>This example uses a preset text value to preserve the menu item on page navigation</p>
+      <div class="ui ignored info icon message">
+        <i class="help circle icon"></i>
+        <div class="content">
+          <p>A dropdown will automatically select on page load any menu item that includes the currently value of <code>text</code> or your dropdown's <code>hidden input</code> value.</p>
+          <p>This is used to preserve a user's selection on page navigation and will automatically remove and default text placeholder formatting.</p>
+        </div>
+      </div>
+
 
       Current action: <div class="ui inline dropdown">
         <div class="text">Hide</div>
@@ -448,61 +512,13 @@ themes      : ['Default']
         <div class="ui top right pointing dropdown button">
           <i class="settings icon"></i>
           <div class="menu">
-            <div class="item"><i class="edit icon"></i>Edit</div>
-            <div class="item"><i class="delete icon"></i>Remove</div>
-            <div class="item"><i class="hide icon"></i>Hide</div>
+            <div class="item"><i class="edit icon"></i> Edit</div>
+            <div class="item"><i class="delete icon"></i> Remove</div>
+            <div class="item"><i class="hide icon"></i> Hide</div>
           </div>
         </div>
       </div>
     </div>
-
-
-    <div class="button example">
-      <h3 class="ui header">Combo Button</h3>
-      <p>A <a href="/elements/button.html">button</a> can be formatted with a dropdown</p>
-      <div class="ui teal buttons">
-        <div class="ui button">Update Post</div>
-        <div class="ui dropdown icon button">
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item"><i class="edit icon"></i>Edit Post</div>
-            <div class="item"><i class="delete icon"></i>Remove Post</div>
-            <div class="item"><i class="hide icon"></i>Hide Post</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="dropdown example">
-      <h3 class="ui header">Multiple Levels</h3>
-      <p>A dropdown menu can also contain sub menus inside of it</p>
-      My favorite animal breed is <div class="ui inline dropdown">
-        <input type="hidden" name="gender">
-        <div class="text">Shiba Inu</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item">
-            <i class="dropdown icon"></i>
-            Dogs
-            <div class="menu">
-              <div class="item">Shiba Inu</div>
-              <div class="item">Poodle</div>
-              <div class="item">Labrador</div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="dropdown icon"></i>
-            Cats
-            <div class="menu">
-              <div class="item">Aegean</div>
-              <div class="item">Balinese</div>
-              <div class="item">Persian</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <div class="hover example">
       <h3 class="ui header">Menu</h3>
@@ -569,21 +585,57 @@ themes      : ['Default']
       </div>
     </div>
 
-    <div class="transition example">
-      <h3 class="ui header">Transitions</h3>
-      <p>A dropdown can have different <a href="/modules/transition.html">transitions</a>.</p>
+    <h3 class="ui dividing header">Using Different Dropdown Actions</h3>
+
+    <div class="button example">
+      <h4 class="ui header">Combo Dropdowns</h4>
+      <div class="ignored">
+        <p>A <a href="/elements/button.html">button</a> can be formatted with a dropdown.</p>
+        <p>You can change the default action that occurs on selection to different presets built into <em>ui dropdown</em>.</p>
+        <p>For example, using the <code>combo</code> preset will change the preceding buttons text value to the current selected alue</p>
+        <div class="evaluated code" data-type="javascript">
+        $('.combo.dropdown')
+          .dropdown({
+            action: 'combo'
+          })
+        ;
+        </div>
+
       <div class="ui teal buttons">
-        <div class="ui button">Toggle</div>
-        <div class="ui floating dropdown icon button">
+        <div class="ui button">Save</div>
+        <div class="ui combo dropdown icon button">
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item" data-value="horizontal flip">Horizontal Flip</div>
-            <div class="item" data-value="fade up">Fade Up</div>
-            <div class="item" data-value="scale">Scale</div>
+            <div class="item"><i class="edit icon"></i> Edit</div>
+            <div class="item"><i class="delete icon"></i> Delete</div>
+            <div class="item"><i class="hide icon"></i> Hide</div>
           </div>
         </div>
       </div>
     </div>
+    <div class="button example">
+      <h4 class="ui header">Link Dropdowns</h4>
+      <div class="ignored">
+        <p>If each option in your dropdown links out to another page, you might just want to make your menu hide without changing any value.</p>
+        <div class="evaluated code" data-type="javascript">
+        $('.link.dropdown')
+          .dropdown({
+            action: 'hide'
+          })
+        ;
+        </div>
+
+      <div class="ui link dropdown icon button">
+        <div class="text">Go to</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="#link1"><i class="home icon"></i> Home</a>
+          <a class="item" href="#link2"><i class="users icon"></i> Browse</a>
+          <a class="item" href="#link3"><i class="search icon"></i> Search</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="ui tab" data-tab="settings">

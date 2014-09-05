@@ -179,16 +179,10 @@
   background: rgba(0, 0, 0, 0.85);
   opacity: 0;
   line-height: 1;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-  -webkit-transition: background-color 0.5s linear;
-          transition: background-color 0.5s linear;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  animation-fill-mode: both;
+  animation-duration: 0.5s;
+  transition: background-color 0.5s linear;
+  user-select: none;
   will-transform: opacity;
   z-index: 1000;
 }
@@ -197,10 +191,7 @@
   width: 100%;
   height: 100%;
   display: table;
-  -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
+  user-select: text;
 }
 .ui.dimmer > .content > div {
   display: table-cell;
@@ -237,13 +228,9 @@
 ---------------*/
 .ui.page.dimmer {
   position: fixed;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-perspective: 2000px;
-          perspective: 2000px;
-  -webkit-transform-origin: center center;
-      -ms-transform-origin: center center;
-          transform-origin: center center;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  transform-origin: center center;
 }
 body.ui.dimmed.dimmable {
   overflow: hidden;
@@ -252,8 +239,7 @@ body.ui.dimmable > .dimmer {
   position: fixed;
 }
 body.ui.dimmed.dimmable > :not(.dimmer) {
-  -webkit-filter: '';
-          filter: '';
+  filter: '';
 }
 /*--------------
     Aligned

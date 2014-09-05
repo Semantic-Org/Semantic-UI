@@ -202,9 +202,7 @@
   font-weight: bold;
   border-radius: 0.325em;
   box-sizing: border-box;
-  -webkit-transition: background 0.1s linear
-  ;
-          transition: background 0.1s linear
+  transition: background 0.1s linear
   ;
 }
 .ui.label:first-child {
@@ -222,8 +220,7 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.8;
-  -webkit-transition: 0.25s opacity ease;
-          transition: 0.25s opacity ease;
+  transition: 0.25s opacity ease;
 }
 .ui.label a:hover {
   opacity: 1;
@@ -250,9 +247,7 @@ a.ui.label {
   margin-right: 0em;
   margin-left: 0.5em;
   opacity: 0.8;
-  -webkit-transition: background 0.1s linear
-  ;
-          transition: background 0.1s linear
+  transition: background 0.1s linear
   ;
 }
 .ui.label .delete.icon:hover {
@@ -324,12 +319,8 @@ a.ui.label {
   background-image: none;
   width: 1.56em;
   height: 1.56em;
-  -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
-      -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
-          transform: translateY(-50%) translateX(50%) rotate(-45deg);
-  -webkit-transition: background 0.1s linear
-    ;
-          transition: background 0.1s linear
+  transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  transition: background 0.1s linear
     ;
 }
 .ui.tag.labels .label:after,
@@ -358,8 +349,7 @@ a.ui.label {
   height: 3.25em;
   padding: 0em;
   text-align: center;
-  -webkit-transition: color 0.25s ease;
-          transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 /* Icon Label */
 .ui.corner.label {
@@ -379,8 +369,7 @@ a.ui.label {
   border-bottom: 3.25em solid transparent;
   border-left: 0em solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.25s ease;
-          transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease;
 }
 .ui.corner.label .icon {
   position: relative;
@@ -911,13 +900,9 @@ a.ui.yellow.label:hover:before {
   width: 0.6em;
   height: 0.6em;
   background-image: none;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   z-index: 2;
-  -webkit-transition: background 0.1s linear
-  ;
-          transition: background 0.1s linear
+  transition: background 0.1s linear
   ;
 }
 /*--- Above ---*/

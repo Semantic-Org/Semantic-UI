@@ -195,8 +195,7 @@
   border: none;
   border-radius: 0rem;
   box-shadow: none;
-  -webkit-transition: box-shadow 0.25s ease;
-          transition: box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
   z-index: '';
 }
 .ui.items > .item a {
@@ -291,7 +290,7 @@
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -362,8 +361,7 @@
 /* Generic */
 .ui.items > .item > .content a {
   color: #009fda;
-  -webkit-transition: color 0.25s ease;
-          transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 .ui.items > .item > .content a:hover {
   color: #00b2f3;
@@ -390,8 +388,7 @@
 .ui.items > .item > .content .star.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.25s ease;
-          transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 .ui.items > .item > .content .star.icon:hover {
   opacity: 1;
@@ -405,8 +402,7 @@
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.25s ease;
-          transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
@@ -429,8 +425,7 @@
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
-  -webkit-transition: color 0.25s ease;
-          transition: color 0.25s ease;
+  transition: color 0.25s ease;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .ui.items > .item .extra:after {

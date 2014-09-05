@@ -196,7 +196,7 @@
 }
 .ui.popup > .header {
   padding: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -210,9 +210,7 @@
   width: 0.75em;
   height: 0.75em;
   background: #ffffff;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   z-index: 2;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
