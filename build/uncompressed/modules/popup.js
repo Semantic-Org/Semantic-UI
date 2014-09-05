@@ -3,7 +3,7 @@
  * http://github.com/jlukic/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -845,7 +845,7 @@ $.fn.popup.settings = {
     var html = '';
     if(typeof text !== undefined) {
       if(typeof text.title !== undefined && text.title) {
-        html += '<div class="header">' + text.title + '</div class="header">';
+        html += '<div class="header">' + text.title + '</div>';
       }
       if(typeof text.content !== undefined && text.content) {
         html += '<div class="content">' + text.content + '</div>';

@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2013 Contributors
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -456,16 +456,23 @@ $.fn.modal = function(parameters) {
           }
         },
 
+
         cacheSizes: function() {
-          module.cache = {
-            pageHeight    : $body.outerHeight(),
-            height        : $module.outerHeight() + settings.offset,
-            contextHeight : (settings.context == 'body')
-              ? $(window).height()
-              : $dimmable.height()
-          };
-          module.debug('Caching modal and container sizes', module.cache);
+          var
+            modalHeight = $module.outerHeight()
+          ;
+          if(modalHeight !== 0) {
+            module.cache = {
+              pageHeight    : $(document).outerHeight(),
+              height        : modalHeight + settings.offset,
+              contextHeight : (settings.context == 'body')
+                ? $(window).height()
+                : $dimmable.height()
+            };
+            module.debug('Caching modal and container sizes', module.cache);
+          }
         },
+
 
         can: {
           fit: function() {
