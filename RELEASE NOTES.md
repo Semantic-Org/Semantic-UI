@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.19.1 - Sep 5, 2014
+
+**Bug Fixes**
+
+- **Modal** - (Backport from 1.0 branch) Fixes issue where modal sometimes appears too low on second show
+
 ### Version 0.19.0 - July 3, 2014
 
 **Enhancements**
