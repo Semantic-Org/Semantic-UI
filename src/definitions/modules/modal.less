@@ -214,6 +214,9 @@
 }
 /* Tablet and Mobile */
 @media only screen and (max-width : @computerBreakpoint) {
+  .ui.modal > .header {
+    padding-right: @closeHitbox;
+  }
   .ui.modal > .close {
     top: @innerCloseTop;
     right: @innerCloseRight;
@@ -256,13 +259,21 @@
 }
 .ui.scrolling.dimmable.dimmed > .dimmer {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .ui.scrolling.dimmable > .dimmer {
   position: fixed;
 }
-.ui.modal.scrolling {
+.ui.scrolling.modal {
   position: static;
   margin: @scrollingMargin auto;
+}
+
+@media only screen and (max-width : @computerBreakpoint) {
+  .ui.scrolling.modal {
+    margin-top: @mobileScrollingMargin;
+    margin-bottom: @mobileScrollingMargin;
+  }
 }
 
 /*******************************
@@ -285,11 +296,24 @@
   width: @fullScreenWidth !important;
   margin: @fullScreenMargin;
 }
+.ui.fullscreen.modal > .header {
+  padding-right: @closeHitbox;
+}
 .ui.fullscreen.modal > .close {
   top: @innerCloseTop;
   right: @innerCloseRight;
   color: @innerCloseColor;
 }
+
+@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+  .ui.fullscreen.modal {
+    width: auto !important;
+    margin: @fullScreenMobileMargin !important;
+    top: 0% !important;
+    left: 0% !important;
+  }
+}
+
 /*--------------
       Size
 ---------------*/
