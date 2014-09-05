@@ -140,7 +140,7 @@
 @arrowBorder: 1px solid rgba(0, 0, 0, 0.1);
 
 @arrowHoverColor: #FAFAFA;
-@arrowActiveColor: #FCFCFC;
+@arrowActiveColor: #F6F6F6;
 
 @arrowVerticalHoverColor: #FAFAFA;
 @arrowVerticalActiveColor: #FCFCFC;

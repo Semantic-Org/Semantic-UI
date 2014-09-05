@@ -118,6 +118,19 @@ themes      : ['Default', 'GitHub']
       </a>
     </div>
   </div>
+  <div class="another example">
+    <div class="ui top attached tabular menu">
+      <a class="active item">
+        Bio
+      </a>
+      <a class="item">
+        Pics
+      </a>
+    </div>
+    <div class="ui bottom attached segment">
+      This is the content of the tab.
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Tiered Menu</h4>

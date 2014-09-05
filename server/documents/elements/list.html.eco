@@ -322,14 +322,14 @@ themes      : ['Default']
     <p>Any element inside a list can be floated left or right</p>
     <div class="ui divided list">
       <div class="item">
-        <div class="right floated basic ui button">Add</div>
+        <div class="right floated compact ui button">Add</div>
         <img class="ui avatar image" src="/images/avatar/small/justen.jpg">
         <div class="content">
           <div class="header">Justen Kitsune</div>
         </div>
       </div>
       <div class="item">
-        <div class="right floated basic ui button">Add</div>
+        <div class="right floated compact ui button">Add</div>
         <img class="ui avatar image" src="/images/avatar/small/joe.jpg">
         <div class="content">
           <div class="header">Joe Henderson</div>
