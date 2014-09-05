@@ -42,6 +42,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/image.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/input.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/list.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/loader.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/reveal.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/progress.css">
@@ -57,7 +58,6 @@
 
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/card.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/comment.css">
-  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/list.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/feed.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/item.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/statistic.css">

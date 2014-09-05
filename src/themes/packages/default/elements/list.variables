@@ -15,8 +15,7 @@
 @horizontalPadding: 0em;
 
 /* Sub List */
-@childListDistance: 0.5em;
-@childListPadding: @childListDistance 0em 0em 0em;
+@childListPadding: 0.75em 0em 0.25em 0.5em;
 @childListIndent: 1em;
 
 /* List Item */
@@ -135,6 +134,7 @@
 
 @bulletOpacity: 1;
 @bulletCharacter: '•';
+@bulletColor: @textColor;
 @bulletVerticalAlign: top;
 @bulletChildDistance: @bulletDistance;
 
@@ -145,10 +145,11 @@
 /* Ordered List */
 @orderedCountName: ordered;
 @orderedCountContent: counters(ordered, ".") " ";
+@orderedCountColor: @textColor;
 @orderedCountDistance: 1.25rem;
-@orderedCountOpacity: 0.6;
+@orderedCountOpacity: 0.8;
 @orderedCountTextAlign: right;
-@orderedCountVerticalAlign: top;
+@orderedCountVerticalAlign: middle;
 
 @orderedChildCountDistance: 2em;
 @orderedChildCountOffset: -2em;
