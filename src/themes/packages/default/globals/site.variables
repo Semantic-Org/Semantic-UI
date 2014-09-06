@@ -169,7 +169,7 @@
 
 /* Mood */
 @positiveBackgroundColor : #E4F5DD;
-@negativeBackgroundColor : #FAF1F1;
+@negativeBackgroundColor : #FAE8E8;
 
 @positiveBorderColor     : #B7CAA7;
 @negativeBorderColor     : #DBB1B1;
