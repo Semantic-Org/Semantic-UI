@@ -12156,8 +12156,9 @@ $.fn.sidebar = function(parameters) {
             requestAnimationFrame(transition);
           }
           else {
-            if(settings.transition !== 'safe') {
-              $module.scrollTop(0);
+            $module.scrollTop(0);
+            if(module.is.mobile()) {
+              window.scrollTo(0, 0);
             }
             module.remove.allVisible();
             requestAnimationFrame(transition);

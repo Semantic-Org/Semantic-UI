@@ -46,6 +46,20 @@
      Load Default
 -------------------*/
 /*******************************
+          Breadcrumb
+*******************************/
+/*-------------------
+     Breadcrumb
+--------------------*/
+/* Coupling */
+/*-------------------
+       States
+--------------------*/
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,23 +150,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-          Breadcrumb
-*******************************/
-/*-------------------
-    Globals Used
---------------------*/
-/*-------------------
-     Breadcrumb
---------------------*/
-/* Coupling */
-/*-------------------
-       States
---------------------*/
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -182,17 +179,28 @@
 /*******************************
           Content
 *******************************/
+/* Divider */
 .ui.breadcrumb .divider {
   display: inline-block;
   opacity: 0.5;
-  margin: 0em 0.15em 0em;
-  font-size: 1em;
+  margin: 0em 0.2rem 0em;
+  font-size: 0.9em;
   color: rgba(0, 0, 0, 0.4);
   vertical-align: baseline;
 }
-.ui.breadcrumb .icon.divider {
-  font-size: 1em;
+/* Link */
+.ui.breadcrumb a {
+  color: #009fda;
 }
+.ui.breadcrumb a:hover {
+  color: #00b2f3;
+}
+/* Icon Divider */
+.ui.breadcrumb .icon.divider {
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+/* Section */
 .ui.breadcrumb a.section {
   cursor: pointer;
 }
@@ -216,25 +224,25 @@
            Variations
 *******************************/
 .ui.mini.breadcrumb {
-  font-size: 0.65em;
-}
-.ui.tiny.breadcrumb {
   font-size: 0.7em;
 }
+.ui.tiny.breadcrumb {
+  font-size: 0.8em;
+}
 .ui.small.breadcrumb {
-  font-size: 0.75em;
+  font-size: 0.875em;
 }
 .ui.breadcrumb {
   font-size: 1em;
 }
 .ui.large.breadcrumb {
-  font-size: 1.1em;
+  font-size: 1.125em;
 }
 .ui.big.breadcrumb {
-  font-size: 1.05em;
+  font-size: 1.25em;
 }
 .ui.huge.breadcrumb {
-  font-size: 1.3em;
+  font-size: 1.375em;
 }
 .ui.massive.breadcrumb {
   font-size: 1.5em;

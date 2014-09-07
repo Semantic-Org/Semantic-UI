@@ -245,6 +245,7 @@
   height: 100% !important;
   opacity: 1 !important;
 }
+.pushable.pushed > .fixed,
 .pushable.pushed > .pusher {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;

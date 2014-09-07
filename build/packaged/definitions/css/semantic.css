@@ -46,6 +46,20 @@
      Load Default
 -------------------*/
 /*******************************
+          Breadcrumb
+*******************************/
+/*-------------------
+     Breadcrumb
+--------------------*/
+/* Coupling */
+/*-------------------
+       States
+--------------------*/
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -136,23 +150,6 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*******************************
-          Breadcrumb
-*******************************/
-/*-------------------
-    Globals Used
---------------------*/
-/*-------------------
-     Breadcrumb
---------------------*/
-/* Coupling */
-/*-------------------
-       States
---------------------*/
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -182,17 +179,28 @@
 /*******************************
           Content
 *******************************/
+/* Divider */
 .ui.breadcrumb .divider {
   display: inline-block;
   opacity: 0.5;
-  margin: 0em 0.15em 0em;
-  font-size: 1em;
+  margin: 0em 0.2rem 0em;
+  font-size: 0.9em;
   color: rgba(0, 0, 0, 0.4);
   vertical-align: baseline;
 }
-.ui.breadcrumb .icon.divider {
-  font-size: 1em;
+/* Link */
+.ui.breadcrumb a {
+  color: #009fda;
 }
+.ui.breadcrumb a:hover {
+  color: #00b2f3;
+}
+/* Icon Divider */
+.ui.breadcrumb .icon.divider {
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+/* Section */
 .ui.breadcrumb a.section {
   cursor: pointer;
 }
@@ -216,25 +224,25 @@
            Variations
 *******************************/
 .ui.mini.breadcrumb {
-  font-size: 0.65em;
-}
-.ui.tiny.breadcrumb {
   font-size: 0.7em;
 }
+.ui.tiny.breadcrumb {
+  font-size: 0.8em;
+}
 .ui.small.breadcrumb {
-  font-size: 0.75em;
+  font-size: 0.875em;
 }
 .ui.breadcrumb {
   font-size: 1em;
 }
 .ui.large.breadcrumb {
-  font-size: 1.1em;
+  font-size: 1.125em;
 }
 .ui.big.breadcrumb {
-  font-size: 1.05em;
+  font-size: 1.25em;
 }
 .ui.huge.breadcrumb {
-  font-size: 1.3em;
+  font-size: 1.375em;
 }
 .ui.massive.breadcrumb {
   font-size: 1.5em;
@@ -1259,6 +1267,7 @@
             Standard
 *******************************/
 .ui.grid {
+  position: relative;
   display: block;
   text-align: left;
   font-size: 0em;
@@ -7411,6 +7420,41 @@ body > .ui.grid:not(.page) {
 .ui.vertical.divider:after {
   top: auto;
   bottom: 0px;
+}
+/* Inside grid */
+@media only screen and (max-width: 767px) {
+  .ui.stackable.grid .ui.vertical.divider,
+  .ui.grid .stackable.row .ui.vertical.divider {
+    position: relative;
+    margin: 1rem 0rem;
+    left: 0;
+    height: auto;
+    overflow: hidden;
+    line-height: 1;
+    text-align: center;
+  }
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before,
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    position: absolute;
+    left: auto;
+    content: '';
+    z-index: 3;
+    width: 50%;
+    top: 50%;
+    height: 0px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before {
+    margin-left: -51.5%;
+  }
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    margin-left: 1.5%;
+  }
 }
 /*--------------
       Icon
@@ -21502,6 +21546,7 @@ a.ui.nag {
   height: 100% !important;
   opacity: 1 !important;
 }
+.pushable.pushed > .fixed,
 .pushable.pushed > .pusher {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;

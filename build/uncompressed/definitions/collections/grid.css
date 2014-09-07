@@ -181,6 +181,7 @@
             Standard
 *******************************/
 .ui.grid {
+  position: relative;
   display: block;
   text-align: left;
   font-size: 0em;

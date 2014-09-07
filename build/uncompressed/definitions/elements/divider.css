@@ -259,6 +259,41 @@
   top: auto;
   bottom: 0px;
 }
+/* Inside grid */
+@media only screen and (max-width: 767px) {
+  .ui.stackable.grid .ui.vertical.divider,
+  .ui.grid .stackable.row .ui.vertical.divider {
+    position: relative;
+    margin: 1rem 0rem;
+    left: 0;
+    height: auto;
+    overflow: hidden;
+    line-height: 1;
+    text-align: center;
+  }
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before,
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    position: absolute;
+    left: auto;
+    content: '';
+    z-index: 3;
+    width: 50%;
+    top: 50%;
+    height: 0px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before {
+    margin-left: -51.5%;
+  }
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    margin-left: 1.5%;
+  }
+}
 /*--------------
       Icon
 ---------------*/
