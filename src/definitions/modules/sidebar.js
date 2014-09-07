@@ -297,7 +297,9 @@ $.fn.sidebar = function(parameters) {
           }
           else {
             $module.scrollTop(0);
-            $(document).scrollTop(0);
+            if(module.is.mobile()) {
+              window.scrollTo(0, 0);
+            }
             module.remove.allVisible();
             requestAnimationFrame(transition);
           }

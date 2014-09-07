@@ -6,7 +6,7 @@
        Element
 --------------------*/
 
-@dividerMargin: 1rem;
+@margin: 1rem 0rem;
 
 @highlightWidth: 1px;
 @highlightColor: rgba(255, 255, 255, 0.2);
