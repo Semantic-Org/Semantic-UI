@@ -36,28 +36,25 @@ themes      : ['default']
 
   <div class="example">
     <h4 class="ui header">Vertical Divider</h4>
+    <div class="ui info message">
+      If you use a vertical divider inside a <a href="/collections/grid.html">stackable grid</a> it will automatically adjust from a <code>vertical divider</code> to a <code>horizontal divider</code> at mobile resolutions.
+    </div>
     <p>A divider can segment content vertically</p>
     <div class="ui two column middle aligned relaxed fitted stackable grid">
       <div class="column">
         <div class="ui form segment">
           <div class="field">
             <label>Username</label>
-            <div class="ui left labeled icon input">
+            <div class="ui left icon input">
               <input type="text" placeholder="Username">
               <i class="user icon"></i>
-              <div class="ui corner label">
-                <i class="asterisk icon"></i>
-              </div>
             </div>
           </div>
           <div class="field">
             <label>Password</label>
-            <div class="ui left labeled icon input">
+            <div class="ui left icon input">
               <input type="password">
               <i class="lock icon"></i>
-              <div class="ui corner label">
-                <i class="asterisk icon"></i>
-              </div>
             </div>
           </div>
           <div class="ui blue submit button">Login</div>
