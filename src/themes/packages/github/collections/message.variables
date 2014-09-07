@@ -18,6 +18,10 @@
   0px 0px 0px 1px rgba(0, 0, 0, 0.05) inset
 ;
 
+@infoBorderColor: #97C1DA;
+@errorBorderColor: #DA9797;
+@warningBorderColor: #DCA874;
+
 @small: 12px;
 @medium: 13px;
 @large: 14px;
