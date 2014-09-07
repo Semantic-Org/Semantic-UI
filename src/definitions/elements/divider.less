@@ -132,6 +132,47 @@
   bottom: 0px;
 }
 
+/* Inside grid */
+@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+  .ui.stackable.grid .ui.vertical.divider,
+  .ui.grid .stackable.row .ui.vertical.divider {
+    position: relative;
+    margin: @dividerMargin;
+    left: 0;
+    height: auto;
+    overflow: hidden;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before,
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    position: absolute;
+    top: 50%;
+    left: auto;
+    content: '';
+    z-index: 3;
+
+    width: 50%;
+    top: 50%;
+    height: 0px;
+
+    border-top: @shadowWidth solid @shadowColor;
+    border-bottom: @highlightWidth solid @highlightColor;
+  }
+
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before {
+    margin-left: -(50% + @horizontalDividerMargin);
+  }
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    margin-left: @horizontalDividerMargin;
+  }
+}
+
 /*--------------
       Icon
 ---------------*/
