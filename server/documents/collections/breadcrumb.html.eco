@@ -34,11 +34,11 @@ themes      : ['Default']
     <h4 class="ui header">Breadcrumb</h4>
     <p>A standard breadcrumb</p>
     <div class="ui breadcrumb">
-      <a class="section">Food</a>
+      <a class="section">Home</a>
       <div class="divider"> / </div>
-      <a class="section">Fruit</a>
+      <a class="section">Store</a>
       <div class="divider"> / </div>
-      <div class="active section">Apples</div>
+      <div class="active section">T-Shirt</div>
     </div>
   </div>
 
@@ -48,11 +48,11 @@ themes      : ['Default']
     <h4 class="ui header">A divider</h4>
     <p>A breadcrumb can contain a divider to show the relationship between sections, this can be formatted as an icon or text.</p>
     <div class="ui breadcrumb">
-      <a class="section">Food</a>
+      <a class="section">Home</a>
       <i class="right chevron icon divider"></i>
-      <a class="section">Fruit</a>
+      <a class="section">Registration</a>
       <i class="right chevron icon divider"></i>
-      <div class="active section">Apples</div>
+      <div class="active section">Personal Information</div>
     </div>
   </div>
 
@@ -60,11 +60,9 @@ themes      : ['Default']
     <h4 class="ui header">A section</h4>
     <p>A breadcrumb can contain sections that can either be formatted as a link or text</p>
     <div class="ui breadcrumb">
-      <a class="section">Food</a>
+      <a class="section">Home</a>
       <div class="divider"> / </div>
-      <a class="section">Fruit</a>
-      <div class="divider"> / </div>
-      <div class="active section">Apples</div>
+      <div class="active section">Search</div>
     </div>
   </div>
 
@@ -74,29 +72,29 @@ themes      : ['Default']
     <h4 class="ui header">Size</h4>
     <p>A breadcrumb can vary in size</p>
     <div class="ui small breadcrumb">
-      <a class="section">Food</a>
-      <div class="divider"> / </div>
-      <a class="section">Fruit</a>
-      <div class="divider"> / </div>
-      <div class="active section">Apples</div>
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
     </div>
   </div>
   <div class="another example">
     <div class="ui large breadcrumb">
-      <a class="section">Food</a>
-      <div class="divider"> / </div>
-      <a class="section">Fruit</a>
-      <div class="divider"> / </div>
-      <div class="active section">Apples</div>
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
     </div>
   </div>
   <div class="another example">
     <div class="ui huge breadcrumb">
-      <a class="section">Food</a>
-      <div class="divider"> / </div>
-      <a class="section">Fruit</a>
-      <div class="divider"> / </div>
-      <div class="active section">Apples</div>
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
     </div>
   </div>
 
