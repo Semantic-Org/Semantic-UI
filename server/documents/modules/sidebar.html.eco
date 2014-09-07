@@ -30,10 +30,7 @@ themes      : ['Default']
 
     <div class="transition example">
       <h4 class="ui header">Transitions</h4>
-      <p>A sidebar can use different transitions</p>
-      <div class="ui button" data-transition="safe">
-        Safe
-      </div>
+      <p>A sidebar can use different transitions to display itself</p>
       <div class="ui button" data-transition="overlay">
         Overlay
       </div>
@@ -52,17 +49,16 @@ themes      : ['Default']
       <div class="ui button" data-transition="scale down">
         Scale Down
       </div>
-      <div class="ui button" data-transition="scale up">
-        Scale Up
+    </div>
+    <div class="transition example">
+      <h4 class="ui header">Safe</h4>
+      <p>A safe transitioning sidebar does not adjust the page context</p>
+      <div class="ui ignored info message">A safe transition does not create a new 3D context, this means any <code>fixed position</code> elements within your <code>pusher</code> will not be adjusted
       </div>
-      <div class="ui button" data-transition="open door">
-        Open Door
-      </div>
-      <div class="ui button" data-transition="rotate in">
-        Rotate In
+      <div class="ui button" data-transition="safe">
+        Safe
       </div>
     </div>
-
     <div class="no example">
       <h4 class="ui header">Direction</h4>
       <p>A sidebar can appear on any side of content</p>

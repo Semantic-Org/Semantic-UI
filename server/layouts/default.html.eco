@@ -199,60 +199,61 @@
     </div>
   </div>
 
-  <div class="pusher">
-    <div class="page">
-       <div class="ui fixed inverted main menu">
-        <div class="container">
-          <a class="launch item"><i class="content icon"></i> Content</a>
-          <div class="title item">
-            <b><%= @document.type %>:</b> <%= @document.title %>
-          </div>
-          <% if pageNumber > 1 and currentCollection[pageNumber - 2]?: %>
-          <a class="icon item" href="<%= currentCollection[pageNumber - 2].url %>"><i class="left chevron icon"></i></a>
-          <% else: %>
-          <div class="disabled icon item"><i class="left chevron icon"></i></div>
+   <div class="ui fixed inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="content icon"></i> Content</a>
+      <div class="title item">
+        <b><%= @document.type %>:</b> <%= @document.title %>
+      </div>
+      <% if pageNumber > 1 and currentCollection[pageNumber - 2]?: %>
+      <a class="icon item" href="<%= currentCollection[pageNumber - 2].url %>"><i class="left chevron icon"></i></a>
+      <% else: %>
+      <div class="disabled icon item"><i class="left chevron icon"></i></div>
+      <% end %>
+      <div class="section ui dropdown link item">
+        <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
+        <div class="menu">
+          <% for element, index in currentCollection: %>
+            <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+              <%= (index+1) %>. <%= element.title %>
+            </a>
           <% end %>
-          <div class="section ui dropdown link item">
-            <span class="count"><%= "#{pageNumber} of #{pageCount}" %></span>
-            <div class="menu">
-              <% for element, index in currentCollection: %>
-                <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
-                  <%= (index+1) %>. <%= element.title %>
-                </a>
-              <% end %>
-            </div>
-          </div>
-          <% if pageNumber isnt pageCount and currentCollection[pageNumber]?: %>
-          <a class="icon item" href="<%= currentCollection[pageNumber].url %>"><i class="right chevron icon"></i></a>
-          <% else: %>
-          <div class="disabled icon item"><i class="right chevron icon"></i></div>
-          <% end %>
-          <div class="right menu">
-            <div class="vertically fitted borderless item">
-              <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
-            </div>
-            <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
-            <a class="popup designer icon item" data-content="Designer Mode">
-              <i class="docs designer icon"></i>
-            </a>
-            <a class="popup developer icon item" data-content="Developer Mode">
-              <i class="docs developer icon"></i>
-            </a>
-            <% end %>
-            <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/quirkyinc/semantic">
-              <i class="alternate github icon"></i>
-            </a>
-          <!--   <a class="popup localization icon item" data-content="International">
-              <i class="docs globe icon"></i>
-            </a> -->
-          </div>
         </div>
       </div>
-      <div class="ui black huge launch right attached fixed button">
-        <i class="content icon"></i>
-        <span class="text">Menu</span>
+      <% if pageNumber isnt pageCount and currentCollection[pageNumber]?: %>
+      <a class="icon item" href="<%= currentCollection[pageNumber].url %>"><i class="right chevron icon"></i></a>
+      <% else: %>
+      <div class="disabled icon item"><i class="right chevron icon"></i></div>
+      <% end %>
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="docs designer icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="docs developer icon"></i>
+        </a>
+        <% end %>
+        <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/quirkyinc/semantic">
+          <i class="alternate github icon"></i>
+        </a>
+      <!--   <a class="popup localization icon item" data-content="International">
+          <i class="docs globe icon"></i>
+        </a> -->
       </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached fixed button">
+    <i class="content icon"></i>
+    <span class="text">Menu</span>
+  </div>
+
+  <div class="pusher">
+    <div class="page">
       <%- @content %>
     </div>
   </div>

@@ -37,6 +37,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
 
   <div class="example">
     <h4 class="ui header">Ordinality</h4>
+    <div class="ui info message">Setting your brand colors to primary and secondary color variables in <code>site.variables</code>, will allow you to use consistent color theming for UI elements</div>
     <p>A button can be formatted to show different levels of emphasis</p>
     <div class="ui primary button">
       <i class="shop icon"></i> Add to Cart
@@ -95,54 +96,51 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
 
   <div class="example">
     <h4 class="ui header">Basic</h4>
-    <p>A basic button removes all unnecessary formatting</p>
+    <p>A basic button is less pronounced</p>
     <div class="ui basic button">
       <i class="icon user"></i>
       Add Friend
     </div>
   </div>
-  <div class="another example">
-    <div class="ui inverted segment">
-      <div class="ui inverted basic button">
-        <i class="icon globe"></i>
-        Change Language
-      </div>
-    </div>
+  <div class="another spaced example">
+    <div class="ui black basic button">Black</div>
+    <div class="ui yellow basic button">Yellow</div>
+    <div class="ui green basic button">Green</div>
+    <div class="ui blue basic button">Blue</div>
+    <div class="ui orange basic button">Orange</div>
+    <div class="ui purple basic button">Purple</div>
+    <div class="ui pink basic button">Pink</div>
+    <div class="ui red basic button">Red</div>
+    <div class="ui teal basic button">Teal</div>
   </div>
 
-  <div class="example">
+  <div class="spaced example">
     <h4 class="ui header">Inverted</h4>
     <p>A button can be formatted to appear on dark backgrounds</p>
     <div class="ui inverted segment">
       <div class="ui inverted button">Standard</div>
       <div class="ui inverted black button">Black</div>
       <div class="ui inverted yellow button">Yellow</div>
-      <br><br>
       <div class="ui inverted green button">Green</div>
       <div class="ui inverted blue button">Blue</div>
       <div class="ui inverted orange button">Orange</div>
-      <br><br>
       <div class="ui inverted purple button">Purple</div>
       <div class="ui inverted pink button">Pink</div>
       <div class="ui inverted red button">Red</div>
-      <br><br>
       <div class="ui inverted teal button">Teal</div>
     </div>
   </div>
-  <div class="another example">
+  <div class="another spaced example">
     <div class="ui inverted segment">
       <div class="ui inverted basic button">Basic</div>
       <div class="ui inverted black basic button">Basic Black</div>
       <div class="ui inverted yellow basic button">Basic Yellow</div>
-      <br><br>
       <div class="ui inverted green basic button">Basic Green</div>
       <div class="ui inverted blue basic button">Basic Blue</div>
       <div class="ui inverted orange basic button">Basic Orange</div>
-      <br><br>
       <div class="ui inverted purple basic button">Basic Purple</div>
       <div class="ui inverted pink basic button">Basic Pink</div>
       <div class="ui inverted red basic button">Basic Red</div>
-      <br><br>
       <div class="ui inverted teal basic button">Basic Teal</div>
     </div>
   </div>
@@ -233,7 +231,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
   <h2 class="ui dividing header">Variations</h2>
 
 
-  <div class="example">
+  <div class="spaced example">
     <h4 class="ui header">Social</h4>
     <p>A button can be formatted to link to a social website</p>
     <div class="ui facebook button">
@@ -252,7 +250,6 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
       <i class="vk icon"></i>
       VK
     </div>
-    <br><br>
     <div class="ui linkedin button">
       <i class="linkedin icon"></i>
       LinkedIn
@@ -268,7 +265,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
   </div>
 
 
-  <div class="example">
+  <div class="spaced example">
     <h4 class="ui header">Sizes</h4>
     <p>A button can have different sizes:</p>
     <div class="mini ui button">
@@ -297,7 +294,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
     </div>
   </div>
 
-  <div class="example">
+  <div class="spaced example">
     <h4 class="ui header">Colors</h4>
     <p>A button can have different colors:</p>
     <div class="ui black button">Black</div>

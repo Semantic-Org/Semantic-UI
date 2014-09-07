@@ -191,6 +191,9 @@ a:hover {
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
+#example.scale.down.pushed .header.segment {
+  padding-top: 30px;
+}
 
 #example .tab.header.segment {
   padding-bottom: 0em;
@@ -222,21 +225,10 @@ a:hover {
 
 #example .main.menu {
   top: 0px;
-  left: auto;
+  left: -1px;
   min-width: 320px;
   width: 100%;
-  z-index: 900;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-
-  -webkit-transition: margin 0.3s ease;
-  -moz-transition: margin 0.3s ease;
-  -o-transition: margin 0.3s ease;
-  -ms-transition: margin 0.3s ease;
-  transition: margin 0.3s ease;
+  z-index: 1004;
 }
 #example .main.menu iframe {
   margin: 0px 0px 0px 0px;
@@ -609,8 +601,7 @@ body#example.hide {
 #example .fixed.launch.button {
   position: fixed;
   top: 63px;
-  left: auto;
-  z-index: 500;
+  left: -1px;
   width: 55px;
   height: 50px;
   overflow: hidden;
@@ -635,6 +626,7 @@ body#example.hide {
     0.5s transform ease
   ;
 }
+
 #example .fixed.launch.button .text {
   position: absolute;
   top: 15px;
@@ -776,6 +768,13 @@ body#example.hide {
 }
 #example .example .language.label {
   margin: 1em 0em 0.75em;
+}
+#example .spaced.example .buttons,
+#example .spaced.example .button {
+  margin-bottom: 0.75em;
+}
+#example .spaced.example .buttons .button {
+  margin-bottom: 0em;
 }
 #example .icon.example .grid {
   margin-top: 1.5rem;
