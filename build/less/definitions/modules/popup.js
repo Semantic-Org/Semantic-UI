@@ -119,10 +119,8 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
-          if($popup) {
-            $popup
-              .remove()
-            ;
+          if($popup && !settings.preserve) {
+            module.remove();
           }
           $module
             .off(eventNamespace)

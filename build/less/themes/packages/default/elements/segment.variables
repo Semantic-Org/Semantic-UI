@@ -26,7 +26,7 @@
 --------------------*/
 
 /* Page Grid Segment */
-@pageGridMargin: 2 * @verticalPadding;
+@pageGridMargin: (2 * @verticalPadding);
 
 
 /*******************************
@@ -53,8 +53,8 @@
 ;
 
 /* Attached */
-@attachedTopOffset: -1px;
-@attachedBottomOffset: 1px;
+@attachedTopOffset: 0px;
+@attachedBottomOffset: 0px;
 @attachedBoxShadow: 0px 0px 0px 1px @solidBorderColor;
 @attachedBottomBoxShadow:
   @attachedBoxShadow,

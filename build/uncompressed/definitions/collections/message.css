@@ -372,7 +372,7 @@
 }
 /* Negative */
 .ui.negative.message {
-  background-color: #faf1f1;
+  background-color: #fae8e8;
   color: #a94442;
 }
 .ui.negative.message,
@@ -408,7 +408,7 @@
 }
 /* Error */
 .ui.error.message {
-  background-color: #faf1f1;
+  background-color: #fae8e8;
   color: #a94442;
 }
 .ui.error.message,

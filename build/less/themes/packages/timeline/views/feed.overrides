@@ -16,6 +16,7 @@
   color: #FFFFFF;
   width: 3rem;
   height: 3rem;
+  line-height: 1.5;
   left: -1.6rem;
   opacity: 1;
   position: relative;

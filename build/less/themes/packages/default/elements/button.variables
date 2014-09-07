@@ -35,6 +35,7 @@
   opacity @transitionDuration @transitionEasing,
   background-color @transitionDuration @transitionEasing,
   color @transitionDuration @transitionEasing,
+  box-shadow @transitionDuration @transitionEasing,
   background @transitionDuration @transitionEasing
 ;
 
@@ -161,15 +162,30 @@
 @invertedVerticalGroupButtonOffset: 0px 0px -(@invertedBorderSize) 0px;
 
 /* Basic */
-@basicBoxShadow: 0px 0px 0px 1px @borderColor;
+@basicBorderSize: 1px;
+@basicColoredBorderSize: 2px;
+@basicPadding: @verticalPadding @horizontalPadding;
+@basicBackground: transparent;
+@basicFontWeight: normal;
+@basicBoxShadow: 0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.1) inset;
 @iconOffset: 0.05em;
 @basicLoadingColor: #FFFFFF;
+@basicBorderRadius: @borderRadius;
+@basicTextTransform: none;
 
+/* Basic Hover */
 @basicHoverBackground: #FAFAFA;
-@basicHoverBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
-
-@basicDownBackground: rgba(0, 0, 0, 0.02);
-@basicDownBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+@basicHoverBoxShadow:
+  0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.1) inset,
+  0px 0px 0px 0px rgba(0, 0, 0, 0.1) inset
+;
+/* Basic Down */
+@basicDownBackground: #F8F8F8;
+@basicDownBoxShadow:
+  0px 0px 0px @basicBorderSize rgba(0, 0, 0, 0.15) inset,
+  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset
+;
+/* Basic Active */
 @basicActiveBackground: @transparentBlack;
 @basicActiveColor: @selectedTextColor;
 

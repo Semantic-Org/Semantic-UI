@@ -8984,10 +8984,8 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
-          if($popup) {
-            $popup
-              .remove()
-            ;
+          if($popup && !settings.preserve) {
+            module.remove();
           }
           $module
             .off(eventNamespace)
@@ -11977,9 +11975,11 @@ $.fn.sidebar = function(parameters) {
 
         bind: {
           clickaway: function() {
-            $(window)
-              .on('DOMMouseScroll' + eventNamespace, module.event.scroll)
-            ;
+            if(settings.scrollLock) {
+              $(window)
+                .on('DOMMouseScroll' + eventNamespace, module.event.scroll)
+              ;
+            }
             $context
               .on('click' + eventNamespace, module.event.clickaway)
               .on('touchend' + eventNamespace, module.event.clickaway)
@@ -11991,7 +11991,9 @@ $.fn.sidebar = function(parameters) {
             $context
               .off(eventNamespace)
             ;
-            $(window).off('DOMMouseScroll' + eventNamespace);
+            if(settings.scrollLock) {
+              $(window).off('DOMMouseScroll' + eventNamespace);
+            }
           }
         },
 
@@ -12156,9 +12158,6 @@ $.fn.sidebar = function(parameters) {
           else {
             if(settings.transition !== 'safe') {
               $module.scrollTop(0);
-              if(settings.workaround === 'scroll') {
-                window.scrollTo(0, 0);
-              }
             }
             module.remove.allVisible();
             requestAnimationFrame(transition);
@@ -12508,34 +12507,30 @@ $.fn.sidebar = function(parameters) {
 
 $.fn.sidebar.settings = {
 
-  name            : 'Sidebar',
-  namespace       : 'sidebar',
+  name             : 'Sidebar',
+  namespace        : 'sidebar',
 
-  debug           : false,
-  verbose         : false,
-  performance     : false,
+  debug            : false,
+  verbose          : false,
+  performance      : false,
 
+  workaround       : false,
   transition       : 'overlay',
   mobileTransition : 'slide along',
+  context          : 'body',
+  exclusive        : true,
 
-  context         : 'body',
-  useCSS          : true,
-  duration        : 300,
+  scrollLock       : false,
 
-  dimPage         : true,
+  onChange         : function(){},
+  onShow           : function(){},
+  onHide           : function(){},
 
-  exclusive       : true,
+  onHidden         : function(){},
+  onVisible        : function(){},
 
-  onChange        : function(){},
-  onShow          : function(){},
-  onHide          : function(){},
 
-  onHidden        : function(){},
-  onVisible       : function(){},
-
-  workaround      : 'scroll',
-
-  className       : {
+  className        : {
     pushable : 'pushable',
     active   : 'active',
     visible  : 'visible',
@@ -12549,7 +12544,7 @@ $.fn.sidebar.settings = {
     pusher  : '.pusher',
     fixed   : '.ui.fixed',
     page    : '.page',
-    omitted : 'script, link, style, .ui.modal, .ui.nag'
+    omitted : 'script, link, style, .ui.modal, .ui.nag, .ui.fixed'
   },
 
   error   : {

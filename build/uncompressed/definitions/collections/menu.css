@@ -771,7 +771,7 @@
   z-index: 2;
 }
 .ui.tabular.menu ~ .bottom.attached.segment {
-  margin: 1px 0px 0px 1px;
+  margin: 0px 0px 0px 1px;
 }
 /* Coupling with accordion */
 .ui.accordion.menu .item .title > i.dropdown.icon {
@@ -1548,7 +1548,7 @@
   background-color: #fafafa;
 }
 .ui.pointing.menu .active.item:after {
-  background-color: #fcfcfc;
+  background-color: #f6f6f6;
 }
 .ui.vertical.pointing.menu .item:hover:after {
   background-color: #fafafa;

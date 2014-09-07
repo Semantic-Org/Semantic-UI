@@ -442,7 +442,7 @@
   color: #a94442 !important;
 }
 .ui.selection.dropdown.error {
-  background: #faf1f1;
+  background: #fae8e8;
   box-shadow: 0px 0px 0px 1px #dbb1b1 !important;
 }
 .ui.selection.dropdown.error:hover {

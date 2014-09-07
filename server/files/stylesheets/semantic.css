@@ -425,8 +425,14 @@ body#example.hide {
 #example.index .main.menu {
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition:
+    opacity 0.5s ease,
+    transform 0.5s ease
+  ;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease
+  ;
 }
 #example.index .filled.main.menu {
   background-color: rgba(0, 0, 0, 0.9);
