@@ -121,6 +121,29 @@ themes      : ['Default']
         </div>
       </div>
     </div>
+    <div class="another hover example">
+      <div class="ui vertical menu">
+        <div class="menu">
+          <a class="active item">
+            Home
+          </a>
+          <div class="ui left pointing dropdown link item">
+            <i class="dropdown icon"></i>
+            Messages
+            <div class="menu">
+              <a class="item"><i class="mail icon"></i>Inbox</a>
+              <a class="item"><i class="book icon"></i>Archive</a>
+            </div>
+          </div>
+          <a class="item">
+            Browse
+          </a>
+          <a class="item">
+            Help
+          </a>
+        </div>
+      </div>
+    </div>
     <div class="another button example">
       <div class="ui blue labeled icon top left pointing dropdown button">
         <i class="settings icon"></i>

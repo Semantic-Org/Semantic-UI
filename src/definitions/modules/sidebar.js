@@ -63,6 +63,7 @@ $.fn.sidebar = function(parameters) {
         element         = this,
         instance        = $module.data(moduleNamespace),
 
+        currentScroll,
         transitionEnd,
 
         module
@@ -296,9 +297,12 @@ $.fn.sidebar = function(parameters) {
             requestAnimationFrame(transition);
           }
           else {
-            $module.scrollTop(0);
             if(module.is.mobile()) {
-              window.scrollTo(0, 0);
+              requestAnimationFrame(function() {
+                $module.scrollTop(0);
+                currentScroll = $(window).scrollTop();
+                window.scrollTo(0, 0);
+              });
             }
             module.remove.allVisible();
             requestAnimationFrame(transition);
@@ -322,6 +326,9 @@ $.fn.sidebar = function(parameters) {
           $transition
             .on(transitionEnd, function(event) {
               if( event.target == $transition[0] ) {
+                if(module.is.mobile()) {
+                  window.scrollTo(0, currentScroll);
+                }
                 $transition.off(transitionEnd);
                 module.remove.transition();
                 module.remove.direction();
