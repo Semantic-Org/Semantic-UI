@@ -39,6 +39,7 @@
           Content
 *******************************/
 
+/* Divider */
 .ui.breadcrumb .divider {
   display: inline-block;
   opacity: @dividerOpacity;
@@ -48,10 +49,23 @@
   color: @dividerColor;
   vertical-align: @dividerVerticalAlign;
 }
-.ui.breadcrumb .icon.divider {
-  font-size: @iconDividerSize;
+
+/* Link */
+.ui.breadcrumb a {
+  color: @linkColor;
+}
+.ui.breadcrumb a:hover {
+  color: @linkHoverColor;
 }
 
+
+/* Icon Divider */
+.ui.breadcrumb .icon.divider {
+  font-size: @iconDividerSize;
+  vertical-align: @iconDividerVerticalAlign;
+}
+
+/* Section */
 .ui.breadcrumb a.section {
   cursor: pointer;
 }

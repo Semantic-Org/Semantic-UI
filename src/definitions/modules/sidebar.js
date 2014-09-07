@@ -296,9 +296,8 @@ $.fn.sidebar = function(parameters) {
             requestAnimationFrame(transition);
           }
           else {
-            if(settings.transition !== 'safe') {
-              $module.scrollTop(0);
-            }
+            $module.scrollTop(0);
+            $(document).scrollTop(0);
             module.remove.allVisible();
             requestAnimationFrame(transition);
           }
