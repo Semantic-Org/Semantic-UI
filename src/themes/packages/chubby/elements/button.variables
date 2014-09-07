@@ -13,6 +13,10 @@
 @horizontalPadding: 2.5em;
 @invertedBorderSize: 3px;
 
+@basicBorderRadius: 0.4em;
+@basicFontWeight: bold;
+@basicTextTransform: uppercase;
+
 @blue: #4A88CB;
 @primaryColor: @blue;
 
