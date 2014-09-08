@@ -16,7 +16,7 @@
 /* Form Label */
 @labelFontSize: 0.9em;
 @labelFontWeight: bold;
-@labelMargin: 0.3em;
+@labelDistance: 0.3rem;
 @labelColor: @textColor;
 
 /* Input */
@@ -129,6 +129,7 @@
 /* Inline */
 @inlineLabelFontSize: 1em;
 @inlineLabelVerticalAlign: middle;
+@inlineGroupedFieldLabelDistance: 0.5rem;
 
 /* (x) Wide Field */
 @gutterWidth: 1%;
