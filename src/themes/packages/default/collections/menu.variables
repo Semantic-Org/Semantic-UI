@@ -125,14 +125,14 @@
 /* Dropdown */
 @dropdownBackground: #FFFFFF;
 @dropdownMenuOffset: 1px;
-@dropdownPointingDistance: 1px;
+@dropdownPointingDistance: 0px;
 
 @dropdownTextColor: @textColor;
 @dropdownTextColorHover: @darkTextColor;
 @dropdownIconMargin: 0em 0em 0em 1em;
 
-@dropdownBoxShadow: 0px 1px 0px 1px @borderColor;
-@dropdownVerticalBoxShadow: 0 0px 1px 1px @solidBorderColor;
+@dropdownBoxShadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+@dropdownVerticalBoxShadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
 
 /* Pointing Arrow */
 @arrowSize: 0.6em;

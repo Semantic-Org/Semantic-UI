@@ -29,7 +29,7 @@
 */
 
 
-.ui.transition {
+.transition {
   animation-iteration-count: 1;
   animation-duration: @transitionDefaultDuration;
   animation-timing-function: @transitionDefaultEasing;
@@ -41,26 +41,26 @@
             States
 *******************************/
 
-.ui.animating.transition {
+.animating.transition {
   display: block !important;
   backface-visibility: @backfaceVisibility;
   transform: @use3DAcceleration;
 }
 
 /* Loading */
-.ui.loading.transition {
+.loading.transition {
   position: absolute;
   top: -999999px;
   left: -99999px;
 }
 
 /* Hidden */
-.ui.hidden.transition {
+.hidden.transition {
   display: none;
 }
 
 /* Visible */
-.ui.visible.transition {
+.visible.transition {
   display: block !important;
   visibility: visible;
   backface-visibility: @backfaceVisibility;
@@ -68,7 +68,7 @@
 }
 
 /* Disabled */
-.ui.disabled.transition {
+.disabled.transition {
   animation-play-state: paused;
 }
 
@@ -76,7 +76,7 @@
           Variations
 *******************************/
 
-.ui.looping.transition {
+.looping.transition {
   animation-iteration-count: infinite;
 }
 

@@ -30,6 +30,7 @@
   line-height: @lineHeight;
   transition: @transition;
   tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
 }
 
 
@@ -94,12 +95,14 @@
 ---------------*/
 
 .ui.dropdown .menu .item {
+  position: relative;
   cursor: pointer;
   display: block;
   border: @itemBorder;
   height: @itemHeight;
 
   border-top: @itemDivider;
+  line-height: @itemLineHeight;
   font-size: @itemFontSize;
   color: @itemColor;
 
@@ -119,6 +122,8 @@
 .ui.dropdown .menu .item:first-child {
   border-top: none;
 }
+
+
 
 /*--------------
    Item Image
@@ -185,6 +190,7 @@
 /*--------------
     Selection
 ---------------*/
+
 /* Displays like a select box */
 
 .ui.selection.dropdown {
@@ -192,29 +198,65 @@
   word-wrap: break-word;
   white-space: normal;
   outline: 0;
+  transform: rotateZ(0deg);
+
+  min-width: @selectionMinWidth;
 
   background: @selectionBackground;
   display: @selectionDisplay;
-  padding: @selectionVerticalPadding @selectionHorizontalPadding;
+  padding: @selectionPadding;
   color: @selectionTextColor;
   box-shadow: @selectionBoxShadow;
   border: @selectionBorder;
   border-radius: @selectionBorderRadius;
   transition: @selectionTransition;
 }
+.ui.selection.dropdown.visible,
 .ui.selection.dropdown.active {
-  transform: rotateZ(0deg);
-  z-index: 10;
+  z-index: @selectionZIndex;
 }
-.ui.selection.dropdown select {
+
+.ui.selection.dropdown > input[type="hidden"],
+.ui.selection.dropdown > select {
   display: none;
 }
+.ui.selection.dropdown > .text {
+  margin-right: @selectionTextIconDistance;
+}
+.ui.selection.dropdown > .search.icon,
 .ui.selection.dropdown > .dropdown.icon {
+  position: absolute;
+  top: auto;
+  margin: 0em;
+  right: @selectionHorizontalPadding;
   opacity: @selectionIconOpacity;
-  margin: @selectionIconMargin;
   transition: @selectionIconTransition;
 }
 
+/* Search Selection Input */
+.ui.selection > input.search {
+  cursor: pointer;
+  background: none transparent;
+  border: none;
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  width: 100%;
+  line-height: 1.2em;
+  padding: @selectionPadding;
+  outline: none;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+.ui.selection.active > input.search,
+.ui.selection.visible > input.search {
+  cursor: auto;
+}
+.ui.selection > input.search:focus + .text {
+  color: @unselectedTextColor !important;
+}
+
+
+/*  Selection Menu */
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
   overflow-y: auto;
@@ -224,6 +266,7 @@
   border-top: none !important;
   width: auto;
   margin: 0px -1px;
+  min-width: ~"calc(100% + 2px)";
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
@@ -231,8 +274,10 @@
 }
 .ui.selection.dropdown .menu .item {
   padding-left: @selectionHorizontalPadding !important;
-  padding-right: @selectionHorizontalPadding !important;
-  white-space: @selectionMenuWhiteSpace;
+  /* Add in spacing for scroll bar */
+  padding-right: calc(@selectionHorizontalPadding + 1em) !important;
+  white-space: normal;
+  word-wrap: normal;
 }
 
 /* Hover */
@@ -252,12 +297,20 @@
 }
 
 /* Visible */
-.ui.selection.dropdown.active {
+.ui.selection.dropdown.visible {
   border: @selectionVisibleBorder;
   box-shadow: @selectionVisibleBoxShadow;
 }
-.ui.active.selection.dropdown > .dropdown.icon {
+.ui.visible.selection.dropdown > .dropdown.icon {
   opacity: @selectionVisibleIconOpacity;
+}
+
+/* Filtered Item */
+.ui.selection.dropdown .filtered.text {
+  visibility: hidden;
+}
+.ui.selection.dropdown .filtered.item {
+  display: none;
 }
 
 /* Active Item */
@@ -266,10 +319,11 @@
   font-weight: @selectionVisibleTextFontWeight;
   color: @selectionVisibleTextColor;
 }
-/* Don't Repeat Active Item */
-.ui.selection.dropdown .menu .item.active {
+
+/*
+.ui.selection.dropdown .menu .active.item {
   display: none;
-}
+}*/
 
 
 /* Connecting Border */
@@ -346,6 +400,19 @@
 .ui.default.dropdown:hover > .text {
   color: @defaultTextHoverColor;
 }
+
+
+/*--------------------
+    Keyboard Select
+----------------------*/
+
+/* Selected Item */
+.ui.dropdown.selected,
+.ui.dropdown .menu .selected.item {
+  background: @selectedBackground;
+  color: @selectedColor;
+}
+
 
 /*--------------------
         Error
