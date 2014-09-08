@@ -35,7 +35,6 @@ semantic.dropdown.ready = function() {
     })
   ;
 
-
   $dropdown
     .dropdown()
   ;

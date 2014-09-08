@@ -6,20 +6,20 @@
     Emphasis
 ---------------*/
 
-.ui.flash.transition {
+.flash.transition {
   animation-name: flash;
 }
-.ui.shake.transition {
+.shake.transition {
   animation-name: shake;
 }
-.ui.bounce.transition {
+.bounce.transition {
   animation-name: bounce;
 }
-.ui.tada.transition {
+.tada.transition {
   animation-name: tada;
 }
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-.ui.pulse.transition {
+.pulse.transition {
   animation-name: pulse;
 }
 
@@ -100,22 +100,22 @@
      Slide
 ---------------*/
 
-.ui.slide.down.transition.in {
+.slide.down.transition.in {
   animation-name: slide;
   transform-origin: 50% 0%;
   -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
 }
-.ui.slide.down.transition.out {
+.slide.down.transition.out {
   animation-name: slideOut;
   transform-origin: 50% 0%;
 }
 
-.ui.slide.up.transition.in {
+.slide.up.transition.in {
   animation-name: slide;
   transform-origin: 50% 100%;
 }
-.ui.slide.up.transition.out {
+.slide.up.transition.out {
   animation-name: slideOut;
   transform-origin: 50% 100%;
 }
@@ -147,22 +147,22 @@
      Flips
 ---------------*/
 
-.ui.flip.transition.in,
-.ui.flip.transition.out {
+.flip.transition.in,
+.flip.transition.out {
   perspective: 2000px;
 }
-.ui.horizontal.flip.transition.in,
-.ui.horizontal.flip.transition.out {
+.horizontal.flip.transition.in,
+.horizontal.flip.transition.out {
   animation-name: horizontalFlip;
 }
-.ui.horizontal.flip.transition.out {
+.horizontal.flip.transition.out {
   animation-name: horizontalFlipOut;
 }
-.ui.vertical.flip.transition.in,
-.ui.vertical.flip.transition.out {
+.vertical.flip.transition.in,
+.vertical.flip.transition.out {
   animation-name: verticalFlip;
 }
-.ui.vertical.flip.transition.out {
+.vertical.flip.transition.out {
   animation-name: verticalFlipOut;
 }
 
@@ -215,24 +215,24 @@
       Fades
 ---------------*/
 
-.ui.fade.transition.in {
+.fade.transition.in {
   animation-name: fade;
 }
-.ui.fade.transition.out {
+.fade.transition.out {
   animation-name: fadeOut;
 }
 
-.ui.fade.up.transition.in {
+.fade.up.transition.in {
   animation-name: fadeUp;
 }
-.ui.fade.up.transition.out {
+.fade.up.transition.out {
   animation-name: fadeUpOut;
 }
 
-.ui.fade.down.transition.in {
+.fade.down.transition.in {
   animation-name: fadeDown;
 }
-.ui.fade.down.transition.out {
+.fade.down.transition.out {
   animation-name: fadeDownOut;
 }
 
@@ -305,10 +305,10 @@
       Scale
 ---------------*/
 
-.ui.scale.transition.in {
+.scale.transition.in {
   animation-name: scale;
 }
-.ui.scale.transition.out {
+.scale.transition.out {
   animation-name: scaleOut;
 }
 
@@ -338,14 +338,14 @@
      Drop
 ---------------*/
 
-.ui.drop.transition {
+.drop.transition {
   transform-origin: top center;
   animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
 }
-.ui.drop.transition.in {
+.drop.transition.in {
   animation-name: dropIn;
 }
-.ui.drop.transition.out {
+.drop.transition.out {
   animation-name: dropOut;
 }
 
@@ -375,16 +375,16 @@
      Browse
 ---------------*/
 
-.ui.browse.transition.in {
+.browse.transition.in {
   animation-name: browseIn;
   animation-timing-function: ease;
 }
-.ui.browse.transition.out,
-.ui.browse.transition.out.left {
+.browse.transition.out,
+.browse.transition.out.left {
   animation-name: browseOutLeft;
   animation-timing-function: ease;
 }
-.ui.browse.transition.out.right {
+.browse.transition.out.right {
   animation-name: browseOutRight;
   animation-timing-function: ease;
 }

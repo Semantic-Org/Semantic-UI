@@ -479,7 +479,7 @@
 .ui.form .grouped.fields > label,
 .ui.form .inline.fields > label,
 .ui.form .field > label {
-  margin: 0em 0em 0.3em 0em;
+  margin: 0em 0em 0.3rem 0em;
   display: block;
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.9em;
@@ -873,6 +873,9 @@
   margin: 0.5em 0em;
   padding: 0em;
 }
+.ui.form .inline.grouped.fields > label {
+  margin-bottom: 0.5rem;
+}
 /*--------------------
         Fields
 ---------------------*/
@@ -1058,7 +1061,7 @@
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em 0.3em 0em 0em;
+  margin: 0em 0.3rem 0em 0em;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
@@ -2552,12 +2555,12 @@ body > .ui.grid:not(.page) {
   background: #ffffff;
   left: 0px;
   margin: 1px 0px 0px;
-  min-width: -webkit-calc(99%);
-  min-width: calc(99%);
-  box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
+  min-width: -webkit-calc(100% - 1px);
+  min-width: calc(100% - 1px);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
 }
 .ui.menu .pointing.dropdown.item .menu {
-  margin-top: 1px;
+  margin-top: 0px;
   border-top-left-radius: 0em;
   border-top-right-radius: 0em;
 }
@@ -2673,7 +2676,7 @@ body > .ui.grid:not(.page) {
   background-color: transparent !important;
 }
 /*--------------------
-     Loading
+       Loading
 ---------------------*/
 /* On Form */
 .ui.menu.loading {
@@ -2752,7 +2755,7 @@ body > .ui.grid:not(.page) {
   top: 0% !important;
   left: 100%;
   margin: 1px 0px 0px 1px;
-  box-shadow: 0 0px 1px 1px #dddddd;
+  box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
 }
 .ui.vertical.menu .dropdown.item.active {
   border-top-right-radius: 0em;
@@ -3942,7 +3945,7 @@ body > .ui.grid:not(.page) {
 /* Header */
 .ui.message .header {
   display: block;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0em 0em 0em 0em;
@@ -5341,7 +5344,7 @@ body > .ui.grid:not(.page) {
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
   padding: 0.8em 1.5em 0.8em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -8849,7 +8852,7 @@ i.flag.zimbabwe {
 /* Standard */
 .ui.header {
   border: none;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 1em 0em 1rem;
   padding: 0em 0em;
   font-weight: bold;
@@ -12063,12 +12066,12 @@ img.ui.bordered.image {
   width: 100%;
   outline: none;
   line-height: 1.2em;
-  font-family: "Helvetica Neue", "Helvetica", Arial;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   padding: 0.7em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
-  border-radius: 0.3125em;
+  border-radius: 0.325em;
   -webkit-transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.3s ease-out, box-shadow 0.2s ease, border-color 0.2s ease;
   box-shadow: none;
@@ -12174,7 +12177,7 @@ img.ui.bordered.image {
   height: 100%;
   padding-top: 0.9em;
   text-align: center;
-  border-radius: 0em 0.3125em 0.3125em 0em;
+  border-radius: 0em 0.325em 0.325em 0em;
   box-sizing: border-box;
   -webkit-transition: opacity 0.3s ease-out;
           transition: opacity 0.3s ease-out;
@@ -12193,7 +12196,7 @@ img.ui.bordered.image {
 .ui.left.icon.input > .icon {
   right: auto;
   left: 1px;
-  border-radius: 0.3125em 0em 0em 0.3125em;
+  border-radius: 0.325em 0em 0em 0.325em;
 }
 .ui.left.icon.input > .circular.icon {
   right: auto;
@@ -12227,7 +12230,7 @@ img.ui.bordered.image {
   top: 1px;
   right: 1px;
   font-size: 0.75em;
-  border-radius: 0em 0.3125em 0em 0em;
+  border-radius: 0em 0.325em 0em 0em;
 }
 .ui.labeled.input input {
   padding-right: 2.5em !important;
@@ -13656,7 +13659,7 @@ ol.ui.list ol,
 .ui.list .header {
   display: block;
   margin: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -15807,7 +15810,7 @@ ol.ui.horizontal.list li:before,
 *******************************/
 /* Title */
 .ui.steps .step .title {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -16713,7 +16716,7 @@ body {
 }
 body {
   background: #fcfcfc;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   margin: 0px;
   padding: 0px;
   color: rgba(0, 0, 0, 0.8);
@@ -16955,7 +16958,7 @@ a:hover {
 .ui.accordion .title,
 .ui.accordion .accordion .title {
   cursor: pointer;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1em;
   padding: 0.5em 0em;
   color: rgba(0, 0, 0, 0.8);
@@ -18549,14 +18552,15 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
         Types
 --------------------*/
 /* Selection */
-/* Selection Hover */
+/* Hover */
+/* Visible */
+/* Visible Hover */
 /* Inline */
 /*-------------------
        States
 --------------------*/
 /* Default Text */
 /* Active Menu Item */
-/* Menu Error */
 /*-------------------
       Variations
 --------------------*/
@@ -18589,6 +18593,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   -webkit-transition: border-radius 0.1s ease, width 0.2s ease;
           transition: border-radius 0.1s ease, width 0.2s ease;
   tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
 }
 /*******************************
             Content
@@ -18608,7 +18613,8 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   white-space: nowrap;
   font-size: 1rem;
   text-shadow: none;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0em 0em 0.325em 0.325em;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
@@ -18640,11 +18646,13 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
     Menu Item
 ---------------*/
 .ui.dropdown .menu .item {
+  position: relative;
   cursor: pointer;
   display: block;
   border: none;
   height: auto;
   border-top: none;
+  line-height: 1.2;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.85em 0.8em !important;
   font-size: 1rem;
@@ -18717,57 +18725,131 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   word-wrap: break-word;
   white-space: normal;
   outline: 0;
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
+  min-width: 180px;
   background: #ffffff;
   display: inline-block;
   padding: 0.8em 1.1em;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 0.325em !important;
-  /* Matches selection dropdown height to input height */
-  border-top: 1px solid transparent;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.325em;
+  -webkit-transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+          transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
+.ui.selection.dropdown.visible,
 .ui.selection.dropdown.active {
-  -webkit-transform: rotateZ(0deg);
-          transform: rotateZ(0deg);
   z-index: 10;
 }
-.ui.selection.dropdown select {
+.ui.selection.dropdown > input[type="hidden"],
+.ui.selection.dropdown > select {
   display: none;
 }
+.ui.selection.dropdown > .text {
+  margin-right: 2em;
+}
+.ui.selection.dropdown > .search.icon,
 .ui.selection.dropdown > .dropdown.icon {
+  position: absolute;
+  top: auto;
+  margin: 0em;
+  right: 1.1em;
   opacity: 0.8;
-  margin: 0em 0em 0em 1em;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
 }
+/* Search Selection Input */
+.ui.selection > input.search {
+  cursor: pointer;
+  background: none transparent;
+  border: none;
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  width: 100%;
+  line-height: 1.2em;
+  padding: 0.8em 1.1em;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+.ui.selection.active > input.search,
+.ui.selection.visible > input.search {
+  cursor: auto;
+}
+.ui.selection > input.search:focus + .text {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+/*  Selection Menu */
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 312px;
-  box-shadow: 0px 1px 0px 1px #e0e0e0;
+  max-height: 245px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+  -webkit-transition: box-shadow 0.2s ease, border 0.2s ease;
+          transition: box-shadow 0.2s ease, border 0.2s ease;
+  border-top: none !important;
+  width: auto;
+  margin: 0px -1px;
+  min-width: -webkit-calc(100% + 2px);
+  min-width: calc(100% + 2px);
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
 }
+.ui.selection.dropdown .menu .item {
+  padding-left: 1.1em !important;
+  /* Add in spacing for scroll bar */
+  padding-right: -webkit-calc(2.1em) !important;
+  padding-right: calc(2.1em) !important;
+  white-space: normal;
+  word-wrap: normal;
+}
 /* Hover */
 .ui.selection.dropdown:hover {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
-.ui.selection.dropdown:hover .menu {
-  box-shadow: 0px 1px 0px 1px #d3d3d3;
+/* Visible Hover */
+.ui.selection.visible.dropdown:hover {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
-.ui.selection.dropdown:hover > .dropdown.icon {
+.ui.selection.visible.dropdown:hover .menu {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+}
+/* Visible */
+.ui.selection.dropdown.visible {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+}
+.ui.visible.selection.dropdown > .dropdown.icon {
   opacity: 1;
 }
+/* Filtered Item */
+.ui.selection.dropdown .filtered.text {
+  visibility: hidden;
+}
+.ui.selection.dropdown .filtered.item {
+  display: none;
+}
+/* Active Item */
+.ui.selection.active.dropdown .text:not(.default),
+.ui.selection.visible.dropdown .text:not(.default) {
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.8);
+}
+/*
+.ui.selection.dropdown .menu .active.item {
+  display: none;
+}*/
 /* Connecting Border */
 .ui.active.selection.dropdown,
 .ui.visible.selection.dropdown {
   border-bottom-left-radius: 0em !important;
   border-bottom-right-radius: 0em !important;
-}
-.ui.active.selection.dropdown > .dropdown.icon {
-  opacity: 1;
 }
 /*--------------
      Inline
@@ -18809,7 +18891,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ----------------------*/
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
@@ -18825,6 +18907,15 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.dropdown:hover > .default.text,
 .ui.default.dropdown:hover > .text {
   color: rgba(140, 140, 140, 0.7);
+}
+/*--------------------
+    Keyboard Select
+----------------------*/
+/* Selected Item */
+.ui.dropdown.selected,
+.ui.dropdown .menu .selected.item {
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.8);
 }
 /*--------------------
         Error
@@ -19307,7 +19398,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 ---------------*/
 .ui.modal > .header {
   display: block;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
   margin: 0em;
@@ -20076,7 +20167,7 @@ a.ui.nag {
 }
 .ui.popup > .header {
   padding: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.125em;
   line-height: 1.2;
   font-weight: bold;
@@ -20853,7 +20944,7 @@ a.ui.nag {
     Result
 ---------------*/
 .ui.search .result {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   cursor: pointer;
   overflow: hidden;
   font-size: 0.9em;
@@ -20885,7 +20976,7 @@ a.ui.nag {
   margin: 0em 6em 0em 0em;
 }
 .ui.search .result .title {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -20903,7 +20994,7 @@ a.ui.nag {
   padding: 1em 1em;
 }
 .ui.search .message .header {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.2em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
@@ -20995,7 +21086,7 @@ a.ui.nag {
   box-shadow: none;
 }
 .ui.search .results .category > .name {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   float: 0.9em;
   float: left;
   padding: 0.4em 0em 0em 1em;
@@ -22481,7 +22572,7 @@ a.ui.nag {
   Some transitions adapted from Animate CSS
   https://github.com/daneden/animate.css
 */
-.ui.transition {
+.transition {
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
   -webkit-animation-duration: 500ms;
@@ -22495,7 +22586,7 @@ a.ui.nag {
 /*******************************
             States
 *******************************/
-.ui.animating.transition {
+.animating.transition {
   display: block !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -22503,17 +22594,17 @@ a.ui.nag {
           transform: translateZ(0);
 }
 /* Loading */
-.ui.loading.transition {
+.loading.transition {
   position: absolute;
   top: -999999px;
   left: -99999px;
 }
 /* Hidden */
-.ui.hidden.transition {
+.hidden.transition {
   display: none;
 }
 /* Visible */
-.ui.visible.transition {
+.visible.transition {
   display: block !important;
   visibility: visible;
   -webkit-backface-visibility: hidden;
@@ -22522,14 +22613,14 @@ a.ui.nag {
           transform: translateZ(0);
 }
 /* Disabled */
-.ui.disabled.transition {
+.disabled.transition {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
 }
 /*******************************
           Variations
 *******************************/
-.ui.looping.transition {
+.looping.transition {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
@@ -22542,24 +22633,24 @@ a.ui.nag {
 /*--------------
     Emphasis
 ---------------*/
-.ui.flash.transition {
+.flash.transition {
   -webkit-animation-name: flash;
           animation-name: flash;
 }
-.ui.shake.transition {
+.shake.transition {
   -webkit-animation-name: shake;
           animation-name: shake;
 }
-.ui.bounce.transition {
+.bounce.transition {
   -webkit-animation-name: bounce;
           animation-name: bounce;
 }
-.ui.tada.transition {
+.tada.transition {
   -webkit-animation-name: tada;
           animation-name: tada;
 }
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-.ui.pulse.transition {
+.pulse.transition {
   -webkit-animation-name: pulse;
           animation-name: pulse;
 }
@@ -22763,28 +22854,28 @@ a.ui.nag {
 /*--------------
      Slide
 ---------------*/
-.ui.slide.down.transition.in {
+.slide.down.transition.in {
   -webkit-animation-name: slide;
           animation-name: slide;
   transform-origin: 50% 0%;
   -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
 }
-.ui.slide.down.transition.out {
+.slide.down.transition.out {
   -webkit-animation-name: slideOut;
           animation-name: slideOut;
   -webkit-transform-origin: 50% 0%;
       -ms-transform-origin: 50% 0%;
           transform-origin: 50% 0%;
 }
-.ui.slide.up.transition.in {
+.slide.up.transition.in {
   -webkit-animation-name: slide;
           animation-name: slide;
   -webkit-transform-origin: 50% 100%;
       -ms-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
 }
-.ui.slide.up.transition.out {
+.slide.up.transition.out {
   -webkit-animation-name: slideOut;
           animation-name: slideOut;
   -webkit-transform-origin: 50% 100%;
@@ -22842,26 +22933,26 @@ a.ui.nag {
 /*--------------
      Flips
 ---------------*/
-.ui.flip.transition.in,
-.ui.flip.transition.out {
+.flip.transition.in,
+.flip.transition.out {
   -webkit-perspective: 2000px;
           perspective: 2000px;
 }
-.ui.horizontal.flip.transition.in,
-.ui.horizontal.flip.transition.out {
+.horizontal.flip.transition.in,
+.horizontal.flip.transition.out {
   -webkit-animation-name: horizontalFlip;
           animation-name: horizontalFlip;
 }
-.ui.horizontal.flip.transition.out {
+.horizontal.flip.transition.out {
   -webkit-animation-name: horizontalFlipOut;
           animation-name: horizontalFlipOut;
 }
-.ui.vertical.flip.transition.in,
-.ui.vertical.flip.transition.out {
+.vertical.flip.transition.in,
+.vertical.flip.transition.out {
   -webkit-animation-name: verticalFlip;
           animation-name: verticalFlip;
 }
-.ui.vertical.flip.transition.out {
+.vertical.flip.transition.out {
   -webkit-animation-name: verticalFlipOut;
           animation-name: verticalFlipOut;
 }
@@ -22967,27 +23058,27 @@ a.ui.nag {
 /*--------------
       Fades
 ---------------*/
-.ui.fade.transition.in {
+.fade.transition.in {
   -webkit-animation-name: fade;
           animation-name: fade;
 }
-.ui.fade.transition.out {
+.fade.transition.out {
   -webkit-animation-name: fadeOut;
           animation-name: fadeOut;
 }
-.ui.fade.up.transition.in {
+.fade.up.transition.in {
   -webkit-animation-name: fadeUp;
           animation-name: fadeUp;
 }
-.ui.fade.up.transition.out {
+.fade.up.transition.out {
   -webkit-animation-name: fadeUpOut;
           animation-name: fadeUpOut;
 }
-.ui.fade.down.transition.in {
+.fade.down.transition.in {
   -webkit-animation-name: fadeDown;
           animation-name: fadeDown;
 }
-.ui.fade.down.transition.out {
+.fade.down.transition.out {
   -webkit-animation-name: fadeDownOut;
           animation-name: fadeDownOut;
 }
@@ -23125,11 +23216,11 @@ a.ui.nag {
 /*--------------
       Scale
 ---------------*/
-.ui.scale.transition.in {
+.scale.transition.in {
   -webkit-animation-name: scale;
           animation-name: scale;
 }
-.ui.scale.transition.out {
+.scale.transition.out {
   -webkit-animation-name: scaleOut;
           animation-name: scaleOut;
 }
@@ -23185,18 +23276,18 @@ a.ui.nag {
 /*--------------
      Drop
 ---------------*/
-.ui.drop.transition {
+.drop.transition {
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
   -webkit-animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
           animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
 }
-.ui.drop.transition.in {
+.drop.transition.in {
   -webkit-animation-name: dropIn;
           animation-name: dropIn;
 }
-.ui.drop.transition.out {
+.drop.transition.out {
   -webkit-animation-name: dropOut;
           animation-name: dropOut;
 }
@@ -23252,20 +23343,20 @@ a.ui.nag {
 /*--------------
      Browse
 ---------------*/
-.ui.browse.transition.in {
+.browse.transition.in {
   -webkit-animation-name: browseIn;
           animation-name: browseIn;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
 }
-.ui.browse.transition.out,
-.ui.browse.transition.out.left {
+.browse.transition.out,
+.browse.transition.out.left {
   -webkit-animation-name: browseOutLeft;
           animation-name: browseOutLeft;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
 }
-.ui.browse.transition.out.right {
+.browse.transition.out.right {
   -webkit-animation-name: browseOutRight;
           animation-name: browseOutRight;
   -webkit-animation-timing-function: ease;
@@ -23955,7 +24046,7 @@ a.ui.nag {
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -25607,7 +25698,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: 0em;
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);
@@ -26045,7 +26136,7 @@ a.ui.card:hover,
 ---------------*/
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -26058,7 +26149,7 @@ a.ui.card:hover,
 ---------------*/
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);

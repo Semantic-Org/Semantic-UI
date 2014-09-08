@@ -156,14 +156,15 @@
         Types
 --------------------*/
 /* Selection */
-/* Selection Hover */
+/* Hover */
+/* Visible */
+/* Visible Hover */
 /* Inline */
 /*-------------------
        States
 --------------------*/
 /* Default Text */
 /* Active Menu Item */
-/* Menu Error */
 /*-------------------
       Variations
 --------------------*/
@@ -196,6 +197,7 @@
   -webkit-transition: border-radius 0.1s ease, width 0.2s ease;
           transition: border-radius 0.1s ease, width 0.2s ease;
   tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
 }
 /*******************************
             Content
@@ -215,7 +217,8 @@
   white-space: nowrap;
   font-size: 1rem;
   text-shadow: none;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0em 0em 0.325em 0.325em;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
@@ -247,11 +250,13 @@
     Menu Item
 ---------------*/
 .ui.dropdown .menu .item {
+  position: relative;
   cursor: pointer;
   display: block;
   border: none;
   height: auto;
   border-top: none;
+  line-height: 1.2;
   color: rgba(0, 0, 0, 0.8);
   padding: 0.85em 0.8em !important;
   font-size: 1rem;
@@ -324,57 +329,131 @@
   word-wrap: break-word;
   white-space: normal;
   outline: 0;
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
+  min-width: 180px;
   background: #ffffff;
   display: inline-block;
   padding: 0.8em 1.1em;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 0.325em !important;
-  /* Matches selection dropdown height to input height */
-  border-top: 1px solid transparent;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.325em;
+  -webkit-transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+          transition: border-radius 0.1s ease, width 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
+.ui.selection.dropdown.visible,
 .ui.selection.dropdown.active {
-  -webkit-transform: rotateZ(0deg);
-          transform: rotateZ(0deg);
   z-index: 10;
 }
-.ui.selection.dropdown select {
+.ui.selection.dropdown > input[type="hidden"],
+.ui.selection.dropdown > select {
   display: none;
 }
+.ui.selection.dropdown > .text {
+  margin-right: 2em;
+}
+.ui.selection.dropdown > .search.icon,
 .ui.selection.dropdown > .dropdown.icon {
+  position: absolute;
+  top: auto;
+  margin: 0em;
+  right: 1.1em;
   opacity: 0.8;
-  margin: 0em 0em 0em 1em;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
 }
+/* Search Selection Input */
+.ui.selection > input.search {
+  cursor: pointer;
+  background: none transparent;
+  border: none;
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  width: 100%;
+  line-height: 1.2em;
+  padding: 0.8em 1.1em;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+.ui.selection.active > input.search,
+.ui.selection.visible > input.search {
+  cursor: auto;
+}
+.ui.selection > input.search:focus + .text {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+/*  Selection Menu */
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 312px;
-  box-shadow: 0px 1px 0px 1px #e0e0e0;
+  max-height: 245px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+  -webkit-transition: box-shadow 0.2s ease, border 0.2s ease;
+          transition: box-shadow 0.2s ease, border 0.2s ease;
+  border-top: none !important;
+  width: auto;
+  margin: 0px -1px;
+  min-width: -webkit-calc(100% + 2px);
+  min-width: calc(100% + 2px);
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
 }
+.ui.selection.dropdown .menu .item {
+  padding-left: 1.1em !important;
+  /* Add in spacing for scroll bar */
+  padding-right: -webkit-calc(2.1em) !important;
+  padding-right: calc(2.1em) !important;
+  white-space: normal;
+  word-wrap: normal;
+}
 /* Hover */
 .ui.selection.dropdown:hover {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
-.ui.selection.dropdown:hover .menu {
-  box-shadow: 0px 1px 0px 1px #d3d3d3;
+/* Visible Hover */
+.ui.selection.visible.dropdown:hover {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
-.ui.selection.dropdown:hover > .dropdown.icon {
+.ui.selection.visible.dropdown:hover .menu {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+}
+/* Visible */
+.ui.selection.dropdown.visible {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+}
+.ui.visible.selection.dropdown > .dropdown.icon {
   opacity: 1;
 }
+/* Filtered Item */
+.ui.selection.dropdown .filtered.text {
+  visibility: hidden;
+}
+.ui.selection.dropdown .filtered.item {
+  display: none;
+}
+/* Active Item */
+.ui.selection.active.dropdown .text:not(.default),
+.ui.selection.visible.dropdown .text:not(.default) {
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.8);
+}
+/*
+.ui.selection.dropdown .menu .active.item {
+  display: none;
+}*/
 /* Connecting Border */
 .ui.active.selection.dropdown,
 .ui.visible.selection.dropdown {
   border-bottom-left-radius: 0em !important;
   border-bottom-right-radius: 0em !important;
-}
-.ui.active.selection.dropdown > .dropdown.icon {
-  opacity: 1;
 }
 /*--------------
      Inline
@@ -416,7 +495,7 @@
 ----------------------*/
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
@@ -432,6 +511,15 @@
 .ui.dropdown:hover > .default.text,
 .ui.default.dropdown:hover > .text {
   color: rgba(140, 140, 140, 0.7);
+}
+/*--------------------
+    Keyboard Select
+----------------------*/
+/* Selected Item */
+.ui.dropdown.selected,
+.ui.dropdown .menu .selected.item {
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.8);
 }
 /*--------------------
         Error
