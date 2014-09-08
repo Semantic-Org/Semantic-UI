@@ -63,6 +63,7 @@ $.fn.sidebar = function(parameters) {
         element         = this,
         instance        = $module.data(moduleNamespace),
 
+        currentScroll,
         transitionEnd,
 
         module
@@ -296,8 +297,9 @@ $.fn.sidebar = function(parameters) {
             requestAnimationFrame(transition);
           }
           else {
-            $module.scrollTop(0);
             if(module.is.mobile()) {
+              $module.scrollTop(0);
+              currentScroll = $(window).scrollTop();
               window.scrollTo(0, 0);
             }
             module.remove.allVisible();
@@ -319,6 +321,7 @@ $.fn.sidebar = function(parameters) {
           ;
           module.verbose('Removing context push state', module.get.direction());
           module.unbind.clickaway();
+
           $transition
             .on(transitionEnd, function(event) {
               if( event.target == $transition[0] ) {
@@ -327,13 +330,18 @@ $.fn.sidebar = function(parameters) {
                 module.remove.direction();
                 module.remove.outward();
                 module.remove.visible();
+                if(module.is.mobile() && settings.returnScroll) {
+                  window.scrollTo(0, currentScroll);
+                }
                 $.proxy(callback, element)();
               }
             })
           ;
-          module.set.outward();
-          module.remove.active();
-          module.remove.pushed();
+          requestAnimationFrame(function() {
+            module.set.outward();
+            module.remove.active();
+            module.remove.pushed();
+          });
         },
 
         set: {
@@ -662,6 +670,7 @@ $.fn.sidebar.settings = {
   exclusive        : true,
 
   scrollLock       : false,
+  returnScroll     : false,
 
   onChange         : function(){},
   onShow           : function(){},

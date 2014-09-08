@@ -173,7 +173,7 @@ themes      : ['Default', 'GitHub']
     </div>
   </div>
 
-  <div class="no example">
+  <div class="example">
     <h4 class="ui header">Checkbox</h4>
     <p><a href="/modules/checkbox.html">UI Checkboxes</a> are styled forms of standard form checkboxes.</p>
     <div class="evaluated code" data-type="javascript" data-label="true">
@@ -204,7 +204,7 @@ themes      : ['Default', 'GitHub']
     </div>
   </div>
 
-  <div class="no form example">
+  <div class="form example">
     <h4 class="ui header">Select</h4>
     <p>A selection dropdown, a type of <a href="/modules/dropdown.html">ui dropdown</a> can be used to allow for a selection from multiple choices</p>
     <div class="evaluated code" data-type="javascript" data-label="true">
@@ -225,7 +225,7 @@ themes      : ['Default', 'GitHub']
     </div>
   </div>
 
-  <div class="no example">
+  <div class="example">
     <h4 class="ui header">Radio Box</h4>
     <p>Radio boxes are styled forms of standard form radio controls.</p>
     <div class="evaluated code" data-type="javascript" data-label="true">

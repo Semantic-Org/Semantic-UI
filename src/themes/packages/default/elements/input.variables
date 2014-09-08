@@ -19,7 +19,7 @@
 @border: @borderWidth solid rgba(0, 0, 0, 0.15);
 @boxShadow: none;
 
-@borderRadius: 0.3125em;
+@borderRadius: 0.325em;
 @transition:
   background-color 0.3s ease-out,
   box-shadow 0.2s ease,

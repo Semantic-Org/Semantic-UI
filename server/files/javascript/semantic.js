@@ -311,7 +311,7 @@ semantic.ready = function() {
         $annotation = $example.find('.annotation'),
         $code       = $annotation.find('.code'),
         $header     = $example.not('.another').children('.ui.header:first-of-type').eq(0).add('p:first-of-type'),
-        $ignored    = $('i.code:first-child, .code, .existing, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
+        $ignored    = $('i.code:first-child, .code, .existing, .pointing.below.label, .instructive, .language.label, .annotation, br, .ignore, .ignored'),
         $demo       = $example.children().not($header).not($ignored),
         code        = ''
       ;

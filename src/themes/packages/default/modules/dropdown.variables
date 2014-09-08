@@ -34,12 +34,8 @@
 @menuTop: 100%;
 @menuWrap: nowrap;
 
-@menuBorderShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-@menuShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
-@menuBoxShadow:
-  @menuBorderShadow,
-  @menuShadow
-;
+@menuBorder: 1px solid @borderColor;
+@menuBoxShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 @menuBorderRadius: 0em 0em @borderRadius @borderRadius;
 @menuTransition: opacity 0.2s ease;
 @menuZIndex: 11;
@@ -77,22 +73,44 @@
 @selectionVerticalPadding: 0.8em;
 @selectionHorizontalPadding: 1.1em;
 @selectionTextColor: @textColor;
-@selectionBoxShadow: 0px 0px 0px 1px @borderColor;
+@selectionBoxShadow: none;
+@selectionBorder: 1px solid @borderColor;
 @selectionBorderRadius: @borderRadius;
 @selectionIconOpacity: 0.8;
 @selectionIconTransition: opacity 0.2s ease;
 @selectionIconMargin: 0em 0em 0em 1em;
-@selectionMenuMaxHeight: 312px;
-@selectionMenuBoxShadow: 0px 1px 0px 1px #E0E0E0;
+@selectionMenuMaxHeight: 280px;
+@selectionMenuBoxShadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
 @selectionMenuItemBoxShadow: none;
 
-/* Selection Hover */
-@selectionHoverBoxShadow: 0px 0px 0px 1px @selectedBorderColor;
-@selectionHoverMenuBoxShadow: 0px 1px 0px 1px #D3D3D3;
-@selectionHoverIconOpacity: 1;
+@selectionTransition:
+  @transition,
+  box-shadow 0.2s @defaultEasing,
+  border 0.2s @defaultEasing
+;
+@selectionMenuTransition:
+  box-shadow 0.2s @defaultEasing,
+  border 0.2s @defaultEasing
+;
+
+/* Hover */
+@selectionHoverBorder: 1px solid @selectedBorderColor;
+@selectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
+
+/* Visible */
+@selectionVisibleBorder: 1px solid @borderColor;
+@selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+@selectionVisibleTextFontWeight: bold;
+@selectionVisibleTextColor: @selectedTextColor;
+
+/* Visible Hover */
+@selectionVisibleHoverBorder: 1px solid @selectedBorderColor;
+@selectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+@selectionVisibleHoverMenuBorder: 1px solid @selectedBorderColor;
+@selectionVisibleHoverMenuBoxShadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
 
 @selectionVisibleConnectingBorder: 0em;
-@selectionActiveIconOpacity: 1;
+@selectionVisibleIconOpacity: 1;
 
 /* Inline */
 @inlineIconMargin: 0em 0.5em 0em 0.25em;

@@ -748,6 +748,7 @@ $.fn.dropdown = function(parameters) {
           if( module.is.hidden() ) {
             module.hideOthers();
             module.set.active();
+            // module.set.width();
             module.animate.show(function() {
               if( module.can.click() ) {
                 module.bind.intent();

@@ -57,6 +57,7 @@
   text-shadow: none;
 
   box-shadow: @menuBoxShadow;
+  border: @menuBorder;
   border-radius: @menuBorderRadius;
   transition: @menuTransition;
   z-index: @menuZIndex;
@@ -196,11 +197,10 @@
   display: @selectionDisplay;
   padding: @selectionVerticalPadding @selectionHorizontalPadding;
   color: @selectionTextColor;
-  box-shadow: @selectionBoxShadow !important;
-  border-radius: @selectionBorderRadius !important;
-
-  /* Matches selection dropdown height to input height */
-  border-top: 1px solid transparent;
+  box-shadow: @selectionBoxShadow;
+  border: @selectionBorder;
+  border-radius: @selectionBorderRadius;
+  transition: @selectionTransition;
 }
 .ui.selection.dropdown.active {
   transform: rotateZ(0deg);
@@ -220,32 +220,63 @@
   overflow-y: auto;
   max-height: @selectionMenuMaxHeight;
   box-shadow: @selectionMenuBoxShadow;
+  transition: @selectionMenuTransition;
+  border-top: none !important;
+  width: auto;
+  margin: 0px -1px;
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
 }
+.ui.selection.dropdown .menu .item {
+  padding-left: @selectionHorizontalPadding !important;
+  padding-right: @selectionHorizontalPadding !important;
+  white-space: @selectionMenuWhiteSpace;
+}
 
 /* Hover */
 .ui.selection.dropdown:hover {
-  box-shadow: @selectionHoverBoxShadow !important;
+  border: @selectionHoverBorder;
+  box-shadow: @selectionHoverBoxShadow;
 }
-.ui.selection.dropdown:hover .menu {
-  box-shadow: @selectionHoverMenuBoxShadow;
+
+/* Visible Hover */
+.ui.selection.visible.dropdown:hover {
+  border: @selectionVisibleHoverBorder;
+  box-shadow: @selectionVisibleHoverBoxShadow;
 }
-.ui.selection.dropdown:hover > .dropdown.icon {
-  opacity: @selectionHoverIconOpacity;
+.ui.selection.visible.dropdown:hover .menu {
+  border: @selectionVisibleHoverMenuBorder;
+  box-shadow: @selectionVisibleHoverMenuBoxShadow;
 }
+
+/* Visible */
+.ui.selection.dropdown.active {
+  border: @selectionVisibleBorder;
+  box-shadow: @selectionVisibleBoxShadow;
+}
+.ui.active.selection.dropdown > .dropdown.icon {
+  opacity: @selectionVisibleIconOpacity;
+}
+
+/* Active Item */
+.ui.selection.active.dropdown .text:not(.default),
+.ui.selection.visible.dropdown .text:not(.default) {
+  font-weight: @selectionVisibleTextFontWeight;
+  color: @selectionVisibleTextColor;
+}
+/* Don't Repeat Active Item */
+.ui.selection.dropdown .menu .item.active {
+  display: none;
+}
+
 
 /* Connecting Border */
 .ui.active.selection.dropdown,
 .ui.visible.selection.dropdown {
   border-bottom-left-radius: @selectionVisibleConnectingBorder !important;
   border-bottom-right-radius: @selectionVisibleConnectingBorder !important;
-}
-
-.ui.active.selection.dropdown > .dropdown.icon {
-  opacity: @selectionActiveIconOpacity;
 }
 
 /*--------------
