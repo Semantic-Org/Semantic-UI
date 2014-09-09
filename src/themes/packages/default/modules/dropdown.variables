@@ -8,7 +8,6 @@
 
 @lineHeight: 1;
 @transition:
-  border-radius 0.1s ease,
   width 0.2s ease
 ;
 @borderRadius: 0.325em;
@@ -49,7 +48,6 @@
 @itemVerticalPadding: 0.85em;
 @itemHorizontalPadding: 0.8em;
 @itemFontWeight: normal;
-@itemLineHeight: 1.2;
 @itemTextAlign: left;
 @itemTextTransform: none;
 @itemBoxShadow: none;
@@ -69,23 +67,19 @@
 --------------------*/
 
 /* Selection */
-@selectionMinWidth: 180px;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
 @selectionVerticalPadding: 0.8em;
 @selectionHorizontalPadding: 1.1em;
-@selectionPadding: @selectionVerticalPadding @selectionHorizontalPadding;
-@selectionZIndex: 10;
-
-@selectionTextIconDistance: 2em;
 @selectionTextColor: @textColor;
-
 @selectionBoxShadow: none;
 @selectionBorder: 1px solid @borderColor;
 @selectionBorderRadius: @borderRadius;
 @selectionIconOpacity: 0.8;
 @selectionIconTransition: opacity 0.2s ease;
-@selectionMenuMaxHeight: 245px;
+@selectionIconMargin: 0em 0em 0em 1em;
+@selectionMenuMaxHeight: 280px;
+@selectionMenuWhitespace: normal
 @selectionMenuBoxShadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
 @selectionMenuItemBoxShadow: none;
 
@@ -106,7 +100,7 @@
 /* Visible */
 @selectionVisibleBorder: 1px solid @borderColor;
 @selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-@selectionVisibleTextFontWeight: normal;
+@selectionVisibleTextFontWeight: bold;
 @selectionVisibleTextColor: @selectedTextColor;
 
 /* Visible Hover */
@@ -134,14 +128,14 @@
 @defaultTextHoverColor: rgba(140, 140, 140, 0.7);
 
 /* Active Menu Item */
-@activeItemBackground: transparent;
+@activeItemBackground: @transparentBlack;
 @activeItemZIndex: @menuZIndex + 1;
 @activeItemBoxShadow: none;
 @activeItemFontWeight: bold;
 @activeItemColor: @selectedTextColor;
 
-@selectedBackground: @subtleTransparentBlack;
-@selectedColor: @selectedTextColor;
+/* Menu Error */
+
 
 /*-------------------
       Variations
