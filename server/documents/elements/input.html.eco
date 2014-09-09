@@ -129,6 +129,18 @@ themes      : ['Default']
       <input type="text" placeholder="Search...">
     </div>
   </div>
+  <div class="another example">
+    <div class="ui transparent icon input">
+      <i class="search icon"></i>
+      <input type="text" placeholder="Search...">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui transparent left icon input">
+      <i class="search icon"></i>
+      <input type="text" placeholder="Search...">
+    </div>
+  </div>
 
   <div class="example">
     <h4 class="ui header">Fluid</h4>

@@ -524,10 +524,10 @@
 }
 
 /*--- Sub Menu ---*/
-.ui.vertical.menu .item > .menu {
+.ui.vertical.menu .item:not(.dropdown) > .menu {
   margin: @subMenuMargin -@horizontalPadding 0em;
 }
-.ui.vertical.menu .item > .menu > .item {
+.ui.vertical.menu .item:not(.dropdown) > .menu > .item {
   background: none;
   padding: @subMenuHorizontalPadding @subMenuVerticalPadding;
   font-size: @subMenuFontSize;

@@ -45,7 +45,6 @@ $.fn.dropdown = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
-        $item           = $module.find(selector.item),
         $text           = $module.find(selector.text),
         $search         = $module.find(selector.search),
         $input          = $module.find(selector.input),
@@ -55,6 +54,7 @@ $.fn.dropdown = function(parameters) {
           : $module.prev(),
 
         $menu           = $module.children(selector.menu),
+        $item           = $menu.find(selector.item),
 
         activated       = false,
         selectionCache  = false,
@@ -119,7 +119,7 @@ $.fn.dropdown = function(parameters) {
                 .attr('tabindex', 0)
               ;
               $menu
-                .attr('tabindex', -1)
+                .attr('tabindex', '-1')
               ;
             }
             else {
@@ -129,7 +129,7 @@ $.fn.dropdown = function(parameters) {
                   .attr('tabindex', 0)
                 ;
                 $menu
-                  .attr('tabindex', -1)
+                  .attr('tabindex', '-1')
                 ;
               }
             }
@@ -153,11 +153,11 @@ $.fn.dropdown = function(parameters) {
         },
 
         refresh: function() {
-          $item           = $module.find(selector.item);
-          $text           = $module.find(selector.text);
-          $search         = $module.find(selector.search);
-          $input          = $module.find(selector.input);
-          $menu           = $module.children(selector.menu);
+          $text   = $module.find(selector.text);
+          $search = $module.find(selector.search);
+          $input  = $module.find(selector.input);
+          $menu   = $module.children(selector.menu);
+          $item   = $menu.find(selector.item);
         },
 
         bind: {
@@ -371,7 +371,7 @@ $.fn.dropdown = function(parameters) {
                   $nextItem = $visibleItems.eq(0);
                 }
                 else {
-                  $nextItem = $selectedItem.prevAll(':not(.' + className.filtered + ')').eq(0);
+                  $nextItem = $selectedItem.prevAll(selector.item + ':not(.' + className.filtered + ')').eq(0);
                 }
                 if(currentIndex !== 0) {
                   module.verbose('Up key pressed, changing active item');
@@ -390,7 +390,7 @@ $.fn.dropdown = function(parameters) {
                   $nextItem = $visibleItems.eq(0);
                 }
                 else {
-                  $nextItem = $selectedItem.nextAll(':not(.' + className.filtered + ')').eq(0);
+                  $nextItem = $selectedItem.nextAll(selector.item + ':not(.' + className.filtered + ')').eq(0);
                 }
                 if(currentIndex + 1 < $visibleItems.size() ) {
                   module.verbose('Down key pressed, changing active item');
@@ -1310,11 +1310,11 @@ $.fn.dropdown.settings = {
   },
 
   selector : {
-    menu   : '.menu',
-    item   : '.menu > .item',
     text   : '> .text:not(.icon)',
     input  : '> input[type="hidden"], > select',
-    search : '> .search'
+    search : '> .search',
+    menu   : '.menu',
+    item   : '.item'
   },
 
   className : {

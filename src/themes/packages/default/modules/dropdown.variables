@@ -20,10 +20,6 @@
 /* Icon */
 @dropdownIconMargin: 0em 0em 0em 1em;
 
-/* Sub Menu Pointer Icon */
-@dropdownSubMenuIconFloat: right;
-@dropdownSubMenuIconMargin: 0em 0em 0em 0.5em;
-
 /* Current Text */
 @textTransition: color 0.2s @defaultEasing;
 
@@ -33,6 +29,7 @@
 @menuPadding: 0em 0em;
 @menuTop: 100%;
 @menuWrap: nowrap;
+@menuTextAlign: left;
 
 @menuBorder: 1px solid @borderColor;
 @menuBoxShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
@@ -46,26 +43,57 @@
 @itemHeight: auto;
 @itemDivider: none;
 @itemColor: @textColor;
-@itemVerticalPadding: 0.85em;
-@itemHorizontalPadding: 0.8em;
+@itemVerticalPadding: 0.65rem;
+@itemHorizontalPadding: 1.25rem;
 @itemFontWeight: normal;
 @itemLineHeight: 1.2;
-@itemTextAlign: left;
 @itemTextTransform: none;
 @itemBoxShadow: none;
 
+/* Menu Header */
+@menuHeaderColor: @darkTextColor;
+@menuHeaderFontSize: 0.8em;
+@menuHeaderFontWeight: bold;
+@menuHeaderTextTransform: uppercase;
+@menuHeaderMargin: 1rem 0rem 0.75rem;
+@menuHeaderPadding: 0em @itemHorizontalPadding;
+
+/* Menu Divider */
+@menuDividerMargin: 0.5em 0em;
+@menuDividerColor: rgba(0, 0, 0, 0.05);
+@menuDividerSize: 1px;
+@menuDividerBorder: @menuDividerSize solid @menuDividerColor;
+
+/* Menu Input */
+@menuInputMargin: 0.75rem @itemHorizontalPadding 0.25rem;
+@menuInputMinWidth: 200px;
+@menuInputPadding: 0.5em 1em;
+@menuInputIconOffset: 0.7em;
+
+/* Menu Image */
+@menuImageMaxHeight: 2.5em;
+
+/* Sub Menu Pointer Icon */
+@dropdownSubMenuIconFloat: right;
+@dropdownSubMenuIconMargin: (@itemLineHeight - 1em) 0em 0em 0.5em;
+
+
 /* Menu Item Icon */
 @itemIconMargin: 0em 0.75em 0em 0em;
+@itemLabelMargin: @itemIconMargin;
+@itemFlagMargin: @itemIconMargin;
+@itemImageMargin: @itemIconMargin;
 
 /* Sub Menu */
 @subMenuTop: 0%;
 @subMenuLeft: 100%;
 @subMenuRight: auto;
-@subMenuMargin: 0em;
+@subMenuDistanceAway: -0.5em;
+@subMenuMargin: 0em 0em 0em @subMenuDistanceAway;
 @subMenuBorderRadius: 0em @borderRadius @borderRadius 0em;
 
 /*-------------------
-        Types
+b        Types
 --------------------*/
 
 /* Selection */
@@ -143,6 +171,11 @@
 @selectedBackground: @subtleTransparentBlack;
 @selectedColor: @selectedTextColor;
 
+/* Error */
+@errorItemTextColor: #D95C5C;
+@errorItemHoverBackground: #FFF2F2;
+@errorItemActiveBackground: #FDCFCF;
+
 /*-------------------
       Variations
 --------------------*/
@@ -153,10 +186,7 @@
 
 /* Floating */
 @floatingMenuDistance: 0.5em;
-@floatingMenuBoxShadow:
-  0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset,
-  0px 2px 5px 0px rgba(0, 0, 0, 0.15)
-;
+@floatingMenuBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
 @floatingMenuBorderRadius: @borderRadius;
 
 /* Pointing */

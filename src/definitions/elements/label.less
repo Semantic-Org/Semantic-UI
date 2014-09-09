@@ -824,9 +824,12 @@ a.ui.yellow.label:hover:before {
 }
 .ui.empty.circular.labels .label,
 .ui.empty.circular.label {
-  min-width: 0.5em;
-  min-height: 0.5em;
-  vertical-align: middle;
+  min-width: 0em;
+  min-height: 0em;
+  overflow: hidden;
+  width: @emptyCircleSize;
+  height: @emptyCircleSize;
+  vertical-align: baseline;
 }
 
 /*-------------------
