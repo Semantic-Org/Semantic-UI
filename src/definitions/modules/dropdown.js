@@ -650,7 +650,6 @@ $.fn.dropdown = function(parameters) {
                       ? $(this).attr('value')
                       : name
                   ;
-                  console.log($(this).html());
                   if(value === '') {
                     select.placeholder = name;
                   }
@@ -839,7 +838,9 @@ $.fn.dropdown = function(parameters) {
               module.debug('Setting selected menu item to', $selectedItem);
               selectedText = ($selectedItem.data(metadata.text) !== undefined)
                 ? $selectedItem.data(metadata.text)
-                : $selectedItem.text()
+                : (settings.preserveHTML)
+                  ? $selectedItem.html()
+                  : $selectedItem.text()
               ;
               $item
                 .removeClass(className.active)
@@ -1273,7 +1274,7 @@ $.fn.dropdown.settings = {
   action         : 'activate',
 
   fullTextSearch : true,
-  preserveHTML   : false,
+  preserveHTML   : true,
 
   delay          : {
     show  : 200,

@@ -617,7 +617,9 @@ semantic.ready = function() {
   handler.createIcon();
 
   $example
-    .one('mousemove', handler.generateCode)
+    .each(function() {
+      $.proxy(handler.generateCode, this)();
+    })
     .find('i.code')
       .on('click', handler.createCode)
   ;
