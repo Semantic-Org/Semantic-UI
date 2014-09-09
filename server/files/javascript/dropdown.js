@@ -30,6 +30,7 @@ semantic.dropdown.ready = function() {
   $transition
     .dropdown({
       onChange: function(value) {
+        console.log($transition);
         $transition.dropdown('setting', 'transition', value);
       }
     })

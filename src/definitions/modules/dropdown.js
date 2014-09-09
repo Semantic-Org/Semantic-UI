@@ -264,7 +264,9 @@ $.fn.dropdown = function(parameters) {
                 $choice = $(this),
                 text    = ( $choice.data(metadata.text) !== undefined )
                   ? $choice.data(metadata.text)
-                  : $choice.text(),
+                  : (settings.preserveHTML)
+                    ? $choice.html()
+                    : $choice.text(),
                 value   = ( $choice.data(metadata.value) !== undefined)
                   ? $choice.data(metadata.value)
                   : (typeof text === 'string')
@@ -313,9 +315,9 @@ $.fn.dropdown = function(parameters) {
             activated = true;
             module.show();
           },
-          blur: function() {
+          blur: function(event) {
             activated = false;
-            module.hide();
+            module.determine.eventInModule(event, module.hide);
           },
           input: function(event) {
             var
@@ -467,7 +469,9 @@ $.fn.dropdown = function(parameters) {
                 $choice = $(this),
                 text    = ( $choice.data(metadata.text) !== undefined )
                   ? $choice.data(metadata.text)
-                  : $choice.text(),
+                  : (settings.preserveHTML)
+                    ? $choice.html()
+                    : $choice.text(),
                 value   = ( $choice.data(metadata.value) !== undefined)
                   ? $choice.data(metadata.value)
                   : (typeof text === 'string')
@@ -480,6 +484,7 @@ $.fn.dropdown = function(parameters) {
                 },
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
+              console.log(text, value);
               if( !openingSubMenu ) {
                 if(event.type == 'touchstart') {
                   $choice.one('click', callback);
@@ -682,7 +687,9 @@ $.fn.dropdown = function(parameters) {
                     $choice       = $(this),
                     optionText    = ( $choice.data(metadata.text) !== undefined )
                       ? $choice.data(metadata.text)
-                      : $choice.text(),
+                      : (settings.preserveHTML)
+                        ? $choice.html()
+                        : $choice.text(),
                     optionValue   = ( $choice.data(metadata.value) !== undefined )
                       ? $choice.data(metadata.value)
                       : (typeof optionText === 'string')
