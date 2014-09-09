@@ -192,7 +192,6 @@
 ---------------*/
 
 /* Displays like a select box */
-
 .ui.selection.dropdown {
   cursor: pointer;
   word-wrap: break-word;
@@ -216,21 +215,37 @@
   z-index: @selectionZIndex;
 }
 
+select.ui.dropdown {
+  height: 38px;
+  padding: 0em;
+  margin: 0em;
+  visibility: hidden;
+}
 .ui.selection.dropdown > input[type="hidden"],
 .ui.selection.dropdown > select {
-  display: none;
+  display: none !important;
 }
 .ui.selection.dropdown > .text {
   margin-right: @selectionTextIconDistance;
 }
 .ui.selection.dropdown > .search.icon,
+.ui.selection.dropdown > .delete.icon,
 .ui.selection.dropdown > .dropdown.icon {
   position: absolute;
   top: auto;
   margin: 0em;
+  width: auto;
   right: @selectionHorizontalPadding;
   opacity: @selectionIconOpacity;
   transition: @selectionIconTransition;
+}
+
+/* Remove Selection */
+.ui.selection.dropdown > .delete.icon {
+  opacity: 0.6;
+}
+.ui.selection.dropdown > .delete.icon:hover {
+  opacity: 1;
 }
 
 /* Search Selection Input */
@@ -267,6 +282,7 @@
   width: auto;
   margin: 0px -1px;
   min-width: ~"calc(100% + 2px)";
+  outline: none;
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
