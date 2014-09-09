@@ -24011,40 +24011,6 @@ a.ui.nag {
      Load Default
 -------------------*/
 /*******************************
-             Card
-*******************************/
-/*-------------------
-         View
---------------------*/
-/* Shadow */
-/* Item */
-/* Item Group */
-/*-------------------
-       Content
---------------------*/
-/* Image */
-/* Content */
-/* Header */
-/* Metadata */
-/* Icons */
-/* Links */
-/* Description */
-/* Content Image */
-/* Avatar Image */
-/* Paragraph */
-/* Additional Content */
-/* Extra Links */
-/*-------------------
-      Variations
---------------------*/
-/* Link */
-/* Card Count */
-/* Stackable */
-/* Sizes */
-/*------------------
-     Load Theme
--------------------*/
-/*******************************
          Site Settings
 *******************************/
 /*-------------------
@@ -24135,6 +24101,40 @@ a.ui.nag {
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+             Card
+*******************************/
+/*-------------------
+         View
+--------------------*/
+/* Shadow */
+/* Item */
+/* Item Group */
+/*-------------------
+       Content
+--------------------*/
+/* Image */
+/* Content */
+/* Header */
+/* Metadata */
+/* Icons */
+/* Links */
+/* Description */
+/* Content Image */
+/* Avatar Image */
+/* Paragraph */
+/* Additional Content */
+/* Extra Links */
+/*-------------------
+      Variations
+--------------------*/
+/* Link */
+/* Card Count */
+/* Stackable */
+/* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -24262,7 +24262,7 @@ a.ui.nag {
 .ui.cards > .card > .content > .header,
 .ui.card > .content > .header {
   display: block;
-  margin: 1em 0em 1rem;
+  margin: 0em;
   font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
