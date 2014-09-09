@@ -6,7 +6,7 @@ element     : 'message'
 elementType : 'collection'
 
 title       : 'Message'
-description : 'A message displays information a user must immediately consider before proceeding to the contents of a page.'
+description : 'A message displays information that should be read before proceeding to other nearby content.'
 type        : 'UI Collection'
 
 themes      : ['Default', 'GitHub', 'Google']
