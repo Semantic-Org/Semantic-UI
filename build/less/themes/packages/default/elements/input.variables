@@ -40,11 +40,11 @@
 @iconFocusOpacity: 1;
 @iconSpacing: 0.5em;
 @iconMargin: @iconWidth + @iconSpacing;
-@iconTransition: opacity 0.3s ease-out;
+@iconTransition: opacity 0.3s @defaultEasing;
 
-@transparentIconWidth: @glyphWidth;
-@transparentIconOffset: @lineOffset;
-@transparentIconMargin: @transparentIconWidth + @iconSpacing;
+@transparentIconWidth: auto;
+@transparentIconOffset: (@lineOffset * 2);
+@transparentIconMargin: 1.75em;
 
 /* Circular Icon Input */
 @circularIconVerticalOffset: 0.35em;

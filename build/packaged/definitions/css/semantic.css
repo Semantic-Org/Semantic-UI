@@ -58,6 +58,7 @@
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -82,7 +83,6 @@
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -314,6 +314,7 @@
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -338,7 +339,6 @@
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -1147,6 +1147,7 @@
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -1171,7 +1172,6 @@
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -2192,6 +2192,7 @@ body > .ui.grid:not(.page) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -2216,7 +2217,6 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -2771,10 +2771,10 @@ body > .ui.grid:not(.page) {
   box-shadow: none;
 }
 /*--- Sub Menu ---*/
-.ui.vertical.menu .item > .menu {
+.ui.vertical.menu .item:not(.dropdown) > .menu {
   margin: 0.5em -0.95em 0em;
 }
-.ui.vertical.menu .item > .menu > .item {
+.ui.vertical.menu .item:not(.dropdown) > .menu > .item {
   background: none;
   padding: 0.5rem 1.5rem;
   font-size: 0.875rem;
@@ -3804,6 +3804,7 @@ body > .ui.grid:not(.page) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -3828,7 +3829,6 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -4323,6 +4323,7 @@ body > .ui.grid:not(.page) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -4347,7 +4348,6 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -5191,6 +5191,7 @@ body > .ui.grid:not(.page) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -5215,7 +5216,6 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -6027,7 +6027,7 @@ body > .ui.grid:not(.page) {
   padding-left: 1.5em !important;
   padding-right: 1.5em !important;
 }
-.ui.right.labeled.icon.button .icon {
+.ui.right.labeled.icon.button > .icon {
   left: auto;
   right: 0em;
   border-radius: 0em 0.25em 0.25em 0em;
@@ -6329,7 +6329,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
   box-shadow: 0px 0px 0px 2px #2b2b2b inset !important;
-  color: #2b2b2b;
+  color: #2b2b2b !important;
 }
 .ui.basic.black.buttons .button:active,
 .ui.basic.black.button:active {
@@ -6403,7 +6403,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.blue.buttons .button:hover,
 .ui.basic.blue.button:hover {
   box-shadow: 0px 0px 0px 2px #0087fd inset !important;
-  color: #0087fd;
+  color: #0087fd !important;
 }
 .ui.basic.blue.buttons .button:active,
 .ui.basic.blue.button:active {
@@ -6477,7 +6477,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.green.buttons .button:hover,
 .ui.basic.green.button:hover {
   box-shadow: 0px 0px 0px 2px #48d658 inset !important;
-  color: #48d658;
+  color: #48d658 !important;
 }
 .ui.basic.green.buttons .button:active,
 .ui.basic.green.button:active {
@@ -6551,7 +6551,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.orange.buttons .button:hover,
 .ui.basic.orange.button:hover {
   box-shadow: 0px 0px 0px 2px #ff983f inset !important;
-  color: #ff983f;
+  color: #ff983f !important;
 }
 .ui.basic.orange.buttons .button:active,
 .ui.basic.orange.button:active {
@@ -6625,7 +6625,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.pink.buttons .button:hover,
 .ui.basic.pink.button:hover {
   box-shadow: 0px 0px 0px 2px #df67aa inset !important;
-  color: #df67aa;
+  color: #df67aa !important;
 }
 .ui.basic.pink.buttons .button:active,
 .ui.basic.pink.button:active {
@@ -6699,7 +6699,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.purple.buttons .button:hover,
 .ui.basic.purple.button:hover {
   box-shadow: 0px 0px 0px 2px #b94dac inset !important;
-  color: #b94dac;
+  color: #b94dac !important;
 }
 .ui.basic.purple.buttons .button:active,
 .ui.basic.purple.button:active {
@@ -6773,7 +6773,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
   box-shadow: 0px 0px 0px 2px #ff635a inset !important;
-  color: #ff635a;
+  color: #ff635a !important;
 }
 .ui.basic.red.buttons .button:active,
 .ui.basic.red.button:active {
@@ -6847,7 +6847,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.teal.buttons .button:hover,
 .ui.basic.teal.button:hover {
   box-shadow: 0px 0px 0px 2px #55d3d3 inset !important;
-  color: #55d3d3;
+  color: #55d3d3 !important;
 }
 .ui.basic.teal.buttons .button:active,
 .ui.basic.teal.button:active {
@@ -6921,7 +6921,7 @@ body > .ui.grid:not(.page) {
 .ui.basic.yellow.buttons .button:hover,
 .ui.basic.yellow.button:hover {
   box-shadow: 0px 0px 0px 2px #ffd32c inset !important;
-  color: #ffd32c;
+  color: #ffd32c !important;
 }
 .ui.basic.yellow.buttons .button:active,
 .ui.basic.yellow.button:active {
@@ -7225,6 +7225,7 @@ body > .ui.grid:not(.page) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -7249,7 +7250,6 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -7583,6 +7583,7 @@ body > .ui.grid:not(.page) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -7607,7 +7608,6 @@ body > .ui.grid:not(.page) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -8731,6 +8731,7 @@ i.flag.zimbabwe {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -8755,7 +8756,6 @@ i.flag.zimbabwe {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -9367,6 +9367,7 @@ a.ui.inverted.yellow.header:hover {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -9391,7 +9392,6 @@ a.ui.inverted.yellow.header:hover {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -11562,6 +11562,7 @@ i.icon.weixin:before {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -11586,7 +11587,6 @@ i.icon.weixin:before {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -11933,6 +11933,7 @@ img.ui.bordered.image {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -11957,7 +11958,6 @@ img.ui.bordered.image {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -12179,8 +12179,8 @@ img.ui.bordered.image {
   text-align: center;
   border-radius: 0em 0.325em 0.325em 0em;
   box-sizing: border-box;
-  -webkit-transition: opacity 0.3s ease-out;
-          transition: opacity 0.3s ease-out;
+  -webkit-transition: opacity 0.3s ease;
+          transition: opacity 0.3s ease;
 }
 .ui.icon.input > .link.icon {
   cursor: pointer;
@@ -12208,8 +12208,8 @@ img.ui.bordered.image {
 }
 /* Transparent Icon */
 .ui.transparent.icon.input > .icon {
-  width: 1.25em;
-  padding-top: 0.1em;
+  width: auto;
+  padding-top: 0.2em;
 }
 .ui.transparent.icon.input > input {
   padding-left: 0em !important;
@@ -12370,6 +12370,7 @@ img.ui.bordered.image {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -12394,7 +12395,6 @@ img.ui.bordered.image {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -12504,7 +12504,7 @@ img.ui.bordered.image {
   display: inline-block;
   vertical-align: baseline;
   line-height: 1;
-  margin: 0.25em 0.125em;
+  margin: 0em 0.125em;
   background-color: #e8e8e8;
   border-color: #e8e8e8;
   background-image: none;
@@ -13204,9 +13204,12 @@ a.ui.yellow.label:hover:before {
 }
 .ui.empty.circular.labels .label,
 .ui.empty.circular.label {
-  min-width: 0.5em;
-  min-height: 0.5em;
-  vertical-align: middle;
+  min-width: 0em;
+  min-height: 0em;
+  overflow: hidden;
+  width: 0.5em;
+  height: 0.5em;
+  vertical-align: baseline;
 }
 /*-------------------
        Pointing
@@ -13387,6 +13390,7 @@ a.ui.yellow.label:hover:before {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -13411,7 +13415,6 @@ a.ui.yellow.label:hover:before {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -14210,6 +14213,7 @@ ol.ui.horizontal.list li:before,
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -14234,7 +14238,6 @@ ol.ui.horizontal.list li:before,
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -14561,14 +14564,169 @@ ol.ui.horizontal.list li:before,
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 /*******************************
-         Progress Bar
+            Theme
 *******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Solid Background Color */
+/* Status */
+/* Darkened Headers */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Progress
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+        States
+--------------------*/
+/*-------------------
+        Types
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
 .ui.progress {
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -14576,8 +14734,6 @@ ol.ui.horizontal.list li:before,
   background-color: #FAFAFA;
   padding: 5px;
   border-radius: 0.3125em;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
 }
 .ui.progress .bar {
   display: inline-block;
@@ -14585,7 +14741,7 @@ ol.ui.horizontal.list li:before,
   background-color: #CCCCCC;
   border-radius: 3px;
   -webkit-transition: width 1s ease-in-out, background-color 1s ease-out;
-  transition: width 1s ease-in-out, background-color 1s ease-out;
+          transition: width 1s ease-in-out, background-color 1s ease-out;
 }
 /*******************************
             States
@@ -14599,7 +14755,7 @@ ol.ui.horizontal.list li:before,
 .ui.successful.progress .bar,
 .ui.successful.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
 .ui.warning.progress .bar {
   background-color: #E96633 !important;
@@ -14607,7 +14763,7 @@ ol.ui.horizontal.list li:before,
 .ui.warning.progress .bar,
 .ui.warning.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
 /*--------------
      Failed
@@ -14618,7 +14774,7 @@ ol.ui.horizontal.list li:before,
 .ui.failed.progress .bar,
 .ui.failed.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
 /*--------------
      Active
@@ -14637,7 +14793,7 @@ ol.ui.horizontal.list li:before,
   background: #FFFFFF;
   border-radius: 3px;
   -webkit-animation: progress-active 2s ease-out infinite;
-  animation: progress-active 2s ease-out infinite;
+          animation: progress-active 2s ease-out infinite;
 }
 @-webkit-keyframes progress-active {
   0% {
@@ -14649,7 +14805,7 @@ ol.ui.horizontal.list li:before,
   }
   100% {
     opacity: 0;
-    width: 95%;
+    width: 100%;
   }
 }
 @keyframes progress-active {
@@ -14674,7 +14830,7 @@ ol.ui.horizontal.list li:before,
 .ui.disabled.progress .bar,
 .ui.disabled.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
 /*******************************
            Variations
@@ -14701,7 +14857,7 @@ ol.ui.horizontal.list li:before,
 /* top attached */
 .ui.progress.top.attached,
 .ui.progress.top.attached .bar {
-  top: -2px;
+  top: 0px;
   border-radius: 0.3125em 0.3125em 0em 0em;
 }
 .ui.progress.top.attached .bar {
@@ -14711,41 +14867,38 @@ ol.ui.horizontal.list li:before,
      Colors
 ---------------*/
 .ui.blue.progress .bar {
-  background-color: #6ECFF5;
+  background-color: #0074d9;
 }
 .ui.black.progress .bar {
-  background-color: #5C6166;
+  background-color: #191919;
 }
 .ui.green.progress .bar {
-  background-color: #A1CF64;
+  background-color: #2ecc40;
 }
 .ui.red.progress .bar {
-  background-color: #EF4D6D;
+  background-color: #ff4136;
 }
 .ui.purple.progress .bar {
-  background-color: #564F8A;
+  background-color: #a24096;
 }
 .ui.teal.progress .bar {
-  background-color: #00B5AD;
+  background-color: #39cccc;
 }
 /*--------------
     Striped
 ---------------*/
 .ui.progress.striped .bar {
   background-size: 30px 30px;
-  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
-  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -webkit-linear-gradient(315deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .ui.progress.active.striped .bar:after {
   -webkit-animation: none;
-  -ms-animation: none;
-  animation: none;
+          animation: none;
 }
 .ui.progress.active.striped .bar {
   -webkit-animation: progress-striped 3s linear infinite;
-  animation: progress-striped 3s linear infinite;
+          animation: progress-striped 3s linear infinite;
 }
 @-webkit-keyframes progress-striped {
   0% {
@@ -15088,6 +15241,7 @@ ol.ui.horizontal.list li:before,
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -15112,7 +15266,6 @@ ol.ui.horizontal.list li:before,
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -15656,6 +15809,7 @@ ol.ui.horizontal.list li:before,
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -15680,7 +15834,6 @@ ol.ui.horizontal.list li:before,
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -16122,6 +16275,7 @@ ol.ui.horizontal.list li:before,
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -16146,7 +16300,6 @@ ol.ui.horizontal.list li:before,
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -16609,6 +16762,7 @@ input[type="password"] {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -16633,7 +16787,6 @@ input[type="password"] {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -16834,6 +16987,7 @@ a:hover {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -16858,7 +17012,6 @@ a:hover {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -17167,6 +17320,7 @@ a:hover {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -17191,7 +17345,6 @@ a:hover {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -17563,6 +17716,7 @@ a:hover {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -17587,7 +17741,6 @@ a:hover {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -18147,6 +18300,7 @@ a:hover {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -18171,7 +18325,6 @@ a:hover {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -18454,6 +18607,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -18478,7 +18632,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -18542,14 +18695,18 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
        Content
 --------------------*/
 /* Icon */
-/* Sub Menu Pointer Icon */
 /* Current Text */
 /* Menu */
 /* Menu Item */
+/* Menu Header */
+/* Menu Divider */
+/* Menu Input */
+/* Menu Image */
+/* Sub Menu Pointer Icon */
 /* Menu Item Icon */
 /* Sub Menu */
 /*-------------------
-        Types
+b        Types
 --------------------*/
 /* Selection */
 /* Hover */
@@ -18561,6 +18718,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 --------------------*/
 /* Default Text */
 /* Active Menu Item */
+/* Error */
 /*-------------------
       Variations
 --------------------*/
@@ -18613,6 +18771,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   white-space: nowrap;
   font-size: 1rem;
   text-shadow: none;
+  text-align: left;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0em 0em 0.325em 0.325em;
@@ -18622,16 +18781,16 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   will-change: transform, opacity;
 }
 /*--------------
-      Icon
+ Dropdown Icon
 ---------------*/
 .ui.dropdown > .dropdown.icon {
   width: auto;
   margin: 0em 0em 0em 1em;
 }
-.ui.dropdown .menu .item .dropdown.icon {
+.ui.dropdown .menu > .item .dropdown.icon {
   width: auto;
   float: right;
-  margin: 0em 0em 0em 0.5em;
+  margin: 0.2em 0em 0em 0.5em;
 }
 /*--------------
       Text
@@ -18645,7 +18804,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*--------------
     Menu Item
 ---------------*/
-.ui.dropdown .menu .item {
+.ui.dropdown .menu > .item {
   position: relative;
   cursor: pointer;
   display: block;
@@ -18654,28 +18813,57 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   border-top: none;
   line-height: 1.2;
   color: rgba(0, 0, 0, 0.8);
-  padding: 0.85em 0.8em !important;
+  padding: 0.65rem 1.25rem !important;
   font-size: 1rem;
   text-transform: none;
   font-weight: normal;
-  text-align: left;
   box-shadow: none;
   -webkit-touch-callout: none;
 }
-.ui.dropdown .menu .item .icon {
-  margin: 0em 0.75em 0em 0em;
-}
-.ui.dropdown .menu .item:first-child {
+.ui.dropdown .menu > .item:first-child {
   border-top: none;
+}
+/*--------------
+  Menu Divider
+---------------*/
+.ui.dropdown .menu > .header {
+  margin: 1rem 0rem 0.75rem;
+  padding: 0em 1.25rem;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.ui.dropdown .menu > .divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  height: 0em;
+  margin: 0.5em 0em;
+}
+.ui.dropdown .menu > .input {
+  margin: 0.75rem 1.25rem 0.25rem;
+  min-width: 200px;
+}
+.ui.dropdown .menu > .header + .input {
+  margin-top: 0em;
+}
+.ui.dropdown .menu > .input:not(.transparent) input {
+  padding: 0.5em 1em;
+}
+.ui.dropdown .menu > .input:not(.transparent) .icon {
+  padding-top: 0.7em;
 }
 /*--------------
    Item Image
 ---------------*/
-.ui.dropdown .menu .item > img {
-  height: 2.5em;
+.ui.dropdown .text > img,
+.ui.dropdown .text > .image,
+.ui.dropdown .menu > .item > .image,
+.ui.dropdown .menu > .item > img {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 0.5em;
+  width: auto;
+  max-height: 2.5em;
+  margin: 0em 0.75em 0em 0em;
 }
 /*--------------
     Sub Menu
@@ -18684,7 +18872,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   top: 0% !important;
   left: 100% !important;
   right: auto !important;
-  margin: 0em !important;
+  margin: 0em 0em 0em -0.5em !important;
   border-radius: 0em 0.325em 0.325em 0em !important;
 }
 /* Hide Arrow */
@@ -18694,9 +18882,22 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*******************************
             Coupling
 *******************************/
+/* Icons / Flags / Labels */
+.ui.dropdown > .text > .icon,
+.ui.dropdown .menu > .item .icon {
+  margin: 0em 0.75em 0em 0em;
+}
+.ui.dropdown > .text > .label,
+.ui.dropdown .menu > .item .label {
+  margin: 0em 0.75em 0em 0em;
+}
+.ui.dropdown > .text > .flag,
+.ui.dropdown .menu > .item .flag {
+  margin: 0em 0.75em 0em 0em;
+}
 /* Remove Menu Item Divider */
-.ui.dropdown .ui.menu .item:before,
-.ui.menu .ui.dropdown .menu .item:before {
+.ui.dropdown .ui.menu > .item:before,
+.ui.menu .ui.dropdown .menu > .item:before {
   display: none;
 }
 /* Prevent Menu Item Border */
@@ -18742,22 +18943,37 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.selection.dropdown.active {
   z-index: 10;
 }
+select.ui.dropdown {
+  height: 38px;
+  padding: 0em;
+  margin: 0em;
+  visibility: hidden;
+}
 .ui.selection.dropdown > input[type="hidden"],
 .ui.selection.dropdown > select {
-  display: none;
+  display: none !important;
 }
 .ui.selection.dropdown > .text {
   margin-right: 2em;
 }
 .ui.selection.dropdown > .search.icon,
+.ui.selection.dropdown > .delete.icon,
 .ui.selection.dropdown > .dropdown.icon {
   position: absolute;
   top: auto;
   margin: 0em;
+  width: auto;
   right: 1.1em;
   opacity: 0.8;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
+}
+/* Remove Selection */
+.ui.selection.dropdown > .delete.icon {
+  opacity: 0.6;
+}
+.ui.selection.dropdown > .delete.icon:hover {
+  opacity: 1;
 }
 /* Search Selection Input */
 .ui.selection > input.search {
@@ -18793,12 +19009,13 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   margin: 0px -1px;
   min-width: -webkit-calc(100% + 2px);
   min-width: calc(100% + 2px);
+  outline: none;
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
 }
-.ui.selection.dropdown .menu .item {
+.ui.selection.dropdown .menu > .item {
   padding-left: 1.1em !important;
   /* Add in spacing for scroll bar */
   padding-right: -webkit-calc(2.1em) !important;
@@ -18882,7 +19099,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
         Hover
 ----------------------*/
 /* Menu Item Hover */
-.ui.dropdown .menu .item:hover {
+.ui.dropdown .menu > .item:hover {
   background-color: rgba(0, 0, 0, 0.03);
   z-index: 12;
 }
@@ -18923,29 +19140,29 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 .ui.dropdown.error,
 .ui.dropdown.error > .text,
 .ui.dropdown.error > .default.text {
-  color: #a94442 !important;
+  color: #a94442;
 }
 .ui.selection.dropdown.error {
   background: #fae8e8;
-  box-shadow: 0px 0px 0px 1px #dbb1b1 !important;
+  border-color: #dbb1b1;
 }
 .ui.selection.dropdown.error:hover {
-  box-shadow: 0px 0px 0px 1px #dbb1b1 !important;
+  border-color: #dbb1b1;
 }
 .ui.dropdown.error > .menu,
 .ui.dropdown.error > .menu .menu {
-  box-shadow: 0px 0px 1px 1px #dbb1b1 !important;
+  border-color: #dbb1b1;
 }
-.ui.dropdown.error > .menu .item {
-  color: #D95C5C !important;
+.ui.dropdown.error > .menu > .item {
+  color: #d95c5c;
 }
 /* Item Hover */
-.ui.dropdown.error > .menu .item:hover {
-  background-color: #FFF2F2 !important;
+.ui.dropdown.error > .menu > .item:hover {
+  background-color: #fff2f2;
 }
 /* Item Active */
 .ui.dropdown.error > .menu .active.item {
-  background-color: #FDCFCF !important;
+  background-color: #fdcfcf;
 }
 /*******************************
            Variations
@@ -18989,8 +19206,8 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   top: 100% !important;
   opacity: 1;
 }
-.ui.simple.dropdown > .menu .item:active > .menu,
-.ui.simple.dropdown:hover > .menu .item:hover > .menu {
+.ui.simple.dropdown > .menu > .item:active > .menu,
+.ui.simple.dropdown:hover > .menu > .item:hover > .menu {
   overflow: visible;
   width: auto;
   height: auto;
@@ -19020,18 +19237,18 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   left: 0;
   right: auto;
   margin-top: 0.5em !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset, 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2) inset;
   border-radius: 0.325em;
 }
 /*--------------
      Pointing
 ---------------*/
-.ui.pointing.dropdown .menu {
+.ui.pointing.dropdown > .menu {
   top: 100%;
   margin-top: 0.75em;
   border-radius: 0.325em;
 }
-.ui.pointing.dropdown .menu:after {
+.ui.pointing.dropdown > .menu:after {
   display: block;
   position: absolute;
   pointer-events: none;
@@ -19047,19 +19264,19 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
   z-index: 2;
 }
 /* Directions */
-.ui.pointing.dropdown .menu:after {
+.ui.pointing.dropdown > .menu:after {
   top: -0.25em;
   left: 50%;
   margin: 0em 0em 0em -0.25em;
 }
-.ui.top.left.pointing.dropdown .menu {
+.ui.top.left.pointing.dropdown > .menu {
   top: 100%;
   bottom: auto;
   left: 0%;
   right: auto;
   margin: 1em 0em 0em;
 }
-.ui.top.left.pointing.dropdown .menu:after {
+.ui.top.left.pointing.dropdown > .menu:after {
   top: -0.25em;
   left: 1em;
   right: auto;
@@ -19068,14 +19285,14 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.ui.top.right.pointing.dropdown .menu {
+.ui.top.right.pointing.dropdown > .menu {
   top: 100%;
   bottom: auto;
   right: 0%;
   left: auto;
   margin: 1em 0em 0em;
 }
-.ui.top.right.pointing.dropdown .menu:after {
+.ui.top.right.pointing.dropdown > .menu:after {
   top: -0.25em;
   left: auto;
   right: 1em;
@@ -19084,13 +19301,13 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.ui.left.pointing.dropdown .menu {
+.ui.left.pointing.dropdown > .menu {
   top: 0%;
   left: 100%;
   right: auto;
   margin: 0em 0em 0em 1em;
 }
-.ui.left.pointing.dropdown .menu:after {
+.ui.left.pointing.dropdown > .menu:after {
   top: 1em;
   left: -0.25em;
   margin: 0em 0em 0em 0em;
@@ -19098,13 +19315,13 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-.ui.right.pointing.dropdown .menu {
+.ui.right.pointing.dropdown > .menu {
   top: 0%;
   left: auto;
   right: 100%;
   margin: 0em 1em 0em 0em;
 }
-.ui.right.pointing.dropdown .menu:after {
+.ui.right.pointing.dropdown > .menu:after {
   top: 1em;
   left: auto;
   right: -0.25em;
@@ -19226,6 +19443,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -19250,7 +19468,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -19742,6 +19959,7 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -19766,7 +19984,6 @@ body.ui.dimmed.dimmable > :not(.dimmer) {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -20029,6 +20246,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -20053,7 +20271,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -20424,6 +20641,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -20448,7 +20666,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -20792,6 +21009,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -20816,7 +21034,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -21175,6 +21392,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -21199,7 +21417,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -21452,6 +21669,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -21476,7 +21694,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -22062,6 +22279,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -22086,7 +22304,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -22261,6 +22478,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -22285,7 +22503,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -22469,6 +22686,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -22493,7 +22711,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -23558,6 +23775,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -23582,7 +23800,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -23806,6 +24023,7 @@ a.ui.nag {
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -23830,7 +24048,6 @@ a.ui.nag {
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -24667,6 +24884,7 @@ a.ui.card:hover,
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -24691,7 +24909,6 @@ a.ui.card:hover,
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -25052,6 +25269,7 @@ a.ui.card:hover,
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -25076,7 +25294,6 @@ a.ui.card:hover,
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -25465,6 +25682,7 @@ a.ui.card:hover,
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -25489,7 +25707,6 @@ a.ui.card:hover,
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -25543,9 +25760,6 @@ a.ui.card:hover,
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
-/*------------------
-     Load Theme
--------------------*/
 /*******************************
              Item
 *******************************/
@@ -25573,6 +25787,9 @@ a.ui.card:hover,
 --------------------*/
 /* Divided */
 /* Sizes */
+/*------------------
+     Load Theme
+-------------------*/
 /*------------------
      Load Site
 -------------------*/
@@ -25964,6 +26181,7 @@ a.ui.card:hover,
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -25988,7 +26206,6 @@ a.ui.card:hover,
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
