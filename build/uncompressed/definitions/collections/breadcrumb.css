@@ -45,17 +45,6 @@
 /*------------------
      Load Default
 -------------------*/
-/*******************************
-          Breadcrumb
-*******************************/
-/*-------------------
-     Breadcrumb
---------------------*/
-/* Coupling */
-/*-------------------
-       States
---------------------*/
-/* Sizes */
 /*------------------
      Load Theme
 -------------------*/
@@ -150,6 +139,17 @@
 /*---  Standard  ---*/
 /*---  Emotive  ---*/
 /*---  Neutrals  ---*/
+/*******************************
+          Breadcrumb
+*******************************/
+/*-------------------
+     Breadcrumb
+--------------------*/
+/* Coupling */
+/*-------------------
+       States
+--------------------*/
+/* Sizes */
 /*------------------
      Load Site
 -------------------*/
@@ -224,25 +224,25 @@
            Variations
 *******************************/
 .ui.mini.breadcrumb {
-  font-size: 0.7em;
+  font-size: 0.65em;
 }
 .ui.tiny.breadcrumb {
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 .ui.small.breadcrumb {
-  font-size: 0.875em;
+  font-size: 0.75em;
 }
 .ui.breadcrumb {
   font-size: 1em;
 }
 .ui.large.breadcrumb {
-  font-size: 1.125em;
+  font-size: 1.1em;
 }
 .ui.big.breadcrumb {
-  font-size: 1.25em;
+  font-size: 1.05em;
 }
 .ui.huge.breadcrumb {
-  font-size: 1.375em;
+  font-size: 1.3em;
 }
 .ui.massive.breadcrumb {
   font-size: 1.5em;

@@ -3,14 +3,169 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributor
+ * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 /*******************************
-         Progress Bar
+            Theme
 *******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---  Light Variations  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Solid Background Color */
+/* Status */
+/* Darkened Headers */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Progress
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+        States
+--------------------*/
+/*-------------------
+        Types
+--------------------*/
+/*-------------------
+      Variations
+--------------------*/
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
 .ui.progress {
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -18,8 +173,6 @@
   background-color: #FAFAFA;
   padding: 5px;
   border-radius: 0.3125em;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
 }
 .ui.progress .bar {
   display: inline-block;
@@ -27,7 +180,7 @@
   background-color: #CCCCCC;
   border-radius: 3px;
   -webkit-transition: width 1s ease-in-out, background-color 1s ease-out;
-  transition: width 1s ease-in-out, background-color 1s ease-out;
+          transition: width 1s ease-in-out, background-color 1s ease-out;
 }
 /*******************************
             States
@@ -41,7 +194,7 @@
 .ui.successful.progress .bar,
 .ui.successful.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
 .ui.warning.progress .bar {
   background-color: #E96633 !important;
@@ -49,7 +202,7 @@
 .ui.warning.progress .bar,
 .ui.warning.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
 /*--------------
      Failed
@@ -60,7 +213,7 @@
 .ui.failed.progress .bar,
 .ui.failed.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
 /*--------------
      Active
@@ -79,7 +232,7 @@
   background: #FFFFFF;
   border-radius: 3px;
   -webkit-animation: progress-active 2s ease-out infinite;
-  animation: progress-active 2s ease-out infinite;
+          animation: progress-active 2s ease-out infinite;
 }
 @-webkit-keyframes progress-active {
   0% {
@@ -91,7 +244,7 @@
   }
   100% {
     opacity: 0;
-    width: 95%;
+    width: 100%;
   }
 }
 @keyframes progress-active {
@@ -116,7 +269,7 @@
 .ui.disabled.progress .bar,
 .ui.disabled.progress .bar::after {
   -webkit-animation: none !important;
-  animation: none !important;
+          animation: none !important;
 }
 /*******************************
            Variations
@@ -143,7 +296,7 @@
 /* top attached */
 .ui.progress.top.attached,
 .ui.progress.top.attached .bar {
-  top: -2px;
+  top: 0px;
   border-radius: 0.3125em 0.3125em 0em 0em;
 }
 .ui.progress.top.attached .bar {
@@ -153,41 +306,38 @@
      Colors
 ---------------*/
 .ui.blue.progress .bar {
-  background-color: #6ECFF5;
+  background-color: #0074d9;
 }
 .ui.black.progress .bar {
-  background-color: #5C6166;
+  background-color: #191919;
 }
 .ui.green.progress .bar {
-  background-color: #A1CF64;
+  background-color: #2ecc40;
 }
 .ui.red.progress .bar {
-  background-color: #EF4D6D;
+  background-color: #ff4136;
 }
 .ui.purple.progress .bar {
-  background-color: #564F8A;
+  background-color: #a24096;
 }
 .ui.teal.progress .bar {
-  background-color: #00B5AD;
+  background-color: #39cccc;
 }
 /*--------------
     Striped
 ---------------*/
 .ui.progress.striped .bar {
   background-size: 30px 30px;
-  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
-  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -webkit-linear-gradient(315deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .ui.progress.active.striped .bar:after {
   -webkit-animation: none;
-  -ms-animation: none;
-  animation: none;
+          animation: none;
 }
 .ui.progress.active.striped .bar {
   -webkit-animation: progress-striped 3s linear infinite;
-  animation: progress-striped 3s linear infinite;
+          animation: progress-striped 3s linear infinite;
 }
 @-webkit-keyframes progress-striped {
   0% {

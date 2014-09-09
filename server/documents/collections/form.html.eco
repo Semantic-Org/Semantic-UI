@@ -213,7 +213,7 @@ themes      : ['Default', 'GitHub']
     ;
     </div>
     <div class="ui form segment">
-      <div class="ui selection dropdown" tabindex="2">
+      <div class="ui selection dropdown">
         <input type="hidden" name="gender">
         <div class="default text">Gender</div>
         <i class="dropdown icon"></i>
@@ -374,7 +374,7 @@ themes      : ['Default', 'GitHub']
       </div>
       <div class="field">
         <label>Gender</label>
-        <div class="ui selection dropdown" tabindex="2">
+        <div class="ui selection dropdown">
           <div class="default text">Select Gender</div>
           <i class="dropdown icon"></i>
           <input type="hidden" name="gender">
@@ -461,7 +461,7 @@ themes      : ['Default', 'GitHub']
       </div>
       <div class="field error">
         <label>Gender</label>
-        <div class="ui selection dropdown" tabindex="2">
+        <div class="ui selection dropdown">
           <div class="default text">Select</div>
           <i class="dropdown icon"></i>
           <input type="hidden" name="gender">

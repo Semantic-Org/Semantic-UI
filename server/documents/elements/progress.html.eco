@@ -11,6 +11,7 @@ type        : 'UI Element'
 
 themes      : ['Default']
 ---
+<link rel="stylesheet/less" type="text/css" href="/build/less/definitions/elements/progress.less" />
 
 <%- @partial('header') %>
 
