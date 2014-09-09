@@ -65,6 +65,7 @@ themes      : ['Default']
       <div class="ui ignored info message">
         <div class="header">Converting Select Elements</div>
         <p>You can initialize a selection dropdown directly on a select element, any option that is given a blank value will automatically be converted into a placeholder</p>
+        <p>It is recommended to include the necessary html unless absolutely necessary, otherwise elements will experience a flash of unstyled
       </div>
       <select class="ui dropdown">
         <option value="">Gender</option>
@@ -83,63 +84,255 @@ themes      : ['Default']
       <h4 class="ui header">Search Selection</h4>
       <p>A selection dropdown can allow a user to search through a large list of choices.</p>
       <div class="ui search selection dropdown">
-        <input type="hidden" name="state">
-        <div class="default text">State</div>
+        <input type="hidden" name="country">
         <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
         <div class="menu">
-          <div class="item" data-value="AL">Alabama</div>
-          <div class="item" data-value="AK">Alaska</div>
-          <div class="item" data-value="AZ">Arizona</div>
-          <div class="item" data-value="AR">Arkansas</div>
-          <div class="item" data-value="CA">California</div>
-          <div class="item" data-value="CO">Colorado</div>
-          <div class="item" data-value="CT">Connecticut</div>
-          <div class="item" data-value="DE">Delaware</div>
-          <div class="item" data-value="DC">DC</div>
-          <div class="item" data-value="FL">Florida</div>
-          <div class="item" data-value="GA">Georgia</div>
-          <div class="item" data-value="HI">Hawaii</div>
-          <div class="item" data-value="ID">Idaho</div>
-          <div class="item" data-value="IL">Illinois</div>
-          <div class="item" data-value="IN">Indiana</div>
-          <div class="item" data-value="IA">Iowa</div>
-          <div class="item" data-value="KS">Kansas</div>
-          <div class="item" data-value="KY">Kentucky</div>
-          <div class="item" data-value="LA">Louisiana</div>
-          <div class="item" data-value="ME">Maine</div>
-          <div class="item" data-value="MD">Maryland</div>
-          <div class="item" data-value="MA">Massachusetts</div>
-          <div class="item" data-value="MI">Michigan</div>
-          <div class="item" data-value="MN">Minnesota</div>
-          <div class="item" data-value="MS">Mississippi</div>
-          <div class="item" data-value="MO">Missouri</div>
-          <div class="item" data-value="MT">Montana</div>
-          <div class="item" data-value="NE">Nebraska</div>
-          <div class="item" data-value="NV">Nevada</div>
-          <div class="item" data-value="NH">New Hampshire</div>
-          <div class="item" data-value="NJ">New Jersey</div>
-          <div class="item" data-value="NM">New Mexico</div>
-          <div class="item" data-value="NY">New York</div>
-          <div class="item" data-value="NC">North Carolina</div>
-          <div class="item" data-value="ND">North Dakota</div>
-          <div class="item" data-value="OH">Ohio</div>
-          <div class="item" data-value="OK">Oklahoma</div>
-          <div class="item" data-value="OR">Oregon</div>
-          <div class="item" data-value="PA">Pennsylvania</div>
-          <div class="item" data-value="RI">Rhode Island</div>
-          <div class="item" data-value="SC">South Carolina</div>
-          <div class="item" data-value="SD">South Dakota</div>
-          <div class="item" data-value="TN">Tennessee</div>
-          <div class="item" data-value="TX">Texas</div>
-          <div class="item" data-value="UT">Utah</div>
-          <div class="item" data-value="VT">Vermont</div>
-          <div class="item" data-value="VA">Virginia</div>
-          <div class="item" data-value="WA">Washington</div>
-          <div class="item" data-value="WV">West Virginia</div>
-          <div class="item" data-value="WI">Wisconsin</div>
-          <div class="item" data-value="WY">Wyoming</div>
+          <div class="item"><i class="flag andorra"></i> Andorra</div>
+          <div class="item"><i class="flag united arab emirates"></i> United Arab Emirates</div>
+          <div class="item"><i class="flag afghanistan"></i> Afghanistan</div>
+          <div class="item"><i class="flag antigua"></i> Antigua</div>
+          <div class="item"><i class="flag anguilla"></i> Anguilla</div>
+          <div class="item"><i class="flag albania"></i> Albania</div>
+          <div class="item"><i class="flag armenia"></i> Armenia</div>
+          <div class="item"><i class="flag netherlands antilles"></i> Netherlands Antilles</div>
+          <div class="item"><i class="flag angola"></i> Angola</div>
+          <div class="item"><i class="flag argentina"></i> Argentina</div>
+          <div class="item"><i class="flag american samoa"></i> American Samoa</div>
+          <div class="item"><i class="flag austria"></i> Austria</div>
+          <div class="item"><i class="flag australia"></i> Australia</div>
+          <div class="item"><i class="flag aruba"></i> Aruba</div>
+          <div class="item"><i class="flag aland islands"></i> Aland Islands</div>
+          <div class="item"><i class="flag azerbaijan"></i> Azerbaijan</div>
+          <div class="item"><i class="flag bosnia"></i> Bosnia</div>
+          <div class="item"><i class="flag barbados"></i> Barbados</div>
+          <div class="item"><i class="flag bangladesh"></i> Bangladesh</div>
+          <div class="item"><i class="flag belgium"></i> Belgium</div>
+          <div class="item"><i class="flag burkina faso"></i> Burkina Faso</div>
+          <div class="item"><i class="flag bulgaria"></i> Bulgaria</div>
+          <div class="item"><i class="flag bahrain"></i> Bahrain</div>
+          <div class="item"><i class="flag burundi"></i> Burundi</div>
+          <div class="item"><i class="flag benin"></i> Benin</div>
+          <div class="item"><i class="flag bermuda"></i> Bermuda</div>
+          <div class="item"><i class="flag brunei"></i> Brunei</div>
+          <div class="item"><i class="flag bolivia"></i> Bolivia</div>
+          <div class="item"><i class="flag brazil"></i> Brazil</div>
+          <div class="item"><i class="flag bahamas"></i> Bahamas</div>
+          <div class="item"><i class="flag bhutan"></i> Bhutan</div>
+          <div class="item"><i class="flag bouvet island"></i> Bouvet Island</div>
+          <div class="item"><i class="flag botswana"></i> Botswana</div>
+          <div class="item"><i class="flag belarus"></i> Belarus</div>
+          <div class="item"><i class="flag belize"></i> Belize</div>
+          <div class="item"><i class="flag canada"></i> Canada</div>
+          <div class="item"><i class="flag cocos islands"></i> Cocos Islands</div>
+          <div class="item"><i class="flag congo"></i> Congo</div>
+          <div class="item"><i class="flag central african republic"></i> Central African Republic</div>
+          <div class="item"><i class="flag congo brazzaville"></i> Congo Brazzaville</div>
+          <div class="item"><i class="flag switzerland"></i> Switzerland</div>
+          <div class="item"><i class="flag cote divoire"></i> Cote Divoire</div>
+          <div class="item"><i class="flag cook islands"></i> Cook Islands</div>
+          <div class="item"><i class="flag chile"></i> Chile</div>
+          <div class="item"><i class="flag cameroon"></i> Cameroon</div>
+          <div class="item"><i class="flag china"></i> China</div>
+          <div class="item"><i class="flag colombia"></i> Colombia</div>
+          <div class="item"><i class="flag costa rica"></i> Costa Rica</div>
+          <div class="item"><i class="flag serbia"></i> Serbia</div>
+          <div class="item"><i class="flag cuba"></i> Cuba</div>
+          <div class="item"><i class="flag cape verde"></i> Cape Verde</div>
+          <div class="item"><i class="flag christmas island"></i> Christmas Island</div>
+          <div class="item"><i class="flag cyprus"></i> Cyprus</div>
+          <div class="item"><i class="flag czech republic"></i> Czech Republic</div>
+          <div class="item"><i class="flag germany"></i> Germany</div>
+          <div class="item"><i class="flag djibouti"></i> Djibouti</div>
+          <div class="item"><i class="flag denmark"></i> Denmark</div>
+          <div class="item"><i class="flag dominica"></i> Dominica</div>
+          <div class="item"><i class="flag dominican republic"></i> Dominican Republic</div>
+          <div class="item"><i class="flag algeria"></i> Algeria</div>
+          <div class="item"><i class="flag ecuador"></i> Ecuador</div>
+          <div class="item"><i class="flag estonia"></i> Estonia</div>
+          <div class="item"><i class="flag egypt"></i> Egypt</div>
+          <div class="item"><i class="flag western sahara"></i> Western Sahara</div>
+          <div class="item"><i class="flag eritrea"></i> Eritrea</div>
+          <div class="item"><i class="flag spain"></i> Spain</div>
+          <div class="item"><i class="flag ethiopia"></i> Ethiopia</div>
+          <div class="item"><i class="flag european union"></i> European Union</div>
+          <div class="item"><i class="flag finland"></i> Finland</div>
+          <div class="item"><i class="flag fiji"></i> Fiji</div>
+          <div class="item"><i class="flag falkland islands"></i> Falkland Islands</div>
+          <div class="item"><i class="flag micronesia"></i> Micronesia</div>
+          <div class="item"><i class="flag faroe islands"></i> Faroe Islands</div>
+          <div class="item"><i class="flag france"></i> France</div>
+          <div class="item"><i class="flag gabon"></i> Gabon</div>
+          <div class="item"><i class="flag england"></i> England</div>
+          <div class="item"><i class="flag grenada"></i> Grenada</div>
+          <div class="item"><i class="flag georgia"></i> Georgia</div>
+          <div class="item"><i class="flag french guiana"></i> French Guiana</div>
+          <div class="item"><i class="flag ghana"></i> Ghana</div>
+          <div class="item"><i class="flag gibraltar"></i> Gibraltar</div>
+          <div class="item"><i class="flag greenland"></i> Greenland</div>
+          <div class="item"><i class="flag gambia"></i> Gambia</div>
+          <div class="item"><i class="flag guinea"></i> Guinea</div>
+          <div class="item"><i class="flag guadeloupe"></i> Guadeloupe</div>
+          <div class="item"><i class="flag equatorial guinea"></i> Equatorial Guinea</div>
+          <div class="item"><i class="flag greece"></i> Greece</div>
+          <div class="item"><i class="flag sandwich islands"></i> Sandwich Islands</div>
+          <div class="item"><i class="flag guatemala"></i> Guatemala</div>
+          <div class="item"><i class="flag guam"></i> Guam</div>
+          <div class="item"><i class="flag guinea-bissau"></i> Guinea-Bissau</div>
+          <div class="item"><i class="flag guyana"></i> Guyana</div>
+          <div class="item"><i class="flag hong kong"></i> Hong Kong</div>
+          <div class="item"><i class="flag heard island"></i> Heard Island</div>
+          <div class="item"><i class="flag honduras"></i> Honduras</div>
+          <div class="item"><i class="flag croatia"></i> Croatia</div>
+          <div class="item"><i class="flag haiti"></i> Haiti</div>
+          <div class="item"><i class="flag hungary"></i> Hungary</div>
+          <div class="item"><i class="flag indonesia"></i> Indonesia</div>
+          <div class="item"><i class="flag ireland"></i> Ireland</div>
+          <div class="item"><i class="flag israel"></i> Israel</div>
+          <div class="item"><i class="flag india"></i> India</div>
+          <div class="item"><i class="flag indian ocean territory"></i> Indian Ocean Territory</div>
+          <div class="item"><i class="flag iraq"></i> Iraq</div>
+          <div class="item"><i class="flag iran"></i> Iran</div>
+          <div class="item"><i class="flag iceland"></i> Iceland</div>
+          <div class="item"><i class="flag italy"></i> Italy</div>
+          <div class="item"><i class="flag jamaica"></i> Jamaica</div>
+          <div class="item"><i class="flag jordan"></i> Jordan</div>
+          <div class="item"><i class="flag japan"></i> Japan</div>
+          <div class="item"><i class="flag kenya"></i> Kenya</div>
+          <div class="item"><i class="flag kyrgyzstan"></i> Kyrgyzstan</div>
+          <div class="item"><i class="flag cambodia"></i> Cambodia</div>
+          <div class="item"><i class="flag kiribati"></i> Kiribati</div>
+          <div class="item"><i class="flag comoros"></i> Comoros</div>
+          <div class="item"><i class="flag saint kitts and nevis"></i> Saint Kitts and Nevis</div>
+          <div class="item"><i class="flag north korea"></i> North Korea</div>
+          <div class="item"><i class="flag south korea"></i> South Korea</div>
+          <div class="item"><i class="flag kuwait"></i> Kuwait</div>
+          <div class="item"><i class="flag cayman islands"></i> Cayman Islands</div>
+          <div class="item"><i class="flag kazakhstan"></i> Kazakhstan</div>
+          <div class="item"><i class="flag laos"></i> Laos</div>
+          <div class="item"><i class="flag lebanon"></i> Lebanon</div>
+          <div class="item"><i class="flag saint lucia"></i> Saint Lucia</div>
+          <div class="item"><i class="flag liechtenstein"></i> Liechtenstein</div>
+          <div class="item"><i class="flag sri lanka"></i> Sri Lanka</div>
+          <div class="item"><i class="flag liberia"></i> Liberia</div>
+          <div class="item"><i class="flag lesotho"></i> Lesotho</div>
+          <div class="item"><i class="flag lithuania"></i> Lithuania</div>
+          <div class="item"><i class="flag luxembourg"></i> Luxembourg</div>
+          <div class="item"><i class="flag latvia"></i> Latvia</div>
+          <div class="item"><i class="flag libya"></i> Libya</div>
+          <div class="item"><i class="flag morocco"></i> Morocco</div>
+          <div class="item"><i class="flag monaco"></i> Monaco</div>
+          <div class="item"><i class="flag moldova"></i> Moldova</div>
+          <div class="item"><i class="flag montenegro"></i> Montenegro</div>
+          <div class="item"><i class="flag madagascar"></i> Madagascar</div>
+          <div class="item"><i class="flag marshall islands"></i> Marshall Islands</div>
+          <div class="item"><i class="flag macedonia"></i> MacEdonia</div>
+          <div class="item"><i class="flag mali"></i> Mali</div>
+          <div class="item"><i class="flag burma"></i> Burma</div>
+          <div class="item"><i class="flag mongolia"></i> Mongolia</div>
+          <div class="item"><i class="flag macau"></i> MacAu</div>
+          <div class="item"><i class="flag northern mariana islands"></i> Northern Mariana Islands</div>
+          <div class="item"><i class="flag martinique"></i> Martinique</div>
+          <div class="item"><i class="flag mauritania"></i> Mauritania</div>
+          <div class="item"><i class="flag montserrat"></i> Montserrat</div>
+          <div class="item"><i class="flag malta"></i> Malta</div>
+          <div class="item"><i class="flag mauritius"></i> Mauritius</div>
+          <div class="item"><i class="flag maldives"></i> Maldives</div>
+          <div class="item"><i class="flag malawi"></i> Malawi</div>
+          <div class="item"><i class="flag mexico"></i> Mexico</div>
+          <div class="item"><i class="flag malaysia"></i> Malaysia</div>
+          <div class="item"><i class="flag mozambique"></i> Mozambique</div>
+          <div class="item"><i class="flag namibia"></i> Namibia</div>
+          <div class="item"><i class="flag new caledonia"></i> New Caledonia</div>
+          <div class="item"><i class="flag niger"></i> Niger</div>
+          <div class="item"><i class="flag norfolk island"></i> Norfolk Island</div>
+          <div class="item"><i class="flag nigeria"></i> Nigeria</div>
+          <div class="item"><i class="flag nicaragua"></i> Nicaragua</div>
+          <div class="item"><i class="flag netherlands"></i> Netherlands</div>
+          <div class="item"><i class="flag norway"></i> Norway</div>
+          <div class="item"><i class="flag nepal"></i> Nepal</div>
+          <div class="item"><i class="flag nauru"></i> Nauru</div>
+          <div class="item"><i class="flag niue"></i> Niue</div>
+          <div class="item"><i class="flag new zealand"></i> New Zealand</div>
+          <div class="item"><i class="flag oman"></i> Oman</div>
+          <div class="item"><i class="flag panama"></i> Panama</div>
+          <div class="item"><i class="flag peru"></i> Peru</div>
+          <div class="item"><i class="flag french polynesia"></i> French Polynesia</div>
+          <div class="item"><i class="flag new guinea"></i> New Guinea</div>
+          <div class="item"><i class="flag philippines"></i> Philippines</div>
+          <div class="item"><i class="flag pakistan"></i> Pakistan</div>
+          <div class="item"><i class="flag poland"></i> Poland</div>
+          <div class="item"><i class="flag saint pierre"></i> Saint Pierre</div>
+          <div class="item"><i class="flag pitcairn islands"></i> Pitcairn Islands</div>
+          <div class="item"><i class="flag puerto rico"></i> Puerto Rico</div>
+          <div class="item"><i class="flag palestine"></i> Palestine</div>
+          <div class="item"><i class="flag portugal"></i> Portugal</div>
+          <div class="item"><i class="flag palau"></i> Palau</div>
+          <div class="item"><i class="flag paraguay"></i> Paraguay</div>
+          <div class="item"><i class="flag qatar"></i> Qatar</div>
+          <div class="item"><i class="flag reunion"></i> Reunion</div>
+          <div class="item"><i class="flag romania"></i> Romania</div>
+          <div class="item"><i class="flag serbia"></i> Serbia</div>
+          <div class="item"><i class="flag russia"></i> Russia</div>
+          <div class="item"><i class="flag rwanda"></i> Rwanda</div>
+          <div class="item"><i class="flag saudi arabia"></i> Saudi Arabia</div>
+          <div class="item"><i class="flag solomon islands"></i> Solomon Islands</div>
+          <div class="item"><i class="flag seychelles"></i> Seychelles</div>
+          <div class="item"><i class="flag sudan"></i> Sudan</div>
+          <div class="item"><i class="flag sweden"></i> Sweden</div>
+          <div class="item"><i class="flag singapore"></i> Singapore</div>
+          <div class="item"><i class="flag saint helena"></i> Saint Helena</div>
+          <div class="item"><i class="flag slovenia"></i> Slovenia</div>
+          <div class="item"><i class="flag svalbard"></i> Svalbard, Jan Mayen</div>
+          <div class="item"><i class="flag slovakia"></i> Slovakia</div>
+          <div class="item"><i class="flag sierra leone"></i> Sierra Leone</div>
+          <div class="item"><i class="flag san marino"></i> San Marino</div>
+          <div class="item"><i class="flag senegal"></i> Senegal</div>
+          <div class="item"><i class="flag somalia"></i> Somalia</div>
+          <div class="item"><i class="flag suriname"></i> Suriname</div>
+          <div class="item"><i class="flag sao tome"></i> Sao Tome</div>
+          <div class="item"><i class="flag el salvador"></i> El Salvador</div>
+          <div class="item"><i class="flag syria"></i> Syria</div>
+          <div class="item"><i class="flag swaziland"></i> Swaziland</div>
+          <div class="item"><i class="flag caicos islands"></i> Caicos Islands</div>
+          <div class="item"><i class="flag chad"></i> Chad</div>
+          <div class="item"><i class="flag french territories"></i> French Territories</div>
+          <div class="item"><i class="flag togo"></i> Togo</div>
+          <div class="item"><i class="flag thailand"></i> Thailand</div>
+          <div class="item"><i class="flag tajikistan"></i> Tajikistan</div>
+          <div class="item"><i class="flag tokelau"></i> Tokelau</div>
+          <div class="item"><i class="flag timorleste"></i> Timorleste</div>
+          <div class="item"><i class="flag turkmenistan"></i> Turkmenistan</div>
+          <div class="item"><i class="flag tunisia"></i> Tunisia</div>
+          <div class="item"><i class="flag tonga"></i> Tonga</div>
+          <div class="item"><i class="flag turkey"></i> Turkey</div>
+          <div class="item"><i class="flag trinidad"></i> Trinidad</div>
+          <div class="item"><i class="flag tuvalu"></i> Tuvalu</div>
+          <div class="item"><i class="flag taiwan"></i> Taiwan</div>
+          <div class="item"><i class="flag tanzania"></i> Tanzania</div>
+          <div class="item"><i class="flag ukraine"></i> Ukraine</div>
+          <div class="item"><i class="flag uganda"></i> Uganda</div>
+          <div class="item"><i class="flag us minor islands"></i> US Minor Islands</div>
+          <div class="item"><i class="flag united states"></i> United States</div>
+          <div class="item"><i class="flag uruguay"></i> Uruguay</div>
+          <div class="item"><i class="flag uzbekistan"></i> Uzbekistan</div>
+          <div class="item"><i class="flag vatican city"></i> Vatican City</div>
+          <div class="item"><i class="flag saint vincent"></i> Saint Vincent</div>
+          <div class="item"><i class="flag venezuela"></i> Venezuela</div>
+          <div class="item"><i class="flag british virgin islands"></i> British Virgin Islands</div>
+          <div class="item"><i class="flag us virgin islands"></i> Us Virgin Islands</div>
+          <div class="item"><i class="flag vietnam"></i> Vietnam</div>
+          <div class="item"><i class="flag vanuatu"></i> Vanuatu</div>
+          <div class="item"><i class="flag wallis and futuna"></i> Wallis and Futuna</div>
+          <div class="item"><i class="flag samoa"></i> Samoa</div>
+          <div class="item"><i class="flag yemen"></i> Yemen</div>
+          <div class="item"><i class="flag mayotte"></i> Mayotte</div>
+          <div class="item"><i class="flag south africa"></i> South Africa</div>
+          <div class="item"><i class="flag zambia"></i> Zambia</div>
+          <div class="item"><i class="flag zimbabwe"></i> Zimbabwe</div>
         </div>
       </div>
+
     </div>
     <div class="another dropdown example">
       <select class="ui search dropdown">

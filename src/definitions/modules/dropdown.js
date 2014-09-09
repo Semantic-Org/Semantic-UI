@@ -650,6 +650,7 @@ $.fn.dropdown = function(parameters) {
                       ? $(this).attr('value')
                       : name
                   ;
+                  console.log($(this).html());
                   if(value === '') {
                     select.placeholder = name;
                   }
@@ -841,7 +842,6 @@ $.fn.dropdown = function(parameters) {
                 : $selectedItem.text()
               ;
               $item
-                .removeClass(className.filtered)
                 .removeClass(className.active)
                 .removeClass(className.selected)
               ;
@@ -1039,7 +1039,12 @@ $.fn.dropdown = function(parameters) {
               module.unbind.intent();
             }
             module.remove.active();
-            module.animate.hide(module.remove.visible);
+            module.animate.hide(function() {
+              $item
+                .removeClass(className.filtered)
+              ;
+              module.remove.visible();
+            });
             $.proxy(settings.onHide, element)();
           }
         },
@@ -1333,7 +1338,12 @@ $.fn.dropdown.settings.templates = {
     }
     html += '<div class="menu">';
     $.each(select.values, function(value, name) {
-      html += '<div class="item" data-value="' + value + '">' + name + '</div>';
+      if(value === name) {
+        html += '<div class="item">' + name + '</div>';
+      }
+      else {
+        html += '<div class="item" data-value="' + value + '">' + name + '</div>';
+      }
     });
     html += '</div>';
     return html;
