@@ -298,7 +298,7 @@
 .ui.card > .content > .header {
   display: block;
   margin: 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.85);

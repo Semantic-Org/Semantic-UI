@@ -1258,7 +1258,7 @@ $.fn.dropdown.settings = {
   selector : {
     menu   : '.menu',
     item   : '.menu > .item',
-    text   : '> .text',
+    text   : '> .text:not(.icon)',
     input  : '> input[type="hidden"], > select',
     search : '> .search'
   },
