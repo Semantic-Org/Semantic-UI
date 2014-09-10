@@ -1278,19 +1278,19 @@ themes      : ['Default']
         </div>
       </div>
     </div>
-    <div class="button example">
+    <div class="link example">
       <h4 class="ui header">Link Dropdowns</h4>
       <div class="ignored">
         <p>If each option in your dropdown links out to another page, you might just want to make your menu hide without changing any value.</p>
         <div class="evaluated code" data-type="javascript">
-        $('.link.dropdown')
+        $('.link.example .dropdown')
           .dropdown({
             action: 'hide'
           })
         ;
         </div>
 
-      <div class="ui link dropdown icon button">
+      <div class="ui dropdown icon button">
         <div class="text">Go to</div>
         <i class="dropdown icon"></i>
         <div class="menu">
