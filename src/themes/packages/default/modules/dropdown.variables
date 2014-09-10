@@ -68,7 +68,6 @@
 @menuInputMargin: 0.75rem @itemHorizontalPadding 0.25rem;
 @menuInputMinWidth: 200px;
 @menuInputPadding: 0.5em 1em;
-@menuInputIconOffset: 0.7em;
 
 /* Menu Image */
 @menuImageMaxHeight: 2.5em;

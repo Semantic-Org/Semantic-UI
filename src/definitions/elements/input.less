@@ -171,13 +171,21 @@
   margin: 0em;
   width: @iconWidth;
   height: 100%;
-  padding-top: @iconOffset;
 
   text-align: center;
 
   border-radius: 0em @borderRadius @borderRadius 0em;
   box-sizing: border-box;
   transition: @iconTransition;
+}
+.ui.icon.input > .icon:before,
+.ui.icon.input > .icon:after {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+  margin-top: -0.5em;
 }
 .ui.icon.input > .link.icon {
   cursor: pointer;
@@ -208,7 +216,6 @@
 /* Transparent Icon */
 .ui.transparent.icon.input > .icon {
   width: @transparentIconWidth;
-  padding-top: @transparentIconOffset;
 }
 .ui.transparent.icon.input > input {
   padding-left: 0em !important;
