@@ -11,6 +11,8 @@
 
 ;(function ( $, window, document, undefined ) {
 
+"use strict";
+
 $.fn.shape = function(parameters) {
   var
     $allModules     = $(this),

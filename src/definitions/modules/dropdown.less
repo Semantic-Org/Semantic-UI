@@ -46,6 +46,7 @@
   cursor: auto;
   position: absolute;
   display: none;
+  outline: none;
   top: 100%;
 
   margin: @menuMargin;
@@ -331,6 +332,7 @@ select.ui.dropdown {
   display: none;
 }
 .ui.selection.dropdown .menu > .item {
+  border-top: @selectionItemDivider;
   padding-left: @selectionHorizontalPadding !important;
   /* Add in spacing for scroll bar */
   padding-right: calc(@selectionHorizontalPadding + 1em) !important;

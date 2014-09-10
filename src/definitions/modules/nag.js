@@ -11,6 +11,8 @@
 
 ;(function ($, window, document, undefined) {
 
+"use strict";
+
 $.fn.nag = function(parameters) {
   var
     $allModules     = $(this),
