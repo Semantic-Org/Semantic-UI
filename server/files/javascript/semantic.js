@@ -668,7 +668,8 @@ semantic.ready = function() {
   $menuDropdown
     .dropdown({
       on         : 'hover',
-      action     : 'nothing'
+      action     : 'nothing',
+      allowTab   : false
     })
   ;
 
