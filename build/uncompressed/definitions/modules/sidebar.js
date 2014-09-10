@@ -76,6 +76,11 @@ $.fn.sidebar = function(parameters) {
 
           transitionEnd = module.get.transitionEvent();
 
+          // cache on initialize
+          if( module.is.legacy() ) {
+            settings.useLegacy = true;
+          }
+
           module.setup.context();
 
           // avoid locking rendering to change layout if included in onReady
@@ -200,20 +205,24 @@ $.fn.sidebar = function(parameters) {
         },
 
         show: function(callback) {
+          var
+            animateMethod = (settings.useLegacy)
+              ? module.legacyPushPage
+              : module.pushPage
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          module.debug('Showing sidebar', callback);
           if(module.is.closed()) {
             if(settings.overlay)  {
+              module.error(error.overlay);
               settings.transition = 'overlay';
             }
             if(settings.transition !== 'overlay') {
               module.hideAll();
             }
-            module.pushPage(function() {
-              module.set.active();
+            animateMethod(function() {
               $.proxy(callback, element)();
               $.proxy(settings.onShow, element)();
             });
@@ -226,13 +235,18 @@ $.fn.sidebar = function(parameters) {
         },
 
         hide: function(callback) {
+          var
+            animateMethod = (settings.useLegacy)
+              ? module.legacyPullPage
+              : module.pullPage
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          module.debug('Hiding sidebar', callback);
           if(module.is.visible()) {
-            module.pullPage(function() {
+            module.debug('Hiding sidebar', callback);
+            animateMethod(function() {
               $.proxy(callback, element)();
               $.proxy(settings.onHidden, element)();
             });
@@ -262,18 +276,19 @@ $.fn.sidebar = function(parameters) {
 
         pushPage: function(callback) {
           var
-            $transition = (settings.transition == 'safe')
+            transition = module.get.transition(),
+            $transition = (transition == 'safe')
               ? $context
-              : (settings.transition == 'overlay')
+              : (transition == 'overlay')
                 ? $module
                 : $pusher,
-            transition
+            animate
           ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          transition = function() {
+          animate = function() {
             module.set.visible();
             module.set.transition();
             module.set.direction();
@@ -288,13 +303,14 @@ $.fn.sidebar = function(parameters) {
                 $transition.off(transitionEnd);
                 module.remove.inward();
                 module.bind.clickaway();
+                module.set.active();
                 $.proxy(callback, element)();
               }
             })
           ;
           module.verbose('Adding context push state', $context);
-          if(settings.transition === 'overlay') {
-            requestAnimationFrame(transition);
+          if(transition === 'overlay') {
+            requestAnimationFrame(animate);
           }
           else {
             if(module.is.mobile()) {
@@ -303,15 +319,16 @@ $.fn.sidebar = function(parameters) {
               window.scrollTo(0, 0);
             }
             module.remove.allVisible();
-            requestAnimationFrame(transition);
+            requestAnimationFrame(animate);
           }
         },
 
         pullPage: function(callback) {
           var
-            $transition = (settings.transition == 'safe')
+            transition = module.get.transition(),
+            $transition = (transition == 'safe')
               ? $context
-              : (settings.transition == 'overlay')
+              : (transition == 'overlay')
                 ? $module
                 : $pusher
           ;
@@ -344,6 +361,61 @@ $.fn.sidebar = function(parameters) {
           });
         },
 
+        legacyPushPage: function(callback) {
+          var
+            distance   = $module.width(),
+            direction  = module.get.direction(),
+            properties = {}
+          ;
+          distance  = distance || $module.width();
+          callback  = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          properties[direction] = distance;
+          module.debug('Using javascript to push context', properties);
+          module.set.visible();
+          module.set.transition();
+          module.set.direction();
+          module.set.inward();
+          module.set.pushed();
+          $context
+            .animate(properties, settings.duration, settings.easing, function() {
+              module.remove.inward();
+              module.bind.clickaway();
+              module.set.active();
+              $.proxy(callback, module)();
+            })
+          ;
+        },
+        legacyPullPage: function(callback) {
+          var
+            distance   = 0,
+            direction  = module.get.direction(),
+            properties = {}
+          ;
+          distance  = distance || $module.width();
+          callback  = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          properties[direction] = '0px';
+          module.debug('Using javascript to pull context', properties);
+          module.unbind.clickaway();
+          module.set.outward();
+          module.remove.active();
+          module.remove.pushed();
+          $context
+            .animate(properties, settings.duration, settings.easing, function() {
+              module.remove.transition();
+              module.remove.direction();
+              module.remove.outward();
+              module.remove.visible();
+              $.proxy(callback, module)();
+            })
+          ;
+        },
+
         set: {
           active: function() {
             $context.addClass(className.active);
@@ -356,10 +428,7 @@ $.fn.sidebar = function(parameters) {
             $module.addClass(className.visible);
           },
           transition: function(transition) {
-            transition = transition || ( module.is.mobile() )
-              ? settings.mobileTransition
-              : settings.transition
-            ;
+            transition = transition || module.get.transition();
             $context.addClass(transition);
           },
           inward: function() {
@@ -369,6 +438,9 @@ $.fn.sidebar = function(parameters) {
             $context.addClass(className.outward);
           },
           pushed: function() {
+            if(settings.dimPage) {
+              $context.addClass(className.dimmed);
+            }
             $context.addClass(className.pushed);
           }
         },
@@ -386,13 +458,13 @@ $.fn.sidebar = function(parameters) {
             }
           },
           transition: function(transition) {
-            transition = transition || ( module.is.mobile() )
-              ? settings.mobileTransition
-              : settings.transition
-            ;
+            transition = transition || module.get.transition();
             $context.removeClass(transition);
           },
           pushed: function() {
+            if(settings.dimPage) {
+              $context.removeClass(className.dimmed);
+            }
             $context.removeClass(className.pushed);
           },
           inward: function() {
@@ -418,9 +490,21 @@ $.fn.sidebar = function(parameters) {
             else if($module.hasClass(className.bottom)) {
               return className.bottom;
             }
-            else {
-              return className.left;
-            }
+            return className.left;
+          },
+          transition: function() {
+            var
+              direction = module.get.direction(),
+              transition
+            ;
+            return ( module.is.mobile() )
+              ? (settings.mobileTransition == 'auto')
+                ? settings.defaultTransition.mobile[direction]
+                : settings.mobileTransition
+              : (settings.transition == 'auto')
+                ? settings.defaultTransition.computer[direction]
+                : settings.transition
+            ;
           },
           transitionEvent: function() {
             var
@@ -442,6 +526,30 @@ $.fn.sidebar = function(parameters) {
         },
 
         is: {
+          legacy: function() {
+            var
+              element    = document.createElement('div'),
+              transforms = {
+                'webkitTransform' :'-webkit-transform',
+                'OTransform'      :'-o-transform',
+                'msTransform'     :'-ms-transform',
+                'MozTransform'    :'-moz-transform',
+                'transform'       :'transform'
+              },
+              has3D
+            ;
+
+            // Add it to the body to get the computed style.
+            document.body.insertBefore(element, null);
+            for (var transform in transforms) {
+              if (element.style[transform] !== undefined) {
+                element.style[transform] = "translate3d(1px,1px,1px)";
+                has3D = window.getComputedStyle(element).getPropertyValue(transforms[transform]);
+              }
+            }
+            document.body.removeChild(element);
+            return !(has3D !== undefined && has3D.length > 0 && has3D !== 'none');
+          },
           mobile: function() {
             var
               userAgent    = navigator.userAgent,
@@ -656,52 +764,87 @@ $.fn.sidebar = function(parameters) {
 
 $.fn.sidebar.settings = {
 
-  name             : 'Sidebar',
-  namespace        : 'sidebar',
+  name              : 'Sidebar',
+  namespace         : 'sidebar',
 
-  debug            : false,
-  verbose          : false,
-  performance      : false,
+  debug             : false,
+  verbose           : false,
+  performance       : false,
 
-  workaround       : false,
-  transition       : 'overlay',
-  mobileTransition : 'slide along',
-  context          : 'body',
-  exclusive        : true,
+  workaround        : false,
+  transition        : 'auto',
+  mobileTransition  : 'auto',
 
-  scrollLock       : false,
-  returnScroll     : false,
+  defaultTransition : {
+    computer: {
+      left   : 'reveal',
+      right  : 'reveal',
+      top    : 'overlay',
+      bottom : 'overlay'
+    },
+    mobile: {
+      left   : 'reveal',
+      right  : 'reveal',
+      top    : 'overlay',
+      bottom : 'overlay'
+    }
+  },
 
-  onChange         : function(){},
-  onShow           : function(){},
-  onHide           : function(){},
+  context           : 'body',
+  exclusive         : true,
 
-  onHidden         : function(){},
-  onVisible        : function(){},
+  dimPage           : true,
+  scrollLock        : false,
+  returnScroll      : false,
 
+  useLegacy         : false,
+  duration          : 500,
+  easing            : 'easeInOutQuint',
 
-  className        : {
-    pushable : 'pushable',
+  onChange          : function(){},
+  onShow            : function(){},
+  onHide            : function(){},
+
+  onHidden          : function(){},
+  onVisible         : function(){},
+
+  className         : {
     active   : 'active',
-    visible  : 'visible',
-    pushed   : 'pushed',
+    bottom   : 'bottom',
+    dimmed   : 'dimmed',
     inward   : 'show',
-    outward  : 'hide'
+    left     : 'left',
+    outward  : 'hide',
+    pushable : 'pushable',
+    pushed   : 'pushed',
+    right    : 'right',
+    top      : 'top',
+    visible  : 'visible'
   },
 
   selector: {
-    sidebar : '.ui.sidebar',
-    pusher  : '.pusher',
     fixed   : '.ui.fixed',
+    omitted : 'script, link, style, .ui.modal, .ui.nag, .ui.fixed',
     page    : '.page',
-    omitted : 'script, link, style, .ui.modal, .ui.nag, .ui.fixed'
+    pusher  : '.pusher',
+    sidebar : '.ui.sidebar'
   },
 
   error   : {
     method   : 'The method you called is not defined.',
+    overlay  : 'The overlay setting is no longer supported, use animation: overlay',
     notFound : 'There were no elements that matched the specified selector'
   }
 
 };
+
+// Adds easing
+$.extend( $.easing, {
+  easeInOutQuint: function (x, t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+    return c/2*((t-=2)*t*t*t*t + 2) + b;
+  }
+});
+
 
 })( jQuery, window , document );

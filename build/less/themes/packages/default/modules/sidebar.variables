@@ -4,7 +4,6 @@
 
 @sidebarWidth: 260px;
 @sidebarBackground: @black;
-@sidebarTransition: transform 0.5s linear;
 
 @dimmerColor: rgba(0, 0, 0, 0.4);
 
@@ -18,5 +17,5 @@
 @bottomLayer: 1001;
 @middleLayer: 1002;
 @dimmerLayer: 1003;
-@topLayer: 1005;
-@fixedLayer: 1006;
+@fixedLayer: 1005;
+@topLayer: 1006;

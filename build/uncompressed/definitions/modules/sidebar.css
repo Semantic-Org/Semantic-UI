@@ -163,9 +163,7 @@
   top: 0;
   left: 0;
   visibility: hidden;
-  background: #191919;
   height: 100% !important;
-  width: 260px !important;
   border-radius: 0em !important;
   margin: 0 !important;
   -webkit-transition: none;
@@ -174,6 +172,29 @@
   overflow-y: auto !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  background: #191919;
+  width: 260px !important;
+}
+/*--------------
+   Direction
+---------------*/
+.ui.top.sidebar,
+.ui.bottom.sidebar {
+  width: 100% !important;
+  height: auto !important;
+  overflow-y: visible !important;
+}
+.ui.top.sidebar {
+  top: 0px !important;
+  bottom: auto !important;
+}
+.ui.right.sidebar {
+  right: 0px !important;
+  left: auto !important;
+}
+.ui.bottom.sidebar {
+  top: auto !important;
+  bottom: 0px !important;
 }
 /*--------------
      Body
@@ -192,7 +213,7 @@
   position: fixed;
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
-  z-index: 1006;
+  z-index: 1005;
 }
 /*--------------
      Pusher
@@ -230,6 +251,12 @@
           transition: opacity 0.5s;
   will-change: opacity;
 }
+/*--------------
+    Coupling
+---------------*/
+.ui.sidebar.menu .item {
+  border-radius: 0em !important;
+}
 /*******************************
             States
 *******************************/
@@ -238,12 +265,6 @@
 ---------------*/
 .pushable.pushed {
   overflow-x: hidden;
-}
-/* Show Dimmer */
-.pushable.pushed > .pusher > .page:after {
-  width: 100% !important;
-  height: 100% !important;
-  opacity: 1 !important;
 }
 .pushable.pushed > .fixed,
 .pushable.pushed > .pusher {
@@ -255,7 +276,15 @@
   -webkit-overflow-scrolling: touch;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  z-index: 9999;
+  z-index: 1006;
+}
+/*--------------
+     Dimmed
+---------------*/
+.pushable.dimmed > .pusher > .page:after {
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
 }
 /*--------------
     Animation
@@ -270,11 +299,6 @@
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-/*.pushable.hide > .pusher > .page *,
-.pushable.show > .pusher > .page *,
-.pushable.pushed > .pusher > .page * {
-  transition: none !important;
-}*/
 /*--------------
      Visible
 ---------------*/
@@ -300,14 +324,7 @@
 ---------------*/
 /* Set-up */
 .pushable.overlay > .visible.ui.sidebar {
-  -webkit-transform: translate3d(-100%, 0, 0);
-          transform: translate3d(-100%, 0, 0);
-  z-index: 1005;
-}
-/* Pushed */
-.pushable.overlay.pushed .visible.ui.sidebar {
-  -webkit-transform: translate3d(0%, 0, 0);
-          transform: translate3d(0%, 0, 0);
+  z-index: 1006;
 }
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
@@ -315,33 +332,49 @@
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
 }
-/*--------------
-    Safe Mode
----------------*/
-/* Set-Up */
-.pushable.safe > .pusher {
-  position: relative;
-  -webkit-transform: none !important;
-      -ms-transform: none !important;
-          transform: none !important;
-  -webkit-transition: none !important;
-          transition: none !important;
-}
-.pushable.safe > .pusher {
-  -webkit-transform: none !important;
-      -ms-transform: none !important;
-          transform: none !important;
-  -webkit-transition: none !important;
-          transition: none !important;
+/*--- Left ---*/
+/* Set-up */
+.left.pushable.overlay > .visible.ui.sidebar {
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
 }
 /* Pushed */
-.pushable.safe.pushed {
-  margin-left: 260px !important;
+.left.pushable.overlay.pushed .visible.ui.sidebar {
+  -webkit-transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
 }
-.pushable.safe.show,
-.pushable.safe.hide {
-  -webkit-transition: margin 0.5s ease !important;
-          transition: margin 0.5s ease !important;
+/*--- Right ---*/
+/* Set-up */
+.right.pushable.overlay > .visible.ui.sidebar {
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+}
+/* Pushed */
+.right.pushable.overlay.pushed .visible.ui.sidebar {
+  -webkit-transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
+}
+/*--- Top ---*/
+/* Set-up */
+.top.pushable.overlay > .visible.ui.sidebar {
+  -webkit-transform: translate3d(0%, -100%, 0);
+          transform: translate3d(0%, -100%, 0);
+}
+/* Pushed */
+.top.pushable.overlay.pushed .visible.ui.sidebar {
+  -webkit-transform: translate3d(0%, 0%, 0);
+          transform: translate3d(0%, 0%, 0);
+}
+/*--- Bottom ---*/
+/* Set-up */
+.bottom.pushable.overlay > .visible.ui.sidebar {
+  -webkit-transform: translate3d(0%, 100%, 0);
+          transform: translate3d(0%, 100%, 0);
+}
+/* Pushed */
+.bottom.pushable.overlay.pushed .visible.ui.sidebar {
+  -webkit-transform: translate3d(0%, 0%, 0);
+          transform: translate3d(0%, 0%, 0);
 }
 /*--------------
       Push
@@ -377,8 +410,8 @@
 /* Set-up */
 .pushable.reveal > .fixed,
 .pushable.reveal > .pusher {
-  -webkit-transform: translate3d(0px, 0, 0);
-          transform: translate3d(0px, 0, 0);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+          transform: translate3d(0px, 0px, 0px);
 }
 .pushable.reveal > .pusher {
   z-index: 1001;
@@ -388,10 +421,17 @@
           transition: none;
 }
 /* Pushed */
-.pushable.reveal.pushed > .fixed,
-.pushable.reveal.pushed > .pusher {
+/*--- Left ---*/
+.pushable.left.reveal.pushed > .fixed,
+.pushable.left.reveal.pushed > .pusher {
   -webkit-transform: translate3d(260px, 0, 0);
           transform: translate3d(260px, 0, 0);
+}
+/*--- Right ---*/
+.pushable.right.reveal.pushed > .fixed,
+.pushable.right.reveal.pushed > .pusher {
+  -webkit-transform: translate3d(-260px, 0, 0);
+          transform: translate3d(-260px, 0, 0);
 }
 /*--------------
    Slide Along
@@ -470,7 +510,7 @@
 .pushable.scale.down > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
-  z-index: 1005;
+  z-index: 1006;
 }
 /* Pushed */
 .pushable.scale.down.pushed > .pusher {
@@ -493,117 +533,38 @@
           transition: transform 0.5s ease;
 }
 /*--------------
-    Scale Up
+    Safe Mode
 ---------------*/
-/* Set-up */
-.pushable.scale.up {
-  -webkit-perspective: 1500px;
-          perspective: 1500px;
-  -webkit-perspective-origin: 0% 50%;
-          perspective-origin: 0% 50%;
+/* Set-Up */
+.pushable.safe > .pusher {
+  position: relative;
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
+  -webkit-transition: none !important;
+          transition: none !important;
 }
-.pushable.scale.up > .ui.sidebar {
-  -webkit-transform: translate3d(0, 0, -260px);
-          transform: translate3d(0, 0, -260px);
+.pushable.safe > .pusher {
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
+  -webkit-transition: none !important;
+          transition: none !important;
 }
 /* Pushed */
-.pushable.scale.up.pushed > .fixed,
-.pushable.scale.up.pushed > .pusher {
-  -webkit-transform: translate3d(260px, 0, 0);
-          transform: translate3d(260px, 0, 0);
+.pushable.safe.pushed {
+  margin-left: 260px !important;
 }
-.pushable.scale.up.pushed > .visible.ui.sidebar {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+.pushable.safe.pushed > .visible.ui.sidebar {
+  margin-left: -260px;
 }
-/* Animation */
-.pushable.scale.up.show > .ui.sidebar,
-.pushable.scale.up.hide > .ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease;
-          transition: transform 0.5s ease;
+.pushable.safe.pushed > .fixed {
+  margin-left: 260px !important;
 }
-/*--------------
-   Open Door
----------------*/
-/* Set-up */
-.pushable.open.door {
-  -webkit-perspective: 1500px;
-          perspective: 1500px;
-}
-.pushable.open.door > .ui.sidebar {
-  opacity: 1;
-  -webkit-transform: translate3d(-100%, 0, 0);
-          transform: translate3d(-100%, 0, 0);
-  z-index: 1005;
-}
-.pushable.open.door > .pusher {
-  -webkit-transform-origin: 100% 50%;
-      -ms-transform-origin: 100% 50%;
-          transform-origin: 100% 50%;
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-}
-/* Pushed */
-.pushable.open.door.pushed > .pusher {
-  -webkit-transform: rotateY(-10deg);
-          transform: rotateY(-10deg);
-}
-.pushable.open.door.pushed > .visible.ui.sidebar {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-}
-/* Animation */
-.pushable.open.door.show > .ui.sidebar,
-.pushable.open.door.hide > .ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s;
-          transition: transform 0.5s;
-}
-/*--------------
-    Rotate In
----------------*/
-/* Set-up */
-.pushable.rotate.in {
-  -webkit-perspective: 1500px;
-          perspective: 1500px;
-  -webkit-perspective-origin: 0% 50%;
-          perspective-origin: 0% 50%;
-}
-.pushable.rotate.in > .pusher {
-  -webkit-perspective: none;
-          perspective: none;
-}
-.pushable.rotate.in > .ui.sidebar {
-  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
-          transform: translate3d(-100%, 0, 0) rotateY(90deg);
-  -webkit-transform-origin: 50% 100% 0;
-      -ms-transform-origin: 50% 100% 0;
-          transform-origin: 50% 100% 0;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-}
-/* Pushed */
-.pushable.rotate.in.pushed > .pusher {
-  -webkit-transform: translate3d(260px, 0, 0);
-          transform: translate3d(260px, 0, 0);
-}
-.pushable.rotate.in.pushed .visible.ui.sidebar {
-  -webkit-transform: translate3d(0%, 0, 0) rotateY(0deg);
-          transform: translate3d(0%, 0, 0) rotateY(0deg);
-}
-/* Return Animation */
-.pushable.rotate.in.hide > .visible.ui.sidebar {
-  -webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
-          transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  -webkit-transition: -webkit-transform 0.5s ease 0s;
-          transition: transform 0.5s ease 0s;
-}
-.pushable.rotate.in.active,
-.pushable.rotate.in.hide {
-  overflow-y: hidden;
-}
-/* Animation */
-.pushable.rotate.in.show > .ui.sidebar,
-.pushable.rotate.in.hide > .ui.sidebar {
-  -webkit-transition: -webkit-transform 0.5s ease-in-out 0s;
-          transition: transform 0.5s ease-in-out 0s;
+.pushable.safe.show,
+.pushable.safe.hide,
+.pushable.safe.show > .fixed,
+.pushable.safe.hide > .fixed {
+  -webkit-transition: margin 0.5s ease !important;
+          transition: margin 0.5s ease !important;
 }

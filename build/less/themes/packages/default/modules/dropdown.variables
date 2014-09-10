@@ -99,6 +99,7 @@ b        Types
 @selectionMinWidth: 180px;
 @selectionBackground: @white;
 @selectionDisplay: inline-block;
+@selectionItemDivider: 1px solid rgba(0, 0, 0, 0.05);
 @selectionVerticalPadding: 0.8em;
 @selectionHorizontalPadding: 1.1em;
 @selectionPadding: @selectionVerticalPadding @selectionHorizontalPadding;

@@ -349,16 +349,18 @@
 /*--------------
      Inputs
 ---------------*/
+.ui.menu .item > .input {
+  width: 100%;
+}
 .ui.menu:not(.vertical) .item > .input {
   position: relative;
   top: 0em;
   margin: -0.6em 0em;
-  width: 100%;
 }
-.ui.menu:not(.vertical) .item > .input input {
+.ui.menu .item > .input input {
   font-size: 1em;
-  padding-top: 0.35em;
-  padding-bottom: 0.35em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
 }
 /* Action Input */
 .ui.menu:not(.vertical) .item .action.input > .button {
@@ -366,20 +368,20 @@
   padding: 0.55em 0.8em;
 }
 /* Resizes */
-.ui.small.menu:not(.vertical) .item > .input input {
+.ui.small.menu .item > .input input {
   top: 0em;
   padding-top: 0.4em;
   padding-bottom: 0.4em;
 }
-.ui.large.menu:not(.vertical) .item > .input input {
+.ui.large.menu .item > .input input {
   top: -0.125em;
   padding-bottom: 0.6em;
   padding-top: 0.6em;
 }
-.ui.large.menu:not(.vertical) .item .action.input > .button {
+.ui.large.menu .item .action.input > .button {
   padding: 0.9em;
 }
-.ui.large.menu:not(.vertical) .item .action.input > .button > .icon {
+.ui.large.menu .item .action.input > .button > .icon {
   padding-top: 0.8em;
 }
 /*--------------

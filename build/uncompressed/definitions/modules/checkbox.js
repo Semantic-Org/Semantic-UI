@@ -11,6 +11,8 @@
 
 ;(function ( $, window, document, undefined ) {
 
+"use strict";
+
 $.fn.checkbox = function(parameters) {
   var
     $allModules    = $(this),

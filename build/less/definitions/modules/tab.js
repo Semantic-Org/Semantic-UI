@@ -11,6 +11,8 @@
 
 ;(function ($, window, document, undefined) {
 
+"use strict";
+
 $.tab = $.fn.tab = function(parameters) {
 
   var

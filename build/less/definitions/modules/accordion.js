@@ -11,6 +11,8 @@
 
 ;(function ($, window, document, undefined) {
 
+"use strict";
+
 $.fn.accordion = function(parameters) {
   var
     $allModules     = $(this),

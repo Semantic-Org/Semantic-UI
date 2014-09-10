@@ -214,6 +214,7 @@ b        Types
   cursor: auto;
   position: absolute;
   display: none;
+  outline: none;
   top: 100%;
   margin: 0em;
   padding: 0em 0em;
@@ -448,22 +449,26 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 245px;
-  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
-  -webkit-transition: box-shadow 0.2s ease, border 0.2s ease;
-          transition: box-shadow 0.2s ease, border 0.2s ease;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
   border-top: none !important;
   width: auto;
   margin: 0px -1px;
   min-width: -webkit-calc(100% + 2px);
   min-width: calc(100% + 2px);
   outline: none;
+  max-height: 245px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
+  -webkit-transition: box-shadow 0.2s ease, border 0.2s ease;
+          transition: box-shadow 0.2s ease, border 0.2s ease;
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
   display: none;
 }
 .ui.selection.dropdown .menu > .item {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-left: 1.1em !important;
   /* Add in spacing for scroll bar */
   padding-right: -webkit-calc(2.1em) !important;
@@ -711,11 +716,18 @@ select.ui.dropdown {
   background: #ffffff;
   z-index: 2;
 }
-/* Directions */
 .ui.pointing.dropdown > .menu:after {
   top: -0.25em;
   left: 50%;
   margin: 0em 0em 0em -0.25em;
+}
+/* Top Left Pointing */
+.ui.top.left.pointing.dropdown > .menu {
+  top: 100%;
+  bottom: auto;
+  left: 0%;
+  right: auto;
+  margin: 1em 0em 0em;
 }
 .ui.top.left.pointing.dropdown > .menu {
   top: 100%;
@@ -733,6 +745,7 @@ select.ui.dropdown {
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
+/* Top Right  Pointing */
 .ui.top.right.pointing.dropdown > .menu {
   top: 100%;
   bottom: auto;
@@ -749,6 +762,7 @@ select.ui.dropdown {
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
+/* Left Pointing */
 .ui.left.pointing.dropdown > .menu {
   top: 0%;
   left: 100%;
@@ -763,6 +777,7 @@ select.ui.dropdown {
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+/* Right Pointing */
 .ui.right.pointing.dropdown > .menu {
   top: 0%;
   left: auto;
@@ -777,6 +792,46 @@ select.ui.dropdown {
   -webkit-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
           transform: rotate(135deg);
+}
+/* Bottom Pointing */
+.ui.bottom.pointing.dropdown > .menu {
+  top: auto;
+  bottom: 100%;
+  left: 0%;
+  right: auto;
+  margin: 0em 0em 1em;
+}
+.ui.bottom.pointing.dropdown > .menu:after {
+  top: auto;
+  bottom: -0.25em;
+  right: auto;
+  margin: 0em;
+  -webkit-transform: rotate(-135deg);
+      -ms-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+/* Reverse Sub-Menu Direction */
+.ui.bottom.pointing.dropdown > .menu .menu {
+  top: auto !important;
+  bottom: 0px !important;
+}
+/* Bottom Left */
+.ui.bottom.left.pointing.dropdown > .menu {
+  left: 0%;
+  right: auto;
+}
+.ui.bottom.left.pointing.dropdown > .menu:after {
+  left: 1em;
+  right: auto;
+}
+/* Bottom Right */
+.ui.bottom.right.pointing.dropdown > .menu {
+  right: 0%;
+  left: auto;
+}
+.ui.bottom.right.pointing.dropdown > .menu:after {
+  left: auto;
+  right: 1em;
 }
 /*******************************
            Overrides
