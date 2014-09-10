@@ -38,6 +38,7 @@
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/button.css">
 
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/divider.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/flag.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/header.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/image.css">
   <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/input.css">

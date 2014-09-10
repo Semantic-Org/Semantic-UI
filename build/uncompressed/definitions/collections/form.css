@@ -58,6 +58,7 @@
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -82,7 +83,6 @@
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -223,7 +223,7 @@
 .ui.form .grouped.fields > label,
 .ui.form .inline.fields > label,
 .ui.form .field > label {
-  margin: 0em 0em 0.3em 0em;
+  margin: 0em 0em 0.3rem 0em;
   display: block;
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.9em;
@@ -617,6 +617,9 @@
   margin: 0.5em 0em;
   padding: 0em;
 }
+.ui.form .inline.grouped.fields > label {
+  margin-bottom: 0.5rem;
+}
 /*--------------------
         Fields
 ---------------------*/
@@ -802,7 +805,7 @@
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em 0.3em 0em 0em;
+  margin: 0em 0.3rem 0em 0em;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {

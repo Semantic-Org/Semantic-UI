@@ -59,7 +59,7 @@
 .ui.form .grouped.fields > label,
 .ui.form .inline.fields > label,
 .ui.form .field > label {
-  margin: 0em 0em @labelMargin 0em;
+  margin: 0em 0em @labelDistance 0em;
   display: block;
 
   color: @labelColor;
@@ -520,7 +520,9 @@
   margin: @groupedFieldMargin;
   padding: 0em;
 }
-
+.ui.form .inline.grouped.fields > label {
+  margin-bottom: @inlineGroupedFieldLabelDistance;
+}
 
 /*--------------------
         Fields
@@ -721,7 +723,7 @@
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em @labelMargin 0em 0em;
+  margin: 0em @labelDistance 0em 0em;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {

@@ -272,7 +272,7 @@
   background: @dropdownBackground;
   left: 0px;
   margin: @dropdownMenuOffset 0px 0px;
-  min-width: calc(100% - 1px);
+  min-width: ~"calc(100% - 1px)";
   box-shadow: @dropdownBoxShadow;
 }
 .ui.menu .pointing.dropdown.item .menu {
@@ -416,7 +416,7 @@
 
 
 /*--------------------
-     Loading
+       Loading
 ---------------------*/
 
 /* On Form */
@@ -524,10 +524,10 @@
 }
 
 /*--- Sub Menu ---*/
-.ui.vertical.menu .item > .menu {
+.ui.vertical.menu .item:not(.dropdown) > .menu {
   margin: @subMenuMargin -@horizontalPadding 0em;
 }
-.ui.vertical.menu .item > .menu > .item {
+.ui.vertical.menu .item:not(.dropdown) > .menu > .item {
   background: none;
   padding: @subMenuHorizontalPadding @subMenuVerticalPadding;
   font-size: @subMenuFontSize;

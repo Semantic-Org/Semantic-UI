@@ -58,6 +58,7 @@
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -82,7 +83,6 @@
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -161,7 +161,7 @@
   Some transitions adapted from Animate CSS
   https://github.com/daneden/animate.css
 */
-.ui.transition {
+.transition {
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
   -webkit-animation-duration: 500ms;
@@ -175,7 +175,7 @@
 /*******************************
             States
 *******************************/
-.ui.animating.transition {
+.animating.transition {
   display: block !important;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -183,17 +183,17 @@
           transform: translateZ(0);
 }
 /* Loading */
-.ui.loading.transition {
+.loading.transition {
   position: absolute;
   top: -999999px;
   left: -99999px;
 }
 /* Hidden */
-.ui.hidden.transition {
+.hidden.transition {
   display: none;
 }
 /* Visible */
-.ui.visible.transition {
+.visible.transition {
   display: block !important;
   visibility: visible;
   -webkit-backface-visibility: hidden;
@@ -202,14 +202,14 @@
           transform: translateZ(0);
 }
 /* Disabled */
-.ui.disabled.transition {
+.disabled.transition {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
 }
 /*******************************
           Variations
 *******************************/
-.ui.looping.transition {
+.looping.transition {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
@@ -222,24 +222,24 @@
 /*--------------
     Emphasis
 ---------------*/
-.ui.flash.transition {
+.flash.transition {
   -webkit-animation-name: flash;
           animation-name: flash;
 }
-.ui.shake.transition {
+.shake.transition {
   -webkit-animation-name: shake;
           animation-name: shake;
 }
-.ui.bounce.transition {
+.bounce.transition {
   -webkit-animation-name: bounce;
           animation-name: bounce;
 }
-.ui.tada.transition {
+.tada.transition {
   -webkit-animation-name: tada;
           animation-name: tada;
 }
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-.ui.pulse.transition {
+.pulse.transition {
   -webkit-animation-name: pulse;
           animation-name: pulse;
 }
@@ -443,28 +443,28 @@
 /*--------------
      Slide
 ---------------*/
-.ui.slide.down.transition.in {
+.slide.down.transition.in {
   -webkit-animation-name: slide;
           animation-name: slide;
   transform-origin: 50% 0%;
   -ms-transform-origin: 50% 0%;
   -webkit-transform-origin: 50% 0%;
 }
-.ui.slide.down.transition.out {
+.slide.down.transition.out {
   -webkit-animation-name: slideOut;
           animation-name: slideOut;
   -webkit-transform-origin: 50% 0%;
       -ms-transform-origin: 50% 0%;
           transform-origin: 50% 0%;
 }
-.ui.slide.up.transition.in {
+.slide.up.transition.in {
   -webkit-animation-name: slide;
           animation-name: slide;
   -webkit-transform-origin: 50% 100%;
       -ms-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
 }
-.ui.slide.up.transition.out {
+.slide.up.transition.out {
   -webkit-animation-name: slideOut;
           animation-name: slideOut;
   -webkit-transform-origin: 50% 100%;
@@ -522,26 +522,26 @@
 /*--------------
      Flips
 ---------------*/
-.ui.flip.transition.in,
-.ui.flip.transition.out {
+.flip.transition.in,
+.flip.transition.out {
   -webkit-perspective: 2000px;
           perspective: 2000px;
 }
-.ui.horizontal.flip.transition.in,
-.ui.horizontal.flip.transition.out {
+.horizontal.flip.transition.in,
+.horizontal.flip.transition.out {
   -webkit-animation-name: horizontalFlip;
           animation-name: horizontalFlip;
 }
-.ui.horizontal.flip.transition.out {
+.horizontal.flip.transition.out {
   -webkit-animation-name: horizontalFlipOut;
           animation-name: horizontalFlipOut;
 }
-.ui.vertical.flip.transition.in,
-.ui.vertical.flip.transition.out {
+.vertical.flip.transition.in,
+.vertical.flip.transition.out {
   -webkit-animation-name: verticalFlip;
           animation-name: verticalFlip;
 }
-.ui.vertical.flip.transition.out {
+.vertical.flip.transition.out {
   -webkit-animation-name: verticalFlipOut;
           animation-name: verticalFlipOut;
 }
@@ -647,27 +647,27 @@
 /*--------------
       Fades
 ---------------*/
-.ui.fade.transition.in {
+.fade.transition.in {
   -webkit-animation-name: fade;
           animation-name: fade;
 }
-.ui.fade.transition.out {
+.fade.transition.out {
   -webkit-animation-name: fadeOut;
           animation-name: fadeOut;
 }
-.ui.fade.up.transition.in {
+.fade.up.transition.in {
   -webkit-animation-name: fadeUp;
           animation-name: fadeUp;
 }
-.ui.fade.up.transition.out {
+.fade.up.transition.out {
   -webkit-animation-name: fadeUpOut;
           animation-name: fadeUpOut;
 }
-.ui.fade.down.transition.in {
+.fade.down.transition.in {
   -webkit-animation-name: fadeDown;
           animation-name: fadeDown;
 }
-.ui.fade.down.transition.out {
+.fade.down.transition.out {
   -webkit-animation-name: fadeDownOut;
           animation-name: fadeDownOut;
 }
@@ -805,11 +805,11 @@
 /*--------------
       Scale
 ---------------*/
-.ui.scale.transition.in {
+.scale.transition.in {
   -webkit-animation-name: scale;
           animation-name: scale;
 }
-.ui.scale.transition.out {
+.scale.transition.out {
   -webkit-animation-name: scaleOut;
           animation-name: scaleOut;
 }
@@ -865,18 +865,18 @@
 /*--------------
      Drop
 ---------------*/
-.ui.drop.transition {
+.drop.transition {
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
   -webkit-animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
           animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
 }
-.ui.drop.transition.in {
+.drop.transition.in {
   -webkit-animation-name: dropIn;
           animation-name: dropIn;
 }
-.ui.drop.transition.out {
+.drop.transition.out {
   -webkit-animation-name: dropOut;
           animation-name: dropOut;
 }
@@ -932,20 +932,20 @@
 /*--------------
      Browse
 ---------------*/
-.ui.browse.transition.in {
+.browse.transition.in {
   -webkit-animation-name: browseIn;
           animation-name: browseIn;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
 }
-.ui.browse.transition.out,
-.ui.browse.transition.out.left {
+.browse.transition.out,
+.browse.transition.out.left {
   -webkit-animation-name: browseOutLeft;
           animation-name: browseOutLeft;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
 }
-.ui.browse.transition.out.right {
+.browse.transition.out.right {
   -webkit-animation-name: browseOutRight;
           animation-name: browseOutRight;
   -webkit-animation-timing-function: ease;

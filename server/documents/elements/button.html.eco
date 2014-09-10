@@ -267,7 +267,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
 
   <div class="spaced example">
     <h4 class="ui header">Sizes</h4>
-    <p>A button can have different sizes:</p>
+    <p>A button can have different sizes</p>
     <div class="mini ui button">
       Mini
     </div>
@@ -296,7 +296,7 @@ themes      : ['Default', 'Basic', 'Chubby', 'Flat', 'Amazon', 'GitHub']
 
   <div class="spaced example">
     <h4 class="ui header">Colors</h4>
-    <p>A button can have different colors:</p>
+    <p>A button can have different colors</p>
     <div class="ui black button">Black</div>
     <div class="ui yellow button">Yellow</div>
     <div class="ui green button">Green</div>

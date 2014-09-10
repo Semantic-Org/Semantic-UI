@@ -285,12 +285,12 @@ $.fn.transition = function() {
             ;
             requestAnimationFrame(function() {
               if($module.css('display') !== 'none') {
-                module.verbose('Overriding default display to hide element')
+                module.verbose('Overriding default display to hide element');
                 $module
                   .css('display', 'none')
                 ;
               }
-            })
+            });
           },
 
           visible: function() {
@@ -811,7 +811,7 @@ $.fn.transition.settings = {
     loading    : 'loading',
     looping    : 'looping',
     outward    : 'out',
-    transition : 'ui transition',
+    transition : 'transition',
     visible    : 'visible'
   },
 

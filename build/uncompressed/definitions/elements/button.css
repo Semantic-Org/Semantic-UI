@@ -58,6 +58,7 @@
       Site Colors
 --------------------*/
 /*---  Colors  ---*/
+/*---  Light Colors  ---*/
 /*-------------------
         Page
 --------------------*/
@@ -82,7 +83,6 @@
 /*-------------------
        Easing
 --------------------*/
-/*---  Light Variations  ---*/
 /*---   Neutrals  ---*/
 /*--- Colored Backgrounds ---*/
 /*--- Colored Text ---*/
@@ -894,7 +894,7 @@
   padding-left: 1.5em !important;
   padding-right: 1.5em !important;
 }
-.ui.right.labeled.icon.button .icon {
+.ui.right.labeled.icon.button > .icon {
   left: auto;
   right: 0em;
   border-radius: 0em 0.25em 0.25em 0em;
@@ -1196,7 +1196,7 @@
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
   box-shadow: 0px 0px 0px 2px #2b2b2b inset !important;
-  color: #2b2b2b;
+  color: #2b2b2b !important;
 }
 .ui.basic.black.buttons .button:active,
 .ui.basic.black.button:active {
@@ -1270,7 +1270,7 @@
 .ui.basic.blue.buttons .button:hover,
 .ui.basic.blue.button:hover {
   box-shadow: 0px 0px 0px 2px #0087fd inset !important;
-  color: #0087fd;
+  color: #0087fd !important;
 }
 .ui.basic.blue.buttons .button:active,
 .ui.basic.blue.button:active {
@@ -1344,7 +1344,7 @@
 .ui.basic.green.buttons .button:hover,
 .ui.basic.green.button:hover {
   box-shadow: 0px 0px 0px 2px #48d658 inset !important;
-  color: #48d658;
+  color: #48d658 !important;
 }
 .ui.basic.green.buttons .button:active,
 .ui.basic.green.button:active {
@@ -1418,7 +1418,7 @@
 .ui.basic.orange.buttons .button:hover,
 .ui.basic.orange.button:hover {
   box-shadow: 0px 0px 0px 2px #ff983f inset !important;
-  color: #ff983f;
+  color: #ff983f !important;
 }
 .ui.basic.orange.buttons .button:active,
 .ui.basic.orange.button:active {
@@ -1492,7 +1492,7 @@
 .ui.basic.pink.buttons .button:hover,
 .ui.basic.pink.button:hover {
   box-shadow: 0px 0px 0px 2px #df67aa inset !important;
-  color: #df67aa;
+  color: #df67aa !important;
 }
 .ui.basic.pink.buttons .button:active,
 .ui.basic.pink.button:active {
@@ -1566,7 +1566,7 @@
 .ui.basic.purple.buttons .button:hover,
 .ui.basic.purple.button:hover {
   box-shadow: 0px 0px 0px 2px #b94dac inset !important;
-  color: #b94dac;
+  color: #b94dac !important;
 }
 .ui.basic.purple.buttons .button:active,
 .ui.basic.purple.button:active {
@@ -1640,7 +1640,7 @@
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
   box-shadow: 0px 0px 0px 2px #ff635a inset !important;
-  color: #ff635a;
+  color: #ff635a !important;
 }
 .ui.basic.red.buttons .button:active,
 .ui.basic.red.button:active {
@@ -1714,7 +1714,7 @@
 .ui.basic.teal.buttons .button:hover,
 .ui.basic.teal.button:hover {
   box-shadow: 0px 0px 0px 2px #55d3d3 inset !important;
-  color: #55d3d3;
+  color: #55d3d3 !important;
 }
 .ui.basic.teal.buttons .button:active,
 .ui.basic.teal.button:active {
@@ -1788,7 +1788,7 @@
 .ui.basic.yellow.buttons .button:hover,
 .ui.basic.yellow.button:hover {
   box-shadow: 0px 0px 0px 2px #ffd32c inset !important;
-  color: #ffd32c;
+  color: #ffd32c !important;
 }
 .ui.basic.yellow.buttons .button:active,
 .ui.basic.yellow.button:active {

@@ -35,9 +35,18 @@
 @grey             : #CCCCCC;
 @white            : #FFFFFF;
 
+/*---  Light Colors  ---*/
+@lightBlue        : #54C8FF;
+@lightGreen       : #2ECC40;
+@lightOrange      : #FF851B;
+@lightPink        : #FF8EDF;
+@lightPurple      : #CDC6FF;
+@lightRed         : #FF695E;
+@lightTeal        : #6DFFFF;
+@lightYellow      : #FFE21F;
+
 @primaryColor     : @blue;
 @secondaryColor   : @black;
-@tertiaryColor    : @orange;
 
 
 /*-------------------
@@ -113,15 +122,6 @@
 
 @defaultEasing: ease;
 
-/*---  Light Variations  ---*/
-@lightBlue        : #54C8FF;
-@lightGreen       : #2ECC40;
-@lightOrange      : #FF851B;
-@lightPink        : #FF8EDF;
-@lightPurple      : #CDC6FF;
-@lightRed         : #FF695E;
-@lightTeal        : #6DFFFF;
-@lightYellow      : #FFE21F;
 
 /*---   Neutrals  ---*/
 @fullBlack        : #000000;
@@ -331,7 +331,6 @@
 /*---  Colors  ---*/
 @primaryColorHover    : lighten( @primaryColor, 7);
 @secondaryColorHover  : lighten( @secondaryColor, 7);
-@tertiaryColorHover   : lighten( @tertiaryColor, 7);
 
 @blueHover            : lighten( @blue, 7);
 @greenHover           : lighten( @green, 7);
@@ -386,7 +385,6 @@
 /*---  Colors  ---*/
 @primaryColorDown    : darken(@primaryColor, 7);
 @secondaryColorDown  : darken(@secondaryColor, 7);
-@tertiaryColorDown   : darken(@tertiaryColor, 7);
 
 @blueDown            : darken(@blue, 7);
 @greenDown           : darken(@green, 7);
@@ -440,7 +438,6 @@
 /*---  Standard  ---*/
 @primaryColorActive    : darken(@primaryColor, 5);
 @secondaryColorActive  : darken(@secondaryColor, 5);
-@tertiaryColorActive   : darken(@tertiaryColor, 5);
 
 @blueActive            : darken(@blue, 5);
 @greenActive           : darken(@green, 5);

@@ -17,7 +17,10 @@
 - **Accordion** - Accordion now includes all icons in an embedded font instead of requiring icons
 - **Button** - Now has compact form, used for fitting into tight spaces
 - **Checkbox** - All styles have been redone. Standard checkboxes are now based around PX and not EM making sure there are no unusual circles or rounding issues. Checkboxes also now use a custom font for glyphs instead of CSS tricks.
+- **Dropdown** - New dropdown type, searchable selection for large lists of choices
+- **Dropdown** - Dropdowns can now be initialized directly on a ``<select>`` element without any html
 - **Dropdown** - New action combo will change text of adjacent button, select will select element but not change text
+- **Dropdown** - Many new content types now work inside dropdowns, headers, dividers, images, inputs, labels and more
 - **Form** - Form now has a success state which will automatically display success messages
 - **Form** - Grouped fields and inline fields can now have labels
 - **Form** - Forms in 'success' state will now show success messages inside

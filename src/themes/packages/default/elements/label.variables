@@ -9,7 +9,7 @@
 
 
 @verticalAlign: baseline;
-@verticalMargin: 0.25em;
+@verticalMargin: 0em;
 @horizontalMargin: 0.125em;
 @backgroundColor: #E8E8E8;
 @backgroundImage: none;
@@ -114,6 +114,7 @@
 /* Circular Padding */
 @circularPadding: 0.5em;
 @circularMinSize: 2em;
+@emptyCircleSize: 0.5em;
 
 /* Pointing */
 @pointingTriangleSize: 0.6em;

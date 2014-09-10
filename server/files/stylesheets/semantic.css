@@ -173,6 +173,9 @@ a:hover {
 #example .code .active.ui.modal {
   display: none !important;
 }
+#example .existing.code {
+  display: none;
+}
 
 #example #menu .item .item {
   font-size: 0.875rem;
