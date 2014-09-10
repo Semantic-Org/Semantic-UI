@@ -9,6 +9,12 @@ semantic.sidebar.ready = function() {
     handler
   ;
 
+  $('.ui.sidebar .ui.dropdown')
+    .dropdown({
+      on: 'hover'
+    })
+  ;
+
   $('.left.sidebar')
     .sidebar()
   ;

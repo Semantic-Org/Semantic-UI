@@ -66,7 +66,10 @@ themes      : ['Default']
 
     <div class="no direction example">
       <h4 class="ui header">Direction</h4>
-      <div class="ui ignored info message">Only left and right sidebars support all animations. Bottom sidebars must be overlays and top sidebars are limited to push, reveal, and overlay</div>
+      <div class="ui ignored warning message">Only <b>top</b> and <b>bottom</b> sidebars support dropdown menus. This is because elements with scrollbars cannot have absolutely positioned content escape the container.</div>
+      <div class="ui ignored info message">
+        Only <b>left</b> and <b>right</b> sidebars support all animations. Top and bottom sidebars must overlay page content.
+      </div>
       <p>A sidebar can appear on different sides of the page</p>
       <div class="ui button" data-direction="left">
         Left
@@ -636,22 +639,93 @@ themes      : ['Default']
   <a class="item">Health</a>
   <a class="item">Sports</a>
 </div>
-<div class="ui right sidebar vertical inverted menu">
+<div class="ui right vertical inverted sidebar menu">
   <a class="header item">File Permissions</a>
   <a class="item">Share on Social</a>
   <a class="item">Share by E-mail</a>
   <a class="item">Edit Permissions</a>
   <a class="item">Delete Permanently</a>
 </div>
-<div class="ui top inverted teal sidebar menu">
-  <div class="header item">Top Sidebar menu</div>
-  <a class="item">One</a>
-  <a class="item">Two</a>
-  <a class="item">Three</a>
-</div>
-<div class="ui bottom inverted sidebar menu">
-  <div class="header item">Bottom Sidebar menu</div>
-  <a class="item">One</a>
-  <a class="item">Two</a>
-  <a class="item">Three</a>
+<div class="ui top inverted sidebar menu">
+  <div class="menu">
+    <a class="item">
+      Home
+    </a>
+    <div class="ui pointing dropdown link item">
+      <i class="dropdown icon"></i>
+      Shopping
+      <div class="menu">
+        <div class="header">Categories</div>
+        <div class="item">
+          <i class="dropdown icon"></i>
+          Clothing
+          <div class="menu">
+            <div class="header">Mens</div>
+            <div class="item">Shirts</div>
+            <div class="item">Pants</div>
+            <div class="item">Jeans</div>
+            <div class="item">Shoes</div>
+            <div class="divider"></div>
+            <div class="header">Womens</div>
+            <div class="item">Dresses</div>
+            <div class="item">Shoes</div>
+            <div class="item">Bags</div>
+          </div>
+        </div>
+        <div class="item">Home Goods</div>
+        <div class="item">Bedroom</div>
+        <div class="divider"></div>
+        <div class="header">Order</div>
+        <div class="item">Status</div>
+        <div class="item">Cancellations</div>
+      </div>
+    </div>
+    <a class="item">
+      Forums
+    </a>
+    <a class="item">
+      Contact Us
+    </a>
+  </div>
+</div><div class="ui bottom inverted sidebar menu">
+  <div class="menu">
+    <a class="item">
+      Home
+    </a>
+    <div class="ui bottom pointing dropdown link item">
+      <i class="dropdown icon"></i>
+      Shopping
+      <div class="menu">
+        <div class="header">Categories</div>
+        <div class="item">
+          <i class="dropdown icon"></i>
+          Clothing
+          <div class="menu">
+            <div class="header">Mens</div>
+            <div class="item">Shirts</div>
+            <div class="item">Pants</div>
+            <div class="item">Jeans</div>
+            <div class="item">Shoes</div>
+            <div class="divider"></div>
+            <div class="header">Womens</div>
+            <div class="item">Dresses</div>
+            <div class="item">Shoes</div>
+            <div class="item">Bags</div>
+          </div>
+        </div>
+        <div class="item">Home Goods</div>
+        <div class="item">Bedroom</div>
+        <div class="divider"></div>
+        <div class="header">Order</div>
+        <div class="item">Status</div>
+        <div class="item">Cancellations</div>
+      </div>
+    </div>
+    <a class="item">
+      Forums
+    </a>
+    <a class="item">
+      Contact Us
+    </a>
+  </div>
 </div>

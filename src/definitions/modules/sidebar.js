@@ -777,15 +777,15 @@ $.fn.sidebar.settings = {
 
   defaultTransition : {
     computer: {
-      top    : 'reveal',
       left   : 'reveal',
       right  : 'reveal',
+      top    : 'overlay',
       bottom : 'overlay'
     },
     mobile: {
-      top    : 'reveal',
       left   : 'reveal',
       right  : 'reveal',
+      top    : 'overlay',
       bottom : 'overlay'
     }
   },

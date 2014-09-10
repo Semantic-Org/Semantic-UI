@@ -50,7 +50,7 @@
 .ui.top.sidebar,
 .ui.bottom.sidebar {
   width: 100% !important;
-  height: @sidebarHeight !important;
+  height: auto !important;
   overflow-y: visible !important;
 }
 
@@ -329,11 +329,6 @@
 .pushable.right.reveal.pushed > .fixed,
 .pushable.right.reveal.pushed > .pusher {
   transform: translate3d(-@sidebarWidth, 0, 0);
-}
-/*--- Top ---*/
-.pushable.top.reveal.pushed > .fixed,
-.pushable.top.reveal.pushed > .pusher {
-  transform: translate3d(0, @sidebarHeight, 0);
 }
 
 /*--------------

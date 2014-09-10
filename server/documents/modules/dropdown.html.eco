@@ -547,6 +547,39 @@ themes      : ['Default']
       </div>
     </div>
     <div class="another button example">
+      <div class="ui info message ignored">Bottom pointing dropdown menus have sub-menus open upwards</div>
+      <div class="ui icon bottom left pointing dropdown button">
+        <i class="wrench icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            New
+            <div class="menu">
+              <div class="item">Document</div>
+              <div class="item">Image</div>
+            </div>
+          </div>
+          <div class="item">Save</div>
+          <div class="item">Edit</div>
+        </div>
+      </div>
+      <div class="ui icon bottom right pointing dropdown button">
+        <i class="wrench icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            New
+            <div class="menu">
+              <div class="item">Document</div>
+              <div class="item">Image</div>
+            </div>
+          </div>
+          <div class="item">Save</div>
+          <div class="item">Edit</div>
+        </div>
+      </div>
+    </div>
+    <div class="another button example">
       <div class="ui labeled icon top right pointing dropdown button">
         <i class="filter icon"></i>
         <span class="text">Filter Posts</span>

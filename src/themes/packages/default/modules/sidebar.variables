@@ -3,9 +3,7 @@
 *******************************/
 
 @sidebarWidth: 260px;
-@sidebarHeight: 37px;
 @sidebarBackground: @black;
-@sidebarTransition: transform 0.5s linear;
 
 @dimmerColor: rgba(0, 0, 0, 0.4);
 

@@ -633,11 +633,19 @@ select.ui.dropdown {
   z-index: @pointingArrowZIndex;
 }
 
-/* Directions */
 .ui.pointing.dropdown > .menu:after {
   top: @pointingArrowOffset;
   left: 50%;
   margin: 0em 0em 0em @pointingArrowOffset;
+}
+
+/* Top Left Pointing */
+.ui.top.left.pointing.dropdown > .menu {
+  top: 100%;
+  bottom: auto;
+  left: 0%;
+  right: auto;
+  margin: @pointingArrowDistanceFromEdge 0em 0em;
 }
 .ui.top.left.pointing.dropdown > .menu {
   top: 100%;
@@ -653,6 +661,7 @@ select.ui.dropdown {
   margin: 0em;
   transform: rotate(45deg);
 }
+/* Top Right  Pointing */
 .ui.top.right.pointing.dropdown > .menu {
   top: 100%;
   bottom: auto;
@@ -668,6 +677,7 @@ select.ui.dropdown {
   transform: rotate(45deg);
 }
 
+/* Left Pointing */
 .ui.left.pointing.dropdown > .menu {
   top: 0%;
   left: 100%;
@@ -681,6 +691,7 @@ select.ui.dropdown {
   transform: rotate(-45deg);
 }
 
+/* Right Pointing */
 .ui.right.pointing.dropdown > .menu {
   top: 0%;
   left: auto;
@@ -693,6 +704,47 @@ select.ui.dropdown {
   right: @pointingArrowOffset;
   margin: 0em 0em 0em 0em;
   transform: rotate(135deg);
+}
+
+/* Bottom Pointing */
+.ui.bottom.pointing.dropdown > .menu {
+  top: auto;
+  bottom: 100%;
+  left: 0%;
+  right: auto;
+  margin: 0em 0em @pointingArrowDistanceFromEdge ;
+}
+.ui.bottom.pointing.dropdown > .menu:after {
+  top: auto;
+  bottom: @pointingArrowOffset;
+  right: auto;
+  margin: 0em;
+  transform: rotate(-135deg);
+}
+/* Reverse Sub-Menu Direction */
+.ui.bottom.pointing.dropdown > .menu .menu {
+  top: auto !important;
+  bottom: 0px !important;
+}
+
+/* Bottom Left */
+.ui.bottom.left.pointing.dropdown > .menu {
+  left: 0%;
+  right: auto;
+}
+.ui.bottom.left.pointing.dropdown > .menu:after {
+  left: @pointingArrowDistanceFromEdge;
+  right: auto;
+}
+
+/* Bottom Right */
+.ui.bottom.right.pointing.dropdown > .menu {
+  right: 0%;
+  left: auto;
+}
+.ui.bottom.right.pointing.dropdown > .menu:after {
+  left: auto;
+  right: @pointingArrowDistanceFromEdge;
 }
 
 .loadUIOverrides();
