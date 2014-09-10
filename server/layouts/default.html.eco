@@ -252,7 +252,6 @@
     <i class="content icon"></i>
     <span class="text">Menu</span>
   </div>
-
   <div class="pusher">
     <div class="page">
       <%- @content %>

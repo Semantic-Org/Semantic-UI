@@ -509,10 +509,6 @@
 .ui.compact.labeled.icon.button {
   padding: @compactVerticalPadding (@compactHorizontalPadding + @labeledIconWidth) ( @compactVerticalPadding + @shadowOffset );
 }
-.ui.compact.labeled.icon.buttons > .button > .icon,
-.ui.compact.labeled.icon.button > .icon {
-  padding-top: (@compactVerticalPadding + @iconOffset) !important;
-}
 
 /*-------------------
         Sizes
@@ -610,9 +606,6 @@
   text-transform: @basicTextTransform;
   text-shadow: none !important;
   box-shadow: @basicBoxShadow;
-}
-.ui.basic.labeled.icon.button > .icon {
-  padding-top: (@verticalPadding + @iconOffset) !important;
 }
 .ui.basic.buttons {
   box-shadow: @basicGroupBoxShadow;
@@ -723,7 +716,6 @@
 
   width: @labeledIconWidth;
   height: 100%;
-  padding-top: (@verticalPadding + @iconOffset);
 
   background-color: @labeledIconBackgroundColor;
   text-align: center;
@@ -732,6 +724,17 @@
   border-radius: @borderRadius 0px 0px @borderRadius;
   line-height: 1;
   box-shadow: @labeledIconLeftShadow;
+}
+.ui.labeled.icon.buttons > .button > .icon:before,
+.ui.labeled.icon.button > .icon:before,
+.ui.labeled.icon.buttons > .button > .icon:after,
+.ui.labeled.icon.button > .icon:after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+  margin-top: -0.5em;
 }
 
 .ui.labeled.icon.buttons .button > .icon {

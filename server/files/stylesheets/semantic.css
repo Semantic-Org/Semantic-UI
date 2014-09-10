@@ -194,6 +194,10 @@ a:hover {
   background-color: #FFFFFF;
   border-bottom: 1px solid #DDDDDD;
 }
+#example.legacy .main.menu,
+#example.legacy .launch.button {
+  left: auto !important;
+}
 #example.scale.down.pushed .header.segment {
   padding-top: 30px;
 }
@@ -230,7 +234,7 @@ a:hover {
   top: 0px;
   left: -1px;
   min-width: 320px;
-  width: 100%;
+  width: calc(100% + 1px);
   z-index: 1004;
 }
 #example .main.menu iframe {
@@ -601,16 +605,17 @@ body#example.hide {
 #example .stripe .message {
   margin: 2em 0em;
 }
-#example.pushable.overlay .fixed.launch.button {
+#example.pushable.left.overlay .fixed.launch.button {
   transform: translate3d(0, 0, 0);
 }
-#example.pushable.overlay.pushed .fixed.launch.button {
+#example.pushable.overlay.left.pushed .fixed.launch.button {
   transform: translate3d(260px, 0, 0);
 }
 #example .fixed.launch.button {
   position: fixed;
   top: 63px;
   left: -1px;
+
   width: 55px;
   height: 50px;
   overflow: hidden;

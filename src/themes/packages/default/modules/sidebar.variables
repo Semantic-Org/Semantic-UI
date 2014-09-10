@@ -3,6 +3,7 @@
 *******************************/
 
 @sidebarWidth: 260px;
+@sidebarHeight: 37px;
 @sidebarBackground: @black;
 @sidebarTransition: transform 0.5s linear;
 
@@ -18,5 +19,5 @@
 @bottomLayer: 1001;
 @middleLayer: 1002;
 @dimmerLayer: 1003;
-@topLayer: 1005;
-@fixedLayer: 1006;
+@fixedLayer: 1005;
+@topLayer: 1006;

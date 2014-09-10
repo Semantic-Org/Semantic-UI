@@ -353,24 +353,12 @@
   position: relative;
   top: 0em;
   margin: -0.6em 0em;
-  padding-top: -0.35em;
-  padding-bottom: -0.35em;
   width: 100%;
-}
-.ui.menu:not(.vertical) .item > .icon.input .icon {
-  top: -0.35em;
-}
-.ui.menu:not(.vertical) .item > .transparent.icon.input .icon {
-  top: 0.35em;
 }
 .ui.menu:not(.vertical) .item > .input input {
   font-size: 1em;
   padding-top: 0.35em;
   padding-bottom: 0.35em;
-}
-/* Labeled Button */
-.ui.menu:not(.vertical) .item > .labeled.button > .icon {
-  padding-top: 0.6em;
 }
 /* Action Input */
 .ui.menu:not(.vertical) .item .action.input > .button {

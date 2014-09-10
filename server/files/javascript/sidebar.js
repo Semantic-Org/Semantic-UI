@@ -9,11 +9,11 @@ semantic.sidebar.ready = function() {
     handler
   ;
 
-
   $('.left.sidebar')
     .sidebar()
   ;
-  $('.transition.example')
+
+  $('.left.example')
     .find('.button')
       .on('click', function() {
         var
@@ -28,6 +28,19 @@ semantic.sidebar.ready = function() {
         ;
       })
   ;
+
+  $('.direction.example')
+    .find('.button')
+      .on('click', function() {
+        var
+          direction = $(this).data('direction')
+        ;
+        $('.' + direction + '.sidebar')
+          .sidebar('toggle')
+        ;
+      })
+  ;
+
 
 
 };

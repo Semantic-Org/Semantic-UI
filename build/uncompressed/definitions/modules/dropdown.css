@@ -300,9 +300,6 @@ b        Types
 .ui.dropdown .menu > .input:not(.transparent) input {
   padding: 0.5em 1em;
 }
-.ui.dropdown .menu > .input:not(.transparent) .icon {
-  padding-top: 0.7em;
-}
 /*--------------
    Item Image
 ---------------*/

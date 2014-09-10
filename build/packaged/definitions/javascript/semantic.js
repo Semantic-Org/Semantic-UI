@@ -6634,25 +6634,27 @@ $.fn.dropdown = function(parameters) {
                 .insertBefore($text)
               ;
             }
-            if( module.is.searchable() ) {
-              module.debug('Searchable dropdown initialized');
-              $search
-                .val('')
-                .attr('tabindex', 0)
-              ;
-              $menu
-                .attr('tabindex', '-1')
-              ;
-            }
-            else {
-              module.debug('Simple selection dropdown initialized');
-              if(!$module.attr('tabindex') ) {
-                $module
+            if(settings.allowTab) {
+              if( module.is.searchable() ) {
+                module.debug('Searchable dropdown initialized');
+                $search
+                  .val('')
                   .attr('tabindex', 0)
                 ;
                 $menu
                   .attr('tabindex', '-1')
                 ;
+              }
+              else {
+                module.debug('Simple selection dropdown initialized');
+                if(!$module.attr('tabindex') ) {
+                  $module
+                    .attr('tabindex', 0)
+                  ;
+                  $menu
+                    .attr('tabindex', '-1')
+                  ;
+                }
               }
             }
           },
@@ -7801,6 +7803,7 @@ $.fn.dropdown.settings = {
   on             : 'click',
   action         : 'activate',
 
+  allowTab       : true,
   fullTextSearch : true,
   preserveHTML   : true,
 

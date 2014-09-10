@@ -30,18 +30,44 @@
   top: 0;
   left: 0;
   visibility: hidden;
-  background: @sidebarBackground;
   backface-visibility: hidden;
   height: 100% !important;
-  width: @sidebarWidth !important;
   border-radius: 0em !important;
   margin: 0 !important;
-
   transition: none;
   will-change: transform;
   overflow-y: auto !important;
   backface-visibility: hidden;
+
+  background: @sidebarBackground;
+  width: @sidebarWidth !important;
 }
+
+/*--------------
+   Direction
+---------------*/
+
+.ui.top.sidebar,
+.ui.bottom.sidebar {
+  width: 100% !important;
+  height: @sidebarHeight !important;
+  overflow-y: visible !important;
+}
+
+.ui.top.sidebar {
+  top: 0px !important;
+  bottom: auto !important;
+}
+.ui.right.sidebar {
+  right: 0px !important;
+  left: auto !important;
+}
+.ui.bottom.sidebar {
+  top: auto !important;
+  bottom: 0px !important;
+}
+
+
 
 /*--------------
      Body
@@ -105,6 +131,14 @@
   will-change: opacity;
 }
 
+/*--------------
+    Coupling
+---------------*/
+
+.ui.sidebar.menu .item {
+  border-radius: 0em !important;
+}
+
 /*******************************
             States
 *******************************/
@@ -117,12 +151,6 @@
   overflow-x: hidden;
 }
 
-/* Show Dimmer */
-.pushable.pushed > .pusher > .page:after {
-  width: 100% !important;
-  height: 100% !important;
-  opacity: 1 !important;
-}
 
 .pushable.pushed > .fixed,
 .pushable.pushed > .pusher {
@@ -133,8 +161,19 @@
 .pushable.active > .visible.sidebar {
   -webkit-overflow-scrolling: touch;
   backface-visibility: hidden;
-  z-index: 9999;
+  z-index: @topLayer;
 }
+
+/*--------------
+     Dimmed
+---------------*/
+
+.pushable.dimmed > .pusher > .page:after {
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+}
+
 
 /*--------------
     Animation
@@ -148,12 +187,6 @@
 .pushable.hide > .visible.sidebar {
   backface-visibility: hidden;
 }
-
-/*.pushable.hide > .pusher > .page *,
-.pushable.show > .pusher > .page *,
-.pushable.pushed > .pusher > .page * {
-  transition: none !important;
-}*/
 
 /*--------------
      Visible
@@ -188,46 +221,57 @@
 
 /* Set-up */
 .pushable.overlay > .visible.ui.sidebar {
-  transform: translate3d(-100%, 0, 0);
   z-index: @topLayer;
 }
-
-/* Pushed */
-.pushable.overlay.pushed .visible.ui.sidebar {
-  transform: translate3d(0%, 0, 0);
-}
-
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
 .pushable.overlay.hide > .visible.ui.sidebar {
   transition: transform @duration @easing;
 }
 
-/*--------------
-    Safe Mode
----------------*/
+/*--- Left ---*/
 
-/* Set-Up */
-.pushable.safe > .pusher {
-  position: relative;
-  transform: none !important;
-  transition: none !important;
+/* Set-up */
+.left.pushable.overlay > .visible.ui.sidebar {
+  transform: translate3d(-100%, 0, 0);
 }
-.pushable.safe > .pusher {
-  transform: none !important;
-  transition: none !important;
-}
-
 /* Pushed */
-.pushable.safe.pushed  {
-  margin-left: @sidebarWidth !important;
+.left.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
 }
 
-.pushable.safe.show,
-.pushable.safe.hide {
-  transition: margin @duration @easing !important;
+/*--- Right ---*/
+
+/* Set-up */
+.right.pushable.overlay > .visible.ui.sidebar {
+  transform: translate3d(100%, 0, 0);
+}
+/* Pushed */
+.right.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0, 0);
 }
 
+/*--- Top ---*/
+
+/* Set-up */
+.top.pushable.overlay > .visible.ui.sidebar {
+  transform: translate3d(0%, -100%, 0);
+}
+/* Pushed */
+.top.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0%, 0);
+}
+
+/*--- Bottom ---*/
+
+/* Set-up */
+.bottom.pushable.overlay > .visible.ui.sidebar {
+  transform: translate3d(0%, 100%, 0);
+}
+/* Pushed */
+.bottom.pushable.overlay.pushed .visible.ui.sidebar {
+  transform: translate3d(0%, 0%, 0);
+}
 
 /*--------------
       Push
@@ -264,7 +308,7 @@
 /* Set-up */
 .pushable.reveal > .fixed,
 .pushable.reveal > .pusher {
-  transform: translate3d(0px, 0, 0);
+  transform: translate3d(0px, 0px, 0px);
 }
 .pushable.reveal > .pusher {
   z-index: @bottomLayer;
@@ -274,11 +318,23 @@
 }
 
 /* Pushed */
-.pushable.reveal.pushed > .fixed,
-.pushable.reveal.pushed > .pusher {
+
+/*--- Left ---*/
+.pushable.left.reveal.pushed > .fixed,
+.pushable.left.reveal.pushed > .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
 }
 
+/*--- Right ---*/
+.pushable.right.reveal.pushed > .fixed,
+.pushable.right.reveal.pushed > .pusher {
+  transform: translate3d(-@sidebarWidth, 0, 0);
+}
+/*--- Top ---*/
+.pushable.top.reveal.pushed > .fixed,
+.pushable.top.reveal.pushed > .pusher {
+  transform: translate3d(0, @sidebarHeight, 0);
+}
 
 /*--------------
    Slide Along
@@ -338,8 +394,6 @@
   transition: transform @duration @easing;
 }
 
-
-
 /*--------------
    Scale Down
 ---------------*/
@@ -375,107 +429,34 @@
   transition: transform @duration @easing;
 }
 
-
 /*--------------
-    Scale Up
+    Safe Mode
 ---------------*/
 
-/* Set-up */
-.pushable.scale.up {
-  perspective: @perspective;
-  perspective-origin: 0% 50%;
+/* Set-Up */
+.pushable.safe > .pusher {
+  position: relative;
+  transform: none !important;
+  transition: none !important;
 }
-.pushable.scale.up > .ui.sidebar {
-  transform: translate3d(0, 0, -@sidebarWidth);
+.pushable.safe > .pusher {
+  transform: none !important;
+  transition: none !important;
 }
 
 /* Pushed */
-.pushable.scale.up.pushed > .fixed,
-.pushable.scale.up.pushed > .pusher {
-  transform: translate3d(@sidebarWidth, 0, 0);
+.pushable.safe.pushed  {
+  margin-left: @sidebarWidth !important;
 }
-.pushable.scale.up.pushed > .visible.ui.sidebar {
-  transform: translate3d(0, 0, 0);
+.pushable.safe.pushed > .visible.ui.sidebar {
+  margin-left: -@sidebarWidth;
 }
-
-/* Animation */
-.pushable.scale.up.show > .ui.sidebar,
-.pushable.scale.up.hide > .ui.sidebar {
-  transition: transform @duration @easing;
+.pushable.safe.pushed > .fixed {
+  margin-left: @sidebarWidth !important;
 }
-
-
-/*--------------
-   Open Door
----------------*/
-
-/* Set-up */
-.pushable.open.door {
-  perspective: @perspective;
-}
-.pushable.open.door > .ui.sidebar {
-  opacity: 1;
-  transform: translate3d(-100%, 0, 0);
-  z-index: @topLayer;
-}
-.pushable.open.door > .pusher {
-  transform-origin: 100% 50%;
-  transform: rotateY(0deg);
-}
-
-
-/* Pushed */
-.pushable.open.door.pushed > .pusher {
-  transform: rotateY(-10deg);
-}
-.pushable.open.door.pushed > .visible.ui.sidebar {
-  transform: translate3d(0, 0, 0);
-}
-
-/* Animation */
-.pushable.open.door.show > .ui.sidebar,
-.pushable.open.door.hide > .ui.sidebar {
-  transition: transform @duration;
-}
-
-/*--------------
-    Rotate In
----------------*/
-
-/* Set-up */
-.pushable.rotate.in {
-  perspective: @perspective;
-  perspective-origin: 0% 50%;
-}
-.pushable.rotate.in > .pusher {
-  perspective: none;
-}
-.pushable.rotate.in > .ui.sidebar {
-  transform: translate3d(-100%, 0, 0) rotateY(90deg);
-  transform-origin: 50% 100% 0;
-  transform-style: preserve-3d;
-}
-
-/* Pushed */
-.pushable.rotate.in.pushed > .pusher {
-  transform: translate3d(@sidebarWidth, 0, 0);
-}
-.pushable.rotate.in.pushed .visible.ui.sidebar {
-  transform: translate3d(0%, 0, 0) rotateY(0deg);
-}
-
-/* Return Animation */
-.pushable.rotate.in.hide > .visible.ui.sidebar {
-  transform: translate3d(-100%, 0, 0) rotateY(0deg);
-  transition: transform @duration ease 0s;
-}
-.pushable.rotate.in.active,
-.pushable.rotate.in.hide {
-  overflow-y: hidden;
-}
-
-/* Animation */
-.pushable.rotate.in.show > .ui.sidebar,
-.pushable.rotate.in.hide > .ui.sidebar {
-  transition: transform @duration ease-in-out 0s;
+.pushable.safe.show,
+.pushable.safe.hide,
+.pushable.safe.show > .fixed,
+.pushable.safe.hide > .fixed {
+  transition: margin @duration @easing !important;
 }

@@ -28,9 +28,19 @@ themes      : ['Default']
     </div>
     <h2 class="ui dividing header">Types</h2>
 
-    <div class="transition example">
+    <div class="no left example">
       <h4 class="ui header">Transitions</h4>
       <p>A sidebar can use different transitions to display itself</p>
+      <div class="ui ignored message">
+        <p>Browsers that do not support <code>translate3D</code>, like <b>IE < 10</b> will automatically fall back to javascript transitions, you can also force this behavior using <code>useLegacy: true</code>.</p>
+      </div>
+      <div class="code" data-label="Javascript" data-type="javascript">
+        $('.ui.sidebar')
+          .sidebar({
+            transition: 'push'
+          })
+        ;
+      </div>
       <div class="ui button" data-transition="overlay">
         Overlay
       </div>
@@ -49,38 +59,26 @@ themes      : ['Default']
       <div class="ui button" data-transition="scale down">
         Scale Down
       </div>
-    </div>
-    <div class="transition example">
-      <h4 class="ui header">Safe</h4>
-      <p>A safe transitioning sidebar does not adjust the page context</p>
-      <div class="ui ignored info message">A safe transition does not create a new 3D context, this means any <code>fixed position</code> elements within your <code>pusher</code> will not be adjusted
-      </div>
       <div class="ui button" data-transition="safe">
         Safe
       </div>
     </div>
-    <div class="no example">
+
+    <div class="no direction example">
       <h4 class="ui header">Direction</h4>
-      <p>A sidebar can appear on any side of content</p>
-      <div class="code" data-type="html">
-        <div class="ui sidebar">...</div>
-        <div class="ui top sidebar">...</div>
-        <div class="ui right sidebar">...</div>
-        <div class="ui bottom sidebar">...</div>
+      <div class="ui ignored info message">Only left and right sidebars support all animations. Bottom sidebars must be overlays and top sidebars are limited to push, reveal, and overlay</div>
+      <p>A sidebar can appear on different sides of the page</p>
+      <div class="ui button" data-direction="left">
+        Left
       </div>
-      <div class="ui variation toggle buttons">
-        <div class="ui button" data-variation=".left">
-          Left
-        </div>
-        <div class="ui button" data-variation=".top">
-          Top
-        </div>
-        <div class="ui button" data-variation=".right">
-          Right
-        </div>
-        <div class="ui button" data-variation=".bottom">
-          Bottom
-        </div>
+      <div class="ui button" data-direction="right">
+        Right
+      </div>
+      <div class="ui button" data-direction="top">
+        Top
+      </div>
+      <div class="ui button" data-direction="bottom">
+        Bottom
       </div>
     </div>
 
@@ -163,6 +161,10 @@ themes      : ['Default']
     </div>
 
     <h2 class="ui dividing header">Usage</h2>
+
+    <div class="ui ignored info message">
+      A safe transition does not use <code>translate3D</code>, this means it will not modify <code>position: fixed</code> inside your document, and you can use fixed elements inside your <code>.pusher .page</code>
+    </div>
 
     <div class="no example">
       <h4 class="ui header">Showing a sidebar</h4>
@@ -625,16 +627,21 @@ themes      : ['Default']
   </div>
 </div>
 <div class="ui left sidebar vertical inverted menu">
-  <div class="header item">Left Sidebar menu</div>
-  <a class="item">One</a>
-  <a class="item">Two</a>
-  <a class="item">Three</a>
+  <a class="header item">Categories</a>
+  <a class="item">World</a>
+  <a class="item">U.S.</a>
+  <a class="item">Business</a>
+  <a class="item">Opinion</a>
+  <a class="item">Technology</a>
+  <a class="item">Health</a>
+  <a class="item">Sports</a>
 </div>
-<div class="ui right sidebar inverted red vertical menu">
-  <div class="header item">Right Sidebar menu</div>
-  <a class="item">One</a>
-  <a class="item">Two</a>
-  <a class="item">Three</a>
+<div class="ui right sidebar vertical inverted menu">
+  <a class="header item">File Permissions</a>
+  <a class="item">Share on Social</a>
+  <a class="item">Share by E-mail</a>
+  <a class="item">Edit Permissions</a>
+  <a class="item">Delete Permanently</a>
 </div>
 <div class="ui top inverted teal sidebar menu">
   <div class="header item">Top Sidebar menu</div>

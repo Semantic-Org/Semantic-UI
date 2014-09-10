@@ -318,14 +318,17 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: @selectionMenuMaxHeight;
-  box-shadow: @selectionMenuBoxShadow;
-  transition: @selectionMenuTransition;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
   border-top: none !important;
   width: auto;
   margin: 0px -1px;
   min-width: ~"calc(100% + 2px)";
   outline: none;
+
+  max-height: @selectionMenuMaxHeight;
+  box-shadow: @selectionMenuBoxShadow;
+  transition: @selectionMenuTransition;
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
