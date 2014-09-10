@@ -24,6 +24,13 @@ $.fn.shape = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
+
+    requestAnimationFrame = window.requestAnimationFrame
+      || window.mozRequestAnimationFrame
+      || window.webkitRequestAnimationFrame
+      || window.msRequestAnimationFrame
+      || function(callback) { setTimeout(callback, 0); },
+
     returnedValue
   ;
 
@@ -114,18 +121,19 @@ $.fn.shape = function(parameters) {
             $module
               .addClass(className.animating)
             ;
-            module.repaint();
-            $module
-              .addClass(className.animating)
-            ;
-            $activeSide
-              .addClass(className.hidden)
-            ;
             $sides
               .css(propertyObject)
               .one(module.get.transitionEvent(), callback)
             ;
             module.set.duration(settings.duration);
+            requestAnimationFrame(function() {
+              $module
+                .addClass(className.animating)
+              ;
+              $activeSide
+                .addClass(className.hidden)
+              ;
+            });
           }
           else {
             callback();
