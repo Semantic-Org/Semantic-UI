@@ -3,7 +3,8 @@
   "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage"    : "http://www.semantic-ui.com",
   "main": [
-    "build/**/*"
+    "build/packaged/css/semantic.css",
+    "build/packaged/javascript/semantic.js"
   ],
   "author": {
     "name" : "Jack Lukic",
