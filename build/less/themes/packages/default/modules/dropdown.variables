@@ -135,7 +135,7 @@ b        Types
 @selectionVisibleBorderColor: @borderColor;
 @selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionVisibleTextFontWeight: normal;
-@selectionVisibleTextColor: @selectedTextColor;
+@selectionVisibleTextColor: @hoveredTextColor;
 
 /* Visible Hover */
 @selectionVisibleHoverBorderColor: @selectedBorderColor;

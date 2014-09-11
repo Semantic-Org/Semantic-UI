@@ -80,8 +80,8 @@
 
 /* Link List */
 @linkListItemColor: @unselectedTextColor;
-@linkListItemHoverColor: @selectedTextColor;
-@linkListItemDownColor: @selectedTextColor;
+@linkListItemHoverColor: @hoveredTextColor;
+@linkListItemDownColor: @pressedTextColor;
 @linkListItemActiveColor: @selectedTextColor;
 
 /* Inverted Link List */
@@ -102,9 +102,9 @@
 @selectionListBackground: transparent;
 @selectionListColor: @unselectedTextColor;
 @selectionListHoverBackground: @subtleTransparentBlack;
-@selectionListHoverColor: @selectedTextColor;
+@selectionListHoverColor: @hoveredTextColor;
 @selectionListDownBackground: @transparentBlack;
-@selectionListDownColor: @selectedTextColor;
+@selectionListDownColor: @pressedTextColor;
 @selectionListActiveBackground: @transparentBlack;
 @selectionListActiveColor: @selectedTextColor;
 
@@ -112,9 +112,9 @@
 @invertedSelectionListBackground: transparent;
 @invertedSelectionListColor: @invertedUnselectedTextColor;
 @invertedSelectionListHoverBackground: @subtleTransparentWhite;
-@invertedSelectionListHoverColor: @invertedSelectedTextColor;
+@invertedSelectionListHoverColor: @invertedHoveredTextColor;
 @invertedSelectionListDownBackground: @transparentWhite;
-@invertedSelectionListDownColor: @invertedSelectedTextColor;
+@invertedSelectionListDownColor: @invertedHoveredTextColor;
 @invertedSelectionListActiveBackground: @transparentWhite;
 @invertedSelectionListActiveColor: @invertedSelectedTextColor;
 

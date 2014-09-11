@@ -248,13 +248,14 @@
   margin-bottom: 0em;
 }
 /* Icon */
-.ui.message .icon {
+.ui.message > .icon {
   margin-right: 0.6em;
 }
 /* Close Icon */
 .ui.message > .close.icon {
   cursor: pointer;
   position: absolute;
+  margin: 0em;
   top: 1em;
   right: 0.5em;
   opacity: 0.7;
@@ -331,6 +332,7 @@
   vertical-align: middle;
   font-size: 3em;
   opacity: 0.8;
+  width: auto;
 }
 .ui.icon.message > .content {
   display: table-cell;

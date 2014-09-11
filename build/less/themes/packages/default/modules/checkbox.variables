@@ -2,7 +2,7 @@
             Checkbox
 *******************************/
 
-@checkboxColor: @selectedTextColor;
+@checkboxColor: @textColor;
 @fontSize: 1em;
 @checkboxLineHeight: 15px;
 
@@ -45,7 +45,7 @@
 
 @checkboxHoverBackground: @checkboxBackground;
 @checkboxHoverBorder: 1px solid @selectedBorderColor;
-@labelHoverColor: @selectedTextColor;
+@labelHoverColor: @hoveredTextColor;
 
 @checkboxSelectedBackground: #F5F5F5;
 @checkboxSelectedBorder: 1px solid @selectedBorderColor;
@@ -93,7 +93,7 @@
 @sliderLabelLineHeight: 1rem;
 
 @sliderHoverLaneBackground: @strongTransparentBlack;
-@sliderHoverLabelColor: @selectedTextColor;
+@sliderHoverLabelColor: @hoveredTextColor;
 
 
 /* Toggle */

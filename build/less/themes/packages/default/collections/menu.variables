@@ -150,7 +150,7 @@
 @hoverColor: @textColor;
 
 @pressedBackground: @subtleTransparentBlack;
-@pressedColor: @selectedTextColor;
+@pressedColor: @pressedTextColor;
 
 @activeBackground: @subtleTransparentBlack;
 @activeColor: @darkTextColor;
@@ -213,7 +213,7 @@
 @secondaryPointingActiveBorderColor: rgba(0, 0, 0, 0.4);
 @secondaryPointingActiveTextColor: @selectedTextColor;
 
-@secondaryPointingHeaderColor: @selectedTextColor;
+@secondaryPointingHeaderColor: @darkTextColor;
 
 /* Tiered */
 @tieredActiveItemBackground: #FCFCFC;
@@ -225,7 +225,7 @@
 @tieredSubMenuColor: @lightTextColor;
 
 @tieredSubMenuHoverBackground: none transparent;
-@tieredSubMenuHoverColor: @selectedTextColor;
+@tieredSubMenuHoverColor: @hoveredTextColor;
 
 @tieredSubMenuActiveBackground: none transparent;
 @tieredSubMenuActiveColor: @selectedTextColor;

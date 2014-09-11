@@ -246,10 +246,6 @@
 .ui.menu .item .menu .link.item:hover {
   color: rgba(0, 0, 0, 0.85);
 }
-/* Active */
-.ui.menu .active.item {
-  color: rgba(0, 0, 0, 0.8);
-}
 /*--------------
       Items
 ---------------*/
@@ -486,7 +482,7 @@
 ---------------*/
 .ui.menu .active.item {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.8);
   font-weight: normal;
   box-shadow: 0em 2px 0em inset;
 }
@@ -927,7 +923,7 @@
   background-color: transparent !important;
   border-right-width: 0px !important;
   font-weight: bold !important;
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.85) !important;
 }
 .ui.secondary.pointing.menu .text.item {
   box-shadow: none !important;

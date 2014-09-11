@@ -87,12 +87,7 @@ type        : 'UI Module'
           <p>An element can appear and disappear as part of a series</p>
           <div class="code" data-demo="true">
           $('.cat.image')
-            .transition('browse in')
-          ;
-          </div>
-          <div class="code" data-demo="true">
-          $('.cat.image')
-            .transition('browse out')
+            .transition('browse')
           ;
           </div>
           <div class="code" data-demo="true">

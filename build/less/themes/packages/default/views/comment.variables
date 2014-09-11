@@ -67,7 +67,7 @@
 @actionFontSize: 0.875em;
 @actionContentDistance: 0.75em;
 @actionLinkColor: @unselectedTextColor;
-@actionLinkHoverColor: @selectedTextColor;
+@actionLinkHoverColor: @hoveredTextColor;
 
 /* Reply */
 @replyDistance: 1em;

@@ -231,7 +231,7 @@
 .pushable > .pusher > .page {
   position: relative;
   min-height: 100%;
-  background: #fcfcfc;
+  background: #f7f7f7;
 }
 /*--------------
      Dimmer

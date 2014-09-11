@@ -68,7 +68,7 @@
 
 @labelHoverBackgroundColor: #E0E0E0;
 @labelHoverBackgroundImage: none;
-@labelHoverTextColor: @selectedTextColor;
+@labelHoverTextColor: @hoveredTextColor;
 
 /*-------------------
       Variations

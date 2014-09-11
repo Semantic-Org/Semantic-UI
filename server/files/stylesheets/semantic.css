@@ -220,8 +220,8 @@ a:hover {
   border-bottom: none;
 }
 #example .tab.header.segment .tabular.menu .active.item {
-  background-color: #FAFAFA;
-  border-bottom-color: #FAFAFA;
+  background-color: #F7F7F7;
+  border-bottom-color: #F7F7F7;
 }
 
 
@@ -1013,7 +1013,6 @@ body#example.hide {
 #example div.code {
   position: relative;
   width: 100%;
-  height: 200px;
   text-align: left;
   direction:ltr;
 }
@@ -1042,6 +1041,16 @@ body#example.hide {
 #example div.code .ace_indent-guide {
   position: relative;
   background: none;
+}
+#example div.code .ace_scroller {
+  position: relative;
+}
+#example div.code .ace_content {
+  height: auto !important;
+  position: relative;
+}
+#example div.code .ace_layer {
+  position: relative;
 }
 #example div.code .ace_gutter,
 #example div.code .ace_scroller {
@@ -1078,6 +1087,7 @@ body#example.hide {
   ;
 }
 #example div.code .ace_line {
+
   color: #555555;
 }
 #example div.code .ace_tag {
@@ -1085,8 +1095,6 @@ body#example.hide {
 }
 #example div.code .ace_attribute-name {
   color: #F4C5C5;
-}
-#example div.code .ace_content {
 }
 #example div.code .ace_string {
   color: #00A59D;
@@ -1611,17 +1619,22 @@ body.progress .ui.progress .bar {
   }
 }
 
-@media only screen and (max-width : 998px) {
-
-  #example.index .main.menu .container {
-    width: auto;
-    padding: 0% 4%;
+@media only screen and (max-width : 640px) {
+  #example.transition .fixed.column {
+    display: none;
   }
   #example.transition .examples {
     width: 100%;
   }
   #example.transition .examples .pointing.below.label {
     display: none;
+  }
+}
+@media only screen and (max-width : 998px) {
+
+  #example.index .main.menu .container {
+    width: auto;
+    padding: 0% 4%;
   }
   #example .examples {
     margin-right: 220px;

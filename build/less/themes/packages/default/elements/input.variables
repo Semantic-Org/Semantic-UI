@@ -77,7 +77,7 @@
 /* Focus */
 @focusBorderColor: @selectedBorderColor;
 @focusBackground: '';
-@focusColor: @selectedTextColor;
+@focusColor: @hoveredTextColor;
 @focusBoxShadow: none;
 
 /* Error */
