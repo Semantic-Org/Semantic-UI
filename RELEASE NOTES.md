@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 0.19.1 - Sep 11, 2014
+
+**Bug Fixes**
+
+- **Grid** - (Backport from 1.0 branch) Fixes issue where some combinations of (tablet/mobile/computer) only does not function correctly
+
 ### Version 0.19.1 - Sep 5, 2014
 
 **Bug Fixes**
