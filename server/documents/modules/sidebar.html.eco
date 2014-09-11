@@ -47,8 +47,8 @@ themes      : ['Default']
       <div class="ui button" data-transition="push">
         Push
       </div>
-      <div class="ui button" data-transition="reveal">
-        Reveal
+      <div class="ui button" data-transition="uncover">
+        Uncover
       </div>
       <div class="ui button" data-transition="slide along">
         Slide Along

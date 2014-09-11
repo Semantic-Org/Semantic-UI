@@ -439,7 +439,7 @@ $.fn.sidebar = function(parameters) {
           },
           pushed: function() {
             if(settings.dimPage) {
-              $context.addClass(className.dimmed);
+              $page.addClass(className.dimmed);
             }
             $context.addClass(className.pushed);
           }
@@ -463,7 +463,7 @@ $.fn.sidebar = function(parameters) {
           },
           pushed: function() {
             if(settings.dimPage) {
-              $context.removeClass(className.dimmed);
+              $page.removeClass(className.dimmed);
             }
             $context.removeClass(className.pushed);
           },
@@ -777,14 +777,14 @@ $.fn.sidebar.settings = {
 
   defaultTransition : {
     computer: {
-      left   : 'reveal',
-      right  : 'reveal',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     },
     mobile: {
-      left   : 'reveal',
-      right  : 'reveal',
+      left   : 'uncover',
+      right  : 'uncover',
       top    : 'overlay',
       bottom : 'overlay'
     }

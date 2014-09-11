@@ -18,6 +18,7 @@
 @labelFontWeight: bold;
 @labelDistance: 0.3rem;
 @labelColor: @textColor;
+@labelTextTransform: none;
 
 /* Input */
 @inputWidth: 100%;

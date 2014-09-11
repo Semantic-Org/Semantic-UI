@@ -168,7 +168,7 @@
      Dimmed
 ---------------*/
 
-.pushable.dimmed > .pusher > .page:after {
+.pushable > .pusher > .page.dimmed:after {
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
@@ -302,32 +302,32 @@
 
 
 /*--------------
-     Reveal
+    Uncover
 ---------------*/
 
 /* Set-up */
-.pushable.reveal > .fixed,
-.pushable.reveal > .pusher {
+.pushable.uncover > .fixed,
+.pushable.uncover > .pusher {
   transform: translate3d(0px, 0px, 0px);
 }
-.pushable.reveal > .pusher {
+.pushable.uncover > .pusher {
   z-index: @bottomLayer;
 }
-.pushable.reveal > .visible.ui.sidebar {
+.pushable.uncover > .visible.ui.sidebar {
   transition: none;
 }
 
 /* Pushed */
 
 /*--- Left ---*/
-.pushable.left.reveal.pushed > .fixed,
-.pushable.left.reveal.pushed > .pusher {
+.pushable.left.uncover.pushed > .fixed,
+.pushable.left.uncover.pushed > .pusher {
   transform: translate3d(@sidebarWidth, 0, 0);
 }
 
 /*--- Right ---*/
-.pushable.right.reveal.pushed > .fixed,
-.pushable.right.reveal.pushed > .pusher {
+.pushable.right.uncover.pushed > .fixed,
+.pushable.right.uncover.pushed > .pusher {
   transform: translate3d(-@sidebarWidth, 0, 0);
 }
 

@@ -11,8 +11,6 @@
 
 ;(function ( $, window, document, undefined ) {
 
-"use strict";
-
 $.fn.dimmer = function(parameters) {
   var
     $allModules     = $(this),
@@ -581,7 +579,7 @@ $.fn.dimmer.settings = {
 
   className : {
     active     : 'active',
-    dimmable   : 'dimmable',
+    dimmable   : 'ui dimmable',
     dimmed     : 'dimmed',
     disabled   : 'disabled',
     pageDimmer : 'page',

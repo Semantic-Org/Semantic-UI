@@ -14,8 +14,8 @@
 @duration: 0.5s;
 @easing: ease;
 
-@bottomLayer: 1001;
-@middleLayer: 1002;
-@dimmerLayer: 1003;
-@fixedLayer: 1005;
-@topLayer: 1006;
+@bottomLayer: 900;
+@middleLayer: 901;
+@dimmerLayer: 902;
+@fixedLayer: 903;
+@topLayer: 904;

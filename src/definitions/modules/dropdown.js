@@ -173,10 +173,8 @@ $.fn.dropdown = function(parameters) {
             if( module.is.searchable() ) {
               $search
                 .on('focus' + eventNamespace, module.event.searchFocus)
-                .on( module.get.inputEvent(), module.event.input)
-              ;
-              $module
                 .on('blur' + eventNamespace, module.event.blur)
+                .on( module.get.inputEvent(), module.event.input)
               ;
             }
             else {
@@ -320,8 +318,9 @@ $.fn.dropdown = function(parameters) {
             module.show();
           },
           blur: function(event) {
-            activated = false;
-            module.determine.eventInModule(event, module.hide);
+            if(!activated) {
+              module.hide();
+            }
           },
           input: function(event) {
             var

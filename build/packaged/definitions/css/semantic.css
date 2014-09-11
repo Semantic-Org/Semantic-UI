@@ -484,6 +484,7 @@
   color: rgba(0, 0, 0, 0.8);
   font-size: 0.9em;
   font-weight: bold;
+  text-transform: none;
 }
 /*--------------------
     Standard Inputs
@@ -19027,12 +19028,12 @@ select.ui.dropdown {
 }
 /* Hover */
 .ui.selection.dropdown:hover {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
 /* Visible Hover */
 .ui.selection.visible.dropdown:hover {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 .ui.selection.visible.dropdown:hover .menu {
@@ -19041,7 +19042,7 @@ select.ui.dropdown {
 }
 /* Visible */
 .ui.selection.dropdown.visible {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 }
 .ui.visible.selection.dropdown > .dropdown.icon {
@@ -21876,7 +21877,7 @@ a.ui.nag {
   position: fixed;
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
-  z-index: 1005;
+  z-index: 903;
 }
 /*--------------
      Pusher
@@ -21884,7 +21885,7 @@ a.ui.nag {
 .pushable > .pusher {
   background: #333333;
   height: 100%;
-  z-index: 1002;
+  z-index: 901;
   -webkit-transition: -webkit-transform 0.5s ease;
           transition: transform 0.5s ease;
 }
@@ -21909,7 +21910,7 @@ a.ui.nag {
   height: 0px;
   overflow: hidden;
   opacity: 0;
-  z-index: 1003;
+  z-index: 902;
   -webkit-transition: opacity 0.5s;
           transition: opacity 0.5s;
   will-change: opacity;
@@ -21939,12 +21940,12 @@ a.ui.nag {
   -webkit-overflow-scrolling: touch;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  z-index: 1006;
+  z-index: 904;
 }
 /*--------------
      Dimmed
 ---------------*/
-.pushable.dimmed > .pusher > .page:after {
+.pushable > .pusher > .page.dimmed:after {
   width: 100% !important;
   height: 100% !important;
   opacity: 1 !important;
@@ -21987,7 +21988,7 @@ a.ui.nag {
 ---------------*/
 /* Set-up */
 .pushable.overlay > .visible.ui.sidebar {
-  z-index: 1006;
+  z-index: 904;
 }
 /* Animation */
 .pushable.overlay.show > .visible.ui.sidebar,
@@ -22068,31 +22069,31 @@ a.ui.nag {
           transition: transform 0.5s ease;
 }
 /*--------------
-     Reveal
+    Uncover
 ---------------*/
 /* Set-up */
-.pushable.reveal > .fixed,
-.pushable.reveal > .pusher {
+.pushable.uncover > .fixed,
+.pushable.uncover > .pusher {
   -webkit-transform: translate3d(0px, 0px, 0px);
           transform: translate3d(0px, 0px, 0px);
 }
-.pushable.reveal > .pusher {
-  z-index: 1001;
+.pushable.uncover > .pusher {
+  z-index: 900;
 }
-.pushable.reveal > .visible.ui.sidebar {
+.pushable.uncover > .visible.ui.sidebar {
   -webkit-transition: none;
           transition: none;
 }
 /* Pushed */
 /*--- Left ---*/
-.pushable.left.reveal.pushed > .fixed,
-.pushable.left.reveal.pushed > .pusher {
+.pushable.left.uncover.pushed > .fixed,
+.pushable.left.uncover.pushed > .pusher {
   -webkit-transform: translate3d(260px, 0, 0);
           transform: translate3d(260px, 0, 0);
 }
 /*--- Right ---*/
-.pushable.right.reveal.pushed > .fixed,
-.pushable.right.reveal.pushed > .pusher {
+.pushable.right.uncover.pushed > .fixed,
+.pushable.right.uncover.pushed > .pusher {
   -webkit-transform: translate3d(-260px, 0, 0);
           transform: translate3d(-260px, 0, 0);
 }
@@ -22106,7 +22107,7 @@ a.ui.nag {
           transform: translate3d(0px, 0, 0);
 }
 .pushable.slide.along > .pusher {
-  z-index: 1001;
+  z-index: 900;
 }
 .pushable.slide.along > .visible.ui.sidebar {
   -webkit-transform: translate3d(-50%, 0, 0);
@@ -22164,7 +22165,7 @@ a.ui.nag {
           transform: translate3d(0px, 0, 0);
 }
 .pushable.scale.down > .pusher {
-  z-index: 1001;
+  z-index: 900;
   -webkit-transform-origin: 75% 50%;
       -ms-transform-origin: 75% 50%;
           transform-origin: 75% 50%;
@@ -22173,7 +22174,7 @@ a.ui.nag {
 .pushable.scale.down > .visible.ui.sidebar {
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
-  z-index: 1006;
+  z-index: 904;
 }
 /* Pushed */
 .pushable.scale.down.pushed > .pusher {
