@@ -137,13 +137,13 @@
 @sortableDisabledColor: @disabledTextColor;
 
 @sortableHoverBackground: @subtleTransparentBlack @subtleGradient;
-@sortableHoverColor: @selectedTextColor;
+@sortableHoverColor: @hoveredTextColor;
 @sortableActiveBackground: @transparentBlack @subtleGradient;
 @sortableActiveColor: @selectedTextColor;
 
 @sortableInvertedBorderColor: transparent;
 @sortableInvertedHoverBackground: @transparentWhite @subtleGradient;
-@sortableInvertedHoverColor: @invertedSelectedTextColor;
+@sortableInvertedHoverColor: @invertedHoveredTextColor;
 @sortableInvertedActiveBackground: @strongTransparentWhite @subtleGradient;
 @sortableInvertedActiveColor: @invertedSelectedTextColor;
 

@@ -73,11 +73,11 @@
 
 /* Hover */
 @hoverBackground: #FFFFFF;
-@hoverColor: @selectedTextColor;
+@hoverColor: @hoveredTextColor;
 
 /* Down */
 @downBackground: #F0F0F0;
-@downColor: @selectedTextColor;
+@downColor: @pressedTextColor;
 
 /* Active */
 @activeBackgroundColor: #F0F0F0;
