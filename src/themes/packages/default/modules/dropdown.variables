@@ -128,17 +128,17 @@ b        Types
 ;
 
 /* Hover */
-@selectionHoverBorder: 1px solid @selectedBorderColor;
+@selectionHoverBorderColor: @selectedBorderColor;
 @selectionHoverBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 
 /* Visible */
-@selectionVisibleBorder: 1px solid @borderColor;
+@selectionVisibleBorderColor: @borderColor;
 @selectionVisibleBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionVisibleTextFontWeight: normal;
 @selectionVisibleTextColor: @selectedTextColor;
 
 /* Visible Hover */
-@selectionVisibleHoverBorder: 1px solid @selectedBorderColor;
+@selectionVisibleHoverBorderColor: @selectedBorderColor;
 @selectionVisibleHoverBoxShadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
 @selectionVisibleHoverMenuBorder: 1px solid @selectedBorderColor;
 @selectionVisibleHoverMenuBoxShadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08);
