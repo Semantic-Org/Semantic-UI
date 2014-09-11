@@ -1,0 +1,94 @@
+{
+    "Name": "Semantic Button",
+    "Description": "Buttons indicate a possible user action.",
+    "Definition": "Elements",
+    "Types": {
+        "Animated": ".ui.animated.button > .visible.content",
+        "Icon": ".ui.icon.button > .cloud.icon",
+        "Labeled Icon": ".ui.labeled.icon.button > .pause.icon"
+    },
+    "Groups": {},
+    "States": {},
+    "Variations": {
+        "Social": [
+            "facebook",
+            "twitter",
+            "google plus",
+            "vk",
+            "linkedin",
+            "instagram",
+            "youtube"
+        ],
+        "Sizes": [
+            "mini",
+            "tiny",
+            "small",
+            "medium",
+            "large",
+            "big",
+            "huge",
+            "massive"
+        ],
+        "Ordinality": [
+            "primary",
+            "secondary"
+        ],
+        "Basic": [
+            "basic"
+        ],
+        "Colors": [
+            "black",
+            "green",
+            "red",
+            "blue"
+        ],
+        "Toggle": [
+            "toggle"
+        ],
+        "Feedback": [
+            "positive",
+            "negative"
+        ],
+        "Fluid": [
+            "fluid"
+        ],
+        "Circular": [
+            "circular",
+            "circular icon"
+        ],
+        "Vertically Attached": [
+            "top attached",
+            "bottom attached"
+        ],
+        "Horizontally Attached": [
+            "left attached",
+            "right attached"
+        ]
+    },
+    "Group Variations": {},
+    "Definitions": {
+        "Animated": "A button can animate to show hidden content",
+        "Icon": "Groups can be formatted as icons",
+        "Labeled Icon": "Groups can be formatted as labeled icons",
+        "Buttons": "Buttons can exist together as a group",
+        "Icons": "Button groups can show groups of icons",
+        "Conditionals": "Button groups can be separated by conditionals",
+        "Hover": "A button can change to show a user has hovered their mouse",
+        "Down": "A button can change when pressed using touch or mouse events",
+        "Active": "A button can show it is currently the active user selection",
+        "Disabled": "A button can show it is currently unable to be interacted with",
+        "Loading": "A button can show a loading indicator",
+        "Social": "A button can be formatted to link to a social website",
+        "Sizes": "Groups can have a shared size",
+        "Ordinality": "A button can be formatted to show different levels of emphasis",
+        "Basic": "A button group can be formatted to remove extra formatting",
+        "Colors": "Groups can have a shared color",
+        "Toggle": "A button can be formatted to toggle on and off",
+        "Feedback": "A button can be positive or negative:",
+        "Fluid": "Groups can be divided evenly to fit parent",
+        "Circular": "A button can be circular:",
+        "Vertically Attached": "A button can be attached to the top or bottom of other content",
+        "Horizontally Attached": "A button can be attached to the left or right of other content",
+        "Vertical": "Groups can be formatted to appear vertically"
+    }
+}

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Shape | Semantic UI</title>
+
+  <meta name="description" content="A shape is a three dimensional object displayed on a two dimensional plane" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="shape" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="active item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>UI Module:</b> Shape
+      </div>
+      
+      <a class="icon item" href="/modules/rating.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">8 of 10</span>
+        <div class="menu">
+          
+            <div class="item">
+              <a href="/modules/accordion.html">1. Accordion</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/checkbox.html">2. Checkbox</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/dimmer.html">3. Dimmer</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/dropdown.html">4. Dropdown</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/modal.html">5. Modal</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/popup.html">6. Popup</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/rating.html">7. Rating</a>
+            </div>
+          
+            <div class="active item">
+              <a href="/modules/shape.html">8. Shape</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/sidebar.html">9. Sidebar</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/transition.html">10. Transition</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/modules/sidebar.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
+          <i class="book icon"></i>
+        </a> -->
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  <script src="/javascript/shape.js"></script>
+<link rel="stylesheet" type="text/css" class="ui" href="/stylesheets/shape.css">
+
+
+
+<div class="tab segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        Shape
+        
+      </h1>
+
+      <p>A shape is a three dimensional object displayed on a two dimensional plane</p>
+      
+      
+      <a href="/module.html" class="ui basic labeled icon button">
+        Learn about Modules
+        <i class="help icon"></i>
+      </a>
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      <div class="four item tabular ui menu">
+        
+          <a class="active item" data-tab="definition">Definition</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+      
+      <div class="fluid vertical ui menu">
+        
+          <a class="active item" data-tab="definition">Definition</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <div class="ui tab" data-tab="definition">
+
+    <div class="peek">
+      <div class="ui vertical pointing secondary menu">
+        <a class="active item">Types</a>
+        <!--<a class="item">States</a>-->
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="example">
+      <h4 class="ui header">Shape</h4>
+      <p>A standard shape</p>
+
+      <div class="ui warning icon message">
+        <i class="info letter icon"></i>
+        <div class="content">
+          <div class="header">Using Shapes</div>
+          <ul class="list">
+            <li>A shape must have defined width and heights for each side or else text flow may change during animation</li>
+            <li>The module uses 3D transformations which are currently only supported in modern versions of Chrome, Safari, and Firefox.</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="code" data-type="html">
+      <div class="ui shape">
+        <div class="sides">
+          <div class="active side">This side starts visible.</div>
+          <div class="side">This is yet another side</div>
+          <div class="side">This is the last side</div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Cube</h4>
+      <p>A cube shape is formatted so that each side is the face of a cube</p>
+      <div class="ui ignored info message">Content must be included inside <code>.content .center</code> to display centered on a cube's side</div>
+      <div class="ui cube shape">
+        <div class="sides">
+          <div class="active side">
+            <div class="content">
+              <div class="center">
+                1
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                2
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                3
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                4
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                5
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                6
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
+        <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
+      </div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
+        <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
+      </div>
+
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Text</h4>
+      <p>A text shape is formatted to allow for sides of text to be displayed</p>
+
+      <div class="ui text shape">
+        <div class="sides">
+          <div class="active ui header side">Did you know? This side starts visible.</div>
+          <div class="ui header side">Help, its another side!</div>
+          <div class="ui header side">This is the last side</div>
+        </div>
+      </div>
+
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
+        <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
+      </div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
+        <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <div class="no example">
+      <h3 class="ui header">Shape Types</h3>
+      <p>Shapes do not have to be regular or have its sides match up in length and width to animate correctly.</p>
+
+      <h3 class="ui header">Shape</h3>
+      <div class="ui type buttons">
+        <div class="active ui button" data-shape="rectangle">Rectangle</div>
+        <div class="ui button" data-shape="square">Square</div>
+        <div class="ui button" data-shape="irregular">Irregular</div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="demo rectangle ui shape">
+        <div class="sides">
+          <div class="active jira side">
+            <img src="/images/shape/jira.png">
+          </div>
+          <div class="heroku side">
+            <img src="/images/shape/heroku.png">
+          </div>
+          <div class="quirky side">
+            <img src="/images/shape/quirky.png">
+          </div>
+        </div>
+      </div>
+
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
+        <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
+      </div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
+        <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
+      </div>
+    </div>
+
+    <div class="ui clearing section divider"></div>
+
+    <h3 class="ui header">Shape with Content</h3>
+    <p>Any type of element can be used as a side of a shape.</p>
+    <div class="dog ui shape">
+      <div class="sides">
+        <div class="active side">
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <a class="ui like corner label">
+                  <i class="like icon"></i>
+                </a>
+                <img src="/images/demo/highres2.jpg">
+              </div>
+              <div class="content">
+                <div class="name">Cute Dog</div>
+                <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <a class="ui like corner label">
+                  <i class="like icon"></i>
+                </a>
+                <img src="/images/demo/highres5.jpg">
+              </div>
+              <div class="content">
+                <div class="name">Silly Dog</div>
+                <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <a class="ui like corner label">
+                  <i class="like icon"></i>
+                </a>
+                <img src="/images/demo/highres4.jpg">
+              </div>
+              <div class="content">
+                <div class="meta">5 days ago</div>
+                <div class="name">Faithful Dog</div>
+                <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dog ui shape">
+      <div class="sides">
+        <div class="active side">
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <a class="ui like corner label">
+                  <i class="like icon"></i>
+                </a>
+                <img src="/images/demo/highres.jpg">
+              </div>
+              <div class="content">
+                <div class="name">Cute Dog</div>
+                <p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <a class="ui like corner label">
+                  <i class="like icon"></i>
+                </a>
+                <img src="/images/demo/highres4.jpg">
+              </div>
+              <div class="content">
+                <div class="name">Silly Dog</div>
+                <p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <a class="ui like corner label">
+                  <i class="like icon"></i>
+                </a>
+                <img src="/images/demo/highres6.jpg">
+              </div>
+              <div class="content">
+                <div class="meta">5 days ago</div>
+                <div class="name">Faithful Dog</div>
+                <p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui clearing divider"></div>
+    <div class="code" data-demo="true">
+    $('.dog.shape')
+      .eq(0)
+        .shape('flip over')
+        .end()
+      .eq(1)
+        .shape('flip back')
+    ;
+    </div>
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+
+    <h2 class="ui dividing header">Getting Started</h2>
+
+    <p>Initializing a shape</p>
+    <div class="code">
+      $('.shape').shape();
+    </div>
+
+    <p>Transitions automatically assume next side is the next sibling (or first if last element)</p>
+    <div class="code">
+      $('.shape').shape('flip up');
+    </div>
+
+    <p>To manually set the next side to appear use a selector or jQuery object</p>
+    <div class="code">
+    $('.shape')
+      .shape('set next side', '.second.side')
+      .shape('flip up')
+    ;
+    </div>
+
+    <p>Any internal method can be invoked programmatically</p>
+    <div class="code">
+      $('.shape').shape('repaint');
+    </div>
+
+     <h2 class="ui dividing header">Behavior</h2>
+
+    <p>All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .shape('behavior name', argumentOne, argumentTwo)
+    ;
+    </div>
+
+    <table class="ui definition sortable celled table segment">
+      <thead>
+        <th>Behavior</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>flip up</td>
+          <td>Flips the shape upward</td>
+        </tr>
+        <tr>
+          <td>flip down</td>
+          <td>Flips the shape downward</td>
+        </tr>
+        <tr>
+          <td>flip right</td>
+          <td>Flips the shape right</td>
+        </tr>
+        <tr>
+          <td>flip left</td>
+          <td>Flips the shape left</td>
+        </tr>
+        <tr>
+          <td>flip over</td>
+          <td>Flips the shape over clock-wise</td>
+        </tr>
+        <tr>
+          <td>flip back</td>
+          <td>Flips the shape over counter-clockwise</td>
+        </tr>
+        <tr>
+          <td>set next side(selector)</td>
+          <td>Set the next side to a specific selector</td>
+        </tr>
+        <tr>
+          <td>is animating</td>
+          <td>Returns whether shape is currently animating</td>
+        </tr>
+        <tr>
+          <td>reset</td>
+          <td>Removes all inline styles</td>
+        </tr>
+        <tr>
+          <td>queue(animation)</td>
+          <td>Queues an animationtill after current animation</td>
+        </tr>
+        <tr>
+          <td>repaint</td>
+          <td>Forces a reflow on element</td>
+        </tr>
+        <tr>
+          <td>set default side</td>
+          <td>Set the next side to next sibling to active element</td>
+        </tr>
+        <tr>
+          <td>set stage size</td>
+          <td>Sets shape to the content size of the next side</td>
+        </tr>
+        <tr>
+          <td>refresh</td>
+          <td>Refreshes the selector cache for element sides</td>
+        </tr>
+        <tr>
+          <td>get transform down</td>
+          <td>Returns translation for next side staged below</td>
+        </tr>
+        <tr>
+          <td>get transform left</td>
+          <td>Returns translation for next side staged left</td>
+        </tr>
+        <tr>
+          <td>get transform right</td>
+          <td>Returns translation for next side staged right</td>
+        </tr>
+        <tr>
+          <td>get transform up</td>
+          <td>Returns translation for next side staged up</td>
+        </tr>
+        <tr>
+          <td>get transform down</td>
+          <td>Returns translation for next side staged down</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h3 class="ui header">
+      Shape Settings
+      <div class="sub header">Shape settings modify the shape's behavior</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>duration</td>
+          <td>700ms</td>
+          <td>Duration of side change animation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Callbacks
+      <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+    </h3>
+
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th class="four wide">Setting</th>
+        <th>Context</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>beforeChange</td>
+          <td>Next Side</td>
+          <td>Is called before side change</td>
+        </tr>
+        <tr>
+          <td>onChange</td>
+          <td>Active Side</td>
+          <td>Is called after visible side change</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>namespace</td>
+          <td>shape</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td colspan="2">
+            <div class="code">
+            selector    : {
+              sides : '.sides',
+              side  : '.side'
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td colspan="2">
+            <div class="code">
+            className   : {
+              animating : 'animating',
+              hidden    : 'hidden',
+              loading   : 'loading',
+              active    : 'active'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Shape</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>error</td>
+          <td colspan="2">
+            <div class="code">
+            error: {
+              side   : 'You tried to switch to a side that does not exist.',
+              method : 'The method you called is not defined'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+</body>
+
+</html>

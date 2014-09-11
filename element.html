@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>UI Elements | Semantic UI</title>
+
+  <meta name="description" content="Elements are the basic building blocks of a website." />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="progress" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>Semantic:</b> UI Elements
+      </div>
+      
+      <a class="icon item" href="/collection.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">3 of 4</span>
+        <div class="menu">
+          
+            <div class="item">
+              <a href="/index.html">1. Introduction</a>
+            </div>
+          
+            <div class="item">
+              <a href="/collection.html">2. UI Collections</a>
+            </div>
+          
+            <div class="active item">
+              <a href="/element.html">3. UI Elements</a>
+            </div>
+          
+            <div class="item">
+              <a href="/module.html">4. UI Modules</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/module.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  
+
+<div class="segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        UI Elements
+        
+      </h1>
+
+      <p>Elements are the basic building blocks of a website.</p>
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Types</a>
+    </div>
+  </div>
+<!--
+  <h2 class="ui dividing header">Definition</h2>
+  <p>UI Elements are the smallest useful unit for describing page content, and do not contain other elements inside themselves.</p>
+
+  <h3 class="ui header">Plurality</h3>
+  <p>Element usually exist by themselves, but they my also be grouped together with other elements of their kind. This forms a plural definition of an element.</p>
+  <p>The look and feel of the plural may change to show a relationship, and plural definitions can often share many of the same variations as singular definitions.</p>
+  <div class="ui segment">
+    <h4 class="ui header">Groups</h4>
+    <p>The plural of button is "buttons" a button wrapped inside "buttons" will automatically apply styling appropriate for a group. Many button variations can be used on plural definitions just like they would be used in singular.</p>
+    <p>For example, in this case each button will be large because we understand it is a part of the large button group, but the continue button has its own variations applied as well.</p>
+    <div class="ui simple ignored divider"></div>
+    <div class="large ui buttons">
+      <div class="ui secondary button">Cancel</div>
+      <div class="ui teal button">Continue <i class="icon right arrow"></i></div>
+    </div>
+    <br>
+    <div class="code" data-type="html">
+    <div class="large ui buttons">
+      <div class="ui secondary button">Cancel</div>
+      <div class="ui teal button">Continue <i class="icon right arrow"></i></div>
+    </div>
+    </div>
+  </div>
+ -->
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="ui two type stackable items">
+
+    <div class="item">
+      <div class="image">
+        <div class="ui teal labeled icon button">
+          <i class="icon user add"></i>Follow
+        </div>
+        <br><br>
+        <div class="ui black icon buttons">
+          <div class="ui button"><i class="icon user"></i></div>
+          <div class="ui button"><i class="icon settings"></i></div>
+          <div class="ui button"><i class="icon trash"></i></div>
+        </div>
+      </div>
+      <div class="content">
+        <a href="elements/button.html" class="name">Button</a>
+        <p>A button indicates a possible user action.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <div class="ui horizontal divider"><i class="github icon"></i></div>
+      </div>
+      <div class="content">
+        <a href="elements/divider.html" class="name">Divider</a>
+        <p>A divider visually segments content into separate groups</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <h2 class="ui blue block header">
+          Section 2
+          <div class="sub header">The second section of the website</div>
+        </h2>
+      </div>
+      <div class="content">
+        <a href="elements/header.html" class="name">Header</a>
+        <p>Headers provide a short summary of content</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <div class="ui red active progress">
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="content">
+        <a href="elements/progress.html" class="name">Progress Bar</a>
+        <p>A progress bar displays progress on a task</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <div class="ui inverted stacked segment">
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+        </div>
+      </div>
+      <div class="content">
+        <a href="elements/segment.html" class="name">Segment</a>
+        <p>A segment is used to create a grouping of related content.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <div class="ui left floated circular image">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="ui right floated circular image">
+          <img src="/images/demo/avatar2.jpg">
+        </div>
+      </div>
+      <div class="content">
+      <a href="elements/image.html" class="name">Image</a>
+      <p>An image is a graphic representation of something</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <div class="ui four fluid steps">
+          <div class="ui step">
+            First
+          </div>
+          <div class="ui active step">
+            Second
+          </div>
+          <div class="ui disabled step">
+            Third
+          </div>
+          <div class="ui disabled step">
+            Last
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <a href="elements/step.html" class="name">Step</a>
+        <p>Steps show the current activity in a series of steps.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <i class="archive icon"></i>
+        <i class="attachment icon"></i>
+        <i class="browser icon"></i>
+        <i class="bug icon"></i>
+        <i class="calendar icon"></i>
+        <i class="cart icon"></i>
+        <i class="certificate icon"></i>
+        <i class="chat icon"></i>
+        <i class="cloud icon"></i>
+        <i class="code icon"></i>
+        <i class="comment icon"></i>
+        <i class="dashboard icon"></i>
+        <i class="desktop icon"></i>
+        <i class="empty calendar icon"></i>
+        <i class="external url icon"></i>
+        <i class="external url sign icon"></i>
+        <i class="file icon"></i>
+        <i class="file outline icon"></i>
+        <i class="folder icon"></i>
+        <i class="folder open icon"></i>
+        <i class="folder open outline icon"></i>
+        <i class="folder outline icon"></i>
+        <i class="help icon"></i>
+        <i class="home icon"></i>
+        <i class="inbox icon"></i>
+        <i class="info icon"></i>
+        <i class="info letter icon"></i>
+        <i class="legal icon"></i>
+        <i class="location arrow icon"></i>
+        <i class="mail icon"></i>
+        <i class="mail outline icon"></i>
+        <i class="map icon"></i>
+        <i class="map marker icon"></i>
+        <i class="mobile icon"></i>
+        <i class="music icon"></i>
+        <i class="outline chat icon"></i>
+        <i class="outline comment icon"></i>
+        <i class="payment icon"></i>
+        <i class="photo icon"></i>
+        <i class="qr code icon"></i>
+        <i class="question icon"></i>
+        <i class="rss icon"></i>
+        <i class="rss sign icon"></i>
+        <i class="setting icon"></i>
+        <i class="settings icon"></i>
+        <i class="signal icon"></i>
+        <i class="sitemap icon"></i>
+        <i class="table icon"></i>
+        <i class="tablet icon"></i>
+        <i class="tag icon"></i>
+        <i class="tags icon"></i>
+        <i class="tasks icon"></i>
+        <i class="terminal icon"></i>
+        <i class="text file icon"></i>
+        <i class="text file outline icon"></i>
+        <i class="time icon"></i>
+        <i class="trash icon"></i>
+        <i class="url icon"></i>
+        <i class="user icon"></i>
+        <i class="users icon"></i>
+        <i class="video icon"></i>
+        <i class="add icon"></i>
+        <i class="add sign box icon"></i>
+        <i class="add sign icon"></i>
+        <i class="adjust icon"></i>
+        <i class="bookmark empty icon"></i>
+        <i class="bookmark icon"></i>
+        <i class="cloud download icon"></i>
+        <i class="cloud upload icon"></i>
+        <i class="collapse icon"></i>
+        <i class="crop icon"></i>
+        <i class="download disk icon"></i>
+        <i class="download icon"></i>
+        <i class="edit icon"></i>
+        <i class="edit sign icon"></i>
+        <i class="empty flag icon"></i>
+        <i class="exchange icon"></i>
+        <i class="expand icon"></i>
+        <i class="filter icon"></i>
+        <i class="flag icon"></i>
+        <i class="fork code icon"></i>
+        <i class="forward mail icon"></i>
+        <i class="fullscreen icon"></i>
+        <i class="hide icon"></i>
+        <i class="level down icon"></i>
+        <i class="level up icon"></i>
+        <i class="off icon"></i>
+      </div>
+      <div class="content">
+        <a href="elements/icon.html" class="name">Icon</a>
+        <p>An icon is a glyph used to represent another concept more simply</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="image">
+        <div class="ui red label">Dog</div>
+        <div class="ui teal corner label">
+          <div class="text">New</div>
+        </div>
+        <br><br>
+        <div class="ui blue ribbon label">HTML</div>
+      </div>
+      <div class="content">
+        <a href="elements/label.html" class="name">Label</a>
+        <p>Labels give descriptions to sections of content.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</body>
+
+</html>

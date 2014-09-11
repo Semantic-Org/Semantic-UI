@@ -1,0 +1,69 @@
+{
+    "Name": "Semantic Label",
+    "Description": "Labels give descriptions to pieces of content",
+    "Definition": "Elements",
+    "Types": {
+        "Label": ".ui.label > .mail.icon",
+        "Detail": ".ui.label > .detail",
+        "Removable": ".ui.label > .delete.icon",
+        "Link": ".ui.label > .detail > .mail.icon",
+        "Image": ".ui.image.label > .",
+        "Corner": ".ui.right.red.corner.label > .heart.icon",
+        "Attached": ".ui.top.attached.label"
+    },
+    "Variations": {
+        "Colors": [
+            "black",
+            "green",
+            "red",
+            "blue",
+            "orange",
+            "purple",
+            "teal"
+        ],
+        "Horizontal": [
+            "red horizontal",
+            "purple horizontal",
+            "red horizontal",
+            "horizontal"
+        ],
+        "Circular": [
+            "black circular",
+            "green circular",
+            "red circular",
+            "blue circular",
+            "purple circular",
+            "teal circular"
+        ],
+        "Floating": [
+            "floating red",
+            "floating teal"
+        ],
+        "Pointing": [
+            "pointing",
+            "pointing below",
+            "pointing left",
+            "pointing right"
+        ],
+        "Size": [
+            "small",
+            "large"
+        ]
+    },
+    "Groups": {},
+    "Definitions": {
+        "Label": "A basic label",
+        "Detail": "A label can contain a detail",
+        "Removable": "A label can contain a delete icon",
+        "Link": "A label can contain a text link",
+        "Image": "A label can be formatted to include an image",
+        "Corner": "A label can position itself in the corner of an element",
+        "Attached": "A label can attach to a content segment",
+        "Colors": "Labels can share colors together",
+        "Horizontal": "A horizontal label is formatted to label content along-side it horizontally",
+        "Circular": "Labels can share shapes",
+        "Floating": "A label can float above another element",
+        "Pointing": "A label can point to content next to it",
+        "Size": "Labels can share sizes together"
+    }
+}

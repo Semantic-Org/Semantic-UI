@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Feed | Semantic UI</title>
+
+  <meta name="description" content="A feed presents user activity chronologically" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="feed" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="active item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>UI View:</b> Feed
+      </div>
+      
+      <a class="icon item" href="/views/comment.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">2 of 4</span>
+        <div class="menu">
+          
+            <div class="item">
+              <a href="/views/comment.html">1. Comment</a>
+            </div>
+          
+            <div class="active item">
+              <a href="/views/feed.html">2. Feed</a>
+            </div>
+          
+            <div class="item">
+              <a href="/views/item.html">3. Item</a>
+            </div>
+          
+            <div class="item">
+              <a href="/views/list.html">4. List</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/views/item.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
+          <i class="book icon"></i>
+        </a> -->
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  
+
+<div class="segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        Feed
+        
+      </h1>
+
+      <p>A feed presents user activity chronologically</p>
+      
+      <div class="ui basic labeled icon toggle overview button">
+        Definition Mode
+        <i class="book icon"></i>
+      </div>
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+  </div>
+</div>
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Types</a>
+      <a class="item">Content</a>
+      <a class="item">Variations</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4>Feed</h4>
+    <p>A standard feed with some optional elements</p>
+    <div class="ui piled feed segment">
+      <h2 class="ui header">
+        Recent Activity
+      </h2>
+      <div class="event">
+        <div class="label">
+          <img src="/images/demo/avatar2.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+            Just moments ago
+          </div>
+          <div class="summary">
+             <a>Sally Poodle</a> added you as a friend
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="circular pencil icon"></i>
+        </div>
+        <div class="content">
+          <div class="date">
+            3 days ago
+          </div>
+          <div class="summary">
+            You submitted a new post to the page
+          </div>
+          <div class="extra text">
+            I am a dog and I do not know how to make a post
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="circular photo icon"></i>
+        </div>
+        <div class="content">
+          <div class="date">
+            3 days ago
+          </div>
+          <div class="summary">
+            <a>Sally Poodle</a> added <a>2 new photos</a> of you
+          </div>
+          <div class="extra images">
+            <img src="/images/demo/item1.jpg">
+            <img src="/images/demo/item2.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example">
+    <h4>Label</h4>
+    <p>An event can contain a label</p>
+    <div class="ignored ui info message">In semantic's implementation a label is formatted to contain an icon or an image</div>
+    <div class="ui feed segment">
+      <div class="event">
+        <div class="label">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="content">
+          <div class="summary">
+             <a>Sally Poodle</a> added you as a friend
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <i class="circular pencil icon"></i>
+        </div>
+        <div class="content">
+          <div class="summary">
+            You submitted a new post to the page
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Date</h4>
+    <p>An event can contain a date</p>
+    <div class="ui feed segment">
+      <div class="event">
+        <div class="label">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+            3 days ago
+          </div>
+          <div class="summary">
+             <a>Sally Poodle</a> added you as a friend
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4>Additional information</h4>
+    <p>An event can contain additional content explaining the event</p>
+    <div class="ui feed segment">
+      <div class="event">
+        <div class="label">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+            3 days ago
+          </div>
+          <div class="summary">
+             <a>Sally Poodle</a> added 2 photos of you
+          </div>
+          <div class="extra images">
+            <img src="/images/demo/item1.jpg">
+            <img src="/images/demo/item2.jpg">
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="label">
+          <img src="/images/demo/avatar.jpg">
+        </div>
+        <div class="content">
+          <div class="date">
+            3 days ago
+          </div>
+          <div class="summary">
+             <a>Sally Poodle</a> created a post
+          </div>
+          <div class="extra text">
+            I am a dog and I do not know how to make a post
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Variations</h2>
+  <div class="example">
+    <h4 class="ui header">Sizes</h4>
+    <p>A feed can have different sizes</p>
+
+    <div class="ui grid">
+      <div class="ten wide column">
+        <div class="ui small piled feed segment">
+          <h4 class="ui header">My Activity</h4>
+          <div class="event">
+            <div class="label">
+              <img src="/images/demo/avatar2.jpg">
+            </div>
+            <div class="content">
+              <div class="date">
+                Just moments ago
+              </div>
+              <div class="summary">
+                 <a>Sally Poodle</a> added you as a friend
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="label">
+              <i class="circular pencil icon"></i>
+            </div>
+            <div class="content">
+              <div class="date">
+                3 days ago
+              </div>
+              <div class="summary">
+                You submitted a new post to the page
+              </div>
+              <div class="extra text">
+                I am a dog and I do not know how to make a post
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="label">
+              <i class="circular photo icon"></i>
+            </div>
+            <div class="content">
+              <div class="date">
+                3 days ago
+              </div>
+              <div class="summary">
+                <a>Sally Poodle</a> added <a>2 new photos</a> of you
+              </div>
+              <div class="extra images">
+                <img src="/images/demo/item1.jpg">
+                <img src="/images/demo/item2.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="six wide column">
+        <div class="ui small   feed segment">
+          <h4 class="ui header">Followers Activity</h4>
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                 <a>Sally Poodle</a> added <a>hotpup202</a> as a friend
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                 <a>Dally Doodle</a> added <a>hotpup202</a> as a friend
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                 <a>Sally Poodle</a> added <a>sixpack dog</a> as a friend
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                 <a>Dally Doodle</a> added <a>hotpup202</a> as a friend
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+</body>
+
+</html>

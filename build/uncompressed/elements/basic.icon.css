@@ -1,0 +1,796 @@
+/*
+ * # Semantic - basic.Icon (Basic)
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+          Basic Icon
+*******************************/
+@font-face {
+  font-family: 'Basic Icons';
+  src: url(../fonts/basic.icons.eot);
+  src: url(../fonts/basic.icons.eot?#iefix) format('embedded-opentype'), url(../fonts/basic.icons.svg#basic.icons) format('svg'), url(../fonts/basic.icons.woff) format('woff'), url(../fonts/basic.icons.ttf) format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
+}
+i.basic.icon {
+  display: inline-block;
+  opacity: 0.75;
+  margin: 0em 0.25em 0em 0em;
+  width: 1.23em;
+  height: 1em;
+  font-family: 'Basic Icons';
+  font-style: normal;
+  line-height: 1;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  speak: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+/* basic.icons available */
+i.basic.icon.circle.attention:before {
+  content: '\2757';
+}
+/* '❗' */
+i.basic.icon.circle.help:before {
+  content: '\e704';
+}
+/* '' */
+i.basic.icon.circle.info:before {
+  content: '\e705';
+}
+/* '' */
+i.basic.icon.add:before {
+  content: '\2795';
+}
+/* '➕' */
+i.basic.icon.chart:before {
+  content: '📈';
+}
+/* '\1f4c8' */
+i.basic.icon.chart.bar:before {
+  content: '📊';
+}
+/* '\1f4ca' */
+i.basic.icon.chart.pie:before {
+  content: '\e7a2';
+}
+/* '' */
+i.basic.icon.resize.full:before {
+  content: '\e744';
+}
+/* '' */
+i.basic.icon.resize.horizontal:before {
+  content: '\2b0d';
+}
+/* '⬍' */
+i.basic.icon.resize.small:before {
+  content: '\e746';
+}
+/* '' */
+i.basic.icon.resize.vertical:before {
+  content: '\2b0c';
+}
+/* '⬌' */
+i.basic.icon.down:before {
+  content: '\2193';
+}
+/* '↓' */
+i.basic.icon.down.triangle:before {
+  content: '\25be';
+}
+/* '▾' */
+i.basic.icon.down.arrow:before {
+  content: '\e75c';
+}
+/* '' */
+i.basic.icon.left:before {
+  content: '\2190';
+}
+/* '←' */
+i.basic.icon.left.triangle:before {
+  content: '\25c2';
+}
+/* '◂' */
+i.basic.icon.left.arrow:before {
+  content: '\e75d';
+}
+/* '' */
+i.basic.icon.right:before {
+  content: '\2192';
+}
+/* '→' */
+i.basic.icon.right.triangle:before {
+  content: '\25b8';
+}
+/* '▸' */
+i.basic.icon.right.arrow:before {
+  content: '\e75e';
+}
+/* '' */
+i.basic.icon.up:before {
+  content: '\2191';
+}
+/* '↑' */
+i.basic.icon.up.triangle:before {
+  content: '\25b4';
+}
+/* '▴' */
+i.basic.icon.up.arrow:before {
+  content: '\e75f';
+}
+/* '' */
+i.basic.icon.folder:before {
+  content: '\e810';
+}
+/* '' */
+i.basic.icon.open.folder:before {
+  content: '📂';
+}
+/* '\1f4c2' */
+i.basic.icon.globe:before {
+  content: '𝌍';
+}
+/* '\1d30d' */
+i.basic.icon.desk.globe:before {
+  content: '🌐';
+}
+/* '\1f310' */
+i.basic.icon.star:before {
+  content: '\e801';
+}
+/* '' */
+i.basic.icon.star.empty:before {
+  content: '\e800';
+}
+/* '' */
+i.basic.icon.star.half:before {
+  content: '\e701';
+}
+/* '' */
+i.basic.icon.lock:before {
+  content: '🔒';
+}
+/* '\1f512' */
+i.basic.icon.unlock:before {
+  content: '🔓';
+}
+/* '\1f513' */
+i.basic.icon.layout.grid:before {
+  content: '\e80c';
+}
+/* '' */
+i.basic.icon.layout.block:before {
+  content: '\e708';
+}
+/* '' */
+i.basic.icon.layout.list:before {
+  content: '\e80b';
+}
+/* '' */
+i.basic.icon.heart.empty:before {
+  content: '\2661';
+}
+/* '♡' */
+i.basic.icon.heart:before {
+  content: '\2665';
+}
+/* '♥' */
+i.basic.icon.asterisk:before {
+  content: '\2731';
+}
+/* '✱' */
+i.basic.icon.attachment:before {
+  content: '📎';
+}
+/* '\1f4ce' */
+i.basic.icon.attention:before {
+  content: '\26a0';
+}
+/* '⚠' */
+i.basic.icon.trophy:before {
+  content: '🏉';
+}
+/* '\1f3c9' */
+i.basic.icon.barcode:before {
+  content: '\e792';
+}
+/* '' */
+i.basic.icon.cart:before {
+  content: '\e813';
+}
+/* '' */
+i.basic.icon.block:before {
+  content: '🚫';
+}
+/* '\1f6ab' */
+i.basic.icon.book:before {
+  content: '📖';
+}
+i.basic.icon.bookmark:before {
+  content: '🔖';
+}
+/* '\1f516' */
+i.basic.icon.calendar:before {
+  content: '📅';
+}
+/* '\1f4c5' */
+i.basic.icon.cancel:before {
+  content: '\2716';
+}
+/* '✖' */
+i.basic.icon.close:before {
+  content: '\e80d';
+}
+/* '' */
+i.basic.icon.color:before {
+  content: '\e794';
+}
+/* '' */
+i.basic.icon.chat:before {
+  content: '\e720';
+}
+/* '' */
+i.basic.icon.check:before {
+  content: '\2611';
+}
+/* '☑' */
+i.basic.icon.time:before {
+  content: '🕔';
+}
+/* '\1f554' */
+i.basic.icon.cloud:before {
+  content: '\2601';
+}
+/* '☁' */
+i.basic.icon.code:before {
+  content: '\e714';
+}
+/* '' */
+i.basic.icon.email:before {
+  content: '\40';
+}
+/* '@' */
+i.basic.icon.settings:before {
+  content: '\26ef';
+}
+/* '⛯' */
+i.basic.icon.setting:before {
+  content: '\2699';
+}
+/* '⚙' */
+i.basic.icon.comment:before {
+  content: '\e802';
+}
+/* '' */
+i.basic.icon.clockwise.counter:before {
+  content: '\27f2';
+}
+/* '⟲' */
+i.basic.icon.clockwise:before {
+  content: '\27f3';
+}
+/* '⟳' */
+i.basic.icon.cube:before {
+  content: '\e807';
+}
+/* '' */
+i.basic.icon.direction:before {
+  content: '\27a2';
+}
+/* '➢' */
+i.basic.icon.doc:before {
+  content: '📄';
+}
+/* '\1f4c4' */
+i.basic.icon.docs:before {
+  content: '\e736';
+}
+/* '' */
+i.basic.icon.dollar:before {
+  content: '💵';
+}
+/* '\1f4b5' */
+i.basic.icon.paint:before {
+  content: '\e7b5';
+}
+/* '' */
+i.basic.icon.edit:before {
+  content: '\270d';
+}
+/* '✍' */
+i.basic.icon.eject:before {
+  content: '\2ecf';
+}
+/* '⻏' */
+i.basic.icon.export:before {
+  content: '\e715';
+}
+/* '' */
+i.basic.icon.hide:before {
+  content: '\e70b';
+}
+/* '' */
+i.basic.icon.unhide:before {
+  content: '\e80f';
+}
+/* '' */
+i.basic.icon.facebook:before {
+  content: '\f301';
+}
+/* '' */
+i.basic.icon.fast-forward:before {
+  content: '\e804';
+}
+/* '' */
+i.basic.icon.fire:before {
+  content: '🔥';
+}
+/* '\1f525' */
+i.basic.icon.flag:before {
+  content: '\2691';
+}
+/* '⚑' */
+i.basic.icon.lightning:before {
+  content: '\26a1';
+}
+/* '⚡' */
+i.basic.icon.lab:before {
+  content: '\68';
+}
+/* 'h' */
+i.basic.icon.flight:before {
+  content: '\2708';
+}
+/* '✈' */
+i.basic.icon.forward:before {
+  content: '\27a6';
+}
+/* '➦' */
+i.basic.icon.gift:before {
+  content: '🎁';
+}
+/* '\1f381' */
+i.basic.icon.github:before {
+  content: '\f308';
+}
+/* '' */
+i.basic.icon.globe:before {
+  content: '\e817';
+}
+/* '' */
+i.basic.icon.headphones:before {
+  content: '🎧';
+}
+/* '\1f3a7' */
+i.basic.icon.question:before {
+  content: '\2753';
+}
+/* '❓' */
+i.basic.icon.home:before {
+  content: '\2302';
+}
+/* '⌂' */
+i.basic.icon.i:before {
+  content: '\2139';
+}
+/* 'ℹ' */
+i.basic.icon.idea:before {
+  content: '💡';
+}
+/* '\1f4a1' */
+i.basic.icon.open:before {
+  content: '🔗';
+}
+/* '\1f517' */
+i.basic.icon.content:before {
+  content: '\e782';
+}
+/* '' */
+i.basic.icon.location:before {
+  content: '\e724';
+}
+/* '' */
+i.basic.icon.mail:before {
+  content: '\2709';
+}
+/* '✉' */
+i.basic.icon.mic:before {
+  content: '🎤';
+}
+/* '\1f3a4' */
+i.basic.icon.minus:before {
+  content: '\2d';
+}
+/* '-' */
+i.basic.icon.money:before {
+  content: '💰';
+}
+/* '\1f4b0' */
+i.basic.icon.off:before {
+  content: '\e78e';
+}
+/* '' */
+i.basic.icon.pause:before {
+  content: '\e808';
+}
+/* '' */
+i.basic.icon.photos:before {
+  content: '\e812';
+}
+/* '' */
+i.basic.icon.photo:before {
+  content: '🌄';
+}
+/* '\1f304' */
+i.basic.icon.pin:before {
+  content: '📌';
+}
+/* '\1f4cc' */
+i.basic.icon.play:before {
+  content: '\e809';
+}
+/* '' */
+i.basic.icon.plus:before {
+  content: '\2b';
+}
+/* '+' */
+i.basic.icon.print:before {
+  content: '\e716';
+}
+/* '' */
+i.basic.icon.rss:before {
+  content: '\e73a';
+}
+/* '' */
+i.basic.icon.search:before {
+  content: '🔍';
+}
+/* '\1f50d' */
+i.basic.icon.shuffle:before {
+  content: '\e803';
+}
+/* '' */
+i.basic.icon.tag:before {
+  content: '\e80a';
+}
+/* '' */
+i.basic.icon.tags:before {
+  content: '\e70d';
+}
+/* '' */
+i.basic.icon.terminal:before {
+  content: '\e7ac';
+}
+/* '' */
+i.basic.icon.thumbs.down:before {
+  content: '👎';
+}
+/* '\1f44e' */
+i.basic.icon.thumbs.up:before {
+  content: '👍';
+}
+/* '\1f44d' */
+i.basic.icon.to-end:before {
+  content: '\e806';
+}
+/* '' */
+i.basic.icon.to-start:before {
+  content: '\e805';
+}
+/* '' */
+i.basic.icon.top.list:before {
+  content: '🏆';
+}
+/* '\1f3c6' */
+i.basic.icon.trash:before {
+  content: '\e729';
+}
+/* '' */
+i.basic.icon.twitter:before {
+  content: '\f303';
+}
+/* '' */
+i.basic.icon.upload:before {
+  content: '\e711';
+}
+/* '' */
+i.basic.icon.user.add:before {
+  content: '\e700';
+}
+/* '' */
+i.basic.icon.user:before {
+  content: '👤';
+}
+/* '\1f464' */
+i.basic.icon.community:before {
+  content: '\e814';
+}
+/* '' */
+i.basic.icon.users:before {
+  content: '👥';
+}
+/* '\1f465' */
+i.basic.icon.id:before {
+  content: '\e722';
+}
+/* '' */
+i.basic.icon.url:before {
+  content: '🔗';
+}
+/* '\1f517' */
+i.basic.icon.zoom.in:before {
+  content: '\e750';
+}
+/* '' */
+i.basic.icon.zoom.out:before {
+  content: '\e751';
+}
+/* '' */
+/*--------------
+   Spacing Fix
+---------------*/
+/* dropdown arrows are to the right */
+i.dropdown.basic.icon {
+  margin: 0em 0em 0em 0.5em;
+}
+/* stars are usually consecutive */
+i.basic.icon.star {
+  width: auto;
+  margin: 0em;
+}
+/* left side basic.icons */
+i.basic.icon.left,
+i.basic.icon.left,
+i.basic.icon.left {
+  width: auto;
+  margin: 0em 0.5em 0em 0em;
+}
+/* right side basic.icons */
+i.basic.icon.search,
+i.basic.icon.up,
+i.basic.icon.down,
+i.basic.icon.right {
+  width: auto;
+  margin: 0em 0em 0em 0.5em;
+}
+/*--------------
+     Aliases
+---------------*/
+/* aliases for convenience */
+i.basic.icon.delete:before {
+  content: '\e80d';
+}
+/* '' */
+i.basic.icon.dropdown:before {
+  content: '\25be';
+}
+/* '▾' */
+i.basic.icon.help:before {
+  content: '\e704';
+}
+/* '' */
+i.basic.icon.info:before {
+  content: '\e705';
+}
+/* '' */
+i.basic.icon.error:before {
+  content: '\e80d';
+}
+/* '' */
+i.basic.icon.dislike:before {
+  content: '\2661';
+}
+/* '♡' */
+i.basic.icon.like:before {
+  content: '\2665';
+}
+/* '♥' */
+i.basic.icon.eye:before {
+  content: '\e80f';
+}
+/* '' */
+i.basic.icon.eye.hidden:before {
+  content: '\e70b';
+}
+/* '' */
+i.basic.icon.date:before {
+  content: '📅';
+}
+/* '\1f4c5' */
+/*******************************
+             States
+*******************************/
+i.basic.icon.hover {
+  opacity: 1;
+}
+i.basic.icon.active {
+  opacity: 1;
+}
+i.emphasized.basic.icon {
+  opacity: 1;
+}
+i.basic.icon.disabled {
+  opacity: 0.3;
+}
+/*******************************
+           Variations
+*******************************/
+/*-------------------
+         Link
+--------------------*/
+i.link.basic.icon {
+  cursor: pointer;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+.link.basic.icon:hover {
+  opacity: 1 !important;
+}
+/*-------------------
+      Circular
+--------------------*/
+i.circular.basic.icon {
+  border-radius: 500px !important;
+  padding: 0.5em 0em !important;
+  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  line-height: 1 !important;
+  width: 2em !important;
+  height: 2em !important;
+}
+i.circular.inverted.basic.icon {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*-------------------
+      Flipped
+--------------------*/
+i.vertically.flipped.basic.icon {
+  -webkit-transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+i.horizontally.flipped.basic.icon {
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+/*-------------------
+        Rotated
+--------------------*/
+i.left.rotated.basic.icon {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+i.right.rotated.basic.icon {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+/*-------------------
+        Square
+--------------------*/
+i.square.basic.icon {
+  width: 2em;
+  height: 2em;
+  padding: 0.5em 0.35em !important;
+  -webkit-box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
+  vertical-align: baseline;
+}
+i.square.basic.icon:before {
+  vertical-align: middle;
+}
+i.square.inverted.basic.icon {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*-------------------
+      Inverted
+--------------------*/
+i.inverted.basic.icon {
+  background-color: #222222;
+  color: #FFFFFF;
+}
+/*-------------------
+       Colors
+--------------------*/
+i.blue.basic.icon {
+  color: #6ECFF5 !important;
+}
+i.black.basic.icon {
+  color: #5C6166 !important;
+}
+i.green.basic.icon {
+  color: #A1CF64 !important;
+}
+i.red.basic.icon {
+  color: #D95C5C !important;
+}
+i.purple.basic.icon {
+  color: #564F8A !important;
+}
+i.teal.basic.icon {
+  color: #00B5AD !important;
+}
+/*-------------------
+   Inverted Colors
+--------------------*/
+i.inverted.black.basic.icon {
+  background-color: #5C6166 !important;
+  color: #FFFFFF !important;
+}
+i.inverted.blue.basic.icon {
+  background-color: #6ECFF5 !important;
+  color: #FFFFFF !important;
+}
+i.inverted.green.basic.icon {
+  background-color: #A1CF64 !important;
+  color: #FFFFFF !important;
+}
+i.inverted.red.basic.icon {
+  background-color: #D95C5C !important;
+  color: #FFFFFF !important;
+}
+i.inverted.purple.basic.icon {
+  background-color: #564F8A !important;
+  color: #FFFFFF !important;
+}
+i.inverted.teal.basic.icon {
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
+}
+/*-------------------
+        Sizes
+--------------------*/
+i.small.basic.icon {
+  font-size: 0.875em;
+}
+i.basic.icon {
+  font-size: 1em;
+}
+i.large.basic.icon {
+  font-size: 1.5em;
+  margin-right: 0.2em;
+  vertical-align: middle;
+}
+i.big.basic.icon {
+  font-size: 2em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+i.huge.basic.icon {
+  font-size: 4em;
+  margin-right: 0.75em;
+  vertical-align: middle;
+}
+i.massive.basic.icon {
+  font-size: 8em;
+  margin-right: 1em;
+  vertical-align: middle;
+}

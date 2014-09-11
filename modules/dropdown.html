@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Dropdown | Semantic UI</title>
+
+  <meta name="description" content="A dropdown is a hidden list of selections that a user can choose to have appear" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="dropdown" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="active item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>UI Module:</b> Dropdown
+      </div>
+      
+      <a class="icon item" href="/modules/dimmer.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">4 of 10</span>
+        <div class="menu">
+          
+            <div class="item">
+              <a href="/modules/accordion.html">1. Accordion</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/checkbox.html">2. Checkbox</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/dimmer.html">3. Dimmer</a>
+            </div>
+          
+            <div class="active item">
+              <a href="/modules/dropdown.html">4. Dropdown</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/modal.html">5. Modal</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/popup.html">6. Popup</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/rating.html">7. Rating</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/shape.html">8. Shape</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/sidebar.html">9. Sidebar</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/transition.html">10. Transition</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/modules/modal.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
+          <i class="book icon"></i>
+        </a> -->
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  <script src="/javascript/dropdown.js"></script>
+
+
+
+<div class="tab segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        Dropdown
+        
+      </h1>
+
+      <p>A dropdown is a hidden list of selections that a user can choose to have appear</p>
+      
+      
+      <a href="/module.html" class="ui basic labeled icon button">
+        Learn about Modules
+        <i class="help icon"></i>
+      </a>
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      <div class="four item tabular ui menu">
+        
+          <a class="active item" data-tab="definition">Definition</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+      
+      <div class="fluid vertical ui menu">
+        
+          <a class="active item" data-tab="definition">Definition</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <div class="ui active tab" data-tab="definition">
+
+    <div class="peek">
+      <div class="ui vertical pointing secondary menu">
+        <a class="active item">Types</a>
+        <a class="item">Variations</a>
+        <a class="item">States</a>
+      </div>
+    </div>
+
+
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Dropdown</h4>
+      <p>A basic dropdown has no special formatting of its own</p>
+      <div class="ui dropdown">
+        <div class="text">Select</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Edit</div>
+          <div class="item">Remove</div>
+          <div class="item">Hide</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Inline</h4>
+      <p>A dropdown can be formatted to appear inline in other content</p>
+      <div>Show me posts trending
+        <div class="ui inline dropdown">
+          <div class="text">today</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-text="today">Today</div>
+            <div class="item" data-text="this week">This Week</div>
+            <div class="item" data-text="this month">This Month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Selection</h4>
+      <p>A dropdown can be formatted to allow selection of a menu choice.</p>
+      <div class="ui selection dropdown">
+        <input type="hidden" name="gender">
+        <div class="default text">Gender</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="1">Male</div>
+          <div class="item" data-value="0">Female</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="button example">
+      <h4 class="ui header">Floating</h4>
+      <p>A dropdown menu can appear to be floating below an element.</p>
+      <div class="ui teal buttons">
+        <div class="ui button">Save</div>
+        <div class="ui teal floating dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit Post</div>
+            <div class="item"><i class="delete icon"></i>Remove Post</div>
+            <div class="item"><i class="hide icon"></i>Hide Post</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hover example">
+    <h4 class="ui header">Pointing</h4>
+    <p>A dropdown can be formatted so that its menu is pointing</p>
+      <div class="ui compact menu">
+        <div class="menu">
+          <a class="active item">
+            <i class="home icon"></i> Home
+          </a>
+          <div class="ui pointing dropdown link item">
+            <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item"><i class="mail icon"></i>Inbox</a>
+              <a class="item"><i class="book icon"></i>Archive</a>
+            </div>
+          </div>
+          <a class="item">
+            <i class="user icon"></i> Browse
+          </a>
+          <a class="item">
+            <i class="question icon"></i> Help
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="another button example">
+      <div class="ui blue labeled icon top left pointing dropdown button">
+        <i class="settings icon"></i>
+        <span class="text">Settings</span>
+        <div class="menu">
+          <div class="item"><i class="edit icon"></i>Edit</div>
+          <div class="item"><i class="delete icon"></i>Remove</div>
+          <div class="item"><i class="hide icon"></i>Hide</div>
+        </div>
+      </div>
+      <div class="ui red labeled icon top right pointing dropdown button">
+        <i class="settings icon"></i>
+        <span class="text">Settings</span>
+        <div class="menu">
+          <div class="item"><i class="edit icon"></i>Edit</div>
+          <div class="item"><i class="delete icon"></i>Remove</div>
+          <div class="item"><i class="hide icon"></i>Hide</div>
+        </div>
+      </div>
+    </div>
+    <div class="another button example">
+      <div class="ui right pointing dropdown icon button">
+        <i class="settings icon"></i>
+        <div class="menu">
+          <div class="item"><i class="edit icon"></i>Edit</div>
+          <div class="item"><i class="delete icon"></i>Remove</div>
+          <div class="item"><i class="hide icon"></i>Hide</div>
+        </div>
+      </div>
+      <div class="ui left pointing dropdown icon button">
+        <i class="settings icon"></i>
+        <div class="menu">
+          <div class="item"><i class="edit icon"></i>Edit</div>
+          <div class="item"><i class="delete icon"></i>Remove</div>
+          <div class="item"><i class="hide icon"></i>Hide</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Simple</h4>
+      <p>A simple dropdown can open without javascript</p>
+      <div class="ui compact menu">
+        <div class="ui simple dropdown item">
+          Dropdown <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">Choice 1</div>
+            <div class="item">Choice 2</div>
+            <div class="item">Choice 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Fluid</h4>
+      <p>A dropdown can take the full width of its parent</p>
+      <div class="ui vertical menu">
+        <a class="item">Link 1</a>
+        <a class="item">Link 2</a>
+        <div class="header item">All Sections</div>
+        <div class="ui item">
+          <div class="ui fluid selection dropdown">
+            <div class="text">More</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">Choice 1</div>
+              <div class="item">Choice 2</div>
+              <div class="item">Choice 3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">States</h2>
+
+
+    <div class="dropdown example">
+      <h4 class="ui header">Error</h4>
+      <p>An errored dropddown can alert a user to a problem</p>
+      <div class="ui floating dropdown error">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+      <br><br>
+      <div class="ui selection dropdown error">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="ui header">Simple Dropdown (No Javascript)</h4>
+    <div class="example">
+      <h4 class="ui header">Active</h4>
+      <p>An active dropdown has its menu open</p>
+      <div class="ui info message">An active state will only affect a simple dropdown. To activate a menu on a dropdown module use <code>$('.ui.dropdown').dropdown('show');</code></div>
+      <div class="ui simple active dropdown">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Disabled</h4>
+      <p>A disabled dropdown menu will not open or close</p>
+      <div class="ui info message">A disabled state will only affect a simple dropdown. To disable a dropdown module use <code>$('.ui.dropdown').dropdown('destroy');</code></div>
+      <div class="ui simple disabled dropdown">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+    <h2 class="ui dividing header">Initializing</h2>
+
+    <h3 class="ui header">Initializing a dropdown</h3>
+    <div class="code" data-label="HTML" data-type="html">
+      <div class="ui dropdown">
+        <div class="text">Select</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="option1">Option 1</div>
+          <div class="item" data-value="option2">Option 2</div>
+        </div>
+      </div>
+    </div>
+    <div class="code" data-label="Javascript" data-type="javascript">
+      $('.ui.dropdown')
+        .dropdown()
+      ;
+    </div>
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    <p>All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .dropdown('behavior name', argumentOne, argumentTwo)
+    ;
+    </div>
+
+    <table class="ui definition sortable celled table segment">
+      <thead>
+        <tr>
+        <th>Behavior</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>toggle</td>
+          <td>Toggles current visibility of dropdown</td>
+        </tr>
+        <tr>
+          <td>show</td>
+          <td>Shows dropdown</td>
+        </tr>
+        <tr>
+          <td>hide</td>
+          <td>Hides dropdown</td>
+        </tr>
+        <tr>
+          <td>hide others</td>
+          <td>Hides all other dropdowns that is not current dropdown</td>
+        </tr>
+        <tr>
+          <td>restore defaults</td>
+          <td>Restores dropdown text and value to its value on page load</td>
+        </tr>
+        <tr>
+          <td>restore default text</td>
+          <td>Restores dropdown text to its value on page load</td>
+        </tr>
+        <tr>
+          <td>restore default value</td>
+          <td>Restores dropdown value to its value on page load</td>
+        </tr>
+        <tr>
+          <td>save defaults</td>
+          <td>Saves current text and value as new defaults (for use with restore)</td>
+        </tr>
+        <tr>
+          <td>set selected(value)</td>
+          <td>Sets selected state to a given value</td>
+        </tr>
+        <tr>
+          <td>set text(text)</td>
+          <td>Sets dropdown text to a value</td>
+        </tr>
+        <tr>
+          <td>set value(value)</td>
+          <td>Sets dropdown input to value</td>
+        </tr>
+        <tr>
+          <td>get text</td>
+          <td>Returns current dropdown text</td>
+        </tr>
+        <tr>
+          <td>get value</td>
+          <td>Returns current dropdown input value</td>
+        </tr>
+        <tr>
+          <td>get item(value)</td>
+          <td>Returns DOM element that matches a given input value</td>
+        </tr>
+        <tr>
+          <td>bind touch events</td>
+          <td>Adds touch events to element</td>
+        </tr>
+        <tr>
+          <td>mouse events</td>
+          <td>Adds mouse events to element</td>
+        </tr>
+        <tr>
+          <td>bind intent</td>
+          <td>Binds a click to document to determine if you click away from a dropdown</td>
+        </tr>
+        <tr>
+          <td>unbind intent</td>
+          <td>Unbinds document intent click</td>
+        </tr>
+        <tr>
+          <td>determine intent</td>
+          <td>Returns whether event occurred inside dropdown</td>
+        </tr>
+        <tr>
+          <td>determine select action(text, value)</td>
+          <td>Triggers preset item selection action based on settings passing text/value</td>
+        </tr>
+        <tr>
+          <td>set active</td>
+          <td>Sets dropdown to active state
+        <tr>
+          <td>set visible</td>
+          <td>Sets dropdown to visible state</td>
+        </tr>
+        <tr>
+          <td>remove active</td>
+          <td>rRemoves dropdown active state
+        <tr>
+          <td>remove visible</td>
+          <td>Removes dropdown visible state</td>
+        </tr>
+        <tr>
+          <td>is selection</td>
+          <td>Returns whether dropdown is a selection dropdown</td>
+        </tr>
+        <tr>
+          <td>is animated</td>
+          <td>Returns whether dropdown is animated</td>
+        </tr>
+        <tr>
+          <td>is visible</td>
+          <td>Returns whether dropdown is visible</td>
+        </tr>
+        <tr>
+          <td>is hidden</td>
+          <td>Returns whether dropdown is hidden</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
+
+    <div class="dropdown example">
+      <h3 class="ui header">Re-selecting values</h3>
+      <p>A dropdown will automatically select on page load any menu item that includes the currently value of <code>text</code> or your dropdown's hidden input value. This is used to preserve a user's selection on page navigation and will automatically remove and default text placeholder formatting.</p>
+
+      Current action: <div class="ui inline dropdown">
+        <div class="text">Hide</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Edit</div>
+          <div class="item">Remove</div>
+          <div class="item">Hide</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dropdown example">
+    <h3 class="ui header">Button Group</h3>
+      <p>A <a href="/elements/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
+      <div class="ui icon buttons">
+        <div class="ui top left pointing dropdown button">
+          <i class="user icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit User</div>
+            <div class="item"><i class="delete icon"></i>Remove User</div>
+            <div class="item"><i class="hide icon"></i>Make Invisible</div>
+          </div>
+        </div>
+        <div class="ui top left pointing dropdown button">
+          <i class="users icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit Group</div>
+            <div class="item"><i class="delete icon"></i>Remove Group</div>
+            <div class="item"><i class="hide icon"></i>Hide from Group</div>
+          </div>
+        </div>
+        <div class="ui top right pointing dropdown button">
+          <i class="settings icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit</div>
+            <div class="item"><i class="delete icon"></i>Remove</div>
+            <div class="item"><i class="hide icon"></i>Hide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="button example">
+      <h3 class="ui header">Combo Button</h3>
+      <p>A <a href="/elements/button.html">button</a> can be formatted with a dropdown</p>
+      <div class="ui teal buttons">
+        <div class="ui button">Update Post</div>
+        <div class="ui teal dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit Post</div>
+            <div class="item"><i class="delete icon"></i>Remove Post</div>
+            <div class="item"><i class="hide icon"></i>Hide Post</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h3 class="ui header">Multiple Levels</h3>
+      <p>A dropdown menu can also contain sub menus inside of it</p>
+      My favorite animal breed is <div class="ui inline dropdown">
+        <input type="hidden" name="gender">
+        <div class="text">Shiba Inu</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Dogs
+            <div class="menu">
+              <div class="item">Shiba Inu</div>
+              <div class="item">Poodle</div>
+              <div class="item">Labrador</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Cats
+            <div class="menu">
+              <div class="item">Aegean</div>
+              <div class="item">Balinese</div>
+              <div class="item">Persian</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="hover example">
+      <h3 class="ui header">Menu</h3>
+      <p>A <a href="/collections/menu.html">menu</a> element can contain a dropdown</p>
+        <div class="ui compact tiered purple inverted menu">
+          <div class="menu">
+            <a class="active item">
+              <i class="icon home"></i> Home
+            </a>
+            <a class="ui dropdown item">
+              <i class="icon mail"></i> Messages <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item">
+                  <i class="mail icon"></i>Categories
+                  <div class="menu">
+                    <div class="item">Unread</div>
+                    <div class="item">Promotions</div>
+                    <div class="item">Updates</div>
+                  </div>
+                </div>
+                <div class="item"><i class="book icon"></i>Archive</div>
+              </div>
+            </a>
+            <a class="item">
+              <i class="user icon"></i> Browse
+            </a>
+          </div>
+          <div class="sub menu">
+            <a class="item">Activity Feed</a>
+            <a class="item">Profile</a>
+            <a class="item">Events</a>
+          </div>
+        </div>
+    </div>
+
+    <div class="dropdown example">
+      <h3 class="ui header">Form</h3>
+      <p>A dropdown can be formatted to allow selection inside a <a href="/collections/form.html">form</a></p>
+      <div class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label>Gender</label>
+          <div class="ui dropdown selection">
+            <input type="hidden" name="gender">
+            <div class="default text">...</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="male">Male</div>
+              <div class="item" data-value="female">Female</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h3 class="ui header">Selection with error state</h3>
+      <p>A <a href="/modules/dropdown.html">dropdown</a> can have error state</p>
+      <div class="ui dropdown selection error">
+        <input type="hidden" name="gender">
+        <div class="default text">...</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="male">Male</div>
+          <div class="item" data-value="female">Female</div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown example">
+      <p>It works inside a <a href="/collections/form.html">form</a> too</p>
+      <div class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" type="text">
+          </div>
+        </div>
+        <div class="field error">
+          <label>Gender</label>
+          <div class="ui dropdown selection">
+            <input type="hidden" name="gender">
+            <div class="default text">...</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="male">Male</div>
+              <div class="item" data-value="female">Female</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h3 class="ui header">Keyboard Navigation</h3>
+      <p>A <a href="/modules/dropdown.html">dropdown</a> can be accessed with keyboard</p>
+      <div class="ui info message">
+        <code>div</code> elements do not normally gain focus on tab unless you add <code>tabindex</code> value to your dropdown
+      </div>
+      <div class="ui dropdown selection" tabindex="0">
+        <input type="hidden" name="gender">
+        <div class="default text">Select Gender</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" data-value="male">Male</div>
+          <div class="item" data-value="female">Female</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="transition example">
+      <h3 class="ui header">Transitions</h3>
+      <p>A dropdown can have different <a href="/modules/transition.html">transitions</a>.</p>
+      <div class="ui teal buttons">
+        <div class="ui button">Toggle</div>
+        <div class="ui teal floating dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="horizontal flip">Horizontal Flip</div>
+            <div class="item" data-value="fade up">Fade Up</div>
+            <div class="item" data-value="scale">Scale</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h3 class="ui header">
+      Dropdown Settings
+      <div class="sub header">Dropdown settings modify the dropdown's behavior</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>on</td>
+          <td>click</td>
+          <td>Event used to trigger dropdown (Hover, Click)</td>
+        </tr>
+        <tr>
+          <td>delay</td>
+          <td>
+          <div class="code">
+      delay: {
+        show: 50,
+        hide: 300
+      }
+          </div>
+          </td>
+          <td>Time in milliseconds to debounce show or hide behavior when <code>on: hover</code> is used.</td>
+        </tr>
+        <tr>
+          <td>transition</td>
+          <td>
+            slide down
+          </td>
+          <td>Named transition to use when animating menu in and out. Fade and slide down are available without including <a href="/modules/transition.html">ui transitions</a></td>
+        </tr>
+        <tr>
+          <td>duration</td>
+          <td>
+            250
+          </td>
+          <td>Duration of animation events</td>
+        </tr>
+        <tr>
+          <td>action</td>
+          <td>auto</td>
+          <td>Sets a default action to occur.
+          <div class="ui vertical divided list">
+            <div class="item">
+              <div class="header">activate</div>
+              <div class="description">Most likely action will be determined by type of dropdown, for example a selection dropdown will automatically use updateForm</div>
+            </div>
+            <div class="item">
+              <div class="header">nothing</div>
+              <div class="description">no action occurs</div>
+            </div>
+            <div class="item">
+              <div class="header">hide</div>
+              <div class="description">Dropdown menu is hidden</div>
+            </div>
+            <div class="item">
+              <div class="header">function(){}</div>
+              <div class="description">custom function is executed</div>
+            </div>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+    <h3 class="ui header">
+      Callbacks
+      <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th class="four wide">Setting</th>
+        <th>Context</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>onChange(value, text)</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown item is selected. receives the name and value of selection.</td>
+        </tr>
+        <tr>
+          <td>onShow</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown is shown.</td>
+        </tr>
+        <tr>
+          <td>onHide</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown is hidden.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>namespace</td>
+          <td>dropdown</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td colspan="2">
+            <div class="code">
+      selector : {
+        input : '> input[type="hidden"]',
+        item  : '.menu > .item',
+        menu  : '.menu',
+        text  : '> .text'
+      }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>metadata</td>
+          <td colspan="2">
+            <div class="code">
+      metadata: {
+        text  : 'text',
+        value : 'value'
+      }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td colspan="2">
+            <div class="code">
+      className : {
+        active      : 'active',
+        disabled    : 'disabled',
+        placeholder : 'default',
+        visible     : 'visible'
+      }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Dropdown</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>error</td>
+          <td colspan="2">
+            <div class="code">
+      error   : {
+        action    : 'You called a dropdown action that was not defined',
+        method    : 'The method you called is not defined.',
+        transition : 'The requested transition was not found'
+      }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+</body>
+
+</html>

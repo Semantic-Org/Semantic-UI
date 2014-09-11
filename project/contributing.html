@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Contributing | Semantic UI</title>
+
+  <meta name="description" content="It takes a village" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="guide" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="active item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>Semantic Project:</b> Contributing
+      </div>
+      
+      <div class="disabled icon item"><i class="left arrow icon"></i></div>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">1 of 2</span>
+        <div class="menu">
+          
+            <div class="active item">
+              <a href="/project/contributing.html">1. Contributing</a>
+            </div>
+          
+            <div class="item">
+              <a href="/project/development.html">2. Local Docs</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/project/development.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  <script src="/javascript/intro.js"></script>
+
+
+
+<div class="tab segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        Contributing
+        
+      </h1>
+
+      <p>It takes a village</p>
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+      <div class="three item tabular ui menu">
+        
+          <a class="active item" data-tab="introduction">Introduction</a>
+          
+        
+          <a class="item" data-tab="contributing">Contributing</a>
+          
+        
+          <a class="item" data-tab="learn">Learning More</a>
+          
+        
+      </div>
+      
+      <div class="fluid vertical ui menu">
+        
+          <a class="active item" data-tab="introduction">Introduction</a>
+          
+        
+          <a class="item" data-tab="contributing">Contributing</a>
+          
+        
+          <a class="item" data-tab="learn">Learning More</a>
+          
+        
+      </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <div class="ui active tab" data-tab="introduction">
+
+    <p>There are a variety of ways to contribute to the development of Semantic. We are a very new project and are looking for an enthusiastic and like-minded group of core contributors.
+
+    <h3 class="ui header">Publicity</h3>
+
+    <p>One of the easiest ways to support Semantic UI is to get the word out</p>
+
+    <script id='fbuzld8'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=jlukic&url=https%3A%2F%2Fgithub.com%2FSemantic-Org%2FSemantic-UI%2F';f.title='Flattr';f.height=62;f.width=55;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbuzld8');</script>
+    <br><br><br>
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true&size=large"
+    allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=follow&count=true&size=large"
+    allowtransparency="true" frameborder="0" scrolling="0" width="220" height="30"></iframe>
+
+    <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=fork&count=true&size=large"
+    allowtransparency="true" frameborder="0" scrolling="0" width="90" height="30"></iframe>
+
+    <a href="https://twitter.com/intent/tweet?button_hashtag=semanticui" class="twitter-hashtag-button" data-size="large" data-url="http://www.semantic-ui.com"></a>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <h3 class="ui header">Squashing Bugs</h3>
+
+    <p>Please submit any bugs you encounter when using the library to our <a href="https://github.com/semantic-org/Semantic-UI/issues?state=open">Github Issues Tracker</a>.</p>
+
+    <p>Be sure to include a set of steps to reproduce the issue and any related information, browser, OS etc. If we can't see the issue then it will make solving things much more difficult.</p>
+
+    <div class="ui warning message">When submitting a bug report, please <a href="http://jsfiddle.net/pMDsH/">Fork this JSFiddle</a> to create a test-case. It will have Semantic and normalize.css included for you automatically.</div>
+
+    <a class="ui teal button" href="https://github.com/semantic-org/Semantic-UI/issues/new"><i class="github icon"></i> Submit a bug report</a>
+
+    <h3 class="ui header">Pull Requests</h3>
+
+    <p>If you see a bug and you'd like to fix it, feel free to open a pull request.</p>
+    <div class="ui buttons">
+      <a class="ui teal button" href="https://github.com/semantic-org/Semantic-UI/compare/">Create a Pull Request</a>
+      <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues?state=open">View Open Issues</a>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="contributing">
+
+    <h2 class="ui dividing header">Ideas</h2>
+
+    <p>Semantic is looking for people to help contribute new core UI components, and suggest extensions for the library.</p>
+
+    <p>If you have suggestions for components missing from Semantic which you'd like to see in future versions please add them to our public UI Component board. The current list of upcoming components, and their current development status can be seen on the contributor UI board.</p>
+
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/new"><i class="lightbulb icon"></i> Add an idea</a>
+
+    <h2 class="ui dividing header">Code</h2>
+
+    <p>We are looking for a few good coders to help us push out important new features for a release version of Semantic. Here's an overview of current features in development</p>
+
+    <h3 class="ui header">CSS Variables</h3>
+
+    <p>We are working on porting Semantic to using CSS variables to allow for easier theming. We are currently planning on using a CSS Pre-processor to move useful values over to variables. The current plan is to <b>not use mix-ins or pre-processor specific code</b> besides variables, and to add vendor prefixing using Grunt.</p>
+    <a class="ui teal vertical animated button" href="mailto:jacklukic@gmail.com?Subject=I%20would%20love%20to%20work%20on%20%3Cinsert%20feature%20name%3E&Body=Hey%2C%20I%20just%20wanted%20to%20introduce%20myself%0A%0A%3CHere%27s%20a%20link%20to%20info%20about%20me%20or%20my%20github%3E%0A%0A%3CHere%27s%20a%20bit%20about%20what%20i%20need%20to%20help%20contribute%3E%0A%0A%3CHere%27s%20how%20i%20think%20i%27ll%20get%20started%20on%20that%20feature%3E">
+      <div class="visible content">Help code this</div>
+      <div class="hidden content"><i class="mail icon"></i> Reach Out</div>
+    </a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/216">Share Ideas</a>
+
+    <div class="ui section divider"></div>
+
+    <h3 class="ui header">Example Layouts</h3>
+
+    <p>We are looking to create example layouts with Semantic to help people make sites quicker, and to learn the intracicies of using Semantic UI. The plan is to eventually create a sister site <b>learnsemantic.com</b> which will contain useful features for learning to use Semantic.</p>
+
+    <a class="ui teal vertical animated button" href="mailto:jacklukic@gmail.com?Subject=I%20would%20love%20to%20work%20on%20%3Cinsert%20feature%20name%3E&Body=Hey%2C%20I%20just%20wanted%20to%20introduce%20myself%0A%0A%3CHere%27s%20a%20link%20to%20info%20about%20me%20or%20my%20github%3E%0A%0A%3CHere%27s%20a%20bit%20about%20what%20i%20need%20to%20help%20contribute%3E%0A%0A%3CHere%27s%20how%20i%20think%20i%27ll%20get%20started%20on%20that%20feature%3E">
+      <div class="visible content">Help code this</div>
+      <div class="hidden content"><i class="mail icon"></i> Reach Out</div>
+    </a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/206">Share Ideas</a>
+
+    <div class="ui section divider"></div>
+
+    <h3 class="ui header">Build Tools</h3>
+
+    <p>We need to create a customizer for Semantic so user's can choose which components they would like to include and create custom zips with their minified concatenated code.</p>
+    <p>Most likely this means creating a standalone server that can take API requests for custom builds of semantic and return zip with minified and uncompressed source, or with a little ingenuity in-page javascript which uses JSZIP to do the same</p>
+
+    <a class="ui teal vertical animated button" href="mailto:jacklukic@gmail.com?Subject=I%20would%20love%20to%20work%20on%20%3Cinsert%20feature%20name%3E&Body=Hey%2C%20I%20just%20wanted%20to%20introduce%20myself%0A%0A%3CHere%27s%20a%20link%20to%20info%20about%20me%20or%20my%20github%3E%0A%0A%3CHere%27s%20a%20bit%20about%20what%20i%20need%20to%20help%20contribute%3E%0A%0A%3CHere%27s%20how%20i%20think%20i%27ll%20get%20started%20on%20that%20feature%3E">
+      <div class="visible content">Help code this</div>
+      <div class="hidden content"><i class="mail icon"></i> Reach Out</div>
+    </a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/189">Share Ideas</a>
+
+    <div class="ui section divider"></div>
+
+    <h3 class="ui header">Test Coverage</h3>
+
+    <p>Semantic uses <a href="">Jasmine</a> with <a href="http://karma-runner.github.io/0.10/index.html" target="_blank">Karma Test Runner</a> and <a href="https://travis-ci.org/semantic-org/Semantic-UI" target="_blank">Travis CI</a> to write unit tests for our UI modules.</p>
+
+    <p>We need help to increase our code coverage by writing Jasmine tests for <a href="/module.html">modules</a> and to write feature specs which can be used to write tests.</p>
+
+    <a class="ui teal vertical animated button" href="mailto:jacklukic@gmail.com?Subject=I%20would%20love%20to%20work%20on%20%3Cinsert%20feature%20name%3E&Body=Hey%2C%20I%20just%20wanted%20to%20introduce%20myself%0A%0A%3CHere%27s%20a%20link%20to%20info%20about%20me%20or%20my%20github%3E%0A%0A%3CHere%27s%20a%20bit%20about%20what%20i%20need%20to%20help%20contribute%3E%0A%0A%3CHere%27s%20how%20i%20think%20i%27ll%20get%20started%20on%20that%20feature%3E">
+      <div class="visible content">Help code this</div>
+      <div class="hidden content"><i class="mail icon"></i> Reach Out</div>
+    </a>
+    <a class="ui button" href="https://github.com/semantic-org/Semantic-UI/issues/244">Share Ideas</a>
+
+  </div>
+
+  <div class="ui tab" data-tab="learn">
+
+    <h3 class="ui header">Style Guide</h3>
+    <p>Contributors may find it useful to read over the coding guidelines for the project. Most importantly, the guide for language, as it is one of the most important parts about Semantic UI.</p>
+
+    <div class="ui buttons">
+      <a class="ui button" href="/guide/styleguide.html">Language</a>
+      <a class="ui button" href="/guide/cssguide.html">CSS</a>
+      <a class="ui button" href="/guide/javascriptguide.html">Javascript</a>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

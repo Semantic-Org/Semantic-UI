@@ -1,0 +1,59 @@
+{
+    "Name": "Semantic Header",
+    "Description": "Headers provide a short summary of content",
+    "Definition": "Elements",
+    "Types": {
+        "Header": ".ui.header",
+        "Descriptive Headers": ".ui.header",
+        "Icon": ".ui.header",
+        "Page Headings": ".ui.header",
+        "Content Headings": ".ui.header"
+    },
+    "States": {},
+    "Variations": {
+        "Attached": [
+            "top attached",
+            "bottom attached"
+        ],
+        "Floating": [
+            "right floated",
+            "left floated"
+        ],
+        "Colors": [
+            "black",
+            "blue",
+            "red",
+            "green",
+            "purple",
+            "teal"
+        ],
+        "Dividing": [
+            "dividing"
+        ],
+        "Block": [
+            "black block"
+        ],
+        "Inverted": [
+            "inverted black block",
+            "inverted blue block",
+            "inverted red block",
+            "inverted green block",
+            "inverted purple block",
+            "inverted teal block"
+        ]
+    },
+    "Definitions": {
+        "Header": "A standard header",
+        "Descriptive Headers": "Headers may have sub headers containing further context to the section",
+        "Icon": "A header can be formatted to emphasize an icon",
+        "Page Headings": "Headers may be oriented to give the heirarchy of a section in the context of the page",
+        "Content Headings": "Headers may be oriented to give the importance of a section in the context of the content that surrounds it",
+        "Disabled": "A header can show that it is inactive",
+        "Attached": "A header can be attached to other content",
+        "Floating": "A header can sit to the left or right of other content",
+        "Colors": "A header can be formatted with different colors",
+        "Dividing": "A header can be formatted to divide itself from the content below it",
+        "Block": "A header can be formatted to create a block",
+        "Inverted": "A header can have its colors inverted for contrast"
+    }
+}

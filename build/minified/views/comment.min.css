@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.19.2
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 09/11/2014
+*/
+
+.ui.comments a{cursor:pointer}.ui.comments .comment{position:relative;margin-top:.5em;padding-top:.5em}.ui.comments .comment:first-child{margin-top:0;padding-top:0}.ui.comments .comment .avatar{display:block;float:left;width:4em}.ui.comments .comment .avatar img{display:block;margin:0 auto;width:3em;height:3em;border-radius:500px}.ui.comments .comment>.avatar,.ui.comments .comment>.content{display:block}.ui.comments .comment .avatar~.content{padding:0 1em}.ui.comments .comment>.avatar~.content{padding-top:.25em;margin-left:3.5em}.ui.comments .comment .metadata{display:inline-block;margin-left:.3em;color:rgba(0,0,0,.4)}.ui.comments .comment .metadata>*{display:inline-block;margin:0 .3em 0 0}.ui.comments .comment .text{margin:.25em 0 .5em;word-wrap:break-word}.ui.comments .comment .actions{font-size:.9em}.ui.comments .comment .actions a{display:inline-block;margin:0 .3em 0 0;color:rgba(0,0,0,.3)}.ui.comments .comment .actions a.active,.ui.comments .comment .actions a:hover{color:rgba(0,0,0,.6)}.ui.comments .reply.form{margin-top:.75em;width:100%;max-width:30em}.ui.comments .comment .reply.form{margin-left:2em}.ui.comments>.reply.form{margin-top:1.5em;max-width:40em}.ui.comments .reply.form textarea{height:12em}.ui.comments .comment .comments{margin-top:.5em;padding-top:.5em;padding-bottom:1em}.ui.comments .comment .comments:before{position:absolute;top:0;left:0}.ui.comments>.comment .comments{margin-left:2em}.ui.comments>.comment>.comments>.comment>.comments{margin-left:1.75em}.ui.comments>.comment>.comments>.comment>.comments>.comment>.comments{margin-left:1.5em}.ui.comments>.comment>.comments>.comment>.comments>.comment>.comments>.comment .comments{margin-left:.5em}.ui.threaded.comments .comment .comments{margin-left:2em!important;padding-left:2em!important;-webkit-box-shadow:-1px 0 0 rgba(0,0,0,.05);box-shadow:-1px 0 0 rgba(0,0,0,.05)}.ui.minimal.comments .comment .actions{opacity:0;-webkit-transition:opacity .1s ease-out;-moz-transition:opacity .1s ease-out;transition:opacity .1s ease-out;-webkit-transition-delay:.1s;-moz-transition-delay:.1s;transition-delay:.1s}.ui.minimal.comments .comment>.content:hover>.actions{opacity:1}.ui.small.comments{font-size:.875em}

@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>List | Semantic UI</title>
+
+  <meta name="description" content="A list is a group of related content items ordered consecutively" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="list" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="active item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>UI View:</b> List
+      </div>
+      
+      <a class="icon item" href="/views/item.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">4 of 4</span>
+        <div class="menu">
+          
+            <div class="item">
+              <a href="/views/comment.html">1. Comment</a>
+            </div>
+          
+            <div class="item">
+              <a href="/views/feed.html">2. Feed</a>
+            </div>
+          
+            <div class="item">
+              <a href="/views/item.html">3. Item</a>
+            </div>
+          
+            <div class="active item">
+              <a href="/views/list.html">4. List</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <div class="disabled icon item"><i class="right arrow icon"></i></div>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
+          <i class="book icon"></i>
+        </a> -->
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  
+
+<div class="segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        List
+        
+      </h1>
+
+      <p>A list is a group of related content items ordered consecutively</p>
+      
+      <div class="ui basic labeled icon toggle overview button">
+        Definition Mode
+        <i class="book icon"></i>
+      </div>
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+  </div>
+</div>
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Types</a>
+      <a class="item">Content</a>
+      <a class="item">Variations</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
+  <div class="example">
+    <h4 class="ui header">List</h4>
+    <p>A standard list</p>
+    <div class="ui list">
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Schnoodle</div>
+          Your new dog
+        </div>
+        <div class="list">
+          <div class="item">
+            <i class="mail outline icon"></i>
+            <div class="content">
+              <a class="header">Thanks for being my owner</a>
+              <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="mail outline icon"></i>
+            <div class="content">
+              <a class="header">What a walk</a>
+              <div class="description">Man i am so tired that walk today really was too far...</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="map icon"></i>
+            <div class="content">
+              <a class="header">Sorry about your old dog</a>
+              <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Ragamuffin</div>
+          Your old dog.
+        </div>
+        <div class="list">
+          <div class="item">
+            <i class="photo icon"></i>
+            <div class="content">
+              <a class="header">Was on a walk today</a>
+              <div class="description">Here's a picture of me on the farm with a cow...</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="mail outline icon"></i>
+            <div class="content">
+              <a class="header">Ruff Ruff</a>
+              <div class="description">I know i usually message you in english but i wanted to see how your dog language was progressing...</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="mail outline icon"></i>
+            <div class="content">
+              <a class="header">Reaching Out</a>
+              <div class="description">Hey its your old dog, been a while since you sent me to the farm...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Bulleted</h4>
+    <p>A list can mark items with a bullet</p>
+    <div class="ui bulleted list">
+      <div class="item">Cats</div>
+      <div class="item">Horses</div>
+      <div class="item">Dogs
+        <div class="list">
+          <div class="item">Labradoodles</div>
+          <div class="item">Shiba Inu</div>
+          <div class="item">Mastiff</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ignored ui info message">For convenience, a simple bulleted list can also use <code>ul</code> tag.</div>
+    <ul class="ui list">
+      <li>Cats</li>
+      <li>Horses</li>
+      <li>Dogs</li>
+        <ul>
+          <li>Labradoodles</li>
+          <li>Shiba Inu</li>
+          <li>Mastiff</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Ordered</h4>
+    <p>A list can be ordered numerically</p>
+    <div class="ui ordered list">
+      <div class="item">Getting Started</div>
+      <div class="item">Introduction</div>
+      <div class="item">Languages
+        <div class="list">
+          <div class="item">HTML</div>
+          <div class="item">Javascript</div>
+          <div class="item">CSS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ignored ui info message">For convenience, a simple ordered list can also use the <code>ol</code> tag</div>
+    <ol class="ui list">
+      <li>Cats</li>
+      <li>Horses</li>
+      <li>Dogs</li>
+        <ol>
+          <li>Labradoodles</li>
+          <li>Shiba Inu</li>
+          <li>Mastiff</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Link</h4>
+    <p>A link list is specially formatted for page links</p>
+    <div class="ui link list">
+      <a class="item">Home</a>
+      <a class="item">About</a>
+      <a class="item">Jobs</a>
+      <a class="item">Team</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example">
+    <h4 class="ui header">Icon</h4>
+    <p>A list item can have an icon</p>
+    <div class="ui list">
+      <a class="item">
+        <i class="right triangle icon"></i>
+        How do you know your dog likes you?
+      </a>
+      <a class="item">
+        <i class="right triangle icon"></i>
+        When is it ok to send your dog to a farm?
+      </a>
+      <a class="item">
+        <i class="right triangle icon"></i>
+        Can you get your dog back from a farm if you really want him back?
+      </a>
+      <a class="item">
+        <i class="right triangle icon"></i>
+        Is trespassing on a farm a misdemeanor offence?
+      </a>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Content</h4>
+    <p>A list can have groups of content that can be floated left or right</p>
+    <div class="ui divided list">
+      <div class="item">
+        <div class="right floated tiny teal ui button">View Listing</div>
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">New York Dog Fair</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="right floated tiny teal ui button">View Listing</div>
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Dog Appreciation Day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearing example">
+    <h4 class="ui header">Link</h4>
+    <p>A list can contain items that link</p>
+    <div class="ui list">
+      <a class="item">What is a FAQ?</a>
+      <a class="item">How does one go about reading answers to questions in a FAQ</a>
+      <a class="item">How do you close a web browser?</a>
+      <a class="item">What is the most popular FAQ question?</a>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Header</h4>
+    <p>A list item can contain a header</p>
+    <div class="ui list">
+      <div class="item">
+        <div class="header">New York City</div>
+        A lovely city
+      </div>
+      <div class="item">
+        <div class="header">Chicago</div>
+        Also quite a lovely city
+      </div>
+      <div class="item">
+        <div class="header">Los Angeles</div>
+        Sometimes can be a lovely city
+      </div>
+      <div class="item">
+        <div class="header">San Francisco</div>
+        What a lovely city
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Description</h4>
+    <p>A list item can contain a description</p>
+    <div class="ui divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">San Francisco</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+
+  <div class="example">
+    <h4 class="ui header">Horizontal List</h4>
+    <p>A list can be formatted horizontally</p>
+    <div class="ui horizontal list">
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui ordered horizontal list">
+      <div class="item">New York City</div>
+      <div class="item">Chicago</div>
+      <div class="item">Los Angeles</div>
+      <div class="item">San Francisco</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui horizontal bulleted list">
+      <div class="item">
+        Apples
+      </div>
+      <div class="item">
+        Pears
+      </div>
+      <div class="item">
+        Oranges
+      </div>
+      <div class="item">
+        Soursop
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Inverted</h4>
+    <p>A list can be inverted to appear on a dark background</p>
+    <div class="ui inverted segment">
+      <div class="ui inverted relaxed divided list">
+        <div class="item">
+          <div class="content">
+            <div class="header">Snickerdoodle</div>
+            An excellent companion
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Poodle</div>
+            A poodle, its pretty basic
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header">Paulo</div>
+            He's also a dog
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Selection</h4>
+    <p>A selection list formats list items as possible choices</p>
+    <div class="ui selection list">
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Animated</h4>
+    <p>A list can animate to set the current item apart from the list</p>
+    <div class="ui animated list">
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Relaxed</h4>
+    <p>A list can relax its padding to provide more negative space</p>
+    <div class="ui relaxed divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui very relaxed divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui relaxed horizontal divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui very relaxed horizontal divided list">
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">New York City</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Chicago</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map marker icon"></i>
+        <div class="content">
+          <a class="header">Los Angeles</a>
+          <div class="description">A lovely city</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Divided</h4>
+    <p>A list can show divisions between content</p>
+    <div class="ui divided list">
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui divided horizontal list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Celled</h4>
+    <p>A list can divide its items into cells</p>
+    <div class="ui celled list">
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar2.jpg">
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/demo/avatar3.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui celled horizontal list">
+      <div class="item">About Us</div>
+      <div class="item">Contact</div>
+      <div class="item">Support</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Sizes</h4>
+    <p>A list can vary in size</p>
+
+    <div class="ui mini list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui tiny list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui small list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui large list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui big list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui huge list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui massive list">
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">Thanks for being my owner</a>
+          <div class="description">Im so glad you chose to bring me home from the shelter...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="mail outline icon"></i>
+        <div class="content">
+          <a class="header">What a walk</a>
+          <div class="description">Man i am so tired that walk today really was too far...</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="map icon"></i>
+        <div class="content">
+          <a class="header">Sorry about your old dog</a>
+          <div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</body>
+
+</html>

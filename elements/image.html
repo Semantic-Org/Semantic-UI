@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Image | Semantic UI</title>
+
+  <meta name="description" content="An image is a graphic representation of something" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="image" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="active item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>UI Element:</b> Image
+      </div>
+      
+      <a class="icon item" href="/elements/icon.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">5 of 12</span>
+        <div class="menu">
+          
+            <div class="item">
+              <a href="/elements/button.html">1. Button</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/divider.html">2. Divider</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/header.html">3. Header</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/icon.html">4. Icon</a>
+            </div>
+          
+            <div class="active item">
+              <a href="/elements/image.html">5. Image</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/input.html">6. Input</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/label.html">7. Label</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/loader.html">8. Loader</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/progress.html">9. Progress</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/reveal.html">10. Reveal</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/segment.html">11. Segment</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/step.html">12. Step</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/elements/input.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
+          <i class="book icon"></i>
+        </a> -->
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  
+
+<div class="segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        Image
+        
+      </h1>
+
+      <p>An image is a graphic representation of something</p>
+      
+      <div class="ui basic labeled icon toggle overview button">
+        Definition Mode
+        <i class="book icon"></i>
+      </div>
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Standard</a>
+      <a class="item">States</a>
+      <a class="item">Variations</a>
+      <a class="item">Groups</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
+  <div class="example">
+    <h4 class="ui header">Image</h4>
+    <p>An image</p>
+    <div class="ui ignored info message">Images will, by default, take up the same size as the original image. Specifying an image size will force an image to only take up a specific size.</div>
+    <img class="ui medium image" src="/images/demo/photo.jpg">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Image Link</h4>
+    <p>An image can be formatted to link to other content</p>
+    <a href="http://google.com" class="ui medium image">
+      <img src="/images/demo/photo.jpg">
+    </a>
+  </div>
+
+  <h2 class="ui dividing header">
+    States
+  </h2>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>An image can show that it is disabled and cannot be selected</p>
+    <img class="medium disabled ui image" src="/images/demo/photo.jpg">
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Avatar</h4>
+    <p>An image may be formatted to appear inline with text as an avatar</p>
+    <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Rounded</h4>
+    <p>An image may appear rounded</p>
+    <img class="rounded ui image" src="/images/demo/photo2.jpg">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Circular</h4>
+    <p>An image may appear circular</p>
+    <img class="circular ui image" src="/images/demo/photo2.jpg">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Floated</h4>
+    <p>An image can sit to the left or right of other content</p>
+    <div class="ui segment">
+    <img class="ui small left floated image" src="/images/demo/photo.jpg">
+    <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+    <img class="ui small right floated image" src="/images/demo/photo.jpg">
+    <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.</p>
+
+    <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum postulant per id.</p>
+    </div>
+  </div>
+
+  <div class="clearing example">
+    <h4 class="ui header">Sizes</h4>
+    <p>An image may be formatted to be different sizes</p>
+    <img class="ui tiny image" src="/images/demo/photo2.jpg">
+
+    <div class="ui simple ignored divider"></div>
+    <img class="ui mini image" src="/images/demo/photo2.jpg">
+
+    <div class="ui simple ignored divider"></div>
+    <img class="ui small image" src="/images/demo/photo2.jpg">
+
+    <div class="ui simple ignored divider"></div>
+    <img class="ui large image" src="/images/demo/photo.jpg">
+
+    <div class="ui simple ignored divider"></div>
+    <img class="ui huge image" src="/images/demo/photo.jpg">
+  </div>
+
+
+
+  <h2 class="ui dividing header">Groups</h2>
+
+  <div class="example">
+    <h4 class="ui header">Sizes</h4>
+    <p>A group of images can be formatted to have the same size.</p>
+    <div class="ui small images">
+      <img class="ui image" src="/images/demo/photo.jpg">
+      <img class="ui image" src="/images/demo/photo.jpg">
+      <img class="ui image" src="/images/demo/photo.jpg">
+      <img class="ui image" src="/images/demo/photo.jpg">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui medium images">
+      <img src="/images/demo/photo.jpg">
+      <img src="/images/demo/photo.jpg">
+      <img src="/images/demo/photo.jpg">
+      <img src="/images/demo/photo.jpg">
+    </div>
+  </div>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Sidebar | Semantic UI</title>
+
+  <meta name="description" content="A sidebar is a menu hidden beside page content" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="side" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="active item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>UI Module:</b> Sidebar
+      </div>
+      
+      <a class="icon item" href="/modules/shape.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">9 of 10</span>
+        <div class="menu">
+          
+            <div class="item">
+              <a href="/modules/accordion.html">1. Accordion</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/checkbox.html">2. Checkbox</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/dimmer.html">3. Dimmer</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/dropdown.html">4. Dropdown</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/modal.html">5. Modal</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/popup.html">6. Popup</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/rating.html">7. Rating</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/shape.html">8. Shape</a>
+            </div>
+          
+            <div class="active item">
+              <a href="/modules/sidebar.html">9. Sidebar</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/transition.html">10. Transition</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/modules/transition.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
+          <i class="book icon"></i>
+        </a> -->
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  <script src="/javascript/sidebar.js"></script>
+
+
+
+<div class="tab segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        Sidebar
+        
+      </h1>
+
+      <p>A sidebar is a menu hidden beside page content</p>
+      
+      
+      <a href="/module.html" class="ui basic labeled icon button">
+        Learn about Modules
+        <i class="help icon"></i>
+      </a>
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      <div class="four item tabular ui menu">
+        
+          <a class="active item" data-tab="definition">Definition</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+      
+      <div class="fluid vertical ui menu">
+        
+          <a class="active item" data-tab="definition">Definition</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+    
+  </div>
+</div>
+
+<div class="ui styled sidebar">
+  <h3 class="ui header">You Might Like</h3>
+  <div class="ui fluid vertical menu">
+    <a class="item">
+      <i class="chat outline icon"></i>
+      More by this author
+    </a>
+    <a class="item">
+      <i class="text file icon"></i>
+      Suggested Articles
+    </a>
+  </div>
+  <h3 class="ui header">Contact Us</h3>
+  <div class="ui form">
+    <div class="field">
+      <label>Name</label>
+      <div class="ui icon input">
+        <i class="user icon"></i>
+        <input type="text" data-placeholder="Name">
+      </div>
+    </div>
+    <div class="field">
+      <label>Message</label>
+      <textarea></textarea>
+    </div>
+    <div class="ui black fluid button">Submit</div>
+  </div>
+</div>
+<div class="ui thin styled sidebar">
+  <h3 class="ui header">Share</h3>
+  <div class="ui fluid vertical labeled icon buttons">
+    <div class="ui facebook button">
+      <i class="facebook icon"></i>
+      Facebook
+    </div>
+    <div class="ui twitter button">
+      <i class="twitter icon"></i>
+      Twitter
+    </div>
+    <div class="ui google plus button">
+      <i class="google plus icon"></i>
+      Google
+    </div>
+  </div>
+</div>
+<div class="ui very thin styled sidebar">
+  <div class="ui fluid vertical icon buttons">
+    <div class="ui facebook button">
+      <i class="facebook icon"></i>
+    </div>
+    <div class="ui twitter button">
+      <i class="twitter icon"></i>
+    </div>
+    <div class="ui google plus button">
+      <i class="google plus icon"></i>
+    </div>
+  </div>
+</div>
+<div class="ui wide styled sidebar">
+  <h3 class="ui header">You Might Like</h3>
+  <div class="ui fluid vertical menu">
+    <a class="item">
+      <i class="chat outline icon"></i>
+      More by this author
+    </a>
+    <a class="item">
+      <i class="text file icon"></i>
+      Suggested Articles
+    </a>
+  </div>
+</div>
+<div class="ui very wide styled sidebar">
+  <h3 class="ui header">Contact Us</h3>
+  <div class="ui form">
+    <div class="field">
+      <label>Name</label>
+      <div class="ui icon input">
+        <i class="user icon"></i>
+        <input type="text" data-placeholder="Name">
+      </div>
+    </div>
+    <div class="field">
+      <label>Message</label>
+      <textarea></textarea>
+    </div>
+    <div class="ui black fluid button">Submit</div>
+  </div>
+</div>
+
+<div class="ui vertical overlay sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="active item">
+    <i class="heart icon"></i>
+    Current Section
+  </a>
+  <a class="item">
+    <i class="facebook icon"></i>
+    Like us on Facebook
+  </a>
+  <div class="item">
+    <b>More</b>
+    <div class="menu">
+      <a class="item">About</a>
+      <a class="item">Contact Us</a>
+    </div>
+  </div>
+</div>
+<div class="ui floating vertical sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="active item">
+    <i class="heart icon"></i>
+    Current Section
+  </a>
+  <a class="item">
+    <i class="facebook icon"></i>
+    Like us on Facebook
+  </a>
+  <div class="item">
+    <b>More</b>
+    <div class="menu">
+      <a class="item">About</a>
+      <a class="item">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<div class="ui red vertical demo sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="active item">
+    <i class="heart icon"></i>
+    Current Section
+  </a>
+  <a class="item">
+    <i class="facebook icon"></i>
+    Like us on Facebook
+  </a>
+  <div class="item">
+    <b>More</b>
+    <div class="menu">
+      <a class="item">About</a>
+      <a class="item">Contact Us</a>
+    </div>
+  </div>
+</div>
+<div class="ui left sidebar vertical menu">
+  <div class="header item">Left Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+<div class="ui right sidebar inverted red vertical menu">
+  <div class="header item">Right Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+<div class="ui top inverted teal sidebar menu">
+  <div class="header item">Top Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+<div class="ui bottom inverted sidebar menu">
+  <div class="header item">Bottom Sidebar menu</div>
+  <a class="item">One</a>
+  <a class="item">Two</a>
+  <a class="item">Three</a>
+</div>
+
+<div class="main container">
+
+  <div class="ui active tab" data-tab="definition">
+    <div class="peek">
+      <div class="ui vertical pointing secondary menu">
+        <a class="active item">Types</a>
+        <a class="item">Variations</a>
+      </div>
+    </div>
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="no example">
+      <h4 class="ui header">Direction</h4>
+      <p>A sidebar can appear on any side of content</p>
+      <div class="code" data-type="html">
+        <div class="ui sidebar">...</div>
+        <div class="ui top sidebar">...</div>
+        <div class="ui right sidebar">...</div>
+        <div class="ui bottom sidebar">...</div>
+      </div>
+      <div class="ui variation toggle buttons">
+        <div class="ui button" data-variation=".left">
+          Left
+        </div>
+        <div class="ui button" data-variation=".top">
+          Top
+        </div>
+        <div class="ui button" data-variation=".right">
+          Right
+        </div>
+        <div class="ui button" data-variation=".bottom">
+          Bottom
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <div class="no styled example">
+      <h4 class="ui header">Styled</h4>
+      <p>A sidebar can be formatted to include additional styling for display</p>
+      <div class="code" data-type="html">
+        <div class="ui styled sidebar">...</div>
+      </div>
+      <div class="ui labeled icon button">
+        <i class="reorder icon"></i>
+        Show
+      </div>
+    </div>
+
+    <div class="no size example">
+      <h4 class="ui header">Size</h4>
+      <p>A sidebar can vary in width and height to allow more content</p>
+      <div class="code" data-type="html">
+        <div class="ui very thin sidebar">...</div>
+        <div class="ui thin sidebar">...</div>
+        <div class="ui wide sidebar">...</div>
+        <div class="ui very wide sidebar">...</div>
+      </div>
+      <div class="ui variation toggle buttons">
+        <div class="ui button" data-variation=".very.thin">
+          Very Thin
+        </div>
+        <div class="ui button" data-variation=".thin">
+          Thin
+        </div>
+        <div class="ui button" data-variation=".wide">
+          Wide
+        </div>
+        <div class="ui button" data-variation=".very.wide">
+          Very Wide
+        </div>
+      </div>
+    </div>
+
+    <div class="no floating example">
+      <h4 class="ui header">Floating</h4>
+      <p>A sidebar can appear floating above content</p>
+      <div class="code" data-type="html">
+        <div class="ui floating sidebar">...</div>
+      </div>
+      <div class="ui labeled icon button">
+        <i class="reorder icon"></i>
+        Show
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+    <h2 class="ui dividing header">Initializing</h2>
+    <p>Any content can be used as a sidebar by adding the class <code>ui sidebar</code> and initializing the menu in javascript.</p>
+    <div class="ui ignored warning icon message">
+      <i class="info letter icon"></i>
+      <div class="content">
+        <div class="header">Fixed Position</div>
+        <p>Fixed position content may have issues changing it's position when a sidebar appears. There are two solutions</p>
+        <ul class="ui list">
+          <li>Specify your fixed content without using the css left or top properties.</li>
+          <li>Apply styles on the fixed element to adjust its position when the sidebar appears. You can do this by descending from the body tag which receives the class <code>(direction) pushed</code> when the view is moved.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="code" data-label="true" data-type="html">
+      <div class="ui sidebar">
+        Any content in the world
+      </div>
+    </div>
+    <div class="code" data-label="true" data-type="javascript">
+      $('.ui.sidebar')
+        .sidebar()
+      ;
+    </div>
+
+    <h2 class="ui dividing header">Usage</h2>
+
+    <div class="no example">
+      <h4 class="ui header">Showing a sidebar</h4>
+      <p>A sidebar can be shown, hidden, or toggled. In the following examples sidebar is used in conjunction with <a href="/collections/menu.html">ui menu</a> to display a vertical menu as a sidebar.</p>
+      <div class="code" data-type="html" data-title="Example HTML">
+      <div class="ui red vertical demo sidebar menu">
+        <a class="item">
+          <i class="home icon"></i>
+          Home
+        </a>
+        <a class="active item">
+          <i class="heart icon"></i>
+          Current Section
+        </a>
+        <a class="item">
+          <i class="facebook icon"></i>
+          Like us on Facebook
+        </a>
+        <div class="item">
+          <b>More</b>
+          <div class="menu">
+            <a class="item">About</a>
+            <a class="item">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="code" data-demo="true" data-type="javascript">
+      $('.demo.sidebar')
+        .sidebar('toggle')
+      ;
+      </div>
+    </div>
+
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    <p>All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .sidebar('behavior name', argumentOne, argumentTwo)
+    ;
+    </div>
+
+    <table class="ui definition celled sortable table segment">
+      <thead>
+        <th>Behavior</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>attach events(selector, event)</td>
+          <td>Attaches sidebar action to given selector. Default event if none specified is toggle</td>
+        </tr>
+        <tr>
+          <td>show</td>
+          <td>Shows sidebar</td>
+        </tr>
+        <tr>
+          <td>hide</td>
+          <td>Hides sidebar</td>
+        </tr>
+        <tr>
+          <td>toggle</td>
+          <td>Toggles visibility of sidebar</td>
+        </tr>
+        <tr>
+          <td>is open</td>
+          <td>Returns whether sidebar is open</td>
+        </tr>
+        <tr>
+          <td>is closed</td>
+          <td>Returns whether sidebar is closed</td>
+        </tr>
+        <tr>
+          <td>push page</td>
+          <td>Pushes page content to be visible alongside sidebar</td>
+        </tr>
+        <tr>
+          <td>get direction</td>
+          <td>Returns direction of current sidebar</td>
+        </tr>
+        <tr>
+          <td>pull page</td>
+          <td>Returns page content to original position</td>
+        </tr>
+        <tr>
+          <td>add body css</td>
+          <td>Adds stylesheet to page head to trigger sidebar animations</td>
+        </tr>
+        <tr>
+          <td>remove body css</td>
+          <td>Removes any inline stylesheets for sidebar animation</td>
+        </tr>
+        <tr>
+          <td>get transition event</td>
+          <td>Returns vendor prefixed transition end event</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <div class="no example">
+      <h4 class="ui header">Overlay</h4>
+      <p>A sidebar can overlay page content instead of pushing it to the side</p>
+      <div class="code" data-demo="true">
+      $('.overlay.sidebar')
+        .sidebar({
+          overlay: true
+        })
+        .sidebar('toggle')
+      ;
+      </div>
+    </div>
+
+    <div class="no example">
+      <h4 class="ui header">Triggering show/hide with other content</h4>
+      <p>For convenience calling attach events will allow you to bind events. By default this will toggle the sidebar in and out of view on click</p>
+      <div class="code" data-demo="true">
+      $('.demo.sidebar').first()
+        .sidebar('attach events', '.toggle.button')
+      ;
+      $('.toggle.button')
+        .removeClass('disabled')
+      ;
+      </div>
+      <div class="ui disabled secondary labeled icon toggle button">
+        <i class="reorder icon"></i>
+        Trigger Sidebar
+      </div>
+    </div>
+
+    <div class="no example">
+      <h4 class="ui header">Triggering custom action with other content</h4>
+      <p>You can also however specify what action should occur when the element is clicked</p>
+      <div class="code" data-demo="true">
+      $('.demo.sidebar').first()
+        .sidebar('attach events', '.open.button', 'show')
+      ;
+      $('.open.button')
+        .removeClass('disabled')
+      ;
+      </div>
+      <div class="ui disabled secondary labeled icon open button">
+        <i class="reorder icon"></i>
+        Open Sidebar
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h3 class="ui header">
+      Sidebar Settings
+      <div class="sub header">Form settings modify the sidebar behavior</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>overlay</td>
+          <td>false</td>
+          <td>Whether sidebar should overlay page instead of pushing page to the side</td>
+        </tr>
+        <tr>
+          <td>exclusive</td>
+          <td>true</td>
+          <td>Whether multiple sidebars can be open at once</td>
+        </tr>
+        <tr>
+          <td>useCSS</td>
+          <td>true</td>
+          <td>Whether to use css animations or fallback javascript animations</td>
+        </tr>
+        <tr>
+          <td>duration</td>
+          <td>300</td>
+          <td>Duration of side bar transition animation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section icon divider"><i class="icon setting"></i></div>
+    <h4 class="ui header">Callbacks</h4>
+    <p>Callbacks specify a function to occur after a specific behavior.</p>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th class="four wide">Setting</th>
+        <th>Context</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>onShow</td>
+          <td>Sidebar</td>
+          <td>Is called when a sidebar is shown.</td>
+        </tr>
+        <tr>
+          <td>onHide</td>
+          <td>Sidebar</td>
+          <td>Is called when a sidebar is hidden.</td>
+        </tr>
+        <tr>
+          <td>onChange</td>
+          <td>Sidebar</td>
+          <td>Is called after a sidebar changes visibility</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+    <table class="ui celled definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="six wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>namespace</td>
+          <td>sidebar</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td>
+            <div class="code">
+      className: {
+        active : 'active',
+        pushed : 'pushed',
+        top    : 'top',
+        left   : 'left',
+        right  : 'right',
+        bottom : 'bottom'
+      }
+            </div>
+          </td>
+          <td>Class names used to attach style to state</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Sidebar</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>errors</td>
+          <td colspan="2">
+            <div class="code">
+      error   : {
+        method   : 'The method you called is not defined.',
+        notFound : 'There were no elements that matched the specified selector'
+      }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</body>
+
+</html>

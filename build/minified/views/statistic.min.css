@@ -1,0 +1,14 @@
+/*
+* # Semantic UI
+* Version: 0.19.2
+* http://github.com/jlukic/semantic-ui
+*
+*
+* Copyright 2014 Contributors
+* Released under the MIT license
+* http://opensource.org/licenses/MIT
+*
+* Released: 09/11/2014
+*/
+
+.ui.statistic{text-align:center}.ui.statistic>.number{font-size:4em;font-weight:700;color:rgba(0,0,0,.7)}.ui.statistic>.description{opacity:.8}

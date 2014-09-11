@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Label | Semantic UI</title>
+
+  <meta name="description" content="Labels give descriptions to pieces of content" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="label" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="active item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>UI Element:</b> Label
+      </div>
+      
+      <a class="icon item" href="/elements/input.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">7 of 12</span>
+        <div class="menu">
+          
+            <div class="item">
+              <a href="/elements/button.html">1. Button</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/divider.html">2. Divider</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/header.html">3. Header</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/icon.html">4. Icon</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/image.html">5. Image</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/input.html">6. Input</a>
+            </div>
+          
+            <div class="active item">
+              <a href="/elements/label.html">7. Label</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/loader.html">8. Loader</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/progress.html">9. Progress</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/reveal.html">10. Reveal</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/segment.html">11. Segment</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/step.html">12. Step</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/elements/loader.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
+          <i class="book icon"></i>
+        </a> -->
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  
+
+<div class="segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        Label
+        
+      </h1>
+
+      <p>Labels give descriptions to pieces of content</p>
+      
+      <div class="ui basic labeled icon toggle overview button">
+        Definition Mode
+        <i class="book icon"></i>
+      </div>
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Types</a>
+      <a class="item">Variations</a>
+      <a class="item">Groups</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Label</h4>
+    <p>A basic label</p>
+    <div class="ui label">
+      <i class="mail icon"></i> 23
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Detail</h4>
+    <p>A label can contain a detail</p>
+    <div class="ui label">
+      Dogs
+      <div class="detail">214</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Removable</h4>
+    <p>A label can contain a delete icon</p>
+    <div class="ui label">
+      Witty
+      <i class="delete icon"></i>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Link</h4>
+    <p>A label can contain a text link</p>
+    <div class="ui label">
+      Inbox
+      <a class="detail"><i class="mail icon"></i> 23</a>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Image</h4>
+    <p>A label can be formatted to include an image</p>
+    <a class="ui image label">
+      <img src="/images/demo/photo2.jpg">
+      dog@doggington.com
+      <i class="delete icon"></i>
+    </a>
+    <a class="ui image label">
+      <img src="/images/demo/avatar2.jpg">
+      james@thepooch.com
+      <i class="delete icon"></i>
+    </a>
+    <a class="ui image label">
+      <img src="/images/demo/avatar3.jpg">
+      kelly@bellyscratcher.com
+      <i class="delete icon"></i>
+    </a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Corner</h4>
+    <p>A label can position itself in the corner of an element</p>
+    <div class="yellow ui message">A corner label must be positioned inside a container with position: relative to display properly</div>
+    <div class="ui segment">
+      <div class="ui right red corner label">
+        <i class="heart icon"></i>
+      </div>
+      <div class="ui left corner label">
+        <div class="text">New</div>
+      </div>
+      This is a normal text segment
+    </div>
+    <div class="ui left floated medium image">
+      <a class="ui left corner label">
+        <div class="text">New</div>
+      </a>
+      <img src="/images/demo/highres2.jpg">
+    </div>
+    <div class="ui left floated medium image">
+      <a class="ui right red corner label">
+        <i class="heart icon"></i>
+      </a>
+      <img src="/images/demo/highres3.jpg">
+    </div>
+  </div>
+
+  <div class="clearing example">
+    <h4 class="ui header">Ribbon</h4>
+    <p>A label can appear as a ribbon attaching itself to an element.</p>
+    <div class="ui two column grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui raised segment">
+            <div class="ui ribbon label">Dogs</div>
+            <p>Pretty nice animals.</p>
+            <div class="ui teal ribbon label">Cats</div>
+            <p>Also pretty nice animals, but can prefer solitude.</p>
+            <div class="ui red ribbon label">Ogres and monsters</div>
+            <p>Never seen one as a pet before, but I imagine they'd make pretty terrible companions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="existing code">
+      <div class="ui ribbon label">Dogs</div>
+      </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Attached</h4>
+    <p>A label can attach to a content segment</p>
+    <div class="ui three column grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui top attached label">HTML</div>
+            <p>This is some pretend content</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui bottom attached label">CSS</div>
+            <p>This is some pretend content</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui top right attached label">Code</div>
+            <p>This is some pretend content</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui top left attached label">View</div>
+            <p>This is some pretend content</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui bottom left attached label">User View</div>
+            <p>This is some pretend content</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui bottom right attached label">Admin View</div>
+            <p>This is some pretend content</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="existing code">
+    <div class="ui top attached label">HTML</div>
+    <div class="ui bottom attached label">CSS</div>
+    <div class="ui top right attached label">Code</div>
+    <div class="ui top left attached label">View</div>
+    <div class="ui bottom left attached label">User View</div>
+    <div class="ui bottom right attached label">Admin View</div>
+      </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+  <div class="example">
+    <h4 class="ui header">Colors</h4>
+    <p>A label can have different colors</p>
+    <a class="ui black label">
+      First
+    </a>
+    <a class="ui green label">
+      Fun
+    </a>
+    <a class="ui red label">
+      Happy
+    </a>
+    <a class="ui blue label">
+      Smart
+    </a>
+    <a class="ui orange label">
+      Radical
+    </a>
+    <a class="ui purple label">
+      Insane
+    </a>
+    <a class="ui teal label">
+      Exciting
+    </a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Horizontal</h4>
+    <p>A horizontal label is formatted to label content along-side it horizontally</p>
+    <div class="ui divided selection list">
+      <a class="item">
+        <div class="ui red horizontal label">Fruit</div>
+        Kumquats
+      </a>
+      <a class="item">
+        <div class="ui purple horizontal label">Candy</div>
+        Ice Cream
+      </a>
+      <a class="item">
+        <div class="ui red horizontal label">Fruit</div>
+        Orange
+      </a>
+      <a class="item">
+        <div class="ui horizontal label">Dog</div>
+        Poodle
+      </a>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Circular</h4>
+    <p>A label can be circular</p>
+    <a class="ui black circular label">
+      12
+    </a>
+    <a class="ui green circular label">
+      11
+    </a>
+    <a class="ui red circular label">
+      10
+    </a>
+    <a class="ui blue circular label">
+      64
+    </a>
+    <a class="ui purple circular label">
+      62
+    </a>
+    <a class="ui teal circular label">
+      1
+    </a>
+  </div>
+  <div class="another example">
+    <div class="ui black circular label"></div>
+    <div class="ui green circular label"></div>
+    <div class="ui red circular label"></div>
+    <div class="ui blue circular label"></div>
+    <div class="ui purple circular label"></div>
+    <div class="ui teal circular label"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Floating</h4>
+    <p>A label can float above another element</p>
+    <div class="ui compact menu">
+      <a class="item">
+        <i class="icon mail"></i> Messages
+        <div class="floating ui red label">22</div>
+      </a>
+      <a class="item">
+        <i class="icon users"></i> Friends
+        <div class="floating ui teal label">22</div>
+      </a>
+    </div>
+  </div>
+
+
+
+  <div class="example">
+    <h4 class="ui header">Pointing</h4>
+    <p>A label can point to content next to it</p>
+    <form class="ui fluid form">
+      <div class="field">
+        <input type="text" placeholder="First name">
+        <div class="ui pointing label">
+          Please enter a value
+        </div>
+      </div>
+      <div class="ui simple divider"></div>
+      <div class="field" placeholder="Last Name">
+        <div class="ui pointing below label">
+          Please enter a value
+        </div>
+        <input type="text">
+      </div>
+      <div class="ui simple divider"></div>
+      <div class="inline field">
+        <input type="text" placeholder="Username">
+        <div class="ui pointing left label">
+          That name is taken!
+        </div>
+      </div>
+      <div class="ui simple divider"></div>
+      <div class="inline field">
+        <div class="ui pointing right label">
+          Your password must be 6 characters or more
+        </div>
+        <input type="password">
+      </div>
+    </form>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Size</h4>
+    <p>A label can be small or large</p>
+    <div class="ui small label">
+      Fun
+    </div>
+    <br><br>
+    <div class="ui large label">
+      Fun
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Groups</h2>
+
+  <div class="example">
+    <h4 class="ui header">Size</h4>
+    <p>Labels can share sizes together</p>
+    <div class="ui large labels">
+      <div class="ui label">
+        Fun
+      </div>
+      <div class="ui label">
+        Happy
+      </div>
+      <div class="ui label">
+        Smart
+      </div>
+      <div class="ui label">
+        Witty
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Colors</h4>
+    <p>Labels can share colors together</p>
+    <div class="ui blue labels">
+      <a class="ui label">
+        Fun <i class="icon close"></i>
+      </a>
+      <a class="ui label">
+        Happy
+        <div class="detail">22</div>
+      </a>
+      <a class="ui label">
+        Smart
+      </a>
+      <a class="ui label">
+        Insane
+      </a>
+      <a class="ui label">
+        Exciting
+      </a>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Circular</h4>
+    <p>Labels can share shapes</p>
+    <div class="ui circular labels">
+      <a class="ui label">
+        11
+      </a>
+      <a class="ui label">
+        22
+      </a>
+      <a class="ui label">
+        33
+      </a>
+      <a class="ui label">
+        44
+      </a>
+      <a class="ui label">
+        141
+      </a>
+    </div>
+  </div>
+
+</div>
+</body>
+
+</html>

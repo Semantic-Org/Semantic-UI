@@ -1,0 +1,760 @@
+/*
+ * # Semantic - Form
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+           Standard
+*******************************/
+
+/*--------------------
+        Form
+---------------------*/
+
+.ui.form {
+  position: relative;
+  max-width: 100%;
+}
+.ui.form :first-child {
+  margin-top: 0em;
+}
+.ui.form :last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------------
+        Content
+---------------------*/
+
+.ui.form > p {
+  margin: 1em 0;
+}
+
+/*--------------------
+        Field
+---------------------*/
+
+.ui.form .field {
+  clear: both;
+  margin: 0em 0em 1em;
+}
+
+/*--------------------
+        Labels
+---------------------*/
+
+.ui.form .field > label {
+  margin: 0em 0em 0.3em;
+  display: block;
+
+  color: #555555;
+  font-size: 0.875em;
+}
+
+/*--------------------
+    Standard Inputs
+---------------------*/
+
+
+.ui.form textarea,
+.ui.form input[type="color"],
+.ui.form input[type="date"],
+.ui.form input[type="datetime"],
+.ui.form input[type="datetime-local"],
+.ui.form input[type="email"],
+.ui.form input[type="month"],
+.ui.form input[type="number"],
+.ui.form input[type="password"],
+.ui.form input[type="range"],
+.ui.form input[type="search"],
+.ui.form input[type="tel"],
+.ui.form input[type="text"],
+.ui.form input[type="time"],
+.ui.form input[type="url"],
+.ui.form input[type="week"],
+.ui.form .ui.input {
+  width: 100%;
+}
+
+.ui.form textarea,
+.ui.form input[type="color"],
+.ui.form input[type="date"],
+.ui.form input[type="datetime"],
+.ui.form input[type="datetime-local"],
+.ui.form input[type="email"],
+.ui.form input[type="month"],
+.ui.form input[type="number"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="tel"],
+.ui.form input[type="text"],
+.ui.form input[type="time"],
+.ui.form input[type="url"],
+.ui.form input[type="week"] {
+
+  margin: 0em;
+  padding: 0.65em 1em;
+  font-size: 1em;
+
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+
+
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.3125em;
+
+  -webkit-transition:
+    background-color 0.3s ease-out,
+    -webkit-box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  -moz-transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+  transition:
+    background-color 0.3s ease-out,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease
+  ;
+
+  -webkit-box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.3) inset;
+
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui.textarea,
+.ui.form textarea {
+  line-height: 1.33;
+  min-height: 8em;
+  height: 12em;
+  max-height: 24em;
+  resize: vertical;
+}
+
+.ui.form textarea,
+.ui.form input[type="checkbox"] {
+  vertical-align: top;
+}
+
+/*--------------------
+       Dividers
+---------------------*/
+
+.ui.form .divider {
+  clear: both;
+  margin: 1em 0em;
+}
+
+
+/*--------------------
+   Types of Messages
+---------------------*/
+
+.ui.form .info.message,
+.ui.form .warning.message,
+.ui.form .error.message {
+  display: none;
+}
+
+/* Assumptions */
+.ui.form .message:first-child {
+  margin-top: 0px;
+}
+
+/*--------------------
+   Validation Prompt
+---------------------*/
+
+.ui.form .field .prompt.label {
+  white-space: nowrap;
+}
+.ui.form .inline.field .prompt {
+  margin-top: 0em;
+  margin-left: 1em;
+}
+.ui.form .inline.field .prompt:before {
+  margin-top: -0.3em;
+  bottom: auto;
+  right: auto;
+  top: 50%;
+  left: 0em;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------------
+        Focus
+---------------------*/
+
+.ui.form input[type="color"]:focus,
+.ui.form input[type="date"]:focus,
+.ui.form input[type="datetime"]:focus,
+.ui.form input[type="datetime-local"]:focus,
+.ui.form input[type="email"]:focus,
+.ui.form input[type="month"]:focus,
+.ui.form input[type="number"]:focus,
+.ui.form input[type="password"]:focus,
+.ui.form input[type="search"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form input[type="text"]:focus,
+.ui.form input[type="time"]:focus,
+.ui.form input[type="url"]:focus,
+.ui.form input[type="week"]:focus
+.ui.form textarea:focus{
+  color: rgba(0, 0, 0, 0.85);
+  border-color: rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+
+  -webkit-appearance: none;
+
+  -webkit-box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0.3em 0em 0em 0em rgba(0, 0, 0, 0.2) inset;
+}
+
+/*--------------------
+        Error
+---------------------*/
+
+/* On Form */
+.ui.form.warning .warning.message {
+  display: block;
+}
+
+/*--------------------
+        Warning
+---------------------*/
+
+/* On Form */
+.ui.form.error .error.message {
+  display: block;
+}
+
+/* On Field(s) */
+.ui.form .fields.error .field label,
+.ui.form .field.error label,
+.ui.form .fields.error .field .input,
+.ui.form .field.error .input {
+  color: #D95C5C;
+}
+
+.ui.form .fields.error .field .corner.label,
+.ui.form .field.error .corner.label {
+  border-color: #D95C5C;
+  color: #FFFFFF;
+}
+
+.ui.form .fields.error .field textarea,
+.ui.form .fields.error .field input[type="color"],
+.ui.form .fields.error .field input[type="date"],
+.ui.form .fields.error .field input[type="datetime"],
+.ui.form .fields.error .field input[type="datetime-local"],
+.ui.form .fields.error .field input[type="email"],
+.ui.form .fields.error .field input[type="month"],
+.ui.form .fields.error .field input[type="number"],
+.ui.form .fields.error .field input[type="password"],
+.ui.form .fields.error .field input[type="search"],
+.ui.form .fields.error .field input[type="tel"],
+.ui.form .fields.error .field input[type="text"],
+.ui.form .fields.error .field input[type="time"],
+.ui.form .fields.error .field input[type="url"],
+.ui.form .fields.error .field input[type="week"],
+.ui.form .field.error textarea,
+.ui.form .field.error input[type="color"],
+.ui.form .field.error input[type="date"],
+.ui.form .field.error input[type="datetime"],
+.ui.form .field.error input[type="datetime-local"],
+.ui.form .field.error input[type="email"],
+.ui.form .field.error input[type="month"],
+.ui.form .field.error input[type="number"],
+.ui.form .field.error input[type="password"],
+.ui.form .field.error input[type="search"],
+.ui.form .field.error input[type="tel"],
+.ui.form .field.error input[type="text"],
+.ui.form .field.error input[type="time"],
+.ui.form .field.error input[type="url"],
+.ui.form .field.error input[type="week"] {
+  background-color: #FFFAFA;
+  border-color: #E7BEBE;
+  border-left: none;
+
+  color: #D95C5C;
+  padding-left: 1.2em;
+
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+
+  -webkit-box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+  box-shadow: 0.3em 0em 0em 0em #D95C5C inset;
+}
+
+.ui.form .field.error textarea:focus,
+.ui.form .field.error input[type="color"]:focus,
+.ui.form .field.error input[type="date"]:focus,
+.ui.form .field.error input[type="datetime"]:focus,
+.ui.form .field.error input[type="datetime-local"]:focus,
+.ui.form .field.error input[type="email"]:focus,
+.ui.form .field.error input[type="month"]:focus,
+.ui.form .field.error input[type="number"]:focus,
+.ui.form .field.error input[type="password"]:focus,
+.ui.form .field.error input[type="search"]:focus,
+.ui.form .field.error input[type="tel"]:focus,
+.ui.form .field.error input[type="text"]:focus,
+.ui.form .field.error input[type="time"]:focus,
+.ui.form .field.error input[type="url"]:focus,
+.ui.form .field.error input[type="week"]:focus{
+  border-color: rgba(255, 80, 80, 1);
+  color: rgba(255, 80, 80, 1);
+
+  -webkit-appearance: none;
+  -webkit-box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+  box-shadow: 0.3em 0em 0em 0em #FF5050 inset;
+}
+
+/*----------------------------
+  Dropdown Selection Warning
+-----------------------------*/
+
+.ui.form .fields.error .field .ui.dropdown,
+.ui.form .fields.error .field .ui.dropdown .item,
+.ui.form .field.error .ui.dropdown,
+.ui.form .field.error .ui.dropdown .item {
+  background-color: #FFFAFA;
+  color: #D95C5C;
+}
+
+.ui.form .fields.error .field .ui.dropdown,
+.ui.form .field.error .ui.dropdown {
+  -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+  box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+}
+
+.ui.form .fields.error .field .ui.dropdown:hover,
+.ui.form .field.error .ui.dropdown:hover {
+  -webkit-box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+  box-shadow: 0px 0px 0px 1px #E7BEBE !important;
+}
+.ui.form .fields.error .field .ui.dropdown:hover .menu,
+.ui.form .field.error .ui.dropdown:hover .menu {
+  -webkit-box-shadow: 0px 1px 0px 1px #E7BEBE;
+  box-shadow: 0px 1px 0px 1px #E7BEBE;
+}
+.ui.form .fields.error .field .ui.selection.dropdown .menu .item:hover,
+.ui.form .field.error .ui.selection.dropdown .menu .item:hover {
+  background-color: #FFF2F2;
+}
+
+
+/* Currently Active Item */
+.ui.form .fields.error .field .ui.dropdown .menu .active.item,
+.ui.form .field.error .ui.dropdown .menu .active.item {
+  background-color: #FDCFCF !important;
+}
+
+/*--------------------
+  Empty (Placeholder)
+---------------------*/
+
+/* browsers require these rules separate */
+.ui.form ::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+.ui.form ::-moz-placeholder {
+  color: #AAAAAA;
+}
+.ui.form :focus::-webkit-input-placeholder {
+  color: #999999;
+}
+.ui.form :focus::-moz-placeholder {
+  color: #999999;
+}
+
+/* Error Placeholder */
+.ui.form .error ::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.form .error ::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.4);
+}
+.ui.form .error :focus::-webkit-input-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+.ui.form .error :focus::-moz-placeholder {
+  color: rgba(255, 80, 80, 0.7);
+}
+
+/*--------------------
+       Disabled
+---------------------*/
+
+.ui.form .field :disabled,
+.ui.form .field.disabled {
+  opacity: 0.5;
+}
+.ui.form .field.disabled label {
+  opacity: 0.5;
+}
+.ui.form .field.disabled :disabled {
+  opacity: 1;
+}
+
+
+/*--------------------
+     Loading State
+---------------------*/
+
+/* On Form */
+.ui.form.loading {
+  position: relative;
+}
+.ui.form.loading:after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  content: '';
+
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
+  visibility: visible;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------------
+      Fluid Width
+---------------------*/
+
+.ui.form.fluid {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/*--------------------------
+  Input w/ attached Button
+---------------------------*/
+
+.ui.form input.attached {
+  width: auto;
+}
+
+/*--------------------
+      Date Input
+---------------------*/
+
+.ui.form .date.field > label {
+  position: relative;
+}
+.ui.form .date.field > label:after {
+  position: absolute;
+  top: 2em;
+  right: 0.5em;
+  font-family: 'Icons';
+  content: '\f133';
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #CCCCCC;
+}
+
+
+/*--------------------
+    Inverted Colors
+---------------------*/
+
+.ui.inverted.form label {
+  color: #FFFFFF;
+}
+.ui.inverted.form .field.error textarea,
+.ui.inverted.form .field.error input[type="color"],
+.ui.inverted.form .field.error input[type="date"],
+.ui.inverted.form .field.error input[type="datetime"],
+.ui.inverted.form .field.error input[type="datetime-local"],
+.ui.inverted.form .field.error input[type="email"],
+.ui.inverted.form .field.error input[type="month"],
+.ui.inverted.form .field.error input[type="number"],
+.ui.inverted.form .field.error input[type="password"],
+.ui.inverted.form .field.error input[type="search"],
+.ui.inverted.form .field.error input[type="tel"],
+.ui.inverted.form .field.error input[type="text"],
+.ui.inverted.form .field.error input[type="time"],
+.ui.inverted.form .field.error input[type="url"],
+.ui.inverted.form .field.error input[type="week"] {
+  background-color: #FFCCCC;
+}
+
+.ui.inverted.form .ui.checkbox label {
+  color: rgba(255, 255, 255, 0.8);
+}
+.ui.inverted.form .ui.checkbox label:hover,
+.ui.inverted.form .ui.checkbox .box:hover {
+  color: #FFFFFF;
+}
+
+/*--------------------
+     Field Groups
+---------------------*/
+
+/* Grouped Vertically */
+.ui.form .grouped.fields {
+  margin: 0em 0em 1em;
+}
+.ui.form .grouped.fields .field {
+  display: block;
+  float: none;
+  margin: 0.5em 0em;
+  padding: 0em;
+}
+
+
+/*--------------------
+          Fields
+---------------------*/
+
+/* Split fields */
+.ui.form .fields {
+  clear: both;
+}
+.ui.form .fields:after {
+  content: ' ';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.ui.form .fields > .field {
+  clear: none;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ui.form .fields > .field:first-child {
+  border-left: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Other Combinations */
+.ui.form .two.fields > .fields,
+.ui.form .two.fields > .field {
+  width: 50%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.ui.form .three.fields > .fields,
+.ui.form .three.fields > .field {
+  width: 33.333%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.ui.form .four.fields > .fields,
+.ui.form .four.fields > .field {
+  width: 25%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.ui.form .five.fields > .fields,
+.ui.form .five.fields > .field {
+  width: 20%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.ui.form .fields .field:first-child {
+  padding-left: 0%;
+}
+.ui.form .fields .field:last-child {
+  padding-right: 0%;
+}
+
+
+/* Fields grid support */
+.ui.form .fields .wide.field {
+  width: 6.25%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.ui.form .fields .wide.field:first-child {
+  padding-left: 0%;
+}
+.ui.form .fields .wide.field:last-child {
+  padding-right: 0%;
+}
+.ui.form .fields > .one.wide.field {
+  width: 6.25%;
+}
+.ui.form .fields > .two.wide.field {
+  width: 12.5%;
+}
+.ui.form .fields > .three.wide.field {
+  width: 18.75%;
+}
+.ui.form .fields > .four.wide.field {
+  width: 25%;
+}
+.ui.form .fields > .five.wide.field {
+  width: 31.25%;
+}
+.ui.form .fields > .six.wide.field {
+  width: 37.5%;
+}
+.ui.form .fields > .seven.wide.field {
+  width: 43.75%;
+}
+.ui.form .fields > .eight.wide.field {
+  width: 50%;
+}
+.ui.form .fields > .nine.wide.field {
+  width: 56.25%;
+}
+.ui.form .fields > .ten.wide.field {
+  width: 62.5%;
+}
+.ui.form .fields > .eleven.wide.field {
+  width: 68.75%;
+}
+.ui.form .fields > .twelve.wide.field {
+  width: 75%;
+}
+.ui.form .fields > .thirteen.wide.field {
+  width: 81.25%;
+}
+.ui.form .fields > .fourteen.wide.field {
+  width: 87.5%;
+}
+.ui.form .fields > .fifteen.wide.field {
+  width: 93.75%;
+}
+.ui.form .fields > .sixteen.wide.field {
+  width: 100%;
+}
+
+/* Swap to full width on mobile */
+@media only screen and (max-width : 767px) {
+  .ui.form .two.fields > .fields,
+  .ui.form .two.fields > .field,
+  .ui.form .three.fields > .fields,
+  .ui.form .three.fields > .field,
+  .ui.form .four.fields > .fields,
+  .ui.form .four.fields > .field,
+  .ui.form .five.fields > .fields,
+  .ui.form .five.fields > .field,
+  .ui.form .fields > .two.wide.field,
+  .ui.form .fields > .three.wide.field,
+  .ui.form .fields > .four.wide.field,
+  .ui.form .fields > .five.wide.field,
+  .ui.form .fields > .six.wide.field,
+  .ui.form .fields > .seven.wide.field,
+  .ui.form .fields > .eight.wide.field,
+  .ui.form .fields > .nine.wide.field,
+  .ui.form .fields > .ten.wide.field,
+  .ui.form .fields > .eleven.wide.field,
+  .ui.form .fields > .twelve.wide.field,
+  .ui.form .fields > .thirteen.wide.field,
+  .ui.form .fields > .fourteen.wide.field,
+  .ui.form .fields > .fifteen.wide.field,
+  .ui.form .fields > .sixteen.wide.field {
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
+
+/*--------------------
+    Inline Fields
+---------------------*/
+
+.ui.form .inline.fields .field {
+  min-height: 1.3em;
+  margin-right: 0.5em;
+}
+.ui.form .inline.fields .field > label,
+.ui.form .inline.fields .field > p,
+.ui.form .inline.fields .field > .ui.input,
+.ui.form .inline.fields .field > input,
+.ui.form .inline.field > label,
+.ui.form .inline.field > p,
+.ui.form .inline.field > .ui.input,
+.ui.form .inline.field > input {
+
+  display: inline-block;
+  width: auto;
+
+  margin-top: 0em;
+  margin-bottom: 0em;
+
+  vertical-align: middle;
+}
+
+.ui.form .inline.fields .field > :first-child,
+.ui.form .inline.field > :first-child {
+  margin: 0em 0.5em 0em 0em;
+}
+.ui.form .inline.fields .field > :only-child,
+.ui.form .inline.field > :only-child {
+  margin: 0em;
+}
+
+
+/*--------------------
+        Sizes
+---------------------*/
+
+/* Standard */
+.ui.small.form {
+  font-size: 0.875em;
+}
+.ui.small.form textarea,
+.ui.small.form input[type="color"],
+.ui.small.form input[type="date"],
+.ui.small.form input[type="datetime"],
+.ui.small.form input[type="datetime-local"],
+.ui.small.form input[type="email"],
+.ui.small.form input[type="month"],
+.ui.small.form input[type="number"],
+.ui.small.form input[type="password"],
+.ui.small.form input[type="search"],
+.ui.small.form input[type="tel"],
+.ui.small.form input[type="text"],
+.ui.small.form input[type="time"],
+.ui.small.form input[type="url"],
+.ui.small.form input[type="week"],
+.ui.small.form label{
+  font-size: 1em;
+}
+
+/* Large */
+.ui.large.form {
+  font-size: 1.125em;
+}
+

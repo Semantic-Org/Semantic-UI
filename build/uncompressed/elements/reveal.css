@@ -1,0 +1,295 @@
+/*
+ * # Semantic - Reveal
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Reveal
+*******************************/
+.ui.reveal {
+  display: inline-block;
+  position: relative !important;
+  z-index: 2 !important;
+  font-size: 0em !important;
+}
+.ui.reveal > .content {
+  font-size: 1rem !important;
+}
+.ui.reveal > .visible.content {
+  -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -moz-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+}
+.ui.reveal > .visible.content {
+  position: absolute !important;
+  top: 0em !important;
+  left: 0em !important;
+  z-index: 4 !important;
+  -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -moz-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+}
+.ui.reveal > .hidden.content {
+  position: relative !important;
+  z-index: 3 !important;
+}
+/*------------------
+   Loose Coupling
+-------------------*/
+.ui.reveal.button {
+  overflow: hidden;
+}
+/*******************************
+              Types
+*******************************/
+/*--------------
+      Slide
+---------------*/
+.ui.slide.reveal {
+  position: relative !important;
+  display: block;
+  overflow: hidden !important;
+  white-space: nowrap;
+}
+.ui.slide.reveal > .content {
+  display: block;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0em;
+  -webkit-transition: top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, right 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -moz-transition: top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, right 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  transition: top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, right 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s, bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+}
+.ui.slide.reveal > .visible.content {
+  position: relative !important;
+}
+.ui.slide.reveal > .hidden.content {
+  position: absolute !important;
+  left: 100% !important;
+  width: 100% !important;
+}
+.ui.slide.reveal:hover > .visible.content,
+.ui.slide.reveal:focus > .visible.content {
+  left: -100% !important;
+}
+.ui.slide.reveal:hover > .hidden.content,
+.ui.slide.reveal:focus > .hidden.content {
+  left: 0% !important;
+}
+.ui.right.slide.reveal > .visible.content {
+  left: 0%;
+}
+.ui.right.slide.reveal > .hidden.content {
+  left: auto !important;
+  right: 100% !important;
+}
+.ui.right.slide.reveal:hover > .visible.content,
+.ui.right.slide.reveal:focus > .visible.content {
+  left: 100% !important;
+  right: auto !important;
+}
+.ui.right.slide.reveal:hover > .hidden.content,
+.ui.right.slide.reveal:focus > .hidden.content {
+  left: auto !important;
+  right: 0% !important;
+}
+.ui.up.slide.reveal > .visible.content {
+  top: 0% !important;
+  left: 0% !important;
+  right: auto !important;
+  bottom: auto !important;
+}
+.ui.up.slide.reveal > .hidden.content {
+  top: 100% !important;
+  left: 0% !important;
+  right: auto !important;
+  bottom: auto !important;
+}
+.ui.slide.up.reveal:hover > .visible.content,
+.ui.slide.up.reveal:focus > .visible.content {
+  top: -100% !important;
+  left: 0% !important;
+}
+.ui.slide.up.reveal:hover > .hidden.content,
+.ui.slide.up.reveal:focus > .hidden.content {
+  top: 0% !important;
+  left: 0% !important;
+}
+.ui.down.slide.reveal > .visible.content {
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  bottom: 0% !important;
+}
+.ui.down.slide.reveal > .hidden.content {
+  top: auto !important;
+  right: auto !important;
+  bottom: 100% !important;
+  left: 0% !important;
+}
+.ui.slide.down.reveal:hover > .visible.content,
+.ui.slide.down.reveal:focus > .visible.content {
+  left: 0% !important;
+  bottom: -100% !important;
+}
+.ui.slide.down.reveal:hover > .hidden.content,
+.ui.slide.down.reveal:focus > .hidden.content {
+  left: 0% !important;
+  bottom: 0% !important;
+}
+/*--------------
+      Fade
+---------------*/
+.ui.fade.reveal > .hidden.content {
+  -webkit-transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -moz-transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+}
+.ui.fade.reveal > .hidden.content {
+  z-index: 5 !important;
+  opacity: 0;
+}
+.ui.fade.reveal:hover > .hidden.content {
+  opacity: 1;
+}
+/*--------------
+      Move
+---------------*/
+.ui.move.reveal > .visible.content,
+.ui.move.left.reveal > .visible.content {
+  left: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  right: 0% !important;
+}
+.ui.move.reveal:hover > .visible.content,
+.ui.move.left.reveal:hover > .visible.content,
+.ui.move.reveal:focus > .visible.content,
+.ui.move.left.reveal:focus > .visible.content {
+  right: 100% !important;
+}
+.ui.move.right.reveal > .visible.content {
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  left: 0% !important;
+}
+.ui.move.right.reveal:hover > .visible.content,
+.ui.move.right.reveal:focus > .visible.content {
+  left: 100% !important;
+}
+.ui.move.up.reveal > .visible.content {
+  right: auto !important;
+  left: auto !important;
+  top: auto !important;
+  bottom: 0% !important;
+}
+.ui.move.up.reveal:hover > .visible.content,
+.ui.move.up.reveal:focus > .visible.content {
+  bottom: 100% !important;
+}
+.ui.move.down.reveal > .visible.content {
+  right: auto !important;
+  left: auto !important;
+  top: 0% !important;
+  bottom: auto !important;
+}
+.ui.move.down.reveal:hover > .visible.content,
+.ui.move.down.reveal:focus > .visible.content {
+  top: 100% !important;
+}
+/*--------------
+     Rotate
+---------------*/
+.ui.rotate.reveal > .visible.content {
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.ui.rotate.reveal > .visible.content,
+.ui.rotate.right.reveal > .visible.content {
+  -webkit-transform-origin: bottom right;
+  -moz-transform-origin: bottom right;
+  -ms-transform-origin: bottom right;
+  transform-origin: bottom right;
+}
+.ui.rotate.reveal:hover > .visible.content,
+.ui.rotate.right.reveal:hover > .visible.content,
+.ui.rotate.reveal:focus > .visible.content,
+.ui.rotate.right.reveal:focus > .visible.content {
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+.ui.rotate.left.reveal > .visible.content {
+  -webkit-transform-origin: bottom left;
+  -moz-transform-origin: bottom left;
+  -ms-transform-origin: bottom left;
+  transform-origin: bottom left;
+}
+.ui.rotate.left.reveal:hover > .visible.content,
+.ui.rotate.left.reveal:focus > .visible.content {
+  -webkit-transform: rotate(-110deg);
+  -moz-transform: rotate(-110deg);
+  -ms-transform: rotate(-110deg);
+  transform: rotate(-110deg);
+}
+/*******************************
+              States
+*******************************/
+.ui.disabled.reveal {
+  opacity: 1 !important;
+}
+.ui.disabled.reveal > .content {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  transition: none !important;
+}
+.ui.disabled.reveal:hover > .visible.content,
+.ui.disabled.reveal:focus > .visible.content {
+  position: static !important;
+  display: block !important;
+  opacity: 1 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  -webkit-transform: none !important;
+     -moz-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
+}
+.ui.disabled.reveal:hover > .hidden.content,
+.ui.disabled.reveal:focus > .hidden.content {
+  display: none !important;
+}
+/*******************************
+           Variations
+*******************************/
+/*--------------
+     Masked
+---------------*/
+.ui.masked.reveal {
+  overflow: hidden;
+}
+/*--------------
+     Instant
+---------------*/
+.ui.instant.reveal > .content {
+  -webkit-transition-delay: 0s !important;
+  -moz-transition-delay: 0s !important;
+  transition-delay: 0s !important;
+}

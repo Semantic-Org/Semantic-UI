@@ -1,0 +1,344 @@
+/*
+ * # Semantic - Header
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Header
+*******************************/
+
+/* Standard */
+.ui.header {
+  border: none;
+  margin: 1em 0em 1rem;
+  padding: 0em;
+
+  font-size: 1.33em;
+  font-weight: bold;
+  line-height: 1.33;
+}
+
+.ui.header .sub.header {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0em;
+  padding: 0em;
+
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.ui.header .icon {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 0.5em;
+}
+.ui.header .icon:only-child {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.ui.header .content {
+  display: inline-block;
+  vertical-align: top;
+}
+.ui.header .icon + .content {
+  padding-left: 0.5em;
+  display: table-cell;
+}
+
+/* Positioning */
+.ui.header:first-child {
+  margin-top: 0em;
+}
+.ui.header:last-child {
+  margin-bottom: 0em;
+}
+.ui.header + p {
+  margin-top: 0em;
+}
+
+
+/*--------------
+  Page Heading
+---------------*/
+
+h1.ui.header {
+  min-height: 1rem;
+  line-height: 1.33;
+  font-size: 2rem;
+}
+h2.ui.header {
+  line-height: 1.33;
+  font-size: 1.75rem;
+}
+h3.ui.header {
+  line-height: 1.33;
+  font-size: 1.33rem;
+}
+h4.ui.header {
+  line-height: 1.33;
+  font-size: 1.1rem;
+}
+h5.ui.header {
+  line-height: 1.2;
+  font-size: 1rem;
+}
+
+/*--------------
+ Content Heading
+---------------*/
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 2em;
+}
+.ui.large.header {
+  font-size: 1.75em;
+}
+.ui.medium.header {
+  font-size: 1.33em;
+}
+.ui.small.header {
+  font-size: 1.1em;
+}
+.ui.tiny.header {
+  font-size: 1em;
+}
+
+
+/*******************************
+            Types
+*******************************/
+
+
+/*-------------------
+        Icon
+--------------------*/
+
+.ui.icon.header {
+  display: inline-block;
+  text-align: center;
+}
+.ui.icon.header .icon {
+  float: none;
+  display: block;
+  font-size: 3em;
+  margin: 0em auto 0.2em;
+  padding: 0em;
+}
+.ui.icon.header .content {
+  display: block;
+}
+.ui.icon.header .circular.icon,
+.ui.icon.header .square.icon {
+  font-size: 2em;
+}
+.ui.block.icon.header .icon {
+  margin-bottom: 0em;
+}
+.ui.icon.header.aligned {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/*******************************
+            States
+*******************************/
+
+.ui.disabled.header {
+  opacity: 0.5;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*-------------------
+       Colors
+--------------------*/
+
+.ui.blue.header {
+  color: #6ECFF5 !important;
+}
+.ui.black.header {
+  color: #5C6166 !important;
+}
+.ui.green.header {
+  color: #A1CF64 !important;
+}
+.ui.red.header {
+  color: #D95C5C !important;
+}
+.ui.purple.header {
+  color: #564F8A !important;
+}
+.ui.teal.header {
+  color: #00B5AD !important;
+}
+
+.ui.blue.dividing.header {
+  border-bottom: 3px solid #6ECFF5;
+}
+.ui.black.dividing.header {
+  border-bottom: 3px solid #5C6166;
+}
+.ui.green.dividing.header {
+  border-bottom: 3px solid #A1CF64;
+}
+.ui.red.dividing.header {
+  border-bottom: 3px solid #D95C5C;
+}
+.ui.purple.dividing.header {
+  border-bottom: 3px solid #564F8A;
+}
+.ui.teal.dividing.header {
+  border-bottom: 3px solid #00B5AD;
+}
+
+/*-------------------
+      Inverted
+--------------------*/
+
+.ui.inverted.header {
+  color: #FFFFFF;
+}
+.ui.inverted.header .sub.header {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/*-------------------
+   Inverted Colors
+--------------------*/
+
+.ui.inverted.black.header {
+  background-color: #5C6166 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.blue.header {
+  background-color: #6ECFF5 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.green.header {
+  background-color: #A1CF64 !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.red.header {
+  background-color: #D95C5C !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.purple.header {
+  background-color: #564F8A !important;
+  color: #FFFFFF !important;
+}
+.ui.inverted.teal.header {
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
+}
+
+.ui.inverted.block.header {
+  border-bottom: none;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.left.aligned.header {
+  text-align: left;
+}
+.ui.right.aligned.header {
+  text-align: right;
+}
+.ui.center.aligned.header {
+  text-align: center;
+}
+.ui.justified.header {
+  text-align: justify;
+}
+.ui.justified.header:after {
+  display: inline-block;
+  content: '';
+  width: 100%;
+}
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.header,
+.ui.left.floated.header {
+  float: left;
+  margin-top: 0em;
+  margin-right: 0.5em;
+}
+.ui.right.floated.header {
+  float: right;
+  margin-top: 0em;
+  margin-left: 0.5em;
+}
+
+/*-------------------
+       Fittted
+--------------------*/
+
+.ui.fitted.header {
+  padding: 0em;
+}
+
+
+/*-------------------
+      Dividing
+--------------------*/
+
+.ui.dividing.header {
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ui.dividing.header .sub.header {
+  padding-bottom: 0.5em;
+}
+.ui.dividing.header .icon {
+  margin-bottom: 0.2em;
+}
+
+
+/*-------------------
+        Block
+--------------------*/
+
+.ui.block.header {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.5em 1em;
+}
+
+/*-------------------
+       Attached
+--------------------*/
+
+.ui.attached.header {
+  background-color: #E0E0E0;
+  padding: 0.5em 1rem;
+
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.top.attached.header {
+  margin-bottom: 0em;
+  border-radius: 0.3125em 0.3125em 0em 0em;
+}
+.ui.bottom.attached.header {
+  margin-top: 0em;
+  border-radius: 0em 0em 0.3125em 0.3125em;
+}
+

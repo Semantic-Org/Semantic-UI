@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Button | Semantic UI</title>
+
+  <meta name="description" content="Buttons indicate a possible user action." />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/packaged/css/semantic.min.css">
+  
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/packaged/javascript/semantic.min.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="button" ontouchstart="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/">
+        <b>Introduction</b>
+      </a>
+      <div class="menu">
+        
+          <a class="item" href="/introduction/definitions.html">Definitions</a>
+        
+          <a class="item" href="/introduction/overview.html">Overview</a>
+        
+          <a class="item" href="/introduction/types.html">Types</a>
+        
+          <a class="item" href="/introduction/variations.html">Variations</a>
+        
+          <a class="item" href="/introduction.html">What's Different</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Project</b>
+      <div class="menu">
+        
+          <a class="item" href="/project/contributing.html">Contributing</a>
+        
+          <a class="item" href="/project/development.html">Local Docs</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/element.html"><b>Elements</b></a>
+      <div class="menu">
+        
+          <a class="active item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html"><b>Collections</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Views</b>
+      <div class="menu">
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/list.html">List</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html"><b>Modules</b></a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+        
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+        
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+        
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+        
+          <a class="item" href="/modules/modal.html">Modal</a>
+        
+          <a class="item" href="/modules/popup.html">Popup</a>
+        
+          <a class="item" href="/modules/rating.html">Rating</a>
+        
+          <a class="item" href="/modules/shape.html">Shape</a>
+        
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+        
+          <a class="item" href="/modules/transition.html">Transition</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Behavior</b>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>Style Guide</b>
+      <div class="menu">
+        
+          <a class="item" href="/guide/cssguide.html">CSS</a>
+        
+          <a class="item" href="/guide/javascriptguide.html">Javascript</a>
+        
+          <a class="item" href="/guide/styleguide.html">Language</a>
+        
+      </div>
+    </div>
+<!--     <div class="item">
+      <b>Specification</b>
+      <div class="menu">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> Content</a>
+      <div class="title item">
+        <b>UI Element:</b> Button
+      </div>
+      
+      <div class="disabled icon item"><i class="left arrow icon"></i></div>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">1 of 12</span>
+        <div class="menu">
+          
+            <div class="active item">
+              <a href="/elements/button.html">1. Button</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/divider.html">2. Divider</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/header.html">3. Header</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/icon.html">4. Icon</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/image.html">5. Image</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/input.html">6. Input</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/label.html">7. Label</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/loader.html">8. Loader</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/progress.html">9. Progress</a>
+            </div>
+          
+            <div class="item">
+              <a href="/modules/reveal.html">10. Reveal</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/segment.html">11. Segment</a>
+            </div>
+          
+            <div class="item">
+              <a href="/elements/step.html">12. Step</a>
+            </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/elements/divider.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+<!--         <a class="popup overview icon item" data-content="Toggle Definition">
+          <i class="book icon"></i>
+        </a> -->
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <!--
+        <div class="ui simple dropdown item">
+          <i class="icon tint"></i> Theme
+          <div class="theme menu">
+            <div class="active item" data-theme="flat">Flat</div>
+            <div class="item" data-theme="shaded">Shaded</div>
+            <div class="item" data-theme="classic">Classic</div>
+          </div>
+        </div>
+        !-->
+      </div>
+    </div>
+  </div>
+    <div class="ui black huge launch right attached button">
+      <i class="icon list layout"></i>
+      <span class="text">Menu</span>
+    </div>
+  <script src="/javascript/button.js"></script>
+
+
+
+<div class="segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui dividing header">
+        Button
+        
+      </h1>
+
+      <p>Buttons indicate a possible user action.</p>
+      
+      <div class="ui basic labeled icon toggle overview button">
+        Definition Mode
+        <i class="book icon"></i>
+      </div>
+      
+      
+    </div>
+    <div class="advertisement">
+      
+      <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/51619/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+
+  <div class="peek">
+    <div class="ui vertical pointing secondary menu">
+      <a class="active item">Types</a>
+      <a class="item">Groups</a>
+      <a class="item">States</a>
+      <a class="item">Variations</a>
+    </div>
+  </div>
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="follow example">
+    <h4 class="ui header">Button</h4>
+    <p>A standard button</p>
+    <div class="ui button">
+      Follow
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Animated</h4>
+    <p>A button can animate to show hidden content</p>
+    <div class="ui ignored message">The button will be automatically sized according to the visible content size. Make sure there is enough room for the hidden content to show</div>
+    <div class="ui animated button">
+      <div class="visible content">Next</div>
+      <div class="hidden content">
+        <i class="right arrow icon"></i>
+      </div>
+    </div>
+    <div class="ui vertical animated button">
+      <div class="hidden content">Shop</div>
+      <div class="visible content">
+        <i class="cart icon"></i>
+      </div>
+    </div>
+    <div class="ui animated fade button">
+      <div class="visible content">Sign-up for a Pro account</div>
+      <div class="hidden content">
+        $12.99 a month
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Icon</h4>
+    <p>A button can have only an icon</p>
+    <div class="ui icon button">
+      <i class="cloud icon"></i>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Labeled Icon</h4>
+    <p>A button can have an icon and a label</p>
+    <div class="ui labeled icon button">
+      <i class="pause icon"></i>
+      Pause
+    </div>
+    <div class="ui right labeled icon button">
+      <i class="right arrow icon"></i>
+      Next
+    </div>
+  </div>
+  <h2 class="ui dividing header">Groups</h2>
+
+  <div class="example">
+    <h4 class="ui header">Buttons</h4>
+    <p>Buttons can exist together as a group</p>
+    <div class="ui buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Icons</h4>
+    <p>Button groups can show groups of icons</p>
+    <div class="ui icon buttons">
+      <div class="ui button"><i class="align left icon"></i></div>
+      <div class="ui button"><i class="align center icon"></i></div>
+      <div class="ui button"><i class="align right icon"></i></div>
+      <div class="ui button"><i class="align justify icon"></i></div>
+    </div>
+    <div class="ui icon buttons">
+      <div class="ui button"><i class="bold icon"></i></div>
+      <div class="ui button"><i class="underline icon"></i></div>
+      <div class="ui button"><i class="text width icon"></i></div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Conditionals</h4>
+    <p>Button groups can be separated by conditionals</p>
+    <div class="ui buttons">
+      <div class="ui button">Cancel</div>
+      <div class="or"></div>
+      <div class="ui positive button">Save</div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Hover</h4>
+    <p>A button can change to show a user has hovered their mouse</p>
+    <div class="ui hover button">
+      Follow
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Down</h4>
+    <p>A button can change when pressed using touch or mouse events</p>
+    <div class="ui down button">
+      <i class="user icon"></i>
+      Follow
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Active</h4>
+    <p>A button can show it is currently the active user selection</p>
+    <div class="ui active button">
+      <i class="user icon"></i>
+      Follow
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A button can show it is currently unable to be interacted with</p>
+    <div class="ui disabled button">
+      <i class="user icon"></i>
+      Followed
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Loading</h4>
+    <p>A button can show a loading indicator</p>
+    <div class="ui loading button">Loading Button</div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+
+  <div class="example">
+    <h4 class="ui header">Social</h4>
+    <p>A button can be formatted to link to a social website</p>
+    <div class="ui facebook button">
+      <i class="facebook icon"></i>
+      Facebook
+    </div>
+    <div class="ui twitter button">
+      <i class="twitter icon"></i>
+      Twitter
+    </div>
+    <div class="ui google plus button">
+      <i class="google plus icon"></i>
+      Google Plus
+    </div>
+    <div class="ui vk button">
+      <i class="vk icon"></i>
+      VK
+    </div>
+    <br><br>
+    <div class="ui linkedin button">
+      <i class="linkedin icon"></i>
+      LinkedIn
+    </div>
+    <div class="ui instagram button">
+      <i class="instagram icon"></i>
+      Instagram
+    </div>
+    <div class="ui youtube button">
+      <i class="youtube icon"></i>
+      YouTube
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Sizes</h4>
+    <p>A button can have different sizes:</p>
+    <div class="mini ui button">
+      Mini
+    </div>
+    <div class="tiny ui button">
+      Tiny
+    </div>
+    <div class="small ui button">
+      Small
+    </div>
+    <div class="medium ui button">
+      Medium
+    </div>
+    <div class="large ui button">
+      Large
+    </div>
+    <div class="big ui button">
+      Big
+    </div>
+    <div class="huge ui button">
+      Huge
+    </div>
+    <div class="massive ui button">
+      Massive
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Ordinality</h4>
+    <p>A button can be formatted to show different levels of emphasis</p>
+    <div class="ui primary button">
+      Add to Cart
+    </div>
+    <div class="ui secondary button">
+      Save
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Basic</h4>
+    <p>A basic button removes all unnecessary formatting</p>
+    <div class="ui basic button">
+      <i class="icon user"></i>
+      Add Friend
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui inverted segment">
+      <div class="ui inverted basic button">
+        <i class="icon globe"></i>
+        Change Language
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Colors</h4>
+    <p>A button can have different colors:</p>
+    <a class="ui black button">Black Button</a>
+    <a class="ui green button">Green BUtton</a>
+    <a class="ui red button">Red Button</a>
+    <a class="ui blue button">Blue Button</a>
+  </div>
+  <div class="another example">
+    <a class="ui purple button">Purple Button</a>
+    <a class="ui teal button">Teal Button</a>
+    <a class="ui orange button">Orange Button</a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Toggle</h4>
+    <p>A button can be formatted to toggle on and off</p>
+    <div class="ui toggle button">
+      Vote
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Feedback</h4>
+    <p>A button can be positive or negative:</p>
+    <div class="positive ui button">Positive Button</div>
+    <div class="negative ui button">Negative Button</div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Fluid</h4>
+    <p>A button can fit parent container:</p>
+    <div class="fluid ui button">Fits container</div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Circular</h4>
+    <p>A button can be circular:</p>
+    <div class="circular ui button">Rounded</div>
+    <div class="circular ui icon button">
+      <i class="icon settings"></i></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Vertically Attached</h4>
+    <p>A button can be attached to the top or bottom of other content</p>
+    <div class="ui top attached button">Top</div>
+    <div class="ui attached segment"></div>
+    <div class="bottom attached ui button">Bottom</div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Horizontally Attached</h4>
+    <p>A button can be attached to the left or right of other content</p>
+    <div class="ui left attached button">Left</div>
+    <div class="right attached ui button">Right</div>
+  </div>
+
+
+  <h3 class="ui dividing header">Group Variations</h3>
+
+  <div class="example">
+    <h4 class="ui header">Vertical</h4>
+    <p>Groups can be formatted to appear vertically</p>
+    <div class="ui vertical buttons">
+      <div class="ui button">Top</div>
+      <div class="ui button">Middle</div>
+      <div class="ui button">Bottom</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Icon</h4>
+    <p>Groups can be formatted as icons</p>
+    <div class="ui icon buttons">
+      <div class="ui button">
+        <i class="pause icon"></i>
+      </div>
+      <div class="ui button">
+        <i class="play icon"></i>
+      </div>
+      <div class="ui button">
+        <i class="shuffle icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Labeled Icon</h4>
+    <p>Groups can be formatted as labeled icons</p>
+    <div class="ui vertical labeled icon buttons">
+      <div class="ui button">
+        <i class="pause icon"></i>
+        Pause
+      </div>
+      <div class="ui button">
+        <i class="play icon"></i>
+        Play
+      </div>
+      <div class="ui button">
+        <i class="shuffle icon"></i>
+        Shuffle
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Fluid</h4>
+    <p>Groups can be divided evenly to fit parent</p>
+    <div class="ui message">Evenly divided elements can either use the number or the word, i.e. 2 or "two"</div>
+    <div class="3 fluid ui buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+    <div class="ui ignored divider"></div>
+    <div class="five fluid ui buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+      <div class="ui button">Four</div>
+      <div class="ui button">Five</div>
+    </div>
+    <div class="ui ignored divider"></div>
+    <div class="12 fluid ui icon buttons">
+      <div class="ui button"><i class="tag icon"></i></div>
+      <div class="ui button"><i class="tags icon"></i></div>
+      <div class="ui button"><i class="tasks icon"></i></div>
+      <div class="ui button"><i class="terminal icon"></i></div>
+      <div class="ui button"><i class="text file icon"></i></div>
+      <div class="ui button"><i class="text file outline icon"></i></div>
+      <div class="ui button"><i class="time icon"></i></div>
+      <div class="ui button"><i class="trash icon"></i></div>
+      <div class="ui button"><i class="url icon"></i></div>
+      <div class="ui button"><i class="user icon"></i></div>
+      <div class="ui button"><i class="users icon"></i></div>
+      <div class="ui button"><i class="video icon"></i></div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Colors</h4>
+    <p>Groups can have a shared color</p>
+    <div class="blue ui buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Basic</h4>
+    <p>A button group can be formatted to remove extra formatting</p>
+    <div class="ui basic buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Sizes</h4>
+    <p>Groups can have a shared size</p>
+    <div class="huge ui buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+    <div class="large ui buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="small icon ui buttons">
+      <div class="ui button"><i class="align left icon"></i></div>
+      <div class="ui button"><i class="align center icon"></i></div>
+      <div class="ui button"><i class="align right icon"></i></div>
+      <div class="ui button"><i class="align justify icon"></i></div>
+    </div>
+    <div class="tiny icon ui buttons">
+      <div class="ui button"><i class="align left icon"></i></div>
+      <div class="ui button"><i class="align center icon"></i></div>
+      <div class="ui button"><i class="align right icon"></i></div>
+      <div class="ui button"><i class="align justify icon"></i></div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui huge buttons">
+      <div class="ui button">One</div>
+      <div class="or"></div>
+      <div class="ui button">Two</div>
+    </div>
+    <div class="ui large buttons">
+      <div class="ui button">One</div>
+      <div class="or"></div>
+      <div class="ui button">Two</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small buttons">
+      <div class="ui button">One</div>
+      <div class="or"></div>
+      <div class="ui button">Two</div>
+    </div>
+    <div class="ui tiny buttons">
+      <div class="ui button">One</div>
+      <div class="or"></div>
+      <div class="ui button">Two</div>
+    </div>
+  </div>
+
+</div>
+</body>
+
+</html>

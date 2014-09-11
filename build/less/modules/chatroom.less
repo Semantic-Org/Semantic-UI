@@ -1,0 +1,272 @@
+/*
+ * # Semantic - Chat Room
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+           Chat Room
+*******************************/
+
+.ui.chatroom {
+	background-color: #F8F8F8;
+	width: 330px;
+	height: 370px;
+	padding: 0px;
+}
+.ui.chatroom .room {
+	position: relative;
+	background-color: #FFFFFF;
+	overflow: hidden;
+	height: 286px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: none;
+	border-bottom: none;
+}
+.ui.chatroom .room .loader {
+	display: none;
+	margin: -25px 0px 0px -25px;
+}
+/* Chat Room Actions */
+.ui.chatroom .actions {
+	overflow: hidden;
+	background-color: #EEEEEE;
+	padding: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px 5px 0px 0px;
+}
+.ui.chatroom .actions .button {
+	float: right;
+	margin-left: 3px;
+}
+
+/* Online User Count */
+.ui.chatroom .actions .message {
+	float: left;
+	margin-left: 6px;
+	font-size: 11px;
+	color: #AAAAAA;
+	text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.8);
+	line-height: 28px;
+}
+.ui.chatroom .actions .message .loader {
+	display: inline-block;
+	margin-right: 8px;
+}
+
+
+/* Chat Room Text Log */
+.ui.chatroom .log {
+	float: left;
+
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.ui.chatroom .log .message {
+	padding: 3px 0px;
+	border-top: 1px dotted #DADADA;
+}
+.ui.chatroom .log .message:first-child {
+	border-top: none;
+}
+/* status event */
+.ui.chatroom .status {
+	padding: 5px 0px;
+	color: #AAAAAA;
+
+	font-size: 12px;
+	font-style: italic;
+	line-height: 1.33;
+	border-top: 1px dotted #DADADA;
+}
+.ui.chatroom .log .status:first-child {
+	border-top: none;
+}
+
+
+
+.ui.chatroom .log .flag {
+	float: left;
+}
+.ui.chatroom .log p {
+	margin-left: 0px;
+}
+.ui.chatroom .log .author {
+	font-weight: bold;
+	-webkit-transition: color 0.3s ease-out;
+	-moz-transition: color 0.3s ease-out;
+	transition: color 0.3s ease-out;
+}
+.ui.chatroom .log a.author:hover {
+	opacity: 0.8;
+}
+
+.ui.chatroom .log .message.admin p {
+	font-weight: bold;
+	margin: 1px 0px 0px 23px;
+}
+.ui.chatroom .log .divider {
+	margin: -1px 0px;
+	font-size: 11px;
+	padding: 10px 0px;
+	border-top: 1px solid #F8F8F8;
+	border-bottom: 1px solid #F8F8F8;
+}
+.ui.chatroom .log .divider .rule {
+	top: 50%;
+	width: 15%;
+}
+
+.ui.chatroom .log .divider .label {
+	color: #777777;
+	margin: 0px;
+}
+
+/* Chat Room User List */
+.ui.chatroom .room .list {
+	position: relative;
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	float: left;
+	background-color: #EEEEEE;
+	border-left: 1px solid #DDDDDD;
+}
+.ui.chatroom .room .list .user {
+	display: table;
+	padding: 3px 7px;
+	border-bottom: 1px solid #DDDDDD;
+}
+.ui.chatroom .room .list .user:hover {
+	background-color: #F8F8F8;
+}
+.ui.chatroom .room .list .image {
+	display: table-cell;
+	vertical-align: middle;
+	width: 20px;
+}
+.ui.chatroom .room .list .image img {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+.ui.chatroom .room .list p {
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 7px;
+	padding-right: 14px;
+	font-size: 11px;
+	line-height: 1.2;
+	font-weight: bold;
+}
+.ui.chatroom .room .list a:hover {
+	opacity: 0.8;
+}
+
+/* User List Loading */
+.ui.chatroom.loading .loader {
+	display: block;
+}
+
+
+
+/* Chat Room Talk Input */
+.ui.chatroom .talk {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 5px 0px 0px;
+
+	background-color: #EEEEEE;
+	border-radius: 0px 0px 5px 5px;
+}
+.ui.chatroom .talk .avatar,
+.ui.chatroom .talk input,
+.ui.chatroom .talk .button {
+	float: left;
+}
+
+.ui.chatroom .talk .avatar img {
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin-right: 4px;
+	border-radius: 500rem;
+}
+.ui.chatroom .talk input {
+	border: 1px solid #CCCCCC;
+  margin: 0px;
+  width: 196px;
+  height: 14px;
+  padding: 8px 5px;
+  font-size: 12px;
+  color: #555555;
+}
+.ui.chatroom .talk input.focus {
+	border: 1px solid #AAAAAA;
+}
+.ui.chatroom .send {
+	width: 80px;
+	height: 32px;
+
+  margin-left: -1px;
+	padding: 4px 12px;
+	font-size: 12px;
+	line-height: 23px;
+
+	-webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+
+	border-radius: 0 5px 5px 0;
+}
+.ui.chatroom .talk .log-in.button {
+	display: block;
+	float: none;
+	margin-top: -6px;
+	height: 22px;
+	border-radius: 0px 0px 4px 4px;
+}
+.ui.chatroom .talk .log-in.button i {
+	vertical-align: text-top;
+}
+
+/* Quirky Flags */
+.ui.chatroom .log .team.flag {
+	width: 18px;
+}
+
+/* Chat room Loaded */
+.ui.chatroom.loading .loader {
+	display: block;
+}
+
+
+/* Standard Size */
+.ui.chatroom {
+	width: 330px;
+	height: 370px;
+}
+.ui.chatroom .room .container {
+	width: 3000px;
+}
+.ui.chatroom .log {
+	width: 314px;
+	height: 278px;
+	padding: 4px 7px;
+}
+.ui.chatroom .room .list {
+	width: 124px;
+	height: 278px;
+	padding: 4px 0px;
+}
+.ui.chatroom .room .list .user {
+	width: 110px;
+}
+.ui.chatroom .talk {
+	height: 40px;
+}

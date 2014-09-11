@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.69.0" />
+  <title>Tab | Semantic UI</title>
+
+  <meta name="description" content="A tab is a section of content tied to a navigation menu" />
+  <meta name="keywords" content="html5, ui, library, framework, javascript" />
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/globals/reset.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/globals/site.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/icon.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/button.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/divider.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/flag.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/header.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/image.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/input.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/list.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/loader.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/reveal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/progress.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/segment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/elements/step.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/breadcrumb.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/form.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/grid.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/menu.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/message.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/collections/table.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/card.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/comment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/feed.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/item.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/views/statistic.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/modal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/accordion.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/dropdown.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/popup.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/rating.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/sidebar.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/shape.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/sticky.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/tab.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/checkbox.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/dimmer.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/build/uncompressed/definitions/modules/transition.css">
+  
+
+  <!-- <link rel="stylesheet/less" type="text/css" href="/build/less/definitions/site.less" /> -->
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/doc-icon.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.js'
+        : '/javascript/library/jquery.legacy.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/waypoints.js"></script>
+
+  
+  <script src="/build/uncompressed/definitions/globals/site.js"></script>
+  <script src="/build/uncompressed/definitions/behaviors/api.js"></script>
+  <script src="/build/uncompressed/definitions/behaviors/visibility.js"></script>
+  <script src="/build/uncompressed/definitions/behaviors/state.js"></script>
+  <script src="/build/uncompressed/definitions/modules/accordion.js"></script>
+  <script src="/build/uncompressed/definitions/modules/checkbox.js"></script>
+  <script src="/build/uncompressed/definitions/modules/dimmer.js"></script>
+  <script src="/build/uncompressed/definitions/modules/dropdown.js"></script>
+  <script src="/build/uncompressed/definitions/modules/modal.js"></script>
+  <script src="/build/uncompressed/definitions/modules/popup.js"></script>
+  <script src="/build/uncompressed/definitions/modules/rating.js"></script>
+  <script src="/build/uncompressed/definitions/modules/shape.js"></script>
+  <script src="/build/uncompressed/definitions/modules/sidebar.js"></script>
+  <script src="/build/uncompressed/definitions/modules/sticky.js"></script>
+  <script src="/build/uncompressed/definitions/modules/tab.js"></script>
+  <script src="/build/uncompressed/definitions/modules/transition.js"></script>
+  
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44039803-1', 'semantic-ui.com');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+<body id="example" class="pushable " ontouchstart="">
+  <div class="ui vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> Close Menu
+    </a>
+    <a class="item" href="/build/semantic.zip">
+      <i class="download icon"></i> <b>Download</b>
+    </a>
+    <div class="item">
+      <a href="/element.html" class="ui small inverted header">Elements</a>
+      <div class="menu">
+        
+          <a class="item" href="/elements/button.html">Button</a>
+        
+          <a class="item" href="/elements/divider.html">Divider</a>
+        
+          <a class="item" href="/elements/header.html">Header</a>
+        
+          <a class="item" href="/elements/icon.html">Icon</a>
+        
+          <a class="item" href="/elements/image.html">Image</a>
+        
+          <a class="item" href="/elements/input.html">Input</a>
+        
+          <a class="item" href="/elements/label.html">Label</a>
+        
+          <a class="item" href="/elements/list.html">List</a>
+        
+          <a class="item" href="/elements/loader.html">Loader</a>
+        
+          <a class="item" href="/elements/progress.html">Progress</a>
+        
+          <a class="item" href="/modules/reveal.html">Reveal</a>
+        
+          <a class="item" href="/elements/segment.html">Segment</a>
+        
+          <a class="item" href="/elements/step.html">Step</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/collection.html" class="ui small  inverted header">Collections</a>
+      <div class="menu">
+        
+          <a class="item" href="/collections/breadcrumb.html">Breadcrumb</a>
+        
+          <a class="item" href="/collections/form.html">Form</a>
+        
+          <a class="item" href="/collections/grid.html">Grid</a>
+        
+          <a class="item" href="/collections/menu.html">Menu</a>
+        
+          <a class="item" href="/collections/message.html">Message</a>
+        
+          <a class="item" href="/collections/table.html">Table</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <div class="ui small  inverted header">Views</div>
+      <div class="menu">
+        
+          <a class="item" href="/views/card.html">Card</a>
+        
+          <a class="item" href="/views/comment.html">Comment</a>
+        
+          <a class="item" href="/views/feed.html">Feed</a>
+        
+          <a class="item" href="/views/item.html">Item</a>
+        
+          <a class="item" href="/views/statistic.html">Statistic</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html" class="ui small active  inverted header">Modules</a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/accordion.html">Accordion</a>
+      
+          <a class="item" href="/carousel.html">Carousel</a>
+      
+          <a class="item" href="/chat.html">Chatroom</a>
+      
+          <a class="item" href="/modules/checkbox.html">Checkbox</a>
+      
+          <a class="item" href="/modules/dimmer.html">Dimmer</a>
+      
+          <a class="item" href="/modules/dropdown.html">Dropdown</a>
+      
+          <a class="item" href="/modules/modal.html">Modal</a>
+      
+          <a class="item" href="/modules/popup.html">Popup</a>
+      
+          <a class="item" href="/modules/rating.html">Rating</a>
+      
+          <a class="item" href="/modules/shape.html">Shape</a>
+      
+          <a class="item" href="/modules/sidebar.html">Sidebar</a>
+      
+          <a class="active item" href="/modules/tab.html">Tab</a>
+      
+          <a class="item" href="/modules/transition.html">Transition</a>
+      
+      </div>
+    </div>
+    <div class="item">
+      <a href="/module.html" class="ui small  inverted header">Behavior</a>
+      <div class="menu">
+        
+          <a class="item" href="/modules/form.html">Form Validation</a>
+        
+      </div>
+    </div>
+  </div>
+
+   <div class="ui fixed inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="content icon"></i> Content</a>
+      <div class="title item">
+        <b>UI Module:</b> Tab
+      </div>
+      
+      <a class="icon item" href="/modules/sidebar.html"><i class="left chevron icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">12 of 13</span>
+        <div class="menu">
+          
+            <a class="item" href="/modules/accordion.html">
+              1. Accordion
+            </a>
+          
+            <a class="item" href="/carousel.html">
+              2. Carousel
+            </a>
+          
+            <a class="item" href="/chat.html">
+              3. Chatroom
+            </a>
+          
+            <a class="item" href="/modules/checkbox.html">
+              4. Checkbox
+            </a>
+          
+            <a class="item" href="/modules/dimmer.html">
+              5. Dimmer
+            </a>
+          
+            <a class="item" href="/modules/dropdown.html">
+              6. Dropdown
+            </a>
+          
+            <a class="item" href="/modules/modal.html">
+              7. Modal
+            </a>
+          
+            <a class="item" href="/modules/popup.html">
+              8. Popup
+            </a>
+          
+            <a class="item" href="/modules/rating.html">
+              9. Rating
+            </a>
+          
+            <a class="item" href="/modules/shape.html">
+              10. Shape
+            </a>
+          
+            <a class="item" href="/modules/sidebar.html">
+              11. Sidebar
+            </a>
+          
+            <a class="active item" href="/modules/tab.html">
+              12. Tab
+            </a>
+          
+            <a class="item" href="/modules/transition.html">
+              13. Transition
+            </a>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="/modules/transition.html"><i class="right chevron icon"></i></a>
+      
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&repo=semantic-ui&type=watch&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        
+        <a class="popup designer icon item" data-content="Designer Mode">
+          <i class="docs designer icon"></i>
+        </a>
+        <a class="popup developer icon item" data-content="Developer Mode">
+          <i class="docs developer icon"></i>
+        </a>
+        
+        <a class="popup icon github item" data-content="View project on GitHub" href="https://github.com/quirkyinc/semantic">
+          <i class="alternate github icon"></i>
+        </a>
+      <!--   <a class="popup localization icon item" data-content="International">
+          <i class="docs globe icon"></i>
+        </a> -->
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached fixed button">
+    <i class="content icon"></i>
+    <span class="text">Menu</span>
+  </div>
+  <div class="pusher">
+    <div class="page">
+      <script src="/javascript/tab.js"></script>
+
+
+
+<div class="tab  header segment">
+  <div class="container">
+    <div class="introduction">
+
+      <h1 class="ui header">
+        Tab
+        
+      </h1>
+
+      <p>A tab is a section of content tied to a navigation menu</p>
+      
+      
+      <a href="/module.html" class="ui right floated basic labeled icon button">
+        Learn about Modules
+        <i class="help icon" data-title="What are Modules?" data-content="Modules are UI elements that include behaviors as part of their definition. Modules require some knowledge of Javascript to trigger."></i>
+      </a>
+      
+      
+      <div class="ui floating dropdown theme basic button" data-element="tab" data-type="module">
+        <span class="text">Theme</span>
+        <div class="menu ui transition hidden">
+          
+            <div class="item" data-value="Default">Default</div>
+          
+        </div>
+      </div>
+      
+      
+      <div class="ui disabled secondary button">
+        Download
+      </div>
+      
+    </div>
+    <div class="advertisement">
+      
+    </div>
+    
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+      <div class="three item tabular ui menu">
+        
+          <a class="active item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+      
+      <div class="fluid vertical ui menu">
+        
+          <a class="active item" data-tab="usage">Usage</a>
+          
+        
+          <a class="item" data-tab="examples">Examples</a>
+          
+        
+          <a class="item" data-tab="settings">Settings</a>
+          
+        
+      </div>
+    
+  </div>
+</div>
+
+<div class="main container">
+  <!--
+  <div class="ui tab" data-tab="definition">
+
+    <div class="peek">
+      <div class="ui vertical pointing secondary menu">
+        <a class="active item">Types</a>
+      </div>
+    </div>
+
+  </div>
+  -->
+
+  <div class="ui active tab" data-tab="usage">
+
+    <h2 class="ui dividing header">Initializing Tabs</h2>
+
+    <p>Tabs are usually used in concert with an element that activates the tab. Tabs are initialized on the activating item instead of the tab.</p>
+    <p>If there are no menus that activate tab elements on the page, tabs can be initialized globally by using <code>$.tab()</code> and activated programmatically using <code>$.tab('change tab', path);</code></p>
+    <p>Tabs are connected to their activators with a metadata attribute <code>data-tab</code>. This should be added to both the activating element and the tab itself.</p>
+
+
+    <div class="ignored ui info message">
+      <h4 class="ui header">Default tabs</h4>
+      <p>After any tab is opened it will look for a default tab to open inside of the current tab. This is the first tab that begins with the same stem url as the parent tab. For example a tab with the path <code>data-tab="home"</code> might open a tab automatically <code>data-tab="/home/inbox"</code>.</p>
+      <p>This will happen recursively for every tab open, allowing as many levels of tabs as you like.</p>
+    </div>
+
+
+    <h2 class="ui dividing header">Managing State</h2>
+
+    <h4 class="ui header">...with Hash Tags</h4>
+
+    <p>Hash tags use in page links and <code>onhashstatechange</code> to create history events for each tab. This is sometimes easier to use than the more advanced push state, because it does not require you to route those URLs on your server. All in page links will route to the same url.</p>
+
+    <div class="code">
+      $('.ui.menu .item')
+        .tab({
+          history: true,
+          historyType: 'state'
+        })
+      ;
+    </div>
+
+    <h4 class="ui header">...with HTML5 State</h4>
+    <p>Tabs can can use html5 push state to manage page state without using <code>#/foo</code> links. When a user refreshes a page using push state the server will be queried for the new url. This means you must set up appropriate routes in your backend to match each link.</p>
+    <p>Tabs use Asual's <a href="https://github.com/asual/jquery-address">Address library</a> to provide cross-browser push state support. This makes sure in browser that don't support push state, <code>hashchange</code> is used with in page anchors to provide history functionality.</p>
+    <div class="code">
+    $('.ui.menu .item')
+      .tab({
+        history: true,
+        historyType: 'state'
+        path: '/modules/tab.html'
+      })
+    ;
+    </div>
+
+    <h4 class="ui header">Setting Paths</h4>
+    <p>Make sure when you use history to specify the path. This is required for determining the stem url from the part of the url maintaining in page history. The path is the <b>base URL without any internal state</b>. This cannot be set automatically to <code>window.location</code> because refreshing the page will change  future page refreshes the URL may include an internal link. </p>
+
+    <div class="ui warning message">Using the incorrect path will cause the module to work incorrectly, producing unexpected results.</div>
+
+    <h2 class="ui dividing header">AJAX Content</h2>
+
+    <h3 class="ui header">...with automatic routing</h3>
+
+    <p>Specifying the setting <code>auto: true</code>, will automatically retrieve content at a remote url matching the url set in the browser.</p>
+    <p>So for example the tab <code>inbox</code> will retrieve content from the URL <code>base-url/inbox/</code></p>
+    <p>The URL will receive an addition HTTP Header <code>'X-Remote': true</code>. You can use this on your server's back-end to determine whether a request is an AJAX request from a tab, or a full page request.</p>
+    <p>Queries with <code>'X-Remote': true</code> should refresh only the tabbed content, while queries without are normal resources and should refresh <b>the entire page contents</b></p>
+
+    <p>This uses a similar technique to <a href="https://github.com/defunkt/jquery-pjax">pJax</a> or Rail's <a href="https://github.com/rails/turbolinks/">turbolinks</a>.</p>
+
+    <div class="ignored ui info message">There are a variety of settings for configuring dynamic content behavior. Visit the tab settings section for more information</div>
+
+    <div class="code" data-type="javascript">
+    $('.dynamic.example .menu .item')
+      .tab({
+        context : '.dynamic.example',
+        auto    : true,
+        path    : '/modules/tab.html'
+      })
+    ;
+    </div>
+
+    <h3 class="ui header">...with an API Behavior</h3>
+
+    <p>Tabs provide an optional coupling with API which allow you to specify a templated API endpoint that a tab can query</p>
+    <p>Tabs will automatically pass the url variable <code>{$tab}</code> which can be replaced for RESTful API links.</p>
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax <code>$('.foo').tab('behavior name', argumentOne, argumentTwo)</code>
+
+    <table class="ui definition celled table segment">
+      <tr>
+        <td>attach events(selector, event)</td>
+        <td>Attaches tab action to given selector. Default event if none specified is toggle</td>
+      </tr>
+      <tr>
+        <td>show</td>
+        <td>Shows tab</td>
+      </tr>
+      <tr>
+        <td>hide</td>
+        <td>Hides tab</td>
+      </tr>
+      <tr>
+        <td>toggle</td>
+        <td>Toggles visibility of tab</td>
+      </tr>
+      <tr>
+        <td>is open</td>
+        <td>Returns whether tab is open</td>
+      </tr>
+      <tr>
+        <td>is closed</td>
+        <td>Returns whether tab is closed</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <div class="first example">
+
+      <h4 class="ui header">Multi-level Tabs with Defaults</h4>
+      <p>This example shows how default tabs are opened recursively for multiple tiers of tabs</p>
+      <div class="ui info message">Each of these examples is initialized with a context to prevent contamination with other tab examples on this page. This is not necessary unless using multiple tab systems on a single page.</div>
+      <div class="ignored code" data-type="javascript">
+      $('.first.example .menu .item')
+        .tab({
+          context: '.first.example'
+        })
+      ;
+      </div>
+
+      <div class="ui pointing secondary menu">
+        <a class="active item" data-tab="first">First</a>
+        <a class="item" data-tab="second">Second</a>
+        <a class="item" data-tab="third">Third</a>
+      </div>
+      <div class="ui active tab segment" data-tab="first">
+        <div class="ui top attached tabular menu">
+          <a class="active item" data-tab="first/a">1A</a>
+          <a class="item" data-tab="first/b">1B</a>
+          <a class="item" data-tab="first/c">1C</a>
+        </div>
+        <div class="ui bottom attached active tab segment" data-tab="first/a">1A</div>
+        <div class="ui bottom attached tab segment" data-tab="first/b">1B</div>
+        <div class="ui bottom attached tab segment" data-tab="first/c">1C</div>
+      </div>
+      <div class="ui tab segment" data-tab="second">
+        <div class="ui top attached tabular menu">
+          <a class="item" data-tab="second/a">2A</a>
+          <a class="item" data-tab="second/b">2B</a>
+          <a class="item" data-tab="second/c">2C</a>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="second/a">2A</div>
+        <div class="ui bottom attached tab segment" data-tab="second/b">2B</div>
+        <div class="ui bottom attached tab segment" data-tab="second/c">2C</div>
+      </div>
+      <div class="ui tab segment" data-tab="third">
+        <div class="ui top attached tabular menu">
+          <a class="item" data-tab="third/a">3A</a>
+          <a class="item" data-tab="third/b">3B</a>
+          <a class="item" data-tab="third/c">3C</a>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="third/a">3A</div>
+        <div class="ui bottom attached tab segment" data-tab="third/b">3B</div>
+        <div class="ui bottom attached tab segment" data-tab="third/c">3C</div>
+      </div>
+    </div>
+
+    <div class="history example">
+      <h4>Example with hash page history</h4>
+      <div class="code" data-type="javascript">
+        $('.history.example .menu .item')
+          .tab({
+            context : '.history.example',
+            history : true
+          })
+        ;
+      </div>
+
+      <div class="ui pointing secondary menu">
+        <a class="active item" data-tab="first">First</a>
+        <a class="item" data-tab="second">Second</a>
+        <a class="item" data-tab="third">Third</a>
+      </div>
+      <div class="ui active tab segment" data-tab="first">
+        <div class="ui top attached tabular menu">
+          <a class="active item" data-tab="first/a">1A</a>
+          <a class="item" data-tab="first/b">1B</a>
+          <a class="item" data-tab="first/c">1C</a>
+        </div>
+        <div class="ui bottom attached active tab segment" data-tab="first/a">1A</div>
+        <div class="ui bottom attached tab segment" data-tab="first/b">1B</div>
+        <div class="ui bottom attached tab segment" data-tab="first/c">1C</div>
+      </div>
+      <div class="ui tab segment" data-tab="second">
+        <div class="ui top attached tabular menu">
+          <a class="item" data-tab="second/a">2A</a>
+          <a class="item" data-tab="second/b">2B</a>
+          <a class="item" data-tab="second/c">2C</a>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="second/a">2A</div>
+        <div class="ui bottom attached tab segment" data-tab="second/b">2B</div>
+        <div class="ui bottom attached tab segment" data-tab="second/c">2C</div>
+      </div>
+      <div class="ui tab segment" data-tab="third">
+        <div class="ui top attached tabular menu">
+          <a class="item" data-tab="third/a">3A</a>
+          <a class="item" data-tab="third/b">3B</a>
+          <a class="item" data-tab="third/c">3C</a>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="third/a">3A</div>
+        <div class="ui bottom attached tab segment" data-tab="third/b">3B</div>
+        <div class="ui bottom attached tab segment" data-tab="third/c">3C</div>
+      </div>
+    </div>
+
+    <div class="dynamic no example">
+      <h4 class="header">Retreiving Dynamic Tab Content</h4>
+      <div class="code">
+      $('.dynamic.example .menu .item')
+        .tab({
+          context : '.dynamic.example',
+          auto    : true,
+          path    : '/modules/tab.html'
+        })
+      ;
+      </div>
+      <div class="ui pointing secondary menu">
+        <a class="active item" data-tab="first">First</a>
+        <a class="item" data-tab="second">Second</a>
+        <a class="item" data-tab="third">Third</a>
+      </div>
+      <div class="ui active tab segment" data-tab="first">
+        <div class="ui top attached tabular menu">
+          <a class="active item" data-tab="first/a">1A</a>
+          <a class="item" data-tab="first/b">1B</a>
+          <a class="item" data-tab="first/c">1C</a>
+        </div>
+        <div class="ui bottom attached active tab segment" data-tab="first/a"></div>
+        <div class="ui bottom attached tab segment" data-tab="first/b"></div>
+        <div class="ui bottom attached tab segment" data-tab="first/c"></div>
+      </div>
+      <div class="ui tab segment" data-tab="second">
+        <div class="ui top attached tabular menu">
+          <a class="item" data-tab="second/a">2A</a>
+          <a class="item" data-tab="second/b">2B</a>
+          <a class="item" data-tab="second/c">2C</a>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="second/a"></div>
+        <div class="ui bottom attached tab segment" data-tab="second/b"></div>
+        <div class="ui bottom attached tab segment" data-tab="second/c"></div>
+      </div>
+      <div class="ui tab segment" data-tab="third">
+        <div class="ui top attached tabular menu">
+          <a class="item" data-tab="third/a">3A</a>
+          <a class="item" data-tab="third/b">3B</a>
+          <a class="item" data-tab="third/c">3C</a>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="third/a"></div>
+        <div class="ui bottom attached tab segment" data-tab="third/b"></div>
+        <div class="ui bottom attached tab segment" data-tab="third/c"></div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h3 class="ui header">
+      Transition Settings
+      <div class="sub header">Form settings modify the transition behavior</div>
+    </h3>
+    <table class="ui red celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>overlay</td>
+          <td>false</td>
+          <td>Whether tab should overlay page instead of pushing page to the side</td>
+        </tr>
+        <tr>
+          <td>useCSS</td>
+          <td>true</td>
+          <td>Whether to use css animations or fallback javascript animations</td>
+        </tr>
+        <tr>
+          <td>duration</td>
+          <td>300</td>
+          <td>Duration of side bar animation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+    <table class="ui celled purple definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="six wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>namespace</td>
+          <td>tab</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td>
+            <div class="code">
+      className: {
+        active : 'active',
+        pushed : 'pushed',
+        top    : 'top',
+        left   : 'left',
+        right  : 'right',
+        bottom : 'bottom'
+      }
+            </div>
+          </td>
+          <td>Class names used to attach style to state</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+
+    <table class="ui blue celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Tab</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>errors</td>
+          <td colspan="2">
+            <div class="code">
+      error   : {
+        method   : 'The method you called is not defined.',
+        notFound : 'There were no elements that matched the specified selector'
+      }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>
+    </div>
+  </div>
+  <script src="/javascript/library/less.js"></script>
+</body>
+
+</html>

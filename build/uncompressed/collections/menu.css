@@ -1,0 +1,1403 @@
+/*
+ * # Semantic - Menu
+ * http://github.com/jlukic/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Standard
+*******************************/
+/*--------------
+      Menu
+---------------*/
+.ui.menu {
+  margin: 1rem 0rem;
+  background-color: #FFFFFF;
+  font-size: 0px;
+  font-weight: normal;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 0.1875rem;
+}
+.ui.menu:first-child {
+  margin-top: 0rem;
+}
+.ui.menu:last-child {
+  margin-bottom: 0rem;
+}
+.ui.menu:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.ui.menu > .item:first-child {
+  border-radius: 0.1875em 0px 0px 0.1875em;
+}
+.ui.menu > .item:last-child {
+  border-radius: 0px 0.1875em 0.1875em 0px;
+}
+.ui.menu .item {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  vertical-align: middle;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease, -webkit-box-shadow 0.2s ease;
+  -moz-transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+/*--------------
+    Colors
+---------------*/
+/* Text Color */
+.ui.menu .item,
+.ui.menu .item > a:not(.button) {
+  color: rgba(0, 0, 0, 0.75);
+}
+.ui.menu .item .item,
+.ui.menu .item .item > a:not(.button) {
+  color: rgba(30, 30, 30, 0.7);
+}
+.ui.menu .item .item .item,
+.ui.menu .item .item .item > a:not(.button) {
+  color: rgba(30, 30, 30, 0.6);
+}
+.ui.menu .dropdown .menu .item,
+.ui.menu .dropdown .menu .item a:not(.button) {
+  color: rgba(0, 0, 0, 0.75);
+}
+/* Hover */
+.ui.menu .item .menu a.item:hover,
+.ui.menu .item .menu .link.item:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.menu .dropdown .menu .item a:not(.button):hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+/* Active */
+.ui.menu .active.item,
+.ui.menu .active.item a:not(.button) {
+  color: rgba(0, 0, 0, 0.85);
+  border-radius: 0px;
+}
+/*--------------
+      Items
+---------------*/
+.ui.menu .item {
+  position: relative;
+  display: inline-block;
+  padding: 0.83em 0.95em;
+  border-top: 0em solid rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.ui.menu .menu {
+  margin: 0em;
+}
+.ui.menu .item.left,
+.ui.menu .menu.left {
+  float: left;
+}
+.ui.menu .item.right,
+.ui.menu .menu.right {
+  float: right;
+}
+/*--------------
+    Borders
+---------------*/
+.ui.menu .item:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 0px;
+  width: 1px;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), color-stop(50%, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.05) 100%);
+}
+/*rtl:ignore*/
+.ui.menu > .menu:not(.right):first-child > .item:first-child:before,
+.ui.menu .item:first-child:before {
+  display: none;
+}
+.ui.menu .menu.right .item:before,
+.ui.menu .item.right:before {
+  right: auto;
+  left: 0px;
+}
+/*--------------
+  Text Content
+---------------*/
+.ui.menu .text.item > *,
+.ui.menu .item > p:only-child {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  line-height: 1.3;
+  color: rgba(0, 0, 0, 0.6);
+}
+.ui.menu .item > p:first-child {
+  margin-top: 0px;
+}
+.ui.menu .item > p:last-child {
+  margin-bottom: 0px;
+}
+/*--------------
+     Button
+---------------*/
+.ui.menu:not(.vertical) .item > .button {
+  position: relative;
+  top: -0.05em;
+  margin: -0.55em 0;
+  padding-bottom: 0.55em;
+  padding-top: 0.55em;
+  font-size: 0.875em;
+}
+/*--------------
+     Inputs
+---------------*/
+.ui.menu:not(.vertical) .item > .input {
+  margin-top: -0.85em;
+  margin-bottom: -0.85em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  width: 100%;
+  vertical-align: top;
+}
+.ui.menu .item > .input input {
+  padding-top: 0.35em;
+  padding-bottom: 0.35em;
+}
+.ui.vertical.menu .item > .input input {
+  margin: 0em;
+  padding-top: 0.63em;
+  padding-bottom: 0.63em;
+}
+/* Action Input */
+.ui.menu:not(.vertical) .item > .button.labeled > .icon {
+  padding-top: 0.6em;
+}
+.ui.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.55em 0.8em;
+}
+/* Resizes */
+.ui.small.menu:not(.vertical) .item > .input input {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+.ui.large.menu:not(.vertical) .item > .input input {
+  top: -0.125em;
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
+}
+.ui.large.menu:not(.vertical) .item .action.input > .button {
+  font-size: 0.8em;
+  padding: 0.9em;
+}
+.ui.large.menu:not(.vertical) .item .action.input > .button > .icon {
+  padding-top: 0.8em;
+}
+/*--------------
+     Header
+---------------*/
+.ui.menu .header.item {
+  background-color: rgba(0, 0, 0, 0.04);
+  margin: 0em;
+}
+.ui.vertical.menu .header.item {
+  font-weight: bold;
+}
+/*--------------
+    Dropdowns
+---------------*/
+.ui.menu .dropdown .menu .item .icon {
+  float: none;
+  margin: 0em 0.75em 0em 0em;
+}
+.ui.menu .dropdown.item .menu {
+  left: 1px;
+  margin: 0px;
+  min-width: -webkit-calc(99%);
+  min-width: -moz-calc(99%);
+  min-width: calc(99%);
+  -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.secondary.menu .dropdown.item .menu {
+  left: 0px;
+  min-width: 100%;
+}
+.ui.menu .pointing.dropdown.item .menu {
+  margin-top: 0.75em;
+}
+.ui.menu .simple.dropdown.item .menu {
+  margin: 0px !important;
+}
+.ui.menu .dropdown.item .menu .item {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.75);
+}
+.ui.menu .dropdown.item .menu .active.item {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.ui.menu .ui.dropdown .menu .item:before {
+  display: none;
+}
+/*--------------
+     Labels
+---------------*/
+.ui.menu .item > .label {
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #FFFFFF;
+  margin: -0.15em 0em -0.15em 0.5em;
+  padding: 0.3em 0.8em;
+  vertical-align: baseline;
+}
+.ui.menu .item > .floating.label {
+  padding: 0.3em 0.8em;
+}
+/*--------------
+      Images
+---------------*/
+.ui.menu .item > img:only-child {
+  display: block;
+  max-width: 100%;
+  margin: 0em auto;
+}
+/*******************************
+             States
+*******************************/
+/*--------------
+      Hover
+---------------*/
+.ui.link.menu .item:hover,
+.ui.menu .link.item:hover,
+.ui.menu a.item:hover,
+.ui.menu .ui.dropdown .menu .item:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.ui.menu .ui.dropdown.item.active {
+  background-color: rgba(0, 0, 0, 0.02);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -moz-border-bottom-right-radius: 0em;
+  border-bottom-right-radius: 0em;
+  -moz-border-bottom-left-radius: 0em;
+  border-bottom-left-radius: 0em;
+}
+/*--------------
+      Down
+---------------*/
+.ui.link.menu .item:active,
+.ui.menu .link.item:active,
+.ui.menu a.item:active,
+.ui.menu .ui.dropdown .menu .item:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+/*--------------
+     Active
+---------------*/
+.ui.menu .active.item {
+  background-color: rgba(0, 0, 0, 0.01);
+  color: rgba(0, 0, 0, 0.95);
+  -webkit-box-shadow: 0em 0.2em 0em inset;
+  box-shadow: 0em 0.2em 0em inset;
+}
+.ui.vertical.menu .active.item {
+  border-radius: 0em;
+  -webkit-box-shadow: 0.2em 0em 0em inset;
+  box-shadow: 0.2em 0em 0em inset;
+}
+.ui.vertical.menu > .active.item:first-child {
+  border-radius: 0em 0.1875em 0em 0em;
+}
+.ui.vertical.menu > .active.item:last-child {
+  border-radius: 0em 0em 0.1875em 0em;
+}
+.ui.vertical.menu > .active.item:only-child {
+  border-radius: 0em 0.1875em 0.1875em 0em;
+}
+.ui.vertical.menu .active.item .menu .active.item {
+  border-left: none;
+}
+.ui.vertical.menu .active.item .menu .active.item {
+  padding-left: 1.5rem;
+}
+.ui.vertical.menu .item .menu .active.item {
+  background-color: rgba(0, 0, 0, 0.03);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*--------------
+     Disabled
+---------------*/
+.ui.menu .item.disabled,
+.ui.menu .item.disabled:hover {
+  cursor: default;
+  color: rgba(0, 0, 0, 0.2);
+  background-color: transparent !important;
+}
+/*--------------------
+     Loading
+---------------------*/
+/* On Form */
+.ui.menu.loading {
+  position: relative;
+}
+.ui.menu.loading:after {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8) url(../images/loader-large.gif) no-repeat 50% 50%;
+  visibility: visible;
+}
+/*******************************
+             Types
+*******************************/
+/*--------------
+    Vertical
+---------------*/
+.ui.vertical.menu .item {
+  display: block;
+  height: auto !important;
+  border-top: none;
+  border-left: 0em solid rgba(0, 0, 0, 0);
+  border-right: none;
+}
+.ui.vertical.menu > .item:first-child {
+  border-radius: 0.1875em 0.1875em 0px 0px;
+}
+.ui.vertical.menu > .item:last-child {
+  border-radius: 0px 0px 0.1875em 0.1875em;
+}
+.ui.vertical.menu .item > .label {
+  float: right;
+  text-align: center;
+}
+.ui.vertical.menu .item > i.icon {
+  float: right;
+  width: 1.22em;
+  margin: 0em 0em 0em 0.5em;
+}
+.ui.vertical.menu .item > .label + i.icon {
+  float: none;
+  margin: 0em 0.25em 0em 0em;
+}
+/*--- Border ---*/
+.ui.vertical.menu .item:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.03)), color-stop(1.5em, rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.03)));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.1) 1.5em, rgba(0, 0, 0, 0.03) 100%);
+}
+.ui.vertical.menu .item:first-child:before {
+  background-image: none !important;
+}
+/*--- Dropdown ---*/
+.ui.vertical.menu .dropdown.item > i {
+  float: right;
+  content: "\f0da";
+}
+.ui.vertical.menu .dropdown.item .menu {
+  top: 0% !important;
+  left: 100%;
+  margin: 0px 0px 0px 1px;
+  -webkit-box-shadow: 0 0px 1px 1px #DDDDDD;
+          box-shadow: 0 0px 1px 1px #DDDDDD;
+}
+.ui.vertical.menu .dropdown.item.active {
+  border-top-right-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+.ui.vertical.menu .dropdown.item .menu .item {
+  font-size: 1rem;
+}
+.ui.vertical.menu .dropdown.item .menu .item i.icon {
+  margin-right: 0em;
+}
+.ui.vertical.menu .dropdown.item.active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*--- Sub Menu ---*/
+.ui.vertical.menu .item > .menu {
+  margin: 0.5em -0.95em 0em;
+}
+.ui.vertical.menu .item > .menu > .item {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875em;
+}
+.ui.vertical.menu .item > .menu > .item:before {
+  display: none;
+}
+/*--------------
+     Tiered
+---------------*/
+.ui.tiered.menu > .sub.menu > .item {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.tiered.menu > .menu > .item:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.tiered.menu .item.active {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.tiered.menu > .menu .item.active:after {
+  position: absolute;
+  content: '';
+  margin-top: -1px;
+  top: 100%;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background-color: #FBFBFB;
+}
+.ui.tiered.menu .sub.menu {
+  background-color: rgba(0, 0, 0, 0.01);
+  border-radius: 0em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #FFFFFF;
+}
+.ui.tiered.menu .sub.menu .item {
+  font-size: 0.875rem;
+}
+.ui.tiered.menu .sub.menu .item:before {
+  background-image: none;
+}
+.ui.tiered.menu .sub.menu .active.item {
+  padding-top: 0.83em;
+  background-color: transparent;
+  border-radius: 0 0 0 0;
+  border-top: medium none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+.ui.tiered.menu .sub.menu .active.item:after {
+  display: none;
+}
+/* Inverted */
+.ui.inverted.tiered.menu > .menu > .item {
+  color: rgba(255, 255, 255, 0.5);
+}
+.ui.inverted.tiered.menu .sub.menu {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.ui.inverted.tiered.menu .sub.menu .item {
+  color: rgba(255, 255, 255, 0.6);
+}
+.ui.inverted.tiered.menu > .menu > .item:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.ui.inverted.tiered.menu .active.item:after {
+  display: none;
+}
+.ui.inverted.tiered.menu > .sub.menu > .active.item,
+.ui.inverted.tiered.menu > .menu > .active.item {
+  color: #ffffff !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* Tiered pointing */
+.ui.pointing.tiered.menu > .menu > .item:after {
+  display: none;
+}
+.ui.pointing.tiered.menu > .sub.menu > .item:after {
+  display: block;
+}
+/*--------------
+     Tabular
+---------------*/
+.ui.tabular.menu {
+  background-color: transparent;
+  border-bottom: 1px solid #DCDDDE;
+  border-radius: 0em;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.ui.tabular.menu .item {
+  background-color: transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent;
+  padding-left: 1.4em;
+  padding-right: 1.4em;
+  color: rgba(0, 0, 0, 0.6);
+}
+.ui.tabular.menu .item:before {
+  display: none;
+}
+/* Hover */
+.ui.tabular.menu .item:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.8);
+}
+/* Active */
+.ui.tabular.menu .active.item {
+  position: relative;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.8);
+  border-color: #DCDDDE;
+  font-weight: bold;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #FFFFFF;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 5px 5px 0 0;
+}
+/* Coupling with segment for attachment */
+.ui.attached.tabular.menu {
+  position: relative;
+  z-index: 2;
+}
+.ui.tabular.menu ~ .bottom.attached.segment {
+  margin: 1px 0px 0px 1px;
+}
+/*--------------
+   Pagination
+---------------*/
+.ui.pagination.menu {
+  margin: 0em;
+  display: inline-block;
+  vertical-align: middle;
+}
+.ui.pagination.menu .item {
+  min-width: 3em;
+  text-align: center;
+}
+.ui.pagination.menu .icon.item i.icon {
+  vertical-align: top;
+}
+.ui.pagination.menu.floated {
+  display: block;
+}
+/* active */
+.ui.pagination.menu .active.item {
+  border-top: none;
+  padding-top: 0.83em;
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*--------------
+   Secondary
+---------------*/
+.ui.secondary.menu {
+  background-color: transparent;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ui.secondary.menu > .menu > .item,
+.ui.secondary.menu > .item {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  height: auto !important;
+  margin: 0em 0.25em;
+  padding: 0.5em 1em;
+  border-radius: 0.3125em;
+}
+.ui.secondary.menu > .menu > .item:before,
+.ui.secondary.menu > .item:before {
+  display: none !important;
+}
+.ui.secondary.menu .item > .input input {
+  background-color: transparent;
+  border: none;
+}
+.ui.secondary.menu .link.item,
+.ui.secondary.menu a.item {
+  opacity: 0.8;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+.ui.secondary.menu .header.item {
+  border-right: 0.1em solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  border-radius: 0em;
+}
+/* hover */
+.ui.secondary.menu .link.item:hover,
+.ui.secondary.menu a.item:hover {
+  opacity: 1;
+}
+/* active */
+.ui.secondary.menu > .menu > .active.item,
+.ui.secondary.menu > .active.item {
+  background-color: rgba(0, 0, 0, 0.08);
+  opacity: 1;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ui.secondary.vertical.menu > .active.item {
+  border-radius: 0.3125em;
+}
+/* inverted */
+.ui.secondary.inverted.menu .link.item,
+.ui.secondary.inverted.menu a.item {
+  color: rgba(255, 255, 255, 0.5);
+}
+.ui.secondary.inverted.menu .link.item:hover,
+.ui.secondary.inverted.menu a.item:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.ui.secondary.inverted.menu .active.item {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* disable variations */
+.ui.secondary.item.menu > .item {
+  margin: 0em;
+}
+.ui.secondary.attached.menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*---------------------
+   Secondary Pointing
+-----------------------*/
+.ui.secondary.pointing.menu {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+}
+.ui.secondary.pointing.menu > .menu > .item,
+.ui.secondary.pointing.menu > .item {
+  margin: 0em 0em -3px;
+  padding: 0.6em 0.95em;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 0em;
+  -webkit-transition: color 0.2s
+  ;
+  -moz-transition: color 0.2s
+  ;
+  transition: color 0.2s
+  ;
+}
+/* Item Types */
+.ui.secondary.pointing.menu .header.item {
+  margin-bottom: -3px;
+  background-color: transparent !important;
+  border-right-width: 0px !important;
+  font-weight: bold !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.ui.secondary.pointing.menu .text.item {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+.ui.secondary.pointing.menu > .menu > .item:after,
+.ui.secondary.pointing.menu > .item:after {
+  display: none;
+}
+/* Hover */
+.ui.secondary.pointing.menu > .menu > .link.item:hover,
+.ui.secondary.pointing.menu > .link.item:hover,
+.ui.secondary.pointing.menu > .menu > a.item:hover,
+.ui.secondary.pointing.menu > a.item:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+}
+/* Down */
+.ui.secondary.pointing.menu > .menu > .link.item:active,
+.ui.secondary.pointing.menu > .link.item:active,
+.ui.secondary.pointing.menu > .menu > a.item:active,
+.ui.secondary.pointing.menu > a.item:active {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+/* Active */
+.ui.secondary.pointing.menu > .menu > .item.active,
+.ui.secondary.pointing.menu > .item.active {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*---------------------
+   Secondary Vertical
+-----------------------*/
+.ui.secondary.vertical.pointing.menu {
+  border: none;
+  border-right: 3px solid rgba(0, 0, 0, 0.1);
+}
+.ui.secondary.vertical.menu > .item {
+  border: none;
+  margin: 0em 0em 0.3em;
+  padding: 0.6em 0.8em;
+  border-radius: 0.1875em;
+}
+.ui.secondary.vertical.menu > .header.item {
+  border-radius: 0em;
+}
+.ui.secondary.vertical.pointing.menu > .item {
+  margin: 0em -3px 0em 0em;
+  border-bottom: none;
+  border-right: 3px solid transparent;
+  border-radius: 0em;
+}
+/* Hover */
+.ui.secondary.vertical.pointing.menu > .item:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+}
+/* Down */
+.ui.secondary.vertical.pointing.menu > .item:active {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+/* Active */
+.ui.secondary.vertical.pointing.menu > .item.active {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.85);
+}
+/*--------------
+    Inverted
+---------------*/
+.ui.secondary.inverted.menu {
+  background-color: transparent;
+}
+.ui.secondary.inverted.pointing.menu {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+.ui.secondary.inverted.pointing.menu > .item {
+  color: rgba(255, 255, 255, 0.7);
+}
+.ui.secondary.inverted.pointing.menu > .header.item {
+  color: #FFFFFF !important;
+}
+/* Hover */
+.ui.secondary.inverted.pointing.menu > .menu > .item:hover,
+.ui.secondary.inverted.pointing.menu > .item:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+/* Down */
+.ui.secondary.inverted.pointing.menu > .menu > .item:active,
+.ui.secondary.inverted.pointing.menu > .item:active {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+/* Active */
+.ui.secondary.inverted.pointing.menu > .menu > .item.active,
+.ui.secondary.inverted.pointing.menu > .item.active {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+}
+/*---------------------
+   Inverted Vertical
+----------------------*/
+.ui.secondary.inverted.vertical.pointing.menu {
+  border-right: 3px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+}
+/*--------------
+    Text Menu
+---------------*/
+.ui.text.menu {
+  background-color: transparent;
+  margin: 1rem -1rem;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ui.text.menu > .item {
+  opacity: 0.8;
+  margin: 0em 1em;
+  padding: 0em;
+  height: auto !important;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: opacity 0.2s ease
+  ;
+  -moz-transition: opacity 0.2s ease
+  ;
+  transition: opacity 0.2s ease
+  ;
+}
+.ui.text.menu > .item:before {
+  display: none !important;
+}
+.ui.text.menu .header.item {
+  background-color: transparent;
+  opacity: 1;
+  color: rgba(50, 50, 50, 0.8);
+  font-size: 0.875rem;
+  padding: 0em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/*--- fluid text ---*/
+.ui.text.item.menu .item {
+  margin: 0em;
+}
+/*--- vertical text ---*/
+.ui.vertical.text.menu {
+  margin: 1rem 0em;
+}
+.ui.vertical.text.menu:first-child {
+  margin-top: 0rem;
+}
+.ui.vertical.text.menu:last-child {
+  margin-bottom: 0rem;
+}
+.ui.vertical.text.menu .item {
+  float: left;
+  clear: left;
+  margin: 0.5em 0em;
+}
+.ui.vertical.text.menu .item > i.icon {
+  float: none;
+  margin: 0em 0.83em 0em 0em;
+}
+.ui.vertical.text.menu .header.item {
+  margin: 0.8em 0em;
+}
+/*--- hover ---*/
+.ui.text.menu .item:hover {
+  opacity: 1;
+  background-color: transparent;
+}
+/*--- active ---*/
+.ui.text.menu .active.item {
+  background-color: transparent;
+  padding: 0em;
+  border: none;
+  opacity: 1;
+  font-weight: bold;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* disable variations */
+.ui.text.pointing.menu .active.item:after {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ui.text.attached.menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ui.inverted.text.menu,
+.ui.inverted.text.menu .item,
+.ui.inverted.text.menu .item:hover,
+.ui.inverted.text.menu .item.active {
+  background-color: transparent;
+}
+/*--------------
+    Icon Only
+---------------*/
+.ui.icon.menu,
+.ui.vertical.icon.menu {
+  width: auto;
+  display: inline-block;
+  height: auto;
+}
+.ui.icon.menu > .item {
+  height: auto;
+  text-align: center;
+  color: rgba(60, 60, 60, 0.7);
+}
+.ui.icon.menu > .item > .icon {
+  display: block;
+  float: none !important;
+  opacity: 1;
+  margin: 0em auto !important;
+}
+.ui.icon.menu .icon:before {
+  opacity: 1;
+}
+/* Item Icon Only */
+.ui.menu .icon.item .icon {
+  margin: 0em;
+}
+.ui.vertical.icon.menu {
+  float: none;
+}
+/*--- inverted ---*/
+.ui.inverted.icon.menu .item {
+  color: rgba(255, 255, 255, 0.8);
+}
+.ui.inverted.icon.menu .icon {
+  color: #ffffff;
+}
+/*--------------
+   Labeled Icon
+---------------*/
+.ui.labeled.icon.menu {
+  text-align: center;
+}
+.ui.labeled.icon.menu > .item > .icon {
+  display: block;
+  font-size: 1.5em !important;
+  margin: 0em auto 0.3em !important;
+}
+/*******************************
+           Variations
+*******************************/
+/*--------------
+    Colors
+---------------*/
+/*--- Light Colors  ---*/
+.ui.menu .green.active.item,
+.ui.green.menu .active.item {
+  border-color: #A1CF64 !important;
+  color: #A1CF64 !important;
+}
+.ui.menu .red.active.item,
+.ui.red.menu .active.item {
+  border-color: #D95C5C !important;
+  color: #D95C5C !important;
+}
+.ui.menu .blue.active.item,
+.ui.blue.menu .active.item {
+  border-color: #6ECFF5 !important;
+  color: #6ECFF5 !important;
+}
+.ui.menu .purple.active.item,
+.ui.purple.menu .active.item {
+  border-color: #564F8A !important;
+  color: #564F8A !important;
+}
+.ui.menu .orange.active.item,
+.ui.orange.menu .active.item {
+  border-color: #F05940 !important;
+  color: #F05940 !important;
+}
+.ui.menu .teal.active.item,
+.ui.teal.menu .active.item {
+  border-color: #00B5AD !important;
+  color: #00B5AD !important;
+}
+/*--------------
+    Inverted
+---------------*/
+.ui.inverted.menu {
+  background-color: #333333;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.ui.inverted.menu .header.item {
+  margin: 0em;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.ui.inverted.menu .item,
+.ui.inverted.menu .item > a {
+  color: #FFFFFF;
+}
+.ui.inverted.menu .item .item,
+.ui.inverted.menu .item .item > a {
+  color: rgba(255, 255, 255, 0.8);
+}
+.ui.inverted.menu .dropdown .menu .item,
+.ui.inverted.menu .dropdown .menu .item a {
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+.ui.inverted.menu .item.disabled,
+.ui.inverted.menu .item.disabled:hover {
+  color: rgba(255, 255, 255, 0.2);
+}
+/*--- Border ---*/
+.ui.inverted.menu .item:before {
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+}
+.ui.vertical.inverted.menu .item:before {
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.03)), color-stop(50%, rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.03)));
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.03) 100%);
+}
+/*--- Hover ---*/
+.ui.link.inverted.menu .item:hover,
+.ui.inverted.menu .link.item:hover,
+.ui.inverted.menu a.item:hover,
+.ui.inverted.menu .dropdown.item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.ui.inverted.menu a.item:hover,
+.ui.inverted.menu .item > a:hover,
+.ui.inverted.menu .item .menu a.item:hover,
+.ui.inverted.menu .item .menu .link.item:hover {
+  color: #ffffff;
+}
+/*--- Down ---*/
+.ui.inverted.menu a.item:active,
+.ui.inverted.menu .dropdown.item:active,
+.ui.inverted.menu .link.item:active,
+.ui.inverted.menu a.item:active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+/*--- Active ---*/
+.ui.inverted.menu .active.item {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.ui.inverted.menu .active.item,
+.ui.inverted.menu .active.item a {
+  color: #ffffff !important;
+}
+.ui.inverted.vertical.menu .item .menu .active.item {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+/*--- Pointers ---*/
+.ui.inverted.pointing.menu .active.item:after {
+  background-color: #5B5B5B;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.ui.inverted.pointing.menu .active.item:hover:after {
+  background-color: #4A4A4A;
+}
+/*--------------
+    Selection
+---------------*/
+.ui.selection.menu > .item {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.selection.menu > .item:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+.ui.selection.menu > .item.active {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.inverted.selection.menu > .item {
+  color: rgba(255, 255, 255, 0.4);
+}
+.ui.inverted.selection.menu > .item:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.ui.inverted.selection.menu > .item.active {
+  color: #FFFFFF;
+}
+/*--------------
+     Floated
+---------------*/
+.ui.floated.menu {
+  float: left;
+  margin: 0rem 0.5rem 0rem 0rem;
+}
+.ui.right.floated.menu {
+  float: right;
+  margin: 0rem 0rem 0rem 0.5rem;
+}
+/*--------------
+ Inverted Colors
+---------------*/
+/*--- Light Colors  ---*/
+.ui.grey.menu {
+  background-color: #F0F0F0;
+}
+/*--- Inverted Colors  ---*/
+.ui.inverted.green.menu {
+  background-color: #A1CF64;
+}
+.ui.inverted.green.pointing.menu .active.item:after {
+  background-color: #B3D782;
+}
+.ui.inverted.red.menu {
+  background-color: #D95C5C;
+}
+.ui.inverted.red.pointing.menu .active.item:after {
+  background-color: #DF7C7C;
+}
+.ui.inverted.blue.menu {
+  background-color: #6ECFF5;
+}
+.ui.inverted.blue.pointing.menu .active.item:after {
+  background-color: #8AD7F6;
+}
+.ui.inverted.purple.menu {
+  background-color: #564F8A;
+}
+.ui.inverted.purple.pointing.menu .active.item:after {
+  background-color: #7771A0;
+}
+.ui.inverted.orange.menu {
+  background-color: #F05940;
+}
+.ui.inverted.orange.pointing.menu .active.item:after {
+  background-color: #F27966;
+}
+.ui.inverted.teal.menu {
+  background-color: #00B5AD;
+}
+.ui.inverted.teal.pointing.menu .active.item:after {
+  background-color: #33C3BC;
+}
+/*--------------
+     Fitted
+---------------*/
+.ui.fitted.menu .item,
+.ui.fitted.menu .item .menu .item,
+.ui.menu .fitted.item {
+  padding: 0em;
+}
+.ui.horizontally.fitted.menu .item,
+.ui.horizontally.fitted.menu .item .menu .item,
+.ui.menu .horizontally.fitted.item {
+  padding-top: 0.83em;
+  padding-bottom: 0.83em;
+}
+.ui.vertically.fitted.menu .item,
+.ui.vertically.fitted.menu .item .menu .item,
+.ui.menu .vertically.fitted.item {
+  padding-left: 0.95em;
+  padding-right: 0.95em;
+}
+/*--------------
+   Borderless
+---------------*/
+.ui.borderless.menu .item:before,
+.ui.borderless.menu .item .menu .item:before,
+.ui.menu .borderless.item:before {
+  background-image: none;
+}
+/*-------------------
+       Compact
+--------------------*/
+.ui.compact.menu {
+  display: inline-block;
+  margin: 0em;
+  vertical-align: middle;
+}
+.ui.compact.vertical.menu {
+  width: auto !important;
+}
+.ui.compact.vertical.menu .item:last-child::before {
+  display: block;
+}
+/*-------------------
+        Fluid
+--------------------*/
+.ui.menu.fluid,
+.ui.vertical.menu.fluid {
+  display: block;
+  width: 100% !important;
+}
+/*-------------------
+      Evenly Sized
+--------------------*/
+.ui.item.menu,
+.ui.item.menu .item {
+  width: 100%;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  text-align: center;
+}
+.ui.menu.two.item .item {
+  width: 50%;
+}
+.ui.menu.three.item .item {
+  width: 33.333%;
+}
+.ui.menu.four.item .item {
+  width: 25%;
+}
+.ui.menu.five.item .item {
+  width: 20%;
+}
+.ui.menu.six.item .item {
+  width: 16.666%;
+}
+.ui.menu.seven.item .item {
+  width: 14.285%;
+}
+.ui.menu.eight.item .item {
+  width: 12.500%;
+}
+.ui.menu.nine.item .item {
+  width: 11.11%;
+}
+.ui.menu.ten.item .item {
+  width: 10.0%;
+}
+.ui.menu.eleven.item .item {
+  width: 9.09%;
+}
+.ui.menu.twelve.item .item {
+  width: 8.333%;
+}
+/*--------------
+     Fixed
+---------------*/
+.ui.menu.fixed {
+  position: fixed;
+  z-index: 999;
+  margin: 0em;
+  border: none;
+  width: 100%;
+}
+.ui.menu.fixed,
+.ui.menu.fixed .item:first-child,
+.ui.menu.fixed .item:last-child {
+  border-radius: 0px !important;
+}
+.ui.menu.fixed.top {
+  top: 0px;
+  left: 0px;
+  right: auto;
+  bottom: auto;
+}
+.ui.menu.fixed.right {
+  top: 0px;
+  right: 0px;
+  left: auto;
+  bottom: auto;
+  width: auto;
+  height: 100%;
+}
+.ui.menu.fixed.bottom {
+  bottom: 0px;
+  left: 0px;
+  top: auto;
+  right: auto;
+}
+.ui.menu.fixed.left {
+  top: 0px;
+  left: 0px;
+  right: auto;
+  bottom: auto;
+  width: auto;
+  height: 100%;
+}
+/* Coupling with Grid */
+.ui.fixed.menu + .ui.grid {
+  padding-top: 2.75rem;
+}
+/*-------------------
+       Pointing
+--------------------*/
+.ui.pointing.menu .active.item:after {
+  position: absolute;
+  bottom: -0.3em;
+  left: 50%;
+  content: "";
+  margin-left: -0.3em;
+  width: 0.6em;
+  height: 0.6em;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  background-image: none;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+  z-index: 2;
+  -webkit-transition: background 0.2s ease
+  ;
+  -moz-transition: background 0.2s ease
+  ;
+  transition: background 0.2s ease
+  ;
+}
+/* Don't double up pointers */
+.ui.pointing.menu .active.item .menu .active.item:after {
+  display: none;
+}
+.ui.vertical.pointing.menu .active.item:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.3em;
+  right: -0.4em;
+  bottom: auto;
+  left: auto;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* Colors */
+.ui.pointing.menu .active.item:after {
+  background-color: #FCFCFC;
+}
+.ui.pointing.menu .active.item:hover:after {
+  background-color: #FAFAFA;
+}
+.ui.vertical.pointing.menu .menu .active.item:after {
+  background-color: #F4F4F4;
+}
+.ui.pointing.menu a.active.item:active:after {
+  background-color: #F0F0F0;
+}
+/*--------------
+    Attached
+---------------*/
+.ui.menu.attached {
+  margin: 0rem;
+  border-radius: 0px;
+  /* avoid rgba multiplying */
+  -webkit-box-shadow: 0px 0px 0px 1px #DDDDDD;
+  box-shadow: 0px 0px 0px 1px #DDDDDD;
+}
+.ui.top.attached.menu {
+  border-radius: 0.1875em 0.1875em 0px 0px;
+}
+.ui.menu.bottom.attached {
+  border-radius: 0px 0px 0.1875em 0.1875em;
+}
+/*--------------
+     Sizes
+---------------*/
+.ui.small.menu .item {
+  font-size: 0.875rem;
+}
+.ui.small.vertical.menu {
+  width: 13rem;
+}
+.ui.menu .item {
+  font-size: 1rem;
+}
+.ui.vertical.menu {
+  width: 15rem;
+}
+.ui.large.menu .item {
+  font-size: 1.125rem;
+}
+.ui.large.menu .item .item {
+  font-size: 0.875rem;
+}
+.ui.large.menu .dropdown .item {
+  font-size: 1rem;
+}
+.ui.large.vertical.menu {
+  width: 18rem;
+}
