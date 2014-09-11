@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 0.19.1 - Sep 11, 2014
+### Version 0.19.2 - Sep 11, 2014
 
 **Bug Fixes**
 
