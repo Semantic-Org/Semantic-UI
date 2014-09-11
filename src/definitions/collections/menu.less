@@ -71,10 +71,6 @@
   color: @darkTextColor;
 }
 
-/* Active */
-.ui.menu .active.item {
-  color: @selectedTextColor;
-}
 
 /*--------------
       Items
@@ -346,7 +342,7 @@
 
 .ui.menu .active.item  {
   background: @activeBackground;
-  color: @darkTextColor;
+  color: @selectedTextColor;
   font-weight: @activeFontWeight;
   box-shadow: 0em @activeBorderSize 0em inset;
 }
@@ -592,7 +588,7 @@
   color: @invertedLightTextColor;
 }
 .ui.inverted.tiered.menu > .menu > .item:hover {
-  color: @invertedSelectedTextColor;
+  color: @invertedHoveredTextColor;
 }
 .ui.inverted.tiered.menu .active.item:after {
   display: none;
@@ -641,7 +637,7 @@
 /* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
-  color: @selectedTextColor;
+  color: @hoveredTextColor;
 }
 
 /* Active */

@@ -155,7 +155,7 @@
 --------------------*/
 
 /* Modal Width */
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width : @largestMobileScreen) {
   .ui.modal {
     width: @mobileWidth;
     margin: @mobileMargin;
@@ -188,7 +188,7 @@
 
 
 /* Position Adjustments */
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width : @largestMobileScreen) {
    /*rtl:ignore*/
   .ui.modal .content > .image {
     display: block;
@@ -305,7 +305,7 @@
   color: @innerCloseColor;
 }
 
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width : @largestMobileScreen) {
   .ui.fullscreen.modal {
     width: auto !important;
     margin: @fullScreenMobileMargin !important;
@@ -328,7 +328,7 @@
 }
 
 /* Small Modal Width */
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width : @largestMobileScreen) {
   .ui.small.modal {
     width: @smallMobileWidth;
     margin: @smallMobileMargin;
@@ -363,7 +363,7 @@
 .ui.large.modal > .header {
   font-size: @largeHeaderSize;
 }
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width : @largestMobileScreen) {
   .ui.large.modal {
     width: @largeMobileWidth;
     margin: @largeMobileMargin;

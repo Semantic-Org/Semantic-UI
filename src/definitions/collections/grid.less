@@ -139,35 +139,35 @@ body > .ui.grid:not(.page) {
   margin-right: @computerGutter;
 }
 
-@media only screen and (max-width : (@tabletBreakpoint - 1)) {
+@media only screen and (max-width: (@largestMobileScreen)) {
   .ui.page.grid {
     width: @mobileWidth;
     margin-left: @mobileGutter;
     margin-right: @mobileGutter;
   }
 }
-@media only screen and (min-width : @tabletBreakpoint) {
+@media only screen and (min-width: @tabletBreakpoint) {
   .ui.page.grid {
     width: @tabletWidth;
     margin-left: @tabletGutter;
     margin-right: @tabletGutter;
   }
 }
-@media only screen and (min-width : @computerBreakpoint) {
+@media only screen and (min-width: @computerBreakpoint) {
   .ui.page.grid {
     width: @computerWidth;
     margin-left: @computerGutter;
     margin-right: @computerGutter;
   }
 }
-@media only screen and (min-width : @largeMonitorBreakpoint) {
+@media only screen and (min-width: @largeMonitorBreakpoint) {
   .ui.page.grid {
     width: @largeMonitorWidth;
     margin-left: @largeMonitorGutter;
     margin-right: @largeMonitorGutter;
   }
 }
-@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
   .ui.page.grid {
     width: @widescreenMonitorWidth;
     margin-left: @widescreenMonitorGutter;
@@ -669,97 +669,52 @@ body > .ui.grid:not(.page) {
      Only (Device)
 -----------------------*/
 
-/* Mobile Only */
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
-  .ui.mobile.only.grid,
-  .ui.grid > .mobile.only.row {
-    display: block !important;
+/* Mobile Only Hide */
+@media only screen and ( max-width: @largestMobileScreen ) {
+  .ui.tablet:not(.mobile).only.grid,
+  .ui.grid > .tablet:not(.mobile).only.row,
+  .ui.grid > .tablet:not(.mobile).only.column,
+  .ui.grid > .row > .tablet:not(.mobile).only.column {
+    display: none;
   }
-  .ui.grid > .row > .mobile.only.column {
-    display: inline-block !important;
-  }
-  .ui.celled.mobile.only.grid,
-  .ui.celled.mobile.only.grid .row,
-  .ui.celled.grid .mobile.only.row,
-  .ui.grid .mobile.only.equal.height.row,
-  .ui.mobile.only.grid .equal.height.row  {
-    display: table !important;
-  }
-  .ui.celled.grid > .row > .mobile.only.column,
-  .ui.celled.mobile.only.grid > .row > .column,
-  .ui.celled.mobile.only.grid > .column {
-    display: table-cell !important;
-  }
-}
-@media only screen and (min-width : @tabletBreakpoint) {
-  .ui.mobile.only.grid,
-  .ui.grid > .mobile.only.row,
-  .ui.grid > .mobile.only.column,
-  .ui.grid > .row > .mobile.only.column {
+  .ui.computer:not(.mobile).only.grid,
+  .ui.grid > .computer:not(.mobile).only.row,
+  .ui.grid > .computer:not(.mobile).only.column,
+  .ui.grid > .row > .computer:not(.mobile).only.column {
     display: none;
   }
 }
-/* Tablet Only */
-@media only screen and (min-width : @tabletBreakpoint) and (max-width : (@computerBreakpoint - 1px)) {
-  .ui.tablet.only.grid,
-  .ui.grid > .tablet.only.row {
-    display: block !important;
-  }
-  .ui.grid > .row > .tablet.only.column {
-    display: inline-block !important;
-  }
-  .ui.celled.tablet.only.grid,
-  .ui.celled.tablet.only.grid .row,
-  .ui.celled.grid .tablet.only.row,
-  .ui.grid .tablet.only.equal.height.row,
-  .ui.tablet.only.grid .equal.height.row  {
-    display: table !important;
-  }
-  .ui.celled.grid > .row > .tablet.only.column,
-  .ui.celled.tablet.only.grid > .row > .column,
-  .ui.celled.tablet.only.grid > .column {
-    display: table-cell !important;
-  }
-}
-@media only screen and (max-width : (@tabletBreakpoint - 1px)), (min-width: @computerBreakpoint) {
-  .ui.tablet.only.grid,
-  .ui.grid > .tablet.only.row,
-  .ui.grid > .tablet.only.column,
-  .ui.grid > .row > .tablet.only.column {
+/* Tablet Only Hide */
+@media only screen and (min-width: (@tabletBreakpoint)) and (max-width: @largestTabletScreen ) {
+  .ui.mobile:not(.tablet).only.grid,
+  .ui.grid > .mobile:not(.tablet).only.row,
+  .ui.grid > .mobile:not(.tablet).only.column,
+  .ui.grid > .row > .mobile:not(.tablet).only.column {
     display: none;
   }
-}
-/* Computer Only */
-@media only screen and (min-width : @computerBreakpoint) {
-  .ui.computer.only.grid,
-  .ui.grid > .computer.only.row {
-    display: block !important;
-  }
-  .ui.grid > .row > .computer.only.column {
-    display: inline-block !important;
-  }
-  .ui.celled.computer.only.grid,
-  .ui.celled.computer.only.grid .row,
-  .ui.celled.grid .computer.only.row,
-  .ui.grid .computer.only.equal.height.row,
-  .ui.computer.only.grid .equal.height.row  {
-    display: table !important;
-  }
-  .ui.celled.grid > .row > .computer.only.column,
-  .ui.celled.computer.only.grid > .row > .column,
-  .ui.celled.computer.only.grid > .column {
-    display: table-cell !important;
-  }
-}
-@media only screen and (max-width : (@computerBreakpoint - 1px)) {
-  .ui.computer.only.grid,
-  .ui.grid > .computer.only.row,
-  .ui.grid > .computer.only.column,
-  .ui.grid > .row > .computer.only.column {
+  .ui.computer:not(.tablet).only.grid,
+  .ui.grid > .computer:not(.tablet).only.row,
+  .ui.grid > .computer:not(.tablet).only.column,
+  .ui.grid > .row > .computer:not(.tablet).only.column {
     display: none;
   }
 }
 
+/* Computer Only Hide */
+@media only screen and ( min-width: (@computerBreakpoint) ) {
+  .ui.mobile:not(.computer).only.grid,
+  .ui.grid > .mobile:not(.computer).only.row,
+  .ui.grid > .mobile:not(.computer).only.column,
+  .ui.grid > .row > .mobile:not(.computer).only.column {
+    display: none;
+  }
+  .ui.tablet:not(.computer).only.grid,
+  .ui.grid > .tablet:not(.computer).only.row,
+  .ui.grid > .tablet:not(.computer).only.column,
+  .ui.grid > .row > .tablet:not(.computer).only.column {
+    display: none;
+  }
+}
 
 /*-------------------
       Doubling
@@ -767,7 +722,7 @@ body > .ui.grid:not(.page) {
 
 
 /* Mobily Only */
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width: @largestMobileScreen) {
   .ui.doubling.grid > .row {
     display: inline;
   }
@@ -837,7 +792,7 @@ body > .ui.grid:not(.page) {
 }
 
 /* Tablet Only */
-@media only screen and (min-width : @tabletBreakpoint) and (max-width : (@computerBreakpoint - 1px)) {
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.doubling.grid > .row {
     display: inline;
   }
@@ -910,7 +865,7 @@ body > .ui.grid:not(.page) {
       Stackable
 --------------------*/
 
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width: @largestMobileScreen) {
   .ui.stackable.grid {
     display: block !important;
     padding: 0em;

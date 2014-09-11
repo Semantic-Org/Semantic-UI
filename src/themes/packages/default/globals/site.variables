@@ -104,6 +104,9 @@
 @largeMonitorBreakpoint      : 1400px;
 @widescreenMonitorBreakpoint : 1900px;
 
+@largestMobileScreen         : (@tabletBreakpoint - 1px);
+@largestTabletScreen         : (@computerBreakpoint - 1px);
+
 
 /*******************************
            Power-User
@@ -213,15 +216,19 @@
 @darkTextColor               : rgba(0, 0, 0, 0.85);
 @lightTextColor              : rgba(0, 0, 0, 0.4);
 
+@unselectedTextColor         : rgba(0, 0, 0, 0.4);
+@hoveredTextColor            : rgba(0, 0, 0, 0.8);
+@pressedTextColor            : rgba(0, 0, 0, 0.8);
+@selectedTextColor           : rgba(0, 0, 0, 0.8);
+@disabledTextColor           : rgba(0, 0, 0, 0.2);
+
 @invertedTextColor           : rgba(255, 255, 255, 1);
 @invertedLightTextColor      : rgba(255, 255, 255, 0.8);
 @invertedUnselectedTextColor : rgba(255, 255, 255, 0.5);
+@invertedHoveredTextColor    : rgba(255, 255, 255, 1);
+@invertedPressedTextColor    : rgba(255, 255, 255, 1);
 @invertedSelectedTextColor   : rgba(255, 255, 255, 1);
 @invertedDisabledTextColor   : rgba(255, 255, 255, 0.3);
-
-@unselectedTextColor         : rgba(0, 0, 0, 0.4);
-@selectedTextColor           : rgba(0, 0, 0, 0.8);
-@disabledTextColor           : rgba(0, 0, 0, 0.2);
 
 /*-------------------
      Brand Colors

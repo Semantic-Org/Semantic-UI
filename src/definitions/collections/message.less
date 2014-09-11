@@ -103,7 +103,7 @@
 
 
 /* Icon */
-.ui.message .icon {
+.ui.message > .icon {
   margin-right: @iconDistance;
 }
 
@@ -111,6 +111,7 @@
 .ui.message > .close.icon {
   cursor: pointer;
   position: absolute;
+  margin: 0em;
   top: @closeTopDistance;
   right: @closeRightDistance;
   opacity: @closeOpacity;
@@ -201,6 +202,7 @@
   vertical-align: @iconVerticalAlign;
   font-size: @iconSize;
   opacity: @iconOpacity;
+  width: auto;
 }
 .ui.icon.message > .content {
   display: table-cell;
