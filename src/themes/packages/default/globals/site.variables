@@ -53,7 +53,7 @@
         Page
 --------------------*/
 
-@bodyBackground      : #FCFCFC;
+@bodyBackground      : #F7F7F7;
 @fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.8);
 

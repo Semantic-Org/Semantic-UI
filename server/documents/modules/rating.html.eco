@@ -52,16 +52,6 @@ themes      : ['Default']
           <i class="icon"></i>
         </div>
       </div>
-      <div class="ui header">
-        Rating
-        <div class="ui star rating">
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-          <i class="icon"></i>
-        </div>
-      </div>
     </div>
 
     <div class="example">
