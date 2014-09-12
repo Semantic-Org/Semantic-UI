@@ -18,7 +18,7 @@
 /* Star */
 @starIconHitbox: @iconHitbox;
 @starInactiveColor: @inactiveColor;
-@starHoverColor: #FFB70A;
+@starSelectedColor: #FFB70A;
 @starActiveColor: #FFE623;
 @starActiveShadow:
   0px -1px 0px #CFA300,
@@ -28,15 +28,15 @@
 ;
 
 /* Heart */
-@heartIconHitbox: 1.2em;
+@heartIconHitbox: 1.25em;
 @heartInactiveColor: @inactiveColor;
-@heartHoverColor: #FF2733;
-@heartActiveColor: #EF404A;
+@heartSelectedColor: #FF2733;
+@heartActiveColor: #FF2733;
 @heartActiveShadow:
-  0px -1px 0px #EF404A,
-  -1px 0px 0px #EF404A,
-  0px 1px 0px #EF404A,
-  1px 0px 0px #EF404A
+  0px -1px 0px #9E0000,
+  -1px 0px 0px #9E0000,
+  0px 1px 0px #9E0000,
+  1px 0px 0px #9E0000
 ;
 
 
@@ -49,7 +49,7 @@
 @activeColor: @darkTextColor;
 
 @interactiveIconOpacity: 0.5;
-@interactiveHoveredIconOpacity: 1;
+@interactiveSelectedIconOpacity: 1;
 
 /*-------------------
       Variations

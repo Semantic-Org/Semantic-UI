@@ -53,7 +53,10 @@
         Page
 --------------------*/
 
-@bodyBackground      : #F7F7F7;
+@pageBackground      : #F7F7F7;
+@lineHeight          : 1.33;
+@pageMinWidth        : 320px;
+
 @fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.8);
 
@@ -102,7 +105,7 @@
 @tabletBreakpoint            : 768px;
 @computerBreakpoint          : 992px;
 @largeMonitorBreakpoint      : 1400px;
-@widescreenMonitorBreakpoint : 1900px;
+@widescreenMonitorBreakpoint : 1920px;
 
 @largestMobileScreen         : (@tabletBreakpoint - 1px);
 @largestTabletScreen         : (@computerBreakpoint - 1px);

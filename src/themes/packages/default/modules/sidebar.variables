@@ -8,7 +8,6 @@
 @dimmerColor: rgba(0, 0, 0, 0.4);
 
 @canvasBackground: @lightBlack;
-@pageBackground: @bodyBackground;
 @perspective: 1500px;
 
 @duration: 0.5s;

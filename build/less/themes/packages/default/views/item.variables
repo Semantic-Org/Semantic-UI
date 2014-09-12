@@ -102,7 +102,9 @@
 @paragraphDistance: 0.5em;
 
 /* Additional Content */
-@extraDivider: 1px solid rgba(0, 0, 0, 0.05);
+@extraDivider: none;
+@extraSpacing: 0.5em;
+
 @extraBackground: none;
 @extraDisplay: block;
 @extraPosition: relative;

@@ -112,14 +112,15 @@ code {
   background-color: rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.1);
   display: inline-block;
-  font-family: Courier New;
+  font-family:  'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
   font-size: 14px;
-  margin: 0.25em;
+  margin: 0 0.25em;
   padding: 0.125em 0.5em;
   vertical-align: baseline;
 }
-.ui.message .code {
-  background-color: rgba(0, 0, 0, 0.05);
+.ui.message code {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 pre code {

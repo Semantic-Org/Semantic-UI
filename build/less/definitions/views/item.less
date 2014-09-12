@@ -152,9 +152,13 @@
   margin: @headerMargin;
   font-family: @headerFont;
   font-weight: @headerFontWeight;
-  font-size: @headerFontSize;
   color: @headerColor;
 }
+/* Default Header Size */
+.ui.items > .item > .content > .header:not(.ui) {
+  font-size: @headerFontSize;
+}
+
 .ui.items > .item > .content > .meta + .description{
   margin-top: @descriptionDistance;
 }
@@ -313,6 +317,12 @@
   box-shadow: @extraBoxShadow;
   transition: @extraTransition;
   border-top: @extraDivider;
+}
+.ui.items > .item .extra > * {
+  margin-right: @extraSpacing;
+}
+.ui.items > .item .extra > .right.floated {
+  margin-left: @extraSpacing;
 }
 
 .ui.items > .item .extra:after {

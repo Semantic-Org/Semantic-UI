@@ -32,19 +32,21 @@
 
 html,
 body {
-  font-size: @fontSize;
   height: 100%;
   font-smoothing: @fontSmoothing;
 }
 
 
 body {
-  background: @bodyBackground;
-  font-family: @pageFont;
   margin: 0px;
   padding: 0px;
+  min-width: @pageMinWidth;
+  background: @pageBackground;
+
+  font-family: @pageFont;
+  font-size: @fontSize;
+  line-height: @lineHeight;
   color: @textColor;
-  min-width: 320px;
 }
 
 /*******************************

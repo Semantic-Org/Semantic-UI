@@ -207,6 +207,11 @@ $.fn.popup = function(parameters) {
             }
             $.proxy(settings.onCreate, $popup)();
           }
+          else if($target.next(settings.selector.popup).size() !== 0) {
+            module.verbose('Pre-existing popup found, reverting to inline');
+            settings.inline = true;
+            module.refresh();
+          }
           else {
             module.error(error.content, element);
           }
@@ -389,22 +394,22 @@ $.fn.popup = function(parameters) {
                 right  : $(window).width()
               },
               popup     = {
-                width    : $popup.width(),
-                height   : $popup.outerHeight(),
-                position : $popup.offset()
+                width  : $popup.width(),
+                height : $popup.outerHeight(),
+                offset : $popup.offset()
               },
               offstage  = {},
               offstagePositions = []
             ;
-            if(popup.position) {
+            if(popup.offset) {
               offstage = {
-                top    : (popup.position.top < boundary.top),
-                bottom : (popup.position.top + popup.height > boundary.bottom),
-                right  : (popup.position.left + popup.width > boundary.right),
-                left   : (popup.position.left < boundary.left)
+                top    : (popup.offset.top < boundary.top),
+                bottom : (popup.offset.top + popup.height > boundary.bottom),
+                right  : (popup.offset.left + popup.width > boundary.right),
+                left   : (popup.offset.left < boundary.left)
               };
             }
-            module.verbose('Checking if outside viewable area', popup.position);
+            module.verbose('Checking if outside viewable area', popup.offset);
             // return only boundaries that have been surpassed
             $.each(offstage, function(direction, isOffstage) {
               if(isOffstage) {
@@ -450,21 +455,30 @@ $.fn.popup = function(parameters) {
         set: {
           position: function(position, arrowOffset) {
             var
-              windowWidth  = $(window).width(),
-              windowHeight = $(window).height(),
+              windowWidth   = $(window).width(),
+              windowHeight  = $(window).height(),
 
-              width        = $target.outerWidth(),
-              height       = $target.outerHeight(),
+              targetWidth   = $target.outerWidth(),
+              targetHeight  = $target.outerHeight(),
 
-              popupWidth   = $popup.width(),
-              popupHeight  = $popup.outerHeight(),
+              popupWidth    = $popup.outerWidth(),
+              popupHeight   = $popup.outerHeight(),
 
-              parentWidth  = $offsetParent.outerWidth(),
-              parentHeight = $offsetParent.outerHeight(),
+              parentWidth   = $offsetParent.outerWidth(),
+              parentHeight  = $offsetParent.outerHeight(),
 
-              distanceAway = settings.distanceAway,
+              distanceAway  = settings.distanceAway,
 
-              offset       = (settings.inline || settings.popup)
+              targetElement = $target[0],
+
+              marginTop = (settings.inline)
+                ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-top'), 10)
+                : 0,
+              marginLeft = (settings.inline)
+                ? parseInt( window.getComputedStyle(targetElement).getPropertyValue('margin-left'), 10)
+                : 0,
+
+              target        = (settings.inline || settings.popup)
                 ? $target.position()
                 : $target.offset(),
 
@@ -473,79 +487,84 @@ $.fn.popup = function(parameters) {
             ;
             position    = position    || $module.data(metadata.position)    || settings.position;
             arrowOffset = arrowOffset || $module.data(metadata.offset)      || settings.offset;
-            // adjust for margin when inline
-            if(settings.inline || settings.popup) {
+
+            if(settings.inline) {
+              module.debug('Adding targets margin to calculation');
               if(position == 'left center' || position == 'right center') {
-                arrowOffset  += parseInt( window.getComputedStyle(element).getPropertyValue('margin-top'), 10);
-                distanceAway += -parseInt( window.getComputedStyle(element).getPropertyValue('margin-left'), 10);
+                arrowOffset  += marginTop;
+                distanceAway += -marginLeft;
+              }
+              else if (position == 'top left' || position == 'top center' || position == 'top right') {
+                arrowOffset  += marginLeft;
+                distanceAway -= marginTop;
               }
               else {
-                arrowOffset  += parseInt( window.getComputedStyle(element).getPropertyValue('margin-left'), 10);
-                distanceAway += parseInt( window.getComputedStyle(element).getPropertyValue('margin-top'), 10);
+                arrowOffset  += marginLeft;
+                distanceAway += marginTop;
               }
             }
-            module.debug('Calculating offset for position', position);
+            module.debug('Calculating popup positioning', position);
             switch(position) {
               case 'top left':
                 positioning = {
                   top    : 'auto',
-                  bottom : parentHeight - offset.top + distanceAway,
-                  left   : offset.left + arrowOffset,
+                  bottom : parentHeight - target.top + distanceAway,
+                  left   : target.left + arrowOffset,
                   right  : 'auto'
                 };
               break;
               case 'top center':
                 positioning = {
-                  bottom : parentHeight - offset.top + distanceAway,
-                  left   : offset.left + (width / 2) - (popupWidth / 2) + arrowOffset,
+                  bottom : parentHeight - target.top + distanceAway,
+                  left   : target.left + (targetWidth / 2) - (popupWidth / 2) + arrowOffset,
                   top    : 'auto',
                   right  : 'auto'
                 };
               break;
               case 'top right':
                 positioning = {
-                  bottom :  parentHeight - offset.top + distanceAway,
-                  right  :  parentWidth - offset.left - width - arrowOffset,
+                  bottom :  parentHeight - target.top + distanceAway,
+                  right  :  parentWidth - target.left - targetWidth - arrowOffset,
                   top    : 'auto',
                   left   : 'auto'
                 };
               break;
               case 'left center':
                 positioning = {
-                  top    : offset.top + (height / 2) - (popupHeight / 2) + arrowOffset,
-                  right  : parentWidth - offset.left + distanceAway,
+                  top    : target.top + (targetHeight / 2) - (popupHeight / 2) + arrowOffset,
+                  right  : parentWidth - target.left + distanceAway,
                   left   : 'auto',
                   bottom : 'auto'
                 };
               break;
               case 'right center':
                 positioning = {
-                  top    : offset.top + (height / 2) - (popupHeight / 2) + arrowOffset,
-                  left   : offset.left + width + distanceAway,
+                  top    : target.top + (targetHeight / 2) - (popupHeight / 2) + arrowOffset,
+                  left   : target.left + targetWidth + distanceAway,
                   bottom : 'auto',
                   right  : 'auto'
                 };
               break;
               case 'bottom left':
                 positioning = {
-                  top    : offset.top + height + distanceAway,
-                  left   : offset.left + arrowOffset,
+                  top    : target.top + targetHeight + distanceAway,
+                  left   : target.left + arrowOffset,
                   bottom : 'auto',
                   right  : 'auto'
                 };
               break;
               case 'bottom center':
                 positioning = {
-                  top    : offset.top + height + distanceAway,
-                  left   : offset.left + (width / 2) - (popupWidth / 2) + arrowOffset,
+                  top    : target.top + targetHeight + distanceAway,
+                  left   : target.left + (targetWidth / 2) - (popupWidth / 2) + arrowOffset,
                   bottom : 'auto',
                   right  : 'auto'
                 };
               break;
               case 'bottom right':
                 positioning = {
-                  top    : offset.top + height + distanceAway,
-                  right  : parentWidth - offset.left  - width - arrowOffset,
+                  top    : target.top + targetHeight + distanceAway,
+                  right  : parentWidth - target.left  - targetWidth - arrowOffset,
                   left   : 'auto',
                   bottom : 'auto'
                 };
@@ -563,7 +582,6 @@ $.fn.popup = function(parameters) {
             ;
             // check if is offstage
             offstagePosition = module.get.offstagePosition();
-
             // recursively find new positioning
             if(offstagePosition) {
               module.debug('Element is outside boundaries', offstagePosition);
@@ -865,6 +883,7 @@ $.fn.popup.settings = {
   inline         : false,
   preserve       : true,
   hoverable      : false,
+  includeMargin  : false,
 
   duration       : 200,
   easing         : 'easeOutQuint',

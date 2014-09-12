@@ -53,7 +53,10 @@
         Page
 --------------------*/
 
-@bodyBackground      : #F7F7F7;
+@pageBackground      : #F7F7F7;
+@lineHeight          : 1.33;
+@pageMinWidth        : 320px;
+
 @fontSize            : 14px;
 @textColor           : rgba(0, 0, 0, 0.8);
 

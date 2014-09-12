@@ -31,14 +31,9 @@ themes      : ['Default', 'GitHub', 'Google']
     <p>A basic message</p>
     <div class="ui message">
       <div class="header">
-        Welcome back!
+        Changes in Service
       </div>
-      <p>
-        It's good to see you again. I have had a lot to think about since our last visit, I've changed much as a person and I can see that you have too.
-      </p>
-      <p>
-        Perhaps we can talk about it if you have the time.
-      </p>
+      <p>We just updated our privacy policy here to better service our customers. We recommend reviewing the changes.</p>
     </div>
   </div>
 

@@ -44,6 +44,23 @@
   visibility: hidden;
 }
 
+/*----------------------
+      Remove Gutters
+-----------------------*/
+
+.ui.grid {
+  margin-left: -@gutterWidth;
+  margin-right: -@gutterWidth;
+}
+.ui.relaxed.grid  {
+  margin-left: -@relaxedGutterWidth;
+  margin-right: -@relaxedGutterWidth;
+}
+.ui.very.relaxed.grid  {
+  margin-left: -@veryRelaxedGutterWidth;
+  margin-right: -@veryRelaxedGutterWidth;
+}
+
 /*-------------------
        Columns
 --------------------*/
@@ -123,7 +140,7 @@
 
 
 /*-----------------------
-  Page Grid (Responsive)
+       Page Grid
 -------------------------*/
 
 .ui.page.grid {
@@ -489,21 +506,14 @@
   margin-right: @veryRelaxedGutterWidth;
 }
 
+
 /*----------------------
-        Fitted
+        Spaced
 -----------------------*/
 
-.ui.grid {
-  margin-left: -@gutterWidth;
-  margin-right: -@gutterWidth;
-}
-.ui.relaxed.grid  {
-  margin-left: -@relaxedGutterWidth;
-  margin-right: -@relaxedGutterWidth;
-}
-.ui.very.relaxed.grid  {
-  margin-left: -@veryRelaxedGutterWidth;
-  margin-right: -@veryRelaxedGutterWidth;
+.ui.spaced.grid {
+  margin-left: 0em !important;
+  margin-right: 0em !important;
 }
 
 
@@ -617,7 +627,6 @@
 .ui.celled.page.grid {
   box-shadow: none;
 }
-
 
 
 /*----------------------
