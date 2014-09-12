@@ -77,10 +77,10 @@
   text-shadow: @starActiveShadow;
 }
 
-/* Hovered Star */
-.ui.star.rating .icon.hover,
-.ui.star.rating .icon.hover.active {
-  color: @starHoverColor !important;
+/* Selected Star */
+.ui.star.rating .icon.selected,
+.ui.star.rating .icon.selected.active {
+  color: @starSelectedColor !important;
 }
 
 .ui.star.rating.partial {
@@ -109,10 +109,10 @@
   text-shadow: @heartActiveShadow;
 }
 
-/* Hovered Heart */
-.ui.heart.rating .icon.hover,
-.ui.heart.rating .icon.hover.active {
-  color: @heartHoverColor !important;
+/* Selected Heart */
+.ui.heart.rating .icon.selected,
+.ui.heart.rating .icon.selected.active {
+  color: @heartSelectedColor !important;
 }
 
 
@@ -131,9 +131,9 @@
   color: @activeColor;
 }
 
-/* Hovered Icon */
-.ui.rating .icon.hover,
-.ui.rating .icon.hover.active {
+/* Selected Icon */
+.ui.rating .icon.selected,
+.ui.rating .icon.selected.active {
   color: @hoverColor;
 }
 
@@ -149,16 +149,16 @@
 
 
 /*-------------------
-     Interacting
+     Interacting (Active)
 --------------------*/
 
 /* Selected Rating */
-.ui.rating.hover .active.icon {
+.ui.rating.selected .active.icon {
   opacity: @interactiveIconOpacity;
 }
-.ui.rating.hover .icon.hover,
-.ui.rating .icon.hover {
-  opacity: @interactiveHoveredIconOpacity;
+.ui.rating.selected .icon.selected,
+.ui.rating .icon.selected {
+  opacity: @interactiveSelectedIconOpacity;
 }
 
 
