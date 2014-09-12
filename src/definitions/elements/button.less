@@ -815,6 +815,7 @@
   display: block;
   margin: 0em;
   box-shadow: @attachedBoxShadow !important;
+  border-radius: 0em;
 }
 .ui.attached.top.button {
   border-radius: @borderRadius @borderRadius 0em 0em;
@@ -904,13 +905,16 @@
 /* Plural Attached */
 .attached.ui.buttons {
   margin: 0px;
-  border-radius: @borderRadius @borderRadius 0em 0em;
+  border-radius: 0em 0em 0em 0em;
+}
+.attached.ui.buttons .button {
+  margin: 0em;
 }
 .attached.ui.buttons .button:first-child {
-  border-radius: @borderRadius 0em 0em 0em;
+  border-radius: 0em 0em 0em 0em;
 }
 .attached.ui.buttons .button:last-child {
-  border-radius: 0em @borderRadius 0em 0em;
+  border-radius: 0em 0em 0em 0em;
 }
 
 /* Bottom Side */
@@ -962,45 +966,100 @@
   display: block;
   width: 100%;
 }
+
+.ui.\32.buttons,
+.ui.two.buttons {
+  width: 100%;
+}
 .ui.\32.buttons > .button,
 .ui.two.buttons > .button {
   width: 50%;
+}
+
+.ui.\33.buttons,
+.ui.three.buttons {
+  width: 100%;
 }
 .ui.\33.buttons > .button,
 .ui.three.buttons > .button {
   width: 33.333%;
 }
+
+.ui.\34.buttons,
+.ui.four.buttons {
+  width: 100%;
+}
 .ui.\34.buttons > .button,
 .ui.four.buttons > .button {
   width: 25%;
+}
+
+.ui.\35.buttons,
+.ui.five.buttons {
+  width: 100%;
 }
 .ui.\35.buttons > .button,
 .ui.five.buttons > .button {
   width: 20%;
 }
+
+.ui.\36.buttons,
+.ui.six.buttons {
+  width: 100%;
+}
 .ui.\36.buttons > .button,
 .ui.six.buttons > .button {
   width: 16.666%;
+}
+
+.ui.\37.buttons,
+.ui.seven.buttons {
+  width: 100%;
 }
 .ui.\37.buttons > .button,
 .ui.seven.buttons > .button {
   width: 14.285%;
 }
+
+.ui.\38.buttons,
+.ui.eight.buttons {
+  width: 100%;
+}
 .ui.\38.buttons > .button,
 .ui.eight.buttons > .button {
   width: 12.500%;
+}
+
+.ui.\39.buttons,
+.ui.nine.buttons {
+  width: 100%;
 }
 .ui.\39.buttons > .button,
 .ui.nine.buttons > .button {
   width: 11.11%;
 }
+
+.ui.\31\30.buttons,
+.ui.ten.buttons {
+  width: 100%;
+}
 .ui.\31\30.buttons > .button,
 .ui.ten.buttons > .button {
   width: 10%;
 }
+
+.ui.\31\31.buttons,
+.ui.eleven.buttons {
+  width: 100%;
+}
 .ui.\31\31.buttons > .button,
 .ui.eleven.buttons > .button {
   width: 9.09%;
+}
+
+.ui.\31\32.buttons,
+.ui.twelve.buttons {
+  width: 100%;
 }
 .ui.\31\32.buttons > .button,
 .ui.twelve.buttons > .button {
