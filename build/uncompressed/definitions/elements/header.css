@@ -1,0 +1,622 @@
+/*
+ * # Semantic - Header
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributor
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Solid Background Color */
+/* Status */
+/* Darkened Headers */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Header
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/* HTML Headings */
+/* Sizing */
+/* Sub Header */
+/* Icon */
+/* Label */
+/* Content */
+/* Paragraph after Header */
+/*-------------------
+      Variations
+--------------------*/
+/* Icon Header */
+/* Divided */
+/* Block */
+/* Attached */
+/* Inverted */
+/* Floated */
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
+            Header
+*******************************/
+/* Standard */
+.ui.header {
+  border: none;
+  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin: 1em 0em 1rem;
+  padding: 0em 0em;
+  font-weight: bold;
+  line-height: 1.33em;
+  text-transform: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.header .sub.header {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0em;
+  padding: 0em;
+  line-height: 1.2em;
+  color: rgba(0, 0, 0, 0.5);
+}
+/* Icon and Content Together */
+.ui.header > .icon {
+  display: table-cell;
+  font-size: 1em;
+  padding-top: 0.165em;
+  vertical-align: middle;
+  padding-right: 0.5em;
+}
+.ui.header > .icon + .content {
+  padding-left: 0.5em;
+  display: table-cell;
+}
+/* Only One */
+.ui.header .icon:only-child {
+  display: inline-block;
+  padding: 0em;
+  margin-right: 0.5em;
+  vertical-align: baseline;
+}
+.ui.header .content {
+  display: inline-block;
+  vertical-align: top;
+}
+/* Positioning */
+.ui.header:first-child {
+  margin-top: 0em;
+}
+.ui.header:last-child {
+  margin-bottom: 0em;
+}
+.ui.header + p {
+  margin-top: 0em;
+}
+/*--------------
+  Page Heading
+---------------*/
+h1.ui.header {
+  min-height: 1rem;
+  font-size: 2rem;
+}
+h2.ui.header {
+  font-size: 1.5rem;
+}
+h3.ui.header {
+  font-size: 1.3rem;
+}
+h4.ui.header {
+  font-size: 1.1rem;
+}
+h5.ui.header {
+  font-size: 1rem;
+}
+/*--------------
+ Content Heading
+---------------*/
+.ui.tiny.header {
+  font-size: 1em;
+}
+.ui.small.header {
+  font-size: 1.1em;
+}
+.ui.medium.header {
+  font-size: 1.3em;
+}
+.ui.large.header {
+  font-size: 1.5em;
+}
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 2em;
+}
+/*--------------
+ Loose Coupling
+---------------*/
+.ui.header .ui.label {
+  margin: 0em 0em 0em 0.5rem;
+  vertical-align: middle;
+}
+/*******************************
+            Types
+*******************************/
+/*-------------------
+        Icon
+--------------------*/
+.ui.icon.header {
+  display: inline-block;
+  text-align: center;
+}
+.ui.icon.header .icon {
+  float: none;
+  display: block;
+  font-size: 3em;
+  margin: 0em auto 0.2em;
+  opacity: 1;
+  padding: 0em;
+}
+.ui.icon.header .content {
+  display: block;
+}
+.ui.icon.header .circular.icon {
+  font-size: 2em;
+}
+.ui.icon.header .square.icon {
+  font-size: 2em;
+}
+.ui.block.icon.header .icon {
+  margin-bottom: 0em;
+}
+.ui.icon.header.aligned {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+/*******************************
+            States
+*******************************/
+.ui.disabled.header {
+  opacity: 0.3;
+}
+/*******************************
+           Variations
+*******************************/
+/*-------------------
+       Colors
+--------------------*/
+.ui.black.header {
+  color: #191919 !important;
+}
+a.ui.black.header:hover {
+  color: #2b2b2b;
+}
+.ui.blue.header {
+  color: #0074d9 !important;
+}
+a.ui.blue.header:hover {
+  color: #0087fd;
+}
+.ui.green.header {
+  color: #2ecc40 !important;
+}
+a.ui.green.header:hover {
+  color: #48d658;
+}
+.ui.orange.header {
+  color: #ff851b !important;
+}
+a.ui.orange.header:hover {
+  color: #ff983f;
+}
+.ui.pink.header {
+  color: #d9499a !important;
+}
+a.ui.pink.header:hover {
+  color: #df67aa;
+}
+.ui.purple.header {
+  color: #a24096 !important;
+}
+a.ui.purple.header:hover {
+  color: #b94dac;
+}
+.ui.red.header {
+  color: #ff4136 !important;
+}
+a.ui.red.header:hover {
+  color: #ff635a;
+}
+.ui.teal.header {
+  color: #39cccc !important;
+}
+a.ui.teal.header:hover {
+  color: #55d3d3;
+}
+.ui.yellow.header {
+  color: #ffcb08 !important;
+}
+a.ui.yellow.header:hover {
+  color: #ffd32c;
+}
+.ui.black.dividing.header {
+  border-bottom: 3px solid #191919;
+}
+.ui.blue.dividing.header {
+  border-bottom: 3px solid #0074d9;
+}
+.ui.green.dividing.header {
+  border-bottom: 3px solid #2ecc40;
+}
+.ui.orange.dividing.header {
+  border-bottom: 3px solid #ff851b;
+}
+.ui.pink.dividing.header {
+  border-bottom: 3px solid #d9499a;
+}
+.ui.purple.dividing.header {
+  border-bottom: 3px solid #a24096;
+}
+.ui.red.dividing.header {
+  border-bottom: 3px solid #ff4136;
+}
+.ui.teal.dividing.header {
+  border-bottom: 3px solid #39cccc;
+}
+.ui.yellow.dividing.header {
+  border-bottom: 3px solid #ffcb08;
+}
+/*-------------------
+      Inverted
+--------------------*/
+.ui.inverted.header {
+  color: #ffffff;
+}
+.ui.inverted.header .sub.header {
+  color: rgba(255, 255, 255, 0.85);
+}
+.ui.inverted.attached.header {
+  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  box-shadow: none;
+}
+.ui.inverted.block.header {
+  background: #333333 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #333333 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  box-shadow: none;
+}
+/*-------------------
+   Inverted Colors
+--------------------*/
+.ui.inverted.black.header {
+  color: #aaaaaa !important;
+}
+a.ui.inverted.black.header:hover {
+  color: #bcbcbc !important;
+}
+.ui.inverted.blue.header {
+  color: #54c8ff !important;
+}
+a.ui.inverted.blue.header:hover {
+  color: #78d3ff !important;
+}
+.ui.inverted.green.header {
+  color: #2ecc40 !important;
+}
+a.ui.inverted.green.header:hover {
+  color: #48d658 !important;
+}
+.ui.inverted.orange.header {
+  color: #ff851b !important;
+}
+a.ui.inverted.orange.header:hover {
+  color: #ff983f !important;
+}
+.ui.inverted.pink.header {
+  color: #ff8edf !important;
+}
+a.ui.inverted.pink.header:hover {
+  color: #ffb2e9 !important;
+}
+.ui.inverted.purple.header {
+  color: #cdc6ff !important;
+}
+a.ui.inverted.purple.header:hover {
+  color: #eceaff !important;
+}
+.ui.inverted.red.header {
+  color: #ff695e !important;
+}
+a.ui.inverted.red.header:hover {
+  color: #ff8a82 !important;
+}
+.ui.inverted.teal.header {
+  color: #6dffff !important;
+}
+a.ui.inverted.teal.header:hover {
+  color: #91ffff !important;
+}
+.ui.inverted.yellow.header {
+  color: #ffe21f !important;
+}
+a.ui.inverted.yellow.header:hover {
+  color: #ffe743 !important;
+}
+.ui.inverted.block.header {
+  border-bottom: none;
+}
+/*-------------------
+       Aligned
+--------------------*/
+.ui.left.aligned.header {
+  text-align: left;
+}
+.ui.right.aligned.header {
+  text-align: right;
+}
+.ui.centered.header,
+.ui.center.aligned.header {
+  text-align: center;
+}
+.ui.justified.header {
+  text-align: justify;
+}
+.ui.justified.header:after {
+  display: inline-block;
+  content: '';
+  width: 100%;
+}
+/*-------------------
+       Floated
+--------------------*/
+.ui.floated.header,
+.ui.left.floated.header {
+  float: left;
+  margin-top: 0em;
+  margin-right: 0.5em;
+}
+.ui.right.floated.header {
+  float: right;
+  margin-top: 0em;
+  margin-left: 0.5em;
+}
+/*-------------------
+       Fittted
+--------------------*/
+.ui.fitted.header {
+  padding: 0em;
+}
+/*-------------------
+      Dividing
+--------------------*/
+.ui.dividing.header {
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ui.dividing.header .sub.header {
+  padding-bottom: 0.5rem;
+}
+.ui.dividing.header .icon {
+  margin-bottom: 0.2em;
+}
+.ui.inverted.dividing.header {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+/*-------------------
+        Block
+--------------------*/
+.ui.block.header {
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  padding: 0.75rem 1rem;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #dddddd;
+  border-radius: 0.3125rem;
+}
+.ui.tiny.block.header {
+  font-size: 0.9em;
+}
+.ui.small.block.header {
+  font-size: 1em;
+}
+.ui.block.header {
+  font-size: 1.1em;
+}
+.ui.large.block.header {
+  font-size: 1.2em;
+}
+.ui.huge.block.header {
+  font-size: 1.33em;
+}
+/*-------------------
+       Attached
+--------------------*/
+.ui.attached.header {
+  background: #fafafa -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #fafafa linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  margin: 0em;
+  padding: 0.75rem 1rem;
+  box-shadow: 0px 0px 0px 1px #dddddd;
+  border: none;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.ui.attached:not(.top):not(.bottom).header {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  border-top: none;
+  border-bottom: none;
+}
+.ui.top.attached.header {
+  margin-bottom: 0em;
+  border-bottom: none;
+  border-radius: 0.3125rem 0.3125rem 0em 0em;
+}
+.ui.bottom.attached.header {
+  margin-top: 0em;
+  border-top: none;
+  border-radius: 0em 0em 0.3125rem 0.3125rem;
+}
+/* Attached Sizes */
+.ui.tiny.attached.header {
+  font-size: 0.9em;
+}
+.ui.small.attached.header {
+  font-size: 1em;
+}
+.ui.attached.header {
+  font-size: 1.1em;
+}
+.ui.large.attached.header {
+  font-size: 1.2em;
+}
+.ui.huge.attached.header {
+  font-size: 1.33em;
+}
+/*-------------------
+        Sizing
+--------------------*/
+.ui.header {
+  font-size: 1.3em;
+}
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+           Overrides
+*******************************/

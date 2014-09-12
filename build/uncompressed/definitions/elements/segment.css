@@ -1,0 +1,567 @@
+/*
+ * # Semantic - Segment
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributor
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Solid Background Color */
+/* Status */
+/* Darkened Headers */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+            Segment
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Coupling
+--------------------*/
+/* Page Grid Segment */
+/*******************************
+            Variations
+*******************************/
+/* Piled */
+/* Circular */
+/* Stacked */
+/* Raised */
+/* Attached */
+/* Colors */
+/* Ordinality */
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+    User Variable Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
+            Segment
+*******************************/
+.ui.segment {
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  margin: 1em 0em;
+  padding: 1em 1em;
+  border-radius: 0.25em;
+  border: none;
+  box-sizing: border-box;
+}
+.ui.segment:first-child {
+  margin-top: 0em;
+}
+.ui.segment:last-child {
+  margin-bottom: 0em;
+}
+/* Testing removal
+.ui.segment:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}*/
+.ui.vertical.segment {
+  margin: 0em;
+  padding-left: 0em;
+  padding-right: 0em;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.vertical.segment:first-child {
+  padding-top: 0em;
+}
+.ui.horizontal.segment {
+  margin: 0em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.ui.horizontal.segment:first-child {
+  padding-left: 0em;
+}
+/*-------------------
+    Loose Coupling
+--------------------*/
+/* Menu */
+.ui.pointing.menu + .ui.attached.segment {
+  top: 1px;
+}
+/* Label */
+.ui.bottom.attached.segment > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.top.attached.segment > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .top.attached.label {
+  border-top-left-radius: 0em;
+  border-top-right-radius: 0em;
+}
+.ui.attached.segment:not(.top):not(.bottom) > .bottom.attached.label {
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+/* Grid */
+.ui.page.grid.segment,
+.ui.grid .ui.segment.column {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.ui.grid.segment,
+.ui.grid .ui.segment.row,
+.ui.grid .ui.segment.column {
+  border-radius: 0em;
+  box-shadow: none;
+  border: none;
+}
+/* Table */
+.ui.basic.table.segment {
+  background: #ffffff;
+  border: none;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.ui.very.basic.table.segment {
+  padding: 1em 1em;
+}
+/*******************************
+             Types
+*******************************/
+/*-------------------
+        Piled
+--------------------*/
+.ui.piled.segment {
+  margin: 2em 0em;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.piled.segment:first-child {
+  margin-top: 0em;
+}
+.ui.piled.segment:last-child {
+  margin-bottom: 0em;
+}
+.ui.piled.segment:after,
+.ui.piled.segment:before {
+  background-color: #ffffff;
+  visibility: visible;
+  content: "";
+  display: block;
+  height: 100%;
+  left: -1px;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.ui.piled.segment:after {
+  -webkit-transform: rotate(1.2deg);
+      -ms-transform: rotate(1.2deg);
+          transform: rotate(1.2deg);
+  top: 0;
+  z-index: -1;
+}
+.ui.piled.segment:before {
+  -webkit-transform: rotate(-1.2deg);
+      -ms-transform: rotate(-1.2deg);
+          transform: rotate(-1.2deg);
+  top: 0;
+  z-index: -2;
+}
+/*-------------------
+       Stacked
+--------------------*/
+.ui.stacked.segment {
+  padding-bottom: 1.7em;
+}
+.ui.stacked.segment:after,
+.ui.stacked.segment:before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.03);
+  width: 100%;
+  height: 5px;
+  visibility: visible;
+}
+.ui.stacked.segment:before {
+  bottom: 0px;
+}
+/* Inverted */
+.ui.stacked.inverted.segment:after,
+.ui.stacked.inverted.segment:before {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+/*-------------------
+       Circular
+--------------------*/
+.ui.circular.segment {
+  display: table-cell;
+  padding: 2em;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 500em;
+}
+/*-------------------
+       Raised
+--------------------*/
+.ui.raised.segment {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+}
+/*******************************
+            States
+*******************************/
+.ui.disabled.segment {
+  opacity: 0.3;
+  color: rgba(0, 0, 0, 0.2);
+}
+/*******************************
+           Variations
+*******************************/
+/*-------------------
+       Basic
+--------------------*/
+.ui.basic.segment {
+  position: relative;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0px;
+}
+.ui.basic.segment:first-child {
+  padding-top: 0em;
+}
+.ui.basic.segment:last-child {
+  padding-bottom: 0em;
+}
+/*-------------------
+       Fittted
+--------------------*/
+.ui.fitted.segment {
+  padding: 0em;
+}
+/*-------------------
+       Colors
+--------------------*/
+.ui.black.segment:not(.inverted) {
+  border-top: 2px solid #191919;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+.ui.blue.segment:not(.inverted) {
+  border-top: 2px solid #0074d9;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+.ui.green.segment:not(.inverted) {
+  border-top: 2px solid #2ecc40;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+.ui.orange.segment:not(.inverted) {
+  border-top: 2px solid #ff851b;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+.ui.pink.segment:not(.inverted) {
+  border-top: 2px solid #d9499a;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+.ui.purple.segment:not(.inverted) {
+  border-top: 2px solid #a24096;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+.ui.red.segment:not(.inverted) {
+  border-top: 2px solid #ff4136;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+.ui.teal.segment:not(.inverted) {
+  border-top: 2px solid #39cccc;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+.ui.yellow.segment:not(.inverted) {
+  border-top: 2px solid #ffcb08;
+  border-radius: 0em 0em 0.25em 0.25em !important;
+}
+/*-------------------
+   Inverted Colors
+--------------------*/
+.ui.inverted.segment,
+.ui.inverted.black.segment {
+  background-color: #191919 !important;
+  color: #ffffff !important;
+}
+.ui.inverted.blue.segment {
+  background-color: #0074d9 !important;
+  color: #ffffff !important;
+}
+.ui.inverted.green.segment {
+  background-color: #2ecc40 !important;
+  color: #ffffff !important;
+}
+.ui.inverted.orange.segment {
+  background-color: #ff851b !important;
+  color: #ffffff !important;
+}
+.ui.inverted.pink.segment {
+  background-color: #d9499a !important;
+  color: #ffffff !important;
+}
+.ui.inverted.purple.segment {
+  background-color: #a24096 !important;
+  color: #ffffff !important;
+}
+.ui.inverted.red.segment {
+  background-color: #ff4136 !important;
+  color: #ffffff !important;
+}
+.ui.inverted.teal.segment {
+  background-color: #39cccc !important;
+  color: #ffffff !important;
+}
+.ui.inverted.yellow.segment {
+  background-color: #ffcb08 !important;
+  color: #ffffff !important;
+}
+/*-------------------
+       Aligned
+--------------------*/
+.ui.left.aligned.segment {
+  text-align: left;
+}
+.ui.right.aligned.segment {
+  text-align: right;
+}
+.ui.center.aligned.segment {
+  text-align: center;
+}
+/*-------------------
+       Floated
+--------------------*/
+.ui.floated.segment,
+.ui.left.floated.segment {
+  float: left;
+}
+.ui.right.floated.segment {
+  float: right;
+}
+/*-------------------
+      Inverted
+--------------------*/
+.ui.inverted.segment {
+  border: none;
+  box-shadow: none;
+}
+.ui.inverted.segment .segment {
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.inverted.segment .inverted.segment {
+  color: #ffffff;
+}
+.ui.inverted.segment,
+.ui.primary.inverted.segment {
+  background-color: #191919;
+  color: #ffffff;
+}
+.ui.inverted.block.segment,
+.ui.inverted.attached.segment {
+  box-shadow: none !important;
+}
+/*-------------------
+     Ordinality
+--------------------*/
+.ui.secondary.segment {
+  background: #faf9fa;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.tertiary.segment {
+  background: #ebebeb;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.secondary.inverted.segment {
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+  color: #fafafa;
+}
+.ui.tertiary.inverted.segment {
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+  background: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+  color: #f0f0f0;
+}
+/*-------------------
+      Attached
+--------------------*/
+.ui.segment.attached {
+  top: 0px;
+  bottom: 0px;
+  margin: 0em;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px 1px #dddddd;
+}
+.ui.top.attached.segment {
+  top: 0px;
+  bottom: 0px;
+  margin-top: 1em;
+  margin-bottom: 0em;
+  border-radius: 0.25em 0.25em 0em 0em;
+}
+.ui.segment.top.attached:first-child {
+  margin-top: 0em;
+}
+.ui.segment.bottom.attached {
+  top: 0px;
+  bottom: 0px;
+  margin-top: 0em;
+  margin-bottom: 1em;
+  box-shadow: 0px 0px 0px 1px #dddddd, 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0em 0em 0.25em 0.25em;
+}
+.ui.segment.bottom.attached:last-child {
+  margin-bottom: 0em;
+}
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+           Overrides
+*******************************/

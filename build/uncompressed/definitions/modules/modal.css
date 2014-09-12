@@ -1,0 +1,515 @@
+/*
+ * # Semantic - Modal
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributor
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+/*******************************
+            Theme
+*******************************/
+/*
+
+███████╗███████╗███╗   ███╗ █████╗ ███╗   ██╗████████╗██╗ ██████╗    ██╗   ██╗██╗
+██╔════╝██╔════╝████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝    ██║   ██║██║
+███████╗█████╗  ██╔████╔██║███████║██╔██╗ ██║   ██║   ██║██║         ██║   ██║██║
+╚════██║██╔══╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██║██║         ██║   ██║██║
+███████║███████╗██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║╚██████╗    ╚██████╔╝██║
+╚══════╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝     ╚═════╝ ╚═╝
+
+*/
+/*******************************
+           Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+            Themes
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+
+   Be sure to update the user folder name (see README)
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+     Load Default
+-------------------*/
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+        Paths
+--------------------*/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+  Background Colors
+--------------------*/
+/* Used for differentiating neutrals */
+/* Used for differentiating layers */
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+       Icons
+--------------------*/
+/* Max Width of Icon */
+/*-------------------
+       Easing
+--------------------*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Text ---*/
+/*--- Colored Headers ---*/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Mood */
+/* Solid Background Color */
+/* Status */
+/* Darkened Headers */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+    Grid Columns
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+        Sizes
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*******************************
+           States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Standard  ---*/
+/*---  Emotive  ---*/
+/*---  Neutrals  ---*/
+/*******************************
+             Modal
+*******************************/
+/* Close Icon */
+/* Header */
+/* Content */
+/* Image / Description */
+/* Modal Actions */
+/* Mobile Positions */
+/* Inner Close Position (Responsive) */
+/* Responsive Widths */
+/*-------------------
+        Types
+--------------------*/
+/* Basic */
+/* Scrolling Margin */
+/*-------------------
+      Variations
+--------------------*/
+/* Size Widths */
+/* Derived Responsive Sizes */
+/*------------------
+     Load Theme
+-------------------*/
+/*------------------
+     Load Site
+-------------------*/
+/*******************************
+     User Global Variables
+*******************************/
+/*******************************
+           Overrides
+*******************************/
+/*------------------
+ Override Mix-in
+-------------------*/
+/*******************************
+             Modal
+*******************************/
+.ui.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  text-align: left;
+  width: 90%;
+  margin-left: -45%;
+  background: #ffffff;
+  border: none;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+  border-radius: 0.25rem;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  will-change: top, left, margin, transform, opacity;
+}
+.ui.modal > :first-child:not(.icon),
+.ui.modal > .icon:first-child + * {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.ui.modal > :last-child {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+/*******************************
+            Content
+*******************************/
+/*--------------
+     Close
+---------------*/
+.ui.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  top: -2.5em;
+  right: -2.5em;
+  z-index: 1;
+  opacity: 0.8;
+  font-size: 1.25em;
+  color: #ffffff;
+  width: 2.25em;
+  height: 2.25em;
+  padding: 0.625em 0em 0em 0em;
+}
+.ui.modal > .close:hover {
+  opacity: 1;
+}
+/*--------------
+     Header
+---------------*/
+.ui.modal > .header {
+  display: block;
+  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
+  margin: 0em;
+  padding: 1.5rem 2rem;
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  font-size: 1.6em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/*--------------
+     Content
+---------------*/
+.ui.modal > .content {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  font-size: 1em;
+  line-height: 1.4;
+  padding: 2rem;
+  background: #ffffff;
+}
+.ui.modal > .content > .image {
+  display: table-cell;
+  width: '';
+  vertical-align: top;
+}
+.ui.modal > .content > .description {
+  display: table-cell;
+  min-width: '';
+  vertical-align: top;
+}
+.ui.modal > .content > .icon + .description,
+.ui.modal > .content > .image + .description {
+  padding-left: 1em;
+}
+/*rtl:ignore*/
+.ui.modal > .content > .image > i.icon {
+  font-size: 8rem;
+  margin: 0em;
+  opacity: 1;
+}
+/*--------------
+     Actions
+---------------*/
+.ui.modal .actions {
+  background: #efefef;
+  padding: 1rem 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: right;
+}
+.ui.modal .actions > .button {
+  margin-left: 0.75em;
+}
+/*-------------------
+       Responsive
+--------------------*/
+/* Modal Width */
+@media only screen and (max-width: 767px) {
+  .ui.modal {
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .ui.modal {
+    width: 88%;
+    margin: 0em 0em 0em -44%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui.modal {
+    width: 74%;
+    margin: 0em 0em 0em -37%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .ui.modal {
+    width: 56%;
+    margin: 0em 0em 0em -28%;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .ui.modal {
+    width: 42%;
+    margin: 0em 0em 0em -21%;
+  }
+}
+/* Position Adjustments */
+@media only screen and (max-width: 767px) {
+  /*rtl:ignore*/
+  .ui.modal .content > .image {
+    display: block;
+    padding: 0em 0em 1em;
+  }
+  /*rtl:ignore*/
+  .ui.modal .content > .description {
+    display: block;
+    padding: 0em 0em 1em;
+    box-shadow: none;
+  }
+  .ui.modal .content .image {
+    width: auto !important;
+    max-width: 100%;
+  }
+  .ui.modal .actions {
+    padding-bottom: 0em;
+  }
+  .ui.modal .actions > .buttons,
+  .ui.modal .actions > .button {
+    margin-bottom: 1em;
+  }
+}
+/* Tablet and Mobile */
+@media only screen and (max-width: 992px) {
+  .ui.modal > .header {
+    padding-right: 2.25em;
+  }
+  .ui.modal > .close {
+    top: 1rem;
+    right: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+/*******************************
+             Types
+*******************************/
+.ui.basic.modal {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: #ffffff;
+}
+.ui.basic.modal > .header,
+.ui.basic.modal > .content,
+.ui.basic.modal > .actions {
+  background-color: transparent;
+}
+.ui.basic.modal > .header {
+  color: #ffffff;
+}
+.ui.basic.modal > .close {
+  top: 1.5rem;
+  right: 1rem;
+}
+/*******************************
+            Variations
+*******************************/
+/* A modal that cannot fit on the page */
+.ui.scrolling.dimmable.dimmed {
+  overflow: hidden;
+}
+.ui.scrolling.dimmable.dimmed > .dimmer {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.ui.scrolling.dimmable > .dimmer {
+  position: fixed;
+}
+.ui.scrolling.modal {
+  position: static;
+  margin: 3.5rem auto;
+}
+@media only screen and (max-width: 992px) {
+  .ui.scrolling.modal {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+/*******************************
+             States
+*******************************/
+.ui.active.modal {
+  display: block;
+}
+/*******************************
+           Variations
+*******************************/
+/*--------------
+   Full Screen
+---------------*/
+.ui.fullscreen.modal {
+  width: 95% !important;
+  margin: 1em 0em 1em -47.5%;
+}
+.ui.fullscreen.modal > .header {
+  padding-right: 2.25em;
+}
+.ui.fullscreen.modal > .close {
+  top: 1rem;
+  right: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+@media only screen and (max-width: 767px) {
+  .ui.fullscreen.modal {
+    width: auto !important;
+    margin: 1em !important;
+    top: 0% !important;
+    left: 0% !important;
+  }
+}
+/*--------------
+      Size
+---------------*/
+.ui.modal {
+  font-size: 1em;
+}
+/* Small */
+.ui.small.modal > .header {
+  font-size: 1.3em;
+}
+/* Small Modal Width */
+@media only screen and (max-width: 767px) {
+  .ui.small.modal {
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .ui.small.modal {
+    width: 52.8%;
+    margin: 0em 0em 0em -26.4%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui.small.modal {
+    width: 44.4%;
+    margin: 0em 0em 0em -22.2%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .ui.small.modal {
+    width: 33.6%;
+    margin: 0em 0em 0em -16.8%;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .ui.small.modal {
+    width: 25.2%;
+    margin: 0em 0em 0em -12.6%;
+  }
+}
+/* Large Modal Width */
+.ui.large.modal > .header {
+  font-size: 1.6em;
+}
+@media only screen and (max-width: 767px) {
+  .ui.large.modal {
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .ui.large.modal {
+    width: 88%;
+    margin: 0em 0em 0em -44%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui.large.modal {
+    width: 88.8%;
+    margin: 0em 0em 0em -44.4%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .ui.large.modal {
+    width: 67.2%;
+    margin: 0em 0em 0em -33.6%;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .ui.large.modal {
+    width: 50.4%;
+    margin: 0em 0em 0em -25.2%;
+  }
+}
+/*******************************
+           Overrides
+*******************************/
+/*******************************
+           Overrides
+*******************************/
