@@ -18,7 +18,7 @@
 /* Star */
 @starIconHitbox: @iconHitbox;
 @starInactiveColor: @inactiveColor;
-@starHoverColor: #FFB70A;
+@starSelectedColor: #FFB70A;
 @starActiveColor: #FFE623;
 @starActiveShadow:
   0px -1px 0px #CFA300,
@@ -30,7 +30,7 @@
 /* Heart */
 @heartIconHitbox: 1.2em;
 @heartInactiveColor: @inactiveColor;
-@heartHoverColor: #FF2733;
+@heartSelectedColor: #FF2733;
 @heartActiveColor: #EF404A;
 @heartActiveShadow:
   0px -1px 0px #EF404A,
@@ -49,7 +49,7 @@
 @activeColor: @darkTextColor;
 
 @interactiveIconOpacity: 0.5;
-@interactiveHoveredIconOpacity: 1;
+@interactiveSelectedIconOpacity: 1;
 
 /*-------------------
       Variations
