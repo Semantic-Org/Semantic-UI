@@ -20,7 +20,6 @@
 
 i.flag {
   display: inline-block;
-  background: url(@spritePath) no-repeat 0px 0px;
 
   width: @width;
   height: @height;
@@ -28,6 +27,16 @@ i.flag {
   line-height: @height;
   vertical-align: @verticalAlign;
   margin: 0em @margin 0em 0em;
+
+  text-decoration: inherit;
+
+  speak: none;
+  font-smoothing: antialiased;
+  backface-visibility: hidden;
+}
+
+i.flag:before {
+  background: url(@spritePath) no-repeat 0px 0px;
 }
 
 .loadUIOverrides();
