@@ -33,80 +33,78 @@ themes      : ['Default']
     <p>A group of items.</p>
     <div class="ui items segment">
       <div class="item">
-        <div class="image">
-          <img src="/images/logos/arrowhead.png">
+        <div class="ui small image">
+          <img src="/images/movies/12years.jpg">
         </div>
-        <div class="middle aligned content">
-          <a class="header">Arrowhead Valley Camp</a>
+        <div class="content">
+          <a class="header">12 Years a Slave</a>
           <div class="meta">
-            <span class="price">$1200</span>
-            <span class="stay">1 Month</span>
+            <span class="cinema">Union Square 14</span>
           </div>
           <div class="description">
-            This camp in the Hudson Valley is perfect for teenagers from 10-14.
+            In the pre-Civil War United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery. Facing cruelty as well as unexpected kindnesses Solomon struggles not only to stay alive, but to retain his dignity. In the twelfth year of his unforgettable odyssey, Solomon’s chance meeting with a Canadian abolitionist will forever alter his life.
           </div>
           <div class="extra">
-            <span class="right floated amenities ui label">
-              <i class="child icon"></i>
-              Child Friendly
-            </span>
+            <div class="ui right floated disabled red button">Sold Out</div>
+            <div class="ui horizontal label">IMAX</div>
+            <div class="ui horizontal label"><i class="globe icon"></i> Additional Languages</div>
             <span class="available">
-              <i class="red check icon"></i>
-              0 Spots Available
+              <i class="red remove icon"></i>
+              Tickets Unavailable
             </span>
           </div>
         </div>
       </div>
       <div class="item">
-        <div class="image">
-          <img src="/images/logos/big-buck.png">
+        <div class="ui small image">
+          <img src="/images/movies/totoro.jpg">
         </div>
-        <div class="middle aligned content">
-          <a class="header">Buck's Homebrew Stayaway</a>
+        <div class="content">
+          <a class="header">My Neighbor Totoro</a>
           <div class="meta">
-            <span class="price">$1000</span>
-            <span class="stay">2 Weeks</span>
+            <span class="cinema">IFC Cinema</span>
           </div>
           <div class="description">
-            This adult stay away from home camp will teach you everything you need to know about forestry and homebrew.
+            Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.
           </div>
           <div class="extra">
-            <span class="right floated amenities ui label">
-              <i class="male icon"></i>
-              Adults-Only
-            </span>
+            <div class="ui right floated primary button">
+              Buy tickets
+              <i class="right chevron icon"></i>
+            </div>
+            <div class="ui horizontal label">Limited</div>
             <span class="available">
               <i class="green check icon"></i>
-              2 Spots Available
+              10 Seats Avaiable
             </span>
           </div>
         </div>
       </div>
       <div class="item">
-        <div class="image">
-          <img src="/images/logos/sunset.png">
+        <div class="ui small image">
+          <img src="/images/movies/watchmen.jpg">
         </div>
-        <div class="middle aligned content">
-          <a class="header">Greek Astrology Camp</a>
+        <div class="content">
+          <a class="header">Watchmen</a>
           <div class="meta">
-            <span class="price">$1600</span>
-            <span class="stay">6 Weeks</span>
+            <span class="cinema">IFC</span>
           </div>
           <div class="description">
-            Learn astrology the old fashioned way in this stayaway camp for kids aged 8-17.
+            In a gritty and alternate 1985 the glory days of costumed vigilantes have been brought to a close by a government crackdown, but after one of the masked veterans is brutally murdered an investigation into the killer is initiated. The reunited heroes set out to prevent their own destruction, but in doing so uncover a sinister plot that puts all of humanity in grave danger.
           </div>
           <div class="extra">
-            <span class="right floated amenities ui label">
-              <i class="child icon"></i>
-              Child Friendly
-            </span>
+            <div class="ui right floated primary button">
+              Buy tickets
+              <i class="right chevron icon"></i>
+            </div>
             <span class="available">
               <i class="green check icon"></i>
-              25 Spots Available
+              40 Seats Avaiable
             </span>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -325,36 +323,79 @@ themes      : ['Default']
       <i class="info icon"></i>
       The following example uses <a href="/elements/segment.html">ui</a> for legibility only. This is not necessary for using <code>ui items</code>
     </div>
-    <div class="ui divided items segment">
-      <div class="item" href="http://www.dog.com">
-        <div class="content">
-          <a class="header">Cute Dog</a>
+    <div class="ui items segment">
+      <div class="item">
+        <div class="image">
+          <img src="/images/logos/arrowhead.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">Arrowhead Valley Camp</a>
           <div class="meta">
-            <span class="category">Animals</span>
+            <span class="price">$1200</span>
+            <span class="stay">1 Month</span>
           </div>
           <div class="description">
-            Click to view more information about this dog at dog.com
+            This camp in the Hudson Valley is perfect for teenagers from 10-14.
           </div>
           <div class="extra">
-            <div class="author">
-              <img class="ui avatar image" src="/images/demo/photo2.jpg"> Dog Doggington
-            </div>
+            <span class="right floated amenities ui label">
+              <i class="child icon"></i>
+              Child Friendly
+            </span>
+            <span class="available">
+              <i class="red check icon"></i>
+              0 Spots Available
+            </span>
           </div>
         </div>
       </div>
-      <div class="item" href="http://www.dog.com">
-        <div class="content">
-          <a class="header">Magic Dog</a>
+      <div class="item">
+        <div class="image">
+          <img src="/images/logos/big-buck.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">Buck's Homebrew Stayaway</a>
           <div class="meta">
-            <span class="category">Animals</span>
+            <span class="price">$1000</span>
+            <span class="stay">2 Weeks</span>
           </div>
           <div class="description">
-            Click to view more information about a magic dog at dog.com
+            This adult stay away from home camp will teach you everything you need to know about forestry and homebrew.
           </div>
           <div class="extra">
-            <div class="author">
-              <img class="ui avatar image" src="/images/demo/photo.jpg"> Dog Doggington
-            </div>
+            <span class="right floated amenities ui label">
+              <i class="male icon"></i>
+              Adults-Only
+            </span>
+            <span class="available">
+              <i class="green check icon"></i>
+              2 Spots Available
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/logos/sunset.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">Greek Astrology Camp</a>
+          <div class="meta">
+            <span class="price">$1600</span>
+            <span class="stay">6 Weeks</span>
+          </div>
+          <div class="description">
+            Learn astrology the old fashioned way in this stayaway camp for kids aged 8-17.
+          </div>
+          <div class="extra">
+            <span class="right floated amenities ui label">
+              <i class="child icon"></i>
+              Child Friendly
+            </span>
+            <span class="available">
+              <i class="green check icon"></i>
+              25 Spots Available
+            </span>
           </div>
         </div>
       </div>

@@ -33,7 +33,6 @@ themes      : ['Default']
     <p>A grid is made up of columns of content with gutters to provide negative space between columns.</p>
 
     <div class="ui ignored message">
-      <p>A grid does not necessarily need to specify rows. Content will automatically flow to the next row when all the grid columns are taken in the current row.</p>
     </div>
     <div class="ui ignored info message">
       <p>All grid systems must assume an arbitrary amount of column rows. Semantic's default theme assumes <b>16 columns</b></p>
@@ -41,27 +40,55 @@ themes      : ['Default']
 
      <div class="ui grid">
       <div class="four wide column">
-        <div class="ui segment">
-        </div>
+        <div class="ui segment"></div>
       </div>
       <div class="four wide column">
-        <div class="ui segment">
-        </div>
+        <div class="ui segment"></div>
       </div>
       <div class="four wide column">
-        <div class="ui segment">
-        </div>
+        <div class="ui segment"></div>
       </div>
       <div class="four wide column">
-        <div class="ui segment">
-        </div>
+        <div class="ui segment"></div>
       </div>
     </div>
   </div>
 
   <div class="highlighted example">
-    <h4 class="ui header">Grid with Rows</h4>
-    <p>A grid can wrap groups of columns into rows</p>
+    <h4 class="ui header">Automatic Row Flow</h4>
+    <p>A grid does not necessarily need to specify rows. Content will automatically flow to the next row when all the grid columns are taken in the current row.</p>
+
+     <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui segment"></div>
+      </div>
+      <div class="four wide column">
+        <div class="ui segment"></div>
+      </div>
+      <div class="four wide column">
+        <div class="ui segment"></div>
+      </div>
+      <div class="four wide column">
+        <div class="ui segment"></div>
+      </div>
+      <div class="four wide column">
+        <div class="ui segment"></div>
+      </div>
+      <div class="four wide column">
+        <div class="ui segment"></div>
+      </div>
+      <div class="four wide column">
+        <div class="ui segment"></div>
+      </div>
+      <div class="four wide column">
+        <div class="ui segment"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlighted example">
+    <h4 class="ui header">Specifying Rows</h4>
+    <p>Specifying rows for your grid, allows the bottom and top rows to sit flush with the edge of the grid, and allows you to use row variations</p>
     <div class="ui ignored message">
       The bottom and top rows, when rows are specified will sit flush with the edge of the grid.</p>
     </div>
@@ -74,34 +101,27 @@ themes      : ['Default']
     <div class="ui grid">
       <div class="ui four column row">
         <div class="column">
-          <div class="ui segment">
-          </div>
+          <div class="ui segment"></div>
         </div>
         <div class="column">
-          <div class="ui segment">
-          </div>
+          <div class="ui segment"></div>
         </div>
         <div class="column">
-          <div class="ui segment">
-          </div>
+          <div class="ui segment"></div>
         </div>
         <div class="column">
-          <div class="ui segment">
-          </div>
+          <div class="ui segment"></div>
         </div>
       </div>
-      <div class="ui row">
+      <div class="ui divided row">
         <div class="three wide column">
-          <div class="ui segment">
-          </div>
+          <div class="ui segment"></div>
         </div>
         <div class="eight wide column">
-          <div class="ui segment">
-          </div>
+          <div class="ui segment"></div>
         </div>
         <div class="five wide column">
-          <div class="ui segment">
-          </div>
+          <div class="ui segment"></div>
         </div>
       </div>
     </div>
@@ -123,26 +143,36 @@ themes      : ['Default']
       <div class="column">
         <div class="ui two column fitted grid">
           <div class="column">
-            <div class="ui segment">
-            </div>
+            <div class="ui segment"></div>
           </div>
           <div class="column">
-            <div class="ui segment">
-            </div>
+            <div class="ui segment"></div>
           </div>
         </div>
       </div>
       <div class="column">
         <div class="ui fitted grid">
           <div class="eight wide column">
-            <div class="ui segment">
-            </div>
+            <div class="ui segment"></div>
           </div>
           <div class="eight wide column">
-            <div class="ui segment">
-            </div>
+            <div class="ui segment"></div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="ui four column grid">
+      <div class="column">
+          <div class="ui segment"></div>
+      </div>
+      <div class="column">
+          <div class="ui segment"></div>
+      </div>
+      <div class="column">
+          <div class="ui segment"></div>
+      </div>
+      <div class="column">
+          <div class="ui segment"></div>
       </div>
     </div>
   </div>

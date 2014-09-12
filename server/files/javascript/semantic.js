@@ -485,7 +485,7 @@ semantic.ready = function() {
       editorSession.setUseSoftTabs(true);
       codeHeight = editorSession.getScreenLength() * editor.renderer.lineHeight + padding;
       $(this)
-        // .height(codeHeight + 'px')
+        .height(codeHeight + 'px')
         .wrap('<div class="ui ' + name + ' segment">')
       ;
       // add label
@@ -564,12 +564,12 @@ semantic.ready = function() {
       })
   ;
 
-/*  $(window)
+  $(window)
     .on('resize', function() {
       clearTimeout(handler.timer);
       handler.timer = setTimeout(handler.resizeCode, 500);
     })
-  ;*/
+  ;
 
   $downloadDropdown
     .dropdown({

@@ -34,14 +34,17 @@ themes      : ['Default']
     <div class="example">
       <h3 class="ui header">Popup</h3>
       <p>A standard popup</p>
-      <i class="heart circular icon link" data-content="Hello, I am a pop-up."></i>
-      <i class="heart circular icon link" title="Hello, I am a pop-up."></i>
+      <div class="ui icon button" data-content="Add users to your feed">
+        <i class="add icon"></i>
+      </div>
     </div>
 
     <div class="example">
       <h3 class="ui header">Title</h3>
       <p>A popup can be formatted with a title</p>
-      <img src="/images/demo/avatar.jpg" data-title="PonyDog22" data-content="Ponydog has been a member for 22 days" class="ui avatar image"> PonyDog22
+      <img src="/images/avatar/small/elliot.jpg" data-title="Elliot Fu" data-content="Elliot has been a member since July 2012" class="ui avatar image">
+      <img src="/images/avatar/small/stevie.jpg" data-title="Stevie Feliciano" data-content="Stevie has been a member since August 2013" class="ui avatar image">
+      <img src="/images/avatar/small/matt.jpg" data-title="Matt" data-content="Matth has been a member since July 2014" class="ui avatar image">
     </div>
 
     <div class="example">

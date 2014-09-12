@@ -1042,7 +1042,7 @@ body#example.hide {
   position: relative;
   background: none;
 }
-#example div.code .ace_scroller {
+/*#example div.code .ace_scroller {
   position: relative;
 }
 #example div.code .ace_content {
@@ -1051,7 +1051,7 @@ body#example.hide {
 }
 #example div.code .ace_layer {
   position: relative;
-}
+}*/
 #example div.code .ace_gutter,
 #example div.code .ace_scroller {
   background-color: transparent;
@@ -1240,12 +1240,22 @@ body#example.hide {
 #example .ui.type.cards .image .grid {
   -webkit-animation: grid 15s ease infinite;
   -moz-animation: grid 15s ease infinite;
+  animation: grid 15s ease infinite;
   background-color: #F6F6F6;
-  margin: 0em auto;
   box-shadow:
     0px 0px 0px 1px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.1)
   ;
+}
+#example .highlighted.example > .grid {
+  margin: 0em auto;
+}
+#example .highlighted.example .grid .grid {
+  -webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.02);
 }
 #example .highlighted.example .grid .row,
 #example .ui.type.cards .image .grid .row {
