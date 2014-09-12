@@ -48,12 +48,13 @@
 @arrowJitter: 0.05em;
 @arrowOffset: -(@arrowSize / 2) + @arrowJitter;
 
-@arrowStroke: darken(@borderColor, 10);
+@arrowStroke: @borderWidth;
+@arrowColor: darken(@borderColor, 10);
 
-@arrowBoxShadow: @arrowStroke @arrowStroke 0px 0px @borderColor;
-@leftArrowBoxShadow: @arrowStroke -@arrowStroke 0px 0px @borderColor;
-@rightArrowBoxShadow: -@arrowStroke @arrowStroke 0px 0px @borderColor;
-@bottomArrowBoxShadow: -@arrowStroke -@arrowStroke 0px 0px @borderColor;
+@arrowBoxShadow: @arrowStroke @arrowStroke 0px 0px @arrowColor;
+@leftArrowBoxShadow: @arrowStroke -@arrowStroke 0px 0px @arrowColor;
+@rightArrowBoxShadow: -@arrowStroke @arrowStroke 0px 0px @arrowColor;
+@bottomArrowBoxShadow: -@arrowStroke -@arrowStroke 0px 0px @arrowColor;
 
 /*-------------------
        Coupling
